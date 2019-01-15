@@ -65,7 +65,7 @@ The following changes to policy will help mitigate the new risks and guide imple
 11. Trends and exploits that could affect cloud deployments should be reviewed regularly by the security team to provide updates to security management tooling used in the cloud.
 12. Prior to release into production, all mission critical apps and protected data must be added to the designated operational monitoring solution. Assets that can not be discovered and monitored can not be released for production use. Any changes required to make the assets discoverable must be made to the relevant deployment processes to ensure asset(s) will be discoverable in future deployments.
 13. Upon discovery, asset sizing is to be validated by operational management teams to validate that the asset meets performance requirements
-14. Deployment tooling must be approved by the Cloud Governance Team to ensure on-going governance of deployed assets
+14. Deployment tooling must be approved by the Cloud Governance Team to ensure ongoing governance of deployed assets
 15. Deployment scripts must be maintained in central repository accessible by the Cloud Governance Team for periodic review and auditing
 16. Governance review processes must validate that deployed assets are properly configure in alignment with SLA and recovery requirements
 
@@ -101,7 +101,7 @@ This section of the article will evolve the Governance MVP design to include new
     c. Include the ARM template in the Azure Blueprint for deployment in each mission critical subscription
 4) Update Azure Policy for all subscriptions
     a. Audit & enforce criticality and data classification across all subscriptions to identify any subscriptions with mission critical assets
-    b. Audit & enforce use of approved images only 
+    b. Audit & enforce use of approved images only
 5) Azure Monitor implementation
     a. Once a mission critical subscription is identified, a workspace can be created using powershell. This is a pre-deployment process.
     b. During deployment testing, the Cloud Operations team would deploy the necessary agents and test discovery.

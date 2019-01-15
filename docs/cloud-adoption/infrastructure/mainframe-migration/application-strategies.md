@@ -65,7 +65,7 @@ The screen handling and form entry functionality is commonly implemented using w
 
 Batch operations in Azure differ from the typical batch environment on mainframes. Mainframe batch jobs are typically serial in nature and depend on the IOPS provided by the mainframe backbone for performance. Cloud-based batch environments use parallel computing and high-speed networks for performance.
 
-To optimize batch performance using Azure, consider the [compute](https://docs.microsoft.com/azure/virtual-machines/windows/overview), [storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction), [networking](https://azure.microsoft.com/en-us/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/), and [monitoring](https://docs.microsoft.com/azure/azure-monitor/overview) options as follows.
+To optimize batch performance using Azure, consider the [compute](https://docs.microsoft.com/azure/virtual-machines/windows/overview), [storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction), [networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/), and [monitoring](https://docs.microsoft.com/azure/azure-monitor/overview) options as follows.
 
 ### Compute
 

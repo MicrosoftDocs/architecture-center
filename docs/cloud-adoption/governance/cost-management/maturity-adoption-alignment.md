@@ -11,19 +11,19 @@ This article outlines a maturity model for the cost management discipline to use
 
 ![Four phases of adoption](../../_images/adoption-phases.png)
 
-*Figure 1. Adoption phases of the incremental approach to cloud governance*
+*Figure 1. Adoption phases of the incremental approach to cloud governance.*
 
 ## Planning and readiness
 
 While not directly aligned, this phase of governance maturity most closely maps to the activities outlined in the [Plan process](../../transformation-journeys/operational-transformation/plan.md) for the [Operational Transformation Journey](../../transformation-journeys/operational-transformation/overview.md).
 
-**Minimum suggested activities**
+**Minimum suggested activities:**
 
 * Evaluate your [Cost Management tool Chain](toolchain.md) options.
 * Develop a draft Architecture Guidelines document and distribute to key stakeholders.
 * Educate and involve the people and teams impacted by the development of Architecture Guidelines.
 
-**Potential activities**
+**Potential activities:**
 
 * Ensure budgetary decisions that support the [Business Justification](../../business-strategy/cloud-migration-business-case.md) for your cloud strategy.
 * Validate [learning metrics](../../business-strategy/learning-metrics.md) that you use to report on the successful allocation of funding.
@@ -37,14 +37,14 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 While not directly aligned, this phase of governance maturity most closely maps to the activities outlined in the [Build process](../../transformation-journeys/operational-transformation/build.md) for the [Operational Transformation Journey](../../transformation-journeys/operational-transformation/overview.md).
 
-**Minimum suggested activities**
+**Minimum suggested activities:**
 
 * Implement your [Cost Management Tool Chain](toolchain.md) by rolling out in a pre-deployment phase.
 * Update the Architecture Guidelines document and distribute to key stakeholders.
 * Develop educational materials and documentation, awareness communications, incentives and other programs to help drive user adoption.
-* Dertemine if your purchase requirements align with your budgets and goals. 
+* Dertemine if your purchase requirements align with your budgets and goals.
 
-**Potential activities**
+**Potential activities:**
 
 * Align your budgetary plans with the [Subscription Strategy](../../infrastructure/subscriptions/overview.md) that defines your core ownership model.
 * Leverage the [Resource Grouping Strategy](../../infrastructure/resource-grouping/overview.md) to enforce architecture and cost guidelines over time.
@@ -54,13 +54,13 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 While not directly aligned, this phase of governance maturity most closely maps to the activities outlined in the [Migrate process](../../transformation-journeys/operational-transformation/migrate.md) for the [Operational Transformation Journey](../../transformation-journeys/operational-transformation/overview.md).
 
-**Minimum suggested activities**
+**Minimum suggested activities:**
 
 * Migrate your [Cost Management Tool Chain](toolchain.md) from pre-deployment to production.
 * Update the Architecture Guidelines document and distribute to key stakeholders.
 * Develop educational materials and documentation, awareness communications, incentives and other programs to help drive user adoption.
 
-**Potential activities**
+**Potential activities:**
 
 * Implement your Cloud Accounting Model.
 * Ensure that your budgets reflect your actual spending during each release and adjust as necessary.
@@ -71,19 +71,19 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 Once the transformation is complete, governance and operations must live on for the natural lifecycle of an  application or workload. This phase of governance maturity focuses on the activities that commonly come after the solution is implemented and the transformation cycle begins to stabilize.
 
-**Minimum suggested activities**
+**Minimum suggested activities:**
 
 * Customize [Cost Management Tool Chain](toolchain.md) based on updates to your organization’s changing cost management needs.
 * Consider automating any notifications and reports to reflect actual spending.
 * Refine Architecture Guidelines to guide future adoption processes.
-* Re-educate impacted teams on a periodic basis to ensure on-going adherence to the Architecture Guidelines.
+* Re-educate impacted teams on a periodic basis to ensure ongoing adherence to the Architecture Guidelines.
 
-**Potential activities**
+**Potential activities:**
 
 * Execute a Quarterly Cloud Business Review to communicate value delivered to the business and associated costs.
 * Adjust plans quarterly to reflect changes to actual spending.
 * Determine financial alignment to P&Ls for business unit subscriptions.
 * Analyze stakeholder value and cost reporting methods on a monthly basis.
-* Remediate underused assets and determine if they're worth continuing. 
+* Remediate underused assets and determine if they're worth continuing.
 * Detect misalignments and anomalies between the plan and actual spending.
 * Aid the Cloud Adoption Team and Cloud Strategy Team in understanding and resolving these anomalies.

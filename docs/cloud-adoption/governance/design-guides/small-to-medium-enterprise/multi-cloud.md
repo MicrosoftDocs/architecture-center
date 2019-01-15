@@ -26,7 +26,7 @@ This article will capture how things change when integrating the new organizatio
 * Security Center and Azure Monitor are both used to monitor governance of the cloud
 * Blueprints, Azure Policy, and Management Groups are used to automate compliance to policy
 
-### Future State 
+### Future State
 
 * Integrate the acquisition company into existing operations wherever possible.
 
@@ -58,7 +58,7 @@ This section of the article will evolve the Governance MVP design to include new
 ### Design Evolution Overview
 
 1) Connect the networks - Executed by Networking and IT Security, supported by governance
-    a. Adding a connection from the MPLS/Leased line provider to the new cloud will integrate networks. Adding routing tables and firewall configurations will control access and traffic between the environments. 
+    a. Adding a connection from the MPLS/Leased line provider to the new cloud will integrate networks. Adding routing tables and firewall configurations will control access and traffic between the environments.
 2) Consolidate Identity Providers
     a. Depending on the workloads being hosted in the secondary cloud, there are a variety of options to identity provider consolidation. The following are a few examples:
         i. For applications that authenticate using OAUTH2, OUs from the Active Directory in the secondary cloud could simply be replicated to the existing Azure AD tenant.

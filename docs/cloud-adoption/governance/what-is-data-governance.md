@@ -6,9 +6,11 @@ ms.date: 12/1/2018
 ---
 
 # Fusion: What is Data Governance?
-This is an introductory article on the general topic of Data Governance. This article is not expected to provide enough context to allow the reader to implement a Data Governance. It is for general awareness only. More detailed information about Cloud Security is available from [Azure's Trusted Cloud](https://azure.microsoft.com/en-us/overview/trusted-cloud/). Approaches to improving your organizations security posture can be found in the [Cloud Security Service Catalog](https://www.microsoft.com/en-us/security/information-protection).
+
+This is an introductory article on the general topic of Data Governance. This article is not expected to provide enough context to allow the reader to implement a Data Governance. It is for general awareness only. More detailed information about Cloud Security is available from [Azure's Trusted Cloud](https://azure.microsoft.com/overview/trusted-cloud/). Approaches to improving your organizations security posture can be found in the [Cloud Security Service Catalog](https://www.microsoft.com/security/information-protection).
 
 ## Data Governance Scope
+
 Data governance has traditionally been defined as the set of processes and controls that ensure that data is consistent throughout the data lifecycle and that data is highly accurate and reliable. As the world of data expands to include new sources and forms of data, this definition has expanded in many circles. Today, data governance has grown to include data security, availability, integrity, and a number of other non-traditional disciplines that could compromise the data or the subjects of the data.
 
 The scope of the [Fusion framework](../overview.md) is limited specifically to classification, security, availability, and access aspects of data governance, as opposed to the more traditional data quality processes.

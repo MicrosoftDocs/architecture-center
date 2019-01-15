@@ -88,14 +88,14 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 Once the transformation is complete, governance and operations must live on for the natural lifecycle of an application or workload. This phase of governance maturity focuses on the activities that commonly come after the solution is implemented and the transformation cycle begins to stabilize.
 
-**Minimum suggested activities**
+**Minimum suggested activities:**
 
 * Customize your [Monitoring and Enforcement Tool Chain](toolchain.md) based on updates to your organization’s changing cost management needs.
 * Consider adding or updating automation for common alerts and reports based on updated monitoring information.
 * Refine monitoring architecture guidelines to guide future adoption processes.
-* Re-educate impacted teams on a periodic basis to ensure on-going adherence to the architecture guidelines.
+* Re-educate impacted teams on a periodic basis to ensure ongoing adherence to the architecture guidelines.
 
-**Potential activities**
+**Potential activities:**
 
 * Keep the cloud governance team, cloud strategy team, and other important stakeholders informed by regularly compiling overall policy compliance reports based on monitoring data.
 * Use monitoring data to generate policy recommendations for the next iteration of the incremental policy review cycle.

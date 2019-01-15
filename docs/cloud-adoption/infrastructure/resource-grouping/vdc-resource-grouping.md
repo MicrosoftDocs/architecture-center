@@ -23,7 +23,7 @@ The Azure Virtual Datacenter assumes that resources are grouped according to fun
 | Shared Services               | Hosts servers providing Active Directory Domain Services and DNS for the hub environment  |
 | Central Firewall              | Contains the central firewall devices that control the traffic allowed to pass in and out of the VDC and how that traffic is directed |
 
-Spoke resource grouping will vary depending on workload, but will include the following resource groups to host the basic management and security infrastructure, as well as to enable connectivity to the hub network: 
+Spoke resource grouping will vary depending on workload, but will include the following resource groups to host the basic management and security infrastructure, as well as to enable connectivity to the hub network:
 
 | Resource group                | Use                                                              |
 |-------------------------------|------------------------------------------------------------------|
@@ -37,9 +37,9 @@ Access control and Azure policy settings can be applied at the resource group le
 
 ## Deployment templates
 
-As with any Azure deployment, developing [Resource Manager templates](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#template-deployment) can help you standardize your VDC deployments. 
+As with any Azure deployment, developing [Resource Manager templates](/azure/azure-resource-manager/resource-group-overview#template-deployment) can help you standardize your VDC deployments.
 
-Hub and spoke environments share a similar base infrastructure that needs to be created before other components can be deployed. Spokes will all have a minimum set of security and access control that get applied on creation. A VDC is well suited to the use of deployment templates as a way to standardize the provisioning of resources and instrumenting consistent policy standards. 
+Hub and spoke environments share a similar base infrastructure that needs to be created before other components can be deployed. Spokes will all have a minimum set of security and access control that get applied on creation. A VDC is well suited to the use of deployment templates as a way to standardize the provisioning of resources and instrumenting consistent policy standards.
 
 To help you build templates and automate the deployment of VDC resources, Azure has created the Azure Virtual Datacenter Automation Tookit [need public link]. This toolkit provides examples and code that uses a combination of python scripting, parameter files, and Resource Manager templates, allowing you to radically simplify and standardize your VDC deployment processes.
 

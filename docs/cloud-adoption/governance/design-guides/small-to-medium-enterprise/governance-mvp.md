@@ -35,7 +35,7 @@ This implementation can also be described using a simple check list.
 Expanding on the checklist to make step 4 actionable, the implementation checklist would look like the following:
 
 1) Create the desired Subscription and Management Group, adhering to the naming standards and hierarchy decisions for each. See expanded decisions below.
-2) To support the on-going enforcement pattern, create an Azure Blueprint name “Governance MVP”. Azure Resource Management templates and Azure Policy will be created and added to the Blueprint as assets.
+2) To support the ongoing enforcement pattern, create an Azure Blueprint name “Governance MVP”. Azure Resource Management templates and Azure Policy will be created and added to the Blueprint as assets.
 3) Enforce RBAC requirement for the subscription in the Blueprint
 4) Create an ARM Template for the VPN Gateway (To be used as needed)
 5) Create an Azure Policy to apply or enforce the following:
@@ -98,8 +98,8 @@ The first decision to be made regarding configuration management is the pattern 
 - Azure Security Center will be made available to the security and identity teams to monitor security risks and farm future Azure Policy configurations.
 - RBAC is required in all subscriptions to govern authentication enforcement.
 - Azure Policy is to be applied to all resource groups. However, the level of policies being enforced will be very limited.
-- While management groups are being leveraged, the level of hierarchy and ongoing management processes are expected to be much simpler than those seen in large enterprises. 
-* Azure Blueprints will be leveraged to deploy and update subscriptions by applying RBAC requirements, Azure Management Groups, and Azure Policy
+- While management groups are being leveraged, the level of hierarchy and ongoing management processes are expected to be much simpler than those seen in large enterprises.
+- Azure Blueprints will be leveraged to deploy and update subscriptions by applying RBAC requirements, Azure Management Groups, and Azure Policy
 
 ## Application of Dependent Patterns
 
@@ -114,17 +114,18 @@ Azure Blueprints will set RBAC requirements at a subscription level to ensure co
 The Cloud Governance Team maintains an ARM (Azure Resource Manager) Template for establishing a VPN gateway between Azure and the on-prem VPN device. When an application team requires a VPN connection, the Cloud Governance Team will apply the gateway ARM template via Azure Blueprints.
 
 ## Application of Governance Defined Patterns
+
 The Cloud governance team will be responsible for the following decisions and implementations. Many will require inputs from other teams, but the cloud governance team is likely to own both the decision and implementation. The following sections outline the decisions made for this use case and details of each decision.
 
 ### Subscription Model
 
 The Archetype pattern has been chosen for Azure subscriptions.
 
-* Departments are not likely to be required given the current focus. Deployments are expected to be constrained within a single billing unit. At the stage of adoption, there may not even be an enterprise agreement to centralize billing. It's very likely that this level of adoption is being managed by a single "Pay as you go" Azure subscription.
-* Regardless of the use of the EA Portal or the existence of an enterprise agreement, a subscription model should still be defined and agreed upon to minimize administrative overheard beyond just billing.
-* In the Archetype patter, "Subscriptions" should be created for each application archetype.
-* An application archetype is a means of grouping applications with similar needs. Common examples would include: Applications with protected data, Governed Apps (HIPAA, FedRamp, etc...), Low risk applications, Applications with on-prem dependencies, SAP or other Mainframes in Azure, Applications that extend on-prem SAP or mainframes, etc... These are unique per organization based on data classifications and the types of applications that power the business. Dependency mapping of the digital estate can aid in defining the application archetypes in an organization.
-* A common naming convention should be agreed upon as part of the subscription design, based on the above two bullets.
+- Departments are not likely to be required given the current focus. Deployments are expected to be constrained within a single billing unit. At the stage of adoption, there may not even be an enterprise agreement to centralize billing. It's very likely that this level of adoption is being managed by a single "Pay as you go" Azure subscription.
+- Regardless of the use of the EA Portal or the existence of an enterprise agreement, a subscription model should still be defined and agreed upon to minimize administrative overheard beyond just billing.
+- In the Archetype pattern, "Subscriptions" should be created for each application archetype.
+- An application archetype is a means of grouping applications with similar needs. Common examples would include: Applications with protected data, Governed Apps (HIPAA, FedRamp, etc...), Low risk applications, Applications with on-prem dependencies, SAP or other Mainframes in Azure, Applications that extend on-prem SAP or mainframes, etc... These are unique per organization based on data classifications and the types of applications that power the business. Dependency mapping of the digital estate can aid in defining the application archetypes in an organization.
+- A common naming convention should be agreed upon as part of the subscription design, based on the above two bullets.
 
 ### Resource Grouping
 
@@ -170,7 +171,7 @@ Once this guide is implemented the Cloud Adoption Team can go forth with a sound
 
 The two teams will also use the tolerance indicators to identify the next evolution needed to continue supporting cloud adoption. Below are potential next steps that might be needed and the documented tolerance indicators:
 
-* [Security Management](./protected-data.md): Inclusion of protected data in defined cloud adoption plans
-* [Resource Management](./mission-critical.md): Deployment of mission critical workloads
-* [Cost Management](cost-control.md): Scale of deployment exceeds 100 assets to the cloud or Monthly spend exceeding $1,00/month
-* [Multi-Cloud Governance](multi-cloud.md): Leveraging this governance investment to manage multiple clouds
+- [Security Management](./protected-data.md): Inclusion of protected data in defined cloud adoption plans
+- [Resource Management](./mission-critical.md): Deployment of mission critical workloads
+- [Cost Management](cost-control.md): Scale of deployment exceeds 100 assets to the cloud or Monthly spend exceeding $1,00/month
+- [Multi-Cloud Governance](multi-cloud.md): Leveraging this governance investment to manage multiple clouds

@@ -69,7 +69,7 @@ The following changes to policy will help mitigate the new risks and guide imple
 9) Creation of new subscriptions or management groups for any mission critical applications or protected data will require a review from the Cloud Governance Team to ensure proper blueprint assignment
 10) A least privilege access model is to be applied to any subscription that contains mission critical apps or protected data
 11) Trends and exploits that could affect cloud deployments should be reviewed regularly by the security team to provide updates to security management tooling used in the cloud.
-12) Deployment tooling must be approved by the Cloud Governance Team to ensure on-going governance of deployed assets
+12) Deployment tooling must be approved by the Cloud Governance Team to ensure ongoing governance of deployed assets
 13) Deployment scripts must be maintained in central repository accessible by the Cloud Governance Team for periodic review and auditing
 14) Governance processes must include audits at the point of deployment and at regular cycles to ensure consistency across all assets
 15) Deployment of any applications that require customer authentication must use an approved identity provider that is compatible with the primary identity provider for internal users

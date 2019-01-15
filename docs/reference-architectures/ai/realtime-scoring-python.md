@@ -136,7 +136,7 @@ To deploy this reference architecture, follow the steps described in the GitHub 
 [get-started]: /azure/security-center/security-center-get-started
 [github-python]: https://github.com/Azure/MLAKSDeployment
 [github-dl]: https://github.com/Microsoft/AKSDeploymentTutorial
-[gpus-vs-cpus]: https://azure.microsoft.com/en-us/blog/gpus-vs-cpus-for-deployment-of-deep-learning-models/
+[gpus-vs-cpus]: https://azure.microsoft.com/blog/gpus-vs-cpus-for-deployment-of-deep-learning-models/
 [https-ingress]: /azure/aks/ingress-tls
 [ingress-controller]: https://kubernetes.io/docs/concepts/services-networking/ingress/
 [kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/

@@ -54,7 +54,7 @@ Cost deltas are the amount of increase or decrease that will come as a result of
 
 For guidance on depreciation, speak with the CFO or finance team. The following is meant to serve as a general reference on the topic of depreciation.
 
-When capital is invested in the acquisition of an asset, that investment could be used for financial or tax purposes to produce on-going benefits over the expected lifespan of the asset. Some companies see depreciation as a positive tax advantage. Others see it as committed, ongoing expense similar to other recurring expenses attributed to the annual IT budget.
+When capital is invested in the acquisition of an asset, that investment could be used for financial or tax purposes to produce ongoing benefits over the expected lifespan of the asset. Some companies see depreciation as a positive tax advantage. Others see it as committed, ongoing expense similar to other recurring expenses attributed to the annual IT budget.
 
 Speak with the finance office to see if elimination of depreciation is possible, and if it would make a positive contribution to cost deltas.
 

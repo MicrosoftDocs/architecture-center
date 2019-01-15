@@ -13,7 +13,7 @@ Cloud adoption enables services that weren't often considered in traditional IT 
 
 ## How can the CISO prepare for the cloud
 
-Like most policies, Security and Governance policies within an organization tend to grow organically. When security incidents happen, they shape policy to inform users and reduce the likelihood of repeat occurrences. While natural, this approach creates policy bloat and technical dependencies. Cloud Transformation Journeys create a unique opportunity to modernize and reset policies. While preparing for any transformation journey, the CISO can create immediate and measurable value by serving as the primary stakeholder in a [policy review](policy-compliance/what-is-a-cloud-policy-review.md). 
+Like most policies, Security and Governance policies within an organization tend to grow organically. When security incidents happen, they shape policy to inform users and reduce the likelihood of repeat occurrences. While natural, this approach creates policy bloat and technical dependencies. Cloud Transformation Journeys create a unique opportunity to modernize and reset policies. While preparing for any transformation journey, the CISO can create immediate and measurable value by serving as the primary stakeholder in a [policy review](policy-compliance/what-is-a-cloud-policy-review.md).
 
 In such a review, the role of the CISO is to create a safe balance between the constraints of existing policy/compliance and the improved security posture of Cloud providers. Measuring this progress can take many forms, often it is measured in the number of security policies that can be safely offloaded to the cloud provider.
 
@@ -29,38 +29,38 @@ Knowledge about the cloud is fundamental to approaching a [policy review](policy
 
 Security Platform Resources:
 
-* [Security Development Cycle, internal audits](https://www.microsoft.com/en-us/sdl/)
+* [Security Development Cycle, internal audits](https://www.microsoft.com/sdl/)
 * [Mandatory security training, background checks](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx)
-* [Penetration testing, intrusion detection, DDoS, audits & logging](https://www.microsoft.com/en-us/trustcenter/Security/AuditingAndLogging)
-* [State-of-the-art datacenter](https://www.microsoft.com/en-us/cloud-platform/global-datacenters), physical security, [secure network](https://docs.microsoft.com/azure/security/security-network-overview)
+* [Penetration testing, intrusion detection, DDoS, audits & logging](https://www.microsoft.com/trustcenter/Security/AuditingAndLogging)
+* [State-of-the-art datacenter](https://www.microsoft.com/cloud-platform/global-datacenters), physical security, [secure network](https://docs.microsoft.com/azure/security/security-network-overview)
 * [Security incident response, shared responsibility](http://aka.ms/SecurityResponsepaper)
 
 Privacy and Controls:
 
-* [Manage your data all the time](https://www.microsoft.com/en-us/trustcenter/Privacy/You-own-your-data)
-* [Control on data location](https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located)
-* [Provide data access on your terms](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)
-* [Responding to law enforcement](https://www.microsoft.com/en-us/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data)
-* [Stringent privacy standards](https://www.microsoft.com/en-us/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards)
+* [Manage your data all the time](https://www.microsoft.com/trustcenter/Privacy/You-own-your-data)
+* [Control on data location](https://www.microsoft.com/trustcenter/Privacy/Where-your-data-is-located)
+* [Provide data access on your terms](https://www.microsoft.com/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)
+* [Responding to law enforcement](https://www.microsoft.com/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data)
+* [Stringent privacy standards](https://www.microsoft.com/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards)
 
 Compliance:
 
-* [Trust Center](https://www.microsoft.com/en-us/trustcenter/default.aspx)
-* [Common Controls Hub](https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub)
-* [The Cloud Services Due Diligence Checklist](https://www.microsoft.com/en-us/trustcenter/Compliance/Due-Diligence-Checklist)
-* [Compliance by service, location, and industry](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)
+* [Trust Center](https://www.microsoft.com/trustcenter/default.aspx)
+* [Common Controls Hub](https://www.microsoft.com/trustcenter/Common-Controls-Hub)
+* [The Cloud Services Due Diligence Checklist](https://www.microsoft.com/trustcenter/Compliance/Due-Diligence-Checklist)
+* [Compliance by service, location, and industry](https://www.microsoft.com/trustcenter/Compliance/default.aspx)
 
 Transparency:
 
-* [How Microsoft secures customer data in Azure services](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx)
+* [How Microsoft secures customer data in Azure services](https://www.microsoft.com/trustcenter/Transparency/default.aspx)
 * [How Microsoft manages data location in Azure services](http://azuredatacentermap.azurewebsites.net/)
-* [Who in Microsoft can access your data on what terms](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)
-* [How Microsoft secures customer data in Azure services](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx)
-* [Review certification for Azure services, transparency hub](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)
+* [Who in Microsoft can access your data on what terms](https://www.microsoft.com/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)
+* [How Microsoft secures customer data in Azure services](https://www.microsoft.com/trustcenter/Transparency/default.aspx)
+* [Review certification for Azure services, transparency hub](https://www.microsoft.com/trustcenter/Compliance/default.aspx)
 
 ## Next steps
 
-The first step to taking action in any governance strategy, is a [policy review](policy-compliance/what-is-a-cloud-policy-review.md). [Policy and Compliance](policy-compliance/overview.md) could be a useful guide during your policy review. 
+The first step to taking action in any governance strategy, is a [policy review](policy-compliance/what-is-a-cloud-policy-review.md). [Policy and Compliance](policy-compliance/overview.md) could be a useful guide during your policy review.
 
 > [!div class="nextstepaction"]
 > [Prepare for a policy review](policy-compliance/what-is-a-cloud-policy-review.md)

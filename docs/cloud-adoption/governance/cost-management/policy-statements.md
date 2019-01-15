@@ -25,7 +25,7 @@ The following policy statements provide examples of how to mitigate specific bus
 
 **Design guidance:** In Azure, budget can be controlled with [Azure Cost Management](/azure/cost-management/manage-budgets)
 
-## Under utilization
+## Underutilization
 
 **Business risk:** The company has pre-paid for cloud services or has made an annual commitment to spend a specific amount. There is a risk that the agreed upon amount won't be used, resulting in a lost investment.
 
@@ -33,8 +33,8 @@ The following policy statements provide examples of how to mitigate specific bus
 
 **Design guidance:**
 
-* In Azure, planned vs actual spend can be managed via [Azure Cost Management](/azure/cost-management/quick-acm-cost-analysis). 
-* There are several options for grouping resources by billing unit. In Azure, a [resource grouping model](../../infrastructure/resource-grouping/overview.md) should be chosen in conjunction with the governance team and applied to all assets.
+- In Azure, planned vs actual spend can be managed via [Azure Cost Management](/azure/cost-management/quick-acm-cost-analysis)
+- There are several options for grouping resources by billing unit. In Azure, a [resource grouping model](../../infrastructure/resource-grouping/overview.md) should be chosen in conjunction with the governance team and applied to all assets.
 
 ## Over provisioned assets
 
@@ -44,10 +44,10 @@ The following policy statements provide examples of how to mitigate specific bus
 
 **Design guidance:**
 
-* In Azure, [Azure Advisor](/azure/advisor/advisor-cost-recommendations) can provide optimization recommendations.
-* There are several options for grouping resources by billing unit. In Azure, a [resource grouping model](../../infrastructure/resource-grouping/overview.md) should be chosen in conjunction with the governance team and applied to all assets.
+- In Azure, [Azure Advisor](/azure/advisor/advisor-cost-recommendations) can provide optimization recommendations.
+- There are several options for grouping resources by billing unit. In Azure, a [resource grouping model](../../infrastructure/resource-grouping/overview.md) should be chosen in conjunction with the governance team and applied to all assets.
 
-## Over optimization
+## Overoptimization
 
 **Business risk:** Effective cost management can actually create new risks. Optimization of spend is an inverse to system performance. When reducing costs, there is a risk of over tightening spend and producing poor user experiences.
 
@@ -55,8 +55,8 @@ The following policy statements provide examples of how to mitigate specific bus
 
 **Design guidance:**
 
-* In Azure, [Azure Monitor's insights features](/azure/azure-monitor/insights/vminsights-performance) can help with analysis of system utilization.
-* There are several options for grouping and tagging resources based on roles. In Azure, you should choose a [resource grouping model](../../infrastructure/resource-grouping/overview.md) in conjunction with the governance team and apply this to all assets.
+- In Azure, [Azure Monitor's insights features](/azure/azure-monitor/insights/vminsights-performance) can help with analysis of system utilization.
+- There are several options for grouping and tagging resources based on roles. In Azure, you should choose a [resource grouping model](../../infrastructure/resource-grouping/overview.md) in conjunction with the governance team and apply this to all assets.
 
 ## Next steps
 

@@ -93,7 +93,7 @@ The reference implementation of this architecture is available on [GitHub][githu
 [create-resources]: https://github.com/Azure/BatchAIAnomalyDetection/blob/master/create_resources.ipynb
 [deep]: /azure/architecture/reference-architectures/ai/batch-scoring-deep-learning
 [event-hubs]: /azure/event-hubs/event-hubs-geo-dr
-[explorer]: https://azure.microsoft.com/en-us/features/storage-explorer/
+[explorer]: https://azure.microsoft.com/features/storage-explorer/
 [github]: https://github.com/Azure/BatchAIAnomalyDetection
 [logic-apps]: /azure/logic-apps/logic-apps-overview
 [one-class-svm]: http://scikit-learn.org/stable/modules/generated/sklearn.svm.OneClassSVM.html

@@ -27,7 +27,7 @@ As part of this planning, review the current cybersecurity landscape to proactiv
 
 ## Violation triggers and enforcement actions
 
-When violations are detected, you should take enforcement actions to realign with policy. You can automate most violation triggers using the tools outlined in the [Azure-Specific Toolchain](./toolchain.md).
+When violations are detected, you should take enforcement actions to realign with policy. You can automate most violation triggers using the tools outlined in the [Azure-Specific Toolchain](toolchain.md).
 
 The following are examples of security triggers:
 

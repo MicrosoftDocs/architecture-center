@@ -113,7 +113,7 @@ The following policy statements establish requirements to mitigate the defined r
 
 **Configuration Management**:
 
-* Deployment tooling must be approved by the Cloud Governance Team to ensure on-going governance of deployed assets
+* Deployment tooling must be approved by the Cloud Governance Team to ensure ongoing governance of deployed assets
 * Deployment scripts must be maintained in central repository accessible by the Cloud Governance Team for periodic review and auditing
 * Governance tooling must limit VM deployment to approved images only
 * Governance tooling must enforce that automatic updates are enabled on all deployed assets. Violations must be reviewed with operational management teams & remediated in accordance with operations policies. Assets that are not automatically updated must be included in processes owned by IT operations.

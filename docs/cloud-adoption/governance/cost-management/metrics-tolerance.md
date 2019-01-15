@@ -24,16 +24,16 @@ Cost management generally focuses on metrics related to costs. The following are
 
 During early deployments, such as Dev/Test or first workloads, cost management is likely to be of relatively low risk. As more assets are deployed, the risk grows and the business' tolerance for risk is likely to decline. Additionally, as more cloud adoption teams are given the ability to configure or deploy assets to the cloud, the risk grows and tolerance decreases. Conversely, growing a cost management discipline will take people from the cloud adoption phase to deploy more innovative new technologies.
 
-In the early stages of cloud adoption, you will work with your business to determine a risk tolerance baseline. Once you have a baseline, you will need to determine the criteria that would trigger an investment in cost management. This may be different with every company. 
+In the early stages of cloud adoption, you will work with your business to determine a risk tolerance baseline. Once you have a baseline, you will need to determine the criteria that would trigger an investment in cost management. This may be different with every company.
 
 The following are a few examples of how metrics, such as those mentioned above, can indicate your business's desire to invest in cost management. Once you have identified [business risks](./business-risks.md), you will work with your business to identify benchmarks that you can use to identify triggers that could potentially increase those risks.
 
-* Commit driven (most common): A company that is committed to spending $X,000,000 this year on a cloud vendor. They need a cost management discipline to ensure that the business doesn't overspend by more than 20%, and they will use at least 90% of that commitment.
-* Percentage trigger: A company with cloud spending that is stable for their production systems. If that changes by more that X%, then a cost management discipline will be a wise investment.
-* Over provision trigger: A company who believes their deployed solutions are over provisioned. Cost management is a priority investment until they can demonstrate proper alignment of provisioning and asset utilization.
-* Monthly spend trigger: A company that spends over $x,000 per month is considered a sizable cost. If spending exceeds that amount in a given month, they will need to invest in cost management.
-* Annual spend trigger: A company with an IT R&D budget that allows for spending $X,000 per year on cloud experimentation. They may run production workloads in the cloud, but they will still be considered experimental solutions if the budget doesn't exceed that amount. Once it goes over, they will need to treat the budget like a production investment and manage spending closely.
-* OpEx adverse (uncommon): As a company, they are very OpEx adverse and will need cost management controls in place before deploying a dev/test workload.
+- Commit driven (most common): A company that is committed to spending $X,000,000 this year on a cloud vendor. They need a cost management discipline to ensure that the business doesn't overspend by more than 20%, and they will use at least 90% of that commitment.
+- Percentage trigger: A company with cloud spending that is stable for their production systems. If that changes by more that X%, then a cost management discipline will be a wise investment.
+- Over provision trigger: A company who believes their deployed solutions are over provisioned. Cost management is a priority investment until they can demonstrate proper alignment of provisioning and asset utilization.
+- Monthly spend trigger: A company that spends over $x,000 per month is considered a sizable cost. If spending exceeds that amount in a given month, they will need to invest in cost management.
+- Annual spend trigger: A company with an IT R&D budget that allows for spending $X,000 per year on cloud experimentation. They may run production workloads in the cloud, but they will still be considered experimental solutions if the budget doesn't exceed that amount. Once it goes over, they will need to treat the budget like a production investment and manage spending closely.
+- OpEx adverse (uncommon): As a company, they are very OpEx adverse and will need cost management controls in place before deploying a dev/test workload.
 
 ## Next steps
 

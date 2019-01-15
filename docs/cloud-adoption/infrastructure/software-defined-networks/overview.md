@@ -75,7 +75,7 @@ On Azure, the core SDN capability is provided by [Azure Virtual Network](/azure/
 A virtual network is inaccessible from all other networks by default. Resources hosted within a virtual network cannot communicate with other virtual networks, external datacenters, or the internet unless they are explicitly allowed to through a network policy. Rules and policies defined for the virtual network are inherited by all resources hosted within the virtual network.
 
 Traffic inside a virtual network can be secured and managed through a combinations of network security groups ([NSGs](/azure/virtual-network/security-overview)),
-user-defined routes ([UDRs](/azure/virtual-network/virtual-networks-udr-overview)), and network virtual appliances ([NVAs](https://azure.microsoft.com/en-us/solutions/network-appliances/)) or VMs serving as firewalls or other security devices.
+user-defined routes ([UDRs](/azure/virtual-network/virtual-networks-udr-overview)), and network virtual appliances ([NVAs](https://azure.microsoft.com/solutions/network-appliances/)) or VMs serving as firewalls or other security devices.
 
 This combination of virtual devices and rules creates isolation boundaries and protects application deployments within the virtual network's boundaries, as it would be done using hardware devices within a physical datacenter.
 
@@ -88,7 +88,7 @@ Virtual networks allow for the following:
 
 Virtual networks can also be connected to other Azure virtual networks using the
 [virtual network
-peering](/azure/virtual-network/virtual-network-peering-overview) mechanism. They can also be connected to on-premises or other external networks using [ExpressRoute](https://azure.microsoft.com/en-us/services/expressroute/) or [VPN connections](https://azure.microsoft.com/en-us/services/vpn-gateway/).
+peering](/azure/virtual-network/virtual-network-peering-overview) mechanism. They can also be connected to on-premises or other external networks using [ExpressRoute](https://azure.microsoft.com/services/expressroute/) or [VPN connections](https://azure.microsoft.com/services/vpn-gateway/).
 
 ## Next steps
 

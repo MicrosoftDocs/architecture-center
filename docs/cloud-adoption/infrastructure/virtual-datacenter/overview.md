@@ -11,7 +11,7 @@ This section of the [Fusion framework](../../overview.md) guides you through the
 Jump to: [VDC Assumptions](#vdc-assumptions) | [Fusion framework infrastructure and VDC](#fusion-framework-infrastructure-and-vdc) | [Azure Virtual Datacenter structure](#azure-virtual-datacenter-structure) | [Subscription design](#subscription-design) | [Identity](#identity) | [Resource organization](#resource-organization) | [Azure policy](#azure-policy) | [Key vault](#key-vault) | [Networking](#networking) | [Monitoring and compliance](#monitoring-and-compliance) | [Hub components](#hub-components) | [Spoke Components](#spoke-components) | [Azure Virtual Datacenter Automation Toolkit](#azure-virtual-datacenter-automation-toolkit)
 
 
-Virtual datacenter (VDC) is a term coined by Mark Ozur, Hatay Tuna, Callum Coffin, and Telmo Sampaio from the Azure Customer Advisory Team (AzureCAT), in the eBook "[Azure Virtual Datacenter](https://azure.microsoft.com/en-us/resources/azure-virtual-datacenter/)".
+Virtual datacenter (VDC) is a term coined by Mark Ozur, Hatay Tuna, Callum Coffin, and Telmo Sampaio from the Azure Customer Advisory Team (AzureCAT), in the eBook "[Azure Virtual Datacenter](https://azure.microsoft.com/resources/azure-virtual-datacenter/)".
 
 The Azure Virtual Datacenter is a model for deploying your applications and workloads in a cloud-based architecture, while preserving key aspects of your current IT governance and taking advantage of cloud computing’s agility. The goal in implementing a VDC is to provide similar governance capabilities on large Azure deployments in the same manner as you would in a traditional datacenter. At the same time, the Azure Virtual Datacenter model allows teams within your organization to deploy individual workloads with the agility and flexibility common to Azure solutions, while still adhering to central IT policies.
 
@@ -19,7 +19,7 @@ The Azure Virtual Datacenter is a model for deploying your applications and work
 
 *Abstract view of the Azure Virtual Datacenter model's hub and spoke structure*
 
-A VDC expands upon the existing [hub-spoke networking model](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) to provide connectivity between isolated workload networks and a centrally managed hub network. The hub environment controls traffic to and from the workloads and the on-premises environment. It also controls all access to workloads from the Internet.
+A VDC expands upon the existing [hub-spoke networking model](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) to provide connectivity between isolated workload networks and a centrally managed hub network. The hub environment controls traffic to and from the workloads and the on-premises environment. It also controls all access to workloads from the Internet.
 
 Governing your workloads requires integrating management processes, regulatory requirements, and security processes within a cloud environment. In support of governance requirements, the Azure Virtual Datacenter model provides basic guidance on implementing an organization's separation of roles, responsibilities, and policies in the cloud.  
 
@@ -30,7 +30,7 @@ Embedded in the Azure Virtual Datacenter model is a core set of assumptions. If 
 Assumptions about the Virtual Datacenter model include:
 
 - You need to securely access cloud-based resources from your on-premises environment or on-premises resources from the cloud, using [hybrid networking](../software-defined-networks/hybrid.md).
-- Your cloud estate will contain large number of assets and may exceed the [single subscription resource limits](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits), or your subscription design segments workloads into separate subscriptions based on security or accounting requirements. If your deployments can exist within a single subscription a VDC structure, this is likely unnecessary.
+- Your cloud estate will contain large number of assets and may exceed the [single subscription resource limits](/azure/azure-subscription-service-limits), or your subscription design segments workloads into separate subscriptions based on security or accounting requirements. If your deployments can exist within a single subscription a VDC structure, this is likely unnecessary.
 - You need to support agile deployment of workloads in support of developer and operations teams, while maintaining common policy and governance compliance and central IT control over core services.
 - The data stored on your cloud deployment is sensitive and needs to be secured using [encryption](../encryption/overview.md), in transit and at rest. Public data does not benefit from encryption.
 - Your on-premises identity services can be [federated with Azure Active Directory](../identity/overview.md#federation-vdc ).
@@ -97,21 +97,21 @@ Access to modify secrets and keys within the vault is restricted to the central 
 
 ### Networking
 
-In the Azure Virtual Datacenter model, the central hub and multiple workload spokes are deployed as separate virtual networks, each residing in their respective subscription. [Virtual network peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) provides connectivity between the central hub and workload spoke virtual networks. If a workload goes out of compliance, central IT can immediately sever the peering connection, effectively cutting off all resources in the affected spoke from the wider VDC.
+In the Azure Virtual Datacenter model, the central hub and multiple workload spokes are deployed as separate virtual networks, each residing in their respective subscription. [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview) provides connectivity between the central hub and workload spoke virtual networks. If a workload goes out of compliance, central IT can immediately sever the peering connection, effectively cutting off all resources in the affected spoke from the wider VDC.
 
 The hub network hosts both the on-premises connectivity and the central firewall that manages traffic going to and from the workload spokes. It also hosts secure bastion VMs used to manage IaaS servers and virtual devices hosted in the hub environment. The hub also hosts any common shared services that workloads can take advantage of, such as DNS servers.
 
-Connectivity between your on-premises environment and the hub virtual network is provided through either an [ExpressRoute circuit](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction) or [Azure VPN gateway](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpngateways). 
+Connectivity between your on-premises environment and the hub virtual network is provided through either an [ExpressRoute circuit](/azure/expressroute/expressroute-introduction) or [Azure VPN gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways).
 
-The Azure Virtual Datacenter model supports connecting hub and spoke networks across [Azure regions](https://azure.microsoft.com/en-us/global-infrastructure/regions/). However, connecting between regions has the potential to introduce higher latency than would be the case if all networks were in the same region, and this potential latency would need to be accounted for in your network and workload planning.
+The Azure Virtual Datacenter model supports connecting hub and spoke networks across [Azure regions](https://azure.microsoft.com/global-infrastructure/regions). However, connecting between regions has the potential to introduce higher latency than would be the case if all networks were in the same region, and this potential latency would need to be accounted for in your network and workload planning.
 
 > See the [VDC networking architecture](../software-defined-networks/vdc-networking.md) topic for more details on the networking resources and configuration within a VDC.
 
 ### Monitoring and compliance
 
-The Azure Virtual Datacenter model uses [Azure Monitor]((https://docs.microsoft.com/en-us/azure/azure-monitor/overview)) as its default monitoring and reporting service. Azure Monitor's log analytics feature allows you to capture log data related to virtual machines and your network environment. When deploying a VDC, you should create a log analytics instance for the central IT hub and each of the workload spokes. These instances will capture operational log data from your deployed resources, and allow you to use this data for  reports and alerts.
+The Azure Virtual Datacenter model uses [Azure Monitor](/azure/azure-monitor/overview) as its default monitoring and reporting service. Azure Monitor's log analytics feature allows you to capture log data related to virtual machines and your network environment. When deploying a VDC, you should create a log analytics instance for the central IT hub and each of the workload spokes. These instances will capture operational log data from your deployed resources, and allow you to use this data for  reports and alerts.
 
-Core Azure platform features such as  [Azure Active Directory Reports](https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/overview-reports), [Azure Network Watcher (NW)](https://docs.microsoft.com/en-us/azure/network-watcher/), and [Azure Security Center (ASC)](https://docs.microsoft.com/en-us/azure/security-center/)are also important monitoring components of the model.
+Core Azure platform features such as [Azure Active Directory Reports](/azure/active-directory/reports-monitoring/overview-reports), [Azure Network Watcher (NW)](/azure/network-watcher/), and [Azure Security Center (ASC)](/azure/security-center/) are also important monitoring components of the model.
 
 > See the [VDC reporting and monitoring](../logs-and-reporting/vdc-monitoring.md) topic for more details.
 

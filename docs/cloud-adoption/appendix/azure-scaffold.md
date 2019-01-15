@@ -99,16 +99,16 @@ The first pillar of the scaffold is a consistent naming standard. Well-designed 
 
 > [!TIP]
 > For naming conventions:
-> * Review and adopt where possible the [Patterns and Practices guidance](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions). This guidance helps you decide on a meaningful naming standard and provides extensive examples.
+> * Review and adopt where possible the [Patterns and Practices guidance](/azure/architecture/best-practices/naming-conventions). This guidance helps you decide on a meaningful naming standard and provides extensive examples.
 > * Using Resource Manager Policies to help enforce naming standards
 >
->Remember that it's difficult to change names later, so a few minutes now will save you trouble later.
+> Remember that it's difficult to change names later, so a few minutes now will save you trouble later.
 
 Concentrate your naming standards on those resources that are more commonly used and searched for.  For example, all resource groups should follow a strong standard for clarity.
 
 ### Resource Tags
 
-Resource tags are tightly aligned with naming standards. As resources are added to subscriptions, it becomes increasingly important to logically categorize them for billing, management, and operational purposes. For more information, see [Use tags to organize your Azure Resource](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-using-tags).
+Resource tags are tightly aligned with naming standards. As resources are added to subscriptions, it becomes increasingly important to logically categorize them for billing, management, and operational purposes. For more information, see [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags).
 
 > [!IMPORTANT]
 > Tags can contain personal information and may fall under the regulations of GDPR. Plan for management of your tags carefully. If you're looking for general info about GDPR, see the GDPR section of the [Service Trust Portal](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
@@ -322,7 +322,7 @@ The final component of the Azure scaffold reference model is core to how your or
 
 ### Virtual Data Center
 
-Azure provides you both internal capabilities and third-party capabilities from our extensive partner network that enable you to have an effective security stance. More importantly, Microsoft provides best practices and guidance in the form of the [Azure Virtual Data Center](/azure/architecture/vdc/networking-virtual-datacenter). As you move from a single workload to multiple workloads which leverage hybrid capabilities, the VDC guidance will provide you with "recipe" to enable a flexible, network that will grow as your workloads in Azure grow.  
+Azure provides you both internal capabilities and third-party capabilities from our extensive partner network that enable you to have an effective security stance. More importantly, Microsoft provides best practices and guidance in the form of the [Azure Virtual Data Center](/azure/architecture/vdc/networking-virtual-datacenter). As you move from a single workload to multiple workloads which leverage hybrid capabilities, the VDC guidance will provide you with "recipe" to enable a flexible, network that will grow as your workloads in Azure grow.
 
 ## Next steps
 
