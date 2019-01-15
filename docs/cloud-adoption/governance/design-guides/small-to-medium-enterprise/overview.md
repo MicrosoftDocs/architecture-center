@@ -7,11 +7,11 @@ ms.date: 2/1/2019
 
 # Fusion: Small to Medium Enterprise Governance Design Guide
 
-This design guide will provide a narrative for the small to medium enterprises, as they move through the governance journey. The journey will begin with the same general challenges faced by most small or medium enterprises, when first beginning a cloud journey: Establishing an initial strategy and implementing a foundation or MVP for governance. The guide will then demonstrate how that MVP implementation is evolved ahead of the corporate cloud adoption strategy.
+This design guide provides a narrative for small to medium enterprises as they move through the governance journey. The journey starts with the same general challenges faced by most small or medium enterprises when first beginning a cloud journey: establishing an initial strategy and implementing a foundation or MVP for governance. The guide will then demonstrate how that MVP implementation evolves ahead of the corporate cloud adoption strategy.
 
 ## Governance MVP (Cloud Adoption Foundation)
 
-Any governance foundation requires a few simple principles, which are the root of enabling rapid governance evolutions. These are the first of the three Cloud Governance Disciplines to approach in any governance process. Each will be expanded upon in this series of articles. To establish the starting point, this series of articles will discuss the high-level strategies behind Identity Management, Security Management, and Configuration Management that are required to create a Governance MVP (Minimally Viable Product), which will serve as the foundation for all adoption.
+Any governance foundation requires a few simple principles as the root of enabling rapid governance evolutions. These are the first of the three Cloud Governance Disciplines to adopt in any governance process. Each is described further in this series of articles. To establish the starting point, this series of articles will discuss the high-level strategies behind Identity Management, Security Management, and Configuration Management that are required to create a Governance minimally viable product (MVP), which will serve as the foundation for all adoption.
 
 ![Example of Incremental Governance MVP](../../../_images/governance/governance-mvp.png)
 
@@ -30,7 +30,7 @@ While not explicated stated as an evolving discipline, Configuration Management 
 
 ### Corporate Policy
 
-Throughout this journey, the narrative will evolve. The evolutions captured here are similar to those experienced during organic cloud adoption. As the narrative evolves, business risk will grow, so will corporate policy.
+Throughout this journey, the narrative will evolve. The evolutions captured here are similar to those experienced during organic cloud adoption. As the narrative evolves, business risk will grow, as will corporate policy.
 
 Corporate policy serves as the early warning system that makes incremental governance possible. It also defines the transition from business risk to actionable policy statements and recurring governance processes. In this design guide, each evolution will be marked by changes to the narrative. Those changes will be captured as changes to corporate policy. Corporate policy will then change implementation of the Governance MVP.
 

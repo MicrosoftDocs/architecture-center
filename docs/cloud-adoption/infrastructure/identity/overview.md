@@ -9,7 +9,7 @@ ms.date: 12/19/2018
 
 IT staff are responsible for maintaining and securing resources in cloud environments,
 as they do in on-premises environments. In any environnment, whether on-premises, hybrid,
-or cloud-only, IT needs to control which admins, users, and groups have access to resources. 
+or cloud-only, IT needs to control which administrators, users, and groups have access to resources.
 Identity and access management (IAM) services enable you to manage access control.
 
 ## Identity decision guide

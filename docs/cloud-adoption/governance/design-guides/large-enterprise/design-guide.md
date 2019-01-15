@@ -68,7 +68,7 @@ Many of the [business risk, policy statements](./corporate-policy.md) and [objec
 [Resource Grouping Decision](../../../infrastructure/resource-grouping/overview.md): **Complex grouping** has been chosen for cloud deployments. Learn more about this pattern and alternatives considered in the [Decision Guide for Resource Grouping](../../../infrastructure/resource-grouping/overview.md)
 
 * Deployed assets should be a member of a Resource Group within an Azure Management Group. Azure Policy should be applied to all Resource Groups.
-* As part of the deployment process, an Azure Resource Management (ARM) template(s) for any asset or collection of assets should be stored in source control.
+* As part of the deployment process, Azure Resource Management templates for any asset or collection of assets should be stored in source control.
 * Each resource group should align to a specific workload or application.
 * The Azure Management Group should represent the hierarchy of billing responsibility and application ownership through nested groups.
 * Extensive Azure Policy implementation could exceed the teams time commitments and may not provide a great deal of value at this time. However, a simple default policy should be created and applied to each resource group to enforce the small number of current cloud governance policy statements. This will serve as a mechanism for defining the implementation of specific governance requirements. Those implementations can then be applied across all deployed assets.

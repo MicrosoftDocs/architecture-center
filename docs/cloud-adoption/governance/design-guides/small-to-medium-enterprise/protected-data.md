@@ -17,13 +17,13 @@ IT and business leadership have been happy with results from early stage experim
 
 ## Cloud Adoption Team Changes
 
-Given the impact of the changing narrative & support provided so far, the Cloud Governance Team is now viewed differently. The two system admins who started the team are now viewed as experienced Cloud Architects. As this narrative develops they will move from the Cloud Custodian perception, to more of a Cloud Guardian role.
+Given the impact of the changing narrative and support provided so far, the Cloud Governance Team is now viewed differently. The two system administrators who started the team are now viewed as experienced Cloud Architects. As this narrative develops they will move from the Cloud Custodian perception, to more of a Cloud Guardian role.
 
 ## Current State Changes
 
 * The application development team has implemented a CI/CD pipeline to deploy a cloud native application with an improved user experience. That app doesn’t yet interact with protected data, so it is not production ready.
 * The BI team actively curates logistics, inventory, and third party data in the cloud to drive new predictions which could shape business processes. However, those predictions and insights are actionable until customer and financial data can be integrated into the data platform.
-* The IT team is progressing on the CIO and CFO's plans to retire the DR data center. More than 1,000 of the 2,000 assets in the DR data center have been retired or migrated.
+* The IT team is progressing on the CIO and CFO's plans to retire the DR data center. More than 1,000 of the 2,000 assets in the DR datacenter have been retired or migrated.
 * The loosely defined policies regarding PII and financial data have been modernized. However, the new corporate policies are contingent upon the implementation of related security and governance policies. Teams are still stalled
 
 ## Future State Changes

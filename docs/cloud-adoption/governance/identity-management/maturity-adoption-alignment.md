@@ -60,14 +60,14 @@ While not directly aligned, this phase of governance maturity most closely maps 
   * [Privileged Identity Management](https://docs.microsoft.com/en-us/azure/active-directory/privileged-identity-management/pim-configure) access model 
 * Finalize all pre-integration details and review [Identity Best Practices](https://docs.microsoft.com/en-us/azure/security/azure-security-identity-management-best-practices).
   * Enable single identity, single sign-on (SSO), or seamless SSO
-  * Configure multi-factor authentication (MFA) for admins
+  * Configure multi-factor authentication (MFA) for administrators
   * Consolidate or integrate identity providers, where necessary
   * Implement tooling necessary to centralize management of identities
   * Enable just-in-time (JIT) access and role change alerting
   * Conduct a risk analysis of key admin activities for assigning to built-in roles
   * Consider an updated rollout of stronger authentication for all users 
   * Enable Privileged Identity Management (PIM) for JIT (using time-limited activation) for additional administrative roles
-  * Separate user accounts from Global admin accounts (to make sure that admins do not inadvertently open emails or run programs associated with their Global admin accounts)
+  * Separate user accounts from Global admin accounts (to make sure that administrators do not inadvertently open emails or run programs associated with their Global admin accounts)
 
 ## Adopt and migrate
 
