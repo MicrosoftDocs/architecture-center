@@ -357,7 +357,7 @@
       items:
       - name: Distributed training of deep learning models
         href: reference-architectures/ai/training-deep-learning.md
-      - name: Batch scoring for deep learning models
+      - name: Batch scoring of deep learning models
         href: reference-architectures/ai/batch-scoring-deep-learning.md
       - name: Batch scoring of Python models
         href: reference-architectures/ai/batch-scoring-python.md
