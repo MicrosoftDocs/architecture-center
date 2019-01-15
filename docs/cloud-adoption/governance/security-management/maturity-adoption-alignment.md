@@ -2,7 +2,7 @@
 title: "Fusion: How can a company add Security Management discipline to their Cloud Governance execution?"
 description: Explanation of the concept Resource management in relation to cloud governance
 author: BrianBlanchard
-ms.date: 12/17/2018
+ms.date: 2/1/2018
 ---
 
 # Fusion: How can a company add Security Management discipline to their Cloud Governance execution?
