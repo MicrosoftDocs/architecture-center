@@ -581,7 +581,7 @@
       href: cloud-adoption/digital-estate/calculate.md
   - name: Governance
     items:
-    - name: Overview
+    - name: XXXX - Overview
       href: cloud-adoption/governance/overview.md
     - name: Actionable Governance Journeys
       items:
@@ -592,20 +592,20 @@
       - name: Small to Medium Enterprise
         items:
         - name: Narrative
-          href: cloud-adoption/governance/design-guides/future-proof/use-case.md
+          href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/use-case.md
         - name: Corporate Policy
-          href: cloud-adoption/governance/design-guides/future-proof/corporate-policy.md
+          href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/corporate-policy.md
         - name: Governance MVP (Adoption Foundation)
-          href: cloud-adoption/governance/design-guides/future-proof/governance-mvp.md
+          href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/governance-mvp.md
         - name: Governance Evolution (Protected Data)
-          href: cloud-adoption/governance/design-guides/future-proof/protected-data.md
-        - name: XXXX - Governance Evolution (Mision Critical Apps)
-          href: cloud-adoption/governance/design-guides/future-proof/mission-critical.md
-        - name: XXXX - Governance Evolution (Cost Controls)
-          href: cloud-adoption/governance/design-guides/future-proof/cost-control.md
-        - name: XXXX - Governance Evolution (Multi-cloud)
-          href: cloud-adoption/governance/design-guides/future-proof/multi-cloud.md
-      - name: Large Enterprise
+          href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/protected-data.md
+        - name: Governance Evolution (Mision Critical Apps)
+          href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/mission-critical.md
+        - name: Governance Evolution (Cost Controls)
+          href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/cost-control.md
+        - name: Governance Evolution (Multi-cloud)
+          href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/multi-cloud.md
+      - name: XXXX - Large Enterprise
         items:
         - name: XXXX - Narrative
           href: cloud-adoption/governance/design-guides/enterprise-mvp/use-case.md

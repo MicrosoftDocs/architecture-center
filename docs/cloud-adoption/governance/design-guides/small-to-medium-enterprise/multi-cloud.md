@@ -36,7 +36,7 @@ The changes to current and future state expose new risks that will require new p
 
 ### New Risks
 
-**Business Acquisition Cost:** Acquisition of the new business is slated to be profitable in approximately five years. Because of the slow rate of return, the board wants to control acquisition costs, as much as possible.
+**Business Acquisition Cost:** Acquisition of the new business is slated to be profitable in approximately five years. Because of the slow rate of return, the board wants to control acquisition costs, as much as possible. There is a risk of cost control and technical integration conflicting with one another.
 
 This business risk can be expanded into a few technical risks
 
