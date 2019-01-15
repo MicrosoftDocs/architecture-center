@@ -591,6 +591,8 @@
         href: cloud-adoption/governance/design-guides/choose-a-governance-journey.md
       - name: Small to Medium Enterprise
         items:
+        - name: Overview
+          href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/overview.md
         - name: Narrative
           href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/use-case.md
         - name: Corporate Policy
