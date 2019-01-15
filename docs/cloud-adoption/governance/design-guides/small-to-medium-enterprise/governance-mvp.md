@@ -164,7 +164,7 @@ If any of the patterns selected in this design guide don't align to the reader's
 
 Once this guide is implemented the Cloud Adoption Team can go forth with a sound governance foundation. The Cloud Governance Team will work in parallel to continuously update the Corporate Policies and Governance Disciplines.
 
-The two teams will also use the tolerance indicators to identify the next evolution needed to continue supporting cloud adoption. Below are three potential next steps that might be needed and the documented tolerance indicators:
+The two teams will also use the tolerance indicators to identify the next evolution needed to continue supporting cloud adoption. Below are potential next steps that might be needed and the documented tolerance indicators:
 
 * [Security Management](./protected-data.md): Inclusion of protected data in defined cloud adoption plans
 * [Resource Management](./mission-critical.md): Deployment of mission critical workloads

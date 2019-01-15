@@ -1,171 +1,126 @@
 ---
-title: "Fusion: Small to Medium Enterprise – Governance MVP Design"
-description: Explanation Small to Medium Enterprise – Governance MVP Design
+title: "Fusion: Small to Medium Enterprise – Resource Management Evolution "
+description: Explanation Small to Medium Enterprise – Governance - Adding Missions Critical Applications
 author: BrianBlanchard
 ms.date: 2/1/2018
 ---
 
-# Fusion: Small to Medium Enterprise – Governance MVP Design
+# Fusion: Small to Medium Enterprise – Resource Management Evolution
 
-This article outlines the implementation of the initial Corporate Policies for this design guide, to support the initial narrative. Before implementation it is advised that the reader review, modify, and integrate those artifacts into decision making processes.
+This article will evolve the narrative by adding resource management controls to the [Governance MVP](./governance-mvp.md) to support mission critical apps.
 
-## Governance MVP (Cloud Adoption Foundation)
+Jump to [Narrative Changes](#narrative-changes) | [Corporate Policy Changes](#corporate-policy) | [Technical Changes](#technical-changes)
 
-Any governance foundation requires a few simple principles, which are the root of enabling rapid governance evolutions. These are the first of the three Cloud Governance Disciplines to approach in any governance process. Each will be expanded upon in this article.
+## Narrative Changes
 
-To establish the starting point, this article will discuss the high-level strategies behind Identity Management, Security Management, and Configuration Management that are required to create a Governance MVP (Minimally Viable Product), which will serve as the foundation for all adoption.
+New customer experiences, new predictions tools, and migrated infrastructure continue to progress. The business is now ready to begin using those assets in a production capacity.
 
-![Example of Incremental Governance MVP](../../../_images/governance/governance-mvp.png)
+### Current State Changes
 
-### Implementation Process
+* IT has retired 100% of the DR datacenter, ahead of schedule. In the process a number of assets in the Prod datacenter were identified as cloud migration candidates.
+* The application development teams have is ready for production traffic.
+* The BI team is ready to feed predictions and insights back into operation systems in the Prod datacenter.
 
-Implementation of the Governance MVP has dependencies on Identity, Security, and Networking. Once the dependencies are resolved, the Cloud Governance Team will make decisions regarding a few aspects of governance. The decisions from the Cloud Governance Team and the decisions from the supporting teams will all be implemented through a single package of enforcement assets.
+### Future State Changes
 
-![Example of Incremental Governance MVP](../../../_images/governance/governance-mvp-implementation-flow.png)
+* Before using Azure deployments in production business processes, cloud operations must mature. In conjunction, an additional governance evolution is required to ensure assets can be operated properly.
 
-## Decision and Implementation Summary
+## Corporate Policy
 
-This implementation can also be described using a simple check list.
+The changes to current and future state expose new risks that will require new policy statements.
 
-1. Solicit decision regarding core dependencies: Identity, Network, and Encryption
-2. Determine Policy Enforcement Pattern
-3. Determine appropriate governance patterns: Resource Grouping, Resource Tagging, Log & Reporting
-4. Implement the governance tools aligned to the chosen policy enforcement pattern to apply the dependent decisions and governance decisions.
+### New Risks
 
-Expanding on the checklist to make step 4 actionable, the implementation checklist would look like the following:
+**Business Interruption:** There is an inherent risk of any new platform causing interruptions to mission critical business processes. The IT operations team and the teams executing on various cloud adoptions are relatively inexperienced with cloud operations. This increases the risk of interruption and must be mitigated and governed.
 
-1) Create the desired Subscription and Management Group, adhering to the naming standards and hierarchy decisions for each. See expanded decisions below.
-2) To support the on-going enforcement pattern, create an Azure Blueprint name “Governance MVP”. ARM Templates and Azure Policy will be created and added to the Blueprint as assets.
-3) Enforce RBAC requirement for the subscription in the Blueprint
-4) Create an ARM Template for the VPN Gateway (To be used as needed)
-5) Create an Azure Policy to apply or enforce the following:
-    a. Resource Tagging should require values for Business Function, Data Classification, Criticality, SLA, Environment, and Application.
-    b. Resource Grouping per Application Archetype should align to the application tag
-    c. Software Defined Network if the environment lists the Environment tag as DMZ (Demilitarized Zone), ensure the proper VPN is configured
-    d. Identity validate role assignments for each resource group and resource
-    e. Nether logging, reporting, nor encryption require a policy at this time
+This business risk can be expanded into a number of technical risks
 
-For details on the decisions or execution of the steps above, see the detailed decisions section that follows. For technical guidance on implementation of the above five steps, see the resources section at the end of this article.
+* There is a risk of external intrusion or denial of service attacks causing a business interruption
+* There is a risk of mission critical assets not being properly discovered and therefore not being properly operated
+* There is a risk of undiscovered or mislabeled assets not being supported by existing operational management processes
+* There is a risk that configuration of deployed assets won't meet performance expectations
+* There is a risk that logging won't be properly recorded and centralized to allow for remediation of performance issues
+* There is a risk that recovery policies may fail or take longer than expected
+* There is a risk that inconsistent deployment processes will result in security gaps that could lead to data leaks or interruptions
+* There is a risk that configuration drift or missed patches will result in unintended security gaps that could lead to data leaks or interruptions
+* There is a risk that configuration won't enforce the requirements of defined SLAs
+* There is a risk that configuration won't support committed recovery requirements
+* There is a risk that deployed operating systems (OS) or applications won't meet OS and App hardening requirements
+* There is a risk of inconsistency with so many teams working in the cloud.
 
-## Dependent Decisions
+### New Policy Statements
 
-The following decisions come from teams outside of the Cloud Governance Team. The implementation of each will come from those same teams. However, the Cloud Governance Team has the responsibility of implementing a solution to validate that those implementations are consistently applied.
+The following changes to policy will help mitigate the new risks and guide implementation. The list looks long, but the adoption of these policies may be easier than it would appear.
 
-### Identity 
+1. All deployed assets must be categorized by criticality and data classification. Classifications are to be reviewed by the Cloud Governance Team and the application owner prior to deployment to the cloud
+2. Subnets containing mission critical applications must be protected by a firewall solution capable of detecting intrusions and responding to attacks
+3. Governance tooling must audit and enforce network configuration requirements defined by the security management team
+4. Governance tooling must validate that all assets related to mission critical apps or protected data are included in monitoring for resource depletion and optimization
+5. Governance tooling must validate that the appropriate level of logging data is being collected for all mission critical apps or protected data
+6. Governance process must validate that backup, recovery, and SLA adherence are properly implemented for mission critical apps and protected data
+7. Governance tooling must limit VM deployment to approved images only
+8. Governance tooling must enforce that automatic updates are prevented on all deployed assets that support mission critical applications. Violations must be reviewed with operational management teams & remediated in accordance with operations policies. Assets that are not automatically updated must be included in processes owned by IT operations.
+9. Governance tooling must validate tagging related to cost, criticality, SLA, application, and data classification. All values must align to predefined values managed by the governance team
+10. Governance processes must include audits at the point of deployment and at regular cycles to ensure consistency across all assets
+11. Trends and exploits that could affect cloud deployments should be reviewed regularly by the security team to provide updates to security management tooling used in the cloud.
+12. Prior to release into production, all mission critical apps and protected data must be added to the designated operational monitoring solution. Assets that can not be discovered and monitored can not be released for production use. Any changes required to make the assets discoverable must be made to the relevant deployment processes to ensure asset(s) will be discoverable in future deployments.
+13. Upon discovery, asset sizing is to be validated by operational management teams to validate that the asset meets performance requirements
+14. Deployment tooling must be approved by the Cloud Governance Team to ensure on-going governance of deployed assets
+15. Deployment scripts must be maintained in central repository accessible by the Cloud Governance Team for periodic review and auditing
+16. Governance review processes must validate that deployed assets are properly configure in alignment with SLA and recovery requirements
 
-Identity Management is the fundamental starting point for all governance. Without a sound strategy for identity management, the users interacting with the cloud foundation can’t be verified or controlled. Before attempting to apply governance, identity must best established. That strategy will then be enforced by the governance solutions.
+### New Processes
 
-In this design guide, the Replication pattern has been implemented by the Identity Management team. 
+Some of the policy statements can’t/shouldn’t be controlled by automated tooling. Other policies will result in effort from IT Security and Cloud Operations teams, over time. As such, the Cloud Governance Team will need to oversee the following processes to implement the last six policy statements:
 
-* RBAC will be provided by Azure AD, leveraging the directory synchronization or "Same Sign-On" that was implemented during the Office 365 implementation 
-    * See Reference Architecture for Azure AD Integration for implementation guidance.
-* The Azure AD tenant will also govern authentication and access for assets deployed to Azure.
+**Corporate Policy Changes:** The Cloud Governance Team will make a number of changes to the Governance MVP design to adopt the new policies. The value of the Governance MVP, is that it will allow for the automatic enforcement of the new policies.
 
-In the Governance MVP, the governance team will enforce application of the replicated tenant through subscription governance tooling discussed later in this article. In future evolutions, the governance team could also enforce rich tooling in Azure Ad to extend this capability.
+**Adoption Acceleration:** The cloud governance team has been reviewing deployment scripts across multiple teams. They've maintained a set of scripts that serve as deployment templates. Those templates are used by the cloud adoption teams and devops teams to more quickly define deployments. Each of those scripts contain the necessary requirements to enforce a number of governance policies, with no additional effort from cloud adoption engineers. As the curators of these scripts they can more quickly implement policy changes. Additionally, they are seen as a source of adoption acceleration. This creates consistency among deployments, without strictly forcing adherence.
 
-### Networking
+**Engineer Training:** The Cloud Governance Team offers bi-monthly training sessions and has created two videos for engineers. Both of these sources help engineers quickly get up to speed on the governance culture and how things are done during deployments. The team is adding training assets to demonstrate the difference between production and non-production deployments, to help engineers understand how the new policies will affect adoption. This creates consistency among deployments, without strictly forcing adherence.
 
-Parallel to identity is a vital initial aspect of Security Management, the definition of the software defined network. Establishing the governance MVP is dependent on early decisions from the Security Management Team to define how networks can be safely configured. 
+**Deployment Testing:** During deployment testing for any asset supporting a mission critical workload, the Cloud Operations Team and Cloud Governance Team will be responsible for reviewing deployed assets to validate governance and operations alignment.
 
-Given the lack of requirements, IT security is playing it safe and has required a Demilitarized Pattern. This means that governance concerning the Azure deployments themselves will be very lite. 
+**Monthly Audit and Reporting:** Each month, the Cloud Governance Team runs an audit of all cloud deployments to validate continued alignment to policy. When deviations are discovered, they are documented and shared with the cloud adoption teams. When enforcement doesn't risk a business interruption or data leak, the policies are automatically enforced. At the end of the audit, the Cloud Governance Team compiles a report for the Cloud Strategy Team and each Cloud Adoption Team to communicate overall adherence to policy. The report is also stored for auditing and legal purposes.
 
-* Azure subscriptions may connect to an existing data center via VPN, but must follow all existing on-prem IT governance policies regarding connection of a demilitarized zone to protected resources. 
-    * See VPN Reference Architecture for implementation guidance regarding VPN connectivity
-    * Decisions regarding subnet, firewall, and routing are currently being deferred to each application/workload lead.
-* Additional analysis will be required prior to the release of any protected data or mission critical workloads.
+**Quarterly Policy Review:** Each quarter, the Cloud Governance Team and Cloud Strategy Team to review audit results and suggest changes to corporate policy. Many of those suggestions are the result of continuous improvements and the observation of usage patterns. Approved policy changes are integrated into governance tooling during subsequent audit cycles.
 
-The only real requirement for the network is that cloud networks can only connect to on-prem resources over a pre-allocated VPN that is compatible with Azure. Traffic over that connection will be treated like any traffic coming from a demilitarized zone.
+## Technical Changes
 
-The Cloud Governance Team has proactively invited members of networking and IT security into a regular sync to stay ahead of networking demands and risks.
+This section of the article will evolve the Governance MVP design to include new Azure Policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
 
-### Encryption
+### Design Evolution Overview
 
-Encryption is another fundamental decision within the security management discipline. The Security Team has determined a less aggressive pattern for encryption at this time, given the lack of protected data in the cloud.
+1) Cloud operations to define operational monitoring tooling and automated remediation tooling. Cloud Governance Team to support those discovery processes.
+    a. In this use case, the Cloud Operations Team chose Azure Monitor as the primary tool for monitoring mission critical applications.
+2) Azure DevOps repository creation
+    a. Create a repository in Azure Devops to store and version all relevant ARM templates and scripted configurations
+3) Azure Site Recovery implementation
+    a. Define and deploy Azure Vault for backup and recovery processes
+    b. Create ARM Template for creation of a Vault in each subscription
+    c. Include the ARM template in the Azure Blueprint for deployment in each mission critical subscription
+4) Update Azure Policy for all subscriptions
+    a. Audit & enforce criticality and data classification across all subscriptions to identify any subscriptions with mission critical assets
+    b. Audit & enforce use of approved images only 
+5) Azure Monitor implementation
+    a. Once a mission critical subscription is identified, a workspace can be created using powershell. This is a pre-deployment process.
+    b. During deployment testing, the Cloud Operations team would deploy the necessary agents and test discovery.
+6) Update Azure Policy for all subscriptions that contains mission critical applications.
+    a. Audit & enforce the application of an NSG to all NICS and subnets. Networking and IT Security to define the NSG
+    b. Audit & enforce use of approved network subnet and vNet per network interface
+    c. Audit & enforce the limitation of user-defined routing tables
+    d. Audit & enforce Azure Firewall configuration. Networking and IT Security to define the firewall configuration
+    e. Audit & enforce deployment of Azure Monitor agents for all VMs and applications.
+    f. Audit & enforce Azure Vault configuration for each asset
 
-At this point, a Cloud Native pattern to encryption is suggested but not required of any development team.
+## Conclusion
 
-* No governance requirements have been set regarding the use of encryption, because mission critical and protected data are not permitted based in the use case.
-* Additional analysis will be required prior to the release of any protected data or mission critical workloads
-
-## Configuration Management Implementation
-
-The core of this Governance MVP is configuration management. The tools and patterns applied at this stage will enable the incremental evolutions needed to support future governance expansion.
-
-### Policy Enforcement
-
-The first decision to be made regarding configuration management is the pattern for enforcement. In this use case, the governance team decided to implement the On-going Enforcement pattern
-
-* Azure security center will be made available to the security and identity teams to monitor security risks and farm future Azure Policy configurations.
-* RBAC is required in all subscriptions to govern authentication enforcement.
-* Azure Policy is to be applied to all resource groups. However, the level of policies being enforced will be very limited.
-* While Management Groups are being leveraged, the level of hierarchy, and on-going management processes are expected to be much simpler than those seen in large enterprises. 
-* Azure Blueprints will be leveraged to deploy and update subscriptions by applying RBAC requirements, Azure Management Groups, and Azure Policy
-
-## Application of Dependent Patterns
-
-The following decisions represent the patterns to be enforced through the Policy Enforcement strategy above:
-
-### Identity
-
-Azure Blueprints will set RBAC requirements at a subscription level to ensure consistent identity is configured for all subscriptions.
-
-### Software Defined Network
-
-The Cloud Governance Team maintains an ARM (Azure Resource Manager) Template for establishing a VPN gateway between Azure and the on-prem VPN device. When an application team requires a VPN connection, the Cloud Governance Team will apply the gateway ARM template via Azure Blueprints.
-
-## Application of Governance Defined Patterns
-The Cloud governance team will be responsible for the following decisions and implementations. Many will require inputs from other teams, but the cloud governance team is likely to own both the decision and implementation. The following sections outline the decisions made for this use case and details of each decision.
-
-### Subscription Model
-The Archetype pattern has been chosen for Azure subscriptions.
-
-* Departments are not likely to be required given the current focus. Deployments are expected to be constrained within a single billing unit. At the stage of adoption, there may not even be an enterprise agreement to centralize billing. It's very likely that this level of adoption is being managed by a single "Pay as you go" Azure subscription.
-* Regardless of the use of the EA Portal or the existence of an enterprise agreement, a subscription model should still be defined and agreed upon to minimize administrative overheard beyond just billing.
-* In the Archetype patter, "Subscriptions" should be created for each application archetype.
-* An application archetype is a means of grouping applications with similar needs. Common examples would include: Applications with protected data, Governed Apps (HIPAA, FedRamp, etc...), Low risk applications, Applications with on-prem dependencies, SAP or other Mainframes in Azure, Applications that extend on-prem SAP or mainframes, etc... These are unique per organization based on data classifications and the types of applications that power the business. Dependency mapping of the digital estate can aid in defining the application archetypes in an organization.
-* A common naming convention should be agreed upon as part of the subscription design, based on the above two bullets.
-
-### Resource Grouping
-
-Deployment grouping has been chosen as a resource grouping pattern.
-
-* Deployed assets should be a member of a Resource Group and Azure Management Group. Azure Policy should be applied to all resources.
-* As part of the deployment process, an Azure Resource Management (ARM) template(s) for the resource group should be stored in source control.
-* Each resource groups should align to a specific workload or application.
-* Azure Management Group is likely to be extremely flat and may only require a single management group. This will serve as a future mechanism for updating governance designs, as corporate policy matures. If the use case is expected to include additional business units or billing units in the future, a management group hierarchy should be considered further to account for billing unit and/or application level hierarchies.
-* Similarly, extensive Azure Policy implementation could exceed the teams time commitments and may not provide a great deal of value at this time. However, a simple default policy should be created and applied to each management group to enforce the small number of current cloud governance policy statements. This will serve as a mechanism for defining the implementation of specific governance requirements. Those implementations can then be applied across all deployed assets.
-
-### Resource Tagging
-
-The Classification pattern to tagging has been chosen as a model for resource tagging.
-
-* Deployed assets should be tagged with the following values: Data Classification, Criticality, SLA, and Environment.
-* These four values will drive governance, operations, and security decisions.
-* If this design guide is being implemented for a business unit or team within a larger corporation, tagging should also include metadata for the billing unit.
-Log & Reporting
-At this point, a Cloud Native pattern to log and reporting is suggested but not required of any development team.
-* No governance requirements have been set regarding the data to be collected for logging or reporting purposes.
-* Additional analysis will be required prior to the release of any protected data or mission critical workloads.
-
-## Alternative Patterns
-
-If any of the patterns selected in this design guide don't align to the reader's requirements, alternatives to each pattern is available in the list of links below.
-
-* Subscription model: Alternatives to the Archetype pattern are available here
-* Resource Grouping: Alternatives to the Deployment Grouping pattern are available here
-* Resource Tagging: Alternatives to the Classification pattern are available here
-* Identity: Alternatives to the Replication pattern are available here
-* Software Defined Network: Alternatives to the Cloud Native pattern are available here
-* Encryption: Alternatives to the Cloud Native pattern are available here
-* Log & Reporting: Alternatives to the Cloud Native pattern are available here
-* Enforcement Automation: Alternatives to the Simple Enforcement pattern are available here
+The addition of the above processes and changes to the Governance MVP help to mitigate many of the risks associated with resource governance. Together, they add the recovery, sizing, and monitoring controls necessary to empower cloud-aware operations.
 
 ## Next steps
 
-Once this guide is implemented the Cloud Adoption Team can go forth with a sound governance foundation. The Cloud Governance Team will work in parallel to continuously update the Corporate Policies and Governance Disciplines. 
+As cloud adoption continues to evolve and deliver additional business value, risks and cloud governance needs will also evolve. The following are a few evolutions that may be experienced in the future.
 
-The two teams will also use the tolerance indicators to identify the next evolution needed to continue supporting cloud adoption. Below are three potential next steps that might be needed and the documented tolerance indicators:
-
-* Security Management: Inclusion of protected data in defined cloud adoption plans
-* Resource Management: Deployment of mission critical workloads
-* Cost Management: Scale of deployment exceeds 100 assets to the cloud or Monthly spend exceeding $1,00/month
+* [Security Management](./protected-data.md): Inclusion of protected data in defined cloud adoption plans
+* [Cost Management](cost-control.md): Scale of deployment exceeds 100 assets to the cloud or Monthly spend exceeding $1,00/month
+* [Multi-Cloud Governance](multi-cloud.md): Leveraging this governance investment to manage multiple clouds

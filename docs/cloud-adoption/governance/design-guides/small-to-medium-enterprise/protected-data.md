@@ -7,7 +7,9 @@ ms.date: 2/1/2018
 
 # Fusion: Small to Medium Enterprise – Security Management Evolution
 
-This article will evolve the narrative by adding security controls to the Governance MVP, to allow for the hosting of protected data.
+This article will evolve the narrative by adding security controls to the [Governance MVP](./governance-mvp.md), to allow for the hosting of protected data.
+
+Jump to [Narrative Changes](#narrative-changes) | [Corporate Policy Changes](#corporate-policy) | [Technical Changes](#technical-changes)
 
 ## Narrative Changes
 
@@ -89,7 +91,7 @@ Some of the policy statements can’t/shouldn’t be controlled by automated too
 
 **Quarterly Policy Review:** Each quarter, the Cloud Governance Team and Cloud Strategy Team to review audit results and suggest changes to corporate policy. Many of those suggestions are the result of continuous improvements and the observation of usage patterns. Approved policy changes are integrated into governance tooling during subsequent audit cycles.
 
-## Design Additions
+## Technical Changes
 
 This section of the article will evolve the Governance MVP design to include new Azure Policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
 
@@ -116,10 +118,14 @@ This section of the article will evolve the Governance MVP design to include new
     e. Audit & enforce the limitation of user-defined routing tables
     f. Audit & enforce Azure Firewall configuration. Networking and IT Security to define the firewall configuration
 
-## Azure Security Center Configuration
+## Conclusion
 
-TODO: Add detailed decisions behind the suggested steps and links to execution guidance for #3 above
+The addition of the above processes and changes to the Governance MVP help to mitigate many of the risks associated with security governance. Together, they add the network, identity, and security monitoring tools needed to protect data.
 
-## Azure Policy Changes
+## Next steps
 
-TODO: Add detailed decisions behind the suggested steps and links to execution guidance for #4 and #5 above
+As cloud adoption continues to evolve and deliver additional business value, risks and cloud governance needs will also evolve. The following are a few evolutions that may be experienced in the future.
+
+* [Resource Management](./mission-critical.md): Deployment of mission critical workloads
+* [Cost Management](cost-control.md): Scale of deployment exceeds 100 assets to the cloud or Monthly spend exceeding $1,00/month
+* [Multi-Cloud Governance](multi-cloud.md): Leveraging this governance investment to manage multiple clouds

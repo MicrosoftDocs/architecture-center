@@ -7,7 +7,7 @@ ms.date: 2/1/2019
 
 # Fusion: Actionable Governance Journeys
 
-The following design guides illustrate the use of the Incremental Governance Model and the application of the Fusion Cloud Governance Model. Together, these models establish an agile governance platform that can evolve to meet the needs of any cloud governance scenario. Before using either guide, review the brief background on both models to understand the basic theories in this guide.
+The following governance journeys illustrate the use of the Incremental Governance Model and the application of the Fusion Cloud Governance Model. Together, these models establish an agile governance platform that can evolve to meet the needs of any cloud governance scenario. Before using either guide, review the brief background on both models to understand the basic theories in this guide.
 
 For readers that are familiar with the model, jump ahead to the appropriate cloud design guide:
 * [Large Enterprise Governance Journey](./large-enterprise/overview.md)
@@ -21,7 +21,7 @@ This design guide establishes a narrative that follows a synthesized Small to Me
 
 ### Fusion Governance Model: Establishing an end state
 
-A journey with no target destination, is really just glorified wandering. Its important to establish a rough vision of the end state, before taking the first step. The infographic below sets a frame of reference for the end state. It is not a starting point, but a picture of one potential destination.
+A journey with no target destination, is really just glorified wandering. It's important to establish a rough vision of the end state, before taking the first step. The infographic below sets a frame of reference for the end state. It is not a starting point, but a picture of one potential destination.
 
 ![Fusion Governance Model Infographic](../../_images/operational-transformation-govern-highres.png)
 
