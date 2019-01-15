@@ -36,13 +36,14 @@ The scenario covers the data flows as follows:
 * [Application Gateway][docs-appgw] Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications.
 * [Web Application Firewall][docs-waf] Web application firewall (WAF) is a feature of Application Gateway that provides centralized protection of your web applications from common exploits and vulnerabilities.
 * [Azure SQL Database][docs-sql-database] Azure SQL Database is a relational database-as-a-service (DBaaS) based on the latest stable version of Microsoft SQL Server Database Engine.
-* [Azure Networking][/azure/networking/networking-overview] Azure provides a variety of networking capabilities that can be used together or separately
+* [Azure Networking] Azure provides a variety of networking capabilities that can be used together or separately
 * [Azure DevOps][docs-azure-devops] Azure DevOps Services provides development collaboration tools including high-performance pipelines,
 free private Git repositories, configurable Kanban boards, and extensive automated and cloud-based load testing
 * [Build Azure VM][docs-azure-vm] In Azure Portal, create a Visual Studio Enterprise 2017 (latest release) on Windows Server 2016 (x64) VM that will be used as the build agent. 
 
 ### Alternatives
-See if there are two alternative deployment scenarios to add.
+- [Service Fabric][docs-service-fabric] - A platform focused around building distributed components that benefit from being deployed and run across a cluster with a high degree of control. Service Fabric can also be used to host containers.
+- [Azure Kubernetes Service][docs-kubernetes-service] - A platform for building and deploying container-based solutions that can be used as one implementation of a microservices architecture. This allows for agility of different components of the application to be able to scale independently on demand.
 
 Other options for the data tier include:
 
@@ -63,9 +64,9 @@ While provisioning the ASE consider the following limitations when choosing a do
 * net
 * azurewebsites.net
 * p.azurewebsites.net
-* <asename>.pazurewebsites.net
+* nameofyourase.pazurewebsites.net
  Additionally, the custom domain name used for apps and the domain name used by the ILB ASE cannot overlap. For an ILB ASE with the domain name contoso.com, you can't use custom domain names for your apps like:
-* www.contoso.com
+*  <span></span>www.contoso.com
 * abcd.def.contoso.com
 * abcd.contoso.com
 
@@ -140,7 +141,6 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [design-best-practice-cloud-apps-autoscale]: /azure/architecture/best-practices/auto-scaling
 
 [docs-b2c]: /azure/active-directory-b2c/active-directory-b2c-overview
-
 [docs-sql-database]: /azure/sql-database/sql-database-technical-overview
 [docs-storage-blobs]: /azure/storage/blobs/storage-blobs-introduction
 [docs-storage-queues]: /azure/storage/queues/storage-queues-introduction
@@ -153,6 +153,9 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [docs-azure-devops]: /azure/devops/?view=vsts
 [docs-azure-vm]: /azure/virtual-machines/windows/overview
 [docs-azure-scale-ase]: /azure/app-service/environment/intro
+[docs-service-fabric]: /azure/service-fabric/
+[docs-kubernetes-service]: /azure/aks/
+[Azure Networking]: /azure/networking/networking-overview
 
 [end-to-end-walkthrough]: https://github.com/Azure/fta-internalbusinessapps/blob/master/appmodernization/app-service-environment/ase-walkthrough.md
 [use-app-svc-web-apps-with-appgw]: https://github.com/Azure/fta-internalbusinessapps/blob/webapp-appgateway/appmodernization/app-service/articles/app-gateway-web-apps.md
