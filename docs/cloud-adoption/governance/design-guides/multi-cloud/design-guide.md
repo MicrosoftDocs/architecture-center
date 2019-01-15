@@ -1,1 +1,0 @@
-Multi-cloud description.... Own that there is no Azure solution for all Multi-cloud... Point to on-prem solutions?
