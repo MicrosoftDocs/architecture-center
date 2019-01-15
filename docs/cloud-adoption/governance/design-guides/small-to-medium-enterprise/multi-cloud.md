@@ -5,7 +5,7 @@ author: BrianBlanchard
 ms.date: 2/1/2018
 ---
 
-# Fusion: Small to Medium Enterprise – Cost Management Evolution
+# Fusion: Small to Medium Enterprise – Multi-Cloud Evolution
 
 This article will evolve the narrative by adding multi-cloud integration to the [Governance MVP](./governance-mvp.md).
 
