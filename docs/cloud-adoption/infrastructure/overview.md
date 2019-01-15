@@ -7,7 +7,7 @@ ms.date: 01/14/2019
 
 # Fusion: Architectural decision guides
 
-The [Actionable Governance Journeys](../governance/design-guides/overview.md) provided by the Fusion model's governance section provide highly opinionated guidance for establishing governance as part of your enterprise cloud adoption effort. The opinionated nature of this guidance means the assumptions made in the example journeys may not fully reflect the needs of your organization. 
+The [Actionable Governance Journeys](../governance/design-guides/overview.md) provided by the Fusion model's governance section provide highly opinionated guidance for establishing governance as part of your Fusion effort. The opinionated nature of this guidance means the assumptions made in the example journeys may not fully reflect the needs of your organization. 
 
 The decision guides section of Fusion supplements the governance section's example journeys by providing alternative patterns and models commonly used when crafting design guidance. Use this section to better align the decisions made in example design guidance with your own requirements.
 

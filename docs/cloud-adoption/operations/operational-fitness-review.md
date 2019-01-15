@@ -1,5 +1,5 @@
 ---
-title: "Enterprise Cloud Adoption: Operational Fundamentals"
+title: "Fusion: Operational Fundamentals"
 description: Guidance on operational fundamentals
 author: petertaylor9999
 ms.date: 09/20/2018

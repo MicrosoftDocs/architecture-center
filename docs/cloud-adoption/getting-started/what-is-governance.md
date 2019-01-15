@@ -1,11 +1,11 @@
 ---
-title: "Enterprise Cloud Adoption: What is cloud resource governance?"
+title: "Fusion: What is cloud resource governance?"
 description: Explanation of the concept of resource access governance on Azure
 author: petertaylor9999
-ms.date: 09/10/2018
+ms.date: 2/1/2019
 ---
 
-# Enterprise Cloud Adoption: What is cloud resource governance?
+# Fusion: What is cloud resource governance?
 
 In [how does Azure work?](what-is-azure.md), you learned that Azure is a collection of servers and networking hardware running virtualized hardware and software on behalf of users. Azure enables your organization's development and IT departments to be agile by making it easy to create, read, update, and delete resources as needed.
 
