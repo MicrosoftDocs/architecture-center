@@ -2,7 +2,7 @@
 title: "Fusion: Governance Design Guide Enterprise Guardrails"
 description: Explanation Design guide to action the concepts within governance.
 author: BrianBlanchard
-ms.date: 2/1/2018
+ms.date: 2/1/2019
 ---
 
 # Fusion: A Governance Design Guide to Enterprise Guardrails deployments

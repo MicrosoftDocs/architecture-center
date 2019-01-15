@@ -15,7 +15,7 @@ ms.topic: landing-page
         <div class="cardPadding" style="padding-bottom:10px;">
             <div class="card" style="padding-bottom:10px;">
                 <div class="cardText" style="padding-left:0px;">
-Any change to business processes or technology platforms introduces risk to the business. Cloud governance teams (also known as cloud custodians) are tasked with mitigating these risks with minimal interruption to adoption or innovation efforts.<br/><br/>Fusion's model for cloud governance guides decisions (regardless of the chosen cloud platform) by focusing on <a href="#corporate-policy">development of corporate policy</a> and <a href="#disciplines-of-cloud-governance">Disciplines of cloud governance</a>. <a href="#actionable-design-guides">Actionable design guides</a> demonstrate this model using Azure services.<BR/><BR/>
+Any change to business processes or technology platforms introduces risk to the business. Cloud governance teams (also known as cloud custodians) are tasked with mitigating these risks with minimal interruption to adoption or innovation efforts.<br/><br/>Fusion's model for cloud governance guides decisions (regardless of the chosen cloud platform) by focusing on <a href="#corporate-policy">development of corporate policy</a> and <a href="#disciplines-of-cloud-governance">Disciplines of cloud governance</a>.<BR/><a href="#actionable-governance-journeys">Actionable Governance Journeys</a> demonstrate this model by creating a Governance MVP in Azure. Then evolving that foundation in parallel to cloud adoption.<BR/><BR/>
                 </div>
             </div>
         </div>
@@ -42,26 +42,25 @@ Any change to business processes or technology platforms introduces risk to the 
 
 The Fusion approach to cloud governance is built on an incremental model that starts small and grows with cloud adoption. This model helps illustrate the differences between "What can be done with governance" and "What must be done through governance". To learn more about this model, see the article on [Incremental Cloud Governance](./incremental-cloud-governance.md).
 
-Jump to: [Corporate Policy](#corporate-policy) | [Disciplines of Cloud Governance](#disciplines-of-cloud-governance) | [Azure Specific Design Guides](#actionable-design-guides)
+![Example of Incremental Governance evolutions](../_images/governance/incremental-governance-example.png)
 
-## Actionable design guides
+Jump to: [Corporate Policy](#corporate-policy) | [Disciplines of Cloud Governance](#disciplines-of-cloud-governance) | [Actionable Governance Journeys](#actionable-governance-journeys)
 
-To demonstrate actionable implementation patterns of Fusion's Cloud Governance model, the following design guides align Corporate Policy and Cloud Governance Disciplines with the governance tools available in Azure. For cloud agnostic guidance, the sections on [Corporate Policy](#corporate-policy) and [Disciplines of Cloud Governance](#disciplines-of-cloud-governance) may be a better starting point.
+## Actionable Governance Journeys
 
-<ul  class="panelContent cardsC">
+To demonstrate actionable implementation patterns of Fusion's Cloud Governance model, the following journeys align Corporate Policy and Cloud Governance Disciplines with the governance tools available in Azure. For cloud agnostic guidance, the sections on [Corporate Policy](#corporate-policy) and [Disciplines of Cloud Governance](#disciplines-of-cloud-governance) may be a better starting point.
+
+To start applying a customer journey, choose one of the following two options. For guidance on choosing the right journey, see the article on [Choosing a governance journey](./design-guides/choose-a-governance-journey.md) or [Intro to governance journeys](./design-guides/overview.md)
+
+<ul  class="panelContent cardsZ">
 <li style="display: flex; flex-direction: column;">
-    <a href="./design-guides/future-proof/design-guide.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./design-guides/small-to-medium-enterprise/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage bgdAccent1">
-                            <img src="../_images/governance/cloud-native.png" class="x-hidden-focus"/>
-                        </div>
-                    </div>
                     <div class="cardText">
-                        <h3>Future proof</h3>
-                        <p>Early stage adoption may not warrant an investment in governance. However, this guide establishes a few best practices and policies for you to future proof adoption and ensure that you can add proper governance later.</p>
+                        <h3>Small to Medium Enterprise</h3>
+                        <p>Governance Journey for enterprises that own less than 5 data centers and manage costs through a central IT or showback model.</p>
                     </div>
                 </div>
             </div>
@@ -69,94 +68,13 @@ To demonstrate actionable implementation patterns of Fusion's Cloud Governance m
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./design-guides/production-workload/design-guide.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./design-guides/large-enterprise/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage bgdAccent1">
-                            <img src="../_images/governance/production-workload.png" class="x-hidden-focus"/>
-                        </div>
-                    </div>
                     <div class="cardText">
-                        <h3>Production Workload</h3>
-                        <p>Some solutions are dependent upon protected data, such as customer information and business secrets. The business risks associated with hosting protected data in the cloud can often be mitigated with proper disciplines.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-<li style="display: flex; flex-direction: column;">
-    <a href="./design-guides/enterprise-mvp/design-guide.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage bgdAccent1">
-                            <img src="../_images/governance/enterprise-mvp.png" class="x-hidden-focus"/>
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Enterprise MVP</h3>
-                        <p>Migrating the first few workloads in an organization comes with a few common business risks. The Enterprise MVP design guide provides a scalable starting point to move quickly, enabling you to grow into larger governance needs with cloud adoption.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-<li style="display: flex; flex-direction: column;">
-    <a href="./design-guides/enterprise-scale/design-guide.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage bgdAccent1">
-                            <img src="../_images/governance/enterprise-scale.png" class="x-hidden-focus"/>
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Enterprise and scale</h3>
-                        <p>As you deploy additional solutions to the cloud, business risks grow. When enterprises reach scale across cloud deployments, governance also requirements scale. This design guide builds on Enterprise MVP to meet these more complex needs.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-<li style="display: flex; flex-direction: column;">
-    <a href="./design-guides/enterprise-guardrails/design-guide.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage bgdAccent1">
-                            <img src="../_images/governance/enterprise-guardrails.png" class="x-hidden-focus"/>
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Enterprise Guardrails</h3>
-                        <p>Multiple teams deploying to multiple clouds will naturally create policy violations. In complex environments, with thousands of applications and hundreds of thousands of virtual machines (VMs), automated policy enforcement is required.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-<li style="display: flex; flex-direction: column;">
-    <a href="./design-guides/multi-cloud/design-guide.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage bgdAccent1">
-                            <img src="../_images/governance/multi-cloud.png" class="x-hidden-focus"/>
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Multi-cloud governance</h3>
-                        <p>Industry analysts predict that multi-cloud solutions are an inevitable future. This design guide establishes current approaches to prepare for a multi-cloud landscape.</p>
+                        <h3>Large Enterprise</h3>
+                        <p>Governance Journey for enterprises that own more than 5 data centers and manage costs across multiple business units.</p>
                     </div>
                 </div>
             </div>
@@ -330,7 +248,6 @@ Across each cloud provider, there are common cloud governance disciplines that c
     </a>
 </li>
 </ul>
-
 
 ## Additional guidance
 

@@ -2,7 +2,7 @@
 title: "Fusion: Incremental Cloud Governance"
 description: Explanation of Evolving Governance over time
 author: BrianBlanchard
-ms.date: 01/03/2019
+ms.date: 2/1/2019
 ---
 
 # Fusion: Incremental Cloud Governance

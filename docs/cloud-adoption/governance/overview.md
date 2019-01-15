@@ -2,7 +2,7 @@
 title: "Fusion: Developing and implementing a cloud governance strategy"
 description: Explanation of the process to develop and implement a cloud governance strategy
 author: BrianBlanchard
-ms.date: 01/03/2019
+ms.date: 2/1/2019
 ---
 
 # Fusion: Developing and implementing a cloud governance strategy
@@ -20,20 +20,12 @@ This content has been created specifically for members of the Cloud Governance T
 
 ## Using this guide
 
-For readers who wish to leverage this guide from beginning to end, this content will aid in developing a robust cloud governance strategy in parallel to cloud implementation. The guidance walks the reader through the theory and implementation of such a strategy. At the end of this initial framework, the reader will be presented with a few different design templates to use as a starting point in governance implementation. The theory documentation proceeding those templates will explain how the reader can customize those templates to mitigate tangible business risks. The following five article can be used to quickly guide the reader through the variety of ways this content can be used to continuously evolve a personalized governance strategy.
+For readers who wish to leverage this guide from beginning to end, this content will aid in developing a robust cloud governance strategy in parallel to cloud implementation. The guidance walks the reader through the theory and implementation of such a strategy.
 
-For readers who are hands on, skip ahead to step number 4 and [Choose an Actionable Design Template](choose-a-design-template.md). However, a firm grounding in the theory behind those design guides could produce a great deal of value throughout your cloud adoption journey.
-
-1) Incremental Cloud Governance: The theory that drives this model.
-2) Corporate Policy: An approach to understanding tangible business risk and turning that into actionable corporate policy statements with measurable results.
-3) Five Disciplines of Cloud Governance: A framework for decomposing risks and breaking it into actionable disciplines which include policy, process, and implementation best practices
-4) Choosing an Actionable Design Templates: Comparison of the use cases and policies that drove the design guidance samples, so the reader can find the one that best fits their needs.
-5) Modifying the chosen Design Template: How to use the theories outlined in steps 1 - 3 to mold the template to fit the readers specific needs.
-
-Through this guidance, the reader can start small and evolve their governance needs in parallel with cloud adoption efforts.
+For a crash course on the theory and quick access to Azure implementation, get started with the [Overview of Actionable Governance Journeys](./design-guides/overview.md). Through this guidance, the reader can start small and evolve their governance needs in parallel with cloud adoption efforts.
 
 ## Next steps
 
-Understand the theories of [Incremental Cloud Governance](./incremental-cloud-governance.md)
+Review the [Actionable Governance Journeys](./design-guide/overview.md)
 > [!div class="nextstepaction"]
-> [Understand Incremental Cloud Governance](./incremental-cloud-governance.md)
+> [Actionable Governance Journeys](./design-guide/overview.md)

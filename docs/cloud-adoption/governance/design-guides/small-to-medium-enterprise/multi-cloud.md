@@ -2,7 +2,7 @@
 title: "Fusion: Small to Medium Enterprise – Multi-Cloud Evolution"
 description: Explanation Small to Medium Enterprise – Governance - Integrating other clouds
 author: BrianBlanchard
-ms.date: 2/1/2018
+ms.date: 2/1/2019
 ---
 
 # Fusion: Small to Medium Enterprise – Multi-Cloud Evolution

@@ -2,7 +2,7 @@
 title: "Fusion: Small to Medium Enterprise - Initial Corporate Policy behind the governance strategy"
 description: Small to Medium Enterprise - Initial Corporate Policy behind the governance strategy
 author: BrianBlanchard
-ms.date: 2/1/2018
+ms.date: 2/1/2019
 ---
 
 # Fusion: Small to Medium Enterprise - Initial Corporate Policy behind the governance strategy
