@@ -28,8 +28,8 @@ Given the impact of the changing narrative and support provided so far, the Clou
 
 ## Future State Changes
 
-* Early experiments from App Dev and BI have shown potential improvements in customer experiences and data-driven decisions. Both teams would like to expand adoption of the cloud over the next 18 months by deploying those solutions to production. 
-* During the 6 months left in the plan, the team will implement security and governance requirements to allow them to migrate the protected data in that data centers. 
+* Early experiments from App Dev and BI have shown potential improvements in customer experiences and data-driven decisions. Both teams would like to expand adoption of the cloud over the next 18 months by deploying those solutions to production.
+* During the 6 months left in the plan, the team will implement security and governance requirements to allow them to migrate the protected data in that data centers.
 * Quickly implement security and governance requirements to allow each team to move forward.
 
 ## Corporate Policy
@@ -112,7 +112,7 @@ This section of the article will evolve the Governance MVP design to include new
     b. Audit & enforce use of approved images only
 6) Update Azure Policy for all subscriptions that contains protected data classifications.
     a. Audit & enforce use of standard roles only
-    b. Audit & enforce application of encryption for all files and accounts 
+    b. Audit & enforce application of encryption for all files and accounts
     c. Audit & enforce the application of an NSG to all NICS and subnets. Networking and IT Security to define the NSG
     d. Audit & enforce use of approved network subnet and vNet per network interface
     e. Audit & enforce the limitation of user-defined routing tables
