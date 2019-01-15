@@ -588,7 +588,7 @@
       - name: Overview
         href: cloud-adoption/governance/design-guides/overview.md
       - name: Choosing the best design template
-        href: cloud-adoption/governance/design-guides/overview.md
+        href: cloud-adoption/governance/design-guides/choose-a-governance-journey.md
       - name: Small to Medium Enterprise
         items:
         - name: Narrative

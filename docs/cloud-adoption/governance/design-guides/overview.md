@@ -1,147 +1,60 @@
 ---
-title: "Fusion: Cloud Governance Design Guides for Azure"
-description: Overview of governance content within Fusion
+title: "Fusion: Actionable Governance Journeys"
+description: Explanation of Actionable Governance Journeys
 author: BrianBlanchard
-ms.date: 12/08/2018
-layout: LandingPage
-ms.topic: landing-page
+ms.date: 2/1/2019
 ---
 
-# Fusion: Cloud Governance Design Guides for Azure
+# Fusion: Actionable Governance Journeys
 
-The Fusion model guides cloud governance decisions (regardless of the chosen cloud platform) by focusing on <a href="#corporate-policy">development of corporate policy</a> and <a href="#disciplines-of-cloud-governance">Disciplines of Cloud Governance</a>. This series of articles attempts to demonstrate the cloud agnostic principles of cloud governance, based on the governance services in Azure. The following design guides can be expanded and/or customized to integrate additional cloud providers and/or custom policy statements.
+The following design guides illustrate the use of the Incremental Governance Model and the application of the Fusion Cloud Governance Model. Together, these models establish an agile governance platform that can evolve to meet the needs of any cloud governance scenario. Before using either guide, review the brief background on both models to understand the basic theories in this guide.
 
-## Use Case and Corporate Policy Dependency
+For readers that are familiar with the model, jump ahead to the appropriate cloud design guide:
+* [Large Enterprise Governance Journey](./large-enterprise/overview.md)
+* [Small to Medium Enterprise Governance Journey](./small-to-medium-enterprise/overview.md)
 
-Each design guide is based on an accompanying Use Case and Corporate Policy. Within each design guide, is a summary of each and links for further reading. If those two artifacts align with the readers current scenario, the assets are then intended to be modified to meet the specific needs of the Cloud Governance Team.
+## Understanding the journey
 
-![This design guide is a specific solution based on a specific use case and corporate policy.](../../_images/governance/design-guide.png)
+Adoption of the cloud is journey, not a destination. Along the way, there are clear milestones and tangible business values. However, the final state of cloud adoption is seldom understood when a company embarks on the journey. A key part of the cloud adoption journey, is cloud governance. Cloud governance creates the guardrails that keep the company on a safe path, avoiding perils along the journey.
 
-*This design guide is a specific solution based on a specific use case and corporate policy. This design guide is dependent upon the criteria set in each of those articles.*
+This design guide establishes a narrative that follows a synthesized Small to Medium Enterprise through the governance portion of their journey. The objective of this narrative is to develop a series of template that the reader can consume and personalize to provide guardrails during their own journey.
 
-> [!CAUTION]
-> These articles contain highly opinionated design guides. The opinions in this guide DO NOT fit every situation. Caution should be exercised before implementing this guidance. Prior to implementation of this design guide, the reader should understand each design guide's Use Case and Corporate Policy which influenced the guidance.
+### Fusion Governance Model: Establishing an end state
 
-<ul  class="panelContent cardsC">
-<li style="display: flex; flex-direction: column;">
-    <a href="./future-proof/design-guide.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage bgdAccent1">
-                            <img src="../../_images/governance/cloud-native.png" class="x-hidden-focus"/>
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Future Proof</h3>
-                        <p>Early stage adoption may not warrant and investment in governance. However, this guide will establish a few best practices and policies to future proof adoption and ensure that proper governance can be added later.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-<li style="display: flex; flex-direction: column;">
-    <a href="./production-workload/design-guide.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage bgdAccent1">
-                            <img src="../../_images/governance/production-workload.png" class="x-hidden-focus"/>
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Production Workload</h3>
-                        <p>Some solutions are dependent upon protected data, like customer information or business secrets. The business risks associated with hosting protected data in the cloud can often be mitigated with proper disciplines.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-<li style="display: flex; flex-direction: column;">
-    <a href="./enterprise-mvp/design-guide.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage bgdAccent1">
-                            <img src="../../_images/governance/enterprise-mvp.png" class="x-hidden-focus"/>
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Enterprise MVP</h3>
-                        <p>Migrating the first few workloads in an enterprise comes with a few common business risks. The Enterprise MVP design guide provides a scalable starting point to move quickly, but grow into larger governance needs with cloud adoption.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-<li style="display: flex; flex-direction: column;">
-    <a href="./enterprise-scale/design-guide.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage bgdAccent1">
-                            <img src="../../_images/governance/enterprise-scale.png" class="x-hidden-focus"/>
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Enterprise @ Scale</h3>
-                        <p>As additional solutions are deployed to the cloud, business risks grow. When enterprises reach scale across cloud deployments, governance requirements scale. This design guide builds on Enterprise MVP to meet these more complex needs.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-<li style="display: flex; flex-direction: column;">
-    <a href="./enterprise-guardrails/design-guide.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage bgdAccent1">
-                            <img src="../../_images/governance/enterprise-guardrails.png" class="x-hidden-focus"/>
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Enterprise Guardrails</h3>
-                        <p>Multiple teams deploying to multiple clouds will naturally create policy violations. In complex environments, with thousands of applications and hundreds of thousands of VMs, automated policy enforcement is required.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-<li style="display: flex; flex-direction: column;">
-    <a href="./multi-cloud/design-guide.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage bgdAccent1">
-                            <img src="../../_images/governance/multi-cloud.png" class="x-hidden-focus"/>
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Multi-Cloud Governance</h3>
-                        <p>Industry analysts are predicting that multi-cloud solutions are an inevitable future. This design guide establishes current approaches to prepare for a multi-cloud landscape.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-</ul>
+A journey with no target destination, is really just glorified wandering. Its important to establish a rough vision of the end state, before taking the first step. The infographic below sets a frame of reference for the end state. It is not a starting point, but a picture of one potential destination.
+
+![Fusion Governance Model Infographic](../../_images/operational-transformation-govern-highres.png)
+
+The Fusion governance model outlines areas of focus throughout the journey. Each will protect the company from a different type of peril, as the company adopts more cloud services. This design guide will use this frame of reference frequently to describe necessary actions on the part of the Cloud Governance Team. Along the way, each of these tenants of the Fusion Governance Model will be expanded on to guide actions. At the highest level they are described as follows:
+
+**Corporate Policy:** The policies which drive all cloud governance. In this model, the aspects of corporate policy that this design guide will focus on are Business Risks (building an understanding of risk), Policy & Compliance (Converting risks into policy statements which support any require compliance needs), and Processes (Which ensure adherence to the policy statements).
+
+**Governance Disciplines:** Supporting corporate policy are the five disciplines of Cloud Governance: Cost Management, Security Management, Resource Management, Identity Management, and Configuration Management. Each of these vital disciplines protect the company from a different potential pitfall. 
+Essentially, the Corporate Policies serve as the early warning system to detect potential perils. The Disciplines then move ahead of the business to mitigate risks (or create guard rails).
+
+### Incremental Governance Model: MVP and Evolution
+
+The Fusion Governance Model includes additional documentation on Incremental Governance. However, a high-level understanding is required to use this design guide.
+
+Assuming cloud adoption is a journey and governance will evolve along the journey, a different model of governance is required. Companies can no longer wait for a small team to build guardrails and roadmaps on every highway in the country, before taking the first step. Business results are expected far faster and more fluidly than that.
+
+To meet the needs of the business, the IT team needs to be agile and equally fast moving. The incremental governance model empowers these traits. In incremental governance a smaller set of precautions is established creating a foundation for adoption, also known as an MVP or Minimally Viable Product. This MVP provides the governance team with a means for quickly injecting governance into any implementation. 
+
+![Example of Incremental Governance evolutions](../../_images/governance/incremental-governance-example.png)
+
+In the example captured in the infographic above, a company implements a Governance MVP to serve as a foundation for all cloud adoption. Cloud adoption then progresses at its own pace. During the cloud adoption journey, deployment plans introduce risks. When those risks are uncovered by the cloud governance team, each of the impacted Disciplines of Cloud Governance is advanced to mitigate the risk. In this example, the cloud adoption plan introduces risks related to protected data, requiring implementations of security management and configuration management. The business then experiences risks related to mission critical workloads, requiring an evolution of the resource management discipline and configuration management changes. Finally, the business experiences risks related to cloud costs, triggering evolutions in cost management. Because of the foundation established by the Governance MVP, these changes can be implemented and enforced with less difficulty. Each cloud adoption journey is unique. This may not align to the order in which the reader's cloud governance evolves, but this example is representative of the journey as a whole.
+
+The ability to rapidly respond to changing risks, repositions the governance focus. This approach allows the Cloud Governance Team to join the Cloud Strategy Team as scouts, moving ahead of the adoption teams, plotting routes, and quickly deploying guardrails to protect against perils on the specific route chosen. This model to governance evolves the governance strategy one step ahead of the adoption team.
+
+### Tying these models together
+
+This actionable governance journey's will demonstrate the implementation of an MVP foundation for governance. From there, each journey will show how governance can run ahead of adoption as a partner and accelerator for adoption efforts. The Fusion Governance Model will be used to guide the execution of governance during the foundation and subsequent evolutions.
+
+Note: Governance is not a replacement for key functions, like security, networking, identity, finance, devops or operations. Along the way, there will be dependencies and interactions with teammates in each function. Often times, members of those functions may even serve as members of the Cloud Governance Team to accelerate decisions and actions.
 
 ## Next steps
 
-[Future Proofing](./future-proof/design-guide.md) is a suggested pre-cursor to cloud governance. Ensuring deployments have a consistent set of deployment standards will reduce friction when implementing more advance governance.
+Based on this basic understanding of the theory, it's a great time to [Choose the most relevant governance journey](choose-a-governance-journey.md).
 
 > [!div class="nextstepaction"]
-> [Align deployments to a stable foundation](./future-proof/design-guide.md)
+> [Choose the most relevant governance journey](choose-a-governance-journey.md)
