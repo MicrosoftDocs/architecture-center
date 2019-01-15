@@ -355,11 +355,13 @@
 
     - name: AI
       items:
-      - name: Batch scoring for deep learning models
+      - name: Distributed training of deep learning models
+        href: reference-architectures/ai/training-deep-learning.md
+      - name: Batch scoring of deep learning models
         href: reference-architectures/ai/batch-scoring-deep-learning.md
       - name: Batch scoring of Python models
         href: reference-architectures/ai/batch-scoring-python.md
-      - name: Real-time scoring of Python models
+      - name: Real-time scoring of Python and deep learning models
         href: reference-architectures/ai/realtime-scoring-python.md
       - name: Real-time scoring of R machine learning models
         href: reference-architectures/ai/realtime-scoring-r.md
