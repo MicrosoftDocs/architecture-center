@@ -15,7 +15,7 @@ an Azure VNET
 
 ![Sample scenario architecture for Secure ILB ASE Deployment ][architecture]
 
-This scenario covers the data flows through the scenario as follows:
+The scenario covers the data flows as follows:
 
 1. HTTP/HTTPs requests first hit the Application Gateway. 
 2. Although not shown in the diagram, you can additionally have Azure AD Authentication enabled for the Web App as well. After the traffic ifirst hits Application Gateway, the use is then prompted to supply the credentials to authenticate with the application.
