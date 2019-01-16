@@ -22,7 +22,6 @@ This design guide is an opinionated approach to implement the needs outlined in 
 
 *This design guide is a specific solution based on a specific use case and corporate policy. This design guide is dependent upon the criteria set in each of those articles.*
 
-
 > [!CAUTION]
 > This article contains a highly opinionated design guide. The opinions in this guide DO NOT fit every situation. Caution should be exercised before implementing this guidance. Prior to implementation of this design guide, the reader should understand the Use Case and Corporate Policy which influenced the guidance in this document.
 
@@ -60,7 +59,6 @@ Automatic provisioning is off by default. To set Security Center to install auto
 https://docs.microsoft.com/en-us/azure/security-center/security-center-policy-definitions
 OS security configurations https://docs.microsoft.com/en-us/azure/security-center/security-center-customize-os-security-config
 Management Group level configuration https://docs.microsoft.com/en-us/azure/security-center/security-center-management-groups
-
 
 Backup policy https://docs.microsoft.com/en-us/azure/backup/backup-azure-arm-userestapi-createorupdatepolicy
 
@@ -100,13 +98,4 @@ It is unlikely this use case will align perfect with any reader's specific use c
 
 ## Next steps
 
-Before attempting to implement this design guide, validate alignment to the [Use Case](#use-case:-future-proof) and [Corporate Policy](#corporate-policy) that influenced this guidance. 
-
-
-
-
-
-
-
-
-
+Before attempting to implement this design guide, validate alignment to the [Use Case](#use-case:-future-proof) and [Corporate Policy](#corporate-policy) that influenced this guidance.

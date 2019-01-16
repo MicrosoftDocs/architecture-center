@@ -35,7 +35,7 @@ Your tagging approach can be simple or complex, with the emphasis ranging from s
 
 An IT-aligned tagging focus will reduce the complexity of monitoring assets and make management decisions based on functionality and classification much easier.
 
-Tagging schemes that also include non-IT policies may require a larger time investment to create tagging standards reflecting business interests and maintain those standards over time. However, the end result of this process is a tagging system providing an improved ability to account for costs and value of IT assets. This association of an asset's value to its operational cost is one of the first steps in changing the cost center perception of IT within your organization.
+Tagging schemes that also include non-IT policies may require a larger time investment to create tagging standards reflecting business interests and maintain those standards over time. However, the result of this process is a tagging system providing an improved ability to account for costs and value of IT assets. This association of an asset's value to its operational cost is one of the first steps in changing the cost center perception of IT within your organization.
 
 ## Resource naming
 
@@ -77,11 +77,11 @@ Your naming and tagging policy will evolve over time. However, determining your 
 
 ## Resource naming and tagging in Azure
 
-Although [Resource Groups](https://docs.microsoft.com/en-us/azure/architecture/cloud-adoption/appendix/azure-scaffold#resource-groups) provide the basic mechanism to logically group resources within your Azure subscriptions, [Naming Standards](https://docs.microsoft.com/en-us/azure/architecture/cloud-adoption/appendix/azure-scaffold#naming-standards) and [Resource Tags](https://docs.microsoft.com/en-us/azure/architecture/cloud-adoption/appendix/azure-scaffold#resource-tags) are the standard way to provide fine-tuned resource organization in the Azure platform for both management and accounting purposes.
+Although [Resource Groups](/azure/architecture/cloud-adoption/appendix/azure-scaffold#resource-groups) provide the basic mechanism to logically group resources within your Azure subscriptions, [Naming Standards](/azure/architecture/cloud-adoption/appendix/azure-scaffold#naming-standards) and [Resource Tags](/azure/architecture/cloud-adoption/appendix/azure-scaffold#resource-tags) are the standard way to provide fine-tuned resource organization in the Azure platform for both management and accounting purposes.
 
-For an example of best practice naming recommendations for Azure, refer to the [Patterns and Practices guidance](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions).
+For an example of best practice naming recommendations for Azure, refer to the [Patterns and Practices guidance](/azure/architecture/best-practices/naming-conventions).
 
-You can apply tags in Azure at both the resource group and individual resource level, allowing you a degree of flexibility in the granularity of any accounting reports based on applied tags. For details on how to apply and use tagging within Azure, see [Use tags to organize your Azure resources](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-using-tags?toc=/azure/billing/TOC.json).
+You can apply tags in Azure at both the resource group and individual resource level, allowing you a degree of flexibility in the granularity of any accounting reports based on applied tags. For details on how to apply and use tagging within Azure, see [Use tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags?toc=/azure/billing/TOC.json).
 
 The [Azure Virtual Datacenter model provides](vdc-naming.md) basic naming and tagging recommendations to support resource management and administration within a VDC deployment.
 

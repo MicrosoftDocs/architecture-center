@@ -9,7 +9,7 @@ ms.date: 12/11/2018
 
 ## Security guidance and tools
 
-Microsoft introduced the [Service Trust Platform](https://www.microsoft.com/en-us/trustcenter/stp/default.aspx) and Compliance Manager to help with the following:
+Microsoft introduced the [Service Trust Platform](https://www.microsoft.com/trustcenter/stp/default.aspx) and Compliance Manager to help with the following:
 
 * Overcome compliance management challenges
 * Fulfill responsibilities of meeting regulatory requirements

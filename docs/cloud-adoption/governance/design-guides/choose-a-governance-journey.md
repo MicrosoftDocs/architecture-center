@@ -16,25 +16,25 @@ To begin using a governance journey, choose one of the two options below. The op
 
 |Title  |[Small to Medium Enterprise](./small-to-medium-enterprise/overview.md)  |[Large Enterprise](./large-enterprise/overview.md)  |
 |---------|---------|---------|
-|Business units impacted     |Single Business Unit         |Multiple Business Units         |
-|Geography (Country or Geo-political region)     |Customers or Staff are largely in one geography         |Customers or Staff are supported by datacenters in multiple geographies         |
-|IT Budget     |Single IT budget         |Budget allocated across business units         |
+|Business units impacted |Single business unit | Multiple business units |
+|Geography (Country or geo-political region) | Customers or staff are largely in one geography | Customers or staff are supported by datacenters in multiple geographies |
+|IT budget |Single IT budget | Budget allocated across business units |
 
-## Current State (Before adopting Cloud Governance)
+## Current State (before adopting Cloud Governance)
 
-|Title  |[Small to Medium Enterprise](./small-to-medium-enterprise/overview.md)  |[Large Enterprise](./large-enterprise/overview.md)  |
+|Title | [Small to Medium Enterprise](./small-to-medium-enterprise/overview.md) | [Large Enterprise](./large-enterprise/overview.md) |
 |---------|---------|---------|
-|Datacenter or 3rd party hosting providers     |<5 datacenters         |>5 datacenters         |
-|Network     |No WAN, or 1-2 WAN providers         |Complex &/or Global WAN         |
-|Identity     |Single Forest, Single Domain. No requirement for Claims-based authentication or 3rd party MFA devices         |Complex, multiple forests, multiple domains. Applications will require Claims-based authentication &/or 3rd party MFA devices         |
+| Datacenter or 3rd party hosting providers | <5 datacenters | >5 datacenters |
+| Network | No WAN, or 1-2 WAN providers | Complex &/or Global WAN |
+|Identity | Single forest, single domain. No requirement for claims-based authentication or 3rd party MFA devices | Complex, multiple forests, multiple domains. Applications will require claims-based authentication &/or 3rd party MFA devices |
 
 ## Future State Evolutions (After evolving Cloud Governance)
 
-|Title  |[Small to Medium Enterprise](./small-to-medium-enterprise/overview.md)  |[Large Enterprise](./large-enterprise/overview.md)  |
+|Title  |[Small to Medium Enterprise](./small-to-medium-enterprise/overview.md) | [Large Enterprise](./large-enterprise/overview.md) |
 |---------|---------|---------|
-|Security Management – Protected Data      |Show-Back model. Billing is centralized through IT.         |Chargeback model. Billing could be distributed through IT procurement         |
-|Resource Management – Mission Critical Apps     |Company financial data & IP, limited customer data. No 3rd party compliance requirements         |Multiple collections of customers’ financial and PII data. May need to consider 3rd party compliance         |
-|Cost Management – Cloud Accounting     |Outages are painful but not financially damaging. Existing IT Operations is relatively immature         |Outages have defined and monitored financial impacts. IT Operations is established and mature.         |
+|Security management &mdash; protected data | Showback model. Billing is centralized through IT. | Chargeback model. Billing could be distributed through IT procurement. |
+|Resource management &mdash; mission critical apps | Company financial data & IP, limited customer data. No 3rd party compliance requirements. | Multiple collections of customer financial and PII data. May need to consider 3rd party compliance. |
+|Cost management &mdash; cloud accounting | Outages are painful but not financially damaging. Existing IT Operations is relatively immature. | Outages have defined and monitored financial impacts. IT Operations is established and mature. |
 
 ## Next steps
 

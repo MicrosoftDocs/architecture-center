@@ -11,7 +11,7 @@ In the [Intro to Cloud Governance](../overview.md), Security Management is one o
 
 Unlike the cloud-agnostic position used throughout Fusion, this article is Azure specific. The following is a list of Azure native tools that can help mature the policies and processes that support security management.
 
-|                                                            | [Azure Portal](https://azure.microsoft.com/en-us/features/azure-portal/) / [Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview)  | [Azure Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/)  | [Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis) | [Azure Policy](https://docs.microsoft.com/en-us/azure/governance/policy/overview) | [Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro) | [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview) |
+|                                                            | [Azure Portal](https://azure.microsoft.com/features/azure-portal/) / [Resource Manager](/azure/azure-resource-manager/resource-group-overview)  | [Azure Key Vault](/azure/key-vault)  | [Azure AD](/azure/active-directory/fundamentals/active-directory-whatis) | [Azure Policy](/azure/governance/policy/overview) | [Azure Security Center](/azure/security-center/security-center-intro) | [Azure Monitor](/azure/azure-monitor/overview) |
 |------------------------------------------------------------|---------------------------------|-----------------|----------|--------------|-----------------------|---------------|
 | Apply access controls to resources and resource creation   | Yes                             | No              | Yes      | No           | No                    | No            |
 | Secure virtual networks                                    | Yes                             | No              | No       | Yes          | No                    | No            |
@@ -25,8 +25,8 @@ Unlike the cloud-agnostic position used throughout Fusion, this article is Azure
 | Preemptively detect vulnerabilities                        | No                              | No              | No       | No           | Yes                   | No            |
 | Configure backup and disaster recovery                     | Yes                             | No              | No       | No           | No                    | No            |
 
-For a complete list of Azure security tools and services, see [Security services and technologies available on Azure](https://docs.microsoft.com/en-us/azure/security/azure-security-services-technologies).
+For a complete list of Azure security tools and services, see [Security services and technologies available on Azure](/azure/security/azure-security-services-technologies).
 
-It is also extremely common for customers to leverage third-party tools for facilitating security management activities. For more information, see the article [Integrate security solutions in Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-partner-integration).
+It is also extremely common for customers to leverage third-party tools for facilitating security management activities. For more information, see the article [Integrate security solutions in Azure Security Center](/azure/security-center/security-center-partner-integration).
 
-In addition to security tools, the [Microsoft Trust Center](https://www.microsoft.com/en-us/trustcenter/guidance/risk-assessment) contains extensive guidance, reports, and related documentation that can help you perform risk assessments as part of your migration planning process. 
+In addition to security tools, the [Microsoft Trust Center](https://www.microsoft.com/trustcenter/guidance/risk-assessment) contains extensive guidance, reports, and related documentation that can help you perform risk assessments as part of your migration planning process.

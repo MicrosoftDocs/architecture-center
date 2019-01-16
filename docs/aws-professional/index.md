@@ -210,7 +210,7 @@ Azure offers several compute services that do not have direct equivalents in AWS
 
 - [Azure Batch](/azure/batch/batch-technical-overview) allows you to manage compute-intensive work across a scalable collection of virtual machines.
 
-- [Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-overview) is a platform for developing and hosting scalable [microservice](/azure/service-fabric/service-fabric-overview-microservices) solutions.
+- [Service Fabric](/azure/service-fabric/service-fabric-overview) is a platform for developing and hosting scalable [microservice](/azure/service-fabric/service-fabric-overview-microservices) solutions.
 
 #### See also
 

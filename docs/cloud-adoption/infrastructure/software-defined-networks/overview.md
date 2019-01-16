@@ -27,7 +27,7 @@ to creating secure networks on a public cloud platform.
 
 Jump to: [PaaS Only](paas-only.md) | [Cloud native](cloud-native.md) | [Hybrid](hybrid.md) | [VDC: Hub/Spoke model](vdc-networking.md) | [Discovery questions](#choosing-the-right-virtual-networking-architectures)
 
-SDN provides several options with varying degrees of pricing and complexity. The above discovery guide provides a reference to quickly personalize these options to best align with specific business and technology strategies. 
+SDN provides several options with varying degrees of pricing and complexity. The above discovery guide provides a reference to quickly personalize these options to best align with specific business and technology strategies.
 
 The inflection point in this guide depends on several key decisions that your Cloud Strategy Team have made prior to making decisions about networking architecture. Most important among these are decisions involving your [Digital Estate definition](../../digital-estate/overview.md) and [Subscription Design](../subscriptions/overview.md) (which may also require inputs from decisions made related to your [cloud accounting](../../business-strategy/cloud-accounting.md) and [global markets](../../business-strategy/global-markets.md) strategies).
 
@@ -60,6 +60,7 @@ more of a decision list diagram or something similar. See below for a more
 detailed description of each architecture.\*
 
 ## Virtual networking architectures
+
 Learn more about the primary software defined networking architectures:
 
 - [**PaaS Only**](paas-only.md): Platform as a Service (PaaS) products support a limited set of built-in networking features and may not require an explicitly defined software defined network to support workload requirements.
@@ -69,45 +70,25 @@ Learn more about the primary software defined networking architectures:
 
 ## Azure Virtual Networks
 
-On Azure, the core SDN capability is provided by [Azure Virtual
-Network](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview),
-which acts as a cloud analog to physical on-premises networks. Virtual networks
-also act as the default isolation boundary between resources on the platform.
+On Azure, the core SDN capability is provided by [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview), which acts as a cloud analog to physical on-premises networks. Virtual networks also act as the default isolation boundary between resources on the platform.
 
-A virtual network is inaccessible from all other networks by default. Resources
-hosted within a virtual network cannot communicate with other virtual networks,
-external data centers, or the internet unless they are explicitly allowed to
-through a network policy. Rules and policies defined for the virtual network are
-inherited by all resources hosted within the virtual network.
+A virtual network is inaccessible from all other networks by default. Resources hosted within a virtual network cannot communicate with other virtual networks, external datacenters, or the internet unless they are explicitly allowed to through a network policy. Rules and policies defined for the virtual network are inherited by all resources hosted within the virtual network.
 
-Traffic inside a virtual network can be secured and managed through a
-combinations of network security groups
-([NSGs](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview)),
-user-defined routes
-([UDRs](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview)),
-and network virtual appliances
-([NVAs](https://azure.microsoft.com/en-us/solutions/network-appliances/)) or VMs
-serving as firewalls or other security devices. 
+Traffic inside a virtual network can be secured and managed through a combinations of network security groups ([NSGs](/azure/virtual-network/security-overview)),
+user-defined routes ([UDRs](/azure/virtual-network/virtual-networks-udr-overview)), and network virtual appliances ([NVAs](https://azure.microsoft.com/solutions/network-appliances/)) or VMs serving as firewalls or other security devices.
 
-This combination of virtual devices and rules creates isolation boundaries and protects 
-application deployments within the virtual network's boundaries, as it would be done using
-hardware devices within a physical data center.
+This combination of virtual devices and rules creates isolation boundaries and protects application deployments within the virtual network's boundaries, as it would be done using hardware devices within a physical datacenter.
 
 Virtual networks allow for the following:
 
 - Management of IP addresses for VM's or other resources
 - Definition of subnets
 - Implementation of access control policies
-- Creation of entire network infrastructures, with the same structural
-ability of traditional physical networks
+- Creation of entire network infrastructures, with the same structural ability of  traditional physical networks
 
 Virtual networks can also be connected to other Azure virtual networks using the
 [virtual network
-peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview)
-mechanism. They can also be connected to on-premises or other external networks
-using [ExpressRoute](https://azure.microsoft.com/en-us/services/expressroute/)
-or [VPN connections](https://azure.microsoft.com/en-us/services/vpn-gateway/).
-
+peering](/azure/virtual-network/virtual-network-peering-overview) mechanism. They can also be connected to on-premises or other external networks using [ExpressRoute](https://azure.microsoft.com/services/expressroute/) or [VPN connections](https://azure.microsoft.com/services/vpn-gateway/).
 
 ## Next steps
 

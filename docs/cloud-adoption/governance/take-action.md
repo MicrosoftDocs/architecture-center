@@ -60,7 +60,7 @@ To start applying a customer journey, choose one of the following two options. F
                 <div class="card">
                     <div class="cardText">
                         <h3>Small to Medium Enterprise</h3>
-                        <p>Governance Journey for enterprises that own less than 5 data centers and manage costs through a central IT or showback model.</p>
+                        <p>Governance Journey for enterprises that own less than 5 datacenters and manage costs through a central IT or showback model.</p>
                     </div>
                 </div>
             </div>
@@ -74,7 +74,7 @@ To start applying a customer journey, choose one of the following two options. F
                 <div class="card">
                     <div class="cardText">
                         <h3>Large Enterprise</h3>
-                        <p>Governance Journey for enterprises that own more than 5 data centers and manage costs across multiple business units.</p>
+                        <p>Governance Journey for enterprises that own more than 5 datacenters and manage costs across multiple business units.</p>
                     </div>
                 </div>
             </div>

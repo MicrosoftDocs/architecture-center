@@ -54,7 +54,6 @@ The most relevant change in the current state is regarding protected data. The C
 
 ![TCO cost comparison of the cloud migration project, resulting in a $100M USD cost reduction](../../../_images/governance/calculator-enterprise.png)
 
-
 * Additionally IT has developed a business justification for migrate 5 more datacenters to Azure, which further decrease IT costs and produce greater business agility. While smaller in scale, the retirement of those datacenters is expected to double the cost savings.
 * Early experiments from App Dev and BI have produced early improvements in customer experiences and data-driven decisions. Both team would like to expand adoption of the cloud over the next 18 months.
 * Capital expense and operational expense budgets have been allocated to fund the implementation of security and governance policies, tools, and processes. The forecasted cost savings from the datacenter retirement are more than sufficient to offset this new initiative. IT and Business Leadership are confident this temporary investment will accelerate the realization of additional returns in other areas.

@@ -154,12 +154,12 @@ To deploy this architecture, first create an Azure Databricks environment to pre
 [notebook]: https://github.com/Microsoft/Recommenders/notebooks/00_quick_start/als_pyspark_movielens.ipynb
 [partition-data]: /azure/cosmos-db/partition-data
 [redis]: /azure/redis-cache/cache-overview
-[regions]: https://azure.microsoft.com/en-us/global-infrastructure/services/?products=virtual-machines&regions=all
+[regions]: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all
 [resiliency]: /azure/architecture/resiliency/
 [ru]: /azure/cosmos-db/request-units
 [sec-docs]: /azure/security/
 [setup]: https://github.com/Microsoft/Recommenders/blob/master/SETUP.md%60
 [scale]: /azure/aks/tutorial-kubernetes-scale
-[sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_8/
+[sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/
 [vm-size]: /azure/virtual-machines/virtual-machines-linux-change-vm-size
 [workspace]: https://docs.azuredatabricks.net/getting-started/index.html

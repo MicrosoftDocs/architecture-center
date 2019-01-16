@@ -14,9 +14,9 @@ ms.date: 12/29/2018
 
 Jump to: [IP Policy](#ip-policy) | [On-premises connectivity](#on-premises-connectivity) | [Hub network](#hub-network) | [Spoke networks](#spoke-networks) | [Virtual network integration with PaaS](#virtual-network-integration-with-paas)
 
-![Example hub and spoke structure of a virtual data center, including connection to on-premises network](../../_images/infra-sdn-figure3.png)
+![Example hub and spoke structure of a virtual datacenter, including connection to on-premises network](../../_images/infra-sdn-figure3.png)
 
-The [Azure Virtual Data Center](../virtual-datacenter/overview.md) is an approach designed to assist organizations in deploying large number of workloads and services to the Azure public cloud platform, while preserving key aspects of your existing security, policy compliance, and general IT governance practices. The networking architecture for a virtual datacenter (VDC) was first discussed in depth in Jon Ormond's article [Azure virtual datacenter: A network perspective](https://docs.microsoft.com/en-us/azure/architecture/vdc/networking-virtual-datacenter).
+The [Azure Virtual Datacenter](../virtual-datacenter/overview.md) is an approach designed to assist organizations in deploying large number of workloads and services to the Azure public cloud platform, while preserving key aspects of your existing security, policy compliance, and general IT governance practices. The networking architecture for a virtual datacenter (VDC) was first discussed in depth in Jon Ormond's article [Azure virtual datacenter: A network perspective](https://docs.microsoft.com/en-us/azure/architecture/vdc/networking-virtual-datacenter).
 
 As with other hybrid cloud architectures, the VDC hub network hosts a connection to on-premises and other external networks (via ExpressRoute or VPN) and contains user-defined routes (UDRs), network virtual appliances (NVAs), and other routing and security devices to manage traffic from workloads to external on-premises networks and vice versa.
 

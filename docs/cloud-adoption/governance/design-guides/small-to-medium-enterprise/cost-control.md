@@ -32,7 +32,7 @@ The changes to current and future state expose new risks that will require new p
 
 ### New Risks
 
-**Cost Increases:** There is an inherent risk that self-service capabilities will result in excessive and unexpected costs on the new platform. Governance processes for monitoring costs and mitigating on-going cost risks must be in place to ensure continued alignment with the planned budget.
+**Cost Increases:** There is an inherent risk that self-service capabilities will result in excessive and unexpected costs on the new platform. Governance processes for monitoring costs and mitigating ongoing cost risks must be in place to ensure continued alignment with the planned budget.
 This business risk can be expanded into a few technical risks
 
 * There is a risk of actual costs exceeding the plan

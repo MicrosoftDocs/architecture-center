@@ -27,9 +27,9 @@ These basic processes will help align spending and establish a foundation for th
 
 ## Compliance violation triggers and enforcement actions
 
-When violations are detected, you should take enforcement actions to realign with policy. You can automate most violation triggers using the tools outlined in the [Azure-Specific Toolchain](./toolchain.md).
+When violations are detected, you should take enforcement actions to realign with policy. You can automate most violation triggers using the tools outlined in the [Azure-Specific Toolchain](toolchain.md).
 
-The following are examples of triggers: 
+The following are examples of triggers:
 
 * Monthly budget deviations: Disuss any deviations in monthly spend exceeding 20% Forecast versus Actual ratio with billing unit leader. Record resolutions and changes in forecast.
 * Pace of adoption: Any deviation at a subscription level exceeding 20% will trigger a review with billing unit leader. Record resolutions and changes in forecast.

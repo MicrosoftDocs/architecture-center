@@ -11,9 +11,9 @@ In the [Intro to Cloud Governance](../overview.md), [Cost Management](overview.m
 
 Unlike the cloud-agnostic position used throughout Fusion, this article is Azure specific. The following is a list of Azure native tools that can help mature the policies and processes that support this governance discipline.
 
-|  | [Azure Portal](https://azure.microsoft.com/en-us/features/azure-portal/)  | [Azure Cost Management](https://docs.microsoft.com/en-us/azure/cost-management/overview-cost-mgt)  | [Azure EA Content Pack](https://docs.microsoft.com/en-us/power-bi/service-connect-to-azure-enterprise)  | [Azure Policy](https://docs.microsoft.com/en-us/azure/governance/policy/overview) |
+|  | [Azure Portal](https://azure.microsoft.com/features/azure-portal/)  | [Azure Cost Management](/azure/cost-management/overview-cost-mgt)  | [Azure EA Content Pack](/power-bi/service-connect-to-azure-enterprise)  | [Azure Policy](/azure/governance/policy/overview) |
 |---------|---------|---------|---------|---------|
-|Enterprise agreement required?     | No         | Yes (not required with [Cloudyn](https://docs.microsoft.com/en-us/azure/cost-management/overview))         | Yes         | No         |
+|Enterprise agreement required?     | No         | Yes (not required with [Cloudyn](/azure/cost-management/overview))         | Yes         | No         |
 |Budget control     | No         | Yes         | No         | Yes         |
 |Monitor spend on single resource    | Yes         | Yes         | Yes         | No         |
 |Monitor spend across multiple resources    | No         | Yes        | Yes         | No         |

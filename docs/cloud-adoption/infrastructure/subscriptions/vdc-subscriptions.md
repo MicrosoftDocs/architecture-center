@@ -21,7 +21,7 @@ To support the secure deployment and management of resources across a VDC, all s
 
 ## Geo-regional considerations
 
-Although subscriptions can host resources in multiple Azure regions, many organizations structure their subscription designs with geographic or sovereignty requirements in mind. [Global VNet Peering](https://azure.microsoft.com/en-us/blog/global-vnet-peering-now-generally-available/) allows a VDC to connect between virtual networks hosted on different subscriptions and regions.
+Although subscriptions can host resources in multiple Azure regions, many organizations structure their subscription designs with geographic or sovereignty requirements in mind. [Global VNet Peering](https://azure.microsoft.com/blog/global-vnet-peering-now-generally-available/) allows a VDC to connect between virtual networks hosted on different subscriptions and regions.
 
 Deploying all VDC resources to the same region minimizes latency between hub and spoke environments for high-performance workloads and avoids cross-region policy issues. If your subscription design will result in a VDC that crosses regions, carefully consider any policy or performance impacts.
 
