@@ -15,24 +15,25 @@ The best security management tools in the cloud are only as good as the processe
 
 **Deployment planning**: Prior to deployment of any asset, perform a security review to ensure all access and data security policy requirements are met.
 
+**Deployment testing**: As part of the deployment process for any asset the security team will be responsible for reviewing any resource deployment to validate security policy compliance.
+
 **High-level security planning**: Every 6-12 months perform a high-level review of security management strategy. Explore future corporate priorities and updated cloud adoption strategies to identify potential risk increase and other emerging security needs. Also use this time to review the latest security management best practices and integrate these into your policies and review processes.
 
-**Quarterly security review**: On a quarterly basis perform a review of security audit data and incident reports to identify any changes required in security policy. As part of this process, review the current cybersecurity landscape to proactively anticipate emerging threats, and update policy as appropriate. After the review is complete, align design guidance with updated policy. 
+**Quarterly review and planning**: On a quarterly basis perform a review of security audit data and incident reports to identify any changes required in security policy. As part of this process, review the current cybersecurity landscape to proactively anticipate emerging threats, and update policy as appropriate. After the review is complete, align design guidance with updated policy. 
 
-**Engineering training**
- On a bi-monthly basis, perform training session to make sure engineers are up-to-date on the latest security policy requirements. As part of this process review and update any documentation, guidance, or other training assets to ensure they are in sync with the latest corporate policy statements.
+**Education and Training**: On a bi-monthly basis, offer training sessions to make sure IT staff and developers are up-to-date on the latest security policy requirements. As part of this process review and update any documentation, guidance, or other training assets to ensure they are in sync with the latest corporate policy statements.
 
 **Monthly audit and reporting reviews**: On a monthly basis, perform an audit on all cloud deployments to assure their continued alignment with security policy. Review security related activities with IT staff and identify any compliance issues not already handled as part of the ongoing monitoring and enforcement process. The result of this review is a report for the Cloud Strategy Team and each Cloud Adoption Team to communicate overall adherence to policy. The report is also stored for auditing and legal purposes.
 
-**Ongoing monitoring and enforcement reporting**: Because security non-compliance can lead to critical and time-sensitive data exposure and service disruption risks, the cloud governance team should have visibility into serious policy violations. Ensure IT staff have clear escalation paths for reporting security issues to the governance team members best suited to identifying and verifying policies issues are mitigated.  
+## Ongoing monitoring, violation triggers and enforcement actions
 
-## Violation triggers and enforcement actions
+Because security non-compliance can lead to critical and data exposure and service disruption risks, the cloud governance team should have visibility into serious policy violations. Ensure IT staff have clear escalation paths for reporting security issues to the governance team members best suited to identifying and verifying that policies issues are mitigated.  
 
-When violations are detected, you should take enforcement actions to realign with policy. You can automate most violation triggers using the tools outlined in the [Azure-Specific Toolchain](toolchain.md).
+When violations are detected, you should take actions to realign with policy as soon as possible. You can automate most violation triggers using the tools outlined in the [Azure-Specific Toolchain](toolchain.md).
 
-The following are examples of security triggers:
+The following are examples of security triggers and enforcement actions:
 
-- Increase in attacks detected: If any resource experiences an 25% increase in brute force or DDoS attacks, discuss with IT security staff and workload owner to determine remedies. Track issue and update guidance if policy revision is necessary to mitigate future incidents.
+- Increase in attacks detected: If any resource experiences an 25% increase in brute force or DDoS attacks, discuss with IT security staff and workload owner to determine remedies. Track issue and update guidance if policy revision is necessary to prevent future incidents.
 - Unclassified data detected: Any data source without an appropriate privacy, security, or business impact classification will have external access denied until the classification is applied by the data owner and the appropriate level of data protection applied.
 - Security health issue detected: Disable any virtual machines(VMs) that have known access or malware vulnerabilities identified until appropriate patches or security software can be installed. Update policy guidance to account for any newly detected threats.
 - Network vulnerability detected: Access to any resource not explicitly allowed by the network access policies should trigger an alert to IT security staff and the relevant workload owner. Track issue and update guidance if policy revision is necessary to mitigate future incidents.
