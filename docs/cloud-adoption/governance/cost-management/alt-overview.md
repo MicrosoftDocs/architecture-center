@@ -24,7 +24,7 @@ The cost management discipline attempts to address the following business risks.
 
 ## Risk tolerance
 
-During early deployments, such as Dev/Test or first workloads, cost management is likely to be relatively low risk. As more assets are deployed, the risk grows and the business' tolerance for risk is likely to decline. Additionally, as your cloud adoption team acheives the ability to configure and deploy assets to the cloud, risks will grow and tolerance will decrease. Conversely, growing a cost management discipline will take you from adoption to the cloud towards deploying more innovative new technologies.
+During early deployments, such as Dev/Test or first workloads, cost management is likely to be relatively low risk. As more assets are deployed, the risk grows and the business' tolerance for risk is likely to decline. Additionally, as your cloud adoption team achieves the ability to configure and deploy assets to the cloud, risks will grow and tolerance will decrease. Conversely, growing a cost management discipline will take you from adoption to the cloud towards deploying more innovative new technologies.
 
 In the early stages of cloud adoption, work with your business to determine a risk tolerance baseline. With this baseline, next determine the criteria that will trigger an investment in cost management, which will be different for each business.
 
@@ -67,7 +67,7 @@ In addition to the core processes for establishing and monitoring the baseline, 
 
 **Poor user experience:** If user experience is more important than asset costs, the opposite type of policy may be important for some assets. For instance, the policy may state that any asset that hosts a customer facing web or mobile property must scale to meet performance service level agreements (SLAs). For example, requiring scale sets for any asset with port 80 open will enforce such a policy. Azure Policy and Azure Blueprints can help enforce the rule in an Azure environment.
 
-Use any of these corporate policies or create new ones. The goal of each policy is to advance a cost management discipline in your organization. Ultimately, the goal is for you to mitigate risks that can't be tolerated, with as little resistance to cloud adoption as is possible. Balancing risk, tolerance, and policy will create cloud goverance disciplines that are easy to enforce and safe for the business to operate.
+Use any of these corporate policies or create new ones. The goal of each policy is to advance a cost management discipline in your organization. Ultimately, the goal is for you to mitigate risks that can't be tolerated, with as little resistance to cloud adoption as is possible. Balancing risk, tolerance, and policy will create cloud governance disciplines that are easy to enforce and safe for the business to operate.
 
 ## Next steps
 

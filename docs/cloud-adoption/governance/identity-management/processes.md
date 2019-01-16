@@ -30,7 +30,7 @@ When violations are detected, you should take actions to realign with policy as 
 The following are examples of identity related triggers and enforcement actions:
 
 - Suspicious activity detected: Users logins detected from anonymous proxy IP addresses, unfamiliar locations, or successive logins from impossibly distant geographical locations may indicate a potential account breach or malicious access attempt. Login will be blocked until user identity can be verified and password reset.
-- Leaked user credentials: Accounts that have their username and password detected on the public internet will bedisabled until user identity can be verified and password reset.
+- Leaked user credentials: Accounts that have their username and password leaked to the internet will be disabled until user identity can be verified and password reset.
 - Insufficient access controls detected: Any protected assets where access restrictions do not meet security requirements will have access blocked until the resource is brought into compliance.
 
 ## Next steps

@@ -104,7 +104,7 @@ The first workload is often deployed in an experimental environment with no oper
 
 ### Qualitative analysis
 
-The Cloud Adoption and Cloud Strategy teamss can work together to analyze this small workload. This creates a controlled opportunity to create and test qualitative analysis criteria. The smaller population creates an opportunity to survey the impacted users, to complete a detailed qualitative analysis in a week or less. For common qualitative analysis factors, see the specific rationalization target in the [5 Rs of Rationalization](5-rs-of-rationalization.md).
+The Cloud Adoption and Cloud Strategy teams can work together to analyze this small workload. This creates a controlled opportunity to create and test qualitative analysis criteria. The smaller population creates an opportunity to survey the impacted users, to complete a detailed qualitative analysis in a week or less. For common qualitative analysis factors, see the specific rationalization target in the [5 Rs of Rationalization](5-rs-of-rationalization.md).
 
 ### Migration
 
