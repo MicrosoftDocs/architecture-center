@@ -5,6 +5,8 @@ author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
+<!-- markdownlint-disable MD026 -->
+
 # Fusion: How can a company add Configuration Management discipline to their Cloud Governance execution?
 
 In the [Intro to Cloud Governance](../overview.md), Configuration Management is defined as one of the five disciplines of Cloud Governance. This discipline focuses on ways of establishing policies to govern asset configuration or deployment. Within the five disciplines of Cloud Governance, configuration governance includes deployment, configuration alignment, and high availability/disaster recovery (HA/DR) strategies. This could be through manual activities or fully automated DevOps activities. In either case, the policies would remain largely the same.
@@ -45,7 +47,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 * Implement your [Configuration Management Tool Chain](toolchain.md) out in a pre-deployment phase.
 * Update the Architecture Guidelines document and distribute to key stakeholders.
-* Develop educational materials and documentation, awareness communications, incentives and other programs to help drive user adoption.
+* Develop educational materials and documentation, awareness communications, incentives, and other programs to help drive user adoption.
 
 **Potential activities:**
 
@@ -64,7 +66,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 * Migrate your [Configuration Management Tool Chain](toolchain.md) from pre-deployment to production.
 * Update the Architecture Guidelines document and distribute to key stakeholders.
-* Develop educational materials and documentation, awareness communications, incentives and other programs to help drive user adoption.
+* Develop educational materials and documentation, awareness communications, incentives, and other programs to help drive user adoption.
 
 **Potential activities:**
 
@@ -99,3 +101,5 @@ Once the transformation is complete, governance and operations must live on for 
 # Next steps
 
 When planning your deployment, you will need to consider where logging data is stored and how you integrate cloud-based [reporting and monitoring services](../../infrastructure/logs-and-reporting/overview.md) with your existing processes and tools.
+
+<!-- markdownlint-enable MD026 -->

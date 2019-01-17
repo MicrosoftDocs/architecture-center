@@ -122,7 +122,7 @@ Many of the [business risk, policy statements](./corporate-policy.md) and [objec
 
 - All subscriptions must have a published blueprint.
 - Resource groups will be defined within the blueprint.
-- Azure Policy(s) are to be applied to all Resource Groups within the subscription. However, the level of policies being enforced will be very limited.
+- Azure Policy will be applied to all Resource Groups within the subscription. However, the level of policies being enforced will be very limited.
 - RBAC role assignments are to be specified in each blueprint.
 
 ## Assumptions and Additional Considerations

@@ -7,7 +7,7 @@ ms.date: 1/3/2019
 
 # Fusion: Motivations and business risks that drive cost governance
 
-This article discusses the reasons that customers typically adopt a cost management discipline within a cloud governance strategy. It also provides a few examples of business risks which drive policy statements.
+This article discusses the reasons that customers typically adopt a cost management discipline within a cloud governance strategy. It also provides a few examples of business risks that drive policy statements.
 
 ## Is cost management relevant?
 
