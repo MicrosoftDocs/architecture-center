@@ -1,44 +1,12 @@
-# Building an enterprise grade conversational bot
+# Enterprise-grade conversational bot
 
-This reference architecture describes how to build an enterprise grade conversational bot using the [Azure Bot Framework](https://dev.botframework.com/). Each bot is different, of course, but there are some common patterns, workflows, and technologies to be aware of before you dive in. Especially for a bot to serve enterprise-grade workloads, there are many design considerations beyond just the core functionality. This article covers the most essential design aspects, and introduces the tools needed to build a robust, secure, and actively learning bot.
+This reference architecture describes how to build an enterprise-grade conversational bot (chatbot) using the [Azure Bot Framework](https://dev.botframework.com/). Each bot is different, of course, but there are some common patterns, workflows, and technologies to be aware of. Especially for a bot to serve enterprise workloads, there are many design considerations beyond just the core functionality. This article covers the most essential design aspects, and introduces the tools needed to build a robust, secure, and actively learning bot.
 
 ![Diagram of the architecture](./_images/conversational-bot.png)
 
 ## Architecture
 
-At a high level, a conversational bot can be divided into the bot functionality (the "brain") and a set of surrounding requirements (the "body"). The brain includes the domain-aware components, including the bot logic and ML capabilities. Other components are domain agnostic and address non-functional requirements such as CI/CD, quality assurance, and security.
-
-![Logical diagram of bot functionality](./_images/conversational-bot-logical.png)
-
-Before getting into the specifics of this architecture, let's start with the data flow through each subcomponent of the design. The data flow includes user-initiated and system-initiated data flows.
-
-### User message flow
-
-**Authentication**. Users start by authenticating themselves using whatever mechanism is provided by their channel of communication with the bot. The bot framework supports many communciation channels, including Cortana, Microsoft Teams, Facebook Messenger, Kik, and Slack. For a list of channels, see [Connect a bot to channels](/azure/bot-service/bot-service-manage-channels). The bot is configured with channels to create a connection between the bot and the user. You can also connect the bot to a custom app by using the [Direct Line](/azure/bot-service/bot-service-channel-connect-directline) channel.
-
-**Authorization**. The user's identity is used to provide role-based access control, as well as to serve personalized content to the user.
-
-**User message**. Once authenticated, the user sends a message to the bot. The bot reads the message and routes it to a natural language understanding service such as [LUIS](/azure/cognitive-services/luis/). This step gets the **intents** (what the user wants to do) and **entities** (what things the user is interested in) from the message. The bot passes these intents and entities to another service that serves information, such as AzureSearch for document retrieval, [QnA Maker](https://www.qnamaker.ai/) for FAQs, or a custom knowledge base to find the best match for a response.
-
-**Response**. At this point, the bot has determined the best response and sends it to the user. If the confidence score of the best-matched answer is low, the response might be a disambiguation question or even acknowledgement that the bot could not reply adequately.
-
-**Logging**. When a user request is received or a response is sent, all conversation actions should be logged to a logging store, along with performance metrics and general errors from externally called services. These logs will be useful later when diagnosing issues and improving the system. The bot developers can take advantage of the convenience [log utilities](https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-feedback) available as open source code to standardize and jump start this effort.
-
-**Feedback**. Another good practice, at least in the early rollout stages of the bot, is to enable the bot to collect user feedback and satisfaction scores. The feedback proves useful in eliminating the cold start problem of natural language understanding of the bot and continually improving the system (bot) accuracy. As a follow up to the bot's final response, the bot should ask the user to rate his or her satisfaction with the reply. This can be easily implemented using a [feedback collection utility](https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-feedback) available as open source code.
-
-### System Data Flow
-
-The raw data in the data backend could originate from structured sources (e.g. SQL database), semi-structured sources (e.g. CRM system , FAQs) or unstructured stores (e.g. Word docs, PDFs, raw web logs, etc. in SharePoint or Azure Blog Storage). The data source preparation and management subsystem extracts the data on a fixed schedule orchestrated by Azure Data Factory, Azure Functions, or Web Logic. The content is transformed and enriched, then loaded into an intermediary store implemented by using Cosmos DB or Azure Blob Storage.
-
-The intermediary store content is indexed into Azure Search for document retrieval, loaded into QnA Maker to create question and answer pairs, loaded into a custom web app for unstructured text processing, and used to train a LUIS model for intent and entity extraction.
-
-The conversation logs captured by the bot as part of user interactions (anonymized) are used to diagnose and fix bugs, provide insight into how the bot is being used, and track the overall performance. A performance dashboard and email alert notification system allow the devops team to stay on top of issues as they arise. The feedback data is also particularly useful in retraining the AI models to improve bot performance.
-
-Bot functionality is tested using a suite of tests collected from the bot using a convenience utility called the [Bot Middleware Testing Package](https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-http-test-recorder) available as open source code. This package records all responses from external HTTP services, such as Azure Search, QnA Maker, etc. so that they can be played back during unit testing without needing to make real network calls to external services.
-
-## Services used
-
-The services shown below are indicative of those used by most bots, but you may end up using more or needing services to suit the needs of each of the solution sub-components shown in the diagram below.
+The architecture shown here uses the following Azure services. Your own bot may not use all of these, or may incorporate additional services.
 
 ### Bot logic and user experience
 
@@ -50,7 +18,7 @@ The services shown below are indicative of those used by most bots, but you may 
 
 **[Language Understanding][luis]** (LUIS). Part of [Azure Cognitive Services][cognitive-services], LUIS enables your bot to understand natural language by identifying user intents and entities.
 
-**[Azure Search][search]**. Search is a managed service tha provides a quick searchable document index.
+**[Azure Search][search]**. Search is a managed service that provides a quick searchable document index.
 
 **[QnA Maker][qna-maker]**. QnA Maker is a cloud-based API service that creates a conversational, question-and-answer layer over your data. Typically, it's loaded with semi-structured content such as FAQs. Use it to create a knowledge base for answering natural-language questions.
 
@@ -61,21 +29,53 @@ The services shown below are indicative of those used by most bots, but you may 
 - AppInsights – Used to log web application metrics for monitoring, diagnostic, and analytical purposes.
 - PowerBI (PBI) – Used to create visually appealing dashboards for data exploration and analysis.
 
-### Data ingestiong
+### Data ingestion
 
 The bot will rely on raw data that must be ingested and prepared. Consider any of the following options to orchestrate this process:
 
-**[Azure Data Factory][data-factory]. Data Factory orchestrates and automates data movement and data transformation. You can find a Data Factory reference architecture [here][data-factory-ref-arch].
+**[Azure Data Factory][data-factory]**. Data Factory orchestrates and automates data movement and data transformation. You can find a Data Factory reference architecture [here][data-factory-ref-arch].
 
-[Logic Apps][logic-apps]. Logic Apps is a serverless platform for building workflows that integrate applications, data, and services. Logic Apps provides data connectors for numerous applications, including Office 365.
+[Logic Apps][logic-apps]**. Logic Apps is a serverless platform for building workflows that integrate applications, data, and services. Logic Apps provides data connectors for numerous applications, including Office 365.
 
 **[Azure Functions][functions]**. You can use Azure Functions to write custom serverless code is invoked by a [trigger][functions-triggers] &mdash; for example, whenever a documented is added to blob storage or Cosmos DB.
 
-## Security and governance
+### Security and governance
 
-Azure Active Directory (AAD) – User identity platform used across a wide array of services.
+**[Azure Active Directory](** (AAD). Users authenticate through an identity provider such as Azure AD. The Bot Service handles the authentication flow and OAuth token management. See [Add authentication to your bot via Azure Bot Service][bot-authentication].
 
 **[Azure Key Vault][key-vault]**. Store credentials and other secrets using Key Vault.
+
+## Design considerations
+
+At a high level, a conversational bot can be divided into the bot functionality (the "brain") and a set of surrounding requirements (the "body"). The brain includes the domain-aware components, including the bot logic and ML capabilities. Other components are domain agnostic and address non-functional requirements such as CI/CD, quality assurance, and security.
+
+![Logical diagram of bot functionality](./_images/conversational-bot-logical.png)
+
+Before getting into the specifics of this architecture, let's start with the data flow through each subcomponent of the design. The data flow includes user-initiated and system-initiated data flows.
+
+### User message flow
+
+**Authentication**. Users start by authenticating themselves using whatever mechanism is provided by their channel of communication with the bot. The bot framework supports many communciation channels, including Cortana, Microsoft Teams, Facebook Messenger, Kik, and Slack. For a list of channels, see [Connect a bot to channels](/azure/bot-service/bot-service-manage-channels). The bot is configured with channels to create a connection between the bot and the user. You can also connect the bot to a custom app by using the [Direct Line](/azure/bot-service/bot-service-channel-connect-directline) channel. The user's identity is used to provide role-based access control, as well as to serve personalized content.
+
+**User message**. Once authenticated, the user sends a message to the bot. The bot reads the message and routes it to a natural language understanding service such as [LUIS](/azure/cognitive-services/luis/). This step gets the **intents** (what the user wants to do) and **entities** (what things the user is interested in). The bot then builds a query that it passes to a service that serves information, such as Azure Search for document retrieval, [QnA Maker](https://www.qnamaker.ai/) for FAQs, or a custom knowledge base. The bot uses these results to construct a response. To give the best result for a  given query, the bot might make several back-and-forth calls to these remote services.
+
+**Response**. At this point, the bot has determined the best response and sends it to the user. If the confidence score of the best-matched answer is low, the response might be a disambiguation question or an acknowledgement that the bot could not reply adequately.
+
+**Logging**. When a user request is received or a response is sent, all conversation actions should be logged to a logging store, along with performance metrics and general errors from external services. These logs will be useful later when diagnosing issues and improving the system.
+
+**Feedback**. Another good practice is to collect user feedback and satisfaction scores. As a follow up to the bot's final response, the bot should ask the user to rate his or her satisfaction with the reply. Feedback can help you to solve the cold start problem of natural language understanding, and continually improve the accuracy of responses.
+
+### System Data Flow
+
+**ETL**. The bot relies on raw data in the back-end. This data might be structured (SQL database), semi-structured (CRM system, FAQs), or unstructured (Word documents, PDFs, web logs). An ETL subsystem extracts the data on a fixed schedule. The content is transformed and enriched, then loaded into an intermediary data store, such as Cosmos DB or Azure Blob Storage.
+
+Data in the intermediary store is then indexed into Azure Search for document retrieval, loaded into QnA Maker to create question and answer pairs, or loaded into a custom web app for unstructured text processing. It is also used train a LUIS model for intent and entity extraction.
+
+**Quality assurance**. The conversation logs are used to diagnose and fix bugs, provide insight into how the bot is being used, and track overall performance. Feedback data is also useful for retraining the AI models to improve bot performance.
+
+**Monitoring**. Create a performance dashboard for the DevOps team, and set up alerts so that operators are aware of critical issues as they arise. 
+
+**Testing**. For testing, we recommend recording real HTTP responses from external services, such as Azure Search or QnA Maker, so they can be played back during unit testing without needing to make real network calls to external services.
 
 ## Building a bot
 
@@ -107,15 +107,11 @@ There are many more AI services that can be used by your bot to further enrich t
 
 Should you want to integrate your own custom AI service, that is an option as well. In this case, you have complete flexibility on what you want to do, as you control the machine learning algorithm, training and the model. For example, you could implement your own topic modelling and use algorithm such as the [LDA](https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation) for finding relevant information or answers from a set of a documents. A good approach here would be to expose your custom AI solution as a web service endpoint hosted on a WebApp, virtual machine or a cluster of machines and call the endpoint from the core bot logic. To assist you with custom AI, Azure Machine Learning provides a number of services and libraries to assist you in [training](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training) and [deploying](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment) your models.
 
-## Security considerations
 
-For an enterprise bot that could potentially expose user and company confidential information, or be the target of denial of service attacks, security is a serious issue. Restricting who can log and use the bot and limiting which data can be accessed based on the user's identity or role is required. This type of user identity and data protection can be achieved using Azure Active Directory for identity and access control and Azure Key Vault for key and secrets management.
 
-## Logging
+## Logging and feedback
 
 It's not a good idea flying blind when it comes to understanding how your bot is being used or how it's performing. You need to log user conversations with the bot, including the underlying performance metrics and any errors that occurred. These logs will prove invaluable when it comes to debugging issues, understanding user interactions, and improving the system. You can implement logging by using [transcript logging middleware](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-debug-transcript?view=azure-bot-service-4.0) for your bot. Different types of logs might be better suited for different stores. For example, AppInsights might be best for web logs, CosmosDB might be best for conversations, and Azure Storage (azure transcript storage as part of the bot framework) might be best for large payloads.
-
-## Feedback
 
 It's also important to understand how satisfied users are with their bot interactions. If you have a record of user feedback, you can use this data to focus your efforts on improving certain interactions and retraining the AI models for improved performance. You can use the [Feedback Middleware](https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-feedback) to directly ask users to provide optional feedback for each bot response. This feedback should be used to retrain the models, such as LUIS, in your system.
 
@@ -136,29 +132,37 @@ The last three sections use the Botbuilder Utils for JavaScript. This repo conta
 
 Keeping your enterprise bot up and running during maintenance or heavy load is essential. As you roll out new features or bug fixes to your bot, it is best to employ multiple deployment environments, such as staging and production. Using deployment slots from Azure DevOps allows you to do this with zero downtime. You can test your latest upgrades in the staging environment prior to swapping them to the production environment. As for handling load, bots are deployed as Azure WebApps, which are designed to scale up or out manually or automatically. Because your bot is hosted in Microsoft's global datacenter infrastructure, the App Service SLA promises high availability.
 
+## Security considerations
+
+For an enterprise bot that could potentially expose user and company confidential information, or be the target of denial of service attacks, security is a serious issue. Restricting who can log and use the bot and limiting which data can be accessed based on the user's identity or role is required. This type of user identity and data protection can be achieved using Azure Active Directory for identity and access control and Azure Key Vault for key and secrets management.
+
 ## Monitoring and reporting
 
 Now that your enterprise bot is up and running, you will need a devops team to keep it that way. Constant monitoring of the system will be needed to ensure its operating at peak performance. The logs being sent to AppInsights or CosmosDB will be used to create effective monitoring dashboards, either using AppInsights itself, PowerBI, or possibly a custom webapp dashboard. Errors or performance levels falling below an acceptable threshold will result in email notifications to the devops team.
 
-## Automated Resource Deployment
+## Deployment considerations
+
+### Automated Resource Deployment
 
 Of course, the bot itself is only part of a larger ecosystem needed to provide it with the latest data and to ensure its proper operation. All of these other Azure resources – data orchestration services such as ADF, Web Logic, or Azure functions, storage services such as Azure Storage Blob or Cosmos DB, etc. – need to be deployed. Azure Resource Manager provides a consistent management layer that you can access through Azure Portal, Client SDKs, REST API, Azure PowerShell and Azure CLI. For speed and consistency, it's best to automate your deployment using one of these approaches.
 
-## Continuous Bot Deployment
+### Continuous Bot Deployment
 
 Deploying your bot logic itself can be done directly from your IDE, such as Visual Studio. You can also use the command line, such as the Azure CLI. As your bot matures, it's best to use a continual deployment process using a CI/CD solution such as Azure DevOps, as described in the article [Set up continuous deployment](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-build-continuous-deployment?view=azure-bot-service-4.0). This is a good way to ease the friction in testing out new features and fixes in your bot in a near production environment. Speaking of which, and as discussed above under availability, it's a good idea to have multiple deployment environments, typically at least staging and production. Azure DevOps supports this as well, allowing you to deploy to multiple deployment slots.
 
 <!-- links -->
 
 [app-service]: /azure/app-service/
+[bot-authentication]: /azure/bot-service/bot-builder-authentication
 [bot-framework-service]: /azure/bot-service/bot-builder-basics
 [cognitive-services]: /azure/cognitive-services/welcome
 [data-factory]: /azure/data-factory/
 [data-factory-ref-arch]: ../data/enterprise-bi-adf.md
 [functions]: /azure/azure-functions/
 [functions-triggers]: /azure/azure-functions/functions-triggers-bindings
-[logic-apps]: azure/logic-apps/logic-apps-overview
+[key-vault]: /azure/key-vault/
+[logging-utilities]
+[logic-apps]: /azure/logic-apps/logic-apps-overview
 [luis]: /azure/cognitive-services/luis/
 [qna-maker]: /azure/cognitive-services/QnAMaker/index
 [search]: /azure/search/
-[key-vault]: /azure/key-vault/
