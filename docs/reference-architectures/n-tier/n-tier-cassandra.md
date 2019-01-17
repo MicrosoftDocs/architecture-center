@@ -9,7 +9,7 @@ ms.custom: seodec18
 
 # Linux N-tier application in Azure with Apache Cassandra
 
-This reference architecture shows how to deploy virtual machines (VMs) and a virtual network configured for an N-tier application, using Apache Cassandra on Linux for the data tier. [**Deploy this solution**](#deploy-the-solution).
+This reference architecture shows how to deploy virtual machines (VMs) and a virtual network configured for an [N-tier](../../guide/architecture-styles/n-tier.md) application, using Apache Cassandra on Linux for the data tier. [**Deploy this solution**](#deploy-the-solution).
 
 ![N-tier architecture using Microsoft Azure](./images/n-tier-cassandra.png)
 
@@ -159,6 +159,10 @@ To deploy the Linux VMs for an N-tier application reference architecture, follow
    ```
 
 For more information on deploying this sample reference architecture using Azure Building Blocks, visit the [GitHub repository][git].
+
+## Next steps
+
+- [Microsoft Learn module: Tour the N-tier architecture style](/learn/modules/n-tier-architecture/)
 
 <!-- links -->
 
