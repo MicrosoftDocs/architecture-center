@@ -16,13 +16,13 @@ This article outlines the Resource Management process that a company experiences
 
 ![Four phases of adoption](../../_images/adoption-phases.png)
 
-*Figure 1. Adoption phases of the incremental approach to cloud governance*
+*Figure 1. Adoption phases of the incremental approach to cloud governance.*
 
 ## Planning and readiness
 
 While not directly aligned, this phase of governance maturity most closely maps to the activities outlined in the [Plan process](../../transformation-journeys/operational-transformation/plan.md) for the [Operational Transformation Journey](../../transformation-journeys/operational-transformation/overview.md).
 
-**Minimum suggested activities**
+**Minimum suggested activities:**
 
 * Evaluate your [Resource Management Tool Chain](toolchain.md) options.
 * Understand the licensing requirements for your cloud strategy.
@@ -31,58 +31,56 @@ While not directly aligned, this phase of governance maturity most closely maps 
 * Educate and involve the people and teams impacted by the development of Architecture Guidelines.
 * Add prioritized resource deployment tasks to your [migration backlog](../../migration/plan/migration-backlog.md).
 
-**Potential activities**
+**Potential activities:**
 
 * Work with the business stakeholders and/or your [cloud strategy team](../../culture-strategy/what-is-a-cloud-strategy-team.md) to understand the desired [cloud accounting approach](../../business-strategy/cloud-accounting.md) and cost accounting practices within your business units and organization as a whole.
 * Define your [monitoring and policy enforcement](../monitoring-enforcement/overview.md) requirements.
 * Examine the business value and cost of outage to define remediation policy and SLA requirements.
-* Determine whether you'll deploy [single team](../../governance/resource-management/governance-single-team.md) or [multiple team](../../governance/resource-management/governance-multiple-teams.md) governance strategy for your resources. 
-* Determine scalability requirements for your planned workloads. 
-
+* Determine whether you'll deploy [single team](../../governance/resource-management/governance-single-team.md) or [multiple team](../../governance/resource-management/governance-multiple-teams.md) governance strategy for your resources.
+* Determine scalability requirements for your planned workloads.
 
 ## Build and pre-deployment
 
 While not directly aligned, this phase of governance maturity most closely maps to the activities outlined in the [Build process](../../transformation-journeys/operational-transformation/build.md) for the [Operational Transformation Journey](../../transformation-journeys/operational-transformation/overview.md).
 
-**Minimum suggested activities**
+**Minimum suggested activities:**
 
 * Implement your [Resource Management Tool Chain](toolchain.md) by rolling out in a pre-deployment phase.
 * Update the Architecture Guidelines document and distribute to key stakeholders.
 * Implement resource deployment tasks on your prioritized migration backlog.
-* Develop educational materials and documentation, awareness communications, incentives and other programs to help drive user adoption.
+* Develop educational materials and documentation, awareness communications, incentives, and other programs to help drive user adoption.
 
-**Potential activities**
+**Potential activities:**
 
 * Decide on a [subscription design strategy](../../infrastructure/subscriptions/overview.md), choosing the subscription patterns that best fit your organization and workload needs.
 * Leverage a [resource grouping](../../infrastructure/resource-grouping/overview.md) strategy to enforce architecture guidelines over time.
-* Implement [resource naming, and tagging standards](../../infrastructure/resource-tagging/overview.md) for your resources to match your organizational and accounting requirements. 
+* Implement [resource naming, and tagging standards](../../infrastructure/resource-tagging/overview.md) for your resources to match your organizational and accounting requirements.
 * To create proactive point-in-time governance, use deployment templates and automation to enforce common configurations and a consistent grouping structure when deploying resources and resource groups.
-* Establish a least privilege permissions model, where users have no permissions by default. 
+* Establish a least privilege permissions model, where users have no permissions by default.
 * Determine who in your organization owns each workload and account, and who will need to access to maintain or modify these resources. Define cloud roles and responsibilities that match these needs and use use these roles as the basis for access control.
 * Define dependencies between resources.
 * Implement automated resource scaling to match requirements defined in the Plan stage.
 * Conduct access performance to measure the quality of services received.
-* Consider deploying [policy](https://docs.microsoft.com/en-us/azure/governance/policy/overview) to manage SLA enforcement using configuration settings and resource creation rules. 
-
+* Consider deploying [policy](/azure/governance/policy/overview) to manage SLA enforcement using configuration settings and resource creation rules.
 
 ## Adopt and migrate
 
 While not directly aligned, this phase of governance maturity most closely maps to the activities outlined in the [Migrate process](../../transformation-journeys/operational-transformation/migrate.md) for the [Operational Transformation Journey](../../transformation-journeys/operational-transformation/overview.md).
 
-**Minimum suggested activities**
+**Minimum suggested activities:**
 
 * Migrate your [Resource Management Tool Chain](toolchain.md) from pre-deployment to production.
 * Update the Architecture Guidelines document and distribute to key stakeholders.
-* Develop educational materials and documentation, awareness communications, incentives and other programs to help drive user adoption.
+* Develop educational materials and documentation, awareness communications, incentives, and other programs to help drive user adoption.
 * Migrate any existing automated remediation scripts or tools to support defined SLA requirements.
 
-**Potential activities**
+**Potential activities:**
 
-* Complete and test monitoring and reporting data. with your chosen on-premises, cloud gateway, or hybrid solution. 
+* Complete and test monitoring and reporting data. with your chosen on-premises, cloud gateway, or hybrid solution.
 * Determine if changes need to be made to SLA or management policy for resources.
-* Improve operations tasks by implementing query capabilities to efficiently find resource across your cloud estate. 
+* Improve operations tasks by implementing query capabilities to efficiently find resource across your cloud estate.
 * Align resources to changing business needs and governance requirements.
-* Ensure that your virtual machines, virtual networks, and storage accounts reflect actual resource access needs during each release, and adjust as necessary. 
+* Ensure that your virtual machines, virtual networks, and storage accounts reflect actual resource access needs during each release, and adjust as necessary.
 * Verify automated scaling of resources meets access requirements.
 * Review user access to resources, resource groups, and Azure subscriptions, and adjust access controls as necessary.
 * Monitor changes in resource access plans and validate with stakeholders if additional sign-offs are needed.
@@ -96,23 +94,23 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 Once the transformation is complete, governance and operations must live on for the natural lifecycle of an  application or workload. This phase of governance maturity focuses on the activities that commonly come after the solution is implemented and the transformation cycle begins to stabilize.
 
-**Minimum suggested activities**
+**Minimum suggested activities:**
 
 * Customize your [Resource Management Tool Chain](toolchain.md) based on updates to your organization’s changing cost management needs.
 * Consider automating any notifications and reports to reflect actual resource usage.
 * Refine Architecture Guidelines to guide future adoption processes.
-* Re-educate impacted teams on a periodic basis to ensure on-going adherence to the Architecture Guidelines.
+* Re-educate impacted teams on a periodic basis to ensure ongoing adherence to the Architecture Guidelines.
 
-**Potential activities**
+**Potential activities:**
 
 * Adjust plans quarterly to reflect changes to actual resources.
 * Automatically apply and enforce governance requirements during future deployments.
 * Evaluate underused resources and determine if they're worth continuing.
 * Detect misalignments and anomalies between planned and actual resource usage.
-* Aid the Cloud Adoption Team and Cloud Strategy Team in understanding and resolving these anomalies. 
+* Aid the Cloud Adoption Team and Cloud Strategy Team in understanding and resolving these anomalies.
 * Determine if changes need to be made to resource management for billing and SLAs.
 * Evaluate logging and monitoring tools to determine whether your on-premises, cloud gateway, or hybrid solution needs adjusting.
-* For business units and geographically-distributed groups, determine if your organization should consider using additional cloud management features (for example [management groups](https://docs.microsoft.com/en-us/azure/governance/management-groups/)) to better apply centralized policy and meet SLA requirements.
+* For business units and geographically-distributed groups, determine if your organization should consider using additional cloud management features (for example [Azure management groups](/azure/governance/management-groups/)) to better apply centralized policy and meet SLA requirements.
 
 ## Next steps
 
@@ -120,5 +118,5 @@ Now that you understand the concept of cloud resource governance, move on to lea
 
 > [!div class="nextstepaction"]
 > [Learn about resource access in Azure](azure-resource-access.md)
-> [Learn about SLAs for Azure](https://azure.microsoft.com/en-us/support/legal/sla/)
+> [Learn about SLAs for Azure](https://azure.microsoft.com/support/legal/sla/)
 > [Learn about logging, reporting, and monitoring](../../infrastructure/logs-and-reporting/overview.md)

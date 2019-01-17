@@ -17,19 +17,19 @@ IT and business leadership have been happy with results from early stage experim
 
 ## Cloud Adoption Team Changes
 
-Given the impact of the changing narrative & support provided so far, the Cloud Governance Team is now viewed differently. The two system admins who started the team are now viewed as experienced Cloud Architects. As this narrative develops they will move from the Cloud Custodian perception, to more of a Cloud Guardian role.
+Given the impact of the changing narrative and support provided so far, the Cloud Governance Team is now viewed differently. The two system administrators who started the team are now viewed as experienced Cloud Architects. As this narrative develops they will move from the Cloud Custodian perception, to more of a Cloud Guardian role.
 
 ## Current State Changes
 
 * The application development team has implemented a CI/CD pipeline to deploy a cloud native application with an improved user experience. That app doesn’t yet interact with protected data, so it is not production ready.
 * The BI team actively curates logistics, inventory, and third party data in the cloud to drive new predictions which could shape business processes. However, those predictions and insights are actionable until customer and financial data can be integrated into the data platform.
-* The IT team is progressing on the CIO and CFO's plans to retire the DR data center. More than 1,000 of the 2,000 assets in the DR data center have been retired or migrated.
+* The IT team is progressing on the CIO and CFO's plans to retire the DR data center. More than 1,000 of the 2,000 assets in the DR datacenter have been retired or migrated.
 * The loosely defined policies regarding PII and financial data have been modernized. However, the new corporate policies are contingent upon the implementation of related security and governance policies. Teams are still stalled
 
 ## Future State Changes
 
-* Early experiments from App Dev and BI have shown potential improvements in customer experiences and data-driven decisions. Both teams would like to expand adoption of the cloud over the next 18 months by deploying those solutions to production. 
-* During the 6 months left in the plan, the team will implement security and governance requirements to allow them to migrate the protected data in that data centers. 
+* Early experiments from App Dev and BI have shown potential improvements in customer experiences and data-driven decisions. Both teams would like to expand adoption of the cloud over the next 18 months by deploying those solutions to production.
+* During the 6 months left in the plan, the team will implement security and governance requirements to allow them to migrate the protected data in that data centers.
 * Quickly implement security and governance requirements to allow each team to move forward.
 
 ## Corporate Policy
@@ -69,7 +69,7 @@ The following changes to policy will help mitigate the new risks and guide imple
 9) Creation of new subscriptions or management groups for any mission critical applications or protected data will require a review from the Cloud Governance Team to ensure proper blueprint assignment
 10) A least privilege access model is to be applied to any subscription that contains mission critical apps or protected data
 11) Trends and exploits that could affect cloud deployments should be reviewed regularly by the security team to provide updates to security management tooling used in the cloud.
-12) Deployment tooling must be approved by the Cloud Governance Team to ensure on-going governance of deployed assets
+12) Deployment tooling must be approved by the Cloud Governance Team to ensure ongoing governance of deployed assets
 13) Deployment scripts must be maintained in central repository accessible by the Cloud Governance Team for periodic review and auditing
 14) Governance processes must include audits at the point of deployment and at regular cycles to ensure consistency across all assets
 15) Deployment of any applications that require customer authentication must use an approved identity provider that is compatible with the primary identity provider for internal users
@@ -112,7 +112,7 @@ This section of the article will evolve the Governance MVP design to include new
     b. Audit & enforce use of approved images only
 6) Update Azure Policy for all subscriptions that contains protected data classifications.
     a. Audit & enforce use of standard roles only
-    b. Audit & enforce application of encryption for all files and accounts 
+    b. Audit & enforce application of encryption for all files and accounts
     c. Audit & enforce the application of an NSG to all NICS and subnets. Networking and IT Security to define the NSG
     d. Audit & enforce use of approved network subnet and vNet per network interface
     e. Audit & enforce the limitation of user-defined routing tables

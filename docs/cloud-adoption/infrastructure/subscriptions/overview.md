@@ -7,7 +7,7 @@ ms.date: 12/31/2018
 
 # Fusion: Subscription design
 
-All cloud platforms are based on a core ownership model that provides organizations with numerous billing and resource management options. The structure that the Azure migration model uses is differnet from other cloud providers because it includes various support options for organizational hierarchy and grouped subscription ownership. Regardless, there is generally one individual responsible for billing and another who is assigned as the top-level owner for managing resources.
+All cloud platforms are based on a core ownership model that provides organizations with numerous billing and resource management options. The structure that the Azure migration model uses is different from other cloud providers because it includes various support options for organizational hierarchy and grouped subscription ownership. Regardless, there is generally one individual responsible for billing and another who is assigned as the top-level owner for managing resources.
 
 ## Subscription decision guide
 
@@ -15,17 +15,17 @@ All cloud platforms are based on a core ownership model that provides organizati
 
 Jump to: [Subscriptions design and Azure Enterprise Agreements](#subscriptions-design-and-azure-enterprise-agreements) | [Subscription design patterns](#subscription-design-patterns) | [Management groups](#management-groups) | [Organization at the subscription level](#organization-at-the-subscription-level)
 
-Subscription design is one of the top technical strategies organizations use to establish cloud migration planning. 
+Subscription design is one of the top technical strategies that organizations use to establish cloud migration planning.
 
-Subscription design ranges in complexity. Decisions around a design strategy have unique inflection points, as they typically involve both business and IT constraints. Before making technical decisions, IT architects and decision makers should work with the business stakeholders and/or your [cloud strategy team](../../culture-strategy/what-is-a-cloud-strategy-team.md) to understand the desired [cloud accounting approach](../../business-strategy/cloud-accounting.md), cost accounting practices within your business units, and global market needs for your organization as a whole. 
+Subscription design ranges in complexity. Decisions around a design strategy have unique inflection points, as they typically involve both business and IT constraints. Before making technical decisions, IT architects and decision makers should work with the business stakeholders and/or your [cloud strategy team](../../culture-strategy/what-is-a-cloud-strategy-team.md) to understand the desired [cloud accounting approach](../../business-strategy/cloud-accounting.md), cost accounting practices within your business units, and global market needs for your organization as a whole.
 
 Additionally, technical decision points that are based upon digital estate size versus cloud provider subscription limits, isolation and segregation policies, and IT operational divisions usually have a large impact on subscription design. Deployment structure and automation also have a large impact on how you structure subscription design, so consider how [resource grouping](../resource-grouping/overview.md) decisions might influence your design choices.
 
-## Subscriptions design and Azure Enterprise agreements 
+## Subscriptions design and Azure Enterprise agreements
 
 *Reviewers note: This document heavily repurposes subscription content from the existing [Azure enterprise scaffold](../../appendix/azure-scaffold.md). The correct location of this content within the overall Azure Fusion guidance is still under consideration.*
 
-Azure subscriptions are based on the real work that happens when deploying, managing, and applying policy to resources. For small Azure deployments, a single subscription or a small collection of subscriptions may compose your entire cloud estate. However, large Azure deployments likely need to span multiple subscriptions to support your organizational structure and bypass [subscription quotas and limits](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits). This can impose technical limits on the number of resources you can deploy to a single subscriptions. 
+Azure subscriptions are based on the real work that happens when deploying, managing, and applying policy to resources. For small Azure deployments, a single subscription or a small collection of subscriptions may compose your entire cloud estate. However, large Azure deployments likely need to span multiple subscriptions to support your organizational structure and bypass [subscription quotas and limits](/azure/azure-subscription-service-limits). This can impose technical limits on the number of resources you can deploy to a single subscription.
 
 All Azure subscriptions are associated with one account, which is connected to billing and top-level access control for each subscription. A single account can own multiple subscriptions and can provide a base level of subscriptions organization.
 
@@ -41,13 +41,13 @@ The following subscription patterns reflect a general increase subscription desi
 
 ### Experimental and small-scale deployments
 
-A single subscription per account may be sufficient for organizations that need to deploy a small number of cloud-hosted assets. This is often the first subscription pattern you implement when beginning your cloud migration process, allowing small-scale experimental or proof of concept deployments to explore the capabilities of a cloud platform.
+A single subscription per account may suffice for organizations that need to deploy a small number of cloud-hosted assets. This is often the first subscription pattern you implement when beginning your cloud migration process, allowing small-scale experimental or proof of concept deployments to explore the capabilities of a cloud platform.
 
 However, there can be technical limitations to the number of resources that a single subscription will support. As the size of your cloud estate grows, you may likely want to also support organizing your resources to better organize policies and access control in a manner not supported with a single subscription.
 
 ### Application archetypes
 
-As the size of an organization's cloud footprint grows, the use of multiple subscriptions becomes increasingly likely. In this scenario, subscriptions are generally organized along the applications or services they host, or more generally along the lines of application archetypes. In this approach, the subscriptions and accounts are all organized under a single department of which are owned and administered by central IT operations staff. 
+As the size of an organization's cloud footprint grows, the use of multiple subscriptions becomes increasingly likely. In this scenario, subscriptions are generally organized along the applications or services they host, or more generally along the lines of application archetypes. In this approach, the subscriptions and accounts are all organized under a single department of which are owned and administered by central IT operations staff.
 
 Note that this pattern may lack a more complex hierarchy at the department and account levels.  
 
@@ -57,7 +57,7 @@ As you begin to deploy resources across multiple subscriptions, the [Azure Virtu
 
 ### Functional
 
-This pattern groups subscriptions and accounts along functional lines, such as finance, sales, or IT support. 
+This pattern groups subscriptions and accounts along functional lines, such as finance, sales, or IT support.
 
 ![functional subscription pattern](../../_images/infra-subscriptions/functional.png)
 
@@ -81,34 +81,31 @@ Management groups, as discussed in the following section, can help support more 
 
 ## Management groups
 
-In addition to the department and organization structure provided through Enterprise Agreements, [Azure management groups](https://docs.microsoft.com/en-us/azure/governance/management-groups/index) offer additional flexibility for organizing policy, access control, and compliance across multiple subscriptions. Management groups can be nested up to six levels, allowing you to create a hierarchy that is separate from your billing hierarchy. This can be solely for efficient management of resources. 
+In addition to the department and organization structure provided through Enterprise Agreements, [Azure management groups](/azure/governance/management-groups/index) offer additional flexibility for organizing policy, access control, and compliance across multiple subscriptions. Management groups can be nested up to six levels, allowing you to create a hierarchy that is separate from your billing hierarchy. This can be solely for efficient management of resources.
 
-Management groups can mirror your billing hierarchy, and often enterprises start that way. However, the power of management groups is when you use them to model your organization where related subscriptions &mdash. Regardless where they are in the billing hierarchy &mdash; they are grouped together, and therefore need common roles assigned, as well as policies and initiatives. 
+Management groups can mirror your billing hierarchy, and often enterprises start that way. However, the power of management groups is when you use them to model your organization where related subscriptions &mdash; regardless of where they are in the billing hierarchy &mdash; are grouped together and need common roles assigned along with policies and initiatives.
 
 A few examples include:
 
-* **Production/non-production**: Some enterprises create management groups to identify their production and non-production subscriptions. Management groups allow these customers to more easily manage roles and policies, for example: non-production subscription may allow developers "contributor" access, but in production, they have only "reader" access.
+- **Production/non-production**: Some enterprises create management groups to identify their production and non-production subscriptions. Management groups allow these customers to more easily manage roles and policies, for example: non-production subscription may allow developers "contributor" access, but in production, they have only "reader" access.
 
-* **Internal services/external services**: Much like production/non-production, enterprises often have different requirements, policies and roles for internal services vs external (customer facing) services.
+- **Internal services/external services**: Much like production/non-production, enterprises often have different requirements, policies and roles for internal services vs external (customer facing) services.
 
 ## Organization at the subscription level
 
-When determining your departments and accounts (or management groups), you will primarily need to decide how you're going to divide your Azure environment to match your organization. Subscriptions, however, are where the real work happens and your decisions made here will impact security, scalability and billing. 
+When determining your departments and accounts (or management groups), you will primarily need to decide how you're going to divide your Azure environment to match your organization. However, subscriptions are where the real work happens, and these decisions will impact security, scalability, and billing.
 
 Consider the following patterns as guides:
 
-* **Application/service**: Subscriptions represent an application or a service (portfolio of applications).
-* **Lifecycle**: Subscriptions represent a lifecycle of a service, such as production or development.
-* **Department**: Subscriptions represent departments in the organization.
+- **Application/service**: Subscriptions represent an application or a service (portfolio of applications).
+- **Lifecycle**: Subscriptions represent a lifecycle of a service, such as production or development.
+- **Department**: Subscriptions represent departments in the organization.
 
-The first two patterns are the most commonly used and are both highly recommended. The lifecycle approach is appropriate for most organizations. In this case, the general recommendation is to use two base subscriptions: "production" and "non-production," and then use resource groups to break out the environments further.
+The first two patterns are the most commonly used and are both highly recommended. The lifecycle approach is appropriate for most organizations. In this case, the general recommendation is to use two base subscriptions: *production* and *non-production*, and then use resource groups to break out the environments further.
 
-**Learn more**
+**Learn more:**
 
--   For a general description of how Azure subscriptions and resource groups are used to
-    group and manage resources, see [Resource access management in
-    Azure](../../getting-started/azure-resource-access.md).
-
+- For a general description of how Azure subscriptions and resource groups are used to group and manage resources, see [Resource access management in Azure](../../getting-started/azure-resource-access.md).
 
 ## Next steps
 
@@ -116,4 +113,3 @@ Learn how [identity services](../identity/overview.md) are used for access contr
 
 > [!div class="nextstepaction"]
 > [Identity](../identity/overview.md)
-

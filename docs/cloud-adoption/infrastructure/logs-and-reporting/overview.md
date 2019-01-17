@@ -9,7 +9,6 @@ ms.date: 12/21/2018
 
 All organizations need mechanisms notifying IT teams of performance, uptime, and security issues before they become serious problems. A successful monitoring strategy allows you to understand how the individual components that make up your workloads and networking infrastructure are performing. Within the context of a public cloud migration, integrating logging and reporting with any of your existing monitoring systems, while surfacing important events and metrics to the appropriate IT staff, is critical in ensuring your organization is meeting uptime, security, and policy compliance goals.
 
-
 ## Logging and reporting decision guide
 
 ![Plotting logging, reporting, and monitoring options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-logs-and-reporting.png)
@@ -18,7 +17,7 @@ Jump to: [Planning your monitoring infrastructure](#planning-your-monitoring-inf
 
 The inflection point when determining a cloud identity strategy is based primarily on existing investments your organization has made in operational processes, and to some degree any requirements you have to support a multi-cloud strategy.
 
-There are a number of ways to log and report on activities in the cloud. Cloud native and centralized logging are two common software as a service (SaaS) options that are driven by the subscription design and the number of subscriptions. (Article on [Service Provider or Central Logs](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-service-providers?toc=/azure/azure-monitor/toc.json) discusses a similar decision point, and assume that service provider and cloud native are the same for that article.)
+There are a number of ways to log and report on activities in the cloud. Cloud native and centralized logging are two common software as a service (SaaS) options that are driven by the subscription design and the number of subscriptions. (Article on [Service Provider or Central Logs](/azure/log-analytics/log-analytics-service-providers?toc=/azure/azure-monitor/toc.json) discusses a similar decision point, and assume that service provider and cloud native are the same for that article.)
 
 ## Planning your monitoring infrastructure
 
@@ -73,11 +72,11 @@ Mirroring the on-premises centered approach, in this scenario cloud workloads wo
 - Your cloud-based monitoring systems have APIs or other mechanisms available to ingest log data from on-premises applications and services.
 
 > [!NOTE]
-> The Azure Virtual Datacenter model's [monitoring and reporting strategy](vdc-monitoring.md) relies heavily on cloud hosted services such as [Azure Monitor](#reporting-and-monitoring-in-azure). Part of planning for a VDC deployment includes choosing the best hybrid monitoring approach to take for creating an integrated monitoring and reporting solution. 
+> The Azure Virtual Datacenter model's [monitoring and reporting strategy](vdc-monitoring.md) relies heavily on cloud hosted services such as [Azure Monitor](#reporting-and-monitoring-in-azure). Part of planning for a VDC deployment includes choosing the best hybrid monitoring approach to take for creating an integrated monitoring and reporting solution.
 
 ### Gateway
 
-For scenarios where the amount of cloud-based telemetry data is very large or existing on-premises monitoring systems need log data modified before it can be processed, a log data [gateway aggregation](https://docs.microsoft.com/en-us/azure/architecture/patterns/gateway-aggregation) service may be required. 
+For scenarios where the amount of cloud-based telemetry data is very large or existing on-premises monitoring systems need log data modified before it can be processed, a log data [gateway aggregation](/azure/architecture/patterns/gateway-aggregation) service may be required.
 
 A gateway service is deployed to your cloud provider. Then, relevant applications and services are configured to submit telemetry data to the gateway instead of a default logging system. The gateway can then process the data: aggregating, combining, or otherwise formatting it before then submitting it to your monitoring service for ingestion and analysis.
 
@@ -99,44 +98,34 @@ In order to support this approach, your cloud resources will need to be able to 
 
 - You need to maintain log data in your on-premises environment, either in support of operations being dependent upon your existing system or due to regulatory or policy requirements.
 - Your on-premises systems do not support hybrid logging and reporting or gateway aggregation solutions.
-- You can connect your on-premises network and directory services with their cloud-based counterparts. 
+- You can connect your on-premises network and directory services with their cloud-based counterparts.
 - Your workloads are not dependent on PaaS or SaaS services that require cloud-based logging and reporting.
 
 ### Multi-cloud
 
-Integrating logging and reporting capabilities across a multiple-cloud platform can be complicated. Services offered between platforms are often not directly comparable, and logging and telemetry capabilities provided by these services differ as well. 
+Integrating logging and reporting capabilities across a multiple-cloud platform can be complicated. Services offered between platforms are often not directly comparable, and logging and telemetry capabilities provided by these services differ as well.
 
-Multi-cloud logging support often requires the use of gateway services to process log data into a common format before submitting data to a hybrid logging solution. 
+Multi-cloud logging support often requires the use of gateway services to process log data into a common format before submitting data to a hybrid logging solution.
 
 ## Reporting and monitoring in Azure
 
-[Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview) is the default reporting and monitoring service for Azure. It consists of several logging, visualizing, analyzing, and reporting tools you can user for collecting telemetry data generated by Azure resources. It's capable of providing insights into virtual machines, guest operating systems, virtual networks, and workload application events. It also provides import and export mechanisms for integrating with on-premises or third-party systems.
+[Azure Monitor](/azure/azure-monitor/overview) is the default reporting and monitoring service for Azure. It consists of several logging, visualizing, analyzing, and reporting tools you can user for collecting telemetry data generated by Azure resources. It's capable of providing insights into virtual machines, guest operating systems, virtual networks, and workload application events. It also provides import and export mechanisms for integrating with on-premises or third-party systems.
 
 ### Log Analytics
 
-[Azure Log
-Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-queries)
-is the component of Azure Monitor used to collect telemetry information from
-virtual machines and guest operating systems hosted in the Azure cloud. This tool
-also provides the mechanisms to analyze this data or created alerts. [In hybrid
-scenarios](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-concept-hybrid),
-on-premises or other externally hosted physical servers and virtual machines can
-be configured to send telemetry to your azure-based Log Analytics instance for
-integrated analysis and reporting.
+[Azure Log Analytics](/azure/log-analytics/log-analytics-queries) is the component of Azure Monitor used to collect telemetry information from virtual machines and guest operating systems hosted in the Azure cloud. This tool also provides the mechanisms to analyze this data or created alerts. [In hybrid scenarios](/azure/log-analytics/log-analytics-concept-hybrid), on-premises or other externally hosted physical servers and virtual machines can be configured to send telemetry to your azure-based Log Analytics instance for integrated analysis and reporting.
 
 ### Application Insights
 
-[Application
-Insights](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-overview?toc=/azure/azure-monitor/toc.json)
+[Application Insights](/azure/application-insights/app-insights-overview?toc=/azure/azure-monitor/toc.json)
 is the Azure Monitor component designed to capture telemetry data from applications and workloads. Applications can include the Application Insights SDK, as well as the hosting web server that you can configure to send telemetry data without requiring modification to application code.
 
 ### Azure Monitor integration
 
-Azure Monitor provides [REST APIs](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough)
+Azure Monitor provides [REST APIs](/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough)
 for integration with external services and automation of monitoring and alerting services.
 
-In addition, Azure Monitor offers [integration with may popular 3rd party
-vendors](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-partners).
+In addition, Azure Monitor offers [integration with may popular 3rd party vendors](/azure/monitoring-and-diagnostics/monitoring-partners).
 
 ## Next steps
 

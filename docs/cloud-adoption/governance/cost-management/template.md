@@ -12,7 +12,11 @@ The first step to implementing change is communicating the desired change. The s
 > [!IMPORTANT]
 > This template is a limited sample. Before using it, you should review the subsequent steps for defining an effective Cost Management discipline within your cloud governance strategy.
 
- <a href="https://archcenter.blob.core.windows.net/cdn/fusion/governance/Cost Management Template.docx">Download Cost Management template</a>
+<!-- markdownlint-disable MD033 -->
+
+<a href="https://archcenter.blob.core.windows.net/cdn/fusion/governance/Cost Management Template.docx">Download Cost Management template</a>
+
+<!-- markdownlint-enable MD033 -->
 
 ## Next steps
 

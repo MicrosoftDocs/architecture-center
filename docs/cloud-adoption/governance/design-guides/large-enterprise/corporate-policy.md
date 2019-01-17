@@ -21,25 +21,25 @@ The corporate policy consists of four sections: business risk, tolerance indicat
 
 At this stage of cloud adoption, future compatibility represents the greatest risk from a governance perspective. A basic foundation for cloud adoption would help avoid costly rework and future adoption blockers. This business risk can be broken down tactically into a few technical risks:
 
-* There is a risk that the application of governance to deployed assets could be difficult and costly.
-* There is a risk that governance may not be properly applied across an application or workload, creating gaps in security.
-* There is a risk of inconsistency with so many teams working in the cloud.
-* There is a risk of costs not properly aligning to business units, teams, or other budgetary management units.
-* There is a risk associated with multiple identities being used to manage various deployments, which could lead to security issues.
-* There is a risk of not meeting SLAs to the business for various assets or workloads
-* There is a risk of one of the teams deploying to the cloud accidentally violating security, sla, or cost assumptions.
+- There is a risk that the application of governance to deployed assets could be difficult and costly.
+- There is a risk that governance may not be properly applied across an application or workload, creating gaps in security.
+- There is a risk of inconsistency with so many teams working in the cloud.
+- There is a risk of costs not properly aligning to business units, teams, or other budgetary management units.
+- There is a risk associated with multiple identities being used to manage various deployments, which could lead to security issues.
+- There is a risk of not meeting SLAs to the business for various assets or workloads
+- There is a risk of one of the teams deploying to the cloud accidentally violating security, sla, or cost assumptions.
 
 In a real-world scenario, there are likely to be a few additional [business risks](../../policy-compliance/understanding-business-risk.md) worth noting at this stage of adoption. The article on [understanding business risks](../../policy-compliance/understanding-business-risk.md) can help capture relevant business risks.
 
-## Tolerance Indictors
+## Tolerance Indicators
 
 The current tolerance for risk is high and appetite for investing in cloud governance is low. As such, the tolerance indicators for this use case act more like a reminder than an observable metric. When/if the following indicators are observed, it would be wise to revisit the business's tolerance for risk.
 
-* Inclusion of protected data in defined cloud adoption plans
-* Inclusion of assets that have any dependency on protected data
-* Inclusion of assets that support mission critical functionality
-* Deployment of more than 1,000 assets to the cloud
-* Monthly spend exceeding $10,000/month
+- Inclusion of protected data in defined cloud adoption plans
+- Inclusion of assets that have any dependency on protected data
+- Inclusion of assets that support mission critical functionality
+- Deployment of more than 1,000 assets to the cloud
+- Monthly spend exceeding $10,000/month
 
 The above indicators are based on the synthesized use case. Adjust accordingly to align with actual tolerance indicators. See the article on [metrics and tolerance indicators](../../policy-compliance/risk-tolerance.md) for additional guidance.
 
@@ -47,25 +47,25 @@ The above indicators are based on the synthesized use case. Adjust accordingly t
 
 The following policy statements would establish requirements to mitigate the defined risks. To understand options and better align the 5 disciplines of cloud governance, click on any of the policy statement headers to learn more about the specific governance discipline.
 
-* [Configuration Management](../../configuration-management/overview.md): Multiple
-    * All assets must be grouped and tagged, in alignment with the Grouping and Tagging strategies defined in the design guide.
-    * All assets must use an approved deployment model defined in the design guide.
-* [Identity Management](../../identity-management/overview.md): Multiple
-    * All assets deployed to the cloud should be controlled using identities and roles approved by current governance policies.
-    * All groups in the on-prem AD infrastructure which have elevated privileges should be mapped to an approved RBAC role
-    * All authentication models in the cloud should be compatible with ticket-based and third-party multi-factor authentication  
-* [Security Management](../../security-management/overview.md): Multiple
-    * Any asset deployed to the cloud must have an approved data classification
-    * No assets identified with a protected level of data may be deployed to the cloud
-    * Until minimum network security requirements can be validated and governed, cloud environments are seen as a demilitarized zone and should meet similar connection requirements
-* [Cost Management](../../cost-management/overview.md): For tracking purposes, all assets must be assigned to a billing unit.
-* [Resource Management](../../resource-management/overview.md): Since no mission critical workloads are deployed at this stage, there are no SLA, performance, or BCDR requirements to be governed.
+- [Configuration Management](../../configuration-management/overview.md): Multiple
+  - All assets must be grouped and tagged, in alignment with the Grouping and Tagging strategies defined in the design guide.
+  - All assets must use an approved deployment model defined in the design guide.
+- [Identity Management](../../identity-management/overview.md): Multiple
+  - All assets deployed to the cloud should be controlled using identities and roles approved by current governance policies.
+  - All groups in the on-prem AD infrastructure which have elevated privileges should be mapped to an approved RBAC role
+  - All authentication models in the cloud should be compatible with ticket-based and third-party multi-factor authentication  
+- [Security Management](../../security-management/overview.md): Multiple
+  - Any asset deployed to the cloud must have an approved data classification
+  - No assets identified with a protected level of data may be deployed to the cloud
+  - Until minimum network security requirements can be validated and governed, cloud environments are seen as a demilitarized zone and should meet similar connection requirements
+- [Cost Management](../../cost-management/overview.md): For tracking purposes, all assets must be assigned to a billing unit.
+- [Resource Management](../../resource-management/overview.md): Since no mission critical workloads are deployed at this stage, there are no SLA, performance, or BCDR requirements to be governed.
 
 The above policy statements are based on the synthesized use case. See the article on [developing policy statements](../../policy-compliance/define-policy.md) for additional guidance on crafting unique policy statements.
 
 ## Monitoring and Enforcement Processes
 
-A budget has not been allocated to the on-going monitoring and enforcement of these governance policies. Initial education and limited involvement in deployment planning are the two primary opportunities to monitor adherence to policy statements.
+A budget has not been allocated to the ongoing monitoring and enforcement of these governance policies. Initial education and limited involvement in deployment planning are the two primary opportunities to monitor adherence to policy statements.
 
 The cloud governance team currently consists of two members of the existing governance team, who are interested in learning about the cloud and aiding in adoption efforts.
 

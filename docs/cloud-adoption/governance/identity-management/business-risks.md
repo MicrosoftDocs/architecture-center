@@ -7,12 +7,9 @@ ms.date: 1/8/2019
 
 # Fusion: Motivations and business risks that drive identity governance
 
-This article discusses the reasons that customers typically adopt an identity management discipline within a cloud governance strategy. It also provides a few examples of business risks which drive policy statements.
+This article discusses the reasons that customers typically adopt an identity management discipline within a cloud governance strategy. It also provides a few examples of business risks that drive policy statements.
 
 ## Is identity management relevant?
-
-Identity is increasingly considered the primary security perimeter in the cloud, which is a shift from the traditional
-focus on network security. Identity services provide the core mechanisms supporting access control and organization within IT environments, and the identity management discipline complements the [security management discipline](../security-management/overview.md) by providing user authentication and securing user access to cloud-based resources.
 
 Traditional on-premises directories are designed to allow businesses to strictly control permissions and policies for users, groups, and roles within their internal networks and datacenters. This is usually intended to support single tenant implementations, with services applicable only within the on-premises environment.
 

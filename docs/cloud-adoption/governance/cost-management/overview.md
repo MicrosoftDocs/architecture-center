@@ -22,6 +22,8 @@ Actionable policy statements and the resulting architecture requirements serve a
 
 The following six steps will help you define governance policies to control costs in your environment.
 
+<!-- markdownlint-disable MD033 -->
+
 <ul  class="panelContent cardsE">
 <li style="display: flex; flex-direction: column;">
     <a href="./template.md">
@@ -144,3 +146,5 @@ Get started by evaluating [business risks](./business-risks.md) in a specific en
 
 > [!div class="nextstepaction"]
 > [Understand business risks](./business-risks.md)
+
+<!-- markdownlint-enable MD033 -->

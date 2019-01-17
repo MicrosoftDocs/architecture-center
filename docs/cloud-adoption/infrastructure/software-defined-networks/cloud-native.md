@@ -22,7 +22,7 @@ Deploying a cloud native virtual network assumes the following:
 - Your identity services do not need to support single sign-on (SSO) with on-premises directories.
 
 > [!TIP]
-> Cloud native virtual networks are the default when you configure networking in cloud platforms, and have no external dependencies. This makes them simple to deploy and configure, and as a result this architecture is often the best choice for experiments or other smaller self-contained or rapidly iterating deployments. 
+> Cloud native virtual networks are the default when you configure networking in cloud platforms, and have no external dependencies. This makes them simple to deploy and configure, and as a result this architecture is often the best choice for experiments or other smaller self-contained or rapidly iterating deployments.
 >
 > Additional issues your Cloud Adoption Team should consider when discussing a cloud native virtual networking architecture include:
 > - Existing workloads designed to run in an on-premises datacenter may need extensive modification to take advantage of cloud-based functionality, such as storage or authentication services.
@@ -48,7 +48,7 @@ virtual network.
 
 Note that any single virtual network and connected resources can only exist
 within a single subscription, and is bound by [subscription
-limits](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits).
+limits](/azure/azure-subscription-service-limits).
 
 ## Next steps
 

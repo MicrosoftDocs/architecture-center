@@ -1,13 +1,15 @@
 ---
-title: "Fusion: How can a company add Identity Management discipline to their Cloud Governance execution?"
-description: Explanation of the concept Identity management in relation to cloud governance
-author: BrianBlanchard
-ms.date: 12/11/2018
+title: "Fusion: How can a company add Configuration Management discipline to their Cloud Governance execution?"
+description: How can a company add Configuration Management discipline to their Cloud Governance execution?
+author: alexbuckgit
+ms.date: 01/17/2019
 ---
 
-# Fusion: How can a company add Identity Management discipline to their Cloud Governance execution?
+# Fusion: How can a company add Configuration Management discipline to their Cloud Governance execution?
 
-In the [Intro to Cloud Governance](../overview.md), Identity Management is defined as one of the Five Disciplines of Cloud Governance. This discipline focuses on ways of establishing policies that ensure consistency and continuity of user identities regardless of the cloud provider that hosts the application or workload. Within the Five Disciplines of Cloud Governance, Identity Management includes decisions regarding the [Hybrid Identity Strategy](../../infrastructure/identity/overview.md), evaluation and extension of identity repositories, implementation of single sign-on (same sign-on), auditing and monitoring for unauthorized use or malicious actors. In some cases, it may also involve decisions to modernize, consolidate, or integrate multiple identity providers.
+In the [Intro to Cloud Governance](../overview.md), Configuration Management is defined as one of the Five Disciplines of Cloud Governance. 
+
+    This discipline focuses on ways of establishing policies that ensure consistency and continuity of user identities regardless of the cloud provider that hosts the application or workload. Within the Five Disciplines of Cloud Governance, Identity Management includes decisions regarding the [Hybrid Identity Strategy](../../infrastructure/identity/overview.md), evaluation and extension of identity repositories, implementation of single sign-on (same sign-on), auditing and monitoring for unauthorized use or malicious actors. In some cases, it may also involve decisions to modernize, consolidate, or integrate multiple identity providers.
 
 This article outlines the Identity Management process that a company experiences during the planning, building, adopting, and operating phases of implementing a cloud solution. It's impossible for any one document to account for all of the requirements of any business. As such, each section of this article outlines suggested minimum and potential activities. The objective of these activities is to help you build a [Policy MVP](../policy-compliance/overview.md#policy-minimally-viable-product-mvp), but establish a framework for [Incremental Policy](../policy-compliance/overview.md#incremental-policy-growth) evolution. The Cloud Governance Team should decide how much to invest in the potential activities to improve the Identity Management position.
 
@@ -24,18 +26,15 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 **Minimum suggested activities:**
 
-* Evaluate your [Identity tool chain](toolchain.md) options and implement a hybrid strategy that is appropriate to your organization.
-* Develop a draft Architecture Guidelines document and distribute to key stakeholders.
-* Educate and involve the people and teams impacted by the development of Architecture Guidelines.
+- Evaluate your [Configuration Management tool chain](toolchain.md) options and implement a hybrid strategy that is appropriate to your organization.
+- Develop a draft Architecture Guidelines document and distribute to key stakeholders.
+- Educate and involve the people and teams impacted by the development of Architecture Guidelines.
 
 **Potential activities:**
 
-* Define roles and assignments that will govern identity and access management in the cloud.
-* Define your on-premises groups and map to corresponding cloud-based roles.
-* Inventory identity providers (including database-driven identities used by custom applications).
-* Consider options for consolidation or integration of identity providers where duplication exists, to simplify the overall identity solution.
-* Evaluate hybrid compatibility of existing identity providers.
-* For identity providers that are not hybrid compatible, evaluate consolidation or replacement options.
+- Define roles and assignments that will govern configuration management in the cloud.
+- a
+- 
 
 ## Build and pre-deployment
 
@@ -43,31 +42,16 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 **Minimum suggested activities:**
 
-* Consider a pilot test before implementing your [Identity tool chain](toolchain.md), making sure it simplifies the user experience as much as possible.
-* Apply feedback from pilot tests into the pre-deployment. Repeat until results are acceptable.
-* Update the Architecture Guidelines document to include deployment and user adoption plans, and distribute to key stakeholders.
-* Consider establishing an early adopter program and rolling out to a limited number of users.
-* Continue to educate the people and teams most impacted by the Architecture Guidelines.
+- Consider a pilot test before implementing your [Configuration management tool chain](toolchain.md), making sure it simplifies the user experience as much as possible.
+- Apply feedback from pilot tests into the pre-deployment. Repeat until results are acceptable.
+- Update the Architecture Guidelines document to include deployment and user adoption plans, and distribute to key stakeholders.
+- Continue to educate the people and teams most impacted by the Architecture Guidelines.
 
 **Potential activities:**
 
-* Evaluate your logical and physical architecture and determine a [Hybrid Identity Strategy](../../infrastructure/identity/overview.md).
-* Map identity access management policies, such as login ID assignments, and choose the appropriate authentication method for Azure AD.
-  * If federated, enable tenant restrictions for administrative accounts.
-* Integrate your on-premises and cloud directories.
-* Consider using the following access models:
-  * [Least Privilege Access](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) model
-  * [Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure) access model
-* Finalize all pre-integration details and review [Identity Best Practices](/azure/security/azure-security-identity-management-best-practices).
-  * Enable single identity, single sign-on (SSO), or seamless SSO
-  * Configure multi-factor authentication (MFA) for administrators
-  * Consolidate or integrate identity providers, where necessary
-  * Implement tooling necessary to centralize management of identities
-  * Enable just-in-time (JIT) access and role change alerting
-  * Conduct a risk analysis of key admin activities for assigning to built-in roles
-  * Consider an updated rollout of stronger authentication for all users 
-  * Enable Privileged Identity Management (PIM) for JIT (using time-limited activation) for additional administrative roles
-  * Separate user accounts from Global admin accounts (to make sure that administrators do not inadvertently open emails or run programs associated with their Global admin accounts)
+- 
+- 
+- 
 
 ## Adopt and migrate
 
@@ -75,7 +59,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 **Minimum suggested activities:**
 
-* Migrate your [Identity tool chain](toolchain.md) from development to production.
+* Migrate your [configuration management tool chain](toolchain.md) from development to production.
 * Update the Architecture Guidelines document and distribute to key stakeholders.
 * Develop educational materials and documentation, awareness communications, incentives, and other programs to help drive user adoption.
 

@@ -219,7 +219,7 @@ A deployment for this reference architecture is available on [GitHub][github-fol
 8. In the `n-tier-windows.json` file, search for all instances of `[replace-with-password]` and `[replace-with-sql-password]` replace them with a strong password. Save the file.
 
     > [!NOTE]
-    > If you change the adminstrator user name, you must also update the `extensions` blocks in the JSON file.
+    > If you change the administrator user name, you must also update the `extensions` blocks in the JSON file.
 
 9. Run the following command to deploy the architecture.
 

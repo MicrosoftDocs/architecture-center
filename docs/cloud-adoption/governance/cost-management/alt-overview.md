@@ -24,18 +24,18 @@ The cost management discipline attempts to address the following business risks.
 
 ## Risk tolerance
 
-During early deployments, such as Dev/Test or first workloads, cost management is likely to be relatively low risk. As more assets are deployed, the risk grows and the business' tolerance for risk is likely to decline. Additionally, as your cloud adoption team acheives the ability to configure and deploy assets to the cloud, risks will grow and tolerance will decrease. Conversely, growing a cost management discipline will take you from adoption to the cloud towards deploying more innovative new technologies.
+During early deployments, such as Dev/Test or first workloads, cost management is likely to be relatively low risk. As more assets are deployed, the risk grows and the business' tolerance for risk is likely to decline. Additionally, as your cloud adoption team achieves the ability to configure and deploy assets to the cloud, risks will grow and tolerance will decrease. Conversely, growing a cost management discipline will take you from adoption to the cloud towards deploying more innovative new technologies.
 
-In the early stages of cloud adoption, work with your business to determine a risk tolerance baseline. With this baseline, next determine the criteria that will trigger an investment in cost management, which will be different for each business. 
+In the early stages of cloud adoption, work with your business to determine a risk tolerance baseline. With this baseline, next determine the criteria that will trigger an investment in cost management, which will be different for each business.
 
 The following are a few examples of risk tolerances and investment criteria:
 
-* Commit driven (most common): A company that is committed to spending $X,000,000 this year on a cloud vendor. They need a cost management discipline to ensure that the business doesn't overspend by more than 20%, and they will use at least 90% of that commitment.
-* Percentage trigger: A company with cloud spending that is stable for their production systems. If that changes by more that X%, then a cost management discipline will be a wise investment.
-* Over=provision trigger: A company who believes their deployed solutions are over provisioned. Cost management is a priority investment until they can demonstrate proper alignment of provisioning and asset utilization.
-* Monthly spend trigger: A company that spends over $x,000 per month is considered a sizable cost. If spending exceeds that amount in a given month, they will need to invest in cost management.
-* Annual spend trigger: A company with an IT R&D budget that allows for spending $X,000 per year on cloud experimentation. They may run production workloads in the cloud, but they will still be considered experimental solutions if the budget doesn't exceed that amount. Once it goes over, they will need to treat the budget like a production investment and manage spending closely.
-* OpEx adverse (uncommon): As a company, they are very OpEx adverse and will need cost management controls in place before deploying a dev/test workload.
+- Commit driven (most common): A company that is committed to spending $X,000,000 this year on a cloud vendor. They need a cost management discipline to ensure that the business doesn't overspend by more than 20%, and they will use at least 90% of that commitment.
+- Percentage trigger: A company with cloud spending that is stable for their production systems. If that changes by more that X%, then a cost management discipline will be a wise investment.
+- Over=provision trigger: A company who believes their deployed solutions are over provisioned. Cost management is a priority investment until they can demonstrate proper alignment of provisioning and asset utilization.
+- Monthly spend trigger: A company that spends over $x,000 per month is considered a sizable cost. If spending exceeds that amount in a given month, they will need to invest in cost management.
+- Annual spend trigger: A company with an IT R&D budget that allows for spending $X,000 per year on cloud experimentation. They may run production workloads in the cloud, but they will still be considered experimental solutions if the budget doesn't exceed that amount. Once it goes over, they will need to treat the budget like a production investment and manage spending closely.
+- OpEx adverse (uncommon): As a company, they are very OpEx adverse and will need cost management controls in place before deploying a dev/test workload.
 
 Be sure to work with your business and finance departments to understand which triggers that will make them uncomfortable with spending on a cloud solution. Once these triggers are established, it's much easier to understand the amount to invest in a cost management discipline. Based on your business' tolerance, the following processes and policies can be used to govern spending.
 
@@ -63,11 +63,11 @@ In addition to the core processes for establishing and monitoring the baseline, 
 
 **Budget overrun:** If overspending is a significant concern, implement tooling with the cloud provider to limit spending for each billing unit. This will align forecasts with a budgetary spending limit that can't be easily exceeded. One policy statement you can use to mitigate this risk is asserting that any assets deployed to the cloud must be aligned to a billing unit with approved budget, and a mechanism for budgetary limits. In a Microsoft context, Azure Cost Management and/or Azure Policy can be used to enforce this policy automatically.
 
-**Under utilization:** If waste is a concern for your business, implement a monitoring solution to report any underutilized assets. This will identify opportunities to reduce waste and tighten spending. The corporate policy will state that all deployed assets must be registered with a solution that can monitor usage and report on any under utilization. In a Microsoft context, Azure Advisor could be used to provide this type of feedback.
+**Underutilization:** If waste is a concern for your business, implement a monitoring solution to report any underutilized assets. This will identify opportunities to reduce waste and tighten spending. The corporate policy will state that all deployed assets must be registered with a solution that can monitor usage and report on any underutilization. In a Microsoft context, Azure Advisor could be used to provide this type of feedback.
 
-**Poor user experience:** If user experience is more important than asset costs, the opposite type of policy may be important for some assets. For instance, the policy may state that any asset that hosts a customer facing web or mobile property must scale to meet performance service level agreements (SLAs). For example, requiring scale sets for any asset with port 80 open will enforce such a policy. Azure Policy and Azure Blueprints can help enforce the rule in an Azure environment.  
+**Poor user experience:** If user experience is more important than asset costs, the opposite type of policy may be important for some assets. For instance, the policy may state that any asset that hosts a customer facing web or mobile property must scale to meet performance service level agreements (SLAs). For example, requiring scale sets for any asset with port 80 open will enforce such a policy. Azure Policy and Azure Blueprints can help enforce the rule in an Azure environment.
 
-Use any of these corporate policies or create new ones. The goal of each policy is to advance a cost management discipline in your organization. Ultimately, the goal is for you to mitigate risks that can't be tolerated, with as little resistance to cloud adoption as is possible. Balancing risk, tolerance, and policy will create cloud goverance disciplines that are easy to enforce and safe for the business to operate.
+Use any of these corporate policies or create new ones. The goal of each policy is to advance a cost management discipline in your organization. Ultimately, the goal is for you to mitigate risks that can't be tolerated, with as little resistance to cloud adoption as is possible. Balancing risk, tolerance, and policy will create cloud governance disciplines that are easy to enforce and safe for the business to operate.
 
 ## Next steps
 

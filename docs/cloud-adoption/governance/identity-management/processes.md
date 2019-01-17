@@ -11,17 +11,29 @@ This article discusses an approach to policy adherence processes that govern [id
 
 ## Planning, review, and reporting processes
 
-The best identity management tools in the cloud are only as good as the processes and policies that they support. The following is a set of manual processes commonly used as part of an identity management discipline.
+Identity management tools offer capabilities and features that greatly assist user management and access control within a cloud deployment. However, they also require well thought out processes and policies to support your organizations cloud goals. The following is a set of manual processes commonly used as part of an identity management discipline.
 
-[content coming]
+**Deployment planning**: Prior to any deployment, review the access needs for any workloads and develop an access control strategy that aligns with established corporate identity policy. Document any gaps between needs and current policy to determine if policy updates are required, and modify policy as needed.
 
-## Violation triggers and enforcement actions
+**Quarterly planning**: On a quarterly basis perform a general review of identity and access control audit data, and meet with cloud adoption teams to identify any potential new risks or operational requirements that would require updates to identity policy or changes in access control strategy.
 
-When violations are detected, you should take enforcement actions to realign with policy. You can automate most violation triggers using the tools outlined in the [Azure-Specific Toolchain](./toolchain.md).
+This planning process is also a good time to evaluate the current membership of your cloud governance team for knowledge gaps related to new or evolving policy and risks related to identity. Invite relevant IT staff to participate in reviews and planning as either temporary technical advisors or permanent members of your team.  
 
-The following are examples of triggers: 
+**Education and Training**: On a bi-monthly basis, offer training sessions to make sure IT staff and developers are up-to-date on the latest identity policy requirements. As part of this process review and update any documentation, guidance, or other training assets to ensure they are in sync with the latest corporate policy statements.
 
-* [content coming]
+**Monthly audit and reporting reviews**: On a monthly basis, perform an audit on all cloud deployments to assure their continued alignment with identity policy. Use this review to check user access against business change to ensure users have correct access to cloud resources, and ensure access strategies such as RBAC are being followed consistently. Identify any privileged accounts and document their purpose. The result of this review process is a report for the Cloud Strategy Team and each Cloud Adoption Team to communicate overall adherence to policy. The report is also stored for auditing and legal purposes.
+
+## Ongoing monitoring, violation triggers and enforcement actions
+
+Violations of identity policy can result in unauthorized access to sensitive data and lead to serious disruption of mission critical application and services. It's important to be proactive in monitoring your identity management systems on an ongoing basis to ensure prompt detection and mitigation of potential problems.
+
+When violations are detected, you should take actions to realign with policy as soon as possible. Your IT team can automate most violation triggers using the tools outlined in the [Azure-Specific Toolchain](toolchain.md).
+
+The following are examples of identity related triggers and enforcement actions:
+
+- Suspicious activity detected: Users logins detected from anonymous proxy IP addresses, unfamiliar locations, or successive logins from impossibly distant geographical locations may indicate a potential account breach or malicious access attempt. Login will be blocked until user identity can be verified and password reset.
+- Leaked user credentials: Accounts that have their username and password leaked to the internet will be disabled until user identity can be verified and password reset.
+- Insufficient access controls detected: Any protected assets where access restrictions do not meet security requirements will have access blocked until the resource is brought into compliance.
 
 ## Next steps
 

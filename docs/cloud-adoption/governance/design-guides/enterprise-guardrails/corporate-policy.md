@@ -113,7 +113,7 @@ The following policy statements establish requirements to mitigate the defined r
 
 **Configuration Management**:
 
-* Deployment tooling must be approved by the Cloud Governance Team to ensure on-going governance of deployed assets
+* Deployment tooling must be approved by the Cloud Governance Team to ensure ongoing governance of deployed assets
 * Deployment scripts must be maintained in central repository accessible by the Cloud Governance Team for periodic review and auditing
 * Governance tooling must limit VM deployment to approved images only
 * Governance tooling must enforce that automatic updates are enabled on all deployed assets. Violations must be reviewed with operational management teams & remediated in accordance with operations policies. Assets that are not automatically updated must be included in processes owned by IT operations.
@@ -133,7 +133,7 @@ The above policy statements are based on the synthesized use case. See the artic
 
 Many of the policies required by this use case can be implemented with tools and audited programmatically. However, there are a number of processes that will require human involvement. Since governance has inherent dependencies on security, operations, devops, and identity management teams, many of these processes are designed to ensure continuous evolution of the governance strategy. The following is one example of processes that could executed by a small team of people supporting cloud governance.
 
-The two systems admins who were responsible for establishing the Enterprise MVP foundation have evolved with the company. They are now dedicated to governance full time. In addition, their virtual team referred to as the Cloud Governance Team now includes lead architects from security, operations, devops, and identity teams. Together, they define implementations that fulfill the policies established by the CIO. Initially, these team members were referred to as Cloud Custodians because they were constantly cleaning up deployments. Now IT looks to them as Cloud Guardians and a source of adoption acceleration.
+The two systems administrators who were responsible for establishing the Enterprise MVP foundation have evolved with the company. They are now dedicated to governance full time. In addition, their virtual team referred to as the Cloud Governance Team now includes lead architects from security, operations, devops, and identity teams. Together, they define implementations that fulfill the policies established by the CIO. Initially, these team members were referred to as Cloud Custodians because they were constantly cleaning up deployments. Now IT looks to them as Cloud Guardians and a source of adoption acceleration.
 
 **Corporate Policy Changes:** The Cloud Governance Team has reviewed the new policy statements. Those led to a number of changes to the governance templates (Azure Policies) implemented from the Enterprise MVP Design Guide. For details on the implementation of the policy changes, see the [Enterprise Guardrails Design Guide](./design-guide.md). The previous tooling will allow for the automatic enforcement of the new policies during the monthly audit.
 

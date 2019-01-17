@@ -11,7 +11,7 @@ This article is intended to help you quantify business risk tolerance as it rela
 
 ## Metrics 
 
-Security management generally focuses on identifying potential vulnerabilities in your cloud deployments. The following are a few common pieces of data that are useful in this discipline of cloud governance:
+Security management generally focuses on identifying potential vulnerabilities in your cloud deployments. The following are a few common metrics that are useful in this discipline of cloud governance:
 
 - **Data classification**. Number of cloud-stored data and services that are unclassified according to on your organization's privacy, compliance, or business impact standards.
 - **Number of sensitive data stores** - Number of storage end points or databases that contain sensitive data and should be protected.
@@ -29,7 +29,7 @@ Security management generally focuses on identifying potential vulnerabilities i
 
 Cloud platforms provide a baseline set of features that enable small deployment teams to configure basic security settings without extensive additional planning. As a result, small Dev/Test or experimental first workloads that do not include sensitive data represent a relatively low level of risk, and will likely not need much in the way of formal security management policy. However, as soon as important data or mission-critical functionality is moved to the cloud, security risks increase, while tolerance for those risks diminishes rapidly. As more of your data and functionality is deployed to the cloud, the more likely you need an increased investment in the Security Management discipline.
 
-In the early stages of cloud adoption, work with your business to identify [business risks](business-risks.md) related to security, then determine an acceptable baseline for security risk tolerance. This section of the Fusion guidance provides examples, but the detailed risks and baselines for your company or deployments may be different.
+In the early stages of cloud adoption, work with your IT security team and business stakeholders to identify [business risks](business-risks.md) related to security, then determine an acceptable baseline for security risk tolerance. This section of the Fusion guidance provides examples, but the detailed risks and baselines for your company or deployments may be different.
 
 Once you have a baseline, establish minimum benchmarks representing an unacceptable increase in your identified risks. These benchmarks act as triggers for when you need to take action to mitigate these risks. The following are a few examples of how security metrics, such as those discussed above, can justify an increased investment in the security management discipline.
 

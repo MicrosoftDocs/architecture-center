@@ -10,7 +10,7 @@ Jump to: [Naming recommendations](#naming-recommendations) | [Tagging](#tagging)
 
 Resource naming standards and tagging policy in the [Azure Virtual Datacenter model](../virtual-datacenter/overview.md) should comply when possible with your existing organization standards and policy, and support your overall subscription design. 
 
-The Azure Virtual Datacenter model does not enforce prescriptive tagging and naming guidance beyond limits described in [Azure naming convention best practices](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions). However, the model does provide recommendations to help make naming and tagging resource groups and individual resources easier to find and manage.  
+The Azure Virtual Datacenter model does not enforce prescriptive tagging and naming guidance beyond limits described in [Azure naming convention best practices](/azure/architecture/best-practices/naming-conventions). However, the model does provide recommendations to help make naming and tagging resource groups and individual resources easier to find and manage.  
 
 ## Naming recommendations
 

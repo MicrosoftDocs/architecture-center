@@ -5,6 +5,8 @@ author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
+<!-- markdownlint-disable MD026 -->
+
 # Fusion: How can a company add Configuration Management discipline to their Cloud Governance execution?
 
 In the [Intro to Cloud Governance](../overview.md), Configuration Management is defined as one of the five disciplines of Cloud Governance. This discipline focuses on ways of establishing policies to govern asset configuration or deployment. Within the five disciplines of Cloud Governance, configuration governance includes deployment, configuration alignment, and high availability/disaster recovery (HA/DR) strategies. This could be through manual activities or fully automated DevOps activities. In either case, the policies would remain largely the same.
@@ -16,19 +18,19 @@ This article outlines the Configuration Management process that a company experi
 
 ![Four phases of adoption](../../_images/adoption-phases.png)
 
-*Figure 1. Adoption phases of the incremental approach to cloud governance*
+*Figure 1. Adoption phases of the incremental approach to cloud governance.*
 
 ## Planning and readiness
 
 While not directly aligned, this phase of governance maturity most closely maps to the activities outlined in the [Plan process](../../transformation-journeys/operational-transformation/plan.md) for the [Operational Transformation Journey](../../transformation-journeys/operational-transformation/overview.md).
 
-**Minimum suggested activities**
+**Minimum suggested activities:**
 
 * Evaluate your [Configuration Management Tool Chain](toolchain.md) options.
 * Develop a draft Architecture Guidelines document and distribute to key stakeholders.
 * Educate and involve the people and teams impacted by the development of Architecture Guidelines.
 
-**Potential activities**
+**Potential activities:**
 
 * Establish:
   * Formal deployment configuration and automation processes
@@ -41,13 +43,13 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 While not directly aligned, this phase of governance maturity most closely maps to the activities outlined in the [Build process](../../transformation-journeys/operational-transformation/build.md) for the [Operational Transformation Journey](../../transformation-journeys/operational-transformation/overview.md).
 
-**Minimum suggested activities**
+**Minimum suggested activities:**
 
 * Implement your [Configuration Management Tool Chain](toolchain.md) out in a pre-deployment phase.
 * Update the Architecture Guidelines document and distribute to key stakeholders.
-* Develop educational materials and documentation, awareness communications, incentives and other programs to help drive user adoption.
+* Develop educational materials and documentation, awareness communications, incentives, and other programs to help drive user adoption.
 
-**Potential activities**
+**Potential activities:**
 
 * Prepare to deploy your formal SLA classifications and recovery requirements.
 * Implement a:
@@ -55,21 +57,21 @@ While not directly aligned, this phase of governance maturity most closely maps 
   * Configuration alignment strategy
   * HA/DR strategy
 * Refine SLA classifications and recovering requirements as necessary
- 
+
 ## Adopt and migrate
 
 While not directly aligned, this phase of governance maturity most closely maps to the activities outlined in the [Migrate process](../../transformation-journeys/operational-transformation/migrate.md) for the [Operational Transformation Journey](../../transformation-journeys/operational-transformation/overview.md).
 
-**Minimum suggested activities**
+**Minimum suggested activities:**
 
 * Migrate your [Configuration Management Tool Chain](toolchain.md) from pre-deployment to production.
 * Update the Architecture Guidelines document and distribute to key stakeholders.
-* Develop educational materials and documentation, awareness communications, incentives and other programs to help drive user adoption.
+* Develop educational materials and documentation, awareness communications, incentives, and other programs to help drive user adoption.
 
-**Potential activities**
+**Potential activities:**
 
 * Validate your formal SLA classifications and recovery requirements.
-* Validate: 
+* Validate:
   * Proper use of deployment approaches
   * OS and App Hardening has been completed
   * Configuration alignment approaches
@@ -81,14 +83,14 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 Once the transformation is complete, governance and operations must live on for the natural lifecycle of an  application or workload. This phase of governance maturity focuses on the activities that commonly come after the solution is implemented and the transformation cycle begins to stabilize.
 
-**Minimum suggested activities**
+**Minimum suggested activities:**
 
 * Customize your [Configuration Management Tool Chain](toolchain.md).
 * Automate notifications and reports to alert you of potential configuration issues.
 * Refine Architecture Guidelines to guide future adoption processes.
-* Communicate and continually re-educate the impacted people and teams on a periodic basis to ensure on-going adherence to Architecture Guidelines.
+* Communicate and continually re-educate the impacted people and teams on a periodic basis to ensure ongoing adherence to Architecture Guidelines.
 
-**Potential activities**
+**Potential activities:**
 
 * Review OS and Application vulnerabilities.
 * Modify disaster recovery plans (intrusive and non-intrusive) as necessary.
@@ -97,4 +99,7 @@ Once the transformation is complete, governance and operations must live on for 
 * Prepare quarterly report including SLA costs versus business impact, along with results from recovery plan testing.
 
 # Next steps
+
 When planning your deployment, you will need to consider where logging data is stored and how you integrate cloud-based [reporting and monitoring services](../../infrastructure/logs-and-reporting/overview.md) with your existing processes and tools.
+
+<!-- markdownlint-enable MD026 -->

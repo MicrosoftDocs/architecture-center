@@ -13,6 +13,9 @@ Security Management is one of the [Five Disciplines of Cloud Governance](../gove
 
 This section of the Fusion guidance outlines the approach to developing a security management discipline as part of your cloud governance strategy.  
 
+> [!NOTE]
+> Security management governance does not replace the existing IT teams, processes, and procedures that your organization uses to secure cloud-deployed resources. The primary purpose of this discipline is to identify security-related business risks and provide risk-mitigation guidance to the IT staff responsible for security infrastructure. As you develop governance policies and processes make sure to involve relevant IT teams in your planning and review processes.
+
 ## Policy statements
 
 Actionable policy statements and the resulting architecture requirements serve as the foundation of a security management discipline. To see policy statement samples, see the article on [Security Management Policy Statements](./policy-statements.md). These samples can serve as a starting point for your organization's governance policies.
