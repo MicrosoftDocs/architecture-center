@@ -64,16 +64,7 @@ Replication using [Azure Active Directory](#identity-and-the-azure-management-pl
 > [!TIP]
 > Any cloud-based workloads that depend on non-cloud authentication mechanisms will still require either connectivity to on-premises identity services or virtual servers in the cloud environment providing these services. Using on-premises identity services also introduces dependencies on connectivity between the cloud and on-premises networks.
 
-**Federated identity assumptions:** Using a federated identity solution assumes the following:
-
-- You need to maintain a common set of user accounts and group across your cloud and on-premises IT infrastructure.
-- Your on-premises identity services support replication with your cloud identity provider.
-- You require SSO mechanisms for users accessing cloud and on-premises identity providers.
-
-> [!TIP]
-> Any cloud-based workloads that depend on non-cloud authentication mechanisms will still require either connectivity to on-premises identity services or virtual servers in the cloud environment providing these services. Using on-premises identity services also introduces dependencies on connectivity between the cloud and on-premises networks.
-
-### Directory Replication with Domain Services
+### Directory replication with domain services
 
 If you have workloads that depend on claims-based authentication using protocols such as Kerberos or NTLM that cannot be refactored to accept cloud-compatible token based authentication mechanisms, you may need to perform a directory migration as part of your cloud deployment. 
 
