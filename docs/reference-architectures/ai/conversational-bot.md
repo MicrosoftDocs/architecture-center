@@ -16,9 +16,6 @@ Before getting into the specifics of this architecture, let's start with the dat
 
 **Authentication**. Users start by authenticating themselves using whatever mechanism is provided by their channel of communication with the bot. The bot framework supports many communciation channels, including Cortana, Microsoft Teams, Facebook Messenger, Kik, and Slack. For a list of channels, see [Connect a bot to channels](/azure/bot-service/bot-service-manage-channels). The bot is configured with channels to create a connection between the bot and the user. You can also connect the bot to a custom app by using the [Direct Line](/azure/bot-service/bot-service-channel-connect-directline) channel.
 
-- Azure Active Directory (AAD) – User identity platform used across a wide array of services.
-- KeyVault - Secure key management service for storing and managing keys and secrets.
-
 **Authorization**. The user's identity is used to provide role-based access control, as well as to serve personalized content to the user.
 
 **User message**. Once authenticated, the user sends a message to the bot. The bot reads the message and routes it to a natural language understanding service such as [LUIS](/azure/cognitive-services/luis/). This step gets the **intents** (what the user wants to do) and **entities** (what things the user is interested in) from the message. The bot passes these intents and entities to another service that serves information, such as AzureSearch for document retrieval, [QnA Maker](https://www.qnamaker.ai/) for FAQs, or a custom knowledge base to find the best match for a response.
@@ -45,9 +42,8 @@ The services shown below are indicative of those used by most bots, but you may 
 
 ### Bot logic and user experience
 
-- Channel. A channel is a connection between the bot and communication apps such as Cortana, Facebook Messenger, or Slack.
-- Bot Framework Service - connects your bot to these channels and facilitates communication between your bot and the user
-- Azure WebApp - Web application hosting service supporting auto scaling, load balancing, high availability, and continuous deployment from GitHub and Azure DevOps. Used in this architecture to host the Bot application and logic.
+- Bot Service - connects your bot to a channel. A channel is a connection between the bot and communication apps such as Cortana, Facebook Messenger, or Slack. and facilitates communication between your bot and the user
+- Azure WebApp - Hosts the Bot application and logic.
 
 ### Bot cognition and intelligence
 
@@ -78,8 +74,7 @@ The services shown below are indicative of those used by most bots, but you may 
 
 - Azure DevOps - Project development service supporting source control, continuous build/test integration and deployment (CICD), and project planning and management.
 
-
-## Building Your Bot
+## Building a bot
 
 ### Ingest Data
 
