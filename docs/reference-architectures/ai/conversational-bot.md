@@ -42,37 +42,40 @@ The services shown below are indicative of those used by most bots, but you may 
 
 ### Bot logic and user experience
 
-- Bot Service - connects your bot to a channel. A channel is a connection between the bot and communication apps such as Cortana, Facebook Messenger, or Slack. and facilitates communication between your bot and the user
-- Azure WebApp - Hosts the Bot application and logic.
+**[Bot Framework Service][bot-framework-service]** (BFS). This service connects your bot to a communication app such as Cortana, Facebook Messenger, or Slack. It facilitates communication between your bot and the user.
+
+**[Azure App Service][app-service]**. The bot application and logic is hosted in Azure App Service.
 
 ### Bot cognition and intelligence
 
-- Language Understanding (LUIS) - Enables your bot to understand natural language by identifying user intents and entities.
-- Azure Search – Provides a quick searchable document index.
-- QnA Maker - Add a knowledge base to answer questions users ask using natural language. Typically loaded with semi-structured content such as FAQs.
+**[Language Understanding][luis]** (LUIS). Part of [Azure Cognitive Services][cognitive-services], LUIS enables your bot to understand natural language by identifying user intents and entities.
 
-### Logging
+**[Azure Search][search]**. Search is a managed service tha provides a quick searchable document index.
+
+**[QnA Maker][qna-maker]**. QnA Maker is a cloud-based API service that creates a conversational, question-and-answer layer over your data. Typically, it's loaded with semi-structured content such as FAQs. Use it to create a knowledge base for answering natural-language questions.
+
+### Logging and monitoring
 
 - Azure Blob Storage – Optimized for storing massive amounts of unstructured data.
 - Cosmos DB – Scalable "schema on demand" document store.
 - AppInsights – Used to log web application metrics for monitoring, diagnostic, and analytical purposes.
-
-### Data ETL
-
-- Azure Data Factory (ADF) – Scheduled orchestration service for managing ETL pipelines.
-- Azure Functions - Serverless compute service that enables you to run code on-demand without having to explicitly provision or manage infrastructure.
-- Logic Apps – Provides data connectors across numerous apps, including Office 365.
-
-### Monitoring and reporting
-
 - PowerBI (PBI) – Used to create visually appealing dashboards for data exploration and analysis.
+
+### Data ingestiong
+
+The bot will rely on raw data that must be ingested and prepared. Consider any of the following options to orchestrate this process:
+
+**[Azure Data Factory][data-factory]. Data Factory orchestrates and automates data movement and data transformation. You can find a Data Factory reference architecture [here][data-factory-ref-arch].
+
+[Logic Apps][logic-apps]. Logic Apps is a serverless platform for building workflows that integrate applications, data, and services. Logic Apps provides data connectors for numerous applications, including Office 365.
+
+**[Azure Functions][functions]**. You can use Azure Functions to write custom serverless code is invoked by a [trigger][functions-triggers] &mdash; for example, whenever a documented is added to blob storage or Cosmos DB.
 
 ## Security and governance
 
-- Azure Active Directory (AAD) – User identity platform used across a wide array of services.
-- KeyVault - Secure key management service for storing and managing keys and secrets.
+Azure Active Directory (AAD) – User identity platform used across a wide array of services.
 
-- Azure DevOps - Project development service supporting source control, continuous build/test integration and deployment (CICD), and project planning and management.
+**[Azure Key Vault][key-vault]**. Store credentials and other secrets using Key Vault.
 
 ## Building a bot
 
@@ -116,7 +119,7 @@ It's not a good idea flying blind when it comes to understanding how your bot is
 
 It's also important to understand how satisfied users are with their bot interactions. If you have a record of user feedback, you can use this data to focus your efforts on improving certain interactions and retraining the AI models for improved performance. You can use the [Feedback Middleware](https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-feedback) to directly ask users to provide optional feedback for each bot response. This feedback should be used to retrain the models, such as LUIS, in your system.
 
-## Quality Assurance and Enhancement
+## Quality assurance and enhancement
 
 Testing of the bot involves unit, integration, regression, and functional testing. To assist with testing the [Testing Middleware](https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-http-test-recorder) provides developers with the ability to record HTTP traffic from external services. It comes pre-built with support for LUIS, Azure Search, and QnAMaker, but extensions are available to support any service.
 
@@ -133,7 +136,7 @@ The last three sections use the Botbuilder Utils for JavaScript. This repo conta
 
 Keeping your enterprise bot up and running during maintenance or heavy load is essential. As you roll out new features or bug fixes to your bot, it is best to employ multiple deployment environments, such as staging and production. Using deployment slots from Azure DevOps allows you to do this with zero downtime. You can test your latest upgrades in the staging environment prior to swapping them to the production environment. As for handling load, bots are deployed as Azure WebApps, which are designed to scale up or out manually or automatically. Because your bot is hosted in Microsoft's global datacenter infrastructure, the App Service SLA promises high availability.
 
-## Monitoring and Reporting
+## Monitoring and reporting
 
 Now that your enterprise bot is up and running, you will need a devops team to keep it that way. Constant monitoring of the system will be needed to ensure its operating at peak performance. The logs being sent to AppInsights or CosmosDB will be used to create effective monitoring dashboards, either using AppInsights itself, PowerBI, or possibly a custom webapp dashboard. Errors or performance levels falling below an acceptable threshold will result in email notifications to the devops team.
 
@@ -143,4 +146,19 @@ Of course, the bot itself is only part of a larger ecosystem needed to provide i
 
 ## Continuous Bot Deployment
 
-Deploying your bot logic itself can be done directly from your IDE, such as Visual Studio. You can also use the command line, such as the Azure CLI. As your bot matures, it's best to use a continual deployment process using Azure DevOps, as described in the article [Set up continuous deployment](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-build-continuous-deployment?view=azure-bot-service-4.0). This is a good way to ease the friction in testing out new features and fixes in your bot in a near production environment. Speaking of which, and as discussed above under availability, it's a good idea to have multiple deployment environments, typically at least staging and production. Azure DevOps supports this as well, allowing you to deploy to multiple deployment slots.
+Deploying your bot logic itself can be done directly from your IDE, such as Visual Studio. You can also use the command line, such as the Azure CLI. As your bot matures, it's best to use a continual deployment process using a CI/CD solution such as Azure DevOps, as described in the article [Set up continuous deployment](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-build-continuous-deployment?view=azure-bot-service-4.0). This is a good way to ease the friction in testing out new features and fixes in your bot in a near production environment. Speaking of which, and as discussed above under availability, it's a good idea to have multiple deployment environments, typically at least staging and production. Azure DevOps supports this as well, allowing you to deploy to multiple deployment slots.
+
+<!-- links -->
+
+[app-service]: /azure/app-service/
+[bot-framework-service]: /azure/bot-service/bot-builder-basics
+[cognitive-services]: /azure/cognitive-services/welcome
+[data-factory]: /azure/data-factory/
+[data-factory-ref-arch]: ../data/enterprise-bi-adf.md
+[functions]: /azure/azure-functions/
+[functions-triggers]: /azure/azure-functions/functions-triggers-bindings
+[logic-apps]: azure/logic-apps/logic-apps-overview
+[luis]: /azure/cognitive-services/luis/
+[qna-maker]: /azure/cognitive-services/QnAMaker/index
+[search]: /azure/search/
+[key-vault]: /azure/key-vault/
