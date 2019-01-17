@@ -11,9 +11,12 @@ ms.topic: landing-page
 
 Identity Management is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md) within the [Fusion Model to Cloud Governance](../overview.md). 
 
-[content coming]
+Identity is increasingly considered the primary security perimeter in the cloud, which is a shift from the traditional focus on network security. Identity services provide the core mechanisms supporting access control and organization within IT environments, and the identity management discipline complements the [security management discipline](../security-management/overview.md) by providing secure user authentication, controlling user access to cloud-based resources, and ensuring identity services work efficiently across your organization.
 
 This section of the Fusion guidance outlines the approach to developing an identity management discipline as part of your cloud governance strategy.  
+
+> [!NOTE]
+> Identity management governance does not replace the existing IT teams, processes, and procedures that allow your organization to manage and secure identity services. The primary purpose of this discipline is to identify potential identity-related business risks and provide risk-mitigation guidance to IT staff that are responsible for implementing, maintaining, and operating your identity management infrastructure. As you develop governance policies and processes make sure to  involve relevant IT teams in your planning and review processes.
 
 ## Policy statements
 

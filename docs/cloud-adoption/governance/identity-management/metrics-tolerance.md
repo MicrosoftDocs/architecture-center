@@ -25,12 +25,11 @@ Identity management focuses identifying, authenticating, and authorizing individ
 - **Authorization claims**. Number of successful and failed attempts by users to access resources.
 - **Compromised accounts**. Number of user accounts that have been compromised.
 
-
 ## Risk tolerance indicators
 
 Risks related to identity management are largely related to the complexity of your organization's identity infrastructure. If all of your users and groups are managed using a single directory or cloud native identity provider using minimal integration with other services, your risk level will likely be small. However, as your business needs grow your identity management systems may need to support more complicated scenarios, such as multiple directories to support your internal organization or federation with external identity providers. As these systems become more complex, risk increases.
 
-In the early stages of cloud adoption, work with your business to identify [business risks](business-risks.md) related to identity, then determine an acceptable baseline for identity risk tolerance. This section of the Fusion guidance provides examples, but the detailed risks and baselines for your company or deployments may be different.
+In the early stages of cloud adoption, work with your IT security team and business stakeholders to identify [business risks](business-risks.md) related to identity, then determine an acceptable baseline for identity risk tolerance. This section of the Fusion guidance provides examples, but the detailed risks and baselines for your company or deployments may be different.
 
 Once you have a baseline, establish minimum benchmarks representing an unacceptable increase in your identified risks. These benchmarks act as triggers for when you need to take action to mitigate these risks. The following are a few examples of how identity related metrics, such as those discussed above, can justify an increased investment in the Identity Management discipline.
 

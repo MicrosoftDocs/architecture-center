@@ -31,9 +31,9 @@ Before defining triggers for policy compliance remediation, you need establish t
 
 Who will provide ongoing guidance on policy compliance and handle policy-related issues that emerge when deploying and operating your cloud assets? The size and composition of your cloud governance team will depend on the complexity of your policy requirements, and the budgeting and staffing priorities you've attached to policy compliance.
 
-Choose team that have expertise in the areas covered by your defined policy statements. For initial test deployments this can be limited to a few system administrators responsible for establishing the basics of governance. As your deployments mature and your policies become more complex and more integrated with your wider corporate policy requirements, your cloud governance team will need to change to support increasingly complicated policy requirements. 
+Choose team members that have expertise in the areas covered by your defined policy statements. For initial test deployments this can be limited to a few system administrators responsible for establishing the basics of governance. As your deployments mature and your policies become more complex and more integrated with your wider corporate policy requirements, your cloud governance team will need to change to support increasingly complicated policy requirements. 
 
-As your governance processes mature, review the cloud guidance team's membership regularly to ensure that you can properly address the latest policy requirements.
+As your governance processes mature, review the cloud guidance team's membership regularly to ensure that you can properly address the latest policy requirements. Identify members of your IT staff with relevant experience or interest in specific areas of governance and include them in your teams on a permanent or ad-hoc basis as-needed.
 
 ### Reviews and policy iteration
 
