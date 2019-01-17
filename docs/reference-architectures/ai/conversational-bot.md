@@ -2,7 +2,7 @@
 
 This reference architecture describes how to build an enterprise-grade conversational bot (chatbot) using the [Azure Bot Framework](https://dev.botframework.com/). Each bot is different, of course, but there are some common patterns, workflows, and technologies to be aware of. Especially for a bot to serve enterprise workloads, there are many design considerations beyond just the core functionality. This article covers the most essential design aspects, and introduces the tools needed to build a robust, secure, and actively learning bot.
 
-![Diagram of the architecture](./_images/conversational-bot.png)
+[![Diagram of the architecture](./_images/conversational-bot.png)](./_images/conversational-bot.png#lightbox)
 
 ## Architecture
 
@@ -107,8 +107,6 @@ There are many more AI services that can be used by your bot to further enrich t
 
 Should you want to integrate your own custom AI service, that is an option as well. In this case, you have complete flexibility on what you want to do, as you control the machine learning algorithm, training and the model. For example, you could implement your own topic modelling and use algorithm such as the [LDA](https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation) for finding relevant information or answers from a set of a documents. A good approach here would be to expose your custom AI solution as a web service endpoint hosted on a WebApp, virtual machine or a cluster of machines and call the endpoint from the core bot logic. To assist you with custom AI, Azure Machine Learning provides a number of services and libraries to assist you in [training](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training) and [deploying](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment) your models.
 
-
-
 ## Logging and feedback
 
 It's not a good idea flying blind when it comes to understanding how your bot is being used or how it's performing. You need to log user conversations with the bot, including the underlying performance metrics and any errors that occurred. These logs will prove invaluable when it comes to debugging issues, understanding user interactions, and improving the system. You can implement logging by using [transcript logging middleware](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-debug-transcript?view=azure-bot-service-4.0) for your bot. Different types of logs might be better suited for different stores. For example, AppInsights might be best for web logs, CosmosDB might be best for conversations, and Azure Storage (azure transcript storage as part of the bot framework) might be best for large payloads.
@@ -136,11 +134,11 @@ Keeping your enterprise bot up and running during maintenance or heavy load is e
 
 For an enterprise bot that could potentially expose user and company confidential information, or be the target of denial of service attacks, security is a serious issue. Restricting who can log and use the bot and limiting which data can be accessed based on the user's identity or role is required. This type of user identity and data protection can be achieved using Azure Active Directory for identity and access control and Azure Key Vault for key and secrets management.
 
+## Operations
+
 ## Monitoring and reporting
 
 Now that your enterprise bot is up and running, you will need a devops team to keep it that way. Constant monitoring of the system will be needed to ensure its operating at peak performance. The logs being sent to AppInsights or CosmosDB will be used to create effective monitoring dashboards, either using AppInsights itself, PowerBI, or possibly a custom webapp dashboard. Errors or performance levels falling below an acceptable threshold will result in email notifications to the devops team.
-
-## Deployment considerations
 
 ### Automated Resource Deployment
 
@@ -161,7 +159,6 @@ Deploying your bot logic itself can be done directly from your IDE, such as Visu
 [functions]: /azure/azure-functions/
 [functions-triggers]: /azure/azure-functions/functions-triggers-bindings
 [key-vault]: /azure/key-vault/
-[logging-utilities]
 [logic-apps]: /azure/logic-apps/logic-apps-overview
 [luis]: /azure/cognitive-services/luis/
 [qna-maker]: /azure/cognitive-services/QnAMaker/index
