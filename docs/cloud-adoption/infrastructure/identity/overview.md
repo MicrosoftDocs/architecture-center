@@ -55,10 +55,10 @@ In addition to allowing shared identity services between cloud and on-premises, 
 
 Replication using [Azure Active Directory](#identity-and-the-azure-management-plane) is one of the primary building blocks that allows the [Azure Virtual Datacenter model to apply](vdc-identity.md) centrally managed access control policies across multiple Azure subscriptions.  
 
-**Replication identity assumptions:** Using a Replication identity solution assumes the following:
+**Replication identity assumptions:** Using a replication identity solution assumes the following:
 
 - You need to maintain a common set of user accounts and group across your cloud and on-premises IT infrastructure.
-- Your on-premises identity services supports Replication with your cloud identity provider.
+- Your on-premises identity services supports replication with your cloud identity provider.
 - You require SSO mechanisms for users accessing cloud and on-premises identity providers.
 
 > [!TIP]
