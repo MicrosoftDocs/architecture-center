@@ -7,7 +7,7 @@ ms.date: 1/8/2019
 
 # Fusion: Motivations and business risks that drive identity governance
 
-This article discusses the reasons that customers typically adopt an identity management discipline within a cloud governance strategy. It also provides a few examples of business risks which drive policy statements.
+This article discusses the reasons that customers typically adopt an identity management discipline within a cloud governance strategy. It also provides a few examples of business risks that drive policy statements.
 
 ## Is identity management relevant?
 
