@@ -11,7 +11,7 @@ This article is intended to help you quantify business risk tolerance as it rela
 
 ## Metrics
 
-Identity management focuses identifying, authenticating, and authorizing individuals, groups of users, or automated processes, and providing them appropriate access to resources in your cloud deployments. The following information is useful when adopting this discipline of cloud governance:
+Identity management focuses on identifying, authenticating, and authorizing individuals, groups of users, or automated processes, and providing them appropriate access to resources in your cloud deployments. The following information is useful when adopting this discipline of cloud governance:
 
 - **Identity systems size**. Total number of users, groups, or other objects managed through your identity systems.
 - **Overall size of directory services infrastructure**. Number of directory forests, domains, and tenants used by your organization.

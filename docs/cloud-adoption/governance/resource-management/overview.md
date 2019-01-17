@@ -48,7 +48,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
 * Implement your [Resource Management Tool Chain](toolchain.md) by rolling out in a pre-deployment phase.
 * Update the Architecture Guidelines document and distribute to key stakeholders.
 * Implement resource deployment tasks on your prioritized migration backlog.
-* Develop educational materials and documentation, awareness communications, incentives and other programs to help drive user adoption.
+* Develop educational materials and documentation, awareness communications, incentives, and other programs to help drive user adoption.
 
 **Potential activities:**
 
@@ -71,7 +71,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 * Migrate your [Resource Management Tool Chain](toolchain.md) from pre-deployment to production.
 * Update the Architecture Guidelines document and distribute to key stakeholders.
-* Develop educational materials and documentation, awareness communications, incentives and other programs to help drive user adoption.
+* Develop educational materials and documentation, awareness communications, incentives, and other programs to help drive user adoption.
 * Migrate any existing automated remediation scripts or tools to support defined SLA requirements.
 
 **Potential activities:**

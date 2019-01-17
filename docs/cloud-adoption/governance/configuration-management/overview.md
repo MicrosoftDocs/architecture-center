@@ -47,7 +47,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 * Implement your [Configuration Management Tool Chain](toolchain.md) out in a pre-deployment phase.
 * Update the Architecture Guidelines document and distribute to key stakeholders.
-* Develop educational materials and documentation, awareness communications, incentives and other programs to help drive user adoption.
+* Develop educational materials and documentation, awareness communications, incentives, and other programs to help drive user adoption.
 
 **Potential activities:**
 
@@ -66,7 +66,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 * Migrate your [Configuration Management Tool Chain](toolchain.md) from pre-deployment to production.
 * Update the Architecture Guidelines document and distribute to key stakeholders.
-* Develop educational materials and documentation, awareness communications, incentives and other programs to help drive user adoption.
+* Develop educational materials and documentation, awareness communications, incentives, and other programs to help drive user adoption.
 
 **Potential activities:**
 

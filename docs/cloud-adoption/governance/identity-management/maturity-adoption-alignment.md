@@ -77,7 +77,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 * Migrate your [Identity tool chain](toolchain.md) from development to production.
 * Update the Architecture Guidelines document and distribute to key stakeholders.
-* Develop educational materials and documentation, awareness communications, incentives and other programs to help drive user adoption.
+* Develop educational materials and documentation, awareness communications, incentives, and other programs to help drive user adoption.
 
 **Potential activities:**
 
