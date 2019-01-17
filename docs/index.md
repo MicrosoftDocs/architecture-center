@@ -9,6 +9,8 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
 
 # Azure Architecture Center
 
+<!-- markdownlint-disable MD033 -->
+
 <!-- main panel -->
 <ul class="panelContent cardsC">
     <!-- A3G -->
@@ -359,4 +361,22 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
         </div>
         </a>
     </li>
-</ul>   
+    <li>
+        <a href="/learn/modules/n-tier-architecture/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/learn/achievements/n-tier-architecture.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Tour the N-tier architecture style</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>

@@ -8,7 +8,7 @@ ms.date: 11/12/2018
 
 # Windows N-tier application on Azure with SQL Server
 
-This reference architecture shows how to deploy VMs and a virtual network configured for an N-tier application, using SQL Server on Windows for the data tier. [**Deploy this solution**](#deploy-the-solution).
+This reference architecture shows how to deploy VMs and a virtual network configured for an [N-tier](../../guide/architecture-styles/n-tier.md) application, using SQL Server on Windows for the data tier. [**Deploy this solution**](#deploy-the-solution).
 
 ![N-tier architecture using Microsoft Azure](./images/n-tier-sql-server.png)
 
@@ -228,6 +228,10 @@ A deployment for this reference architecture is available on [GitHub][github-fol
     ```
 
 For more information on deploying this sample reference architecture using Azure Building Blocks, visit the [GitHub repository][git].
+
+## Next steps
+
+- [Microsoft Learn module: Tour the N-tier architecture style](/learn/modules/n-tier-architecture/)
 
 <!-- links -->
 [dmz]: ../dmz/secure-vnet-dmz.md
