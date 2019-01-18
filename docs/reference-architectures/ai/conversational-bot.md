@@ -1,6 +1,6 @@
 # Enterprise-grade conversational bot
 
-This reference architecture describes how to build an enterprise-grade conversational bot (chatbot) using the [Azure Bot Framework](https://dev.botframework.com/). Each bot is different, of course, but there are some common patterns, workflows, and technologies to be aware of. Especially for a bot to serve enterprise workloads, there are many design considerations beyond just the core functionality. This article covers the most essential design aspects, and introduces the tools needed to build a robust, secure, and actively learning bot.
+This reference architecture describes how to build an enterprise-grade conversational bot (chatbot) using the [Azure Bot Framework][bot-framework]. Each bot is different, of course, but there are some common patterns, workflows, and technologies to be aware of. Especially for a bot to serve enterprise workloads, there are many design considerations beyond just the core functionality. This article covers the most essential design aspects, and introduces the tools needed to build a robust, secure, and actively learning bot.
 
 [![Diagram of the architecture][0]][0]
 
@@ -67,10 +67,6 @@ Data in the intermediary store is then indexed into Azure Search for document re
 
 **Quality assurance**. The conversation logs are used to diagnose and fix bugs, provide insight into how the bot is being used, and track overall performance. Feedback data is also useful for retraining the AI models to improve bot performance.
 
-**Monitoring**. Create a performance dashboard for the DevOps team, and set up alerts so that operators are aware of critical issues as they arise. 
-
-**Testing**. For testing, we recommend recording real HTTP responses from external services, such as Azure Search or QnA Maker, so they can be played back during unit testing without needing to make real network calls to external services.
-
 ## Building a bot
 
 Before you write a line of code, it's important to write a functional specification so that all stakeholders have a clear idea of what the bot is expected to do. The specification should include a reasonably comprehensive list of user inputs and expected bot responses in various knowledge domains. This living document will be an invaluable guide for developing and testing your bot.
@@ -83,7 +79,7 @@ As you get started, it's reasonable to use the Azure Portal to manually create A
 
 ### Core bot logic and UX
 
-Once you have a it's time to start making your bot into reality. Let's focus on the core bot logic. This is the code that handles the conversation with the user, including the routing logic, disambiguation logic, and logging. Start by familiarizing yourself with the [Bot Framework](https://dev.botframework.com/), including:
+Once you have a it's time to start making your bot into reality. Let's focus on the core bot logic. This is the code that handles the conversation with the user, including the routing logic, disambiguation logic, and logging. Start by familiarizing yourself with the [Bot Framework][bot-framework], including:
 
 - Basic concepts and terminology used in the framework, especially [conversations], [turns], and [activities].
 - The [Bot Connector service](/azure/bot-service/rest-api/bot-framework-rest-connector-quickstart), which handles the networking between the bot and your channels, 
@@ -115,24 +111,28 @@ Many other AI services can be used by your bot to further enrich the user experi
 
 Another option is to integrate your own custom AI service. This approach is more complex, but gives you complete flexibility in terms of the machine learning algorithm, training, and model. For example, you could implement your own topic modelling and use algorithm such as the [LDA](https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation) to find information or answers from a set of a documents. A good approach is to expose your custom AI solution as a web service endpoint, and call the endpoint from the core bot logic. The web service could be hosted in App Service or in a cluster of VMs. Azure Machine Learning provides a number of services and libraries to assist you in [training](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training) and [deploying](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment) your models.
 
-## Logging and feedback
-
-Monitoring is critical for understanding how your bot is being used and how it performs. Log user conversations with the bot, including the underlying performance metrics and any errors that occurred. These logs will prove invaluable when it comes to debugging issues, understanding user interactions, and improving the system. You can implement logging by using [transcript logging middleware](/azure/bot-service/bot-builder-debug-transcript) for your bot. Different types of logs might be better suited for different stores. For example, AppInsights might be best for web logs, CosmosDB might be best for conversations, and Azure Storage (azure transcript storage as part of the bot framework) might be best for large payloads.
-
-It's also important to understand how satisfied users are with their bot interactions. If you have a record of user feedback, you can use this data to focus your efforts on improving certain interactions and retraining the AI models for improved performance. You can use the [Feedback Middleware](https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-feedback) to directly ask users to provide optional feedback for each bot response. This feedback should be used to retrain the models, such as LUIS, in your system.
-
 ## Quality assurance and enhancement
 
-Testing of the bot involves unit tests, integration tests, regression tests, and functional tests. The [Testing Middleware](https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-http-test-recorder) provides developers with the ability to record HTTP traffic from external services. It comes pre-built with support for LUIS, Azure Search, and QnAMaker, but extensions are available to support any service.
 
-Consider the Botbuilder Utils for JavaScript. This repo contains sample middleware code that can be used to accelerate the development of a Microsoft Bot Framework v4 bot running NodeJS. The packages are provided as utility sample code only, and so are not published to npm*. To use them in your bot, follow the instructions in the respective READMEs:
 
-- [botbuilder-transcript-cosmosdb](https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-transcript-cosmosdb) – transcript logger backed by Cosmos DB SQL.
-- [botbuilder-transcript-app-insights](https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-transcript-app-insights) – transcript logger backed by Application Insights.
-- [botbuilder-feedback](https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-feedback) – feedback logging mechanism to rate the quality of answers.
-- [botbuilder-http-test-recorder](https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-http-test-recorder) – HTTP recording and playback mechanism for unit testing.
+**Logging**. Log user conversations with the bot, including the underlying performance metrics and any errors that occurred. These logs will prove invaluable when it comes to debugging issues, understanding user interactions, and improving the system. Different types of logs might be better suited for different stores. For example, AppInsights might be best for web logs, CosmosDB might be best for conversations, and Azure Storage (azure transcript storage as part of the bot framework) might be best for large payloads.
 
-*See ReadMe for full support disclaimer.
+**Feedback**. It's also important to understand how satisfied users are with their bot interactions. If you have a record of user feedback, you can use this data to focus your efforts on improving certain interactions and retraining the AI models for improved performance. Use the feedback to retrain the models, such as LUIS, in your system.
+
+**Testing**. Testing of the bot involves unit tests, integration tests, regression tests, and functional tests. For testing, we recommend recording real HTTP responses from external services, such as Azure Search or QnA Maker, so they can be played back during unit testing without needing to make real network calls to external services.
+
+To jump start your development in these areas, look at the [Botbuilder Utils for JavaScript](https://github.com/Microsoft/botbuilder-utils-js). This repo contains sample utility code for bots built with [Microsoft Bot Framework v4][bot-framework] and running Node.js.  
+
+- [Http Test Recorder](https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-http-test-recorder). Shows how to record HTTP traffic from external services. It comes pre-built with support for LUIS, Azure Search, and QnAMaker, but extensions are available to support any service.
+
+- [Cosmos DB Transcript Store](https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-transcript-cosmosdb). Shows how to store and query bot transcripts in Cosmos DB.
+
+- [Application Insights Transcript Store](https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-transcript-app-insights). Shows how to store and query bot transcripts in Application Insights.
+
+- [Feedback Collection Middleware](https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-feedback). Sample middleware that can be used to build a feedback-request mechanism.
+
+> [!NOTE]
+> These packages are provided as utility sample code, and come with no guarantee of support or updates.
 
 ## Availability considerations
 
@@ -147,6 +147,8 @@ An enterprise bot can potentially expose user and company confidential informati
 ### Monitoring and reporting
 
 Once your bot is running in production, you will need a devops team to keep it that way. Constant monitoring of the system is needed to ensure the bot operates at peak performance. The logs being sent to AppInsights or CosmosDB will be used to create effective monitoring dashboards, either using AppInsights itself, PowerBI, or possibly a custom webapp dashboard. Errors or performance levels falling below an acceptable threshold will result in email notifications to the devops team.
+
+Create a performance dashboard for the DevOps team, and set up alerts so that operators are aware of critical issues as they arise.
 
 ### Automated resource deployment
 
@@ -163,6 +165,7 @@ Deploying your bot logic itself can be done directly from your IDE, such as Visu
 [activities]: /azure/bot-service/rest-api/bot-framework-rest-connector-activities
 [app-service]: /azure/app-service/
 [bot-authentication]: /azure/bot-service/bot-builder-authentication
+[bot-framework]: https://dev.botframework.com/
 [bot-framework-service]: /azure/bot-service/bot-builder-basics
 [cognitive-services]: /azure/cognitive-services/welcome
 [conversations]: /azure/bot-service/bot-service-design-conversation-flow
