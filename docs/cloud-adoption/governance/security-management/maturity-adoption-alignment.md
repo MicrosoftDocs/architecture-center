@@ -39,7 +39,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
 - Determine whether your security management policy includes a [Security Development Lifecycle](https://www.microsoft.com/securityengineering/sdl/).
 - Evaluate network, data, and asset-related business risks based on the next one to three releases, and gauge your organization's tolerance for those risks.
 - Review Microsoft's [top trends in cybersecurity](https://www.microsoft.com/security/operations/security-intelligence-report) report to get an overview of the current security landscape.
-- Consider developing a [Security DevOps](https://www.microsoft.com/securityengineering/devsecops) role in your organization.
+- Consider developing a [Security DevOps](https://www.microsoft.com/en-us/securityengineering/devsecops) role in your organization.
 
 ## Build and pre-deployment
 
