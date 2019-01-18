@@ -4,6 +4,9 @@ titleSuffix: Azure Application Architecture Guide
 description: An evolutionary design is key for continuous innovation.
 author: MikeWasson
 ms.date: 08/30/2018
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: reference-architecture
 ms.custom: seojan19
 ---
 

@@ -4,6 +4,9 @@ titleSuffix: Azure Reference Architectures
 description: Implement a multi-tier architecture on Azure for availability, security, scalability, and manageability.
 author: MikeWasson
 ms.date: 11/12/2018
+ms.topic: reference-architecture
+ms.service: architecture-center
+ms.subservice: reference-architecture
 ---
 
 # Windows N-tier application on Azure with SQL Server

@@ -4,6 +4,9 @@ titleSuffix: Azure Application Architecture Guide
 description: A flowchart for selecting a compute service.
 author: MikeWasson
 ms.date: 11/03/2018
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: reference-architecture
 ms.custom: seojan19
 ---
 

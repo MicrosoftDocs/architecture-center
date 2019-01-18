@@ -4,6 +4,9 @@ titleSuffix: Best practices for cloud applications
 description: Service specific guidance for setting the retry mechanism.
 author: dragon119
 ms.date: 08/13/2018
+ms.topic: best-practice
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
 ms.custom: seodec18
 ---
 

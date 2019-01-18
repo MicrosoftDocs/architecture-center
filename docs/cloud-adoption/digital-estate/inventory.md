@@ -4,6 +4,9 @@ titleSuffix: Enterprise Cloud Adoption
 description: How to create an inventory for a digital estate
 author: BrianBlanchard
 ms.date: 12/10/2018
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
 ---
 
 # Enterprise Cloud Adoption: Gather inventory data for a digital estate

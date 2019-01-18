@@ -4,6 +4,9 @@ titleSuffix: Azure Example Scenarios
 description: Build a highly scalable order processing pipeline using Azure Cosmos DB.
 author: alexbuckgit
 ms.date: 07/10/2018
+ms.topic: example-scenario
+ms.service: architecture-center
+ms.subservice: example-scenario
 ---
 
 # Scalable order processing on Azure

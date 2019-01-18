@@ -4,6 +4,9 @@ titleSuffix: Azure Reference Architectures
 description: Use Azure to gain business insights from relational data stored on-premises.
 author: MikeWasson
 ms.date: 11/06/2018
+ms.topic: reference-architecture
+ms.service: architecture-center
+ms.subservice: reference-architecture
 ms.custom: seodec18
 ---
 

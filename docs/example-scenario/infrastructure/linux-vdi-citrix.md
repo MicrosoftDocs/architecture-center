@@ -4,7 +4,10 @@ titleSuffix: Azure Example Scenarios
 description: Build a VDI environment for Linux Desktops using Citrix on Azure.
 author: miguelangelopereira
 ms.date: 09/12/2018
-ms.custom: fasttrack
+ms.topic: example-scenario
+ms.service: architecture-center
+ms.subservice: example-scenario
+ms.custom: fasttrack, Linux
 ---
 
 # Linux Virtual Desktops with Citrix

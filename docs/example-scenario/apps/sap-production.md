@@ -4,7 +4,10 @@ titleSuffix: Azure Example Scenarios
 description: Run an SAP production deployment in Azure using an Oracle database.
 author: DharmeshBhagat
 ms.date: 09/12/2018
-ms.custom: fasttrack
+ms.topic: example-scenario
+ms.service: architecture-center
+ms.subservice: example-scenario
+ms.custom: fasttrack, SAP, Windows, Linux
 ---
 
 # Running SAP production workloads using an Oracle Database on Azure

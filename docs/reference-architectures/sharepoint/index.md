@@ -4,6 +4,9 @@ titleSuffix: Azure Reference Architectures
 description: Recommended architecture for deploying a high availability SharePoint Server 2016 farm in Azure.
 author: njray
 ms.date: 07/26/2018
+ms.topic: reference-architecture
+ms.service: architecture-center
+ms.subservice: reference-architecture
 ms.custom: seodec18
 ---
 

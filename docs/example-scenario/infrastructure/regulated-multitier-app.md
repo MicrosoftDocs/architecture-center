@@ -4,7 +4,10 @@ titleSuffix: Azure Example Scenarios
 description: Build a secure, multi-tier web application with Windows Server on Azure using scale sets, Application Gateway, and load balancers.
 author: iainfoulds
 ms.date: 12/06/2018
-ms.custom: seodec18
+ms.topic: example-scenario
+ms.service: architecture-center
+ms.subservice: example-scenario
+ms.custom: seodec18, Windows
 ---
 
 # Building secure web applications with Windows virtual machines on Azure

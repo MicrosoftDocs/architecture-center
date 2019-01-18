@@ -5,6 +5,9 @@ description: Load data on demand into a cache from a data store.
 keywords: design pattern
 author: dragon119
 ms.date: 11/01/2018
+ms.topic: design-pattern
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
 ms.custom: seodec18
 ---
 

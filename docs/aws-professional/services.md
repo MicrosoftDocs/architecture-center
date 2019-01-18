@@ -5,6 +5,9 @@ description: See how Microsoft Azure cloud services compare to Amazon Web Servic
 keywords: cloud services comparison, cloud services compared, multicloud, compare azure aws, compare azure and aws, compare aws and azure, IT capabilities
 author: lbrader
 ms.date: 11/09/2018
+ms.topic: article
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
 ---
 
 # AWS to Azure services comparison

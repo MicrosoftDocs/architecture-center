@@ -5,6 +5,9 @@ description: Understand the basics of Microsoft Azure accounts, platform, and se
 keywords: AWS experts, Azure comparison, AWS comparison, difference between azure and aws, azure and aws
 author: lbrader
 ms.date: 09/19/2018
+ms.topic: article
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
 ms.custom: seodec18
 ---
 

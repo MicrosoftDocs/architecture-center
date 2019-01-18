@@ -4,8 +4,10 @@ description: Learn how to build your virtual datacenter in Azure
 author: tracsman
 manager: rossort
 tags: azure-resource-manager
-
-ms.service: virtual-network
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: virtual-network
 ms.date: 11/28/2018
 ms.author: jonor
 ---
