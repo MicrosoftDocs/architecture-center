@@ -7,7 +7,7 @@ ms.date: 1/8/2019
 
 # Fusion: Motivations and business risks that drive security governance
 
-This article discusses the reasons that customers typically adopt a security management discipline within a cloud governance strategy. It also provides a few examples of business risks that drive policy statements.
+This article discusses the reasons that customers typically adopt a security management discipline within a cloud governance strategy. It also provides a few examples of potential business risks that can drive policy statements.
 
 ## Is security management relevant?
 
@@ -24,7 +24,9 @@ The security management discipline discussed in this section of the Fusion guida
 
 ## Business risk
 
-The security management discipline attempts to address the following business risks. During cloud adoption, monitor each of the following for relevance:
+The security management discipline attempts to address core security-related business risks. Work with your business to identity these risks and monitor each them during your cloud deployment for relevance.
+
+Risks will differ between organization, but the following serve as common risks that you can use as a starting point for discussions within your cloud governance team:
 
 - **Data leaks**. Inadvertent exposure or loss of sensitive cloud-hosted data can lead to losing customers, contractual breaches, or legal consequences.
 - **Service disruption**. Outages and other performance issues due to insecure infrastructure interrupts normal operations and can result in lost productivity or lost business.

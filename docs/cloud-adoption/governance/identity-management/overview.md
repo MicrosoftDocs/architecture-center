@@ -13,10 +13,12 @@ Identity Management is one of the [Five Disciplines of Cloud Governance](../gove
 
 Identity is increasingly considered the primary security perimeter in the cloud, which is a shift from the traditional focus on network security. Identity services provide the core mechanisms supporting access control and organization within IT environments, and the identity management discipline complements the [security management discipline](../security-management/overview.md) by providing secure user authentication, controlling user access to cloud-based resources, and ensuring identity services work efficiently across your organization.
 
-This section of the Fusion guidance outlines the approach to developing an identity management discipline as part of your cloud governance strategy.  
-
 > [!NOTE]
 > Identity management governance does not replace the existing IT teams, processes, and procedures that allow your organization to manage and secure identity services. The primary purpose of this discipline is to identify potential identity-related business risks and provide risk-mitigation guidance to IT staff that are responsible for implementing, maintaining, and operating your identity management infrastructure. As you develop governance policies and processes make sure to  involve relevant IT teams in your planning and review processes.
+
+This section of the Fusion guidance outlines the approach to developing an identity management discipline as part of your cloud governance strategy. The primary audience for this guidance is your organization's cloud architects and other members of your cloud governance team. However, the decisions, policies, and processes that emerge from this discipline should involve engagement and discussions with relevant members of your IT teams responsible for implementing and managing your organization's identity management solutions.
+
+If your organization lacks in-house expertise in identity management and security, consider engaging with external consultants as a part of this discipline. Also consider engaging with [Microsoft Consulting Services](https://www.microsoft.com/en-us/enterprise/services?activetab=pillars%3aprimaryr13), the [Microsoft FastTrack](https://azure.microsoft.com/en-us/programs/azure-fasttrack/) cloud adoption service, or other external cloud adoption experts for discussion of Azure-specific concerns related to identity services.
 
 ## Policy statements
 
@@ -27,7 +29,7 @@ Actionable policy statements and the resulting architecture requirements serve a
 
 ## Developing identity management governance policy statements
 
-The following six steps will help you define governance policies to control costs in your environment.
+The following six steps offer examples and potential options to consider when developing identity management governance. Use each step as a starting point for discussions within your cloud governance team and with affected business, and IT teams across your organization to establish the policies and processes needed to mitigate identity-related risks.
 
 <ul  class="panelContent cardsE">
 <li style="display: flex; flex-direction: column;">

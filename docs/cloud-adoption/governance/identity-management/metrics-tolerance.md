@@ -43,6 +43,8 @@ Once you have a baseline, establish minimum benchmarks representing an unaccepta
 - **Authorization failure trigger**. A company where access attempts are rejected more than X% of the time should invest in the Identity Management discipline to improve the application and updating of access controls, and identify potentially malicious access attempts.
 - **Compromised account trigger**. A company with more than X number of compromised accounts should invest in the Identity Management discipline to improve the strength and security of authentication mechanisms and improve mechanisms to mitigate risks related to compromised accounts.
 
+The exact metrics and triggers you use to gauge risk tolerance and the level of investment in the Identity Management discipline will be specific to your organization, but the examples above should server as a useful base for discussion within your cloud governance team.
+
 ## Next steps
 
 Using the [Cloud Management template](./template.md), document metrics and tolerance indicators that align to the current cloud adoption plan.
