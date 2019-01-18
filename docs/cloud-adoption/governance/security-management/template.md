@@ -12,7 +12,11 @@ The first step to implementing change is communicating the desired change. The s
 > [!IMPORTANT]
 > This template is a limited sample. Before using it, you should review the subsequent steps for defining an effective Security Management discipline within your cloud governance strategy.
 
+<!-- markdownlint-disable MD033 -->
+
  <a href="https://archcenter.blob.core.windows.net/cdn/fusion/governance/Security Management Template.docx">Download Security Management template</a>
+
+<!-- markdownlint-enable MD033 -->
 
 ## Next steps
 

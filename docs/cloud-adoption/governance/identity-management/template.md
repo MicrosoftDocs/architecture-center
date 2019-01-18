@@ -12,7 +12,11 @@ The first step to implementing change is communicating the desired change. The s
 > [!IMPORTANT]
 > This template is a limited sample. Before using it, you should review the subsequent steps for defining an effective Identity Management discipline within your cloud governance strategy.
 
+<!-- markdownlint-disable MD033 -->
+
  <a href="https://archcenter.blob.core.windows.net/cdn/fusion/governance/Identity Management Template.docx">Download Identity Management template</a>
+
+<!-- markdownlint-enable MD033 -->
 
 ## Next steps
 
