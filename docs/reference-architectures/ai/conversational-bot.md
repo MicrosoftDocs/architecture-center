@@ -82,9 +82,9 @@ Data in the intermediary store is then indexed into Azure Search for document re
 
 Before you write a line of code, it's important to write a functional specification so the development team has a clear idea of what the bot is expected to do. The specification should include a reasonably comprehensive list of user inputs and expected bot responses in various knowledge domains. This living document will be an invaluable guide for developing and testing your bot.
 
-### Ingest Data
+### Ingest data
 
-Next, identify the data sources that will enable the bot to interact intelligently with users. As mentioned earlier, these data sources could contain structured, semi-structured, or unstructured data sets. When you're getting started, a good approach is to make a one-off copy of the data to a central store, such as CosmosDB or Azure Storage. As you progress, you should create an automated data ingestion pipeline to keep this data current. Options for an ingestion pipeline include Data Factory, Functions, and Logic Apps. Depending on the data stores and the schemas, you might use a combination of these approaches.
+Next, identify the data sources that will enable the bot to interact intelligently with users. As mentioned earlier, these data sources could contain structured, semi-structured, or unstructured data sets. When you're getting started, a good approach is to make a one-off copy of the data to a central store, such as Cosmos DB or Azure Storage. As you progress, you should create an automated data ingestion pipeline to keep this data current. Options for an ingestion pipeline include Data Factory, Functions, and Logic Apps. Depending on the data stores and the schemas, you might use a combination of these approaches.
 
 As you get started, it's reasonable to use the Azure portal to manually create Azure resources. Later on, you should put more thought into automating the deployment of these resources.
 
@@ -128,15 +128,15 @@ Another option is to integrate your own custom AI service. This approach is more
 
 ## Quality assurance and enhancement
 
-**Logging**. Log user conversations with the bot, including the underlying performance metrics and any errors. These logs will prove invaluable for debugging issues, understanding user interactions, and improving the system. Different data stores might be appropriate for different types of logs. For example, consider Application Insights for web logs, CosmosDB for conversations, and Azure Storage for large payloads. See [Write directly to storage][transcript-storage].
+**Logging**. Log user conversations with the bot, including the underlying performance metrics and any errors. These logs will prove invaluable for debugging issues, understanding user interactions, and improving the system. Different data stores might be appropriate for different types of logs. For example, consider Application Insights for web logs, Cosmos DB for conversations, and Azure Storage for large payloads. See [Write directly to storage][transcript-storage].
 
 **Feedback**. It's also important to understand how satisfied users are with their bot interactions. If you have a record of user feedback, you can use this data to focus your efforts on improving certain interactions and retraining the AI models for improved performance. Use the feedback to retrain the models, such as LUIS, in your system.
 
 **Testing**. Testing a bot involves unit tests, integration tests, regression tests, and functional tests. For testing, we recommend recording real HTTP responses from external services, such as Azure Search or QnA Maker, so they can be played back during unit testing without needing to make real network calls to external services.
 
-To jump-start your development in these areas, look at the [Botbuilder Utils for JavaScript](https://github.com/Microsoft/botbuilder-utils-js). This repo contains sample utility code for bots built with [Microsoft Bot Framework v4][bot-framework] and running Node.js.
+To jump-start your development in these areas, look at the [Botbuilder Utils for JavaScript](https://github.com/Microsoft/botbuilder-utils-js). This repo contains sample utility code for bots built with [Microsoft Bot Framework v4][bot-framework] and running Node.js. It includes the following packages:
 
-- [Http Test Recorder](https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-http-test-recorder). Shows how to record HTTP traffic from external services. It comes pre-built with support for LUIS, Azure Search, and QnAMaker, but extensions are available to support any service.
+- [Http Test Recorder](https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-http-test-recorder). Records HTTP traffic from external services. It comes pre-built with support for LUIS, Azure Search, and QnAMaker, but extensions are available to support any service.
 
 - [Cosmos DB Transcript Store](https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-transcript-cosmosdb). Shows how to store and query bot transcripts in Cosmos DB.
 
@@ -153,23 +153,21 @@ As you roll out new features or bug fixes to your bot, it's best to use multiple
 
 ## Security considerations
 
-An enterprise bot could potentially expose user and company confidential information, or be the target of denial of service attacks. Restrict who can sign in and use the bot. Also limit which data can be accessed, based on the user's identity or role. Using Azure AD for identity and access control and Key Vault to manage keys and secrets.
+An enterprise bot could potentially expose user and company confidential information, or be the target of denial of service attacks. Restrict who can sign in and use the bot. Also limit which data can be accessed, based on the user's identity or role. Use Azure AD for identity and access control and Key Vault to manage keys and secrets.
 
 ## Manageability considerations
 
 ### Monitoring and reporting
 
-Once your bot is running in production, you will need a devops team to keep it that way. Constant monitoring of the system is needed to ensure the bot operates at peak performance. The logs being sent to AppInsights or CosmosDB will be used to create effective monitoring dashboards, either using AppInsights itself, Power BI, or possibly a custom webapp dashboard. Errors or performance levels falling below an acceptable threshold will result in email notifications to the devops team.
-
-Create a performance dashboard for the DevOps team, and set up alerts so that operators are aware of critical issues as they arise.
+Once your bot is running in production, you will need a DevOps team to keep it that way. Continually monitor the system to ensure the bot operates at peak performance. Use the logs sent to Application Insights or Cosmos DB to create monitoring dashboards, either using Application Insights itself, Power BI, or a custom web app dashboard. Send alerts to the DevOps team if critical errors occur or performance falls below an acceptable threshold.
 
 ### Automated resource deployment
 
-The bot itself is only part of a larger system that provides it with the latest data and ensures its proper operation. All of these other Azure resources &mdash; data orchestration services such as ADF, storage services such as Cosmos DB, and so forth &mdash; need to be deployed. Azure Resource Manager provides a consistent management layer that you can access through Azure portal, Client SDKs, REST API, Azure PowerShell, and Azure CLI. For speed and consistency, it's best to automate your deployment using one of these approaches.
+The bot itself is only part of a larger system that provides it with the latest data and ensures its proper operation. All of these other Azure resources &mdash; data orchestration services such as Data Factory, storage services such as Cosmos DB, and so forth &mdash; must be deployed. Azure Resource Manager provides a consistent management layer that you can access through the Azure portal, PowerShell, or the Azure CLI. For speed and consistency, it's best to automate your deployment using one of these approaches.
 
 ### Continuous bot deployment
 
-Deploying your bot logic itself can be done directly from your IDE, such as Visual Studio. You can also use the command line, such as the Azure CLI. As your bot matures, it's best to use a continual deployment process using a CI/CD solution such as Azure DevOps, as described in the article [Set up continuous deployment](/azure/bot-service/bot-service-build-continuous-deployment). This is a good way to ease the friction in testing out new features and fixes in your bot in a near production environment. It's a good idea to have multiple deployment environments, typically at least staging and production. Azure DevOps supports this approach.
+You can deploy the bot logic directly from your IDE or from a command line, such as the Azure CLI. As your bot matures, however, it's best to use a continual deployment process using a CI/CD solution such as Azure DevOps, as described in the article [Set up continuous deployment](/azure/bot-service/bot-service-build-continuous-deployment). This is a good way to ease the friction in testing new features and fixes in your bot in a near-production environment. It's also a good idea to have multiple deployment environments, typically at least staging and production. Azure DevOps supports this approach.
 
 <!-- links -->
 
