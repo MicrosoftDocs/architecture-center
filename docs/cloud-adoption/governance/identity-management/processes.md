@@ -11,13 +11,13 @@ This article discusses an approach to policy adherence processes that govern [id
 
 ## Planning, review, and reporting processes
 
-Identity management tools offer capabilities and features that greatly assist user management and access control within a cloud deployment. However, they also require well thought out processes and policies to support your organizations cloud goals. The following is a set of example processes commonly used as part of an identity management discipline. Use these examples as a starting point when planning the processes that will allow you to continue to update identity policy based on business change and feedback from the IT teams tasked with turning governance guidance into action.
+Identity management tools offer capabilities and features that greatly assist user management and access control within a cloud deployment. However, they also require well thought out processes and policies to support your organization's goals. The following is a set of example processes commonly used as part of the identity management discipline. Use these examples as a starting point when planning the processes that will allow you to continue to update identity policy based on business change and feedback from the IT teams tasked with turning governance guidance into action.
 
 **Initial risk assessment and planning**: As part of your initial adoption of the identity management discipline, identify your core business risks and tolerances related to cloud identity management. Use this information to discuss specific technical risks with members of your IT teams responsible for managing identity services and develop a baseline set of security policies for mitigating these risks to establish your initial governance strategy.
 
 **Deployment planning**: Prior to any deployment, review the access needs for any workloads and develop an access control strategy that aligns with established corporate identity policy. Document any gaps between needs and current policy to determine if policy updates are required, and modify policy as needed.
 
-**Deployment testing**: As part of the deployment process for any asset the cloud governance team, in cooperation with IT teams responsible for identity services, will be responsible for reviewing the deployment to validate identity policy compliance.
+**Deployment testing**: As part of the deployment, the cloud governance team, in cooperation with IT teams responsible for identity services, will be responsible for reviewing the deployment to validate identity policy compliance.
 
 **Annual planning**: On an annual basis, perform a high-level review of identity management strategy. Explore planned changes to the identity services environment and updated cloud adoption strategies to identify potential risk increase or need to modify current identity infrastructure patterns. Also use this time to review the latest identity management best practices and integrate these into your policies and review processes.
 
@@ -31,7 +31,7 @@ This planning process is also a good time to evaluate the current membership of 
 
 ## Ongoing monitoring processes
 
-Determining if your identity governance strategy is successful depends on visibility into the current and past state of your identity systems. Without the ability to analyze your cloud deployment's relevant metrics and related data, you cannot identify changes in your risks or detect violations of your risk tolerances. The ongoing governance processes discussed above requires quality data to ensure policy can be modified to support the changing needs of your business.
+Determining if your identity governance strategy is successful depends on visibility into the current and past state of your identity systems. Without the ability to analyze your cloud deployment's relevant metrics and related data, you cannot identify changes in your risks or detect violations of your risk tolerances. The ongoing governance processes discussed above require quality data to ensure policy can be modified to support the changing needs of your business.
 
 Ensure that your IT teams have implemented automated monitoring systems for your identity services that capture the logs and audit information you need to evaluate risk. Be proactive in monitoring these systems to ensure prompt detection and mitigation of potential policy violation, and ensure any changes to your identity infrastructure are reflected in your monitoring strategy.
 
@@ -39,7 +39,7 @@ Ensure that your IT teams have implemented automated monitoring systems for your
 
 Violations of identity policy can result in unauthorized access to sensitive data and lead to serious disruption of mission critical application and services. When violations are detected, you should take actions to realign with policy as soon as possible. Your IT team can automate most violation triggers using the tools outlined in the [Azure-Specific Toolchain](toolchain.md).
 
-The following triggers and enforcement actions provide examples you can use when discussing how to use monitoring data to resolve policy violations:
+The following triggers and enforcement actions provide examples you can reference when planning how to use monitoring data to resolve policy violations:
 
 - Suspicious activity detected: User logins detected from anonymous proxy IP addresses, unfamiliar locations, or successive logins from impossibly distant geographical locations may indicate a potential account breach or malicious access attempt. Login will be blocked until user identity can be verified and password reset.
 - Leaked user credentials: Accounts that have their username and password leaked to the internet will be disabled until user identity can be verified and password reset.

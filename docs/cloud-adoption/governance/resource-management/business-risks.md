@@ -8,19 +8,29 @@ ms.date: 1/18/2019
 # Fusion: Motivations and business risks that drive resource management governance
 
 <!-- markdownlint-disable MD026 -->
+<!-- markdownlint-disable MD009 -->
 
 ## Is resource management relevant?
 
-Resource management is crucial to ensure that resources are deployed, updated, and configured consistently and repeatably. Deprovisioning resources during periods of reduced load or when resources are no longer needed helps control operating costs. Monitoring resources help the business keep their systems running optimally and securely.
+
+When it comes to deploying resources and workloads, the cloud offers increased agility and flexibility over most traditional on-premises datacenters. However, these potential cloud-based advantages also come paired with potential management drawbacks that can seriously jeopardize the success of your cloud adoption. What assets have you deployed? What teams own what assets? Do you have enough resources supporting a workload? How do you know if workloads are healthy? 
+
+Resource management is crucial to ensure that resources are deployed, updated, and configured consistently and repeatably, and that service disruptions are minimized and remedied in as little time as possible. 
+
+The resource management discipline is concerned with identifying and mitigating business risks related to the operational aspects of your cloud deployment. Resource management includes monitoring of applications, workloads, and asset performance. It also includes the tasks required to meet scale demands, remediate performance Service Level Agreement (SLA) violations, and proactively avoid performance SLA violations through automated remediation.
+
+Initial test deployments may not require much beyond adopting some cursory naming and tagging standards to support your resource management needs. As your cloud adoption matures and you deploy more complicated and mission-critical assets, the need to invest in the resource management discipline increases rapidly.
 
 ## Business risk
 
-The resource management discipline attempts to address the following business risks. During cloud adoption, monitor each of the following for relevance:
+The resource management discipline attempts to address core operational business risks. Work with your business and IT staff to identify these risks and monitor each them during your cloud deployment for relevance.
 
-- **Cost overruns**. Resources should be assessed to determine expected operating costs under anticipated load. Opportunities should be identified for reducing resource costs by scaling down or deprovisioning resources during periods of low demand.
-- **Lack of cost tracking**. The lack of a common naming standard for resources can create confusion and increase the costs of managing and monitoring resource usage. Resources should also be tagged to help keep track of resource costs by their associate application or business unit. Inconsistent or missing resource tags make it difficult to associate costs with parts of the organization that incurred them.
-- **Unauthorized resource access**. Assignment of permissions for resource access must be carefully managed to ensure that resources are not improperly accessed, changed, or deleted.  
-- **Expeditures for obsolete resources**. Over time, resources that were deployed to support earlier versions of business applications may become obsolete due to application design changes. If these resources are not identified and deprovisioned, the organization may incur costs for resources that provide no value.
+Risks will differ between organization, but the following serve as common risks that you can use as a starting point for discussions within your cloud governance team:
+
+- **Unneccesary operational cost**. Obsolete or unused resources, or resources that are over-provisioned during times of low demand, add unnecessary operational costs.   
+- **Underprovisioned resources**. Resources that experience higher than anticipated demand can result in business disruption as cloud resources are overwhelmed by demand. 
+- **Management inefficiencies**. Lack of consistent naming and tagging metadata associated with resources can lead to IT staff having difficulty finding resources for management tasks or identifying ownership and accounting information related to assets. This results in management inefficiencies that can increase cost and slow IT responsiveness to service disruption or other operational issues.
+- **SLA violation**. Service disruptions that result in violations of your organization's established Service Level Agreements (SLAs) can result in loss of business or other financial impacts to your company. 
 
 ## Next steps
 

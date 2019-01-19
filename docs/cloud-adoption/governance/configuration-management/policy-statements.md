@@ -13,11 +13,11 @@ Individual cloud policy statements are guidelines for addressing specific risks 
 - **Policy statement.** A clear summary explanation of the policy requirements.
 - **Design options.** Actionable recommendations, specifications, or other guidance that IT teams and developers can use when implementing the policy.
 
-The following sample policy statements address a number of common configuration-related business risks, and are provided as examples for you to reference when drafting actual policy statements addressing your own organization's needs. Note that these examples are not meant to be proscriptive, and there are potentially several policy options for dealing with any single identified risk. Work closely with business and IT teams to identify the best policy solutions for your particular risks.
+The following sample policy statements address a number of common configuration-related business risks, and are provided as examples for you to reference when drafting policy statements to address your own organization's needs. Note that these examples are not meant to be proscriptive, and there are potentially several policy options for dealing with any particular risk. Work closely with business and IT teams to identify the best policy solutions for your unique set of risks.
 
 ## Reliance on manual deployment or configuration of systems
 
-**Technical risk**: Relying on human intervention during deployment or configuration increases the likelihood of human error and reduces the repeatibility and predictability of system deployments and configuration. It also typically leads to slower deployment of system resources.
+**Technical risk**: Relying on human intervention during deployment or configuration increases the likelihood of human error and reduces the repeatability and predictability of system deployments and configuration. It also typically leads to slower deployment of system resources.
 
 **Policy statement**: All assets deployed to the cloud should be deployed using templates or automation scripts whenever possible.
 

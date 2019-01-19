@@ -13,7 +13,7 @@ Individual cloud policy statements are guidelines for addressing specific risks 
 - Policy statement - A clear summary explanation of the policy requirements.
 - Design options - Actionable recommendations, specifications, or other guidance that IT teams and developers can use when implementing the policy.
 
-The following sample policy statements address a number of common identity-related business risks, and are provided as examples for you to reference when drafting actual policy statements addressing your own organization's needs. Note that these examples are not meant to be proscriptive, and there are potentially several policy options for dealing with any single identified risk. Work closely with business and IT teams to identify the best policy solutions for your particular risks.  
+The following sample policy statements address a number of common identity-related business risks, and are provided as examples for you to reference when drafting policy statements to address your own organization's needs. Note that these examples are not meant to be proscriptive, and there are potentially several policy options for dealing with any particular risk. Work closely with business and IT teams to identify the best policy solutions for your unique set of risks.
 
 ## Lack of access controls
 
@@ -63,7 +63,7 @@ The following sample policy statements address a number of common identity-relat
 
 **Technical risk**: Over time business change, the addition of new cloud deployments or other security concerns can increase the risks of unauthorized access to secure resources.
 
-**Policy statement**: Cloud Governance processes must include quarterly review with identity management teams to identify malicious actors or usage patterns that should be prevented by cloud asset configuration
+**Policy statement**: Cloud Governance processes must include quarterly review with identity management teams to identify malicious actors or usage patterns that should be prevented by cloud asset configuration.
 
 **Potential design options**: Establish a quarterly security review meeting that includes both governance team members and IT staff responsible for managing identity services. Review existing security data and metrics to establish gaps in current identity management policy and tooling, and update policy to mitigate any new risks.
 
