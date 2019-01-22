@@ -29,14 +29,13 @@ This phase of governance maturity bridges the divide between business outcomes a
 - Evaluate your [Security Management Tool Chain](toolchain.md) options.
 - Develop a draft Architecture Guidelines document and distribute to key stakeholders.
 - Educate and involve the people and teams impacted by the development of Architecture Guidelines.
-- Add prioritized security tasks to your [migration backlog](../../migration/plan/migration-backlog.md).
+- Add prioritized security tasks to your migration backlog.
 
 **Potential activities:**
 
 - Define a data classification schema.
-- Conduct a [digital estate](../../digital-estate/overview.md) planning process to inventory the current IT assets powering your business processes and supporting operations.
+- Conduct a digital estate planning process to inventory the current IT assets powering your business processes and supporting operations.
 - Conduct a [policy review](../../governance/policy-compliance/what-is-a-cloud-policy-review.md) to begin the process of modernizing existing corporate IT security policies, and define MVP policies addressing known risks.
-- Determine whether your security management policy includes a [Cloud Native](cloud-native-policy.md) policy.
 - Review your cloud platform's security guidelines. For Azure these can be found in the [Microsoft Service Trust Platform](https://www.microsoft.com/trustcenter/stp/default.aspx).
 - Determine whether your security management policy includes a [Security Development Lifecycle](https://www.microsoft.com/securityengineering/sdl/).
 - Evaluate network, data, and asset-related business risks based on the next one to three releases, and gauge your organization's tolerance for those risks.
