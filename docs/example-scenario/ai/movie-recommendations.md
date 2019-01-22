@@ -4,6 +4,7 @@ description: Use machine learning to automate movie, product, and other recommen
 author: njray
 ms.date: 1/9/2019
 ms.custom: azcat-ai
+social_image_url: /azure/architecture/example-scenario/ai/media/architecture-movie-recommender.png
 ---
 
 # Movie recommendations on Azure

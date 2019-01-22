@@ -8,6 +8,7 @@ ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom: csa-team
+social_image_url: /azure/architecture/example-scenario/apps/media/architecture-decentralized-trust.png
 ---
 
 # Decentralized trust between banks on Azure

@@ -7,6 +7,7 @@ ms.date: 07/05/2018
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
+social_image_url: /azure/architecture/example-scenario/ai/media/architecture-commerce-chatbot.png
 ---
 
 # Conversational chatbot for hotel reservations on Azure

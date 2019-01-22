@@ -7,6 +7,7 @@ ms.date: 07/10/2018
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
+social_image_url: /azure/architecture/example-scenario/data/media/architecture-ecommerce-order-processing.png
 ---
 
 # Scalable order processing on Azure

@@ -8,6 +8,7 @@ ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom: data-analytics
+social_image_url: /azure/architecture/example-scenario/data/media/architecture-data-warehouse.png
 ---
 
 # Data warehousing and analytics for sales and marketing

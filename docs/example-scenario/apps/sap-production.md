@@ -8,6 +8,7 @@ ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom: fasttrack, SAP, Windows, Linux
+social_image_url: /azure/architecture/example-scenario/apps/media/architecture-sap-production.png
 ---
 
 # Running SAP production workloads using an Oracle Database on Azure
