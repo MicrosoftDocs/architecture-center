@@ -2,7 +2,7 @@
 title: "Fusion: Azure Security guidance"
 description: What security guidance does Microsoft provide?
 author: BrianBlanchard
-ms.date: 12/11/2018
+ms.date: 2/1/2019
 ---
 
 # Fusion: What security guidance does Microsoft provide?

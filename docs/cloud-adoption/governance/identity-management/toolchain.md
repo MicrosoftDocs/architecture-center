@@ -2,7 +2,7 @@
 title: "Fusion: What tools can help better manage user identities in Azure?"
 description: Explanation of the tools that can facilitate improved identity management in Azure
 author: BrianBlanchard
-ms.date: 12/11/2018
+ms.date: 2/1/2019
 ---
 
 # Fusion: What tools can help better manage user identities in Azure?
