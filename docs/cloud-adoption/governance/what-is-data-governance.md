@@ -2,7 +2,7 @@
 title: "Fusion: What is Data Governance"
 description: What is Data Governance?
 author: BrianBlanchard
-ms.date: 12/1/2018
+ms.date: 2/1/2019
 ---
 
 # Fusion: What is Data Governance?

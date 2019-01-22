@@ -641,8 +641,8 @@
           href: cloud-adoption/governance/policy-compliance/what-is-a-cloud-policy-review.md
         - name: How can a CISO prepare for the cloud?
           href: cloud-adoption/governance/how-can-a-ciso-prepare-for-the-cloud.md
-        - name: What is Data Governance?
-          href: cloud-adoption/governance/what-is-data-governance.md
+        - name: What is Data classification?
+          href: cloud-adoption/governance/what-is-data-classification.md
     - name: Implementing the Five Disciplines of Cloud Governance
       items:
       - name: Cost Management
@@ -731,17 +731,17 @@
         items:
           - name: Adopting a Configuration Management Discipline
             href: cloud-adoption/governance/configuration-management/overview.md
-          - name: XXXX - Download the Template
+          - name: Download the Template
             href: cloud-adoption/governance/configuration-management/template.md
           - name: Understand business risks
             href: cloud-adoption/governance/configuration-management/business-risks.md
-          - name: XXXX - Document metrics and tolerance indicators
+          - name: Document metrics and tolerance indicators
             href: cloud-adoption/governance/configuration-management/metrics-tolerance.md
-          - name: XXXX - Customize Sample Policy Statements
+          - name: Customize Sample Policy Statements
             href: cloud-adoption/governance/configuration-management/policy-statements.md
-          - name: XXXX - Develop policy compliance processes
+          - name: Develop policy compliance processes
             href: cloud-adoption/governance/configuration-management/processes.md
-          - name: XXXX - Develop a Maturity Roadmap
+          - name: Develop a Maturity Roadmap
             href: cloud-adoption/governance/configuration-management/maturity-adoption-alignment.md
           - name: Azure Specific Tool Chain
             href: cloud-adoption/governance/configuration-management/toolchain.md

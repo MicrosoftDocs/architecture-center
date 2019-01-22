@@ -2,7 +2,7 @@
 title: "Fusion: Governance design in Azure for multiple teams"
 description: Guidance for configuring Azure governance controls for multiple teams, multiple workloads, and multiple environments
 author: petertaylor9999
-ms.date: 12/11/2018
+ms.date: 2/1/2019
 ---
 
 # Fusion: Governance design for multiple teams

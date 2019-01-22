@@ -18,6 +18,8 @@ Configuration management focuses on deploying, updating, and maintaining cloud r
 - **Mean time to recover (MTTR)**. The average time required to restore a component after a failure.
 - **Mean time between failures (MTBF)**. The duration that a component can reasonably expect to run between outages. This metric can help you calculate how often a service will become unavailable.
 - **Service level agreements (SLA)**. This can include both Microsoft’s commitments for uptime and connectivity of Azure services, as well as commitments made by the business to its external and internal customers.
+- **Time to deployment**. The amount of time needed to deploy updates to an existing system.
+- **Assets out-of-compliance**. The number or percentage of resources that are out of compliance with defined policies.
 
 ## Risk tolerance indicators
 
@@ -32,6 +34,8 @@ Once you have a baseline, establish minimum benchmarks representing an unaccepta
 - **Service-level agreement (SLA) trigger**. A company that cannot meet its SLAs to its external customers or internal partners should invest in the Configuration Management discipline to reduce system downtime.
 - **Recovery time triggers**. If a company exceeds the required thresholds for recovery time following a system failure, it should invest in improvement to its Configuration Management discpline and systems design to reduce or eliminate failures or the impact of individual component downtime.
 - **Configuration drift triggers**. A company that is experiencing unexpected changes in the configuration of key system components, or failures in the deployment of or updates to its systems, should invest in the Configuration Management discipline to identify root causes and steps for remediation.  
+- **Out of compliance triggers**. If the number of out-of-compliance resources exceeds a defined threshold (either as a total number of resources or a percentage of total resources), a company should invest in Configuration Management discipline improvements to ensure each resource's configuration remains in compliance throughout that resource's lifecycle.
+ **Project schedule triggers**. If the time to deploy a company's resources and applications often exceed a define threshold, a company should invest in its Configuration Management processes to introduce or improve automated deployments for consistency and predictability. Deployment times are measured in days or even weeks are usually indicative of a suboptimal configuration management strategy.
 
 ## Next steps
 

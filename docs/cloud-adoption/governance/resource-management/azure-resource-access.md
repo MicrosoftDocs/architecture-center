@@ -2,7 +2,7 @@
 title: "Fusion: Resource access management in Azure"
 description: "Explanation of resource access management constructs in Azure: Azure resource manager, subscriptions, resource groups, and resources"
 author: petertaylor9999
-ms.date: 12/11/2018
+ms.date: 2/1/2019
 ---
 
 # Fusion: Resource access management in Azure
