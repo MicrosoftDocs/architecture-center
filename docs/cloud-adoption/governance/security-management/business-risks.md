@@ -24,9 +24,9 @@ The security management discipline discussed in this section of the Fusion guida
 
 ## Business risk
 
-The security management discipline attempts to address core security-related business risks. Work with your business to identify these risks and monitor each them during your cloud deployment for relevance.
+The security management discipline attempts to address core security-related business risks. Work with your business to identify these risks and monitor each of them for relevance as you plan for and implement your cloud deployments.
 
-Risks will differ between organization, but the following serve as common risks that you can use as a starting point for discussions within your cloud governance team:
+Risks will differ between organization, but the following serve as common security-related risks that you can use as a starting point for discussions within your cloud governance team:
 
 - **Data leaks**. Inadvertent exposure or loss of sensitive cloud-hosted data can lead to losing customers, contractual breaches, or legal consequences.
 - **Service disruption**. Outages and other performance issues due to insecure infrastructure interrupts normal operations and can result in lost productivity or lost business.

@@ -7,11 +7,11 @@ ms.date: 1/4/2019
 
 # Fusion: Security management policy compliance processes
 
-This article discusses an approach to policy adherence processes that govern [security management](./overview.md). Effective governance of cloud security starts with recurring manual processes designed to detect vulnerabilities and impose policies to mitigate those security risks. However, you can automate these processes and supplement with tooling to reduce the overhead of governance and allow for faster response to deviation.
+This article discusses an approach to policy adherence processes that govern [security management](./overview.md). Effective governance of cloud security starts with recurring manual processes designed to detect vulnerabilities and impose policies to mitigate those security risks. This requires regular involvement of the cloud governance team and interested business and IT stakeholders to review and update policy and ensure policy compliance. In addition, many ongoing monitoring and enforcement processes can be automated or supplemented with tooling to reduce the overhead of governance and allow for faster response to policy deviation.
 
 ## Planning, review, and reporting processes
 
-The best security management tools in the cloud are only as good as the processes and policies that they support. The following is a set of example processes commonly used as part of the security management discipline. Use these examples as a starting point when planning the processes that will allow you to continue to update security policy based on business change and feedback from the security and IT teams tasked with turning governance guidance into action.
+The best security management tools in the cloud are only as good as the processes and policies that they support. The following is a set of example processes commonly involved in the security management discipline. Use these examples as a starting point when planning the processes that will allow you to continue to update security policy based on business change and feedback from the security and IT teams tasked with turning governance guidance into action.
 
 **Initial risk assessment and planning**: As part of your initial adoption of the security management discipline, identify your core business risks and tolerances related to cloud security. Use this information to discuss specific technical risks with members of your IT and security teams and develop a baseline set of security policies for mitigating these risks to establish your initial governance strategy. 
 

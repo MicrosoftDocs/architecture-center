@@ -13,7 +13,7 @@ This article discusses an approach to policy adherence processes that govern [re
 
 Cloud platforms provide an array of management tools and features that you can use to organize, provision, scale, and minimize downtime. Using these tools to effectively structure and operate your cloud deployments in ways that mitigate potential risks requires well thought out processes and policies in addition to close cooperation with IT operations teams and business stakeholders.
 
-The following is a set of example processes commonly used as part of the resource management discipline. Use these examples as a starting point when planning the processes that will allow you to continue to update resource management policy based on business change and feedback from the development and IT teams tasked with turning guidance into action.
+The following is a set of example processes commonly involved in the resource management discipline. Use these examples as a starting point when planning the processes that will allow you to continue to update resource management policy based on business change and feedback from the development and IT teams tasked with turning guidance into action.
 
 **Initial risk assessment and planning**: As part of your initial adoption of the resource management discipline, identify your core business risks and tolerances related to operations and IT management. Use this information to discuss specific technical risks with members of your IT teams and workload owners to develop a baseline set of resource management policies designed to mitigate these risks, establishing your initial governance strategy. 
 

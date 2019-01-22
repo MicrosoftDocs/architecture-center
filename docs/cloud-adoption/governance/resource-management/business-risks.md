@@ -23,7 +23,7 @@ Initial test deployments may not require much beyond adopting some cursory namin
 
 ## Business risk
 
-The resource management discipline attempts to address core operational business risks. Work with your business and IT staff to identify these risks and monitor each them during your cloud deployment for relevance.
+The resource management discipline attempts to address core operational business risks. Work with your business and IT teams to identify these risks and monitor each of them for relevance as you plan for and implement your cloud deployments.
 
 Risks will differ between organization, but the following serve as common risks that you can use as a starting point for discussions within your cloud governance team:
 
