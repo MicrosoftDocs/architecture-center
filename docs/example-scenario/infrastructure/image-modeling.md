@@ -9,15 +9,15 @@ ms.custom: cat-team
 
 # Accelerate digital image-based modeling on Azure
 
-This example scenario provides architecture and design guidance for any organization that wants to perform image-based modeling on Azure infrastructure as a service (IaaS). The scenario is designed for running photogrammetry software on Azure Virtual Machines (VMs) using high-performance storage that accelerates processing time. The environment can be scaled up and down as needed and supports terabytes of storage without sacrificing performance.
+This example scenario provides architecture and design guidance for any organization that wants to perform image-based modeling on Azure infrastructure-as-a-service (IaaS). The scenario is designed for running photogrammetry software on Azure Virtual Machines (VMs) using high-performance storage that accelerates processing time. The environment can be scaled up and down as needed and supports terabytes of storage without sacrificing performance.
 
 ## Relevant use cases
 
 Relevant use cases include:
 
-- Modeling and measuring buildings, engineering structures, and forensic and accident scenes.
+- Modeling and measuring buildings, engineering structures, and forensic accident scenes.
 - Creating visual effects for computer games and movies.
-- Using digital images to generate indirect measurements of objects of various scales as in urban planning and other applications.
+- Using digital images to indirectly generate measurements of objects of various scales as in urban planning and other applications.
 
 ## Architecture
 
@@ -25,7 +25,7 @@ This example describes the use of Agisoft PhotoScan photogrammetry software back
 
 The concepts in this article apply to any high-performance computing (HPC) workload based on a scheduler and worker nodes managed as infrastructure.  For this workload, Avere vFXT was selected for its superior performance during benchmark tests.  However, the scenario decouples the storage from the processing so that other storage solutions can be used (see [alternatives](#alternatives) later in this document).
 
-This architecture also includes Active Directory domain controllers to control access to Azure resources and internal name resolution through the Domain Name System (DNS). Jump boxes provide administrator access to the Windows and Linux VMs that run the solution.
+This architecture also includes Active Directory domain controllers to control access to Azure resources and provide internal name resolution through the Domain Name System (DNS). Jump boxes provide administrator access to the Windows and Linux VMs that run the solution.
 
 ![architecture diagram](./media/architecture-image-modeling.png)
 
@@ -41,7 +41,7 @@ This architecture also includes Active Directory domain controllers to control a
 - [Avere vFXT](/azure/avere-vfxt/avere-vfxt-overview) is a file caching solution that uses object storage and traditional network-attached storage (NAS) to optimize storage of large datasets. It includes:
   - Avere Controller. This VM executes the script that installs the Avere vFXT cluster and runs Ubuntu 18.04 LTS. The VM can be used later to add or remove cluster nodes and to destroy the cluster as well.
   - vFXT cluster. At least three VMs are used, one for each of the Avere vFXT nodes based on Avere OS 5.0.2.1. These VMs form the vFXT cluster, which is attached to Azure Blob storage.
-- [Active Directory domain controllers](/azure/active-directory-domain-services/active-directory-ds-overview) allow the host access to domain resources and provide DNS name resolution. Avere vFXT adds _x_ number of A records—for example, each A record in a vFXT cluster points to the IP address of each Avere vFXT node. In this setup, all VMs use the round-robin pattern to access vFXT exports.
+- [Active Directory domain controllers](/azure/active-directory-domain-services/active-directory-ds-overview) allow the host access to domain resources and provide DNS name resolution. Avere vFXT adds a number of A records—for example, each A record in a vFXT cluster points to the IP address of each Avere vFXT node. In this setup, all VMs use the round-robin pattern to access vFXT exports.
 - [Other VMs](/azure/virtual-machines/) serve as jump boxes used by the administrator to access the scheduler and processing nodes. The Windows jumpbox is mandatory to allow the administrator to access the head node via remote desktop protocol. The second jumpbox is optional and runs Linux for administration of the worker nodes.
 - [Network security groups](/azure/virtual-network/manage-network-security-group) (NSGs) on the Jumpbox subnet allow ports 3389 and 22 access to the VMs attached to the Jumpbox subnet.
 - [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview) connects a PhotoScan virtual network to an Avere virtual network.
@@ -82,7 +82,7 @@ Consider the following options to further improve security in this scenario:
 
 ## Pricing
 
-The cost of running this scenario can vary greatly depending on on multiple factors.  Choices such as using [GPU-optimized](/azure/virtual-machines/linux/sizes-gpu) VMs (like this example), how much storage is required, and the amount of time to complete a job will determine your cost.
+The cost of running this scenario can vary greatly depending on on multiple factors.  The number and size of VMs, how much storage is required, and the amount of time to complete a job will determine your cost.
 
 The following sample cost profile in the [Azure pricing calculator](https://azure.com/e/42362ddfd2e245a28a8e78bc609c80f3) is based on a typical configuration for Avere vFXT and PhotoScan:
 
