@@ -2,7 +2,7 @@
 title: "Fusion: Cloud Native - Security Management Policy"
 description: What is Cloud Native - Security Management Policy?
 author: BrianBlanchard
-ms.date: 12/11/2018
+ms.date: 2/1/2019
 ---
 
 # Fusion: What is Cloud Native - Security Management Policy?

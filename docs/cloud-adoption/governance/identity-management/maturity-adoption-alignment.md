@@ -2,7 +2,7 @@
 title: "Fusion: How can a company add Identity Management discipline to their Cloud Governance execution?"
 description: Explanation of the concept Identity management in relation to cloud governance
 author: BrianBlanchard
-ms.date: 12/11/2018
+ms.date: 2/1/2019
 ---
 
 # Fusion: How can a company add Identity Management discipline to their Cloud Governance execution?

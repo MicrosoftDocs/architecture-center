@@ -2,7 +2,7 @@
 title: "Fusion: Governance design for a simple workload"
 description: Guidance for configuring Azure governance controls to enable a user to deploy a simple workload
 author: petertaylor9999
-ms.date: 12/11/2018
+ms.date: 2/1/2019
 ---
 
 # Fusion: Governance design for a simple workload
