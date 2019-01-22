@@ -7,20 +7,22 @@ ms.date: 12/14/2018
 
 # Fusion: How can a company add Resource Management discipline to their Cloud Governance execution?
 
-In the [Intro to Cloud Governance](../overview.md), Resource Management is one of the five disciplines to Cloud Governance. This discipline focuses on ways of establishing policies related to the operational management of an environment, application, or workload. Within the five disciplines of Cloud Governance, Resource management includes monitoring of applications, workload, and asset performance. It also includes the tasks required to meet scale demands, remediate performance Service Level Agreement (SLA) violations, and proactively avoid performance SLA violations through automated remediation.
+The resource management discipline focuses on ways of establishing policies related to the operational management of an environment, application, or workload. Within the five disciplines of Cloud Governance, resource management includes monitoring of applications, workload, and asset performance. It also includes the tasks required to meet scale demands, remediate performance Service Level Agreement (SLA) violations, and proactively avoid SLA violations through automated remediation.
 
-This article outlines the Resource Management process that a company experiences during the planning, building, adopting, and operating phases of implementing a cloud solution. It's impossible for any one document to account for all of the requirements of any business. As such, each section of this article outlines suggested minimum and potential activities. The objective of these activities is to help you build a [Policy MVP](../policy-compliance/overview.md#policy-minimally-viable-product-mvp) and establish a framework for [Incremental Policy](../policy-compliance/overview.md#incremental-policy-growth) evolution. The Cloud Governance Team should decide how much to invest in these activities to improve the Resource Management position.
-
-> [!CAUTION]
-> Neither the minimum or potential activities outlined in this article are aligned to specific corporate policies or third party compliance requirements. This guidance is designed to help facilitate the conversations that will lead to alignment of both requirements with a Cloud Governance Model.
+This article outlines some potential tasks your company can engage in to better develop and mature the resource management discipline. These tasks can be broken down into planning, building, adopting, and operating phases of implementing a cloud solution, which are then iterated on allowing the development of an [incremental governance model](../design-guides/overview.md#incremental-governance-model-mvp-and-continuous-improvement).
 
 ![Four phases of adoption](../../_images/adoption-phases.png)
 
 *Figure 1. Adoption phases of the incremental approach to cloud governance.*
 
+It's impossible for any one document to account for the requirements of all businesses. As such, this article outlines suggested minimum and potential example activities for each phase of the governance maturation process. The initial objective of these activities is to help you build a [Policy MVP](../design-guides/overview.md#incremental-governance-model-mvp-and-continuous-improvement) and establish a framework for incremental policy evolution. Your cloud governance team will need to decide how much to invest in these activities to improve your resource management governance capabilities.
+
+> [!CAUTION]
+> Neither the minimum or potential activities outlined in this article are aligned to specific corporate policies or third party compliance requirements. This guidance is designed to help facilitate the conversations that will lead to alignment of both requirements with a Cloud Governance Model.
+
 ## Planning and readiness
 
-While not directly aligned, this phase of governance maturity most closely maps to the activities outlined in the [Plan process](../../transformation-journeys/operational-transformation/plan.md) for the [Operational Transformation Journey](../../transformation-journeys/operational-transformation/overview.md).
+This phase of governance maturity bridges the divide between business outcomes and actionable strategies. During this process, the leadership team defines specific metrics, maps those metrics to the digital estate, and begins planning the overall migration effort.
 
 **Minimum suggested activities:**
 
@@ -29,19 +31,19 @@ While not directly aligned, this phase of governance maturity most closely maps 
 * Develop a draft Architecture Guidelines document and distribute to key stakeholders.
 * Become familiar with the resource manager you use to deploy, manage, and monitor all the resources for your solution as a group.
 * Educate and involve the people and teams impacted by the development of Architecture Guidelines.
-* Add prioritized resource deployment tasks to your [migration backlog](../../migration/plan/migration-backlog.md).
+* Add prioritized resource deployment tasks to your migration backlog.
 
 **Potential activities:**
 
-* Work with the business stakeholders and/or your [cloud strategy team](../../culture-strategy/what-is-a-cloud-strategy-team.md) to understand the desired [cloud accounting approach](../../business-strategy/cloud-accounting.md) and cost accounting practices within your business units and organization as a whole.
-* Define your [monitoring and policy enforcement](../monitoring-enforcement/overview.md) requirements.
+* Work with the business stakeholders and/or your cloud strategy team to understand the desired cloud accounting approach and cost accounting practices within your business units and organization as a whole.
+* Define your [monitoring and policy enforcement](./processes.md) requirements.
 * Examine the business value and cost of outage to define remediation policy and SLA requirements.
-* Determine whether you'll deploy [single team](../../governance/resource-management/governance-single-team.md) or [multiple team](../../governance/resource-management/governance-multiple-teams.md) governance strategy for your resources.
+* Determine whether you'll deploy [single team](./governance-single-team.md) or [multiple team](./governance-multiple-teams.md) governance strategy for your resources.
 * Determine scalability requirements for your planned workloads.
 
 ## Build and pre-deployment
 
-While not directly aligned, this phase of governance maturity most closely maps to the activities outlined in the [Build process](../../transformation-journeys/operational-transformation/build.md) for the [Operational Transformation Journey](../../transformation-journeys/operational-transformation/overview.md).
+A number of technical and non-technical pre-requisites are required to successful migrate an environment. This process focuses on the decisions, readiness, and core infrastructure that proceeds a migration.
 
 **Minimum suggested activities:**
 
@@ -65,7 +67,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 ## Adopt and migrate
 
-While not directly aligned, this phase of governance maturity most closely maps to the activities outlined in the [Migrate process](../../transformation-journeys/operational-transformation/migrate.md) for the [Operational Transformation Journey](../../transformation-journeys/operational-transformation/overview.md).
+Migration is an incremental process that focuses on the movement, testing, and adoption of applications or workloads in an existing digital estate.
 
 **Minimum suggested activities:**
 
@@ -92,7 +94,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 ## Operate and post-implementation
 
-Once the transformation is complete, governance and operations must live on for the natural lifecycle of an  application or workload. This phase of governance maturity focuses on the activities that commonly come after the solution is implemented and the transformation cycle begins to stabilize.
+Once the transformation is complete, governance and operations must live on for the natural lifecycle of an application or workload. This phase of governance maturity focuses on the activities that commonly come after the solution is implemented and the transformation cycle begins to stabilize.
 
 **Minimum suggested activities:**
 

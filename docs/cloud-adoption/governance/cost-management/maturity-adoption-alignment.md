@@ -7,15 +7,22 @@ ms.date: 1/3/2019
 
 # Fusion: Maturing the cost management discipline as cloud adoption progresses
 
-This article outlines a maturity model for the cost management discipline to use in parallel with your first major enterprise deployment. This guide can assist you in evaluating how well your governance team is maturing in relation to your cloud adoption efforts.
+The cost management discipline attempts to address core business risks related to expenses incurred when hosting cloud-based workloads. Within the five disciplines of Cloud Governance, cost management is involved in controlling cost and usage of cloud resources with the goal of creating and maintaining a planned cost cycle.
+
+This article outlines some potential tasks your company can engage in to better develop and mature the cost management discipline. These tasks can be broken down into planning, building, adopting, and operating phases of implementing a cloud solution, which are then iterated on allowing the development of an [incremental governance model](../design-guides/overview.md#incremental-governance-model-mvp-and-continuous-improvement).
 
 ![Four phases of adoption](../../_images/adoption-phases.png)
 
 *Figure 1. Adoption phases of the incremental approach to cloud governance.*
 
+It's impossible for any one document to account for the requirements of all businesses. As such, this article outlines suggested minimum and potential example activities for each phase of the governance maturation process. The initial objective of these activities is to help you build a [Policy MVP](../design-guides/overview.md#incremental-governance-model-mvp-and-continuous-improvement) and establish a framework for incremental policy evolution. Your cloud governance team will need to decide how much to invest in these activities to improve your cost management governance capabilities.
+
+> [!CAUTION]
+> Neither the minimum or potential activities outlined in this article are aligned to specific corporate policies or third party compliance requirements. This guidance is designed to help facilitate the conversations that will lead to alignment of both requirements with a Cloud Governance Model.
+
 ## Planning and readiness
 
-While not directly aligned, this phase of governance maturity most closely maps to the activities outlined in the [Plan process](../../transformation-journeys/operational-transformation/plan.md) for the [Operational Transformation Journey](../../transformation-journeys/operational-transformation/overview.md).
+This phase of governance maturity bridges the divide between business outcomes and actionable strategies. During this process, the leadership team defines specific metrics, maps those metrics to the digital estate, and begins planning the overall migration effort.
 
 **Minimum suggested activities:**
 
@@ -25,17 +32,17 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 **Potential activities:**
 
-* Ensure budgetary decisions that support the [Business Justification](../../business-strategy/cloud-migration-business-case.md) for your cloud strategy.
-* Validate [learning metrics](../../business-strategy/learning-metrics.md) that you use to report on the successful allocation of funding.
-* Understand the desired [Cloud Accounting Model](../../business-strategy/cloud-accounting.md) that impact how cloud costs should be accounted for.
-* Become familiar with the [Digital Estate Plan](../../digital-estate/overview.md) and validate accurate costing expectations.
+* Ensure budgetary decisions that support the business justification for your cloud strategy.
+* Validate learning metrics that you use to report on the successful allocation of funding.
+* Understand the desired cloud accounting model that impact how cloud costs should be accounted for.
+* Become familiar with the digital estate plan and validate accurate costing expectations.
 * Evaluate buying options to determine if it's better to "pay as you go" or to make a pre-commitment by purchasing an Enterprise Agreement.
 * Align business goals with planned budgets and adjust budgetary plans as necessary.
 * Develop a goals and budget reporting mechanism to notify technical and business stakeholders at the end of each cost cycle.
 
 ## Build and pre-deployment
 
-While not directly aligned, this phase of governance maturity most closely maps to the activities outlined in the [Build process](../../transformation-journeys/operational-transformation/build.md) for the [Operational Transformation Journey](../../transformation-journeys/operational-transformation/overview.md).
+A number of technical and non-technical pre-requisites are required to successful migrate an environment. This process focuses on the decisions, readiness, and core infrastructure that proceeds a migration.
 
 **Minimum suggested activities:**
 
@@ -48,11 +55,11 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 * Align your budgetary plans with the [Subscription Strategy](../../infrastructure/subscriptions/overview.md) that defines your core ownership model.
 * Leverage the [Resource Grouping Strategy](../../infrastructure/resource-grouping/overview.md) to enforce architecture and cost guidelines over time.
-* Determine if there are any cost anomolies that impact your adoption and migration plans.
+* Determine if there are any cost anomalies that impact your adoption and migration plans.
 
 ## Adopt and migrate
 
-While not directly aligned, this phase of governance maturity most closely maps to the activities outlined in the [Migrate process](../../transformation-journeys/operational-transformation/migrate.md) for the [Operational Transformation Journey](../../transformation-journeys/operational-transformation/overview.md).
+Migration is an incremental process that focuses on the movement, testing, and adoption of applications or workloads in an existing digital estate.
 
 **Minimum suggested activities:**
 
@@ -87,3 +94,10 @@ Once the transformation is complete, governance and operations must live on for 
 * Remediate underused assets and determine if they're worth continuing.
 * Detect misalignments and anomalies between the plan and actual spending.
 * Aid the Cloud Adoption Team and Cloud Strategy Team in understanding and resolving these anomalies.
+
+## Next steps
+
+Now that you understand the concept of cloud identity governance, examine the [cost management tool chain](toolchain.md) to identify Azure tools and features that you'll need when developing the cost management governance discipline on the Azure platform.
+
+> [!div class="nextstepaction"]
+> [Azure specific cost management tool chain](toolchain.md)
