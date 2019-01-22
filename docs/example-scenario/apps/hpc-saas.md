@@ -8,6 +8,7 @@ ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom: HPC
+social_image_url: /azure/architecture/example-scenario/apps/media/architecture-hpc-saas.png
 ---
 
 # A computer-aided engineering service on Azure

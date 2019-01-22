@@ -8,6 +8,7 @@ ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom: fasttrack
+social_image_url: /azure/architecture/example-scenario/apps/media/architecture-apim-api-scenario.png
 ---
 
 # Migrating a legacy web application to an API-based architecture on Azure
