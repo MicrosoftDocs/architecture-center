@@ -74,6 +74,8 @@ Additionally, the custom domain name used for apps and the domain name used by t
 
 Choose a domain for the ILB ASE that won’t have a conflict with those custom domain names. You can use something like contoso-internal.com for the domain of your ASE for the example here, because that won't conflict with custom domain names that end in .contoso.com.
 
+Another point to consider is regarding DNS. In order to allow applications within the ASE to communicate with each other, for instance a web application to talk to an API, you will need to have DNS configured for your VNET holding the ASE. You can either [bring your own DNS][bring-your-own-dns] or you can use [Azure DNS private zones][private-zones]
+
 ### Availability
 
 * Consider leveraging the [typical design patterns for availability][design-patterns-availability] when building your cloud application.
@@ -127,6 +129,8 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [create-wildcard-cert-letsencrypt]: https://blogs.msdn.microsoft.com/mihansen/2018/03/15/creating-wildcard-ssl-certificates-with-lets-encrypt/
 [ase-and-internally-issued-cert]: https://www.patrickob.com/2018/11/10/adding-ca-certs-to-the-trusted-root-store-for-web-apps-hosted-in-an-ase/
 [isolated-tier-pricing-and-ase-pricing]: https://azure.microsoft.com/en-us/pricing/details/app-service/windows/
+[bring-your-own-dns]: /azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#specify-dns-servers
+[private-zones]: /azure/dns/private-dns-overview
 
 [architecture]: ./media/ilb-ase-with-architecture.png
 [small-pricing]: https://azure.com/e/90fbb6a661a04888a57322985f9b34ac
