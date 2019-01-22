@@ -43,9 +43,9 @@ Cloud-based IT policies establish the requirements, standards, and goals that yo
 
 Individual cloud policy statements are guidelines for addressing specific risks identified during your risk assessment process.  While these policies can be integrated into your wider corporate policy documentation, cloud policy statements discussed throughout the fusion guidance tends to be a more concise summary of the risks and plans to deal with them. Each definition should include these pieces of information:
 
-* Business risk - A summary of the risk this policy will address.
-* Policy statement - A concise explanation of the policy requirements and goals.
-* Design guidance - Actionable recommendations, specifications, or other guidance to support and enforce this policy that IT teams and developers can use when designing and building their cloud deployments.
+- Business risk - A summary of the risk this policy will address.
+- Policy statement - A concise explanation of the policy requirements and goals.
+- Design or technical guidance - Actionable recommendations, specifications, or other guidance to support and enforce this policy that IT teams and developers can use when designing and building their cloud deployments.
 
 If you need help getting started with defining policies, consult the [governance disciplines](../understand-the-five-disciplines-of-cloud-governance.md) introduced in the governance section overview. The articles for each of these disciplines includes examples of common business risks encountered when moving to the cloud and sample policies used to mitigate those risks (for example, see the cost management discipline's [sample policy definitions](../cost-management/policy-statements.md)).
 

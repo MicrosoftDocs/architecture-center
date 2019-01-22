@@ -1,122 +1,155 @@
 ---
-title: "Fusion: How can a company add Resource Management discipline to their Cloud Governance execution?"
-description: Explanation of the concept Resource management in relation to cloud governance
+title: "Fusion: Understanding the Resource Management discipline within cloud governance"
+description: Explanation of the concept resource management in relation to cloud governance
 author: BrianBlanchard
-ms.date: 12/14/2018
+ms.date: 1/4/2019
+layout: LandingPage
+ms.topic: landing-page
 ---
 
-# Fusion: How can a company add Resource Management discipline to their Cloud Governance execution?
+# Fusion: Resource Management discipline
 
-In the [Intro to Cloud Governance](../overview.md), Resource Management is one of the five disciplines to Cloud Governance. This discipline focuses on ways of establishing policies related to the operational management of an environment, application, or workload. Within the five disciplines of Cloud Governance, Resource management includes monitoring of applications, workload, and asset performance. It also includes the tasks required to meet scale demands, remediate performance Service Level Agreement (SLA) violations, and proactively avoid performance SLA violations through automated remediation.
+Resource Management is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md) within the [Fusion Model to Cloud Governance](../overview.md). 
 
-This article outlines the Resource Management process that a company experiences during the planning, building, adopting, and operating phases of implementing a cloud solution. It's impossible for any one document to account for all of the requirements of any business. As such, each section of this article outlines suggested minimum and potential activities. The objective of these activities is to help you build a [Policy MVP](../policy-compliance/overview.md#policy-minimally-viable-product-mvp) and establish a framework for [Incremental Policy](../policy-compliance/overview.md#incremental-policy-growth) evolution. The Cloud Governance Team should decide how much to invest in these activities to improve the Resource Management position.
+This discipline focuses on ways of establishing policies related to the operational management of an environment, application, or workload. Within the five disciplines of Cloud Governance, Resource management includes monitoring of applications, workload, and asset performance. It also includes the tasks required to meet scale demands, remediate performance Service Level Agreement (SLA) violations, and proactively avoid performance SLA violations through automated remediation.
+
+> [!NOTE]
+> Resource management governance does not replace the existing IT teams, processes, and procedures that allow your organization to effectively manage cloud-based resources. The primary purpose of this discipline is to identify potential business risks and provide risk-mitigation guidance to the IT staff that are responsible for managing your resources in the cloud. As you develop governance policies and processes make sure to  involve relevant IT teams in your planning and review processes.
+
+This section of the Fusion guidance outlines how to develop a resource management discipline as part of your cloud governance strategy. The primary audience for this guidance is your organization's cloud architects and other members of your cloud governance team. However, the decisions, policies, and processes that emerge from this discipline should involve engagement and discussions with relevant members of the IT teams responsible for implementing and managing your organization's resource management solutions.
+
+If your organization lacks in-house expertise in resource management strategies, consider engaging with external consultants as a part of this discipline. Also consider engaging with [Microsoft Consulting Services](https://www.microsoft.com/en-us/enterprise/services?activetab=pillars%3aprimaryr13), the [Microsoft FastTrack](https://azure.microsoft.com/en-us/programs/azure-fasttrack/) cloud adoption service, or other external cloud adoption experts for discussing how best to organize, track, and optimize your cloud-based assets.
+
+## Policy statements
+
+Actionable policy statements and the resulting architecture requirements serve as the foundation of a resource management discipline. To see policy statement samples, see the article on [Resource Management Policy Statements](./policy-statements.md). These samples can serve as a starting point for your organization's governance policies.
 
 > [!CAUTION]
-> Neither the minimum or potential activities outlined in this article are aligned to specific corporate policies or third party compliance requirements. This guidance is designed to help facilitate the conversations that will lead to alignment of both requirements with a Cloud Governance Model.
+> The sample policies come from common customer experiences. To better align these policies to specific cloud governance needs, execute the following steps to create policy statements that meet your unique business needs.
 
-![Four phases of adoption](../../_images/adoption-phases.png)
+## Developing resource management governance policy statements
 
-*Figure 1. Adoption phases of the incremental approach to cloud governance.*
+The following six steps offer examples and potential options to consider when developing resource management governance. Use each step as a starting point for discussions within your cloud governance team and with affected business, and IT teams across your organization to establish the policies and processes needed to mitigate resource management risks.
 
-## Planning and readiness
-
-While not directly aligned, this phase of governance maturity most closely maps to the activities outlined in the [Plan process](../../transformation-journeys/operational-transformation/plan.md) for the [Operational Transformation Journey](../../transformation-journeys/operational-transformation/overview.md).
-
-**Minimum suggested activities:**
-
-* Evaluate your [Resource Management Tool Chain](toolchain.md) options.
-* Understand the licensing requirements for your cloud strategy.
-* Develop a draft Architecture Guidelines document and distribute to key stakeholders.
-* Become familiar with the resource manager you use to deploy, manage, and monitor all the resources for your solution as a group.
-* Educate and involve the people and teams impacted by the development of Architecture Guidelines.
-* Add prioritized resource deployment tasks to your [migration backlog](../../migration/plan/migration-backlog.md).
-
-**Potential activities:**
-
-* Work with the business stakeholders and/or your [cloud strategy team](../../culture-strategy/what-is-a-cloud-strategy-team.md) to understand the desired [cloud accounting approach](../../business-strategy/cloud-accounting.md) and cost accounting practices within your business units and organization as a whole.
-* Define your [monitoring and policy enforcement](../monitoring-enforcement/overview.md) requirements.
-* Examine the business value and cost of outage to define remediation policy and SLA requirements.
-* Determine whether you'll deploy [single team](../../governance/resource-management/governance-single-team.md) or [multiple team](../../governance/resource-management/governance-multiple-teams.md) governance strategy for your resources.
-* Determine scalability requirements for your planned workloads.
-
-## Build and pre-deployment
-
-While not directly aligned, this phase of governance maturity most closely maps to the activities outlined in the [Build process](../../transformation-journeys/operational-transformation/build.md) for the [Operational Transformation Journey](../../transformation-journeys/operational-transformation/overview.md).
-
-**Minimum suggested activities:**
-
-* Implement your [Resource Management Tool Chain](toolchain.md) by rolling out in a pre-deployment phase.
-* Update the Architecture Guidelines document and distribute to key stakeholders.
-* Implement resource deployment tasks on your prioritized migration backlog.
-* Develop educational materials and documentation, awareness communications, incentives, and other programs to help drive user adoption.
-
-**Potential activities:**
-
-* Decide on a [subscription design strategy](../../infrastructure/subscriptions/overview.md), choosing the subscription patterns that best fit your organization and workload needs.
-* Leverage a [resource grouping](../../infrastructure/resource-grouping/overview.md) strategy to enforce architecture guidelines over time.
-* Implement [resource naming, and tagging standards](../../infrastructure/resource-tagging/overview.md) for your resources to match your organizational and accounting requirements.
-* To create proactive point-in-time governance, use deployment templates and automation to enforce common configurations and a consistent grouping structure when deploying resources and resource groups.
-* Establish a least privilege permissions model, where users have no permissions by default.
-* Determine who in your organization owns each workload and account, and who will need to access to maintain or modify these resources. Define cloud roles and responsibilities that match these needs and use use these roles as the basis for access control.
-* Define dependencies between resources.
-* Implement automated resource scaling to match requirements defined in the Plan stage.
-* Conduct access performance to measure the quality of services received.
-* Consider deploying [policy](/azure/governance/policy/overview) to manage SLA enforcement using configuration settings and resource creation rules.
-
-## Adopt and migrate
-
-While not directly aligned, this phase of governance maturity most closely maps to the activities outlined in the [Migrate process](../../transformation-journeys/operational-transformation/migrate.md) for the [Operational Transformation Journey](../../transformation-journeys/operational-transformation/overview.md).
-
-**Minimum suggested activities:**
-
-* Migrate your [Resource Management Tool Chain](toolchain.md) from pre-deployment to production.
-* Update the Architecture Guidelines document and distribute to key stakeholders.
-* Develop educational materials and documentation, awareness communications, incentives, and other programs to help drive user adoption.
-* Migrate any existing automated remediation scripts or tools to support defined SLA requirements.
-
-**Potential activities:**
-
-* Complete and test monitoring and reporting data. with your chosen on-premises, cloud gateway, or hybrid solution.
-* Determine if changes need to be made to SLA or management policy for resources.
-* Improve operations tasks by implementing query capabilities to efficiently find resource across your cloud estate.
-* Align resources to changing business needs and governance requirements.
-* Ensure that your virtual machines, virtual networks, and storage accounts reflect actual resource access needs during each release, and adjust as necessary.
-* Verify automated scaling of resources meets access requirements.
-* Review user access to resources, resource groups, and Azure subscriptions, and adjust access controls as necessary.
-* Monitor changes in resource access plans and validate with stakeholders if additional sign-offs are needed.
-* Update changes to the Architecture Guidelines document to reflect actual costs.
-* Determine whether your organization requires clearer financial alignment to P&Ls for business units.
-* For global organizations, implement your SLA compliance or sovereignty requirements.
-* For cloud aggregation, deploy a gateway solution to a cloud provider.
-* For tools that don't allow for hybrid or gateway options, tightly couple monitoring with an operational monitoring tool.
-
-## Operate and post-implementation
-
-Once the transformation is complete, governance and operations must live on for the natural lifecycle of an  application or workload. This phase of governance maturity focuses on the activities that commonly come after the solution is implemented and the transformation cycle begins to stabilize.
-
-**Minimum suggested activities:**
-
-* Customize your [Resource Management Tool Chain](toolchain.md) based on updates to your organization’s changing cost management needs.
-* Consider automating any notifications and reports to reflect actual resource usage.
-* Refine Architecture Guidelines to guide future adoption processes.
-* Re-educate impacted teams on a periodic basis to ensure ongoing adherence to the Architecture Guidelines.
-
-**Potential activities:**
-
-* Adjust plans quarterly to reflect changes to actual resources.
-* Automatically apply and enforce governance requirements during future deployments.
-* Evaluate underused resources and determine if they're worth continuing.
-* Detect misalignments and anomalies between planned and actual resource usage.
-* Aid the Cloud Adoption Team and Cloud Strategy Team in understanding and resolving these anomalies.
-* Determine if changes need to be made to resource management for billing and SLAs.
-* Evaluate logging and monitoring tools to determine whether your on-premises, cloud gateway, or hybrid solution needs adjusting.
-* For business units and geographically-distributed groups, determine if your organization should consider using additional cloud management features (for example [Azure management groups](/azure/governance/management-groups/)) to better apply centralized policy and meet SLA requirements.
+<ul  class="panelContent cardsE">
+<li style="display: flex; flex-direction: column;">
+    <a href="./template.md">
+        <div class="cardSize">
+            <div class="cardPadding" >
+                <div class="card" >
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../../_images/governance/process-template.png" class="x-hidden-focus"/>
+                        </div>
+                    </div>
+                    <div class="cardText" style="padding-left:0px;">
+                        <h3>Resource Management Template</h3>
+                        <p class="x-hidden-focus">Download the template for documenting an Resource Management discipline</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li><li style="display: flex; flex-direction: column;">
+    <a href="./business-risks.md">
+        <div class="cardSize">
+            <div class="cardPadding" >
+                <div class="card" >
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../../_images/governance/process-risks.png" class="x-hidden-focus"/>
+                        </div>
+                    </div>
+                    <div class="cardText" style="padding-left:0px;">
+                        <h3>Business Risks</h3>
+                        <p class="x-hidden-focus">Understand the motives and risks commonly associated with the Resource Management discipline.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<li style="display: flex; flex-direction: column;">
+    <a href="./metrics-tolerance.md">
+        <div class="cardSize">
+            <div class="cardPadding" >
+                <div class="card" >
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../../_images/governance/process-metrics.png" class="x-hidden-focus"/>
+                        </div>
+                    </div>
+                    <div class="cardText" style="padding-left:0px;">
+                        <h3>Indicators and Metrics</h3>
+                        <p class="x-hidden-focus">Indicators to understand if it is the right time to invest in the Resource Management discipline.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<li style="display: flex; flex-direction: column;">
+    <a href="./processes.md">
+        <div class="cardSize">
+            <div class="cardPadding" >
+                <div class="card" >
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../../_images/governance/process-enforce.png" class="x-hidden-focus"/>
+                        </div>
+                    </div>
+                    <div class="cardText" style="padding-left:0px;">
+                        <h3>Policy adherence processes</h3>
+                        <p class="x-hidden-focus">Suggested processes for supporting policy compliance in the Resource Management discipline.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<li style="display: flex; flex-direction: column;">
+    <a href="./maturity-adoption-alignment.md">
+        <div class="cardSize">
+            <div class="cardPadding" >
+                <div class="card" >
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../../_images/governance/process-maturity.png" class="x-hidden-focus"/>
+                        </div>
+                    </div>
+                    <div class="cardText" style="padding-left:0px;">
+                        <h3>Maturity</h3>
+                        <p class="x-hidden-focus">Aligning Cloud Management maturity with phases of cloud adoption.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<li style="display: flex; flex-direction: column;">
+    <a href="./toolchain.md">
+        <div class="cardSize">
+            <div class="cardPadding" >
+                <div class="card" >
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../../_images/governance/process-toolchain.png" class="x-hidden-focus"/>
+                        </div>
+                    </div>
+                    <div class="cardText" style="padding-left:0px;">
+                        <h3>Toolchain</h3>
+                        <p class="x-hidden-focus">Azure services that can be implemented to support the Resource Management discipline.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+</ul>
 
 ## Next steps
 
-Now that you understand the concept of cloud resource governance, move on to learn more about [how resource access is managed](azure-resource-access.md) in Azure in preparation for learning how to design a governance model for a [single team](governance-single-team.md) or [multiple teams](governance-multiple-teams.md).
+Get started by evaluating [business risks](./business-risks.md) in a specific environment.
 
 > [!div class="nextstepaction"]
-> [Learn about resource access in Azure](azure-resource-access.md)
-> [Learn about SLAs for Azure](https://azure.microsoft.com/support/legal/sla/)
-> [Learn about logging, reporting, and monitoring](../../infrastructure/logs-and-reporting/overview.md)
+> [Understand business risks](./business-risks.md)

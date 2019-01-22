@@ -7,7 +7,7 @@ ms.date: 1/8/2019
 
 # Fusion: Motivations and business risks that drive security governance
 
-This article discusses the reasons that customers typically adopt a security management discipline within a cloud governance strategy. It also provides a few examples of business risks that drive policy statements.
+This article discusses the reasons that customers typically adopt a security management discipline within a cloud governance strategy. It also provides a few examples of potential business risks that can drive policy statements.
 
 ## Is security management relevant?
 
@@ -24,7 +24,9 @@ The security management discipline discussed in this section of the Fusion guida
 
 ## Business risk
 
-The security management discipline attempts to address the following business risks. During cloud adoption, monitor each of the following for relevance:
+The security management discipline attempts to address core security-related business risks. Work with your business to identify these risks and monitor each of them for relevance as you plan for and implement your cloud deployments.
+
+Risks will differ between organization, but the following serve as common security-related risks that you can use as a starting point for discussions within your cloud governance team:
 
 - **Data leaks**. Inadvertent exposure or loss of sensitive cloud-hosted data can lead to losing customers, contractual breaches, or legal consequences.
 - **Service disruption**. Outages and other performance issues due to insecure infrastructure interrupts normal operations and can result in lost productivity or lost business.
@@ -33,7 +35,7 @@ The security management discipline attempts to address the following business ri
 
 Using the [Cloud Management Template](./template.md), document business risks that are likely to be introduced by the current cloud adoption plan.
 
-Once an understanding of realistic business risks is established, the next step is to document the business's [tolerance for risk](./metrics-tolerance.md) and the indicators / key metrics to monitor that tolerance.
+Once an understanding of realistic business risks is established, the next step is to document the business's [tolerance for risk](./metrics-tolerance.md) and the indicators and key metrics to monitor that tolerance.
 
 > [!div class="nextstepaction"]
 > [Understand indicators, metrics, and risk tolerance](./metrics-tolerance.md)

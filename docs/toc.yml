@@ -707,19 +707,19 @@
         items:
           - name: Adopting a Resource Management Discipline
             href: cloud-adoption/governance/resource-management/overview.md
-          - name: XXXX - Download the Template
+          - name: Download the Template
             href: cloud-adoption/governance/resource-management/template.md
           - name: Understand business risks
             href: cloud-adoption/governance/resource-management/business-risks.md
-          - name: XXXX - Document metrics and tolerance indicators
+          - name: Document metrics and tolerance indicators
             href: cloud-adoption/governance/resource-management/metrics-tolerance.md
-          - name: XXXX - Customize Sample Policy Statements
+          - name: Customize Sample Policy Statements
             href: cloud-adoption/governance/resource-management/policy-statements.md
-          - name: XXXX - Develop policy compliance processes
+          - name: Develop policy compliance processes
             href: cloud-adoption/governance/resource-management/processes.md
-          - name: XXXX - Develop a Maturity Roadmap
+          - name: Develop a Maturity Roadmap
             href: cloud-adoption/governance/resource-management/maturity-adoption-alignment.md
-          - name: XXXX - Resource access governance in Azure
+          - name: Resource access governance in Azure
             href: cloud-adoption/governance/resource-management/azure-resource-access.md
           - name: Resouce governance design for a single team
             href: cloud-adoption/governance/resource-management/governance-single-team.md

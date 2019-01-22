@@ -7,11 +7,13 @@ ms.date: 1/3/2019
 
 # Fusion: Metrics, indicators, and risk tolerance
 
-This article is intended to help you quantify business risk tolerance as it relates to security management. Defining metrics and indicators helps you create a business case for making an investment in the maturity of the Security Management discipline.
+This article is intended to help you quantify business risk tolerance as it relates to security management. Defining metrics and indicators helps you create a business case for making an investment in maturing the Security Management discipline.
 
 ## Metrics 
 
-Security management generally focuses on identifying potential vulnerabilities in your cloud deployments. The following are a few common metrics that are useful in this discipline of cloud governance:
+Security management generally focuses on identifying potential vulnerabilities in your cloud deployments. As part of your risk analysis you'll want to gather data related to your security environment to determine how much risk you face, and how important investment in security management governance is to your planned cloud deployments.
+
+Every organization has different security environments and requirements and different potential sources of security data. The following are examples of useful metrics that you should gather to help evaluate risk tolerance within the security management discipline:
 
 - **Data classification**. Number of cloud-stored data and services that are unclassified according to on your organization's privacy, compliance, or business impact standards.
 - **Number of sensitive data stores** - Number of storage end points or databases that contain sensitive data and should be protected.
@@ -34,7 +36,7 @@ In the early stages of cloud adoption, work with your IT security team and busin
 Once you have a baseline, establish minimum benchmarks representing an unacceptable increase in your identified risks. These benchmarks act as triggers for when you need to take action to mitigate these risks. The following are a few examples of how security metrics, such as those discussed above, can justify an increased investment in the security management discipline.
 
 - **Sensitive data trigger**. A company hosting data on the cloud that can be classified as confidential, private, or otherwise subject to regulatory concerns. They need a Security Management discipline to ensure that this data is not subject to loss, exposure, or theft.
-- **Standards compliance trigger**. A company with more than X% of resource out of security standards compliance should invest in the Security Management discipline to ensure standards are applied consistently across your IT infrastructure.
+- **Standards compliance trigger**. A company with more than X% of resources out of security standards compliance should invest in the Security Management discipline to ensure standards are applied consistently across your IT infrastructure.
 - **Cloud estate size trigger**. A company hosting more than X number of applications, services, or data sources. Large cloud deployments can benefit from investment in the Security Management discipline to ensure that their overall attack surface is properly protected against unauthorized access or other external threats.
 - **Mission critical workloads trigger**. A company deploying mission critical workloads to the cloud should invest in the Security Management discipline to prevent potential disruption of service or sensitive data exposure.
 - **External attacks trigger**. A company that experiences serious attacks against their network infrastructure X times per month could benefit from the Security Management discipline.  
@@ -42,6 +44,7 @@ Once you have a baseline, establish minimum benchmarks representing an unaccepta
 - **Patching trigger**. A company where deployed virtual machines or services where OS or software patches have not been applied in the last X number of days. A Security Management discipline can be used to ensure patching is kept up-to-date within a required schedule.
 - **Security focused**. Some companies will have strong security and data confidentiality requirements even for test and experimental workloads. These companies will need to invest in the Security Management discipline before any deployments can begin.
 
+The exact metrics and triggers you use to gauge risk tolerance and the level of investment in the Security Management discipline will be specific to your organization, but the examples above should serve as a useful base for discussion within your cloud governance team.  
 
 ## Next steps
 

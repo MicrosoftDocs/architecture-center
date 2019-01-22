@@ -11,7 +11,9 @@ This article is intended to help you quantify business risk tolerance as it rela
 
 ## Metrics
 
-Cost management generally focuses on metrics related to costs. The following are a few common metrics aligned to this discipline of cloud governance:
+Cost management generally focuses on metrics related to costs. As part of your risk analysis you'll want to gather data related to your current and planned spending on cloud-based workloads to determine how much risk you face, and how important investment in cost governance is to your cloud adoption strategy.
+
+The following are examples of useful metrics that you should gather to help evaluate risk tolerance within the security management discipline:
 
 - Annual spend: The total annual cost for services provided by a cloud provider
 - Monthly spend: The total monthly cost for services provided by a cloud provider
@@ -22,11 +24,11 @@ Cost management generally focuses on metrics related to costs. The following are
 
 ## Risk tolerance indicators
 
-During early deployments, such as Dev/Test or first workloads, cost management is likely to be of relatively low risk. As more assets are deployed, the risk grows and the business' tolerance for risk is likely to decline. Additionally, as more cloud adoption teams are given the ability to configure or deploy assets to the cloud, the risk grows and tolerance decreases. Conversely, growing a cost management discipline will take people from the cloud adoption phase to deploy more innovative new technologies.
+During early deployments, such as Dev/Test or experimental first workloads, cost management is likely to be of relatively low risk. As more assets are deployed, the risk grows and the business' tolerance for risk is likely to decline. Additionally, as more cloud adoption teams are given the ability to configure or deploy assets to the cloud, the risk grows and tolerance decreases. Conversely, growing a cost management discipline will take people from the cloud adoption phase to deploy more innovative new technologies.
 
-In the early stages of cloud adoption, you will work with your business to determine a risk tolerance baseline. Once you have a baseline, you will need to determine the criteria that would trigger an investment in cost management. This may be different with every company.
+In the early stages of cloud adoption, you will work with your business to determine a risk tolerance baseline. Once you have a baseline, you will need to determine the criteria that would trigger an investment in the cost management discipline. These criteria will likely be different for every organization.
 
-The following are a few examples of how metrics, such as those mentioned above, can indicate your business's desire to invest in cost management. Once you have identified [business risks](./business-risks.md), you will work with your business to identify benchmarks that you can use to identify triggers that could potentially increase those risks.
+Once you have identified [business risks](./business-risks.md), you will work with your business to identify benchmarks that you can use to identify triggers that could potentially increase those risks. The following are a few examples of how metrics, such as those mentioned above, can be compared against your risk baseline tolerance to indicate your business's need to further invest in cost management.
 
 - Commit driven (most common): A company that is committed to spending $X,000,000 this year on a cloud vendor. They need a cost management discipline to ensure that the business doesn't overspend by more than 20%, and they will use at least 90% of that commitment.
 - Percentage trigger: A company with cloud spending that is stable for their production systems. If that changes by more that X%, then a cost management discipline will be a wise investment.

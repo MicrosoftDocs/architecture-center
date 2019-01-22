@@ -7,11 +7,13 @@ ms.date: 1/3/2019
 
 # Fusion: Metrics, indicators, and risk tolerance 
 
-This article is intended to help you quantify business risk tolerance as it relates to identity management. Defining metrics and indicators helps you create a business case for making an investment in the maturity of the Identity Management discipline.
+This article is intended to help you quantify business risk tolerance as it relates to identity management. Defining metrics and indicators helps you create a business case for making an investment in maturing the Identity Management discipline.
 
 ## Metrics
 
-Identity management focuses on identifying, authenticating, and authorizing individuals, groups of users, or automated processes, and providing them appropriate access to resources in your cloud deployments. The following information is useful when adopting this discipline of cloud governance:
+Identity management focuses on identifying, authenticating, and authorizing individuals, groups of users, or automated processes, and providing them appropriate access to resources in your cloud deployments. As part of your risk analysis you'll want to gather data related to your identity services to determine how much risk you face, and how important investment in identity management governance is to your planned cloud deployments.
+
+The following are examples of useful metrics that you should gather to help evaluate risk tolerance within the identity management discipline:
 
 - **Identity systems size**. Total number of users, groups, or other objects managed through your identity systems.
 - **Overall size of directory services infrastructure**. Number of directory forests, domains, and tenants used by your organization.
@@ -42,6 +44,8 @@ Once you have a baseline, establish minimum benchmarks representing an unaccepta
 - **Authentication failure trigger**. A company where authentication failures represent more than X% of attempts should invest in the Identity Management discipline to ensure that authentication methods are not under external attack, and that users are able to use the authentication methods correctly.
 - **Authorization failure trigger**. A company where access attempts are rejected more than X% of the time should invest in the Identity Management discipline to improve the application and updating of access controls, and identify potentially malicious access attempts.
 - **Compromised account trigger**. A company with more than X number of compromised accounts should invest in the Identity Management discipline to improve the strength and security of authentication mechanisms and improve mechanisms to mitigate risks related to compromised accounts.
+
+The exact metrics and triggers you use to gauge risk tolerance and the level of investment in the Identity Management discipline will be specific to your organization, but the examples above should serve as a useful base for discussion within your cloud governance team.
 
 ## Next steps
 
