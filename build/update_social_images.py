@@ -1,4 +1,12 @@
 #!/usr/bin/env python3
+"""Loops through a given directory and recursively adds
+social_image_url to the metadata using the first image
+found within the article inside a "media" folder.
+
+Modify the www_path to match the path to the directory in
+your browser when published.
+"""
+
 from pathlib import Path
 from os.path import dirname
 import re
