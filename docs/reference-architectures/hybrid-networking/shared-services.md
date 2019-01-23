@@ -14,6 +14,9 @@ ms.custom: seodec18, networking
 
 This reference architecture builds on the [hub-spoke][guidance-hub-spoke] reference architecture to include shared services in the hub that can be consumed by all spokes. As a first step toward migrating a datacenter to the cloud, and building a [virtual datacenter], the first services you need to share are identity and security. This reference architecture shows you how to extend your Active Directory services from your on-premises datacenter to Azure, and how to add a network virtual appliance (NVA) that can act as a firewall, in a hub-spoke topology.  [**Deploy this solution**](#deploy-the-solution).
 
+> [!NOTE]
+> This scenario can also be accomplished using [Azure Firewall](/azure/firewall/), a cloud-based network security service.
+
 ![Shared services topology in Azure](./images/shared-services.png)
 
 *Download a [Visio file][visio-download] of this architecture*
