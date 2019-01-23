@@ -43,7 +43,7 @@ In [how does Azure work?](what-is-azure.md) you learned that Azure includes a "f
 ![](../_images/governance-1-12.png)
 *Figure 4. Azure resource manager.*
 
-The following figure shows three clients: [Powershell](/powershell/azure/overview), [the Azure portal](https://portal.azure.com), and the [Azure command line interface (CLI)](/cli/azure):
+The following figure shows three clients: [Powershell](/powershell/azure/overview), the [Azure portal](https://portal.azure.com), and the [Azure command line interface (CLI)](/cli/azure):
 
 ![](../_images/governance-1-13.png)
 *Figure 5. Azure clients connect to the Azure resource manager RESTful API.*

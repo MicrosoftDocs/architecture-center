@@ -58,7 +58,7 @@ A number of technical and non-technical pre-requisites are required to successfu
   * If federated, enable tenant restrictions for administrative accounts.
 * Integrate your on-premises and cloud directories.
 * Consider using the following access models:
-  * [Least Privilege Access](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) model
+  * [Least Privilege Access](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) model
   * [Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure) access model
 * Finalize all pre-integration details and review [Identity Best Practices](/azure/security/azure-security-identity-management-best-practices).
   * Enable single identity, single sign-on (SSO), or seamless SSO
@@ -67,7 +67,7 @@ A number of technical and non-technical pre-requisites are required to successfu
   * Implement tooling necessary to centralize management of identities
   * Enable just-in-time (JIT) access and role change alerting
   * Conduct a risk analysis of key admin activities for assigning to built-in roles
-  * Consider an updated rollout of stronger authentication for all users 
+  * Consider an updated rollout of stronger authentication for all users
   * Enable Privileged Identity Management (PIM) for JIT (using time-limited activation) for additional administrative roles
   * Separate user accounts from Global admin accounts (to make sure that administrators do not inadvertently open emails or run programs associated with their Global admin accounts)
 
@@ -95,7 +95,7 @@ Migration is an incremental process that focuses on the movement, testing, and a
 
 ## Operate and post-implementation
 
-Once the transformation is complete, governance and operations must live on for the natural lifecycle of an  application or workload. This phase of governance maturity focuses on the activities that commonly come after the solution is implemented and the transformation cycle begins to stabilize.
+Once the transformation is complete, governance and operations must live on for the natural lifecycle of an application or workload. This phase of governance maturity focuses on the activities that commonly come after the solution is implemented and the transformation cycle begins to stabilize.
 
 **Minimum suggested activities:**
 
@@ -119,7 +119,7 @@ Once the transformation is complete, governance and operations must live on for 
 * Consider implementing a development security operations (DevSecOps) approach.
 * Carry out an impact analysis to gauge results on costs, security, and user adoption.
 * Periodically produce an impact report that shows the changes in metrics created by the system and estimate the business impacts of the [Hybrid Identity Strategy](../../infrastructure/identity/overview.md).
-* Establish integrated monitoring recommended by [The Azure Security Center](/azure/security-center/security-center-intro).
+* Establish integrated monitoring recommended by the [Azure Security Center](/azure/security-center/security-center-intro).
 
 ## Next steps
 

@@ -38,10 +38,10 @@ An Azure subscription is similar to a resource group in that it's a logical cons
 
 In [how does Azure work?](../../getting-started/what-is-azure.md) you learned that Azure includes a "front end" with many services that orchestrate all the functions of Azure. One of these services is [Azure resource manager](/azure/azure-resource-manager/), and this service hosts the RESTful API used by clients to manage resources. 
 
-![](../../_images/governance-1-12.png)   
+![](../../_images/governance-1-12.png)
 *Figure 4. Azure resource manager.*
 
-The following figure shows three clients: [Powershell](/powershell/azure/overview), [the Azure portal](https://portal.azure.com), and the [Azure command line interface (CLI)](/cli/azure):
+The following figure shows three clients: [Powershell](/powershell/azure/overview), the [Azure portal](https://portal.azure.com), and the [Azure command line interface (CLI)](/cli/azure):
 
 ![](../../_images/governance-1-13.png)   
 *Figure 5. Azure clients connect to the Azure resource manager RESTful API.*
