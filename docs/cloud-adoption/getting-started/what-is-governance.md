@@ -3,6 +3,9 @@ title: "Enterprise Cloud Adoption: What is cloud resource governance?"
 description: Explanation of the concept of resource access governance on Azure
 author: petertaylor9999
 ms.date: 09/10/2018
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
 ---
 
 # Enterprise Cloud Adoption: What is cloud resource governance?

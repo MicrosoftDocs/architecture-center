@@ -3,7 +3,9 @@ title: Update a resource in an Azure Resource Manager template
 description: Describes how to extend the functionality of Azure Resource Manager templates to update a resource.
 author: petertay
 ms.date: 10/31/2018
-
+ms.topic: article
+ms.service: architecture-center
+ms.subservice: reference-architecture
 ---
 
 # Update a resource in an Azure Resource Manager template

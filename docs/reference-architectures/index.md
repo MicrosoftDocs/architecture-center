@@ -4,6 +4,9 @@ description: Reference architectures, blueprints, and prescriptive implementatio
 layout: LandingPage
 ms.topic: landing-page
 ms.date: 08/30/2018
+ms.topic: reference-architecture
+ms.service: architecture-center
+ms.subservice: reference-architecture
 ---
 
 # Azure Reference Architectures

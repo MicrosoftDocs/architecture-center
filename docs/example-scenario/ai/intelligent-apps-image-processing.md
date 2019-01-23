@@ -4,6 +4,9 @@ titleSuffix: Azure Example Scenarios
 description: Build image processing into your Azure applications.
 author: david-stanford
 ms.date: 07/05/2018
+ms.topic: example-scenario
+ms.service: architecture-center
+ms.subservice: example-scenario
 ---
 
 # Image classification for insurance claims on Azure

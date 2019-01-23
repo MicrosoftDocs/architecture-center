@@ -7,7 +7,10 @@ description: How to create a trusted Active Directory domain in Azure.
 
 author: telmosampaio
 ms.date: 05/02/2018
-ms.custom: seodec18
+ms.topic: reference-architecture
+ms.service: architecture-center
+ms.subservice: reference-architecture
+ms.custom: seodec18, identity
 ---
 
 # Create an Active Directory Domain Services (AD DS) resource forest in Azure

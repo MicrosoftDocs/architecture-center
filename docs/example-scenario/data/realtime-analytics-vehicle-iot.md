@@ -4,7 +4,10 @@ titleSuffix: Azure Example Scenarios
 description: Ingest and process real-time vehicle data using IoT.
 author: msdpalam
 ms.date: 09/12/2018
-ms.custom: fasttrack
+ms.topic: example-scenario
+ms.service: architecture-center
+ms.subservice: example-scenario
+ms.custom: fasttrack, IoT
 ---
 
 # Ingestion and processing of real-time automotive IoT data

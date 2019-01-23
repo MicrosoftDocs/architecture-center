@@ -4,6 +4,9 @@ titleSuffix: Best practices for cloud applications
 description: Guidance on background tasks that run independently of the user interface.
 author: dragon119
 ms.date: 11/05/2018
+ms.topic: best-practice
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
 ms.custom: seodec18
 ---
 

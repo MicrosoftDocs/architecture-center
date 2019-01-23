@@ -4,12 +4,18 @@ titleSuffix: Azure Reference Architectures
 description: Implement a secure hybrid network architecture in Azure.
 author: telmosampaio
 ms.date: 10/22/2018
-ms.custom: seodec18
+ms.topic: reference-architecture
+ms.service: architecture-center
+ms.subservice: reference-architecture
+ms.custom: seodec18, networking
 ---
 
 # Implement a DMZ between Azure and your on-premises datacenter
 
 This reference architecture shows a secure hybrid network that extends an on-premises network to Azure. The architecture implements a DMZ, also called a *perimeter network*, between the on-premises network and an Azure virtual network (VNet). The DMZ includes network virtual appliances (NVAs) that implement security functionality such as firewalls and packet inspection. All outgoing traffic from the VNet is force-tunneled to the Internet through the on-premises network, so that it can be audited. [**Deploy this solution**](#deploy-the-solution).
+
+> [!NOTE]
+> This scenario can also be accomplished using [Azure Firewall](/azure/firewall/), a cloud-based network security service.
 
 ![Secure hybrid network architecture](./images/dmz-private.png)
 

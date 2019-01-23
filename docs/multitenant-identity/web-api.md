@@ -3,7 +3,9 @@ title: Secure a backend web API in a multitenant application
 description: How to secure a backend web API.
 author: MikeWasson
 ms.date: 07/21/2017
-
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: reference-architecture
 pnp.series.title: Manage Identity in Multitenant Applications
 pnp.series.prev: authorize
 pnp.series.next: token-cache

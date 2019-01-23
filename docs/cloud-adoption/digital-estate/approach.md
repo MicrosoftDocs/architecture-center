@@ -4,6 +4,9 @@ titleSuffix: Enterprise Cloud Adoption
 description: Describes some approaches to digital estate planning
 author: BrianBlanchard
 ms.date: 12/10/2018
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
 ---
 
 # Enterprise Cloud Adoption: Approaches to digital estate planning

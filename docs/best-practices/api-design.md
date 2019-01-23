@@ -4,6 +4,9 @@ titleSuffix: Best practices for cloud applications
 description: Guidance on how to create a well-designed web API.
 author: dragon119
 ms.date: 01/12/2018
+ms.topic: best-practice
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
 ms.custom: seodec18
 ---
 

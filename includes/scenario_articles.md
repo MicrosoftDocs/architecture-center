@@ -13,7 +13,7 @@
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Conversational chatbot for hotel reservations on Azure</h3>
+                        <h3>Conversational chatbot for hotel reservations</h3>
                         <p>Build a conversational chatbot for commerce applications with Azure Bot Service.</p>
                     </div>
                 </div>
@@ -32,8 +32,27 @@
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Image classification for insurance claims on Azure</h3>
+                        <h3>Image classification for insurance claims</h3>
                         <p>Build image processing into your Azure applications.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<li style="display: flex; flex-direction: column;">
+    <a href="./ai/movie-recommendations.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="./ai/media/architecture-movie-recommender.png" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Movie recommendations on Azure</h3>
+                        <p>Use machine learning to automate movie, product, and other recommendations using machine learning and an Azure Data Science Virtual Machine (DSVM) to train a model on Azure.</p>
                     </div>
                 </div>
             </div>
@@ -57,7 +76,7 @@
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Migrating a legacy web application to an API-based architecture on Azure</h3>
+                        <h3>Migrating a web app to an API-based architecture</h3>
                         <p>Use Azure API Management to modernize a legacy web application.</p>
                     </div>
                 </div>
@@ -76,7 +95,7 @@
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Decentralized trust between banks on Azure</h3>
+                        <h3>Decentralized trust between banks</h3>
                         <p>Establish a trusted environment for communication and information sharing without resorting to a centralized database.</p>
                     </div>
                 </div>
@@ -133,7 +152,7 @@
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>E-commerce front end on Azure</h3>
+                        <h3>E-commerce front end</h3>
                         <p>Host an e-commerce site on Azure.</p>
                     </div>
                 </div>
@@ -171,7 +190,7 @@
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>A computer-aided engineering service on Azure</h3>
+                        <h3>A computer-aided engineering service</h3>
                         <p>Provide a software-as-a-service (SaaS) platform for computer-aided engineering (CAE) on Azure.</p>
                     </div>
                 </div>
@@ -190,7 +209,7 @@
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Dev/test environments for SAP workloads on Azure</h3>
+                        <h3>Dev/test environments for SAP workloads</h3>
                         <p>Build a dev/test environment for SAP workloads.</p>
                     </div>
                 </div>
@@ -209,7 +228,7 @@
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Running SAP production workloads using an Oracle database on Azure</h3>
+                        <h3>Running SAP production workloads using an Oracle database</h3>
                         <p>Run an SAP production deployment in Azure using an Oracle database.</p>
                     </div>
                 </div>
@@ -272,7 +291,7 @@
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Scalable order processing on Azure</h3>
+                        <h3>Scalable order processing</h3>
                         <p>Build a highly scalable order processing pipeline using Azure Cosmos DB.</p>
                     </div>
                 </div>
@@ -291,7 +310,7 @@
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Real-time fraud detection on Azure</h3>
+                        <h3>Real-time fraud detection</h3>
                         <p>Detect fraudulent activity in real-time using Azure Event Hubs and Stream Analytics.</p>
                     </div>
                 </div>
@@ -311,7 +330,7 @@
                     </div>
                     <div class="cardText">
                         <h3>Hybrid ETL with existing on-premises SSIS and Azure Data Factory</h3>
-                        <p>Hybrid ETL with existing on-premises SQL Server Integration Services (SSIS) deployments and Azure Data Factory</p>
+                        <p>Hybrid ETL with existing on-premises SQL Server Integration Services (SSIS) deployments and Azure Data Factory.</p>
                     </div>
                 </div>
             </div>
@@ -354,7 +373,7 @@
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Running computational fluid dynamics (CFD) simulations on Azure</h3>
+                        <h3>Running CFD simulations</h3>
                         <p>Execute computational fluid dynamics (CFD) simulations on Azure.</p>
                     </div>
                 </div>
@@ -392,8 +411,8 @@
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Multi-tier web application built for high availability and disaster recovery on Azure</h3>
-                        <p>Create a multitier web application built for high availability and disaster recovery on Azure using Azure virtual machines, availability sets, availability zones, Azure Site Recovery, and Azure Traffic Manager</p>
+                        <h3>Multi-tier web application built for HA/DR</h3>
+                        <p>Create a multitier web application built for high availability and disaster recovery on Azure using Azure virtual machines, availability sets, availability zones, Azure Site Recovery, and Azure Traffic Manager.</p>
                     </div>
                 </div>
             </div>
@@ -411,7 +430,7 @@
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Building secure web apps with Windows virtual machines on Azure</h3>
+                        <h3>Building secure web apps with Windows VMs</h3>
                         <p>Build a secure, multi-tier web application with Windows Server on Azure using scale sets, Application Gateway, and load balancers.</p>
                     </div>
                 </div>
@@ -430,7 +449,7 @@
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Using Service Fabric to decompose monolithic applications</h3>
+                        <h3>Using Service Fabric to decompose applications</h3>
                         <p>Decompose a large monolithic application into microservices.</p>
                     </div>
                 </div>
@@ -449,7 +468,7 @@
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>3D video rendering on Azure</h3>
+                        <h3>3D video rendering</h3>
                         <p>Run native HPC workloads in Azure using the Azure Batch service.</p>
                     </div>
                 </div>
@@ -468,7 +487,7 @@
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Highly scalable and secure WordPress websites on Azure</h3>
+                        <h3>Highly scalable and secure WordPress websites</h3>
                         <p>Build a highly scalable and secure WordPress website for media events.</p>
                     </div>
                 </div>

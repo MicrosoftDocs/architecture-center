@@ -4,6 +4,9 @@ titleSuffix: Azure Example Scenarios
 description: Host an e-commerce site on Azure.
 author: masonch
 ms.date: 07/13/2018
+ms.topic: example-scenario
+ms.service: architecture-center
+ms.subservice: example-scenario
 ms.custom: fasttrack
 ---
 

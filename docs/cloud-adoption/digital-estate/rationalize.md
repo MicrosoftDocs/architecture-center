@@ -4,6 +4,9 @@ titleSuffix: Enterprise Cloud Adoption
 description: A process for evaluating digital assets to find the best way to host them in the cloud.
 author: BrianBlanchard
 ms.date: 12/10/2018
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
 ---
 
 # Enterprise Cloud Adoption: Rationalize the digital estate

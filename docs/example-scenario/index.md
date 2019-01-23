@@ -5,6 +5,8 @@ author: david-stanford
 ms.date: 11/01/2018
 layout: LandingPage
 ms.topic: landing-page
+ms.service: architecture-center
+ms.subservice: example-scenario
 ---
 
 # Azure Example Scenarios

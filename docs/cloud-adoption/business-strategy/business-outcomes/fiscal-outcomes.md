@@ -3,6 +3,9 @@ title: "Enterprise Cloud Adoption: Examples of Fiscal Outcomes"
 description: Examples of Fiscal Outcomes
 author: BrianBlanchard
 ms.date: 10/10/2018
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
 ---
 
 # Enterprise Cloud Adoption: Examples of Fiscal Outcomes

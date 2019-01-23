@@ -4,6 +4,9 @@ titleSuffix: Azure Application Architecture Guide
 description: Every design decision must be justified by a business requirement.
 author: MikeWasson
 ms.date: 08/30/2018
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: reference-architecture
 ms.custom: seojan19
 ---
 

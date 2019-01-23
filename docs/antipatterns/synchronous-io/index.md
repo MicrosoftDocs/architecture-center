@@ -4,6 +4,9 @@ titleSuffix: Performance antipatterns for cloud apps
 description: Blocking the calling thread while I/O completes can reduce performance and affect vertical scalability.
 author: dragon119
 ms.date: 06/05/2017
+ms.topic: article
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
 ms.custom: seodec18
 ---
 

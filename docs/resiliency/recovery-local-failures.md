@@ -3,6 +3,10 @@ title: 'Technical guidance: Recovery from local failures in Azure'
 description: Article on understanding and designing resilient, highly available, fault-tolerant applications, as well as planning for disaster recovery focused on local failures within Azure.
 author: adamglick
 ms.date: 08/18/2016
+ms.topic: article
+ms.service: architecture-center
+ms.subservice: cloud-design-principles
+ms.custom: resiliency
 ---
 [!INCLUDE [header](../_includes/header.md)]
 
