@@ -6,7 +6,6 @@ layout: LandingPage
 ms.topic: landing-page
 ms.service: architecture-center
 ms.subservice: reference-architecture
-ms.custom: microservices
 ms.date: 08/30/2018
 ---
 
