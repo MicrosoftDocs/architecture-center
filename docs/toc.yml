@@ -297,6 +297,8 @@
       href: example-scenario/ai/commerce-chatbot.md
     - name: Image classification
       href: example-scenario/ai/intelligent-apps-image-processing.md
+    - name: Movie recommendation
+      href: example-scenario/ai/movie-recommendations.md
   - name: Apps
     items:
     - name: Computer-aided engineering

@@ -106,7 +106,7 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 [disk-encryption]: /azure/security/azure-security-disk-encryption
 [enable-monitoring]: /azure/monitoring-and-diagnostics/insights-how-to-use-diagnostics
 [fqdn]: /azure/virtual-machines/virtual-machines-windows-portal-create-fqdn
-[group-policy]: https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn595129(v=ws.11)
+[group-policy]: /windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates
 [manage-vm-availability]: /azure/virtual-machines/virtual-machines-windows-manage-availability
 [managed-disks]: /azure/storage/storage-managed-disks-overview
 [naming-conventions]: ../../best-practices/naming-conventions.md

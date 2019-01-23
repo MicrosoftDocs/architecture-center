@@ -101,7 +101,7 @@ An [**Azure Site-to-Site VPN**][VPN] is an interconnection service over the Inte
 
 For large numbers of VPN connections, [**Azure Virtual WAN**][vWAN] is a networking service that provides optimized and automated branch-to-branch connectivity through Azure. Virtual WAN lets you connect and configure branch devices to communicate with Azure. Connecting and configuring can be done either manually, or by using preferred provider devices through a Virtual WAN partner. Using preferred provider devices allows ease of use, simplification of connectivity, and configuration management. The Azure WAN built-in dashboard provides instant troubleshooting insights that can help save you time, and gives you an easy way to view large-scale Site-to-Site connectivity.
 
-[**ExpressRoute**][ExR] is an Azure connectivity service that enables private connections between a VDC implementation and any on-premises networks. ExpressRoute connections do not go over the public Internet, and offer higher security, reliability, and higher speeds (up to 10 Gbps) along with consistent latency. ExpressRoute is useful for VDC implementations, as ExpressRoute customers can get the benefits of compliance rules associated with private connections. With ExpressRoute Direct,][ExRD] you can connect directly to Microsoft routers at 100 Gbps for customer with larger bandwidth needs.
+[**ExpressRoute**][ExR] is an Azure connectivity service that enables private connections between a VDC implementation and any on-premises networks. ExpressRoute connections do not go over the public Internet, and offer higher security, reliability, and higher speeds (up to 10 Gbps) along with consistent latency. ExpressRoute is useful for VDC implementations, as ExpressRoute customers can get the benefits of compliance rules associated with private connections. With [ExpressRoute Direct][ExRD], you can connect directly to Microsoft routers at 100 Gbps for customer with larger bandwidth needs.
 
 Deploying ExpressRoute connections usually involves engaging with an ExpressRoute service provider. For customers that need to start quickly, it is common to initially use Site-to-Site VPN to establish connectivity between a VDC implementation and on-premises resources, and then migrate to ExpressRoute connection when your physical interconnection with your service provider is complete.
 
@@ -259,13 +259,6 @@ Azure Load Balancer can probe the health of the various server instances as well
 [**Application Gateway**][AppGW]
 Microsoft Azure Application Gateway is a dedicated virtual appliance providing application delivery controller (ADC) as a service, offering various layer 7 load-balancing capabilities for your application. It allows you to optimize web farm productivity by offloading CPU intensive SSL termination to the application gateway. It also provides other layer 7 routing capabilities including round robin distribution of incoming traffic, cookie-based session affinity, URL path-based routing, and the ability to host multiple websites behind a single Application Gateway. A web application firewall (WAF) is also provided as part of the application gateway WAF SKU. This SKU provides protection to web applications from common web vulnerabilities and exploits. Application Gateway can be configured as internet facing gateway, internal only gateway, or a combination of both. 
 
-[**Application Gateway**][AppGW] is a dedicated virtual appliance that provides application delivery controller (ADC) as a service, offering various layer 7 load-balancing capabilities for your application. You can optimize web farm productivity by offloading CPU-intensive SSL termination to the Application Gateway instance. It also provides other layer 7 routing capabilities that include the following examples: 
-* Round robin distribution of incoming traffic. 
-* Cookie-based session affinity. 
-* URL path-based routing. 
-* The ability to host multiple websites behind a single Application Gateway instance. 
-Web application firewall (WAF) is also provided as part of the Application Gateway WAF SKU. This SKU provides protection to web applications from common web vulnerabilities and exploits. Application Gateway can be configured as an internet-facing gateway, an internal-only gateway, or a combination of both. 
-
 [**Public IPs**][PIP]. With some Azure features, you can associate service endpoints to a public IP address, so that your resource can be accessed from the internet. This endpoint uses network address translation (NAT) to route traffic to the internal address and port on the Azure virtual network. This path is the primary way for external traffic to pass into the virtual network. You can configure public IP addresses to determine which traffic is passed in and how and where it's translated onto the virtual network.
 
 [**Azure DDoS Protection Standard**][DDOS] provides additional mitigation capabilities over the [Basic service][DDOS] tier that are tuned specifically to Azure Virtual Network resources. DDoS Protection Standard is simple to enable and requires no application changes. Protection policies are tuned through dedicated traffic monitoring and machine learning algorithms. Policies are applied to public IP addresses associated to resources deployed in virtual networks. Examples are Azure Load Balancer, Azure Application Gateway, and Azure Service Fabric instances. Real-time telemetry is available through Azure Monitor views during an attack and for history. Application layer protection can be added through the Azure Application Gateway web application firewall. Protection is provided for IPv4 Azure public IP addresses.
@@ -293,7 +286,7 @@ It is important to track the NSGs logs, particularly this information:
 
 All logs can be stored in Azure storage accounts for audit, static analysis, or backup purposes. When you store the logs in an Azure storage account, customers can use different types of frameworks to retrieve, prep, analyze, and visualize this data to report the status and health of cloud resources. 
 
-Large enterprises should already have acquired a standard framework for monitoring on-premises systems. They can extend that framework to integrate logs generated by cloud deployments. By using [Azure Log Analytics][https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-queries], organizations can keep all the logging in the cloud. Log Analytics is implemented as a cloud-based service. So you have it up and running quickly with minimal investment in infrastructure services. Log Analytics also integrate with System Center components like System Center Operations Manager to extend your existing management investments into the cloud. 
+Large enterprises should already have acquired a standard framework for monitoring on-premises systems. They can extend that framework to integrate logs generated by cloud deployments. By using [Azure Log Analytics](/azure/log-analytics/log-analytics-queries), organizations can keep all the logging in the cloud. Log Analytics is implemented as a cloud-based service. So you have it up and running quickly with minimal investment in infrastructure services. Log Analytics also integrate with System Center components like System Center Operations Manager to extend your existing management investments into the cloud. 
 
 Log Analytics is a service in Azure that helps collect, correlate, search, and act on log and performance data generated by operating systems, applications, and infrastructure cloud components. It gives customers real-time operational insights using integrated search and custom dashboards to analyze all the records across all your workloads in your VDC implementation.
 
@@ -424,7 +417,7 @@ m
 [AAD]: /azure/active-directory/active-directory-whatis
 [VPN]: /azure/vpn-gateway/vpn-gateway-about-vpngateways 
 [ExR]: /azure/expressroute/expressroute-introduction
-[ExRD]: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-erdirect-about
+[ExRD]: /azure/expressroute/expressroute-erdirect-about
 [vWAN]: /azure/virtual-wan/virtual-wan-about
 [NVA]: /azure/architecture/reference-architectures/dmz/nva-ha
 [AzFW]: /azure/firewall/overview
@@ -434,7 +427,7 @@ m
 [ALB]: /azure/load-balancer/load-balancer-overview
 [DDOS]: /azure/virtual-network/ddos-protection-overview
 [PIP]: /azure/virtual-network/resource-groups-networking#public-ip-address
-[AFD]: https://docs.microsoft.com/en-us/azure/frontdoor/front-door-overview
+[AFD]: /azure/frontdoor/front-door-overview
 [AppGW]: /azure/application-gateway/application-gateway-introduction
 [WAF]: /azure/application-gateway/application-gateway-web-application-firewall-overview
 [Monitor]: /azure/monitoring-and-diagnostics/

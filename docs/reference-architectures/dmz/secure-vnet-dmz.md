@@ -14,6 +14,9 @@ ms.custom: seodec18, networking
 
 This reference architecture shows a secure hybrid network that extends an on-premises network to Azure and also accepts Internet traffic. [**Deploy this solution**](#deploy-the-solution).
 
+> [!NOTE]
+> This scenario can also be accomplished using [Azure Firewall](/azure/firewall/), a cloud-based network security service.
+
 ![Secure hybrid network architecture](./images/dmz-public.png)
 
 *Download a [Visio file][visio-download] of this architecture.*
