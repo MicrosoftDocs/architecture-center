@@ -7,6 +7,7 @@ ms.date: 09/18/2018
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
+social_image_url: /azure/architecture/example-scenario/infrastructure/media/secure-scalable-wordpress.png
 ---
 
 # Highly scalable and secure WordPress website
