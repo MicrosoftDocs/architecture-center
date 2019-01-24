@@ -29,7 +29,7 @@ The architecture shown here uses the following Azure services. Your own bot may 
 - **[Language Understanding][luis]** (LUIS). Part of [Azure Cognitive Services][cognitive-services], LUIS enables your bot to understand natural language by identifying user intents and entities.
 - **[Azure Search][search]**. Search is a managed service that provides a quick searchable document index.
 - **[QnA Maker][qna-maker]**. QnA Maker is a cloud-based API service that creates a conversational, question-and-answer layer over your data. Typically, it's loaded with semi-structured content such as FAQs. Use it to create a knowledge base for answering natural-language questions.
-- **[WebApp][webapp]**. For cases where your bot needs AI solutions not provided by an existing service, you can implement your own custom AI and host it as a WebApp. This provides a web endpoint for your bot to call. 
+- **[Web app][webapp]**. If your bot needs AI solutions not provided by an existing service, you can implement your own custom AI and host it as a web app. This provides a web endpoint for your bot to call.
 
 ### Data ingestion
 
@@ -53,8 +53,8 @@ The bot will rely on raw data that must be ingested and prepared. Consider any o
 
 ### Quality assurance and enhancements
 
-- **[Azure DevOps][devops]** Provides many services for app management, including source control, building, testing, deployment, and project tracking. 
-- **[VS Code][vscode]** A lightweight code editor for app development or any other IDE with similar features.
+- **[Azure DevOps][devops]** Provides many services for app management, including source control, building, testing, deployment, and project tracking.
+- **[VS Code][vscode]** A lightweight code editor for app development. You can use any other IDE with similar features.
 
 ## Design considerations
 
@@ -66,7 +66,7 @@ Before getting into the specifics of this architecture, let's start with the dat
 
 ### User message flow
 
-**Authentication**. Users start by authenticating themselves using whatever mechanism is provided by their channel of communication with the bot. The bot framework supports many communication channels, including Cortana, Microsoft Teams, Facebook Messenger, Kik, and Slack. For a list of channels, see [Connect a bot to channels](/azure/bot-service/bot-service-manage-channels). When you create a bot with Azure Bot Service, the [Web Chat][webchat] channel is automatically configured for you which provides the ability for the users to interact with your bot directly in a web page. You can also connect the bot to a custom app by using the [Direct Line](/azure/bot-service/bot-service-channel-connect-directline) channel. The user's identity is used to provide role-based access control, as well as to serve personalized content.
+**Authentication**. Users start by authenticating themselves using whatever mechanism is provided by their channel of communication with the bot. The bot framework supports many communication channels, including Cortana, Microsoft Teams, Facebook Messenger, Kik, and Slack. For a list of channels, see [Connect a bot to channels](/azure/bot-service/bot-service-manage-channels). When you create a bot with Azure Bot Service, the [Web Chat][webchat] channel is automatically configured. This channel allows users to interact with your bot directly in a web page. You can also connect the bot to a custom app by using the [Direct Line](/azure/bot-service/bot-service-channel-connect-directline) channel. The user's identity is used to provide role-based access control, as well as to serve personalized content.
 
 **User message**. Once authenticated, the user sends a message to the bot. The bot reads the message and routes it to a natural language understanding service such as [LUIS](/azure/cognitive-services/luis/). This step gets the **intents** (what the user wants to do) and **entities** (what things the user is interested in). The bot then builds a query that it passes to a service that serves information, such as [Azure Search][search] for document retrieval, [QnA Maker](https://www.qnamaker.ai/) for FAQs, or a custom knowledge base. The bot uses these results to construct a response. To give the best result for a  given query, the bot might make several back-and-forth calls to these remote services.
 
@@ -78,7 +78,7 @@ Before getting into the specifics of this architecture, let's start with the dat
 
 ### System Data Flow
 
-**ETL**. The bot relies on information/knowledge extracted from the raw data by an ETL process in the backend. This data might be structured (SQL database), semi-structured (CRM system, FAQs), or unstructured (Word documents, PDFs, web logs). An ETL subsystem extracts the data on a fixed schedule. The content is transformed and enriched, then loaded into an intermediary data store, such as Cosmos DB or Azure Blob Storage.
+**ETL**. The bot relies on information and knowledge extracted from the raw data by an ETL process in the backend. This data might be structured (SQL database), semi-structured (CRM system, FAQs), or unstructured (Word documents, PDFs, web logs). An ETL subsystem extracts the data on a fixed schedule. The content is transformed and enriched, then loaded into an intermediary data store, such as Cosmos DB or Azure Blob Storage.
 
 Data in the intermediary store is then indexed into Azure Search for document retrieval, loaded into QnA Maker to create question and answer pairs, or loaded into a custom web app for unstructured text processing. The data is also used to train a LUIS model for intent and entity extraction.
 
@@ -159,7 +159,7 @@ As you roll out new features or bug fixes to your bot, it's best to use multiple
 
 ## Security considerations
 
-As with any other application, the bot can be designed to handle sensitive data, therefore, restrict who can sign in and use the bot. Also limit which data can be accessed, based on the user's identity or role. Use Azure AD for identity and access control and Key Vault to manage keys and secrets.
+As with any other application, the bot can be designed to handle sensitive data. Therefore, restrict who can sign in and use the bot. Also limit which data can be accessed, based on the user's identity or role. Use Azure AD for identity and access control and Key Vault to manage keys and secrets.
 
 ## Manageability considerations
 
@@ -180,6 +180,7 @@ You can deploy the bot logic directly from your IDE or from a command line, such
 [0]: ./_images/conversational-bot.png
 [aad]: /azure/active-directory/
 [activities]: /azure/bot-service/rest-api/bot-framework-rest-connector-activities
+[aml]: /azure/machine-learning/service/
 [app-insights]: /azure/azure-monitor/app/app-insights-overview
 [app-service]: /azure/app-service/
 [blob]: /azure/storage/blobs/storage-blobs-introduction
@@ -191,21 +192,20 @@ You can deploy the bot logic directly from your IDE or from a command line, such
 [cosmosdb]: /azure/cosmos-db/
 [data-factory]: /azure/data-factory/
 [data-factory-ref-arch]: ../data/enterprise-bi-adf.md
+[devops]: https://azure.microsoft.com/solutions/devops/
 [functions]: /azure/azure-functions/
 [functions-triggers]: /azure/azure-functions/functions-triggers-bindings
 [key-vault]: /azure/key-vault/
+[lda]: https://wikipedia.org/wiki/Latent_Dirichlet_allocation/
 [logic-apps]: /azure/logic-apps/logic-apps-overview
 [luis]: /azure/cognitive-services/luis/
 [power-bi]: /power-bi/
 [qna-maker]: /azure/cognitive-services/QnAMaker/
 [search]: /azure/search/
+[slots]: /azure/app-service/deploy-staging-slots/
 [synonyms]: /azure/search/search-synonyms
 [transcript-storage]: /azure/bot-service/bot-builder-howto-v4-storage
 [turns]: /azure/bot-service/bot-builder-basics#defining-a-turn
-[devops]: https://azure.microsoft.com/en-us/solutions/devops/
-[slots]: https://docs.microsoft.com/en-us/azure/app-service/deploy-staging-slots/
-[aml]: https://azure.microsoft.com/en-us/services/machine-learning-service/
-[lda]: https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation/
-[webchat]: https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-webchat?view=azure-bot-service-4.0/
-[vscode]: https://azure.microsoft.com/en-us/products/visual-studio-code/
-[webapp]: https://azure.microsoft.com/en-us/services/app-service/web/
+[vscode]: https://azure.microsoft.com/products/visual-studio-code/
+[webapp]: /azure/app-service/overview
+[webchat]: /azure/bot-service/bot-service-channel-connect-webchat?view=azure-bot-service-4.0/
