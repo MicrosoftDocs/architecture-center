@@ -2,7 +2,7 @@
 title: Build an enterprise-grade conversational bot
 description: How to build an enterprise-grade conversational bot (chatbot) using the Azure Bot Framework.
 author: roalexan
-ms.date: 01/23/2019
+ms.date: 01/24/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -53,7 +53,7 @@ The bot will rely on raw data that must be ingested and prepared. Consider any o
 
 ### Quality assurance and enhancements
 
-- **[Azure DevOps][devops]** Provides many services for app management, including source control, building, testing, deployment, and project tracking.
+- **[Azure DevOps][devops]**. Provides many services for app management, including source control, building, testing, deployment, and project tracking.
 - **[VS Code][vscode]** A lightweight code editor for app development. You can use any other IDE with similar features.
 
 ## Design considerations
