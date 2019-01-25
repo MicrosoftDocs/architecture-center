@@ -141,6 +141,26 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
         </div>
     </a>
 </li>
+<!-- Distributed training of deep learning models -->
+<li style="display: flex; flex-direction: column;">
+    <a href="./ai/conversational-bot.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/icons/bot-services.svg" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Enterprise-grade conversational bot</h3>
+                        <p>How to build an enterprise-grade conversational bot using the Azure Bot Framework.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
 </ul>
 
 ## Big data solutions

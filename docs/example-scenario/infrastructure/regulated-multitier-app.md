@@ -8,6 +8,7 @@ ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom: seodec18, Windows
+social_image_url: /azure/architecture/example-scenario/infrastructure/media/architecture-regulated-multitier-app.png
 ---
 
 # Building secure web applications with Windows virtual machines on Azure

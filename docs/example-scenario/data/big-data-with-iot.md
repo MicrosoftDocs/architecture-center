@@ -8,6 +8,7 @@ ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom: IoT, data-analytics
+social_image_url: /azure/architecture/example-scenario/data/media/architecture-big-data-with-iot.png
 ---
 
 # IoT and data analytics in the construction industry
