@@ -133,9 +133,9 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [private-zones]: /azure/dns/private-dns-overview
 
 [architecture]: ./media/ilb-ase-with-architecture.png
-[small-pricing]: https://azure.com/e/90fbb6a661a04888a57322985f9b34ac
-[medium-pricing]: https://azure.com/e/38d5d387e3234537b6859660db1c9973
-[large-pricing]: https://azure.com/e/f07f99b6c3134803a14c9b43fcba3e2f
+[small-pricing]: https://azure.com/e/22e2c9d300ee425a89a001726221c7b2
+[medium-pricing]: https://azure.com/e/c280777e16bd4fd5bc9c23f3b8caf91f
+[large-pricing]: https://azure.com/e/294d5b09fa064ced87d6422826f2a0fc
 [app-service-reference-architecture]: ../../reference-architectures/app-service-web-app/basic-web-app.md
 [availability]: /azure/architecture/checklist/availability
 
