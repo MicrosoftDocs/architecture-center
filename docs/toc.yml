@@ -367,6 +367,8 @@
         href: reference-architectures/ai/realtime-scoring-python.md
       - name: Real-time scoring of R machine learning models
         href: reference-architectures/ai/realtime-scoring-r.md
+      - name: Conversational bot
+        href: reference-architectures/ai/conversational-bot.md
       - name: Real-time Recommendation API
         href: reference-architectures/ai/real-time-recommendation.md
 
