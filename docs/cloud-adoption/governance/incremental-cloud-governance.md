@@ -61,7 +61,7 @@ It is important to understand that this model requires some redefinition in the 
 
 The traditional role of governance is often viewed as a barrier to adoption by engineers and the business as a whole. In some cases, this can be accurate and necessary. However, this perception and mindset prevents partnership. It also causes others to minimize the important role of governance. The Incremental Cloud Governance model is a means of repositioning this relationship. The Incremental Governance Model assumes that it is unacceptable to exceed the [business' tolerance for risk](./policy-compliance/risk-tolerance.md). However, it also assumes that the role of governance is to accelerate business change, encourage robust discussions about real [business risks](./policy-compliance/understanding-business-risk.md), and regularly communicate risk / risk mitigation.
 
-In this new model, one of the most important roles filled by the the Cloud Governance Team, is the role of Cloud Adoption pioneers or collectively a Cloud Center of Excellence. The Cloud Governance Team is best positioned to learn about business risk and adoption acceleration by monitoring the adoption plans of multiple Cloud Adoption Teams. Those observations can be used to educate engineers and the business about the cloud.
+In this new model, one of the most important roles filled by the Cloud Governance Team, is the role of Cloud Adoption pioneers or collectively a Cloud Center of Excellence. The Cloud Governance Team is best positioned to learn about business risk and adoption acceleration by monitoring the adoption plans of multiple Cloud Adoption Teams. Those observations can be used to educate engineers and the business about the cloud.
 
 ### Redefining Policies
 

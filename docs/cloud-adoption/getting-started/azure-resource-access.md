@@ -11,7 +11,7 @@ ms.date: 2/1/2019
 
 In [what is resource governance?](what-is-governance.md), you learned that governance refers to the ongoing process of managing, monitoring, and auditing the use of Azure resources to meet the goals and requirements of your organization. Before you move on to learn how to design a governance model, it's important to understand the resource access management controls in Azure. The configuration of these resource access management controls forms the basis of your governance model.
 
-Let's begin by taking a closer look at how are resources are deployed in Azure.
+Let's begin by taking a closer look at how resources are deployed in Azure.
 
 ## What is an Azure resource?
 
@@ -43,7 +43,7 @@ In [how does Azure work?](what-is-azure.md) you learned that Azure includes a "f
 ![](../_images/governance-1-12.png)
 *Figure 4. Azure resource manager.*
 
-The following figure shows three clients: [Powershell](/powershell/azure/overview), the [Azure portal](https://portal.azure.com), and the [Azure command line interface (CLI)](/cli/azure):
+The following figure shows three clients: [PowerShell](/powershell/azure/overview), the [Azure portal](https://portal.azure.com), and the [Azure command line interface (CLI)](/cli/azure):
 
 ![](../_images/governance-1-13.png)
 *Figure 5. Azure clients connect to the Azure resource manager RESTful API.*
@@ -53,10 +53,10 @@ While these clients connect to Azure resource manager using the RESTful API, Azu
 ![](../_images/governance-1-14.png)
 *Figure 6. Azure resource providers.*
 
-When a client makes a request to manage a specific resource, Azure resource manager connects to the resource provider for that resource type to complete the request. For example, if a client makes a request to manage a virtual machine resource, Azure resource manager connects to the **Microsoft.compute** resource provider.
+When a client makes a request to manage a specific resource, Azure resource manager connects to the resource provider for that resource type to complete the request. For example, if a client makes a request to manage a virtual machine resource, Azure resource manager connects to the **Microsoft.Compute** resource provider.
 
 ![](../_images/governance-1-15.png)
-*Figure 7. Azure resource manager connects to the **Microsoft.compute** resource provider to manage the resource specified in the client request.*
+*Figure 7. Azure resource manager connects to the **Microsoft.Compute** resource provider to manage the resource specified in the client request.*
 
 Azure resource manager requires the client to specify an identifier for both the subscription and the resource group in order to manage the virtual machine resource.
 

@@ -5,7 +5,7 @@ author: BrianBlanchard
 ms.date: 1/3/2019
 ---
 
-# Fusion: Metrics, indicators, and risk tolerance 
+# Fusion: Metrics, indicators, and risk tolerance
 
 This article is intended to help you quantify business risk tolerance as it relates to identity management. Defining metrics and indicators helps you create a business case for making an investment in maturing the Identity Management discipline.
 
@@ -37,7 +37,7 @@ Once you have a baseline, establish minimum benchmarks representing an unaccepta
 
 - **User account number trigger**. A company with more than X number of users, groups, or other objects managed in your identity systems could benefit from investment in the Identity Management discipline to ensure efficient governance over a large number of accounts.
 - **Directory services complexity trigger**. A company maintaining more than X number of individual forests, domains, or directory tenants should invest in the Identity Management discipline to reduce risks related with account management and the efficiency issues related to multiple user credentials spread across multiple systems.
-- **Cloud hosted directory services trigger**. A company hosting X number of Active Directory server virtual machines(VMs) hosted in the cloud, or having X number of Organizational Units managed on these cloud-based servers, can benefit from investment in the Identity Management discipline to optimize integration with any on-premises or other external identity services.
+- **Cloud hosted directory services trigger**. A company hosting X number of Active Directory server virtual machines (VMs) hosted in the cloud, or having X number of Organizational Units managed on these cloud-based servers, can benefit from investment in the Identity Management discipline to optimize integration with any on-premises or other external identity services.
 - **Federation trigger**. A company implementing identity federation with X number of external identity management systems can benefit from investing in the Identity Management discipline to ensure consistent organizational policy across federation members.
 - **Elevated access trigger**. A company with more than X% of users with elevated permissions to management tools and resources should consider investing in the Identity Management discipline to minimize the risk of inadvertent over-provisioning of access to users.
 - **RBAC trigger**. A company with under X% of resources using role-based access control methods should consider investing in the Identity Management discipline to identify optimized ways to assign user access to resources.

@@ -1,6 +1,6 @@
 ---
 title: "Fusion: Azure Virtual Datacenter - Policy enforcement" 
-description: Discussing the policy enforcement approach the the Azure Virtual Datacenter (VDC) model
+description: Discussing the policy enforcement approach the Azure Virtual Datacenter (VDC) model
 author: rotycenh
 ms.date: 12/27/2018
 ---
@@ -8,7 +8,7 @@ ms.date: 12/27/2018
 
 Jump to: [Azure policy definitions](#azure-policy-definitions) | [VDC policy recommendations](#vdc-policy-recommendations) | [Policy template examples](#policy-template-examples)
 
-Policy enforcement in the the Azure Virtual Datacenter model requires a combination of [access control](../identity/vdc-identity.md), [encryption](../encryption/vdc-encryption.md), [networking configuration](../software-defined-networks/vdc-networking.md), and [monitoring](../logs-and-reporting/vdc-monitoring.md) to ensure your organization's requirements are being met. [Azure Policy](https://docs.microsoft.com/en-us/azure/governance/policy/overview) helps add additional control over what types of resources can be created within a virtual datacenter (VDC) and how resources are allowed to connect with each other in the Azure Virtual Datacenter.
+Policy enforcement in the Azure Virtual Datacenter model requires a combination of [access control](../identity/vdc-identity.md), [encryption](../encryption/vdc-encryption.md), [networking configuration](../software-defined-networks/vdc-networking.md), and [monitoring](../logs-and-reporting/vdc-monitoring.md) to ensure your organization's requirements are being met. [Azure Policy](https://docs.microsoft.com/en-us/azure/governance/policy/overview) helps add additional control over what types of resources can be created within a virtual datacenter (VDC) and how resources are allowed to connect with each other in the Azure Virtual Datacenter.
 
 The default model uses Azure Policy to enforce the following requirements:
 
@@ -21,6 +21,8 @@ The default model uses Azure Policy to enforce the following requirements:
 
 Azure policies can be created and applied through the portal, REST API, PowerShell, or Azure CLI. Definitions consist of a [standard JSON format](https://docs.microsoft.com/en-us/azure/governance/policy/concepts/definition-structure) that contain the following properties:
 
+<!-- markdownlint-disable MD033 -->
+
 | Property          | Description                                                               |
 |-------------------|---------------------------------------------------------------------------|
 | Display name      | Policy name  |
@@ -28,6 +30,8 @@ Azure policies can be created and applied through the portal, REST API, PowerShe
 | Mode              | Allows you to choose if the policy applies to all resources, or only those that support tagging and are region-specific (most definitions will apply to all) |
 | Parameters        | Allows you to include values in the definition that can be used for comparison in the policy rules |
 | Policy rule       | Rules consist of two parts:<ul><li>An *"if"* object testing what resources the policy applies to</li><li>A *"then"* object that specifies the rule's effect, for instance to deny the creation of certain resource types or trigger a compliance audit</li></ul>See the Azure documentation for [understanding policy effects](https://docs.microsoft.com/en-us/azure/governance/policy/concepts/effects) for more information on how effects are used in policy rules.   |
+
+<!-- markdownlint-enable MD033 -->
 
 Once you create policy definitions, you can then assign them to an individual resource, a resource group, or at the subscription level. Policy assignments apply to all resources contained by a resource group or subscription.
 
@@ -37,7 +41,7 @@ This section provides recommended Azure Policy rules for you to apply at the sub
 
 ### Subscription policy
 
-As a baseline, all subscriptions used in a VDC deployment should have a common set of policy rules applied at the subscription level. 
+As a baseline, all subscriptions used in a VDC deployment should have a common set of policy rules applied at the subscription level.
 
 | Policy                     | Description                                                               |
 |----------------------------|---------------------------------------------------------------------------|
@@ -54,11 +58,13 @@ As a baseline, all subscriptions used in a VDC deployment should have a common s
 
 Most VDC resource groups should include some variation of the following policy definition types:
 
+<!-- markdownlint-disable MD033 -->
+
 | Policy                     | Description                                                               |
 |----------------------------|---------------------------------------------------------------------------|
 | Restrict resource type     | Restricts what can be created in a resource group, based on resource type, enforcing the functional organization of your resource grouping. <br/><br/>Not a single policy, but a series of policies applied to specific resource groups; For instance, you can allow only key vault instances and logging storage accounts in a "Key Vault" resource group. Or only allow virtual networks, NSGs, UDRs, and related resources in a "Network" resource group.  |
-| Deny Public IP             | Prevents the creation of publicly addressable IP addresses within the resource group, minimizing the possible attack surface of your VDC network; <br/><br/>You should apply this policy to any resource groups that do not have a legitimate need for public IPs. For example, the hub network resource group will need public IPs to enable VPN connections, while the rest of the hub resource groups don't need public IPs. Spoke resource groups should all apply this policy.<br/><br/>All resource groups that do not use this policy should be under central IT control. Any exceptions should be carefully monitored by your central IT security team.    |
-| Enforce PaaS Service Endpoint | As with storage accounts at the subscription level, configure policy to enforce the use of [Virtual Network Service Endpoints](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-service-endpoints-overview) on any PaaS services that support it, such as Key Vault or Azure SQL Database  |
+| Deny Public IP             | Prevents the creation of publicly addressable IP addresses within the resource group, minimizing the possible attack surface of your VDC network;<br/><br/>You should apply this policy to any resource groups that do not have a legitimate need for public IPs. For example, the hub network resource group will need public IPs to enable VPN connections, while the rest of the hub resource groups don't need public IPs. Spoke resource groups should all apply this policy.<br/><br/>All resource groups that do not use this policy should be under central IT control. Any exceptions should be carefully monitored by your central IT security team.    |
+| Enforce PaaS Service Endpoint | As with storage accounts at the subscription level, configure policy to enforce the use of [Virtual Network Service Endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) on any PaaS services that support it, such as Key Vault or Azure SQL Database  |
 
 ## Policy template examples
 
@@ -72,3 +78,5 @@ Learn  how [naming and tagging](../resource-tagging/vdc-naming.md) are used to o
 
 > [!div class="nextstepaction"]
 > [Azure Virtual Datacenter: Naming and Tagging](../resource-tagging/vdc-naming.md)
+
+<!-- markdownlint-enable MD033 -->

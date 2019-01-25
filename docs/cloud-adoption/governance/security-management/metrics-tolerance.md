@@ -9,7 +9,7 @@ ms.date: 1/3/2019
 
 This article is intended to help you quantify business risk tolerance as it relates to security management. Defining metrics and indicators helps you create a business case for making an investment in maturing the Security Management discipline.
 
-## Metrics 
+## Metrics
 
 Security management generally focuses on identifying potential vulnerabilities in your cloud deployments. As part of your risk analysis you'll want to gather data related to your security environment to determine how much risk you face, and how important investment in security management governance is to your planned cloud deployments.
 
@@ -23,7 +23,7 @@ Every organization has different security environments and requirements and diff
 - **Covered Resources**. Deployed assets that are covered by security standards.
 - **Overall Standards Compliance**. Ratio of compliance adherence to security standards.
 - **Attacks by Severity**. How many coordinated attempts to disrupt your cloud-hosted services, such as through Distributed Denial of Service (DDoS) attacks, does your infrastructure experience? What is the size and severity of these attacks?
-- **Malware protection**. Percentage of deployed virtual machines(VMs) that have all required anti-malware, firewall, or other security software installed.
+- **Malware protection**. Percentage of deployed virtual machines (VMs) that have all required anti-malware, firewall, or other security software installed.
 - **Patch latency**. How long has it been since VMs have had OS and software patches applied.
 - **Security health recommendations**. Number of security software recommendations for resolving health standards for deployed resources, organized by severity.
 

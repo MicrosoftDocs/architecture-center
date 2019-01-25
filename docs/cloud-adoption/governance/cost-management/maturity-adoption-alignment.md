@@ -49,7 +49,7 @@ A number of technical and non-technical pre-requisites are required to successfu
 * Implement your [Cost Management Tool Chain](toolchain.md) by rolling out in a pre-deployment phase.
 * Update the Architecture Guidelines document and distribute to key stakeholders.
 * Develop educational materials and documentation, awareness communications, incentives, and other programs to help drive user adoption.
-* Dertemine if your purchase requirements align with your budgets and goals.
+* Determine if your purchase requirements align with your budgets and goals.
 
 **Potential activities:**
 

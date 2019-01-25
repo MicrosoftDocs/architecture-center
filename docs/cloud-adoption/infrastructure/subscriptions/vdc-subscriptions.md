@@ -1,6 +1,6 @@
 ---
 title: "Fusion: Azure Virtual Datacenter - Subscriptions" 
-description: Discussing the subscription component the the Azure Virtual Datacenter model
+description: Discussing the subscription component the Azure Virtual Datacenter model
 author: rotycenh
 ms.date: 12/31/2018
 ---
@@ -12,9 +12,9 @@ The [Azure Virtual Datacenter (VDC)](../virtual-datacenter/overview.md) model is
 
 Your organization's accounting and ownership of VDC-hosted resources and workloads will depend on the departmental and account hierarchy of subscriptions in your Azure Enterprise Agreement. However, this hierarchy is independent from your VDC structure. A VDC can be deployed to strictly reflect your organization's hierarchy, or to provide access to resources from across your digital estate.
 
-## Subscription requirements 
+## Subscription requirements
 
-To support the secure deployment and management of resources across a VDC, all subscriptions hosting VDC resources need the following: 
+To support the secure deployment and management of resources across a VDC, all subscriptions hosting VDC resources need the following:
 
 - Common Azure AD tenant: All subscriptions with resources connecting to a VDC should be associated with a common [Azure AD tenant](../identity/vdc-identity.md), allowing access control based on a common set of users, groups, and roles.  
 - Central IT admin access: A VDC assumes the use of a series of [central IT role-based access control (RBAC) roles](../identity/overview.md#identity-and-the-azure-management-plane) for centralized management of security and policy enforcement across the VDC. All subscriptions should grant these roles appropriate permissions.

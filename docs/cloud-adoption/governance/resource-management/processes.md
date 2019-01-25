@@ -7,7 +7,7 @@ ms.date: 1/4/2019
 
 # Fusion: Resource management policy compliance processes
 
-This article discusses an approach to policy adherence processes that govern [resource management](./overview.md). Effective cloud resource management governance starts with recurring manual processes designed to identify operational inefficiency, improve management of deployed resources, and ensure mission critical workloads have minimal disruptions. These manual process are supplemented with monitoring, automation, and tooling to help reduce the overhead of governance and allow for faster response to policy deviation.
+This article discusses an approach to policy adherence processes that govern [resource management](./overview.md). Effective cloud resource management governance starts with recurring manual processes designed to identify operational inefficiency, improve management of deployed resources, and ensure mission critical workloads have minimal disruptions. These manual processes are supplemented with monitoring, automation, and tooling to help reduce the overhead of governance and allow for faster response to policy deviation.
 
 ## Planning, review, and reporting processes
 
@@ -15,7 +15,7 @@ Cloud platforms provide an array of management tools and features that you can u
 
 The following is a set of example processes commonly involved in the resource management discipline. Use these examples as a starting point when planning the processes that will allow you to continue to update resource management policy based on business change and feedback from the development and IT teams tasked with turning guidance into action.
 
-**Initial risk assessment and planning**: As part of your initial adoption of the resource management discipline, identify your core business risks and tolerances related to operations and IT management. Use this information to discuss specific technical risks with members of your IT teams and workload owners to develop a baseline set of resource management policies designed to mitigate these risks, establishing your initial governance strategy. 
+**Initial risk assessment and planning**: As part of your initial adoption of the resource management discipline, identify your core business risks and tolerances related to operations and IT management. Use this information to discuss specific technical risks with members of your IT teams and workload owners to develop a baseline set of resource management policies designed to mitigate these risks, establishing your initial governance strategy.
 
 **Deployment planning**: Prior to deployment of any asset, perform a review to identify any new operational risks. Establish  resource requirements and expected demand patterns, and identify scalability needs and potential usage optimization opportunities. Also ensure backup and recovery plans are in place.
 
@@ -46,10 +46,9 @@ When violations are detected, you should take actions to realign with policy as 
 The following triggers and enforcement actions provide examples you can reference when planning how to use monitoring data to resolve policy violations:
 
 - Overprovisioned resource detected: Resources detected using less than 60% of CPU or memory capacity should automatically scale down or deprovisioning resources to reduce costs.
-- Underprovisioned resource detected: Resources detected using more than 80% of CPU or memory capacity should automatically scale up or provisioning additional resources to provide additional capacity. 
-- Untagged resource creation: Any request to create a resource without required meta tags will be rejected automatically. 
+- Underprovisioned resource detected: Resources detected using more than 80% of CPU or memory capacity should automatically scale up or provisioning additional resources to provide additional capacity.
+- Untagged resource creation: Any request to create a resource without required meta tags will be rejected automatically.
 - Critical resource outage detected:  IT staff are notified on all detected outages of mission-critical outages. If outage is not immediately resolvable, staff will escalate the issue and notify workload owners and cloud governance team. Cloud governance team will Track issue until resolution and update guidance if policy revision is necessary to prevent future incidents.
-
 
 ## Next steps
 

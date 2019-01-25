@@ -15,7 +15,7 @@ The resource management discipline focuses on addressing risks related to the op
 
 Every organization has different operational scenarios, but the following items represent useful examples of the metrics you should gather when evaluating risk tolerance within the resource management discipline:
 
-- **Cloud assets**. Total number of cloud-deployed resources. 
+- **Cloud assets**. Total number of cloud-deployed resources.
 - **Untagged resources**. Number of resources without required accounting, business impact, or organizational tags.
 - **Underused assets**. Number of resources where memory, CPU, or network capabilities are all consistently under-used.
 - **Resource depletion**. Number of resources where memory, CPU, or network capabilities are exhausted by load.
@@ -27,14 +27,13 @@ Every organization has different operational scenarios, but the following items 
 - **Unhealthy Service Endpoints**. Number of issues with external network endpoints.
 - **Cloud Provider Service Health incidents**. Number of disruptions or performance incidents caused by the cloud provider.
 - **Backup Health**. Number of backups actively being synchronized.
-- **Recovery Health**. Number of recover operations successfully performed.
-
+- **Recovery Health**. Number of recovery operations successfully performed.
 
 ## Risk tolerance indicators
 
 Cloud platforms offer a baseline set of features that allow deployment teams to effectively manage small deployments without extensive additional planning or processes. As a result, small Dev/Test or experimental first workloads that include a relatively small amount of cloud-based assets represent low level of risk, and will likely not need much in the way of a formal resource management policy.
 
-However, as the size of your cloud estate grows the complexity of managing your assets becomes significantly more difficult. With more assets on the cloud, the ability identify ownership of resources and control resource useful becomes critical to minimizing risks. As more mission-critical workloads are deployed to the cloud, service uptime becomes more critical, and tolerance for service disruption potential cost overruns diminishes rapidly. 
+However, as the size of your cloud estate grows the complexity of managing your assets becomes significantly more difficult. With more assets on the cloud, the ability identify ownership of resources and control resource useful becomes critical to minimizing risks. As more mission-critical workloads are deployed to the cloud, service uptime becomes more critical, and tolerance for service disruption potential cost overruns diminishes rapidly.
 
 In the early stages of cloud adoption, work with your IT operations team and business stakeholders to identify [business risks](business-risks.md) related to resource management, then determine an acceptable baseline for risk tolerance. This section of the Fusion guidance provides examples, but the detailed risks and baselines for your company or deployments may be different.
 

@@ -27,13 +27,12 @@ The following sample policy statements address a number of common identity-relat
 
 **Technical risk**: Users and groups with control over resources beyond their area of responsibility can can result in unauthorized modifications leading to outages or security vulnerabilities.
 
-**Policy statement**: The following policies will be implemented: 
+**Policy statement**: The following policies will be implemented:
 
-- A least privilege access model will be applied to any resources involved in mission critical applications or protected data. 
-- Elevated permissions should be an an exception, and any such exceptions must be recorded with the Cloud Governance Team. Exceptions will be audited regularly.
+- A least privilege access model will be applied to any resources involved in mission critical applications or protected data.
+- Elevated permissions should be an exception, and any such exceptions must be recorded with the Cloud Governance Team. Exceptions will be audited regularly.
 
 **Potential design options**: Consult the [Azure Identity Management best practices](https://docs.microsoft.com/en-us/azure/security/azure-security-identity-management-best-practices) to implement  a role-based access control (RBAC) strategy that restricts access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege security](https://en.wikipedia.org/wiki/Principle_of_least_privilege) principles.
-
 
 ## Lack of shared management accounts between on-premises and the cloud
 

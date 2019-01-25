@@ -103,7 +103,7 @@ This section of the article will evolve the Governance MVP design to include new
     a. Audit & enforce criticality and data classification across all subscriptions to identify any subscriptions with mission critical assets
     b. Audit & enforce use of approved images only
 5) Azure Monitor implementation
-    a. Once a mission critical subscription is identified, a workspace can be created using powershell. This is a pre-deployment process.
+    a. Once a mission critical subscription is identified, a workspace can be created using PowerShell. This is a pre-deployment process.
     b. During deployment testing, the Cloud Operations team would deploy the necessary agents and test discovery.
 6) Update Azure Policy for all subscriptions that contains mission critical applications.
     a. Audit & enforce the application of an NSG to all NICS and subnets. Networking and IT Security to define the NSG

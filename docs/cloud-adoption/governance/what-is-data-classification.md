@@ -5,6 +5,8 @@ author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
+<!-- markdownlint-disable MD026 -->
+
 # Fusion: What is Data Classification?
 
 This is an introductory article on the general topic of Data Classification. Data classification is a very common starting point for all governance.
@@ -23,7 +25,7 @@ There are many variants of these three business risks. However, the tend to be t
 
 Before any risk can be mitigated, it must be understood. In the case of data breach liability, that understanding starts with data classification. Data classification is the process of associating a meta data characteristic to every asset in a digital estate, which identifies the type of data associated with that asset.
 
-Microsoft suggests that any asset which has been identified as a potential candidate for migration or deployment to the cloud should have documented meta data to record the data classification, business criticality, and billing responsibility. These three points of classification can go along way to understanding and mitigating risks.
+Microsoft suggests that any asset which has been identified as a potential candidate for migration or deployment to the cloud should have documented meta data to record the data classification, business criticality, and billing responsibility. These three points of classification can go a long way to understanding and mitigating risks.
 
 ## Microsoft's data classification
 
@@ -45,3 +47,5 @@ Apply Data Classifications during one of the [Governance Journeys](./design-guid
 
 > [!div class="nextstepaction"]
 > [Begin an Actionable Governance Journeys](./design-guides/overview.md)
+
+<!-- markdownlint-enable MD026 -->

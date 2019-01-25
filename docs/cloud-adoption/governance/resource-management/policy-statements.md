@@ -19,7 +19,7 @@ The following sample policy statements address a number of common resource manag
 
 **Technical risk**: Without proper metadata tagging associated with deployed resources, IT operations cannot prioritize support or optimization of resources based on required SLA, importance to business operations, or operational cost. This can result in mis-allocation of IT resources and potential delays in incident resolution.
 
-**Policy statement**: The following policies will be implemented: 
+**Policy statement**: The following policies will be implemented:
 
 - Deployed assets should be tagged with the following values: cost, criticality, SLA, and environment.
 - Governance tooling must validate tagging related to cost, criticality, SLA, application, and environment. All values must align to predefined values managed by the governance team.
@@ -28,7 +28,7 @@ The following sample policy statements address a number of common resource manag
 
 ## Ungoverned subscriptions
 
-**Technical risk**: Arbitrary creation of subscriptions and management groups can lead to isolated sections of your cloud estate that are not properly subject to your governance policies. 
+**Technical risk**: Arbitrary creation of subscriptions and management groups can lead to isolated sections of your cloud estate that are not properly subject to your governance policies.
 
 **Policy statement**: Creation of new subscriptions or management groups for any mission-critical applications or protected data will require a review from the Cloud Governance Team. Approved changes will be integrated into a proper blueprint assignment.
 
@@ -36,7 +36,7 @@ The following sample policy statements address a number of common resource manag
 
 ## Manage VM updates
 
-**Technical risk**: Virtual Machines(VMs) that are not up-to-date with the latest updates and software patches are vulnerable to security or performance issues, which can result in service disruptions. 
+**Technical risk**: Virtual Machines (VMs) that are not up-to-date with the latest updates and software patches are vulnerable to security or performance issues, which can result in service disruptions.
 
 **Policy statement**: Governance tooling must enforce that automatic updates are enabled on all deployed VMs. Violations must be reviewed with operational management teams and remediated in accordance with operations policies. Assets that are not automatically updated must be included in processes owned by IT operations.
 
@@ -46,18 +46,18 @@ The following sample policy statements address a number of common resource manag
 
 **Technical risk**: Deployment scripts and automation tooling that does is not fully vetted by the governance team can result in resource deployments that violate policy.
 
-**Policy statement**: The following policies will be implemented: 
+**Policy statement**: The following policies will be implemented:
 
 - Deployment tooling must be approved by the Cloud Governance Team to ensure ongoing governance of deployed assets.
 - Deployment scripts must be maintained in central repository accessible by the Cloud Governance Team for periodic review and auditing.
 
-**Potential design options**: Consistent use of [Azure Blueprints](https://docs.microsoft.com/en-us/azure/governance/blueprints/) to manage automated deployments allows consistent deployments of Azure resources that adhere to your organization's governance standards and policies. 
+**Potential design options**: Consistent use of [Azure Blueprints](https://docs.microsoft.com/en-us/azure/governance/blueprints/) to manage automated deployments allows consistent deployments of Azure resources that adhere to your organization's governance standards and policies.
 
 ## Monitoring
 
 **Technical risk**: Improperly implemented or inconsistently instrumented monitoring can prevent the detection of workload health issues or other policy compliance violations.
 
-**Policy statement**: The following policies will be implemented: 
+**Policy statement**: The following policies will be implemented:
 
 - Governance tooling must validate that all assets related to mission-critical applications or protected data are included in monitoring for resource depletion and optimization.
 - Governance tooling must validate that the appropriate level of logging data is being collected for all mission-critical applications or protected data.

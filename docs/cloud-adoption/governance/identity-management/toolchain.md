@@ -5,6 +5,8 @@ author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
+<!-- markdownlint-disable MD026 -->
+
 # Fusion: What tools can help better manage user identities in Azure?
 
 In the [Intro to Cloud Governance](../overview.md), [Identity Management](overview.md) is one of the five disciplines to Cloud Governance. This discipline focuses on ways of establishing policies that ensure consistency and continuity of user identities regardless of the cloud provider that hosts the application or workload.
@@ -23,22 +25,24 @@ Identity is the control plane for IT security. So authentication is an organizat
 
 Choosing the correct authentication method is the first concern for organizations wanting to move their apps to the cloud.
 
-When you choose this method, Azure AD handles users' sign-in process. Coupled with seamless single sign-on (SSO), users can sign in to cloud apps without having to reenter their credentials. With cloud authentication, you can choose from two options: 
+When you choose this method, Azure AD handles users' sign-in process. Coupled with seamless single sign-on (SSO), users can sign in to cloud apps without having to reenter their credentials. With cloud authentication, you can choose from two options:
 
-**Azure AD password hash synchronization**: The simplest way to enable authentication for on-premises directory objects in Azure AD. This method can also be used with any method as a back-up failover authentication method in case your on-premesis server goes down.
+**Azure AD password hash synchronization**: The simplest way to enable authentication for on-premises directory objects in Azure AD. This method can also be used with any method as a back-up failover authentication method in case your on-premises server goes down.
 
 **Azure AD Pass-through Authentication**: Provides a persistent password validation for Azure AD authentication services by using a software agent that runs on one or more on-premises servers.
 
-> [!NOTE] 
-> Companies with a security requirement to immediately enforce on-premises user account states, password policies, and sign-in hours should consider the Pass-through Authentication method. 
+> [!NOTE]
+> Companies with a security requirement to immediately enforce on-premises user account states, password policies, and sign-in hours should consider the pass-through Authentication method.
 
-**Federated authentication**
+**Federated authentication:**
 
 When you choose this method, Azure AD passes the authentication process to a separate trusted authentication system, such as on-premises Active Directory Federation Services (AD FS) or a trusted third-party federation provider, to validate the user’s password.
 
 The article [choosing the right authentication method for Azure Active Directory](https://docs.microsoft.com/azure/security/azure-ad-choose-authn) contains a decision tree to help you choose the best solution for your organization.
 
 The following table lists the native tools that can help mature the policies and processes that support this governance discipline.
+
+<!-- markdownlint-disable MD033 -->
 
 |Consideration|Password hash synchronization + Seamless SSO|Pass-through Authentication + Seamless SSO|Federation with AD FS|
 |:-----|:-----|:-----|:-----|
@@ -57,11 +61,15 @@ The following table lists the native tools that can help mature the policies and
 |Can you customize the logo, image, and description on the sign-in pages?|[Yes, with Azure AD Premium](https://docs.microsoft.com/azure/active-directory/customize-branding)|[Yes, with Azure AD Premium](https://docs.microsoft.com/azure/active-directory/customize-branding)|[Yes](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-management#customlogo)|
 |What advanced scenarios are supported?|[Smart password lockout](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords)<br><br>[Leaked credentials reports](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events)|[Smart password lockout](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-smart-lockout)|Multisite low-latency authentication system<br><br>[AD FS extranet lockout](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)<br><br>[Integration with third-party identity systems](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-compatibility)|
 
-> [!NOTE] 
+<!-- markdownlint-enable MD033 -->
+
+> [!NOTE]
 > Custom controls in Azure AD conditional access does not currently support device registration.
 
 ## Next steps
 
-The [Hybrid Identity Digital Transformation Framework](https://resources.office.com/ww-landing-M365E-EMS-IDAM-Hybrid-Identity-WhitePaper.html?LCID=EN-US) outlines a number of combinations and solutions for choosing and integrating each of these components. 
+The [Hybrid Identity Digital Transformation Framework](https://resources.office.com/ww-landing-M365E-EMS-IDAM-Hybrid-Identity-WhitePaper.html?LCID=EN-US) outlines a number of combinations and solutions for choosing and integrating each of these components.
 
-The [Azure AD Connect tool](https://aka.ms/aadconnectwiz) helps you to integrate your on-premises directories with Azure AD. 
+The [Azure AD Connect tool](https://aka.ms/aadconnectwiz) helps you to integrate your on-premises directories with Azure AD.
+
+<!-- markdownlint-enable MD026 -->

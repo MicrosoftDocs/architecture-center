@@ -13,7 +13,7 @@ This article discusses an approach to policy adherence processes that govern [se
 
 The best security management tools in the cloud are only as good as the processes and policies that they support. The following is a set of example processes commonly involved in the security management discipline. Use these examples as a starting point when planning the processes that will allow you to continue to update security policy based on business change and feedback from the security and IT teams tasked with turning governance guidance into action.
 
-**Initial risk assessment and planning**: As part of your initial adoption of the security management discipline, identify your core business risks and tolerances related to cloud security. Use this information to discuss specific technical risks with members of your IT and security teams and develop a baseline set of security policies for mitigating these risks to establish your initial governance strategy. 
+**Initial risk assessment and planning**: As part of your initial adoption of the security management discipline, identify your core business risks and tolerances related to cloud security. Use this information to discuss specific technical risks with members of your IT and security teams and develop a baseline set of security policies for mitigating these risks to establish your initial governance strategy.
 
 **Deployment planning**: Prior to deployment of any workload or asset, perform a security review to identify any new risks and ensure all access and data security policy requirements are met.
 
@@ -21,7 +21,7 @@ The best security management tools in the cloud are only as good as the processe
 
 **Annual planning**: On an annual basis, perform a high-level review of security management strategy. Explore future corporate priorities and updated cloud adoption strategies to identify potential risk increase and other emerging security needs. Also use this time to review the latest security management best practices and integrate these into your policies and review processes.
 
-**Quarterly review and planning**: On a quarterly basis perform a review of security audit data and incident reports to identify any changes required in security policy. As part of this process, review the current cyber-security landscape to proactively anticipate emerging threats, and update policy as appropriate. After the review is complete, align design guidance with updated policy. 
+**Quarterly review and planning**: On a quarterly basis perform a review of security audit data and incident reports to identify any changes required in security policy. As part of this process, review the current cyber-security landscape to proactively anticipate emerging threats, and update policy as appropriate. After the review is complete, align design guidance with updated policy.
 
 This planning process is also a good time to evaluate the current membership of your cloud governance team for knowledge gaps related to new or evolving policy and risks related to security. Invite relevant IT staff to participate in reviews and planning as either temporary technical advisors or permanent members of your team.
 
@@ -43,9 +43,9 @@ When violations are detected, you should take actions to realign with policy as 
 
 The following triggers and enforcement actions provide examples you can reference when planning how to use monitoring data to resolve policy violations:
 
-- Increase in attacks detected: If any resource experiences an 25% increase in brute force or DDoS attacks, discuss with IT security staff and workload owner to determine remedies. Track issue and update guidance if policy revision is necessary to prevent future incidents.
+- Increase in attacks detected: If any resource experiences a 25% increase in brute force or DDoS attacks, discuss with IT security staff and workload owner to determine remedies. Track issue and update guidance if policy revision is necessary to prevent future incidents.
 - Unclassified data detected: Any data source without an appropriate privacy, security, or business impact classification will have external access denied until the classification is applied by the data owner and the appropriate level of data protection applied.
-- Security health issue detected: Disable access to any virtual machines(VMs) that have known access or malware vulnerabilities identified until appropriate patches or security software can be installed. Update policy guidance to account for any newly detected threats.
+- Security health issue detected: Disable access to any virtual machines (VMs) that have known access or malware vulnerabilities identified until appropriate patches or security software can be installed. Update policy guidance to account for any newly detected threats.
 - Network vulnerability detected: Access to any resource not explicitly allowed by the network access policies should trigger an alert to IT security staff and the relevant workload owner. Track issue and update guidance if policy revision is necessary to mitigate future incidents.
 
 ## Next steps
