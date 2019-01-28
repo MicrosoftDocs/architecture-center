@@ -426,7 +426,7 @@
     - name: Microservices
       items:
       - name: Azure Kubernetes Service (AKS)
-        item: reference-architectures/microservices/aks.md
+        href: reference-architectures/microservices/aks.md
 
     - name: Network DMZ
       items:
