@@ -92,6 +92,8 @@ The reference implementation of this architecture is available on [GitHub][githu
 
 [acr]: /azure/container-registry/container-registry-intro
 [ai]: /azure/application-insights/app-insights-overview
+[aml-compute]: /azure/machine-learning/service/how-to-set-up-training-targets#amlcompute
+[amls]: /azure/machine-learning/service/overview-what-is-azure-ml
 [automatic-scaling]: /azure/batch/batch-automatic-scaling
 [azure-files]: /azure/storage/files/storage-files-introduction
 [batch-ai]: /azure/batch-ai/
