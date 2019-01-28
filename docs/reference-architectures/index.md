@@ -272,7 +272,7 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
 </li>
 </ul>
 
-## Microserves
+## Microservices
 
 <ul class="panelContent cardsF">
 <!-- IoT reference architecture -->
