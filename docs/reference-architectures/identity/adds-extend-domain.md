@@ -142,7 +142,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 3. Run the following command and wait for the deployment to finish.
 
     ```bash
-    azbb -s <subscription_id> -g <resource group> -l <location> -p onoprem.json --deploy
+    azbb -s <subscription_id> -g <resource group> -l <location> -p azure.json --deploy
     ```
 
    Deploy to the same resource group as the on-premises VNet.
