@@ -12,7 +12,7 @@ ms.custom: azcat-ai
 
 # Real-time scoring of Python Scikit-Learn and deep learning models on Azure
 
-This reference architecture shows how to deploy Python models as web services to make real-time predictions using Azure Machine Learning (AML) service. Two scenarios are covered: deploying regular Python models, and the specific requirements of deploying deep learning models. Both scenarios use the architecture shown.
+This reference architecture shows how to deploy Python models as web services to make real-time predictions using the Azure Machine Learning service. Two scenarios are covered: deploying regular Python models, and the specific requirements of deploying deep learning models. Both scenarios use the architecture shown.
 
 Two reference implementations for this architecture are available on GitHub, one for [regular Python models][github-python] and one for [deep learning models][github-dl].
 
@@ -28,13 +28,13 @@ This scenario uses a subset of Stack Overflow question data that includes origin
 
 The application flow for this architecture is as follows:
 
-1. Trained model is registered to AML model registry.
-2. AML creates a docker image including the model and scoring script.
-3. AML deploys the scoring image on Azure Kubernetes Service (AKS) as a web service.
-4. The client sends a HTTP POST request with the encoded question data.
-5. The web service created by AML extracts the question from the request
-6. The question is then sent to the Scikit-learn pipeline model for featurization and scoring. 
-7. The matching FAQ questions with their scores are then returned to the client.
+1. The trained model is registered to the Machine Learning model registry.
+2. The Machine Learning service creates a Docker image that includes the model and scoring script.
+3. Machine Learning deploys the scoring image on Azure Kubernetes Service (AKS) as a web service.
+4. The client sends an HTTP POST request with the encoded question data.
+5. The web service created by Machine Learning extracts the question from the request.
+6. The question is sent to the Scikit-learn pipeline model for featurization and scoring. 
+7. The matching FAQ questions with their scores are returned to the client.
 
 Here is a screenshot of the example app that consumes the results:
 
@@ -48,24 +48,24 @@ This scenario uses a pre-trained ResNet-152 model trained on ImageNet-1K (1,000 
 
 The application flow for the deep learning model is as follows:
 
-1. Deep learning model is registered to AML model registry.
-2. AML creates a docker image including the model and scoring script.
-3. AML deploys the scoring image on Azure Kubernetes Service (AKS) as a web service.
-4. The client sends a HTTP POST request with the encoded image data.
-5. The web service created by AML preprocesses the image data and sends it to the model for scoring. 
-6. The predicted categories with their scores are then returned to the client.
+1. The deep learning model is registered to the Machine Learning model registry.
+2. The Machine Learning service creates a docker image including the model and scoring script.
+3. Machine Learning deploys the scoring image on Azure Kubernetes Service (AKS) as a web service.
+4. The client sends an HTTP POST request with the encoded image data.
+5. The web service created by Machine Learning preprocesses the image data and sends it to the model for scoring. 
+6. The predicted categories with their scores are returned to the client.
 
 ## Architecture
 
 This architecture consists of the following components.
 
-**[Azure Machine Learning service][aml]** (AML) is a cloud service that is used to train, deploy, automate and manage machine learning models, all at the broad scale that the cloud provides. It is used in this architecture to manage the deployment of models as well as authentication, routing, and load balancing of the web service.
+**[Azure Machine Learning service][aml]** is a cloud service that is used to train, deploy, automate and manage machine learning models, all at the broad scale that the cloud provides. It is used in this architecture to manage the deployment of models as well as authentication, routing, and load balancing of the web service.
 
 **[Virtual machine][vm]** (VM). The VM is shown as an example of a device &mdash; local or in the cloud &mdash; that can send an HTTP request.
 
 **[Azure Kubernetes Service][aks]** (AKS) is used to deploy the application on a Kubernetes cluster. AKS simplifies the deployment and operations of Kubernetes. The cluster can be configured using CPU-only VMs for regular Python models or GPU-enabled VMs for deep learning models.
 
-**[Azure Container Registry][acr]** (ACR) enables storage of images for all types of Docker container deployments including DC/OS, Docker Swarm and Kubernetes. The scoring images are deployed as containers on Azure Kubernetes Service and used to run the scoring script. The image used here is created by AML from the trained model and scoring script, and then is pushed to the Azure Container Registry.
+**[Azure Container Registry][acr]** enables storage of images for all types of Docker container deployments including DC/OS, Docker Swarm and Kubernetes. The scoring images are deployed as containers on Azure Kubernetes Service and used to run the scoring script. The image used here is created by Machine Learning from the trained model and scoring script, and then is pushed to the Azure Container Registry.
 
 ## Performance considerations
 
@@ -77,7 +77,7 @@ You can use CPUs for this architecture in either scenario, but for deep learning
 
 ## Scalability considerations
 
-For regular Python models, where AKS cluster is provisioned with CPU-only VMs, take care when [scaling out the number of pods][manually-scale-pods]. The goal is to fully utilize the cluster. Scaling depends on the CPU requests and limits defined for the pods. AML though Kubernetes also supports [autoscaling][autoscale-pods] of the pods to adjust the number of pods in a deployment depending on CPU utilization or other select metrics. The [cluster autoscaler][autoscaler] (in preview) can scale agent nodes based on pending pods.
+For regular Python models, where the AKS cluster is provisioned with CPU-only VMs, take care when [scaling out the number of pods][manually-scale-pods]. The goal is to fully utilize the cluster. Scaling depends on the CPU requests and limits defined for the pods. Machine Learning through Kubernetes also supports [pod autoscaling][autoscale-pods] based on CPU utilization or other metrics. The [cluster autoscaler][autoscaler] (in preview) can scale agent nodes based on the pending pods.
 
 For deep learning scenarios, using GPU-enabled VMs, resource limits on pods are such that one GPU is assigned to one pod. Depending on the type of VM used, you must [scale the nodes of the cluster][scale-cluster] to meet the demand for the service. You can do this easily using the Azure CLI and kubectl.
 
@@ -111,7 +111,7 @@ Use [RBAC][rbac] to control access to the Azure resources that you deploy. RBAC 
 
 **Authentication**. This solution doesn't restrict access to the endpoints. To deploy the architecture in an enterprise setting, secure the endpoints through API keys and add some form of user authentication to the client application.
 
-**Container registry**. This solution uses ACR to store the Docker image. The code that the application depends on, and the model, are contained within this image. Enterprise applications should use a private registry to help guard against running malicious code and to help keep the information inside the container from being compromised.
+**Container registry**. This solution uses Azure Container Registry to store the Docker image. The code that the application depends on, and the model, are contained within this image. Enterprise applications should use a private registry to help guard against running malicious code and to help keep the information inside the container from being compromised.
 
 **DDoS protection**. Consider enabling [DDoS Protection Standard][ddos]. Although basic DDoS protection is enabled as part of the Azure platform, DDoS Protection Standard provides mitigation capabilities that are tuned specifically to Azure virtual network resources.
 
