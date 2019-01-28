@@ -609,20 +609,22 @@
           href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/multi-cloud.md
       - name: XXXX - Large Enterprise
         items:
+        - name: Overview
+          href: cloud-adoption/governance/design-guides/large-enterprise/overview.md
         - name: XXXX - Narrative
-          href: cloud-adoption/governance/design-guides/enterprise-mvp/use-case.md
+          href: cloud-adoption/governance/design-guides/large-enterprise/use-case.md
         - name: XXXX - Corporate Policy
-          href: cloud-adoption/governance/design-guides/enterprise-mvp/corporate-policy.md
+          href: cloud-adoption/governance/design-guides/large-enterprise/corporate-policy.md
         - name: XXXX - Governance MVP (Adoption Foundation)
-          href: cloud-adoption/governance/design-guides/enterprise-mvp/governance-mvp.md
+          href: cloud-adoption/governance/design-guides/large-enterprise/governance-mvp.md
         - name: XXXX - Governance Evolution (Protected Data)
-          href: cloud-adoption/governance/design-guides/enterprise-mvp/protected-data.md
+          href: cloud-adoption/governance/design-guides/large-enterprise/protected-data.md
         - name: XXXX - Governance Evolution (Mision Critical Apps)
-          href: cloud-adoption/governance/design-guides/enterprise-mvp/mission-critical.md
+          href: cloud-adoption/governance/design-guides/large-enterprise/mission-critical.md
         - name: XXXX - Governance Evolution (Cost Controls)
-          href: cloud-adoption/governance/design-guides/enterprise-mvp/cost-control.md
+          href: cloud-adoption/governance/design-guides/large-enterprise/cost-control.md
         - name: XXXX - Governance Evolution (Multi-cloud)
-          href: cloud-adoption/governance/design-guides/enterprise-mvp/multi-cloud.md
+          href: cloud-adoption/governance/design-guides/large-enterprise/multi-cloud.md
     - name: Evolving Corporate Policy & Compliance
       items:
         - name: Understand business risks
