@@ -52,8 +52,8 @@ For this solution accelerator, you'll work with the `spark-listeners` project.
 
 There are three requirements for using the `LogAnalyticsStreamingQueryListener` object in your Apache Spark job application code:
 
-1. Include all the required dependencies in your project using the following Maven coordinates:
-  |Group ID|Artifact ID|Version|Scope|
+1. Include all the required dependencies in your project using the following Maven coordinates:  
+  *  |Group ID|Artifact ID|Version|Scope|
   |--------|-----------|-------|
   |org.scala-lang|scala-library| | |
   |org.apache.spark|spark-core_2.11|2.3.1| provided |
