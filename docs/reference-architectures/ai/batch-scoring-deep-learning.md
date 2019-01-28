@@ -41,6 +41,9 @@ This architecture consists of the following components.
 
 **[Azure Batch AI][batch-ai]** is used to run the neural style transfer algorithm. Batch AI supports deep learning workloads by providing containerized environments that are pre-configured for deep learning frameworks, on GPU-enabled VMs. Batch AI can also connect the compute cluster to Blob storage.
 
+> [!NOTE]
+> The Azure Batch AI service is retiring March 2019, and its at-scale training and scoring capabilities are now available in [Azure Machine Learning Service][amls]. This reference architecture will be updated soon to use Machine Learning, which offers a managed compute target called [Azure Machine Learning Compute][aml-compute] for training, deploying, and scoring machine learning models.
+
 ### Storage
 
 **[Blob storage][blob-storage]** is used to store all images (input images, style images, and output images) as well as all logs produced from Batch AI. Blob storage integrates with Batch AI via [blobfuse][blobfuse], an open-source virtual filesystem that is backed by Blob storage. Blob storage is also very cost-effective for the performance that this workload requires.
@@ -144,6 +147,8 @@ To deploy this reference architecture, follow the steps described in the [GitHub
 
 <!-- links -->
 
+[aml-compute]: /azure/machine-learning/service/how-to-set-up-training-targets#amlcompute
+[amls]: /azure/machine-learning/service/overview-what-is-azure-ml
 [azcopy]: /azure/storage/common/storage-use-azcopy-linux
 [batch-ai]: /azure/batch-ai/
 [blobfuse]: https://github.com/Azure/azure-storage-fuse
