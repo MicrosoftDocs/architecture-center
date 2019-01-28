@@ -24,9 +24,9 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                 <div class="card">
                     <div class="cardText">
                         <h3>New Scenarios</h3>
+                        <a class="barlink" href="/azure/architecture/example-scenario/infrastructure/image-modeling" data-linktype="absolute-path">Accelerate digital image-based modeling</a>
+                        <a class="barlink" href="/azure/architecture/example-scenario/ai/movie-recommendations" data-linktype="absolute-path">Movie recommendations on Azure</a>
                         <a class="barLink" href="/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery" data-linktype="absolute-path">Multitier web application built for HA & DR</a>
-                        <a class="barLink" href="/azure/architecture/example-scenario/data/hybrid-etl-with-adf" data-linktype="absolute-path">Hybrid ETL with on-premises SSIS and Data Factory</a>
-                        <a class="barLink" href="/azure/architecture/example-scenario/apps/decentralized-trust" data-linktype="absolute-path">Decentralized trust between banks on Azure</a>
                     </div>
                 </div>
             </div>
