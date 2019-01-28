@@ -53,13 +53,13 @@ For this solution accelerator, you'll work with the `spark-listeners` project.
 There are three requirements for using the `LogAnalyticsStreamingQueryListener` object in your Apache Spark job application code:
 
 1. Include all the required dependencies in your project using the following Maven coordinates:  
-  *  |Group ID|Artifact ID|Version|Scope|
-  |--------|-----------|-------|
-  |org.scala-lang|scala-library| | |
-  |org.apache.spark|spark-core_2.11|2.3.1| provided |
-  |org.apache.spark|spark-sql_2.11| | provided |
-  |org.apache.spark|spark-streaming_2.11| | provided |
-  |com.microsoft.pnp|spark-listeners|1.0-SNAPSHOT| provided |
+|Group ID|Artifact ID|Version|Scope|
+|--------|-----------|-------|
+|org.scala-lang|scala-library| | |
+|org.apache.spark|spark-core_2.11|2.3.1| provided |
+|org.apache.spark|spark-sql_2.11| | provided |
+|org.apache.spark|spark-streaming_2.11| | provided |
+|com.microsoft.pnp|spark-listeners|1.0-SNAPSHOT| provided |
 2. In your code, import `org.apache.spark.listeners.LogAnalyticsStreamingQueryListener`.
 3. In your code, create a new instance of `LogAnalyticsStreamingQueryListener`, passing in the current Spark context as a parameter, and attach it to the current Spark Session `streams` property using the `addListener` method.
 
