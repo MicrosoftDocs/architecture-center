@@ -272,6 +272,31 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
 </li>
 </ul>
 
+## Microservices
+
+<ul class="panelContent cardsF">
+<!-- IoT reference architecture -->
+<li style="display: flex; flex-direction: column;">
+    <a href="./microservices/aks.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/icons/aks.svg" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Microservices on Azure Kubernetes Service (AKS)</h3>
+                        <p>Recommended architecture for deploying a microservices architecture on AKS.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+</ul>
+
 ## Serverless applications
 
 <ul class="panelContent cardsF">

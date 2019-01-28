@@ -423,6 +423,11 @@
     - name: Internet of Things (IoT)
       href: reference-architectures/iot/index.md
 
+    - name: Microservices
+      items:
+      - name: Azure Kubernetes Service (AKS)
+        href: reference-architectures/microservices/aks.md
+
     - name: Network DMZ
       items:
       - name: DMZ between Azure and on-premises
