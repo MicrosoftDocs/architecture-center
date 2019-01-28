@@ -24,8 +24,8 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                 <div class="card">
                     <div class="cardText">
                         <h3>New Scenarios</h3>
-                        <a class="barlink" href="/azure/architecture/example-scenario/infrastructure/image-modeling" data-linktype="absolute-path">Accelerate digital image-based modeling</a>
-                        <a class="barlink" href="/azure/architecture/example-scenario/ai/movie-recommendations" data-linktype="absolute-path">Movie recommendations on Azure</a>
+                        <a class="barLink" href="/azure/architecture/example-scenario/infrastructure/image-modeling" data-linktype="absolute-path">Accelerate digital image-based modeling</a>
+                        <a class="barLink" href="/azure/architecture/example-scenario/ai/movie-recommendations" data-linktype="absolute-path">Movie recommendations on Azure</a>
                         <a class="barLink" href="/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery" data-linktype="absolute-path">Multitier web application built for HA & DR</a>
                     </div>
                 </div>
