@@ -29,6 +29,9 @@ This architecture consists of the following components:
 
 [Azure Batch AI][batch-ai]. This distributed computing engine is used to train and test machine learning and AI models at scale in Azure. Batch AI creates virtual machines on demand with an automatic scaling option, where each node in the Batch AI cluster runs a scoring job for a specific sensor. The scoring Python [script][python-script] runs in Docker containers that are created on each node of the cluster, where it reads the relevant sensor data, generates predictions and stores them in Blob storage.
 
+> [!NOTE]
+> The Azure Batch AI service is retiring March 2019, and its at-scale training and scoring capabilities are now available in [Azure Machine Learning Service][amls]. This reference architecture will be updated soon to use Machine Learning, which offers a managed compute target called [Azure Machine Learning Compute][aml-compute] for training, deploying, and scoring machine learning models.
+
 [Azure Blob Storage][storage]. Blob containers are used to store the pretrained models, the data, and the output predictions. The models are uploaded to Blob storage in the [create\_resources.ipynb][create-resources] notebook. These [one-class SVM][one-class-svm] models are trained on data that represents values of different sensors for different devices. This solution assumes that the data values are aggregated over a fixed interval of time.
 
 [Azure Logic Apps][logic-apps]. This solution creates a Logic App that runs hourly Batch AI jobs. Logic Apps provides an easy way to create the runtime workflow and scheduling for the solution. The Batch AI jobs are submitted using a Python [script][script] that also runs in a Docker container.
