@@ -382,6 +382,25 @@
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
+    <a href="./infrastructure/image-modeling.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="./infrastructure/media/architecture-image-modeling.png" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Accelerate digital image-based modeling on Azure</h3>
+                        <p>Accelerate digital image-based modeling on Azure using Avere and Agisoft PhotoScan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<li style="display: flex; flex-direction: column;">
     <a href="./infrastructure/linux-vdi-citrix.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
