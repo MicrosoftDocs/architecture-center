@@ -132,12 +132,12 @@ To create and configure your Azure Databricks cluster, follow these steps:
 
 Ensure that your job application is code is running in the Azure Databricks job dialog. If it is running successfully you will see "running" beside your job's name.
 
-## Monitor Azure Databricks structured streaming streaming in Azure Log Analytics
+## Monitor Azure Databricks structured streaming in Azure Log Analytics
 
 Once you have completed all the steps above, the Spark Structured Streaming event data from Azure Databricks is sent to your Azure Log Analytics workspace as your query is processed. The log data is available under the "Active" "Custom Logs" "SparkListenerEvent_CL" schema.
 
 Azure Log Analytics provides functionality to create dashboards that you can use to monitor the progress of your Apache Structured Streaming queries. The structure of the Apache Spark Strucutred streaming log data is documented in the [managing streaming queries](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html#managing-streaming-queries) section of the Apache Spark [structured streaming programming guide](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html). You can use this information to learn more about the types of events and what they mean as you build your Azure Log Analytics dashboards.
 
-# Next steps
+## Next steps
 
 Learn more about [Structured Streaming](https://docs.databricks.com/spark/latest/structured-streaming/index.html) in Azure Databricks.
