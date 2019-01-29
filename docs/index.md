@@ -380,10 +380,10 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
         </a>
     </li>
 </ul>
-<ul>
+<ul class="panelContent cardsB">
     <li>
         <a href="https://azure-architecture.uservoice.com/forums/918127-general" data-linktype="external">
-            <div class="cardSize cardsB">
+            <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
