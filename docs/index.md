@@ -270,9 +270,7 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
     </li>
 </ul>
 
----
-
-<ul class="panelContent cardsB">
+<ul class="panelContent cardsJ">
     <li>
         <a href="https://azure-architecture.uservoice.com/forums/918127-general" data-linktype="external">
             <div class="cardSize">
