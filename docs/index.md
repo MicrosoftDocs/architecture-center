@@ -380,7 +380,7 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
         </a>
     </li>
 </ul>
-<div class="container centered pageFooter">
+<div class="container">
     <a href="https://azure-architecture.uservoice.com/forums/918127-general" data-linktype="external">
         <div class="cardSize cardsB">
             <div class="cardPadding">
