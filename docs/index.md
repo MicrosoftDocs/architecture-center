@@ -272,7 +272,7 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
 
 ---
 
-<ul class="panelContent cardsFTitle">
+<ul class="panelContent cardsB">
     <li>
         <a href="https://azure-architecture.uservoice.com/forums/918127-general" data-linktype="external">
             <div class="cardSize">
@@ -284,7 +284,7 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
                             </div>
                         </div>
                         <div class="cardText">
-                            <h2>Submit your idea for the Architecture Center here</h2>
+                            <h3>Submit your idea for the Architecture Center</h3>
                             <p>Do you have any ideas for documentation that we don’t already have?</p>
                             <p>What kinds of articles would you like to see in the Azure Architecture Center?</p>
                         </div>
