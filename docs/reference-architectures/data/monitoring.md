@@ -61,7 +61,7 @@ There are three requirements for using the **LogAnalyticsStreamingQueryListener*
   |org.apache.spark|spark-sql_2.11| | provided |
   |org.apache.spark|spark-streaming_2.11| | provided |
   |com.microsoft.pnp|spark-listeners|1.0-SNAPSHOT| provided |
-  
+
 2. In your code, import **org.apache.spark.listeners.LogAnalyticsStreamingQueryListener**.
 3. In your code, create a new instance of **LogAnalyticsStreamingQueryListener**, passing in the current Spark context as a parameter, and attach it to the current Spark Session **streams** property using the **addListener** method.
 
@@ -72,16 +72,15 @@ To help you better understand how to use the solution accelerator, a sample job 
 
 Let's first take a look at how the sample application references the library for the **LogAnalyticsStreamingQueryListener**:
 
-******scala
+```scala
 import org.apache.spark.listeners.LogAnalyticsStreamingQueryListener
-******
+```
 
 Note that this library is copied to each node in your Azure Databricks cluster during initialization. Apache Spark manages the Java class context for both the library and your job application code.
 
 Now let's take a look at how the sample application attaches an instance of a **LogAnalyticsStreamingQueryListener** to the current [Spark session](https://spark.apache.org/docs/2.3.0/api/java/org/apache/spark/sql/SparkSession.html)
 
-******scala
-
+```scala
 val spark = SparkSession
     .builder
     .getOrCreate
@@ -89,7 +88,7 @@ val spark = SparkSession
 [...]
 
 spark.streams.addListener(new LogAnalyticsStreamingQueryListener(spark.sparkContext.getConf))
-******
+```
 
 First, the current Spark session is assigned to the variable **spark**. Next, the **LogAnalyticsStreamingQueryListener** is attached to the **streams** property of the current Spark session. Not that the **LogAnalyticsStreamingQueryListener** constructor takes a single parameter, which is the configuration information for the Spark cluster.
 
@@ -102,27 +101,32 @@ Let's move on to creating and configuring an Azure Databricks cluster to run you
 To create and configure your Azure Databricks cluster, follow these steps:
 
 1. Build the JAR file defined in the Maven build file in the **spark-listeners** directory of the Github repository. Building this project creates a JAR filed named **spark-listeners-1.0-SNAPSHOT.jar**.
-2. Use the Azure Databricks CLI to create a directory named **dbfs:/databricks/init/jar**:
-******
-dbfs mkdirs dbfs:/databricks/init/startupscript
-******
+2. Use the Azure Databricks CLI to create a directory named **dbfs:/databricks/init/jar**:  
+
+  ```bash
+  dbfs mkdirs dbfs:/databricks/init/startupscript
+  ```
 3. Use the Azure Databricks CLI to copy the **spark-listeners-1.0-SNAPSHOT.jar** file to a staging folder in the Azure Databricks file system. For example:
-******
-dbfs cp spark-listeners-1.0-SNAPSHOT.jar dbfs:/databricks/init/jar
-******
+  ```bash
+  dbfs cp spark-listeners-1.0-SNAPSHOT.jar dbfs:/databricks/init/jar
+  ```
 4. Copy the **listeners.sh** bash script located in the **/scripts** directory of the Github repository to the **dbfs:/databricks/init/startupscript** directory in the Azure Databricks file system:
-******
-dbfs cp listeners.sh dbfs:/databricks/init/startupscript
-******
-5. Navigate to your Azure Databricks workspace in the Azure Portal. On the home page, click "new cluster". Choose a name for your cluster and enter it in "cluster name" text box. In the "Databricks Runtime Version" dropdown, select **4.3 (includes Apache Spark 2.3.1, Scala 2.11)**. Under "Advanced Options", click on the "Spark" tab. Enter the following name-value pairs:
-****** 
-spark.databricks.delta.preview.enabled true
-spark.extraListeners com.databricks.backend.daemon.driver.DBCEventLoggingListener,org.apache.spark.listeners.LogAnalyticsListener
-spark.logAnalytics.workspaceId <your Azure Log Analytics workspace ID> 
-spark.logAnalytics.secret <your Azure Log Analytics shared access signature>
-******
-6. Click "confirm" to create the cluster. Next, click on the "start" button to start the cluster. 
-7. Add your application job code to a new job by clicking on the "create job" button in the "jobs" tab. Choose a name for your job and enter it in the "name" text box. Click "set JAR" beside the "task" line, then drag and drop your job application's JAR file to the box. Enter the name of your application's **main** class in the "Main class" text box, and any starup arguments in the "arguments" text box. Click "OK".
+  ```bash
+  dbfs cp listeners.sh dbfs:/databricks/init/startupscript
+  ```
+5. Navigate to your Azure Databricks workspace in the Azure Portal. On the home page, click "new cluster". Choose a name for your cluster and enter it in "cluster name" text box. In the "Databricks Runtime Version" dropdown, select **4.3 (includes Apache Spark 2.3.1, Scala 2.11)**. 
+6. Under "Advanced Options", click on the "Spark" tab. Enter the following name-value pairs in the "Spark Config" text box:
+
+  | Name | Value |
+  |------|-------|
+  |spark.databricks.delta.preview.enabled| true|
+  |spark.extraListeners |com.databricks.backend.daemon.driver.DBCEventLoggingListener,org.apache.spark.listeners.LogAnalyticsListener|
+  |spark.logAnalytics.workspaceId |[your Azure Log Analytics workspace ID](/azure/azure-monitor/platform/agent-windows#obtain-workspace-id-and-key)|
+  |spark.logAnalytics.secret| [your Azure Log Analytics shared access signature](/azure/azure-monitor/platform/agent-windows#obtain-workspace-id-and-key)|
+
+7. While still under the "Advanced Options" section, click on the "Init Scripts" tab. Go to the last line under the "Init Scripts section" Under the "destination" dropdown, select "DBFS". Enter "dbfs:/databricks/init/startupscript/listeners.sh" in the text box. Click the "add" button.
+8. Click the "create cluster" button to create the cluster. Next, click on the "start" button to start the cluster.
+9. Click on the "Jobs" button in the left hand navigation pane. Click the "create job" button. Choose a name for your job and enter it in the "name" text box. Click "set JAR" beside the "task" line, then drag and drop your job application's JAR file to the box. Enter the name of your application's **main** class in the "Main class" text box, and any starup arguments in the "arguments" text box. Click "OK".
 8. On the "Cluster" line, select "edit" to go to the "configure cluster" dialog. Under the "cluster type" select "existing cluster" and select the cluster you created in step 6. Click "confirm".
 9. On the job dialog, click on the job created in step 8 and select "run now".
 
@@ -130,11 +134,9 @@ Ensure that your job application is code is running in the Azure Databricks job 
 
 ## Monitor Azure Databricks structured streaming streaming in Azure Log Analytics
 
-Once you have completed all the steps above, the Spark Structured Streaming event data from Azure Databricks as your query is processed is sent to your Azure Log Analytics workspace. The log data is available under the "Active" "Custom Logs" "SparkListenerEvent_CL" schema.
+Once you have completed all the steps above, the Spark Structured Streaming event data from Azure Databricks is sent to your Azure Log Analytics workspace as your query is processed. The log data is available under the "Active" "Custom Logs" "SparkListenerEvent_CL" schema.
 
-Azure Log Analytics allows you to create dashboards that you can use to monitor the progress of all Apache Structured Streaming queries currently running in your Azure Databricks job application code. 
-
-The structure of the Apache Spark Strucutred streaming log data is documented in the [managing streaming queries](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html#managing-streaming-queries) section of the Apache Spark [structured streaming programming guide](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html). You can use this information to learn more about the types of events and what they mean as you build your Azure Log Analytics dashboards.
+Azure Log Analytics provides functionality to create dashboards that you can use to monitor the progress of your Apache Structured Streaming queries. The structure of the Apache Spark Strucutred streaming log data is documented in the [managing streaming queries](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html#managing-streaming-queries) section of the Apache Spark [structured streaming programming guide](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html). You can use this information to learn more about the types of events and what they mean as you build your Azure Log Analytics dashboards.
 
 # Next steps
 
