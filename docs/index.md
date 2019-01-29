@@ -272,6 +272,31 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
 
 ---
 
+<ul class="panelContent cardsFTitle">
+    <li>
+        <a href="https://azure-architecture.uservoice.com/forums/918127-general" data-linktype="external">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                        <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img src="https://docs.microsoft.com/en-us/media/common/i_feedback.svg" alt="" data-linktype="external">
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <h2>Submit your idea for the Architecture Center here</h2>
+                            <p>Do you have any ideas for documentation that we don’t already have?</p>
+                            <p>What kinds of articles would you like to see in the Azure Architecture Center?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+</ul>
+
+---
+
 ## Build your skills with Microsoft Learn
 
 <ul class="panelContent cardsFTitle">
@@ -377,28 +402,6 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
                 </div>
             </div>
         </div>
-        </a>
-    </li>
-</ul>
-<ul class="panelContent cardsB">
-    <li>
-        <a href="https://azure-architecture.uservoice.com/forums/918127-general" data-linktype="external">
-            <div class="cardSize">
-                <div class="cardPadding">
-                    <div class="card">
-                        <div class="cardImageOuter">
-                            <div class="cardImage">
-                                <img src="https://docs.microsoft.com/en-us/media/common/i_feedback.svg" alt="" data-linktype="external">
-                            </div>
-                        </div>
-                        <div class="cardText">
-                            <h2>Submit your idea for the Architecture Center here</h2>
-                            <p>Do you have any ideas for documentation that we don’t already have?</p>
-                            <p>What kinds of articles would you like to see in the Azure Architecture Center?</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </a>
     </li>
 </ul>
