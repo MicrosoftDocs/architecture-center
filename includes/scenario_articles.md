@@ -3,6 +3,25 @@
 
 <ul  class="panelContent cardsC">
 <li style="display: flex; flex-direction: column;">
+    <a href="./ai/newsfeed-ingestion.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="./ai/media/mass-ingestion-newsfeeds-architecture.png" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Mass ingestion and analysis of news feeds on Azure</h3>
+                        <p>Create a pipeline for ingesting and analyzing text, images, sentiment, and other data from RSS news feeds using only Azure services, including Azure Cosmos DB and Azure Cognitive Services.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<li style="display: flex; flex-direction: column;">
     <a href="./ai/commerce-chatbot.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">

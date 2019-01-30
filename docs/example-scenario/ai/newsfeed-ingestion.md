@@ -3,6 +3,11 @@ title: Mass ingestion and analysis of news feeds on Azure
 description: Create a pipeline for ingesting and analyzing text, images, sentiment, and other data from RSS news feeds using only Azure services, including Azure Cosmos DB and Azure Cognitive Services.
 author: njray
 ms.date: 1/24/2019
+ms.custom: azcat-ai, AI
+social_image_url: /azure/architecture/example-scenario/ai/media/mass-ingestion-newsfeeds-architecture.png
+ms.topic: example-scenario
+ms.service: architecture-center
+ms.subservice: example-scenario
 ---
 
 # Mass ingestion and analysis of news feeds on Azure
@@ -44,7 +49,7 @@ The data flows through the solution as follows:
 
 At each processing step, the function writes the results to Azure Cosmos DB. Ultimately, the data can be used as desired. For example, you can use it to enhance business processes, locate new customers, or identify customer satisfaction issues.
 
-### Components 
+### Components
 
 The following list of Azure components are used in this example.
 

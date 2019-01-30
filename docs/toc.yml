@@ -299,6 +299,8 @@
       href: example-scenario/ai/intelligent-apps-image-processing.md
     - name: Movie recommendation
       href: example-scenario/ai/movie-recommendations.md
+    - name: Newsfeed ingestion
+      href: example-scenario/ai/newsfeed-ingestion.md
   - name: Apps
     items:
     - name: Computer-aided engineering
