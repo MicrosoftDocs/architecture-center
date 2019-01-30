@@ -349,6 +349,8 @@
       href: example-scenario/infrastructure/regulated-multitier-app.md
     - name: HPC video rendering
       href: example-scenario/infrastructure/video-rendering.md
+    - name: Image Modeling
+      href: example-scenario/infrastructure/image-modeling.md
    
 - name: Reference Architectures
   items:
