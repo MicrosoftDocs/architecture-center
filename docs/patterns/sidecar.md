@@ -56,7 +56,7 @@ The sidecar pattern is often used with containers and referred to as a sidecar c
 
 Use this pattern when:
 
-- Your primary application uses a heterogenous set of languages and frameworks. A component located in a sidecar service can be consumed by applications written in different languages using different frameworks.
+- Your primary application uses a heterogeneous set of languages and frameworks. A component located in a sidecar service can be consumed by applications written in different languages using different frameworks.
 - A component is owned by a remote team or a different organization.
 - A component or feature must be co-located on the same host as the application
 - You need a service that shares the overall lifecycle of your main application, but can be independently updated.
