@@ -665,9 +665,9 @@
               href: cloud-adoption/governance/cost-management/maturity-adoption-alignment.md
             - name: Azure Specific Tool Chain
               href: cloud-adoption/governance/cost-management/toolchain.md
-        - name: Security Management
+        - name: Security Baseline
           items:
-            - name: Adopting a Security Management Discipline
+            - name: Adopting a Security Baseline Discipline
               href: cloud-adoption/governance/security-management/overview.md
             - name: Download the Template
               href: cloud-adoption/governance/security-management/template.md
@@ -687,9 +687,9 @@
               href: cloud-adoption/governance/security-management/azure-security-guidance.md
             - name: Azure Specific Tool Chain
               href: cloud-adoption/governance/security-management/toolchain.md        
-        - name: Identity Management
+        - name: Identity Baseline
           items:
-            - name: Adopting an Identity Management Discipline
+            - name: Adopting an Identity Baseline Discipline
               href: cloud-adoption/governance/identity-management/overview.md
             - name: Download the Template
               href: cloud-adoption/governance/identity-management/template.md
@@ -705,9 +705,9 @@
               href: cloud-adoption/governance/identity-management/maturity-adoption-alignment.md
             - name: Azure Specific Tool Chain
               href: cloud-adoption/governance/identity-management/toolchain.md
-        - name: Resource Management
+        - name: Resource Consistency
           items:
-            - name: Adopting a Resource Management Discipline
+            - name: Adopting a Resource Consistency Discipline
               href: cloud-adoption/governance/resource-management/overview.md
             - name: Download the Template
               href: cloud-adoption/governance/resource-management/template.md
@@ -729,9 +729,9 @@
               href: cloud-adoption/governance/resource-management/governance-multiple-teams.md
             - name: Azure Specific Tool Chain
               href: cloud-adoption/governance/resource-management/toolchain.md
-        - name: Configuration Management
+        - name: Deployment Acceleration
           items:
-            - name: Adopting a Configuration Management Discipline
+            - name: Adopting a Deployment Acceleration Discipline
               href: cloud-adoption/governance/configuration-management/overview.md
             - name: Download the Template
               href: cloud-adoption/governance/configuration-management/template.md
