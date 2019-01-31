@@ -55,7 +55,7 @@ These patterns enable resources to be discovered and tracked, and enforce basic 
     1. Add the Resource Manager template for the VPN Gateway to the Azure Blueprint.
 3. Apply the DMZ Azure Blueprint to any subscriptions requiring on-premises connectivity. This Azure Blueprint should be applied in addition to the Governance MVP blueprint.
 
-> [!WARNING]
+> [!NOTE]
 > The above is a starting point to quickly create a baseline governance MVP. This is only the beginning of the governance journey. Further evolution will be needed as the company continues to adopt the cloud and takes on more risk in the following areas:
 >
 > - Mission-critical workloads
@@ -96,4 +96,4 @@ Over time, this governance MVP will be used to evolve the governance practices. 
 Now that you’re familiar with the governance MVP and have an idea of the governance evolutions to follow, read the [supporting narrative](./use-case.md) for additional context.
 
 > [!div class="nextstepaction"]
-> [Review the core narrative](./use-case.md)
+> [Review the supporting narrative](./use-case.md)

@@ -60,13 +60,15 @@ The following diagram shows a simple governance MVP and three governance evoluti
 
 The journeys demonstrate how to implement a governance MVP. From there, each journey shows how the governance team can work ahead of the adoption teams as a partner to accelerate adoption efforts. The Fusion Governance Model guides the application of governance from foundation through subsequent evolutions.
 
-Note: Governance is not a replacement for key functions such as security, networking, identity, finance, DevOps, or operations. Along the way, there will be interactions with and dependencies on members from each function. Those members should be included on the Cloud Governance Team to accelerate decisions and actions.
+> [!NOTE]
+> Governance is not a replacement for key functions such as security, networking, identity, finance, DevOps, or operations. Along the way, there will be interactions with and dependencies on members from each function. Those members should be included on the Cloud Governance Team to accelerate decisions and actions.
 
 ### Choose a governance journey
 
 To begin a governance journey, choose one of the two options below. The options are based on synthesized customer experiences. The titles are based on the size of the enterprise for ease of navigation. However, the reader's decision may be more complex. The following tables outline the differences between the two options.
 
-Note: It’s unlikely that either journey aligns completely to your situation. Choose whichever journey is closest and use it as a starting point. Throughout the journey, additional information is provided to help you customize decisions to meet specific criteria.
+> [!NOTE]
+> It’s unlikely that either journey aligns completely to your situation. Choose whichever journey is closest and use it as a starting point. Throughout the journey, additional information is provided to help you customize decisions to meet specific criteria.
 
 **Business Characteristics**
 

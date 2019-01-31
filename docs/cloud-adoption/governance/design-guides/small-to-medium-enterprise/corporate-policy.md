@@ -5,88 +5,87 @@ author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
-# Fusion: Small to Medium Enterprise - Initial Corporate Policy behind the governance strategy
+# Fusion: Small to Medium Enterprise - Initial corporate policy behind the governance strategy
 
-The following corporate policy defines the initial governance position that defines the starting point for governance in this design guide. This article will define early stage risks, initial policy statements, and early processes to enforce policy statements.
+The following corporate policy defines an initial governance position, which is the starting point for this journey. This article defines early-stage risks, initial policy statements, and early processes to enforce policy statements.
 
 > [!NOTE]
-> This article is not technical. The corporate policy defined in this article is still important, as it will drive many technical decisions. For those who need an immediate answer, jump ahead to the Governance MVP article. However, it is suggested that the Cloud Governance Team reads, modifies, and implements this Corporate Policy prior to implementation of the design guidance.
+>The corporate policy is not a technical document, but it drives many technical decisions. The governance MVP described in the [overview](./overview.md) ultimately derives from this policy. Before implementing a governance MVP, your organization should develop a corporate policy based on your own objectives and business risks.
 
-## Define the Cloud Governance Team
+## Cloud Governance team
 
-The cloud governance team currently consists of two system administrators who have foreseen the need for governance in the future. Over the next several months, they will inherit cleaning up the cloud from a governance perspective, earning them the title of Cloud Custodians. In latter evolutions, that will likely change.
+In this narrative, the Cloud Governance team is comprised of two systems administrators who have recognized the need for governance. Over the next several months, they will inherit the job of cleaning up the governance of the company’s cloud presence, earning them the title of Cloud Custodians. In subsequent evolutions, this title will likely change.
 
 ## Objective
 
-As mentioned in the introduction to this design guide, the initial objective is to establish a foundation for governance agility. Getting the Governance MVP right will allow the Cloud Governance Team to stay ahead of cloud adoption and implement governance guard rails as the adoption plan evolves.
+The initial objective is to establish a foundation for governance agility. An effective Governance MVP allows the governance team to stay ahead of cloud adoption and implement guardrails as the adoption plan evolves.
 
-## Business Risks
+## Business risks
 
-At this experimental, proof of concept, and development stage of cloud adoption, risks are relatively low. There is also little definition around the final state of the technical solutions to be deployed to the cloud. The cloud readiness of IT employees is also relatively low. A basic foundation for cloud adoption would help the team safely learn and grow.
+The company is at an early stage of cloud adoption, experimenting and building proofs of concept. Risks are now relatively low, but future risks are likely. There is little definition around the final state of the technical solutions to be deployed to the cloud. In addition, the cloud readiness of IT employees is low. A foundation for cloud adoption will help the team safely learn and grow.
 
-**Business Risk:** There is a risk of not empowering growth and/or providing the right protections against future risk.
+**Business Risk**: There is a risk of not empowering growth, but also a risk of not providing the right protections against future risks.
 
-An agile yet robust governance approach is required to support the board’s vision for corporate and technical growth. Failure to implement such a strategy would slow technical growth, risking market share growth and future market share. The risk is relatively high. However, at this stage tolerance for that risk is equally high.
+An agile yet robust governance approach is needed to support the board’s vision for corporate and technical growth. Failure to implement such a strategy will slow technical growth, potentially risking market share growth and future market share. The impact of such a business risk is unquestionably high. However, the role IT will play in those potential future states is unknown, making the risk associated with current IT efforts relatively high. That said, until more concrete plans are aligned, the business has a high tolerance for risk.
 
-This business risk can be broken down tactically into a few technical risks:
+This business risk can be broken down tactically into several technical risks:
 
-- There is a risk that the application of governance to deployed assets could be difficult and costly.
-- There is a risk that governance may not be properly applied across an application or workload, creating gaps in security.
-- There is a risk of inconsistency with so many teams working in the cloud.
-- There is a risk of costs not properly aligning to business units, teams, or other budgetary management units.
-- There is a risk associated with multiple identities being used to manage various deployments, which could lead to security issues.
+- Well-intended corporate policies could slow transformation efforts or break critical business processes, if not considered within a structured approval flow.
+- The application of governance to deployed assets could be difficult and costly.
+- Governance may not be properly applied across an application or workload, creating gaps in security.
+- With so many teams working in the cloud, there is a risk of inconsistency.
+- Costs may not properly align to business units, teams, or other budgetary management units.
+- The use of multiple identities to manage various deployments could lead to security issues.
 - Despite current policies, there is a risk that protected data could be mistakenly deployed to the cloud.
 
-## Tolerance Indicators
+## Tolerance indicators
 
-The current tolerance for risk is high and the appetite for investing in cloud governance is low. As such, the tolerance indicators act as an early warning system to trigger the investment of time and energy. If and when the following indicators are observed, it would be wise to evolve the governance strategy.
+The current tolerance for risk is high and the appetite for investing in cloud governance is low. As such, the tolerance indicators act as an early warning system to trigger more investment of time and energy. If and when the following indicators are observed, you should evolve the governance strategy.
 
-- **Cost management.** Scale of deployment exceeds 100 assets to the cloud or Monthly spend exceeding $1,00/month.
-- **Security Management.** Inclusion of protected data in defined cloud adoption plans.
-- **Resource Management.** Deployment of mission critical workloads.
+- Cost management: The scale of deployment exceeds 100 assets to the cloud, or monthly spending exceeds $1,000/month.
+- Security Baseline: Inclusion of protected data in defined cloud adoption plans.
+- Resource Consistency: Inclusion of any mission-critical applications in defined cloud adoption plans.
 
-## Policy Statements
+## Policy statements
 
-The following policy statements establish requirements to mitigate the defined risks. These policies define the functional requirements for the Governance MVP. Each will be represented in the implementation of the Governance MVP.
+The following policy statements establish the requirements needed to mitigate the defined risks. These policies define the functional requirements for the governance MVP. Each will be represented in the implementation of the governance MVP. 
 
-### Configuration Management
+Deployment Acceleration: 
 
-- All assets must be grouped and tagged in alignment with the Grouping and Tagging strategies.
+- All assets must be grouped and tagged according to defined grouping and tagging strategies.
 - All assets must use an approved deployment model.
-- Any deployment model used must be compatible with the tools used to release subsequent governance requirements.
+- Once a governance foundation has been established for a cloud provider, any deployment tooling must be compatible with the tools defined by the governance team.
 
-### Identity Management
+Identity Baseline: 
 
 - All assets deployed to the cloud should be controlled using identities and roles approved by current governance policies.
 - All groups in the on-premises Active Directory infrastructure that have elevated privileges should be mapped to an approved RBAC role.
 
-### Security Management
+Security Baseline: 
 
 - Any asset deployed to the cloud must have an approved data classification.
-- No assets identified with a protected level of data may be deployed to the cloud.
+- No assets identified with a protected level of data may be deployed to the cloud, until sufficient requirements for security and governance can be approved and implemented.
 - Until minimum network security requirements can be validated and governed, cloud environments are seen as a demilitarized zone and should meet similar connection requirements to other data centers or internal networks.
-- When protected data is to be deployed additional governance requirements will be established with IT security.
 
-### Cost Management
+Cost Management: 
 
-- For tracking purposes, all assets must be assigned to an Application Owner within one of the core business functions.
-- When cost concerns arise, additional governance requirements will be established with the Finance.
+- For tracking purposes, all assets must be assigned to an application owner within one of the core business functions.
+- When cost concerns arise, additional governance requirements will be established with the Finance team.
 
-### Resource Management
-
-- Since no mission critical workloads are deployed at this stage, there are no SLA, performance, or BCDR requirements to be governed.
-- When mission critical workloads are deployed, additional governance requirements will be established with IT operations.
+Resource Consistency: 
+- Because no mission-critical workloads are deployed at this stage, there are no SLA, performance, or BCDR requirements to be governed.
+- When mission-critical workloads are deployed, additional governance requirements will be established with IT operations.
 
 ## Processes
 
-A budget has not been allocated to the ongoing monitoring and enforcement of these governance policies. Initial education and limited involvement in deployment planning are the two primary opportunities to monitor adherence to policy statements.
+No budget has been allocated for ongoing monitoring and enforcement of these governance policies. Given that, the cloud governance team has some ad hoc ways to monitor adherence to policy statements.
 
-**Initial Education:** The cloud governance team is investing time to educate the cloud adoption teams on the design guides that support these policies.
-**Deployment Planning:** Prior to deployment of any asset, the cloud governance team will review the design guide with the cloud adoption teams to discuss alignment.
+- **Education**: The cloud governance team is investing time to educate the cloud adoption teams on the governance journeys that support these policies.
+- **Deployment** reviews: Before deploying any asset, the cloud governance team will review the governance journey with the cloud adoption teams.
 
 ## Next steps
 
-This Corporate Policy definition prepares the Cloud Governance Team for implementation of the [Governance MVP](./governance-mvp.md), which will serve as the foundation for adoption.
+This corporate policy prepares the cloud governance team to implement the governance MVP, which will be the foundation for adoption. For more information, read [Governance MVP design](./governance-mvp.md).
 
 > [!div class="nextstepaction"]
 > [Implement the Governance MVP](./governance-mvp.md)
