@@ -1,8 +1,8 @@
-# Secure Azure Web App Deployments to ILB ASE
+# Securely Deploy an Expense Web App to Azure App Service Environment
 
-This example scenario walks you through application deployment in your intranet environment using Azure App Service Environment service and securely connect to Azure SQL DB over VNet service endpoint. This scenario will also show how you can expose this application to internet in a secure manner using Azure Application Gateway service which includes Web Application Firewall. This will also show one of the best practices to setup continuous integration & continuous deployment to ILB ASE using Azure DevOps to automate build & release of an application. 
+This example scenario walks you through application deployment in your intranet environment using Azure App Service Environment service with an Internal Load Balancer configuration (ILB) and securely connect to Azure SQL DB over VNet service endpoint. This scenario will also show how you can expose this application to internet in a secure manner using Azure Application Gateway service which includes Web Application Firewall. This will also show one of the best practices to setup continuous integration & continuous deployment to ILB ASE using Azure DevOps to automate build & release of an application. 
 
-FastTrack for Azure commonly works with customers in Insurance and Banking industries where customers are very conscious of platform level secusrity in addition to application level security.
+This is a fairly common customer scenario in Banking and Insurance industries where customers are very conscious of platform level security in addition to application level security.
 
 ## Relevant use cases
 
