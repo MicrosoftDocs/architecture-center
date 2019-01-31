@@ -35,7 +35,7 @@ The data flows through the solution as follows:
 
 1. An RSS news feed acts as the generator that obtains data from a document or article. For example, with an article, data typically includes a title, a summary of the original body of the news item, and sometimes images
 
-2. A generator or ingestion process inserts the article and any associated images into an Azure Cosmos DB[Collection][collection].
+2. A generator or ingestion process inserts the article and any associated images into an Azure Cosmos DB [Collection][collection].
 
 3. A notification triggers an Ingest function in Azure Functions that stores the image content, if any, in an Azure Storage account as blobs. The article is then passed to the next queue.
 
@@ -53,21 +53,21 @@ At each processing step, the function writes the results to Azure Cosmos DB. Ult
 
 The following list of Azure components is used in this example.
 
-* [Azure Storage][storage]. Used to hold raw image and video files associated with an article. A secondary storage account is created with Azure App Service and is used to host the Azure Function code and logs.
+* [Azure Storage][storage] is used to hold raw image and video files associated with an article. A secondary storage account is created with Azure App Service and is used to host the Azure Function code and logs.
 
-* [Azure Cosmos DB][cosmos-db]. Used to hold article textual content and image and video tracking information. The results of the Cognitive Services steps are also stored here.
+* [Azure Cosmos DB][cosmos-db] holds article textual content and image and video tracking information. The results of the Cognitive Services steps are also stored here.
 
-* [Azure Functions][functions]. Provides the function code used to respond to queue messages and transform the incoming content. [Azure App Service][aas] hosts the function code and processes the records serially. This scenario includes five functions: Ingest, Transform, Detect Object, Face, and Notify.
+* [Azure Functions][functions] provides the function code used to respond to queue messages and transform the incoming content. [Azure App Service][aas] hosts the function code and processes the records serially. This scenario includes five functions: Ingest, Transform, Detect Object, Face, and Notify.
 
-* [Azure Service Bus][service-bus]. Hosts the Azure Service Bus Queues used by the functions.
+* [Azure Service Bus][service-bus] hosts the Azure Service Bus Queues used by the functions.
 
-* [Azure Cognitive Services][acs]. Provides the AI for the pipeline based on implementations of the [Computer Vision][vision] service, [Face API][face], and [Translate Text][translate-text] machine translation service.
+* [Azure Cognitive Services][acs] provides the AI for the pipeline based on implementations of the [Computer Vision][vision] service, [Face API][face], and [Translate Text][translate-text] machine translation service.
 
-* [Azure Application Insights][aai]. Provides insights into the functionality of the Azure App Service.
+* [Azure Application Insights][aai] provides analytics to help you diagnose issues and to understand functionality of your application.
 
 ### Alternatives
 
-* Instead of using a pattern based on queue notification and Azure Functions, use another pattern for this data flow. For example, [Azure Service Bus Topics][topics] can used in a pattern that processes the various parts of the article in parallel as opposed to the serial processing done in this example. For more information, compare [queues and topics][queues-topics].
+* Instead of using a pattern based on queue notification and Azure Functions, use another pattern for this data flow. For example, [Azure Service Bus Topics][topics] can used to processes the various parts of the article in parallel as opposed to the serial processing done in this example. For more information, compare [queues and topics][queues-topics].
 
 * Use [Azure Logic App][logic-app] to implement the function code and implement record-level locking such as [Redlock][redlock] (needed for parallel processing until Azure Cosmos DB supports [partial document updates][partial]). For more information, [compare Functions and Logic Apps][compare].
 
@@ -77,8 +77,7 @@ The following list of Azure components is used in this example.
 
 ## Considerations
 
-For simplicity, this example scenario uses only a few of the available APIs and services from Azure Cognitive Services. For example, text in images can be analyzed using the [Text Analytics API][text-analytics]. The target language in this scenario is assumed to be English, but you can
-change the input to any [supported language][language] of your choice.
+For simplicity, this example scenario uses only a few of the available APIs and services from Azure Cognitive Services. For example, text in images can be analyzed using the [Text Analytics API][text-analytics]. The target language in this scenario is assumed to be English, but you can change the input to any [supported language][language] of your choice.
 
 ### Scalability
 
@@ -113,7 +112,8 @@ Pricing for Azure Functions varies depending on the [plan][function-plan] it run
 
 ## Deploy the scenario
 
-**Prerequisites**: You must have an existing Azure account. If you don't have an Azure subscription, create a [free account][free] before you begin.
+> [!NOTE]
+> You must have an existing Azure account. If you don't have an Azure subscription, create a [free account][free] before you begin.
 
 All the code for this scenario is available in the [GitHub][github]. This repository contains the source code used to build the generator application that feeds the pipeline for this demo.
 
