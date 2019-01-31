@@ -67,11 +67,3 @@ This section of the article will evolve the Governance MVP design to include new
     2. The corporate policies established in the governance journey are not cloud specific. While the implementation may vary from cloud to cloud, the policies can be applied to the secondary provider.
 
 As multi-cloud adoption grows, the design evolution above will continue to mature. 
-
-## Next steps
-
-As cloud adoption continues to evolve and deliver additional business value, risks and cloud governance needs will also evolve. The following are a few evolutions that may be experienced in the future.
-
-- [Security Management](./protected-data.md): Inclusion of protected data in defined cloud adoption plans.
-- [Resource Consistency](./mission-critical.md): Deployment of mission critical workloads.
-- [Cost Management](./cost-control.md): Scale of deployment exceeds 100 assets to the cloud or monthly spending exceeding $1,000/month.
