@@ -15,10 +15,11 @@ Adoption has grown beyond the Cost tolerance indicator defined in the Governance
 
 ### Evolution of the current state
 
-- IT has depleted 75% of the DR data center, by moving disaster recovery and dev/test assets to Azure. The assets that remain contain protected data.
-- Dozens of IT assets have been deployed to the cloud. Some secondary business assets have been deployed to the cloud.
-- The application development teams have implemented CI/CD pipelines to deploy a number of cloud native applications that don't interact with protected data.
-- The BI team actively curates logistics, inventory, and third party data in the cloud to drive new predictions which shape business processes. However, their view is constrained until customer and financial data can be integrated into the data platform.
+- IT has eliminated the DR data center, by moving disaster recovery and dev/test assets to Azure.
+- The migration team has begun migrating VMs out of the production datacenter.
+- The application development teams is actively pushing production applications to the cloud through CI/CD pipelines. Those applications can reactively scale with user demands.
+- The business intelligence team within IT has delivered a number of predictive analytics tools in the cloud. the volumes of data aggregated in the cloud continues to grow.
+- All of this growth supports committed business outcomes. However, costs have begun to mushroom. Projected budgets are growing faster than expected. The CFO needs improved approaches to managing costs.
 
 ### Evolution of the future state
 
