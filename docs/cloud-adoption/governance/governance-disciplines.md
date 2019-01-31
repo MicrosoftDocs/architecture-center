@@ -73,7 +73,7 @@ Across each cloud provider, there are common cloud governance disciplines that c
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Security Management</h3>
+                        <h3>Security Baseline</h3>
                         <p>Security is a complex & personal topic, unique to each company. Once security requirements are established, cloud governance policies and enforcement applies those requirements across network, data and asset configurations.</p>
                     </div>
                 </div>
@@ -92,8 +92,8 @@ Across each cloud provider, there are common cloud governance disciplines that c
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Identity Management</h3>
-                        <p>Isolated identity providers introduce management overhead and increase the risk profile. Policies, which enforce hybrid identity and extend/improve on-prem identity management, mitigate several business risks.</p>
+                        <h3>Identity Baseline</h3>
+                        <p>Inconsistencies in the application of identity requirements can increase the risk of breach. The Identity Baseline discipline focuses on ways to ensure identity is consistently applied across cloud adoption efforts.</p>
                     </div>
                 </div>
             </div>
@@ -111,8 +111,8 @@ Across each cloud provider, there are common cloud governance disciplines that c
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Resource Management</h3>
-                        <p>Sound governance happens at the resource level. Policy and architecture guidance regarding hierarchy, grouping, tagging, and access to resources is the foundation for all cloud governance.</p>
+                        <h3>Resource Consistency</h3>
+                        <p>Cloud operations depends on consistency in resource configuration. Through governance tooling, resources can consistently be configured to mitigate risks related to on-boarding, drift, discoverability, and recovery.</p>
                     </div>
                 </div>
             </div>
@@ -130,8 +130,8 @@ Across each cloud provider, there are common cloud governance disciplines that c
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Configuration Management</h3>
-                        <p>Changes to asset configuration is the most likely point of policy violation. As cloud adoption matures, so should the tools and approaches to inspect configuration during deployment, modification, and outage recovery.</p>
+                        <h3>Deployment Acceleration</h3>
+                        <p>Centralization, standardization, and consistency in deployment and configuration approaches improve governance practices. When made available through cloud-based governance tooling, they create a cloud factor which can accelerate deployment activities.</p>
                     </div>
                 </div>
             </div>

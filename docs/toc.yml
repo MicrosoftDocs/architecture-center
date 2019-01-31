@@ -625,6 +625,10 @@
           href: cloud-adoption/governance/design-guides/large-enterprise/multi-cloud.md
     - name: References
       items:
+      - name: Defining Corporate Policy & Compliance
+        href: cloud-adoption/governance/corporate-policy.md
+      - name: The Five Disciplines of Cloud Governance
+        href: cloud-adoption/governance/governance-disciplines.md
       - name: Evolving Corporate Policy & Compliance
         items:
           - name: Understand business risks
