@@ -32,7 +32,7 @@ The changes to current and future state expose new risks that will require new p
 
 This business risk can be expanded into a few technical risks:
 
-- Actual costs might exceeding the plan.
+- Actual costs might exceed the plan.
 - Business conditions change. When they do, there will be cases when a business function needs to consume more cloud services than expected. There is a risk that this extra spending will be considered overages, as opposed to a necessary adjustment to the plan.
 - Systems could be over-provisioned, resulting in excess spending.
 
