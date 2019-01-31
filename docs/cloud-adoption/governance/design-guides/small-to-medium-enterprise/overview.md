@@ -32,27 +32,27 @@ These patterns provide room for growth without complicating the hierarchy unnece
 
 **Governance of Resources**: Enforcing governance across subscriptions will come from Azure Blueprints and the associated assets within the blueprint.
 
-1. Create an Azure Blueprint named “Governance MVP”.<br/>
-    a. Enforce the use of standard Azure roles.<br/>
-    b. Enforce that users can only authenticate against existing an RBAC implementation.<br/>
-    c. Apply this blueprint to all subscriptions within the management group.<br/>
-2. Create an Azure Policy to apply or enforce the following:<br/>
-    a. Resource tagging should require values for Business Function, Data Classification, Criticality, SLA, Environment, and Application.<br/>
-    b. The value of the Application tag should match the name of the resource group.<br/>
-    c. Validate role assignments for each resource group and resource.<br/>
+1. Create an Azure Blueprint named “Governance MVP”.
+    1. Enforce the use of standard Azure roles.
+    2. Enforce that users can only authenticate against existing an RBAC implementation.
+    3. Apply this blueprint to all subscriptions within the management group.
+2. Create an Azure Policy to apply or enforce the following:
+    1. Resource tagging should require values for Business Function, Data Classification, Criticality, SLA, Environment, and  Application.
+    2. The value of the Application tag should match the name of the resource group.
+    3. Validate role assignments for each resource group and resource.
 3. Publish and apply the “Governance MVP” Azure Blueprint to each management group.
 
 These patterns enable resources to be discovered and tracked, and enforce basic role management.
 
 **Demilitarized Zone (DMZ)**: It’s common for specific subscriptions to require some level of access to on-premises resources. This may be the case for migration scenarios or development scenarios, when some dependent resources are still in the on-premises datacenter. In this case, the governance MVP adds the following best practices:
 
-1. Establish a Cloud DMZ. <br/>
-    a. The [Cloud DMZ Reference Architecture](http://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid) establishes a pattern and deployment model for creating a VPN Gateway in Azure.<br/>
-    b. Validate that proper DMZ connectivity and security requirements are in place for a local edge device in the on-premises datacenter.<br/>
-    c. Validate that the local edge device is compatible with Azure VPN Gateway requirements.<br/>
-    d. Once connection to the on-premise VPN has been verified, capture the ARM template created by that reference architecture.
-2. Create a second Azure Blueprint named “DMZ” <br/>
-    a. Add the Resource Manager template for the VPN Gateway to the Azure Blueprint.
+1. Establish a Cloud DMZ. 
+    1. The [Cloud DMZ Reference Architecture](http://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid) establishes a pattern and deployment model for creating a VPN Gateway in Azure.
+    2. Validate that proper DMZ connectivity and security requirements are in place for a local edge device in the on-premises datacenter.
+    3. Validate that the local edge device is compatible with Azure VPN Gateway requirements.
+    4. Once connection to the on-premise VPN has been verified, capture the ARM template created by that reference architecture.
+2. Create a second Azure Blueprint named “DMZ” 
+    1. Add the Resource Manager template for the VPN Gateway to the Azure Blueprint.
 3. Apply the DMZ Azure Blueprint to any subscriptions requiring on-premises connectivity. This Azure Blueprint should be applied in addition to the Governance MVP blueprint.
 
 > [!WARNING]
