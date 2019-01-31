@@ -2,7 +2,7 @@
 title: Mass ingestion and analysis of news feeds on Azure
 description: Create a pipeline for ingesting and analyzing text, images, sentiment, and other data from RSS news feeds using only Azure services, including Azure Cosmos DB and Azure Cognitive Services.
 author: njray
-ms.date: 1/24/2019
+ms.date: 2/1/2019
 ms.custom: azcat-ai, AI
 social_image_url: /azure/architecture/example-scenario/ai/media/mass-ingestion-newsfeeds-architecture.png
 ms.topic: example-scenario
@@ -124,11 +124,10 @@ The GitHub [readme][github] discusses several required data formats.
 The two core collections for the articles pipeline are Ingest and Processed. The design of the two are similar in that there are few first-class members of the document but potentially many *properties* associated with the document depending on the type.
 
 A third collection, Inspection, is also implemented. It simply records information about the processing of the original article and its children. Its table can be customized or removed depending on how the reader implements a notification schema for content of interest.
-                                                                                                            |
 
 [architecture]: ./media/mass-ingestion-newsfeeds-architecture.png
-[aai]: /azure/azure-monitor/app/app-insights-overview 
-[aas]: https://azure.microsoft.com/try/app-service/ 
+[aai]: /azure/azure-monitor/app/app-insights-overview
+[aas]: https://azure.microsoft.com/try/app-service/
 [acs]: https://azure.microsoft.com/services/cognitive-services/directory/
 [collection]: /rest/api/cosmos-db/collections
 [compare]: /azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs#compare-azure-functions-and-azure-logic-apps
