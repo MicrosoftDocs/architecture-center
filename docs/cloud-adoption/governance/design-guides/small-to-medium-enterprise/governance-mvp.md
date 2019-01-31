@@ -157,9 +157,7 @@ If any of the patterns selected in this governance journey don't align with the 
 
 Once this guide is implemented, the Cloud Adoption team can go forth with a sound governance foundation. The Cloud Governance team will work in parallel to continuously update the corporate policies and governance disciplines. 
 
-The two teams will use the tolerance indicators to identify the next evolution needed to continue supporting cloud adoption. Here are potential next steps that might be needed and the documented tolerance indicators:
+The two teams will use the tolerance indicators to identify the next evolution needed to continue supporting cloud adoption. For the fictitious company in this journey, the next step is evolving this governance baseline to [support moving protected data to the cloud](./protected-data.md).
 
-- [Security Management](./protected-data.md): Inclusion of protected data in defined cloud adoption plans.
-- [Resource Consistency](./mission-critical.md): Deployment of mission critical workloads.
-- [Cost Management](./cost-control.md): Scale of deployment exceeds 100 assets to the cloud or monthly spending exceeding $1,000/month.
-- [Multi-Cloud Governance](./multi-cloud.md): Using this governance investment to manage multiple clouds.
+> [!div class="nextstepaction"]
+> [Security baseline evolution](./protected-data.md)
