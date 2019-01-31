@@ -1,8 +1,13 @@
 ---
 title: Design to scale out
+titleSuffix: Azure Application Architecture Guide
 description: Cloud applications should be designed for horizontal scaling.
 author: MikeWasson
 ms.date: 08/30/2018
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: reference-architecture
+ms.custom: seojan19
 ---
 
 # Design to scale out
@@ -13,11 +18,11 @@ A primary advantage of the cloud is elastic scaling &mdash; the ability to use a
 
 ## Recommendations
 
-**Avoid instance stickiness**. Stickiness, or *session affinity*, is when requests from the same client are always routed to the same server. Stickiness limits the application's ability to scale out. For example, traffic from a high-volume user will not be distributed across instances. Causes of stickiness include storing session state in memory, and using machine-specific keys for encryption. Make sure that any instance can handle any request. 
+**Avoid instance stickiness**. Stickiness, or *session affinity*, is when requests from the same client are always routed to the same server. Stickiness limits the application's ability to scale out. For example, traffic from a high-volume user will not be distributed across instances. Causes of stickiness include storing session state in memory, and using machine-specific keys for encryption. Make sure that any instance can handle any request.
 
-**Identify bottlenecks**. Scaling out isn't a magic fix for every performance issue. For example, if your backend database is the bottleneck, it won't help to add more web servers. Identify and resolve the bottlenecks in the system first, before throwing more instances at the problem. Stateful parts of the system are the most likely cause of bottlenecks. 
+**Identify bottlenecks**. Scaling out isn't a magic fix for every performance issue. For example, if your backend database is the bottleneck, it won't help to add more web servers. Identify and resolve the bottlenecks in the system first, before throwing more instances at the problem. Stateful parts of the system are the most likely cause of bottlenecks.
 
-**Decompose workloads by scalability requirements.**  Applications often consist of multiple workloads, with different requirements for scaling. For example, an application might have a public-facing site and a separate administration site. The public site may experience sudden surges in traffic, while the administration site has a smaller, more predictable load. 
+**Decompose workloads by scalability requirements.**  Applications often consist of multiple workloads, with different requirements for scaling. For example, an application might have a public-facing site and a separate administration site. The public site may experience sudden surges in traffic, while the administration site has a smaller, more predictable load.
 
 **Offload resource-intensive tasks.** Tasks that require a lot of CPU or I/O resources should be moved to [background jobs][background-jobs] when possible, to minimize the load on the front end that is handling user requests.
 
@@ -27,11 +32,10 @@ A primary advantage of the cloud is elastic scaling &mdash; the ability to use a
 
 **Design for scale in**.  Remember that with elastic scale, the application will have periods of scale in, when instances get removed. The application must gracefully handle instances being removed. Here are some ways to handle scalein:
 
-- Listen for shutdown events (when available) and shut down cleanly. 
-- Clients/consumers of a service should support transient fault handling and retry. 
-- For long-running tasks, consider breaking up the work, using checkpoints or the [Pipes and Filters][pipes-filters-pattern] pattern. 
-- Put work items on a queue so that another instance can pick up the work, if an instance is removed in the middle of processing. 
-
+- Listen for shutdown events (when available) and shut down cleanly.
+- Clients/consumers of a service should support transient fault handling and retry.
+- For long-running tasks, consider breaking up the work, using checkpoints or the [Pipes and Filters][pipes-filters-pattern] pattern.
+- Put work items on a queue so that another instance can pick up the work, if an instance is removed in the middle of processing.
 
 <!-- links -->
 

@@ -1,17 +1,17 @@
 ---
-title: Static Content Hosting
+title: Static Content Hosting pattern
+titleSuffix: Cloud Design Patterns
 description: Deploy static content to a cloud-based storage service that can deliver them directly to the client.
 keywords: design pattern
 author: dragon119
-ms.date: 06/23/2017
-
-pnp.series.title: Cloud Design Patterns
-pnp.pattern.categories: [data-management, design-implementation, performance-scalability]
+ms.date: 01/04/2019
+ms.topic: design-pattern
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
+ms.custom: seodec18
 ---
 
 # Static Content Hosting pattern
-
-[!INCLUDE [header](../_includes/header.md)]
 
 Deploy static content to a cloud-based storage service that can deliver them directly to the client. This can reduce the need for potentially expensive compute instances.
 
@@ -19,11 +19,11 @@ Deploy static content to a cloud-based storage service that can deliver them dir
 
 Web applications typically include some elements of static content. This static content might include HTML pages and other resources such as images and documents that are available to the client, either as part of an HTML page (such as inline images, style sheets, and client-side JavaScript files) or as separate downloads (such as PDF documents).
 
-Although web servers are well tuned to optimize requests through efficient dynamic page code execution and output caching, they still have to handle requests to download static content. This consumes processing cycles that could often be put to better use.
+Although web servers are optimized for dynamic rendering and output caching, they still have to handle requests to download static content. This consumes processing cycles that could often be put to better use.
 
 ## Solution
 
-In most cloud hosting environments it's possible to minimize the need for compute instances (for example, use a smaller instance or fewer instances), by locating some of an application’s resources and static pages in a storage service. The cost for cloud-hosted storage is typically much less than for compute instances.
+In most cloud hosting environments, you can put some of an application's resources and static pages in a storage service. The storage service can serve requests for these resources, reducing load on the compute resources that handle other web requests. The cost for cloud-hosted storage is typically much less than for compute instances.
 
 When hosting some parts of an application in a storage service, the main considerations are related to deployment of the application and to securing resources that aren't intended to be available to anonymous users.
 
@@ -37,11 +37,13 @@ Consider the following points when deciding how to implement this pattern:
 
 - Storage accounts are often geo-replicated by default to provide resiliency against events that might affect a datacenter. This means that the IP address might change, but the URL will remain the same.
 
-- When some content is located in a storage account and other content is in a hosted compute instance it becomes more challenging to deploy an application and to update it. You might have to perform separate deployments, and version the application and content to manage it more easily&mdash;especially when the static content includes script files or UI components. However, if only static resources have to be updated, they can simply be uploaded to the storage account without needing to redeploy the application package.
+- When some content is located in a storage account and other content is in a hosted compute instance, it becomes more challenging to deploy and update the application. You might have to perform separate deployments, and version the application and content to manage it more easily&mdash;especially when the static content includes script files or UI components. However, if only static resources have to be updated, they can simply be uploaded to the storage account without needing to redeploy the application package.
 
 - Storage services might not support the use of custom domain names. In this case it's necessary to specify the full URL of the resources in links because they'll be in a different domain from the dynamically-generated content containing the links.
 
-- The storage containers must be configured for public read access, but it's vital to ensure that they aren't configured for public write access to prevent users being able to upload content. Consider using a valet key or token to control access to resources that shouldn't be available anonymously&mdash;see the [Valet Key pattern](valet-key.md) for more information.
+- The storage containers must be configured for public read access, but it's vital to ensure that they aren't configured for public write access to prevent users being able to upload content.
+
+- Consider using a valet key or token to control access to resources that shouldn't be available anonymously. See the [Valet Key pattern](./valet-key.md) for more information.
 
 ## When to use this pattern
 
@@ -49,7 +51,7 @@ This pattern is useful for:
 
 - Minimizing the hosting cost for websites and applications that contain some static resources.
 
-- Minimizing the hosting cost for websites that consist of only static content and resources. Depending on the capabilities of the hosting provider’s storage system, it might be possible to entirely host a fully static website in a storage account.
+- Minimizing the hosting cost for websites that consist of only static content and resources. Depending on the capabilities of the hosting provider's storage system, it might be possible to entirely host a fully static website in a storage account.
 
 - Exposing static resources and content for applications running in other hosting environments or on-premises servers.
 
@@ -65,30 +67,15 @@ This pattern might not be useful in the following situations:
 
 ## Example
 
-Static content located in Azure Blob storage can be accessed directly by a web browser. Azure provides an HTTP-based interface over storage that can be publicly exposed to clients. For example, content in an Azure Blob storage container is exposed using a URL with the following form:
+Azure Storage supports serving static content directly from a storage container. Files are served through anonymous access requests. By default, files have a URL in a subdomain of `core.windows.net`, such as `https://contoso.z4.web.core.windows.net/image.png`. You can configure a custom domain name, and use Azure CDN to access the files over HTTPS. For more information, see [Static website hosting in Azure Storage](/azure/storage/blobs/storage-blob-static-website).
 
-`https://[ storage-account-name ].blob.core.windows.net/[ container-name ]/[ file-name ]`
+![Delivering static parts of an application directly from a storage service](./_images/static-content-hosting-pattern.png)
 
+Static website hosting makes the files available for anonymous access. If you need to control who can access the files, you can store files in Azure blob storage and then generate [shared access signatures](/azure/storage/common/storage-dotnet-shared-access-signature-part-1) to limit access.
 
-When uploading the content it's necessary to create one or more blob containers to hold the files and documents. Note that the default permission for a new container is Private, and you must change this to Public to allow clients to access the contents. If it's necessary to protect the content from anonymous access, you can implement the [Valet Key pattern](valet-key.md) so users must present a valid token to download the resources.
+The links in the pages delivered to the client must specify the full URL of the resource. If the resource is protected with a valet key, such as a shared access signature, this signature must be included in the URL.
 
-> [Blob Service Concepts](https://msdn.microsoft.com/library/azure/dd179376.aspx) has information about blob storage, and the ways that you can access and use it.
-
-The links in each page will specify the URL of the resource and the client will access it directly from the storage service. The figure illustrates delivering static parts of an application directly from a storage service.
-
-![Figure 1 - Delivering static parts of an application directly from a storage service](./_images/static-content-hosting-pattern.png)
-
-
-The links in the pages delivered to the client must specify the full URL of the blob container and resource. For example, a page that contains a link to an image in a public container might contain the following HTML.
-
-```html
-<img src="https://mystorageaccount.blob.core.windows.net/myresources/image1.png"
-     alt="My image" />
-```
-
-> If the resources are protected by using a valet key, such as an Azure shared access signature, this signature must be included in the URLs in the links.
-
-A solution named StaticContentHosting that demonstrates using external storage for static resources is available from [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/static-content-hosting). The StaticContentHosting.Cloud project contains configuration files that specify the storage account and container that holds the static content.
+A sample application that demonstrates using external storage for static resources is available on [GitHub][sample-app]. This sample uses configuration files to specify the storage account and container that holds the static content.
 
 ```xml
 <Setting name="StaticContent.StorageConnectionString"
@@ -160,6 +147,8 @@ The file Index.cshtml in the Views\Home folder contains an image element that us
 
 ## Related patterns and guidance
 
-- A sample that demonstrates this pattern is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/static-content-hosting).
-- [Valet Key pattern](valet-key.md). If the target resources aren't supposed to be available to anonymous users it's necessary to implement security over the store that holds the static content. Describes how to use a token or key that provides clients with restricted direct access to a specific resource or service such as a cloud-hosted storage service.
-- [Blob Service Concepts](https://msdn.microsoft.com/library/azure/dd179376.aspx)
+- [Static Content Hosting sample][sample-app]. A sample application that demonstrates this pattern.
+- [Valet Key pattern](./valet-key.md). If the target resources aren't supposed to be available to anonymous users, use this pattern to restrict direct access.
+- [Serverless web application on Azure](../reference-architectures/serverless/web-app.md). A reference architecture that uses static website hosting with Azure Functions to implement a serverless web app.
+
+[sample-app]: https://github.com/mspnp/cloud-design-patterns/tree/master/static-content-hosting

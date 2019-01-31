@@ -1,8 +1,14 @@
 ---
 title: Anti-Corruption Layer pattern
+titleSuffix: Cloud Design Patterns
 description: Implement a façade or adapter layer between a modern application and a legacy system.
+keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
+ms.topic: design-pattern
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
+ms.custom: seodec18
 ---
 
 # Anti-Corruption Layer pattern
@@ -15,15 +21,15 @@ Most applications rely on other systems for some data or functionality. For exam
 
 Often these legacy systems suffer from quality issues such as convoluted data schemas or obsolete APIs. The features and technologies used in legacy systems can vary widely from more modern systems. To interoperate with the legacy system, the new application may need to support outdated infrastructure, protocols, data models, APIs, or other features that you wouldn't otherwise put into a modern application.
 
-Maintaining access between new and legacy systems can force the new system to adhere to at least some of the legacy system's APIs or other semantics. When these legacy features have quality issues, supporting them "corrupts" what might otherwise be a cleanly designed modern application. 
+Maintaining access between new and legacy systems can force the new system to adhere to at least some of the legacy system's APIs or other semantics. When these legacy features have quality issues, supporting them "corrupts" what might otherwise be a cleanly designed modern application.
 
-Similar issues can arise with any external system that your development team doesn't control, not just legacy systems. 
+Similar issues can arise with any external system that your development team doesn't control, not just legacy systems.
 
 ## Solution
 
 Isolate the different subsystems by placing an anti-corruption layer between them. This layer translates communications between the two systems, allowing one system to remain unchanged while the other can avoid compromising its design and technological approach.
 
-![](./_images/anti-corruption-layer.png) 
+![Diagram of the Anti-Corruption Layer pattern](./_images/anti-corruption-layer.png)
 
 The diagram above shows an application with two subsystems. Subsystem A calls to subsystem B through an anti-corruption layer. Communication between subsystem A and the anti-corruption layer always uses the data model and architecture of subsystem A. Calls from the anti-corruption layer to subsystem B conform to that subsystem's data model or methods. The anti-corruption layer contains all of the logic necessary to translate between the two systems. The layer can be implemented as a component within the application or as an independent service.
 
@@ -35,7 +41,7 @@ The diagram above shows an application with two subsystems. Subsystem A calls to
 - Consider whether you need more than one anti-corruption layer. You may want to decompose functionality into multiple services using different technologies or languages, or there may be other reasons to partition the anti-corruption layer.
 - Consider how the anti-corruption layer will be managed in relation with your other applications or services. How will it be integrated into your monitoring, release, and configuration processes?
 - Make sure transaction and data consistency are maintained and can be monitored.
-- Consider whether the anti-corruption layer needs to handle all communication between different subsystems, or just a subset of features. 
+- Consider whether the anti-corruption layer needs to handle all communication between different subsystems, or just a subset of features.
 - If the anti-corruption layer is part of an application migration strategy, consider whether it will be permanent, or will be retired after all legacy functionality has been migrated.
 
 ## When to use this pattern
@@ -43,9 +49,9 @@ The diagram above shows an application with two subsystems. Subsystem A calls to
 Use this pattern when:
 
 - A migration is planned to happen over multiple stages, but integration between new and legacy systems needs to be maintained.
-- Two or more subsystems have different semantics, but still need to communicate. 
+- Two or more subsystems have different semantics, but still need to communicate.
 
-This pattern may not be suitable if there are no significant semantic differences between new and legacy systems. 
+This pattern may not be suitable if there are no significant semantic differences between new and legacy systems.
 
 ## Related guidance
 

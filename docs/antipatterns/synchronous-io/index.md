@@ -1,8 +1,13 @@
 ---
 title: Synchronous I/O antipattern
+titleSuffix: Performance antipatterns for cloud apps
 description: Blocking the calling thread while I/O completes can reduce performance and affect vertical scalability.
 author: dragon119
 ms.date: 06/05/2017
+ms.topic: article
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
+ms.custom: seodec18
 ---
 
 # Synchronous I/O antipattern
@@ -22,9 +27,9 @@ Common examples of I/O include:
 
 This antipattern typically occurs because:
 
-- It appears to be the most intuitive way to perform an operation. 
+- It appears to be the most intuitive way to perform an operation.
 - The application requires a response from a request.
-- The application uses a library that only provides synchronous methods for I/O. 
+- The application uses a library that only provides synchronous methods for I/O.
 - An external library performs synchronous I/O operations internally. A single synchronous I/O call can block an entire call chain.
 
 The following code uploads a file to Azure blob storage. There are two places where the code blocks waiting for synchronous I/O, the `CreateIfNotExists` method and the `UploadFromStream` method.
@@ -72,7 +77,7 @@ You can find the complete code for both of these examples [here][sample-app].
 
 ## How to fix the problem
 
-Replace synchronous I/O operations with asynchronous operations. This frees the current thread to continue performing meaningful work rather than blocking, and helps improve the utilization of compute resources. Performing I/O asynchronously is particularly efficient for handling an unexpected surge in requests from client applications. 
+Replace synchronous I/O operations with asynchronous operations. This frees the current thread to continue performing meaningful work rather than blocking, and helps improve the utilization of compute resources. Performing I/O asynchronously is particularly efficient for handling an unexpected surge in requests from client applications.
 
 Many libraries provide both synchronous and asynchronous versions of methods. Whenever possible, use the asynchronous versions. Here is the asynchronous version of the previous example that uploads a file to Azure blob storage.
 
@@ -186,20 +191,12 @@ The next graph shows the results from load testing the asynchronous version of t
 
 ![Performance chart for the sample application performing asynchronous I/O operations][async-performance]
 
-Throughput is far higher. Over the same duration as the previous test, the
-system successfully handles a nearly tenfold increase in throughput, as measured in
-requests per second. Moreover, the average response time is relatively constant and remains approximately 25 times smaller than the previous test.
-
+Throughput is far higher. Over the same duration as the previous test, the system successfully handles a nearly tenfold increase in throughput, as measured in requests per second. Moreover, the average response time is relatively constant and remains approximately 25 times smaller than the previous test.
 
 [sample-app]: https://github.com/mspnp/performance-optimization/tree/master/SynchronousIO
-
-
 [async-wrappers]: https://blogs.msdn.microsoft.com/pfxteam/2012/03/24/should-i-expose-asynchronous-wrappers-for-synchronous-methods/
 [performance-counters]: /azure/cloud-services/cloud-services-dotnet-diagnostics-performance-counters
 [web-sites-monitor]: /azure/app-service-web/web-sites-monitor
 
 [sync-performance]: _images/SyncPerformance.jpg
 [async-performance]: _images/AsyncPerformance.jpg
-
-
-

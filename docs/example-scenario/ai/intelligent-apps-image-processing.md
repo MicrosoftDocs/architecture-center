@@ -1,8 +1,13 @@
 ---
-title: Image classification for insurance claims on Azure
+title: Image classification for insurance claims
+titleSuffix: Azure Example Scenarios
 description: Build image processing into your Azure applications.
 author: david-stanford
 ms.date: 07/05/2018
+ms.topic: example-scenario
+ms.service: architecture-center
+ms.subservice: example-scenario
+social_image_url: /azure/architecture/example-scenario/ai/media/architecture-intelligent-apps-image-processing.png
 ---
 
 # Image classification for insurance claims on Azure
@@ -15,10 +20,10 @@ By using Azure services such as the Computer Vision API and Azure Functions, com
 
 ## Relevant use cases
 
-Consider this scenario for the following use cases:
+Other relevant use cases include:
 
-* Classify images on a fashion website.
-* Classify telemetry data from screenshots of games.
+- Classifying images on a fashion website.
+- Classifying telemetry data from screenshots of games.
 
 ## Architecture
 
@@ -34,16 +39,16 @@ This scenario covers the back-end components of a web or mobile application. Dat
 
 ### Components
 
-* [Computer Vision API](/azure/cognitive-services/computer-vision/home) is part of the Cognitive Services suite and is used to retrieve information about each image.
-* [Azure Functions](/azure/azure-functions/functions-overview) provides the back-end API for the web application, as well as the event processing for uploaded images.
-* [Event Grid](/azure/event-grid/overview) triggers an event when a new image is uploaded to blob storage. The image is then processed with Azure functions.
-* [Blob storage](/azure/storage/blobs/storage-blobs-introduction) stores all of the image files that are uploaded into the web application, as well any static files that the web application consumes.
-* [Cosmos DB](/azure/cosmos-db/introduction) stores metadata about each image that is uploaded, including the results of the processing from Computer Vision API.
+- [Computer Vision API](/azure/cognitive-services/computer-vision/home) is part of the Cognitive Services suite and is used to retrieve information about each image.
+- [Azure Functions](/azure/azure-functions/functions-overview) provides the back-end API for the web application, as well as the event processing for uploaded images.
+- [Event Grid](/azure/event-grid/overview) triggers an event when a new image is uploaded to blob storage. The image is then processed with Azure functions.
+- [Blob storage](/azure/storage/blobs/storage-blobs-introduction) stores all of the image files that are uploaded into the web application, as well any static files that the web application consumes.
+- [Cosmos DB](/azure/cosmos-db/introduction) stores metadata about each image that is uploaded, including the results of the processing from Computer Vision API.
 
 ## Alternatives
 
-* [Custom Vision Service](/azure/cognitive-services/custom-vision-service/home). The Computer Vision API returns a set of [taxonomy-based categories][cv-categories]. If you need to process information that isn't returned by the Computer Vision API, consider the Custom Vision Service, which lets you build custom image classifiers.
-* [Azure Search](/azure/search/search-what-is-azure-search). If your use case involves querying the metadata to find images that meet specific criteria, consider using Azure Search. Currently in preview, [Cognitive search](/azure/search/cognitive-search-concept-intro) seamlessly integrates this workflow.
+- [Custom Vision Service](/azure/cognitive-services/custom-vision-service/home). The Computer Vision API returns a set of [taxonomy-based categories][cv-categories]. If you need to process information that isn't returned by the Computer Vision API, consider the Custom Vision Service, which lets you build custom image classifiers.
+- [Azure Search](/azure/search/search-what-is-azure-search). If your use case involves querying the metadata to find images that meet specific criteria, consider using Azure Search. Currently in preview, [Cognitive search](/azure/search/cognitive-search-concept-intro) seamlessly integrates this workflow.
 
 ## Considerations
 
@@ -51,9 +56,9 @@ This scenario covers the back-end components of a web or mobile application. Dat
 
 The majority of the components used in this example scenario are managed services that will automatically scale. A couple notable exceptions: Azure Functions has a limit of a maximum of 200 instances. If you need to scale beyond this limit, consider multiple regions or app plans.
 
-Cosmos DB doesn’t auto-scale in terms of provisioned request units (RUs). For guidance on estimating your requirements see [request units](/azure/cosmos-db/request-units) in our documentation. To fully take advantage of the scaling in Cosmos DB, understand how [partition keys](/azure/cosmos-db/partition-data) work in CosmosDB.
+Cosmos DB doesn’t autoscale in terms of provisioned request units (RUs). For guidance on estimating your requirements see [request units](/azure/cosmos-db/request-units) in our documentation. To fully take advantage of the scaling in Cosmos DB, understand how [partition keys](/azure/cosmos-db/partition-data) work in CosmosDB.
 
-NoSQL databases frequently trade consistency (in the sense of the CAP theorem) for availability, scalability, and partitioning. In this example scenario, a key-value data model is used and transaction consistency is rarely needed as most operations are by definition atomic. Additional guidance to [Choose the right data store](../../guide/technology-choices/data-store-overview.md) is available in the Azure Architecture Center.  If your implementation requires high consistency, you can [choose your consistency level](/azure/cosmos-db/consistency-levels) in CosmosDB.
+NoSQL databases frequently trade consistency (in the sense of the CAP theorem) for availability, scalability, and partitioning. In this example scenario, a key-value data model is used and transaction consistency is rarely needed as most operations are by definition atomic. Additional guidance to [Choose the right data store](../../guide/technology-choices/data-store-overview.md) is available in the Azure Architecture Center. If your implementation requires high consistency, you can [choose your consistency level](/azure/cosmos-db/consistency-levels) in CosmosDB.
 
 For general guidance on designing scalable solutions, see the [scalability checklist][scalability] in the Azure Architecture Center.
 
@@ -75,15 +80,15 @@ To explore the cost of running this scenario, all of the services are pre-config
 
 We have provided three sample cost profiles based on amount of traffic (we assume all images are 100 kb in size):
 
-* [Small][small-pricing]: this pricing example correlates to processing &lt; 5000 images a month.
-* [Medium][medium-pricing]: this pricing example correlates to processing 500,000 images a month.
-* [Large][large-pricing]: this pricing example correlates to processing 50 million images a month.
+- [Small][small-pricing]: this pricing example correlates to processing &lt; 5000 images a month.
+- [Medium][medium-pricing]: this pricing example correlates to processing 500,000 images a month.
+- [Large][large-pricing]: this pricing example correlates to processing 50 million images a month.
 
 ## Related resources
 
-For a guided learning path of this scenario, see [Build a serverless web app in Azure][serverless].
+For a guided learning path, see [Build a serverless web app in Azure][serverless].
 
-Before deploying this example scenario in a production environment, review the Azure Functions [best practices][functions-best-practices].
+Before deploying this example scenario in a production environment, review recommended practices for [optimizing the performance and reliability of Azure Functions][functions-best-practices].
 
 <!-- links -->
 [architecture]: ./media/architecture-intelligent-apps-image-processing.png

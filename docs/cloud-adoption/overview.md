@@ -1,7 +1,9 @@
 ---
 layout: LandingPage
-ms.topic: landing-page
 ms.date: 09/10/2018
+ms.topic: landing-page
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
 ---
 
 # Enterprise Cloud Adoption

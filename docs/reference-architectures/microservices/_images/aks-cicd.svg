@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 340.3 114.5" style="enable-background:new 0 0 340.3 114.5;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+	.st1{fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3;}
+	.st2{fill:none;}
+	.st3{font-family:'SegoeUI';}
+	.st4{font-size:10px;}
+	.st5{font-size:10.4999px;}
+	.st6{fill:#0070C0;stroke:#0070C0;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3;}
+	.st7{fill:#00B050;stroke:#00B050;stroke-width:0.75;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:3;}
+	.st8{font-family:'SegoeUI-Italic';}
+	.st9{font-size:8px;}
+</style>
+<g id="Layer_2">
+	<rect class="st0" width="340.3" height="114.5"/>
+</g>
+<g id="Layer_1" xmlns:ev="http://www.w3.org/2001/xml-events">
+	<g>
+		<title>CI/CD (2)</title>
+		<g id="group24-1" transform="translate(18,-515.5)">
+			<title>Sheet.24</title>
+			<g id="shape1-2" transform="translate(49.5,-60.5)">
+				<title>Sheet.1</title>
+				<path class="st1" d="M-18,630h290.1"/>
+			</g>
+			<g id="shape3-5" transform="translate(80.4,-20)">
+				<title>Sheet.3</title>
+				<path class="st1" d="M-18,630h73.1"/>
+			</g>
+			<g id="shape8-8" transform="translate(58.5,-20)">
+				<title>Sheet.8</title>
+				<path class="st1" d="M-18,589.5c7.5,0,13.5,10.1,13.5,22.5c0,9.9,3.8,18,8.4,18l0,0"/>
+			</g>
+			<g id="shape9-11" transform="translate(175.5,-20) scale(-1,1)">
+				<title>Sheet.9</title>
+				<path class="st1" d="M18,589.5c7.5,0,13.5,10.1,13.5,22.5c0,9.9,3.8,18,8.4,18l0,0"/>
+			</g>
+			<g id="shape10-14" transform="translate(11.68,-54.36)">
+				<title>Sheet.10</title>
+				<desc>master</desc>
+				<rect x="-18" y="617.7" class="st2" width="39.6" height="12.3"/>
+				<text transform="matrix(1 0 0 1 -13.2 626.86)" class="st3 st4">master</text>
+			</g>
+			<g id="shape12-17" transform="translate(0,-12.22)">
+				<title>Sheet.12</title>
+				<desc>feature/8150</desc>
+				<rect x="-18" y="617.7" class="st2" width="72" height="12.3"/>
+				<text transform="matrix(1 0 0 1 -11.75 627.0101)" class="st3 st5">feature/8150</text>
+			</g>
+			<g id="shape14-20" transform="translate(221.36,-102.22)">
+				<title>Sheet.14</title>
+				<desc>release/delivery/v1.0.2</desc>
+				<rect x="-18" y="617.7" class="st2" width="111.6" height="12.3"/>
+				<text transform="matrix(1 0 0 1 -13.79 627.0101)" class="st3 st5">release/delivery/v1.0.2</text>
+			</g>
+			<g id="shape15-23" transform="translate(91.2656,-16.625)">
+				<title>Sheet.15</title>
+				<ellipse class="st6" cx="-14.8" cy="626.6" rx="3.2" ry="3.4"/>
+			</g>
+			<g id="shape16-25" transform="translate(125.016,-16.625)">
+				<title>Sheet.16</title>
+				<ellipse class="st6" cx="-14.8" cy="626.6" rx="3.2" ry="3.4"/>
+			</g>
+			<g id="shape17-27" transform="translate(149.766,-16.625)">
+				<title>Sheet.17</title>
+				<ellipse class="st6" cx="-14.8" cy="626.6" rx="3.2" ry="3.4"/>
+			</g>
+			<g id="shape18-29" transform="translate(169.031,-57.125)">
+				<title>Sheet.18</title>
+				<ellipse class="st7" cx="-14.8" cy="626.6" rx="3.2" ry="3.4"/>
+			</g>
+			<g id="shape22-31" transform="translate(99,0)">
+				<title>Sheet.22</title>
+				<desc>commits</desc>
+				<rect x="-18" y="610" class="st2" width="39.6" height="20"/>
+				<text transform="matrix(1 0 0 1 -12.84 622.4)" class="st8 st9">commits</text>
+			</g>
+			<g id="shape23-34" transform="translate(153.6,-60.5)">
+				<title>Sheet.23</title>
+				<desc>merge</desc>
+				<rect x="-18" y="610" class="st2" width="39.6" height="20"/>
+				<text transform="matrix(1 0 0 1 -9.09 622.4)" class="st8 st9">merge</text>
+			</g>
+		</g>
+		<g id="shape25-37" transform="translate(223.05,-576)">
+			<title>Sheet.25</title>
+			<path class="st1" d="M116.9,589.5H3.9c-7.5,0-13.5,10.1-13.5,22.5c0,9.9-3.8,18-8.4,18c0,0,0,0,0,0"/>
+		</g>
+	</g>
+</g>
+</svg>

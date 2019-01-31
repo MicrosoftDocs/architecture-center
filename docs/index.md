@@ -4,9 +4,12 @@ description: The Azure Architecture Center is the official center for guidance, 
 layout: LandingPage
 ms.topic: landing-page
 ms.date: 09/28/2018
+google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
 ---
 
 # Azure Architecture Center
+
+<!-- markdownlint-disable MD033 -->
 
 <!-- main panel -->
 <ul class="panelContent cardsC">
@@ -267,6 +270,29 @@ ms.date: 09/28/2018
     </li>
 </ul>
 
+<ul class="panelContent cardsJ">
+    <li>
+        <a href="https://azure-architecture.uservoice.com/forums/918127-general" data-linktype="external">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                        <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img src="https://docs.microsoft.com/en-us/media/common/i_feedback.svg" alt="" data-linktype="external">
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <h3>Submit your ideas for the Architecture Center</h3>
+                            <p>Do you have ideas for new architecture or design documentation?</p>
+                            <p>What kinds of articles would you like to see in the Azure Architecture Center?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+</ul>
+
 ---
 
 ## Build your skills with Microsoft Learn
@@ -358,4 +384,22 @@ ms.date: 09/28/2018
         </div>
         </a>
     </li>
-</ul>   
+    <li>
+        <a href="/learn/modules/n-tier-architecture/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/learn/achievements/n-tier-architecture.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Tour the N-tier architecture style</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>

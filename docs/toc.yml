@@ -211,6 +211,8 @@
       href: patterns/pipes-and-filters.md
     - name: Priority Queue
       href: patterns/priority-queue.md
+    - name: Publisher/Subscriber
+      href: patterns/publisher-subscriber.md
     - name: Queue-Based Load Leveling
       href: patterns/queue-based-load-leveling.md
     - name: Retry
@@ -295,14 +297,14 @@
       href: example-scenario/ai/commerce-chatbot.md
     - name: Image classification
       href: example-scenario/ai/intelligent-apps-image-processing.md
+    - name: Movie recommendation
+      href: example-scenario/ai/movie-recommendations.md
   - name: Apps
     items:
     - name: Computer-aided engineering
       href: example-scenario/apps/hpc-saas.md
     - name: Decentralized trust between banks
       href: example-scenario/apps/decentralized-trust.md
-    - name: Web application monitoring
-      href: example-scenario/apps/app-monitoring.md
     - name: DevOps with containers
       href: example-scenario/apps/devops-with-aks.md
     - name: DevOps with Azure DevOps
@@ -319,6 +321,8 @@
       href: example-scenario/apps/ecommerce-search.md
   - name: Data and Analytics
     items:
+    - name: Hybrid ETL with Data Factory
+      href: example-scenario/data/hybrid-etl-with-adf.md
     - name: IoT for construction
       href: example-scenario/data/big-data-with-iot.md
     - name: Data warehousing and analytics
@@ -339,10 +343,14 @@
       href: example-scenario/infrastructure/service-fabric-microservices.md
     - name: Highly scalable WordPress
       href: example-scenario/infrastructure/wordpress.md
+    - name: Highly Available Web Application
+      href: example-scenario/infrastructure/multi-tier-app-disaster-recovery.md
     - name: Multi-tier Windows
       href: example-scenario/infrastructure/regulated-multitier-app.md
     - name: HPC video rendering
       href: example-scenario/infrastructure/video-rendering.md
+    - name: Image Modeling
+      href: example-scenario/infrastructure/image-modeling.md
    
 - name: Reference Architectures
   items:
@@ -351,26 +359,42 @@
 
     - name: AI
       items:
-      - name: Batch scoring for deep learning models
+      - name: Distributed training of deep learning models
+        href: reference-architectures/ai/training-deep-learning.md
+      - name: Batch scoring of deep learning models
         href: reference-architectures/ai/batch-scoring-deep-learning.md
+      - name: Batch scoring of Python models
+        href: reference-architectures/ai/batch-scoring-python.md
+      - name: Real-time scoring of Python and deep learning models
+        href: reference-architectures/ai/realtime-scoring-python.md
+      - name: Real-time scoring of R machine learning models
+        href: reference-architectures/ai/realtime-scoring-r.md
+      - name: Conversational bot
+        href: reference-architectures/ai/conversational-bot.md
+      - name: Real-time Recommendation API
+        href: reference-architectures/ai/real-time-recommendation.md
 
     - name: Big data
       items:
       - name: Enterprise BI with SQL Data Warehouse
         href: reference-architectures/data/enterprise-bi-sqldw.md
-      - name: Automated enterprise BI with SQL Data Warehouse and Data Factory
+      - name: Automated enterprise BI with Azure Data Factory
         href: reference-architectures/data/enterprise-bi-adf.md
+      - name: Stream processing with Azure Databricks
+        href: reference-architectures/data/stream-processing-databricks.md
       - name: Stream processing with Azure Stream Analytics
         href: reference-architectures/data/stream-processing-stream-analytics.md
 
     - name: Enterprise integration
       items:
-      - name: Simple enterprise integration
-        href: reference-architectures/enterprise-integration/simple-enterprise-integration.md
+      - name: Basic enterprise integration
+        href: reference-architectures/enterprise-integration/basic-enterprise-integration.md
+      - name: Enterprise integration with queues and events
+        href: reference-architectures/enterprise-integration/queues-events.md
 
     - name: Hybrid networks
       items:
-      - name: Overview
+      - name: Choose a hybrid network architecture
         href: reference-architectures/hybrid-networking/index.md
       - name: VPN
         href: reference-architectures/hybrid-networking/vpn.md
@@ -382,10 +406,12 @@
         href: reference-architectures/hybrid-networking/hub-spoke.md
       - name: Hub-spoke topology with shared services
         href: reference-architectures/hybrid-networking/shared-services.md
+      - name: Troubleshoot a hybrid VPN connection
+        href: reference-architectures/hybrid-networking/troubleshoot-vpn.md
 
     - name: Identity management
       items:
-      - name: Overview
+      - name: Choose an Active Directory integration architecture
         href: reference-architectures/identity/index.md
       - name: Integrate on-premises AD with Azure AD
         href: reference-architectures/identity/azure-ad.md
@@ -396,18 +422,13 @@
       - name: Extend AD FS to Azure
         href: reference-architectures/identity/adfs.md
 
-    - name: N-tier applications
+    - name: Internet of Things (IoT)
+      href: reference-architectures/iot/index.md
+
+    - name: Microservices
       items:
-      - name: N-tier application with SQL Server
-        href: reference-architectures/n-tier/n-tier-sql-server.md
-      - name: Multi-region N-tier application
-        href: reference-architectures/n-tier/multi-region-sql-server.md
-      - name: N-tier application with Cassandra
-        href: reference-architectures/n-tier/n-tier-cassandra.md
-      - name: Deploy a Linux VM
-        href: reference-architectures/n-tier/linux-vm.md
-      - name: Deploy a Windows VM
-        href: reference-architectures/n-tier/windows-vm.md
+      - name: Azure Kubernetes Service (AKS)
+        href: reference-architectures/microservices/aks.md
 
     - name: Network DMZ
       items:
@@ -436,8 +457,18 @@
 
     - name: VM workloads
       items:
+      - name: Single Linux VM
+        href: reference-architectures/n-tier/linux-vm.md
+      - name: Single Windows VM
+        href: reference-architectures/n-tier/windows-vm.md
       - name: Jenkins server
         href: reference-architectures/jenkins/index.md
+      - name: N-tier application with SQL Server
+        href: reference-architectures/n-tier/n-tier-sql-server.md
+      - name: Multi-region N-tier application
+        href: reference-architectures/n-tier/multi-region-sql-server.md
+      - name: N-tier application with Cassandra
+        href: reference-architectures/n-tier/n-tier-cassandra.md
       - name: SharePoint Server 2016
         href: reference-architectures/sharepoint/index.md
 
@@ -449,6 +480,8 @@
         href: reference-architectures/app-service-web-app/scalable-web-app.md
       - name: Multi-region deployment
         href: reference-architectures/app-service-web-app/multi-region.md
+      - name: Web application monitoring
+        href: reference-architectures/app-service-web-app/app-monitoring.md
 
 - name: Design Guides
   items:
@@ -542,6 +575,26 @@
       href: cloud-adoption/getting-started/what-is-governance.md
     - name: Resource access governance in Azure
       href: cloud-adoption/getting-started/azure-resource-access.md
+  - name: Business Justification
+    items:
+    - name: Building a cloud migration business case
+      href: cloud-adoption/business-strategy/cloud-migration-business-case.md
+    - name: Understanding financial models
+      href: cloud-adoption/business-strategy/financial-models.md
+  - name: Digital Estate
+    items: 
+    - name: 5 Rs of Rationalization 
+      href: cloud-adoption/digital-estate/5-rs-of-rationalization.md
+    - name: What is a digital estate?
+      href: cloud-adoption/digital-estate/overview.md
+    - name: Approaches to digital estate planning
+      href: cloud-adoption/digital-estate/approach.md
+    - name: Gather inventory data
+      href: cloud-adoption/digital-estate/inventory.md
+    - name: Rationalize the digital estate
+      href: cloud-adoption/digital-estate/rationalize.md
+    - name: Forecast cloud costs
+      href: cloud-adoption/digital-estate/calculate.md
   - name: Governance
     items:
     - name: Overview
@@ -562,6 +615,8 @@
       href: cloud-adoption/operations/operational-fitness-review.md
   - name: Appendix
     items:
+    - name: Virtual Data Center (VDC)
+      href: vdc/index.md
     - name: Azure enterprise scaffold
       href: cloud-adoption/appendix/azure-scaffold.md
     - name: Implementing Azure enterprise scaffold

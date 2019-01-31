@@ -216,6 +216,16 @@
         "source_path": "docs/example-scenario/apps/commerce-chatbot.md",
         "redirect_url": "/azure/architecture/example-scenario/ai/commerce-chatbot",
         "redirect_document_id": true
-     }
-    ] 
+     },
+     {
+      "source_path": "docs/reference-architectures/enterprise-integration/simple-enterprise-integration.md",
+      "redirect_url": "/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration",
+      "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/example-scenario/apps/app-monitoring.md",
+         "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/app-monitoring",
+         "redirect_document_id": true
+      }
+  ] 
   } 

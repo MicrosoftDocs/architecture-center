@@ -1,8 +1,14 @@
 ---
-title: Decentralized trust between banks on Azure
+title: Decentralized trust between banks
+titleSuffix: Azure Example Scenarios
 description: Establish a trusted environment for communication and information sharing without resorting to a centralized database.
 author: vitoc
 ms.date: 09/09/2018
+ms.topic: example-scenario
+ms.service: architecture-center
+ms.subservice: example-scenario
+ms.custom: csa-team
+social_image_url: /azure/architecture/example-scenario/apps/media/architecture-decentralized-trust.png
 ---
 
 # Decentralized trust between banks on Azure
@@ -13,17 +19,17 @@ Traditionally, banks within a financial system rely on centralized sources such 
 
 With DLTs (distributed ledger technology), a consortium of banks can establish a decentralized system that can be more efficient, less susceptible to attack, and serve as a new platform where innovative structures can be implemented to solve traditional challenges with privacy, speed, and cost.
 
-This example will show you how Azure services such as virtual machine scale set, Virtual Network, Key Vault, Storage, Load Balancer, and Monitor can be quickly provisioned for the deployment of an efficient private Ethereum PoA blockchain where member banks can establish their own nodes.
+This example will show you how Azure services such as virtual machine scale sets, Virtual Network, Key Vault, Storage, Load Balancer, and Monitor can be quickly provisioned for the deployment of an efficient private Ethereum PoA blockchain where member banks can establish their own nodes.
 
 ## Relevant use cases
 
-These other uses cases have similar design patterns:
+Other relevant use cases include:
 
-* Movement of allocated budgets between different business units of a multinational corporation
-* Cross-border payments
-* Trade finance scenarios
-* Loyalty systems involving different companies
-* Supply chain ecosystems and many more
+- Movement of allocated budgets between different business units of a multinational corporation
+- Cross-border payments
+- Trade finance scenarios
+- Loyalty systems involving different companies
+- Supply chain ecosystems
 
 ## Architecture
 
@@ -39,11 +45,11 @@ This scenario covers the back-end components that are necessary to create a scal
 
 ### Components
 
-* Virtual Machines within Virtual Machine Scale Sets provides the on-demand compute facility to host the validator processes for the blockchain
-* Key Vault is used as the secure storage facility for the private keys of each validator
-* Load Balancer spreads the RPC, peering, and Governance DApp requests
-* Storage hosting persistent network information and coordinating leasing
-* Operations Management Suite (a bundling of a few Azure services) provides insight into available nodes, transactions per minute and consortium members
+- Virtual machines within virtual machine scale sets provides the on-demand compute facility to host the validator processes for the blockchain
+- Key Vault is used as the secure storage facility for the private keys of each validator
+- Load Balancer spreads the RPC, peering, and Governance DApp requests
+- Storage hosting persistent network information and coordinating leasing
+- Operations Management Suite (a bundling of a few Azure services) provides insight into available nodes, transactions per minute and consortium members
 
 ### Alternatives
 
@@ -51,23 +57,23 @@ The Ethereum PoA approach is chosen for this example because it is a good entry 
 
 For other extended or different scenarios, concerns such as transaction privacy may arise. For example, in a securities transfer scenario, members in a consortium may not want their transactions to be visible even to other members. Other alternatives to Ethereum PoA exist that addresses these concerns in their own way:
 
-* Corda
-* Quorum
-* Hyperledger
+- Corda
+- Quorum
+- Hyperledger
 
 ## Considerations
 
 ### Availability
 
-[Azure Monitor][monitor] is used to continuously monitor the blockchain network for issues to ensure availability. A link to a custom monitoring dashboard based on Azure Monitor will be sent to you upon successful deployment of the blockchain solution template used in this scenario. The dashboard shows nodes that are reporting heartbeats in the past 30 minutes as well as other useful statistics. 
+[Azure Monitor][monitor] is used to continuously monitor the blockchain network for issues to ensure availability. A link to a custom monitoring dashboard based on Azure Monitor will be sent to you upon successful deployment of the blockchain solution template used in this scenario. The dashboard shows nodes that are reporting heartbeats in the past 30 minutes as well as other useful statistics.
 
 For other availability topics, see the [availability checklist][availability] in the Azure Architecture Center.
 
 ### Scalability
 
-A popular concern for blockchain is the number of transactions that a blockchain can include within a preset amount of time. This scenario uses Proof-of-Authority where such scalability can be better managed than Proof-of-Work. In Proof-of-Authority based networks, consensus participants are known and managed, making it more suitable for private blockchain for a consortium of organization that knows one another. Parameters such as average block time, transactions per minute and compute resource consumption can be easily monitored via the custom dashboard. Resources can then be adjusted accordingly based on scale requirements.
+A popular concern for blockchain is the number of transactions that a blockchain can include within a preset amount of time. This scenario uses Proof-of-Authority where such scalability can be better managed than Proof-of-Work. In Proof-of-Authority&ndash;based networks, consensus participants are known and managed, making it more suitable for private blockchain for a consortium of organization that knows one another. Parameters such as average block time, transactions per minute and compute resource consumption can be easily monitored via the custom dashboard. Resources can then be adjusted accordingly based on scale requirements.
 
-For general guidance on designing scalable scenario, see the [scalability checklist][scalability] in the Azure Architecture Center.
+For general guidance on designing scalable solutions, see the [scalability checklist][scalability] in the Azure Architecture Center.
 
 ### Security
 
@@ -77,7 +83,7 @@ For general guidance on designing secure solutions, see the [Azure Security Docu
 
 ### Resiliency
 
-The Ethereum PoA blockchain can itself provide some degree of resilience as the validator nodes can be deployed in different regions. Azure has options for deployments in over 54 regions worldwide. A blockchain such as the one in this scenario provides unique and refreshing possibilities of cooperation to increase resilience. The resilience of the network is not just provided for by a single centralized party but all members of the consortium. A Proof-of-Authority based blockchain allows network resilience to be even more planned and deliberate.
+The Ethereum PoA blockchain can itself provide some degree of resilience as the validator nodes can be deployed in different regions. Azure has options for deployments in over 54 regions worldwide. A blockchain such as the one in this scenario provides unique and refreshing possibilities of cooperation to increase resilience. The resilience of the network is not just provided for by a single centralized party but all members of the consortium. A proof-of-authority&ndash;based blockchain allows network resilience to be even more planned and deliberate.
 
 For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][resiliency].
 
@@ -87,15 +93,15 @@ To explore the cost of running this scenario, all of the services are pre-config
 
 We have provided three sample cost profiles based on the number of scale set VM instances that run your applications (the instances can reside in different regions).
 
-* [Small][small-pricing]: this pricing example correlates to 2 VMs per month with monitoring turned off
-* [Medium][medium-pricing]: this pricing example correlates to 7 VMs per month with monitoring turned on
-* [Large][large-pricing]: this pricing example correlates to 15 VMs per month with monitoring turned on
+- [Small][small-pricing]: this pricing example correlates to 2 VMs per month with monitoring turned off
+- [Medium][medium-pricing]: this pricing example correlates to 7 VMs per month with monitoring turned on
+- [Large][large-pricing]: this pricing example correlates to 15 VMs per month with monitoring turned on
 
 The above pricing is for one consortium member to start or join a blockchain network. Typically in a consortium where there are multiple companies or organizations involved, each member will get their own Azure subscription.
 
 ## Next Steps
 
-To see an example of this scenario, deploy the [Ethereum PoA blockchain demo application][deploy] on Azure, then go through the [README of the scenario source code][source].
+To see an example of this scenario, deploy the [Ethereum PoA blockchain demo application][deploy] on Azure. Then review the [README of the scenario source code][source].
 
 ## Related resources
 
