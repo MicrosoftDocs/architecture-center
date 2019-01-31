@@ -589,21 +589,21 @@
         href: cloud-adoption/governance/design-guides/overview.md
       - name: Small to Medium Enterprise
         items:
-        - name: Overview
+        - name: Best Practice
           href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/overview.md
         - name: Narrative
           href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/use-case.md
         - name: Corporate Policy
           href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/corporate-policy.md
-        - name: Governance MVP (Adoption Foundation)
+        - name: Best Practice Explained
           href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/governance-mvp.md
-        - name: Governance Evolution (Protected Data)
+        - name: Evolve the Security Baseline for Protected Data
           href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/protected-data.md
-        - name: Governance Evolution (Mision Critical Apps)
+        - name: Evolve Resource Consistency for Mision Critical Apps
           href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/mission-critical.md
-        - name: Governance Evolution (Cost Controls)
+        - name: Evolve Cost Management to control costs
           href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/cost-control.md
-        - name: Governance Evolution (Multi-cloud)
+        - name: Multi-cloud considerations
           href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/multi-cloud.md
       - name: XXXX - Large Enterprise
         items:

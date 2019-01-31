@@ -5,22 +5,22 @@ author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
-# Fusion: Governance Customer Journeys Overview
+# Fusion: Actionable Governance Journeys
 
-The following customer journeys illustrate the application of the Fusion Governance Model using an incremental governance approach. You can establish an agile governance platform that will evolve to meet the needs of any cloud governance scenario. Before using either guide, review the brief background on both models to understand the basic theories in this guide.
+The following governance journeys illustrate the application of the Fusion Governance Model using an incremental governance approach. You can establish an agile governance platform that will evolve to meet the needs of any cloud governance scenario. Before using either guide, review the brief background on both models to understand the basic theories in this guide.
 
 For readers who are familiar with the model, jump ahead to the appropriate cloud governance journey:
 
 * [Large enterprise governance journey](./large-enterprise/overview.md)
 * [Small-to-medium enterprise governance journey](./small-to-medium-enterprise/overview.md)
 
-## Understanding the journey
+## Fusion's Incremental Cloud Governance Model
 
 Adopting the cloud is a journey, not a destination. Along the way, there are clear milestones and tangible business benefits. However, the final state of cloud adoption is usually unknown when a company begins the journey. Cloud governance creates guardrails that keep the company on a safe path throughout the journey.
 
 These governance journeys describe the experiences of fictional companies, based on the journeys of real customers. Each journey follows the customer through the governance aspects of their cloud adoption. 
 
-### Fusion Governance Model: Establishing an end state
+### Establishing an end state
 
 A journey without a target destination is just wandering. It’s important to establish a rough vision of the end state before taking the first step. The following infographic provides a frame of reference for the end state. It’s not your starting point, but it shows your potential destination.
 
@@ -44,9 +44,9 @@ The Fusion Governance Model identifies key areas of importance during the journe
 
 Essentially, corporate policies serve as the early warning system to detect potential problems. The disciplines help the company mitigate risks and create guardrails.
 
+### Grow to the end state
 
-### Incremental governance
-Because governance will evolve throughout the cloud adoption journey, a different approach to governance is required. Companies can no longer wait for a small team to build guardrails and roadmaps on every highway before taking the first step. Business results are expected more quickly and smoothly than that approach allows. IT governance must also move quickly and keep pace with business demands to stay relevant during cloud adoption and avoid “shadow IT”.
+Because governance requirements will evolve throughout the cloud adoption journey, a different approach to governance is required. Companies can no longer wait for a small team to build guardrails and roadmaps on every highway *before taking the first step*. Business results are expected more quickly and smoothly than that approach allows. IT governance must also move quickly and keep pace with business demands to stay relevant during cloud adoption and avoid “shadow IT”.
 
 An **incremental governance** approach empowers these traits. Incremental governance relies on a small set of corporate policies, processes, and tools to establish a foundation for adoption and governance. That foundation is called a **minimum viable product (MVP)**. An MVP allows the governance team to quickly incorporate governance into implementations throughout the adoption lifecycle. An MVP can be established at any point during the cloud adoption process. However, it’s a good practice to adopt an MVP as early as possible.
 
@@ -56,7 +56,7 @@ The following diagram shows a simple governance MVP and three governance evoluti
 
 ![Example of Incremental Governance evolutions](../../_images/governance/incremental-governance-example.png)
 
-### Implementing a governance MVP
+### Get started
 
 The journeys demonstrate how to implement a governance MVP. From there, each journey shows how the governance team can work ahead of the adoption teams as a partner to accelerate adoption efforts. The Fusion Governance Model guides the application of governance from foundation through subsequent evolutions.
 

@@ -1,11 +1,11 @@
 ---
-title: "Fusion: Developing and implementing a cloud governance strategy"
-description: Explanation of the process to develop and implement a cloud governance strategy
+title: "Fusion: Cloud Governance"
+description: Introduction to Cloud Governance content
 author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
-# Fusion: Developing and implementing a cloud governance strategy
+# Fusion: Cloud Governance
 
 The cloud creates new paradigms regarding the technologies that support the business. These new paradigms also cause shifts in how those technologies are adopted, managed, and governed. When entire data centers can be destroyed and recreated with one line of code executed from an unattended process, we have to rethink traditional approaches. This is equally true when it comes to governance.
 
