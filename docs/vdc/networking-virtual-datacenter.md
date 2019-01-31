@@ -389,7 +389,7 @@ The following features were discussed in this document. Follow the links to lear
  - Explore [VNet Peering][VNetPeering], the underpinning technology for VDC hub and spoke designs
  - Implement [Azure AD][AAD] to get started with [RBAC][RBAC] exploration
  - Develop a Subscription and Resource management model and RBAC model to meet the structure, requirements, and policies of your organization. The most important activity is planning. As much as practical, plan for reorganizations, mergers, new product lines, etc.
-m
+
 <!--Image References-->
 [0]: ./images/networking-redundant-equipment.png "Examples of component overlap" 
 [1]: ./images/networking-vdc-high-level.png "High-level example of hub and spoke VDC"
