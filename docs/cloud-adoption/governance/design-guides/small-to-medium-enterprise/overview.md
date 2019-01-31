@@ -5,38 +5,95 @@ author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
-# Fusion: Small to Medium Enterprise Governance Design Guide
+# Fusion: Small-to-medium enterprise governance journey
 
-This design guide provides a narrative for small to medium enterprises as they move through the governance journey. The journey starts with the same general challenges faced by most small or medium enterprises when first beginning a cloud journey: establishing an initial strategy and implementing a foundation or MVP for governance. The guide will then demonstrate how that MVP implementation evolves ahead of the corporate cloud adoption strategy.
+## Best practice overview
 
-## Governance MVP (Cloud Adoption Foundation)
+This governance journey follows the experiences of a fictional company through various stages of governance maturity. It is based on real customer journeys. The suggested best practices are based on the constraints and needs of the fictional company. 
+As a quick starting point, this overview defines a best-practice governance MVP. It also provides links to a few governance evolutions that add further best practices as new business or technical risks emerge.
 
-Any governance foundation requires a few simple principles as the root of enabling rapid governance evolutions. These are the first of the three Cloud Governance Disciplines to adopt in any governance process. Each is described further in this series of articles. To establish the starting point, this series of articles will discuss the high-level strategies behind Identity Management, Security Management, and Configuration Management that are required to create a Governance minimally viable product (MVP), which will serve as the foundation for all adoption.
+> [!WARNING]
+> This MVP is a baseline starting point, based on a set of assumptions. Even this minimal set of best practices is based on corporate policies driven by unique business risks and risk tolerances. To see if these assumptions apply to you, read the [longer narrative](./use-case.md) that follows this article.
+
+### Governance best practice
+
+This best practice serves as a foundation that an organization can use to quickly and consistently add governance guardrails across multiple Azure subscriptions.
+
+**Resource Organization**: The following represents the Governance MVP hierarchy for organizing resources. Every application should be deployed in the proper area of the Management Group, Subscription, and Resource Group hierarchy. During deployment planning, the Cloud Governance team will create the necessary nodes in the hierarchy to empower the Cloud Adoption team.  
+
+![Resource Organization diagram](../../../_images/governance/resource-organization.png)
+
+1. A management group for each type of environment (such as Production, Development, and Test)
+2. A subscription for each “Application Categorization” 
+3. A separate resource group for each application.
+4. Consistent nomenclature should be applied at each level of this grouping hierarchy. 
+
+These patterns provide room for growth without complicating the hierarchy unnecessarily.
+
+**Governance of Resources**: Enforcing governance across subscriptions will come from Azure Blueprints and the associated assets within the blueprint.
+
+1. Create an Azure Blueprint named “Governance MVP”.<br/>
+    a. Enforce the use of standard Azure roles.<br/>
+    b. Enforce that users can only authenticate against existing an RBAC implementation.<br/>
+    c. Apply this blueprint to all subscriptions within the management group.<br/>
+2. Create an Azure Policy to apply or enforce the following:<br/>
+    a. Resource tagging should require values for Business Function, Data Classification, Criticality, SLA, Environment, and Application.<br/>
+    b. The value of the Application tag should match the name of the resource group.<br/>
+    c. Validate role assignments for each resource group and resource.<br/>
+3. Publish and apply the “Governance MVP” Azure Blueprint to each management group.
+
+These patterns enable resources to be discovered and tracked, and enforce basic role management.
+
+**Demilitarized Zone (DMZ)**: It’s common for specific subscriptions to require some level of access to on-premises resources. This may be the case for migration scenarios or development scenarios, when some dependent resources are still in the on-premises datacenter. In this case, the governance MVP adds the following best practices:
+
+1. Establish a Cloud DMZ. <br/>
+    a. The [Cloud DMZ Reference Architecture](http://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid) establishes a pattern and deployment model for creating a VPN Gateway in Azure.<br/>
+    b. Validate that proper DMZ connectivity and security requirements are in place for a local edge device in the on-premises datacenter.<br/>
+    c. Validate that the local edge device is compatible with Azure VPN Gateway requirements.<br/>
+    d. Once connection to the on-premise VPN has been verified, capture the ARM template created by that reference architecture.
+2. Create a second Azure Blueprint named “DMZ” <br/>
+    a. Add the Resource Manager template for the VPN Gateway to the Azure Blueprint.
+3. Apply the DMZ Azure Blueprint to any subscriptions requiring on-premises connectivity. This Azure Blueprint should be applied in addition to the Governance MVP blueprint.
+
+> [!WARNING]
+> The above is a starting point to quickly create a baseline governance MVP. This is only the beginning of the governance journey. Further evolution will be needed as the company continues to adopt the cloud and takes on more risk in the following areas:
+>
+> - Mission-critical workloads
+> - Protected data
+> - Cost management
+> - Multi-cloud scenarios
+>
+>Moreover, the specific details of this MVP are based on the example journey of a fictitious company, described in the articles that follow. We highly recommend becoming familiar with the other articles in this series before implementing this best practice.
+
+### Governance evolutions
+
+Once this MVP has been deployed, additional layers of governance can be quickly incorporated into the environment. Here are some ways to evolve the MVP to meet specific business needs.
+
+- [Security baseline for protected data](./protected-data.md)
+- [Resource configurations for mission critical applications](./mission-critical.md)
+- [Controls for cost management](cost-control.md)
+- [Controls for multi-cloud evolution](multi-cloud.md)
+
+### What does this best practice do?
+
+In the MVP, practices and tools from the Deployment Acceleration discipline are established to quickly apply corporate policy. In particular, the MVP makes use of Azure Blueprints, Azure Management Groups, and Azure Policy to apply a few basic corporate policies, as defined in the narrative for this fictional company. Those corporate policies are applied using Resource Manager templates and Azure policies to establish a very small baseline for identity and security.
 
 ![Example of Incremental Governance MVP](../../../_images/governance/governance-mvp.png)
 
-### Governance Evolutions (Staying a step ahead of Cloud Adoption)
+### Evolving the best practice
 
-As adoption advance, business risk grows. The goal of an Incremental Cloud Governance approach is to stay ahead of adoption and mitigate those risks. Through this adoption guide, the Governance MVP will be evolved along three Cloud Governance Disciplines to add additional guardrails to the foundation. The additional disciplines in this design guide include evolutions to Cost, Security, and Resource Management.
+Over time, this governance MVP will be used to evolve the governance practices. As adoption advances, business risk grows. Various disciplines within the Fusion Governance Model will evolve to mitigate those risks. Later articles in this series discuss the evolution of corporate policy affecting the fictional company. These evolutions happen across three disciplines: 
+
+- Cost Management, as adoption scales.
+- Security Baseline, as protected data is deployed.
+- Resource Consistency, as IT Ops begins supporting mission-critical workloads.
 
 ![Example of Incremental Governance MVP](../../../_images/governance/governance-evolution.png)
 
-While not explicated stated as an evolving discipline, Configuration Management is the primary tool for Cloud Governance. Through every evolution, Configuration Management will also evolve as guardrails are implemented. Likewise, Identity Management is a critical discipline to the enforcement of governance. Some evolutions may also evolve the Identity Management discipline.
-
-![Example of Incremental Governance evolutions](../../../_images/governance/incremental-governance-example.png)
-
-> [!NOTE]
-> These evolutions are not linear. Each evolution may be experienced at different points in the journey, based on incremental changes to the cloud adoption strategy and the associated risks.
-
-### Corporate Policy
-
-Throughout this journey, the narrative will evolve. The evolutions captured here are similar to those experienced during organic cloud adoption. As the narrative evolves, business risk will grow, as will corporate policy.
-
-Corporate policy serves as the early warning system that makes incremental governance possible. It also defines the transition from business risk to actionable policy statements and recurring governance processes. In this design guide, each evolution will be marked by changes to the narrative. Those changes will be captured as changes to corporate policy. Corporate policy will then change implementation of the Governance MVP.
 
 ## Next steps
 
-Before jumping into the Governance MVP, it is suggested that the reader familiarize themselves with the [core narrative](use-case.md) for this journey.
+Now that you’re familiar with the governance MVP and have an idea of the governance evolutions to follow, read the [supporting narrative](./use-case.md) for additional context.
 
 > [!div class="nextstepaction"]
-> [Review the core narrative](use-case.md)
+> [Review the core narrative](./use-case.md)

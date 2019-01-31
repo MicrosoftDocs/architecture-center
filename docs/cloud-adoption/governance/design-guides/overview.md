@@ -1,61 +1,103 @@
 ---
-title: "Fusion: Actionable Governance Journeys"
-description: Explanation of Actionable Governance Journeys
+title: "Fusion: Governance Customer Journeys Overview"
+description: Explanation of Governance Customer Journeys Overview
 author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
-# Fusion: Actionable Governance Journeys
+# Fusion: Governance Customer Journeys Overview
 
-The following governance journeys illustrate the use of the Incremental Governance Model and the application of the Fusion Cloud Governance Model. Together, these models establish an agile governance platform that can evolve to meet the needs of any cloud governance scenario. Before using either guide, review the brief background on both models to understand the basic theories in this guide.
+The following customer journeys illustrate the application of the Fusion Governance Model using an incremental governance approach. You can establish an agile governance platform that will evolve to meet the needs of any cloud governance scenario. Before using either guide, review the brief background on both models to understand the basic theories in this guide.
 
-For readers that are familiar with the model, jump ahead to the appropriate cloud design guide:
+For readers who are familiar with the model, jump ahead to the appropriate cloud governance journey:
 
-* [Large Enterprise Governance Journey](./large-enterprise/overview.md)
-* [Small to Medium Enterprise Governance Journey](./small-to-medium-enterprise/overview.md)
+* [Large enterprise governance journey](./large-enterprise/overview.md)
+* [Small-to-medium enterprise governance journey](./small-to-medium-enterprise/overview.md)
 
 ## Understanding the journey
 
-Adoption of the cloud is journey, not a destination. Along the way, there are clear milestones and tangible business values. However, the final state of cloud adoption is seldom understood when a company embarks on the journey. A key part of the cloud adoption journey is cloud governance. Cloud governance creates the guardrails that keep the company on a safe path, avoiding perils along the journey.
+Adopting the cloud is a journey, not a destination. Along the way, there are clear milestones and tangible business benefits. However, the final state of cloud adoption is usually unknown when a company begins the journey. Cloud governance creates guardrails that keep the company on a safe path throughout the journey.
 
-This design guide establishes a narrative that follows a synthesized Small to Medium Enterprise through the governance portion of their journey. The objective of this narrative is to develop a series of templates that the reader can consume and personalize to provide guardrails during their own journey.
+These governance journeys describe the experiences of fictional companies, based on the journeys of real customers. Each journey follows the customer through the governance aspects of their cloud adoption. 
 
-## Fusion Governance Model: Establishing an end state
+### Fusion Governance Model: Establishing an end state
 
-A journey with no target destination is just glorified wandering. It's important to establish a rough vision of the end state before taking the first step. The infographic below sets a frame of reference for the end state. It is not a starting point, but a picture of one potential destination.
+A journey without a target destination is just wandering. It’s important to establish a rough vision of the end state before taking the first step. The following infographic provides a frame of reference for the end state. It’s not your starting point, but it shows your potential destination.
 
 ![Fusion Governance Model Infographic](../../_images/operational-transformation-govern-highres.png)
 
-The Fusion governance model outlines areas of focus throughout the journey. Each will protect the company from a different type of peril, as the company adopts more cloud services. This design guide will use this frame of reference frequently to describe necessary actions on the part of the Cloud Governance Team. Along the way, each of these tenants of the Fusion Governance Model will be expanded upon to guide actions. At the highest level they are described as follows:
+The Fusion Governance Model identifies key areas of importance during the journey. Each area relates to different types of risks the company must address as it adopts more cloud services. Within this framework, the governance journey identifies required actions for the Cloud Governance Team. Along the way, each tenet of the Fusion Governance Model is described further. Broadly, these include:
 
-**Corporate Policies:** The policies which drive all cloud governance. In this model, the aspects of corporate policy that this design guide will focus on are Business Risks (building an understanding of risk), Policy & Compliance (converting risks into policy statements which support any require compliance needs), and Processes (ensuring adherence to the policy statements).
+**Corporate policies**. Corporate policies drive cloud governance. The governance journey focuses on specific aspects of corporate policy:
 
-**Governance Disciplines:** Supporting corporate policy are the five disciplines of Cloud Governance: Cost Management, Security Management, Resource Management, Identity Management, and Configuration Management. Each of these vital disciplines protect the company from a different potential pitfall.
+- Business Risks: Identifying and understanding corporate risks.
+- Policy and Compliance: Converting risks into policy statements that support any compliance requirements.
+- Processes: Ensuring adherence to the stated policies.
 
-Essentially, the Corporate Policies serve as the early warning system to detect potential perils. The Governance Disciplines then move ahead of the business to mitigate risks or create guardrails.
+**Five disciplines of cloud governance**. These disciplines support the corporate policies. Each discipline protects the company from potential pitfalls: 
 
-## Incremental Governance Model: MVP and Continuous Improvement
+- Cost Management
+- Security Baseline
+- Resource Consistency
+- Identity Baseline
+- Deployment Acceleration
 
-The Fusion Governance Model includes additional documentation on Incremental Governance. However, a high-level understanding is required to use this design guide.
+Essentially, corporate policies serve as the early warning system to detect potential problems. The disciplines help the company mitigate risks and create guardrails.
 
-Assuming cloud adoption is a journey and governance will evolve along the journey, a different model of governance is required. Companies can no longer wait for a small team to build guardrails and roadmaps on every highway in the country before taking the first step. Business results are expected far faster and more fluidly than that.
 
-To meet the needs of the business, the IT team needs to be agile and fast moving. The incremental governance model empowers these traits. In incremental governance a smaller set of precautions is established creating a foundation for adoption, also known as a *minimum viable product* (MVP). This MVP provides the governance team with a way to quickly inject governance into any implementation
+### Incremental governance
+Because governance will evolve throughout the cloud adoption journey, a different approach to governance is required. Companies can no longer wait for a small team to build guardrails and roadmaps on every highway before taking the first step. Business results are expected more quickly and smoothly than that approach allows. IT governance must also move quickly and keep pace with business demands to stay relevant during cloud adoption and avoid “shadow IT”.
+
+An **incremental governance** approach empowers these traits. Incremental governance relies on a small set of corporate policies, processes, and tools to establish a foundation for adoption and governance. That foundation is called a **minimum viable product (MVP)**. An MVP allows the governance team to quickly incorporate governance into implementations throughout the adoption lifecycle. An MVP can be established at any point during the cloud adoption process. However, it’s a good practice to adopt an MVP as early as possible.
+
+The ability to respond rapidly to changing risks empowers the Cloud Governance Team to engage in new ways. The Cloud Governance Team can join the Cloud Strategy Team as scouts, moving ahead of the adoption teams, plotting routes, and quickly establishing guardrails to mitigate risks associated with the adoption plans. These just-in-time governance layers are known as **governance evolutions**. With this approach, governance strategy evolves one step ahead of the adoption team.
+
+The following diagram shows a simple governance MVP and three governance evolutions. Additional corporate policies are defined to mitigate new risks. The Deployment Acceleration discipline then applies those changes across each deployment.
+
 ![Example of Incremental Governance evolutions](../../_images/governance/incremental-governance-example.png)
 
-In the example captured in the infographic above, a company implements a Governance MVP to serve as a foundation for all cloud adoption. Cloud adoption then progresses at its own pace. During the cloud adoption journey, deployment plans introduce risks. When those risks are uncovered by the cloud governance team, each of the affected Governance Disciplines is advanced to mitigate the risk. In this example, the cloud adoption plan introduces risks related to protected data, requiring implementations of security management and configuration management. The business then experiences risks related to mission critical workloads, requiring an evolution of the resource management discipline and configuration management changes. Finally, the business experiences risks related to cloud costs, triggering evolutions in cost management. Because of the foundation established by the Governance MVP, these changes can be implemented and enforced with less difficulty. Each cloud adoption journey is unique. This may not align to the order in which the reader's cloud governance evolves, but this example is representative of the journey as a whole.
+### Implementing a governance MVP
 
-The ability to rapidly respond to changing risks repositions the governance focus. This approach allows the Cloud Governance Team to join the Cloud Strategy Team as scouts, moving ahead of the adoption teams, plotting routes, and quickly deploying guardrails to protect against perils on the specific route chosen. This model to governance evolves the governance strategy one step ahead of the adoption team.
+The journeys demonstrate how to implement a governance MVP. From there, each journey shows how the governance team can work ahead of the adoption teams as a partner to accelerate adoption efforts. The Fusion Governance Model guides the application of governance from foundation through subsequent evolutions.
 
-## Tying these models together
+Note: Governance is not a replacement for key functions such as security, networking, identity, finance, DevOps, or operations. Along the way, there will be interactions with and dependencies on members from each function. Those members should be included on the Cloud Governance Team to accelerate decisions and actions.
 
-This actionable governance journey's will demonstrate the implementation of an MVP foundation for governance. From there, each journey will show how governance can run ahead of adoption as a partner and accelerator for adoption efforts. The Fusion Governance Model will be used to guide the execution of governance during the foundation and subsequent evolutions.
+### Choose a governance journey
 
-Note: Governance is not a replacement for key functions, like security, networking, identity, finance, DevOps or operations. Along the way, there will be dependencies and interactions with teammates in each function. Members of those functions often serve as members of the Cloud Governance Team to accelerate decisions and actions.
+To begin a governance journey, choose one of the two options below. The options are based on synthesized customer experiences. The titles are based on the size of the enterprise for ease of navigation. However, the reader's decision may be more complex. The following tables outline the differences between the two options.
+
+Note: It’s unlikely that either journey aligns completely to your situation. Choose whichever journey is closest and use it as a starting point. Throughout the journey, additional information is provided to help you customize decisions to meet specific criteria.
+
+**Business Characteristics**
+
+|                                            | Small-to-medium enterprise                                                                              | Large enterprise                                                                                               |
+|--------------------------------------------|---------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
+| Geography (country or geopolitical region) | Customers or staff reside largely in one geography                                                      | Customers or staff reside in multiple geographies                                                              |
+| Business units impacted                    | Single business unit                                                                                    | Multiple business units                                                                                        |
+| IT budget                                  | Single IT budget                                                                                        | Budget allocated across business units                                                                         |
+| IT investments                             | Capital expense (CapEx)-driven investments are planned yearly and usually cover only basic maintenance. | CapEx-driven investments are planned yearly and often include maintenance and a refresh cycle of 3 to 5 years. |
+
+**Current State (before adopting Cloud Governance)**
+
+|                                             | Small-to-medium enterprise                                                                               | Large enterprise                                                                                                          |
+|---------------------------------------------|----------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
+| Datacenter or third-party hosting providers | Less than 5 datacenters                                                                                  | More than 5 datacenters                                                                                                   |
+| Networking                                  | No WAN, or 1-2 WAN providers                                                                             | Complex network or global WAN                                                                                             |
+| Identity                                    | Single forest, single domain. No requirement for claims-based authentication or third-party MFA devices. | Complex, multiple forests, multiple domains. Applications require claims-based authentication or third-party MFA devices. |
+
+**Desired Future State (after evolving Cloud Governance)**
+
+|                                              | Small-to-medium enterprise                                                                        | Large enterprise                                                                                        |
+|----------------------------------------------|---------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
+| Cost Management – cloud accounting           | Showback model. Billing is centralized through IT.                                                | Chargeback model. Billing could be distributed through IT procurement.                                  |
+| Security Baseline – protected data           | Company financial data and IP. Limited customer data. No third-party compliance requirements.     | Multiple collections of customers’ financial and PII data. May need to consider third-party compliance. |
+| Resource Consistency – mission critical apps | Outages are painful but not financially damaging. Existing IT Operations are relatively immature. | Outages have defined and monitored financial impacts. IT Operations are established and mature.         |
+
+These two journeys represent two extremes of experience for customers who invest in cloud governance. Most companies reflect a combination of the two scenarios above. After reviewing the journey, use the Fusion Governance Model to start the governance conversation and modify the baseline journeys to more closely meet your needs.
 
 ## Next steps
 
-Based on this basic understanding of the theory, now is a great time to [Choose the most relevant governance journey](choose-a-governance-journey.md).
-
 > [!div class="nextstepaction"]
-> [Choose the most relevant governance journey](choose-a-governance-journey.md)
+> [Large enterprise governance journey](./large-enterprise/overview.md)
+>
+> [Small-to-medium enterprise governance journey](./small-to-medium-enterprise/overview.md)
