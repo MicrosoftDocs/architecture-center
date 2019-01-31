@@ -124,28 +124,7 @@ The GitHub [readme][github] discusses several required data formats.
 The two core collections for the articles pipeline are Ingest and Processed. The design of the two are similar in that there are very few first-class members of the document but potentially many *properties* associated with the document depending on the type.
 
 A third collection, Inspection, is also implemented. It simply records information about the processing of the original article and its children. Its table can be customized or removed depending on how the reader implements a notification schema for content of interest.
-
-### Azure Functions considerations
-
-Several application settings are required in the function app to ensure that the code runs correctly. Given the source code, the following values are required:
-
-| **Key**                                | **Value**                                                                                                                                                                                                             |
-|----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ArticleIngestTrigger\_ConnectionString | Connection string to Azure Cosmos DB. For example: 
-`AccountEndpoint=https://dangcosmosdb.documents.azure.com:443/;AccountKey=X6tyyMXo3jbmm8iHFiMFkbkKR5Pev8FjQF0MQM04yiTHCaIa0qxkKdVIlAhRFVm1Doo3WyMTaMe7gK7P9YFSig==;` |
-| CosmosDbName                           | Database name.                                                                                                                                                                                                        |
-| CosmosCollectionName                   | Ingest collection name.                                                                                                                                                                                               |
-| CosmosProcessedCollectionName          | Processed collection name.                                                                                                                                                                                            |
-| CosmosInspectionCollectionName         | Inspection collection name.                                                                                                                                                                                           |
-| FaceAPIUri                             | Base URI to the Face service (for example, `https://eastus.api.cognitive.microsoft.com/face/v1.0`).                                                                                                                          |
-| FaceAPIKey                             | API key to the Face service.                                                                                                                                                                                          |
-| TranslationAPIKey                      | API key to the Translation service.                                                                                                                                                                                   |
-| TranslationAPIUri                      | Base URI to the translation service (such as `https://api.cognitive.microsoft.com/sts/v1.0`), but what is really used is for the global service (such as <https://api.cognitive.microsofttranslator.com>).                              |
-| TranslationAPITargetLanguage           | Target language to for the translation, such as *en*.                                                                                                                                                                 |
-| VisionAPIKey                           | Key to the Computer Vision API                                                                                                                                                                                        |
-| VisionAPIUri                           | URI to the Vision service (for example, `https://eastus.api.cognitive.microsoft.com/text/analytics/v2.0`).                                                                                                                                             |
-| TextAPIKey                             | API key to the Text service                                                                                                                                                                                           |
-| TextAPIUri                             | URI to the Text service (for example, `https://eastus.api.cognitive.microsoft.com/`).                                                                                                                            |
+                                                                                                            |
 
 [architecture]: ./media/mass-ingestion-newsfeeds-architecture.png
 [aai]: /azure/azure-monitor/app/app-insights-overview 
