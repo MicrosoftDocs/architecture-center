@@ -96,7 +96,9 @@ A deployment for a reference architecture that implements these recommendations 
     azbb -s <subscription_id> -g <resource_group_name> -l <region> -p onprem.json --deploy
     ```
 
-3. Run the following command:
+3. Navigate to the `/dmz/ssecure-vnet-hybrid` folder of the reference architectures GitHub repository.
+
+4. Run the following command:
 
     ```bash
     azbb -s <subscription_id> -g <resource_group_name> -l <region> -p secure-vnet-hybrid.json --deploy
