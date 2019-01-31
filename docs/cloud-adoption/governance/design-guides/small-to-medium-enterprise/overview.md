@@ -51,9 +51,11 @@ These patterns enable resources to be discovered and tracked, and enforce basic 
     2. Validate that proper DMZ connectivity and security requirements are in place for a local edge device in the on-premises datacenter.
     3. Validate that the local edge device is compatible with Azure VPN Gateway requirements.
     4. Once connection to the on-premise VPN has been verified, capture the ARM template created by that reference architecture.
-2. Create a second Azure Blueprint named “DMZ” 
+2. Create a second Azure Blueprint named “DMZ”. 
     1. Add the Resource Manager template for the VPN Gateway to the Azure Blueprint.
 3. Apply the DMZ Azure Blueprint to any subscriptions requiring on-premises connectivity. This Azure Blueprint should be applied in addition to the Governance MVP blueprint.
+
+One of the biggest concerns raised by IT security and traditional governance teams, is the risk of early stage cloud adoption compromising existing assets. The above approach allows cloud adoption teams to build and migrate hybrid solutions, with reduced risk to on-premises assets. In later evolution, this temporary solution would be removed.
 
 > [!NOTE]
 > The above is a starting point to quickly create a baseline governance MVP. This is only the beginning of the governance journey. Further evolution will be needed as the company continues to adopt the cloud and takes on more risk in the following areas:
@@ -71,8 +73,8 @@ Once this MVP has been deployed, additional layers of governance can be quickly 
 
 - [Security baseline for protected data](./protected-data.md)
 - [Resource configurations for mission critical applications](./mission-critical.md)
-- [Controls for cost management](cost-control.md)
-- [Controls for multi-cloud evolution](multi-cloud.md)
+- [Controls for cost management](./cost-control.md)
+- [Controls for multi-cloud evolution](./multi-cloud.md)
 
 ### What does this best practice do?
 
