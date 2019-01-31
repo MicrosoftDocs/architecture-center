@@ -599,7 +599,7 @@
           href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/governance-mvp.md
         - name: Evolve the Security Baseline for Protected Data
           href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/protected-data.md
-        - name: Evolve Resource Consistency for Mision Critical Apps
+        - name: Evolve Resource Consistency for Mission Critical Apps
           href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/mission-critical.md
         - name: Evolve Cost Management to control costs
           href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/cost-control.md
