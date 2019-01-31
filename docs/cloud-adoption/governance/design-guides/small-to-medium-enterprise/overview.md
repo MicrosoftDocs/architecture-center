@@ -28,6 +28,8 @@ This best practice serves as a foundation that an organization can use to quickl
 3. A separate resource group for each application.
 4. Consistent nomenclature should be applied at each level of this grouping hierarchy. 
 
+![Resource Organization example for a mid-market company](../../../_images/governance/mid-market-resource-organization.png)
+
 These patterns provide room for growth without complicating the hierarchy unnecessarily.
 
 **Governance of Resources**: Enforcing governance across subscriptions will come from Azure Blueprints and the associated assets within the blueprint.
