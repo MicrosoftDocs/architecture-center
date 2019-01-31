@@ -270,6 +270,29 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
     </li>
 </ul>
 
+<ul class="panelContent cardsJ">
+    <li>
+        <a href="https://azure-architecture.uservoice.com/forums/918127-general" data-linktype="external">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                        <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img src="https://docs.microsoft.com/en-us/media/common/i_feedback.svg" alt="" data-linktype="external">
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <h3>Submit your ideas for the Architecture Center</h3>
+                            <p>Do you have ideas for new architecture or design documentation?</p>
+                            <p>What kinds of articles would you like to see in the Azure Architecture Center?</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+</ul>
+
 ---
 
 ## Build your skills with Microsoft Learn

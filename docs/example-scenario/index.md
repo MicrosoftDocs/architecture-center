@@ -24,9 +24,9 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                 <div class="card">
                     <div class="cardText">
                         <h3>New Scenarios</h3>
+                        <a class="barLink" href="/azure/architecture/example-scenario/infrastructure/image-modeling" data-linktype="absolute-path">Accelerate digital image-based modeling</a>
+                        <a class="barLink" href="/azure/architecture/example-scenario/ai/movie-recommendations" data-linktype="absolute-path">Movie recommendations on Azure</a>
                         <a class="barLink" href="/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery" data-linktype="absolute-path">Multitier web application built for HA & DR</a>
-                        <a class="barLink" href="/azure/architecture/example-scenario/data/hybrid-etl-with-adf" data-linktype="absolute-path">Hybrid ETL with on-premises SSIS and Data Factory</a>
-                        <a class="barLink" href="/azure/architecture/example-scenario/apps/decentralized-trust" data-linktype="absolute-path">Decentralized trust between banks on Azure</a>
                     </div>
                 </div>
             </div>
@@ -38,9 +38,9 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
                 <div class="card">
                     <div class="cardText">
                         <h3>Top Scenarios</h3>
-                        <a class="barLink" href="/azure/architecture/example-scenario/infrastructure/regulated-multitier-app" data-linktype="absolute-path">Secure Windows web application for regulated industries</a>
-                        <a class="barLink" href="/azure/architecture/example-scenario/apps/devops-dotnet-webapp" data-linktype="absolute-path">CI/CD pipeline with Azure DevOps</a>
-                        <a class="barLink" href="/azure/architecture/example-scenario/data/fraud-detection" data-linktype="absolute-path">Real-time fraud detection on Azure</a>
+                        <a class="barLink" href="/azure/architecture/example-scenario/infrastructure/regulated-multitier-app" data-linktype="absolute-path">Building secure web apps with Windows VMs</a>
+                        <a class="barLink" href="/azure/architecture/example-scenario/data/data-warehouse" data-linktype="absolute-path">Data warehousing and analytics for sales and marketing</a>
+                        <a class="barLink" href="/azure/architecture/example-scenario/infrastructure/wordpress" data-linktype="absolute-path">Highly scalable and secure WordPress websites</a>
                     </div>
                 </div>
             </div>
@@ -51,7 +51,7 @@ Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-sc
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRy0ZnoKOXdVBqaBz653YPElUNjlNMEpPMDNSSU1aWEIxMFNFNlY2T0E3NC4u" data-linktype="external">
+                        <a href="https://azure-architecture.uservoice.com/forums/918625-architecture-guidance" data-linktype="external">
                             <div class="cardSize cardsF">
                                 <div class="cardPadding">
                                     <div class="card">

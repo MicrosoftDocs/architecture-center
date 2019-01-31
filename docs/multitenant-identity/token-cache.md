@@ -1,5 +1,5 @@
 ---
-title: Cache acess tokens in a multitenant application
+title: Cache access tokens in a multitenant application
 description: Caching access tokens used for invoking a backend Web API.
 author: MikeWasson
 ms.date: 07/21/2017
