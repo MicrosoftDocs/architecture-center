@@ -15,6 +15,8 @@ This reference architecture describes how to build an enterprise-grade conversat
 
 [![Diagram of the architecture][0]][0]
 
+The best practice utility samples used in this architecture are fully open-sourced and available on [GitHub][git-repo-base]. 
+
 ## Architecture
 
 The architecture shown here uses the following Azure services. Your own bot may not use all of these services, or may incorporate additional services.
@@ -134,24 +136,23 @@ Another option is to integrate your own custom AI service. This approach is more
 
 ## Quality assurance and enhancement
 
-**Logging**. Log user conversations with the bot, including the underlying performance metrics and any errors. These logs will prove invaluable for debugging issues, understanding user interactions, and improving the system. Different data stores might be appropriate for different types of logs. For example, consider Application Insights for web logs, Cosmos DB for conversations, and Azure Storage for large payloads. See [Write directly to storage][transcript-storage].
+**Logging**. Log user conversations with the bot, including the underlying performance metrics and any errors. These logs will prove invaluable for debugging issues, understanding user interactions, and improving the system. Different data stores might be appropriate for different types of logs. For example, consider Application Insights for web logs, Cosmos DB for conversations, and Azure Storage for large payloads. See [Write directly to Azure Storage][transcript-storage].
 
 **Feedback**. It's also important to understand how satisfied users are with their bot interactions. If you have a record of user feedback, you can use this data to focus your efforts on improving certain interactions and retraining the AI models for improved performance. Use the feedback to retrain the models, such as LUIS, in your system.
 
 **Testing**. Testing a bot involves unit tests, integration tests, regression tests, and functional tests. For testing, we recommend recording real HTTP responses from external services, such as Azure Search or QnA Maker, so they can be played back during unit testing without needing to make real network calls to external services.
 
-To jump-start your development in these areas, look at the [Botbuilder Utils for JavaScript](https://github.com/Microsoft/botbuilder-utils-js). This repo contains sample utility code for bots built with [Microsoft Bot Framework v4][bot-framework] and running Node.js. It includes the following packages:
+> To jump-start your development in these areas, look at the [Botbuilder Utils for JavaScript][git-repo-base]. This repo contains sample utility code for bots built with [Microsoft Bot Framework v4][bot-framework] and running Node.js. It includes the following packages:
 
-- [Http Test Recorder](https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-http-test-recorder). Records HTTP traffic from external services. It comes pre-built with support for LUIS, Azure Search, and QnAMaker, but extensions are available to support any service.
+> - [Cosmos DB Logging Store][cosmosdb-logger]. Shows how to store and query bot logs in Cosmos DB.
 
-- [Cosmos DB Transcript Store](https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-transcript-cosmosdb). Shows how to store and query bot transcripts in Cosmos DB.
+> - [Application Insights Logging Store][appinsights-logger]. Shows how to store and query bot logs in Application Insights.
 
-- [Application Insights Transcript Store](https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-transcript-app-insights). Shows how to store and query bot transcripts in Application Insights.
+> - [Feedback Collection Middleware][feedback-util]. Sample middleware that provides a bot user feedback-request mechanism.
 
-- [Feedback Collection Middleware](https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-feedback). Sample middleware that can be used to build a feedback-request mechanism.
+> - [Http Test Recorder][testing util]. Records HTTP traffic from services external to the bot. It comes pre-built with support for LUIS, Azure Search, and QnAMaker, but extensions are available to support any service. This helps you automate bot testing.
 
-> [!NOTE]
-> These packages are provided as utility sample code, and come with no guarantee of support or updates.
+> [!NOTE] These packages are provided as utility sample code, and come with no guarantee of support or updates.
 
 ## Availability considerations
 
@@ -195,6 +196,12 @@ You can deploy the bot logic directly from your IDE or from a command line, such
 [devops]: https://azure.microsoft.com/solutions/devops/
 [functions]: /azure/azure-functions/
 [functions-triggers]: /azure/azure-functions/functions-triggers-bindings
+[git-repo-appinsights-logger]: https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-transcript-app-insights
+[git-repo-base]: https://github.com/Microsoft/botbuilder-utils-js
+[git-repo-cosmosdb-logger]: https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-transcript-cosmosdb
+[git-repo-feedback-util]: https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-feedback
+[git-repo-testing-util]: https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-http-test-recorder
+[testing-util](https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-http-test-recorder)
 [key-vault]: /azure/key-vault/
 [lda]: https://wikipedia.org/wiki/Latent_Dirichlet_allocation/
 [logic-apps]: /azure/logic-apps/logic-apps-overview
