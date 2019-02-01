@@ -76,7 +76,7 @@ This section of the article will evolve the Governance MVP design to include new
 2. Create a repository in Azure DevOps to store and version all relevant Resource Manager templates and scripted configurations.
 3. Azure Vault implementation:
     1. Define and deploy Azure Vault for backup and recovery processes.
-    2. Create an ARM template for creation of a vault in each subscription.
+    2. Create a Resource Manager template for creation of a vault in each subscription.
 4. Update Azure Policy for all subscriptions:
     1. Audit and enforce criticality and data classification across all subscriptions to identify any subscriptions with mission critical assets.
     2. Audit and enforce the use of approved images only.
