@@ -1,33 +1,46 @@
-# Securely Deploy an Expense Web App to Azure App Service Environment
+---
+title: Fully managed applications built for secure access
+titleSuffix: Azure Example Scenarios
+description: Securely deploy an expense application to Azure App Service Environment
+author: fmustaf
+ms.date: 2/6/2019
+ms.topic: example-scenario
+ms.service: architecture-center
+ms.subservice: example-scenario
+ms.custom:
+    - fasttrack
+    - security
+social_image_url: /azure/architecture/example-scenario/apps/media/ilb-ase-with-architecture.png
+---
 
-This example scenario walks you through application deployment in your intranet environment using Azure App Service Environment service with an Internal Load Balancer configuration (ILB) and securely connect to Azure SQL DB over VNet service endpoint. This scenario will also show how you can expose this application to internet in a secure manner using Azure Application Gateway service which includes Web Application Firewall. This will also show one of the best practices to setup continuous integration & continuous deployment to ILB ASE using Azure DevOps to automate build & release of an application. 
+# Fully managed applications built for secure access
 
-This is a fairly common customer scenario in Banking and Insurance industries where customers are very conscious of platform level security in addition to application level security.
+This example scenario walks you through a secure application deployment using the [Azure App Service Environment (ASE)][intro-to-app-svc-env] and Internal Load Balancer (ILB).  This scenario will also demonstrate how you can expose applications to the internet in a secure manner using the Azure Application Gateway service and Web Application Firewall. We'll also cover some best practices around continuous integration & continuous deployment (CI/CD) for ILB ASE using Azure DevOps for automatic application builds & releases.
+
+This is a commonly deployed scenario in industries such as Banking and Insurance where customers are conscious of platform level security in addition to application level security.
 
 ## Relevant use cases
 
 Consider this scenario for the following use cases:
 
-* Building an Azure Web App where customer has additional security requirements to have additional layer of deployment protection behind 
-an Azure VNET
-* Customers desire a deployment to a dedicated tenant, rather than be in shared tenant App Service Plans
+* Building an Azure Web App where additional security is required
+* Dedicated tenancy is needed, rather than shared tenant App Service Plans
 * Utilize Azure DevOps capabilities with the ILB ASE deployed inside a VNET
 
 ## Architecture
 
 ![Sample scenario architecture for Secure ILB ASE Deployment ][architecture]
 
-The scenario covers the data flows as follows:
+Data flows through the scenario as follows:
 
-1. HTTP/HTTPs requests first hit the Application Gateway. 
-2. Although not shown in the diagram, you can additionally have Azure AD Authentication enabled for the Web App as well. After the traffic first hits Application Gateway, the user is then prompted to supply the credentials to authenticate with the application.
-3. User request then flows through the ILB of the ASE, which in turn routes the traffic to the Contoso Expenses Web App.
+1. HTTP/HTTPs requests first hit the Application Gateway
+2. Optionally (not shown in the diagram) you can have Azure AD Authentication enabled for the Web App. After the traffic first hits the Application Gateway, the user is then prompted to supply the credentials to authenticate with the application.
+3. User requests flow through the ILB of the ASE, which in turn routes the traffic to the Contoso Expenses Web App.
 4. User then proceeds to create an Expense Report
 5. As part of the expense creation, the deployed API App is invoked to retrieve user's manager name and email
 6. The Created Expense Report is stored in Azure SQL Database
 7. To facilitate continuous deployments, code gets checked into the Azure DevOps instance
-8. The build VM has the Azure DevOps Agent installed
-9. This allows the build VM to pull the bits for the Web App to deploy to the ASE (as the Build VM is deployed in a Subnet inside the same VNET)
+8. The build VM has the Azure DevOps Agent installed which allows the build VM to pull the bits for the Web App to deploy to the ASE (as the Build VM is deployed in a Subnet inside the same VNET)
 
 ### Components
 
@@ -51,7 +64,8 @@ Other options for the data tier include:
 * [Azure Cosmos DB](/azure/cosmos-db/introduction): Microsoft's globally distributed, multi-model database. This service provides a platform to run other data models such as Mongo DB, Cassandra, Graph data, or simple table storage.
 
 ## Considerations
-There are certain considerations to be aware of when dealing with certificates on ILB ASE. The real trick here is generating a certificate that is chained up to a trusted root without requiring a Certificate Signing Request generated by the server on which the cert will be eventually placed. In other words, with IIS for example the first step is to generate a CSR from your IIS server and then send it to the SSL certificate issuing authority. 
+
+There are certain considerations to be aware of when dealing with certificates on ILB ASE. The real trick here is generating a certificate that is chained up to a trusted root without requiring a Certificate Signing Request generated by the server on which the cert will be eventually placed. In other words, with IIS for example the first step is to generate a CSR from your IIS server and then send it to the SSL certificate issuing authority.
 
 You cannot issue a CSR from the Internal Load Balancer (ILB) of an ASE. The way to handle this is to use [this procedure][create-wildcard-cert-letsencrypt].
 
@@ -62,13 +76,15 @@ Make self-signed or internally issued SSL cert work if we want to make secure ca
 Another [solution to consider][ase-and-internally-issued-cert] on how to make ILB ASE work with internally issued SSL certificate and how to load the internal CA to the trusted root store.
 
 While provisioning the ASE consider the following limitations when choosing a domain name for the ASE. Domain Names cannot be:
+
 * net
 * azurewebsites.net
 * p.azurewebsites.net
 * nameofthease.p.azurewebsites.net
 
 Additionally, the custom domain name used for apps and the domain name used by the ILB ASE cannot overlap. For an ILB ASE with the domain name contoso.com, you can't use custom domain names for your apps like:
-* w<span>ww.</span>contoso.com
+
+* www.contoso.com
 * abcd.def.contoso.com
 * abcd.contoso.com
 
