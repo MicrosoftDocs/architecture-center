@@ -9,7 +9,7 @@ ms.date: 2/1/2019
 
 ## Best practice overview
 
-This governance journey follows the experiences of a fictional company through various stages of governance maturity. It is based on real customer journeys. The suggested best practices are based on the constraints and needs of the fictional company. 
+This governance journey follows the experiences of a fictional company through various stages of governance maturity. It is based on real customer journeys. The suggested best practices are based on the constraints and needs of the fictional company.
 As a quick starting point, this overview defines a best-practice governance MVP. It also provides links to a few governance evolutions that add further best practices as new business or technical risks emerge.
 
 > [!WARNING]
@@ -24,9 +24,9 @@ This best practice serves as a foundation that an organization can use to quickl
 ![Resource Organization diagram](../../../_images/governance/resource-organization.png)
 
 1. A management group for each type of environment (such as Production, Development, and Test)
-2. A subscription for each “Application Categorization” 
+2. A subscription for each “Application Categorization”;
 3. A separate resource group for each application.
-4. Consistent nomenclature should be applied at each level of this grouping hierarchy. 
+4. Consistent nomenclature should be applied at each level of this grouping hierarchy.
 
 ![Resource Organization example for a mid-market company](../../../_images/governance/mid-market-resource-organization.png)
 
@@ -48,14 +48,14 @@ These patterns enable resources to be discovered and tracked, and enforce basic 
 
 **Demilitarized Zone (DMZ)**: It’s common for specific subscriptions to require some level of access to on-premises resources. This may be the case for migration scenarios or development scenarios, when some dependent resources are still in the on-premises datacenter. In this case, the governance MVP adds the following best practices:
 
-1. Establish a Cloud DMZ. 
+1. Establish a Cloud DMZ.
     1. The [Cloud DMZ Reference Architecture](http://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid) establishes a pattern and deployment model for creating a VPN Gateway in Azure.
     2. Validate that proper DMZ connectivity and security requirements are in place for a local edge device in the on-premises datacenter.
     3. Validate that the local edge device is compatible with Azure VPN Gateway requirements.
-    4. Once connection to the on-premise VPN has been verified, capture the ARM template created by that reference architecture.
-2. Create a second Azure Blueprint named “DMZ”. 
-    1. Add the Resource Manager template for the VPN Gateway to the Azure Blueprint.
-3. Apply the DMZ Azure Blueprint to any subscriptions requiring on-premises connectivity. This Azure Blueprint should be applied in addition to the Governance MVP blueprint.
+    4. Once connection to the on-premise VPN has been verified, capture the Resource Manager template created by that reference architecture.
+2. Create a second blueprint named “DMZ”.
+    1. Add the Resource Manager template for the VPN Gateway to the blueprint.
+3. Apply the DMZ blueprint to any subscriptions requiring on-premises connectivity. This blueprint should be applied in addition to the governance MVP blueprint.
 
 One of the biggest concerns raised by IT security and traditional governance teams, is the risk of early stage cloud adoption compromising existing assets. The above approach allows cloud adoption teams to build and migrate hybrid solutions, with reduced risk to on-premises assets. In later evolution, this temporary solution would be removed.
 
@@ -78,6 +78,8 @@ Once this MVP has been deployed, additional layers of governance can be quickly 
 - [Controls for cost management](./cost-control.md)
 - [Controls for multi-cloud evolution](./multi-cloud.md)
 
+<!-- markdownlint-disable MD026 -->
+
 ### What does this best practice do?
 
 In the MVP, practices and tools from the Deployment Acceleration discipline are established to quickly apply corporate policy. In particular, the MVP makes use of Azure Blueprints, Azure Management Groups, and Azure Policy to apply a few basic corporate policies, as defined in the narrative for this fictional company. Those corporate policies are applied using Resource Manager templates and Azure policies to establish a very small baseline for identity and security.
@@ -86,7 +88,7 @@ In the MVP, practices and tools from the Deployment Acceleration discipline are 
 
 ### Evolving the best practice
 
-Over time, this governance MVP will be used to evolve the governance practices. As adoption advances, business risk grows. Various disciplines within the Fusion Governance Model will evolve to mitigate those risks. Later articles in this series discuss the evolution of corporate policy affecting the fictional company. These evolutions happen across three disciplines: 
+Over time, this governance MVP will be used to evolve the governance practices. As adoption advances, business risk grows. Various disciplines within the Fusion Governance Model will evolve to mitigate those risks. Later articles in this series discuss the evolution of corporate policy affecting the fictional company. These evolutions happen across three disciplines:
 
 - Cost Management, as adoption scales.
 - Security Baseline, as protected data is deployed.
@@ -94,10 +96,11 @@ Over time, this governance MVP will be used to evolve the governance practices. 
 
 ![Example of Incremental Governance MVP](../../../_images/governance/governance-evolution.png)
 
-
 ## Next steps
 
 Now that you’re familiar with the governance MVP and have an idea of the governance evolutions to follow, read the [supporting narrative](./use-case.md) for additional context.
 
 > [!div class="nextstepaction"]
 > [Review the supporting narrative](./use-case.md)
+
+<!-- markdownlint-enable MD026 -->

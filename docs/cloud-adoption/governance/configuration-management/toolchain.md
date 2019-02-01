@@ -25,7 +25,7 @@ Unlike the cloud-agnostic position used throughout Fusion, this article is Azure
 
 The following are additional tools that may be required to accomplish specific configuration management objectives. Of times these tools are used outside of the governance team, but are still considered an aspect of configuration management as a discipline.
 
-|  |Azure Portal  |ARM Templates  |Azure Policy  | Azure DevOps | Azure Backup | Azure Site Recovery |
+|  |Azure Portal  |Azure Resource Manager Templates  |Azure Policy  | Azure DevOps | Azure Backup | Azure Site Recovery |
 |---------|---------|---------|---------|---------|---------|---------|
 |Manual deployment (single asset)     | Yes | Yes  | No  | Not efficiently | No | Yes |
 |Manual deployment (full environment)     | Not efficiently | Yes | No  | Not efficiently | No | Yes |

@@ -46,8 +46,8 @@ This design guide focuses on a scenario that is closer to the latter case; The c
 
 ### Objective of the design guide
 
-For the future state to be realized, PII and Financial Data will have to go to the cloud. For that to happen, the cloud will need a robust cloud governance strategy.
-The business is not willing to invest in Cloud Governance today. However, Cloud Governance is likely to be a wise investment in the near future.
+For the future state to be realized, PII and financial data will have to go to the cloud. For that to happen, the cloud will need a robust cloud governance strategy.
+The business is not willing to invest in cloud governance today. However, cloud governance is likely to be a wise investment in the near future.
 The objective of this design guide is to establish a common foundation for all deployments. That foundation will need to scale as new policies and governance disciplines are added.
 
 ## Next steps

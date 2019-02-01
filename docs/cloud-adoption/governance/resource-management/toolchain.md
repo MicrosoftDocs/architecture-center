@@ -5,6 +5,8 @@ author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
+<!-- markdownlint-disable MD026 -->
+
 # Fusion: What tools can help better manage resource management in Azure?
 
 In the [Intro to Cloud Governance](../overview.md), Resource Management is one of the five disciplines to Cloud Governance. This discipline focuses on ways of establishing policies related to the operational management of an environment, application, or workload. Within the five disciplines of Cloud Governance, Resource management includes monitoring of application, workload, and asset performance. It also includes the tasks required to meet scale demands, remediate performance SLA violations, and proactively avoid performance SLA violations through automated remediation.
@@ -15,7 +17,7 @@ Unlike the cloud-agnostic position used throughout Fusion, this article is Azure
 |---------|---------|---------|---------|---------|---------|
 | Deploy resources                             | Yes | Yes | Yes | Yes | No  |
 | Manage resources                             | Yes | Yes | Yes | Yes | No  |
-| Deploy resources using ARM templates         | No  | Yes | No  | Yes | No  |
+| Deploy resources using templates             | No  | Yes | No  | Yes | No  |
 | Orchestrated environment deployment          | No  | No  | Yes | No  | No  |
 | Define resource groups                       | Yes | Yes | Yes | No  | No  |
 | Manage workload and account owners           | Yes | Yes | Yes | No  | No  |
@@ -52,3 +54,5 @@ When planning your deployment, you will need to consider where logging data is s
 # Next steps
 
 Learn how to create, assign, and manage [policy definitions](/azure/governance/policy/) in Azure.
+
+<!-- markdownlint-enable MD026 -->
