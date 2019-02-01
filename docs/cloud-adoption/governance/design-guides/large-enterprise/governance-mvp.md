@@ -9,7 +9,7 @@ ms.date: 2/1/2019
 
 The following outlines the implementation of the initial Corporate Policies for this Governance Journey, to support the initial narrative. Before implementation it is advised that the reader review, modify, and integrate those artifacts into decision making processes.
 
-The core of this governance MVP is the Deployment Acceleration discipline. The tools and patterns applied at this stage will enable the incremental evolutions needed to expand governance in the future.
+The core of this governance MVP is the [Deployment Acceleration](../../configuration-management/overview.md) discipline. The tools and patterns applied at this stage will enable the incremental evolutions needed to expand governance in the future.
 
 ## Governance MVP (Cloud Adoption Foundation)
 
@@ -166,7 +166,7 @@ If any of the patterns selected in this journey don't fit your requirements, con
 
 Once this guide is implemented, the Cloud Adoption team can go forth with a sound governance foundation. The Cloud Governance team will work in parallel to continuously update the corporate policies and governance disciplines. 
 
-The two teams will use the tolerance indicators to identify the next evolution needed to continue supporting cloud adoption. For the fictitious company in this journey, the next step is evolving this governance baseline to [support moving protected data to the cloud](./protected-data.md).
+The two teams will use the tolerance indicators to identify the next evolution needed to continue supporting cloud adoption. For the fictitious company in this journey, the next step is evolving this governance baseline to [support the inclusion of applications with legacy or third-party multifactor authentication (MFA) requirements](./identity-baseline.md).
 
 > [!div class="nextstepaction"]
-> [Security baseline evolution](./protected-data.md)
+> [Identity baseline evolution](./identity-baseline.md)

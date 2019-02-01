@@ -605,23 +605,25 @@
           href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/cost-control.md
         - name: Multi-cloud considerations
           href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/multi-cloud.md
-      - name: XXXX - Large Enterprise
+      - name: Large Enterprise
         items:
-        - name: Overview
+        - name: Best Practice
           href: cloud-adoption/governance/design-guides/large-enterprise/overview.md
-        - name: XXXX - Narrative
+        - name: Narrative
           href: cloud-adoption/governance/design-guides/large-enterprise/use-case.md
-        - name: XXXX - Corporate Policy
+        - name: Corporate Policy
           href: cloud-adoption/governance/design-guides/large-enterprise/corporate-policy.md
-        - name: XXXX - Governance MVP (Adoption Foundation)
+        - name: Best Practice Explained
           href: cloud-adoption/governance/design-guides/large-enterprise/governance-mvp.md
-        - name: XXXX - Governance Evolution (Protected Data)
+        - name: Evolve the Identity Baseline for Legacy or Multifactor Authentication
+          href: cloud-adoption/governance/design-guides/large-enterprise/identity-baseline.md
+        - name: Evolve the Security Baseline for Protected Data
           href: cloud-adoption/governance/design-guides/large-enterprise/protected-data.md
-        - name: XXXX - Governance Evolution (Mision Critical Apps)
+        - name: Evolve Resource Consistency for Mission Critical Apps
           href: cloud-adoption/governance/design-guides/large-enterprise/mission-critical.md
-        - name: XXXX - Governance Evolution (Cost Controls)
+        - name: Evolve Cost Management to control costs
           href: cloud-adoption/governance/design-guides/large-enterprise/cost-control.md
-        - name: XXXX - Governance Evolution (Multi-cloud)
+        - name: Multi-cloud considerations
           href: cloud-adoption/governance/design-guides/large-enterprise/multi-cloud.md
     - name: References
       items:
