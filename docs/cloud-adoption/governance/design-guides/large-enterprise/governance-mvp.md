@@ -76,7 +76,7 @@ The core of this governance MVP is Deployment Acceleration. The tools and patter
 
 ### Policy enforcement
 
-The first decision to make regarding Deployment Acceleration is the pattern for enforcement. In this narrative, the Cloud Governance team decided to implement the **Ongoing Enforcement** pattern.
+The first decision to make regarding Deployment Acceleration is the pattern for enforcement. In this narrative, the Cloud Governance team decided to implement the **Automated Enforcement** pattern.
 
 - Azure Security Center will be made available to the security and identity teams to monitor security risks. Both teams are also likely to use Security Center to identify new risks and evolve corporate policy.
 - RBAC is required in all subscriptions to govern authentication enforcement.

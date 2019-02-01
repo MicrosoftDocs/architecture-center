@@ -83,7 +83,7 @@ Resource Consistency:
 ## Processes
 
 No budget has been allocated for ongoing monitoring and enforcement of these governance policies. However, the Cloud Governance team has some ad hoc ways to monitor adherence to policy statements:
-- Educ**ation: The Cloud Governance team is investing time to educate the Cloud Adoption teams on the governance journeys that support these policies.
+- **Education**: The Cloud Governance team is investing time to educate the Cloud Adoption teams on the governance journeys that support these policies.
 - **Deployment reviews**: Before deploying any asset, the Cloud Governance team will review the governance journey with the Cloud Adoption teams.
 
 ## Next steps

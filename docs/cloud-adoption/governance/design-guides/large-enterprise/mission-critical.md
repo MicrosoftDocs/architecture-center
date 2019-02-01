@@ -33,7 +33,7 @@ This business risk can be expanded into several technical risks:
 
 - Misaligned operational processes might lead to outages that can’t be detected or remediated quickly.
 - External intrusion or denial of service attacks might cause a business interruption
-- Mission-critical assets might not not be properly discovered and therefore not properly operated.
+- Mission-critical assets might not be properly discovered and therefore not properly operated.
 - Undiscovered or mislabeled assets might not be supported by existing operational management processes.
 - Configuration of deployed assets might not meet performance expectations.
 - Logging might not be properly recorded and centralized to allow for remediation of performance issues.
@@ -55,7 +55,7 @@ The following changes to policy will help mitigate the new risks and guide imple
 5. Governance tooling must validate that the appropriate level of logging data is being collected for all mission critical apps or protected data.
 6. Governance process must validate that backup, recovery, and SLA adherence are properly implemented for mission critical apps and protected data. 
 7. Governance tooling must limit VM deployment to approved images only.
-8. Governance tooling must enforce that automatic updates are prevented on all deployed assets that support mission critical applications. Violations must be reviewed with operational management teams and remediated in accordance with operations policies. Assets that are not automatically updated must be included in processes owned by IT operations.
+8. Governance tooling must enforce that automatic updates are **prevented** on all deployed assets that support mission critical applications. Violations must be reviewed with operational management teams and remediated in accordance with operations policies. Assets that are not automatically updated must be included in processes owned by IT operations.
 9. Governance tooling must validate tagging related to cost, criticality, SLA, application, and data classification. All values must align to predefined values managed by the Cloud Governance team.
 10. Governance processes must include audits at the point of deployment and at regular cycles to ensure consistency across all assets.
 11. Trends and exploits that could affect cloud deployments should be reviewed regularly by the security team to provide updates to Security Baseline tooling used in the cloud.
