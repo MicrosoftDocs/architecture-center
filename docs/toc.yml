@@ -583,27 +583,27 @@
     items:
     - name: Overview
       href: cloud-adoption/governance/overview.md
-    - name: Actionable Governance Journeys
+    - name: Actionable governance journeys
       items:
-      - name: Overview
+      - name: Overview of the journeys
         href: cloud-adoption/governance/design-guides/overview.md
-      - name: Small to Medium Enterprise
+      - name: Small-to-medium enterprise journey
         items:
-        - name: Best Practice
+        - name: Best practice
           href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/overview.md
         - name: Narrative
           href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/use-case.md
-        - name: Corporate Policy
+        - name: Initial corporate policy
           href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/corporate-policy.md
-        - name: Best Practice Explained
+        - name: Best practice explained
           href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/governance-mvp.md
-        - name: Evolve the Security Baseline for Protected Data
+        - name: Evolve the security naseline
           href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/protected-data.md
         - name: Evolve Resource Consistency for Mission Critical Apps
           href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/mission-critical.md
-        - name: Evolve Cost Management to control costs
+        - name: Evolve cost management
           href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/cost-control.md
-        - name: Multi-cloud considerations
+        - name: Multi-cloud evolution
           href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/multi-cloud.md
       - name: Large Enterprise
         items:
@@ -611,19 +611,19 @@
           href: cloud-adoption/governance/design-guides/large-enterprise/overview.md
         - name: Narrative
           href: cloud-adoption/governance/design-guides/large-enterprise/use-case.md
-        - name: Corporate Policy
+        - name: Initial corporate policy
           href: cloud-adoption/governance/design-guides/large-enterprise/corporate-policy.md
-        - name: Best Practice Explained
+        - name: Best practice explained
           href: cloud-adoption/governance/design-guides/large-enterprise/governance-mvp.md
-        - name: Evolve the Identity Baseline for Legacy or Multifactor Authentication
+        - name: Evolve the identity baseline
           href: cloud-adoption/governance/design-guides/large-enterprise/identity-baseline.md
-        - name: Evolve the Security Baseline for Protected Data
+        - name: Evolve the security baseline
           href: cloud-adoption/governance/design-guides/large-enterprise/protected-data.md
-        - name: Evolve Resource Consistency for Mission Critical Apps
+        - name: Evolve resource consistency
           href: cloud-adoption/governance/design-guides/large-enterprise/mission-critical.md
-        - name: Evolve Cost Management to control costs
+        - name: Evolve cost management
           href: cloud-adoption/governance/design-guides/large-enterprise/cost-control.md
-        - name: Multi-cloud considerations
+        - name: Multi-cloud evolution
           href: cloud-adoption/governance/design-guides/large-enterprise/multi-cloud.md
         - name: Multiple layers of governance
           href: cloud-adoption/governance/design-guides/large-enterprise/layered-governance.md
