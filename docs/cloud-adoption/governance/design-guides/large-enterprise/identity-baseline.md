@@ -5,9 +5,9 @@ author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
-# Fusion: Large Enterprise – Identity baseline evolution
+# Fusion: Large Enterprise – Identity Baseline evolution
 
-This article evolves the narrative by adding Identity Baseline controls to the Governance MVP. 
+This article evolves the narrative by adding Identity Baseline controls to the Governance MVP.
 
 ## Evolution of the narrative
 
@@ -31,7 +31,6 @@ The IT team has approval to move forward with the CIO and CFO's plans to retire 
 ### Evolution of the future state
 
 The new future state plans require a more robust Identity Baseline solution to migrate the 750 virtual machines with legacy authentication requirements. Beyond these two datacenters, similar percentages of assets in other datacenters are expected to be impacted by this challenge.
-
 The future state now also requires a connection from the cloud provider to the company’s MPLS/leased-line solution.
 
 The changes to current and future state expose new risks that will require new policy statements.
@@ -83,7 +82,7 @@ The addition of the above changes to the governance MVP help to mitigate many of
 
 ## Next steps
 
-As cloud adoption evolves and delivers additional business value, risks and cloud governance needs will also evolve. The following are a few evolutions that may occur. For the fictional company in this journey, the next trigger is the [inclusion of protected data in the cloud adoption plan](./protected-data.md). This change will require addition security controls.
+As cloud adoption evolves and delivers additional business value, risks and cloud governance needs will also evolve. The following are a few evolutions that may occur. For the fictional company in this journey, the next trigger is the inclusion of protected data in the cloud adoption plan. This change will require additional security controls.
 
 > [!div class="nextstepaction"]
 > [Security baseline evolution](./protected-data.md)

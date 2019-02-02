@@ -42,11 +42,11 @@ The following changes are anticipated over the next several years:
 - The application development and BI teams want to release cloud-based solutions to production over the next 24 months based on the vision for customer engagement and new products.
 - This year, the IT team will finish retiring the disaster recovery workloads of the DR datacenter by migrating 2,000 VMs to the cloud. This is expected to produce an estimated $25M USD cost savings over the next five years.
     ![On-premise costs vs Azure costs demonstrating a return of $25M USD over the next five years](../../../_images/governance/calculator-small-to-medium-enterprise.png)
-- The company plans to change how it makes IT investments by repositioning the committed CapEx as an operational expense (OpEx) within IT. This change will provide greater cost control and enable IT to accelerate other planned efforts. 
+- The company plans to change how it makes IT investments by repositioning the committed CapEx as an operational expense (OpEx) within IT. This change will provide greater cost control and enable IT to accelerate other planned efforts.
 
 ## Next steps
 
-The company has developed a corporate policy to shape the governance implementation. To learn about this policy, read [“Initial corporate policy behind the governance strategy”](./corporate-policy.md).
+The company has developed a corporate policy to shape the governance implementation. The corporate policy drives many of the technical decisions.
 
 > [!div class="nextstepaction"]
 > [Review the initial corporate policy](./corporate-policy.md)

@@ -7,7 +7,7 @@ ms.date: 2/1/2019
 
 # Fusion: Small to Medium Enterprise – Multi-cloud evolution
 
-This article evolves the narrative by controls for multi-cloud adoption.
+This article evolves the narrative by adding controls for multi-cloud adoption.
 
 ## Evolution of the narrative
 
@@ -17,7 +17,11 @@ This article describes how things change when integrating the new organization. 
 
 ### Evolution of the current state
 
-- Identity is controlled by an on-premises instance of Active Directory. Hybrid Identity is facilitated through replication to Azure Active Directory. 
+In the previous phase of this narrative, the company had begun actively pushing production applications to the cloud through CI/CD pipelines.
+
+Since then, some things have changed that will affect governance:
+
+- Identity is controlled by an on-premises instance of Active Directory. Hybrid Identity is facilitated through replication to Azure Active Directory.
 - IT Operations or Cloud Operations are largely managed by Azure Monitor and related automations.
 - Disaster Recovery / Business Continuity is controlled by Azure Vault instances
 - Azure Security Center is used to monitor security violations and attacks
@@ -66,4 +70,4 @@ This section of the article will evolve the Governance MVP design to include new
     1. Governance enforcement is cloud specific.
     2. The corporate policies established in the governance journey are not cloud specific. While the implementation may vary from cloud to cloud, the policies can be applied to the secondary provider.
 
-As multi-cloud adoption grows, the design evolution above will continue to mature. 
+As multi-cloud adoption grows, the design evolution above will continue to mature.

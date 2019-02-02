@@ -7,7 +7,7 @@ ms.date: 2/1/2019
 
 # Fusion: Small to Medium Enterprise – Security baseline evolution
 
-This article evolves the narrative by adding security controls that support moving protected data to the cloud. 
+This article evolves the narrative by adding security controls that support moving protected data to the cloud.
 
 ## Evolution of the narrative
 
@@ -30,7 +30,7 @@ Since then, some things have changed that will affect governance:
 - The IT team is progressing on the CIO and CFO's plans to retire the DR data center. More than 1,000 of the 2,000 assets in the DR data center have been retired or migrated.
 - The loosely defined policies regarding PII and financial data have been modernized. However, the new corporate policies are contingent on the implementation of related security and governance policies. Teams are still stalled.
 
-### Evolution of the future State
+### Evolution of the future state
 
 Early experiments by the App Dev and BI teams show potential improvements in customer experiences and data-driven decisions. Both teams want to expand adoption of the cloud over the next 18 months by deploying those solutions to production. 
 
@@ -106,7 +106,7 @@ The governance MVP design will evolve to include new Azure Policies and an imple
     1. Identify a configuration of Azure Firewall that meets necessary security requirements. Alternatively, identify a compatible third-party appliance that is compatible with Azure.
     2. Create a Resource Manager template to deploy the firewall with required configurations.
 8. Azure Blueprint:
-    1. Create a new Azure Blueprint called “Protected Data.”
+    1. Create a new Azure Blueprint called "Protected Data."
     2. Add the Firewall and Azure Security Center templates to the blueprint.
     3. Add the new policies for protected data subscriptions.
     4. Publish the Azure Blueprint to any management group which current plans on hosting protected data.
@@ -114,11 +114,11 @@ The governance MVP design will evolve to include new Azure Policies and an imple
 
 ## Conclusion
 
-The addition of the above processes and changes to the Governance MVP help to mitigate many of the risks associated with security governance. Together, they add the network, identity, and security monitoring tools needed to protect data.
+Adding the above processes and changes to the Governance MVP will help to mitigate many of the risks associated with security governance. Together, they add the network, identity, and security monitoring tools needed to protect data.
 
 ## Next Steps
 
-As cloud adoption continues to evolve and deliver additional business value, risks and cloud governance needs also evolve. For the fictitious company in this journey, the next step is to [support mission-critical workloads](./mission-critical.md). This is the point when resource consistency controls are needed.
+As cloud adoption continues to evolve and deliver additional business value, risks and cloud governance needs also evolve. For the fictitious company in this journey, the next step is to support mission-critical workloads. This is the point when resource consistency controls are needed.
 
 > [!div class="nextstepaction"]
 > [Resource consistency evolution](./mission-critical.md)

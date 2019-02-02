@@ -5,17 +5,20 @@ author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
-# Fusion: Small to Medium Enterprise – Cost management evolution 
+# Fusion: Small to Medium Enterprise – Cost management evolution
 
-This article evolves the narrative by adding cost controls. 
+This article evolves the narrative by adding cost controls to the governance minimum viable product (MVP).
 
 ## Evolution of the narrative
 
-Adoption has grown beyond the Cost tolerance indicator defined in the Governance MVP. This is a good thing, as it corresponds with migrations from the “DR” datacenter. The increases in spending now justifies an investment of time from the Cloud Governance team.  
+Adoption has grown beyond the cost tolerance indicator defined in the governance MVP. This is a good thing, as it corresponds with migrations from the "DR" datacenter. The increase in spending now justifies an investment of time from the Cloud Governance team.
 
 ### Evolution of the current state
 
-- IT has eliminated the DR data center, by moving disaster recovery and dev/test assets to Azure.
+In the previous phase of this narrative, IT had retired 100% of the DR datacenter. The application development and BI teams were ready for production traffic.
+
+Since then, some things have changed that will affect governance:
+
 - The migration team has begun migrating VMs out of the production datacenter.
 - The application development teams is actively pushing production applications to the cloud through CI/CD pipelines. Those applications can reactively scale with user demands.
 - The business intelligence team within IT has delivered a number of predictive analytics tools in the cloud. the volumes of data aggregated in the cloud continues to grow.
@@ -65,9 +68,9 @@ This section of the article will evolve the Governance MVP design to include new
 
 The addition of the above processes and changes to the Governance MVP help to mitigate many of the risks associated with cost governance. Together, they create the visibility, accountability, and optimization needed to control costs.
 
-## Next Steps
+## Next steps
 
-As cloud adoption continues to evolve and deliver additional business value, risks and cloud governance needs will also evolve. For the fictitious company in this journey, the next step is using this governance investment to [manage multiple clouds](./multi-cloud.md).
+As cloud adoption continues to evolve and deliver additional business value, risks and cloud governance needs will also evolve. For the fictitious company in this journey, the next step is using this governance investment to manage multiple clouds.
 
 > [!div class="nextstepaction"]
 > [Multi-cloud evolution](./multi-cloud.md)

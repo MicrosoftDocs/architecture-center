@@ -7,7 +7,7 @@ ms.date: 2/1/2019
 
 # Fusion: Small to Medium Enterprise – Resource consistency evolution
 
-This article evolves the narrative by adding Resource Consistency controls to support mission-critical apps. 
+This article evolves the narrative by adding Resource Consistency controls to support mission-critical apps.
 
 ## Evolution of the narrative
 
@@ -93,7 +93,7 @@ This section of the article will evolve the Governance MVP design to include new
     1. Identify a configuration of Azure Firewall that meets security requirements. Alternatively, identify a third-party appliance that is compatible with Azure.
     2. Create a Resource Manager template to deploy the firewall with required configurations.
 8. Azure Blueprint:
-    1. Create a new Azure Blueprint called “Protected Data”.
+    1. Create a new Azure Blueprint called "Protected Data".
     2. Add the firewall and Azure Vault templates to the blueprint.
     3. Add the new policies for protected data subscriptions.
     4. Publish the Azure Blueprint to any management group intended to host mission-critical applications.
@@ -103,9 +103,9 @@ This section of the article will evolve the Governance MVP design to include new
 
 These additional processes and changes to the Governance MVP help mitigate many of the risks associated with resource governance. Together they add recovery, sizing, and monitoring controls that empower cloud-aware operations.
 
-## Next Steps
+## Next steps
 
-As cloud adoption continues to evolve and deliver additional business value, risks and cloud governance needs will also evolve. For the fictitious company in this journey, the next trigger is when the scale of deployment exceeds 100 assets to the cloud or monthly spending exceeding $1,000/month. At this point, the Cloud Governance team [adds cost management controls](./cost-control.md).
+As cloud adoption continues to evolve and deliver additional business value, risks and cloud governance needs will also evolve. For the fictitious company in this journey, the next trigger is when the scale of deployment exceeds 100 assets to the cloud or monthly spending exceeding $1,000/month. At this point, the Cloud Governance team adds cost management controls.
 
 > [!div class="nextstepaction"]
 > [Cost management evolution](./cost-control.md)

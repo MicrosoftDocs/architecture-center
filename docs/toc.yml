@@ -625,6 +625,8 @@
           href: cloud-adoption/governance/design-guides/large-enterprise/cost-control.md
         - name: Multi-cloud considerations
           href: cloud-adoption/governance/design-guides/large-enterprise/multi-cloud.md
+        - name: Multiple layers of governance
+          href: cloud-adoption/governance/design-guides/large-enterprise/layered-governance.md
     - name: References
       items:
       - name: Defining Corporate Policy & Compliance

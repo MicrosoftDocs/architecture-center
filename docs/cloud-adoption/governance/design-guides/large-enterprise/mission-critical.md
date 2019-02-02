@@ -25,7 +25,7 @@ The Cloud Adoption team has met all requirements to move protected data. With th
 
 The changes to current and future state expose new risks that will require new policy statements.
 
-## Evolution of Tangible Risks
+## Evolution of tangible tisks
 
 **Business Interruption**: There is an inherent risk of any new platform causing interruptions to mission critical business processes. The IT operations team and the teams executing on various cloud adoptions are relatively inexperienced with cloud operations. This increases the risk of interruption and must be mitigated and governed.
 
@@ -69,8 +69,6 @@ The following changes to policy will help mitigate the new risks and guide imple
 
 This section of the article will evolve the Governance MVP design to include new Azure Policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
 
-### Best Practice Additions
-
 Following the experience of this fictional example, it is assumed that the Protected Data evolution has already happened. Building on that best practice, the following will add operational monitoring requirements, readying a subscription for mission-critical applications.
 
 **Corporate IT Subscription**: Add the following to the Corporate IT subscription, which acts as a hub.
@@ -101,7 +99,7 @@ Following the experience of this fictional example, it is assumed that the Prote
 
 The addition of the above processes and changes to the Governance MVP help to mitigate many of the risks associated with resource governance. Together, they add the recovery, sizing, and monitoring controls necessary to empower cloud-aware operations.
 
-## Next Steps
+## Next steps
 
 As cloud adoption continues to evolve and deliver additional business value, risks and cloud governance needs will also evolve. For the fictitious company in this journey, the next trigger is when the scale of deployment exceeds 1,000 assets to the cloud or monthly spending exceeding $10,000/month. At this point, the Cloud Governance team [adds cost management controls](./cost-control.md).
 
