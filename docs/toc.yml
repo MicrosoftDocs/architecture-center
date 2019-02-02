@@ -605,7 +605,7 @@
           href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/cost-control.md
         - name: Multi-cloud evolution
           href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/multi-cloud.md
-      - name: Large Enterprise
+      - name: Large enterprise journey
         items:
         - name: Best Practice
           href: cloud-adoption/governance/design-guides/large-enterprise/overview.md
