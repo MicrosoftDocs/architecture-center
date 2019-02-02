@@ -597,11 +597,11 @@
           href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/corporate-policy.md
         - name: Best practice explained
           href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/governance-mvp.md
-        - name: Evolve the security naseline
+        - name: Security baseline evolution
           href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/protected-data.md
-        - name: Evolve Resource Consistency for Mission Critical Apps
+        - name: Resource consistency evolution
           href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/mission-critical.md
-        - name: Evolve cost management
+        - name: Cost management evolution
           href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/cost-control.md
         - name: Multi-cloud evolution
           href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/multi-cloud.md
@@ -615,13 +615,13 @@
           href: cloud-adoption/governance/design-guides/large-enterprise/corporate-policy.md
         - name: Best practice explained
           href: cloud-adoption/governance/design-guides/large-enterprise/governance-mvp.md
-        - name: Evolve the identity baseline
+        - name: Identity baseline evolution
           href: cloud-adoption/governance/design-guides/large-enterprise/identity-baseline.md
-        - name: Evolve the security baseline
+        - name: Security baseline evolution
           href: cloud-adoption/governance/design-guides/large-enterprise/protected-data.md
-        - name: Evolve resource consistency
+        - name: Resource consistency evolution
           href: cloud-adoption/governance/design-guides/large-enterprise/mission-critical.md
-        - name: Evolve cost management
+        - name: Cost management evolution
           href: cloud-adoption/governance/design-guides/large-enterprise/cost-control.md
         - name: Multi-cloud evolution
           href: cloud-adoption/governance/design-guides/large-enterprise/multi-cloud.md
