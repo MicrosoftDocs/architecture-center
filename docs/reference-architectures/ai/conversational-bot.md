@@ -142,17 +142,15 @@ Another option is to integrate your own custom AI service. This approach is more
 
 **Testing**. Testing a bot involves unit tests, integration tests, regression tests, and functional tests. For testing, we recommend recording real HTTP responses from external services, such as Azure Search or QnA Maker, so they can be played back during unit testing without needing to make real network calls to external services.
 
+>[!NOTE]
 > To jump-start your development in these areas, look at the [Botbuilder Utils for JavaScript][git-repo-base]. This repo contains sample utility code for bots built with [Microsoft Bot Framework v4][bot-framework] and running Node.js. It includes the following packages:
-
+>
 > - [Cosmos DB Logging Store][cosmosdb-logger]. Shows how to store and query bot logs in Cosmos DB.
-
 > - [Application Insights Logging Store][appinsights-logger]. Shows how to store and query bot logs in Application Insights.
-
 > - [Feedback Collection Middleware][feedback-util]. Sample middleware that provides a bot user feedback-request mechanism.
-
 > - [Http Test Recorder][testing util]. Records HTTP traffic from services external to the bot. It comes pre-built with support for LUIS, Azure Search, and QnAMaker, but extensions are available to support any service. This helps you automate bot testing.
-
-> [!NOTE] These packages are provided as utility sample code, and come with no guarantee of support or updates.
+>
+> These packages are provided as utility sample code, and come with no guarantee of support or updates.
 
 ## Availability considerations
 
@@ -216,3 +214,9 @@ You can deploy the bot logic directly from your IDE or from a command line, such
 [vscode]: https://azure.microsoft.com/products/visual-studio-code/
 [webapp]: /azure/app-service/overview
 [webchat]: /azure/bot-service/bot-service-channel-connect-webchat?view=azure-bot-service-4.0/
+
+[cosmosdb-logger]: https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-transcript-cosmosdb
+[appinsights-logger]: https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-transcript-app-insights
+[feedback-util]: https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-feedback
+[testing util]: https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-http-test-recorder
+
