@@ -627,7 +627,7 @@
           href: cloud-adoption/governance/design-guides/large-enterprise/multi-cloud.md
         - name: Multiple layers of governance
           href: cloud-adoption/governance/design-guides/large-enterprise/layered-governance.md
-    - name: References
+    - name: Governance Theory
       items:
       - name: Defining Corporate Policy & Compliance
         href: cloud-adoption/governance/corporate-policy.md
@@ -740,21 +740,21 @@
         - name: Deployment Acceleration
           items:
             - name: Adopting a Deployment Acceleration Discipline
-              href: cloud-adoption/governance/configuration-management/overview.md
+              href: cloud-adoption/governance/deployment-acceleration/overview.md
             - name: Download the Template
-              href: cloud-adoption/governance/configuration-management/template.md
+              href: cloud-adoption/governance/deployment-acceleration/template.md
             - name: Understand business risks
-              href: cloud-adoption/governance/configuration-management/business-risks.md
+              href: cloud-adoption/governance/deployment-acceleration/business-risks.md
             - name: Document metrics and tolerance indicators
-              href: cloud-adoption/governance/configuration-management/metrics-tolerance.md
+              href: cloud-adoption/governance/deployment-acceleration/metrics-tolerance.md
             - name: Customize Sample Policy Statements
-              href: cloud-adoption/governance/configuration-management/policy-statements.md
+              href: cloud-adoption/governance/deployment-acceleration/policy-statements.md
             - name: Develop policy compliance processes
-              href: cloud-adoption/governance/configuration-management/processes.md
+              href: cloud-adoption/governance/deployment-acceleration/processes.md
             - name: Develop a Maturity Roadmap
-              href: cloud-adoption/governance/configuration-management/maturity-adoption-alignment.md
+              href: cloud-adoption/governance/deployment-acceleration/maturity-adoption-alignment.md
             - name: Azure Specific Tool Chain
-              href: cloud-adoption/governance/configuration-management/toolchain.md
+              href: cloud-adoption/governance/deployment-acceleration/toolchain.md
   - name: Infrastructure
     items:
     - name: Virtual Machines

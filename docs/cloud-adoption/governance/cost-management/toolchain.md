@@ -1,6 +1,6 @@
 ---
 title: "Fusion: What tools can help better manage costs in Azure?"
-description: Explanation of the concept cost management in relation to cloud governance
+description: Explanation of the concept Cost Management in relation to cloud governance
 author: BrianBlanchard
 ms.date: 1/4/2019
 ---

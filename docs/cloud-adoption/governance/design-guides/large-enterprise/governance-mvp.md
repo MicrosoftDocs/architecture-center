@@ -9,7 +9,7 @@ ms.date: 2/1/2019
 
 This article outlines the implementation of the initial corporate policies for this governance journey. Those policies are described in the previous article, [Initial corporate policy behind the governance strategy](corporate-policy.md). Before implementation, it is advised that the reader review, modify, and integrate those artifacts into decision making processes.
 
-The core of this governance minimum viable product (MVP) is the [Deployment Acceleration](../../configuration-management/overview.md) discipline. The tools and patterns applied at this stage will enable the incremental evolutions needed to expand governance in the future.
+The core of this governance minimum viable product (MVP) is the [Deployment Acceleration](../../deployment-acceleration/overview.md) discipline. The tools and patterns applied at this stage will enable the incremental evolutions needed to expand governance in the future.
 
 ## Governance MVP (Cloud Adoption Foundation)
 
@@ -48,10 +48,10 @@ The **Mixed** pattern has been chosen for Azure subscriptions.
 
 ### Resource Consistency
 
-**Hierarchical Consistency** has been chosen as a resource consistency pattern.
+**Hierarchical Consistency** has been chosen as a Resource Consistency pattern.
 
 - Resource groups should be created for each application. Management groups should be created for each application archetype. Azure Policy should be applied to all subscriptions in the associated management group.
-- As part of the deployment process, Resource Management templates for all assets should be stored in source control. 
+- As part of the deployment process, Resource Consistency templates for all assets should be stored in source control. 
 - Each resource group should align to a specific workload or application.
 - The Azure Management Group hierarchy defined should represent billing responsibility and application ownership using nested groups.
 - Extensive implementation of Azure Policy could exceed the team’s time commitments and may not provide much value at this point. However, a simple default policy should be created and applied to each resource group to enforce the first few cloud governance policy statements. This serves to define the implementation of specific governance requirements. Those implementations can then be applied across all deployed assets.
@@ -107,4 +107,4 @@ Once this guide is implemented, the Cloud Adoption team can go forth with a soun
 The two teams will use the tolerance indicators to identify the next evolution needed to continue supporting cloud adoption. For the fictitious company in this journey, the next step is evolving this governance baseline to support applications with legacy or third-party multifactor authentication (MFA) requirements.
 
 > [!div class="nextstepaction"]
-> [Identity baseline evolution](./identity-baseline.md)
+> [Identity Baseline evolution](./identity-baseline.md)

@@ -9,7 +9,7 @@ ms.date: 2/1/2019
 
 This article outlines the implementation of the initial corporate policies for this governance journey. Those policies are described in the previous article, [Initial corporate policy behind the governance strategy](corporate-policy.md). Before implementation, it is advised that the reader review, modify, and integrate those artifacts into decision making processes.
 
-The core of this governance minimum viable product (MVP) is the [Deployment Acceleration](../../configuration-management/overview.md) discipline. The tools and patterns applied at this stage will enable the incremental evolutions needed to expand governance in the future.
+The core of this governance minimum viable product (MVP) is the [Deployment Acceleration](../../deployment-acceleration/overview.md) discipline. The tools and patterns applied at this stage will enable the incremental evolutions needed to expand governance in the future.
 
 ## Governance MVP (Cloud Adoption Foundation)
 
@@ -50,10 +50,10 @@ The **Application Category** pattern has been chosen for Azure subscriptions.
 
 ### Resource Consistency
 
-The **Deployment Consistency** pattern has been chosen as a resource consistency.
+The **Deployment Consistency** pattern has been chosen as a Resource Consistency.
 
 - Resource groups are created for each application. Management groups are created for each application archetype. Azure Policy should be applied to all subscriptions from the associated management group.
-- As part of the deployment process, Azure Resource Management templates for the resource group should be stored in source control.
+- As part of the deployment process, Azure Resource Consistency templates for the resource group should be stored in source control.
 - Each resource group is associated with a specific workload or application.
 - Azure Management Groups enable updating governance designs as corporate policy matures.
 - Extensive implementation of Azure Policy could exceed the team’s time commitments and may not provide a great deal of value at this time. However, a simple default policy should be created and applied to each management group to enforce the small number of current cloud governance policy statements. This policy will define the implementation of specific governance requirements. Those implementations can then be applied across all deployed assets.

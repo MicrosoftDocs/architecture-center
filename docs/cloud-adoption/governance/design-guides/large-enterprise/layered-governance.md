@@ -43,6 +43,6 @@ The important aspect of each of these tools is the ability to apply multiple blu
 
 - Corporate IT: Corporate IT creates a set of standards and policies that apply to all cloud adoption. This is materialized in a “Baseline” Azure Blueprint. Corporate IT then owns the management group hierarchy, ensuring that a version of the baseline is applied to all subscriptions in the hierarchy.
 - Regional or Business Unit IT: Various IT teams can apply an additional layer of governance by creating their own Azure Blueprint. Those blueprints would create additive policies and standards. Once developed, Corporate IT could apply those blueprints to the applicable nodes within the Management Group Hierarchy.
-- Adoption teams: Detailed decisions and implementation about applications or workloads can be made by the Cloud Adoption team, within the context of governance requirements. At times the team can also request additional Azure Resource Management templates to accelerate adoption efforts.
+- Adoption teams: Detailed decisions and implementation about applications or workloads can be made by the Cloud Adoption team, within the context of governance requirements. At times the team can also request additional Azure Resource Consistency templates to accelerate adoption efforts.
 
 The details regarding governance implementation at each level will require coordination between each team. The Governance MVP and Governance Evolutions outlined in this journey can aid in aligning that coordination.

@@ -1,11 +1,11 @@
 ---
-title: "Fusion: Cost management sample policy statements"
-description: Explanation of the concept cost management in relation to cloud governance
+title: "Fusion: Cost Management sample policy statements"
+description: Explanation of the concept Cost Management in relation to cloud governance
 author: BrianBlanchard
 ms.date: 1/4/2019
 ---
 
-# Fusion: Cost management sample policy statements
+# Fusion: Cost Management sample policy statements
 
 Individual cloud policy statements are guidelines for addressing specific risks identified during your risk assessment process. These statements should provide a concise summary of risks and plans to deal with them. Each statement definition should include these pieces of information:
 
@@ -19,7 +19,7 @@ The following sample policy statements address a number of common cost-related b
 
 **Business risk:** Current criteria that don't warrant an investment in a Cost Management discipline from the governance team. However, you anticipate such an investment in the future.
 
-**Policy statement:** You should associate all assets deployed to the cloud with a billing unit, application/workload, and meet naming standards. This policy will ensure that future cost management efforts will be effective.
+**Policy statement:** You should associate all assets deployed to the cloud with a billing unit, application/workload, and meet naming standards. This policy will ensure that future Cost Management efforts will be effective.
 
 **Design options:** For information on establishing a future proofed foundation, see the discussions related to creating a governance minimum viable product (MVP) in the [actionable design guides](../design-guides/overview.md#incremental-governance-model-mvp-and-continuous-improvement) included as part of the Fusion guidance.
 
@@ -55,7 +55,7 @@ The following sample policy statements address a number of common cost-related b
 
 ## Overoptimization
 
-**Business risk:** Effective cost management can actually create new risks. Optimization of spend is an inverse to system performance. When reducing costs, there is a risk of over tightening spend and producing poor user experiences.
+**Business risk:** Effective Cost Management can actually create new risks. Optimization of spend is an inverse to system performance. When reducing costs, there is a risk of over tightening spend and producing poor user experiences.
 
 **Policy statement:** Any asset that directly impacts customer experiences must be identified through grouping or tagging. Before optimizing any asset that impacts customer experience, the cloud governance team must adjust optimization based on no less than 90 days of utilization trends. Document any seasonal or event driven bursts considered when optimizing assets.
 
@@ -68,7 +68,7 @@ The following sample policy statements address a number of common cost-related b
 
 Use the samples mentioned in this article as a starting point to develop policies that address specific business risks that align with your cloud adoption plans.
 
-To begin developing your own custom policy statements related to cost management, download the [Cost Management template](template.md).
+To begin developing your own custom policy statements related to Cost Management, download the [Cost Management template](template.md).
 
 To accelerate adoption of this discipline, see the list of [Azure Design Guides](../design-guides/overview.md). Find one that most closely aligns with your environment. Then modify the design to incorporate your specific corporate policy decisions.
 

@@ -1,6 +1,6 @@
 ---
-title: "Fusion: Large Enterprise – Identity baseline evolution"
-description: Large Enterprise – Identity baseline evolution
+title: "Fusion: Large Enterprise – Identity Baseline evolution"
+description: Large Enterprise – Identity Baseline evolution
 author: BrianBlanchard
 ms.date: 2/1/2019
 ---
@@ -85,4 +85,4 @@ The addition of the above changes to the governance MVP help to mitigate many of
 As cloud adoption evolves and delivers additional business value, risks and cloud governance needs will also evolve. The following are a few evolutions that may occur. For the fictional company in this journey, the next trigger is the inclusion of protected data in the cloud adoption plan. This change will require additional security controls.
 
 > [!div class="nextstepaction"]
-> [Security baseline evolution](./protected-data.md)
+> [Security Baseline evolution](./protected-data.md)

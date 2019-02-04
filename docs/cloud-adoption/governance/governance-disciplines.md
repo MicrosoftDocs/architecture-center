@@ -63,13 +63,13 @@ Across each cloud provider, there are common cloud governance disciplines that c
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./security-management/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./security-baseline/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="../_images/governance/security-management.png" class="x-hidden-focus"/>
+                            <img src="../_images/governance/security-baseline.png" class="x-hidden-focus"/>
                         </div>
                     </div>
                     <div class="cardText">
@@ -82,13 +82,13 @@ Across each cloud provider, there are common cloud governance disciplines that c
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./identity-management/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./identity-baseline/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="../_images/governance/identity-management.png" class="x-hidden-focus"/>
+                            <img src="../_images/governance/identity-baseline.png" class="x-hidden-focus"/>
                         </div>
                     </div>
                     <div class="cardText">
@@ -101,13 +101,13 @@ Across each cloud provider, there are common cloud governance disciplines that c
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./resource-management/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./resource-consistency/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="../_images/governance/resource-management.png" class="x-hidden-focus"/>
+                            <img src="../_images/governance/resource-consistency.png" class="x-hidden-focus"/>
                         </div>
                     </div>
                     <div class="cardText">
@@ -120,13 +120,13 @@ Across each cloud provider, there are common cloud governance disciplines that c
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./configuration-management/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./deployment-acceleration/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="../_images/governance/configuration-management.png" class="x-hidden-focus"/>
+                            <img src="../_images/governance/deployment-acceleration.png" class="x-hidden-focus"/>
                         </div>
                     </div>
                     <div class="cardText">

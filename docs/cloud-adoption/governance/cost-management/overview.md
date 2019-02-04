@@ -1,6 +1,6 @@
 ---
 title: "Fusion: Understanding the Cost Management discipline within cloud governance"
-description: Explanation of the concept cost management in relation to cloud governance
+description: Explanation of the concept Cost Management in relation to cloud governance
 author: BrianBlanchard
 ms.date: 1/4/2019
 layout: LandingPage
@@ -9,21 +9,21 @@ ms.topic: landing-page
 
 # Fusion: Cost Management discipline
 
-Cost Management is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md) within the [Fusion Model to Cloud Governance](../overview.md). For many customers, governing cost is a major concern when adopting cloud technologies. Balancing performance demands, adoption pacing, and cloud services costs can be challenging. This is especially relevant during major business transformations that leverage cloud technologies. This section outlines the approach to developing a cost management discipline as part of a cloud governance strategy.  
+Cost Management is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md) within the [Fusion Model to Cloud Governance](../overview.md). For many customers, governing cost is a major concern when adopting cloud technologies. Balancing performance demands, adoption pacing, and cloud services costs can be challenging. This is especially relevant during major business transformations that leverage cloud technologies. This section outlines the approach to developing a Cost Management discipline as part of a cloud governance strategy.  
 
 > [!NOTE]
-> Cost management governance does not replace the existing business teams, accounting practices, and procedures that are involved in your organization's financial management of IT-related costs. The primary purpose of this discipline is to identify potential cloud-related risks related to IT spending, and provide risk-mitigation guidance to the business and IT teams responsible deploying and managing cloud deployments. As you develop governance policies and processes make sure to involve relevant business and IT staff in your planning and review processes.
+> Cost Management governance does not replace the existing business teams, accounting practices, and procedures that are involved in your organization's financial management of IT-related costs. The primary purpose of this discipline is to identify potential cloud-related risks related to IT spending, and provide risk-mitigation guidance to the business and IT teams responsible deploying and managing cloud deployments. As you develop governance policies and processes make sure to involve relevant business and IT staff in your planning and review processes.
 
 The primary audience for this guidance is your organization's cloud architects and other members of your cloud governance team. However, the decisions, policies, and processes that emerge from this discipline should involve engagement and discussions with relevant members of your business and IT teams, especially those leaders responsible for owning, managing, and paying for cloud-based workloads.
 
 ## Policy statements
 
-Actionable policy statements and the resulting architecture requirements serve as the foundation of a cost management discipline. To see policy statement samples, see the article on [Cost Management Policy Statements](./policy-statements.md). These samples can serve as a starting point for your organization's governance policies.
+Actionable policy statements and the resulting architecture requirements serve as the foundation of a Cost Management discipline. To see policy statement samples, see the article on [Cost Management Policy Statements](./policy-statements.md). These samples can serve as a starting point for your organization's governance policies.
 
 > [!CAUTION]
 > The sample policies come from common customer experiences. To better align these policies to specific cloud governance needs, execute the following steps to create policy statements that meet your unique business needs.
 
-## Developing cost management governance policy statements
+## Developing Cost Management governance policy statements
 
 The following six steps will help you define governance policies to control costs in your environment.
 

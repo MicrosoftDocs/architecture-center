@@ -70,9 +70,9 @@ Some examples of violation triggers and actions:
 
 | Cloud governance discipline | Sample trigger | Sample action |
 |-----------------------------|----------------|---------------|
-| Cost management | Monthly cloud spending is more than 20% higher than expected. | Notify billing unit leader who will begin a review of resource usage. |
-| Security management | Detect suspicious user login activity. | Notify IT security team and disable suspect user account. |
-| Resource management | CPU utilization for workload is greater than 90%. | Notify IT operations team and scale out additional resources to handle load. |
+| Cost Management | Monthly cloud spending is more than 20% higher than expected. | Notify billing unit leader who will begin a review of resource usage. |
+| Security Baseline | Detect suspicious user login activity. | Notify IT security team and disable suspect user account. |
+| Resource Consistency | CPU utilization for workload is greater than 90%. | Notify IT operations team and scale out additional resources to handle load. |
 
 ## Monitoring and compliance automation
 

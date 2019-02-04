@@ -49,7 +49,7 @@ Fusion includes a Governance Assessment to aid in evaluating a proper starting p
 
 ![Gap Analysis from the Fusion Governance Assessment](../_images/governance/assessment-gap-analysis.png)
 
-As seen in the gap analysis above, the company completing the assessment has a series of future state needs. The outputs of this assessment suggest that the Security Management discipline would need to mature the most. The Security Management discipline also has the greatest gap between current & future state. Conversely, Identity and Configuration Management have lower future state requirements and excessive current state capabilities, those disciplines would likely require much less additional effort.
+As seen in the gap analysis above, the company completing the assessment has a series of future state needs. The outputs of this assessment suggest that the Security Baseline discipline would need to mature the most. The Security Baseline discipline also has the greatest gap between current & future state. Conversely, Identity and Configuration Management have lower future state requirements and excessive current state capabilities, those disciplines would likely require much less additional effort.
 
 The visual above also does a great job of demonstrating that business risks are not likely to be evenly divided across the [Five Disciplines of Cloud Governance](./governance-disciplines.md). Business risks will vary depending on adoption. As will the implementation of each discipline.
 

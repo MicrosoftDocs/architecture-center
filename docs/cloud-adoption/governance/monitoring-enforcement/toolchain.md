@@ -27,8 +27,8 @@ Unlike the cloud-agnostic position used throughout Fusion, this article is Azure
 
 Note this list represents a high-level list of monitoring requirements. See the specific toolchain pages for each of the five cloud governance disciplines for a more specific listing of how monitoring is used in each discipline:
 
-* [Configuration management](../configuration-management/toolchain.md)
-* [Cost management](../cost-management/toolchain.md)
-* [Identity management](../identity-management/toolchain.md)
-* [Resource management](../resource-management/toolchain.md)
-* [Security management](../security-management/toolchain.md)
+* [Deployment Acceleration](../deployment-acceleration/toolchain.md)
+* [Cost Management](../cost-management/toolchain.md)
+* [Identity Baseline](../identity-baseline/toolchain.md)
+* [Resource Consistency](../resource-consistency/toolchain.md)
+* [Security Baseline](../security-baseline/toolchain.md)

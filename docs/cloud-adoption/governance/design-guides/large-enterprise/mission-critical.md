@@ -1,11 +1,11 @@
 ---
-title: "Large Enterprise – Resource consistency evolution"
-description: Large Enterprise – Resource consistency evolution
+title: "Large Enterprise – Resource Consistency evolution"
+description: Large Enterprise – Resource Consistency evolution
 author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
-# Fusion: Large Enterprise – Resource consistency evolution
+# Fusion: Large Enterprise – Resource Consistency evolution
 
 This article will evolve the narrative by adding Resource Consistency controls to the Governance MVP to support mission critical apps.
 
@@ -101,7 +101,7 @@ The addition of the above processes and changes to the Governance MVP help to mi
 
 ## Next steps
 
-As cloud adoption continues to evolve and deliver additional business value, risks and cloud governance needs will also evolve. For the fictitious company in this journey, the next trigger is when the scale of deployment exceeds 1,000 assets to the cloud or monthly spending exceeding $10,000/month. At this point, the Cloud Governance team [adds cost management controls](./cost-control.md).
+As cloud adoption continues to evolve and deliver additional business value, risks and cloud governance needs will also evolve. For the fictitious company in this journey, the next trigger is when the scale of deployment exceeds 1,000 assets to the cloud or monthly spending exceeding $10,000/month. At this point, the Cloud Governance team [adds Cost Management controls](./cost-control.md).
 
 > [!div class="nextstepaction"]
-> [Cost management evolution](./cost-control.md)
+> [Cost Management evolution](./cost-control.md)

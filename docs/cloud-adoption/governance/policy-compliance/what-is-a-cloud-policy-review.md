@@ -25,7 +25,7 @@ The justification for a Cloud Policy Review is often referred to as "pushing a m
 
 ## Cloud Policy Review Process
 
-Cloud Policy Reviews seek to align existing IT governance and IT security policies with the [five disciplines of Cloud Governance](../overview.md): [Cost Management](../cost-management/overview.md), [Security Management](../security-management/overview.md), [Identity Management](../identity-management/overview.md), [Resource Management](../resource-management/overview.md), and [Configuration Management](../configuration-management/overview.md).
+Cloud Policy Reviews seek to align existing IT governance and IT security policies with the [five disciplines of Cloud Governance](../overview.md): [Cost Management](../cost-management/overview.md), [Security Baseline](../security-baseline/overview.md), [Identity Baseline](../identity-baseline/overview.md), [Resource Consistency](../resource-consistency/overview.md), and [Deployment Acceleration](../deployment-acceleration/overview.md).
 
 For each of these disciplines, the process calls for the following steps:
 
@@ -43,7 +43,7 @@ To provide an example of the process, lets again leverage the tape backup policy
     * An assumed business risk associated with the storage of backups in the same physical location as the production equipment.
 * Does the risk still exist? Yes. Even in the cloud, a dependence on a single facility does create some risk. There is a lower probability of this risk impacting the business then was present in the on-premises solution, but the risk still exists.
 * Re-write of the policy. In the case of a datacenter-wide disaster, there must exist a means of restoring production systems within 24 hours of the outage in a different datacenter and different geographic location.
-* Review with the Cloud Adoption Team. Depending on the solution being implemented, there are multiple means of adhering to this resource management policy.
+* Review with the Cloud Adoption Team. Depending on the solution being implemented, there are multiple means of adhering to this Resource Consistency policy.
 
 ## Tools to help create modern policies
 

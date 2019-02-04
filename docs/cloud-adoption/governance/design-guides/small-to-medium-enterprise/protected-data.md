@@ -1,11 +1,11 @@
 ---
-title: "Fusion: Small to Medium Enterprise – Security baseline evolution"
-description: Explanation Small to Medium Enterprise – Security baseline evolution
+title: "Fusion: Small to Medium Enterprise – Security Baseline evolution"
+description: Explanation Small to Medium Enterprise – Security Baseline evolution
 author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
-# Fusion: Small to Medium Enterprise – Security baseline evolution
+# Fusion: Small to Medium Enterprise – Security Baseline evolution
 
 This article evolves the narrative by adding security controls that support moving protected data to the cloud.
 
@@ -118,7 +118,7 @@ Adding the above processes and changes to the Governance MVP will help to mitiga
 
 ## Next Steps
 
-As cloud adoption continues to evolve and deliver additional business value, risks and cloud governance needs also evolve. For the fictitious company in this journey, the next step is to support mission-critical workloads. This is the point when resource consistency controls are needed.
+As cloud adoption continues to evolve and deliver additional business value, risks and cloud governance needs also evolve. For the fictitious company in this journey, the next step is to support mission-critical workloads. This is the point when Resource Consistency controls are needed.
 
 > [!div class="nextstepaction"]
-> [Resource consistency evolution](./mission-critical.md)
+> [Resource Consistency evolution](./mission-critical.md)

@@ -1,6 +1,6 @@
 ---
-title: "Fusion: Large Enterprise – Security baseline evolution "
-description: Large Enterprise – Security baseline evolution 
+title: "Fusion: Large Enterprise – Security Baseline evolution "
+description: Large Enterprise – Security Baseline evolution 
 author: BrianBlanchard
 ms.date: 2/1/2019
 ---
@@ -91,7 +91,7 @@ This section of the article will evolve the Governance MVP design to include new
 
 The new best practices fall into two categories: Corporate IT (Hub) and Cloud Adoption (Spoke).
 
-**Establishing a corporate IT hub/spoke subscription to centralize the security baseline**: In this best practice, the existing governance capacity is wrapped by a [Hub Spoke Topology with Shared Services][shared-services], with a few key additions from the Cloud Governance team.
+**Establishing a corporate IT hub/spoke subscription to centralize the Security Baseline**: In this best practice, the existing governance capacity is wrapped by a [Hub Spoke Topology with Shared Services][shared-services], with a few key additions from the Cloud Governance team.
 
 1. Azure DevOps repository. Create a repository in Azure DevOps to store and version all relevant Azure Resource Manager templates and scripted configurations
 2. Hub-Spoke template.
@@ -160,10 +160,10 @@ The addition of the above processes and changes to the Governance MVP help to mi
 
 ## Next steps
 
-As cloud adoption continues to evolve and deliver additional business value, risks and cloud governance needs also evolve. For the fictitious company in this journey, the next step is to support mission-critical workloads. This is the point when resource consistency controls are needed.
+As cloud adoption continues to evolve and deliver additional business value, risks and cloud governance needs also evolve. For the fictitious company in this journey, the next step is to support mission-critical workloads. This is the point when Resource Consistency controls are needed.
 
 > [!div class="nextstepaction"]
-> [Resource consistency evolution](./mission-critical.md)
+> [Resource Consistency evolution](./mission-critical.md)
 
 <!-- links -->
 

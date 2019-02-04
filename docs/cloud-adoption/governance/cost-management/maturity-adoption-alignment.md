@@ -1,21 +1,21 @@
 ---
 title: "Fusion: How can a company add Cost Management discipline to their cloud governance execution?"
-description: Explanation of the concept cost management in relation to cloud governance
+description: Explanation of the concept Cost Management in relation to cloud governance
 author: BrianBlanchard
 ms.date: 1/3/2019
 ---
 
-# Fusion: Maturing the cost management discipline as cloud adoption progresses
+# Fusion: Maturing the Cost Management discipline as cloud adoption progresses
 
-The cost management discipline attempts to address core business risks related to expenses incurred when hosting cloud-based workloads. Within the five disciplines of Cloud Governance, cost management is involved in controlling cost and usage of cloud resources with the goal of creating and maintaining a planned cost cycle.
+The Cost Management discipline attempts to address core business risks related to expenses incurred when hosting cloud-based workloads. Within the five disciplines of Cloud Governance, Cost Management is involved in controlling cost and usage of cloud resources with the goal of creating and maintaining a planned cost cycle.
 
-This article outlines some potential tasks your company can engage in to better develop and mature the cost management discipline. These tasks can be broken down into planning, building, adopting, and operating phases of implementing a cloud solution, which are then iterated on allowing the development of an [incremental governance model](../design-guides/overview.md#incremental-governance-model-mvp-and-continuous-improvement).
+This article outlines some potential tasks your company can engage in to better develop and mature the Cost Management discipline. These tasks can be broken down into planning, building, adopting, and operating phases of implementing a cloud solution, which are then iterated on allowing the development of an [incremental governance model](../design-guides/overview.md#incremental-governance-model-mvp-and-continuous-improvement).
 
 ![Four phases of adoption](../../_images/adoption-phases.png)
 
 *Figure 1. Adoption phases of the incremental approach to cloud governance.*
 
-It's impossible for any one document to account for the requirements of all businesses. As such, this article outlines suggested minimum and potential example activities for each phase of the governance maturation process. The initial objective of these activities is to help you build a [Policy MVP](../design-guides/overview.md#incremental-governance-model-mvp-and-continuous-improvement) and establish a framework for incremental policy evolution. Your cloud governance team will need to decide how much to invest in these activities to improve your cost management governance capabilities.
+It's impossible for any one document to account for the requirements of all businesses. As such, this article outlines suggested minimum and potential example activities for each phase of the governance maturation process. The initial objective of these activities is to help you build a [Policy MVP](../design-guides/overview.md#incremental-governance-model-mvp-and-continuous-improvement) and establish a framework for incremental policy evolution. Your cloud governance team will need to decide how much to invest in these activities to improve your Cost Management governance capabilities.
 
 > [!CAUTION]
 > Neither the minimum or potential activities outlined in this article are aligned to specific corporate policies or third party compliance requirements. This guidance is designed to help facilitate the conversations that will lead to alignment of both requirements with a Cloud Governance Model.
@@ -80,7 +80,7 @@ Once the transformation is complete, governance and operations must live on for 
 
 **Minimum suggested activities:**
 
-* Customize [Cost Management Tool Chain](toolchain.md) based on updates to your organization’s changing cost management needs.
+* Customize [Cost Management Tool Chain](toolchain.md) based on updates to your organization’s changing Cost Management needs.
 * Consider automating any notifications and reports to reflect actual spending.
 * Refine Architecture Guidelines to guide future adoption processes.
 * Re-educate impacted teams on a periodic basis to ensure ongoing adherence to the Architecture Guidelines.
@@ -97,7 +97,7 @@ Once the transformation is complete, governance and operations must live on for 
 
 ## Next steps
 
-Now that you understand the concept of cloud identity governance, examine the [cost management tool chain](toolchain.md) to identify Azure tools and features that you'll need when developing the cost management governance discipline on the Azure platform.
+Now that you understand the concept of cloud identity governance, examine the [Cost Management tool chain](toolchain.md) to identify Azure tools and features that you'll need when developing the Cost Management governance discipline on the Azure platform.
 
 > [!div class="nextstepaction"]
-> [Azure specific cost management tool chain](toolchain.md)
+> [Azure specific Cost Management tool chain](toolchain.md)

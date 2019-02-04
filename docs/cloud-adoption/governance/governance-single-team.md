@@ -1,3 +1,3 @@
 ---
-redirect_url: ./resource-management/governance-single-team.md
+redirect_url: ./resource-consistency/governance-single-team.md
 ---

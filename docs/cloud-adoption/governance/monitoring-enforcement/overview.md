@@ -40,7 +40,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
 **Potential activities:**
 
 * Use previous monitoring data to provide learnings to the Cloud Governance Team as part of the overall planning phase.
-* Gather monitoring requirements based on policies defined for [configuration](../configuration-management/overview.md), [cost](../cost-management/overview.md), [identity](../identity-management/overview.md), [resource](../resource-management/overview.md), and [security](../security-management/overview.md) management.
+* Gather monitoring requirements based on policies defined for [configuration](../deployment-acceleration/overview.md), [cost](../cost-management/overview.md), [identity](../identity-baseline/overview.md), [resource](../resource-consistency/overview.md), and [security](../security-baseline/overview.md) management.
 * Determine SLA requirements for alerts and remediation tasks.
 
 ## Build and pre-deployment
@@ -92,7 +92,7 @@ Once the transformation is complete, governance and operations must live on for 
 
 **Minimum suggested activities:**
 
-* Customize your [Monitoring and Enforcement Tool Chain](toolchain.md) based on updates to your organization’s changing cost management needs.
+* Customize your [Monitoring and Enforcement Tool Chain](toolchain.md) based on updates to your organization’s changing Cost Management needs.
 * Consider adding or updating automation for common alerts and reports based on updated monitoring information.
 * Refine monitoring architecture guidelines to guide future adoption processes.
 * Re-educate impacted teams on a periodic basis to ensure ongoing adherence to the architecture guidelines.

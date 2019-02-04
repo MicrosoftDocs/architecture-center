@@ -1,25 +1,25 @@
 ---
 title: "Fusion: Motivations and business risks that drive cost governance"
-description: Explanation of the concept cost management in relation to cloud governance
+description: Explanation of the concept Cost Management in relation to cloud governance
 author: BrianBlanchard
 ms.date: 1/3/2019
 ---
 
 # Fusion: Motivations and business risks that drive cost governance
 
-This article discusses the reasons that customers typically adopt a cost management discipline within a cloud governance strategy. It also provides a few examples of business risks that drive policy statements.
+This article discusses the reasons that customers typically adopt a Cost Management discipline within a cloud governance strategy. It also provides a few examples of business risks that drive policy statements.
 
-## Is cost management relevant?
+## Is Cost Management relevant?
 
 In terms of cost governance, cloud adoption creates a paradigm shift. Management of cost in a traditional on-premises world is based on refresh cycles, data center acquisitions, host renewals, and recurring maintenance issues. You can forecast, plan, and refine each of these costs to align with annual capital expenditure budgets.
 
-For cloud solutions, many businesses tend to take a more reactive approach to cost management. In many cases, businesses will pre-purchase, or commit to use, a set amount of cloud services. This model assumes that maximizing discounts, based on how much the business plans on spending with a specific cloud vendor, creates the perception of a proactive, planned cost cycle. However, that perception will only become a reality if the business also implements mature cost management disciplines.
+For cloud solutions, many businesses tend to take a more reactive approach to Cost Management. In many cases, businesses will pre-purchase, or commit to use, a set amount of cloud services. This model assumes that maximizing discounts, based on how much the business plans on spending with a specific cloud vendor, creates the perception of a proactive, planned cost cycle. However, that perception will only become a reality if the business also implements mature Cost Management disciplines.
 
-The cloud offers self-service capabilities that were previously unheard of in traditional on-premises datacenters. These new capabilities empower businesses to be more agile, less restrictive, and more open to adopt new technologies. However, the downside of self-service is that end users can unknowingly exceed allocated budgets. Conversely, the same users can experience a change in plans and unexpectedly not use the amount of cloud services forecasted. The potential of shift in either direction justifies investment in a cost management discipline within the governance team. 
+The cloud offers self-service capabilities that were previously unheard of in traditional on-premises datacenters. These new capabilities empower businesses to be more agile, less restrictive, and more open to adopt new technologies. However, the downside of self-service is that end users can unknowingly exceed allocated budgets. Conversely, the same users can experience a change in plans and unexpectedly not use the amount of cloud services forecasted. The potential of shift in either direction justifies investment in a Cost Management discipline within the governance team. 
 
 ## Business risk
 
-The cost management discipline attempts to address core business risks related to expenses incurred when hosting cloud-based workloads. Work with your business to identify these risks and monitor each of them for relevance as you plan for and implement your cloud deployments.
+The Cost Management discipline attempts to address core business risks related to expenses incurred when hosting cloud-based workloads. Work with your business to identify these risks and monitor each of them for relevance as you plan for and implement your cloud deployments.
 
 Risks will differ between organization, but the following serve as common cost-related risks that you can use as a starting point for discussions within your cloud governance team:
 
