@@ -11,8 +11,10 @@ ms.topic: landing-page
 
 The governance journeys in this section illustrate the application of the Fusion Governance Model using an incremental governance approach. You can establish an agile governance platform that will evolve to meet the needs of any cloud governance scenario.
 
-There are two journeys, each based on synthesized customer experiences:
+## Review and adopt cloud governance best practices
 
+To start down an adoption path, choose one of the following journeys based on a set of fictional customer experiences. For readers who are new to Fusion's Incremental Governance Model, it is advised that you review the high level governance theory introduction below, before adopting either best practice.
+ 
 <ul  class="panelContent cardsZ">
 <li style="display: flex; flex-direction: column;">
     <a href="./design-guides/small-to-medium-enterprise/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
@@ -43,8 +45,6 @@ There are two journeys, each based on synthesized customer experiences:
     </a>
 </li>
 </ul>
-
-Before using either guide, review the brief background on both models to understand the basic theories in this guide. For readers who are familiar with the model, you can jump ahead to the journey that best matches your organization.
 
 ## Fusion's incremental cloud governance model
 
