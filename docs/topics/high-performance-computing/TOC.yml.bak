@@ -1,0 +1,52 @@
+- name: High Performance Computing on Azure
+  href: index.md
+- name: Introduction to HPC
+  href: index.md#introduction-to-hpc
+- name: Building HPC Systems
+  items:
+  - name: Overview
+    href: index.md#how-is-hpc-different-on-the-cloud
+  - name: Design Patterns
+    items:
+      - name: Big Compute Architecture Guide
+        href: ../../guide/architecture-styles/big-compute.md?toc=/azure/architecture/topics/high-performance-computing/toc.json
+      - name: Autoscaling
+        href: ../../best-practices/auto-scaling?toc=/azure/architecture/topics/high-performance-computing/toc.json
+  - name: Architecture Examples
+    items:
+      - name: 3D Video Rendering
+        href: ../../example-scenario/infrastructure/video-rendering.md?toc=/azure/architecture/topics/high-performance-computing/toc.json
+      - name: Computational Fluid Dynamics (CFD) on Azure
+        href: ../../example-scenario/infrastructure/hpc-cfd.md?toc=/azure/architecture/topics/high-performance-computing/toc.json
+      - name: Computer-aided Engineering on Azure
+        href: ../../example-scenario/apps/hpc-saas.md?toc=/azure/architecture/topics/high-performance-computing/toc.json
+- name: Management Services
+  items:
+    - name: Overview
+      href: index.md#management
+    - name: Azure Batch
+      href: https://docs.microsoft.com/azure/batch/batch-technical-overview?toc=/azure/architecture/topics/high-performance-computing/toc.json
+- name: Infrastructure Components (IaaS)
+  items:
+    - name: Infrastructure Compontents
+      href: index.md#infrastructure
+    - name: Compute
+      items:
+        - name: HPC Servers
+          href: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc?toc=/azure/architecture/topics/high-performance-computing/toc.json
+        - name: GPU Servers
+          href: https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu?toc=/azure/architecture/topics/high-performance-computing/toc.json
+        - name: Cray Supercomputers
+          href: https://azure.microsoft.com/solutions/high-performance-computing/cray/
+- name: Case Studies
+  items:
+    - name: ANEO ◳
+      href: https://customers.microsoft.com/story/it-provider-finds-highly-scalable-cloud-based-hpc-redu
+    - name: AXA Global P&C 🔗
+      href: https://customers.microsoft.com/story/axa-global-p-and-c
+    - name: Axioma 🗎
+      href: https://customers.microsoft.com/story/axioma-delivers-fintechs-first-born-in-the-cloud-multi-asset-class-enterprise-risk-solution
+    - name: d3View ↪
+      href: https://customers.microsoft.com/story/big-data-solution-provider-adopts-new-cloud-gains-thou
+    - name: EFS 🡕
+      href: https://customers.microsoft.com/story/efs-professionalservices-azure
