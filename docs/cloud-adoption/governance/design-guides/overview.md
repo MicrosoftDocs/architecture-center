@@ -3,6 +3,8 @@ title: "Fusion: Governance Customer Journeys Overview"
 description: Explanation of Governance Customer Journeys Overview
 author: BrianBlanchard
 ms.date: 2/1/2019
+layout: LandingPage
+ms.topic: landing-page
 ---
 
 # Fusion: Actionable Governance Journeys
@@ -11,8 +13,36 @@ The governance journeys in this section illustrate the application of the Fusion
 
 There are two journeys, each based on synthesized customer experiences:
 
-- [Small-to-medium enterprise governance journey](./small-to-medium-enterprise/overview.md)
-- [Large enterprise governance journey](./large-enterprise/overview.md)
+<ul  class="panelContent cardsZ">
+<li style="display: flex; flex-direction: column;">
+    <a href="./design-guides/small-to-medium-enterprise/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Small to Medium Enterprise</h3>
+                        <p>Governance Journey for enterprises that own less than 5 datacenters and manage costs through a central IT or showback model.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<li style="display: flex; flex-direction: column;">
+    <a href="./design-guides/large-enterprise/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Large Enterprise</h3>
+                        <p>Governance Journey for enterprises that own more than 5 datacenters and manage costs across multiple business units.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+</ul>
 
 Before using either guide, review the brief background on both models to understand the basic theories in this guide. For readers who are familiar with the model, you can jump ahead to the journey that best matches your organization.
 
