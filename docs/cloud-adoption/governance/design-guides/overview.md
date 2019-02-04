@@ -13,8 +13,8 @@ The governance journeys in this section illustrate the application of the Fusion
 
 ## Review and adopt cloud governance best practices
 
-To start down an adoption path, choose one of the following journeys based on a set of fictional customer experiences. For readers who are new to Fusion's Incremental Governance Model, it is advised that you review the high level governance theory introduction below, before adopting either best practice.
- 
+To start down an adoption path, choose one of the following journeys. Each journey outlines a series of best practices, based on a set of fictional customer experiences. For readers who are new to Fusion's Incremental Governance Model, it is advised that you review the high level governance theory introduction below, before adopting either best practice.
+
 <ul  class="panelContent cardsZ">
 <li style="display: flex; flex-direction: column;">
     <a href="./design-guides/small-to-medium-enterprise/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
