@@ -148,7 +148,7 @@ For more information comparing Lustre, GlusterFS, and BeeGFS on Azure, review th
 
 H16r, H16mr, A8, and A9 VMs can connect to a high throughput back-end RDMA network. This network can improve the performance of tightly coupled parallel applications running under Microsoft MPI or Intel MPI.
 
-- [RDMA Capable Instances](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances?toc=/azure/architecture/topics/high-performance-computing/toc.json)
+- [RDMA Capable Instances](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc?toc=/azure/architecture/topics/high-performance-computing/toc.json#rdma-capable-instances)
 - [Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview?toc=/azure/architecture/topics/high-performance-computing/toc.json)
 - [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction?toc=/azure/architecture/topics/high-performance-computing/toc.json)
 
@@ -438,9 +438,7 @@ There are a number of customers who have seen great success by using Azure for t
 
 For the latest announcements, see:
   - [Microsoft HPC and Batch team blog](http://blogs.technet.com/b/windowshpc/)
-  - [Azure blog](https://azure.microsoft.com/blog/tag/hpc/).
-- [Set up a Linux RDMA cluster to run MPI applications](https://docs.microsoft.com/azure/virtual-machines/linux/classic/rdma-cluster?toc=/azure/architecture/topics/high-performance-computing/toc.json)
-- [Set up a Windows RDMA cluster with Microsoft HPC Pack to run MPI applications](https://docs.microsoft.com/azure/virtual-machines/windows/classic/hpcpack-rdma-cluster?toc=/azure/architecture/topics/high-performance-computing/toc.json)
+  - Visit the [Azure blog](https://azure.microsoft.com/blog/tag/hpc/).
 
 ### Microsoft Batch Examples
 
