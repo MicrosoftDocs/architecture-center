@@ -91,7 +91,7 @@ Following the experience of this fictional example, it is assumed that the Prote
     4. Audit and enforce the limitation of user-defined routing tables
     5. Audit and enforce the deployment of Log Analytics agents for Windows and Linux VMs
 2. Azure Blueprint
-    1. Create a blueprint for “Mission Critical Workloads + Protected Data”. This blueprint will apply assets in addition to the protected data blueprint. 
+    1. Create a blueprint for "Mission Critical Workloads + Protected Data." This blueprint will apply assets in addition to the protected data blueprint.
     2. Add the new Azure Policies to the blueprint
     3. Apply the blueprint to any subscription that is expected to host a mission critical application. 
 

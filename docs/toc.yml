@@ -596,7 +596,7 @@
         - name: Initial corporate policy
           href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/corporate-policy.md
         - name: Best practice explained
-          href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/governance-mvp.md
+          href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/best-practice-explained.md
         - name: Security baseline evolution
           href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/protected-data.md
         - name: Resource consistency evolution
@@ -614,7 +614,7 @@
         - name: Initial corporate policy
           href: cloud-adoption/governance/design-guides/large-enterprise/corporate-policy.md
         - name: Best practice explained
-          href: cloud-adoption/governance/design-guides/large-enterprise/governance-mvp.md
+          href: cloud-adoption/governance/design-guides/large-enterprise/best-practice-explained.md
         - name: Identity baseline evolution
           href: cloud-adoption/governance/design-guides/large-enterprise/identity-baseline.md
         - name: Security baseline evolution

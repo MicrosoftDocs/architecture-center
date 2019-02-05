@@ -5,11 +5,12 @@ author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
-# Fusion: Large Enterprise – Additional technical Details regarding Governance MVP
+# Fusion: Large Enterprise – Best practice explained
 
-This article outlines the implementation of the initial corporate policies for this governance journey. Those policies are described in the previous article, [Initial corporate policy behind the governance strategy](corporate-policy.md). Before implementation, it is advised that the reader review, modify, and integrate those artifacts into decision making processes.
+The governance journey starts with a set of initial [corporate policies](./corporate-policy.md). These policies are used to establish a governance minimal viable product (MVP) that reflects [best practice](./overview.md).
 
-The core of this governance minimum viable product (MVP) is the [Deployment Acceleration](../../deployment-acceleration/overview.md) discipline. The tools and patterns applied at this stage will enable the incremental evolutions needed to expand governance in the future.
+In this article, we discuss the high-level strategies that are required to create a Governance MVP. The core of the governance MVP is the [Deployment Acceleration](../../deployment-acceleration/overview.md) discipline. The tools and patterns applied at this stage will enable the incremental evolutions needed to expand governance in the future.
+
 
 ## Governance MVP (Cloud Adoption Foundation)
 
