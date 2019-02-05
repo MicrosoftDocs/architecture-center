@@ -66,7 +66,7 @@ This section of the article will evolve the Governance MVP design to include new
 
 ## Conclusion
 
-The addition of the above processes and changes to the Governance MVP help to mitigate many of the risks associated with cost governance. Together, they create the visibility, accountability, and optimization needed to control costs.
+Adding the above processes and changes to the governance MVP helps mitigate many of the risks associated with cost governance. Together, they create the visibility, accountability, and optimization needed to control costs.
 
 ## Next Steps
 

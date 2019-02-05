@@ -156,7 +156,7 @@ In prior evolutions of the best practice, NSGs were defined which blocked public
 
 ## Conclusion
 
-The addition of the above processes and changes to the governance MVP help to mitigate many of the risks associated with security governance. Together, they add the network, identity, and security monitoring tools needed to protect data.
+Adding these processes and changes to the governance MVP helps mitigate many of the risks associated with security governance. Together, they add the network, identity, and security monitoring tools needed to protect data.
 
 ## Next steps
 

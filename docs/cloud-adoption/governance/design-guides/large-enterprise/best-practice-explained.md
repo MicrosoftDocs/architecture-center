@@ -90,7 +90,7 @@ Some of the policy statements cannot or should not be controlled by automated to
 
 ## Alternative patterns
 
-If any of the patterns selected in this governance journey don't align with the reader's requirements, alternatives to each pattern are available:
+If any of the patterns chosen in this governance journey don't align with the reader's requirements, alternatives to each pattern are available:
 
 - [Encryption patterns](../../../infrastructure/encryption/overview.md)
 - [Identity patterns](../../../infrastructure/identity/overview.md)
