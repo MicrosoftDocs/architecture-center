@@ -21,7 +21,7 @@ The following sample policy statements address a number of common cost-related b
 
 **Policy statement:** You should associate all assets deployed to the cloud with a billing unit, application/workload, and meet naming standards. This policy will ensure that future Cost Management efforts will be effective.
 
-**Design options:** For information on establishing a future-proofed foundation, see the discussions related to creating a governance minimum viable product (MVP) in the [actionable design guides](../design-guides/overview.md#incremental-governance-model-mvp-and-continuous-improvement) included as part of the Fusion guidance.
+**Design options:** For information on establishing a future proofed foundation, see the discussions related to creating a governance minimum viable product (MVP) in the [actionable design guides](../design-guides/overview.md) included as part of the Fusion guidance.
 
 ## Budget overruns
 

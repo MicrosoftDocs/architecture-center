@@ -19,7 +19,7 @@ To start down an adoption path, choose one of the following journeys. Each journ
 
 <ul  class="panelContent cardsZ">
 <li style="display: flex; flex-direction: column;">
-    <a href="./design-guides/small-to-medium-enterprise/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./small-to-medium-enterprise/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -33,7 +33,7 @@ To start down an adoption path, choose one of the following journeys. Each journ
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./design-guides/large-enterprise/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./large-enterprise/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
