@@ -87,7 +87,7 @@ The following changes to policy will help mitigate the new risks and guide imple
 
 ## Evolution of the best practices
 
-This section of the article will evolve the Governance MVP design to include new Azure Policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
+This section of the article will evolve the governance MVP design to include new Azure policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
 
 The new best practices fall into two categories: Corporate IT (Hub) and Cloud Adoption (Spoke).
 
@@ -115,7 +115,7 @@ The new best practices fall into two categories: Corporate IT (Hub) and Cloud Ad
     2. Deploy Azure Automation State Configuration to any instances of the Corporate IT Subscription. Azure Automation can be used to apply DSC to VMs deployed in supported subscriptions within the management group.
     3. The current roadmap plans to enable custom guest configuration policies. When that feature is released, the use of Azure Automation in this best practice will no longer be required.
 
-**Applying additional governance to a Cloud Adoption Subscription (Spoke)**: Building on the "Corporate IT Subscription", minor changes to the Governance MVP applied to each subscription dedicated to the support of application archetypes can produce rapid evolution.
+**Applying additional governance to a Cloud Adoption Subscription (Spoke)**: Building on the "Corporate IT Subscription", minor changes to the governance MVP applied to each subscription dedicated to the support of application archetypes can produce rapid evolution.
 
 In prior evolutions of the best practice, NSGs were defined which blocked public traffic and whitelisted internal traffic. Additionally, the Azure blueprint temporarily created DMZ and Active Directory capabilities. In this evolution, we will tweak those assets a bit, creating a new version of the Azure blueprint.
 

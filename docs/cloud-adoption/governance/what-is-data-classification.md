@@ -39,11 +39,11 @@ The following is a list of classifications Microsoft uses. Depending on your ind
 
 ## Tagging data classification in Azure
 
-Every cloud provider should offer a mechanism for recording metadata about any asset. Metadata is vital to managing assets in the cloud. In the case of Azure, resource tags are the suggested approach for metadata storage. For additional information on resource tagging in Azure, see the article on [Using Tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags).
+Every cloud provider should offer a mechanism for recording metadata about any asset. Metadata is vital to managing assets in the cloud. In the case of Azure, resource tags are the suggested approach for metadata storage. For additional information on resource tagging in Azure, see the article on [Using tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags).
 
 ## Next steps
 
-Apply Data Classifications during one of the [Governance Journeys](./design-guides/overview.md).
+Apply data classifications during one of the [Actionable Governance Journeys](./design-guides/overview.md).
 
 > [!div class="nextstepaction"]
 > [Begin an Actionable Governance Journeys](./design-guides/overview.md)

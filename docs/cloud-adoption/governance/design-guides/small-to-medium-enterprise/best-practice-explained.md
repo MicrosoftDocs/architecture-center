@@ -1,6 +1,6 @@
 ---
-title: "Fusion: Small to Medium Enterprise – Additional technical details regarding the Governance MVP"
-description: Explanation Small to Medium Enterprise – Additional technical details regarding the Governance MVP
+title: "Fusion: Small to Medium Enterprise – Additional technical details regarding the governance MVP"
+description: Explanation Small to Medium Enterprise – Additional technical details regarding the governance MVP
 author: BrianBlanchard
 ms.date: 2/1/2019
 ---
@@ -9,15 +9,15 @@ ms.date: 2/1/2019
 
 The governance journey starts with a set of initial [corporate policies](./corporate-policy.md). These policies are used to establish a governance minimal viable product (MVP) that reflects [best practice](./overview.md).
 
-In this article, we discuss the high-level strategies that are required to create a Governance MVP. The core of the governance MVP is the [Deployment Acceleration](../../deployment-acceleration/overview.md) discipline. The tools and patterns applied at this stage will enable the incremental evolutions needed to expand governance in the future.
+In this article, we discuss the high-level strategies that are required to create a governance MVP. The core of the governance MVP is the [Deployment Acceleration](../../deployment-acceleration/overview.md) discipline. The tools and patterns applied at this stage will enable the incremental evolutions needed to expand governance in the future.
 
 ## Governance MVP (Cloud Adoption Foundation)
 
 Rapid adoption of governance and corporate policy is achievable, thanks to a few simple principles and cloud-based governance tooling. These are the first of the three Cloud Governance Disciplines to approach in any governance process. Each will be expanded upon in this article.
 
-To establish the starting point, this article will discuss the high-level strategies behind Identity Baseline, Security Baseline, and Deployment Acceleration that are required to create a Governance MVP, which will serve as the foundation for all adoption.
+To establish the starting point, this article will discuss the high-level strategies behind Identity Baseline, Security Baseline, and Deployment Acceleration that are required to create a governance MVP, which will serve as the foundation for all adoption.
 
-![Example of Incremental Governance MVP](../../../_images/governance/governance-mvp.png)
+![Example of an incremental governance MVP](../../../_images/governance/governance-mvp.png)
 
 ## Implementation process
 

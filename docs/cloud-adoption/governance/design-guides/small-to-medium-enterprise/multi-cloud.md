@@ -51,9 +51,9 @@ The following changes to policy will help mitigate the new risks and guide imple
 
 ## Evolution of the best practices
 
-This section of the article will evolve the Governance MVP design to include new Azure Policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
+This section of the article will evolve the governance MVP design to include new Azure Policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
 
-1. Connect the networks. This step is executed by the Networking and IT Security teams, and supported by the Cloud Governance team. Adding a connection from the MPLS/Leased line provider to the new cloud will integrate networks. Adding routing tables and firewall configurations will control access and traffic between the environments.
+1. Connect the networks. This step is executed by the Networking and IT Security teams, and supported by the Cloud Governance team. Adding a connection from the MPLS/leased-line provider to the new cloud will integrate networks. Adding routing tables and firewall configurations will control access and traffic between the environments.
 2. Consolidate identity providers. Depending on the workloads being hosted in the secondary cloud, there are a variety of options to identity provider consolidation. The following are a few examples:
     1. For applications that authenticate using OAuth 2, users from Active Directory in the secondary cloud can simply be replicated to the existing Azure AD tenant. This ensures all users can be authenticated in the tenant.
     2. At the other extreme, federation allows OUs to flow into Active Directory on-premises, then into the Azure AD instance.
@@ -67,7 +67,7 @@ This section of the article will evolve the Governance MVP design to include new
     1. Azure Monitor was designed as a hybrid cloud tool from inception.
     2. Virtual machines in the secondary cloud may be compatible with Azure Monitor agents, allowing them to be included in Azure Monitor for operational monitoring.
 6. Governance enforcement tools:
-    1. Governance enforcement is cloud specific.
-    2. The corporate policies established in the governance journey are not cloud specific. While the implementation may vary from cloud to cloud, the policies can be applied to the secondary provider.
+    1. Governance enforcement is cloud-specific.
+    2. The corporate policies established in the governance journey are not cloud-specific. While the implementation may vary from cloud to cloud, the policies can be applied to the secondary provider.
 
 As multi-cloud adoption grows, the design evolution above will continue to mature.

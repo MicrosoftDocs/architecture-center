@@ -22,7 +22,7 @@ This best practice serves as a foundation that an organization can use to quickl
 
 ### Resource organization
 
-The following diagram shows the Governance MVP hierarchy for organizing resources.
+The following diagram shows the governance MVP hierarchy for organizing resources.
 
 ![Resource Organization diagram](../../../_images/governance/resource-organization.png)
 
@@ -54,7 +54,7 @@ Once this MVP has been deployed, additional layers of governance can be quickly 
 
 In the MVP, practices and tools from the [Deployment Acceleration](../../deployment-acceleration/overview.md) discipline are established to quickly apply corporate policy. In particular, the MVP makes use of Azure Blueprints, Azure Policy, and Azure management groups to apply a few basic corporate policies, as defined in the narrative for this fictional company. Those corporate policies are applied using Azure Resource Manager templates and Azure policies to establish a very small baseline for identity and security.
 
-![Example of Incremental Governance MVP](../../../_images/governance/governance-mvp.png)
+![Example of an incremental governance MVP](../../../_images/governance/governance-mvp.png)
 
 ## Evolving the best practice
 
@@ -65,7 +65,7 @@ Over time, this governance MVP will be used to evolve the governance practices. 
 - Security Baseline, as protected data is deployed.
 - Resource Consistency, as IT Ops begins supporting mission-critical workloads.
 
-![Example of Incremental Governance MVP](../../../_images/governance/governance-evolution-large.png)
+![Example of an incremental governance MVP](../../../_images/governance/governance-evolution-large.png)
 
 ## Next steps
 

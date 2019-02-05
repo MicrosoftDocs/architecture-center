@@ -7,9 +7,9 @@ ms.date: 10/10/2018
 
 # Fusion: Evaluating risk tolerance
 
-Every business decision creates new risks. Making an investment in anything creates risk of losses. New products or services create risks of market failure. Changes to current products or services could reduce market share. Cloud Transformation does not provide a magical solution to everyday business risk. To the contrary, connected solutions (Cloud or on-prem) open up new risks. Deploying assets to any network connected facility also expands the potential threat profile by exposing security weaknesses to a much broader, global community. Fortunately, Cloud Providers are aware of the changes, increases, and addition of risks. They invest heavily to mitigate those risks on the behalf of their customers.
+Every business decision creates new risks. Making an investment in anything creates risk of losses. New products or services create risks of market failure. Changes to current products or services could reduce market share. Cloud Transformation does not provide a magical solution to everyday business risk. To the contrary, connected solutions (cloud or on-premises) introduce new risks. Deploying assets to any network connected facility also expands the potential threat profile by exposing security weaknesses to a much broader, global community. Fortunately, Cloud Providers are aware of the changes, increases, and addition of risks. They invest heavily to mitigate those risks on the behalf of their customers.
 
-This article is not focused on Cloud Risks. Instead it discusses the business risks associated with various forms of Cloud Transformation. Later in the article, the discussion shifts focus to discuss ways of understanding the business' tolerance for risk.
+This article is not focused on cloud risks. Instead it discusses the business risks associated with various forms of Cloud Transformation. Later in the article, the discussion shifts focus to discuss ways of understanding the business' tolerance for risk.
 
 ## What business risks are associated with a Cloud Transformation?
 
@@ -29,17 +29,18 @@ The above are a few of the most common risks mentioned by customers. The Cloud G
 
 Identifying risk is a fairly direct process. Risks are pretty standard across industries. However, tolerance for risk is extremely personalize. This is the point where business and IT conversations tend to get hung up. Each side of the conversation is essentially speaking a different language. The following comparisons and questions are designed to start conversations that help each party better understand and calculate risk tolerance.
 
-## Simple Use Case for Comparison 
+## Simple Use Case for Comparison
 
 To help understand risk tolerance, lets examine customer data. If a company in any industry posts customer data on an unsecured server, the risk of that data being compromised or stolen is relatively the same. However, the nature of the data and the companies tolerance for that risk changes wildly.
 
 * Companies in healthcare and finance in the United States, are governed by rigid, 3rd party compliance requirements. It is assumed that Personally Identifiable Information (PII) or healthcare related data is extremely confidential. There are severe consequences for these types of companies, if they are involved in the risks scenario above. Their tolerance will be extremely low. Any customer data published inside or outside of the network will need to be governed by those 3rd party compliance policies.
 * A gaming company whose customer data is limited to a user name, play times, and high scores, is not as likely to suffer any significant consequences, if they engage in the risky behavior above. Will any unsecured data is at risk, the impact of that risk is small. Therefore the tolerance for risk in this case is high.
-* A medium sized enterprise that provides carpet cleaning services to thousands of customers would fall in between these two tolerance extremes. There customer data may be more robust, containing details like address or phone number. Both could be considered PII & should be protected. However, there may not be any specific governance requirement mandating that the data be secured. From an IT perspective, the answer is simple, secure the data. From a business perspective, it may not be as simple. The business would need more details before they could determine a level of tolerance for this risk. 
+* A medium sized enterprise that provides carpet cleaning services to thousands of customers would fall in between these two tolerance extremes. There customer data may be more robust, containing details like address or phone number. Both could be considered PII & should be protected. However, there may not be any specific governance requirement mandating that the data be secured. From an IT perspective, the answer is simple, secure the data. From a business perspective, it may not be as simple. The business would need more details before they could determine a level of tolerance for this risk.
 
 The next section, shares a few sample questions that could help the business determine a level of risk tolerance for the use case above or others.
 
 ## Risk Tolerance Questions
+
 This section lists conversation provoking questions in three categories: Loss Impact, Probability of Loss, & Mitigation Costs. When business and IT partner to address each of these areas, the decision to mitigate risk and the overall tolerance to a particular risk can easily be determined.
 
 **Loss Impact**: Questions to determine the impact of a risk. These questions can be difficult (sometimes impossible) to answer. Quantifying the impact is best, but sometimes the conversation alone is enough to understand tolerance. Ranges are also acceptable, especially if they include assumptions that determined those ranges.
@@ -85,7 +86,7 @@ After answering these questions & more questions as determined by the Cloud Gove
 * High Risk: Overtime, it is increasing less likely that the business will avoid impact from this risk
 * Declining Risk: The risk is Medium to High. However, actions in IT or business are reducing the likelihood of an impact.
 
-**Determining Tolerance**
+**Determining Tolerance:**
 
 The three question sets above should fuel enough data to determine initial tolerances. When risk & probability are low, and mitigation cost is high, the business is unlikely to invest in remediation. When risk & probability are high, the business is likely to consider an investment, as long as the costs don't exceed the potential risks.
 

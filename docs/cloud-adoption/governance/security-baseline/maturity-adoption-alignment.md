@@ -28,7 +28,7 @@ This phase of governance maturity bridges the divide between business outcomes a
 
 - Evaluate your [Security Baseline Tool Chain](toolchain.md) options.
 - Develop a draft Architecture Guidelines document and distribute to key stakeholders.
-- Educate and involve the people and teams impacted by the development of Architecture Guidelines.
+- Educate and involve the people and teams affected by the development of architecture guidelines.
 - Add prioritized security tasks to your migration backlog.
 
 **Potential activities:**
@@ -41,6 +41,8 @@ This phase of governance maturity bridges the divide between business outcomes a
 - Evaluate network, data, and asset-related business risks based on the next one to three releases, and gauge your organization's tolerance for those risks.
 - Review Microsoft's [top trends in cybersecurity](https://www.microsoft.com/security/operations/security-intelligence-report) report to get an overview of the current security landscape.
 - Consider developing a [Security DevOps](https://www.microsoft.com/en-us/securityengineering/devsecops) role in your organization.
+
+<!-- "en-us" location is required for the URL above. -->
 
 ## Build and pre-deployment
 
@@ -92,7 +94,7 @@ Once the transformation is complete, governance and operations must live on for 
 - Validate and/or refine your [Security Baseline Tool Chain](toolchain.md).
 - Customize notifications and reports to alert you of potential security issues.
 - Refine the Architecture Guidelines to guide future adoption processes.
-- Communicate and continually re-educate the impacted people and teams on a periodic basis to ensure ongoing adherence to Architecture Guidelines.
+- Communicate and educate the affected teams periodically to ensure ongoing adherence to architecture guidelines.
 
 **Potential activities:**
 

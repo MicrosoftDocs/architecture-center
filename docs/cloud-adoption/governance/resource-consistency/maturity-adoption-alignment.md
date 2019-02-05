@@ -34,7 +34,7 @@ This phase of governance maturity bridges the divide between business outcomes a
 * Understand the licensing requirements for your cloud strategy.
 * Develop a draft Architecture Guidelines document and distribute to key stakeholders.
 * Become familiar with the resource manager you use to deploy, manage, and monitor all the resources for your solution as a group.
-* Educate and involve the people and teams impacted by the development of Architecture Guidelines.
+* Educate and involve the people and teams affected by the development of architecture guidelines.
 * Add prioritized resource deployment tasks to your migration backlog.
 
 **Potential activities:**
@@ -105,7 +105,7 @@ Once the transformation is complete, governance and operations must live on for 
 * Customize your [Resource Consistency Tool Chain](toolchain.md) based on updates to your organization’s changing Cost Management needs.
 * Consider automating any notifications and reports to reflect actual resource usage.
 * Refine Architecture Guidelines to guide future adoption processes.
-* Re-educate impacted teams on a periodic basis to ensure ongoing adherence to the Architecture Guidelines.
+* Educate affected teams periodically to ensure ongoing adherence to the architecture guidelines.
 
 **Potential activities:**
 

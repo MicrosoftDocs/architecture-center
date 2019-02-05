@@ -70,7 +70,7 @@ The following changes to policy will help mitigate the new risks and guide imple
 
 ## Evolution of the best practices
 
-This section of the article will evolve the Governance MVP design to include new Azure Policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
+This section of the article will evolve the governance MVP design to include new Azure policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
 
 1. The Cloud Operations team will define operational monitoring tooling and automated remediation tooling. The Cloud Governance team will support those discovery processes. In this use case, the Cloud Operations team chose Azure Monitor as the primary tool for monitoring mission-critical applications.
 2. Create a repository in Azure DevOps to store and version all relevant Resource Manager templates and scripted configurations.
@@ -101,7 +101,7 @@ This section of the article will evolve the Governance MVP design to include new
 
 ## Conclusion
 
-These additional processes and changes to the Governance MVP help mitigate many of the risks associated with resource governance. Together they add recovery, sizing, and monitoring controls that empower cloud-aware operations.
+These additional processes and changes to the governance MVP help mitigate many of the risks associated with resource governance. Together they add recovery, sizing, and monitoring controls that empower cloud-aware operations.
 
 ## Next steps
 

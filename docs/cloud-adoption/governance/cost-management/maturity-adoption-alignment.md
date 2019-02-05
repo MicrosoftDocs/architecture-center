@@ -28,13 +28,13 @@ This phase of governance maturity bridges the divide between business outcomes a
 
 * Evaluate your [Cost Management tool Chain](toolchain.md) options.
 * Develop a draft Architecture Guidelines document and distribute to key stakeholders.
-* Educate and involve the people and teams impacted by the development of Architecture Guidelines.
+* Educate and involve the people and teams affected by the development of Architecture Guidelines.
 
 **Potential activities:**
 
 * Ensure budgetary decisions that support the business justification for your cloud strategy.
 * Validate learning metrics that you use to report on the successful allocation of funding.
-* Understand the desired cloud accounting model that impact how cloud costs should be accounted for.
+* Understand the desired cloud accounting model that affects how cloud costs should be accounted for.
 * Become familiar with the digital estate plan and validate accurate costing expectations.
 * Evaluate buying options to determine if it's better to "pay as you go" or to make a pre-commitment by purchasing an Enterprise Agreement.
 * Align business goals with planned budgets and adjust budgetary plans as necessary.
@@ -55,7 +55,7 @@ A number of technical and non-technical pre-requisites are required to successfu
 
 * Align your budgetary plans with the [Subscription Strategy](../../infrastructure/subscriptions/overview.md) that defines your core ownership model.
 * Leverage the [Resource Grouping Strategy](../../infrastructure/resource-grouping/overview.md) to enforce architecture and cost guidelines over time.
-* Determine if there are any cost anomalies that impact your adoption and migration plans.
+* Determine if there are any cost anomalies that affect your adoption and migration plans.
 
 ## Adopt and migrate
 
@@ -83,7 +83,7 @@ Once the transformation is complete, governance and operations must live on for 
 * Customize [Cost Management Tool Chain](toolchain.md) based on updates to your organization’s changing Cost Management needs.
 * Consider automating any notifications and reports to reflect actual spending.
 * Refine Architecture Guidelines to guide future adoption processes.
-* Re-educate impacted teams on a periodic basis to ensure ongoing adherence to the Architecture Guidelines.
+* Re-educate affected teams on a periodic basis to ensure ongoing adherence to the Architecture Guidelines.
 
 **Potential activities:**
 

@@ -95,11 +95,11 @@ Once the transformation is complete, governance and operations must live on for 
 * Customize your [Monitoring and Enforcement Tool Chain](toolchain.md) based on updates to your organization’s changing Cost Management needs.
 * Consider adding or updating automation for common alerts and reports based on updated monitoring information.
 * Refine monitoring architecture guidelines to guide future adoption processes.
-* Re-educate impacted teams on a periodic basis to ensure ongoing adherence to the architecture guidelines.
+* Educate affected teams periodically to ensure ongoing adherence to the architecture guidelines.
 
 **Potential activities:**
 
-* Keep the cloud governance team, cloud strategy team, and other important stakeholders informed by regularly compiling overall policy compliance reports based on monitoring data.
+* Keep the Cloud Governance team, Cloud Strategy team, and other important stakeholders informed by regularly compiling overall policy compliance reports based on monitoring data.
 * Use monitoring data to generate policy recommendations for the next iteration of the incremental policy review cycle.
 
 <!-- markdownlint-enable MD026 -->

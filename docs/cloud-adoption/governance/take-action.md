@@ -9,13 +9,15 @@ ms.topic: landing-page
 
 # Fusion: Implementing a cloud governance strategy
 
-<ul  class="panelContent cardsI">
+<!-- markdownlint-disable MD033 -->
+
+<ul class="panelContent cardsI">
 <li style="display: flex; flex-direction: column;">
     <div class="cardSize">
         <div class="cardPadding" style="padding-bottom:10px;">
             <div class="card" style="padding-bottom:10px;">
                 <div class="cardText" style="padding-left:0px;">
-Any change to business processes or technology platforms introduces risk to the business. Cloud governance teams (also known as cloud custodians) are tasked with mitigating these risks with minimal interruption to adoption or innovation efforts.<br/><br/>Fusion's model for cloud governance guides decisions (regardless of the chosen cloud platform) by focusing on <a href="#corporate-policy">development of corporate policy</a> and <a href="#disciplines-of-cloud-governance">Disciplines of cloud governance</a>.<BR/><a href="#actionable-governance-journeys">Actionable Governance Journeys</a> demonstrate this model by creating a Governance MVP in Azure. Then evolving that foundation in parallel to cloud adoption.<BR/><BR/>
+Any change to business processes or technology platforms introduces risk to the business. Cloud governance teams (also known as cloud custodians) are tasked with mitigating these risks with minimal interruption to adoption or innovation efforts.<br/><br/>Fusion's model for cloud governance guides decisions (regardless of the chosen cloud platform) by focusing on <a href="#corporate-policy">development of corporate policy</a> and <a href="#disciplines-of-cloud-governance">Disciplines of cloud governance</a>.<BR/><a href="#actionable-governance-journeys">Actionable Governance Journeys</a> demonstrate this model by creating a governance MVP in Azure. Then evolving that foundation in parallel to cloud adoption.<BR/><BR/>
                 </div>
             </div>
         </div>
@@ -38,6 +40,8 @@ Any change to business processes or technology platforms introduces risk to the 
 </li>
 </ul>
 
+<!-- markdownlint-disable MD033 -->
+
 ## Incremental Cloud Governance Model
 
 The Fusion approach to cloud governance is built on an incremental model that starts small and grows with cloud adoption. This model helps illustrate the differences between "What can be done with governance" and "What must be done through governance". To learn more about this model, see the article on [Incremental Cloud Governance](./incremental-cloud-governance.md).
@@ -51,6 +55,8 @@ Jump to: [Corporate Policy](#corporate-policy) | [Disciplines of Cloud Governanc
 To demonstrate actionable implementation patterns of Fusion's Cloud Governance model, the following journeys align Corporate Policy and Cloud Governance Disciplines with the governance tools available in Azure. For cloud agnostic guidance, the sections on [Corporate Policy](#corporate-policy) and [Disciplines of Cloud Governance](#disciplines-of-cloud-governance) may be a better starting point.
 
 To start applying a customer journey, choose one of the following two options. For guidance on choosing the right journey, see the article on [Choosing a governance journey](./design-guides/choose-a-governance-journey.md) or [Intro to governance journeys](./design-guides/overview.md)
+
+<!-- markdownlint-disable MD033 -->
 
 <ul  class="panelContent cardsZ">
 <li style="display: flex; flex-direction: column;">
@@ -83,11 +89,15 @@ To start applying a customer journey, choose one of the following two options. F
 </li>
 </ul>
 
+<!-- markdownlint-enable MD033 -->
+
 ## Corporate policy
 
 Developing corporate policy focuses on identifying and mitigating business risks regardless of the cloud platform. Healthy cloud governance strategy begins with sound corporate policy. The following three-step process guides iterative development of such policies.
 
-<ul  class="panelContent cardsF">
+<!-- markdownlint-disable MD033 -->
+
+<ul class="panelContent cardsF">
 <li style="display: flex; flex-direction: column;">
     <a href="./policy-compliance/understanding-business-risk.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -151,7 +161,7 @@ Developing corporate policy focuses on identifying and mitigating business risks
 
 Across each cloud provider, there are common cloud governance disciplines that can serve as a guide to help inform policies and align tool chains. These disciplines guide decisions regarding the proper level of automation and enforcement of corporate policy across cloud providers.
 
-<ul  class="panelContent cardsA">
+<ul class="panelContent cardsA">
 <li style="display: flex; flex-direction: column;">
     <a href="./cost-management/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -249,13 +259,15 @@ Across each cloud provider, there are common cloud governance disciplines that c
 </li>
 </ul>
 
+<!-- markdownlint-enable MD033 -->
+
 ## Additional guidance
 
 Evaluating current policy through a [cloud policy review](policy-compliance/what-is-a-cloud-policy-review.md) can be a good place to begin the governance journey. [Policy and compliance](policy-compliance/overview.md) can be a useful guide during policy review. To prepare for a policy review, see the [guide to cloud readiness for chief information security officers (CISOs)](how-can-a-ciso-prepare-for-the-cloud.md).
 
 ## Next steps
 
-Sound cloud governance strategy starts with an [understanding of business risk](./policy-compliance/understanding-business-risk.md). Lets begin there.
+An effective cloud governance strategy starts with an [understanding of business risk](./policy-compliance/understanding-business-risk.md). Lets begin there.
 
 > [!div class="nextstepaction"]
 > [Understanding Business Risk](./policy-compliance/understanding-business-risk.md)

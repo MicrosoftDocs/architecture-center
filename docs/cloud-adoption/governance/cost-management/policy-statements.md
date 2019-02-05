@@ -21,7 +21,7 @@ The following sample policy statements address a number of common cost-related b
 
 **Policy statement:** You should associate all assets deployed to the cloud with a billing unit, application/workload, and meet naming standards. This policy will ensure that future Cost Management efforts will be effective.
 
-**Design options:** For information on establishing a future proofed foundation, see the discussions related to creating a governance minimum viable product (MVP) in the [actionable design guides](../design-guides/overview.md#incremental-governance-model-mvp-and-continuous-improvement) included as part of the Fusion guidance.
+**Design options:** For information on establishing a future-proofed foundation, see the discussions related to creating a governance minimum viable product (MVP) in the [actionable design guides](../design-guides/overview.md#incremental-governance-model-mvp-and-continuous-improvement) included as part of the Fusion guidance.
 
 ## Budget overruns
 
@@ -57,7 +57,7 @@ The following sample policy statements address a number of common cost-related b
 
 **Business risk:** Effective cost nanagement can actually create new risks. Optimization of spending is inverse to system performance. When reducing costs, there is a risk of overtightening spending and producing poor user experiences.
 
-**Policy statement:** Any asset that directly impacts customer experiences must be identified through grouping or tagging. Before optimizing any asset that impacts customer experience, the cloud governance team must adjust optimization based on no fewer than 90 days of utilization trends. Document any seasonal or event driven bursts considered when optimizing assets.
+**Policy statement:** Any asset that directly affects customer experiences must be identified through grouping or tagging. Before optimizing any asset that affects customer experience, the cloud governance team must adjust optimization based on no fewer than 90 days of utilization trends. Document any seasonal or event driven bursts considered when optimizing assets.
 
 **Design options:**
 

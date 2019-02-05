@@ -18,7 +18,7 @@ Identity is increasingly considered the primary security perimeter in the cloud,
 
 This section of the Fusion guidance outlines the approach to developing an Identity Baseline discipline as part of your cloud governance strategy. The primary audience for this guidance is your organization's cloud architects and other members of your cloud governance team. However, the decisions, policies, and processes that emerge from this discipline should involve engagement and discussions with relevant members of the IT teams responsible for implementing and managing your organization's identity management solutions.
 
-If your organization lacks in-house expertise in Identity Baseline and security, consider engaging with external consultants as a part of this discipline. Also consider engaging with [Microsoft Consulting Services](https://www.microsoft.com/en-us/enterprise/services?activetab=pillars%3aprimaryr13), the [Microsoft FastTrack](https://azure.microsoft.com/en-us/programs/azure-fasttrack/) cloud adoption service, or other external cloud adoption experts for discussion of Azure-specific concerns related to identity services.
+If your organization lacks in-house expertise in Identity Baseline and security, consider engaging with external consultants as a part of this discipline. Also consider engaging with [Microsoft Consulting Services](https://www.microsoft.com/enterprise/services), the [Microsoft FastTrack](https://azure.microsoft.com/programs/azure-fasttrack) cloud adoption service, or other external cloud adoption experts for discussion of Azure-specific concerns related to identity services.
 
 ## Policy statements
 

@@ -7,11 +7,11 @@ ms.date: 2/1/2019
 
 # Fusion: Large Enterprise – Resource Consistency evolution
 
-This article will evolve the narrative by adding Resource Consistency controls to the Governance MVP to support mission-critical applications.
+This article will evolve the narrative by adding Resource Consistency controls to the governance MVP to support mission-critical applications.
 
 ## Evolution of the narrative
 
-The Cloud Adoption team has met all requirements to move protected data. With those applications come SLA commitments to the business and need for IT operation support. Right behind the team migrating the two datacenters, multiple app dev and BI teams are ready to begin launching new solutions into production. IT operations is new to the thought of cloud operations and needs a way to quickly integrate existing operational processes.
+The cloud adoption teams have met all requirements to move protected data. With those applications come SLA commitments to the business and need for IT operation support. Right behind the team migrating the two datacenters, multiple app dev and BI teams are ready to begin launching new solutions into production. IT operations is new to the thought of cloud operations and needs a way to quickly integrate existing operational processes.
 
 ### Evolution of current state
 
@@ -61,13 +61,13 @@ The following changes to policy will help mitigate the new risks and guide imple
 11. Trends and exploits that could affect cloud deployments should be reviewed regularly by the security team to provide updates to Security Baseline tooling used in the cloud.
 12. Prior to release into production, all mission-critical applications and protected data must be added to the designated operational monitoring solution. Assets that cannot be discovered by the chosen IT operations tooling cannot be released for production use. Any changes required to make the assets discoverable must be made to the relevant deployment processes to ensure assets will be discoverable in future deployments.
 13. Upon discovery, asset sizing is to be validated by operational management teams to validate that the asset meets performance requirements.
-14. Deployment tooling must be approved by the Cloud Governance team to ensure on-going governance of deployed assets.
+14. Deployment tooling must be approved by the Cloud Governance team to ensure ongoing governance of deployed assets.
 15. Deployment scripts must be maintained in central repository accessible by the Cloud Governance team for periodic review and auditing.
 16. Governance review processes must validate that deployed assets are properly configure in alignment with SLA and recovery requirements.
 
 ## Evolution of the best practices
 
-This section of the article will evolve the Governance MVP design to include new Azure Policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
+This section of the article will evolve the governance MVP design to include new Azure Policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
 
 Following the experience of this fictional example, it is assumed that the Protected Data evolution has already happened. Building on that best practice, the following will add operational monitoring requirements, readying a subscription for mission-critical applications.
 

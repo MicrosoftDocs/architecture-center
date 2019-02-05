@@ -20,7 +20,7 @@ This content has been created specifically for members of the Cloud Governance T
 
 ## Audience
 
-The content in Fusion impacts the business, technology, and culture of enterprises. This section of Fusion will interact heavily with IT Security, IT Governance, Finance, Line of Business (LOB) leaders & IT, Networking, Identity, and other Cloud Adoption Teams. There are various co-dependencies on these personas which will require a facilitative approach by the Cloud Architects using this guidance. Facilitation with these teams may be a one-time effort, but in some cases, it will result in recurring interactions with these other personas.
+The content in Fusion affects the business, technology, and culture of enterprises. This section of Fusion will interact heavily with IT Security, IT Governance, Finance, Line of Business (LOB) leaders & IT, Networking, Identity, and other Cloud Adoption Teams. There are various co-dependencies on these personas which will require a facilitative approach by the Cloud Architects using this guidance. Facilitation with these teams may be a one-time effort, but in some cases, it will result in recurring interactions with these other personas.
 
 The Cloud Architect serves as the thought leader and facilitator to bring these audiences together. The content in this collection of guides is designed to help the Cloud Architect facilitate the right conversation, with the right audience, to drive necessary decisions. Business transformation that is empowered by the cloud is dependent upon the Cloud Architect role to help guide decisions throughout the business and IT.
 

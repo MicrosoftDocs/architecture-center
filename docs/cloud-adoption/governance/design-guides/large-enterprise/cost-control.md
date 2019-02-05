@@ -11,7 +11,7 @@ This article evolves the narrative by adding cost controls to the governance min
 
 ## Evolution of the narrative
 
-Adoption has grown beyond the tolerance indicator defined in the Governance MVP. The increases in spending now justifies an investment of time from the Cloud Governance team to monitor and control spending patterns.
+Adoption has grown beyond the tolerance indicator defined in the governance MVP. The increases in spending now justifies an investment of time from the Cloud Governance team to monitor and control spending patterns.
 
 As a clear driver of innovation, IT is no longer seen primarily as a cost center. As the IT organization delivers more value, the CIO and CFO agree that the time is right to evolve the role IT plays in the company. Amongst other changes, the CFO wants to test a direct pay approach to cloud accounting for the Canadian branch of one of the business units. One of the two retired datacenters was exclusively hosted assets for that business unit’s Canadian operations. In this model, the business unit’s Canadian subsidiary will be billed directly for the operational expenses related to the hosted assets. This model allows IT to focus less on managing someone else’s spending and more on creating value. However, before this transition can begin Cost Management tooling needs to be in place.
 
@@ -22,8 +22,8 @@ In the previous phase of this narrative, the IT team was actively moving product
 Since then, some things have changed that will affect governance:
 
 - 5,000 assets have been removed from the two datacenters flagged for retirement. Procurement and IT security are now deprovisioning the remaining physical assets.
-- The application development teams have implemented CI/CD pipelines to deploy a number of cloud native applications, significantly impacting customer experiences.
-- The BI team has created aggregation, curation, insight, and prediction processes driving tangible impacts for business operations. Those predictions are now empowering creative new products and services.
+- The application development teams have implemented CI/CD pipelines to deploy a number of cloud native applications, significantly affecting customer experiences.
+- The BI team has created aggregation, curation, insight, and prediction processes driving tangible benefits for business operations. Those predictions are now empowering creative new products and services.
 
 ### Evolution of Future State
 
@@ -31,7 +31,7 @@ Since then, some things have changed that will affect governance:
 
 ## Evolution of tangible risks
 
-**Cost Increases**: There is an inherent risk that self-service capabilities will result in excessive and unexpected costs on the new platform. Governance processes for monitoring costs and mitigating on-going cost risks must be in place to ensure continued alignment with the planned budget.
+**Cost Increases**: There is an inherent risk that self-service capabilities will result in excessive and unexpected costs on the new platform. Governance processes for monitoring costs and mitigating ongoing cost risks must be in place to ensure continued alignment with the planned budget.
 
 This business risk can be expanded into a few technical risks
 
@@ -52,11 +52,11 @@ The following changes to policy will help mitigate the new risks and guide imple
 
 ## Evolution of the best practices
 
-This section of the article will evolve the Governance MVP design to include new Azure Policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
+This section of the article will evolve the governance MVP design to include new Azure policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
 
 1. Changes in the Azure Enterprise Portal to bill the Department administrator for the Canadian deployment.
 2. Implement Azure Cost Management.
-    1. Establish the right level of access scope to align with the subscription pattern and resource grouping pattern. Assuming alignment with the Governance MVP defined in prior articles, this would require **Enrollment Account Scope** access for the Cloud Governance team executing on high level reporting. Additional teams outside of governance, like the Canadian procurement team, will require **Resource Group Scope access**.
+    1. Establish the right level of access scope to align with the subscription pattern and resource grouping pattern. Assuming alignment with the governance MVP defined in prior articles, this would require **Enrollment Account Scope** access for the Cloud Governance team executing on high level reporting. Additional teams outside of governance, like the Canadian procurement team, will require **Resource Group Scope** access.
     2. Establish a budget in Azure Cost Management.
     3. Review and act on initial recommendations. It's recommend to have a recurring process to support the reporting process.
     4. Configure and execute Azure Cost Management Reporting, both initial and recurring.

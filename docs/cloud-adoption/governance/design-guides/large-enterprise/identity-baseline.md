@@ -7,7 +7,7 @@ ms.date: 2/1/2019
 
 # Fusion: Large Enterprise – Identity Baseline evolution
 
-This article evolves the narrative by adding Identity Baseline controls to the Governance MVP.
+This article evolves the narrative by adding Identity Baseline controls to the governance MVP.
 
 ## Evolution of the narrative
 
@@ -30,7 +30,7 @@ The IT team has approval to move forward with the CIO and CFO's plans to retire 
 
 ### Evolution of the future state
 
-The new future state plans require a more robust Identity Baseline solution to migrate the 750 virtual machines with legacy authentication requirements. Beyond these two datacenters, similar percentages of assets in other datacenters are expected to be impacted by this challenge.
+The new future state plans require a more robust Identity Baseline solution to migrate the 750 virtual machines with legacy authentication requirements. Beyond these two datacenters, similar percentages of assets in other datacenters are expected to be affected by this challenge.
 The future state now also requires a connection from the cloud provider to the company’s MPLS/leased-line solution.
 
 The changes to current and future state expose new risks that will require new policy statements.

@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Governance Design Guide future proof"
+title: "Fusion: Governance Design Guide future-proof"
 description: Explanation Design guide to action the concepts within governance.
 author: BrianBlanchard
 ms.date: 2/1/2019

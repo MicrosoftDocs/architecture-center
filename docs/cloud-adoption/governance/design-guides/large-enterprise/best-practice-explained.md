@@ -1,29 +1,29 @@
 ---
-title: "Fusion: Large Enterprise – Additional technical Details regarding Governance MVP"
-description: Large Enterprise – Additional technical Details regarding Governance MVP
+title: "Fusion: Large Enterprise – Additional technical tetails regarding a governance MVP"
+description: Large Enterprise – Additional technical details regarding governance MVP
 author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
 # Fusion: Large Enterprise – Best practice explained
 
-The governance journey starts with a set of initial [corporate policies](./corporate-policy.md). These policies are used to establish a governance minimal viable product (MVP) that reflects [best practice](./overview.md).
+The governance journey starts with a set of initial [corporate policies](./corporate-policy.md). These policies are used to establish a governance minimal viable product (MVP) that reflects [best practices](./overview.md).
 
-In this article, we discuss the high-level strategies that are required to create a Governance MVP. The core of the governance MVP is the [Deployment Acceleration](../../deployment-acceleration/overview.md) discipline. The tools and patterns applied at this stage will enable the incremental evolutions needed to expand governance in the future.
+In this article, we discuss the high-level strategies that are required to create a governance MVP. The core of the governance MVP is the [Deployment Acceleration](../../deployment-acceleration/overview.md) discipline. The tools and patterns applied at this stage will enable the incremental evolutions needed to expand governance in the future.
 
 ## Governance MVP (Cloud Adoption Foundation)
 
 Rapid adoption of governance and corporate policy is achievable, thanks to a few simple principles and cloud-based governance tooling. These are the first of the three Cloud Governance Disciplines to approach in any governance process. Each will be expanded upon in this article.
 
-To establish the starting point, this article will discuss the high-level strategies behind Identity Baseline, Security Baseline, and Deployment Acceleration that are required to create a Governance MVP, which will serve as the foundation for all adoption.
+To establish the starting point, this article will discuss the high-level strategies behind Identity Baseline, Security Baseline, and Deployment Acceleration that are required to create a governance MVP, which will serve as the foundation for all adoption.
 
-![Example of Incremental Governance MVP](../../../_images/governance/governance-mvp.png)
+![Example of an incremental governance MVP](../../../_images/governance/governance-mvp.png)
 
 ## Implementation process
 
 The implementation of the governance MVP has dependencies on Identity, Security, and Networking. Once the dependencies are resolved, the Cloud Governance team will decide a few aspects of governance. The decisions from the Cloud Governance team and from supporting teams will be implemented through a single package of enforcement assets.
 
-![Example of Incremental Governance MVP](../../../_images/governance/governance-mvp-implementation-flow.png)
+![Example of an incremental governance MVP](../../../_images/governance/governance-mvp-implementation-flow.png)
 
 This implementation can also be described using a simple checklist:
 
@@ -75,7 +75,7 @@ At this point, a **Hybrid** pattern for log and reporting is suggested but not r
 
 Some of the policy statements cannot or should not be controlled by automated tooling. Other policies will require periodic effort from IT Security and on-premises Identity Baseline teams. The Cloud Governance team will need to oversee the following processes to implement the last eight policy statements:
 
-**Corporate Policy Changes**: The Cloud Governance team will make changes to the Governance MVP design to adopt the new policies. The value of the Governance MVP is that it will allow for the automatic enforcement of the new policies.
+**Corporate Policy Changes**: The Cloud Governance team will make changes to the governance MVP design to adopt the new policies. The value of the governance MVP is that it will allow for the automatic enforcement of the new policies.
 
 **Adoption Acceleration**: The Cloud Governance team has been reviewing deployment scripts across multiple teams. They've maintained a set of scripts that serve as deployment templates. Those templates can be used by the cloud adoption teams and DevOps teams to more quickly define deployments. Each script contains the requirements for enforcing governance policies, and additional effort from cloud adoption engineers is not needed. As the curators of these scripts, they can implement policy changes more quickly. Additionally, they are viewed as accelerators of adoption. This ensures consistent deployments without strictly enforcing adherence.
 

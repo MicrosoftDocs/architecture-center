@@ -28,7 +28,7 @@ This phase of governance maturity bridges the divide between business outcomes a
 
 * Evaluate your [Identity tool chain](toolchain.md) options and implement a hybrid strategy that is appropriate to your organization.
 * Develop a draft Architecture Guidelines document and distribute to key stakeholders.
-* Educate and involve the people and teams impacted by the development of Architecture Guidelines.
+* Educate and involve the people and teams affected by the development of architecture guidelines.
 
 **Potential activities:**
 
@@ -49,7 +49,7 @@ A number of technical and non-technical pre-requisites are required to successfu
 * Apply feedback from pilot tests into the pre-deployment. Repeat until results are acceptable.
 * Update the Architecture Guidelines document to include deployment and user adoption plans, and distribute to key stakeholders.
 * Consider establishing an early adopter program and rolling out to a limited number of users.
-* Continue to educate the people and teams most impacted by the Architecture Guidelines.
+* Continue to educate the people and teams most affected by the architecture guidelines.
 
 **Potential activities:**
 
@@ -104,7 +104,7 @@ Once the transformation is complete, governance and operations must live on for 
 * Monitor and report on system usage and user adoption progress.
 * Report on post-deployment metrics and distribute to stakeholders.
 * Refine the Architecture Guidelines to guide future adoption processes.
-* Communicate and continually re-educate the impacted people and teams on a periodic basis to ensure ongoing adherence to Architecture Guidelines.
+* Communicate and continually educate the affected teams on a periodic basis to ensure ongoing adherence to architecture guidelines.
 
 **Potential activities:**
 

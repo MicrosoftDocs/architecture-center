@@ -28,7 +28,7 @@ This phase of governance maturity bridges the divide between business outcomes a
 
 - Evaluate your [Deployment Acceleration tool chain](toolchain.md) options and implement a hybrid strategy that is appropriate to your organization.
 - Develop a draft Architecture Guidelines document and distribute to key stakeholders.
-- Educate and involve the people and teams impacted by the development of Architecture Guidelines.
+- Educate and involve the people and teams affected by the development of Architecture Guidelines.
 - Train development teams and IT staff to understand DevSecOps principles and strategies and the importance of fully automated deployments in the Deployment Acceleration Discpline.
 
 **Potential activities:**
@@ -44,7 +44,7 @@ This phase of governance maturity bridges the divide between business outcomes a
 - Consider a pilot test before implementing your [Deployment Acceleration tool chain](toolchain.md), making sure it streamlines your deployments as much as possible. Apply feedback from pilot tests during the pre-deployment phase, repeating as needed.
 - Evaluate the logical and physial architecture of your applications, and identify opportunities to automate the deployment of application resources or improve portions of the architecture using other cloud-based resources.
 - Update the Architecture Guidelines document to include deployment and user adoption plans, and distribute to key stakeholders.
-- Continue to educate the people and teams most impacted by the Architecture Guidelines.
+- Continue to educate the people and teams most affected by the architecture guidelines.
 
 **Potential activities:**
 

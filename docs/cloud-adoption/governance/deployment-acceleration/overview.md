@@ -28,7 +28,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 * Evaluate your [Deployment Acceleration Tool Chain](toolchain.md) options.
 * Develop a draft Architecture Guidelines document and distribute to key stakeholders.
-* Educate and involve the people and teams impacted by the development of Architecture Guidelines.
+* Educate and involve the people and teams affected by the development of Architecture Guidelines.
 
 **Potential activities:**
 
@@ -88,11 +88,11 @@ Once the transformation is complete, governance and operations must live on for 
 * Customize your [Deployment Acceleration Tool Chain](toolchain.md).
 * Automate notifications and reports to alert you of potential configuration issues.
 * Refine Architecture Guidelines to guide future adoption processes.
-* Communicate and continually re-educate the impacted people and teams on a periodic basis to ensure ongoing adherence to Architecture Guidelines.
+* Communicate and continually educate the affected teams on a periodic basis to ensure ongoing adherence to Architecture Guidelines.
 
 **Potential activities:**
 
-* Review OS and Application vulnerabilities.
+* Review operating system and application vulnerabilities.
 * Modify disaster recovery plans (intrusive and non-intrusive) as necessary.
 * Implement configuration drift monitoring.
 * Maintain and execute patch cycles.

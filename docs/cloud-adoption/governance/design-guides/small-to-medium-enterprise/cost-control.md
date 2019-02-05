@@ -32,7 +32,7 @@ The changes to current and future state expose new risks that will require new p
 
 ## Evolution of tangible risks
 
-**Cost Increases**: There is an inherent risk that self-service capabilities will result in excessive and unexpected costs on the new platform. Governance processes for monitoring costs and mitigating on-going cost risks must be in place to ensure continued alignment with the planned budget.
+**Cost Increases**: There is an inherent risk that self-service capabilities will result in excessive and unexpected costs on the new platform. Governance processes for monitoring costs and mitigating ongoing cost risks must be in place to ensure continued alignment with the planned budget.
 
 This business risk can be expanded into a few technical risks:
 
@@ -53,10 +53,10 @@ The following changes to policy will help mitigate the new risks and guide imple
 
 ## Evolution of the best practices
 
-This section of the article will evolve the Governance MVP design to include new Azure Policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
+This section of the article will evolve the governance MVP design to include new Azure Policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
 
 1. Implement Azure Cost Management
-    1. Establish the right level of access scope to align with the subscription pattern and Resource Consistency pattern. Assuming alignment with the Governance MVP defined in prior articles, this requires **Enrollment Account Scope** access for the Cloud Governance Team executing on high level reporting. Additional teams outside of governance may require **Resource Group Scope** access.
+    1. Establish the right level of access scope to align with the subscription pattern and Resource Consistency pattern. Assuming alignment with the governance MVP defined in prior articles, this requires **Enrollment Account Scope** access for the Cloud Governance Team executing on high level reporting. Additional teams outside of governance may require **Resource Group Scope** access.
     2. Establish a budget in Azure Cost Management.
     3. Review and act on initial recommendations. Have a recurring process to support reporting.
     4. Configure and execute Azure Cost Management Reporting, both initial and recurring.
@@ -66,7 +66,7 @@ This section of the article will evolve the Governance MVP design to include new
 
 ## Conclusion
 
-Adding these processes and changes to the Governance MVP helps mitigate many of the risks associated with cost governance. Together, they create the visibility, accountability, and optimization needed to control costs.
+Adding these processes and changes to the governance MVP helps mitigate many of the risks associated with cost governance. Together, they create the visibility, accountability, and optimization needed to control costs.
 
 ## Next steps
 
