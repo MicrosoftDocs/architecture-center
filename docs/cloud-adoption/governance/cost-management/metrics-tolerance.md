@@ -15,9 +15,9 @@ Cost Management generally focuses on metrics related to costs. As part of your r
 
 The following are examples of useful metrics that you should gather to help evaluate risk tolerance within the Security Baseline discipline:
 
-- Annual spend: The total annual cost for services provided by a cloud provider
-- Monthly spend: The total monthly cost for services provided by a cloud provider
-- Forecast versus actual ratio: The ratio comparing forecasted and actual spend (monthly or annual)
+- Annual spending: The total annual cost for services provided by a cloud provider
+- Monthly spending: The total monthly cost for services provided by a cloud provider
+- Forecasted versus actual ratio: The ratio comparing forecasted and actual spending (monthly or annual)
 - Pace of adoption (MOM) ratio: The percentage of the delta in cloud costs from month to month
 - Accumulated cost: Total accrued daily spending, starting from the beginning of the month
 - Spending trends: Spending trend against the budget
@@ -33,8 +33,8 @@ Once you have identified [business risks](./business-risks.md), you will work wi
 - Commit driven (most common): A company that is committed to spending $X,000,000 this year on a cloud vendor. They need a Cost Management discipline to ensure that the business doesn't overspend by more than 20%, and they will use at least 90% of that commitment.
 - Percentage trigger: A company with cloud spending that is stable for their production systems. If that changes by more that X%, then a Cost Management discipline will be a wise investment.
 - Over provision trigger: A company who believes their deployed solutions are over provisioned. Cost Management is a priority investment until they can demonstrate proper alignment of provisioning and asset utilization.
-- Monthly spend trigger: A company that spends over $x,000 per month is considered a sizable cost. If spending exceeds that amount in a given month, they will need to invest in Cost Management.
-- Annual spend trigger: A company with an IT R&D budget that allows for spending $X,000 per year on cloud experimentation. They may run production workloads in the cloud, but they will still be considered experimental solutions if the budget doesn't exceed that amount. Once it goes over, they will need to treat the budget like a production investment and manage spending closely.
+- Monthly spending trigger: A company that spends over $x,000 per month is considered a sizable cost. If spending exceeds that amount in a given month, they will need to invest in Cost Management.
+- Annual spending trigger: A company with an IT R&D budget that allows for spending $X,000 per year on cloud experimentation. They may run production workloads in the cloud, but they will still be considered experimental solutions if the budget doesn't exceed that amount. Once it goes over, they will need to treat the budget like a production investment and manage spending closely.
 - OpEx adverse (uncommon): As a company, they are very OpEx adverse and will need Cost Management controls in place before deploying a dev/test workload.
 
 ## Next steps

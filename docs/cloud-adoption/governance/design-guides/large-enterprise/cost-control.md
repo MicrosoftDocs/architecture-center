@@ -13,7 +13,7 @@ This article evolves the narrative by adding cost controls to the governance min
 
 Adoption has grown beyond the tolerance indicator defined in the Governance MVP. The increases in spending now justifies an investment of time from the Cloud Governance team to monitor and control spending patterns.
 
-As a clear driver of innovation, IT is no longer seen primarily as a cost center. As the IT organization delivers more value, the CIO and CFO agree that the time is right to evolve the role IT plays in the company. Amongst other changes, the CFO wants to test a direct pay approach to cloud accounting for the Canadian branch of one of the business units. One of the two retired datacenters was exclusively hosted assets for that business unit’s Canadian operations. In this model, the business unit’s Canadian subsidiary will be billed directly for the operational expenses related to the hosted assets. This model allows IT to focus less on managing someone else’s spend and more on driving value. However, before this transition can begin Cost Management tooling needs to be in place.
+As a clear driver of innovation, IT is no longer seen primarily as a cost center. As the IT organization delivers more value, the CIO and CFO agree that the time is right to evolve the role IT plays in the company. Amongst other changes, the CFO wants to test a direct pay approach to cloud accounting for the Canadian branch of one of the business units. One of the two retired datacenters was exclusively hosted assets for that business unit’s Canadian operations. In this model, the business unit’s Canadian subsidiary will be billed directly for the operational expenses related to the hosted assets. This model allows IT to focus less on managing someone else’s spending and more on creating value. However, before this transition can begin Cost Management tooling needs to be in place.
 
 ### Evolution of Current State
 
@@ -27,7 +27,7 @@ Since then, some things have changed that will affect governance:
 
 ### Evolution of Future State
 
-- Cost monitoring and reporting is to be added to the cloud solution. Reporting should tie direct operational expenses to the functions that are consuming the cloud costs. Additional reporting should allow IT to monitor spend and provide technical guidance on Cost Management. For the Canadian branch, the department will be billed directly.
+- Cost monitoring and reporting is to be added to the cloud solution. Reporting should tie direct operational expenses to the functions that are consuming the cloud costs. Additional reporting should allow IT to monitor spending and provide technical guidance on cost management. For the Canadian branch, the department will be billed directly.
 
 ## Evolution of tangible risks
 

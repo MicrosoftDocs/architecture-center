@@ -17,7 +17,7 @@ The following sample policy statements address a number of common identity-relat
 
 ## Lack of access controls
 
-**Technical risk**: Insufficient or ad-hoc access control settings can introduce risk of unauthorized access to sensitive or mission critical resources.
+**Technical risk**: Insufficient or ad-hoc access control settings can introduce risk of unauthorized access to sensitive or mission-critical resources.
 
 **Policy statement**: All assets deployed to the cloud should be controlled using identities and roles approved by current governance policies.
 
@@ -29,10 +29,10 @@ The following sample policy statements address a number of common identity-relat
 
 **Policy statement**: The following policies will be implemented:
 
-- A least privilege access model will be applied to any resources involved in mission critical applications or protected data.
+- A least privilege access model will be applied to any resources involved in mission-critical applications or protected data.
 - Elevated permissions should be an exception, and any such exceptions must be recorded with the Cloud Governance Team. Exceptions will be audited regularly.
 
-**Potential design options**: Consult the [Azure Identity Management best practices](https://docs.microsoft.com/en-us/azure/security/azure-security-identity-management-best-practices) to implement  a role-based access control (RBAC) strategy that restricts access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege security](https://en.wikipedia.org/wiki/Principle_of_least_privilege) principles.
+**Potential design options**: Consult the [Azure Identity Management best practices](https://docs.microsoft.com/en-us/azure/security/azure-security-identity-management-best-practices) to implement a role-based access control (RBAC) strategy that restricts access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege security](https://en.wikipedia.org/wiki/Principle_of_least_privilege) principles.
 
 ## Lack of shared management accounts between on-premises and the cloud
 

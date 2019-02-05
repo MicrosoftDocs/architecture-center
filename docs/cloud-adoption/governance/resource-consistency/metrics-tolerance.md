@@ -23,7 +23,7 @@ Every organization has different operational scenarios, but the following items 
 - **Service availability**. Percentage of actual uptime cloud-hosted workloads compared to the expected uptime.
 - **VMs in critical condition**. Number of deployed VMs where one or more critical issues are detected which need to be addressed in order to restore normal functionality.
 - **Alerts by Severity**. Total number of alerts on a deployed asset, broken down by severity.
-- **Unhealthy subnet links**. Number of resources with  with network connectivity issues.
+- **Unhealthy subnet links**. Number of resources with with network connectivity issues.
 - **Unhealthy Service Endpoints**. Number of issues with external network endpoints.
 - **Cloud Provider Service Health incidents**. Number of disruptions or performance incidents caused by the cloud provider.
 - **Backup Health**. Number of backups actively being synchronized.
@@ -43,10 +43,10 @@ Once you have a baseline, establish minimum benchmarks representing an unaccepta
 - **Overprovisioned resources trigger**. If a company has more than X% of assets regularly using very small amounts of their available memory, CPU, or network capabilities, investment in the Resource Consistency discipline is suggested to help optimize resources usage for these items.
 - **Underprovisioned resources trigger**. If a company has more than X% of assets regularly exhausting most of their available memory, CPU, or network capabilities, investment in the Resource Consistency discipline is suggested to help ensure these assets have the resources necessary to prevent service interruptions.
 - **Resource age trigger**. A company with more than X resources that have not been updated in over X months could benefit from investment in the Resource Consistency discipline aimed at ensuring active resources are patched and healthy, while retiring obsolete or otherwise unused assets.  
-- **Service availability trigger**. A company that has experienced under X% uptime for mission critical services should invest in the Resource Consistency discipline to improve their service reliability.
+- **Service availability trigger**. A company that has experienced under X% uptime for mission-critical services should invest in the Resource Consistency discipline to improve their service reliability.
 - **VM health trigger**. A company that has more than X% of VMs experiencing a critical health issue should invest in the Resource Consistency discipline to identify issues and improve VM stability.
 - **Network health trigger**. A company that has more than X% of network subnets or endpoints experiencing connectivity issues should invest in the Resource Consistency discipline to identify and resolve network issues.
-- **Backup coverage trigger**. A company with X% of mission critical assets without up-to-date backups in place would benefit from an increased investment in the Resource Consistency discipline to ensure a consistent backup strategy.
+- **Backup coverage trigger**. A company with X% of mission-critical assets without up-to-date backups in place would benefit from an increased investment in the Resource Consistency discipline to ensure a consistent backup strategy.
 - **Backup health trigger**. A company experiencing more than X% failure of restore operations should invest in the Resource Consistency discipline to identify problems with backup and ensure important resources are protected.
 
 The exact metrics and triggers you use to gauge risk tolerance and the level of investment in the Resource Consistency discipline will be specific to your organization, but the examples above should serve as a useful base for discussion within your cloud governance team.  

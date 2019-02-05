@@ -44,7 +44,7 @@ These patterns provide room for growth without complicating the hierarchy unnece
 Once this MVP has been deployed, additional layers of governance can be quickly incorporated into the environment. Here are some ways to evolve the MVP to meet specific business needs:
 
 - [Security Baseline for protected data](./protected-data.md)
-- [Resource configurations for mission critical applications](./mission-critical.md)
+- [Resource configurations for mission-critical applications](./mission-critical.md)
 - [Controls for Cost Management](./cost-control.md)
 - [Controls for multi-cloud evolution](./multi-cloud.md)
 
@@ -52,13 +52,13 @@ Once this MVP has been deployed, additional layers of governance can be quickly 
 
 ## What does this best practice do?
 
-In the MVP, practices and tools from the [Deployment Acceleration](../../deployment-acceleration/overview.md) discipline are established to quickly apply corporate policy. In particular, the MVP makes use of Azure Blueprints, Azure Management Groups, and Azure Policy to apply a few basic corporate policies, as defined in the narrative for this fictional company. Those corporate policies are applied using Resource Manager templates and Azure policies to establish a very small baseline for identity and security.
+In the MVP, practices and tools from the [Deployment Acceleration](../../deployment-acceleration/overview.md) discipline are established to quickly apply corporate policy. In particular, the MVP makes use of Azure Blueprints, Azure Management Groups, and Azure Policy to apply a few basic corporate policies, as defined in the narrative for this fictional company. Those corporate policies are applied using Azure Resource Manager templates and Azure policies to establish a very small baseline for identity and security.
 
 ![Example of Incremental Governance MVP](../../../_images/governance/governance-mvp.png)
 
 ## Evolving the best practice
 
-Over time, this governance MVP will be used to evolve the governance practices. As adoption advances, business risk grows. Various disciplines within the Fusion Governance Model will evolve to mitigate those risks. Later articles in this series discuss the evolution of corporate policy affecting the fictional company. These evolutions happen across three disciplines: 
+Over time, this governance MVP will be used to evolve the governance practices. As adoption advances, business risk grows. Various disciplines within the Fusion Governance Model will evolve to mitigate those risks. Later articles in this series discuss the evolution of corporate policy affecting the fictional company. These evolutions happen across three disciplines:
 
 - Identity Baseline, as migration dependencies evolve in the narrative
 - Cost Management, as adoption scales.

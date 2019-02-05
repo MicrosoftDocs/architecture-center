@@ -9,13 +9,15 @@ ms.topic: landing-page
 
 # Fusion: Implementing a cloud governance strategy
 
-<ul  class="panelContent cardsI">
+<!-- markdownlint-disable MD033 -->
+
+<ul class="panelContent cardsI">
 <li style="display: flex; flex-direction: column;">
     <div class="cardSize">
         <div class="cardPadding" style="padding-bottom:10px;">
             <div class="card" style="padding-bottom:10px;">
                 <div class="cardText" style="padding-left:0px;">
-Any change to business processes or technology platforms introduces risk to the business. Cloud governance teams (also known as cloud custodians) are tasked with mitigating these risks with minimal interruption to adoption or innovation efforts.<br/><br/>However, cloud governance requires more than technical implementation. Subtle changes in the corporate narrative or corporate policies can impact adoption efforts significantly. Prior to implementation, its important to look beyond IT while Defining Corporate Policy.<BR/><BR/>
+Any change to business processes or technology platforms introduces risk to the business. Cloud governance teams (also known as cloud custodians) are tasked with mitigating these risks with minimal interruption to adoption or innovation efforts.<br/><br/>However, cloud governance requires more than technical implementation. Subtle changes in the corporate narrative or corporate policies can impact adoption efforts significantly. Prior to implementation, its important to look beyond IT while Defining Corporate Policy.<br/><br/>
                 </div>
             </div>
         </div>
@@ -38,9 +40,13 @@ Any change to business processes or technology platforms introduces risk to the 
 </li>
 </ul>
 
-## Define Corporate policy
+<!-- markdownlint-enable MD033 -->
+
+## Define corporate policy
 
 Defining corporate policy focuses on identifying and mitigating business risks regardless of the cloud platform. Healthy cloud governance strategy begins with sound corporate policy. The following three-step process guides iterative development of such policies.
+
+<!-- markdownlint-disable MD033 -->
 
 <ul  class="panelContent cardsF">
 <li style="display: flex; flex-direction: column;">
@@ -102,9 +108,11 @@ Defining corporate policy focuses on identifying and mitigating business risks r
 </li>
 </ul>
 
+<!-- markdownlint-enable MD033 -->
+
 ## Next steps
 
-Sound cloud governance strategy starts with an [understanding of business risk](./policy-compliance/understanding-business-risk.md).
+Sound cloud governance strategy begins with [understanding business risk](./policy-compliance/understanding-business-risk.md).
 
 > [!div class="nextstepaction"]
 > [Understanding Business Risk](./policy-compliance/understanding-business-risk.md)

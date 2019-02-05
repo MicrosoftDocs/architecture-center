@@ -21,7 +21,7 @@ The following sample policy statements address a number of common configuration-
 
 **Policy statement**: All assets deployed to the cloud should be deployed using templates or automation scripts whenever possible.
 
-**Potential design options**: [Azure Resource Manager templates](/azure/azure-resource-manager/resource-group-overview#template-deployment) provides an infrastructure-as-code approach to deploying your resources to Azure. The [Azure Building Blocks](https://github.com/mspnp/template-building-blocks/wiki) provide a command-line tool and set of Azure Resource Manager templates designed to simplify deployment of Azure resources.
+**Potential design options**: [Azure Resource Manager templates](/azure/azure-resource-manager/resource-group-overview#template-deployment) provides an infrastructure-as-code approach to deploying your resources to Azure. The [Azure Building Blocks](https://github.com/mspnp/template-building-blocks/wiki) provide a command-line tool and set of Resource Manager templates designed to simplify deployment of Azure resources.
 
 ## Lack of visibility into system issues
 

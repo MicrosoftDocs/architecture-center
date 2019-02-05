@@ -9,7 +9,7 @@ ms.date: 1/4/2019
 
 # Fusion: What tools can help better manage costs in Azure?
 
-In the [Intro to Cloud Governance](../overview.md), [Cost Management](overview.md) is one of the five cloud governance disciplines. This discipline focuses on ways of establishing cloud spend plans, allocating cloud budgets, monitoring/enforcement of cloud budgets, detecting costly anomalies, and adjusting the cloud governance plan when actual spending is misaligned.
+In the [Intro to Cloud Governance](../overview.md), [Cost Management](overview.md) is one of the five cloud governance disciplines. This discipline focuses on ways of establishing cloud spending plans, allocating cloud budgets, monitoring and enforcement of cloud budgets, detecting costly anomalies, and adjusting the cloud governance plan when actual spending is misaligned.
 
 Unlike the cloud-agnostic position used throughout Fusion, this article is Azure specific. The following is a list of Azure native tools that can help mature the policies and processes that support this governance discipline.
 
@@ -17,12 +17,12 @@ Unlike the cloud-agnostic position used throughout Fusion, this article is Azure
 |---------|---------|---------|---------|---------|
 |Enterprise agreement required?     | No         | Yes (not required with [Cloudyn](/azure/cost-management/overview))         | Yes         | No         |
 |Budget control     | No         | Yes         | No         | Yes         |
-|Monitor spend on single resource    | Yes         | Yes         | Yes         | No         |
-|Monitor spend across multiple resources    | No         | Yes        | Yes         | No         |
-|Control spend on single resource     | Yes - manual sizing         | Yes         | No         | Yes         |
-|Enforce spend across multiple resources    | No         | Yes         | No         | Yes         |
+|Monitor spending on single resource    | Yes         | Yes         | Yes         | No         |
+|Monitor spending across multiple resources    | No         | Yes        | Yes         | No         |
+|Control spending on single resource     | Yes - manual sizing         | Yes         | No         | Yes         |
+|Enforce spending across multiple resources    | No         | Yes         | No         | Yes         |
 |Monitor and detect trends     | Yes - limited         | Yes        | Yes         | No         |
-|Detect spend anomalies     | No         | Yes        | Yes         | No        |
+|Detect spending anomalies     | No         | Yes        | Yes         | No        |
 |Socialize deviations     | No        | Yes        | Yes        | No        |
 
 <!-- markdownlint-enable MD026 -->

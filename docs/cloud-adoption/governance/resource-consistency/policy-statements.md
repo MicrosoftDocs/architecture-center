@@ -68,7 +68,7 @@ The following sample policy statements address a number of common Resource Consi
 
 **Technical risk**: Resource failure, deletions, or corruption can result in disruption of mission-critical applications or services and the loss of sensitive data.
 
-**Policy statement**: All mission-critical applications and protected data must have backup and recovery solutions  implemented to minimize business impact of outages or system failures.
+**Policy statement**: All mission-critical applications and protected data must have backup and recovery solutions implemented to minimize business impact of outages or system failures.
 
 **Potential design options**: The [Azure Site Recovery] service provides backup, recovery, and replication capabilities intended to minimize outage duration in business continuity and disaster recovery (BCDR) scenarios.
 

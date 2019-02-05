@@ -9,12 +9,12 @@ ms.topic: landing-page
 
 # Fusion: Identity Baseline discipline
 
-Identity Baseline is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md) within the [Fusion Model to Cloud Governance](../overview.md). 
+Identity Baseline is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md) within the [Fusion Model to Cloud Governance](../overview.md).
 
 Identity is increasingly considered the primary security perimeter in the cloud, which is a shift from the traditional focus on network security. Identity services provide the core mechanisms supporting access control and organization within IT environments, and the Identity Baseline discipline complements the [Security Baseline discipline](../security-baseline/overview.md) by providing secure user authentication, controlling user access to cloud-based resources, and ensuring identity services work efficiently across your organization.
 
 > [!NOTE]
-> Identity Baseline governance does not replace the existing IT teams, processes, and procedures that allow your organization to manage and secure identity services. The primary purpose of this discipline is to identify potential identity-related business risks and provide risk-mitigation guidance to IT staff that are responsible for implementing, maintaining, and operating your identity management infrastructure. As you develop governance policies and processes make sure to  involve relevant IT teams in your planning and review processes.
+> Identity Baseline governance does not replace the existing IT teams, processes, and procedures that allow your organization to manage and secure identity services. The primary purpose of this discipline is to identify potential identity-related business risks and provide risk-mitigation guidance to IT staff that are responsible for implementing, maintaining, and operating your identity management infrastructure. As you develop governance policies and processes make sure to involve relevant IT teams in your planning and review processes.
 
 This section of the Fusion guidance outlines the approach to developing an Identity Baseline discipline as part of your cloud governance strategy. The primary audience for this guidance is your organization's cloud architects and other members of your cloud governance team. However, the decisions, policies, and processes that emerge from this discipline should involve engagement and discussions with relevant members of the IT teams responsible for implementing and managing your organization's identity management solutions.
 
@@ -31,7 +31,9 @@ Actionable policy statements and the resulting architecture requirements serve a
 
 The following six steps offer examples and potential options to consider when developing Identity Baseline governance. Use each step as a starting point for discussions within your cloud governance team and with affected business, and IT teams across your organization to establish the policies and processes needed to mitigate identity-related risks.
 
-<ul  class="panelContent cardsE">
+<!-- markdownlint-disable MD033 -->
+
+<ul class="panelContent cardsE">
 <li style="display: flex; flex-direction: column;">
     <a href="./template.md">
         <div class="cardSize">
@@ -146,6 +148,8 @@ The following six steps offer examples and potential options to consider when de
     </a>
 </li>
 </ul>
+
+<!-- markdownlint-enable MD033 -->
 
 ## Next steps
 

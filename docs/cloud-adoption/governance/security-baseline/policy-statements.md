@@ -17,7 +17,7 @@ The following sample policy statements address a number of common security-relat
 
 ## Asset classification
 
-**Technical risk**: Assets that are not correctly identified as mission critical or involving sensitive data may not receive sufficient protections, leading to potential data leaks or business disruptions.
+**Technical risk**: Assets that are not correctly identified as mission-critical or involving sensitive data may not receive sufficient protections, leading to potential data leaks or business disruptions.
 
 **Policy statement**: All deployed assets must be categorized by criticality and data classification. Classifications are to be reviewed by the Cloud Governance Team and the application owner prior to deployment to the cloud.
 
@@ -33,11 +33,11 @@ The following sample policy statements address a number of common security-relat
 
 ## Network isolation
 
-**Technical risk**: Connectivity between networks and subnets within networks introduces potential vulnerabilities that can result in data leaks or disruption of mission critical services.
+**Technical risk**: Connectivity between networks and subnets within networks introduces potential vulnerabilities that can result in data leaks or disruption of mission-critical services.
 
 **Policy statement**: Network subnets containing protected data must be isolated from any other subnets. Network traffic between protected data subnets is to be audited regularly.
 
-**Potential design option**: In Azure, network and subnet isolation is managed through [Azure Virtual Networks](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview). 
+**Potential design option**: In Azure, network and subnet isolation is managed through [Azure Virtual Networks](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview).
 
 ## Secure external access
 
@@ -59,7 +59,7 @@ The following sample policy statements address a number of common security-relat
 
 **Technical risk**:  Unencrypted traffic between your cloud network and on-premises over the public internet is vulnerable to interception, introducing the risk of data exposure.
 
-**Policy statement**: All connections between the on-premises and cloud networks must take place either through a secure encrypted VPN connection or a dedicated private WAN link. 
+**Policy statement**: All connections between the on-premises and cloud networks must take place either through a secure encrypted VPN connection or a dedicated private WAN link.
 
 **Potential design option**: In Azure, use ExpressRoute or Azure VPN to establish private connections between your on-premises and cloud networks.
 

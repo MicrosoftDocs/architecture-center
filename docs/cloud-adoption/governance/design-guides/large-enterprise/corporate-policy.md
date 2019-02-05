@@ -14,7 +14,7 @@ The following corporate policy defines the initial governance position, which is
 
 ## Cloud Governance team
 
-The CIO recently held a meeting with the IT Governance team to understand the history of the PII and Mission Critical policies and review the impact of changing those policies. She also discussed the overall potential of the cloud for IT and the company.
+The CIO recently held a meeting with the IT Governance team to understand the history of the PII and mission-critical policies and review the impact of changing those policies. She also discussed the overall potential of the cloud for IT and the company.
 
 After the meeting, two members of the IT Governance team requested permission to research and support the cloud planning efforts. Recognizing the need for governance and an opportunity to limit shadow IT, the Director of IT Governance supported this idea. With that, the Cloud Governance team was born. Over the next several months, they will inherit the cleanup of many mistakes made during exploration in the cloud from a governance perspective. This will earn them the moniker of Cloud Custodians. In later evolutions, this journey will show how their roles change over time.
 
@@ -24,7 +24,7 @@ After the meeting, two members of the IT Governance team requested permission to
 
 The current risk tolerance is high and the appetite for investing in cloud governance is low. As such, the tolerance indicators act as an early warning system to trigger the investment of time and energy. If the following indicators are observed, it would be wise to evolve the governance strategy.
 
-- Cost Management: Scale of deployment exceeds 1,000 assets to the cloud, or monthly spend exceeds $10,000 USD per month.
+- Cost Management: Scale of deployment exceeds 1,000 assets to the cloud, or monthly spending exceeds $10,000 USD per month.
 - Identity Baseline: Inclusion of applications with legacy or third-party multifactor authentication (MFA) requirements.
 - Security Baseline: Inclusion of protected data in defined cloud adoption plans.
 - Resource Consistency: Inclusion of any mission-critical applications in defined cloud adoption plans.

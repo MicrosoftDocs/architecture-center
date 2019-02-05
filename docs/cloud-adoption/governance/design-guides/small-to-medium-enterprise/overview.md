@@ -46,7 +46,7 @@ These patterns provide room for growth without complicating the hierarchy unnece
 Once this MVP has been deployed, additional layers of governance can be quickly incorporated into the environment. Here are some ways to evolve the MVP to meet specific business needs:
 
 - [Security Baseline for protected data](./protected-data.md)
-- [Resource configurations for mission critical applications](./mission-critical.md)
+- [Resource configurations for mission-critical applications](./mission-critical.md)
 - [Controls for Cost Management](./cost-control.md)
 - [Controls for multi-cloud evolution](./multi-cloud.md)
 

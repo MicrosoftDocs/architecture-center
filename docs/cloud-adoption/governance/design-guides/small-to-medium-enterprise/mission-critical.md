@@ -55,9 +55,9 @@ The following changes to policy will help mitigate the new risks and guide imple
 2. Subnets containing mission-critical applications must be protected by a firewall solution capable of detecting intrusions and responding to attacks.
 3. Governance tooling must audit and enforce network configuration requirements defined by the Security Management team
 4. Governance tooling must validate that all assets related to mission-critical apps or protected data are included in monitoring for resource depletion and optimization.
-5. Governance tooling must validate that the appropriate level of logging data is being collected for all mission critical apps or protected data.
-6. Governance process must validate that backup, recovery, and SLA adherence are properly implemented for mission critical apps and protected data.
-7. Governance tooling must limit VM deployments to approved images only.
+5. Governance tooling must validate that the appropriate level of logging data is being collected for all mission-critical applications or protected data.
+6. Governance process must validate that backup, recovery, and SLA adherence are properly implemented for mission-critical applications and protected data.
+7. Governance tooling must limit virtual machine deployments to approved images only.
 8. Governance tooling must enforce that automatic updates are prevented on all deployed assets that support mission-critical applications. Violations must be reviewed with operational management teams and remediated in accordance with operations policies. Assets that are not automatically updated must be included in processes owned by IT operations.
 9. Governance tooling must validate tagging related to cost, criticality, SLA, application, and data classification. All values must align to predefined values managed by the governance team.
 10. Governance processes must include audits at the point of deployment and at regular cycles to ensure consistency across all assets.
@@ -72,18 +72,18 @@ The following changes to policy will help mitigate the new risks and guide imple
 
 This section of the article will evolve the Governance MVP design to include new Azure Policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
 
-1. The Cloud Operations team will define operational monitoring tooling and automated remediation tooling. The Cloud Governance team will support those discovery processes. In this use case, the Cloud Operations team chose Azure Monitor as the primary tool for monitoring mission critical applications.
+1. The Cloud Operations team will define operational monitoring tooling and automated remediation tooling. The Cloud Governance team will support those discovery processes. In this use case, the Cloud Operations team chose Azure Monitor as the primary tool for monitoring mission-critical applications.
 2. Create a repository in Azure DevOps to store and version all relevant Resource Manager templates and scripted configurations.
 3. Azure Vault implementation:
     1. Define and deploy Azure Vault for backup and recovery processes.
     2. Create a Resource Manager template for creation of a vault in each subscription.
 4. Update Azure Policy for all subscriptions:
-    1. Audit and enforce criticality and data classification across all subscriptions to identify any subscriptions with mission critical assets.
+    1. Audit and enforce criticality and data classification across all subscriptions to identify any subscriptions with mission-critical assets.
     2. Audit and enforce the use of approved images only.
 5. Azure Monitor implementation:
-    1. Once a mission critical subscription is identified, create an Azure Monitor workspace  using PowerShell. This is a pre-deployment process.
+    1. Once a mission-critical subscription is identified, create an Azure Monitor workspace using PowerShell. This is a pre-deployment process.
     2. During deployment testing, the Cloud Operations team deploys the necessary agents and tests discovery.
-6. Update Azure Policy for all subscriptions that contain mission critical applications.
+6. Update Azure Policy for all subscriptions that contain mission-critical applications.
     1. Audit and enforce the application of an NSG to all NICS and subnets. Networking and IT Security define the NSG.
     2. Audit and enforce the use of approved network subnets and VNets for each network interface.
     3. Audit and enforce the limitation of user-defined routing tables.

@@ -5,8 +5,8 @@ author: BrianBlanchard
 ms.date: 01/02/2019
 ---
 
-<!--- 
-I understand risk & tolerance, now what do I do? 
+<!---
+I understand risk & tolerance, now what do I do?
 Define the policy... [aspirational statement to move towards 2/1] If you need help defining policies, each discipline includes references to common business risks & policies to mitigate the risks...
 --->
 
@@ -14,13 +14,15 @@ Define the policy... [aspirational statement to move towards 2/1] If you need he
 
 Once you've analyzed the known risks and related risk tolerances for your organization's cloud transformation journey, your next step is to establish policy that will explicitly address those risks and define the steps needed to mitigate them where possible.
 
+<!-- markdownlint-disable MD026 -->
+
 ## How can corporate IT policy become cloud-ready?
 
 In traditional governance and incremental governance, corporate policy creates the working definition of governance. Most IT Governance actions are an attempt to leverage technology to monitor, enforce, operate, and automate those corporate policies. Cloud Governance is built on similar concepts.
 
 ![Corporate Governance and Governance Disciplines](../../_images/operational-transformation-govern.png)
 
-*Figure 1. Corporate Governance and Governance Disciplines*
+*Figure 1. Corporate governance and governance disciplines.*
 
 The image above demonstrates the interactions between business risk, policy and compliance, and monitor and enforce to create a Governance Strategy. Followed by the five disciplines of Cloud Governance to realize your strategy.
 
@@ -28,7 +30,9 @@ Cloud governance is the product of an ongoing adoption effort over time, as a tr
 
 What is different about a cloud adoption framework is the buying cycle and the impact of how that cycle can enable authentic transformation. Since there is not a big Capital Expenditure (CapEx) acquisition requirement, engineers can begin experimentation and adoption sooner. In most corporate cultures, elimination of the CapEx barrier to adoption can lead to tighter feedback loops, organic growth, and incremental execution.
 
-The shift to cloud adoption requires a shift in governance. In many organizations, corporate policy transformation allows for improved governance and higher rates of adherence through incremental policy changes and automated enforcement of those changes, powered by newly defined capabilities that you configure with your cloud service provider. 
+The shift to cloud adoption requires a shift in governance. In many organizations, corporate policy transformation allows for improved governance and higher rates of adherence through incremental policy changes and automated enforcement of those changes, powered by newly defined capabilities that you configure with your cloud service provider.
+
+<!-- markdownlint-enable MD026 -->
 
 ## Review existing policies
 
@@ -39,9 +43,9 @@ As your cloud deployment matures and the amount of your IT estate moving to the 
 
 ## Create cloud policy statements
 
-Cloud-based IT policies establish the requirements, standards, and goals that your IT staff and automated systems will need to support. Policy decisions are a primary factor in your [cloud architecture design](architecture-design-guides.md) and how you will implement your [policy adherence processes](processes.md). 
+Cloud-based IT policies establish the requirements, standards, and goals that your IT staff and automated systems will need to support. Policy decisions are a primary factor in your [cloud architecture design](architecture-design-guides.md) and how you will implement your [policy adherence processes](processes.md).
 
-Individual cloud policy statements are guidelines for addressing specific risks identified during your risk assessment process.  While these policies can be integrated into your wider corporate policy documentation, cloud policy statements discussed throughout the fusion guidance tends to be a more concise summary of the risks and plans to deal with them. Each definition should include these pieces of information:
+Individual cloud policy statements are guidelines for addressing specific risks identified during your risk assessment process. While these policies can be integrated into your wider corporate policy documentation, cloud policy statements discussed throughout the fusion guidance tends to be a more concise summary of the risks and plans to deal with them. Each definition should include these pieces of information:
 
 - Business risk - A summary of the risk this policy will address.
 - Policy statement - A concise explanation of the policy requirements and goals.
@@ -57,7 +61,7 @@ The need to integrate cloud policy with your legacy IT policies depends largely 
 
 ## Next steps
 
-After defining your policies, [draft an architecture design guide](architecture-design-guides.md) to provide IT staff and developers with actionable guidance. 
+After defining your policies, [draft an architecture design guide](architecture-design-guides.md) to provide IT staff and developers with actionable guidance.
 
 > [!div class="nextstepaction"]
 > [Draft an architecture design guide](architecture-design-guides.md)

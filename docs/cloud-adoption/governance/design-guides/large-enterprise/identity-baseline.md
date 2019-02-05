@@ -13,9 +13,9 @@ This article evolves the narrative by adding Identity Baseline controls to the G
 
 The business justification for the cloud migration of the two datacenters was approved by the CFO. During the technical feasibility study, several roadblocks were discovered:
 
-- Protected data and mission-critical applications represent 25% of the workloads in the two datacenters. Neither can be eliminated until the current governance policies regarding PII and mission critical apps have been modernized.
+- Protected data and mission-critical applications represent 25% of the workloads in the two datacenters. Neither can be eliminated until the current governance policies regarding PII and mission-critical applications have been modernized.
 - 7% of the assets in those datacenters are not cloud-compatible. They will be moved to an alternate datacenter prior to termination of the datacenter contract.
-- 15% of the assets in the datacenter (750 virtual machines) have a dependency on legacy authentication or third-party multi-factor authentication. 
+- 15% of the assets in the datacenter (750 virtual machines) have a dependency on legacy authentication or third-party multi-factor authentication.
 - The VPN connection that connects existing datacenters and Azure does not offer sufficient data transmission speeds or latency to migrate the volume of assets within the two-year timeline to retire the datacenter.
 
 The first two roadblocks are being mitigated in parallel. This article will address the resolution of the third and fourth roadblocks.
@@ -65,7 +65,7 @@ The governance MVP design evolves to include new Azure policies and an implement
 Here are the new best practices:
 
 1. DMZ Blueprint: The on-premises side of the DMZ should be configured to allow communication between the following solution and the on-premises Active Directory servers. This best practice requires a DMZ to enable Active Directory Domain Services across network boundaries.
-2. Resource Manager templates:
+2. Azure Resource Manager templates:
     1. Define an NSG to block external traffic and whitelist internal traffic.
     2. Deploy two AD virtual machines in a load balanced pair based on a golden image. On first boot, that image runs a PowerShell script to join the domain and register with domain services. For more information, see [Extend Active Directory Domain Services (AD DS) to Azure](../../../../reference-architectures/identity/adds-extend-domain.md).
 3. Azure Policy:  Apply the NSG to all resources.

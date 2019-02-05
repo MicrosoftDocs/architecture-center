@@ -44,7 +44,7 @@ The changes to current and future state expose new risks that require new policy
 
 This business risk can be expanded into a few technical risks:
 
-- Mission critical apps or protected data might be deployed unintentionally.
+- Mission-critical applicationss or protected data might be deployed unintentionally.
 - Protected data might be exposed during storage due to poor encryption decisions.
 - Unauthorized users might access protected data.
 - External intrusion might result in access to protected data.
@@ -59,14 +59,14 @@ This business risk can be expanded into a few technical risks:
 The following changes to policy will help mitigate the new risks and guide implementation. The list looks long, but adopting these policies may be easier than it appears.
 
 1. All deployed assets must be categorized by criticality and data classification. Classifications are to be reviewed by the Cloud Governance team and the application owner before deployment to the cloud.
-2. Applications that store or access protected data are to be managed differently than those that don’t. At a minimum, they should be segmented to avoid unintended access of protected data. 
+2. Applications that store or access protected data are to be managed differently than those that don’t. At a minimum, they should be segmented to avoid unintended access of protected data.
 3. All protected data must be encrypted when at rest.
 4. Elevated permissions in any segment containing protected data should be an exception. Any such exceptions will be recorded with the Cloud Governance team and audited regularly.
 5. Network subnets containing protected data must be isolated from any other subnets. Network traffic between protected data subnets will be audited regularly.
 6. No subnet containing protected data can be directly accessed over the public internet or across data centers. Access to those subnets must be routed through intermediate subnets. All access into those subnets must come through a firewall solution that can perform packet scanning and blocking functions.
 7. Governance tooling must audit and enforce network configuration requirements defined by the security management team.
 8. Governance tooling must limit VM deployment to approved images only.
-9. Whenever possible, node configuration management should apply policy requirements to the configuration of any guest operating system. 
+9. Whenever possible, node configuration management should apply policy requirements to the configuration of any guest operating system.
 10. Governance tooling must enforce that automatic updates are enabled on all deployed assets. Violations must be reviewed with operational management teams and remediated in accordance with operations policies. Assets that are not automatically updated must be included in processes owned by IT operations.
 11. Creation of new subscriptions or management groups for any mission-critical applications or protected data will require a review from the Cloud Governance team, to ensure that the proper blueprint is assigned.
 12. A least-privilege access model will be applied to any management group or subscription that contains mission-critical apps or protected data.
@@ -89,7 +89,7 @@ The governance MVP design will evolve to include new Azure policies and an imple
     2. Set automatic provisioning to on by default to ensure patching compliance.
     3. Establish OS security configurations. The IT Security team will define the configuration.
     4. Support the IT Security team in the initial use of Security Center. Transition the use of Security Center to the IT Security team, but maintain access for the purpose of continually improving governance.
-    5. Create an Azure Resource Manager template that reflects the changes required for Security Center configuration within a subscription.
+    5. Create a Resource Manager template that reflects the changes required for Security Center configuration within a subscription.
 5. Update Azure Policy for all subscriptions:
     1. Audit and enforce the criticality and data classification across all management groups and subscriptions, to identify any subscriptions with protected data classifications.
     2. Audit and enforce the use of approved images only.

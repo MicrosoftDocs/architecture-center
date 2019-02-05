@@ -5,4 +5,5 @@
         "**/_themes": true,
         "log": true
     },
+    "search.usePCRE2": true,
 }

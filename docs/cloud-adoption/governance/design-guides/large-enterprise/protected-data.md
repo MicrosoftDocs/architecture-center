@@ -13,7 +13,7 @@ This article evolves the narrative by adding security controls that support movi
 
 The CIO has spent months collaborating with colleagues and the company’s legal staff. A management consultant with expertise in cybersecurity was engaged to help the existing IT Security and IT Governance teams draft a new policy regarding protected data. The group was able to foster board support to replace the existing policy, allowing PII and financial data to be hosted by approved cloud providers. This required adopting a set of security requirements and a governance process to verify and document adherence to those policies.
 
-For the past 12 months, the cloud adoption teams have cleared most of the 5,000 assets from the two datacenters to be retired. The 350 incompatible assets were moved to an alternate datacenter. Only the 1,250 virtual machines that contain protected data remain. 
+For the past 12 months, the cloud adoption teams have cleared most of the 5,000 assets from the two datacenters to be retired. The 350 incompatible assets were moved to an alternate datacenter. Only the 1,250 virtual machines that contain protected data remain.
 
 ### Evolution of the Cloud Governance team
 
@@ -35,7 +35,7 @@ Since then, some things have changed that will affect governance:
 
 ### Evolution of the future state
 
-- Early experiments from the application development and BI teams have shown potential improvements in customer experiences and data-driven decisions. Both teams would like to expand adoption of the cloud over the next 18 months by deploying those solutions to production. 
+- Early experiments from the application development and BI teams have shown potential improvements in customer experiences and data-driven decisions. Both teams would like to expand adoption of the cloud over the next 18 months by deploying those solutions to production.
 - IT has developed a business justification to migrate five more datacenters to Azure, which will further decrease IT costs and provide greater business agility. While smaller in scale, the retirement of those datacenters is expected to double the total cost savings.
 - Capital expense and operational expense budgets have approved to implement the required security and governance policies, tools, and processes. The expected cost savings from the datacenter retirement are more than enough to pay for this new initiative. IT and business leadership are confident this investment will accelerate the realization of returns in other areas. The grassroots Cloud Governance team became a recognized team with dedicated leadership and staffing.
 - Collectively, the cloud adoption teams, Cloud Governance team, IT Security team, and IT Governance team will implement security and governance requirements to allow cloud adoption teams to migrate protected data into the cloud.
@@ -73,8 +73,8 @@ The following changes to policy will help mitigate the new risks and guide imple
 8. Governance tooling must limit VM deployment to approved images only.
 9. Whenever possible, node configuration management should apply policy requirements to the configuration of any guest operating system. Node configuration management should respect the existing investment in Group Policy Object (GPO) for resource configuration.
 10. Governance tooling will audit that automatic updates are enabled on all deployed assets. When possible, automatic updates will be enforced. When not enforced by tooling, node-level violations must be reviewed with operational management teams and remediated in accordance with operations policies. Assets that are not automatically updated must be included in processes owned by IT operations.
-11. Creation of new subscriptions or management groups for any mission critical-applications or protected data requires a review from the Cloud Governance team to ensure proper blueprint assignment.
-12. A least-privilege access model will be applied to any subscription that contains mission critical apps or protected data.
+11. Creation of new subscriptions or management groups for any mission-critical applications or protected data requires a review from the Cloud Governance team to ensure proper blueprint assignment.
+12. A least-privilege access model will be applied to any subscription that contains mission-critical applications or protected data.
 13. The cloud vendor must be capable of integrating encryption keys managed by the existing on-premises solution.
 14. The cloud vendor must be capable of supporting the existing edge device solution and any required configurations to protect any publicly exposed network boundary.
 15. The cloud vendor must be capable of supporting a shared connection to the global WAN, with data transmission routed through the existing edge device solution.
@@ -95,7 +95,7 @@ The new best practices fall into two categories: Corporate IT (Hub) and Cloud Ad
 
 1. Azure DevOps repository. Create a repository in Azure DevOps to store and version all relevant Azure Resource Manager templates and scripted configurations
 2. Hub-Spoke template.
-    1. The guidance in the [Hub-Spoke with Shared Services Reference Architecture][shared-services] can be used to generate Azure Resource Manager Templates for the assets required in a corporate IT hub.
+    1. The guidance in the [Hub-Spoke with Shared Services Reference Architecture][shared-services] can be used to generate Resource Manager templates for the assets required in a corporate IT hub.
     2. Using those templates, this structure can be made repeatable, as part of a central governance strategy.
     3. In addition to the current reference architecture, it is advised that a Network Security Group (NSG) template should be created capturing any port blocking or whitelisting requirements for the VNet to host the firewall. This NSG will differ from prior NSGs, because it will be the first NSG to allow public traffic into a VNet.
 3. Create Azure Policies. Create an Azure Policy named "Hub NSG enforcement" to enforce the configuration of the NSG assigned to any VNet created in this subscription. Apply the built-in Policies for guest configuration as follows:
@@ -111,18 +111,18 @@ The new best practices fall into two categories: Corporate IT (Hub) and Cloud Ad
     4. Apply the "Corporate IT Subscription" blueprint to each regional instance.
     5. This will establish a hub for each business unit in each region. Note: Further cost savings could be achieved, but sharing hubs across business units in each region.
 6. Integrate Group Policy Objects (GPO) through Desired State Configuration (DSC):
-    1. Convert GPO to DSC – The [Microsoft Baseline Management project](https://github.com/Microsoft/BaselineManagement) in Github can accelerate this effort. * Be sure to store DSC in the repository in parallel to Resource Manager Templates.
+    1. Convert GPO to DSC – The [Microsoft Baseline Management project](https://github.com/Microsoft/BaselineManagement) in Github can accelerate this effort. * Be sure to store DSC in the repository in parallel with Resource Manager templates.
     2. Deploy Azure Automation State Configuration to any instances of the Corporate IT Subscription. Azure automation can be used to apply DSC to VMs deployed in supported subscriptions within the Management Group.
     3. The current roadmap plans to enable custom Guest Configuration policies. When that feature is released, the use of Azure Automation in this best practice will no longer be required.
 
-**Applying additional governance to a Cloud Adoption Subscription (Spoke)**: Building on the "Corporate IT Subscription", minor changes to the Governance MVP applied to each subscription dedicated to the support of application archetypes can produce rapid evolution. 
+**Applying additional governance to a Cloud Adoption Subscription (Spoke)**: Building on the "Corporate IT Subscription", minor changes to the Governance MVP applied to each subscription dedicated to the support of application archetypes can produce rapid evolution.
 
 In prior evolutions of the best practice, NSGs were defined which blocked public traffic and whitelisted internal traffic. Additionally, the Azure Blueprint temporarily created DMZ and Active Directory capabilities. In this evolution, we will tweak those assets a bit, creating a new version of the Azure Blueprint.
 
 1. Network Peering Template. This template will peer the VNet in each subscription with the Hub VNet in the Corporate IT subscription.
     1. The guidance from the prior section, [Hub-Spoke with Shared Services Reference Architecture][shared-services] generated a Resource Manager template for enabling VNet peering.
     2. That template can be used as a guide to modify the DMZ template from the prior governance evolution.
-    3. Essentially, we are now adding VNet peering to the DMZ VNet that was previously connected to the local edge device over VPN. 
+    3. Essentially, we are now adding VNet peering to the DMZ VNet that was previously connected to the local edge device over VPN.
     4. *** It is also advised that the VPN should be removed from this template as well to ensure no traffic is routed directly to the on-premises datacenter, without passing through the Corporate IT Subscription and Firewall solution.
     5. Additional [network configuration](/azure/automation/automation-dsc-overview#network-planning) will be required by Azure Automation to apply DSC to hosted VMs.
 2. Modify the NSG. Block all public AND direct on-premises traffic in the NSG. The only inbound traffic should be coming through the VNet peer in the corporate IT subscription.
@@ -134,7 +134,7 @@ In prior evolutions of the best practice, NSGs were defined which blocked public
     2. Set Automatic provisioning to on by default to ensure patching compliance.
     3. Establish OS security configurations. IT Security to define the configuration.
     4. Support IT Security in the initial use of Azure Security Center. Transition use of security center to IT security, but maintain access for governance continuous improvement purposes
-    5. Create an Azure Resource Manager Template reflecting the changes required for Azure Security Center configuration within a subscription.
+    5. Create a Resource Manager template reflecting the changes required for Azure Security Center configuration within a subscription.
 4. Update Azure Policy for all subscriptions.
     1. Audit and enforce criticality and data classification across all management groups and subscriptions to identify any subscriptions with protected data classifications.
     2. Audit and enforce use of approved OS images only.

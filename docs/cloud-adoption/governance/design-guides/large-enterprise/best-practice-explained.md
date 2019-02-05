@@ -11,7 +11,6 @@ The governance journey starts with a set of initial [corporate policies](./corpo
 
 In this article, we discuss the high-level strategies that are required to create a Governance MVP. The core of the governance MVP is the [Deployment Acceleration](../../deployment-acceleration/overview.md) discipline. The tools and patterns applied at this stage will enable the incremental evolutions needed to expand governance in the future.
 
-
 ## Governance MVP (Cloud Adoption Foundation)
 
 Rapid adoption of governance and corporate policy is achievable, thanks to a few simple principles and cloud-based governance tooling. These are the first of the three Cloud Governance Disciplines to approach in any governance process. Each will be expanded upon in this article.
@@ -52,7 +51,7 @@ The **Mixed** pattern has been chosen for Azure subscriptions.
 **Hierarchical Consistency** has been chosen as a Resource Consistency pattern.
 
 - Resource groups should be created for each application. Management groups should be created for each application archetype. Azure Policy should be applied to all subscriptions in the associated management group.
-- As part of the deployment process, Resource Consistency templates for all assets should be stored in source control. 
+- As part of the deployment process, Resource Consistency templates for all assets should be stored in source control.
 - Each resource group should align to a specific workload or application.
 - The Azure Management Group hierarchy defined should represent billing responsibility and application ownership using nested groups.
 - Extensive implementation of Azure Policy could exceed the team’s time commitments and may not provide much value at this point. However, a simple default policy should be created and applied to each resource group to enforce the first few cloud governance policy statements. This serves to define the implementation of specific governance requirements. Those implementations can then be applied across all deployed assets.
@@ -69,7 +68,7 @@ The **Accounting** pattern has been chosen for resource tagging.
 At this point, a **Hybrid** pattern for log and reporting is suggested but not required of any development team.
 
 - No governance requirements are currently set regarding the specific data points to be collected for logging or reporting purposes. This is specific to this fictional narrative and should be considered an antipattern. Logging standards should be determined and enforced as soon as possible.
-- Additional analysis is required prior to the release of any protected data or mission critical workloads.
+- Additional analysis is required prior to the release of any protected data or mission-critical workloads.
 - Prior to supporting protected data or mission-critical workloads, the existing on-premises operational monitoring solution must be granted access to the workspace used for logging. Applications are required to meet security and logging requirements associated with the use of that tenant, if the application is to be supported with a defined SLA.
 
 ## Evolution of governance processes

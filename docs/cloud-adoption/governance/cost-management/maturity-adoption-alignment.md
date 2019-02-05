@@ -76,7 +76,7 @@ Migration is an incremental process that focuses on the movement, testing, and a
 
 ## Operate and post-implementation
 
-Once the transformation is complete, governance and operations must live on for the natural lifecycle of an  application or workload. This phase of governance maturity focuses on the activities that commonly come after the solution is implemented and the transformation cycle begins to stabilize.
+Once the transformation is complete, governance and operations must live on for the natural lifecycle of an application or workload. This phase of governance maturity focuses on the activities that commonly come after the solution is implemented and the transformation cycle begins to stabilize.
 
 **Minimum suggested activities:**
 

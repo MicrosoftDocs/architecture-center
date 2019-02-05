@@ -7,7 +7,7 @@ ms.date: 2/1/2019
 
 # Fusion: Governance design for multiple teams
 
-The goal of this guidance is to help you learn the process for designing a resource governance model in Azure to support multiple teams, multiple workloads, and multiple environments.  First you'll look at a set of hypothetical governance requirements, then go through several example implementations that satisfy those requirements.
+The goal of this guidance is to help you learn the process for designing a resource governance model in Azure to support multiple teams, multiple workloads, and multiple environments. First you'll look at a set of hypothetical governance requirements, then go through several example implementations that satisfy those requirements.
 
 The requirements are:
 
@@ -15,7 +15,7 @@ The requirements are:
   1. The individual in your organization responsible for ownership of **subscriptions**.
   2. The individual in your organization responsible for the **shared infrastructure resources** used to connect your on-premises network to an Azure virtual network.
   3. Two individuals in your organization responsible for managing a **workload**.
-* Support for multiple **environments**. An environment is a logical grouping of resources, such as virtual machines, virtual networking, and network traffic routing services. These groups of resources have similar management and security requirements and are typically used for a specific purpose such as testing or production. In this example, the  requirement is for three environments:
+* Support for multiple **environments**. An environment is a logical grouping of resources, such as virtual machines, virtual networking, and network traffic routing services. These groups of resources have similar management and security requirements and are typically used for a specific purpose such as testing or production. In this example, the requirement is for three environments:
   1. A **shared infrastructure environment** that includes resources shared by workloads in other environments. For example, a virtual network with a gateway subnet that provides connectivity to on-premises.
   2. A **production environment** with the most restrictive security policies. May include internal or external facing workloads.
   3. A **development environment** for proof-of-concept and testing work. This environment has security, compliance, and cost policies that differ from those in the production environment.

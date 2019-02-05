@@ -5,9 +5,13 @@ author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
+<!-- markdownlint-disable MD026 -->
+
 # Fusion: What is Data Governance?
 
 This is an introductory article on the general topic of Data Governance. This article is not expected to provide enough context to allow the reader to implement a Data Governance. It is for general awareness only. More detailed information about Cloud Security is available from [Azure's Trusted Cloud](https://azure.microsoft.com/overview/trusted-cloud/). Approaches to improving your organizations security posture can be found in the [Cloud Security Service Catalog](https://www.microsoft.com/security/information-protection).
+
+<!-- markdownlint-enable MD026 -->
 
 ## Data Governance Scope
 
@@ -22,14 +26,14 @@ To ensure compliance with regulations and standards, a data governance function 
 To ensure proper understanding of data, it is important to establish a data classification process to govern data being moved to the cloud. The following is a list of commonly observed classifications seen in many corporate data classification policies:
 
 * Personally Identifiable Information (PII) includes data points about customers, employees, partners or others that could compromise the identity or security of the person.
-* Highly Confidential information includes content that would harm the business if over-shared
-* Confidential information  includes content that could harm the business if over-shared
-* Intellectual Property (IP) includes information or content that is considered to be a competitive advantage or of special business value
-* Mission Critical includes information that is necessary for mission critical operations to function
-* General information includes business information that is not meant for external consumption
-* Public data includes information that is intended for public consumption
+* Highly Confidential information includes content that would harm the business if overshared.
+* Confidential information includes content that could harm the business if overshared.
+* Intellectual Property (IP) includes information or content that is considered to be a competitive advantage or of special business value.
+* Mission Critical includes information that is necessary for mission-critical operations to function.
+* General information includes business information that is not meant for external consumption.
+* Public data includes information that is intended for public consumption.
 
-Once a classification schema is established, the CISO or other security experts can aid in aligning specific classifications with the business' level of risk tolerance. To help trigger ideas when developing a data governance policy, the following are common questions asked of each data classification:
+Once a classification schema is established, the CISO or other security experts can aid in aligning specific classifications with the business' level of risk tolerance. To help generate ideas when developing a data governance policy, the following are common questions asked of each data classification:
 
 * Is there a risk associated with hosting this classification of data in the public cloud? Is that risk acceptable?
 * Should this classification of data be encrypted in flight or at rest?

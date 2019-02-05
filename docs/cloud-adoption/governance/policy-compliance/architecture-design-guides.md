@@ -5,11 +5,13 @@ author: BrianBlanchard
 ms.date: 01/04/2019
 ---
 <!---
-I've established policies. How to help developers adopt these policies? 
-Draft an architecture design guide. 
+I've established policies. How to help developers adopt these policies?
+Draft an architecture design guide.
 
 [Aspirational statement] If you're using azure, you can use one of ours as a starting point. The choose one of the following 6 as a starting point and mold it to fit your policies.
 --->
+
+<!-- markdownlint-disable MD026 -->
 
 # How do you align design guides with policy?
 
@@ -17,9 +19,11 @@ After you've [defined cloud policies](define-policy.md) based on your [identifie
 
 A cloud governance design guide should establish the architecture choices and design patterns for each of the [core infrastructure components of cloud deployments](../../infrastructure/overview.md) that best meet your policy requirements. Alongside these you should provide a high-level explanation of the technology, tools, and processes that will support each of these design decisions.
 
-Although your risk analysis and policy statements may, to some degree, be cloud platform agnostic, your design guide should provide  platform-specific implementation details that your IT and dev. Focus on the architecture, tools, and features of your chosen platform when making design decision and providing guidance.
+Although your risk analysis and policy statements may, to some degree, be cloud platform agnostic, your design guide should provide platform-specific implementation details that your IT and dev. Focus on the architecture, tools, and features of your chosen platform when making design decision and providing guidance.
 
 While cloud design guides should take into account some of the technical details associated with each infrastructure component, they are not meant to be extensive technical documents or specifications. Make sure your guides address all of your policy statements and clearly state design decisions in a format easy for staff to understand and reference.
+
+<!-- markdownlint-enable MD033 -->
 
 ## Sample cloud design guides
 
@@ -38,7 +42,7 @@ While every cloud adoption has unique goals, priorities, and challenges, these s
 
 ## Next steps
 
-With design guidance in place, establish [policy adherence processes](processes.md) to ensure policy compliance. 
+With design guidance in place, establish [policy adherence processes](processes.md) to ensure policy compliance.
 
 > [!div class="nextstepaction"]
 > [Policy adherence processes](processes.md)
