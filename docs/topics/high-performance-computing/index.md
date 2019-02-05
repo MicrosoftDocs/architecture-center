@@ -292,8 +292,8 @@ The following are examples of cluster and workload managers that can run in Azur
 - [Altair](http://www.altair.com/)
 - [Rescale](https://www.rescale.com/azure/)
 - [Microsoft HPC Pack](https://technet.microsoft.com/library/mt744885.aspx)
-  - [HPC Pack for Windows](https://docs.microsoft.com/azure/virtual-machines/windows/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-  - [HPC Pack for Linux](https://docs.microsoft.com/azure/virtual-machines/linux/hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+  - [HPC Pack for Windows](https://docs.microsoft.com/azure/virtual-machines/windows/hpcpack-cluster-options?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+  - [HPC Pack for Linux](https://docs.microsoft.com/azure/virtual-machines/linux/hpcpack-cluster-options?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 #### Containers
 
@@ -439,8 +439,8 @@ There are a number of customers who have seen great success by using Azure for t
 For the latest announcements, see:
   - [Microsoft HPC and Batch team blog](http://blogs.technet.com/b/windowshpc/)
   - [Azure blog](https://azure.microsoft.com/blog/tag/hpc/).
-- [Set up a Linux RDMA cluster to run MPI applications](https://docs.microsoft.com/azure/virtual-machines/linux/classic/rdma-cluster.md?toc=/azure/architecture/topics/high-performance-computing/toc.json)
-- [Set up a Windows RDMA cluster with Microsoft HPC Pack to run MPI applications](https://docs.microsoft.com/azure/virtual-machines/windows/classic/hpcpack-rdma-cluster.md?toc=/azure/architecture/topics/high-performance-computing/toc.json)
+- [Set up a Linux RDMA cluster to run MPI applications](https://docs.microsoft.com/azure/virtual-machines/linux/classic/rdma-cluster?toc=/azure/architecture/topics/high-performance-computing/toc.json)
+- [Set up a Windows RDMA cluster with Microsoft HPC Pack to run MPI applications](https://docs.microsoft.com/azure/virtual-machines/windows/classic/hpcpack-rdma-cluster?toc=/azure/architecture/topics/high-performance-computing/toc.json)
 
 ### Microsoft Batch Examples
 
