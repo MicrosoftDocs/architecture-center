@@ -21,7 +21,7 @@ The following sample policy statements address a number of common identity-relat
 
 **Policy statement**: All assets deployed to the cloud should be controlled using identities and roles approved by current governance policies.
 
-**Potential design options**: [Azure Active Directory conditional access](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/overview) is the default access control mechanism in Azure.
+**Potential design options**: [Azure Active Directory conditional access](/azure/active-directory/conditional-access/overview) is the default access control mechanism in Azure.
 
 ## Overprovisioned access
 
@@ -30,9 +30,9 @@ The following sample policy statements address a number of common identity-relat
 **Policy statement**: The following policies will be implemented:
 
 - A least privilege access model will be applied to any resources involved in mission-critical applications or protected data.
-- Elevated permissions should be an exception, and any such exceptions must be recorded with the Cloud Governance Team. Exceptions will be audited regularly.
+- Elevated permissions should be an exception, and any such exceptions must be recorded with the Cloud Governance team. Exceptions will be audited regularly.
 
-**Potential design options**: Consult the [Azure Identity Management best practices](https://docs.microsoft.com/en-us/azure/security/azure-security-identity-management-best-practices) to implement a role-based access control (RBAC) strategy that restricts access based on the [need to know](https://en.wikipedia.org/wiki/Need_to_know) and [least privilege security](https://en.wikipedia.org/wiki/Principle_of_least_privilege) principles.
+**Potential design options**: Consult the [Azure Identity Management best practices](/azure/security/azure-security-identity-management-best-practices) to implement a role-based access control (RBAC) strategy that restricts access based on the [need to know](https://wikipedia.org/wiki/Need_to_know) and [least privilege security](https://wikipedia.org/wiki/Principle_of_least_privilege) principles.
 
 ## Lack of shared management accounts between on-premises and the cloud
 
@@ -48,7 +48,7 @@ The following sample policy statements address a number of common identity-relat
 
 **Policy statement**: All accounts are required to login to secured resources using a multi-factor authentication (MFA) method.
 
-**Potential design options**: For Azure Active Directory, implement [Azure Multi-Factor Authentication](https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-mfa-howitworks) as part of your user authorization process.
+**Potential design options**: For Azure Active Directory, implement [Azure Multi-Factor Authentication](/azure/active-directory/authentication/concept-mfa-howitworks) as part of your user authorization process.
 
 ## Isolated identity providers
 
@@ -56,7 +56,7 @@ The following sample policy statements address a number of common identity-relat
 
 **Policy statement**: Deployment of any applications that require customer authentication must use an approved identity provider that is compatible with the primary identity provider for internal users.
 
-**Potential design options**: Implement [Azure Active Directory Federation](https://docs.microsoft.com/en-us/azure/active-directory/hybrid/whatis-fed) between your internal and customer identity providers.
+**Potential design options**: Implement [Federation with Azure Active Directory](/azure/active-directory/hybrid/whatis-fed) between your internal and customer identity providers.
 
 ## Identity reviews
 

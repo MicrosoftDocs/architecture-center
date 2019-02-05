@@ -21,7 +21,7 @@ The following sample policy statements address a number of common security-relat
 
 **Policy statement**: All deployed assets must be categorized by criticality and data classification. Classifications are to be reviewed by the Cloud Governance Team and the application owner prior to deployment to the cloud.
 
-**Potential design option**: Establish [resource tagging standards](../../infrastructure/resource-tagging/overview.md) and ensure IT staff apply them consistently to any deployed resources using [Azure resource tags](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-using-tags)  
+**Potential design option**: Establish [resource tagging standards](../../infrastructure/resource-tagging/overview.md) and ensure IT staff apply them consistently to any deployed resources using [Azure resource tags](/azure/azure-resource-manager/resource-group-using-tags).
 
 ## Data Encryption
 
@@ -29,7 +29,7 @@ The following sample policy statements address a number of common security-relat
 
 **Policy statement**: All protected data must be encrypted when at rest.
 
-**Potential design option**: See the [Azure encryption overview](https://docs.microsoft.com/en-us/azure/security/security-azure-encryption-overview) article for a discussion of how data at rest encryption is performed on the Azure platform.  
+**Potential design option**: See the [Azure encryption overview](/azure/security/security-azure-encryption-overview) article for a discussion of how data at rest encryption is performed on the Azure platform.  
 
 ## Network isolation
 
@@ -37,7 +37,7 @@ The following sample policy statements address a number of common security-relat
 
 **Policy statement**: Network subnets containing protected data must be isolated from any other subnets. Network traffic between protected data subnets is to be audited regularly.
 
-**Potential design option**: In Azure, network and subnet isolation is managed through [Azure Virtual Networks](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview).
+**Potential design option**: In Azure, network and subnet isolation is managed through [Azure Virtual Networks](/azure/virtual-network/virtual-networks-overview).
 
 ## Secure external access
 
@@ -45,19 +45,19 @@ The following sample policy statements address a number of common security-relat
 
 **Policy statement**: No subnet containing protected data can be directly accessed over public internet or across data centers. Access to those subnets must be routed through intermediate subnet works. All access into those subnets must come through a firewall solution capable of performing packet scanning and blocking functions.
 
-**Potential design option**: In Azure, secure public endpoints by deploying a [DMZ between the public internet and your cloud-based network](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-dmz).
+**Potential design option**: In Azure, secure public endpoints by deploying a [DMZ between the public internet and your cloud-based network](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz).
 
 ## DDoS Protection
 
-**Technical risk**:  Distributed denial of service (DDoS) attacks can result in a business interruption.
+**Technical risk**: Distributed denial of service (DDoS) attacks can result in a business interruption.
 
 **Policy statement**: Deploy automated DDoS mitigation mechanisms to all publicly accessible network endpoints.
 
-**Potential design option**: In Azure, use [Azure DDoS Protection](https://docs.microsoft.com/en-us/azure/virtual-network/ddos-protection-overview) to minimize disruptions due to DDoS attacks.
+**Potential design option**: Use [Azure DDoS Protection](/azure/virtual-network/ddos-protection-overview) to minimize disruptions caused by DDoS attacks.
 
 ## Secure on-premises connectivity
 
-**Technical risk**:  Unencrypted traffic between your cloud network and on-premises over the public internet is vulnerable to interception, introducing the risk of data exposure.
+**Technical risk**: Unencrypted traffic between your cloud network and on-premises over the public internet is vulnerable to interception, introducing the risk of data exposure.
 
 **Policy statement**: All connections between the on-premises and cloud networks must take place either through a secure encrypted VPN connection or a dedicated private WAN link.
 
@@ -69,11 +69,11 @@ The following sample policy statements address a number of common security-relat
 
 **Policy statement**: Governance tooling must audit and enforce network configuration requirements defined by the Security Baseline team.
 
-**Potential design option**: In Azure, network activity can be monitored using [Network Monitor](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview), and [Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-network-recommendations) can help identify security vulnerabilities. Azure Policy allows you to restrict network resources and resource configuration policy according to limits defined by the security team.
+**Potential design option**: In Azure, network activity can be monitored using [Azure Network Watcher](/azure/network-watcher/network-watcher-monitoring-overview), and [Azure Security Center](/azure/security-center/security-center-network-recommendations) can help identify security vulnerabilities. Azure Policy allows you to restrict network resources and resource configuration policy according to limits defined by the security team.
 
 ## Security review
 
-**Technical risk**: Over time new security threats and attack types emerge, increasing the risk of exposure or disruption of your cloud resources.
+**Technical risk**: Over time, new security threats and attack types emerge, increasing the risk of exposure or disruption of your cloud resources.
 
 **Policy statement**: Trends and potential exploits that could affect cloud deployments should be reviewed regularly by the security team to provide updates to Security Baseline tooling used in the cloud.
 

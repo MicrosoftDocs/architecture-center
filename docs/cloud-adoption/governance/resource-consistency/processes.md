@@ -48,7 +48,7 @@ The following triggers and enforcement actions provide examples you can referenc
 - Overprovisioned resource detected: Resources detected using less than 60% of CPU or memory capacity should automatically scale down or deprovisioning resources to reduce costs.
 - Underprovisioned resource detected: Resources detected using more than 80% of CPU or memory capacity should automatically scale up or provisioning additional resources to provide additional capacity.
 - Untagged resource creation: Any request to create a resource without required meta tags will be rejected automatically.
-- Critical resource outage detected:  IT staff are notified on all detected outages of mission-critical outages. If outage is not immediately resolvable, staff will escalate the issue and notify workload owners and cloud governance team. Cloud governance team will Track issue until resolution and update guidance if policy revision is necessary to prevent future incidents.
+- Critical resource outage detected: IT staff are notified on all detected outages of mission-critical outages. If outage is not immediately resolvable, staff will escalate the issue and notify workload owners and cloud governance team. Cloud governance team will Track issue until resolution and update guidance if policy revision is necessary to prevent future incidents.
 
 ## Next steps
 

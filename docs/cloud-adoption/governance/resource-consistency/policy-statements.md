@@ -24,7 +24,7 @@ The following sample policy statements address a number of common Resource Consi
 - Deployed assets should be tagged with the following values: cost, criticality, SLA, and environment.
 - Governance tooling must validate tagging related to cost, criticality, SLA, application, and environment. All values must align to predefined values managed by the governance team.
 
-**Potential design options**: In Azure, [standard name-value metadata tags](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-using-tags) are supported on most resource types. [Azure Policy](https://docs.microsoft.com/en-us/azure/governance/policy/overview) is used to enforce specific tags as part of resource creation.
+**Potential design options**: In Azure, [standard name-value metadata tags](/azure/azure-resource-manager/resource-group-using-tags) are supported on most resource types. [Azure Policy](/azure/governance/policy/overview) is used to enforce specific tags as part of resource creation.
 
 ## Ungoverned subscriptions
 
@@ -32,26 +32,26 @@ The following sample policy statements address a number of common Resource Consi
 
 **Policy statement**: Creation of new subscriptions or management groups for any mission-critical applications or protected data will require a review from the Cloud Governance Team. Approved changes will be integrated into a proper blueprint assignment.
 
-**Potential design options**: Lock down administrative access to your organizations [Azure management groups](https://docs.microsoft.com/en-us/azure/governance/management-groups/) to only approved governance team members who will control the subscription creation and access control process.
+**Potential design options**: Lock down administrative access to your organizations [Azure management groups](/azure/governance/management-groups/) to only approved governance team members who will control the subscription creation and access control process.
 
-## Manage VM updates
+## Manage updates to virtual machines
 
-**Technical risk**: Virtual Machines (VMs) that are not up-to-date with the latest updates and software patches are vulnerable to security or performance issues, which can result in service disruptions.
+**Technical risk**: Virtual machines (VMs) that are not up-to-date with the latest updates and software patches are vulnerable to security or performance issues, which can result in service disruptions.
 
 **Policy statement**: Governance tooling must enforce that automatic updates are enabled on all deployed VMs. Violations must be reviewed with operational management teams and remediated in accordance with operations policies. Assets that are not automatically updated must be included in processes owned by IT operations.
 
-**Potential design options**: For Azure hosted VMs, you can provide consistent update management using the [Azure Automation Update Management](https://docs.microsoft.com/en-us/azure/automation/automation-update-management) solution.
+**Potential design options**: For Azure hosted VMs, you can provide consistent update management using the [Update Management solution in Azure Automation](/azure/automation/automation-update-management).
 
 ## Deployment compliance
 
-**Technical risk**: Deployment scripts and automation tooling that does is not fully vetted by the governance team can result in resource deployments that violate policy.
+**Technical risk**: Deployment scripts and automation tooling that is not fully vetted by the Cloud Governance team can result in resource deployments that violate policy.
 
 **Policy statement**: The following policies will be implemented:
 
 - Deployment tooling must be approved by the Cloud Governance Team to ensure ongoing governance of deployed assets.
 - Deployment scripts must be maintained in central repository accessible by the Cloud Governance Team for periodic review and auditing.
 
-**Potential design options**: Consistent use of [Azure Blueprints](https://docs.microsoft.com/en-us/azure/governance/blueprints/) to manage automated deployments allows consistent deployments of Azure resources that adhere to your organization's governance standards and policies.
+**Potential design options**: Consistent use of [Azure Blueprints](/azure/governance/blueprints/) to manage automated deployments allows consistent deployments of Azure resources that adhere to your organization's governance standards and policies.
 
 ## Monitoring
 
@@ -62,7 +62,7 @@ The following sample policy statements address a number of common Resource Consi
 - Governance tooling must validate that all assets related to mission-critical applications or protected data are included in monitoring for resource depletion and optimization.
 - Governance tooling must validate that the appropriate level of logging data is being collected for all mission-critical applications or protected data.
 
-**Potential design options**: [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/overview) is the default monitoring service in the Azure platform, and consistent monitoring can be enforced through the use of [Azure Blueprints](https://docs.microsoft.com/en-us/azure/governance/blueprints/) when deploying resources.
+**Potential design options**: [Azure Monitor](/azure/azure-monitor/overview) is the default monitoring service in the Azure platform, and consistent monitoring can be enforced through the use of [Azure Blueprints](/azure/governance/blueprints/) when deploying resources.
 
 ## Disaster recovery
 

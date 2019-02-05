@@ -68,7 +68,7 @@ Here are the new best practices:
 2. Azure Resource Manager templates:
     1. Define an NSG to block external traffic and whitelist internal traffic.
     2. Deploy two AD virtual machines in a load balanced pair based on a golden image. On first boot, that image runs a PowerShell script to join the domain and register with domain services. For more information, see [Extend Active Directory Domain Services (AD DS) to Azure](../../../../reference-architectures/identity/adds-extend-domain.md).
-3. Azure Policy:  Apply the NSG to all resources.
+3. Azure Policy: Apply the NSG to all resources.
 4. Azure Blueprint
     1. Create a blueprint called "Active Directory VMs."
     2. Add each of the AD templates and policies to the blueprint.
