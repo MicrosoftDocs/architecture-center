@@ -53,7 +53,7 @@ The **Mixed** pattern has been chosen for Azure subscriptions.
 - Resource groups should be created for each application. Management groups should be created for each application archetype. Azure Policy should be applied to all subscriptions in the associated management group.
 - As part of the deployment process, Resource Consistency templates for all assets should be stored in source control.
 - Each resource group should align to a specific workload or application.
-- The Azure Management Group hierarchy defined should represent billing responsibility and application ownership using nested groups.
+- The Azure management group hierarchy defined should represent billing responsibility and application ownership using nested groups.
 - Extensive implementation of Azure Policy could exceed the team’s time commitments and may not provide much value at this point. However, a simple default policy should be created and applied to each resource group to enforce the first few cloud governance policy statements. This serves to define the implementation of specific governance requirements. Those implementations can then be applied across all deployed assets.
 
 ### Resource Tagging
@@ -61,7 +61,7 @@ The **Mixed** pattern has been chosen for Azure subscriptions.
 The **Accounting** pattern has been chosen for resource tagging.
 
 - Deployed assets should be tagged with values for the following: Department/Billing Unit, Geography, Data Classification, Criticality, SLA, Environment, Application Archetype, Application, and Application Owner.
-- These values along with the Azure Management Group and Subscription associated with a deployed asset will drive governance, operations, and security decisions.
+- These values along with the Azure management group and subscription associated with a deployed asset will drive governance, operations, and security decisions.
 
 ### Logging and reporting
 

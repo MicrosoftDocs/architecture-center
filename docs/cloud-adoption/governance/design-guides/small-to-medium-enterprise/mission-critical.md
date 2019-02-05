@@ -93,10 +93,10 @@ This section of the article will evolve the Governance MVP design to include new
     1. Identify a configuration of Azure Firewall that meets security requirements. Alternatively, identify a third-party appliance that is compatible with Azure.
     2. Create a Resource Manager template to deploy the firewall with required configurations.
 8. Azure Blueprint:
-    1. Create a new Azure Blueprint called "Protected Data".
+    1. Create a new Azure blueprint named `protected-data`.
     2. Add the firewall and Azure Vault templates to the blueprint.
     3. Add the new policies for protected data subscriptions.
-    4. Publish the Azure Blueprint to any management group intended to host mission-critical applications.
+    4. Publish the blueprint to any management group intended to host mission-critical applications.
     5. Apply the new blueprint to each affected subscription as well as existing blueprints.
 
 ## Conclusion

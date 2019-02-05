@@ -26,10 +26,10 @@ The following diagram shows the Governance MVP hierarchy for organizing resource
 
 ![Resource Organization diagram](../../../_images/governance/resource-organization.png)
 
-Every application should be deployed in the proper area of the Management Group, Subscription, and Resource Group hierarchy. During deployment planning, the Cloud Governance team will create the necessary nodes in the hierarchy to empower the Cloud Adoption team.  
+Every application should be deployed in the proper area of the management group, subscription, and resource group hierarchy. During deployment planning, the Cloud Governance team will create the necessary nodes in the hierarchy to empower the cloud adoption teams.  
 
 1. A management group for each type of environment (such as Production, Development, and Test).
-2. A subscription for each "Application Categorization."
+2. A subscription for each "application categorization".
 3. A separate resource group for each application.
 4. Consistent nomenclature should be applied at each level of this grouping hierarchy.
 
@@ -54,7 +54,7 @@ Once this MVP has been deployed, additional layers of governance can be quickly 
 
 ## What does this best practice do?
 
-In the MVP, practices and tools from the [Deployment Acceleration](../../deployment-acceleration/overview.md) discipline are established to quickly apply corporate policy. In particular, the MVP makes use of Azure Blueprints, Azure Management Groups, and Azure Policy to apply a few basic corporate policies, as defined in the narrative for this fictional company. Those corporate policies are applied using Resource Manager templates and Azure policies to establish a very small baseline for identity and security.
+In the MVP, practices and tools from the [Deployment Acceleration](../../deployment-acceleration/overview.md) discipline are established to quickly apply corporate policy. In particular, the MVP makes use of Azure Blueprints, Azure Policy, and Azure management groups to apply a few basic corporate policies, as defined in the narrative for this fictional company. Those corporate policies are applied using Resource Manager templates and Azure policies to establish a very small baseline for identity and security.
 
 ![Example of Incremental Governance MVP](../../../_images/governance/governance-mvp.png)
 

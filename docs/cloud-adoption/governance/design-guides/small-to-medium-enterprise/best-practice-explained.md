@@ -55,7 +55,7 @@ The **Deployment Consistency** pattern has been chosen as a Resource Consistency
 - Resource groups are created for each application. Management groups are created for each application archetype. Azure Policy should be applied to all subscriptions from the associated management group.
 - As part of the deployment process, Azure Resource Consistency templates for the resource group should be stored in source control.
 - Each resource group is associated with a specific workload or application.
-- Azure Management Groups enable updating governance designs as corporate policy matures.
+- Azure management groups enable updating governance designs as corporate policy matures.
 - Extensive implementation of Azure Policy could exceed the team’s time commitments and may not provide a great deal of value at this time. However, a simple default policy should be created and applied to each management group to enforce the small number of current cloud governance policy statements. This policy will define the implementation of specific governance requirements. Those implementations can then be applied across all deployed assets.
 
 ### Resource tagging
