@@ -104,7 +104,7 @@ If any of the patterns selected in this governance journey don't align with the 
 
 Once this guide is implemented, the Cloud Adoption team can go forth with a sound governance foundation. The Cloud Governance team will work in parallel to continuously update the corporate policies and governance disciplines.
 
-The two teams will use the tolerance indicators to identify the next evolution needed to continue supporting cloud adoption. For the fictitious company in this journey, the next step is evolving the Security Baseline to support moving protected data to the cloud.
+The two teams will use the tolerance indicators to identify the next evolution needed to continue supporting cloud adoption. For the fictional company in this journey, the next step is evolving the Security Baseline to support moving protected data to the cloud.
 
 > [!div class="nextstepaction"]
 > [Security Baseline evolution](./protected-data.md)

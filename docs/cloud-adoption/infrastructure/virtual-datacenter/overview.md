@@ -10,20 +10,19 @@ This section of the [Fusion framework](../../overview.md) guides you through the
 
 Jump to: [VDC Assumptions](#vdc-assumptions) | [Fusion framework infrastructure and VDC](#fusion-framework-infrastructure-and-vdc) | [Azure Virtual Datacenter structure](#azure-virtual-datacenter-structure) | [Subscription design](#subscription-design) | [Identity](#identity) | [Resource organization](#resource-organization) | [Azure policy](#azure-policy) | [Key vault](#key-vault) | [Networking](#networking) | [Monitoring and compliance](#monitoring-and-compliance) | [Hub components](#hub-components) | [Spoke Components](#spoke-components) | [Azure Virtual Datacenter Automation Toolkit](#azure-virtual-datacenter-automation-toolkit)
 
-
 Virtual datacenter (VDC) is a term coined by Mark Ozur, Hatay Tuna, Callum Coffin, and Telmo Sampaio from the Azure Customer Advisory Team (AzureCAT), in the eBook "[Azure Virtual Datacenter](https://azure.microsoft.com/resources/azure-virtual-datacenter/)".
 
 The Azure Virtual Datacenter is a model for deploying your applications and workloads in a cloud-based architecture, while preserving key aspects of your current IT governance and taking advantage of cloud computing’s agility. The goal in implementing a VDC is to provide similar governance capabilities on large Azure deployments in the same manner as you would in a traditional datacenter. At the same time, the Azure Virtual Datacenter model allows teams within your organization to deploy individual workloads with the agility and flexibility common to Azure solutions, while still adhering to central IT policies.
 
 ![Abstract view of the VDC model](../../_images/virtual-datacenter/vdc-abstract.png)
 
-*Abstract view of the Azure Virtual Datacenter model's hub and spoke structure*
+*Abstract view of the Azure Virtual Datacenter model's hub and spoke structure.*
 
 A VDC expands upon the existing [hub-spoke networking model](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) to provide connectivity between isolated workload networks and a centrally managed hub network. The hub environment controls traffic to and from the workloads and the on-premises environment. It also controls all access to workloads from the Internet.
 
 Governing your workloads requires integrating management processes, regulatory requirements, and security processes within a cloud environment. In support of governance requirements, the Azure Virtual Datacenter model provides basic guidance on implementing an organization's separation of roles, responsibilities, and policies in the cloud.  
 
-### Virtual Datacenter model assumptions
+## Virtual Datacenter model assumptions
 
 Embedded in the Azure Virtual Datacenter model is a core set of assumptions. If your cloud migration requirements align with these assumptions, following the guidance and associated resources can significantly reduce the time required for you to build out a large Azure deployment that is compliant with your organization's governance policy. However, even if these assumptions don't match your specific deployment scenarios, this model will provide you with a logical way of thinking about complex, interconnected cloud-based solutions.
 
@@ -34,11 +33,11 @@ Assumptions about the Virtual Datacenter model include:
 - You need to support agile deployment of workloads in support of developer and operations teams, while maintaining common policy and governance compliance and central IT control over core services.
 - The data stored on your cloud deployment is sensitive and needs to be secured using [encryption](../encryption/overview.md), in transit and at rest. Public data does not benefit from encryption.
 - Your on-premises identity services can be [federated with Azure Active Directory](../identity/overview.md#federation-vdc ).
-- Your workloads will be compatible with cloud-based authentication methods such as security assertion markup language (SAML) and oAuth 2.0/OpenID connect. Legacy authentication methods like Kerberos or NT Lan Manager (NTLM) are not incorporated in this model by default,  and therefore need to be provisioned separately. 
+- Your workloads will be compatible with cloud-based authentication methods such as SAML or OAuth 2.0 with OpenID Connect. Legacy authentication methods like Kerberos or NT Lan Manager (NTLM) are not incorporated in this model by default,  and therefore need to be provisioned separately.
 
 ## Fusion framework infrastructure
 
-The [Infrastructure section](../overview.md) of the [Fusion framework](../../overview.md), describes the components required to migrate core infrastructure services to Azure. A VDC is built on these core services, and each of the following topics discuss how the Azure Virtual Datacenter model uses these services to create a secure cloud network extension compliant with your organization's governance requirements: 
+The [Infrastructure section](../overview.md) of the [Fusion framework](../../overview.md), describes the components required to migrate core infrastructure services to Azure. A VDC is built on these core services, and each of the following topics discuss how the Azure Virtual Datacenter model uses these services to create a secure cloud network extension compliant with your organization's governance requirements:
 
 - [VDC Subscriptions](../subscriptions/vdc-subscriptions.md)
 - [Identity and roles in VDC](../identity/vdc-identity.md)
@@ -119,6 +118,8 @@ Core Azure platform features such as [Azure Active Directory Reports](/azure/act
 
 The hub subscription contains the core networking, external connectivity, and platform services enabling central management of the VDC. These resources are organized along functional sections, and is reflected in the recommended VDC [resource grouping strategy](../resource-grouping/vdc-resource-grouping.md). The model recommends deploying resources to the hub environment in the following order:  
 
+<!-- markdownlint-disable MD033 -->
+
 | Section          | Resources                                                               |
 |------------------|-------------------------------------------------------------------------|
 | Operations       | <ul><li>Log Analytics instance: Responsible for logging VM and network activity in the hub environment and integration with Azure Monitor</li></ul> |
@@ -138,6 +139,7 @@ As with the hub subscription, each spoke subscription requires a standard set of
 | Networking       | <ul><li>Network diagnostic storage account: Encrypted storage account used to store log data related to networking activity on the spoke network</li><li>Spoke virtual network: Contains a default subnet and base network configuration used by the spoke network; Uses virtual network peering to connect with (and only with) the hub network </li><li>Spoke NSG: Network security group containing network access and security rules applied to the default subnet through which traffic will pass between hub and spoke networks</li><li>Spoke UDR: User-defined route table containing routing rules for in the default subnet which routes all traffic leaving the spoke network to the hub network's central firewall</li></ul> |
 | Workload         | After the core spoke components are in place and configured, workload teams can deploy resources they need to the spoke environment  |
 
+<!-- markdownlint-enable MD033 -->
 
 ## Next steps
 
@@ -145,4 +147,3 @@ See more [guidance and examples](../overview.md#azure-examples-and-guidance) on 
 
 > [!div class="nextstepaction"]
 > [Azure Examples and Guidance](../overview.md#azure-examples-and-guidance) 
-

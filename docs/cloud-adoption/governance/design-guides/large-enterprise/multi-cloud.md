@@ -9,7 +9,7 @@ ms.date: 2/1/2019
 
 ## Evolution of the narrative
 
-Microsoft recognizes that customers are adopting multiple clouds for specific purposes. The fictitious customer in this journey is no exception. In parallel to the Azure adoption journey, the business success has led to the acquisition of a small, but complementary business. That business is running all of their IT operations on a different cloud provider.
+Microsoft recognizes that customers are adopting multiple clouds for specific purposes. The fictional company in this journey is no exception. In parallel to the Azure adoption journey, the business success has led to the acquisition of a small, but complementary business. That business is running all of their IT operations on a different cloud provider.
 
 This article describes how things change when integrating the new organization. For purposes of the narrative, we assume this company has completed each of the governance evolutions outlined in this customer journey.
 

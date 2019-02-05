@@ -59,7 +59,7 @@ Terminating data centers can also provide Cost Avoidance, by preventing future r
 
 * Example: A company’s data center is up for a lease renewal in 6 months. That data center has been in service for 8 years. 4 years ago, all of the servers were refreshed and virtualized costing the company $ millions. Next year, the company plans on refreshing the hardware and software again. Migrating the assets in that data center, as part of an Operational Transformation, would create cost avoidance, by removing the planned refresh from next year’s forecasted budget. It could also produce cost reduction by decreasing or eliminating the real estate lease costs.
 
-## CapEx vs OpEx
+## CapEx versus OpEx
 
 Before discussing Cost Outcomes, it is important to understand the two primary cost options: Capital Expenses (CapEx) and Operational Expenses (OpEx).
 

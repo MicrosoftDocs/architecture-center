@@ -24,7 +24,7 @@ After the meeting, two members of the IT Governance team requested permission to
 
 The current risk tolerance is high and the appetite for investing in cloud governance is low. As such, the tolerance indicators act as an early warning system to trigger the investment of time and energy. If the following indicators are observed, it would be wise to evolve the governance strategy.
 
-- Cost Management: Scale of deployment exceeds 1,000 assets to the cloud, or monthly spend exceeds $10,000/month. 
+- Cost Management: Scale of deployment exceeds 1,000 assets to the cloud, or monthly spend exceeds $10,000 USD per month.
 - Identity Baseline: Inclusion of applications with legacy or third-party multifactor authentication (MFA) requirements.
 - Security Baseline: Inclusion of protected data in defined cloud adoption plans.
 - Resource Consistency: Inclusion of any mission-critical applications in defined cloud adoption plans.

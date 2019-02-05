@@ -40,7 +40,7 @@ Public cloud platforms provide a native IAM system capable of granting users and
 
 - Your cloud-based resources will not have dependencies on on-premises directory services or Active Directory servers.
 - Your cloud-based identity management will not depend on an on-premises directory service, or you can migrate on-premises identity services to the cloud identity service.
-- Your migrating workload applications and services support authentication mechanisms compatible with cloud identity providers OR can be easily modified to support them. Cloud native identity providers rely on internet-ready authentication mechanisms such as SAML and oAuth/OpenID connect. Existing workloads that depend on claims-based authentication methods using protocols like Kerberos or NTLM may need to be refactored before migrating to the cloud.
+- Your migrating workload applications and services support authentication mechanisms compatible with cloud identity providers OR can be easily modified to support them. Cloud native identity providers rely on internet-ready authentication mechanisms such as SAML or OAuth 2.0 with OpenID Connect. Existing workloads that depend on claims-based authentication methods using protocols like Kerberos or NTLM may need to be refactored before migrating to the cloud.
 
 > [!TIP]
 > Most cloud native identity services are not full replacements for traditional on-premises directories. Directory features such as computer management or group policy may not be available without using additional tools or services.

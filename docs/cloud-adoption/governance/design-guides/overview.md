@@ -22,8 +22,8 @@ To start down an adoption path, choose one of the following journeys. Each journ
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Small to Medium Enterprise</h3>
-                        <p>Governance Journey for enterprises that own less than 5 datacenters and manage costs through a central IT or showback model.</p>
+                        <h3>Small-to-Medium Enterprise</h3>
+                        <p>A governance journey for enterprises that own fewer than five datacenters and manage costs through a central IT or showback model.</p>
                     </div>
                 </div>
             </div>
@@ -37,7 +37,7 @@ To start down an adoption path, choose one of the following journeys. Each journ
                 <div class="card">
                     <div class="cardText">
                         <h3>Large Enterprise</h3>
-                        <p>Governance Journey for enterprises that own more than 5 datacenters and manage costs across multiple business units.</p>
+                        <p>Governance Journey for enterprises that own more than five datacenters and manage costs across multiple business units.</p>
                     </div>
                 </div>
             </div>
@@ -113,7 +113,7 @@ To begin a governance journey, choose one of the two options below. The options 
 
 |                                             | Small-to-medium enterprise                                                                               | Large enterprise                                                                                                          |
 |---------------------------------------------|----------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| Datacenter or third-party hosting providers | Less than 5 datacenters                                                                                  | More than 5 datacenters                                                                                                   |
+| Datacenter or third-party hosting providers | Fewer than five datacenters                                                                                  | More than five datacenters                                                                                                   |
 | Networking                                  | No WAN, or 1 &ndash; 2 WAN providers                                                                             | Complex network or global WAN                                                                                             |
 | Identity                                    | Single forest, single domain. No requirement for claims-based authentication or third-party MFA devices. | Complex, multiple forests, multiple domains. Applications require claims-based authentication or third-party MFA devices. |
 

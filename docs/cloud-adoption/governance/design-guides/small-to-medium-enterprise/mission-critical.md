@@ -105,7 +105,7 @@ These additional processes and changes to the Governance MVP help mitigate many 
 
 ## Next steps
 
-As cloud adoption continues to evolve and deliver additional business value, risks and cloud governance needs will also evolve. For the fictitious company in this journey, the next trigger is when the scale of deployment exceeds 100 assets to the cloud or monthly spending exceeding $1,000/month. At this point, the Cloud Governance team adds Cost Management controls.
+As cloud adoption continues to evolve and deliver additional business value, risks and cloud governance needs will also evolve. For the fictional company in this journey, the next trigger is when the scale of deployment exceeds 100 assets to the cloud or monthly spending exceeds $1,000 per month. At this point, the Cloud Governance team adds Cost Management controls.
 
 > [!div class="nextstepaction"]
 > [Cost Management evolution](./cost-control.md)

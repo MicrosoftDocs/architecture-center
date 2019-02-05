@@ -103,9 +103,9 @@ If any of the patterns selected in this governance journey don't align with the 
 
 ## Next steps
 
-Once this guide is implemented, the Cloud Adoption team can go forth with a sound governance foundation. The Cloud Governance team will work in parallel to continuously update the corporate policies and governance disciplines.
+Once this guidance is implemented, the Cloud Adoption team can proceed with a solid governance foundation. The Cloud Governance team will work in parallel to continually update the corporate policies and governance disciplines.
 
-The two teams will use the tolerance indicators to identify the next evolution needed to continue supporting cloud adoption. For the fictitious company in this journey, the next step is evolving this governance baseline to support applications with legacy or third-party multifactor authentication (MFA) requirements.
+Both teams will use the tolerance indicators to identify the next evolution needed to continue supporting cloud adoption. The next step for the company in this journey is to evolve their governance baseline to support applications with legacy or third-party multifactor authentication (MFA) requirements.
 
 > [!div class="nextstepaction"]
 > [Identity Baseline evolution](./identity-baseline.md)

@@ -66,11 +66,11 @@ This section of the article will evolve the Governance MVP design to include new
 
 ## Conclusion
 
-The addition of the above processes and changes to the Governance MVP help to mitigate many of the risks associated with cost governance. Together, they create the visibility, accountability, and optimization needed to control costs.
+Adding these processes and changes to the Governance MVP helps mitigate many of the risks associated with cost governance. Together, they create the visibility, accountability, and optimization needed to control costs.
 
 ## Next steps
 
-As cloud adoption continues to evolve and deliver additional business value, risks and cloud governance needs will also evolve. For the fictitious company in this journey, the next step is using this governance investment to manage multiple clouds.
+As cloud adoption continues to evolve and deliver additional business value, risks and cloud governance needs will also evolve. For the fictional company in this journey, the next step is using this governance investment to manage multiple clouds.
 
 > [!div class="nextstepaction"]
 > [Multi-cloud evolution](./multi-cloud.md)

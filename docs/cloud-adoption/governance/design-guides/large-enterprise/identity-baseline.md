@@ -51,7 +51,7 @@ This business risk can be expanded into a few technical risks:
 
 ## Evolution of the policy statements
 
-The following changes to policy will help mitigate the new risks and guide implementation. 
+The following changes to policy will help mitigate the new risks and guide implementation.
 
 1. The chosen cloud provider must offer a means of authenticating via legacy methods.
 2. The chosen cloud provider must offer a means of authentication with the current third-party MFA solution.
@@ -73,12 +73,12 @@ Here are the new best practices:
     1. Create a blueprint called "Active Directory VMs."
     2. Add each of the AD templates and policies to the blueprint.
     3. Publish the blueprint to any applicable management group.
-    4. Apply the blueprint to any subscription requiring legacy or third-party MFA authentication. 
+    4. Apply the blueprint to any subscription requiring legacy or third-party MFA authentication.
     5. The instance of AD running in Azure can now be used as an extension of the on-premises AD solution, allowing it to integrate with the existing MFA tool and provide claims-based authentication, both through existing Active Directory functionality.
 
 ## Conclusion
 
-The addition of the above changes to the governance MVP help to mitigate many of the risks in this article, allowing the cloud adoption team to quickly move past this roadblock.
+Adding these changes to the governance MVP helps mitigate many of the risks in this article, allowing the cloud adoption team to quickly move past this roadblock.
 
 ## Next steps
 

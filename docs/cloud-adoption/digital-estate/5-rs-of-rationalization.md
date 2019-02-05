@@ -127,7 +127,7 @@ Quantitative analysis factors:
 
 Qualitative analysis factors:
 
-* Cost benefit analysis of current architecture vs SaaS solution
+* Cost benefit analysis of the current architecture versus a SaaS solution
 * Business process maps
 * Data schemas
 * Custom or automated processes

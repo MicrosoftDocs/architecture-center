@@ -17,7 +17,7 @@ The following are examples of useful metrics that you should gather to help eval
 
 - Annual spend: The total annual cost for services provided by a cloud provider
 - Monthly spend: The total monthly cost for services provided by a cloud provider
-- Forecast vs actual ratio: The ratio comparing forecasted and actual spend (monthly or annual)
+- Forecast versus actual ratio: The ratio comparing forecasted and actual spend (monthly or annual)
 - Pace of adoption (MOM) ratio: The percentage of the delta in cloud costs from month to month
 - Accumulated cost: Total accrued daily spending, starting from the beginning of the month
 - Spending trends: Spending trend against the budget

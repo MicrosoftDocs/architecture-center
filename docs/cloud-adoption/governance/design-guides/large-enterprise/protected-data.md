@@ -156,11 +156,11 @@ In prior evolutions of the best practice, NSGs were defined which blocked public
 
 ## Conclusion
 
-The addition of the above processes and changes to the Governance MVP help to mitigate many of the risks associated with security governance. Together, they add the network, identity, and security monitoring tools needed to protect data.
+The addition of the above processes and changes to the governance MVP help to mitigate many of the risks associated with security governance. Together, they add the network, identity, and security monitoring tools needed to protect data.
 
 ## Next steps
 
-As cloud adoption continues to evolve and deliver additional business value, risks and cloud governance needs also evolve. For the fictitious company in this journey, the next step is to support mission-critical workloads. This is the point when Resource Consistency controls are needed.
+As cloud adoption continues to evolve and deliver additional business value, risks and cloud governance needs also evolve. For the fictional company in this journey, the next step is to support mission-critical workloads. This is the point when Resource Consistency controls are needed.
 
 > [!div class="nextstepaction"]
 > [Resource Consistency evolution](./mission-critical.md)

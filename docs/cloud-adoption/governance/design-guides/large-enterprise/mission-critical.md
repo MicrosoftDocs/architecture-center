@@ -53,7 +53,7 @@ The following changes to policy will help mitigate the new risks and guide imple
 3. Governance tooling must audit and enforce network configuration requirements defined by the Security Baseline team.
 4. Governance tooling must validate that all assets related to mission critical apps or protected data are included in monitoring for resource depletion and optimization.
 5. Governance tooling must validate that the appropriate level of logging data is being collected for all mission critical apps or protected data.
-6. Governance process must validate that backup, recovery, and SLA adherence are properly implemented for mission critical apps and protected data. 
+6. Governance process must validate that backup, recovery, and SLA adherence are properly implemented for mission critical apps and protected data.
 7. Governance tooling must limit VM deployment to approved images only.
 8. Governance tooling must enforce that automatic updates are **prevented** on all deployed assets that support mission critical applications. Violations must be reviewed with operational management teams and remediated in accordance with operations policies. Assets that are not automatically updated must be included in processes owned by IT operations.
 9. Governance tooling must validate tagging related to cost, criticality, SLA, application, and data classification. All values must align to predefined values managed by the Cloud Governance team.
@@ -93,15 +93,15 @@ Following the experience of this fictional example, it is assumed that the Prote
 2. Azure Blueprint
     1. Create a blueprint for "Mission Critical Workloads + Protected Data." This blueprint will apply assets in addition to the protected data blueprint.
     2. Add the new Azure Policies to the blueprint
-    3. Apply the blueprint to any subscription that is expected to host a mission critical application. 
+    3. Apply the blueprint to any subscription that is expected to host a mission critical application.
 
 ## Conclusion
 
-The addition of the above processes and changes to the Governance MVP help to mitigate many of the risks associated with resource governance. Together, they add the recovery, sizing, and monitoring controls necessary to empower cloud-aware operations.
+Adding these processes and changes to the governance MVP helps mitigate many of the risks associated with resource governance. Together, they add the recovery, sizing, and monitoring controls necessary to empower cloud-aware operations.
 
 ## Next steps
 
-As cloud adoption continues to evolve and deliver additional business value, risks and cloud governance needs will also evolve. For the fictitious company in this journey, the next trigger is when the scale of deployment exceeds 1,000 assets to the cloud or monthly spending exceeding $10,000/month. At this point, the Cloud Governance team [adds Cost Management controls](./cost-control.md).
+As cloud adoption continues to evolve and deliver additional business value, the risks and cloud governance needs will also evolve. For the fictional company in this journey, the next trigger is when the scale of deployment exceeds 1,000 assets to the cloud or monthly spending exceeds $10,000 USD per month. At this point, the Cloud Governance team [adds Cost Management controls](./cost-control.md).
 
 > [!div class="nextstepaction"]
 > [Cost Management evolution](./cost-control.md)

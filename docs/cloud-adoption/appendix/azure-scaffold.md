@@ -67,7 +67,7 @@ Though each of these patterns has its place, the **business unit** pattern is in
 Microsoft has recently released a new way of modeling your hierarchy: [Azure management groups](/azure/azure-resource-manager/management-groups-overview). Management groups are much more flexible than departments and accounts and can be nested up to six levels. Management groups allow you to create a hierarchy that is separate from your billing hierarchy, solely for efficient management of resources. Management groups can mirror your billing hierarchy and often enterprises start that way. However, the power of management groups is when you use them to model your organization where related subscriptions &mdash; regardless where they are in the billing hierarchy &mdash; are grouped together and need common roles assigned as well as policies and initiatives. A few examples:
 
 * **Production/Non-Production**. Some enterprises create management groups to identify their production and non-production subscriptions. Management groups allow these customers to more easily manage roles and policies, for example: non-production subscription may allow developers "contributor" access, but in production, they have only "reader" access.
-* **Internal Services/External Services**. Much like Production/Non-Production, enterprises often have different requirements, policies and roles for internal services vs external (customer facing) services.
+* **Internal Services/External Services**. Much like Production/Non-Production, enterprises often have different requirements, policies and roles for internal services versus external (customer facing) services.
 
 Well thought out management groups are, along with Azure Policy and Initiatives the backbone of efficient governance of Azure.
 
@@ -273,7 +273,7 @@ These are tools to provide you instant information on cost as well as the abilit
 When we look across customers who have used the cloud for a long time and are "mature" in their use, we see a number of highly recommended practices
 
 * **Actively monitor costs**. Organizations that are mature Azure users constantly monitor costs and take actions when needed. Some organizations even dedicate people to do analysis and suggest changes to usage, and these people more than pay for themselves the first time they find an unused HDInsight cluster that's been running for months.
-* **Use Reserved Instances**. Another key tenant for managing costs in the cloud is to use the right tool for the job. If you have an IaaS VM that must stay on 24x7, then using a Reserved Instance will save you significant money. Finding the right balance between automating the shutdown of VMs and using RIs takes experience and analysis.
+* **Use Reserved Instances**. Another key tenet for managing costs in the cloud is to use the right tool for the job. If you have an IaaS VM that must stay on 24x7, then using a Reserved Instance will save you significant money. Finding the right balance between automating the shutdown of VMs and using RIs takes experience and analysis.
 * **Use automation effectively**: Many workloads do not need to be running every day. Even turning off a VM for a 4-hour period every day can save you 15% of your cost. Automation will pay for itself quickly.
 * **Use resource tags for visibility**: As mentioned elsewhere in this document, using resource tags will allow for better analysis of costs.
 

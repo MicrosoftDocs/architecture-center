@@ -39,7 +39,7 @@ The following sample policy statements address a number of common cost-related b
 
 **Design options:**
 
-- In Azure, planned vs actual spend can be managed via [Azure Cost Management](/azure/cost-management/quick-acm-cost-analysis)
+- In Azure, planned versus actual spending can be managed via [Azure Cost Management](/azure/cost-management/quick-acm-cost-analysis)
 - There are several options for grouping resources by billing unit. In Azure, a [resource grouping model](../../infrastructure/resource-grouping/overview.md) should be chosen in conjunction with the governance team and applied to all assets.
 
 ## Over provisioned assets
@@ -57,7 +57,7 @@ The following sample policy statements address a number of common cost-related b
 
 **Business risk:** Effective Cost Management can actually create new risks. Optimization of spend is an inverse to system performance. When reducing costs, there is a risk of over tightening spend and producing poor user experiences.
 
-**Policy statement:** Any asset that directly impacts customer experiences must be identified through grouping or tagging. Before optimizing any asset that impacts customer experience, the cloud governance team must adjust optimization based on no less than 90 days of utilization trends. Document any seasonal or event driven bursts considered when optimizing assets.
+**Policy statement:** Any asset that directly impacts customer experiences must be identified through grouping or tagging. Before optimizing any asset that impacts customer experience, the cloud governance team must adjust optimization based on no fewer than 90 days of utilization trends. Document any seasonal or event driven bursts considered when optimizing assets.
 
 **Design options:**
 

@@ -31,7 +31,7 @@ SDN provides several options with varying degrees of pricing and complexity. The
 
 The inflection point in this guide depends on several key decisions that your Cloud Strategy Team have made prior to making decisions about networking architecture. Most important among these are decisions involving your [Digital Estate definition](../../digital-estate/overview.md) and [Subscription Design](../subscriptions/overview.md) (which may also require inputs from decisions made related to your [cloud accounting](../../business-strategy/cloud-accounting.md) and [global markets](../../business-strategy/global-markets.md) strategies).
 
-Small, single region deployments of less than 1,000 VMs are less likely to be significantly impacted by this inflection point. Conversely, large adoption efforts with more than 1,000 VMs, multiple business units, or multiple geo-politic markets, could be substantially impacted by your SDN decision and this key inflection point.
+Small, single region deployments of fewer than 1,000 VMs are less likely to be significantly impacted by this inflection point. Conversely, large adoption efforts with more than 1,000 VMs, multiple business units, or multiple geo-politic markets, could be substantially impacted by your SDN decision and this key inflection point.
 
 ## Choosing the right virtual networking architectures
 

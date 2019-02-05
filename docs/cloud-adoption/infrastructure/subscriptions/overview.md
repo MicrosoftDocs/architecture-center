@@ -89,7 +89,7 @@ A few examples include:
 
 - **Production/non-production**: Some enterprises create management groups to identify their production and non-production subscriptions. Management groups allow these customers to more easily manage roles and policies, for example: non-production subscription may allow developers "contributor" access, but in production, they have only "reader" access.
 
-- **Internal services/external services**: Much like production/non-production, enterprises often have different requirements, policies and roles for internal services vs external (customer facing) services.
+- **Internal services/external services**: Much like production/non-production, enterprises often have different requirements, policies and roles for internal services versus external (customer facing) services.
 
 ## Organization at the subscription level
 
