@@ -1,6 +1,6 @@
 ---
 title: "Mainframe migration: Make the switch from mainframes to Azure"
-description: Migrate applications from mainframe environments to Azure, a proven, highly available, and scalable infrastructure for systems that currently run on mainframes. 
+description: Migrate applications from mainframe environments to Azure, a proven, highly available, and scalable infrastructure for systems that currently run on mainframes.
 author: njray
 ms.date: 12/26/2018
 ---
@@ -24,9 +24,9 @@ white paper.
 An accurate calculation of MIPS to vCPUs with Azure depends on the type of vCPU and the exact workload you are running. However, benchmark studies provide a good basis for estimating the number and type of vCPUs you will need. A recent [HPE zREF
 benchmark](https://h20195.www2.hpe.com/v2/getpdf.aspx/4aa4-2452enw.pdf) provides the following estimates:
 
--   288 MIPS per Intel-based core running on HP Proliant servers for online (CICS) jobs.
+- 288 MIPS per Intel-based core running on HP Proliant servers for online (CICS) jobs.
 
--   170 MIPS per Intel core for COBOL batch jobs.
+- 170 MIPS per Intel core for COBOL batch jobs.
 
 This guide estimates 200 MIPS per vCPU for online processing and 100 MIPS per vCPU for batch processing.
 
@@ -41,7 +41,7 @@ By comparison, Azure offers commitment-based service level agreements (SLAs), wh
 
 Azure provides additional availability by replicating data from multiple storage devices, either locally or in other geographic regions. In the event of an Azure-based failure, compute resources can access the replicated data on either the local or regional level.
 
-When you use Azure platform as a service (PaaS) resources, such as [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview) and [Azure Cosmos Database](https://docs.microsoft.com/azure/cosmos-db/introduction), Azure can automatically handle failovers. When you use Azure infrastructure as a service(IaaS), failover relies on specific system functionality, such as SQL Server AlwaysOn features, failover clustering instances, and availability groups.
+When you use Azure platform as a service (PaaS) resources, such as [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview) and [Azure Cosmos Database](https://docs.microsoft.com/azure/cosmos-db/introduction), Azure can automatically handle failovers. When you use Azure infrastructure as a service (IaaS), failover relies on specific system functionality, such as SQL Server AlwaysOn features, failover clustering instances, and availability groups.
 
 ## Scalability
 
@@ -63,9 +63,9 @@ Mainframe hardware includes processors and many other devices, such as direct ac
 
 Types of physical storage for mainframes include:
 
--   Central storage: Located directly on the mainframe processor, this is also known as processor or real storage.
+- Central storage: Located directly on the mainframe processor, this is also known as processor or real storage.
 
--   Auxiliary storage: Located separately from the mainframe, this type includes storage on DASDs and is also known as paging storage.
+- Auxiliary storage: Located separately from the mainframe, this type includes storage on DASDs and is also known as paging storage.
 
 The cloud offers a range of flexible, scalable options, and you will pay only for those options that you need. [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-introduction) offers a massively scalable object store for data objects, a file system service for the cloud, a reliable messaging store, and a NoSQL store. For VMs, managed and unmanaged disks provide persistent, secure disk storage.
 
@@ -77,7 +77,7 @@ Mainframes typically have separate logical partitions (LPARs) for development an
 
 Emulation environments and compilers are available on x86 platforms, so development and testing can typically be among the first workloads to migrate from a mainframe to Azure. The availability and widespread use of [DevOps tools in Azure](https://azure.microsoft.com/solutions/devops/) is accelerating the migration of development and testing environments.
 
-When solutions are developed and tested on Azure and are ready for deployment to the mainframe, you will need to copy the code to the mainframe and compile it there. 
+When solutions are developed and tested on Azure and are ready for deployment to the mainframe, you will need to copy the code to the mainframe and compile it there.
 
 ## Next steps
 

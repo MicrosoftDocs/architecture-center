@@ -11,15 +11,15 @@ When migrating applications from mainframe environments to Azure, most teams fol
 
 Application migration typically involves one or more of the following strategies:
 
--   Rehost: You can move existing code, programs, and applications from the mainframe, and then recompile the code to run in a mainframe emulator hosted in a cloud instance. This approach typically starts with moving applications to a cloud-based emulator, and then migrating the database to a cloud-based database. Some engineering and refactoring are required along with data and file conversions.
+- Rehost: You can move existing code, programs, and applications from the mainframe, and then recompile the code to run in a mainframe emulator hosted in a cloud instance. This approach typically starts with moving applications to a cloud-based emulator, and then migrating the database to a cloud-based database. Some engineering and refactoring are required along with data and file conversions.
 
     Alternatively, you can rehost using a traditional hosting provider. One of the principal benefits of the cloud is outsourcing infrastructure management. You can find a datacenter provider that will host your mainframe workloads for you. This model may buy time, reduce vendor lock in, and produce interim cost savings.
 
--   Retire: All applications that are no longer needed should be retired before migration.
+- Retire: All applications that are no longer needed should be retired before migration.
 
--   Rebuild: Some organizations choose to completely rewrite programs using modern techniques. Given the added cost and complexity of this approach, it’s not as common as a lift-and-shift approach. Often after this type of migration, it makes sense to begin replacing modules and code using code transformation engines.
+- Rebuild: Some organizations choose to completely rewrite programs using modern techniques. Given the added cost and complexity of this approach, it’s not as common as a lift-and-shift approach. Often after this type of migration, it makes sense to begin replacing modules and code using code transformation engines.
 
--   Replace: This approach replaces mainframe functionality with equivalent features in the cloud. Software as a service (SaaS) is one option, which is using a solution created specifically for an enterprise concern, such as finance, human resources, manufacturing, or enterprise resource planning. In addition, many industry-specific apps are now available to solve problems that custom mainframe solutions used to previously solve.
+- Replace: This approach replaces mainframe functionality with equivalent features in the cloud. Software as a service (SaaS) is one option, which is using a solution created specifically for an enterprise concern, such as finance, human resources, manufacturing, or enterprise resource planning. In addition, many industry-specific apps are now available to solve problems that custom mainframe solutions used to previously solve.
 
 You should consider starting by planning those workloads that you want to initially migrate, and then determine those requirements for moving associated applications, legacy codebases, and databases.
 
@@ -29,13 +29,13 @@ Azure cloud services can emulate traditional mainframe environments, enabling yo
 
 ### OLTP systems
 
-Many mainframes have OLTP systems that process thousands or millions of updates for huge numbers of users. These applications often use transaction processing and screen-form handling software, such as customer information control system (CICS), information management systes (IMS), and terminal interface processor (TIP). 
+Many mainframes have OLTP systems that process thousands or millions of updates for huge numbers of users. These applications often use transaction processing and screen-form handling software, such as customer information control system (CICS), information management systes (IMS), and terminal interface processor (TIP).
 
 When moving OLTP applications to Azure, emulators for mainframe transaction processing (TP) monitors are available to run as infrastructure as a service (IaaS) using virtual machines (VMs) on Azure. The screen handling and form functionality can also be implemented by web servers. This approach can be combined with database APIs, such as ActiveX data object (ADO), open database connectivity (ODBC), and Java database connectivity (JDBC) for data access and transactions.
 
 ### Time-constrained batch updates
 
-Many mainframe systems perform monthly or annual updates of millions of account records, such as those used in banking, insurance, and government. Mainframes handle these types of workloads by offering high-throughput data handling systems. Mainframes batch jobs are typically serial in nature and depend on the input/output operations per second (IOPS) provided by the mainframe backbone for performance. 
+Many mainframe systems perform monthly or annual updates of millions of account records, such as those used in banking, insurance, and government. Mainframes handle these types of workloads by offering high-throughput data handling systems. Mainframes batch jobs are typically serial in nature and depend on the input/output operations per second (IOPS) provided by the mainframe backbone for performance.
 
 Cloud-based batch environments use parallel compute and high-speed networks for performance. If you need to optimize batch performance, Azure provides various compute, storage, and networking options.
 
@@ -49,7 +49,7 @@ In addition to emulation environments, Azure provides platform as a service (Paa
 
 The lift-and-shift approach is the no code option for quickly migrating existing applications to Azure. Each application is migrated as is, which provides the benefits of the cloud without the risks or costs of making code changes. Using an emulator for mainframe transaction processing (TP) monitors on Azure supports this approach.
 
-TP monitors are available from various vendors and run on virtual machines, an infrastructure-as-a-service (IaaS) option on Azure. The following before and after diagrams show a migration of an online application backed by IBM Db2, a relational database management system (DBMS), on an IBM z/OS mainframe. Db2 for z/OS uses virtual storage access method (VSAM) files to store the data and Indexed Sequential Access Method (ISAM) for flat files. This architecture also uses CICS for transaction monitoring.
+TP monitors are available from various vendors and run on virtual machines, an infrastructure as a service (IaaS) option on Azure. The following before and after diagrams show a migration of an online application backed by IBM Db2, a relational database management system (DBMS), on an IBM z/OS mainframe. Db2 for z/OS uses virtual storage access method (VSAM) files to store the data and Indexed Sequential Access Method (ISAM) for flat files. This architecture also uses CICS for transaction monitoring.
 
 ![Lift-and-shift of a mainframe environment to Azure using emulation software](../../_images/mainframe-migration/mainframe-vs-azure.png)
 
@@ -57,9 +57,9 @@ On Azure, emulation environments are used to run the TP manager and the batch jo
 
 The screen handling and form entry functionality is commonly implemented using web servers, which can be combined with database APIs, such as ADO, ODBC, and JDBC for data access and transactions. The exact line-up of Azure IaaS components to use depends on the operating system you prefer. For example:
 
--   Windows–based VMs: Internet Information Server (IIS) along with ASP.NET for the screen handling and business logic. Use ADO.NET for data access and transactions.
+- Windows–based VMs: Internet Information Server (IIS) along with ASP.NET for the screen handling and business logic. Use ADO.NET for data access and transactions.
 
--   Linux–based VMs: The Java-based application servers that are available, such as Apache Tomcat for screen handling and Java-based business functionality. Use JDBC for data access and transactions.
+- Linux–based VMs: The Java-based application servers that are available, such as Apache Tomcat for screen handling and Java-based business functionality. Use JDBC for data access and transactions.
 
 ## Migrate batch workloads to Azure
 
@@ -71,31 +71,31 @@ To optimize batch performance using Azure, consider the [compute](https://docs.m
 
 Use:
 
--   VMs with the highest clock speed. Mainframe applications are often single-threaded and mainframe CPUs have a very high clock speed.
+- VMs with the highest clock speed. Mainframe applications are often single-threaded and mainframe CPUs have a very high clock speed.
 
--   VMs with large memory capacity to allow caching of data and application work areas.
+- VMs with large memory capacity to allow caching of data and application work areas.
 
--   VMs with higher density vCPUs to take advantage of multi-threaded processing if the application supports multiple threads.
+- VMs with higher density vCPUs to take advantage of multi-threaded processing if the application supports multiple threads.
 
--   Parallel processing, as Azure easily scales out for parallel processing, delivering more compute power for a batch run.
+- Parallel processing, as Azure easily scales out for parallel processing, delivering more compute power for a batch run.
 
 ### Storage
 
 Use:
 
--  [Azure Premium SSD](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) or [Azure Ultra SSD](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd) for maximum available IOPS.
+- [Azure Premium SSD](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) or [Azure Ultra SSD](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd) for maximum available IOPS.
 
--   Striping with multiple disks for more IOPS per storage size.
+- Striping with multiple disks for more IOPS per storage size.
 
--   Partitioning for storage to spread IO over multiple Azure storage devices.
+- Partitioning for storage to spread IO over multiple Azure storage devices.
 
 ### Networking
 
--   Use [Azure Accelerated Networking](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) to minimize latency.
+- Use [Azure Accelerated Networking](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) to minimize latency.
 
 ### Monitoring
 
--   Use monitoring tools, [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview), [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview), and even the Azure logs enable administrators to monitor any over performance of batch runs and help eliminate bottlenecks.
+- Use monitoring tools, [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview), [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview), and even the Azure logs enable administrators to monitor any over performance of batch runs and help eliminate bottlenecks.
 
 ## Migrate development environments
 
@@ -119,29 +119,29 @@ Application migration usually involves rehosting the data tier. You can migrate 
 
 For example, you can migrate if the mainframe data tier uses:
 
--   IBM Db2 or an IMS database, use Azure SQL database, SQL Server, Db2 LUW, or Oracle Database on Azure
+- IBM DB2 or an IMS database, use Azure SQL database, SQL Server, Db2 LUW, or Oracle Database on Azure
 
--   VSAM and other flat files, use Indexed Sequential Access Method (ISAM) flat files for Azure SQL, SQL Server, Db2 LUW, or Oracle
+- VSAM and other flat files, use Indexed Sequential Access Method (ISAM) flat files for Azure SQL, SQL Server, Db2 LUW, or Oracle
 
--   Generation Date Groups (GDGs), migrate to files on Azure that use a naming convention and filename extensions that provide similar functionality to GDGs.
+- Generation Date Groups (GDGs), migrate to files on Azure that use a naming convention and filename extensions that provide similar functionality to GDGs.
 
 The IBM data tier includes several key components that you must also migrate. For example, when you migrate a database, you also migrate a collection of data contained in pools, each containing dbextents, which are z/OS VSAM data sets. Your migration must include the directory that identifies data locations in the storage pools. Also, your migration plan must consider the database log, which contains a record of operations performed on the database. A database can have one, two (dual or alternate), or four (dual and alternate) logs.
 
 Database migration also includes these components:
 
--   Database manager: Provides access to data in the database. The database manager runs in its own partition in a z/OS environment.
+- Database manager: Provides access to data in the database. The database manager runs in its own partition in a z/OS environment.
 
--   Application requester: Accepts requests from applications before passing them to an application server.
+- Application requester: Accepts requests from applications before passing them to an application server.
 
--   Online resource adapter: Includes application requester components for use in CICS transactions.
+- Online resource adapter: Includes application requester components for use in CICS transactions.
 
--   Batch resource adapter: Implements application requester components for z/OS batch applications.
+- Batch resource adapter: Implements application requester components for z/OS batch applications.
 
--   Interactive SQL (ISQL): Runs as a CICS application and interface enabling users to enter SQL statements or operator commands.
+- Interactive SQL (ISQL): Runs as a CICS application and interface enabling users to enter SQL statements or operator commands.
 
--   CICS application: Runs under the control of CICS, utilizing available resources and data sources in CICS.
+- CICS application: Runs under the control of CICS, utilizing available resources and data sources in CICS.
 
--   Batch application: Runs process logic without interactive communication with users to, for example, produce bulk data updates or generate reports from a database.
+- Batch application: Runs process logic without interactive communication with users to, for example, produce bulk data updates or generate reports from a database.
 
 ## Optimize scale and throughput for Azure
 
@@ -177,10 +177,10 @@ For detailed guidance about choosing a partner solution, refer to the [Platform 
 
 For more information, see the following resources:
 
--   [Get started with Azure](https://docs.microsoft.com/azure/)
+- [Get started with Azure](https://docs.microsoft.com/azure/)
 
--   [Platform Modernization Alliance: Mainframe migration](https://www.platformmodernization.org/pages/mainframe.aspx)
+- [Platform Modernization Alliance: Mainframe migration](https://www.platformmodernization.org/pages/mainframe.aspx)
 
--   [Deploy IBM Db2 pureScale on Azure](https://azure.microsoft.com/resources/deploy-ibm-db2-purescale-on-azure)
+- [Deploy IBM DB2 pureScale on Azure](https://azure.microsoft.com/resources/deploy-ibm-db2-purescale-on-azure)
 
--   [Host Integration Server (HIS) documentation](https://docs.microsoft.com/host-integration-server/)
+- [Host Integration Server (HIS) documentation](https://docs.microsoft.com/host-integration-server/)
