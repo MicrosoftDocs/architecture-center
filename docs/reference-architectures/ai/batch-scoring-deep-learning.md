@@ -24,11 +24,12 @@ This reference architecture shows how to apply neural style transfer to a video,
 
 This reference architecture is designed for workloads that are triggered by the presence of new media in Azure storage.
 
-The above architecture works as follows:
+Processing involves the following steps:
+
 1. Upload a video file to storage.
-1. The video file will trigger Logic App to send a request to the AML pipeline published endpoint.
-1. The pipeline will then process the video, apply style transfer with MPI, and postprocess the video.
-1. The output will be saved back to blob storage once the pipeline is completed.
+1. The video file triggers a Logic App to send a request to the Azure Machine Learning pipeline published endpoint.
+1. The pipeline processes the video, applies style transfer with MPI, and postprocesses the video.
+1. The output is saved back to blob storage once the pipeline is completed.
 
 ## Architecture
 
@@ -46,7 +47,7 @@ This architecture consists of the following components.
 
 **[Azure Logic Apps][logic-apps]** is used to trigger the workflow. When the Logic App detects that a blob has been added to the container, it triggers the Azure Machine Learning Pipeline. Logic Apps is a good fit for this reference architecture because it's an easy way to detect changes to blob storage and provides an easy process for changing the trigger.
 
-### Preprocessing and Postprocessing our data
+### Preprocessing and postprocessing our data
 
 This reference architecture uses video footage of an orangutan in a tree. You can download the footage from [here][source-video].
 
@@ -70,7 +71,7 @@ When running a style transfer process as a batch job, the jobs that run primaril
 
 For this workload, these two options will have comparable performance. Using fewer VMs with more GPUs per VM can help to reduce data movement. However, the data volume per job for this workload is not very big, so you won't observe much throttling by blob storage.
 
-### MPI Step 
+### MPI step 
 
 When creating the pipeline in Azure Machine Learning, one of the steps used to perform parallel computation is the MPI step. The MPI step will help split the data evenly across the available nodes. The MPI step will not executed until all the requested nodes are ready. Should one node fail or get pre-empted (if it is a low-priority virtual machine), the MPI step will have to be re-run. 
 
@@ -88,7 +89,7 @@ This reference architecture uses style transfer as an example of a batch scoring
 
 ### Securing your computation in a virtual network
 
-When deploying your AML compute cluster, you can configure your cluster to be provisioned inside a subnet of a [virtual network][virtual-network]. This allows the compute nodes in the cluster to communicate securely with other virtual machines. 
+When deploying your Machine Learning compute cluster, you can configure your cluster to be provisioned inside a subnet of a [virtual network][virtual-network]. This allows the compute nodes in the cluster to communicate securely with other virtual machines. 
 
 ### Protecting against malicious activity
 
@@ -104,7 +105,7 @@ In scenarios where there are multiple users, make sure that sensitive data is pr
 
 While running your job, it's important to monitor the progress and make sure that things are working as expected. However, it can be a challenge to monitor across a cluster of active nodes.
 
-To get a sense of the overall state of the cluster, go to the AML blade of the Azure Portal to inspect the state of the nodes in the cluster. If a node is inactive or a job has failed, the error logs are saved to blob storage, and are also accessible in the Azure Portal.
+To get a sense of the overall state of the cluster, go to the Machine Learning blade of the Azure Portal to inspect the state of the nodes in the cluster. If a node is inactive or a job has failed, the error logs are saved to blob storage, and are also accessible in the Azure Portal.
 
 Monitoring can be further enriched by connecting logs to Application Insights or by running separate processes to poll for the state of the cluster and its jobs.
 
@@ -116,13 +117,13 @@ Azure Machine Learing will automatically log all stdout/stderr to the associate 
 
 Compared to the storage and scheduling components, the compute resources used in this reference architecture by far dominate in terms of costs. One of the main challenges is effectively parallelizing the work across a cluster of GPU-enabled machines.
 
-The AML Compute cluster size can automatically scale up and down depending on the jobs in the queue. You can enable auto-scale programmatically by setting the min and max nodes.
+The Machine Learning Compute cluster size can automatically scale up and down depending on the jobs in the queue. You can enable auto-scale programmatically by setting the minimum and maximum nodes.
 
 For work that doesn't require immediate processing, configure auto-scale so the default state (minimum) is a cluster of zero nodes. With this configuration, the cluster starts with zero nodes and only scales up when it detects jobs in the queue. If the batch scoring process only happens a few times a day or less, this setting enables significant cost savings.
 
 Auto-scaling may not be appropriate for batch jobs that happen too close to each other. The time that it takes for a cluster to spin up and spin down also incur a cost, so if a batch workload begins only a few minutes after the previous job ends, it might be more cost effective to keep the cluster running between jobs.
 
-AML Compute also supports low-priority virtual machines. This allows you to run your computation on discounted virtual machines with the caveat that they may be pre-empted at any time. Using low-priority virtual machines are ideal for non-critical batch scoring workloads.
+Machine Learning Compute also supports low-priority virtual machines. This allows you to run your computation on discounted virtual machines, with the caveat that they may be pre-empted at any time. Low-priority virtual machines are ideal for non-critical batch scoring workloads.
 
 ## Deploy the solution
 
