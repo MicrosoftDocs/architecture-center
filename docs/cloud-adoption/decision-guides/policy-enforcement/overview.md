@@ -42,13 +42,13 @@ As your cloud estate grows, additional tools such as [Azure Security Center](/az
 
 You can also apply configuration settings and resource creation rules at the subscription level to help ensure policy alignment.
 
-[Azure Policy](/azure/governance/policy/overview) is an Azure service for creating, assigning, and managing policies. These policies enforce different rules and effects over your resources, so those resources stay compliant with your corporate standards and service level agreements. Azure Policy evaluates your resources for non-compliance with assigned policies. For example, you might want to limit the SKU size of virtual machines in your environment. Once a corresponding policy is implemented, new and existing resources would be evaluated for compliance. With the right policy, existing resources can be brought into compliance.
+[Azure Policy](/azure/governance/policy/overview) is an Azure service for creating, assigning, and managing policies. These policies enforce different rules and effects over your resources, so those resources stay compliant with your corporate standards and service level agreements. Azure Policy evaluates your resources for noncompliance with assigned policies. For example, you might want to limit the SKU size of virtual machines in your environment. Once a corresponding policy is implemented, new and existing resources would be evaluated for compliance. With the right policy, existing resources can be brought into compliance.
 
 ## Cross-organization policy
 
 As your cloud estate grows to span many subscriptions that require enforcement, you will need to focus on a tenant-wide enforcement strategy to ensure policy consistency.
 
-Your [subscription design](../subscriptions/overview.md) will need to account for policy as it relates to your organizational structure. In addition to helping support complex organization within your subscription design, [Azure Management Groups](../subscriptions/overview.md#management-groups) can be used to assign Azure Policy rules across multiple subscriptions.
+Your [subscription design](../subscriptions/overview.md) will need to account for policy as it relates to your organizational structure. In addition to helping support complex organization within your subscription design, [Azure management groups](../subscriptions/overview.md#management-groups) can be used to assign Azure Policy rules across multiple subscriptions.
 
 ## Automated enforcement
 

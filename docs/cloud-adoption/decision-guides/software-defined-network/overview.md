@@ -21,15 +21,15 @@ Jump to: [PaaS Only](paas-only.md) | [Cloud native](cloud-native.md) | | [Cloud 
 
 SDN provides several options with varying degrees of pricing and complexity. The above discovery guide provides a reference to quickly personalize these options to best align with specific business and technology strategies.
 
-The inflection point in this guide depends on several key decisions that your Cloud Strategy team have made prior to making decisions about networking architecture. Most important among these are decisions involving your [Digital Estate definition](../../digital-estate/overview.md) and [Subscription Design](../subscriptions/overview.md) (which may also require inputs from decisions made related to your cloud accounting and global markets strategies).
+The inflection point in this guide depends on several key decisions that your Cloud Strategy team have made before making decisions about networking architecture. Most important among these are decisions involving your [Digital Estate definition](../../digital-estate/overview.md) and [Subscription Design](../subscriptions/overview.md) (which may also require inputs from decisions made related to your cloud accounting and global markets strategies).
 
-Small, single region deployments of less than 1,000 VMs are less likely to be significantly impacted by this inflection point. Conversely, large adoption efforts with more than 1,000 VMs, multiple business units, or multiple geo-politic markets, could be substantially impacted by your SDN decision and this key inflection point.
+Small, single region deployments of less than 1,000 VMs are less likely to be significantly affected by this inflection point. Conversely, large adoption efforts with more than 1,000 VMs, multiple business units, or multiple geo-politic markets, could be substantially affected by your SDN decision and this key inflection point.
 
 ## Choosing the right virtual networking architectures
 
 This section expands on the decision guide to help you choose the right virtual networking architectures.
 
-There are numerous ways to implement SDN technologies to create cloud-based virtual networks. How you structure the virtual networks used in your migration and how those networks interact with your existing IT infrastructure will depend on a combination of the workload requirements and your governance requirements.
+There are many ways to implement SDN technologies to create cloud-based virtual networks. How you structure the virtual networks used in your migration and how those networks interact with your existing IT infrastructure will depend on a combination of the workload requirements and your governance requirements.
 
 When planning which virtual networking architecture or combination of architectures to consider when planning your cloud migration, consider the following questions to help determine what's right for your organization:
 

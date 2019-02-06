@@ -31,7 +31,7 @@ When planning a cloud migration, the following table describes how you can store
 |---------------------------------------------------------------------------------------------------------------------------------------|--------------|--------|-------------|
 | Does your organization lack centralized key and secret management?                                                                    | Yes          | No     | No          |
 | Will you need to limit the creation of keys and secrets to devices to your on-premises hardware, while using these keys in the cloud? | No           | Yes    | No          |
-| Does your organization have rules or policies in place that would prevent keys and secrets from being stored off-site?                | No           | No     | Yes         |
+| Does your organization have rules or policies in place that would prevent keys and secrets from being stored offsite?                | No           | No     | Yes         |
 
 ### Cloud native
 
@@ -100,7 +100,7 @@ Your overall policy and compliance requirements, the sensitivity of the data bei
 
 ### Data in use
 
-Encryption for data in use involves securing data in non-persistent storage, such as RAM or CPU caches. Use of technologies such as full memory encryption, enclave technologies, such as Intel's Secure Guard Extensions (SGX). This also includes cryptographic techniques, such as homomorphic encryption that can be used to create secure, trusted execution environments.
+Encryption for data in use involves securing data in nonpersistent storage, such as RAM or CPU caches. Use of technologies such as full memory encryption, enclave technologies, such as Intel's Secure Guard Extensions (SGX). This also includes cryptographic techniques, such as homomorphic encryption that can be used to create secure, trusted execution environments.
 
 **Encrypting data in use assumptions**. Encrypting data in use assumes the following:
 

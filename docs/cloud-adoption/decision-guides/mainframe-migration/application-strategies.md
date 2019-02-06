@@ -41,7 +41,7 @@ Cloud-based batch environments use parallel compute and high-speed networks for 
 
 ### Data ingestion systems
 
-Mainframes ingest large batches of data from retail, financial services, manufacturing, and other solutions for processing. With Azure, you can use simple command-line utilities such as [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) for copying data to and from storage location. You can also use the [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) service, enabling you to ingest data from disparate data stores to create and schedule data-driven workflows.
+Mainframes ingest large batches of data from retail, financial services, manufacturing, and other solutions for processing. With Azure, you can use simple command-line utilities such as [AzCopy](/azure/storage/common/storage-use-azcopy) for copying data to and from storage location. You can also use the [Azure Data Factory](/azure/data-factory/introduction) service, enabling you to ingest data from disparate data stores to create and schedule data-driven workflows.
 
 In addition to emulation environments, Azure provides platform as a service (PaaS) and analytics services that can enhance existing mainframe environments.
 
@@ -49,11 +49,11 @@ In addition to emulation environments, Azure provides platform as a service (Paa
 
 The lift-and-shift approach is the no code option for quickly migrating existing applications to Azure. Each application is migrated as is, which provides the benefits of the cloud without the risks or costs of making code changes. Using an emulator for mainframe transaction processing (TP) monitors on Azure supports this approach.
 
-TP monitors are available from various vendors and run on virtual machines, an infrastructure as a service (IaaS) option on Azure. The following before and after diagrams show a migration of an online application backed by IBM Db2, a relational database management system (DBMS), on an IBM z/OS mainframe. Db2 for z/OS uses virtual storage access method (VSAM) files to store the data and Indexed Sequential Access Method (ISAM) for flat files. This architecture also uses CICS for transaction monitoring.
+TP monitors are available from various vendors and run on virtual machines, an infrastructure as a service (IaaS) option on Azure. The following before and after diagrams show a migration of an online application backed by IBM DB2, a relational database management system (DBMS), on an IBM z/OS mainframe. DB2 for z/OS uses virtual storage access method (VSAM) files to store the data and Indexed Sequential Access Method (ISAM) for flat files. This architecture also uses CICS for transaction monitoring.
 
 ![Lift-and-shift of a mainframe environment to Azure using emulation software](../../_images/mainframe-migration/mainframe-vs-azure.png)
 
-On Azure, emulation environments are used to run the TP manager and the batch jobs that use JCL. In the data tier, Db2 is replaced by [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview), although Microsoft SQL Server, Db2 LUW, or Oracle Database can also be used. An emulator supports IMS, VSAM, and SEQ. The mainframe’s system management tools are replaced by Azure services, and software from other vendors, that run in VMs.
+On Azure, emulation environments are used to run the TP manager and the batch jobs that use JCL. In the data tier, DB2 is replaced by [Azure SQL Database](/azure/sql-database/sql-database-technical-overview), although Microsoft SQL Server, DB2 LUW, or Oracle Database can also be used. An emulator supports IMS, VSAM, and SEQ. The mainframe’s system management tools are replaced by Azure services, and software from other vendors, that run in VMs.
 
 The screen handling and form entry functionality is commonly implemented using web servers, which can be combined with database APIs, such as ADO, ODBC, and JDBC for data access and transactions. The exact line-up of Azure IaaS components to use depends on the operating system you prefer. For example:
 
@@ -65,7 +65,7 @@ The screen handling and form entry functionality is commonly implemented using w
 
 Batch operations in Azure differ from the typical batch environment on mainframes. Mainframe batch jobs are typically serial in nature and depend on the IOPS provided by the mainframe backbone for performance. Cloud-based batch environments use parallel computing and high-speed networks for performance.
 
-To optimize batch performance using Azure, consider the [compute](https://docs.microsoft.com/azure/virtual-machines/windows/overview), [storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction), [networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/), and [monitoring](https://docs.microsoft.com/azure/azure-monitor/overview) options as follows.
+To optimize batch performance using Azure, consider the [compute](/azure/virtual-machines/windows/overview), [storage](/azure/storage/blobs/storage-blobs-introduction), [networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/), and [monitoring](/azure/azure-monitor/overview) options as follows.
 
 ### Compute
 
@@ -83,7 +83,7 @@ Use:
 
 Use:
 
-- [Azure Premium SSD](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage) or [Azure Ultra SSD](https://docs.microsoft.com/azure/virtual-machines/windows/disks-ultra-ssd) for maximum available IOPS.
+- [Azure Premium SSD](/azure/virtual-machines/windows/premium-storage) or [Azure Ultra SSD](/azure/virtual-machines/windows/disks-ultra-ssd) for maximum available IOPS.
 
 - Striping with multiple disks for more IOPS per storage size.
 
@@ -91,11 +91,11 @@ Use:
 
 ### Networking
 
-- Use [Azure Accelerated Networking](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-powershell) to minimize latency.
+- Use [Azure Accelerated Networking](/azure/virtual-network/create-vm-accelerated-networking-powershell) to minimize latency.
 
 ### Monitoring
 
-- Use monitoring tools, [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview), [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview), and even the Azure logs enable administrators to monitor any over performance of batch runs and help eliminate bottlenecks.
+- Use monitoring tools, [Azure Monitor](/azure/azure-monitor/overview), [Azure Application Insights](/azure/application-insights/app-insights-overview), and even the Azure logs enable administrators to monitor any over performance of batch runs and help eliminate bottlenecks.
 
 ## Migrate development environments
 
@@ -115,13 +115,13 @@ The cloud’s distributed architectures rely on a different set of development t
 
 ## Migrate databases and data
 
-Application migration usually involves rehosting the data tier. You can migrate SQL Server, open-source, and other relational databases to fully-managed solutions on Azure, such as [Azure SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance), [Azure Database Service for PostgreSQL](https://docs.microsoft.com/azure/postgresql/overview), and [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/overview) with [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview).
+Application migration usually involves rehosting the data tier. You can migrate SQL Server, open-source, and other relational databases to fully-managed solutions on Azure, such as [Azure SQL Database Managed Instance](/azure/sql-database/sql-database-managed-instance), [Azure Database Service for PostgreSQL](/azure/postgresql/overview), and [Azure Database for MySQL](/azure/mysql/overview) with [Azure Database Migration Service](/azure/dms/dms-overview).
 
 For example, you can migrate if the mainframe data tier uses:
 
-- IBM DB2 or an IMS database, use Azure SQL database, SQL Server, Db2 LUW, or Oracle Database on Azure
+- IBM DB2 or an IMS database, use Azure SQL database, SQL Server, DB2 LUW, or Oracle Database on Azure.
 
-- VSAM and other flat files, use Indexed Sequential Access Method (ISAM) flat files for Azure SQL, SQL Server, Db2 LUW, or Oracle
+- VSAM and other flat files, use Indexed Sequential Access Method (ISAM) flat files for Azure SQL, SQL Server, DB2 LUW, or Oracle.
 
 - Generation Date Groups (GDGs), migrate to files on Azure that use a naming convention and filename extensions that provide similar functionality to GDGs.
 
@@ -139,7 +139,7 @@ Database migration also includes these components:
 
 - Interactive SQL (ISQL): Runs as a CICS application and interface enabling users to enter SQL statements or operator commands.
 
-- CICS application: Runs under the control of CICS, utilizing available resources and data sources in CICS.
+- CICS application: Runs under the control of CICS, using available resources and data sources in CICS.
 
 - Batch application: Runs process logic without interactive communication with users to, for example, produce bulk data updates or generate reports from a database.
 
@@ -147,7 +147,7 @@ Database migration also includes these components:
 
 Generally speaking, mainframes scale up, while the cloud scales out. To optimize scale and throughput of mainframe-style applications running on Azure, it is important that you understand at how mainframes can separate and isolate applications. A z/OS mainframe uses a feature called Logical Partitions (LPARS) to isolate and manage the resources for a specific application on a single instance.
 
-For example, a mainframe might use one logical partition (LPAR) for a CICS region with associated COBOL programs, and a separate LPAR for Db2. Additional LPARs are often used for the development, testing, and staging environments.
+For example, a mainframe might use one logical partition (LPAR) for a CICS region with associated COBOL programs, and a separate LPAR for DB2. Additional LPARs are often used for the development, testing, and staging environments.
 
 On Azure, it’s more common to use separate VMs to serve this purpose. Azure architectures typically deploy VMs for the application tier, a separate set of VMs for the data tier, another set for development, and so on. Each tier of processing can be optimized using the most suitable type of VMs and  features for that environment.
 
@@ -163,7 +163,7 @@ Moving solutions from a mainframe to Azure may involve a *staged* migration, whe
 
 A common scenario is to move an application to Azure while keeping the data used by the application on the mainframe. Specific software is used to enable the applications on Azure to access data from the mainframe. Fortunately, a wide range of solutions provide integration between Azure and existing mainframe environments, support for hybrid scenarios, and migration over time. Microsoft partners, independent software vendors, and system integrators can help you on your journey.
 
-One option is [Microsoft Host Integration Server](https://docs.microsoft.com/host-integration-server/) (HIS), a solution that provides the distributed relational database architecture (DRDA) required for applications in Azure to access data in Db2 that remains on the mainframe. Other options for mainframe-to-Azure integration include solutions from IBM, Attunity, Codit, other vendors, and open source options.
+One option is [Microsoft Host Integration Server](https://docs.microsoft.com/host-integration-server/) (HIS), a solution that provides the distributed relational database architecture (DRDA) required for applications in Azure to access data in DB2 that remains on the mainframe. Other options for mainframe-to-Azure integration include solutions from IBM, Attunity, Codit, other vendors, and open source options.
 
 ## Partner solutions
 
@@ -177,7 +177,7 @@ For detailed guidance about choosing a partner solution, refer to the [Platform 
 
 For more information, see the following resources:
 
-- [Get started with Azure](https://docs.microsoft.com/azure/)
+- [Get started with Azure](/azure)
 
 - [Platform Modernization Alliance: Mainframe migration](https://www.platformmodernization.org/pages/mainframe.aspx)
 
