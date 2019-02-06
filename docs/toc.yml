@@ -650,9 +650,9 @@
           - name: What is a Cloud Policy Review?
             href: cloud-adoption/governance/policy-compliance/what-is-a-cloud-policy-review.md
           - name: How can a CISO prepare for the cloud?
-            href: cloud-adoption/governance/how-can-a-ciso-prepare-for-the-cloud.md
+            href: cloud-adoption/governance/policy-compliance/how-can-a-ciso-prepare-for-the-cloud.md
           - name: What is Data classification?
-            href: cloud-adoption/governance/what-is-data-classification.md
+            href: cloud-adoption/governance/policy-compliance/what-is-data-classification.md
       - name: Implementing the Five Disciplines of Cloud Governance
         items:
         - name: Cost Management
