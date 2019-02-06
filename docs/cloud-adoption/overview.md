@@ -24,9 +24,9 @@ Cloud Architect Specializations: Each section of Fusion represents a different s
 
 ## How to use Fusion
 
-If your enterprise is new to Azure, begin with the [overview](getting-started/overview.md) in the *getting started* section. This document includes prescriptive guidance for your enterprise's digital transformation, walking through each step of the process.
+If your enterprise is new to Azure, begin with the [overview](./getting-started/overview.md) in the *getting started* section. This document includes prescriptive guidance for your enterprise's digital transformation, walking through each step of the process.
 
-If your enterprise has experience in Azure and is seeking more in-depth guidance and best practices for specific areas, there are sections for [governance](governance/overview.md) and [Decision Guides](infrastructure/overview.md). Additional sections will be released over the next three to six months.
+If your enterprise has experience in Azure and is seeking more in-depth guidance and best practices for specific areas, there are sections for [governance](./governance/overview.md) and [Decision Guides](./decision-guides/overview.md). Additional sections will be released over the next three to six months.
 
 > [!div class="nextstepaction"]
-> [Get Started](getting-started/overview.md)
+> [Get Started](./getting-started/overview.md)

@@ -6,7 +6,7 @@ ms.date: 12/27/2018
 ---
 # Fusion: How To: Create hybrid cloud consistency
 
-The [Infrastructure section](../overview.md) of the [Fusion framework](../../overview.md) clarifies the components required to migrate your core infrastructure services to Azure. This section of the framework expands on this by specifically guiding you through the high level approaches for creating hybrid consistency.
+This article guides you through the high level approaches for creating hybrid cloud consistency.
 
 [Hybrid models](../../getting-started/cloud-deployment-models.md) during [migration](../../migration/overview.md) can reduce risk and contribute to a smooth infrastructure transition. Cloud platforms offer the greatest level of flexibility when it comes to business processes. Many organizations are hesitant to make the move to the cloud, preferring instead to keep full control over the most sensitive data. Unfortunately, on-premises servers don’t allow for the same rate of innovation as the cloud. A hybrid cloud solution allows you the best of both worlds: The speed of cloud innovation AND the comfort of on-premises management.
 
@@ -30,13 +30,6 @@ Examples of these components from an Azure perspective include:
 * Azure provides integrated management and security services for both cloud and on-premises infrastructure that include an integrated set of tools for monitoring, configuring, and protecting hybrid clouds. This end-to-end approach to management specifically addresses real-world challenges facing organizations considering a hybrid cloud solution.
 * Azure hybrid cloud provides common tools that ensure secure access to all data, seamlessly and efficiently. Azure data services combine with Microsoft SQL Server to create a consistent data platform. A consistent hybrid cloud model allows users to work with both operational and analytical data, providing the same services on-premises and in the cloud for data warehousing, data analysis, and data visualization.
 * Microsoft Azure cloud services, combined with Microsoft Azure Stack on-premises, provide unified development and DevOps. Consistency across the cloud and on-premises means that your DevOps team can build applications that run in either environment, and can easily deploy to the right location. You can reuse templates across the hybrid solution as well, which can further simplify DevOps processes.
-
-## Next steps
-
-Review the remaining components of [Infrastructure Guidance](../overview.md) to begin designing & building a hybrid cloud infrastructure.
-
-> [!div class="nextstepaction"]
-> [Infrastructure Guidance](../overview.md)
 
 ## Azure Stack in a hybrid cloud environment
 
@@ -63,7 +56,3 @@ You can speed up Azure Stack initiatives by leveraging the complete Azure ecosys
 * You can opt to have Azure Stack delivered and operated as a fully managed service. Several partners—including Tieto, Yourhosting, Revera, Pulsant, and NTT—will have managed service offerings across Azure and Azure Stack shortly. These partners have been delivering managed services for Azure via the Cloud Solution Provider (Cloud Providers) program and are now extending their offerings to include hybrid solutions.
 * As an example of a complete, fully managed hybrid cloud solution, Avanade is delivering an all-in-one offer that includes cloud transformation services, software, infrastructure, setup and configuration, and ongoing managed services so customers can consume Azure Stack just as they do with Azure today.
 * Systems Integrators (SI) can help accelerate application modernization initiatives by building end-to-end Azure solutions for customers. They bring in-depth Azure skill sets, domain and industry knowledge, and process expertise (e.g., DevOps). Every Azure Stack cloud is an opportunity for an SI to design the solution, lead and influence system deployment, customize the included capabilities, and deliver operational activities. This includes SIs like Avanade, DXC, Dell EMC Services, InFront Consulting Group, HPE Pointnext, and Pricewaterhouse Coopers (PwC).
-
-## Additional Next steps
-
-See more [guidance and examples](../overview.md) on how to use core infrastructure components in the Azure cloud.

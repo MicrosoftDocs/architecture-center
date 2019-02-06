@@ -119,4 +119,4 @@ See the following for more information about encryption and key management in th
 Learn how Software Defined Networks provide virtualized networking capabilities for cloud deployments.
 
 > [!div class="nextstepaction"]
-> [Which Software Defined Network pattern is best for my deployment?](../software-defined-networks/overview.md)
+> [Which Software Defined Network pattern is best for my deployment?](../software-defined-network/overview.md)
