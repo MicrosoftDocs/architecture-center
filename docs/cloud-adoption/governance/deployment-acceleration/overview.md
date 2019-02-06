@@ -32,7 +32,7 @@ The following six steps will help you define governance policies to control depl
 
 <!-- markdownlint-disable MD033 -->
 
-<ul  class="panelContent cardsE">
+<ul class="panelContent cardsE">
 <li style="display: flex; flex-direction: column;">
     <a href="./template.md">
         <div class="cardSize">
