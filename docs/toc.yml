@@ -790,7 +790,7 @@
     - name: Decision Guides
       items:
       - name: Overview
-        href: cloud-adoption/infrastructure/overview.md
+        href: cloud-adoption/decision-guides/overview.md
         items:
       - name: Subscriptions
         href: cloud-adoption/decision-guides/subscriptions/overview.md

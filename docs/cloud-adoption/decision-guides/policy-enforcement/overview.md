@@ -27,14 +27,14 @@ For example:
 
 - [Deployment templates](../resource-grouping/overview.md) can provision resources with standardized structure and configuration.
 - [Tagging and naming standards](../resource-tagging/overview.md) can help organize operations and support accounting and business requirements.
-- Traffic management and networking restrictions can be implemented through [software defined networking](../software-defined-networks/overview.md).
+- Traffic management and networking restrictions can be implemented through [software defined networking](../software-defined-network/overview.md).
 - [Role-based access control](../identity/overview.md) can secure and isolate your cloud resources.
 
 Start your cloud policy enforcement planning by examining how the application of the standard patterns discussed throughout these guides can help meet your organizational requirements.
 
 ## Policy compliance monitoring
 
-Another key factor, even for relatively small cloud deployments, is the ability to verify that cloud-based applications and services comply with organizational policy, promptly notifying the responsible parties if a resource becomes noncompliant. Effectively [logging and reporting](../logs-and-reporting/overview.md) the compliance status of your cloud workloads is a critical part of a corporate policy enforcement strategy.
+Another key factor, even for relatively small cloud deployments, is the ability to verify that cloud-based applications and services comply with organizational policy, promptly notifying the responsible parties if a resource becomes noncompliant. Effectively [logging and reporting](../log-and-report/overview.md) the compliance status of your cloud workloads is a critical part of a corporate policy enforcement strategy.
 
 As your cloud estate grows, additional tools such as [Azure Security Center](/azure/security-center/) can provide integrated security and threat detection, and help apply centralized policy management and alerting for both your on-premises and cloud assets.
 
