@@ -15,47 +15,50 @@ Defining organizational policy is not effective unless there is a way to enforce
 
 Jump to: [Cloud native](#cloud-native) | [Trust but verify](#trust-but-verify) | [Simple Enforcement](#simple-enforcement) | [Consistent enforcement across subscriptions](#consistent-enforcement-across-subscriptions) | [Third party log monitoring](#third-party-log-monitoring)
 
-As your cloud estate grows, you will be faced with a corresponding need to maintain and enforce policy across a larger array of resources, subscriptions, and tenants. The larger your estate, the more complex your enforcement mechanisms will need to be to ensure consistent adherence and fast violation detection. Platform provided policy enforcement mechanisms at the resource or subscription level are usually sufficient for smaller cloud deployments, while lager deployments may need to take advantage of more sophisticated mechanisms involving deployment standards, resource grouping and organization, and integrating policy enforcement with you logging and reporting systems.
+As your cloud estate grows, you will be faced with a corresponding need to maintain and enforce policy across a larger array of resources, subscriptions, and tenants. The larger your estate, the more complex your enforcement mechanisms will need to be to ensure consistent adherence and fast violation detection. Platform-provided policy enforcement mechanisms at the resource or subscription level are usually sufficient for smaller cloud deployments, while larger deployments may need to take advantage of more sophisticated mechanisms involving deployment standards, resource grouping and organization, and integrating policy enforcement with your logging and reporting systems.
 
-The key inflection point when choosing the complexity of your policy enforcement strategy is primarily focused on the number of subscriptions or tenants required by your [subscription design](../subscriptions/overview.md). The amount of control granted to various user rolls within your cloud estate might influence these decisions as well.
+The key inflection point when choosing the complexity of your policy enforcement strategy is primarily focused on the number of subscriptions or tenants required by your [subscription design](../subscriptions/overview.md). The amount of control granted to various user roles within your cloud estate might influence these decisions as well.
 
-### Cloud native
+## Baseline recommended practices
 
-For single subscription and simple cloud deployments, many corporate policies can be enforced using features that are native to most cloud platforms. Even at this relatively low level of deployment complexity, the proper use of components discussed throughout this guide's [infrastructure section](../overview.md).
+For single subscription and simple cloud deployments, many corporate policies can be enforced using features that are native to most cloud platforms. Even at this relatively low level of deployment complexity, the consistent use of the patterns discussed throughout the Fusion [decision guides](../overview.md) can help establish a baseline level of policy compliance.
 
-For instance, [deployment templates](../resource-grouping/overview.md#deployment-grouping-templated-deployments) can provision resources with standardized structure and configuration. [Tagging and naming](../resource-tagging/overview.md) standards can help organize operations and support accounting and business requirements. Traffic management and networking restrictions can be implemented through [software defined networking](../software-defined-networks/overview.md). [Role-base access control](../identity/overview.md) can secure and isolate your cloud resources.
+For example:
 
-Start your cloud policy enforcement planning by examining how these standard features and services can help meet your organizational requirements.
+- [Deployment templates](../resource-grouping/overview.md#deployment-grouping-templated-deployments) can provision resources with standardized structure and configuration.
+- [Tagging and naming standards](../resource-tagging/overview.md) can help organize operations and support accounting and business requirements.
+- Traffic management and networking restrictions can be implemented through [software defined networking](../software-defined-networks/overview.md).
+- [Role-based access control](../identity/overview.md) can secure and isolate your cloud resources.
 
-### Trust but verify
+Start your cloud policy enforcement planning by examining how the application of the standard patterns discussed throughout these guides can help meet your organizational requirements.
 
-Another key factor, even for relatively small cloud deployments, is the ability to verify that cloud-based applications and services are in compliance with organizational policy, and to promptly notify responsible parties if a resource falls out of compliance. Properly designing your [logging and reporting](../logs-and-reporting/overview.md) approach to monitor your cloud workloads for compliance is a critical part of any corporate policy enforcement strategy.
+## Policy compliance monitoring
+
+Another key factor, even for relatively small cloud deployments, is the ability to verify that cloud-based applications and services comply with organizational policy, promptly notifying the responsible parties if a resource becomes noncompliant. Effectively [logging and reporting](../logs-and-reporting/overview.md) the compliance status of your cloud workloads is a critical part of a corporate policy enforcement strategy.
 
 As your cloud estate grows, additional tools such as [Azure Security Center](/azure/security-center/) can provide integrated security and threat detection, and help apply centralized policy management and alerting for both your on-premises and cloud assets.
 
-### Simple enforcement
+## Policy enforcement
 
 You can also apply configuration settings and resource creation rules at the subscription level to help ensure policy alignment.
 
-[Azure Policy](/azure/governance/policy/overview) is a service that allows you to apply governance rules directly to subscriptions and resource groups. These rules help you control what types of resources you can deploy within a subscription or resource group, and how those resources can be used. For instance, you can create a rule to allow resources to only be deployed to a certain geo-region, or to require that all VMs must be connected to a specific subnet of a virtual network.
+[Azure Policy](/azure/governance/policy/overview) is an Azure service for creating, assigning, and managing policies. These policies enforce different rules and effects over your resources, so those resources stay compliant with your corporate standards and service level agreements. Azure Policy evaluates your resources for non-compliance with assigned policies. For example, you might want to limit the SKU size of virtual machines in your environment. Once a corresponding policy is implemented, new and existing resources would be evaluated for compliance. With the right policy, existing resources can be brought into compliance.
 
-### Consistent enforcement across subscriptions
+## Cross-organization policy
 
 As your cloud estate grows to span many subscriptions that require enforcement, you will need to focus on a tenant-wide enforcement strategy to ensure policy consistency.
 
-Your [subscription design](../subscriptions/overview.md) will need to account for policy as it relates to your organizational structure. In addition to helping support complex organization within your subscription design, [Management groups](../subscriptions/overview.md#management-groups) are capable of applying Azure Policy rules across multiple subscriptions.
+Your [subscription design](../subscriptions/overview.md) will need to account for policy as it relates to your organizational structure. In addition to helping support complex organization within your subscription design, [Azure Management Groups](../subscriptions/overview.md#management-groups) can be used to assign Azure Policy rules across multiple subscriptions.
 
-Similarly to using standardized deployment templates at the smaller scale, [Azure Blueprints](/azure/governance/blueprints/overview) allow large-scale standardized provisioning of Azure solutions. This enables the deployment of workloads across multiple subscriptions with consistent policy settings for any resources created.
+## Automated enforcement
 
-### Third party log monitoring
+While standardized deployment templates are effective at a smaller scale, [Azure Blueprints](/azure/governance/blueprints/overview) allows large-scale standardized provisioning and deployment orchestration of Azure solutions. Workloads across multiple subscriptions can be deployed with consistent policy settings for any resources created.
 
-For particularly complex IT environments integrating cloud and on-premises resources, you may need to make use of [logging and reporting](../logs-and-reporting/overview.md) systems with hybrid monitoring capabilities.
-
-You third party or other custom operational monitoring systems may offer additional policy enforcement capabilities. For complicated cloud estates, consider how best to integrate these systems with your cloud assets.
+For IT environments integrating cloud and on-premises resources, you may need use logging and reporting systems to provide hybrid monitoring capabilities. Your third-party or custom operational monitoring systems may offer additional policy enforcement capabilities. For complicated cloud estates, consider how best to integrate these systems with your cloud assets.
 
 ## Next steps
 
-Learn how [resource grouping](../resource-grouping/overview.md) is used to organize and standardize cloud deployments in support of subscription design and governance goals.
+Learn how resource grouping is used to organize and standardize cloud deployments in support of subscription design and governance goals.
 
 > [!div class="nextstepaction"]
-> [Resource Grouping](../resource-grouping/overview.md)
+> [Resource grouping](../resource-grouping/overview.md)

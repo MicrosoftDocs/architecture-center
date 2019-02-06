@@ -7,40 +7,34 @@ ms.date: 01/14/2019
 
 # Fusion: Architectural decision guides
 
-The [Actionable Governance Journeys](../governance/design-guides/overview.md) provided by the Fusion model's governance section provide highly opinionated guidance for establishing governance as part of your Fusion effort. The opinionated nature of this guidance means the assumptions made in the example journeys may not fully reflect the needs of your organization.
+Fusion’s architectural decision guides describe patterns and models that help when creating cloud governance design guidance. Each decision guide focuses on one core infrastructure component of cloud deployments and lists potential patterns or models intended to support specific cloud deployment scenarios.
 
-The decision guides section of Fusion supplements the governance section's example journeys by providing alternative patterns and models commonly used when crafting design guidance. Use this section to better align the decisions made in example design guidance with your own requirements.
+When you begin to establish cloud governance for your organization, Fusion’s actionable governance journeys provide a baseline roadmap. However, these journeys make assumptions about requirements and priorities that may not reflect those of your organization.
+These decision guides supplement the sample governance journeys by providing alternative patterns and models that help you align the architectural design choices made in the example design guidance with your own requirements.
 
 ## Design guidance categories
 
-Each of the following categories represents a key foundational technology underlying all cloud deployments, and are represented as an item within the example design guidance checklist. For each of the choices in the example design guides that do not match your requirements, examine the breakdown of the architecture options in the relevant section listed below to choose a pattern or model that better fits your needs.
+Each of the following categories represents a foundational technology of all cloud deployments. For each choice in the example design journeys that doesn’t match your requirements, examine the options in the relevant section below to choose a pattern or model better suited to your needs.
 
-[Subscriptions](subscriptions/overview.md):
-Plan your cloud deployment's subscription design and account structure to match your organization's ownership, billing, and management capabilities.
+[Subscriptions](subscriptions/overview.md): Plan your cloud deployment's subscription design and account structure to match your organization's ownership, billing, and management capabilities.
 
 [Identity](identity/overview.md): Integrate cloud-based identity services with your existing identity resources to support access control within your IT environment.
 
-[Policy Enforcement](policy-enforcement/overview.md):
-Define and enforce organizational policy rules for resources and workloads that you deploy to the cloud.
+[Policy Enforcement](policy-enforcement/overview.md): Define and enforce organizational policy rules for resources and workloads that you deploy to the cloud.
 
-[Resource Grouping](resource-grouping/overview.md):
-Ensure that deployment and organization of your organization's cloud-based resources align to enforce resource management and policy requirements.
+[Resource Grouping](resource-grouping/overview.md): Ensure that deployment and organization of your cloud-based resources align to enforce resource management and policy requirements.
 
-[Resource Tagging](resource-tagging/overview.md):
-Organize your cloud-based resources to support management, access control, and operational efficiency. Resource tagging requires a consistent and well-organized naming and metadata scheme.
+[Resource Tagging](resource-tagging/overview.md): Organize your cloud-based resources to support billing models, cloud accounting approaches, management, access control, and operational efficiency. Resource tagging requires a consistent and well-organized naming and metadata scheme.
 
-[Software Defined Networks](software-defined-networks/overview.md):
-Deploy secure workloads to the cloud using rapid deployment and modification of virtualized networking capabilities. Software defined networks (SDNs) support agile workflows, are capable of isolating resources, and can integrate cloud-based systems with your existing IT infrastructure.
+[Software Defined Networks](software-defined-networks/overview.md): Deploy secure workloads to the cloud using rapid deployment and modification of virtualized networking capabilities. Software-defined networks (SDNs) can support agile workflows, isolate resources, and integrate cloud-based systems with your existing IT infrastructure.
 
-[Encryption](encryption/overview.md):
-Secure your sensitive data using encryption, which is an important aspect of security within a cloud deployment.
+[Encryption](encryption/overview.md): Secure your sensitive data using encryption, an important aspect of security within a cloud deployment.
 
-[Logs and Reporting](logs-and-reporting/overview.md):
-Monitor log data generated by cloud-based resources. Analyzing data provides health-related insights into the operations, maintenance, and policy enforcement status of workloads.
+[Logs and Reporting](logs-and-reporting/overview.md): Monitor log data generated by cloud-based resources. Analyzing data provides health-related insights into the operations, maintenance, and policy enforcement status of workloads.
 
 ## Next steps
 
-Learn how [subscriptions and accounts](subscriptions/overview.md) serve as the base of a cloud deployment.
+Learn how subscriptions and accounts serve as the base of a cloud deployment.
 
 > [!div class="nextstepaction"]
-> [Subscriptions](subscriptions/overview.md)
+> [Subscriptions design](subscriptions/overview.md)
