@@ -39,7 +39,7 @@ Ensure that your security and IT teams have implemented automated monitoring sys
 
 Because security noncompliance can lead to critical and data exposure and service disruption risks, the Cloud Governance team should have visibility into serious policy violations. Ensure IT staff have clear escalation paths for reporting security issues to the governance team members best suited to identify and verify that policy issues are mitigated.  
 
-When violations are detected, you should take actions to realign with policy as soon as possible. Your IT team can automate most violation triggers using the tools outlined in the [Azure-Specific Toolchain](toolchain.md).
+When violations are detected, you should take actions to realign with policy as soon as possible. Your IT team can automate most violation triggers using the tools outlined in the [Security Baseline toolchain for Azure](toolchain.md).
 
 The following triggers and enforcement actions provide examples you can reference when planning how to use monitoring data to resolve policy violations:
 

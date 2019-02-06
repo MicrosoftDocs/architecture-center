@@ -100,4 +100,4 @@ Once the transformation is complete, governance and operations must live on for 
 Now that you understand the concept of cloud identity governance, examine the [Cost Management toolchain](toolchain.md) to identify Azure tools and features that you'll need when developing the Cost Management governance discipline on the Azure platform.
 
 > [!div class="nextstepaction"]
-> [Azure specific Cost Management toolchain](toolchain.md)
+> [Cost Management toolchain for Azure](toolchain.md)

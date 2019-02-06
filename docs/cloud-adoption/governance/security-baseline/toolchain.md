@@ -5,11 +5,13 @@ author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
+<!-- markdownlint-disable MD026 -->
+
 # Fusion: What tools can help better manage Security Baseline in Azure?
 
 In the [Intro to Cloud Governance](../overview.md), Security Baseline is one of the five disciplines to Cloud Governance. This discipline focuses on ways of establishing policies that protect the network, assets, and most importantly the data that will reside on a Cloud Provider's solution. Within the five disciplines of Cloud Governance, Security Baseline includes classification of the digital estate and data. It also includes documentation of risks, business tolerance, and mitigation strategies associated with the security of the data, assets, and network. From a technical perspective, this also includes involvement in decisions regarding [encryption](../../decision-guides/encryption/overview.md), [network requirements](../../decision-guides/software-defined-network/overview.md), [hybrid identity strategies](../../decision-guides/identity/overview.md), and tools to [automate enforcement](../../decision-guides/policy-enforcement/overview.md) of security policies across [resource groups](../../decision-guides/resource-grouping/overview.md).
 
-Unlike the cloud-agnostic position used throughout Fusion, this article is Azure specific. The following is a list of Azure native tools that can help mature the policies and processes that support Security Baseline.
+Unlike the cloud-agnostic position used throughout Fusion, this article is Azure-specific. The following is a list of Azure native tools that can help mature the policies and processes that support Security Baseline.
 
 |                                                            | [Azure Portal](https://azure.microsoft.com/features/azure-portal/) / [Resource Manager](/azure/azure-resource-manager/resource-group-overview)  | [Azure Key Vault](/azure/key-vault)  | [Azure AD](/azure/active-directory/fundamentals/active-directory-whatis) | [Azure Policy](/azure/governance/policy/overview) | [Azure Security Center](/azure/security-center/security-center-intro) | [Azure Monitor](/azure/azure-monitor/overview) |
 |------------------------------------------------------------|---------------------------------|-----------------|----------|--------------|-----------------------|---------------|

@@ -128,4 +128,4 @@ Once the transformation is complete, governance and operations must live on for 
 Now that you understand the concept of cloud identity governance, examine the [Identity Baseline toolchain](toolchain.md) to identify Azure tools and features that you'll need when developing the Identity Baseline governance discipline on the Azure platform.
 
 > [!div class="nextstepaction"]
-> [Azure specific Identity Baseline toolchain](toolchain.md)
+> [Identity Baseline toolchain for Azure](toolchain.md)

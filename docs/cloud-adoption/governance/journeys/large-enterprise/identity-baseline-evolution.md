@@ -78,7 +78,7 @@ Here are the new best practices:
 
 ## Conclusion
 
-Adding these changes to the governance MVP helps mitigate many of the risks in this article, allowing the cloud adoption team to quickly move past this roadblock.
+Adding these changes to the governance MVP helps mitigate many of the risks in this article, allowing each cloud adoption team to quickly move past this roadblock.
 
 ## Next steps
 

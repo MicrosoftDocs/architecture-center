@@ -65,7 +65,7 @@ This section of the article will evolve the governance MVP design to include new
 5. Add assets to Azure Monitor
     1. Azure Monitor was built as a hybrid cloud tool from the beginning.
     2. Virtual machines in the secondary cloud might be compatible with Azure Monitor agents, allowing them to be included in Azure Monitor for operational monitoring.
-6. Governance Enforcement tools
+6. Governance enforcement tools
     1. Governance enforcement is cloud-specific.
     2. The corporate policies established in the governance journey are not. While the implementation may vary from cloud to cloud, the policy statements can be applied to the secondary provider.
 

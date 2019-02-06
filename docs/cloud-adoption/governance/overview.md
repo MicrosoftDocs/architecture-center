@@ -13,7 +13,7 @@ For organizations with existing policies governing on-premises IT environments, 
 
 The guidance in this section of Fusion is designed for two purposes:
 
-* Provide actionable customer journeys which serve as a representation of common experiences customers may encounter. Each of these encapsulate business risks, corporate policies for risk mitigation, and design guidance to implement technical solutions. The design is Azure specific by necessity. All other guidance in these journeys could be applied in a cloud agnostic or multi-cloud approach.  
+* Provide actionable customer journeys which serve as a representation of common experiences customers may encounter. Each of these encapsulate business risks, corporate policies for risk mitigation, and design guidance to implement technical solutions. The design is Azure-specific by necessity. All other guidance in these journeys could be applied in a cloud agnostic or multi-cloud approach.  
 * Help readers create personalized governance solutions that can meet a variety of business needs, including the governance of multiple public clouds, through detailed guidance on the development of corporate policies, processes, and tooling.
 
 This content is intended for the Cloud Governance team. It is also relevant to cloud architects that need to develop a strong foundation in cloud governance.

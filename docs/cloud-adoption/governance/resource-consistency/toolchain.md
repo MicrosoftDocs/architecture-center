@@ -11,7 +11,7 @@ ms.date: 2/1/2019
 
 In the [Intro to Cloud Governance](../overview.md), Resource Consistency is one of the five disciplines to Cloud Governance. This discipline focuses on ways of establishing policies related to the operational management of an environment, application, or workload. Within the five disciplines of Cloud Governance, Resource Consistency includes monitoring of application, workload, and asset performance. It also includes the tasks required to meet scale demands, remediate performance SLA violations, and proactively avoid performance SLA violations through automated remediation.
 
-Unlike the cloud-agnostic position used throughout Fusion, this article is Azure specific. The following is a list of Azure native tools that can help mature the policies and processes that support this governance discipline.
+Unlike the cloud-agnostic position used throughout Fusion, this article is Azure-specific. The following is a list of Azure native tools that can help mature the policies and processes that support this governance discipline.
 
 |    | [Azure Portal](https://azure.microsoft.com/features/azure-portal/)  | [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)  | [Azure Blueprints](/azure/governance/blueprints/overview) | [Azure Automation](/azure/automation/automation-intro) | [Azure AD](/azure/active-directory/fundamentals/active-directory-whatis) |
 |---------|---------|---------|---------|---------|---------|

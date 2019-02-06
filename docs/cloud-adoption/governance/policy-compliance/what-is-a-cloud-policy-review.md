@@ -23,7 +23,7 @@ Cloud Transformations create a natural inflection point to reconsider the legacy
 - A hybrid solution could leverage Azure Site Recovery (ASR) to replicate an IaaS workload to multiple datacenters
 - A Cloud Design Principle (CDP) compliant solution could ... @Vic to populate a quick reference for resiliency
 
-The justification for a cloud policy review is often referred to as "pushing a mess up hill". When executing a cloud transformation, policies often govern many of the tools, services, and processes available to the cloud adoption team. If those policies are based on legacy technologies, they may hinder the team's efforts to drive change. In the worst case, important policies are entirely ignored by the migration team to enable workarounds. Neither is an acceptable outcome.
+The justification for a cloud policy review is often referred to as "pushing a mess uphill". When executing a cloud transformation, policies often govern many of the tools, services, and processes available to the cloud adoption teams. If those policies are based on legacy technologies, they may hinder the team's efforts to drive change. In the worst case, important policies are entirely ignored by the migration team to enable workarounds. Neither is an acceptable outcome.
 
 ## The cloud policy review process
 
@@ -38,9 +38,9 @@ For each of these disciplines, the review process follows these steps:
 
 ## Example of a policy review for a legacy policy
 
-To provide an example of the process, lets again leverage the tape backup policy in the prior section:
+To provide an example of the process, let's again use the tape backup policy in the prior section:
 
-- A corporate policy mandates off-site tape backups for all production systems. In this policy, you can see two data points of interest:
+- A corporate policy mandates offsite tape backups for all production systems. In this policy, you can see two data points of interest:
   - Legacy dependency on a tape backup solution
   - An assumed business risk associated with the storage of backups in the same physical location as the production equipment.
 - Does the risk still exist? Yes. Even in the cloud, a dependence on a single facility does create some risk. There is a lower probability of this risk affecting the business than was present in the on-premises solution, but the risk still exists.

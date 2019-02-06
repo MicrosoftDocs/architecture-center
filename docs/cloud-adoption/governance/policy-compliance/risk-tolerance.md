@@ -33,7 +33,7 @@ Identifying risk is a fairly direct process. Risks are pretty standard across in
 
 ## Simple Use Case for Comparison
 
-To help understand risk tolerance, lets examine customer data. If a company in any industry posts customer data on an unsecured server, the risk of that data being compromised or stolen is relatively the same. However, the nature of the data and the companies tolerance for that risk changes wildly.
+To help understand risk tolerance, let's examine customer data. If a company in any industry posts customer data on an unsecured server, the risk of that data being compromised or stolen is relatively the same. However, the nature of the data and the companies tolerance for that risk changes wildly.
 
 * Companies in healthcare and finance in the United States, are governed by rigid, third-party compliance requirements. It is assumed that personally identifiable information (PII) or healthcare-related data is extremely confidential. There are severe consequences for these types of companies, if they are involved in the risks scenario above. Their tolerance will be extremely low. Any customer data published inside or outside of the network will need to be governed by those third-party compliance policies.
 * A gaming company whose customer data is limited to a user name, play times, and high scores, is not as likely to suffer any significant consequences, if they engage in the risky behavior above. Will any unsecured data is at risk, the impact of that risk is small. Therefore the tolerance for risk in this case is high.

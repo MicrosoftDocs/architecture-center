@@ -11,7 +11,7 @@ ms.date: 2/1/2019
 
 In the [Intro to Cloud Governance](../overview.md), [Identity Baseline](overview.md) is one of the five disciplines to Cloud Governance. This discipline focuses on ways of establishing policies that ensure consistency and continuity of user identities regardless of the cloud provider that hosts the application or workload.
 
-Unlike the cloud-agnostic position used throughout Fusion, this article is Azure specific. The following tools are included in the discovery guide on Hybrid Identity.
+Unlike the cloud-agnostic position used throughout Fusion, this article is Azure-specific. The following tools are included in the discovery guide on Hybrid Identity.
 
 **Active Directory (on-premises):** Active Directory is the identity provider most frequently used in the enterprise to store and validate user credentials.
 
