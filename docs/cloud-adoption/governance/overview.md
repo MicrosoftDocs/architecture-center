@@ -30,11 +30,11 @@ The Cloud Architect serves as the thought leader and facilitator to bring these 
 
 For readers who wish to leverage this guide from beginning to end, this content will aid in developing a robust cloud governance strategy in parallel to cloud implementation. The guidance walks the reader through the theory and implementation of such a strategy.
 
-For a crash course on the theory and quick access to Azure implementation, get started with the [Overview of Actionable Governance Journeys](./design-guides/overview.md). Through this guidance, the reader can start small and evolve their governance needs in parallel with cloud adoption efforts.
+For a crash course on the theory and quick access to Azure implementation, get started with the [Overview of Actionable Governance Journeys](./journeys/overview.md). Through this guidance, the reader can start small and evolve their governance needs in parallel with cloud adoption efforts.
 
 ## Next steps
 
 Review the Actionable Governance Journeys
 
 > [!div class="nextstepaction"]
-> [Actionable Governance Journeys](./design-guides/overview.md)
+> [Actionable Governance Journeys](./journeys/overview.md)

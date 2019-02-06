@@ -586,47 +586,47 @@
     - name: Actionable governance journeys
       items:
       - name: Overview of the journeys
-        href: cloud-adoption/governance/design-guides/overview.md
+        href: cloud-adoption/governance/journeys/overview.md
       - name: Small-to-medium enterprise journey
         items:
         - name: Best practice
-          href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/overview.md
+          href: cloud-adoption/governance/journeys/small-to-medium-enterprise/overview.md
         - name: Narrative
-          href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/narrative.md
+          href: cloud-adoption/governance/journeys/small-to-medium-enterprise/narrative.md
         - name: Initial corporate policy
-          href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/initial-corporate-policy.md
+          href: cloud-adoption/governance/journeys/small-to-medium-enterprise/initial-corporate-policy.md
         - name: Best practice explained
-          href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/best-practice-explained.md
+          href: cloud-adoption/governance/journeys/small-to-medium-enterprise/best-practice-explained.md
         - name: Security baseline evolution
-          href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/security-baseline-evolution.md
+          href: cloud-adoption/governance/journeys/small-to-medium-enterprise/security-baseline-evolution.md
         - name: Resource consistency evolution
-          href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/resource-consistency-evolution.md
+          href: cloud-adoption/governance/journeys/small-to-medium-enterprise/resource-consistency-evolution.md
         - name: Cost management evolution
-          href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/cost-management-evolution.md
+          href: cloud-adoption/governance/journeys/small-to-medium-enterprise/cost-management-evolution.md
         - name: Multi-cloud evolution
-          href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/multi-cloud-evolution.md
+          href: cloud-adoption/governance/journeys/small-to-medium-enterprise/multi-cloud-evolution.md
       - name: Large enterprise journey
         items:
         - name: Best Practice
-          href: cloud-adoption/governance/design-guides/large-enterprise/overview.md
+          href: cloud-adoption/governance/journeys/large-enterprise/overview.md
         - name: Narrative
-          href: cloud-adoption/governance/design-guides/large-enterprise/narrative.md
+          href: cloud-adoption/governance/journeys/large-enterprise/narrative.md
         - name: Initial corporate policy
-          href: cloud-adoption/governance/design-guides/large-enterprise/initial-corporate-policy.md
+          href: cloud-adoption/governance/journeys/large-enterprise/initial-corporate-policy.md
         - name: Best practice explained
-          href: cloud-adoption/governance/design-guides/large-enterprise/best-practice-explained.md
+          href: cloud-adoption/governance/journeys/large-enterprise/best-practice-explained.md
         - name: Identity baseline evolution
-          href: cloud-adoption/governance/design-guides/large-enterprise/identity-baseline-evolution.md
+          href: cloud-adoption/governance/journeys/large-enterprise/identity-baseline-evolution.md
         - name: Security baseline evolution
-          href: cloud-adoption/governance/design-guides/large-enterprise/security-baseline-evolution.md
+          href: cloud-adoption/governance/journeys/large-enterprise/security-baseline-evolution.md
         - name: Resource consistency evolution
-          href: cloud-adoption/governance/design-guides/large-enterprise/resource-consistency-evolution.md
+          href: cloud-adoption/governance/journeys/large-enterprise/resource-consistency-evolution.md
         - name: Cost management evolution
-          href: cloud-adoption/governance/design-guides/large-enterprise/cost-management-evolution.md
+          href: cloud-adoption/governance/journeys/large-enterprise/cost-management-evolution.md
         - name: Multi-cloud evolution
-          href: cloud-adoption/governance/design-guides/large-enterprise/multi-cloud-evolution.md
+          href: cloud-adoption/governance/journeys/large-enterprise/multi-cloud-evolution.md
         - name: Multiple layers of governance
-          href: cloud-adoption/governance/design-guides/large-enterprise/multiple-layers-of-governance.md
+          href: cloud-adoption/governance/journeys/large-enterprise/multiple-layers-of-governance.md
     - name: Governance Theory
       items:
       - name: Defining Corporate Policy & Compliance

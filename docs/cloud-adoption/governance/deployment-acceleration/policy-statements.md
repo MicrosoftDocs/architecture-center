@@ -48,7 +48,7 @@ Use the samples mentioned in this article as a starting point to develop policie
 
 To begin developing your own custom policy statements related to identity management, download the [Identity Baseline template](template.md).
 
-To accelerate adoption of this discipline, see the list of [Azure Design Guides](../design-guides/overview.md). Find one that most closely aligns with your environment. Then modify the design to incorporate your specific corporate policy decisions.
+To accelerate adoption of this discipline, see the list of [Azure Design Guides](../journeys/overview.md). Find one that most closely aligns with your environment. Then modify the design to incorporate your specific corporate policy decisions.
 
 > [!div class="nextstepaction"]
-> [Implement an Azure Design Guide](../design-guides/overview.md)
+> [Implement an Azure Design Guide](../journeys/overview.md)

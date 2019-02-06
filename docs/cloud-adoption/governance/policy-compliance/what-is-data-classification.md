@@ -43,9 +43,9 @@ Every cloud provider should offer a mechanism for recording metadata about any a
 
 ## Next steps
 
-Apply data classifications during one of the [Actionable Governance Journeys](./design-guides/overview.md).
+Apply data classifications during one of the actionable governance journeys.
 
 > [!div class="nextstepaction"]
-> [Begin an Actionable Governance Journeys](./design-guides/overview.md)
+> [Begin an Actionable Governance Journeys](../journeys/overview.md)
 
 <!-- markdownlint-enable MD026 -->
