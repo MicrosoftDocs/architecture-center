@@ -3,6 +3,8 @@ title: "Fusion: How can a company add Deployment Acceleration discipline to thei
 description: Explanation of the concept Deployment Acceleration in relation to cloud governance
 author: BrianBlanchard
 ms.date: 2/1/2019
+layout: LandingPage
+ms.topic: landing-page
 ---
 
 <!-- markdownlint-disable MD026 -->
