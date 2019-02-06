@@ -27,11 +27,7 @@ While cloud design guides should take into account some of the technical details
 
 ## Sample cloud design guides
 
-<<<<<<< HEAD
 If you're planning to use the Azure platform for your cloud adoption, the CAF provides several [sample design guides](../journeys/overview.md) covering a range of common adoption scenarios. In addition to the design guide itself, each sample gives the use case, business risks, tolerance requirements, and policy statements that went into creating the example design guide. These examples represent a synthesis of real-world customer experience of the cloud adoption process in Azure.
-=======
-If you're planning to use the Azure platform for your cloud adoption, the Fusion guidance provides [actionable customer journeys](../journeys/overview.md) covering common adoption scenarios. These iterative customer journeys demonstrate best practices that were applied to mitigate specific risks associated with cloud adoption. In addition to those best practices, each journey outlines the use case, business risks, tolerance requirements, and policy statements that went into creating the example design guide. These examples represent a synthesis of real-world customer experience of the cloud adoption process in Azure.
->>>>>>> 1415fba528a5a967e42e4b99f4d61bdd7f4944c8
 
 While every cloud adoption has unique goals, priorities, and challenges, these samples should provide a good template for converting your policy into guidance. Pick the closest scenario to your situation as a starting point, and mold it to fit your specific policy needs.
 
