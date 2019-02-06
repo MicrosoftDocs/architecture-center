@@ -42,11 +42,11 @@ The following sample policy statements address a number of common cost-related b
 - In Azure, planned versus actual spending can be managed via [Azure Cost Management](/azure/cost-management/quick-acm-cost-analysis)
 - There are several options for grouping resources by billing unit. In Azure, a [resource grouping model](../../decision-guides/resource-grouping/overview.md) should be chosen in conjunction with the governance team and applied to all assets.
 
-## Over provisioned assets
+## Overprovisioned assets
 
 **Business risk:** In traditional on-premises datacenters, it is common practice to deploy assets with extra capacity planning for growth in the distant future. The cloud can scale more quickly than traditional equipment. Assets in the cloud are also priced based on the technical capacity. There is a risk of the old on-premises practice artificially inflating cloud spending.
 
-**Policy statement:** Any asset deployed to the cloud must be enrolled in a program that can monitor utilization and report any capacity in excess of 50% of utilization. Any asset deployed to the cloud must be grouped or tagged in a logical manner, so governance team members can engage the workload owner regarding any optimization of over provisioned assets.
+**Policy statement:** Any asset deployed to the cloud must be enrolled in a program that can monitor utilization and report any capacity in excess of 50% of utilization. Any asset deployed to the cloud must be grouped or tagged in a logical manner, so governance team members can engage the workload owner regarding any optimization of overprovisioned assets.
 
 **Design options:**
 

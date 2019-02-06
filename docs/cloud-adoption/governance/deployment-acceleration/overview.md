@@ -11,7 +11,7 @@ ms.date: 2/1/2019
 
 In the [Intro to Cloud Governance](../overview.md), Deployment Acceleration is defined as one of the five disciplines of Cloud Governance. This discipline focuses on ways of establishing policies to govern asset configuration or deployment. Within the five disciplines of Cloud Governance, configuration governance includes deployment, configuration alignment, and high availability/disaster recovery (HA/DR) strategies. This could be through manual activities or fully automated DevOps activities. In either case, the policies would remain largely the same.
 
-This article outlines the Deployment Acceleration process that a company experiences during the planning, building, adopting, and operating phases of implementing a cloud solution. It's impossible for any one document to account for all of the requirements of any business. As such, each section of this article outlines suggested minimum and potential activities. The objective of these activities is to help you build a [Policy MVP](../policy-compliance/overview.md#policy-minimally-viable-product-mvp), but establish a framework for [Incremental Policy](../policy-compliance/overview.md#incremental-policy-growth) evolution. The Cloud Governance Team should decide how much to invest in these activities to improve the Deployment Acceleration position.
+This article outlines the Deployment Acceleration process that a company experiences during the planning, building, adopting, and operating phases of implementing a cloud solution. It's impossible for any one document to account for all of the requirements of any business. As such, each section of this article outlines suggested minimum and potential activities. The objective of these activities is to help you build a [Policy MVP](../policy-compliance/overview.md#policy-minimally-viable-product-mvp), but establish a framework for [Incremental Policy](../policy-compliance/overview.md#incremental-policy-growth) evolution. The Cloud Governance team should decide how much to invest in these activities to improve the Deployment Acceleration position.
 
 > [!CAUTION]
 > Neither the minimum or potential activities outlined in this article are aligned to specific corporate policies or third party compliance requirements. This guidance is designed to help facilitate the conversations that will lead to alignment of both requirements with a Cloud Governance Model.
@@ -26,7 +26,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 **Minimum suggested activities:**
 
-* Evaluate your [Deployment Acceleration Tool Chain](toolchain.md) options.
+* Evaluate your [Deployment Acceleration toolchain(toolchain.md) options.
 * Develop a draft Architecture Guidelines document and distribute to key stakeholders.
 * Educate and involve the people and teams affected by the development of Architecture Guidelines.
 
@@ -45,7 +45,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 **Minimum suggested activities:**
 
-* Implement your [Deployment Acceleration Tool Chain](toolchain.md) out in a pre-deployment phase.
+* Implement your [Deployment Acceleration toolchain(toolchain.md) out in a pre-deployment phase.
 * Update the Architecture Guidelines document and distribute to key stakeholders.
 * Develop educational materials and documentation, awareness communications, incentives, and other programs to help drive user adoption.
 
@@ -64,7 +64,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 **Minimum suggested activities:**
 
-* Migrate your [Deployment Acceleration Tool Chain](toolchain.md) from pre-deployment to production.
+* Migrate your [Deployment Acceleration toolchain(toolchain.md) from pre-deployment to production.
 * Update the Architecture Guidelines document and distribute to key stakeholders.
 * Develop educational materials and documentation, awareness communications, incentives, and other programs to help drive user adoption.
 
@@ -85,7 +85,7 @@ Once the transformation is complete, governance and operations must live on for 
 
 **Minimum suggested activities:**
 
-* Customize your [Deployment Acceleration Tool Chain](toolchain.md).
+* Customize your [Deployment Acceleration toolchain(toolchain.md).
 * Automate notifications and reports to alert you of potential configuration issues.
 * Refine Architecture Guidelines to guide future adoption processes.
 * Communicate and continually educate the affected teams on a periodic basis to ensure ongoing adherence to Architecture Guidelines.

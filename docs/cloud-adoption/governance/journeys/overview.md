@@ -13,11 +13,11 @@ The governance journeys in this section illustrate the application of the Fusion
 
 ## Review and adopt cloud governance best practices
 
-To start down an adoption path, choose one of the following journeys. Each journey outlines a series of best practices, based on a set of fictional customer experiences. For readers who are new to Fusion's Incremental Governance Model, it is advised that you review the high level governance theory introduction below, before adopting either best practice.
+To start down an adoption path, choose one of the following journeys. Each journey outlines a series of best practices, based on a set of fictional customer experiences. For readers who are new to Fusion's incremental approach to cloud governance, it is advised that you review the high level governance theory introduction below, before adopting either best practice.
 
 <!-- markdownlint-disable MD033 -->
 
-<ul  class="panelContent cardsZ">
+<ul class="panelContent cardsZ">
 <li style="display: flex; flex-direction: column;">
     <a href="./small-to-medium-enterprise/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -50,7 +50,7 @@ To start down an adoption path, choose one of the following journeys. Each journ
 
 <!-- markdownlint-enable MD033 -->
 
-## Incremental cloud governance model
+## An incremental approach to cloud governance
 
 Adopting the cloud is a journey, not a destination. Along the way, there are clear milestones and tangible business benefits. However, the final state of cloud adoption is usually unknown when a company begins the journey. Cloud governance creates guardrails that keep the company on a safe path throughout the journey.
 
@@ -93,7 +93,7 @@ The following diagram shows a simple governance MVP and three governance evoluti
 ![Example of Incremental Governance evolutions](../../_images/governance/incremental-governance-example.png)
 
 > [!NOTE]
-> Governance is not a replacement for key functions such as security, networking, identity, finance, DevOps, or operations. Along the way, there will be interactions with and dependencies on members from each function. Those members should be included on the Cloud Governance Team to accelerate decisions and actions.
+> Governance is not a replacement for key functions such as security, networking, identity, finance, DevOps, or operations. Along the way, there will be interactions with and dependencies on members from each function. Those members should be included on the Cloud Governance team to accelerate decisions and actions.
 
 ## Choosing a governance journey
 

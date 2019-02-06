@@ -5,11 +5,13 @@ author: alexbuckgit
 ms.date: 01/17/2019
 ---
 
+<!-- markdownlint-disable MD026 -->
+
 # Fusion: How can a company add Deployment Acceleration to their Cloud Governance execution?
 
 The Deployment Acceleration discipline focuses on establishing policies that ensure that resources are deployed and configured consistently and repeatably, and remain in compliance throughout their lifecycle. Within the Five Disciplines of Cloud Governance, Deployment Acceleration includes decisions regarding automating deployments, source-controlling deployment artifacts, monitoring deployed resources to maintain desired state, and auditing any compliance issues.
 
-This article outlines some potential tasks your company can engage in to better develop and mature the Deployment Acceleration discipline. These tasks can be broken down into planning, building, adopting, and operating phases of implementing a cloud solution, which are then iterated on allowing the development of an [incremental governance model](../journeys/overview.md#incremental-cloud-governance-model).
+This article outlines some potential tasks your company can engage in to better develop and mature the Deployment Acceleration discipline. These tasks can be broken down into planning, building, adopting, and operating phases of implementing a cloud solution, which are then iterated on allowing the development of an [incremental approach to cloud governance](../journeys/overview.md#an-incremental-approach-to-cloud-governance).
 
 ![Four phases of adoption](../../_images/adoption-phases.png)
 
@@ -26,7 +28,7 @@ This phase of governance maturity bridges the divide between business outcomes a
 
 **Minimum suggested activities:**
 
-- Evaluate your [Deployment Acceleration tool chain](toolchain.md) options and implement a hybrid strategy that is appropriate to your organization.
+- Evaluate your [Deployment Acceleration toolchain](toolchain.md) options and implement a hybrid strategy that is appropriate to your organization.
 - Develop a draft Architecture Guidelines document and distribute to key stakeholders.
 - Educate and involve the people and teams affected by the development of Architecture Guidelines.
 - Train development teams and IT staff to understand DevSecOps principles and strategies and the importance of fully automated deployments in the Deployment Acceleration Discpline.
@@ -41,7 +43,7 @@ This phase of governance maturity bridges the divide between business outcomes a
 
 - For new cloud-based applications, introduce fully automated deployments early in the development process. This investment will improve the reliability of your testing processes and ensure consistency across your development, QA, and production environments.
 - Store all deployment artifacts such as deployment templates or configuration scripts using a source-control platform such as GitHub or Azure DevOps.
-- Consider a pilot test before implementing your [Deployment Acceleration tool chain](toolchain.md), making sure it streamlines your deployments as much as possible. Apply feedback from pilot tests during the pre-deployment phase, repeating as needed.
+- Consider a pilot test before implementing your [Deployment Acceleration toolchain](toolchain.md), making sure it streamlines your deployments as much as possible. Apply feedback from pilot tests during the pre-deployment phase, repeating as needed.
 - Evaluate the logical and physial architecture of your applications, and identify opportunities to automate the deployment of application resources or improve portions of the architecture using other cloud-based resources.
 - Update the Architecture Guidelines document to include deployment and user adoption plans, and distribute to key stakeholders.
 - Continue to educate the people and teams most affected by the architecture guidelines.
@@ -56,7 +58,7 @@ Migration is an incremental process that focuses on the movement, testing, and a
 
 **Minimum suggested activities:**
 
-- Migrate your [Deployment Acceleration tool chain](toolchain.md) from development to production.
+- Migrate your [Deployment Acceleration toolchain](toolchain.md) from development to production.
 - Update the Architecture Guidelines document and distribute to key stakeholders.
 - Develop educational materials and documentation, awareness communications, incentives, and other programs to help drive developer and IT adoption.
 
@@ -71,7 +73,7 @@ Once the transformation is complete, governance and operations must live on for 
 
 **Minimum suggested activities:**
 
-- Customize your [Deployment Acceleration tool chain](toolchain.md) based on changes to your organization’s changing identity needs.
+- Customize your [Deployment Acceleration toolchain](toolchain.md) based on changes to your organization’s changing identity needs.
 - Automate notifications and reports to alert you of potential configuration issues or malicious threats.
 - Monitor and report on application and resource usage.
 - Report on post-deployment metrics and distribute to stakeholders.
@@ -86,7 +88,7 @@ Once the transformation is complete, governance and operations must live on for 
 
 ## Next steps
 
-Now that you understand the concept of cloud identity governance, examine the [Identity Baseline tool chain](toolchain.md) to identify Azure tools and features that you'll need when developing the Identity Baseline governance discipline on the Azure platform.
+Now that you understand the concept of cloud identity governance, examine the [Identity Baseline toolchain](toolchain.md) to identify Azure tools and features that you'll need when developing the Identity Baseline governance discipline on the Azure platform.
 
 > [!div class="nextstepaction"]
-> [Azure specific Identity Baseline tool chain](toolchain.md)
+> [Azure specific Identity Baseline toolchain](toolchain.md)

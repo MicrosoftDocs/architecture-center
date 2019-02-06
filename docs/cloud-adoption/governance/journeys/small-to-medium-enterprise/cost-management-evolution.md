@@ -38,7 +38,7 @@ This business risk can be expanded into a few technical risks:
 
 - Actual costs might exceed the plan.
 - Business conditions change. When they do, there will be cases when a business function needs to consume more cloud services than expected. There is a risk that this extra spending will be considered overages, as opposed to a necessary adjustment to the plan.
-- Systems could be over-provisioned, resulting in excess spending.
+- Systems could be overprovisioned, resulting in excess spending.
 
 ## Evolution of the policy statements
 
@@ -56,7 +56,7 @@ The following changes to policy will help mitigate the new risks and guide imple
 This section of the article will evolve the governance MVP design to include new Azure Policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
 
 1. Implement Azure Cost Management
-    1. Establish the right level of access scope to align with the subscription pattern and Resource Consistency pattern. Assuming alignment with the governance MVP defined in prior articles, this requires **Enrollment Account Scope** access for the Cloud Governance Team executing on high level reporting. Additional teams outside of governance may require **Resource Group Scope** access.
+    1. Establish the right scope of access to align with the subscription pattern and the Resource Consistency discipline. Assuming alignment with the governance MVP defined in prior articles, this requires **Enrollment Account Scope** access for the Cloud Governance team executing on high level reporting. Additional teams outside of governance may require **Resource Group Scope** access.
     2. Establish a budget in Azure Cost Management.
     3. Review and act on initial recommendations. Have a recurring process to support reporting.
     4. Configure and execute Azure Cost Management Reporting, both initial and recurring.

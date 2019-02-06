@@ -30,7 +30,7 @@ The following sample policy statements address a number of common Resource Consi
 
 **Technical risk**: Arbitrary creation of subscriptions and management groups can lead to isolated sections of your cloud estate that are not properly subject to your governance policies.
 
-**Policy statement**: Creation of new subscriptions or management groups for any mission-critical applications or protected data will require a review from the Cloud Governance Team. Approved changes will be integrated into a proper blueprint assignment.
+**Policy statement**: Creation of new subscriptions or management groups for any mission-critical applications or protected data will require a review from the Cloud Governance team. Approved changes will be integrated into a proper blueprint assignment.
 
 **Potential design options**: Lock down administrative access to your organizations [Azure management groups](/azure/governance/management-groups/) to only approved governance team members who will control the subscription creation and access control process.
 
@@ -48,8 +48,8 @@ The following sample policy statements address a number of common Resource Consi
 
 **Policy statement**: The following policies will be implemented:
 
-- Deployment tooling must be approved by the Cloud Governance Team to ensure ongoing governance of deployed assets.
-- Deployment scripts must be maintained in central repository accessible by the Cloud Governance Team for periodic review and auditing.
+- Deployment tooling must be approved by the Cloud Governance team to ensure ongoing governance of deployed assets.
+- Deployment scripts must be maintained in central repository accessible by the Cloud Governance team for periodic review and auditing.
 
 **Potential design options**: Consistent use of [Azure Blueprints](/azure/governance/blueprints/) to manage automated deployments allows consistent deployments of Azure resources that adhere to your organization's governance standards and policies.
 

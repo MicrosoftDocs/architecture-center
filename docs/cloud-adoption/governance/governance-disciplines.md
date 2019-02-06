@@ -9,13 +9,15 @@ ms.topic: landing-page
 
 # Fusion: 5 Disciplines of Cloud Governance
 
-<ul  class="panelContent cardsI">
+<!-- markdownlint-disable MD033 -->
+
+<ul class="panelContent cardsI">
 <li style="display: flex; flex-direction: column;">
     <div class="cardSize">
         <div class="cardPadding" style="padding-bottom:10px;">
             <div class="card" style="padding-bottom:10px;">
                 <div class="cardText" style="padding-left:0px;">
-Any change to business processes or technology platforms introduce risk to the business. Cloud Governance Teams (also known as Cloud Custodians) are tasked with mitigating these risks, with minimal interruption to adoption or innovation efforts.<br/><br/>Fusion's model to Cloud Governance guides these decisions (regardless of the chosen cloud platform) by focusing on <a href="#corporate-policy">development of corporate policy</a> and <a href="#disciplines-of-cloud-governance">Disciplines of Cloud Governance</a>. <a href="#actionable-journeys">Actionable design guides</a> demonstrate this model using Azure services. This article serves as a landing page for the five disciplines of cloud governance defined in the Fusion model.
+Any change to business processes or technology platforms introduces risk. Cloud Governance teams (also known as Cloud Custodians) are tasked with mitigating these risks, with minimal interruption to adoption or innovation efforts.<br/><br/>Fusion's model to Cloud Governance guides these decisions (regardless of the chosen cloud platform) by focusing on <a href="#corporate-policy">development of corporate policy</a> and <a href="#disciplines-of-cloud-governance">Disciplines of Cloud Governance</a>. <a href="#actionable-journeys">Actionable design guides</a> demonstrate this model using Azure services. This article serves as a landing page for the five disciplines of cloud governance defined in the Fusion model.
                 </div>
             </div>
         </div>
@@ -38,11 +40,15 @@ Any change to business processes or technology platforms introduce risk to the b
 </li>
 </ul>
 
+<!-- markdownlint-enable MD033 -->
+
 ## Disciplines of Cloud Governance
 
-Across each cloud provider, there are common cloud governance disciplines that can serve as a guide to help inform policies and align tool chains. These disciplines guide decisions regarding the proper level of automation and enforcement of corporate policy across cloud providers.
+Across each cloud provider, there are common cloud governance disciplines that can serve as a guide to help inform policies and align toolchains. These disciplines guide decisions regarding the proper level of automation and enforcement of corporate policy across cloud providers.
 
-<ul  class="panelContent cardsA">
+<!-- markdownlint-disable MD033 -->
+
+<ul class="panelContent cardsA">
 <li style="display: flex; flex-direction: column;">
     <a href="./cost-management/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -139,3 +145,5 @@ Across each cloud provider, there are common cloud governance disciplines that c
     </a>
 </li>
 </ul>
+
+<!-- markdownlint-enable MD033 -->

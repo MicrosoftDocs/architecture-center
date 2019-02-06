@@ -11,6 +11,8 @@ Every business decision creates new risks. Making an investment in anything crea
 
 This article is not focused on cloud risks. Instead it discusses the business risks associated with various forms of Cloud Transformation. Later in the article, the discussion shifts focus to discuss ways of understanding the business' tolerance for risk.
 
+<!-- markdownlint-disable MD026 -->
+
 ## What business risks are associated with a Cloud Transformation?
 
 Sadly, the true business risks will be based on the what & how behind specific transformations. Fortunately, there are a number of very common risks that can be used as a conversation started to understand specific, personalized risks.
@@ -23,7 +25,7 @@ Sadly, the true business risks will be based on the what & how behind specific t
 
 * Cost Risk: Cost models change in the Cloud. This change can create risks associated with cost overruns or increases in Cost of Goods Sold (COGS), especially directly attributed operational expenses. When business works closely with IT, it is feasible to create transparency regarding costs and services consumed by various business units, programs, projects, etc... [Cost Management] provides examples of ways Business and IT can partner on this topic.
 
-The above are a few of the most common risks mentioned by customers. The Cloud Governance Team and Cloud Adoption Team can begin to develop a risk profile, as workloads are migrated and readied for production release. Be prepared for conversations to define, refine, &/or mitigate risks based on the desired business outcomes and transformation effort.
+The above are a few of the most common risks mentioned by customers. The Cloud Governance team and Cloud Adoption team can begin to develop a risk profile, as workloads are migrated and readied for production release. Be prepared for conversations to define, refine, and mitigate risks based on the desired business outcomes and transformation effort.
 
 # Understanding Risk Tolerance
 
@@ -69,7 +71,7 @@ These basic questions will lead to many more. After exploring a healthy dialogue
 
 These questions over simplify the technical solutions needed to mitigate risks. However, these questions communicate those solutions in ways the business can quickly integrate into a decision process.
 
-**Probability of Loss**: Questions to determine how likely it is that the risk will become a reality. This is the most difficult area to quantify. Instead it is suggested that the Cloud Governance Team create categories for communicating probability, based on the supporting data. The following questions can help create categories that are meaningful to the team.
+**Probability of Loss**: Questions to determine how likely it is that the risk will become a reality. This is the most difficult area to quantify. Instead it is suggested that the Cloud Governance team create categories for communicating probability, based on the supporting data. The following questions can help create categories that are meaningful to the team.
 
 * Has any research been done regarding the likelihood of this risk being realized?
 * Can the vendor provide references or statistics on the likelihood of impact?
@@ -77,7 +79,7 @@ These questions over simplify the technical solutions needed to mitigate risks. 
 * Look further, are there other companies in general that have been hit by this risk?
 * Is this risk unique to something this company has done poorly?
 
-After answering these questions & more questions as determined by the Cloud Governance Team, groupings of probability will likely emerge. The following are a few grouping samples to help get started:
+After answering these questions & more questions as determined by the Cloud Governance team, groupings of probability will likely emerge. The following are a few grouping samples to help get started:
 
 * No indication: Not enough research has been completed to determine probability
 * Low Risk: Current research suggests the risk is not likely to be realized

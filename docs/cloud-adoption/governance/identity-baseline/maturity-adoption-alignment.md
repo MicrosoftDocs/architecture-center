@@ -5,11 +5,13 @@ author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
+<!-- markdownlint-disable MD026 -->
+
 # Fusion: How can a company add Identity Baseline discipline to their Cloud Governance execution?
 
 The Identity Baseline discipline focuses on ways of establishing policies that ensure consistency and continuity of user identities regardless of the cloud provider that hosts the application or workload. Within the Five Disciplines of Cloud Governance, Identity Baseline includes decisions regarding the [Hybrid Identity Strategy](../../decision-guides/identity/overview.md), evaluation and extension of identity repositories, implementation of single sign-on (same sign-on), auditing and monitoring for unauthorized use or malicious actors. In some cases, it may also involve decisions to modernize, consolidate, or integrate multiple identity providers.
 
-This article outlines some potential tasks your company can engage in to better develop and mature the Identity Baseline discipline. These tasks can be broken down into planning, building, adopting, and operating phases of implementing a cloud solution, which are then iterated on allowing the development of an [incremental governance model](../journeys/overview.md#incremental-cloud-governance-model).
+This article outlines some potential tasks your company can engage in to better develop and mature the Identity Baseline discipline. These tasks can be broken down into planning, building, adopting, and operating phases of implementing a cloud solution, which are then iterated on allowing the development of an [incremental approach to cloud governance](../journeys/overview.md#an-incremental-approach-to-cloud-governance).
 
 ![Four phases of adoption](../../_images/adoption-phases.png)
 
@@ -26,7 +28,7 @@ This phase of governance maturity bridges the divide between business outcomes a
 
 **Minimum suggested activities:**
 
-* Evaluate your [Identity tool chain](toolchain.md) options and implement a hybrid strategy that is appropriate to your organization.
+* Evaluate your [Identity toolchain](toolchain.md) options and implement a hybrid strategy that is appropriate to your organization.
 * Develop a draft Architecture Guidelines document and distribute to key stakeholders.
 * Educate and involve the people and teams affected by the development of architecture guidelines.
 
@@ -45,7 +47,7 @@ A number of technical and non-technical pre-requisites are required to successfu
 
 **Minimum suggested activities:**
 
-* Consider a pilot test before implementing your [Identity tool chain](toolchain.md), making sure it simplifies the user experience as much as possible.
+* Consider a pilot test before implementing your [Identity toolchain](toolchain.md), making sure it simplifies the user experience as much as possible.
 * Apply feedback from pilot tests into the pre-deployment. Repeat until results are acceptable.
 * Update the Architecture Guidelines document to include deployment and user adoption plans, and distribute to key stakeholders.
 * Consider establishing an early adopter program and rolling out to a limited number of users.
@@ -77,7 +79,7 @@ Migration is an incremental process that focuses on the movement, testing, and a
 
 **Minimum suggested activities:**
 
-* Migrate your [Identity tool chain](toolchain.md) from development to production.
+* Migrate your [Identity toolchain](toolchain.md) from development to production.
 * Update the Architecture Guidelines document and distribute to key stakeholders.
 * Develop educational materials and documentation, awareness communications, incentives, and other programs to help drive user adoption.
 
@@ -99,7 +101,7 @@ Once the transformation is complete, governance and operations must live on for 
 
 **Minimum suggested activities:**
 
-* Customize your [Identity Baseline tool chain](toolchain.md) based on changes to your organization’s changing identity needs.
+* Customize your [Identity Baseline toolchain](toolchain.md) based on changes to your organization’s changing identity needs.
 * Automate notifications and reports to alert you of potential malicious threats.
 * Monitor and report on system usage and user adoption progress.
 * Report on post-deployment metrics and distribute to stakeholders.
@@ -123,7 +125,7 @@ Once the transformation is complete, governance and operations must live on for 
 
 ## Next steps
 
-Now that you understand the concept of cloud identity governance, examine the [Identity Baseline tool chain](toolchain.md) to identify Azure tools and features that you'll need when developing the Identity Baseline governance discipline on the Azure platform.
+Now that you understand the concept of cloud identity governance, examine the [Identity Baseline toolchain](toolchain.md) to identify Azure tools and features that you'll need when developing the Identity Baseline governance discipline on the Azure platform.
 
 > [!div class="nextstepaction"]
-> [Azure specific Identity Baseline tool chain](toolchain.md)
+> [Azure specific Identity Baseline toolchain](toolchain.md)

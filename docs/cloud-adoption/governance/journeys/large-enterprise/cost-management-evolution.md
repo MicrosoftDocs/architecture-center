@@ -33,11 +33,11 @@ Since then, some things have changed that will affect governance:
 
 **Cost Increases**: There is an inherent risk that self-service capabilities will result in excessive and unexpected costs on the new platform. Governance processes for monitoring costs and mitigating ongoing cost risks must be in place to ensure continued alignment with the planned budget.
 
-This business risk can be expanded into a few technical risks
+This business risk can be expanded into a few technical risks:
 
-- There is a risk of actual costs exceeding the plan
-- Business conditions change. When they do, there will be cases when a business function needs to consume more cloud services than expected. There is a risk that these additional costs would be seen as overages as opposed to a required adjustment to the plan. The Canadian experiment should help mitigate this risk, if successful.
-- There is a risk of systems being over-provisioned resulting in excess spending
+- There is a risk of actual costs exceeding the plan.
+- Business conditions change. When they do, there will be cases when a business function needs to consume more cloud services than expected. There is a risk that these additional costs would be seen as overages as opposed to a required adjustment to the plan. If successful, the Canadian experiment should help mitigate this risk.
+- There is a risk of systems being overprovisioned, resulting in excess spending.
 
 ## Evolution of the policy statements
 

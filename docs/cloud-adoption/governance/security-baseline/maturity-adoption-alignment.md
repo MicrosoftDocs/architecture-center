@@ -5,11 +5,13 @@ author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
+<!-- markdownlint-disable MD026 -->
+
 # Fusion: How can a company add Security Baseline discipline to their Cloud Governance execution?
 
 The Security Baseline discipline focuses on ways of establishing policies that protect the network, assets, and most importantly the data that will reside on a Cloud Provider's solution. Within the five disciplines of Cloud Governance, Security Baseline includes classification of the digital estate and data. It also includes documentation of risks, business tolerance, and mitigation strategies associated with the security of the data, assets, and network. From a technical perspective, this also includes involvement in decisions regarding [encryption](../../decision-guides/encryption/overview.md), [network requirements](../../decision-guides/software-defined-network/overview.md), [hybrid identity strategies](../../decision-guides/identity/overview.md), and the [processes](./processes.md) used to develop cloud Security Baseline policies.
 
-This article outlines some potential tasks your company can engage in to better develop and mature the Security Baseline discipline. These tasks can be broken down into planning, building, adopting, and operating phases of implementing a cloud solution, which are then iterated on allowing the development of an [incremental governance model](../journeys/overview.md#incremental-cloud-governance-model).
+This article outlines some potential tasks your company can engage in to better develop and mature the Security Baseline discipline. These tasks can be broken down into planning, building, adopting, and operating phases of implementing a cloud solution, which are then iterated on allowing the development of an [incremental approach to cloud governance](../journeys/overview.md#an-incremental-approach-to-cloud-governance).
 
 ![Four phases of adoption](../../_images/adoption-phases.png)
 
@@ -26,7 +28,7 @@ This phase of governance maturity bridges the divide between business outcomes a
 
 **Minimum suggested activities:**
 
-- Evaluate your [Security Baseline Tool Chain](toolchain.md) options.
+- Evaluate your [Security Baseline toolchain](toolchain.md) options.
 - Develop a draft Architecture Guidelines document and distribute to key stakeholders.
 - Educate and involve the people and teams affected by the development of architecture guidelines.
 - Add prioritized security tasks to your migration backlog.
@@ -50,7 +52,7 @@ A number of technical and non-technical pre-requisites are required to successfu
 
 **Minimum suggested activities:**
 
-- Implement your [Security Baseline Tool Chain](toolchain.md) by rolling out in a pre-deployment phase.
+- Implement your [Security Baseline toolchain(toolchain.md) by rolling out in a pre-deployment phase.
 - Update the Architecture Guidelines document and distribute to key stakeholders.
 - Implement security tasks on your prioritized migration backlog.
 - Develop educational materials and documentation, awareness communications, incentives, and other programs to help drive user adoption.
@@ -71,7 +73,7 @@ Migration is an incremental process that focuses on the movement, testing, and a
 
 **Minimum suggested activities:**
 
-- Migrate your [Security Baseline Tool Chain](toolchain.md) from pre-deployment to production.
+- Migrate your [Security Baseline toolchain(toolchain.md) from pre-deployment to production.
 - Update the Architecture Guidelines document and distribute to key stakeholders.
 - Develop educational materials and documentation, awareness communications, incentives, and other programs to help drive user adoption
 
@@ -83,7 +85,7 @@ Migration is an incremental process that focuses on the movement, testing, and a
 - Adjust security and access control automation to ensure maximum policy compliance.  
 - Validate that the best practices defined during the Build / Pre-deployment phases are properly executed.
 - Review your least privilege access polices and adjust access controls to maximize security.
-- Test your Security Baseline Tool Chain against your workloads to identify and resolve any vulnerabilities.
+- Test your Security Baseline toolchain against your workloads to identify and resolve any vulnerabilities.
 
 ## Operate and post-implementation
 
@@ -91,7 +93,7 @@ Once the transformation is complete, governance and operations must live on for 
 
 **Minimum suggested activities:**
 
-- Validate and/or refine your [Security Baseline Tool Chain](toolchain.md).
+- Validate and/or refine your [Security Baseline toolchain(toolchain.md).
 - Customize notifications and reports to alert you of potential security issues.
 - Refine the Architecture Guidelines to guide future adoption processes.
 - Communicate and educate the affected teams periodically to ensure ongoing adherence to architecture guidelines.
