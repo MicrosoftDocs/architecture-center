@@ -592,41 +592,41 @@
         - name: Best practice
           href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/overview.md
         - name: Narrative
-          href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/use-case.md
+          href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/narrative.md
         - name: Initial corporate policy
-          href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/corporate-policy.md
+          href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/initial-corporate-policy.md
         - name: Best practice explained
           href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/best-practice-explained.md
         - name: Security baseline evolution
-          href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/protected-data.md
+          href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/security-baseline-evolution.md
         - name: Resource consistency evolution
-          href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/mission-critical.md
+          href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/resource-consistency-evolution.md
         - name: Cost management evolution
-          href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/cost-control.md
+          href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/cost-management-evolution.md
         - name: Multi-cloud evolution
-          href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/multi-cloud.md
+          href: cloud-adoption/governance/design-guides/small-to-medium-enterprise/multi-cloud-evolution.md
       - name: Large enterprise journey
         items:
         - name: Best Practice
           href: cloud-adoption/governance/design-guides/large-enterprise/overview.md
         - name: Narrative
-          href: cloud-adoption/governance/design-guides/large-enterprise/use-case.md
+          href: cloud-adoption/governance/design-guides/large-enterprise/narrative.md
         - name: Initial corporate policy
-          href: cloud-adoption/governance/design-guides/large-enterprise/corporate-policy.md
+          href: cloud-adoption/governance/design-guides/large-enterprise/initial-corporate-policy.md
         - name: Best practice explained
           href: cloud-adoption/governance/design-guides/large-enterprise/best-practice-explained.md
         - name: Identity baseline evolution
-          href: cloud-adoption/governance/design-guides/large-enterprise/identity-baseline.md
+          href: cloud-adoption/governance/design-guides/large-enterprise/identity-baseline-evolution.md
         - name: Security baseline evolution
-          href: cloud-adoption/governance/design-guides/large-enterprise/protected-data.md
+          href: cloud-adoption/governance/design-guides/large-enterprise/security-baseline-evolution.md
         - name: Resource consistency evolution
-          href: cloud-adoption/governance/design-guides/large-enterprise/mission-critical.md
+          href: cloud-adoption/governance/design-guides/large-enterprise/resource-consistency-evolution.md
         - name: Cost management evolution
-          href: cloud-adoption/governance/design-guides/large-enterprise/cost-control.md
+          href: cloud-adoption/governance/design-guides/large-enterprise/cost-management-evolution.md
         - name: Multi-cloud evolution
-          href: cloud-adoption/governance/design-guides/large-enterprise/multi-cloud.md
+          href: cloud-adoption/governance/design-guides/large-enterprise/multi-cloud-evolution.md
         - name: Multiple layers of governance
-          href: cloud-adoption/governance/design-guides/large-enterprise/layered-governance.md
+          href: cloud-adoption/governance/design-guides/large-enterprise/multiple-layers-of-governance.md
     - name: Governance Theory
       items:
       - name: Defining Corporate Policy & Compliance
@@ -642,7 +642,7 @@
           - name: Define corporate policy statements
             href: cloud-adoption/governance/policy-compliance/define-policy.md
           - name: Align architecture design guides
-            href: cloud-adoption/governance/policy-compliance/architecture-design-guides.md
+            href: cloud-adoption/governance/policy-compliance/align-governance-journeys.md
           - name: Develop policy adherence processes
             href: cloud-adoption/governance/policy-compliance/processes.md
           - name: What is Regulatory Compliance?

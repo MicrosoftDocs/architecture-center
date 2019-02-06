@@ -23,7 +23,7 @@ While the difference is subtle, it is an important distinction when building a g
 
 ### Evolution of the current state
 
-In the previous phase of this narrative, the company had begun the process of retiring two datacenters. This ongoing effort includes migrating some applications with legacy authentication requirements, which required an evolution of the Identity Baseline, described in the [previous article](identity-baseline.md).
+In the previous phase of this narrative, the company had begun the process of retiring two datacenters. This ongoing effort includes migrating some applications with legacy authentication requirements, which required an evolution of the Identity Baseline, described in the [previous article](identity-baseline-evolution.md).
 
 Since then, some things have changed that will affect governance:
 
@@ -163,7 +163,7 @@ Adding these processes and changes to the governance MVP helps mitigate many of 
 As cloud adoption continues to evolve and deliver additional business value, risks and cloud governance needs also evolve. For the fictional company in this journey, the next step is to support mission-critical workloads. This is the point when Resource Consistency controls are needed.
 
 > [!div class="nextstepaction"]
-> [Resource Consistency evolution](./mission-critical.md)
+> [Resource Consistency evolution](./resource-consistency-evolution.md)
 
 <!-- links -->
 

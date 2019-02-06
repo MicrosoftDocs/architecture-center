@@ -7,7 +7,7 @@ ms.date: 2/1/2019
 
 # Fusion: Small to Medium Enterprise – Best practice explained
 
-The governance journey starts with a set of initial [corporate policies](./corporate-policy.md). These policies are used to establish a governance minimal viable product (MVP) that reflects [best practice](./overview.md).
+The governance journey starts with a set of initial [corporate policies](./initial-corporate-policy.md). These policies are used to establish a governance minimal viable product (MVP) that reflects [best practice](./overview.md).
 
 In this article, we discuss the high-level strategies that are required to create a governance MVP. The core of the governance MVP is the [Deployment Acceleration](../../deployment-acceleration/overview.md) discipline. The tools and patterns applied at this stage will enable the incremental evolutions needed to expand governance in the future.
 
@@ -107,4 +107,4 @@ Once this guide is implemented, the Cloud Adoption team can go forth with a soun
 The two teams will use the tolerance indicators to identify the next evolution needed to continue supporting cloud adoption. For the fictional company in this journey, the next step is evolving the Security Baseline to support moving protected data to the cloud.
 
 > [!div class="nextstepaction"]
-> [Security Baseline evolution](./protected-data.md)
+> [Security Baseline evolution](./security-baseline-evolution.md)

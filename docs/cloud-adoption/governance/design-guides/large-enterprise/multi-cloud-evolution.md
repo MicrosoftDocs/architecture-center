@@ -76,4 +76,4 @@ As multi-cloud adoption grows, the design evolution above will continue to matur
 In many large enterprises, the disciplines of cloud governance can be blockers to adoption. The next article has some closing thoughts about making governance a team sport, to help ensure long-term success in the cloud.
 
 > [!div class="nextstepaction"]
-> [Multiple layers of governance](./layered-governance.md)
+> [Multiple layers of governance](./multiple-layers-of-governance.md)

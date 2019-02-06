@@ -49,4 +49,4 @@ The following changes are anticipated over the next several years:
 The company has developed a corporate policy to shape the governance implementation. The corporate policy drives many of the technical decisions.
 
 > [!div class="nextstepaction"]
-> [Review the initial corporate policy](./corporate-policy.md)
+> [Review the initial corporate policy](./initial-corporate-policy.md)

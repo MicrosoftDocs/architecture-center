@@ -121,4 +121,4 @@ Adding the above processes and changes to the governance MVP will help to mitiga
 As cloud adoption continues to evolve and deliver additional business value, risks and cloud governance needs also evolve. For the fictional company in this journey, the next step is to support mission-critical workloads. This is the point when Resource Consistency controls are needed.
 
 > [!div class="nextstepaction"]
-> [Resource Consistency evolution](./mission-critical.md)
+> [Resource Consistency evolution](./resource-consistency-evolution.md)

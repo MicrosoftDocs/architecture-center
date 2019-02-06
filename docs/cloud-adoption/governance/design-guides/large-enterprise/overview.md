@@ -14,7 +14,7 @@ This governance journey follows the experiences of a fictional company through v
 As a quick starting point, this overview defines a governance minimum viable product (MVP) based on best practices. It also provides links to some governance evolutions that add further best practices as new business or technical risks emerge.
 
 > [!WARNING]
-> This MVP is a baseline starting point, based on a set of assumptions. Even this minimal set of best practices is based on corporate policies driven by unique business risks and risk tolerances. To see if these assumptions apply to you, read the [longer narrative](./use-case.md) that follows this article.
+> This MVP is a baseline starting point, based on a set of assumptions. Even this minimal set of best practices is based on corporate policies driven by unique business risks and risk tolerances. To see if these assumptions apply to you, read the [longer narrative](./narrative.md) that follows this article.
 
 ### Governance best practice
 
@@ -43,10 +43,10 @@ These patterns provide room for growth without complicating the hierarchy unnece
 
 Once this MVP has been deployed, additional layers of governance can be quickly incorporated into the environment. Here are some ways to evolve the MVP to meet specific business needs:
 
-- [Security Baseline for protected data](./protected-data.md)
-- [Resource configurations for mission-critical applications](./mission-critical.md)
-- [Controls for Cost Management](./cost-control.md)
-- [Controls for multi-cloud evolution](./multi-cloud.md)
+- [Security Baseline for protected data](./security-baseline-evolution.md)
+- [Resource configurations for mission-critical applications](./resource-consistency-evolution.md)
+- [Controls for Cost Management](./cost-management-evolution.md)
+- [Controls for multi-cloud evolution](./multi-cloud-evolution.md)
 
 <!-- markdownlint-disable MD026 -->
 
@@ -72,6 +72,6 @@ Over time, this governance MVP will be used to evolve the governance practices. 
 Now that you’re familiar with the governance MVP and have an idea of the governance evolutions to follow, read the supporting narrative for additional context.
 
 > [!div class="nextstepaction"]
-> [Read the supporting narrative](./use-case.md)
+> [Read the supporting narrative](./narrative.md)
 
 <!-- markdownlint-enable MD026 -->

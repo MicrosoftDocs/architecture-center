@@ -73,4 +73,4 @@ Adding the above processes and changes to the governance MVP helps mitigate many
 As cloud adoption continues to evolve and deliver additional business value, risks and cloud governance needs will also evolve. For the fictional company in this journey, the next step is using this governance investment to manage multiple clouds.
 
 > [!div class="nextstepaction"]
-> [Multi-cloud evolution](./multi-cloud.md)
+> [Multi-cloud evolution](./multi-cloud-evolution.md)

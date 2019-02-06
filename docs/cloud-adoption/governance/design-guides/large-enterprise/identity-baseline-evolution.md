@@ -85,4 +85,4 @@ Adding these changes to the governance MVP helps mitigate many of the risks in t
 As cloud adoption evolves and delivers additional business value, risks and cloud governance needs will also evolve. The following are a few evolutions that may occur. For the fictional company in this journey, the next trigger is the inclusion of protected data in the cloud adoption plan. This change will require additional security controls.
 
 > [!div class="nextstepaction"]
-> [Security Baseline evolution](./protected-data.md)
+> [Security Baseline evolution](./security-baseline-evolution.md)

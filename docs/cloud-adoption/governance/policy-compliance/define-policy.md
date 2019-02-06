@@ -43,7 +43,7 @@ As your cloud deployment matures and the amount of your IT estate moving to the 
 
 ## Create cloud policy statements
 
-Cloud-based IT policies establish the requirements, standards, and goals that your IT staff and automated systems will need to support. Policy decisions are a primary factor in your [cloud architecture design](architecture-design-guides.md) and how you will implement your [policy adherence processes](processes.md).
+Cloud-based IT policies establish the requirements, standards, and goals that your IT staff and automated systems will need to support. Policy decisions are a primary factor in your [cloud architecture design](align-governance-journeys.md) and how you will implement your [policy adherence processes](processes.md).
 
 Individual cloud policy statements are guidelines for addressing specific risks identified during your risk assessment process. While these policies can be integrated into your wider corporate policy documentation, cloud policy statements discussed throughout the fusion guidance tends to be a more concise summary of the risks and plans to deal with them. Each definition should include these pieces of information:
 
@@ -61,7 +61,7 @@ The need to integrate cloud policy with your legacy IT policies depends largely 
 
 ## Next steps
 
-After defining your policies, [draft an architecture design guide](architecture-design-guides.md) to provide IT staff and developers with actionable guidance.
+After defining your policies, [draft an architecture design guide](align-governance-journeys.md) to provide IT staff and developers with actionable guidance.
 
 > [!div class="nextstepaction"]
-> [Draft an architecture design guide](architecture-design-guides.md)
+> [Draft an architecture design guide](align-governance-journeys.md)

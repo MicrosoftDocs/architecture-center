@@ -82,7 +82,7 @@ Consult the Fusion Infrastructure [Logs, reporting, and monitoring](../../infras
 
 ## Next steps
 
-After defining your processes, [draft an architecture design guide](architecture-design-guides.md) to provide IT staff and developers with actionable guidance. 
+After defining your processes, [draft an architecture design guide](align-governance-journeys.md) to provide IT staff and developers with actionable guidance. 
 
 > [!div class="nextstepaction"]
-> [Draft an architecture design guide](architecture-design-guides.md)
+> [Draft an architecture design guide](align-governance-journeys.md)
