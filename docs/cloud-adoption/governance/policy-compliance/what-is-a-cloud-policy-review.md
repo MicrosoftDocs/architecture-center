@@ -2,7 +2,7 @@
 title: "Fusion: What is a Cloud Policy Review?"
 description: What is Cloud Policy Review?
 author: BrianBlanchard
-ms.date: 12/10/2018
+ms.date: 2/8/2019
 ---
 
 <!-- markdownlint-disable MD026 -->

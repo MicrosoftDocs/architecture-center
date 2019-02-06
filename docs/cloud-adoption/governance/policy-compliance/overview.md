@@ -2,7 +2,7 @@
 title: "Fusion: How can corporate IT policy become cloud-ready?"
 description: Explanation of the concept of corporate policy in relation to cloud governance
 author: BrianBlanchard
-ms.date: 12/10/2018
+ms.date: 2/8/2019
 ---
 
 <!-- markdownlint-disable MD026 -->
