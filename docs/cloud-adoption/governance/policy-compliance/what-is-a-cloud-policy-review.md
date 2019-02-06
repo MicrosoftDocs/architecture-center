@@ -21,7 +21,6 @@ Cloud Transformations create a natural inflection point to reconsider the legacy
 
 - A cloud-native solution could enable geo-replication of the SQL Azure database
 - A hybrid solution could leverage Azure Site Recovery (ASR) to replicate an IaaS workload to multiple datacenters
-- A Cloud Design Principle (CDP) compliant solution could ... @Vic to populate a quick reference for resiliency
 
 The justification for a cloud policy review is often referred to as "pushing a mess uphill". When executing a cloud transformation, policies often govern many of the tools, services, and processes available to the cloud adoption teams. If those policies are based on legacy technologies, they may hinder the team's efforts to drive change. In the worst case, important policies are entirely ignored by the migration team to enable workarounds. Neither is an acceptable outcome.
 
