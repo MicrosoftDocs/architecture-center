@@ -50,7 +50,7 @@ To start down an adoption path, choose one of the following journeys. Each journ
 
 <!-- markdownlint-enable MD033 -->
 
-## Fusion's incremental cloud governance model
+## Incremental cloud governance model
 
 Adopting the cloud is a journey, not a destination. Along the way, there are clear milestones and tangible business benefits. However, the final state of cloud adoption is usually unknown when a company begins the journey. Cloud governance creates guardrails that keep the company on a safe path throughout the journey.
 

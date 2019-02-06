@@ -66,7 +66,4 @@ You can speed up Azure Stack initiatives by leveraging the complete Azure ecosys
 
 ## Additional Next steps
 
-See more [guidance and examples](../overview.md#azure-examples-and-guidance) on how to use core infrastructure components in the Azure cloud.
-
-> [!div class="nextstepaction"]
-> [Azure Examples and Guidance](../overview.md#azure-examples-and-guidance)
+See more [guidance and examples](../overview.md) on how to use core infrastructure components in the Azure cloud.

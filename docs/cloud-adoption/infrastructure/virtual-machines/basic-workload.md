@@ -43,7 +43,4 @@ Once you've followed the steps and deployed the VM, you can learn about [proven 
 
 ## Next steps
 
-See [guidance and examples](../overview.md#azure-examples-and-guidance) for how to use core infrastructure components in the Azure cloud.
-
-> [!div class="nextstepaction"]
-> [Azure Examples and Guidance](../overview.md#azure-examples-and-guidance)
+See [Architectural decision guides](../overview.md) for how to use core infrastructure components in the Azure cloud.

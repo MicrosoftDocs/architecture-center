@@ -25,7 +25,7 @@ For single subscription and simple cloud deployments, many corporate policies ca
 
 For example:
 
-- [Deployment templates](../resource-grouping/overview.md#deployment-grouping-templated-deployments) can provision resources with standardized structure and configuration.
+- [Deployment templates](../resource-grouping/overview.md) can provision resources with standardized structure and configuration.
 - [Tagging and naming standards](../resource-tagging/overview.md) can help organize operations and support accounting and business requirements.
 - Traffic management and networking restrictions can be implemented through [software defined networking](../software-defined-networks/overview.md).
 - [Role-based access control](../identity/overview.md) can secure and isolate your cloud resources.
