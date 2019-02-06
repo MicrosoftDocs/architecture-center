@@ -31,7 +31,7 @@ The above are a few of the most common risks mentioned by customers. The Cloud G
 
 Identifying risk is a fairly direct process. Risks are pretty standard across industries. However, tolerance for risk is extremely personalize. This is the point where business and IT conversations tend to get hung up. Each side of the conversation is essentially speaking a different language. The following comparisons and questions are designed to start conversations that help each party better understand and calculate risk tolerance.
 
-## Simple Use Case for Comparison
+## Simple use case for comparison
 
 To help understand risk tolerance, let's examine customer data. If a company in any industry posts customer data on an unsecured server, the risk of that data being compromised or stolen is relatively the same. However, the nature of the data and the companies tolerance for that risk changes wildly.
 

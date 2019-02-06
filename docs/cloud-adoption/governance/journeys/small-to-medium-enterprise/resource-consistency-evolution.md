@@ -51,7 +51,7 @@ This business risk can be expanded into a number of technical risks:
 
 The following changes to policy will help mitigate the new risks and guide implementation. The list looks long, but adopting these policies may be easier than it appears.
 
-1. All deployed assets must be categorized by criticality and data classification. Classifications are to be reviewed by the Cloud Governance team and the application owner prior to deployment to the cloud
+1. All deployed assets must be categorized by criticality and data classification. Classifications are to be reviewed by the Cloud Governance team and the application owner before deployment to the cloud
 2. Subnets containing mission-critical applications must be protected by a firewall solution capable of detecting intrusions and responding to attacks.
 3. Governance tooling must audit and enforce network configuration requirements defined by the Security Management team
 4. Governance tooling must validate that all assets related to mission-critical apps or protected data are included in monitoring for resource depletion and optimization.

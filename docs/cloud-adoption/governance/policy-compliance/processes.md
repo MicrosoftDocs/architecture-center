@@ -80,7 +80,7 @@ Some examples of violation triggers and actions:
 
 After you've defined your compliance violation triggers and actions, you can start planning how best to use the logging and reporting tools and other features of the cloud platform to help automate your monitoring and policy compliance strategy.
 
-Consult the Fusion Infrastructure [Logs, reporting, and monitoring](../../decision-guides/log-and-report/overview.md) topic for guidance on choosing the best monitoring pattern for your deployment.
+Consult the CAF [logging and reporting decision guide](../../decision-guides/log-and-report/overview.md) topic for guidance on choosing the best monitoring pattern for your deployment.
 
 ## Next steps
 

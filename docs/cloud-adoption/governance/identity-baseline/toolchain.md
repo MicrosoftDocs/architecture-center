@@ -9,13 +9,13 @@ ms.date: 2/1/2019
 
 # Fusion: What tools can help better manage user identities in Azure?
 
-In the [Intro to Cloud Governance](../overview.md), [Identity Baseline](overview.md) is one of the five disciplines to Cloud Governance. This discipline focuses on ways of establishing policies that ensure consistency and continuity of user identities regardless of the cloud provider that hosts the application or workload.
+In the [Introduction to Cloud Governance](../overview.md), [Identity Baseline](overview.md) is one of the five disciplines to Cloud Governance. This discipline focuses on ways of establishing policies that ensure consistency and continuity of user identities regardless of the cloud provider that hosts the application or workload.
 
-Unlike the cloud-agnostic position used throughout Fusion, this article is Azure-specific. The following tools are included in the discovery guide on Hybrid Identity.
+The following tools are included in the discovery guide on Hybrid Identity.
 
 **Active Directory (on-premises):** Active Directory is the identity provider most frequently used in the enterprise to store and validate user credentials.
 
-**Azure Active Directory:** SaaS (Software as a Service) equivalent to Active Directory, with the ability to federate to Active Directory (on-premises)
+**Azure Active Directory:** A software as a service (SaaS) equivalent to Active Directory, capable of federating with an on-premises Active Directory.
 
 **Active Directory (IaaS):** An instance of the Active Directory application running in a virtual machine in Azure.
 

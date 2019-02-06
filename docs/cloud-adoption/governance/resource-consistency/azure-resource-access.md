@@ -62,7 +62,7 @@ Azure Resource Manager requires the client to specify an identifier for both the
 
 Now that you have an understanding of how Azure Resource Manager works, return to the discussion of how an Azure subscription is associated with the controls used by Azure Resource Manager. Before any resource management request can be executed by Azure Resource Manager, a set of controls are checked.
 
-The first control is that a request must be made by a validated user, and Azure Resource manager has a trusted relationship with [Azure Active Directory (Azure AD)](/azure/active-directory/) to provide user identity functionality.
+The first control is that a request must be made by a validated user, and Azure Resource Manager has a trusted relationship with [Azure Active Directory (Azure AD)](/azure/active-directory/) to provide user identity functionality.
 
 ![Azure Active Directory](../../_images/governance-1-16.png)
 *Figure 8. Azure Active Directory.*

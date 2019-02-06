@@ -90,10 +90,10 @@ The governance MVP design will evolve to include new Azure policies and an imple
     3. Establish OS security configurations. The IT Security team will define the configuration.
     4. Support the IT Security team in the initial use of Security Center. Transition the use of Security Center to the IT Security team, but maintain access for the purpose of continually improving governance.
     5. Create a Resource Manager template that reflects the changes required for Security Center configuration within a subscription.
-5. Update Azure Policy for all subscriptions:
+5. Update Azure policies for all subscriptions:
     1. Audit and enforce the criticality and data classification across all management groups and subscriptions, to identify any subscriptions with protected data classifications.
     2. Audit and enforce the use of approved images only.
-6. Update Azure Policy for all subscriptions that contains protected data classifications:
+6. Update Azure policies for all subscriptions that contains protected data classifications:
     1. Audit and enforce the use of standard Azure RBAC roles only.
     2. Audit and enforce encryption for all storage accounts and files at rest on individual nodes.
     3. Audit and enforce the application of an NSG to all NICs and subnets. The Networking and IT Security teams will define the NSG.

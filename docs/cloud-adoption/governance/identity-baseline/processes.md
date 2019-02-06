@@ -37,7 +37,7 @@ Ensure that your IT teams have implemented automated monitoring systems for your
 
 ## Violation triggers and enforcement actions
 
-Violations of identity policy can result in unauthorized access to sensitive data and lead to serious disruption of mission-critical application and services. When violations are detected, you should take actions to realign with policy as soon as possible. Your IT team can automate most violation triggers using the tools outlined in the [Azure-specific toolchain](toolchain.md).
+Violations of identity policy can result in unauthorized access to sensitive data and lead to serious disruption of mission-critical application and services. When violations are detected, you should take actions to realign with policy as soon as possible. Your IT team can automate most violation triggers using the tools outlined in the [Identity Baseline toolchain](toolchain.md).
 
 The following triggers and enforcement actions provide examples you can reference when planning how to use monitoring data to resolve policy violations:
 

@@ -14,7 +14,7 @@ This article evolves the narrative by adding Identity Baseline controls to the g
 The business justification for the cloud migration of the two datacenters was approved by the CFO. During the technical feasibility study, several roadblocks were discovered:
 
 - Protected data and mission-critical applications represent 25% of the workloads in the two datacenters. Neither can be eliminated until the current governance policies regarding PII and mission-critical applications have been modernized.
-- 7% of the assets in those datacenters are not cloud-compatible. They will be moved to an alternate datacenter prior to termination of the datacenter contract.
+- 7% of the assets in those datacenters are not cloud-compatible. They will be moved to an alternate datacenter before termination of the datacenter contract.
 - 15% of the assets in the datacenter (750 virtual machines) have a dependency on legacy authentication or third-party multi-factor authentication.
 - The VPN connection that connects existing datacenters and Azure does not offer sufficient data transmission speeds or latency to migrate the volume of assets within the two-year timeline to retire the datacenter.
 

@@ -61,4 +61,4 @@ When the Cloud Governance team operates in parallel to the cloud adoption teams,
 
 With each iteration, the Cloud Governance team can work with Cloud Strategy team to quickly communicate new risks, mitigation strategies, tradeoffs, and potential costs. This empowers business participants and IT leaders to partner in mature, well-informed decisions. Those decisions then inform policy maturity. When required, the policy changes produce new work items for the maturity of core infrastructure systems. When changes to staged systems are required, the cloud adoption teams have ample time to make changes, while the business tests the staged systems and develops a user adoption plan.
 
-This approach minimizes risks, while empowering the team to move quickly. It also ensures that risks are promptly addressed and resolved prior to deployment.
+This approach minimizes risks, while empowering the team to move quickly. It also ensures that risks are promptly identified and resolved before deployment.

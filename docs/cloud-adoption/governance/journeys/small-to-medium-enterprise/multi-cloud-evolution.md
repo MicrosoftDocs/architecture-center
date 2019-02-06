@@ -51,7 +51,7 @@ The following changes to policy will help mitigate the new risks and guide imple
 
 ## Evolution of the best practices
 
-This section of the article will evolve the governance MVP design to include new Azure Policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
+This section of the article will evolve the governance MVP design to include new Azure policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
 
 1. Connect the networks. This step is executed by the Networking and IT Security teams, and supported by the Cloud Governance team. Adding a connection from the MPLS/leased-line provider to the new cloud will integrate networks. Adding routing tables and firewall configurations will control access and traffic between the environments.
 2. Consolidate identity providers. Depending on the workloads being hosted in the secondary cloud, there are a variety of options to identity provider consolidation. The following are a few examples:

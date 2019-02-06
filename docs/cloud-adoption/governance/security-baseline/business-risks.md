@@ -19,7 +19,7 @@ One of the primary things that set cloud security governance apart from traditio
 
 The amount you invest into security policy and processes will depend a great deal on the nature of your cloud deployment. Initial test deployments may only need the most basic of security policies in place, while a mission-critical workload will entail addressing complex and extensive security needs. All deployments will need to engage with the discipline at some level.
 
-The Security Baseline discipline discussed in this section of the Fusion guidance covers the corporate policies and manual processes that you can put in place to protect your cloud deployment against security risks.
+The Security Baseline discipline covers the corporate policies and manual processes that you can put in place to protect your cloud deployment against security risks.
 
 > [!NOTE]
 >While it is important to understand [Identity Baseline](../identity-baseline/overview.md) in the context of Security Baseline and how that relates to Access Control, the [Five Disciplines of Cloud Governance](../overview.md) calls out [Identity Baseline](../identity-baseline/overview.md) as its own discipline, separate from Security Baseline.

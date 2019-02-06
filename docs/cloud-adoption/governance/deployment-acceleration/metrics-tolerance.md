@@ -29,7 +29,7 @@ Risks related to Deployment Acceleration are largely related to the number and c
 
 Consider adopting a DevOps or [DevSecOps](https://www.microsoft.com/en-us/securityengineering/devsecops) organizational culture early in your cloud adoption journey. Traditional corporate IT organizations often have siloed operations, security, and development teams that often do not collaborate well or are even adversarial or hostile towards one another. Recognizing these challenges early and integrating key stakeholders from each of the teams can help ensure agility in your cloud adoption while remaining secure and well-governed.
 
-Work with your DevSecOps team and business stakeholders to identify [business risks](business-risks.md) related to configuration, then determine an acceptable baseline for configuration risk tolerance. This section of the Fusion guidance provides examples, but the detailed risks and baselines for your company or deployments will likely differ.
+Work with your DevSecOps team and business stakeholders to identify [business risks](business-risks.md) related to configuration, then determine an acceptable baseline for configuration risk tolerance. This section of the CAF guidance provides examples, but the detailed risks and baselines for your company or deployments will likely differ.
 
 Once you have a baseline, establish minimum benchmarks representing an unacceptable increase in your identified risks. These benchmarks act as triggers for when you need to take action to mitigate these risks. The following are a few examples of how configuration-related metrics, such as those discussed above, can justify an increased investment in the Deployment Acceleration discipline.
 

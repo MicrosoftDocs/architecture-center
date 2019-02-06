@@ -59,7 +59,7 @@ To build this threat intelligence, Security Center uses data that comes from mul
 
 ## Machine learning in Azure Security Center
 
-Azure Security Center deeply analyzes a wealth of data from a variety of Microsoft and partner solutions to help you achieve greater security. To make use of all this data, the company leverages data science and machine learning in particular for threat prevention, detection, and eventually investigation.
+Azure Security Center deeply analyzes a wealth of data from a variety of Microsoft and partner solutions to help you achieve greater security. To take advantage of this data, the company use data science and machine learning for threat prevention, detection, and eventually investigation.
 
 Broadly, Azure Machine Learning helps achieve two outcomes:
 

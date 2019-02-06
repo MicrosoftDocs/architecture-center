@@ -19,8 +19,8 @@ As companies mature corporate IT policies, dependencies on past technical decisi
 
 Cloud Transformations create a natural inflection point to reconsider the legacy policy decisions of the past. Technical capabilities and default processes change considerably in the cloud, as do the inherit risks. Leveraging the prior example, the tape backup policy stemmed from the risk of a single point of failure by keeping data in one location and the business need to minimize the risk profile by mitigating this risk. In a cloud deployment, there are several options that deliver the same risk mitigation, with much lower recovery time objectives (RTO). For instance:
 
-- A cloud-native solution could enable geo-replication of the SQL Azure database
-- A hybrid solution could leverage Azure Site Recovery (ASR) to replicate an IaaS workload to multiple datacenters
+- A cloud-native solution could enable geo-replication of the SQL Azure database.
+- A hybrid solution could use Azure Site Recovery (ASR) to replicate an IaaS workload to multiple datacenters.
 - A Cloud Design Principle (CDP) compliant solution could ... @Vic to populate a quick reference for resiliency
 
 The justification for a cloud policy review is often referred to as "pushing a mess uphill". When executing a cloud transformation, policies often govern many of the tools, services, and processes available to the cloud adoption teams. If those policies are based on legacy technologies, they may hinder the team's efforts to drive change. In the worst case, important policies are entirely ignored by the migration team to enable workarounds. Neither is an acceptable outcome.

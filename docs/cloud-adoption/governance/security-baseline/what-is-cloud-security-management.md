@@ -27,7 +27,7 @@ At minimum, any cloud security strategy should consider the following topics:
 
 ## Protecting data and privacy
 
-For organizations throughout the world—whether governments, nonprofits, or businesses—cloud computing has become a key part of their ongoing IT strategy. Cloud services give organizations of all sizes access to virtually unlimited data storage while freeing them from the need to purchase, maintain, and update their own networks and computer systems. Microsoft and other cloud providers offer IT infrastructure, platform, and software as a service, enabling customers to quickly scale up or down as needed and only paying for the computing power and storage they use.
+For organizations throughout the world &mdash; whether governments, nonprofits, or businesses &mdash; cloud computing has become a key part of their ongoing IT strategy. Cloud services give organizations of all sizes access to virtually unlimited data storage while freeing them from the need to purchase, maintain, and update their own networks and computer systems. Microsoft and other cloud providers offer IT infrastructure, platform, and software as a service (SaaS), enabling customers to quickly scale up or down as needed and only paying for the computing power and storage they use.
 
 However, as organizations continue to take advantage of the benefits of cloud services, such as increased choice, agility, and flexibility while boosting efficiency and lowering IT cost, they must consider how the introduction of cloud services affects their privacy, security, and compliance posture. Microsoft has worked to make their cloud offerings not only scalable, reliable, and manageable, but also to ensure our customers data is protected and used in a transparent manner.
 
