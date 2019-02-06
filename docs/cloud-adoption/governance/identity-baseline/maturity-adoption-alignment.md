@@ -17,7 +17,7 @@ This article outlines some potential tasks your company can engage in to better 
 
 *Figure 1. Adoption phases of the incremental approach to cloud governance.*
 
-It's impossible for any one document to account for the requirements of all businesses. As such, this article outlines suggested minimum and potential example activities for each phase of the governance maturation process. The initial objective of these activities is to help you build a [Policy MVP](../journeys/overview.md#incremental-cloud-governance-model) and establish a framework for incremental policy evolution. Your cloud governance team will need to decide how much to invest in these activities to improve your Identity Baseline governance capabilities.
+It's impossible for any one document to account for the requirements of all businesses. As such, this article outlines suggested minimum and potential example activities for each phase of the governance maturation process. The initial objective of these activities is to help you build a [Policy MVP](../journeys/overview.md#incremental-cloud-governance-model) and establish a framework for incremental policy evolution. Your Cloud Governance team will need to decide how much to invest in these activities to improve your Identity Baseline governance capabilities.
 
 > [!CAUTION]
 > Neither the minimum or potential activities outlined in this article are aligned to specific corporate policies or third party compliance requirements. This guidance is designed to help facilitate the conversations that will lead to alignment of both requirements with a Cloud Governance Model.
@@ -43,7 +43,7 @@ This phase of governance maturity bridges the divide between business outcomes a
 
 ## Build and pre-deployment
 
-A number of technical and non-technical pre-requisites are required to successful migrate an environment. This process focuses on the decisions, readiness, and core infrastructure that proceeds a migration.
+A number of technical and nontechnical prerequisites are required to successful migrate an environment. This process focuses on the decisions, readiness, and core infrastructure that proceeds a migration.
 
 **Minimum suggested activities:**
 
@@ -88,9 +88,9 @@ Migration is an incremental process that focuses on the movement, testing, and a
 * Validate that the best practices defined during the Build / Pre-deployment phases are properly executed.
 * Validate and/or refine your [Hybrid Identity Strategy](../../decision-guides/identity/overview.md).
 * Ensure that each application/workload continues to align with the identity strategy prior to release.
-* Validate that single sign-on (SSO) and seamless SSO is working within the application(s) as expected.
+* Validate that single sign-on (SSO) and seamless SSO is working as expected for your applications.
 * Reduce or eliminate the number of alternative identity stores, when possible.
-* Scrutinize the need for any in-app or in-database identity stores. Identities that fall outside of a proper identity provider (1st or 3rd party) can represent risk to the application and the users.
+* Scrutinize the need for any in-app or in-database identity stores. Identities that fall outside of a proper identity provider (first-party or third-party) can represent risk to the application and the users.
 * Enable conditional access for [on-premises federated applications](/azure/active-directory/active-directory-device-registration-on-premises-setup).
 * Distribute identity across global regions in multiple hubs with synchronization between regions.
 * Establish central role-based access control (RBAC) federation.

@@ -27,7 +27,7 @@ Payment Card Industry Data Security Standard (PCI DSS) is a proprietary informat
 
 ## PII
 
-Personally Identifiable Information (PII) consists of any datapoint that could be used to identify a consumer, employee, partner, or any other living or legal entity. Many emerging laws, particularly those dealing with privacy and individual PII, require that businesses themselves comply and report on compliance and any breaches that might occur.
+Personally identifiable information (PII) is any datapoint that could be used to identify a consumer, employee, partner, or any other living or legal entity. Many emerging laws, particularly those dealing with privacy and individual PII, require that businesses themselves comply and report on compliance and any breaches that might occur.
 
 ## GDPR
 

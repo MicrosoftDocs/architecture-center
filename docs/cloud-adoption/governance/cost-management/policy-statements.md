@@ -15,13 +15,13 @@ Individual cloud policy statements are guidelines for addressing specific risks 
 
 The following sample policy statements address a number of common cost-related business risks, and are provided as examples for you to reference when drafting actual policy statements addressing your own organization's needs. Note that these examples are not meant to be proscriptive, and there are potentially several policy options for dealing with any single identified risk. Work closely with business and IT teams to identify the best policy solutions for your particular cost-related risks.  
 
-## Future proof
+## Future-proofing
 
 **Business risk:** Current criteria that don't warrant an investment in a Cost Management discipline from the governance team. However, you anticipate such an investment in the future.
 
 **Policy statement:** You should associate all assets deployed to the cloud with a billing unit, application/workload, and meet naming standards. This policy will ensure that future Cost Management efforts will be effective.
 
-**Design options:** For information on establishing a future proofed foundation, see the discussions related to creating a governance minimum viable product (MVP) in the [actionable design guides](../journeys/overview.md) included as part of the Fusion guidance.
+**Design options:** For information on establishing a future-proof foundation, see the discussions related to creating a governance MVP in the [actionable design guides](../journeys/overview.md) included as part of the Fusion guidance.
 
 ## Budget overruns
 
@@ -33,7 +33,7 @@ The following sample policy statements address a number of common cost-related b
 
 ## Underutilization
 
-**Business risk:** The company has pre-paid for cloud services or has made an annual commitment to spend a specific amount. There is a risk that the agreed upon amount won't be used, resulting in a lost investment.
+**Business risk:** The company has prepaid for cloud services or has made an annual commitment to spend a specific amount. There is a risk that the agreed upon amount won't be used, resulting in a lost investment.
 
 **Policy statement:** Each billing unit with an allocated cloud budget will meet annually to set budgets, quarterly to adjust budgets, and monthly to allocate time for reviewing planned versus actual spending. Discuss any deviations greater than 20% with the billing unit leader monthly. For tracking purposes, assign all assets to a billing unit.
 
@@ -57,7 +57,7 @@ The following sample policy statements address a number of common cost-related b
 
 **Business risk:** Effective cost nanagement can actually create new risks. Optimization of spending is inverse to system performance. When reducing costs, there is a risk of overtightening spending and producing poor user experiences.
 
-**Policy statement:** Any asset that directly affects customer experiences must be identified through grouping or tagging. Before optimizing any asset that affects customer experience, the cloud governance team must adjust optimization based on no fewer than 90 days of utilization trends. Document any seasonal or event driven bursts considered when optimizing assets.
+**Policy statement:** Any asset that directly affects customer experiences must be identified through grouping or tagging. Before optimizing any asset that affects customer experience, the Cloud Governance team must adjust optimization based on no fewer than 90 days of utilization trends. Document any seasonal or event driven bursts considered when optimizing assets.
 
 **Design options:**
 

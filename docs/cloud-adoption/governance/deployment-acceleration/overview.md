@@ -26,7 +26,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 **Minimum suggested activities:**
 
-* Evaluate your [Deployment Acceleration toolchain(toolchain.md) options.
+* Evaluate your [Deployment Acceleration toolchain](toolchain.md) options.
 * Develop a draft Architecture Guidelines document and distribute to key stakeholders.
 * Educate and involve the people and teams affected by the development of Architecture Guidelines.
 
@@ -45,7 +45,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 **Minimum suggested activities:**
 
-* Implement your [Deployment Acceleration toolchain(toolchain.md) out in a pre-deployment phase.
+* Implement your [Deployment Acceleration toolchain](toolchain.md) out in a pre-deployment phase.
 * Update the Architecture Guidelines document and distribute to key stakeholders.
 * Develop educational materials and documentation, awareness communications, incentives, and other programs to help drive user adoption.
 
@@ -64,7 +64,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
 
 **Minimum suggested activities:**
 
-* Migrate your [Deployment Acceleration toolchain(toolchain.md) from pre-deployment to production.
+* Migrate your [Deployment Acceleration toolchain](toolchain.md) from pre-deployment to production.
 * Update the Architecture Guidelines document and distribute to key stakeholders.
 * Develop educational materials and documentation, awareness communications, incentives, and other programs to help drive user adoption.
 
@@ -77,7 +77,7 @@ While not directly aligned, this phase of governance maturity most closely maps 
   * Configuration alignment approaches
   * Adherence to HA/DR strategy and SLA classification
 * Test deployment, configuration, and recovery policies in staging to validate adherence.
-* Test disaster recovery plans (intrusive and non-intrusive).
+* Test disaster recovery plans (intrusive and nonintrusive).
 
 ## Operate and post-implementation
 
@@ -85,7 +85,7 @@ Once the transformation is complete, governance and operations must live on for 
 
 **Minimum suggested activities:**
 
-* Customize your [Deployment Acceleration toolchain(toolchain.md).
+* Customize your [Deployment Acceleration toolchain](toolchain.md).
 * Automate notifications and reports to alert you of potential configuration issues.
 * Refine Architecture Guidelines to guide future adoption processes.
 * Communicate and continually educate the affected teams on a periodic basis to ensure ongoing adherence to Architecture Guidelines.
@@ -93,7 +93,7 @@ Once the transformation is complete, governance and operations must live on for 
 **Potential activities:**
 
 * Review operating system and application vulnerabilities.
-* Modify disaster recovery plans (intrusive and non-intrusive) as necessary.
+* Modify disaster recovery plans (intrusive and nonintrusive) as necessary.
 * Implement configuration drift monitoring.
 * Maintain and execute patch cycles.
 * Prepare quarterly report including SLA costs versus business impact, along with results from recovery plan testing.

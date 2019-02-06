@@ -8,7 +8,7 @@ ms.date: 01/04/2019
 I've established policies. How to help developers adopt these policies?
 Draft an architecture design guide.
 
-[Aspirational statement] If you're using azure, you can use one of ours as a starting point. The choose one of the following 6 as a starting point and mold it to fit your policies.
+[Aspirational statement] If you're using Azure, you can use one of ours as a starting point. The choose one of the following 6 as a starting point and mold it to fit your policies.
 --->
 
 <!-- markdownlint-disable MD026 -->
@@ -33,7 +33,7 @@ While every cloud adoption has unique goals, priorities, and challenges, these s
 
 | Design guide scenario                                                       | Description                                                                   |
 |-----------------------------------------------------------------------------|-------------------------------------------------------------------------------|
-| [Future Proof](../journeys/future-proof/design-guide.md) | Early stage adoption may not warrant and investment in governance. However, this guide will establish a few best practices and policies to future-proof adoption and ensure that proper governance can be added later. |
+| [Future-Proof](../journeys/future-proof/design-guide.md) | Early stage adoption may not warrant and investment in governance. However, this guide will establish a few best practices and policies to future-proof adoption and ensure that proper governance can be added later. |
 | [Protected Data](../journeys/production-workload/design-guide.md) | Some solutions are dependent upon protected data, like customer information or business secrets. The business risks associated with hosting protected data in the cloud can often be mitigated with proper disciplines. |
 | [Enterprise MVP](../journeys/enterprise-mvp/design-guide.md) | Migrating the first few workloads in an enterprise comes with a few common business risks. The Enterprise MVP design guide provides a scalable starting point to move quickly, but grow into larger governance needs with cloud adoption. |
 | [Enterprise @ Scale](../journeys/enterprise-scale/design-guide.md) | As additional solutions are deployed to the cloud, business risks grow. When enterprises reach scale across cloud deployments, governance requirements scale. This design guide builds on Enterprise MVP to meet these more complex needs. |

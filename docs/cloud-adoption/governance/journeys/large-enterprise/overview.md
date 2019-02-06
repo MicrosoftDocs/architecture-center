@@ -11,7 +11,7 @@ ms.date: 2/1/2019
 
 This governance journey follows the experiences of a fictional company through various stages of governance maturity. It is based on real customer journeys. The suggested best practices are based on the constraints and needs of the fictional company.
 
-As a quick starting point, this overview defines a governance minimum viable product (MVP) based on best practices. It also provides links to some governance evolutions that add further best practices as new business or technical risks emerge.
+As a quick starting point, this overview defines a minimum viable product (MVP) for governance based on best practices. It also provides links to some governance evolutions that add further best practices as new business or technical risks emerge.
 
 > [!WARNING]
 > This MVP is a baseline starting point, based on a set of assumptions. Even this minimal set of best practices is based on corporate policies driven by unique business risks and risk tolerances. To see if these assumptions apply to you, read the [longer narrative](./narrative.md) that follows this article.
@@ -58,12 +58,12 @@ In the MVP, practices and tools from the [Deployment Acceleration](../../deploym
 
 ## Evolving the best practice
 
-Over time, this governance MVP will be used to evolve the governance practices. As adoption advances, business risk grows. Various disciplines within the Fusion Governance Model will evolve to mitigate those risks. Later articles in this series discuss the evolution of corporate policy affecting the fictional company. These evolutions happen across three disciplines:
+Over time, this governance MVP will be used to evolve the governance practices. As adoption advances, business risk grows. Various governannce disciplines within the Fusion model will evolve to mitigate those risks. Later articles in this series discuss the evolution of corporate policy affecting the fictional company. These evolutions happen across three disciplines:
 
 - Identity Baseline, as migration dependencies evolve in the narrative
 - Cost Management, as adoption scales.
 - Security Baseline, as protected data is deployed.
-- Resource Consistency, as IT Ops begins supporting mission-critical workloads.
+- Resource Consistency, as IT Operations begins supporting mission-critical workloads.
 
 ![Example of an incremental governance MVP](../../../_images/governance/governance-evolution-large.png)
 

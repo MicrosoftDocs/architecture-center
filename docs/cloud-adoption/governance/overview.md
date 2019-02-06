@@ -13,7 +13,7 @@ For organizations with existing policies governing on-premises IT environments, 
 
 The guidance in this section of Fusion is designed for two purposes:
 
-* Provide Actionable Customer Journeys which serve as a representation of common experiences customers may encounter. Each of these encapsulate business risks, corporate policies for risk mitigation, and design guidance to implement technical solutions. The design is Azure specific by necessity. All other guidance in these journeys could be applied in a cloud agnostic or multi-cloud approach.  
+* Provide actionable customer journeys which serve as a representation of common experiences customers may encounter. Each of these encapsulate business risks, corporate policies for risk mitigation, and design guidance to implement technical solutions. The design is Azure specific by necessity. All other guidance in these journeys could be applied in a cloud agnostic or multi-cloud approach.  
 * Help readers create personalized governance solutions that can meet a variety of business needs, including the governance of multiple public clouds, through detailed guidance on the development of corporate policies, processes, and tooling.
 
 This content is intended for the Cloud Governance team. It is also relevant to cloud architects that need to develop a strong foundation in cloud governance.
@@ -24,7 +24,7 @@ The content in Fusion affects the business, technology, and culture of enterpris
 
 The Cloud Architect serves as the thought leader and facilitator to bring these audiences together. The content in this collection of guides is designed to help the Cloud Architect facilitate the right conversation, with the right audience, to drive necessary decisions. Business transformation that is empowered by the cloud is dependent upon the Cloud Architect role to help guide decisions throughout the business and IT.
 
-**Cloud Architect specialization in this section:** Each section of Fusion represents a different specialization or variant of the Cloud Architect role. This section of Fusion is designed for cloud architects with a passion for mitigating or cleaning up technical risks. Many cloud providers refer to these specialists as cloud custodians, we prefer cloud guardians or, collectively, the Cloud Governance team. In each Actionable Customer Journey, the articles show how the composition and role of the Cloud Governance team may change over time.
+**Cloud Architect specialization in this section:** Each section of Fusion represents a different specialization or variant of the Cloud Architect role. This section of Fusion is designed for cloud architects with a passion for mitigating or cleaning up technical risks. Many cloud providers refer to these specialists as cloud custodians, we prefer cloud guardians or, collectively, the Cloud Governance team. In each actionable customer journey, the articles show how the composition and role of the Cloud Governance team may change over time.
 
 ## Using this guide
 

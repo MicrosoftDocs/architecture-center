@@ -57,7 +57,7 @@ This business risk can be expanded into a few technical risks:
 - Configuration drift or missed patches might result in unintended security gaps that could lead to data leaks or interruptions.
 - Disparate edge devices might increase network operations costs.
 - Disparate device configurations might lead to oversights in configuration and compromises in security.
-- The cyber security team insists there is a risk of vendor lock-in from generating encryption keys on a single cloud provider's platform. While this claim is unsubstantiated, it was accepted by the team for the time being.
+- The Cybersecurity team insists there is a risk of vendor lock-in from generating encryption keys on a single cloud provider's platform. While this claim is unsubstantiated, it was accepted by the team for the time being.
 
 ## Evolution of the policy statements
 
@@ -72,7 +72,7 @@ The following changes to policy will help mitigate the new risks and guide imple
 7. Governance tooling must audit and enforce network configuration requirements defined by the Security Management team.
 8. Governance tooling must limit VM deployment to approved images only.
 9. Whenever possible, node configuration management should apply policy requirements to the configuration of any guest operating system. Node configuration management should respect the existing investment in Group Policy Object (GPO) for resource configuration.
-10. Governance tooling will audit that automatic updates are enabled on all deployed assets. When possible, automatic updates will be enforced. When not enforced by tooling, node-level violations must be reviewed with operational management teams and remediated in accordance with operations policies. Assets that are not automatically updated must be included in processes owned by IT operations.
+10. Governance tooling will audit that automatic updates are enabled on all deployed assets. When possible, automatic updates will be enforced. When not enforced by tooling, node-level violations must be reviewed with operational management teams and remediated in accordance with operations policies. Assets that are not automatically updated must be included in processes owned by IT Operations.
 11. Creation of new subscriptions or management groups for any mission-critical applications or protected data requires a review from the Cloud Governance team to ensure proper blueprint assignment.
 12. A least-privilege access model will be applied to any subscription that contains mission-critical applications or protected data.
 13. The cloud vendor must be capable of integrating encryption keys managed by the existing on-premises solution.

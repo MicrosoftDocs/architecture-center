@@ -7,7 +7,7 @@ ms.date: 2/1/2019
 
 # Fusion: Small to Medium Enterprise – Cost Management evolution
 
-This article evolves the narrative by adding cost controls to the governance minimum viable product (MVP).
+This article evolves the narrative by adding cost controls to the governance MVP.
 
 ## Evolution of the narrative
 

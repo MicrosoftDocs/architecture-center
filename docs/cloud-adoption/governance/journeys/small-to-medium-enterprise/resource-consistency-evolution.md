@@ -31,7 +31,7 @@ The changes to current and future state expose new risks that will require new p
 
 ## Evolution of tangible risks
 
-**Business Interruption**: There is an inherent risk of any new platform causing interruptions to mission-critical business processes. The IT operations team and the teams executing on various cloud adoptions are relatively inexperienced with cloud operations. This increases the risk of interruption and must be mitigated and governed.
+**Business Interruption**: There is an inherent risk of any new platform causing interruptions to mission-critical business processes. The IT Operations team and the teams executing on various cloud adoptions are relatively inexperienced with cloud operations. This increases the risk of interruption and must be mitigated and governed.
 
 This business risk can be expanded into a number of technical risks:
 
@@ -58,7 +58,7 @@ The following changes to policy will help mitigate the new risks and guide imple
 5. Governance tooling must validate that the appropriate level of logging data is being collected for all mission-critical applications or protected data.
 6. Governance process must validate that backup, recovery, and SLA adherence are properly implemented for mission-critical applications and protected data.
 7. Governance tooling must limit virtual machine deployments to approved images only.
-8. Governance tooling must enforce that automatic updates are prevented on all deployed assets that support mission-critical applications. Violations must be reviewed with operational management teams and remediated in accordance with operations policies. Assets that are not automatically updated must be included in processes owned by IT operations.
+8. Governance tooling must enforce that automatic updates are prevented on all deployed assets that support mission-critical applications. Violations must be reviewed with operational management teams and remediated in accordance with operations policies. Assets that are not automatically updated must be included in processes owned by IT Operations.
 9. Governance tooling must validate tagging related to cost, criticality, SLA, application, and data classification. All values must align to predefined values managed by the governance team.
 10. Governance processes must include audits at the point of deployment and at regular cycles to ensure consistency across all assets.
 11. Trends and exploits that could affect cloud deployments should be reviewed regularly by the Security team to provide updates to security management tooling used in the cloud.
@@ -84,7 +84,7 @@ This section of the article will evolve the governance MVP design to include new
     1. Once a mission-critical subscription is identified, create an Azure Monitor workspace using PowerShell. This is a pre-deployment process.
     2. During deployment testing, the Cloud Operations team deploys the necessary agents and tests discovery.
 6. Update Azure Policy for all subscriptions that contain mission-critical applications.
-    1. Audit and enforce the application of an NSG to all NICS and subnets. Networking and IT Security define the NSG.
+    1. Audit and enforce the application of an NSG to all NICs and subnets. Networking and IT Security define the NSG.
     2. Audit and enforce the use of approved network subnets and VNets for each network interface.
     3. Audit and enforce the limitation of user-defined routing tables.
     4. Audit and enforce deployment of Azure Monitor agents for all virtual machines.

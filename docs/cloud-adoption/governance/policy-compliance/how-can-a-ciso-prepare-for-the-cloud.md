@@ -23,7 +23,7 @@ As solutions move further "up stack" to incorporate Platform as a Service or Sof
 
 **Growth Mindset**: Change can be scary to the business, as well as, technical implementors. When the CISO leads a growth mindset shift in an organization, we've found that those natural fears are replaced with an increased interest in safety and policy compliance. Approaching a [policy review](policy-compliance/what-is-a-cloud-policy-review.md), a Transformation Journey, or simple implementation reviews with a growth mindset, allows the team to move quickly but not at the cost of a fair and manageable risk profile.
 
-## Resources for the Chief Information Security Office(r)
+## Resources for the Chief Information Security Officer
 
 Knowledge about the cloud is fundamental to approaching a [policy review](policy-compliance/what-is-a-cloud-policy-review.md) with a growth mindset. The following resources can help the CISO better understand the security posture of Microsoft's Azure platform.
 

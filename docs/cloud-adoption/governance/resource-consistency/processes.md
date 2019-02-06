@@ -11,7 +11,7 @@ This article discusses an approach to policy adherence processes that govern [Re
 
 ## Planning, review, and reporting processes
 
-Cloud platforms provide an array of management tools and features that you can use to organize, provision, scale, and minimize downtime. Using these tools to effectively structure and operate your cloud deployments in ways that mitigate potential risks requires well thought out processes and policies in addition to close cooperation with IT operations teams and business stakeholders.
+Cloud platforms provide an array of management tools and features that you can use to organize, provision, scale, and minimize downtime. Using these tools to effectively structure and operate your cloud deployments in ways that mitigate potential risks requires well thought out processes and policies in addition to close cooperation with IT Operations teams and business stakeholders.
 
 The following is a set of example processes commonly involved in the Resource Consistency discipline. Use these examples as a starting point when planning the processes that will allow you to continue to update Resource Consistency policy based on business change and feedback from the development and IT teams tasked with turning guidance into action.
 
@@ -19,13 +19,13 @@ The following is a set of example processes commonly involved in the Resource Co
 
 **Deployment planning**: Prior to deployment of any asset, perform a review to identify any new operational risks. Establish resource requirements and expected demand patterns, and identify scalability needs and potential usage optimization opportunities. Also ensure backup and recovery plans are in place.
 
-**Deployment testing**: As part of deployment, the cloud governance team, in cooperation with your cloud operations teams, will be responsible for reviewing the deployment to validate Resource Consistency policy compliance.
+**Deployment testing**: As part of deployment, the Cloud Governance team, in cooperation with your cloud operations teams, will be responsible for reviewing the deployment to validate Resource Consistency policy compliance.
 
 **Annual planning**: On an annual basis, perform a high-level review of Resource Consistency strategy. Explore future corporate expansion plans or priorities and update cloud adoption strategies to identify potential risk increase or other emerging Resource Consistency needs. Also use this time to review the latest best practices for cloud Resource Consistency and integrate these into your policies and review processes.
 
 **Quarterly review and planning**: On a quarterly basis perform a review of operational data and incident reports to identify any changes required in Resource Consistency policy. As part of this process, review changes in resource usage and performance to identify assets that require increases or decreases in resource allocation, and identify any workloads or assets that are candidates for retirement.
 
-This planning process is also a good time to evaluate the current membership of your cloud governance team for knowledge gaps related to new or evolving policy and risks related to Resource Consistency as a discipline. Invite relevant IT staff to participate in reviews and planning as either temporary technical advisors or permanent members of your team.
+This planning process is also a good time to evaluate the current membership of your Cloud Governance team for knowledge gaps related to new or evolving policy and risks related to Resource Consistency as a discipline. Invite relevant IT staff to participate in reviews and planning as either temporary technical advisors or permanent members of your team.
 
 **Education and Training**: On a bi-monthly basis, offer training sessions to make sure IT staff and developers are up-to-date on the latest Resource Consistency policy requirements and guidance. As part of this process review and update any documentation or other training assets to ensure they are in sync with the latest corporate policy statements.
 
@@ -39,7 +39,7 @@ Ensure that your IT teams have implemented automated monitoring systems for your
 
 ## Violation triggers and enforcement actions
 
-Because Resource Consistency policy compliance can lead to critical service disruption or significant cost overruns risks, the cloud governance team should have visibility into non-compliance incidents. Ensure IT staff have clear escalation paths for reporting these issues to the governance team members best suited to identify and verify that policy issues are mitigated.  
+Because Resource Consistency policy compliance can lead to critical service disruption or significant cost overruns risks, the Cloud Governance team should have visibility into noncompliance incidents. Ensure IT staff have clear escalation paths for reporting these issues to the governance team members best suited to identify and verify that policy issues are mitigated.  
 
 When violations are detected, you should take actions to realign with policy as soon as possible. Your IT team can automate most violation triggers using the tools outlined in the [Azure-Specific Toolchain](toolchain.md).
 

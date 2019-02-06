@@ -25,7 +25,7 @@ Sadly, the true business risks will be based on the what & how behind specific t
 
 * Cost Risk: Cost models change in the Cloud. This change can create risks associated with cost overruns or increases in Cost of Goods Sold (COGS), especially directly attributed operational expenses. When business works closely with IT, it is feasible to create transparency regarding costs and services consumed by various business units, programs, projects, etc... [Cost Management] provides examples of ways Business and IT can partner on this topic.
 
-The above are a few of the most common risks mentioned by customers. The Cloud Governance team and Cloud Adoption team can begin to develop a risk profile, as workloads are migrated and readied for production release. Be prepared for conversations to define, refine, and mitigate risks based on the desired business outcomes and transformation effort.
+The above are a few of the most common risks mentioned by customers. The Cloud Governance team and the cloud adoption teams can begin to develop a risk profile, as workloads are migrated and readied for production release. Be prepared for conversations to define, refine, and mitigate risks based on the desired business outcomes and transformation effort.
 
 # Understanding Risk Tolerance
 
@@ -35,7 +35,7 @@ Identifying risk is a fairly direct process. Risks are pretty standard across in
 
 To help understand risk tolerance, lets examine customer data. If a company in any industry posts customer data on an unsecured server, the risk of that data being compromised or stolen is relatively the same. However, the nature of the data and the companies tolerance for that risk changes wildly.
 
-* Companies in healthcare and finance in the United States, are governed by rigid, 3rd party compliance requirements. It is assumed that Personally Identifiable Information (PII) or healthcare related data is extremely confidential. There are severe consequences for these types of companies, if they are involved in the risks scenario above. Their tolerance will be extremely low. Any customer data published inside or outside of the network will need to be governed by those 3rd party compliance policies.
+* Companies in healthcare and finance in the United States, are governed by rigid, third-party compliance requirements. It is assumed that personally identifiable information (PII) or healthcare-related data is extremely confidential. There are severe consequences for these types of companies, if they are involved in the risks scenario above. Their tolerance will be extremely low. Any customer data published inside or outside of the network will need to be governed by those third-party compliance policies.
 * A gaming company whose customer data is limited to a user name, play times, and high scores, is not as likely to suffer any significant consequences, if they engage in the risky behavior above. Will any unsecured data is at risk, the impact of that risk is small. Therefore the tolerance for risk in this case is high.
 * A medium sized enterprise that provides carpet cleaning services to thousands of customers would fall in between these two tolerance extremes. There customer data may be more robust, containing details like address or phone number. Both could be considered PII & should be protected. However, there may not be any specific governance requirement mandating that the data be secured. From an IT perspective, the answer is simple, secure the data. From a business perspective, it may not be as simple. The business would need more details before they could determine a level of tolerance for this risk.
 
@@ -47,7 +47,7 @@ This section lists conversation provoking questions in three categories: Loss Im
 
 **Loss Impact**: Questions to determine the impact of a risk. These questions can be difficult (sometimes impossible) to answer. Quantifying the impact is best, but sometimes the conversation alone is enough to understand tolerance. Ranges are also acceptable, especially if they include assumptions that determined those ranges.
 
-* Does this risk violate 3rd party compliance requirements?
+* Does this risk violate third-party compliance requirements?
 * Does this risk violate internal corporate policies?
 * Could this risk cost customers or market share? If so, can this impact be quantified?
 * Could this risk create negative customer experiences? Are those experiences likely to impact sales or revenue realization?

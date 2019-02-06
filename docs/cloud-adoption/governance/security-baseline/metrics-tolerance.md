@@ -44,7 +44,7 @@ Once you have a baseline, establish minimum benchmarks representing an unaccepta
 - **Patching trigger**. A company where deployed virtual machines or services where OS or software patches have not been applied in the last X number of days. A Security Baseline discipline can be used to ensure patching is kept up-to-date within a required schedule.
 - **Security focused**. Some companies will have strong security and data confidentiality requirements even for test and experimental workloads. These companies will need to invest in the Security Baseline discipline before any deployments can begin.
 
-The exact metrics and triggers you use to gauge risk tolerance and the level of investment in the Security Baseline discipline will be specific to your organization, but the examples above should serve as a useful base for discussion within your cloud governance team.  
+The exact metrics and triggers you use to gauge risk tolerance and the level of investment in the Security Baseline discipline will be specific to your organization, but the examples above should serve as a useful base for discussion within your Cloud Governance team.  
 
 ## Next steps
 

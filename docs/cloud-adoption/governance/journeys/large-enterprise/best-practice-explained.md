@@ -7,7 +7,7 @@ ms.date: 2/1/2019
 
 # Fusion: Large Enterprise – Best practice explained
 
-The governance journey starts with a set of initial [corporate policies](./initial-corporate-policy.md). These policies are used to establish a governance minimal viable product (MVP) that reflects [best practices](./overview.md).
+The governance journey starts with a set of initial [corporate policies](./initial-corporate-policy.md). These policies are used to establish a minimum viable product (MVP) for governance that reflects [best practices](./overview.md).
 
 In this article, we discuss the high-level strategies that are required to create a governance MVP. The core of the governance MVP is the [Deployment Acceleration](../../deployment-acceleration/overview.md) discipline. The tools and patterns applied at this stage will enable the incremental evolutions needed to expand governance in the future.
 
@@ -102,7 +102,7 @@ If any of the patterns chosen in this governance journey don't align with the re
 
 ## Next steps
 
-Once this guidance is implemented, the Cloud Adoption team can proceed with a solid governance foundation. The Cloud Governance team will work in parallel to continually update the corporate policies and governance disciplines.
+Once this guidance is implemented, each cloud adoption team can proceed with a solid governance foundation. The Cloud Governance team will work in parallel to continually update the corporate policies and governance disciplines.
 
 Both teams will use the tolerance indicators to identify the next evolution needed to continue supporting cloud adoption. The next step for the company in this journey is to evolve their governance baseline to support applications with legacy or third-party multifactor authentication (MFA) requirements.
 

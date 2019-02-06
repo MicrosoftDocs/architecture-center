@@ -14,7 +14,7 @@ Cost Management is one of the [Five Disciplines of Cloud Governance](../governan
 > [!NOTE]
 > Cost Management governance does not replace the existing business teams, accounting practices, and procedures that are involved in your organization's financial management of IT-related costs. The primary purpose of this discipline is to identify potential cloud-related risks related to IT spending, and provide risk-mitigation guidance to the business and IT teams responsible deploying and managing cloud deployments. As you develop governance policies and processes make sure to involve relevant business and IT staff in your planning and review processes.
 
-The primary audience for this guidance is your organization's cloud architects and other members of your cloud governance team. However, the decisions, policies, and processes that emerge from this discipline should involve engagement and discussions with relevant members of your business and IT teams, especially those leaders responsible for owning, managing, and paying for cloud-based workloads.
+The primary audience for this guidance is your organization's cloud architects and other members of your Cloud Governance team. However, the decisions, policies, and processes that emerge from this discipline should involve engagement and discussions with relevant members of your business and IT teams, especially those leaders responsible for owning, managing, and paying for cloud-based workloads.
 
 ## Policy statements
 

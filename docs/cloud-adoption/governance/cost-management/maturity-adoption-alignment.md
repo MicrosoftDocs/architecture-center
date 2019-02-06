@@ -15,7 +15,7 @@ This article outlines potential tasks your company perform to develop and mature
 
 *Figure 1. Adoption phases of the incremental approach to cloud governance.*
 
-No single document can account for the requirements of all businesses. As such, this article outlines suggested minimum and potential example activities for each phase of the governance maturation process. The initial objective of these activities is to help you build a [Policy MVP](../journeys/overview.md#incremental-cloud-governance-model) and establish a framework for incremental policy evolution. Your cloud governance team will need to decide how much to invest in these activities to improve your Cost Management governance capabilities.
+No single document can account for the requirements of all businesses. As such, this article outlines suggested minimum and potential example activities for each phase of the governance maturation process. The initial objective of these activities is to help you build a [Policy MVP](../journeys/overview.md#incremental-cloud-governance-model) and establish a framework for incremental policy evolution. Your Cloud Governance team will need to decide how much to invest in these activities to improve your Cost Management governance capabilities.
 
 > [!CAUTION]
 > Neither the minimum or potential activities outlined in this article are aligned to specific corporate policies or third party compliance requirements. This guidance is designed to help facilitate the conversations that will lead to alignment of both requirements with a Cloud Governance Model.
@@ -36,13 +36,13 @@ This phase of governance maturity bridges the divide between business outcomes a
 * Validate learning metrics that you use to report on the successful allocation of funding.
 * Understand the desired cloud accounting model that affects how cloud costs should be accounted for.
 * Become familiar with the digital estate plan and validate accurate costing expectations.
-* Evaluate buying options to determine if it's better to "pay as you go" or to make a pre-commitment by purchasing an Enterprise Agreement.
+* Evaluate buying options to determine if it's better to "pay as you go" or to make a precommitment by purchasing an Enterprise Agreement.
 * Align business goals with planned budgets and adjust budgetary plans as necessary.
 * Develop a goals and budget reporting mechanism to notify technical and business stakeholders at the end of each cost cycle.
 
 ## Build and pre-deployment
 
-A number of technical and non-technical pre-requisites are required to successful migrate an environment. This process focuses on the decisions, readiness, and core infrastructure that proceeds a migration.
+A number of technical and nontechnical prerequisites are required to successful migrate an environment. This process focuses on the decisions, readiness, and core infrastructure that proceeds a migration.
 
 **Minimum suggested activities:**
 
@@ -80,7 +80,7 @@ Once the transformation is complete, governance and operations must live on for 
 
 **Minimum suggested activities:**
 
-* Customize [Cost Management toolchain(toolchain.md) based on updates to your organization’s changing Cost Management needs.
+* Customize [Cost Management toolchain](toolchain.md) based on updates to your organization’s changing Cost Management needs.
 * Consider automating any notifications and reports to reflect actual spending.
 * Refine Architecture Guidelines to guide future adoption processes.
 * Re-educate affected teams on a periodic basis to ensure ongoing adherence to the Architecture Guidelines.
@@ -93,7 +93,7 @@ Once the transformation is complete, governance and operations must live on for 
 * Analyze stakeholder value and cost reporting methods on a monthly basis.
 * Remediate underused assets and determine if they're worth continuing.
 * Detect misalignments and anomalies between the plan and actual spending.
-* Assist the Cloud Adoption team and Cloud Strategy team in understanding and resolving these anomalies.
+* Assist the cloud adoption teams and the Cloud Strategy team with understanding and resolving these anomalies.
 
 ## Next steps
 

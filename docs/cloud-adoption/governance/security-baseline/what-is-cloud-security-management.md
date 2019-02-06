@@ -5,6 +5,8 @@ author: BrianBlanchard
 ms.date: 10/10/2018
 ---
 
+<!-- markdownlint-disable MD026 -->
+
 # Fusion: What is Cloud Security Baseline?
 
 This is an introductory article on the general topic of Cloud Security Baseline which builds on the [Five disciplines of Governance](../overview.md) to establish a governance framework. More detailed information about Cloud Security is available from [Azure's Trusted Cloud](https://azure.microsoft.com/overview/trusted-cloud/). Approaches to improving your organizations security posture can be found in the [Cloud Security Service Catalog](https://www.microsoft.com/security/information-protection)
@@ -35,8 +37,8 @@ Security, of course, is an essential component of strong data safeguards in all 
 
 The two greatest risk in any datacenter can be grouped into two sources: Aging systems and Human error. Protecting against these two risks is a minimum when defining an IT security strategy. The same is true in the cloud. The following are a few examples of controls that can be put in place to mitigate risks and strengthen your Cloud Security strategy.
 
-* Legacy Systems: Many components in on-premises datacenter solutions consist of software, hardware, and processes that pre-date current security risks. When possible, remediate, replace, or retire these systems during a Cloud Transformation. Of course, that's not always feasible. If any legacy systems will remain in production in a hybrid solution, it is important that those systems have been inventoried and understood during Virtual Data Center design. Doing so allows the design team to eliminate or control access to those systems from the cloud.
-* IT Security processes and controls: At minimum, Cloud design teams should be refreshed on existing IT security processes and controls to carry those forward into the cloud. In an ideal scenario, a member of the IT security team would be trained in cyber security and dedicated as a member of the design and implementation teams.
+* Legacy Systems: Many components in on-premises datacenter solutions consist of software, hardware, and processes that predate current security risks. When possible, remediate, replace, or retire these systems during a Cloud Transformation. Of course, that's not always feasible. If any legacy systems will remain in production in a hybrid solution, it is important that those systems have been inventoried and understood during Virtual Datacenter design. Doing so allows the design team to eliminate or control access to those systems from the cloud.
+* IT Security processes and controls: At minimum, Cloud design teams should be refreshed on existing IT security processes and controls to carry those forward into the cloud. In an ideal scenario, a member of the IT security team would be trained in cybersecurity and dedicated as a member of the design and implementation teams.
 * Monitoring and Auditing: When designing governance processes and tooling, ensure that monitoring and auditing solutions include security risks or violations.
 
 > [!NOTE]

@@ -17,7 +17,7 @@ This article outlines some potential tasks your company can engage in to better 
 
 *Figure 1. Adoption phases of the incremental approach to cloud governance.*
 
-It's impossible for any one document to account for the requirements of all businesses. As such, this article outlines suggested minimum and potential example activities for each phase of the governance maturation process. The initial objective of these activities is to help you build a [Policy MVP](../journeys/overview.md#incremental-cloud-governance-model) and establish a framework for incremental policy evolution. Your cloud governance team will need to decide how much to invest in these activities to improve your Security Baseline governance capabilities.
+It's impossible for any one document to account for the requirements of all businesses. As such, this article outlines suggested minimum and potential example activities for each phase of the governance maturation process. The initial objective of these activities is to help you build a [Policy MVP](../journeys/overview.md#incremental-cloud-governance-model) and establish a framework for incremental policy evolution. Your Cloud Governance team will need to decide how much to invest in these activities to improve your Security Baseline governance capabilities.
 
 > [!CAUTION]
 > Neither the minimum or potential activities outlined in this article are aligned to specific corporate policies or third party compliance requirements. This guidance is designed to help facilitate the conversations that will lead to alignment of both requirements with a Cloud Governance Model.
@@ -48,11 +48,11 @@ This phase of governance maturity bridges the divide between business outcomes a
 
 ## Build and pre-deployment
 
-A number of technical and non-technical pre-requisites are required to successful migrate an environment. This process focuses on the decisions, readiness, and core infrastructure that proceeds a migration.
+A number of technical and nontechnical prerequisites are required to successful migrate an environment. This process focuses on the decisions, readiness, and core infrastructure that proceeds a migration.
 
 **Minimum suggested activities:**
 
-- Implement your [Security Baseline toolchain(toolchain.md) by rolling out in a pre-deployment phase.
+- Implement your [Security Baseline toolchain](toolchain.md) by rolling out in a pre-deployment phase.
 - Update the Architecture Guidelines document and distribute to key stakeholders.
 - Implement security tasks on your prioritized migration backlog.
 - Develop educational materials and documentation, awareness communications, incentives, and other programs to help drive user adoption.
@@ -73,7 +73,7 @@ Migration is an incremental process that focuses on the movement, testing, and a
 
 **Minimum suggested activities:**
 
-- Migrate your [Security Baseline toolchain(toolchain.md) from pre-deployment to production.
+- Migrate your [Security Baseline toolchain](toolchain.md) from pre-deployment to production.
 - Update the Architecture Guidelines document and distribute to key stakeholders.
 - Develop educational materials and documentation, awareness communications, incentives, and other programs to help drive user adoption
 
@@ -93,7 +93,7 @@ Once the transformation is complete, governance and operations must live on for 
 
 **Minimum suggested activities:**
 
-- Validate and/or refine your [Security Baseline toolchain(toolchain.md).
+- Validate and/or refine your [Security Baseline toolchain](toolchain.md).
 - Customize notifications and reports to alert you of potential security issues.
 - Refine the Architecture Guidelines to guide future adoption processes.
 - Communicate and educate the affected teams periodically to ensure ongoing adherence to architecture guidelines.

@@ -39,6 +39,6 @@ The following are additional tools that may be required to accomplish specific D
 |Recover data during an outage or SLA violation     | No | No | No | Yes | Yes | Yes |
 |Recover applications and data during an outage or SLA violation     | No | No | No | Yes | No | Yes |
 
-Aside from the Azure native tools mentioned above, it is extremely common for customers to leverage 3rd party tools for facilitating Deployment Acceleration and devops deployments.
+Aside from the Azure native tools mentioned above, it is extremely common for customers to leverage third-party tools for facilitating Deployment Acceleration and devops deployments.
 
 <!-- markdownlint-enable MD026 -->

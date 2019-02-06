@@ -11,7 +11,7 @@ This article will evolve the narrative by adding Resource Consistency controls t
 
 ## Evolution of the narrative
 
-The cloud adoption teams have met all requirements to move protected data. With those applications come SLA commitments to the business and need for IT operation support. Right behind the team migrating the two datacenters, multiple app dev and BI teams are ready to begin launching new solutions into production. IT operations is new to the thought of cloud operations and needs a way to quickly integrate existing operational processes.
+The cloud adoption teams have met all requirements to move protected data. With those applications come SLA commitments to the business and need for support from IT Operations. Right behind the team migrating the two datacenters, multiple app dev and BI teams are ready to begin launching new solutions into production. IT Operations is new to the thought of cloud operations and needs a way to quickly integrate existing operational processes.
 
 ### Evolution of current state
 
@@ -27,7 +27,7 @@ The changes to current and future state expose new risks that will require new p
 
 ## Evolution of tangible tisks
 
-**Business Interruption**: There is an inherent risk of any new platform causing interruptions to mission-critical business processes. The IT operations team and the teams executing on various cloud adoptions are relatively inexperienced with cloud operations. This increases the risk of interruption and must be mitigated and governed.
+**Business Interruption**: There is an inherent risk of any new platform causing interruptions to mission-critical business processes. The IT Operations team and the teams executing on various cloud adoptions are relatively inexperienced with cloud operations. This increases the risk of interruption and must be mitigated and governed.
 
 This business risk can be expanded into several technical risks:
 
@@ -78,11 +78,11 @@ Following the experience of this fictional example, it is assumed that the Prote
     2. The team also chose Azure Site Recovery as the primary BCDR tooling.
 2. Azure Site Recovery implementation
     1. Define and deploy Azure Vault for backup and recovery processes
-    2. Create ARM Template for creation of a Vault in each subscription
+    2. Create an Azure Resource Management template for creation of a vault in each subscription
 3. Azure Monitor implementation
     1. Once a mission-critical subscription is identified, a log analytics workspace can be created using PowerShell. This is a pre-deployment process.
 
-**Individual Cloud Adoption Subscription**: The following will ensure that each subscription is discoverable by the monitoring solution and ready to be included in BCDR practices.
+**Individual cloud adoption subscription**: The following will ensure that each subscription is discoverable by the monitoring solution and ready to be included in BCDR practices.
 
 1. Azure Policy for mission-critical nodes
     1. Audit and enforce use of standard roles only.

@@ -10,7 +10,7 @@ ms.date: 2/1/2019
 The following corporate policy defines the initial governance position, which is the starting point for this journey. This article defines early-stage risks, initial policy statements, and early processes to enforce policy statements.
 
 > [!NOTE]
->The corporate policy is not a technical document, but it drives many technical decisions. The governance minimum viable product (MVP) described in the [overview](./overview.md) ultimately derives from this policy. Before implementing a governance MVP, your organization should develop a corporate policy based on your own objectives and business risks.
+>The corporate policy is not a technical document, but it drives many technical decisions. The governance MVP described in the [overview](./overview.md) ultimately derives from this policy. Before implementing a governance MVP, your organization should develop a corporate policy based on your own objectives and business risks.
 
 ## Cloud Governance team
 
@@ -33,7 +33,7 @@ The current risk tolerance is high and the appetite for investing in cloud gover
 
 ## Next steps
 
-This corporate policy prepares the cloud governance team to implement the governance MVP, which will be the foundation for adoption. The next step is to implement this MVP.
+This corporate policy prepares the Cloud Governance team to implement the governance MVP, which will be the foundation for adoption. The next step is to implement this MVP.
 
 > [!div class="nextstepaction"]
 > [Best practice explained](./best-practice-explained.md)

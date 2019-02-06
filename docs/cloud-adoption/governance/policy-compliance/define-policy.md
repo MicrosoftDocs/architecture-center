@@ -57,7 +57,7 @@ If you need help getting started with defining policies, consult the [governance
 
 Planned additions to your cloud environment should always be vetted for compliance with existing policy, and policy updated to account for any issues not already covered. You should also perform regular [cloud policy review](what-is-a-cloud-policy-review.md) to ensure your cloud policy is up-to-date and in-sync with any new corporate policy.
 
-The need to integrate cloud policy with your legacy IT policies depends largely on the maturity of your cloud governance processes and the size of your cloud estate. See the article on [incremental governance and the policy minimally viable product](overview.md) for a broader discussion on dealing with policy integration during your cloud transformation.
+The need to integrate cloud policy with your legacy IT policies depends largely on the maturity of your cloud governance processes and the size of your cloud estate. See the article on [incremental governance and the policy MVP](overview.md) for a broader discussion on dealing with policy integration during your cloud transformation.
 
 ## Next steps
 
