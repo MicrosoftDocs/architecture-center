@@ -57,7 +57,7 @@ One of the keys to data protection in the cloud is accounting for the possible s
 * Azure Key Vault enables users to safeguard and control cryptographic keys and other secrets used by cloud apps and services.
 * Azure Information Protection will help classify, label, and protect your sensitive data in apps.
 
-While these features are built into Azure, each of the above requires configuration and could increase costs. Alignment of each Cloud Native feature with a [data classification strategy](../what-is-data-governance.md) is highly suggested.
+While these features are built into Azure, each of the above requires configuration and could increase costs. Alignment of each Cloud Native feature with a [data classification strategy](../what-is-data-classification.md) is highly suggested.
 
 ### Security monitoring
 

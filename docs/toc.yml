@@ -676,67 +676,67 @@
         - name: Security Baseline
           items:
             - name: Adopting a Security Baseline Discipline
-              href: cloud-adoption/governance/security-management/overview.md
+              href: cloud-adoption/governance/security-baseline/overview.md
             - name: Download the Template
-              href: cloud-adoption/governance/security-management/template.md
+              href: cloud-adoption/governance/security-baseline/template.md
             - name: Understand business risks
-              href: cloud-adoption/governance/security-management/business-risks.md
+              href: cloud-adoption/governance/security-baseline/business-risks.md
             - name: Document metrics and tolerance indicators
-              href: cloud-adoption/governance/security-management/metrics-tolerance.md
+              href: cloud-adoption/governance/security-baseline/metrics-tolerance.md
             - name: Customize Sample Policy Statements
-              href: cloud-adoption/governance/security-management/policy-statements.md
+              href: cloud-adoption/governance/security-baseline/policy-statements.md
             - name: Develop policy compliance processes
-              href: cloud-adoption/governance/security-management/processes.md
+              href: cloud-adoption/governance/security-baseline/processes.md
             - name: Develop a Maturity Roadmap
-              href: cloud-adoption/governance/security-management/maturity-adoption-alignment.md
+              href: cloud-adoption/governance/security-baseline/maturity-adoption-alignment.md
             - name: Sample Policy - Cloud Native Solution
-              href: cloud-adoption/governance/security-management/cloud-native-policy.md          
+              href: cloud-adoption/governance/security-baseline/cloud-native-policy.md          
             - name: Additional Security Guidance in Azure
-              href: cloud-adoption/governance/security-management/azure-security-guidance.md
+              href: cloud-adoption/governance/security-baseline/azure-security-guidance.md
             - name: Azure Specific Tool Chain
-              href: cloud-adoption/governance/security-management/toolchain.md        
+              href: cloud-adoption/governance/security-baseline/toolchain.md        
         - name: Identity Baseline
           items:
             - name: Adopting an Identity Baseline Discipline
-              href: cloud-adoption/governance/identity-management/overview.md
+              href: cloud-adoption/governance/identity-baseline/overview.md
             - name: Download the Template
-              href: cloud-adoption/governance/identity-management/template.md
+              href: cloud-adoption/governance/identity-baseline/template.md
             - name: Understand business risks
-              href: cloud-adoption/governance/identity-management/business-risks.md
+              href: cloud-adoption/governance/identity-baseline/business-risks.md
             - name: Document metrics and tolerance indicators
-              href: cloud-adoption/governance/identity-management/metrics-tolerance.md
+              href: cloud-adoption/governance/identity-baseline/metrics-tolerance.md
             - name: Customize Sample Policy Statements
-              href: cloud-adoption/governance/identity-management/policy-statements.md
+              href: cloud-adoption/governance/identity-baseline/policy-statements.md
             - name: Develop policy compliance processes
-              href: cloud-adoption/governance/identity-management/processes.md
+              href: cloud-adoption/governance/identity-baseline/processes.md
             - name: Develop a Maturity Roadmap
-              href: cloud-adoption/governance/identity-management/maturity-adoption-alignment.md
+              href: cloud-adoption/governance/identity-baseline/maturity-adoption-alignment.md
             - name: Azure Specific Tool Chain
-              href: cloud-adoption/governance/identity-management/toolchain.md
+              href: cloud-adoption/governance/identity-baseline/toolchain.md
         - name: Resource Consistency
           items:
             - name: Adopting a Resource Consistency Discipline
-              href: cloud-adoption/governance/resource-management/overview.md
+              href: cloud-adoption/governance/resource-consistency/overview.md
             - name: Download the Template
-              href: cloud-adoption/governance/resource-management/template.md
+              href: cloud-adoption/governance/resource-consistency/template.md
             - name: Understand business risks
-              href: cloud-adoption/governance/resource-management/business-risks.md
+              href: cloud-adoption/governance/resource-consistency/business-risks.md
             - name: Document metrics and tolerance indicators
-              href: cloud-adoption/governance/resource-management/metrics-tolerance.md
+              href: cloud-adoption/governance/resource-consistency/metrics-tolerance.md
             - name: Customize Sample Policy Statements
-              href: cloud-adoption/governance/resource-management/policy-statements.md
+              href: cloud-adoption/governance/resource-consistency/policy-statements.md
             - name: Develop policy compliance processes
-              href: cloud-adoption/governance/resource-management/processes.md
+              href: cloud-adoption/governance/resource-consistency/processes.md
             - name: Develop a Maturity Roadmap
-              href: cloud-adoption/governance/resource-management/maturity-adoption-alignment.md
+              href: cloud-adoption/governance/resource-consistency/maturity-adoption-alignment.md
             - name: Resource access governance in Azure
-              href: cloud-adoption/governance/resource-management/azure-resource-access.md
+              href: cloud-adoption/governance/resource-consistency/azure-resource-access.md
             - name: Resouce governance design for a single team
-              href: cloud-adoption/governance/resource-management/governance-single-team.md
+              href: cloud-adoption/governance/resource-consistency/governance-single-team.md
             - name: Resouce governance design for multiple teams
-              href: cloud-adoption/governance/resource-management/governance-multiple-teams.md
+              href: cloud-adoption/governance/resource-consistency/governance-multiple-teams.md
             - name: Azure Specific Tool Chain
-              href: cloud-adoption/governance/resource-management/toolchain.md
+              href: cloud-adoption/governance/resource-consistency/toolchain.md
         - name: Deployment Acceleration
           items:
             - name: Adopting a Deployment Acceleration Discipline
@@ -771,8 +771,6 @@
           href: cloud-adoption/infrastructure/mainframe-migration/migration-strategies.md
         - name: Application strategies
           href: cloud-adoption/infrastructure/mainframe-migration/application-strategies.md
-    - name: Azure Virtual Datacenter (VDC)
-      href: cloud-adoption/infrastructure/virtual-datacenter/overview.md
     - name: Create Hybrid Cloud Consistency
       href: cloud-adoption/infrastructure/misc/hybrid-consistency.md
   - name: Operations
