@@ -3,7 +3,7 @@ title: Batch scoring for deep learning models
 titleSuffix: Azure Reference Architectures
 description: This reference architecture shows how to apply neural style transfer to a video, using Azure Machine Learning.
 author: jiata
-ms.date: 10/02/2018
+ms.date: 02/06/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
