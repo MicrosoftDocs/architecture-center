@@ -13,7 +13,7 @@ Defining organizational policy is not effective unless there is a way to enforce
 
 ![Plotting policy enforcement options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-policy-enforcement.png)
 
-Jump to: [Cloud native](#cloud-native) | [Trust but verify](#trust-but-verify) | [Simple Enforcement](#simple-enforcement) | [Consistent enforcement across subscriptions](#consistent-enforcement-across-subscriptions) | [Third party log monitoring](#third-party-log-monitoring)
+Jump to: [Baseline recommended practices](#baseline-recommended-practices) | [Policy compliance monitoring](#policy-compliance-monitoring) | [Policy enforcement](#policy-enforcement) | [Cross-organization policy](#cross-organization-policy) | [Automated enforcement](#automated-enforcement)
 
 As your cloud estate grows, you will be faced with a corresponding need to maintain and enforce policy across a larger array of resources, subscriptions, and tenants. The larger your estate, the more complex your enforcement mechanisms will need to be to ensure consistent adherence and fast violation detection. Platform-provided policy enforcement mechanisms at the resource or subscription level are usually sufficient for smaller cloud deployments, while larger deployments may need to take advantage of more sophisticated mechanisms involving deployment standards, resource grouping and organization, and integrating policy enforcement with your logging and reporting systems.
 

@@ -88,7 +88,7 @@ Defining corporate policy focuses on identifying and mitigating business risks r
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./monitoring-enforcement/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./policy-compliance/processes.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -98,8 +98,8 @@ Defining corporate policy focuses on identifying and mitigating business risks r
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Monitoring and enforcement</h3>
-                        <p>The pace of adoption and innovation activities will naturally create policy violations. Ensure that your corporate policies include the proper requirements to detect and resolve violations <u>before</u> they are released.</p>
+                        <h3>Processes</h3>
+                        <p>The pace of adoption and innovation activities will naturally create policy violations. Executing relevant processes will aid in monitoring and enforcing adherence to policies.</p>
                     </div>
                 </div>
             </div>

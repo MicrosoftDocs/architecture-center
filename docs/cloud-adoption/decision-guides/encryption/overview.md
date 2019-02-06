@@ -15,7 +15,7 @@ While encrypting resources is generally desirable, encryption does have costs th
 
 ![Plotting encryption options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-encryption.png)
 
-Jump to: [Key management](#key-management) | [Data encryption](#data-encryption) | [Encryption in Azure](#encryption-in-azure) | [Azure Key Vault](#azure-key-vault)
+Jump to: [Key management](#key-management) | [Data encryption](#data-encryption) | [Learn more](#learn-more) 
 
 The inflection point when determining a cloud encryption strategy focuses on corporate policy and compliance mandates.
 

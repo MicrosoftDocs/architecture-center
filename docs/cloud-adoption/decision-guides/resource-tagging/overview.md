@@ -16,7 +16,7 @@ Organizing cloud-based resources is one of the most important tasks for IT, unle
 
 ![Plotting tagging options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-tagging.png)
 
-Jump to: [Resource naming](#resource-naming) | [Resource tagging](#resource-tagging) | [Naming and tagging policy](#naming-and-tagging-policy) | [Resource naming and tagging in Azure](#resource-tagging-in-azure)
+Jump to: [Baseline naming conventions](#baseline-naming-conventions) | [Resource tagging patterns](#resource-tagging-patterns) | [Naming and tagging policy](#naming-and-tagging-policy) | [Learn more](#learn-more)
 
 Your tagging approach can be simple or complex, with the emphasis ranging from supporting IT teams managing cloud workloads to integrating information relating to all aspects of the entire business.
 

@@ -13,7 +13,7 @@ In any environment, whether on-premises, hybrid, or cloud-only, IT needs to cont
 
 ![Plotting identity options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-identity.png)
 
-Jump to: [Determine Identity Integration Requirements](#determine-identity-integration-requirements) | [Cloud native](#cloud-native) | [Replication (VDC)](#replication-vdc) | [Directory replication with domain services](#directory-migration-with-domain-services) | [Azure Active Directory](#azure-active-directory)
+Jump to: [Determine Identity Integration Requirements](#determine-identity-integration-requirements) | [Cloud native](#cloud-baseline) | [Directory Synchronization](#directory-synchronization) | [Cloud hosted domain services](#cloud-hosted-domain-services) | [Active Directory Federation Services](#active-directory-federation-services) | [Evolving identity integration](#evolving-identity-integration) | [Learn more](#learn-more)
 
 There are several ways to manage identity in a cloud environment, which vary in cost and complexity. A key factor in structuring your cloud-based identity services is the level of integration required with your existing on-premises identity infrastructure.
 

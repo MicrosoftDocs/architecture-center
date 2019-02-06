@@ -13,7 +13,7 @@ Cloud adoption enables services that weren't often considered in traditional IT 
 
 ## How can the CISO prepare for the cloud
 
-Like most policies, Security and Governance policies within an organization tend to grow organically. When security incidents happen, they shape policy to inform users and reduce the likelihood of repeat occurrences. While natural, this approach creates policy bloat and technical dependencies. Cloud Transformation Journeys create a unique opportunity to modernize and reset policies. While preparing for any transformation journey, the CISO can create immediate and measurable value by serving as the primary stakeholder in a [policy review](policy-compliance/what-is-a-cloud-policy-review.md).
+Like most policies, Security and Governance policies within an organization tend to grow organically. When security incidents happen, they shape policy to inform users and reduce the likelihood of repeat occurrences. While natural, this approach creates policy bloat and technical dependencies. Cloud Transformation Journeys create a unique opportunity to modernize and reset policies. While preparing for any transformation journey, the CISO can create immediate and measurable value by serving as the primary stakeholder in a [policy review](./what-is-a-cloud-policy-review.md).
 
 In such a review, the role of the CISO is to create a safe balance between the constraints of existing policy/compliance and the improved security posture of Cloud providers. Measuring this progress can take many forms, often it is measured in the number of security policies that can be safely offloaded to the cloud provider.
 
@@ -21,11 +21,11 @@ In such a review, the role of the CISO is to create a safe balance between the c
 
 As solutions move further "up stack" to incorporate platform as a service (PaaS) or software as a service (SaaS) models, additional risks can be mitigated, transferred, and replaced. When risk is safely moved to a cloud provider, the cost of executing, monitoring, and enforcing security policies or other compliance policies can be safely reduced as well.
 
-**Growth Mindset**: Change can be scary to the business, as well as, technical implementors. When the CISO leads a growth mindset shift in an organization, we've found that those natural fears are replaced with an increased interest in safety and policy compliance. Approaching a [policy review](policy-compliance/what-is-a-cloud-policy-review.md), a Transformation Journey, or simple implementation reviews with a growth mindset, allows the team to move quickly but not at the cost of a fair and manageable risk profile.
+**Growth Mindset**: Change can be scary to the business, as well as, technical implementors. When the CISO leads a growth mindset shift in an organization, we've found that those natural fears are replaced with an increased interest in safety and policy compliance. Approaching a [policy review](./what-is-a-cloud-policy-review.md), a Transformation Journey, or simple implementation reviews with a growth mindset, allows the team to move quickly but not at the cost of a fair and manageable risk profile.
 
 ## Resources for the Chief Information Security Officer
 
-Knowledge about the cloud is fundamental to approaching a [policy review](policy-compliance/what-is-a-cloud-policy-review.md) with a growth mindset. The following resources can help the CISO better understand the security posture of Microsoft's Azure platform.
+Knowledge about the cloud is fundamental to approaching a [policy review](./what-is-a-cloud-policy-review.md) with a growth mindset. The following resources can help the CISO better understand the security posture of Microsoft's Azure platform.
 
 Security Platform Resources:
 
@@ -60,7 +60,7 @@ Transparency:
 
 ## Next steps
 
-The first step to taking action in any governance strategy, is a [policy review](policy-compliance/what-is-a-cloud-policy-review.md). [Policy and Compliance](policy-compliance/overview.md) could be a useful guide during your policy review.
+The first step to taking action in any governance strategy, is a [policy review](./what-is-a-cloud-policy-review.md). [Policy and Compliance](./overview.md) could be a useful guide during your policy review.
 
 > [!div class="nextstepaction"]
-> [Prepare for a policy review](policy-compliance/what-is-a-cloud-policy-review.md)
+> [Prepare for a policy review](./what-is-a-cloud-policy-review.md)

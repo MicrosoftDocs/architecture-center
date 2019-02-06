@@ -1,11 +1,11 @@
 ---
-title: "Fusion: Resource grouping" 
-description: Discussion of resource grouping when planning an Azure migrations
+title: "Fusion: Resource consistency" 
+description: Discussion of resource consistency when planning an Azure migrations
 author: rotycenh
 ms.date: 12/27/2018
 ---
 
-# Fusion: Resource grouping
+# Fusion: Resource consistency
 
 Azure [subscription design](../subscriptions/overview.md) defines how you organize your cloud assets in relation to your organization's overall structure. In addition, integrating your existing IT management standards and your organizational policies depends on how you deploy and organize cloud resources within a subscription.
 
@@ -16,11 +16,11 @@ The tools available to implement your resource deployment, grouping, and managem
 - Templates for creating standardized deployments.
 - The ability to deploy policy rules at the subscription, account, and resource grouping levels.
 
-## Resource grouping decision guide
+## Resource consistency decision guide
 
-![Plotting resource grouping options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-resource-grouping.png)
+![Plotting resource consistency options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-resource-grouping.png)
 
-Jump to: [Cloud Native (Resource Groups)](#cloud-native-resource-groups) | [Deployment grouping (templated deployments)](#deployment-grouping-templated-deployments) | [Deployment configuration](#deployment-configuration) | [Query and govern](#query-and-govern) | [Complex grouping](#complex-grouping) | [Governance enforcement](#governance-enforcement)
+Jump to: [Basic grouping](#basic-grouping) | [Deployment consistency](#deployment-consistency) | [Policy consistency](#policy-consistency) | [Hierarchical consistency](#hierarchical-consistency) | [Automated consistency](#automated-consistency)
 
 Resource deployment and grouping decisions are primarily driven by these factors: post-migration digital estate size, business or environmental complexity that doesn't fit neatly within your existing subscription design approaches, or the need to enforce governance over time after resources have been deployed. More advanced resource grouping designs require an increased effort to ensure accurate grouping, and this results in an increase in the time spent on change management and tracking.
 

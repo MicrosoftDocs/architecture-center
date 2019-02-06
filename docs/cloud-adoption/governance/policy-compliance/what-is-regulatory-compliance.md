@@ -2,7 +2,7 @@
 title: "Fusion: Introduction to regulatory compliance"
 description: What is regulatory compliance
 author: BrianBlanchard
-ms.date: 12/10/2018
+ms.date: 2/8/2019
 ---
 
 # Fusion: Introduction to regulatory compliance
