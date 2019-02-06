@@ -7,7 +7,7 @@ ms.date: 2/1/2019
 
 # Fusion: How can a company add Identity Baseline discipline to their Cloud Governance execution?
 
-The Identity Baseline discipline focuses on ways of establishing policies that ensure consistency and continuity of user identities regardless of the cloud provider that hosts the application or workload. Within the Five Disciplines of Cloud Governance, Identity Baseline includes decisions regarding the [Hybrid Identity Strategy](../../infrastructure/identity/overview.md), evaluation and extension of identity repositories, implementation of single sign-on (same sign-on), auditing and monitoring for unauthorized use or malicious actors. In some cases, it may also involve decisions to modernize, consolidate, or integrate multiple identity providers.
+The Identity Baseline discipline focuses on ways of establishing policies that ensure consistency and continuity of user identities regardless of the cloud provider that hosts the application or workload. Within the Five Disciplines of Cloud Governance, Identity Baseline includes decisions regarding the [Hybrid Identity Strategy](../../decision-guides/identity/overview.md), evaluation and extension of identity repositories, implementation of single sign-on (same sign-on), auditing and monitoring for unauthorized use or malicious actors. In some cases, it may also involve decisions to modernize, consolidate, or integrate multiple identity providers.
 
 This article outlines some potential tasks your company can engage in to better develop and mature the Identity Baseline discipline. These tasks can be broken down into planning, building, adopting, and operating phases of implementing a cloud solution, which are then iterated on allowing the development of an [incremental governance model](../journeys/overview.md#incremental-cloud-governance-model).
 
@@ -53,7 +53,7 @@ A number of technical and non-technical pre-requisites are required to successfu
 
 **Potential activities:**
 
-* Evaluate your logical and physical architecture and determine a [Hybrid Identity Strategy](../../infrastructure/identity/overview.md).
+* Evaluate your logical and physical architecture and determine a [Hybrid Identity Strategy](../../decision-guides/identity/overview.md).
 * Map identity access management policies, such as login ID assignments, and choose the appropriate authentication method for Azure AD.
   * If federated, enable tenant restrictions for administrative accounts.
 * Integrate your on-premises and cloud directories.
@@ -84,7 +84,7 @@ Migration is an incremental process that focuses on the movement, testing, and a
 **Potential activities:**
 
 * Validate that the best practices defined during the Build / Pre-deployment phases are properly executed.
-* Validate and/or refine your [Hybrid Identity Strategy](../../infrastructure/identity/overview.md).
+* Validate and/or refine your [Hybrid Identity Strategy](../../decision-guides/identity/overview.md).
 * Ensure that each application/workload continues to align with the identity strategy prior to release.
 * Validate that single sign-on (SSO) and seamless SSO is working within the application(s) as expected.
 * Reduce or eliminate the number of alternative identity stores, when possible.
@@ -118,7 +118,7 @@ Once the transformation is complete, governance and operations must live on for 
 * Investigate increasing levels of automation and communication between identity access management (IAM) modules.
 * Consider implementing a development security operations (DevSecOps) approach.
 * Carry out an impact analysis to gauge results on costs, security, and user adoption.
-* Periodically produce an impact report that shows the changes in metrics created by the system and estimate the business impacts of the [Hybrid Identity Strategy](../../infrastructure/identity/overview.md).
+* Periodically produce an impact report that shows the changes in metrics created by the system and estimate the business impacts of the [Hybrid Identity Strategy](../../decision-guides/identity/overview.md).
 * Establish integrated monitoring recommended by the [Azure Security Center](/azure/security-center/security-center-intro).
 
 ## Next steps

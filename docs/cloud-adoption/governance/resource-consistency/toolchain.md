@@ -46,7 +46,7 @@ Along with these Resource Consistency tools and features, you will need to [moni
 | Visualize and analyze log and performance data     | Yes          | No                   | No            | No                     |
 | Integrate with on-premises or third-party monitoring solution     | No           | No                   | No            | Yes                    |
 
-When planning your deployment, you will need to consider where logging data is stored and how you integrate cloud-based [reporting and monitoring services](../../infrastructure/logs-and-reporting/overview.md) with your existing processes and tools.
+When planning your deployment, you will need to consider where logging data is stored and how you integrate cloud-based [reporting and monitoring services](../../decision-guides/log-and-report/overview.md) with your existing processes and tools.
 
 > [!Note]
 > Organizations also use third-party DevOps tools to monitor workloads and resources. For more information, see [DevOps Tool Integrations](https://azure.microsoft.com/products/devops-tool-integrations/).

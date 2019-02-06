@@ -53,8 +53,8 @@ A number of technical and non-technical pre-requisites are required to successfu
 
 **Potential activities:**
 
-* Align your budgetary plans with the [Subscription Strategy](../../infrastructure/subscriptions/overview.md) that defines your core ownership model.
-* Leverage the [Resource Grouping Strategy](../../infrastructure/resource-grouping/overview.md) to enforce architecture and cost guidelines over time.
+* Align your budgetary plans with the [Subscription Strategy](../../decision-guides/subscriptions/overview.md) that defines your core ownership model.
+* Leverage the [Resource Grouping Strategy](../../decision-guides/resource-grouping/overview.md) to enforce architecture and cost guidelines over time.
 * Determine if there are any cost anomalies that affect your adoption and migration plans.
 
 ## Adopt and migrate

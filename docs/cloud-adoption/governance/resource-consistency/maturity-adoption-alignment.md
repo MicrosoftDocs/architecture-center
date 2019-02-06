@@ -58,9 +58,9 @@ A number of technical and non-technical pre-requisites are required to successfu
 
 **Potential activities:**
 
-* Decide on a [subscription design strategy](../../infrastructure/subscriptions/overview.md), choosing the subscription patterns that best fit your organization and workload needs.
-* Leverage a [resource grouping](../../infrastructure/resource-grouping/overview.md) strategy to enforce architecture guidelines over time.
-* Implement [resource naming, and tagging standards](../../infrastructure/resource-tagging/overview.md) for your resources to match your organizational and accounting requirements.
+* Decide on a [subscription design strategy](../../decision-guides/subscriptions/overview.md), choosing the subscription patterns that best fit your organization and workload needs.
+* Leverage a [resource grouping](../../decision-guides/resource-grouping/overview.md) strategy to enforce architecture guidelines over time.
+* Implement [resource naming, and tagging standards](../../decision-guides/resource-tagging/overview.md) for your resources to match your organizational and accounting requirements.
 * To create proactive point-in-time governance, use deployment templates and automation to enforce common configurations and a consistent grouping structure when deploying resources and resource groups.
 * Establish a least privilege permissions model, where users have no permissions by default.
 * Determine who in your organization owns each workload and account, and who will need to access to maintain or modify these resources. Define cloud roles and responsibilities that match these needs and use use these roles as the basis for access control.
@@ -125,4 +125,4 @@ Now that you understand the concept of cloud resource governance, move on to lea
 > [!div class="nextstepaction"]
 > [Learn about resource access in Azure](azure-resource-access.md)
 > [Learn about SLAs for Azure](https://azure.microsoft.com/support/legal/sla/)
-> [Learn about logging, reporting, and monitoring](../../infrastructure/logs-and-reporting/overview.md)
+> [Learn about logging, reporting, and monitoring](../../decision-guides/log-and-report/overview.md)

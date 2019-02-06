@@ -21,7 +21,7 @@ The following sample policy statements address a number of common security-relat
 
 **Policy statement**: All deployed assets must be categorized by criticality and data classification. Classifications are to be reviewed by the Cloud Governance Team and the application owner prior to deployment to the cloud.
 
-**Potential design option**: Establish [resource tagging standards](../../infrastructure/resource-tagging/overview.md) and ensure IT staff apply them consistently to any deployed resources using [Azure resource tags](/azure/azure-resource-manager/resource-group-using-tags).
+**Potential design option**: Establish [resource tagging standards](../../decision-guides/resource-tagging/overview.md) and ensure IT staff apply them consistently to any deployed resources using [Azure resource tags](/azure/azure-resource-manager/resource-group-using-tags).
 
 ## Data Encryption
 

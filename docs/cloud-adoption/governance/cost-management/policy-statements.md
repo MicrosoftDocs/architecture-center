@@ -40,7 +40,7 @@ The following sample policy statements address a number of common cost-related b
 **Design options:**
 
 - In Azure, planned versus actual spending can be managed via [Azure Cost Management](/azure/cost-management/quick-acm-cost-analysis)
-- There are several options for grouping resources by billing unit. In Azure, a [resource grouping model](../../infrastructure/resource-grouping/overview.md) should be chosen in conjunction with the governance team and applied to all assets.
+- There are several options for grouping resources by billing unit. In Azure, a [resource grouping model](../../decision-guides/resource-grouping/overview.md) should be chosen in conjunction with the governance team and applied to all assets.
 
 ## Over provisioned assets
 
@@ -51,7 +51,7 @@ The following sample policy statements address a number of common cost-related b
 **Design options:**
 
 - In Azure, [Azure Advisor](/azure/advisor/advisor-cost-recommendations) can provide optimization recommendations.
-- There are several options for grouping resources by billing unit. In Azure, a [resource grouping model](../../infrastructure/resource-grouping/overview.md) should be chosen in conjunction with the governance team and applied to all assets.
+- There are several options for grouping resources by billing unit. In Azure, a [resource grouping model](../../decision-guides/resource-grouping/overview.md) should be chosen in conjunction with the governance team and applied to all assets.
 
 ## Overoptimization
 
@@ -62,7 +62,7 @@ The following sample policy statements address a number of common cost-related b
 **Design options:**
 
 - In Azure, [Azure Monitor's insights features](/azure/azure-monitor/insights/vminsights-performance) can help with analysis of system utilization.
-- There are several options for grouping and tagging resources based on roles. In Azure, you should choose a [resource grouping model](../../infrastructure/resource-grouping/overview.md) in conjunction with the governance team and apply this to all assets.
+- There are several options for grouping and tagging resources based on roles. In Azure, you should choose a [resource grouping model](../../decision-guides/resource-grouping/overview.md) in conjunction with the governance team and apply this to all assets.
 
 ## Next steps
 

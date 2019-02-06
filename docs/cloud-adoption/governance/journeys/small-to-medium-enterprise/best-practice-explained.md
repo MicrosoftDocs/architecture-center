@@ -91,14 +91,14 @@ As governance evolves, some policy statements can’t or shouldn’t be controll
 
 If any of the patterns selected in this governance journey don't align with the reader's requirements, alternatives to each pattern are available:
 
-- [Encryption patterns](../../../infrastructure/encryption/overview.md)
-- [Identity patterns](../../../infrastructure/identity/overview.md)
-- [Logging and Reporting patterns](../../../infrastructure/logs-and-reporting/overview.md)
-- [Policy Enforcement patterns](../../../infrastructure/policy-enforcement/overview.md)
-- [Resource Grouping patterns](../../../infrastructure/resource-grouping/overview.md)
-- [Resource Tagging patterns](../../../infrastructure/resource-tagging/overview.md)
-- [Software Defined Network patterns](../../../infrastructure/software-defined-networks/overview.md)
-- [Subscription Design patterns](../../../infrastructure/subscriptions/overview.md)
+- [Encryption patterns](../../../decision-guides/encryption/overview.md)
+- [Identity patterns](../../../decision-guides/identity/overview.md)
+- [Logging and Reporting patterns](../../../decision-guides/log-and-report/overview.md)
+- [Policy Enforcement patterns](../../../decision-guides/policy-enforcement/overview.md)
+- [Resource Grouping patterns](../../../decision-guides/resource-grouping/overview.md)
+- [Resource Tagging patterns](../../../decision-guides/resource-tagging/overview.md)
+- [Software Defined Network patterns](../../../decision-guides/software-defined-network/overview.md)
+- [Subscription Design patterns](../../../decision-guides/subscriptions/overview.md)
 
 ## Next steps
 

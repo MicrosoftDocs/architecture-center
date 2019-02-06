@@ -100,6 +100,6 @@ Once the transformation is complete, governance and operations must live on for 
 
 # Next steps
 
-When planning your deployment, you will need to consider where logging data is stored and how you integrate cloud-based [reporting and monitoring services](../../infrastructure/logs-and-reporting/overview.md) with your existing processes and tools.
+When planning your deployment, you will need to consider where logging data is stored and how you integrate cloud-based [reporting and monitoring services](../../decision-guides/log-and-report/overview.md) with your existing processes and tools.
 
 <!-- markdownlint-enable MD026 -->
