@@ -15,7 +15,7 @@ SDN allows IT staff to configure and deploy network structures and capabilities 
 
 ![Plotting networking options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-sdn.png)
 
-Jump to: [PaaS Only](paas-only.md) | [Cloud native](cloud-native.md) | [Hybrid](hybrid.md) | [Hub/Spoke model](hub-spoke.md) | [Discovery questions](#choosing-the-right-virtual-networking-architectures)
+Jump to: [PaaS Only](paas-only.md) | [Cloud native](cloud-native.md) | | [Cloud DMZ](cloud-dmz.md) [Hybrid](hybrid.md) | [Hub/Spoke model](hub-spoke.md) | [Learn more](#learn-more)
 
 SDN provides several options with varying degrees of pricing and complexity. The above discovery guide provides a reference to quickly personalize these options to best align with specific business and technology strategies.
 

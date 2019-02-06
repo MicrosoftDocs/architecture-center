@@ -13,7 +13,7 @@ All organizations need mechanisms for notifying IT teams of performance, uptime,
 
 ![Plotting logging, reporting, and monitoring options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-logs-and-reporting.png)
 
-Jump to: [Planning your monitoring infrastructure](#planning-your-monitoring-infrastructure) | [Cloud native](#cloud-native) | [Hybrid monitoring (on-premises)](#hybrid-monitoring-on-premises) | [Hybrid monitoring (cloud-based)](#hybrid-monitoring-cloud-based) | [Gateway](#gateway) | [Multi-cloud](#multi-cloud) | [Reporting and monitoring in Azure](#reporting-and-monitoring-in-azure)
+Jump to: [Planning your monitoring infrastructure](#planning-your-monitoring-infrastructure) | [Cloud native](#cloud-native) | [On-premises extension](#on-premises-extension) | [Gateway aggregation](#gateway-aggregation) | [Hybrid monitoring (on-premises)](#hybrid-monitoring-on-premises) | [Hybrid monitoring (cloud-based)](#hybrid-monitoring-cloud-based) | [Multi-cloud](#multi-cloud) | [Learn more](#learn-more)
 
 The inflection point when determining a cloud identity strategy is based primarily on existing investments your organization has made in operational processes, and to some degree any requirements you have to support a multi-cloud strategy.
 
