@@ -1,7 +1,7 @@
 ---
 title: Batch scoring for deep learning models
 titleSuffix: Azure Reference Architectures
-description: This reference architecture shows how to apply neural style transfer to a video, using Azure Batch AI.
+description: This reference architecture shows how to apply neural style transfer to a video, using Azure Machine Learning.
 author: jiata
 ms.date: 10/02/2018
 ms.topic: reference-architecture
@@ -14,7 +14,7 @@ ms.custom: azcat-ai
 
 This reference architecture shows how to apply neural style transfer to a video, using Azure Machine Learning. *Style transfer* is a deep learning technique that composes an existing image in the style of another image. This architecture can be generalized for any scenario that uses batch scoring with deep learning. [**Deploy this solution**](#deploy-the-solution).
 
-![Architecture diagram for deep learning models using Azure Batch AI](./_images/aml-scoring-deep-learning.png)
+![Architecture diagram for deep learning models using Azure Machine Learning](./_images/aml-scoring-deep-learning.png)
 
 **Scenario**: A media organization has a video whose style they want to change to look like a specific painting. The organization wants to be able to apply this style to all frames of the video in a timely manner and in an automated fashion. For more background about neural style transfer algorithms, see [Image Style Transfer Using Convolutional Neural Networks][image-style-transfer] (PDF).
 
@@ -106,7 +106,7 @@ While running your job, it's important to monitor the progress and make sure tha
 
 To get a sense of the overall state of the cluster, go to the AML blade of the Azure Portal to inspect the state of the nodes in the cluster. If a node is inactive or a job has failed, the error logs are saved to blob storage, and are also accessible in the Azure Portal.
 
-Monitoring can be further enriched by connecting logs to Application Insights or by running separate processes to poll for the state of the Batch AI cluster and its jobs.
+Monitoring can be further enriched by connecting logs to Application Insights or by running separate processes to poll for the state of the cluster and its jobs.
 
 ### Logging with Azure Machine Learning
 
