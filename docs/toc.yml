@@ -565,6 +565,8 @@
       href: cloud-adoption/business-strategy/cloud-migration-business-case.md
     - name: Create a financial model for cloud transformation
       href: cloud-adoption/business-strategy/financial-models.md
+    - name: Examples of fiscal outcomes
+      href: cloud-adoption/business-strategy/business-outcomes/fiscal-outcomes.md
   - name: Digital estate
     items: 
     - name: The 5 Rs of Rationalization 
