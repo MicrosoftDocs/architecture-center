@@ -14,10 +14,10 @@ ms.date: 1/18/2019
 
 The first step to implementing change is communicating the desired change. The same is true when changing governance practices. The template below serves as a starting point for documenting and communicating policy statements that govern Deployment Acceleration in the cloud. The template also outlines the business criteria that may have led you to create the documented policy statements.
 
+Although it contains example content related to the Cost Management discipline, this template can be used as the basis for capturing the business risks, risk tolerances, compliance processes, and tooling used to define policy statements for the Deployment Acceleration discipline.
+
 > [!IMPORTANT]
-> The template linked below provides a example of how to document policy statements as part of a cloud governance discipline. Although it uses the Cost Management discipline as sample content, the template can be used as the basis for capturing the business risks, risk tolerances, compliance processes, and tooling used to define policy statements for the Deployment Acceleration discipline.
->
-> Before updating this template to reflect your requirements, you should review the subsequent steps for defining an effective Deployment Acceleration discipline within your cloud governance strategy.
+> This template is a limited sample. Before updating this template to reflect your requirements, you should review the subsequent steps for defining an effective Deployment Acceleration discipline within your cloud governance strategy.
 
 <!-- markdownlint-disable MD033 -->
 
