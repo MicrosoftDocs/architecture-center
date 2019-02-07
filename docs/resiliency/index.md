@@ -373,12 +373,12 @@ Here are the major points to take away from this article:
 
 [blue-green]: https://martinfowler.com/bliki/BlueGreenDeployment.html
 [canary-release]: https://martinfowler.com/bliki/CanaryRelease.html
-[circuit-breaker-pattern]: azure/architecture/patterns/circuit-breaker
-[compensating-transaction-pattern]: azure/architecture/patterns/compensating-transaction
+[circuit-breaker-pattern]: ../patterns/circuit-breaker.md
+[compensating-transaction-pattern]: ../patterns/compensating-transaction.md
 [containers]: https://en.wikipedia.org/wiki/Operating-system-level_virtualization
 [dsc]: /azure/automation/automation-dsc-overview
 [contingency-planning-guide]: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-34r1.pdf
-[fma]: failure-mode-analysis.md
+[fma]: ./failure-mode-analysis.md
 [hystrix]: https://medium.com/netflix-techblog/introducing-hystrix-for-resilience-engineering-13531c1ab362
 [jmeter]: https://jmeter.apache.org/
 [load-leveling-pattern]: ../patterns/queue-based-load-leveling.md
@@ -393,20 +393,20 @@ Here are the major points to take away from this article:
 [tm]: https://azure.microsoft.com/services/traffic-manager/
 [tm-failover]: /azure/traffic-manager/traffic-manager-monitoring
 [tm-sla]: https://azure.microsoft.com/support/legal/sla/traffic-manager
-[site-recovery]:/azure/site-recovery/azure-to-azure-quickstart/
-[site-recovery-test-failover]:/azure/site-recovery/azure-to-azure-tutorial-dr-drill/
-[site-recovery-failover]:/azure/site-recovery/azure-to-azure-tutorial-failover-failback/
-[deployment-topologies]: azure/architecture/resiliency/disaster-recovery-azure-applications#deployment-topologies-for-disaster-recovery
-[bulkhead-pattern]: azure/architecture/patterns/bulkhead
-[controlled-chaos-in-sf]: azure/service-fabric/service-fabric-controlled-chaos
+[site-recovery]: /azure/site-recovery/azure-to-azure-quickstart/
+[site-recovery-test-failover]: /azure/site-recovery/azure-to-azure-tutorial-dr-drill/
+[site-recovery-failover]: /azure/site-recovery/azure-to-azure-tutorial-failover-failback/
+[deployment-topologies]: ../disaster-recovery-azure-applications.md#deployment-topologies-for-disaster-recovery
+[bulkhead-pattern]: ../patterns/bulkhead.md
+[controlled-chaos-in-sf]: /azure/service-fabric/service-fabric-controlled-chaos
 [terraform]: /azure/virtual-machines/windows/infrastructure-automation#terraform
 [ansible]: /azure/virtual-machines/windows/infrastructure-automation#ansible
 [chef]: /azure/virtual-machines/windows/infrastructure-automation#chef
 [puppet]: /azure/virtual-machines/windows/infrastructure-automation#puppet
-[template-deployment]: azure/azure-resource-manager/resource-group-overview#template-deployment
-[cloud-init]: azure/virtual-machines/windows/infrastructure-automation#cloud-init
-[azure-devops-services]: azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
+[template-deployment]: /azure/azure-resource-manager/resource-group-overview#template-deployment
+[cloud-init]: /azure/virtual-machines/windows/infrastructure-automation#cloud-init
+[azure-devops-services]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [jenkins]: /azure/virtual-machines/windows/infrastructure-automation#jenkins
 [staging-slots]: /azure/app-service/web-sites-staged-publishing
-[powershell]: https://docs.microsoft.com/en-us/powershell/azure/overview
-[cli]: https://docs.microsoft.com/en-us/cli/azure
+[powershell]: /powershell/azure/overview
+[cli]: /cli/azure
