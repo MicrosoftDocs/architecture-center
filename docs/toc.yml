@@ -565,6 +565,8 @@
       href: cloud-adoption/business-strategy/cloud-migration-business-case.md
     - name: Create a financial model for cloud transformation
       href: cloud-adoption/business-strategy/financial-models.md
+    - name: Examples of fiscal outcomes
+      href: cloud-adoption/business-strategy/business-outcomes/fiscal-outcomes.md
   - name: Digital estate
     items: 
     - name: The 5 Rs of Rationalization 
@@ -734,7 +736,7 @@
             - name: Resource access management
               href: cloud-adoption/governance/resource-consistency/azure-resource-access.md
             - name: Governance design for a simple workload
-              href: cloud-adoption/governance/resource-consistency/governance-single-team.md
+              href: cloud-adoption/governance/resource-consistency/governance-simple-workload.md
             - name: Governance design for multiple teams
               href: cloud-adoption/governance/resource-consistency/governance-multiple-teams.md
             - name: Azure-specific toolchain

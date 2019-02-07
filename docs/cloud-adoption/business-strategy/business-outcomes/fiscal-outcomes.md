@@ -9,7 +9,7 @@ author: BrianBlanchard
 ms.date: 10/10/2018
 ---
 
-# CAF: Examples of fiscal outcomes
+# Examples of fiscal outcomes
 
 At the top level, fiscal conversations consist of three basic concepts:
 
@@ -22,27 +22,27 @@ The remainder of this article will explain these fiscal outcomes in the context 
 > [!NOTE]
 > The following examples are hypothetical and should not be seen as a guarantee of returns when adopting any cloud strategy.
 
-# Revenue Outcomes
+## Revenue outcomes
 
-## New Revenue Streams
+### New revenue streams
 
 The cloud allows for opportunities to deliver new products to customers or deliver existing products in a new way. New Revenue Streams are innovative, entrepreneurial, and exciting to many people in the business world. New revenue streams are also prone failure and are seen in many companies as high risk. When they are proposed by IT, there is a high likelihood of push back. To add credibility to these outcomes, partner with business leader who is a proven innovator. Validation of the revenue stream early in the process will help avoid roadblocks from the business.
 
 * Example: A company has been selling books for over a hundred years. An employee of the company realizes that the content can be delivered electronically and creates a device that can be sold in the bookstore, which allows the same books to be downloaded directly, driving $X in new book sales.
 
-## Revenue increases
+### Revenue increases
 
 With global scale and digital reach, the cloud allows businesses to increase revenue of existing revenue streams. Often times, this type of outcome would come from an alignment with sales or marketing leadership.
 
 * Example: A company that sells widgets could sell more widgets, if the sales people had the ability to securely access the company’s digital catalog and stock levels. Unfortunately, that data is only in the company’s ERP system, which can only be accessed via a network connected device. Creating a service façade to interface with the ERP, exposing the catalog list and non-sensitive stock levels to an application in the cloud would allow the sales people to access the data they need while onsite with a customer. Extending AD using Azure AD and integrating role-based access into the application would allow the company to ensure the data stays safe. This simple project could impact revenue from an existing product line by X%.
 
-## Profit Increases
+### Profit increases
 
 Seldom does a single effort simultaneously increase revenue and decrease costs. However, when it does, align the outcome statements from one or more of the revenue outcomes with one ore more of the cost outcomes to communicate the desired outcome.
 
-# Cost Outcomes
+## Cost outcomes
 
-## Cost Reduction
+### Cost reduction
 
 Cloud computing can reduce capital expenses (CapEx) related to buying hardware and software, setting up data centers, running on-site datacenters, etc.… The racks of servers, round-the-clock electricity for power and cooling, and IT experts for managing the infrastructure adds up fast. Shutting down a data center can reduce CapEx commitments. This is commonly referred to as “Getting out of the Data Center Business”. Cost reduction is generally measured in dollars in the current budget, which could span 1-5 years depending on how the CFO manages finances.
 
@@ -57,13 +57,13 @@ Coverdell modernizes their infrastructure to drive record cost savings with Azur
 Ryan Sorensen: Director of Application Development and Enterprise Architecture
 Coverdell
 
-## Cost Avoidance
+### Cost avoidance
 
 Terminating data centers can also provide Cost Avoidance, by preventing future refresh cycles. A refresh cycle is the process of buying new hardware and software to replace aging on-premises systems. In Azure, hardware and OS are routinely maintained, patched, and refreshed at no additional cost to customers. This allows a CFO to remove planned future spend from long term financial forecasts. Cost is avoidance is measured in dollars. It differs from Cost Reduction, in that it generally focuses on a future budget that has not been fully approved yet.
 
 * Example: A company’s data center is up for a lease renewal in 6 months. That data center has been in service for 8 years. 4 years ago, all of the servers were refreshed and virtualized costing the company $ millions. Next year, the company plans on refreshing the hardware and software again. Migrating the assets in that data center, as part of an Operational Transformation, would create cost avoidance, by removing the planned refresh from next year’s forecasted budget. It could also produce cost reduction by decreasing or eliminating the real estate lease costs.
 
-## CapEx versus OpEx
+### CapEx versus OpEx
 
 Before discussing Cost Outcomes, it is important to understand the two primary cost options: Capital Expenses (CapEx) and Operational Expenses (OpEx).
 
