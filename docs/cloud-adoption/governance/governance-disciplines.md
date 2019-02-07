@@ -1,5 +1,5 @@
 ---
-title: "CAF: 5 Disciplines of Cloud Governance"
+title: "CAF: The Five Disciplines of Cloud Governance"
 description: Overview of governance content within CAF
 author: BrianBlanchard
 ms.date: 12/08/2018
@@ -7,7 +7,7 @@ layout: LandingPage
 ms.topic: landing-page
 ---
 
-# The 5 Disciplines of Cloud Governance
+# The Five Disciplines of Cloud Governance
 
 <!-- markdownlint-disable MD033 -->
 
