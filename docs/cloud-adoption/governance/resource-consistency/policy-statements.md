@@ -1,11 +1,15 @@
 ---
-title: "Fusion: Resource Consistency sample policy statements"
-description: Explanation of the concept Resource Consistency in relation to cloud governance
+title: "CAF: Resource Consistency sample policy statements"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Resource Consistency sample policy statements
 author: BrianBlanchard
-ms.date: 1/4/2019
 ---
 
-# Fusion: Resource Consistency sample policy statements
+# Resource Consistency sample policy statements
 
 Individual cloud policy statements are guidelines for addressing specific risks identified during your risk assessment process. These statements should provide a concise summary of risks and plans to deal with them. Each statement definition should include these pieces of information:
 

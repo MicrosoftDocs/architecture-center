@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Monitor and enforce policy adherence"
+title: "CAF: Monitor and enforce policy adherence"
 description: How do you ensure compliance with established policies? 
 author: BrianBlanchard
 ms.date: 1/4/2019
@@ -7,7 +7,7 @@ ms.date: 1/4/2019
 
 <!-- markdownlint-disable MD026 -->
 
-# Fusion: What processes can help ensure policy adherence?
+# What processes can help ensure policy adherence?
 
 <!---
 I've defined policies, I've provided an architecture guide. Now how do I monitor adherence to policy? If there is a violation, how do I enforce the policy?
@@ -80,11 +80,4 @@ Some examples of violation triggers and actions:
 
 After you've defined your compliance violation triggers and actions, you can start planning how best to use the logging and reporting tools and other features of the cloud platform to help automate your monitoring and policy compliance strategy.
 
-Consult the Fusion Infrastructure [Logs, reporting, and monitoring](../../decision-guides/log-and-report/overview.md) topic for guidance on choosing the best monitoring pattern for your deployment.
-
-## Next steps
-
-After defining your processes, [draft an architecture design guide](align-governance-journeys.md) to provide IT staff and developers with actionable guidance.
-
-> [!div class="nextstepaction"]
-> [Draft an architecture design guide](align-governance-journeys.md)
+Consult the CAF [logging and reporting decision guide](../../decision-guides/log-and-report/overview.md) topic for guidance on choosing the best monitoring pattern for your deployment.

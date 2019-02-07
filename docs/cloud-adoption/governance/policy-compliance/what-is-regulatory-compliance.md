@@ -1,13 +1,13 @@
 ---
-title: "Fusion: intro to regulatory compliance"
+title: "CAF: Introduction to regulatory compliance"
 description: What is regulatory compliance
 author: BrianBlanchard
 ms.date: 2/8/2019
 ---
 
-# Fusion: Intro to regulatory compliance
+# Introduction to regulatory compliance
 
-This is an introductory article about regulatory compliance, therefore it's not intended for implementing a compliance strategy. It is for general awareness only. More detailed information about Azure compliance offerings is available at the [Trust Center](https://aka.ms/allcompliance). Moreover, all downloadable documentation is available to Azure customers under a nondisclosure agreement from the [Service Trust Portal](https://aka.ms/stp).
+This is an introductory article about regulatory compliance, therefore it's not intended for implementing a compliance strategy. It is for general awareness only. More detailed information about [Azure compliance offerings](https://aka.ms/allcompliance) is available at the [Microsoft Trust Center]. Moreover, all downloadable documentation is available to Azure customers under a nondisclosure agreement from the [Microsoft Service Trust Portal](https://servicetrust.microsoft.com/).
 
 Regulatory compliance refers to the discipline and process of ensuring that a company follows the laws set by governing bodies in their geography or industry. For IT regulatory compliance, people and/or processes monitor corporate systems in an effort to detect and prevent violations of policies and procedures established by governing laws and regulations. This in turn applies to a very wide area of monitoring and enforcement processes. Depending on the industry and geography, these processes can become quite lengthy and complex.
 
@@ -35,11 +35,11 @@ One of the most important developments in this area is the recent enactment by t
 
 ## Compliant foundation in Azure
 
-To help customers meet their own compliance obligations across regulated industries and markets worldwide, Azure maintains the largest compliance portfolio in the industry—both in terms of breadth (total number of offerings), as well as depth (number of customer-facing services in assessment scope). Azure compliance offerings are grouped into four segments: globally applicable, US government, industry specific, and region/country specific.
+To help customers meet their own compliance obligations across regulated industries and markets worldwide, Azure maintains the largest compliance portfolio in the industry &mdash; in breadth (total number of offerings), as well as depth (number of customer-facing services in assessment scope). Azure compliance offerings are grouped into four segments: globally applicable, US Government, industry-specific, and region/country-specific.
 
 Azure compliance offerings are based on various types of assurances, including formal certifications, attestations, validations, authorizations, and assessments produced by independent third-party auditing firms, as well as contractual amendments, self-assessments, and customer guidance documents produced by Microsoft. Each offering description in this document provides an up-to-date scope statement indicating which Azure customer-facing services are in scope for the assessment, as well as links to downloadable resources to assist customers with their own compliance obligations.
 
-More detailed information about Azure compliance offerings is available from the [Trust Center](https://aka.ms/allcompliance). Moreover, all downloadable documentation is available to Azure customers under a nondisclosure agreement from the [Service Trust Portal](https://aka.ms/stp) in the following sections:
+More detailed information about Azure compliance offerings is available from the [Microsoft Trust Center](/trustcenter/compliance/complianceofferings). Moreover, all downloadable documentation is available to Azure customers under a nondisclosure agreement from the [Service Trust Portal](https://servicetrust.microsoft.com) in the following sections:
 
 * Audit reports: Includes FedRAMP, GRC assessment, ISO, PCI DSS, and SOC reports sections
 * Data protection resources: Includes compliance guides, FAQ and white papers, and pen test and security assessments sections

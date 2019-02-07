@@ -1,11 +1,15 @@
 ---
-title: "Fusion: Resource access management in Azure"
+title: "CAF: Resource access management in Azure"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 description: "Explanation of resource access management constructs in Azure: Azure Resource Manager, subscriptions, resource groups, and resources"
 author: petertaylor9999
-ms.date: 2/1/2019
 ---
 
-# Fusion: Resource access management in Azure
+# Resource access management in Azure
 
 [Cloud Governance](../overview.md) outlines the five disciplines of Cloud Governance, which includes Resource Management.  [What is resource access governance](overview.md) furthers explains how resource access management fits into the resource management discipline. Before you move on to learn how to design a governance model, it's important to understand the resource access management controls in Azure. The configuration of these resource access management controls forms the basis of your governance model.
 
@@ -62,7 +66,7 @@ Azure Resource Manager requires the client to specify an identifier for both the
 
 Now that you have an understanding of how Azure Resource Manager works, return to the discussion of how an Azure subscription is associated with the controls used by Azure Resource Manager. Before any resource management request can be executed by Azure Resource Manager, a set of controls are checked.
 
-The first control is that a request must be made by a validated user, and Azure Resource manager has a trusted relationship with [Azure Active Directory (Azure AD)](/azure/active-directory/) to provide user identity functionality.
+The first control is that a request must be made by a validated user, and Azure Resource Manager has a trusted relationship with [Azure Active Directory (Azure AD)](/azure/active-directory/) to provide user identity functionality.
 
 ![Azure Active Directory](../../_images/governance-1-16.png)
 *Figure 8. Azure Active Directory.*
@@ -106,5 +110,3 @@ Now that you understand how to manage resource access in Azure, move on to learn
 
 > [!div class="nextstepaction"]
 > [An overview of governance](../overview.md)
-
-<!-- markdownlint-enable MD026 -->

@@ -1,11 +1,11 @@
 ---
-title: "Fusion: Small to Medium Enterprise – Additional technical details regarding the governance MVP"
+title: "CAF: Small to Medium Enterprise – Additional technical details regarding the governance MVP"
 description: Explanation Small to Medium Enterprise – Additional technical details regarding the governance MVP
 author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
-# Fusion: Small to Medium Enterprise – Best practice explained
+# Small-to-medium enterprise: Best practice explained
 
 The governance journey starts with a set of initial [corporate policies](./initial-corporate-policy.md). These policies are used to establish a governance MVP that reflects [best practices](./overview.md).
 
@@ -95,7 +95,7 @@ If any of the patterns selected in this governance journey don't align with the 
 - [Identity patterns](../../../decision-guides/identity/overview.md)
 - [Logging and Reporting patterns](../../../decision-guides/log-and-report/overview.md)
 - [Policy Enforcement patterns](../../../decision-guides/policy-enforcement/overview.md)
-- [Resource Grouping patterns](../../../decision-guides/resource-grouping/overview.md)
+- [Resource Consistency patterns](../../../decision-guides/resource-consistency/overview.md)
 - [Resource Tagging patterns](../../../decision-guides/resource-tagging/overview.md)
 - [Software Defined Network patterns](../../../decision-guides/software-defined-network/overview.md)
 - [Subscription Design patterns](../../../decision-guides/subscriptions/overview.md)

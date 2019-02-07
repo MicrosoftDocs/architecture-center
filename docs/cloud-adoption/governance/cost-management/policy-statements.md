@@ -1,11 +1,16 @@
 ---
-title: "Fusion: Cost Management sample policy statements"
-description: Explanation of the concept Cost Management in relation to cloud governance
+title: "CAF: Cost Management sample policy statements"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Cost Management sample policy statements
 author: BrianBlanchard
 ms.date: 1/4/2019
 ---
 
-# Fusion: Cost Management sample policy statements
+# Cost Management sample policy statements
 
 Individual cloud policy statements are guidelines for addressing specific risks identified during your risk assessment process. These statements should provide a concise summary of risks and plans to deal with them. Each statement definition should include these pieces of information:
 
@@ -17,11 +22,11 @@ The following sample policy statements address a number of common cost-related b
 
 ## Future-proofing
 
-**Business risk:** Current criteria that don't warrant an investment in a Cost Management discipline from the governance team. However, you anticipate such an investment in the future.
+**Business risk**. Current criteria that don't warrant an investment in a Cost Management discipline from the governance team. However, you anticipate such an investment in the future.
 
-**Policy statement:** You should associate all assets deployed to the cloud with a billing unit, application/workload, and meet naming standards. This policy will ensure that future Cost Management efforts will be effective.
+**Policy statement**. You should associate all assets deployed to the cloud with a billing unit, application/workload, and meet naming standards. This policy will ensure that future Cost Management efforts will be effective.
 
-**Design options:** For information on establishing a future-proof foundation, see the discussions related to creating a governance MVP in the [actionable design guides](../journeys/overview.md) included as part of the Fusion guidance.
+**Design options**. For information on establishing a future-proof foundation, see the discussions related to creating a governance MVP in the [actionable design guides](../journeys/overview.md) included as part of the CAF guidance.
 
 ## Budget overruns
 
@@ -40,7 +45,7 @@ The following sample policy statements address a number of common cost-related b
 **Design options:**
 
 - In Azure, planned versus actual spending can be managed via [Azure Cost Management](/azure/cost-management/quick-acm-cost-analysis)
-- There are several options for grouping resources by billing unit. In Azure, a [resource grouping model](../../decision-guides/resource-grouping/overview.md) should be chosen in conjunction with the governance team and applied to all assets.
+- There are several options for grouping resources by billing unit. In Azure, a [resource consistency model](../../decision-guides/resource-consistency/overview.md) should be chosen in conjunction with the governance team and applied to all assets.
 
 ## Overprovisioned assets
 
@@ -51,7 +56,7 @@ The following sample policy statements address a number of common cost-related b
 **Design options:**
 
 - In Azure, [Azure Advisor](/azure/advisor/advisor-cost-recommendations) can provide optimization recommendations.
-- There are several options for grouping resources by billing unit. In Azure, a [resource grouping model](../../decision-guides/resource-grouping/overview.md) should be chosen in conjunction with the governance team and applied to all assets.
+- There are several options for grouping resources by billing unit. In Azure, a [resource consistency model](../../decision-guides/resource-consistency/overview.md) should be chosen in conjunction with the governance team and applied to all assets.
 
 ## Overoptimization
 
@@ -62,7 +67,7 @@ The following sample policy statements address a number of common cost-related b
 **Design options:**
 
 - In Azure, [Azure Monitor's insights features](/azure/azure-monitor/insights/vminsights-performance) can help with analysis of system utilization.
-- There are several options for grouping and tagging resources based on roles. In Azure, you should choose a [resource grouping model](../../decision-guides/resource-grouping/overview.md) in conjunction with the governance team and apply this to all assets.
+- There are several options for grouping and tagging resources based on roles. In Azure, you should choose a [resource consistency model](../../decision-guides/resource-consistency/overview.md) in conjunction with the governance team and apply this to all assets.
 
 ## Next steps
 

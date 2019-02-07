@@ -1,11 +1,15 @@
 ---
-title: "Fusion: Metrics, indicators, and risk tolerance"
-description: Explanation of the concept Resource Consistency in relation to cloud governance
+title: "CAF: Resource Consistency metrics, indicators, and risk tolerance"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Resource Consistency metrics, indicators, and risk tolerance
 author: BrianBlanchard
-ms.date: 1/3/2019
 ---
 
-# Fusion: Metrics, indicators, and risk tolerance
+# Resource Consistency metrics, indicators, and risk tolerance
 
 This article is intended to help you quantify business risk tolerance as it relates to Resource Consistency. Defining metrics and indicators helps you create a business case for making an investment in maturing the Resource Consistency discipline.
 
@@ -35,7 +39,7 @@ Cloud platforms offer a baseline set of features that allow deployment teams to 
 
 However, as the size of your cloud estate grows the complexity of managing your assets becomes significantly more difficult. With more assets on the cloud, the ability identify ownership of resources and control resource useful becomes critical to minimizing risks. As more mission-critical workloads are deployed to the cloud, service uptime becomes more critical, and tolerance for service disruption potential cost overruns diminishes rapidly.
 
-In the early stages of cloud adoption, work with your IT operations team and business stakeholders to identify [business risks](business-risks.md) related to Resource Consistency, then determine an acceptable baseline for risk tolerance. This section of the Fusion guidance provides examples, but the detailed risks and baselines for your company or deployments may be different.
+In the early stages of cloud adoption, work with your IT operations team and business stakeholders to identify [business risks](business-risks.md) related to Resource Consistency, then determine an acceptable baseline for risk tolerance. This section of the CAF provides examples, but the detailed risks and baselines for your company or deployments may be different.
 
 Once you have a baseline, establish minimum benchmarks representing an unacceptable increase in your identified risks. These benchmarks act as triggers for when you need to take action to mitigate these risks. The following are a few examples of how operational metrics, such as those discussed above, can justify an increased investment in the Resource Consistency discipline.
 
@@ -55,7 +59,7 @@ The exact metrics and triggers you use to gauge risk tolerance and the level of 
 
 Using the [Cloud Management template](./template.md), document metrics and tolerance indicators that align to the current cloud adoption plan.
 
-Building on risks and tolerance, establish a [process for governing and communicating security policy adherence](processes.md).
+Building on risks and tolerance, establish a [process for governing and communicating Resource Consistency policy adherence](compliance-processes.md).
 
 > [!div class="nextstepaction"]
-> [Monitor and Enforce Policy Statements](./processes.md)
+> [Monitor and Enforce Policy Statements](compliance-processes.md)

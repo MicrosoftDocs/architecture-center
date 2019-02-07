@@ -1,24 +1,26 @@
 ---
-title: "Fusion: Understanding the Identity Baseline discipline within cloud governance"
-description: Explanation of the concept Identity Baseline in relation to cloud governance
+title: "CAF: Identity Baseline discipline overview"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Explanation of Identity Baseline in relation to cloud governance
 author: BrianBlanchard
-ms.date: 1/4/2019
 layout: LandingPage
 ms.topic: landing-page
 ---
 
-# Fusion: Identity Baseline discipline
+# CAF: Identity Baseline discipline overview
 
-Identity Baseline is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md) within the [Fusion Model to Cloud Governance](../overview.md).
-
-Identity is increasingly considered the primary security perimeter in the cloud, which is a shift from the traditional focus on network security. Identity services provide the core mechanisms supporting access control and organization within IT environments, and the Identity Baseline discipline complements the [Security Baseline discipline](../security-baseline/overview.md) by providing secure user authentication, controlling user access to cloud-based resources, and ensuring identity services work efficiently across your organization.
+Identity Baseline is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md) within the [CAF Governance Model](../overview.md). Identity is increasingly considered the primary security perimeter in the cloud, which is a shift from the traditional focus on network security. Identity services provide the core mechanisms supporting access control and organization within IT environments, and the Identity Baseline discipline complements the [Security Baseline discipline](../security-baseline/overview.md) by providing secure user authentication, controlling user access to cloud-based resources, and ensuring identity services work efficiently across your organization.
 
 > [!NOTE]
 > Identity Baseline governance does not replace the existing IT teams, processes, and procedures that allow your organization to manage and secure identity services. The primary purpose of this discipline is to identify potential identity-related business risks and provide risk-mitigation guidance to IT staff that are responsible for implementing, maintaining, and operating your identity management infrastructure. As you develop governance policies and processes make sure to involve relevant IT teams in your planning and review processes.
 
-This section of the Fusion guidance outlines the approach to developing an Identity Baseline discipline as part of your cloud governance strategy. The primary audience for this guidance is your organization's cloud architects and other members of your Cloud Governance team. However, the decisions, policies, and processes that emerge from this discipline should involve engagement and discussions with relevant members of the IT teams responsible for implementing and managing your organization's identity management solutions.
+This section of the CAF guidance outlines the approach to developing an Identity Baseline discipline as part of your cloud governance strategy. The primary audience for this guidance is your organization's cloud architects and other members of your Cloud Governance team. However, the decisions, policies, and processes that emerge from this discipline should involve engagement and discussions with relevant members of the IT teams responsible for implementing and managing your organization's identity management solutions.
 
-If your organization lacks in-house expertise in Identity Baseline and security, consider engaging external consultants as a part of this discipline. Also consider engaging [Microsoft Consulting Services](https://www.microsoft.com/enterprise/services), the [Microsoft FastTrack](https://azure.microsoft.com/programs/azure-fasttrack) cloud adoption service, or other external cloud adoption experts for discussion of Azure-specific concerns related to this discipline.
+If your organization lacks in-house expertise in Identity Baseline and security, consider engaging external consultants as a part of this discipline. Also consider engaging [Microsoft Consulting Services](https://www.microsoft.com/enterprise/services), the [Microsoft FastTrack](https://azure.microsoft.com/programs/azure-fasttrack) cloud adoption service, or other external cloud adoption experts to discuss concerns related to this discipline.
 
 ## Policy statements
 
@@ -91,7 +93,7 @@ The following six steps offer examples and potential options to consider when de
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./processes.md">
+    <a href="./compliance-processes.md">
         <div class="cardSize">
             <div class="cardPadding" >
                 <div class="card" >
@@ -110,7 +112,7 @@ The following six steps offer examples and potential options to consider when de
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./maturity-adoption-alignment.md">
+    <a href="./discipline-improvement.md">
         <div class="cardSize">
             <div class="cardPadding" >
                 <div class="card" >

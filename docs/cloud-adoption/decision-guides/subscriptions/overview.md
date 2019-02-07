@@ -1,15 +1,17 @@
 ---
-title: "Fusion: Subscriptions design" 
-description: Discussion of cloud platform subscriptions as a core service in Azure migrations
+title: "CAF: Subscription decision guide" 
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Learn about cloud platform subscriptions as a core service in Azure migrations.
 author: rotycenh
-ms.date: 12/31/2018
 ---
 
-# Fusion: Subscription design
+# Subscription design guide
 
 All cloud platforms are based on a core ownership model that provides organizations with numerous billing and resource management options. The structure that Azure uses is different from other cloud providers because it includes various support options for organizational hierarchy and grouped subscription ownership. Regardless, there is generally one individual responsible for billing and another who is assigned as the top-level owner for managing resources.
-
-## Subscription decision guide
 
 ![Plotting subscription options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-subscriptions.png)
 
@@ -25,7 +27,7 @@ The complexity of subscription designs varies. Decisions regarding a design stra
 
 **Other considerations**: An important thing to note when selecting a subscription design is that subscriptions aren’t the only way to group resources or deployments. Subscriptions were created in the early days of Azure, as such they have limitations related to previous Azure solutions like Azure Service Manager (ASM).
 
-Deployment structure, automation, and new approaches to grouping resources can affect your structure subscription design. Before finalizing a subscription design, consider how [resource grouping](../resource-grouping/overview.md) decisions might influence your design choices. For example, a large multinational organization might initially consider a complex pattern for subscription management. However, that same company might realize greater benefits with a simpler business unit pattern by adding a management group hierarchy.
+Deployment structure, automation, and new approaches to grouping resources can affect your structure subscription design. Before finalizing a subscription design, consider how [resource consistency](../resource-consistency/overview.md) decisions might influence your design choices. For example, a large multinational organization might initially consider a complex pattern for subscription management. However, that same company might realize greater benefits with a simpler business unit pattern by adding a management group hierarchy.
 
 ## Subscriptions design and Azure Enterprise agreements
 
@@ -88,7 +90,7 @@ For organizations with global operations, this pattern groups subscriptions and 
 
 ### Mixed patterns
 
-enterprise/department/account/subscriptions hierarchy. However, you can combine patterns such as geographic region and business unit to reflect more complex billing and organizational structures within your company. In addition, your [resource grouping design](../resource-grouping/overview.md) can further extend the governance and organizational structure of your subscription design.
+enterprise/department/account/subscriptions hierarchy. However, you can combine patterns such as geographic region and business unit to reflect more complex billing and organizational structures within your company. In addition, your [resource consistency design](../resource-consistency/overview.md) can further extend the governance and organizational structure of your subscription design.
 
 Management groups, as discussed in the following section, can help support more complicated organizational structures.
 
@@ -96,7 +98,7 @@ Management groups, discussed in the following section, can help support more com
 
 ## Management groups
 
-In addition to the department and organization structure provided through Enterprise Agreements, [Azure Management Groups](/azure/governance/management-groups/index) offer additional flexibility for organizing policy, access control, and compliance across multiple subscriptions. Management groups can be nested up to six levels, allowing you to create a hierarchy that is separate from your billing hierarchy. This can be solely for efficient management of resources.
+In addition to the department and organization structure provided through Enterprise Agreements, [Azure management groups](/azure/governance/management-groups/index) offer additional flexibility for organizing policy, access control, and compliance across multiple subscriptions. Management groups can be nested up to six levels, allowing you to create a hierarchy that is separate from your billing hierarchy. This can be solely for efficient management of resources.
 
 Management groups can mirror your billing hierarchy, and often enterprises start that way. However, the power of management groups is when you use them to model your organization where related subscriptions &mdash; regardless of where they are in the billing hierarchy &mdash; are grouped together and need common roles assigned along with policies and initiatives.
 

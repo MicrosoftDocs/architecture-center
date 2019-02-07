@@ -1,17 +1,21 @@
 ---
-title: "Fusion: Software Defined Networks - Cloud DMZ" 
+title: "CAF: Software Defined Networks - Cloud DMZ" 
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 description: This network architecture allows limited access between your on-premises and cloud-based networks
 author: rotycenh
-ms.date: 12/29/2018
 ---
 
-# Fusion: Software Defined Networks - Cloud DMZ
+# Software Defined Networks: Cloud DMZ
 
 The Cloud DMZ network architecture allows limited access between your on-premises and cloud-based networks, using a virtual private network (VPN) to connect the networks. A DMZ is deployed in the cloud to secure access to the on-premises network from cloud-based resources.
 
 ![Secure hybrid network architecture](../../../reference-architectures/dmz/images/dmz-private.png)
 
-This architecture is designed to support scenarios where your organization wants to start integrating cloud-based workloads with on-premises workloads but may not have fully matured cloud security policies or acquired a secure dedicated WAN connection between the two environments. As a result, cloud networks should be treated like a demilitarized zone to ensure on-premises services are secure. 
+This architecture is designed to support scenarios where your organization wants to start integrating cloud-based workloads with on-premises workloads but may not have fully matured cloud security policies or acquired a secure dedicated WAN connection between the two environments. As a result, cloud networks should be treated like a demilitarized zone to ensure on-premises services are secure.
 
 The DMZ deploys network virtual appliances (NVAs) to implement security functionality such as firewalls and packet inspection. Traffic passing between on-premises and cloud-based applications or services must pass through the DMZ where it can be audited. VPN connections and the rules determining what traffic is allowed through the DMZ network are strictly controlled by IT security teams.
 

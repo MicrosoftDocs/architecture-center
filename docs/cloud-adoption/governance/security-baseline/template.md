@@ -1,11 +1,15 @@
 ---
-title: "Fusion: Security Baseline template"
+title: "CAF: Security Baseline template"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 description: Explanation of the concept Security Baseline in relation to cloud governance
 author: BrianBlanchard
-ms.date: 1/4/2019
 ---
 
-# Fusion: Security Baseline template
+# Security Baseline template
 
 The first step to implementing change is communicating the desired change. The same is true when changing governance practices. The template below serves as a starting point for documenting and communicating policy statements that govern Security Baseline in the cloud. The template also outlines the business criteria that may have led you to create the documented policy statements.
 

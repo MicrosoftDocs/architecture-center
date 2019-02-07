@@ -1,17 +1,22 @@
 ---
-title: "Fusion: Motivations and business risks that drive security governance"
-description: Explanation of the concept Security Baseline in relation to cloud governance
+title: "CAF: Security Baseline motivations and business risks"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Security Baseline motivations and business risks
 author: BrianBlanchard
 ms.date: 1/8/2019
 ---
 
-# Fusion: Motivations and business risks that drive security governance
+# Security Baseline motivations and business risks
 
 This article discusses the reasons that customers typically adopt a Security Baseline discipline within a cloud governance strategy. It also provides a few examples of potential business risks that can drive policy statements.
 
 <!-- markdownlint-disable MD026 -->
 
-## Is Security Baseline relevant?
+## Is a Security Baseline relevant?
 
 Security is a key concern for any IT organization. Cloud deployments face many of the same security risks as workloads hosted in traditional on-premises datacenters. However, the nature of public cloud platforms, with a lack of direct ownership of the physical hardware storing and running your workloads, means cloud security requires its own policy and processes.
 
@@ -19,7 +24,7 @@ One of the primary things that set cloud security governance apart from traditio
 
 The amount you invest into security policy and processes will depend a great deal on the nature of your cloud deployment. Initial test deployments may only need the most basic of security policies in place, while a mission-critical workload will entail addressing complex and extensive security needs. All deployments will need to engage with the discipline at some level.
 
-The Security Baseline discipline discussed in this section of the Fusion guidance covers the corporate policies and manual processes that you can put in place to protect your cloud deployment against security risks.
+The Security Baseline discipline covers the corporate policies and manual processes that you can put in place to protect your cloud deployment against security risks.
 
 > [!NOTE]
 >While it is important to understand [Identity Baseline](../identity-baseline/overview.md) in the context of Security Baseline and how that relates to Access Control, the [Five Disciplines of Cloud Governance](../overview.md) calls out [Identity Baseline](../identity-baseline/overview.md) as its own discipline, separate from Security Baseline.
@@ -30,7 +35,7 @@ The Security Baseline discipline attempts to address core security-related busin
 
 Risks will differ between organization, but the following serve as common security-related risks that you can use as a starting point for discussions within your Cloud Governance team:
 
-- **Data leaks**. Inadvertent exposure or loss of sensitive cloud-hosted data can lead to losing customers, contractual breaches, or legal consequences.
+- **Data breach**. Inadvertent exposure or loss of sensitive cloud-hosted data can lead to losing customers, contractual issues, or legal consequences.
 - **Service disruption**. Outages and other performance issues due to insecure infrastructure interrupts normal operations and can result in lost productivity or lost business.
 
 ## Next steps

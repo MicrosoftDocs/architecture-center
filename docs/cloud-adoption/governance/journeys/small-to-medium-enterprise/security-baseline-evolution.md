@@ -1,11 +1,11 @@
 ---
-title: "Fusion: Small to Medium Enterprise – Security Baseline evolution"
+title: "CAF: Small to Medium Enterprise – Security Baseline evolution"
 description: Explanation Small to Medium Enterprise – Security Baseline evolution
 author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
-# Fusion: Small to Medium Enterprise – Security Baseline evolution
+# CAF: Small-to-medium enterprise: Security Baseline evolution
 
 This article evolves the narrative by adding security controls that support moving protected data to the cloud.
 
@@ -85,28 +85,28 @@ The governance MVP design will evolve to include new Azure policies and an imple
 2. The Identity and IT Security teams will define identity requirements and make any necessary changes to local Active Directory implementation. The Cloud Governance team will review changes.
 3. Create a repository in Azure DevOps to store and version all relevant Azure Resource Manager templates and scripted configurations.
 4. Azure Security Center implementation:
-    1. Configure Security Center for any management group that contains protected data classifications.
+    1. Configure Azure Security Center for any management group that contains protected data classifications.
     2. Set automatic provisioning to on by default to ensure patching compliance.
     3. Establish OS security configurations. The IT Security team will define the configuration.
     4. Support the IT Security team in the initial use of Security Center. Transition the use of Security Center to the IT Security team, but maintain access for the purpose of continually improving governance.
     5. Create a Resource Manager template that reflects the changes required for Security Center configuration within a subscription.
-5. Update Azure Policy for all subscriptions:
+5. Update Azure policies for all subscriptions:
     1. Audit and enforce the criticality and data classification across all management groups and subscriptions, to identify any subscriptions with protected data classifications.
     2. Audit and enforce the use of approved images only.
-6. Update Azure Policy for all subscriptions that contains protected data classifications:
+6. Update Azure policies for all subscriptions that contains protected data classifications:
     1. Audit and enforce the use of standard Azure RBAC roles only.
     2. Audit and enforce encryption for all storage accounts and files at rest on individual nodes.
     3. Audit and enforce the application of an NSG to all NICs and subnets. The Networking and IT Security teams will define the NSG.
     4. Audit and enforce the use of approved network subnet and vNet per network interface.
     5. Audit and enforce the limitation of user-defined routing tables.
     6. Apply the Built-in Policies for Guest Configuration as follows:
-        1. Audit that Windows Web Servers are using secure communication protocols
+        1. Audit that Windows web servers are using secure communication protocols
         2. Audit that password security settings are set correctly inside Linux and Windows machines
 7. Firewall configuration:
     1. Identify a configuration of Azure Firewall that meets necessary security requirements. Alternatively, identify a compatible third-party appliance that is compatible with Azure.
     2. Create a Resource Manager template to deploy the firewall with required configurations.
-8. Azure Blueprint:
-    1. Create a new blueprint called `protected-data`.
+8. Azure blueprint:
+    1. Create a new blueprint named `protected-data`.
     2. Add the firewall and Azure Security Center templates to the blueprint.
     3. Add the new policies for protected data subscriptions.
     4. Publish the blueprint to any management group which current plans on hosting protected data.

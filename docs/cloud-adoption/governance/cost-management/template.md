@@ -1,11 +1,15 @@
 ---
-title: "Fusion: Cost Management template"
-description: Explanation of the concept Cost Management in relation to cloud governance
+title: "CAF: Cost Management template"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Cost Management template
 author: BrianBlanchard
-ms.date: 1/4/2019
 ---
 
-# Fusion: Cost Management template
+# Cost Management template
 
 The first step to implementing change is communicating the desired change. The same is true when changing governance practices. The template below serves as a starting point for documenting and communicating policy statements that govern Cost Management in the cloud. The template also outlines the business criteria that may have led you to create the documented policy statements.
 

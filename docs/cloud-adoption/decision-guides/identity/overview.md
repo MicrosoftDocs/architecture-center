@@ -1,15 +1,17 @@
 ---
-title: "Fusion: Identity" 
-description: Discussion of Identity as a core service in Azure migrations
+title: "CAF: Identity decision guide" 
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Learn about identity as a core service in Azure migrations.
 author: rotycenh
-ms.date: 12/19/2018
 ---
 
-# Fusion: Identity
+# Identity decision guide
 
 In any environment, whether on-premises, hybrid, or cloud-only, IT needs to control which administrators, users, and groups have access to resources. Identity and access management (IAM) services enable you to manage access control in the cloud.
-
-## Identity decision guide
 
 ![Plotting identity options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-identity.png)
 
@@ -17,16 +19,16 @@ Jump to: [Determine Identity Integration Requirements](#determine-identity-integ
 
 There are several ways to manage identity in a cloud environment, which vary in cost and complexity. A key factor in structuring your cloud-based identity services is the level of integration required with your existing on-premises identity infrastructure.
 
-Cloud-based software-as-a-service (SaaS) identity solutions provide a base level of access control and identity management for cloud resources. However, if your organization's Active Directory (AD) infrastructure has a complex forest structure or customized organizational units (OUs), your cloud-based workloads may require directory replication to the cloud for a consistent set of identities, groups, and roles between your on-premises and cloud environments. If directory replication is required for a global solution, complexity can increase significantly. Additionally, support for applications dependent on legacy authentication mechanisms may require the deployment of domain services in the cloud.
+Cloud-based software as a service (SaaS) identity solutions provide a base level of access control and identity management for cloud resources. However, if your organization's Active Directory (AD) infrastructure has a complex forest structure or customized organizational units (OUs), your cloud-based workloads may require directory replication to the cloud for a consistent set of identities, groups, and roles between your on-premises and cloud environments. If directory replication is required for a global solution, complexity can increase significantly. Additionally, support for applications dependent on legacy authentication mechanisms may require the deployment of domain services in the cloud.
 
 ## Determine identity integration requirements
 
 | Question | Cloud baseline | Directory synchronization | Cloud-hosted Domain Services | AD Federation Services |
 |------|------|------|------|------|
-| Do you currently lack an on-premises directory service? | Yes | No | No  | No |
-| Do your workloads need to authenticate against on-premises identity services? | No | Yes | No | No  |
+| Do you currently lack an on-premises directory service? | Yes | No | No | No |
+| Do your workloads need to authenticate against on-premises identity services? | No | Yes | No | No |
 | Do your workloads depend on legacy authentication mechanisms, such as Kerberos or NTLM? | No | No | Yes | No |
-| Is integration between cloud and on-premises identity services impossible? | No    | No | Yes | No |
+| Is integration between cloud and on-premises identity services impossible? | No | No | Yes | No |
 | Do you require single sign-on across multiple identity providers? | No | No | No | Yes |
 
 As part of planning your migration to Azure, you will need to determine how best to integrate your existing identity management and cloud identity services. The following are common integration scenarios.
@@ -78,7 +80,7 @@ It's likely that your existing directories and domain services will continue to 
 
 ### Active Directory Federation Services
 
-Identity federation establishes trust relationships across multiple identity management systems to allow common authentication and authorization capabilities. You can then support single sign-on capabilities across multiple domains within your organization or identity systems managed by your customers or business partners. 
+Identity federation establishes trust relationships across multiple identity management systems to allow common authentication and authorization capabilities. You can then support single sign-on capabilities across multiple domains within your organization or identity systems managed by your customers or business partners.
 
 Azure AD supports federation of on-premises Active Directory domains using [Active Directory Federation Services](/azure/active-directory/hybrid/how-to-connect-fed-whatis) (AD FS). See the reference architecture [Extend AD FS to Azure](../../../reference-architectures/identity/adfs.md) to see how this can be implemented in Azure.
 
@@ -93,10 +95,10 @@ See the following for more information about identity services on the Azure plat
 - [Azure AD](https://azure.microsoft.com/services/active-directory). Azure AD provides cloud-based identity services. It allows you to manage access to your Azure resources and control identity management, device registration, user provisioning, application access control, and data protection.
 - [Azure AD Connect](/azure/active-directory/hybrid/whatis-hybrid-identity). The Azure AD Connect tool allows you to connect Azure AD instances with your existing identity management solutions, allowing synchronization of your existing directory in the cloud.
 - [Role-based access control](/azure/role-based-access-control/overview) (RBAC). Azure AD provides RBAC to efficiently and securely manage access to resources in the management plane. Jobs and responsibilities are organized into roles, and users are assigned to these roles. RBAC allows you to control who has access to a resource along with which actions a user can perform on that resource.
-- [Azure AD Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure) (PIM).  PIM lowers the exposure time of resource access privileges and increases your visibility into their use through reports and alerts. It limits users to taking on their privileges "just in time" (JIT), or by assigning privileges for a shorter duration, after which privileges are revoked automatically.
+- [Azure AD Privileged Identity Management](/azure/active-directory/privileged-identity-management/pim-configure) (PIM). PIM lowers the exposure time of resource access privileges and increases your visibility into their use through reports and alerts. It limits users to taking on their privileges "just in time" (JIT), or by assigning privileges for a shorter duration, after which privileges are revoked automatically.
 - [Integrate on-premises Active Directory domains with Azure Active Directory](../../../reference-architectures/identity/azure-ad.md). This reference architecture provides an example of directory synchronization between on-premises Active Directory domains and Azure AD.
 - [Extend Active Directory Domain Services (AD DS) to Azure.](../../../reference-architectures/identity/adds-extend-domain.md) This reference architecture provides an example of deploying AD DS servers to extend domain services to cloud-based resources.
-- [Extend Active Directory Federation Services (AD FS) to Azure](../../../reference-architectures/identity/adfs.md). This reference architecture configures Active Directory Federation Services (AD FS) to perform federated authentication and authorization with your Azure AD directory.  
+- [Extend Active Directory Federation Services (AD FS) to Azure](../../../reference-architectures/identity/adfs.md). This reference architecture configures Active Directory Federation Services (AD FS) to perform federated authentication and authorization with your Azure AD directory.
 
 ## Next steps
 

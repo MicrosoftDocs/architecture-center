@@ -1,20 +1,25 @@
 ---
-title: "Fusion: What is Cloud Security Baseline"
-description: What is Cloud Security Baseline?
+title: "CAF: What is Cloud Security Baseline"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: What is the Cloud Security Baseline?
 author: BrianBlanchard
 ms.date: 10/10/2018
 ---
 
 <!-- markdownlint-disable MD026 -->
 
-# Fusion: What is Cloud Security Baseline?
+# What is the Cloud Security Baseline?
 
-This is an introductory article on the general topic of Cloud Security Baseline which builds on the [Five disciplines of Governance](../overview.md) to establish a governance framework. More detailed information about Cloud Security is available from [Azure's Trusted Cloud](https://azure.microsoft.com/overview/trusted-cloud/). Approaches to improving your organizations security posture can be found in the [Cloud Security Service Catalog](https://www.microsoft.com/security/information-protection)
+This is an introductory article on the general topic of Cloud Security Baseline which builds on the [Five Disciplines of Cloud Governance](../governance-disciplines.md) to establish a governance framework. More detailed information about Cloud Security is available from [Azure's Trusted Cloud](https://azure.microsoft.com/overview/trusted-cloud/). Approaches to improving your organizations security posture can be found in the [Cloud Security Service Catalog](https://www.microsoft.com/security/information-protection)
 
 > [!NOTE]
 > This article is not expected to provide enough context to allow the reader to implement a security strategy. It is for general awareness only.
 
-## Cloud Security
+## Cloud security
 
 Cloud security is an extension of traditional information security practices. Traditional IT security would include policies and controls governing computer security, network security, data protection, information usage, etc... These same policies and controls are needed in the cloud. During any Cloud Transformation, it is imperative that the CISO be actively involved and understand the cloud landscape, to ensure legacy IT policies map to proper levels of control in the cloud.
 
@@ -27,7 +32,7 @@ At minimum, any cloud security strategy should consider the following topics:
 
 ## Protecting data and privacy
 
-For organizations throughout the world—whether governments, nonprofits, or businesses—cloud computing has become a key part of their ongoing IT strategy. Cloud services give organizations of all sizes access to virtually unlimited data storage while freeing them from the need to purchase, maintain, and update their own networks and computer systems. Microsoft and other cloud providers offer IT infrastructure, platform, and software as a service, enabling customers to quickly scale up or down as needed and only paying for the computing power and storage they use.
+For organizations throughout the world &mdash; whether governments, nonprofits, or businesses &mdash; cloud computing has become a key part of their ongoing IT strategy. Cloud services give organizations of all sizes access to virtually unlimited data storage while freeing them from the need to purchase, maintain, and update their own networks and computer systems. Microsoft and other cloud providers offer IT infrastructure, platform, and software as a service (SaaS), enabling customers to quickly scale up or down as needed and only paying for the computing power and storage they use.
 
 However, as organizations continue to take advantage of the benefits of cloud services, such as increased choice, agility, and flexibility while boosting efficiency and lowering IT cost, they must consider how the introduction of cloud services affects their privacy, security, and compliance posture. Microsoft has worked to make their cloud offerings not only scalable, reliable, and manageable, but also to ensure our customers data is protected and used in a transparent manner.
 

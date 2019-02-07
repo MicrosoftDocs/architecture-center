@@ -1,11 +1,11 @@
 ---
-title: "Fusion: Large Enterprise – Multi-Cloud Evolution"
+title: "CAF: Large Enterprise – Multi-Cloud Evolution"
 description: Large Enterprise – Multi-Cloud Evolution
 author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
-# Fusion: Large Enterprise – Multi-Cloud Evolution
+# Large enterprise: Multi-cloud evolution
 
 ## Evolution of the narrative
 
@@ -49,7 +49,7 @@ The following changes to policy will help mitigate the new risks and guide imple
 
 ## Evolution of the best practices
 
-This section of the article will evolve the governance MVP design to include new Azure Policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
+This section of the article will evolve the governance MVP design to include new Azure policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
 
 1. Connect the networks - Executed by Networking and IT Security, supported by governance
     1. Adding a connection from the MPLS/Leased line provider to the new cloud will integrate networks. Adding routing tables and firewall configurations will control access and traffic between the environments.

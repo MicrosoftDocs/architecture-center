@@ -1,11 +1,15 @@
 ---
-title: "Fusion: Identity Baseline template"
-description: Explanation of the concept Identity Baseline in relation to cloud governance
+title: "CAF: Identity Baseline template"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Identity Baseline template
 author: BrianBlanchard
-ms.date: 1/4/2019
 ---
 
-# Fusion: Identity Baseline template
+# CAF: Identity Baseline template
 
 The first step to implementing change is communicating the desired change. The same is true when changing governance practices. The template below serves as a starting point for documenting and communicating policy statements that govern Identity Baseline in the cloud. The template also outlines the business criteria that may have led you to create the documented policy statements.
 

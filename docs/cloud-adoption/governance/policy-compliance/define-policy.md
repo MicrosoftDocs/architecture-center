@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Define corporate policy statements"
+title: "CAF: Define corporate policy statements"
 description: How do you establish policy to reflect and mitigate risks?
 author: BrianBlanchard
 ms.date: 01/02/2019
@@ -10,7 +10,7 @@ I understand risk & tolerance, now what do I do?
 Define the policy... [aspirational statement to move towards 2/1] If you need help defining policies, each discipline includes references to common business risks & policies to mitigate the risks...
 --->
 
-# Fusion: Defining policy
+# Defining corporate policy for cloud governance
 
 Once you've analyzed the known risks and related risk tolerances for your organization's cloud transformation journey, your next step is to establish policy that will explicitly address those risks and define the steps needed to mitigate them where possible.
 
@@ -18,7 +18,7 @@ Once you've analyzed the known risks and related risk tolerances for your organi
 
 ## How can corporate IT policy become cloud-ready?
 
-In traditional governance and incremental governance, corporate policy creates the working definition of governance. Most IT Governance actions are an attempt to leverage technology to monitor, enforce, operate, and automate those corporate policies. Cloud Governance is built on similar concepts.
+In traditional governance and incremental governance, corporate policy creates the working definition of governance. Most IT Governance actions seek to implement technology to monitor, enforce, operate, and automate those corporate policies. Cloud Governance is built on similar concepts.
 
 ![Corporate Governance and Governance Disciplines](../../_images/operational-transformation-govern.png)
 
@@ -45,11 +45,11 @@ As your cloud deployment matures and the amount of your IT estate moving to the 
 
 Cloud-based IT policies establish the requirements, standards, and goals that your IT staff and automated systems will need to support. Policy decisions are a primary factor in your [cloud architecture design](align-governance-journeys.md) and how you will implement your [policy adherence processes](processes.md).
 
-Individual cloud policy statements are guidelines for addressing specific risks identified during your risk assessment process. While these policies can be integrated into your wider corporate policy documentation, cloud policy statements discussed throughout the fusion guidance tends to be a more concise summary of the risks and plans to deal with them. Each definition should include these pieces of information:
+Individual cloud policy statements are guidelines for addressing specific risks identified during your risk assessment process. While these policies can be integrated into your wider corporate policy documentation, cloud policy statements discussed throughout the CAF guidance tends to be a more concise summary of the risks and plans to deal with them. Each definition should include these pieces of information:
 
-- Business risk - A summary of the risk this policy will address.
-- Policy statement - A concise explanation of the policy requirements and goals.
-- Design or technical guidance - Actionable recommendations, specifications, or other guidance to support and enforce this policy that IT teams and developers can use when designing and building their cloud deployments.
+- **Business risk**. A summary of the risk this policy will address.
+- **Policy statement**. A concise explanation of the policy requirements and goals.
+- **Design or technical guidance**. Actionable recommendations, specifications, or other guidance to support and enforce this policy that IT teams and developers can use when designing and building their cloud deployments.
 
 If you need help getting started with defining policies, consult the [governance disciplines](../governance-disciplines.md) introduced in the governance section overview. The articles for each of these disciplines includes examples of common business risks encountered when moving to the cloud and sample policies used to mitigate those risks (for example, see the Cost Management discipline's [sample policy definitions](../cost-management/policy-statements.md)).
 
@@ -61,7 +61,7 @@ The need to integrate cloud policy with your legacy IT policies depends largely 
 
 ## Next steps
 
-After defining your policies, [draft an architecture design guide](align-governance-journeys.md) to provide IT staff and developers with actionable guidance.
+After defining your policies, draft an architecture design guide to provide IT staff and developers with actionable guidance.
 
 > [!div class="nextstepaction"]
 > [Draft an architecture design guide](align-governance-journeys.md)

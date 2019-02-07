@@ -1,11 +1,11 @@
 ---
-title: "Fusion: What business risks are associated with a Cloud Transformation?"
+title: "CAF: What business risks are associated with a Cloud Transformation?"
 description: Explanation of the business risks associated with a Cloud Transformation?
 author: BrianBlanchard
 ms.date: 10/10/2018
 ---
 
-# Fusion: Evaluating risk tolerance
+# Evaluating risk tolerance
 
 Every business decision creates new risks. Making an investment in anything creates risk of losses. New products or services create risks of market failure. Changes to current products or services could reduce market share. Cloud Transformation does not provide a magical solution to everyday business risk. To the contrary, connected solutions (cloud or on-premises) introduce new risks. Deploying assets to any network connected facility also expands the potential threat profile by exposing security weaknesses to a much broader, global community. Fortunately, Cloud Providers are aware of the changes, increases, and addition of risks. They invest heavily to mitigate those risks on the behalf of their customers.
 
@@ -27,11 +27,11 @@ Sadly, the true business risks will be based on the what & how behind specific t
 
 The above are a few of the most common risks mentioned by customers. The Cloud Governance team and the cloud adoption teams can begin to develop a risk profile, as workloads are migrated and readied for production release. Be prepared for conversations to define, refine, and mitigate risks based on the desired business outcomes and transformation effort.
 
-# Understanding Risk Tolerance
+# Understanding risk tolerance
 
 Identifying risk is a fairly direct process. Risks are pretty standard across industries. However, tolerance for risk is extremely personalize. This is the point where business and IT conversations tend to get hung up. Each side of the conversation is essentially speaking a different language. The following comparisons and questions are designed to start conversations that help each party better understand and calculate risk tolerance.
 
-## Simple Use Case for Comparison
+## Simple use case for comparison
 
 To help understand risk tolerance, let's examine customer data. If a company in any industry posts customer data on an unsecured server, the risk of that data being compromised or stolen is relatively the same. However, the nature of the data and the companies tolerance for that risk changes wildly.
 
@@ -41,7 +41,7 @@ To help understand risk tolerance, let's examine customer data. If a company in 
 
 The next section, shares a few sample questions that could help the business determine a level of risk tolerance for the use case above or others.
 
-## Risk Tolerance Questions
+## Risk tolerance questions
 
 This section lists conversation provoking questions in three categories: Loss Impact, Probability of Loss, & Mitigation Costs. When business and IT partner to address each of these areas, the decision to mitigate risk and the overall tolerance to a particular risk can easily be determined.
 
@@ -92,8 +92,9 @@ After answering these questions & more questions as determined by the Cloud Gove
 
 The three question sets above should fuel enough data to determine initial tolerances. When risk & probability are low, and mitigation cost is high, the business is unlikely to invest in remediation. When risk & probability are high, the business is likely to consider an investment, as long as the costs don't exceed the potential risks.
 
-## Next Step
+## Next steps
 
-This type of conversation can help the business and IT evaluate tolerance more effectively.
+This type of conversation can help the business and IT evaluate tolerance more effectively. These conversations can be used during the creation of MVP policies and during incremental policy reviews.
 
-These conversations can be used during the [creation of MVP policies and during incremental policy reviews](../policy-compliance/understanding-business-risk.md).
+> [!div class="nextstepaction"]
+> [Define corporate policy](./define-policy.md)

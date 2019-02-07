@@ -1,15 +1,19 @@
 ---
-title: "Fusion: Understanding the Cost Management discipline within cloud governance"
-description: Explanation of the concept Cost Management in relation to cloud governance
+title: "CAF: Cost Management discipline"
+description: Explanation of Cost Management in relation to cloud governance
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 author: BrianBlanchard
-ms.date: 1/4/2019
 layout: LandingPage
 ms.topic: landing-page
 ---
 
-# Fusion: Cost Management discipline
+# Cost Management discipline overview
 
-Cost Management is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md) within the [Fusion Model to Cloud Governance](../overview.md). For many customers, governing cost is a major concern when adopting cloud technologies. Balancing performance demands, adoption pacing, and cloud services costs can be challenging. This is especially relevant during major business transformations that leverage cloud technologies. This section outlines the approach to developing a Cost Management discipline as part of a cloud governance strategy.  
+Cost Management is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md) within the [CAF Governance Model](../overview.md). For many customers, governing cost is a major concern when adopting cloud technologies. Balancing performance demands, adoption pacing, and cloud services costs can be challenging. This is especially relevant during major business transformations that implement cloud technologies. This section outlines the approach to developing a Cost Management discipline as part of a cloud governance strategy.  
 
 > [!NOTE]
 > Cost Management governance does not replace the existing business teams, accounting practices, and procedures that are involved in your organization's financial management of IT-related costs. The primary purpose of this discipline is to identify potential cloud-related risks related to IT spending, and provide risk-mitigation guidance to the business and IT teams responsible deploying and managing cloud deployments. As you develop governance policies and processes make sure to involve relevant business and IT staff in your planning and review processes.
@@ -87,7 +91,7 @@ The following six steps will help you define governance policies to control cost
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./processes.md">
+    <a href="./compliance-processes.md">
         <div class="cardSize">
             <div class="cardPadding" >
                 <div class="card" >
@@ -106,7 +110,7 @@ The following six steps will help you define governance policies to control cost
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./maturity-adoption-alignment.md">
+    <a href="./discipline-improvement.md">
         <div class="cardSize">
             <div class="cardPadding" >
                 <div class="card" >

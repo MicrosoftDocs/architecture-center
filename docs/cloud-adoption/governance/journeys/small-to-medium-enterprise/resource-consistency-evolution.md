@@ -1,11 +1,11 @@
 ---
-title: "Fusion: Small to Medium Enterprise – Resource Consistency evolution "
+title: "CAF: Small to Medium Enterprise – Resource Consistency evolution "
 description: Explanation Small to Medium Enterprise – Resource Consistency evolution
 author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
-# Fusion: Small to Medium Enterprise – Resource Consistency evolution
+# Small-to-medium enterprise: Resource Consistency evolution
 
 This article evolves the narrative by adding Resource Consistency controls to support mission-critical apps.
 
@@ -51,7 +51,7 @@ This business risk can be expanded into a number of technical risks:
 
 The following changes to policy will help mitigate the new risks and guide implementation. The list looks long, but adopting these policies may be easier than it appears.
 
-1. All deployed assets must be categorized by criticality and data classification. Classifications are to be reviewed by the Cloud Governance team and the application owner prior to deployment to the cloud
+1. All deployed assets must be categorized by criticality and data classification. Classifications are to be reviewed by the Cloud Governance team and the application owner before deployment to the cloud
 2. Subnets containing mission-critical applications must be protected by a firewall solution capable of detecting intrusions and responding to attacks.
 3. Governance tooling must audit and enforce network configuration requirements defined by the Security Management team
 4. Governance tooling must validate that all assets related to mission-critical apps or protected data are included in monitoring for resource depletion and optimization.
@@ -92,7 +92,7 @@ This section of the article will evolve the governance MVP design to include new
 7. Firewall configuration:
     1. Identify a configuration of Azure Firewall that meets security requirements. Alternatively, identify a third-party appliance that is compatible with Azure.
     2. Create a Resource Manager template to deploy the firewall with required configurations.
-8. Azure Blueprint:
+8. Azure blueprint:
     1. Create a new Azure blueprint named `protected-data`.
     2. Add the firewall and Azure Vault templates to the blueprint.
     3. Add the new policies for protected data subscriptions.

@@ -1,19 +1,21 @@
 ---
-title: "Fusion: Azure Security guidance"
+title: "CAF: Azure security guidance"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 description: What security guidance does Microsoft provide?
 author: BrianBlanchard
-ms.date: 2/1/2019
 ---
 
 <!-- markdownlint-disable MD026 -->
 
-# Fusion: What security guidance does Microsoft provide?
-
-<!-- markdownlint-disable MD026 -->
+# What security guidance does Microsoft provide?
 
 ## Security guidance and tools
 
-Microsoft introduced the [Service Trust Platform](https://www.microsoft.com/trustcenter/stp/default.aspx) and Compliance Manager to help with the following:
+Microsoft introduced the [Service Trust Platform](https://servicetrust.microsoft.com) and Compliance Manager to help with the following:
 
 - Overcome compliance management challenges
 - Fulfill responsibilities of meeting regulatory requirements
@@ -27,7 +29,7 @@ These tools are designed to help organizations meet complex compliance obligatio
 - **Trust documents**: Currently there are three categories of guides that provide you with abundant resources to assess Microsoft Cloud; learn about Microsoft operations in security, compliance, and privacy; and help you act on improving your data protection capabilities. These include:
 - **Audit reports**: Audit reports allow you to stay current on the latest privacy, security, and compliance-related information for Microsoft Cloud services. This includes ISO, SOC, FedRAMP and other audit reports, bridge letters, and materials related to independent third-party audits of Microsoft Cloud services such as Azure, Office 365, Dynamics 365, and others.
 - **Data protection guides**: Data protection guides provide information about how Microsoft Cloud services protect your data, and how you can manage cloud data security and compliance for your organization. This includes deep-dive white papers that provide details on how Microsoft designs and operates cloud services, FAQs, reports of end-of-year security assessments, penetration test results, and guidance to help you conduct risk assessment and improve your data protection capabilities.
-- **Azure Security and Compliance Blueprint**: Blueprints provide resources to assist you in building and launching cloud-powered applications that help you comply with stringent regulations and standards. With more certifications than any other cloud provider, you can have confidence deploying your critical workloads to Azure, with blueprints that include:
+- **Azure security and compliance blueprint**: Blueprints provide resources to assist you in building and launching cloud-powered applications that help you comply with stringent regulations and standards. With more certifications than any other cloud provider, you can have confidence deploying your critical workloads to Azure, with blueprints that include:
 
 - Industry-specific overview and guidance
 - Customer responsibilities matrix
@@ -59,7 +61,7 @@ To build this threat intelligence, Security Center uses data that comes from mul
 
 ## Machine learning in Azure Security Center
 
-Azure Security Center deeply analyzes a wealth of data from a variety of Microsoft and partner solutions to help you achieve greater security. To make use of all this data, the company leverages data science and machine learning in particular for threat prevention, detection, and eventually investigation.
+Azure Security Center deeply analyzes a wealth of data from a variety of Microsoft and partner solutions to help you achieve greater security. To take advantage of this data, the company use data science and machine learning for threat prevention, detection, and eventually investigation.
 
 Broadly, Azure Machine Learning helps achieve two outcomes:
 

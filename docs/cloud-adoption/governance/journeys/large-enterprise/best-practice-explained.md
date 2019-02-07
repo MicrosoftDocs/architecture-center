@@ -1,11 +1,11 @@
 ---
-title: "Fusion: Large Enterprise – Additional technical tetails regarding a governance MVP"
+title: "CAF: Large Enterprise – Additional technical tetails regarding a governance MVP"
 description: Large Enterprise – Additional technical details regarding governance MVP
 author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
-# Fusion: Large Enterprise – Best practice explained
+# Large enterprise: Best practice explained
 
 The governance journey starts with a set of initial [corporate policies](./initial-corporate-policy.md). These policies are used to establish a minimum viable product (MVP) for governance that reflects [best practices](./overview.md).
 
@@ -13,7 +13,7 @@ In this article, we discuss the high-level strategies that are required to creat
 
 ## Governance MVP (Cloud Adoption Foundation)
 
-Rapid adoption of governance and corporate policy is achievable, thanks to a few simple principles and cloud-based governance tooling. These are the first of the three Cloud Governance Disciplines to approach in any governance process. Each will be expanded upon in this article.
+Rapid adoption of governance and corporate policy is achievable, thanks to a few simple principles and cloud-based governance tooling. These are the first of the three governance disciplines to approach in any governance process. Each will be expanded upon in this article.
 
 To establish the starting point, this article will discuss the high-level strategies behind Identity Baseline, Security Baseline, and Deployment Acceleration that are required to create a governance MVP, which will serve as the foundation for all adoption.
 
@@ -68,7 +68,7 @@ The **Accounting** pattern has been chosen for resource tagging.
 At this point, a **Hybrid** pattern for log and reporting is suggested but not required of any development team.
 
 - No governance requirements are currently set regarding the specific data points to be collected for logging or reporting purposes. This is specific to this fictional narrative and should be considered an antipattern. Logging standards should be determined and enforced as soon as possible.
-- Additional analysis is required prior to the release of any protected data or mission-critical workloads.
+- Additional analysis is required before the release of any protected data or mission-critical workloads.
 - Prior to supporting protected data or mission-critical workloads, the existing on-premises operational monitoring solution must be granted access to the workspace used for logging. Applications are required to meet security and logging requirements associated with the use of that tenant, if the application is to be supported with a defined SLA.
 
 ## Evolution of governance processes
@@ -95,7 +95,7 @@ If any of the patterns chosen in this governance journey don't align with the re
 - [Identity patterns](../../../decision-guides/identity/overview.md)
 - [Logging and Reporting patterns](../../../decision-guides/log-and-report/overview.md)
 - [Policy Enforcement patterns](../../../decision-guides/policy-enforcement/overview.md)
-- [Resource Grouping patterns](../../../decision-guides/resource-grouping/overview.md)
+- [Resource Consistency patterns](../../../decision-guides/resource-consistency/overview.md)
 - [Resource Tagging patterns](../../../decision-guides/resource-tagging/overview.md)
 - [Software Defined Network patterns](../../../decision-guides/software-defined-network/overview.md)
 - [Subscription Design patterns](../../../decision-guides/subscriptions/overview.md)

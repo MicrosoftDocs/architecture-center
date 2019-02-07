@@ -1,5 +1,5 @@
 ---
-title: "Fusion: How can corporate IT policy become cloud-ready?"
+title: "CAF: How can corporate IT policy become cloud-ready?"
 description: Explanation of the concept of corporate policy in relation to cloud governance
 author: BrianBlanchard
 ms.date: 2/8/2019
@@ -7,7 +7,7 @@ ms.date: 2/8/2019
 
 <!-- markdownlint-disable MD026 -->
 
-# Fusion: How can corporate IT policy become cloud-ready?
+# CAF: How can corporate IT policy become cloud-ready?
 
 Cloud governance is the product of an ongoing adoption effort over time, as a true lasting transformation doesn't happen overnight. Attempting to deliver complete cloud governance before addressing key corporate policy changes using a fast aggressive method seldom produces the desired results. Instead we recommend an incremental approach.
 
@@ -19,7 +19,7 @@ This article outlines key activities that can help you shape your corporate poli
 
 ## Define corporate policy to mature cloud governance
 
-In traditional governance and incremental governance, corporate policy creates the working definition of governance. Most IT Governance actions are an attempt to leverage technology to monitor, enforce, operate, and automate those corporate policies. Cloud governance is built on similar concepts.
+In traditional governance and incremental governance, corporate policy creates the working definition of governance. Most IT Governance actions seek to implement technology to monitor, enforce, operate, and automate those corporate policies. Cloud governance is built on similar concepts.
 
 ![Corporate governance and governance disciplines](../../_images/operational-transformation-govern.png)
 

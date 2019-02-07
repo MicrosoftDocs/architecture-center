@@ -1,11 +1,15 @@
 ---
-title: "Fusion: Security Baseline sample policy statements"
-description: Explanation of the concept of Security Baseline in relation to cloud governance
+title: "CAF: Security Baseline sample policy statements"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Security Baseline sample policy statements
 author: BrianBlanchard
-ms.date: 1/4/2019
 ---
 
-# Fusion: Security Baseline sample policy statements
+# Security Baseline sample policy statements
 
 Individual cloud policy statements are guidelines for addressing specific risks identified during your risk assessment process. These statements should provide a concise summary of risks and plans to deal with them. Each statement definition should include these pieces of information:
 
@@ -19,7 +23,7 @@ The following sample policy statements address a number of common security-relat
 
 **Technical risk**: Assets that are not correctly identified as mission-critical or involving sensitive data may not receive sufficient protections, leading to potential data leaks or business disruptions.
 
-**Policy statement**: All deployed assets must be categorized by criticality and data classification. Classifications are to be reviewed by the Cloud Governance team and the application owner prior to deployment to the cloud.
+**Policy statement**: All deployed assets must be categorized by criticality and data classification. Classifications must be reviewed by the Cloud Governance team and the application owner before deployment to the cloud.
 
 **Potential design option**: Establish [resource tagging standards](../../decision-guides/resource-tagging/overview.md) and ensure IT staff apply them consistently to any deployed resources using [Azure resource tags](/azure/azure-resource-manager/resource-group-using-tags).
 

@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Align design guides with policy."
+title: "CAF: Align design guides with policy."
 description: How do you align design guides with policy?
 author: BrianBlanchard
 ms.date: 01/04/2019
@@ -27,13 +27,13 @@ While cloud design guides should take into account some of the technical details
 
 ## Sample cloud design guides
 
-If you're planning to use the Azure platform for your cloud adoption, the Fusion guidance provides [actionable customer journeys](../journeys/overview.md) covering common adoption scenarios. These iterative customer journeys demonstrate best practices that were applied to mitigate specific risks associated with cloud adoption. In addition to those best practices, each journey outlines the use case, business risks, tolerance requirements, and policy statements that went into creating the example design guide. These examples represent a synthesis of real-world customer experience of the cloud adoption process in Azure.
+If you're planning to use the Azure platform for your cloud adoption, the CAF provides several [sample design guides](../journeys/overview.md) covering a range of common adoption scenarios. In addition to the design guide itself, each sample gives the use case, business risks, tolerance requirements, and policy statements that went into creating the example design guide. These examples represent a synthesis of real-world customer experience of the cloud adoption process in Azure.
 
 While every cloud adoption has unique goals, priorities, and challenges, these samples should provide a good template for converting your policy into guidance. Pick the closest scenario to your situation as a starting point, and mold it to fit your specific policy needs.
 
 ## Next steps
 
-With design guidance in place, establish [policy adherence processes](processes.md) to ensure policy compliance.
+With design guidance in place, establish policy adherence processes to ensure policy compliance.
 
 > [!div class="nextstepaction"]
 > [Policy adherence processes](processes.md)

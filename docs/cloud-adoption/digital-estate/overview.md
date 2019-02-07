@@ -1,12 +1,14 @@
 ---
-title: What is a digital estate?
-titleSuffix: Fusion
-description: Explanation of the concept a digital estate
+title: "CAF: What is a digital estate?"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+description: What is a digital estate?
 author: BrianBlanchard
 ms.date: 12/10/2018
 ---
 
-# Fusion: What is a digital estate?
+<!-- markdownlint-disable MD026 -->
+
+# CAF: What is a digital estate?
 
 Every modern company has some form of digital estate. Much like a physical estate, a digital estate is an abstract reference to a number of tangible, owned assets. In a digital estate, those assets are comprised of virtual machines (VMs), servers, applications, data, and so on. Essentially, a digital estate is the collection of IT assets that power business processes and supporting operations.
 
@@ -45,4 +47,4 @@ Financial models and migration backlogs can be modified to reflect the rationali
 Before digital estate planning can begin, you must determine what approach to use.
 
 > [!div class="nextstepaction"]
-> [Determine the analysis approach](approach.md)
+> [Approaches to digital estate planning](approach.md)

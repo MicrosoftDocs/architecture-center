@@ -1,12 +1,15 @@
 ---
-title: The 5 Rs of rationalization
-titleSuffix: Fusion
-description: Describes the options that are available when rationalizing a digital estate
+title: "CAF: The 5 Rs of rationalization"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+description: Review the options available for rationalizing a digital estate.
 author: BrianBlanchard
 ms.date: 12/10/2018
 ---
 
-# Fusion: The 5 Rs of rationalization
+# The 5 Rs of rationalization
 
 Cloud Rationalization is the process of evaluating assets to determine the best approach to migrating or modernizing each asset in the cloud. For more information about the process of rationalization, see [What is a digital estate?](overview.md)
 

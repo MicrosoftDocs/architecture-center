@@ -5,9 +5,9 @@ author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
-# Fusion: Large Enterprise – Resource Consistency evolution
+# Large enterprise: Resource Consistency evolution
 
-This article will evolve the narrative by adding Resource Consistency controls to the governance MVP to support mission-critical applications.
+This article evolves the narrative by adding Resource Consistency controls to the governance MVP to support mission-critical applications.
 
 ## Evolution of the narrative
 
@@ -48,7 +48,7 @@ This business risk can be expanded into several technical risks:
 
 The following changes to policy will help mitigate the new risks and guide implementation. The list looks long, but the adoption of these policies may be easier than it would appear.
 
-1. All deployed assets must be categorized by criticality and data classification. Classifications are to be reviewed by the Cloud Governance team and the application owner prior to deployment to the cloud.
+1. All deployed assets must be categorized by criticality and data classification. Classifications are to be reviewed by the Cloud Governance team and the application owner before deployment to the cloud.
 2. Subnets containing mission-critical applications must be protected by a firewall solution capable of detecting intrusions and responding to attacks.
 3. Governance tooling must audit and enforce network configuration requirements defined by the Security Baseline team.
 4. Governance tooling must validate that all assets related to mission-critical applications or protected data are included in monitoring for resource depletion and optimization.
@@ -67,7 +67,7 @@ The following changes to policy will help mitigate the new risks and guide imple
 
 ## Evolution of the best practices
 
-This section of the article will evolve the governance MVP design to include new Azure Policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
+This section of the article will evolve the governance MVP design to include new Azure policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
 
 Following the experience of this fictional example, it is assumed that the Protected Data evolution has already happened. Building on that best practice, the following will add operational monitoring requirements, readying a subscription for mission-critical applications.
 
@@ -90,7 +90,7 @@ Following the experience of this fictional example, it is assumed that the Prote
     3. Audit and enforce use of approved network subnet and VNet per network interface.
     4. Audit and enforce the limitation of user-defined routing tables.
     5. Audit and enforce the deployment of Log Analytics agents for Windows and Linux virtual machines.
-2. Azure Blueprint
+2. Azure blueprint
     1. Create a blueprint named `mission-critical-workloads-and-protected-data`. This blueprint will apply assets in addition to the protected data blueprint.
     2. Add the new Azure policies to the blueprint.
     3. Apply the blueprint to any subscription that is expected to host a mission-critical application.
@@ -101,7 +101,7 @@ Adding these processes and changes to the governance MVP helps mitigate many of 
 
 ## Next steps
 
-As cloud adoption continues to evolve and deliver additional business value, the risks and cloud governance needs will also evolve. For the fictional company in this journey, the next trigger is when the scale of deployment exceeds 1,000 assets to the cloud or monthly spending exceeds $10,000 USD per month. At this point, the Cloud Governance team [adds Cost Management controls](./cost-management-evolution.md).
+As cloud adoption continues to evolve and deliver additional business value, the risks and cloud governance needs will also evolve. For the fictional company in this journey, the next trigger is when the scale of deployment exceeds 1,000 assets to the cloud or monthly spending exceeds $10,000 USD per month. At this point, the Cloud Governance team adds Cost Management controls.
 
 > [!div class="nextstepaction"]
 > [Cost Management evolution](./cost-management-evolution.md)

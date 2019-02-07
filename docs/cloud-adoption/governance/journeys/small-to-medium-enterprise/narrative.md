@@ -1,11 +1,11 @@
 ---
-title: "Fusion: Small to Medium Enterprise - Initial Narrative behind the governance strategy"
+title: "CAF: Small to Medium Enterprise - Initial Narrative behind the governance strategy"
 description: Explanation Design guide to action the concepts within governance.
 author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
-# Fusion: Small to Medium Enterprise - The narrative behind the governance strategy
+# Small-to-medium enterprise: The narrative behind the governance strategy
 
 The following narrative describes the use case for the [small-to-medium enterprise governance journey](./overview.md). Before implementing the journey, it’s important to understand the assumptions and reasoning that are reflected in this narrative. Then you can better align the governance strategy to your own organization’s journey.
 
@@ -27,7 +27,7 @@ The company has the following business profile:
 
 Here is the current state of the company’s IT and cloud operations:
 
-- IT operates two hosted infrastructure environments. One environment contains production assets. The second environment contains disaster recovery and some dev/test assets. These environments are hosted by two different providers. IT refers to these environments as their two datacenters, named Prod and DR respectively.
+- IT operates two hosted infrastructure environments. One environment contains production assets. The second environment contains disaster recovery and some dev/test assets. These environments are hosted by two different providers. IT refers to these two datacenters as Prod and DR respectively.
 - IT entered the cloud by migrating all end-user email accounts to Office 365. This migration was completed six months ago. Few other IT assets have been deployed to the cloud.
 - The application development teams are working in a dev/test capacity to learn about cloud native capabilities.
 - The business intelligence (BI) team is experimenting with big data in the cloud and curation of data on new platforms.

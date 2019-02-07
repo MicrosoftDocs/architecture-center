@@ -1,11 +1,17 @@
 ---
-title: "Fusion: Motivations and business risks that drive Resource Consistency governance"
-description: Learn about the discipline of Resource Consistency as part of a cloud governance strategy.
+title: "CAF: Resource Consistency motivations and business risks"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Resource Consistency motivations and business risks
 author: alexbuckgit
-ms.date: 1/18/2019
 ---
 
-# Fusion: Motivations and business risks that drive Resource Consistency governance
+# Resource Consistency motivations and business risks
+
+This article discusses the reasons that customers typically adopt a Resource Consistency discipline within a cloud governance strategy. It also provides a few examples of potential business risks that can drive policy statements.
 
 <!-- markdownlint-disable MD026 -->
 
@@ -28,7 +34,7 @@ Risks will differ between organization, but the following serve as common risks 
 - **Unneccessary operational cost**. Obsolete or unused resources, or resources that are overprovisioned during times of low demand, add unnecessary operational costs.
 - **Underprovisioned resources**. Resources that experience higher than anticipated demand can result in business disruption as cloud resources are overwhelmed by demand.
 - **Management inefficiencies**. Lack of consistent naming and tagging metadata associated with resources can lead to IT staff having difficulty finding resources for management tasks or identifying ownership and accounting information related to assets. This results in management inefficiencies that can increase cost and slow IT responsiveness to service disruption or other operational issues.
-- **SLA violation**. Service disruptions that result in violations of your organization's established Service Level Agreements (SLAs) can result in loss of business or other financial impacts to your company.
+- **Business Interruption**. Service disruptions that result in violations of your organization's established Service Level Agreements (SLAs) can result in loss of business or other financial impacts to your company.
 
 ## Next steps
 
@@ -38,5 +44,3 @@ Once an understanding of realistic business risks is established, the next step 
 
 > [!div class="nextstepaction"]
 > [Understand indicators, metrics, and risk tolerance](./metrics-tolerance.md)
-
-<!-- markdownlint-enable MD026 -->

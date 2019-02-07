@@ -1,11 +1,15 @@
 ---
-title: "Fusion: Motivations and business risks that drive Deployment Acceleration"
+title: "CAF: Motivations and business risks that drive Deployment Acceleration"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 description: Learn about the discipline of Deployment Acceleration as part of a cloud governance strategy.
 author: alexbuckgit
-ms.date: 1/9/2019
 ---
 
-# Fusion: Motivations and business risks that drive Deployment Acceleration investments
+# Deployment Acceleration motivations and business risks
 
 This article discusses the reasons that customers typically adopt a Deployment Acceleration discipline within a cloud governance strategy. It also provides a few examples of business risks that drive policy statements.
 
@@ -35,5 +39,3 @@ Once an understanding of realistic business risks is established, the next step 
 
 > [!div class="nextstepaction"]
 > [Metrics, indicators, and risk tolerance](./metrics-tolerance.md)
-
-<!-- markdownlint-enable MD026 -->

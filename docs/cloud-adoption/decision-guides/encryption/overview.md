@@ -1,21 +1,23 @@
 ---
-title: "Fusion: Encryption" 
-description: Discussion of encryption as a core service in Azure migrations
+title: "CAF: Encryption" 
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Learn about encryption as a core service in Azure migrations.
 author: rotycenh
-ms.date: 12/19/2018
 ---
 
-# Fusion: Encryption
+# Encryption decision guide
 
 Encrypting data protects it against unauthorized access. Properly implemented encryption policy provides additional layers of security for your cloud-based workloads and guards against attackers and other unauthorized users from both inside and outside your organization and networks.
 
 While encrypting resources is generally desirable, encryption does have costs that can increase latency and overall resource usage. For demanding workloads, striking the correct balance between encryption and performance is essential.
 
-## Encryption decision guide
-
 ![Plotting encryption options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-encryption.png)
 
-Jump to: [Key management](#key-management) | [Data encryption](#data-encryption) | [Learn more](#learn-more) 
+Jump to: [Key management](#key-management) | [Data encryption](#data-encryption) | [Learn more](#learn-more)
 
 The inflection point when determining a cloud encryption strategy focuses on corporate policy and compliance mandates.
 
@@ -31,7 +33,7 @@ When planning a cloud migration, the following table describes how you can store
 |---------------------------------------------------------------------------------------------------------------------------------------|--------------|--------|-------------|
 | Does your organization lack centralized key and secret management?                                                                    | Yes          | No     | No          |
 | Will you need to limit the creation of keys and secrets to devices to your on-premises hardware, while using these keys in the cloud? | No           | Yes    | No          |
-| Does your organization have rules or policies in place that would prevent keys and secrets from being stored off-site?                | No           | No     | Yes         |
+| Does your organization have rules or policies in place that would prevent keys and secrets from being stored offsite?                | No           | No     | Yes         |
 
 ### Cloud native
 
@@ -100,7 +102,7 @@ Your overall policy and compliance requirements, the sensitivity of the data bei
 
 ### Data in use
 
-Encryption for data in use involves securing data in non-persistent storage, such as RAM or CPU caches. Use of technologies such as full memory encryption, enclave technologies, such as Intel's Secure Guard Extensions (SGX). This also includes cryptographic techniques, such as homomorphic encryption that can be used to create secure, trusted execution environments.
+Encryption for data in use involves securing data in nonpersistent storage, such as RAM or CPU caches. Use of technologies such as full memory encryption, enclave technologies, such as Intel's Secure Guard Extensions (SGX). This also includes cryptographic techniques, such as homomorphic encryption that can be used to create secure, trusted execution environments.
 
 **Encrypting data in use assumptions**. Encrypting data in use assumes the following:
 
@@ -110,9 +112,9 @@ Encryption for data in use involves securing data in non-persistent storage, suc
 
 See the following for more information about encryption and key management in the Azure platform.
 
-- [Azure encryption overview](/azure/security/security-azure-encryption-overview). A detailed description of how Azure makes use of encryption to secure both data at rest and data in transit.
+- [Azure encryption overview](/azure/security/security-azure-encryption-overview). A detailed description of how Azure uses encryption to secure both data at rest and data in transit.
 - [Azure Key Vault](/azure/key-vault/key-vault-overview). Key Vault is the primary key management system for storing and managing cryptographic keys, secrets, and certificates within Azure.
-- [Confidential computing in Azure](/solutions/confidential-compute). Azure's confidential computing initiative provides tools and technology to create trusted execution environments (TEEs) or other encryption mechanisms to secure data in use.
+- [Confidential computing in Azure](/solutions/confidential-compute). Azure's confidential computing initiative provides tools and technology to create trusted execution environments or other encryption mechanisms to secure data in use.
 
 ## Next steps
 

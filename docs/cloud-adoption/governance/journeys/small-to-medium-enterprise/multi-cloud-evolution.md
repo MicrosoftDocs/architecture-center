@@ -1,11 +1,11 @@
 ---
-title: "Fusion: Small to Medium Enterprise – Multi-cloud evolution"
+title: "CAF: Small to Medium Enterprise – Multi-cloud evolution"
 description: Explanation Small to Medium Enterprise – Multi-cloud evolution
 author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
-# Fusion: Small to Medium Enterprise – Multi-cloud evolution
+# Small-to-medium enterprise: Multi-cloud evolution
 
 This article evolves the narrative by adding controls for multi-cloud adoption.
 
@@ -26,7 +26,7 @@ Since then, some things have changed that will affect governance:
 - Disaster Recovery / Business Continuity is controlled by Azure Vault instances.
 - Azure Security Center is used to monitor security violations and attacks.
 - Azure Security Center and Azure Monitor are both used to monitor governance of the cloud.
-- Blueprints, Azure Policy, and management groups are used to automate compliance with policy.
+- Azure Blueprints, Azure Policy, and Azure management groups are used to automate compliance with policy.
 
 ### Evolution of the future state
 
@@ -51,7 +51,7 @@ The following changes to policy will help mitigate the new risks and guide imple
 
 ## Evolution of the best practices
 
-This section of the article will evolve the governance MVP design to include new Azure Policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
+This section of the article will evolve the governance MVP design to include new Azure policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
 
 1. Connect the networks. This step is executed by the Networking and IT Security teams, and supported by the Cloud Governance team. Adding a connection from the MPLS/leased-line provider to the new cloud will integrate networks. Adding routing tables and firewall configurations will control access and traffic between the environments.
 2. Consolidate identity providers. Depending on the workloads being hosted in the secondary cloud, there are a variety of options to identity provider consolidation. The following are a few examples:

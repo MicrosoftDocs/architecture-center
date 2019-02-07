@@ -1,17 +1,21 @@
 ---
-title: "Fusion: Metrics, indicators, and risk tolerance"
-description: Explanation of the concept Cost Management in relation to cloud governance
+title: "CAF: Cost Management metrics, indicators, and risk tolerance"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Explanation of Cost Management in relation to cloud governance
 author: BrianBlanchard
-ms.date: 1/3/2019
 ---
 
-# Fusion: Metrics, indicators, and risk tolerance
+# Cost Management metrics, indicators, and risk tolerance
 
 This article is intended to help you quantify business risk tolerance as it relates to Cost Management. Defining metrics and indicators helps you create a business case for making an investment in the maturity of the Cost Management discipline.
 
 ## Metrics
 
-Cost Management generally focuses on metrics related to costs. As part of your risk analysis you'll want to gather data related to your current and planned spending on cloud-based workloads to determine how much risk you face, and how important investment in cost governance is to your cloud adoption strategy.
+Cost Management generally focuses on metrics related to costs. As part of your risk analysis, you'll want to gather data related to your current and planned spending on cloud-based workloads to determine how much risk you face, and how important investment in cost governance is to your cloud adoption strategy.
 
 The following are examples of useful metrics that you should gather to help evaluate risk tolerance within the Security Baseline discipline:
 
@@ -41,7 +45,7 @@ Once you have identified [business risks](./business-risks.md), you will work wi
 
 Using the [Cloud Management template](./template.md), document metrics and tolerance indicators that align to the current cloud adoption plan.
 
-Building on risks and tolerance, establish a [process for governing and communicating cost policy adherence](processes.md).
+Building on risks and tolerance, establish a [process for governing and communicating Cost Management policy adherence](compliance-processes.md).
 
 > [!div class="nextstepaction"]
-> [Establish Policy Adherence Processes](./processes.md)
+> [Establish Policy Adherence Processes](compliance-processes.md)

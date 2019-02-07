@@ -1,5 +1,5 @@
 ---
-title: "Fusion: What is a Cloud Policy Review?"
+title: "CAF: What is a Cloud Policy Review?"
 description: What is Cloud Policy Review?
 author: BrianBlanchard
 ms.date: 2/8/2019
@@ -7,11 +7,11 @@ ms.date: 2/8/2019
 
 <!-- markdownlint-disable MD026 -->
 
-# Fusion: What is a cloud policy review?
+# What is a cloud policy review?
 
 A **cloud policy review** is the first step toward [governance maturity](../overview.md) in the cloud. The objective of this process is to modernize existing corporate IT policies. When completed, the updated policies provide an equivalent level of risk mitigation for cloud-based resources. This article explains the cloud policy review process and its importance.
 
-## Why perform a Cloud Policy Review?
+## Why perform a cloud policy review?
 
 Most businesses manage IT through the execution of processes which alignment with governing policies. In small businesses, these policies may anecdotal and processes loosely defined. As businesses grow into large enterprises, policies and processes tend to be more clearly documented & consistently executed.
 
@@ -22,7 +22,7 @@ Cloud Transformations create a natural inflection point to reconsider the legacy
 - A cloud-native solution could enable geo-replication of the SQL Azure database
 - A hybrid solution could leverage Azure Site Recovery (ASR) to replicate an IaaS workload to multiple datacenters
 
-The justification for a cloud policy review is often referred to as "pushing a mess uphill". When executing a cloud transformation, policies often govern many of the tools, services, and processes available to the cloud adoption teams. If those policies are based on legacy technologies, they may hinder the team's efforts to drive change. In the worst case, important policies are entirely ignored by the migration team to enable workarounds. Neither is an acceptable outcome.
+When executing a cloud transformation, policies often govern many of the tools, services, and processes available to the cloud adoption teams. If those policies are based on legacy technologies, they may hinder the team's efforts to drive change. In the worst case, important policies are entirely ignored by the migration team to enable workarounds. Neither is an acceptable outcome.
 
 ## The cloud policy review process
 

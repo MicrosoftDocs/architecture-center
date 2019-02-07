@@ -1,11 +1,17 @@
 ---
-title: "Fusion: How does Azure work?"
+title: "CAF: How does Azure work?"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
 description: Explanation of the internal functioning of Azure
 author: petertaylor9999
 ms.date: 2/1/2019
 ---
 
-# Fusion: How does Azure work?
+<!-- markdownlint-disable MD026 -->
+
+# How does Azure work?
 
 Azure is Microsoft's public cloud platform. Azure offers a large collection of services including platform as a service (PaaS), infrastructure as a service (IaaS), database as a service (DBaaS), and many others. But what exactly is Azure, and how does it work?
 
@@ -27,7 +33,7 @@ So, very simply, Azure is a huge collection of servers and networking hardware, 
 
 ## Next steps
 
-Now that you understand the internal functioning of Azure, learn about [resource access governance](what-is-governance.md).
+Now that you understand the internal functioning of Azure, learn about cloud resource governance.
 
 > [!div class="nextstepaction"]
 > [Learn about resource governance](what-is-governance.md)

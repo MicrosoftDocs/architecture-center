@@ -1,17 +1,19 @@
 ---
-title: "Fusion: What tools can help better manage costs in Azure?"
-description: Explanation of the concept Cost Management in relation to cloud governance
+title: "CAF: Cost Management tools in Azure"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Cost Management tools in Azure
 author: BrianBlanchard
-ms.date: 1/4/2019
 ---
 
-<!-- markdownlint-disable MD026 -->
+# Cost Management tools in Azure
 
-# Fusion: What tools can help better manage costs in Azure?
+[Cost Management](overview.md) is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md). This discipline focuses on ways of establishing cloud spending plans, allocating cloud budgets, monitoring and enforcement of cloud budgets, detecting costly anomalies, and adjusting the cloud governance plan when actual spending is misaligned.
 
-In the [Intro to Cloud Governance](../overview.md), [Cost Management](overview.md) is one of the five cloud governance disciplines. This discipline focuses on ways of establishing cloud spending plans, allocating cloud budgets, monitoring and enforcement of cloud budgets, detecting costly anomalies, and adjusting the cloud governance plan when actual spending is misaligned.
-
-Unlike the cloud-agnostic position used throughout Fusion, this article is Azure-specific. The following is a list of Azure native tools that can help mature the policies and processes that support this governance discipline.
+The following is a list of Azure native tools that can help mature the policies and processes that support this governance discipline.
 
 |  | [Azure Portal](https://azure.microsoft.com/features/azure-portal/)  | [Azure Cost Management](/azure/cost-management/overview-cost-mgt)  | [Azure EA Content Pack](/power-bi/service-connect-to-azure-enterprise)  | [Azure Policy](/azure/governance/policy/overview) |
 |---------|---------|---------|---------|---------|
@@ -24,5 +26,3 @@ Unlike the cloud-agnostic position used throughout Fusion, this article is Azure
 |Monitor and detect trends     | Yes - limited         | Yes        | Yes         | No         |
 |Detect spending anomalies     | No         | Yes        | Yes         | No        |
 |Socialize deviations     | No        | Yes        | Yes        | No        |
-
-<!-- markdownlint-enable MD026 -->

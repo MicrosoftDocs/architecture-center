@@ -1,11 +1,15 @@
 ---
-title: "Fusion: Software Defined Networks - PaaS only" 
+title: "CAF: Software Defined Networks - PaaS only" 
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 description: Discussion of the PaaS only model for cloud based networking functionality
 author: rotycenh
-ms.date: 11/07/2018
 ---
 
-# Fusion: Software Defined Networks - PaaS only
+# Software Defined Networks: PaaS-only
 
 When you implement a platform as a service (PaaS) resource, the deployment process automatically creates an assumed underlying network with a limited number of controls over that network, including load balancing, port blocking, and connections to other PaaS services.
 

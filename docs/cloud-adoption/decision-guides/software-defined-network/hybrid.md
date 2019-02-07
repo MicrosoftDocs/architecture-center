@@ -1,17 +1,21 @@
 ---
-title: "Fusion: Software Defined Networks - Hybrid network" 
+title: "CAF: Software Defined Networks - Hybrid network" 
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 description: Discussion of how hybrid networks allow your cloud virtual networks to connect to on-premises resources
 author: rotycenh
-ms.date: 12/29/2018
 ---
 
-# Fusion: Software Defined Networks - Hybrid networks
+# Software Defined Networks: Hybrid network
 
 The hybrid cloud network architecture allows virtual networks to access your on-premises resources and services and vice versa, using a Dedicated WAN connection such as ExpressRoute or other connection method to directly connect the networks.
 
 ![Hybrid network](../../../reference-architectures/hybrid-networking/images/expressroute.png)
 
-Building on the cloud native virtual network architecture, a hybrid virtual network is isolated when initially created. Adding connectivity to the on-premises environment grants access to and from the on-premises network, although all other inbound traffic targeting resources in the virtual network need to be explicitly allowed. You can secure the connection using virtual firewall devices and routing rules to limit access or you can specify exactly what services can be accessed between the two networks using cloud-native routing features or deploying network virtual appliances(NVAs) to manage traffic.
+Building on the cloud native virtual network architecture, a hybrid virtual network is isolated when initially created. Adding connectivity to the on-premises environment grants access to and from the on-premises network, although all other inbound traffic targeting resources in the virtual network need to be explicitly allowed. You can secure the connection using virtual firewall devices and routing rules to limit access or you can specify exactly what services can be accessed between the two networks using cloud-native routing features or deploying network virtual appliances (NVAs) to manage traffic.
 
 Although the hybrid networking architecture supports VPN connections, dedicated WAN connections like ExpressRoute are generally preferred due to higher performance and increased security.
 

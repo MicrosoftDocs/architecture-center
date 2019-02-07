@@ -12,7 +12,7 @@ This article provides examples of how an enterprise can implement the recommenda
 
 ## Background
 
-Contoso is a worldwide company that provides supply chain solutions for customers. They provide everything from a Software as a Service model to a packaged model deployed on-premises.  They develop software across the globe with significant development centers in India, the United States, and Canada.
+Contoso is a worldwide company that provides supply chain solutions for customers. They provide everything from a software as a service model to a packaged model deployed on-premises. They develop software across the globe with significant development centers in India, the United States, and Canada.
 
 The ISV portion of the company is divided into several independent business units that manage products in a significant business. Each business unit has its own developers, product managers, and architects.
 

@@ -1,5 +1,5 @@
 ---
-title: "Fusion: How does business risk change in the cloud?"
+title: "CAF: How does business risk change in the cloud?"
 description: Understanding business risk during migration
 author: BrianBlanchard
 ms.date: 10/10/2018
@@ -7,13 +7,13 @@ ms.date: 10/10/2018
 
 <!-- markdownlint-disable MD026 -->
 
-# Fusion: How does business risk change in the cloud?
+# How does business risk change in the cloud?
 
 An understanding of business risk is one of the most important elements of any cloud transformation. Risk drives policy, it influences monitoring and enforcement requirements. Risk heavily influences how we manage the digital estate, on-premises or in the cloud.
 
 <!-- markdownlint-enable MD026 -->
 
-## Relativity of Risk
+## Relativity of risk
 
 Risk is relative. A small company with a few IT assets, in a closed building has little risk. Add users and an internet connection with access to those assets, the risk is intensified. When that small company grows to Fortune 500 status, the risks are exponentially greater. As revenue, business process, employee counts, and IT assets accumulate, risks increase and coalesce. IT assets that aid in generating revenue are at tangible risk of stopping that revenue stream in the event of an outage. Every moment of downtime equates to losses. Likewise, as data accumulates, the risk of harming customers grows.
 
@@ -34,7 +34,7 @@ During a cloud transformation, both the business and IT teams have an opportunit
 
 <!-- markdownlint-disable MD026 -->
 
-## What is a Business Risk MVP?
+## What is a business risk MVP?
 
 **Minimum viable product** is an industry-standard term for defining the smallest unit of something that can produce tangible value. In a business risk MVP, the team starts with an assumption that some assets will be deployed to a cloud environment. It's unknown at the time what those assets are. It's also unknown what types of data will be processed by those assets.
 
@@ -61,4 +61,9 @@ When the Cloud Governance team operates in parallel to the cloud adoption teams,
 
 With each iteration, the Cloud Governance team can work with Cloud Strategy team to quickly communicate new risks, mitigation strategies, tradeoffs, and potential costs. This empowers business participants and IT leaders to partner in mature, well-informed decisions. Those decisions then inform policy maturity. When required, the policy changes produce new work items for the maturity of core infrastructure systems. When changes to staged systems are required, the cloud adoption teams have ample time to make changes, while the business tests the staged systems and develops a user adoption plan.
 
-This approach minimizes risks, while empowering the team to move quickly. It also ensures that risks are promptly addressed and resolved prior to deployment.
+This approach minimizes risks, while empowering the team to move quickly. It also ensures that risks are promptly identified and resolved before deployment.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Evaluate risk tolerance](./risk-tolerance.md)

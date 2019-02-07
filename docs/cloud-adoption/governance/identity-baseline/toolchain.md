@@ -1,21 +1,23 @@
 ---
-title: "Fusion: What tools can help better manage user identities in Azure?"
-description: Explanation of the tools that can facilitate improved Identity Baseline in Azure
+title: "CAF:Identity Baseline tools in Azure"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Identity Baseline tools in Azure
 author: BrianBlanchard
-ms.date: 2/1/2019
 ---
 
-<!-- markdownlint-disable MD026 -->
+# Identity Baseline tools in Azure
 
-# Fusion: What tools can help better manage user identities in Azure?
+[Identity Baseline](overview.md) is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md). This discipline focuses on ways of establishing policies that ensure consistency and continuity of user identities regardless of the cloud provider that hosts the application or workload.
 
-In the [Intro to Cloud Governance](../overview.md), [Identity Baseline](overview.md) is one of the five disciplines to Cloud Governance. This discipline focuses on ways of establishing policies that ensure consistency and continuity of user identities regardless of the cloud provider that hosts the application or workload.
-
-Unlike the cloud-agnostic position used throughout Fusion, this article is Azure-specific. The following tools are included in the discovery guide on Hybrid Identity.
+The following tools are included in the discovery guide on Hybrid Identity.
 
 **Active Directory (on-premises):** Active Directory is the identity provider most frequently used in the enterprise to store and validate user credentials.
 
-**Azure Active Directory:** SaaS (Software as a Service) equivalent to Active Directory, with the ability to federate to Active Directory (on-premises)
+**Azure Active Directory:** A software as a service (SaaS) equivalent to Active Directory, capable of federating with an on-premises Active Directory.
 
 **Active Directory (IaaS):** An instance of the Active Directory application running in a virtual machine in Azure.
 
@@ -71,5 +73,3 @@ The following table lists the native tools that can help mature the policies and
 The [Hybrid Identity Digital Transformation Framework](https://resources.office.com/ww-landing-M365E-EMS-IDAM-Hybrid-Identity-WhitePaper.html?LCID=EN-US) outlines a number of combinations and solutions for choosing and integrating each of these components.
 
 The [Azure AD Connect tool](https://aka.ms/aadconnectwiz) helps you to integrate your on-premises directories with Azure AD.
-
-<!-- markdownlint-enable MD026 -->

@@ -1,15 +1,19 @@
 ---
-title: "Fusion: Core Infrastructure overview"
-description: Overview of Core infrastructure content for Azure Fusion
+title: "CAF: Architectural decision guides"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Learn about architectural decision guides in the Cloud Adoption Framework.
 author: rotycenh
-ms.date: 01/14/2019
 ---
 
-# Fusion: Architectural decision guides
+# Architectural decision guides
 
-Fusion’s architectural decision guides describe patterns and models that help when creating cloud governance design guidance. Each decision guide focuses on one core infrastructure component of cloud deployments and lists potential patterns or models intended to support specific cloud deployment scenarios.
+The architectural decision guides in the Cloud Adoption Framework describe patterns and models that help when creating cloud governance design guidance. Each decision guide focuses on one core infrastructure component of cloud deployments and lists potential patterns or models intended to support specific cloud deployment scenarios.
 
-When you begin to establish cloud governance for your organization, Fusion’s actionable governance journeys provide a baseline roadmap. However, these journeys make assumptions about requirements and priorities that may not reflect those of your organization.
+When you begin to establish cloud governance for your organization,  actionable governance journeys provide a baseline roadmap. However, these journeys make assumptions about requirements and priorities that may not reflect those of your organization.
 These decision guides supplement the sample governance journeys by providing alternative patterns and models that help you align the architectural design choices made in the example design guidance with your own requirements.
 
 ## Design guidance categories
@@ -22,7 +26,7 @@ Each of the following categories represents a foundational technology of all clo
 
 [Policy Enforcement](./policy-enforcement/overview.md): Define and enforce organizational policy rules for resources and workloads that you deploy to the cloud.
 
-[Resource Grouping](./resource-grouping/overview.md): Ensure that deployment and organization of your cloud-based resources align to enforce resource management and policy requirements.
+[Resource Consistency](./resource-consistency/overview.md): Ensure that deployment and organization of your cloud-based resources align to enforce resource management and policy requirements.
 
 [Resource Tagging](./resource-tagging/overview.md): Organize your cloud-based resources to support billing models, cloud accounting approaches, management, access control, and operational efficiency. Resource tagging requires a consistent and well-organized naming and metadata scheme.
 

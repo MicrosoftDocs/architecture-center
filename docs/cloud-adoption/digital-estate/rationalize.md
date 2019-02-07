@@ -1,12 +1,15 @@
 ---
-title: Rationalize the digital estate
-titleSuffix: Fusion
-description: A process for evaluating digital assets to find the best way to host them in the cloud.
+title: "CAF: Rationalize the digital estate"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+description: Evaluate your digital assets to determine how best to host them in the cloud.
 author: BrianBlanchard
 ms.date: 12/10/2018
 ---
 
-# Fusion: Rationalize the digital estate
+# Rationalize the digital estate
 
 Cloud rationalization is the process of evaluating assets to determine the best approach to hosting them in the cloud. Once an [approach](approach.md) has been determined and [inventory](inventory.md) has been aggregated, cloud rationalization can begin. The [5 Rs of rationalization](5-rs-of-rationalization.md) discusses the most common rationalization options.
 
@@ -116,7 +119,7 @@ In parallel to continued rationalization, the Cloud Adoption team can begin migr
 - Understand any inherent business risks and the business' tolerance for those risks.
 - Establish a baseline or minimally viable product (MVP) for governance based on the business' risk tolerance
 
-## Release Planning
+## Release planning
 
 While the Cloud Adoption team is executing the migration or implementation of the first workload, the Cloud Strategy team can begin prioritizing the remaining applications/workloads.
 

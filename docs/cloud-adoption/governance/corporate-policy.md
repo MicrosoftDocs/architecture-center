@@ -1,13 +1,17 @@
 ---
-title: "Fusion: Implementing a cloud governance strategy"
-description: Overview of governance content within Fusion
+title: "CAF: Implement a cloud governance strategy"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+description: Learn about using the Microsoft Cloud Adoption Framework for Azure (CAF) to implement a cloud governance strategy.
 author: BrianBlanchard
 ms.date: 1/3/2019
 layout: LandingPage
 ms.topic: landing-page
 ---
 
-# Fusion: Implementing a cloud governance strategy
+# Implement a cloud governance strategy
 
 <!-- markdownlint-disable MD033 -->
 
@@ -17,7 +21,7 @@ ms.topic: landing-page
         <div class="cardPadding" style="padding-bottom:10px;">
             <div class="card" style="padding-bottom:10px;">
                 <div class="cardText" style="padding-left:0px;">
-Any change to business processes or technology platforms introduces risk to the business. Cloud governance teams (also known as cloud custodians) are tasked with mitigating these risks with minimal interruption to adoption or innovation efforts.<br/><br/>However, cloud governance requires more than technical implementation. Subtle changes in the corporate narrative or corporate policies can affect adoption efforts significantly. Prior to implementation, its important to look beyond IT while Defining Corporate Policy.<br/><br/>
+Any change to business processes or technology platforms introduces risk to the business. Cloud governance teams, whose members are sometimes known as cloud custodians, are tasked with mitigating these risks with minimal interruption to adoption or innovation efforts.<br/><br/>However, cloud governance requires more than technical implementation. Subtle changes in the corporate narrative or corporate policies can affect adoption efforts significantly. Prior to implementation, its important to look beyond IT while Defining Corporate Policy.<br/><br/>
                 </div>
             </div>
         </div>
@@ -29,9 +33,9 @@ Any change to business processes or technology platforms introduces risk to the 
             <div class="cardPadding" style="padding-bottom:10px;">
                 <div class="card" style="padding-bottom:10px;">
                     <div class="cardText" style="padding-left:0px;">
-<img src="../_images/operational-transformation-govern-highres.png" alt="Visual of the Fusion Model to Cloud Governance: Corporate policy and governance disciplines">
+<img src="../_images/operational-transformation-govern-highres.png" alt="Diagram of the CAF governance model: Corporate policy and governance disciplines">
 <br>
-<i>Figure 1. Visual of corporate policy and five cloud governance disciplines</i>
+<i>Figure 1. Visual of corporate policy and the Five Disciplines of Cloud Governance</i>
                     </div>
                 </div>
             </div>

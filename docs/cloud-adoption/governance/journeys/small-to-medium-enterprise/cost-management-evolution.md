@@ -1,11 +1,11 @@
 ---
-title: "Fusion: Small to Medium Enterprise – Cost Management evolution  "
+title: "CAF: Small to Medium Enterprise – Cost Management evolution  "
 description: Explanation Small to Medium Enterprise – Cost Management evolution 
 author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
-# Fusion: Small to Medium Enterprise – Cost Management evolution
+# Small-to-medium enterprise: Cost Management evolution
 
 This article evolves the narrative by adding cost controls to the governance MVP.
 
@@ -32,12 +32,12 @@ The changes to current and future state expose new risks that will require new p
 
 ## Evolution of tangible risks
 
-**Cost Increases**: There is an inherent risk that self-service capabilities will result in excessive and unexpected costs on the new platform. Governance processes for monitoring costs and mitigating ongoing cost risks must be in place to ensure continued alignment with the planned budget.
+**Budget control**: There is an inherent risk that self-service capabilities will result in excessive and unexpected costs on the new platform. Governance processes for monitoring costs and mitigating ongoing cost risks must be in place to ensure continued alignment with the planned budget.
 
 This business risk can be expanded into a few technical risks:
 
 - Actual costs might exceed the plan.
-- Business conditions change. When they do, there will be cases when a business function needs to consume more cloud services than expected. There is a risk that this extra spending will be considered overages, as opposed to a necessary adjustment to the plan.
+- Business conditions change. When they do, there will be cases when a business function needs to consume more cloud services than expected, leading to spending anomalies. There is a risk that this extra spending will be considered overages, as opposed to a necessary adjustment to the plan.
 - Systems could be overprovisioned, resulting in excess spending.
 
 ## Evolution of the policy statements
@@ -53,7 +53,7 @@ The following changes to policy will help mitigate the new risks and guide imple
 
 ## Evolution of the best practices
 
-This section of the article will evolve the governance MVP design to include new Azure Policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
+This section of the article will evolve the governance MVP design to include new Azure policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
 
 1. Implement Azure Cost Management
     1. Establish the right scope of access to align with the subscription pattern and the Resource Consistency discipline. Assuming alignment with the governance MVP defined in prior articles, this requires **Enrollment Account Scope** access for the Cloud Governance team executing on high level reporting. Additional teams outside of governance may require **Resource Group Scope** access.
