@@ -1,7 +1,7 @@
 ---
-title: Align cost models with the digital estate
-titleSuffix: Fusion
-description: Align cost models with the digital estate to forecast cloud costs
+title: "CAF: Align cost models with the digital estate"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+description: Align cost models with the digital estate to forecast cloud costs.
 author: BrianBlanchard
 ms.date: 12/10/2018
 ---

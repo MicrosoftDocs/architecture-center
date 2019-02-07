@@ -1,15 +1,17 @@
 ---
-title: "CAF: Identity" 
-description: Discussion of Identity as a core service in Azure migrations
+title: "CAF: Identity decision guide" 
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+description: Learn about identity as a core service in Azure migrations.
 author: rotycenh
 ms.date: 12/19/2018
 ---
 
-# CAF: Identity
+# Identity decision guide
 
 In any environment, whether on-premises, hybrid, or cloud-only, IT needs to control which administrators, users, and groups have access to resources. Identity and access management (IAM) services enable you to manage access control in the cloud.
-
-## Identity decision guide
 
 ![Plotting identity options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-identity.png)
 

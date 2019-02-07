@@ -1,11 +1,15 @@
 ---
-title: "CAF: Resource consistency" 
-description: Discussion of resource consistency when planning an Azure migrations
+title: "CAF: Resource consistency decision guide"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+description: Learn about resource consistency when planning an Azure migrations.
 author: rotycenh
 ms.date: 12/27/2018
 ---
 
-# CAF: Resource consistency
+# CAF: Resource consistency decision guide
 
 Azure [subscription design](../subscriptions/overview.md) defines how you organize your cloud assets in relation to your organization's overall structure. In addition, integrating your existing IT management standards and your organizational policies depends on how you deploy and organize cloud resources within a subscription.
 
@@ -15,8 +19,6 @@ The tools available to implement your resource deployment, grouping, and managem
 - The ability to deploy resources programmatically with APIs.
 - Templates for creating standardized deployments.
 - The ability to deploy policy rules at the subscription, account, and resource grouping levels.
-
-## Resource consistency decision guide
 
 ![Plotting resource consistency options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-resource-consistency.png)
 

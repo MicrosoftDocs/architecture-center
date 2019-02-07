@@ -1,7 +1,7 @@
 ---
-title: The 5 Rs of rationalization
-titleSuffix: Fusion
-description: Describes the options that are available when rationalizing a digital estate
+title: "CAF: The 5 Rs of rationalization"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+description: Review the options available for rationalizing a digital estate.
 author: BrianBlanchard
 ms.date: 12/10/2018
 ---

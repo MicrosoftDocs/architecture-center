@@ -1,13 +1,13 @@
 ---
-title: "Cloud Adoption Framework: Getting started"
-description: Describes an overview of the first phase of an enterprise's digital transformation in adopting Azure cloud technologies
+title: "CAF: Getting started with the Cloud Adoption Framework"
+description: Describes an overview of the first phase of an enterprise's digital transformation in adopting Azure cloud technologies.
 author: petertaylor9999
 ms.date: 2/1/2019
 ---
 
-# Getting started with the Microsoft CAF for Azure
+# Getting started with the Cloud Adoption Framework
 
-The **digital transformation** to cloud computing represents a shift from operating on-premises to operating in the cloud. This shift includes new ways of doing business - for example, the digital transformation shifts from capital expenditures for software and datacenter hardware to operating expenditures for usage of cloud resources. Let's see how to get started using the [Microsoft CAF for Azure](..\overview.md).
+The **digital transformation** to cloud computing represents a shift from operating on-premises to operating in the cloud. This shift includes new ways of doing business - for example, the digital transformation shifts from capital expenditures for software and datacenter hardware to operating expenditures for usage of cloud resources. Let's see how to get started using the [Microsoft Cloud Adoption Framework for Azure](..\overview.md).
 
 ## The digital transformation process
 

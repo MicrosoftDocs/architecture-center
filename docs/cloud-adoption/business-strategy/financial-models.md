@@ -1,12 +1,15 @@
 ---
-title: Create a financial model for cloud transformation
-titleSuffix: Fusion
-description: How to create a financial model for cloud transformation
+title: "CAF: Create a financial model for cloud transformation"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+description: How to create a financial model for cloud transformation.
 author: BrianBlanchard
 ms.date: 12/10/2018
 ---
 
-# How to create a financial model for cloud transformation
+# Create a financial model for cloud transformation
 
 Creating a financial model that accurately represents the full business value of any cloud transformation can be complicated. Financial models and business justifications tend to be different from one organization to the next. This article establishes some formulas and points out a few things that are commonly missed when creating a financial model.
 

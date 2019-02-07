@@ -1,6 +1,6 @@
 ---
-title: Approaches to digital estate planning
-titleSuffix: Fusion
+title: "CAF: Approaches to digital estate planning"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Describes some approaches to digital estate planning
 author: BrianBlanchard
 ms.date: 12/10/2018
@@ -28,7 +28,7 @@ The asset-driven approach provides a plan based on the assets that support an ap
 
 ## Incremental approach
 
-Like much of the CAF, an incremental approach is highly suggested. In the case of digital estate planning, that equates to a multi-phase process, as follows:
+Like much of CAF, an incremental approach is highly suggested. In the case of digital estate planning, that equates to a multi-phase process, as follows:
 
 - Initial cost analysis: If financial validation is required, start with an asset-driven approach, described above, to get an initial cost calculation for the entire digital estate, with no rationalization. This establishes a worst-case scenario benchmark.
 

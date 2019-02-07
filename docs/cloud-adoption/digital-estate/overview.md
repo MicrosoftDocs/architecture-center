@@ -1,6 +1,6 @@
 ---
-title: What is a digital estate?
-titleSuffix: Fusion
+title: "CAF: What is a digital estate?"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Explanation of the concept a digital estate
 author: BrianBlanchard
 ms.date: 12/10/2018

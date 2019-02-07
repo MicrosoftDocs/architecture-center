@@ -1,10 +1,10 @@
 ---
-title: Implement a cloud governance strategy
-titleSuffix: Microsoft Cloud Adoption Framework
+title: "CAF: Implement a cloud governance strategy"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
-description: Learn about using the Microsoft Cloud Adoption Framework (CAF) to implement a cloud governance strategy.
+description: Learn about using the Microsoft Cloud Adoption Framework for Azure (CAF) to implement a cloud governance strategy.
 author: BrianBlanchard
 ms.date: 1/3/2019
 layout: LandingPage

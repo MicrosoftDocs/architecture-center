@@ -1,15 +1,13 @@
 ---
-title: "CAF: Logs, reporting, and monitoring" 
-description: Discussion of logs, reporting, and monitoring as a core service in Azure migrations
+title: "CAF: Logging and reporting decision guide" 
+description: Learn about logging, reporting, and monitoring as core services in Azure migrations.
 author: rotycenh
 ms.date: 12/21/2018
 ---
 
-# CAF: Logs, reporting, and monitoring
+# Logging and reporting decision guide
 
 All organizations need mechanisms for notifying IT teams of performance, uptime, and security issues before they become serious problems. A successful monitoring strategy allows you to understand how the individual components that make up your workloads and networking infrastructure are performing. Within the context of a public cloud migration, integrating logging and reporting with any of your existing monitoring systems, while surfacing important events and metrics to the appropriate IT staff, is critical in ensuring your organization is meeting uptime, security, and policy compliance goals.
-
-## Logging and reporting decision guide
 
 ![Plotting logging, reporting, and monitoring options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-logs-and-reporting.png)
 

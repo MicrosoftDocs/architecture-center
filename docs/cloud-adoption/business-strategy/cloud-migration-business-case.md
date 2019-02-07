@@ -1,12 +1,15 @@
 ---
-title:  Building a cloud migration business case
-titleSuffix: Fusion
-description: Things to consider when building a business justification for cloud migration
+title:  "CAF: Build a cloud migration business case"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+description: Considerations for building a business justification for cloud migration.
 author: BrianBlanchard
 ms.date: 12/10/2018
 ---
 
-# Building a cloud migration business case
+# Build a business justification for cloud migration
 
 Cloud migrations can generate early return on investment (ROI) from cloud transformation efforts. However, developing a clear business justification with tangible, relevant costs and returns can be a complex process. This article will help you think about what data is needed to create a financial model that aligns with cloud migration outcomes. First, let's dispel a few myths about cloud migration, so your organization can avoid some common mistakes.
 

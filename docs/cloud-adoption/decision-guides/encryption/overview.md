@@ -1,17 +1,19 @@
 ---
 title: "CAF: Encryption" 
-description: Discussion of encryption as a core service in Azure migrations
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+description: Learn about encryption as a core service in Azure migrations.
 author: rotycenh
 ms.date: 12/19/2018
 ---
 
-# CAF: Encryption
+# Encryption decision guide
 
 Encrypting data protects it against unauthorized access. Properly implemented encryption policy provides additional layers of security for your cloud-based workloads and guards against attackers and other unauthorized users from both inside and outside your organization and networks.
 
 While encrypting resources is generally desirable, encryption does have costs that can increase latency and overall resource usage. For demanding workloads, striking the correct balance between encryption and performance is essential.
-
-## Encryption decision guide
 
 ![Plotting encryption options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-encryption.png)
 
@@ -112,7 +114,7 @@ See the following for more information about encryption and key management in th
 
 - [Azure encryption overview](/azure/security/security-azure-encryption-overview). A detailed description of how Azure uses encryption to secure both data at rest and data in transit.
 - [Azure Key Vault](/azure/key-vault/key-vault-overview). Key Vault is the primary key management system for storing and managing cryptographic keys, secrets, and certificates within Azure.
-- [Confidential computing in Azure](/solutions/confidential-compute). Azure's confidential computing initiative provides tools and technology to create trusted execution environments (TEEs) or other encryption mechanisms to secure data in use.
+- [Confidential computing in Azure](/solutions/confidential-compute). Azure's confidential computing initiative provides tools and technology to create trusted execution environments or other encryption mechanisms to secure data in use.
 
 ## Next steps
 

@@ -1,7 +1,7 @@
 ---
-title: Rationalize the digital estate
-titleSuffix: Fusion
-description: A process for evaluating digital assets to find the best way to host them in the cloud.
+title: "CAF: Rationalize the digital estate"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+description: Evaluate your digital assets to determine how best to host them in the cloud.
 author: BrianBlanchard
 ms.date: 12/10/2018
 ---
