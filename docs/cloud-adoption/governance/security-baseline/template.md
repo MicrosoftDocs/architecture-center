@@ -14,11 +14,13 @@ author: BrianBlanchard
 The first step to implementing change is communicating the desired change. The same is true when changing governance practices. The template below serves as a starting point for documenting and communicating policy statements that govern Security Baseline in the cloud. The template also outlines the business criteria that may have led you to create the documented policy statements.
 
 > [!IMPORTANT]
-> This template is a limited sample. Before using it, you should review the subsequent steps for defining an effective Security Baseline discipline within your cloud governance strategy.
+> The template linked below provides a example of how to document policy statements as part of a cloud governance discipline. Although it uses the Cost Management discipline as sample content, the template can be used as the basis for capturing the business risks, risk tolerances, compliance processes, and tooling used to define policy statements for the Security Baseline discipline.
+>
+> Before updating this template to reflect your requirements, you should review the subsequent steps for defining an effective Security Baseline discipline within your cloud governance strategy.
 
 <!-- markdownlint-disable MD033 -->
 
- <a href="https://archcenter.blob.core.windows.net/cdn/fusion/governance/Security Baseline Template.docx">Download Security Baseline template</a>
+ <a href="https://archcenter.blob.core.windows.net/cdn/fusion/governance/Governance Discipline Template.docx">Download governance discipline template</a>
 
 <!-- markdownlint-enable MD033 -->
 
