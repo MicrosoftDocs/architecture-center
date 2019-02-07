@@ -201,7 +201,7 @@ The AzSK is a rich set of tools, scripts and information that are an important p
 
 ### Azure Update Management
 
-One of the key tasks you can do to keep your environment safe is ensure that your servers are patched with the latest updates. While there are many tools to accomplish this, Azure provides the [Azure Update Management](/azure/automation/automation-update-management) solution to address the identification and rollout of critical OS patches.  It makes use of Azure Automation (which is covered in the [Automate](#automate) section, later in this guide.
+One of the key tasks you can do to keep your environment safe is ensure that your servers are patched with the latest updates. While there are many tools to accomplish this, Azure provides the [Azure Update Management](/azure/automation/automation-update-management) solution to address the identification and rollout of critical OS patches. It uses Azure Automation, covered in the [Automate](#automate) section later in this guide.
 
 ## Monitor and alerts
 

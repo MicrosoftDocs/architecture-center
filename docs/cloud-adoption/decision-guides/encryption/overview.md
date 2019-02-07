@@ -110,7 +110,7 @@ Encryption for data in use involves securing data in nonpersistent storage, such
 
 See the following for more information about encryption and key management in the Azure platform.
 
-- [Azure encryption overview](/azure/security/security-azure-encryption-overview). A detailed description of how Azure makes use of encryption to secure both data at rest and data in transit.
+- [Azure encryption overview](/azure/security/security-azure-encryption-overview). A detailed description of how Azure uses encryption to secure both data at rest and data in transit.
 - [Azure Key Vault](/azure/key-vault/key-vault-overview). Key Vault is the primary key management system for storing and managing cryptographic keys, secrets, and certificates within Azure.
 - [Confidential computing in Azure](/solutions/confidential-compute). Azure's confidential computing initiative provides tools and technology to create trusted execution environments (TEEs) or other encryption mechanisms to secure data in use.
 
