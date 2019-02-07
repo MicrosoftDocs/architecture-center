@@ -26,9 +26,9 @@ The Identity Baseline discipline attempts to address core business risks related
 Risks will differ between organization, but the following serve as common identity-related risks that you can use as a starting point for discussions within your Cloud Governance team:
 
 - **Unauthorized access**. Sensitive data and resources that can be accessed by unauthorized users can lead to data leaks or service disruptions, violating your organization's security perimeter and risking business or legal liabilities.
-- **Inefficiency due to multiple identity solutions**. Organizations with multiple identity services tenants can require multiple accounts for users. This can lead to inefficiency for users who need to remember multiple sets of credentials and for IT in managing accounts across multiple systems.
+- **Inefficiency due to multiple identity solutions**. Organizations with multiple identity services tenants can require multiple accounts for users. This can lead to inefficiency for users who need to remember multiple sets of credentials and for IT in managing accounts across multiple systems. If user access assignments are not updated across identity solutions as staff, teams, and business goals change, your cloud resources may be vulnerable to unauthorized access or users unable to access required resources.
 - **Inability to share resources with external partners**. Difficulty adding external business partners to your existing identity solutions can prevent efficient resource sharing and business communication.
-- **Difficulty reflecting business change**. If user access assignments are not updated as staff, teams, and business goals change, your cloud resources may be vulnerable to unauthorized access or users unable to access required resources.
+- **On-premises identity dependencies**. Legacy authentication mechanisms or third-party multi-factor authentication might not be available in the cloud, requiring either migrating workloads to be retooled, or additional identity services to be deployed to the cloud. Either requirement could delay or prevent migration, and increase costs.
 
 ## Next steps
 

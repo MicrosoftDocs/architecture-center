@@ -32,12 +32,12 @@ The changes to current and future state expose new risks that will require new p
 
 ## Evolution of tangible risks
 
-**Cost Increases**: There is an inherent risk that self-service capabilities will result in excessive and unexpected costs on the new platform. Governance processes for monitoring costs and mitigating ongoing cost risks must be in place to ensure continued alignment with the planned budget.
+**Budget control**: There is an inherent risk that self-service capabilities will result in excessive and unexpected costs on the new platform. Governance processes for monitoring costs and mitigating ongoing cost risks must be in place to ensure continued alignment with the planned budget.
 
 This business risk can be expanded into a few technical risks:
 
 - Actual costs might exceed the plan.
-- Business conditions change. When they do, there will be cases when a business function needs to consume more cloud services than expected. There is a risk that this extra spending will be considered overages, as opposed to a necessary adjustment to the plan.
+- Business conditions change. When they do, there will be cases when a business function needs to consume more cloud services than expected, leading to spending anomalies. There is a risk that this extra spending will be considered overages, as opposed to a necessary adjustment to the plan.
 - Systems could be overprovisioned, resulting in excess spending.
 
 ## Evolution of the policy statements

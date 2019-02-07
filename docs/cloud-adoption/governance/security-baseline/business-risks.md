@@ -30,7 +30,7 @@ The Security Baseline discipline attempts to address core security-related busin
 
 Risks will differ between organization, but the following serve as common security-related risks that you can use as a starting point for discussions within your Cloud Governance team:
 
-- **Data leaks**. Inadvertent exposure or loss of sensitive cloud-hosted data can lead to losing customers, contractual breaches, or legal consequences.
+- **Data breach**. Inadvertent exposure or loss of sensitive cloud-hosted data can lead to losing customers, contractual issues, or legal consequences.
 - **Service disruption**. Outages and other performance issues due to insecure infrastructure interrupts normal operations and can result in lost productivity or lost business.
 
 ## Next steps

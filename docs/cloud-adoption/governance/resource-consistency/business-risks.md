@@ -28,7 +28,7 @@ Risks will differ between organization, but the following serve as common risks 
 - **Unneccessary operational cost**. Obsolete or unused resources, or resources that are overprovisioned during times of low demand, add unnecessary operational costs.
 - **Underprovisioned resources**. Resources that experience higher than anticipated demand can result in business disruption as cloud resources are overwhelmed by demand.
 - **Management inefficiencies**. Lack of consistent naming and tagging metadata associated with resources can lead to IT staff having difficulty finding resources for management tasks or identifying ownership and accounting information related to assets. This results in management inefficiencies that can increase cost and slow IT responsiveness to service disruption or other operational issues.
-- **SLA violation**. Service disruptions that result in violations of your organization's established Service Level Agreements (SLAs) can result in loss of business or other financial impacts to your company.
+- **Business Interruption**. Service disruptions that result in violations of your organization's established Service Level Agreements (SLAs) can result in loss of business or other financial impacts to your company.
 
 ## Next steps
 

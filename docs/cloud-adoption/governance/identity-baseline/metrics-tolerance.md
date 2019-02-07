@@ -17,6 +17,7 @@ The following are examples of useful metrics that you should gather to help eval
 
 - **Identity systems size**. Total number of users, groups, or other objects managed through your identity systems.
 - **Overall size of directory services infrastructure**. Number of directory forests, domains, and tenants used by your organization.
+- **Dependency on legacy or on-premises authentication mechanisms**. Number of workloads dependent on legacy authentication mechanisms or third party multi-factor authentication (MFA) services.
 - **Extent of cloud-deployed directory services**. Number of directory forests, domains, and tenants you've deployed to the cloud.
 - **Cloud deployed Active Directories**. Number of Active Directory servers deployed to the cloud.
 - **Cloud deployed organizational units**. Number of Active Directory Organizational Units deployed to cloud.
@@ -36,6 +37,7 @@ In the early stages of cloud adoption, work with your IT security team and busin
 Once you have a baseline, establish minimum benchmarks representing an unacceptable increase in your identified risks. These benchmarks act as triggers for when you need to take action to mitigate these risks. The following are a few examples of how identity related metrics, such as those discussed above, can justify an increased investment in the Identity Baseline discipline.
 
 - **User account number trigger**. A company with more than X number of users, groups, or other objects managed in your identity systems could benefit from investment in the Identity Baseline discipline to ensure efficient governance over a large number of accounts.
+- **On-premises identity dependency trigger**. A company planning to migrate workloads to the cloud that require legacy authentication capabilities or third party MFA should invest in the Identity Baseline discipline to reduce risks related to refactoring or additional cloud infrastructure deployment.
 - **Directory services complexity trigger**. A company maintaining more than X number of individual forests, domains, or directory tenants should invest in the Identity Baseline discipline to reduce risks related with account management and the efficiency issues related to multiple user credentials spread across multiple systems.
 - **Cloud hosted directory services trigger**. A company hosting X number of Active Directory server virtual machines (VMs) hosted in the cloud, or having X number of Organizational Units managed on these cloud-based servers, can benefit from investment in the Identity Baseline discipline to optimize integration with any on-premises or other external identity services.
 - **Federation trigger**. A company implementing identity federation with X number of external Identity Baseline systems can benefit from investing in the Identity Baseline discipline to ensure consistent organizational policy across federation members.
