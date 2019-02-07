@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Governance design for a simple workload"
+title: "CAF: Governance design for a simple workload"
 description: Guidance for configuring Azure governance controls to enable a user to deploy a simple workload
 author: petertaylor9999
 ms.date: 2/1/2019

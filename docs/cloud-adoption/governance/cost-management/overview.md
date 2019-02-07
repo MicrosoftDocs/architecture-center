@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Understanding the Cost Management discipline within cloud governance"
+title: "CAF: Understanding the Cost Management discipline within cloud governance"
 description: Explanation of the concept Cost Management in relation to cloud governance
 author: BrianBlanchard
 ms.date: 1/4/2019

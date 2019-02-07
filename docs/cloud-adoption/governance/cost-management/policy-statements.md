@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Cost Management sample policy statements"
+title: "CAF: Cost Management sample policy statements"
 description: Explanation of the concept Cost Management in relation to cloud governance
 author: BrianBlanchard
 ms.date: 1/4/2019

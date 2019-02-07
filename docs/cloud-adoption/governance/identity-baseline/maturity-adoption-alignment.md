@@ -1,5 +1,5 @@
 ---
-title: "Fusion: How can a company add Identity Baseline discipline to their Cloud Governance execution?"
+title: "CAF: How can a company add Identity Baseline discipline to their Cloud Governance execution?"
 description: Explanation of the concept Identity Baseline in relation to cloud governance
 author: BrianBlanchard
 ms.date: 2/1/2019

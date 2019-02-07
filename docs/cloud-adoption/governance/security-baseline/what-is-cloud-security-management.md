@@ -1,5 +1,5 @@
 ---
-title: "Fusion: What is Cloud Security Baseline"
+title: "CAF: What is Cloud Security Baseline"
 description: What is Cloud Security Baseline?
 author: BrianBlanchard
 ms.date: 10/10/2018

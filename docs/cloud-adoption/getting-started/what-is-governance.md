@@ -1,9 +1,11 @@
 ---
-title: "Fusion: What is cloud resource governance?"
+title: "CAF: What is cloud resource governance?"
 description: Explanation of the concept of resource access governance on Azure
 author: petertaylor9999
 ms.date: 2/1/2019
 ---
+
+<!-- markdownlint-disable MD026 -->
 
 # What is cloud resource governance?
 

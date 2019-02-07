@@ -1,5 +1,5 @@
 ---
-title: "Fusion: CISO Readiness"
+title: "CAF: CISO Readiness"
 description: How can a CISO prepare for the cloud
 author: BrianBlanchard
 ms.date: 10/03/2018

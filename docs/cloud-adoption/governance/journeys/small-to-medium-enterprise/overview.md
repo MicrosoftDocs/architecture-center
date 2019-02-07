@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Small to Medium Enterprise Governance Design Guide"
+title: "CAF: Small to Medium Enterprise Governance Design Guide"
 description: Small to Medium Enterprise Governance Design Guide
 author: BrianBlanchard
 ms.date: 2/1/2019

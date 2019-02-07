@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Policy adherence processes for Resource Consistency"
+title: "CAF: Policy adherence processes for Resource Consistency"
 description: Explanation of the concept Resource Consistency in relation to cloud governance processes
 author: BrianBlanchard
 ms.date: 1/4/2019

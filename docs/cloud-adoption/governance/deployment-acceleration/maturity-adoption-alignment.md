@@ -1,5 +1,5 @@
 ---
-title: "Fusion: How can a company add Deployment Acceleration discipline to their Cloud Governance execution?"
+title: "CAF: How can a company add Deployment Acceleration discipline to their Cloud Governance execution?"
 description: How can a company add Deployment Acceleration discipline to their Cloud Governance execution?
 author: alexbuckgit
 ms.date: 01/17/2019

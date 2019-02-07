@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Monitor and enforce Cost Management"
+title: "CAF: Monitor and enforce Cost Management"
 description: Explanation of the concept Cost Management in relation to cloud governance
 author: BrianBlanchard
 ms.date: 1/4/2019

@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Small to Medium Enterprise – Additional technical details regarding the governance MVP"
+title: "CAF: Small to Medium Enterprise – Additional technical details regarding the governance MVP"
 description: Explanation Small to Medium Enterprise – Additional technical details regarding the governance MVP
 author: BrianBlanchard
 ms.date: 2/1/2019

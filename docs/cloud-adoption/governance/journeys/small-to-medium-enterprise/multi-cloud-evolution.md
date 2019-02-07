@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Small to Medium Enterprise – Multi-cloud evolution"
+title: "CAF: Small to Medium Enterprise – Multi-cloud evolution"
 description: Explanation Small to Medium Enterprise – Multi-cloud evolution
 author: BrianBlanchard
 ms.date: 2/1/2019

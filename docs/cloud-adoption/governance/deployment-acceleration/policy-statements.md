@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Deployment Acceleration sample policy statements"
+title: "CAF: Deployment Acceleration sample policy statements"
 description: Sample policy statements for Deployment Acceleration
 author: alexbuckgit
 ms.date: 1/18/2019

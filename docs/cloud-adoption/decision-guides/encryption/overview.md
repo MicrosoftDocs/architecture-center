@@ -1,11 +1,11 @@
 ---
-title: "Fusion: Encryption" 
+title: "CAF: Encryption" 
 description: Discussion of encryption as a core service in Azure migrations
 author: rotycenh
 ms.date: 12/19/2018
 ---
 
-# Fusion: Encryption
+# CAF: Encryption
 
 Encrypting data protects it against unauthorized access. Properly implemented encryption policy provides additional layers of security for your cloud-based workloads and guards against attackers and other unauthorized users from both inside and outside your organization and networks.
 
@@ -15,7 +15,7 @@ While encrypting resources is generally desirable, encryption does have costs th
 
 ![Plotting encryption options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-encryption.png)
 
-Jump to: [Key management](#key-management) | [Data encryption](#data-encryption) | [Learn more](#learn-more) 
+Jump to: [Key management](#key-management) | [Data encryption](#data-encryption) | [Learn more](#learn-more)
 
 The inflection point when determining a cloud encryption strategy focuses on corporate policy and compliance mandates.
 

@@ -1,11 +1,11 @@
 ---
-title: "Fusion: Policy enforcement" 
+title: "CAF: Policy enforcement" 
 description: Discussion of policy enforcement subscriptions as a core design priority in Azure migrations
 author: rotycenh
 ms.date: 12/27/2018
 ---
 
-# Fusion: Policy enforcement
+# CAF: Policy enforcement
 
 Defining organizational policy is not effective unless there is a way to enforce it across your organization. A key aspect to planning any cloud migration is determining how best to combine tools provided by the cloud platform with your existing IT processes to maximize policy compliance across your entire cloud estate.
 

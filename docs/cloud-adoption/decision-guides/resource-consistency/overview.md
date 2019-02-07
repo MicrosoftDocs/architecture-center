@@ -1,11 +1,11 @@
 ---
-title: "Fusion: Resource consistency" 
+title: "CAF: Resource consistency" 
 description: Discussion of resource consistency when planning an Azure migrations
 author: rotycenh
 ms.date: 12/27/2018
 ---
 
-# Fusion: Resource consistency
+# CAF: Resource consistency
 
 Azure [subscription design](../subscriptions/overview.md) defines how you organize your cloud assets in relation to your organization's overall structure. In addition, integrating your existing IT management standards and your organizational policies depends on how you deploy and organize cloud resources within a subscription.
 

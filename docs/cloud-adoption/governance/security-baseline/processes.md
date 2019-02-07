@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Policy adherence processes for Security Baseline"
+title: "CAF: Policy adherence processes for Security Baseline"
 description: Explanation of the concept Security Baseline in relation to cloud governance processes
 author: BrianBlanchard
 ms.date: 1/4/2019

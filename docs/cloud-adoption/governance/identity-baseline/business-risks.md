@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Motivations and business risks that drive identity governance"
+title: "CAF: Motivations and business risks that drive identity governance"
 description: Explanation of the concept Identity Baseline in relation to cloud governance
 author: BrianBlanchard
 ms.date: 1/8/2019

@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Create hybrid cloud consistency" 
+title: "CAF: Create hybrid cloud consistency" 
 description: Defining the approach to create hybrid cloud consistency
 author: BrianBlanchard
 ms.date: 12/27/2018

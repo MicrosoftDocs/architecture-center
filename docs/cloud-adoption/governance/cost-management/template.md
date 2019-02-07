@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Cost Management template"
+title: "CAF: Cost Management template"
 description: Explanation of the concept Cost Management in relation to cloud governance
 author: BrianBlanchard
 ms.date: 1/4/2019

@@ -1,5 +1,5 @@
 ---
-title: "Fusion: How does business risk change in the cloud?"
+title: "CAF: How does business risk change in the cloud?"
 description: Understanding business risk during migration
 author: BrianBlanchard
 ms.date: 10/10/2018

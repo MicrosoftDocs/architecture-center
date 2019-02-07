@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Metrics, indicators, and risk tolerance"
+title: "CAF: Metrics, indicators, and risk tolerance"
 description: Explanation of the concept Security Baseline in relation to cloud governance
 author: BrianBlanchard
 ms.date: 1/3/2019

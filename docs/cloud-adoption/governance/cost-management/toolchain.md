@@ -1,5 +1,5 @@
 ---
-title: "Fusion: What tools can help better manage costs in Azure?"
+title: "CAF: What tools can help better manage costs in Azure?"
 description: Explanation of the concept Cost Management in relation to cloud governance
 author: BrianBlanchard
 ms.date: 1/4/2019

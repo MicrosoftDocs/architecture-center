@@ -1,5 +1,5 @@
 ---
-title: "Fusion: What tools can help better manage resources in Azure?"
+title: "CAF: What tools can help better manage resources in Azure?"
 description: Explanation of the tools that can facilitate improved Resource Consistency in Azure
 author: BrianBlanchard
 ms.date: 2/1/2019

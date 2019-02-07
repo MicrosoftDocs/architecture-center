@@ -1,9 +1,11 @@
 ---
-title: "Fusion: How does Azure work?"
+title: "CAF: How does Azure work?"
 description: Explanation of the internal functioning of Azure
 author: petertaylor9999
 ms.date: 2/1/2019
 ---
+
+<!-- markdownlint-disable MD026 -->
 
 # How does Azure work?
 

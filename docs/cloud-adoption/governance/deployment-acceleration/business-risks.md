@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Motivations and business risks that drive Deployment Acceleration"
+title: "CAF: Motivations and business risks that drive Deployment Acceleration"
 description: Learn about the discipline of Deployment Acceleration as part of a cloud governance strategy.
 author: alexbuckgit
 ms.date: 1/9/2019

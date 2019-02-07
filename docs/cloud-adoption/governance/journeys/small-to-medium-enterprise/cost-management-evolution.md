@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Small to Medium Enterprise – Cost Management evolution  "
+title: "CAF: Small to Medium Enterprise – Cost Management evolution  "
 description: Explanation Small to Medium Enterprise – Cost Management evolution 
 author: BrianBlanchard
 ms.date: 2/1/2019

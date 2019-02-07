@@ -1,13 +1,13 @@
 ---
-title: "Fusion: Examples of Fiscal Outcomes"
+title: "CAF: Examples of Fiscal Outcomes"
 description: Examples of Fiscal Outcomes
 author: BrianBlanchard
 ms.date: 10/10/2018
 ---
 
-# Fusion: Examples of Fiscal Outcomes
+# CAF: Examples of Fiscal Outcomes
 
-At this highest level, Fiscal conversations consist of three rudimentary concepts:
+At this highest level, fiscal conversations consist of three basic concepts:
 
 * Revenue: Will more money come into the business as a result of the sales of goods or services.
 * Cost: Will less money be spent in the creation, marketing, sales, or delivery of goods or services.

@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Security Baseline template"
+title: "CAF: Security Baseline template"
 description: Explanation of the concept Security Baseline in relation to cloud governance
 author: BrianBlanchard
 ms.date: 1/4/2019

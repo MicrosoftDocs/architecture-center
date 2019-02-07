@@ -1,11 +1,11 @@
 ---
-title: "Fusion: Small to Medium Enterprise – Security Baseline evolution"
+title: "CAF: Small to Medium Enterprise – Security Baseline evolution"
 description: Explanation Small to Medium Enterprise – Security Baseline evolution
 author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
-# Fusion: Small-to-medium enterprise: Security Baseline evolution
+# CAF: Small-to-medium enterprise: Security Baseline evolution
 
 This article evolves the narrative by adding security controls that support moving protected data to the cloud.
 

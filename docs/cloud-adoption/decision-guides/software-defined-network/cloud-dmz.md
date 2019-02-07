@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Software Defined Networks - Cloud DMZ" 
+title: "CAF: Software Defined Networks - Cloud DMZ" 
 description: This network architecture allows limited access between your on-premises and cloud-based networks
 author: rotycenh
 ms.date: 12/29/2018

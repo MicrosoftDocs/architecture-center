@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Large Enterprise - Initial corporate policy behind the governance strategy"
+title: "CAF: Large Enterprise - Initial corporate policy behind the governance strategy"
 description: Large Enterprise - Initial corporate policy behind the governance strategy.
 author: BrianBlanchard
 ms.date: 2/1/2019

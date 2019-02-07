@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Small to Medium Enterprise - Initial Narrative behind the governance strategy"
+title: "CAF: Small to Medium Enterprise - Initial Narrative behind the governance strategy"
 description: Explanation Design guide to action the concepts within governance.
 author: BrianBlanchard
 ms.date: 2/1/2019

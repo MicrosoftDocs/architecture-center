@@ -1,11 +1,11 @@
 ---
-title: "Fusion: Operations overview"
+title: "CAF: Operations overview"
 description: Overview of operations content for Azure Fusion
 author: petertaylor9999
 ms.date: 09/20/2018
 ---
 
-# Fusion: Operations overview
+# CAF: Operations overview
 
 This section of the CAF the topic of **operations**.
 

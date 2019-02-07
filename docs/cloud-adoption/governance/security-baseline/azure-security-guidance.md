@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Azure Security guidance"
+title: "CAF: Azure Security guidance"
 description: What security guidance does Microsoft provide?
 author: BrianBlanchard
 ms.date: 2/1/2019

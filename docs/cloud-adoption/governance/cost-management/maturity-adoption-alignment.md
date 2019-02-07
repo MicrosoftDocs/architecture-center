@@ -1,5 +1,5 @@
 ---
-title: "Fusion: How can a company add Cost Management discipline to their cloud governance execution?"
+title: "CAF: How can a company add Cost Management discipline to their cloud governance execution?"
 description: Explanation of the concept Cost Management in relation to cloud governance
 author: BrianBlanchard
 ms.date: 1/3/2019

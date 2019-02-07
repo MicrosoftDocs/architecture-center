@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Understanding the Resource Consistency discipline within cloud governance"
+title: "CAF: Understanding the Resource Consistency discipline within cloud governance"
 description: Explanation of the concept Resource Consistency in relation to cloud governance
 author: BrianBlanchard
 ms.date: 1/4/2019
@@ -7,7 +7,7 @@ layout: LandingPage
 ms.topic: landing-page
 ---
 
-# Fusion: Resource Consistency discipline
+# CAF: Resource Consistency discipline
 
 Resource Consistency is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md) within the [CAF governance model](../overview.md). This discipline focuses on ways of establishing policies related to the operational management of an environment, application, or workload. Within the five disciplines of Cloud Governance, Resource Consistency includes monitoring of applications, workload, and asset performance. It also includes the tasks required to meet scale demands, remediate performance Service Level Agreement (SLA) violations, and proactively avoid performance SLA violations through automated remediation.
 

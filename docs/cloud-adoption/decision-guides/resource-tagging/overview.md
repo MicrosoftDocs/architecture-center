@@ -1,10 +1,10 @@
 ---
-title: "Fusion: Resource organization and tagging" 
+title: "CAF: Resource organization and tagging" 
 description: Discussion of resource organization and tagging as a core service in Azure migrations
 author: rotycenh
 ms.date: 12/28/2018
 ---
-# Fusion: Resource organization and tagging
+# CAF: Resource organization and tagging
 
 Organizing cloud-based resources is one of the most important tasks for IT, unless you have very simple deployments. Organizing your resources serves three primary purposes:
 

@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Understanding the Security Baseline discipline within cloud governance"
+title: "CAF: Understanding the Security Baseline discipline within cloud governance"
 description: Explanation of the concept Security Baseline in relation to cloud governance
 author: BrianBlanchard
 ms.date: 1/4/2019
@@ -7,7 +7,7 @@ layout: LandingPage
 ms.topic: landing-page
 ---
 
-# Fusion: Security Baseline discipline
+# CAF: Security Baseline discipline
 
 Security Baseline is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md) within the [CAF Governance Model](../overview.md). Security is a component of any IT deployment, and the cloud introduces unique security concerns. Many businesses are subject to regulatory requirements that make protecting sensitive data a major organizational priority when considering a cloud transformation. Identifying potential security threats to your cloud environment and establishing processes and procedures for addressing these threats should be a priority for your Cloud Governance team.
 

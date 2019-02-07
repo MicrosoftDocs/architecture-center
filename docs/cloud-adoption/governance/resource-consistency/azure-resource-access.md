@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Resource access management in Azure"
+title: "CAF: Resource access management in Azure"
 description: "Explanation of resource access management constructs in Azure: Azure Resource Manager, subscriptions, resource groups, and resources"
 author: petertaylor9999
 ms.date: 2/1/2019

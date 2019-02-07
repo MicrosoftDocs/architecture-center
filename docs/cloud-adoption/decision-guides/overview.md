@@ -1,11 +1,11 @@
 ---
-title: "Fusion: Core Infrastructure overview"
+title: "CAF: Core Infrastructure overview"
 description: Overview of Core infrastructure content for CAF
 author: rotycenh
 ms.date: 01/14/2019
 ---
 
-# Fusion: Architectural decision guides
+# CAF: Architectural decision guides
 
 The architectural decision guides in CAF describe patterns and models that help when creating cloud governance design guidance. Each decision guide focuses on one core infrastructure component of cloud deployments and lists potential patterns or models intended to support specific cloud deployment scenarios.
 

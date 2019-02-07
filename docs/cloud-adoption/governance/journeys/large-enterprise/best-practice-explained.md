@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Large Enterprise – Additional technical tetails regarding a governance MVP"
+title: "CAF: Large Enterprise – Additional technical tetails regarding a governance MVP"
 description: Large Enterprise – Additional technical details regarding governance MVP
 author: BrianBlanchard
 ms.date: 2/1/2019

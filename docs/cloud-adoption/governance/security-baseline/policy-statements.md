@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Security Baseline sample policy statements"
+title: "CAF: Security Baseline sample policy statements"
 description: Explanation of the concept of Security Baseline in relation to cloud governance
 author: BrianBlanchard
 ms.date: 1/4/2019

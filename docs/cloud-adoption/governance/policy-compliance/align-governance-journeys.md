@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Align design guides with policy."
+title: "CAF: Align design guides with policy."
 description: How do you align design guides with policy?
 author: BrianBlanchard
 ms.date: 01/04/2019

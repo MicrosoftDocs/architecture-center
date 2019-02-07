@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Define corporate policy statements"
+title: "CAF: Define corporate policy statements"
 description: How do you establish policy to reflect and mitigate risks?
 author: BrianBlanchard
 ms.date: 01/02/2019

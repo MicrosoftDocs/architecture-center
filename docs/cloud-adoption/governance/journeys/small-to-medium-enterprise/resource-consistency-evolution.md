@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Small to Medium Enterprise – Resource Consistency evolution "
+title: "CAF: Small to Medium Enterprise – Resource Consistency evolution "
 description: Explanation Small to Medium Enterprise – Resource Consistency evolution
 author: BrianBlanchard
 ms.date: 2/1/2019

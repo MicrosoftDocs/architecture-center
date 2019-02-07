@@ -1,11 +1,11 @@
 ---
-title: "Fusion: Identity" 
+title: "CAF: Identity" 
 description: Discussion of Identity as a core service in Azure migrations
 author: rotycenh
 ms.date: 12/19/2018
 ---
 
-# Fusion: Identity
+# CAF: Identity
 
 In any environment, whether on-premises, hybrid, or cloud-only, IT needs to control which administrators, users, and groups have access to resources. Identity and access management (IAM) services enable you to manage access control in the cloud.
 

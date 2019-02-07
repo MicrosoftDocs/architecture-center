@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Metrics, indicators, and risk tolerance"
+title: "CAF: Metrics, indicators, and risk tolerance"
 description: Metrics, indicators, and risk tolerance for Deployment Acceleration governance
 author: alexbuckgit
 ms.date: 1/17/2019

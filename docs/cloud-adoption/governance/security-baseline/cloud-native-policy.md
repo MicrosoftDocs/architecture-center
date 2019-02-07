@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Cloud Native - Security Baseline Policy"
+title: "CAF: Cloud Native - Security Baseline Policy"
 description: What is Cloud Native - Security Baseline Policy?
 author: BrianBlanchard
 ms.date: 2/1/2019

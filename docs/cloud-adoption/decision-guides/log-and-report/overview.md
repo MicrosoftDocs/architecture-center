@@ -1,11 +1,11 @@
 ---
-title: "Fusion: Logs, reporting, and monitoring" 
+title: "CAF: Logs, reporting, and monitoring" 
 description: Discussion of logs, reporting, and monitoring as a core service in Azure migrations
 author: rotycenh
 ms.date: 12/21/2018
 ---
 
-# Fusion: Logs, reporting, and monitoring
+# CAF: Logs, reporting, and monitoring
 
 All organizations need mechanisms for notifying IT teams of performance, uptime, and security issues before they become serious problems. A successful monitoring strategy allows you to understand how the individual components that make up your workloads and networking infrastructure are performing. Within the context of a public cloud migration, integrating logging and reporting with any of your existing monitoring systems, while surfacing important events and metrics to the appropriate IT staff, is critical in ensuring your organization is meeting uptime, security, and policy compliance goals.
 

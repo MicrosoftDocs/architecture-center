@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Motivations and business risks that drive Resource Consistency governance"
+title: "CAF: Motivations and business risks that drive Resource Consistency governance"
 description: Learn about the discipline of Resource Consistency as part of a cloud governance strategy.
 author: alexbuckgit
 ms.date: 1/18/2019

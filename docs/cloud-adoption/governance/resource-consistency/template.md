@@ -1,11 +1,11 @@
 ---
-title: "Fusion: Resource Consistency template"
+title: "CAF: Resource Consistency template"
 description: Explanation of the concept Resource Consistency in relation to cloud governance
 author: BrianBlanchard
 ms.date: 1/4/2019
 ---
 
-# Fusion: Resource Consistency template
+# CAF: Resource Consistency template
 
 The first step to implementing change is communicating the desired change. The same is true when changing governance practices. The template below serves as a starting point for documenting and communicating policy statements that govern Resource Consistency in the cloud. The template also outlines the business criteria that may have led you to create the documented policy statements.
 

@@ -1,5 +1,5 @@
 ---
-title: "Fusion: What business risks are associated with a Cloud Transformation?"
+title: "CAF: What business risks are associated with a Cloud Transformation?"
 description: Explanation of the business risks associated with a Cloud Transformation?
 author: BrianBlanchard
 ms.date: 10/10/2018

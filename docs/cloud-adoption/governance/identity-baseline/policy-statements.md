@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Identity Baseline sample policy statements"
+title: "CAF: Identity Baseline sample policy statements"
 description: Explanation of the concept Identity Baseline in relation to cloud governance
 author: BrianBlanchard
 ms.date: 1/4/2019

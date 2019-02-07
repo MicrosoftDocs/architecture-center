@@ -1,11 +1,11 @@
 ---
-title: "Fusion: Deployment Acceleration template"
+title: "CAF: Deployment Acceleration template"
 description: Deployment Acceleration template
 author: alexbuckgit
 ms.date: 1/18/2019
 ---
 
-# Fusion: Deployment Acceleration template
+# CAF: Deployment Acceleration template
 
 The first step to implementing change is communicating the desired change. The same is true when changing governance practices. The template below serves as a starting point for documenting and communicating policy statements that govern Deployment Acceleration in the cloud. The template also outlines the business criteria that may have led you to create the documented policy statements.
 

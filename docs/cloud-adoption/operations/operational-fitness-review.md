@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Operational Fundamentals"
+title: "CAF: Operational Fundamentals"
 description: Guidance on operational fundamentals
 author: petertaylor9999
 ms.date: 09/20/2018
@@ -57,8 +57,7 @@ It is important to emphasize that these metrics should directly reflect business
 
 The service review phase is core of the operational fitness review process.
 
-- **Measure service metrics**. Using the scorecard metrics, the services should be monitored to ensure that they meet the business expectations. This means that service monitoring is essential. If you are not able to monitor a set of services with respect to the non-functional requirements, then the corresponding scorecard metrics should be considered red. In this case, the first step for remediation is to implement the appropriate service monitoring.
-For example, if the business expects a service to operate with 99.99% availability, but there is no production telemetry in place to measure the availability, you should assume that you're not meeting the requirement.
+- **Measure service metrics**. Using the scorecard metrics, the services should be monitored to ensure that they meet the business expectations. This means that service monitoring is essential. If you are not able to monitor a set of services with respect to the non-functional requirements, then the corresponding scorecard metrics should be considered red. In this case, the first step for remediation is to implement the appropriate service monitoring. For example, if the business expects a service to operate with 99.99% availability, but there is no production telemetry in place to measure the availability, you should assume that you're not meeting the requirement.
 
 - **Plan remediation**. For each service operation with metrics that fall below an acceptable threshold, determine the cost of remediating the service to bring operation to an acceptable metric. If the cost of remediating the service is greater than the expected revenue generation of the service, move on to consider the non-tangible costs such as customer experience. For example, if customers have difficulty placing a successful order using the service, they may choose a competitor instead.
 
@@ -99,10 +98,10 @@ The details of the process and meeting should be adapted to fit your specific ne
 ## Recommended resources
 
 - [Pillars of software quality](../../guide/pillars.md).
-This section of the Azure Application Architecture guide describes the five pillars of software quality: Scalability, availability, resiliency, management, and security.
+    This section of the Azure Application Architecture guide describes the five pillars of software quality: Scalability, availability, resiliency, management, and security.
 - [Ten design principles for Azure applications](../../guide/design-principles/index.md).
-This section of the Azure Application Architecture guide discusses a set of design principles to make your application more scalable, resilient, and manageable.
+    This section of the Azure Application Architecture guide discusses a set of design principles to make your application more scalable, resilient, and manageable.
 - [Designing resilient applications for Azure](../../resiliency/index.md).
-This guide starts with a definition of the term resiliency and related concepts. Then it describes a process for achieving resiliency, using a structured approach over the lifetime of an application, from design and implementation to deployment and operations.
+    This guide starts with a definition of the term resiliency and related concepts. Then it describes a process for achieving resiliency, using a structured approach over the lifetime of an application, from design and implementation to deployment and operations.
 - [Cloud Design Patterns](../../patterns/index.md).
-These design patterns are useful for engineering teams when building applications on the pillars of software quality.
+    These design patterns are useful for engineering teams when building applications on the pillars of software quality.

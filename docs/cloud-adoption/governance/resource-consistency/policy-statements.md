@@ -1,5 +1,5 @@
 ---
-title: "Fusion: Resource Consistency sample policy statements"
+title: "CAF: Resource Consistency sample policy statements"
 description: Explanation of the concept Resource Consistency in relation to cloud governance
 author: BrianBlanchard
 ms.date: 1/4/2019

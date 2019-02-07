@@ -1,5 +1,5 @@
 ---
-title: "Fusion: deploy a basic workload" 
+title: "CAF: deploy a basic workload" 
 description: Describes how to deploy a basic workload to Azure
 author: petertaylor9999
 ms.date: 12/31/2018
