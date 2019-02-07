@@ -16,7 +16,7 @@ Each of these different teams requires different approaches to adopting the clou
 
 ## Audience
 
-The content in CAF impacts the business, technology, and culture of enterprises. The roles impacted include line-of-business leaders, business decision makers, IT decision makers, finance, enterprise administrators, IT operations, IT security and compliance, IT governance, workload development owners, and workload operations owners. Each of these functions and personas uses different jargon. They each have different objectives and key performance indicators. It's impossible for a single set of content to interact with each of these audiences directly.
+The content in CAF impacts the business, technology, and culture of enterprises. The roles affected include line-of-business leaders, business decision makers, IT decision makers, finance, enterprise administrators, IT operations, IT security and compliance, IT governance, workload development owners, and workload operations owners. Each of these functions and personas uses different jargon. They each have different objectives and key performance indicators. It's impossible for a single set of content to interact with each of these audiences directly.
 
 Enter the Cloud Architect: The Cloud Architect serves as the thought leader and facilitator to bring these audiences together. The content in this collection of guides is designed to help the Cloud Architect facilitate the right conversation, with the right audience, to drive necessary decisions. Business transformation that is empowered by the cloud is dependent upon the Cloud Architect role to help guide decisions throughout the business and IT.
 

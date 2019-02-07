@@ -1,8 +1,12 @@
 ---
 title: "CAF: The Five Disciplines of Cloud Governance"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 description: Overview of governance content within CAF
 author: BrianBlanchard
-ms.date: 12/08/2018
 layout: LandingPage
 ms.topic: landing-page
 ---
@@ -80,7 +84,7 @@ Across each cloud provider, there are common cloud governance disciplines that c
                     </div>
                     <div class="cardText">
                         <h3>Security Baseline</h3>
-                        <p>Security is a complex & personal topic, unique to each company. Once security requirements are established, cloud governance policies and enforcement applies those requirements across network, data and asset configurations.</p>
+                        <p>Security is a complex and personal topic, unique to each company. Once security requirements are established, cloud governance policies and enforcement applies those requirements across network, data and asset configurations.</p>
                     </div>
                 </div>
             </div>

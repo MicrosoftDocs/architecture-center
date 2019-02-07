@@ -1,3 +1,5 @@
+<!-- TEMPLATE FILE - DO NOT ADD METADATA -->
+
 ## Dependent decisions
 
 The following decisions come from teams outside of the Cloud Governance team. The implementation of each will come from those same teams. However, the Cloud Governance team is responsible for implementing a solution to validate that those implementations are consistently applied.
@@ -5,7 +7,7 @@ The following decisions come from teams outside of the Cloud Governance team. Th
 ### Identity Baseline
 
 Identity Baseline is the fundamental starting point for all governance. Before attempting to apply governance, identity must be established. The established identity strategy will then be enforced by the governance solutions.
-In this governance journey, the Identity Management team implements the **Directory Synchronization** pattern: 
+In this governance journey, the Identity Management team implements the **Directory Synchronization** pattern:
 
 - RBAC will be provided by Azure Active Directory (Azure AD), using the directory synchronization or "Same Sign-On" that was implemented during company’s migration to Office 365. For implementation guidance, see [Reference Architecture for Azure AD Integration](/azure/architecture/reference-architectures/identity/azure-ad).
 - The Azure AD tenant will also govern authentication and access for assets deployed to Azure.
@@ -40,9 +42,9 @@ The first decision to make regarding Deployment Acceleration is the pattern for 
 
 - Azure Security Center will be made available to the security and identity teams to monitor security risks. Both teams are also likely to use Security Center to identify new risks and evolve corporate policy.
 - RBAC is required in all subscriptions to govern authentication enforcement.
-- Azure Policy will be published to each Management Group and applied to all subscriptions. However, the level of policies being enforced will be very limited in this initial Governance MVP.
-- Although Azure Management Groups are being used, a relatively simple hierarchy is expected.
-- Azure Blueprints will be used to deploy and update subscriptions by applying RBAC requirements, Resource Manager Templates, and Azure Policy across Azure Management Groups.
+- Azure Policy will be published to each management group and applied to all subscriptions. However, the level of policies being enforced will be very limited in this initial Governance MVP.
+- Although Azure management groups are being used, a relatively simple hierarchy is expected.
+- Azure Blueprints will be used to deploy and update subscriptions by applying RBAC requirements, Resource Manager Templates, and Azure Policy across management groups.
 
 ## Applying the dependent patterns
 
@@ -50,6 +52,6 @@ The following decisions represent the patterns to be enforced through the policy
 
 **Identity Baseline**. Azure Blueprints will set RBAC requirements at a subscription level to ensure that consistent identity is configured for all subscriptions.
 
-**Security Baseline: Networking**. The Cloud Governance team maintains a Resource Manager template for establishing a VPN gateway between Azure and the on-prem VPN device. When an application team requires a VPN connection, the Cloud Governance team will apply the gateway Resource Manager template via Azure Blueprints.
+**Security Baseline: Networking**. The Cloud Governance team maintains a Resource Manager template for establishing a VPN gateway between Azure and the on-premises VPN device. When an application team requires a VPN connection, the Cloud Governance team will apply the gateway Resource Manager template via Azure Blueprints.
 
 **Security Baseline: Encryption**. At this point in the journey, no policy enforcement is required in this area. This will be revisited during later evolutions.

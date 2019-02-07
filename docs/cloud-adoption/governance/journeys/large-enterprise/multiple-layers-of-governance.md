@@ -1,8 +1,12 @@
 ---
 title: "CAF: Large Enterprise – Multiple layers of governance in large enterprises"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 description: Large Enterprise – Multiple layers of governance in large enterprises
 author: BrianBlanchard
-ms.date: 2/1/2019
 ---
 
 # Multiple layers of governance in large enterprises

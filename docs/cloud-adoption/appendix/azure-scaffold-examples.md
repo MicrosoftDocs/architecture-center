@@ -29,7 +29,7 @@ Contoso needs to build a line-of-business app and a customer-facing app. It has 
 
 Contoso is building a source code management system (BitBucket) to be used by developers across the world.  The application uses Infrastructure as a Service (IaaS) for hosting, and consists of web servers and a database server. Developers access servers in their development environments, but they don't need access to the servers in Azure. Contoso ETS wants to allow the application owner and team to manage the application. The application is only available while on Contoso's corporate network. Dave needs to set up the subscription for this application. The subscription will also host other developer-related software in the future.
 
-### Naming standards & resource groups
+### Naming standards and resource groups
 
 Dave creates a subscription to support developer tools that are common across all the business units. Dave needs to create meaningful names for the subscription and resource groups (for the application and the networks). He creates the following subscription and resource groups:
 
@@ -41,7 +41,7 @@ Dave creates a subscription to support developer tools that are common across al
 
 ### Role-based access control
 
-After creating his subscription, Dave wants to ensure that the appropriate teams and application owners can access their resources. Dave recognizes that each team has different requirements. He utilizes the groups that have been synced from Contoso's on-premises Active Directory (AD) to Azure Active Directory, and provides the right level of access to the teams.
+After creating his subscription, Dave wants to ensure that the appropriate teams and application owners can access their resources. Dave recognizes that each team has different requirements. He uses the groups that have been synched from Contoso's on-premises Active Directory (AD) to Azure Active Directory, and provides the right level of access to the teams.
 
 Dave assigns the following roles for the subscription:
 

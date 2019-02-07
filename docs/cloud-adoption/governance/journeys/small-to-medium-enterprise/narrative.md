@@ -1,8 +1,12 @@
 ---
 title: "CAF: Small to Medium Enterprise - Initial Narrative behind the governance strategy"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 description: Explanation Design guide to action the concepts within governance.
 author: BrianBlanchard
-ms.date: 2/1/2019
 ---
 
 # Small-to-medium enterprise: The narrative behind the governance strategy

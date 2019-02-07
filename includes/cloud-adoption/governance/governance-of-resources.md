@@ -1,3 +1,5 @@
+<!-- TEMPLATE FILE - DO NOT ADD METADATA -->
+
 ### Governance of resources
 
 Enforcing governance across subscriptions will come from Azure Blueprints and the associated assets within the blueprint.

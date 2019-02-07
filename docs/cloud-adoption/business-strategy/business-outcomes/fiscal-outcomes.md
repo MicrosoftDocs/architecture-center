@@ -20,7 +20,7 @@ At the top level, fiscal conversations consist of three basic concepts:
 The remainder of this article will explain these fiscal outcomes in the context of a cloud transformation.
 
 > [!NOTE]
-> The following examples are hypothetical & should not be seen as a guarantee of returns when adopting any cloud strategy.
+> The following examples are hypothetical and should not be seen as a guarantee of returns when adopting any cloud strategy.
 
 # Revenue Outcomes
 
@@ -28,11 +28,11 @@ The remainder of this article will explain these fiscal outcomes in the context 
 
 The cloud allows for opportunities to deliver new products to customers or deliver existing products in a new way. New Revenue Streams are innovative, entrepreneurial, and exciting to many people in the business world. New revenue streams are also prone failure and are seen in many companies as high risk. When they are proposed by IT, there is a high likelihood of push back. To add credibility to these outcomes, partner with business leader who is a proven innovator. Validation of the revenue stream early in the process will help avoid roadblocks from the business.
 
-* Example: A company has been selling books for over a hundred years. An employee of the company realizes that the content can be delivered electronically & creates a device that can be sold in the bookstore, which allows the same books to be downloaded directly, driving $X in new book sales.
+* Example: A company has been selling books for over a hundred years. An employee of the company realizes that the content can be delivered electronically and creates a device that can be sold in the bookstore, which allows the same books to be downloaded directly, driving $X in new book sales.
 
 ## Revenue increases
 
-With global scale & digital reach, the cloud allows businesses to increase revenue of existing revenue streams. Often times, this type of outcome would come from an alignment with sales or marketing leadership.
+With global scale and digital reach, the cloud allows businesses to increase revenue of existing revenue streams. Often times, this type of outcome would come from an alignment with sales or marketing leadership.
 
 * Example: A company that sells widgets could sell more widgets, if the sales people had the ability to securely access the company’s digital catalog and stock levels. Unfortunately, that data is only in the company’s ERP system, which can only be accessed via a network connected device. Creating a service façade to interface with the ERP, exposing the catalog list and non-sensitive stock levels to an application in the cloud would allow the sales people to access the data they need while onsite with a customer. Extending AD using Azure AD and integrating role-based access into the application would allow the company to ensure the data stays safe. This simple project could impact revenue from an existing product line by X%.
 
@@ -59,7 +59,7 @@ Coverdell
 
 ## Cost Avoidance
 
-Terminating data centers can also provide Cost Avoidance, by preventing future refresh cycles. A refresh cycle is the process of buying new hardware and software to replace aging, on-prem systems. In Azure, hardware and OS are routinely maintained, patched, & refreshed at no additional cost to customers. This allows a CFO to remove planned future spend from long term financial forecasts. Cost is avoidance is measured in dollars. It differs from Cost Reduction, in that it generally focuses on a future budget that has not been fully approved yet.
+Terminating data centers can also provide Cost Avoidance, by preventing future refresh cycles. A refresh cycle is the process of buying new hardware and software to replace aging on-premises systems. In Azure, hardware and OS are routinely maintained, patched, and refreshed at no additional cost to customers. This allows a CFO to remove planned future spend from long term financial forecasts. Cost is avoidance is measured in dollars. It differs from Cost Reduction, in that it generally focuses on a future budget that has not been fully approved yet.
 
 * Example: A company’s data center is up for a lease renewal in 6 months. That data center has been in service for 8 years. 4 years ago, all of the servers were refreshed and virtualized costing the company $ millions. Next year, the company plans on refreshing the hardware and software again. Migrating the assets in that data center, as part of an Operational Transformation, would create cost avoidance, by removing the planned refresh from next year’s forecasted budget. It could also produce cost reduction by decreasing or eliminating the real estate lease costs.
 
@@ -73,12 +73,12 @@ The following terms are intended to create an understanding of the differences b
 * **Capital Expense (CapEx)** is an expense that that generates benefits over a long period. Such an expense is generally non-recurring and results in the acquisition of permanent assets. Building an application could qualify as a capital expense.
 * **Operating Expense (OpEx)** is an expense that is an ongoing cost of doing business. Consuming cloud services in a pay as you go model could qualify as an operating expense.
 * Asset is an economic resource that can be owned or controlled to produce value. Servers, Data Lakes, and Applications could all be considered assets.
-* **Depreciation** is how the value of an asset decreases over time. More relevant to CapEx/OpEx conversation, it is how the costs of an asset are allocated across the periods in which they are used. For instance, if you build an application this year but it is expected to have an average shelf-life of 5 years (like most commercial apps), then the cost of the dev team and necessary tools required to create & deploy the code base would be depreciated evenly over 5 years.
+* **Depreciation** is how the value of an asset decreases over time. More relevant to CapEx/OpEx conversation, it is how the costs of an asset are allocated across the periods in which they are used. For instance, if you build an application this year but it is expected to have an average shelf-life of 5 years (like most commercial apps), then the cost of the dev team and necessary tools required to create and deploy the code base would be depreciated evenly over five years.
 * **Valuation** is the process of estimating how much a company is worth. In most industries, valuation is based on the company’s ability to generate revenue and profit, while respecting the operating costs required to create the goods that provide that revenue. In some industries like retail, or in some transaction types like private equity, Assets and depreciation can play a big part in the company’s valuation.
 
 It is often a safe bet that various executives, including the CIO, debate the best use of capital to grow the company in the desired direction. Giving the CIO a means of converting highly competitive CapEx conversations into clear OpEx accountability could be an attractive outcome by itself. In many industries, chief financial officers (CFOs) are actively seeking ways of better associating fiscal accountability to the cost of goods being sold.
 
-However, before associating any Transformation Journey with this type of CapEx to OpEx conversion, it is wise to meet with members of the CFO or CIO teams to see if the business prefers CapEx or OpEx cost structures. In some organizations, the though of reducing CapEx in favor of OpEx, is actually a highly undesirable outcome. As mentioned above, this is sometimes seen in retail, holding, & private equity companies that place higher value on traditional asset accounting models, which place little value on IP. It can also be seen in organizations that had negative experiences when outsourcing IT staff or other functions in the past.
+However, before associating any Transformation Journey with this type of CapEx to OpEx conversion, it is wise to meet with members of the CFO or CIO teams to see if the business prefers CapEx or OpEx cost structures. In some organizations, the though of reducing CapEx in favor of OpEx, is actually a highly undesirable outcome. As mentioned above, this is sometimes seen in retail, holding, and private equity companies that place higher value on traditional asset accounting models, which place little value on IP. It can also be seen in organizations that had negative experiences when outsourcing IT staff or other functions in the past.
 
 If OpEx is desirable, the following example could be a viable business outcome:
 

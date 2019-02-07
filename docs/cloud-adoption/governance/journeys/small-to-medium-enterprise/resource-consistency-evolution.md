@@ -1,8 +1,12 @@
 ---
 title: "CAF: Small to Medium Enterprise – Resource Consistency evolution "
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 description: Explanation Small to Medium Enterprise – Resource Consistency evolution
 author: BrianBlanchard
-ms.date: 2/1/2019
 ---
 
 # Small-to-medium enterprise: Resource Consistency evolution
