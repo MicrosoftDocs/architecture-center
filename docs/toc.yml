@@ -798,7 +798,7 @@
         href: cloud-adoption/decision-guides/identity/overview.md
       - name: Policy Enforcement
         href: cloud-adoption/decision-guides/policy-enforcement/overview.md
-      - name: Resource Grouping
+      - name: Resource Consistency
         href: cloud-adoption/decision-guides/resource-consistency/overview.md
       - name: Resource Tagging
         href: cloud-adoption/decision-guides/resource-tagging/overview.md
