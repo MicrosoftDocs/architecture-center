@@ -1,8 +1,12 @@
 ---
-title: "CAF: Policy adherence processes for Deployment Acceleration"
-description: Policy adherence processes for Deployment Acceleration
+title: "CAF: Deployment Acceleration policy compliance processes"
+description: Deployment Acceleration policy compliance processes
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 author: alexbuckgit
-ms.date: 1/4/2019
 ---
 
 # Deployment Acceleration policy compliance processes

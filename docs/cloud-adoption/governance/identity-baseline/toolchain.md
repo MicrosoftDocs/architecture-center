@@ -1,13 +1,15 @@
 ---
-title: "CAF: What tools can help better manage user identities in Azure?"
-description: Explanation of the tools that can facilitate improved Identity Baseline in Azure
+title: "CAF:Identity Baseline tools in Azure"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Identity Baseline tools in Azure
 author: BrianBlanchard
-ms.date: 2/1/2019
 ---
 
-<!-- markdownlint-disable MD026 -->
-
-# What tools can help better manage user identities in Azure?
+# Identity Baseline tools in Azure
 
 [Identity Baseline](overview.md) is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md). This discipline focuses on ways of establishing policies that ensure consistency and continuity of user identities regardless of the cloud provider that hosts the application or workload.
 

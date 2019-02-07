@@ -1,8 +1,12 @@
 ---
 title: "CAF: Architectural decision guides"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 description: Learn about architectural decision guides in the Cloud Adoption Framework.
 author: rotycenh
-ms.date: 01/14/2019
 ---
 
 # Architectural decision guides

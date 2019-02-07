@@ -1,8 +1,12 @@
 ---
-title: "CAF: Metrics, indicators, and risk tolerance"
-description: Explanation of the concept Identity Baseline in relation to cloud governance
+title: "CAF: Identity Baseline metrics, indicators, and risk tolerance"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Identity Baseline metrics, indicators, and risk tolerance
 author: BrianBlanchard
-ms.date: 1/3/2019
 ---
 
 # Identity Baseline metrics, indicators, and risk tolerance

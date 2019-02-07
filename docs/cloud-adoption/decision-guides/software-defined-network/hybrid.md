@@ -1,8 +1,12 @@
 ---
 title: "CAF: Software Defined Networks - Hybrid network" 
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 description: Discussion of how hybrid networks allow your cloud virtual networks to connect to on-premises resources
 author: rotycenh
-ms.date: 12/29/2018
 ---
 
 # Software Defined Networks: Hybrid network

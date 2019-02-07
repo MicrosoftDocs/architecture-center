@@ -1,15 +1,19 @@
 ---
-title: "CAF: What tools can help better manage asset configuration in Azure?"
-description: Explanation of the tools that can facilitate improved asset configuration in Azure
+title: "CAF: Deployment Acceleration tools in Azure"
+description: Deployment Acceleration tools in Azure
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 author: BrianBlanchard
-ms.date: 2/1/2019
 ---
 
 <!-- markdownlint-disable MD026 -->
 
-# What tools can help better manage asset configuration in Azure?
+# Deployment Acceleration tools in Azure
 
-[Deployment Acceleration]](overview.md) is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md). This discipline focuses on ways of establishing policies to govern asset configuration or deployment. Within the five disciplines of Cloud Governance, configuration governance includes deployment, configuration alignment, and HA/DR strategies. This could be through manual activities or fully automated DevOps activities. In either case, the policies would remain largely the same.
+[Deployment Acceleration](overview.md) is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md). This discipline focuses on ways of establishing policies to govern asset configuration or deployment. Within the five disciplines of Cloud Governance, configuration governance includes deployment, configuration alignment, and HA/DR strategies. This could be through manual activities or fully automated DevOps activities. In either case, the policies would remain largely the same.
 
 Cloud custodians, cloud guardians, and cloud architects with an interest in governance are each likely to invest a lot of time in the Deployment Acceleration discipline, which codifies policies and requirementsacross multiple cloud adoption efforts. The tools in this toolchain are important to the Cloud Governance team and should be a high priority on the learning path for the team.
 

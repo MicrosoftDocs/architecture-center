@@ -1,13 +1,15 @@
 ---
-title: "CAF: What tools can help better manage security in Azure?"
+title: "CAF: Security Baseline tools in Azure"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 description: Explanation of the tools that can facilitate improved Security Baseline in Azure
 author: BrianBlanchard
-ms.date: 2/1/2019
 ---
 
-<!-- markdownlint-disable MD026 -->
-
-# What tools can help better manage Security Baseline in Azure?
+# Security Baseline tools in Azure
 
 [Security Baseline](overview.md) is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md). This discipline focuses on ways of establishing policies that protect the network, assets, and most importantly the data that will reside on a Cloud Provider's solution. Within the five disciplines of Cloud Governance, Security Baseline includes classification of the digital estate and data. It also includes documentation of risks, business tolerance, and mitigation strategies associated with the security of the data, assets, and network. From a technical perspective, this also includes involvement in decisions regarding [encryption](../../decision-guides/encryption/overview.md), [network requirements](../../decision-guides/software-defined-network/overview.md), [hybrid identity strategies](../../decision-guides/identity/overview.md), and tools to [automate enforcement](../../decision-guides/policy-enforcement/overview.md) of security policies across [resource groups](../../decision-guides/resource-consistency/overview.md).
 

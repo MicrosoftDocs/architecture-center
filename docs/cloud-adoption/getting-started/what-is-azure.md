@@ -1,5 +1,9 @@
 ---
 title: "CAF: How does Azure work?"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
 description: Explanation of the internal functioning of Azure
 author: petertaylor9999
 ms.date: 2/1/2019

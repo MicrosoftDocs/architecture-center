@@ -1,11 +1,15 @@
 ---
-title: "CAF: Motivations and business risks that drive identity governance"
-description: Explanation of the concept Identity Baseline in relation to cloud governance
+title: "CAF: Identity Baseline motivations and business risks"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Identity Baseline motivations and business risks
 author: BrianBlanchard
-ms.date: 1/8/2019
 ---
 
-# Motivations and business risks that drive identity governance
+# Identity Baseline motivations and business risks
 
 This article discusses the reasons that customers typically adopt an Identity Baseline discipline within a cloud governance strategy. It also provides a few examples of business risks that drive policy statements.
 

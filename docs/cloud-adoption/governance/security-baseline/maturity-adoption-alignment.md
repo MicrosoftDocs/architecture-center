@@ -1,13 +1,15 @@
 ---
-title: "CAF: How can a company add Security Baseline discipline to their Cloud Governance execution?"
-description: Explanation of the concept Resource Consistency in relation to cloud governance
+title: "CAF: Security Baseline discipline improvement"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Security Baseline discipline improvement
 author: BrianBlanchard
-ms.date: 2/1/2019
 ---
 
-<!-- markdownlint-disable MD026 -->
-
-# How can a company add the Security Baseline discipline to their cloud governance?
+# Security Baseline discipline improvement
 
 The Security Baseline discipline focuses on ways of establishing policies that protect the network, assets, and most importantly the data that will reside on a Cloud Provider's solution. Within the five disciplines of Cloud Governance, Security Baseline includes classification of the digital estate and data. It also includes documentation of risks, business tolerance, and mitigation strategies associated with the security of the data, assets, and network. From a technical perspective, this also includes involvement in decisions regarding [encryption](../../decision-guides/encryption/overview.md), [network requirements](../../decision-guides/software-defined-network/overview.md), [hybrid identity strategies](../../decision-guides/identity/overview.md), and the [processes](./processes.md) used to develop cloud Security Baseline policies.
 

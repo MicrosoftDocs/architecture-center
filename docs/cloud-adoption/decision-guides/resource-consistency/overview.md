@@ -4,9 +4,9 @@ titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
+ms.date: 02/11/2019
 description: Learn about resource consistency when planning an Azure migrations.
 author: rotycenh
-ms.date: 12/27/2018
 ---
 
 # CAF: Resource consistency decision guide

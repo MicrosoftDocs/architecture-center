@@ -1,11 +1,13 @@
 ---
 title: "CAF: Software Defined Networks" 
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 description: Discussion of Software Defined Networks as a core service in Azure migrations
 author: rotycenh
-ms.date: 12/29/2018
 ---
-
-<!-- markdownlint-disable MD026 -->
 
 # CAF: Software Defined Network
 

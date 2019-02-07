@@ -1,8 +1,12 @@
 ---
 title: "CAF: Identity Baseline template"
-description: Explanation of the concept Identity Baseline in relation to cloud governance
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Identity Baseline template
 author: BrianBlanchard
-ms.date: 1/4/2019
 ---
 
 # CAF: Identity Baseline template

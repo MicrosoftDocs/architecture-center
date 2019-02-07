@@ -1,8 +1,12 @@
 ---
 title: "CAF: Logging and reporting decision guide" 
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 description: Learn about logging, reporting, and monitoring as core services in Azure migrations.
 author: rotycenh
-ms.date: 12/21/2018
 ---
 
 # Logging and reporting decision guide
@@ -25,7 +29,7 @@ When planning your deployment, you need to consider where logging data is stored
 |-----|-----|-----|-----|-----|
 | Do you have an existing on-premises monitoring infrastructure? | No | Yes | Yes |  No |
 | Do you have requirements preventing storage of log data on external storage locations? | No | Yes | No | No  |
-| Do you need to integrate cloud monitoring with on-premises systems? | No | No |  Yes | No |
+| Do you need to integrate cloud monitoring with on-premises systems? | No | No | Yes | No |
 Do you need to process or filter telemetry data before submitting it to your monitoring systems? | No | No | No | Yes  |
 
 ### Cloud native

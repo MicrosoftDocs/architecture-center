@@ -1,6 +1,11 @@
 ---
 title: "CAF: Deployment Acceleration template"
 description: Deployment Acceleration template
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 author: alexbuckgit
 ms.date: 1/18/2019
 ---

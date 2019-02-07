@@ -1,8 +1,12 @@
 ---
-title: "CAF: Understanding the Cost Management discipline within cloud governance"
-description: Explanation of the concept Cost Management in relation to cloud governance
+title: "CAF: Cost Management discipline"
+description: Explanation of Cost Management in relation to cloud governance
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 author: BrianBlanchard
-ms.date: 1/4/2019
 layout: LandingPage
 ms.topic: landing-page
 ---

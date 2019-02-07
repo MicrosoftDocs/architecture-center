@@ -1,8 +1,12 @@
 ---
 title: "CAF: Policy enforcement decision guide" 
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 description: Learn about policy enforcement subscriptions as a core design priority in Azure migrations.
 author: rotycenh
-ms.date: 12/27/2018
 ---
 
 # Policy enforcement decision guide

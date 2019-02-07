@@ -1,6 +1,11 @@
 ---
 title: "CAF: What is Cloud Security Baseline"
-description: What is Cloud Security Baseline?
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: What is the Cloud Security Baseline?
 author: BrianBlanchard
 ms.date: 10/10/2018
 ---
@@ -9,7 +14,7 @@ ms.date: 10/10/2018
 
 # What is the Cloud Security Baseline?
 
-This is an introductory article on the general topic of Cloud Security Baseline which builds on the [Five disciplines of Governance](../overview.md) to establish a governance framework. More detailed information about Cloud Security is available from [Azure's Trusted Cloud](https://azure.microsoft.com/overview/trusted-cloud/). Approaches to improving your organizations security posture can be found in the [Cloud Security Service Catalog](https://www.microsoft.com/security/information-protection)
+This is an introductory article on the general topic of Cloud Security Baseline which builds on the [Five Disciplines of Cloud Governance](../governance-disciplines.md) to establish a governance framework. More detailed information about Cloud Security is available from [Azure's Trusted Cloud](https://azure.microsoft.com/overview/trusted-cloud/). Approaches to improving your organizations security posture can be found in the [Cloud Security Service Catalog](https://www.microsoft.com/security/information-protection)
 
 > [!NOTE]
 > This article is not expected to provide enough context to allow the reader to implement a security strategy. It is for general awareness only.

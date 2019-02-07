@@ -1,11 +1,15 @@
 ---
-title: "CAF: How can a company add Cost Management discipline to their cloud governance execution?"
-description: Explanation of the concept Cost Management in relation to cloud governance
+title: "CAF: Cost Management discipline improvement"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Cost Management discipline improvement
 author: BrianBlanchard
-ms.date: 1/3/2019
 ---
 
-# Cost Management: maturing the discipline
+# Cost Management discipline improvement
 
 The Cost Management discipline attempts to address core business risks related to expenses incurred when hosting cloud-based workloads. Within the five disciplines of Cloud Governance, Cost Management is involved in controlling cost and usage of cloud resources with the goal of creating and maintaining a planned cost cycle.
 
@@ -80,10 +84,10 @@ Once the transformation is complete, governance and operations must live on for 
 
 **Minimum suggested activities:**
 
-* Customize [Cost Management toolchain](toolchain.md) based on updates to your organization’s changing Cost Management needs.
+* Customize your [Cost Management toolchain](toolchain.md) based on changes in your organization’s cost management needs.
 * Consider automating any notifications and reports to reflect actual spending.
 * Refine Architecture Guidelines to guide future adoption processes.
-* Re-educate affected teams on a periodic basis to ensure ongoing adherence to the Architecture Guidelines.
+* Educate affected teams on a periodic basis to ensure ongoing adherence to the Architecture Guidelines.
 
 **Potential activities:**
 

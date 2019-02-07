@@ -88,7 +88,7 @@ Azure Resource Manager enables you to put resources into meaningful groups for m
 Resource groups can't be nested, and resources can only belong to one resource group. Some actions can act on all resources in a resource group. For example, deleting a resource group removes all resources within the resource group. Like subscriptions, there are common patterns when creating resource groups and will vary from "Traditional IT" workloads to "Agile IT" workloads:
 
 * "Traditional IT" workloads are most commonly grouped by items within the same life cycle, such as an application. Grouping by application allows for individual application management.
-* "Agile IT" workloads tend to focus on external customer-facing cloud applications. The resource groups often reflect the layers of deployment (such as Web Tier, App Tier) and management.
+* "Agile IT" workloads tend to focus on external customer-facing cloud applications. The resource groups often reflect the layers of deployment (such as a web tier or app tier) and management.
 
 > [!NOTE]
 > Understanding your workload helps you develop a resource group strategy. These patterns can be mixed and matched. For example, a shared services resource group in the same subscription as "Agile" resource groups.
@@ -133,7 +133,7 @@ Azure policies and initiatives are a powerful tool in the Azure toolkit. Policie
 
 The introduction of initiatives provided enterprises a way to group logical policies together and track as a whole. Initiatives further support the enterprise to address the needs of both "agile" and "traditional" workloads. We have seen very creative uses of initiatives, but commonly we see:
 
-* **Enable monitoring in Azure Security Center**. This is a default initiative in the Azure Policy and an excellent example of what initiative are. It enables policies that identify un-encrypted SQL databases, VM vulnerabilities and more common security related needs.
+* **Enable monitoring in Azure Security Center**. This is a default initiative in the Azure Policy and an excellent example of what initiative are. It enables policies that identify un-encrypted SQL databases, virtual machine (VM) vulnerabilities and more common security related needs.
 * **Regulatory specific initiative**. Enterprises often group policies common to a regulatory requirement (such as HIPAA) so that controls and compliancy to those controls are tracked efficiently.
 * **Resource Types & SKUs**. Creating an initiative that restricts the types of resources that can be deployed as well as the SKUs that can be deployed can help to control costs and ensure your organization is only deploying resources that your team have the skillset and procedures to support.
 
@@ -315,10 +315,10 @@ The final component of the Azure scaffold reference model is core to how your or
 * **User Defined Routes** allow you to manipulate the route table within a subnet enabling you to send traffic through a network virtual appliance or to a remote gateway on a peered virtual network.
 * **Virtual Network Peering** enables you to seamlessly connect two or more Azure virtual networks, creating more complex hub & spoke designs or shared services networks.
 * **Service Endpoints**. In the past, PaaS services relied on different methods to secure access to those resources from your virtual networks. Service endpoints allow you to secure access to enabled PaaS services from ONLY connected endpoints, increasing overall security.
-* **Security groups** are an extensive set of rules which provide you the ability to allow or deny inbound and outbound traffic to/from Azure Resources. [Security Groups](/azure/virtual-network/security-overview) consist of Security Rules, which can be augmented with **Service Tags** (which define common Azure services such as AzureKeyVault, Sql and others) and **Application Groups** (which define and application structure, such as WebServers, AppServers and such)
+* **Security groups** are an extensive set of rules which provide you the ability to allow or deny inbound and outbound traffic to/from Azure Resources. [Security Groups](/azure/virtual-network/security-overview) consist of Security Rules, which can be augmented with **Service Tags** (which define common Azure services such as Azure KeyVault, Azure SQL Database, and others) and **Application Groups** (which define and application structure, such as web servers or app servers).
 
 > [!TIP]
-> Use Service tags and Application groups in your network security groups to not only enhance the readability of your rules -which is crucial to understanding impact- but also to enable effective micro-segmentation within a larger subnet, reducing sprawl and increasing flexibility.
+> Use Service tags and Application groups in your network security groups to not only enhance the readability of your rules &mdash; which is crucial to understanding impact &mdash; but also to enable effective microsegmentation within a larger subnet, reducing sprawl and increasing flexibility.
 
 ### Virtual Data Center
 

@@ -1,8 +1,12 @@
 ---
 title: "CAF: Subscription decision guide" 
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 description: Learn about cloud platform subscriptions as a core service in Azure migrations.
 author: rotycenh
-ms.date: 12/31/2018
 ---
 
 # Subscription design guide

@@ -1,5 +1,9 @@
 ---
-title: "CAF: Azure Security guidance"
+title: "CAF: Azure security guidance"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
 description: What security guidance does Microsoft provide?
 author: BrianBlanchard
 ms.date: 2/1/2019
@@ -13,7 +17,7 @@ ms.date: 2/1/2019
 
 ## Security guidance and tools
 
-Microsoft introduced the [Service Trust Platform](https://www.microsoft.com/trustcenter/stp/default.aspx) and Compliance Manager to help with the following:
+Microsoft introduced the [Service Trust Platform](https://servicetrust.microsoft.com) and Compliance Manager to help with the following:
 
 - Overcome compliance management challenges
 - Fulfill responsibilities of meeting regulatory requirements

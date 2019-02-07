@@ -1,11 +1,15 @@
 ---
-title: "CAF: Metrics, indicators, and risk tolerance"
-description: Explanation of the concept Cost Management in relation to cloud governance
+title: "CAF: Cost Management metrics, indicators, and risk tolerance"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Explanation of Cost Management in relation to cloud governance
 author: BrianBlanchard
-ms.date: 1/3/2019
 ---
 
-# Cost Management: metrics, indicators, and risk tolerance
+# Cost management metrics, indicators, and risk tolerance
 
 This article is intended to help you quantify business risk tolerance as it relates to Cost Management. Defining metrics and indicators helps you create a business case for making an investment in the maturity of the Cost Management discipline.
 

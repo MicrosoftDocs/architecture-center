@@ -1,11 +1,16 @@
 ---
-title: "CAF: Motivations and business risks that drive security governance"
-description: Explanation of the concept Security Baseline in relation to cloud governance
+title: "CAF: Security Baseline motivations and business risks"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Security Baseline motivations and business risks
 author: BrianBlanchard
 ms.date: 1/8/2019
 ---
 
-# Motivations and business risks that drive security governance
+# Security Baseline motivations and business risks
 
 This article discusses the reasons that customers typically adopt a Security Baseline discipline within a cloud governance strategy. It also provides a few examples of potential business risks that can drive policy statements.
 

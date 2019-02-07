@@ -1,6 +1,9 @@
 ---
 title: "CAF: Rationalize the digital estate"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
 description: Evaluate your digital assets to determine how best to host them in the cloud.
 author: BrianBlanchard
 ms.date: 12/10/2018

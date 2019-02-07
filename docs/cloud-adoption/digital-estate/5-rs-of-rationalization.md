@@ -1,6 +1,9 @@
 ---
 title: "CAF: The 5 Rs of rationalization"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
 description: Review the options available for rationalizing a digital estate.
 author: BrianBlanchard
 ms.date: 12/10/2018

@@ -1,11 +1,15 @@
 ---
-title: "CAF: Monitor and enforce Cost Management"
-description: Explanation of the concept Cost Management in relation to cloud governance
+title: "CAF: Cost Management policy compliance processes"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Cost Management policy compliance processes
 author: BrianBlanchard
-ms.date: 1/4/2019
 ---
 
-# Cost Management: Policy compliance processes
+# Cost Management policy compliance processes
 
 This article discusses an approach to creating processes that support a [Cost Management](./overview.md) governance discipline. Effective governance of cloud costs starts with recurring manual processes designed to support policy compliance. This requires regular involvement of the Cloud Governance team and interested business stakeholders to review and update policy and ensure policy compliance. In addition, many ongoing monitoring and enforcement processes can be automated or supplemented with tooling to reduce the overhead of governance and allow for faster response to policy deviation.
 

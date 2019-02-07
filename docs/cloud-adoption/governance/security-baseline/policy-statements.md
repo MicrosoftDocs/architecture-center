@@ -1,8 +1,12 @@
 ---
 title: "CAF: Security Baseline sample policy statements"
-description: Explanation of the concept of Security Baseline in relation to cloud governance
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Security Baseline sample policy statements
 author: BrianBlanchard
-ms.date: 1/4/2019
 ---
 
 # Security Baseline sample policy statements

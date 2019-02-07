@@ -1,8 +1,12 @@
 ---
-title: "CAF: Metrics, indicators, and risk tolerance"
-description: Metrics, indicators, and risk tolerance for Deployment Acceleration governance
+title: "CAF: Deployment Acceleration metrics, indicators, and risk tolerance"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Deployment Acceleration metrics, indicators, and risk tolerance
 author: alexbuckgit
-ms.date: 1/17/2019
 ---
 
 # Deployment Acceleration metrics, indicators, and risk tolerance

@@ -1,13 +1,15 @@
 ---
-title: "CAF: How can a company add Deployment Acceleration discipline to their Cloud Governance execution?"
-description: How can a company add Deployment Acceleration discipline to their Cloud Governance execution?
+title: "CAF: Deployment Acceleration discipline improvement"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Deployment Acceleration discipline improvement
 author: alexbuckgit
-ms.date: 01/17/2019
 ---
 
-<!-- markdownlint-disable MD026 -->
-
-# How can a company add Deployment Acceleration to their cloud governance?
+# Deployment Acceleration discipline improvement
 
 The Deployment Acceleration discipline focuses on establishing policies that ensure that resources are deployed and configured consistently and repeatably, and remain in compliance throughout their lifecycle. Within the Five Disciplines of Cloud Governance, Deployment Acceleration includes decisions regarding automating deployments, source-controlling deployment artifacts, monitoring deployed resources to maintain desired state, and auditing any compliance issues.
 

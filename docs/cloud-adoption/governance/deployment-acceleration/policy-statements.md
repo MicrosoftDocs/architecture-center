@@ -1,11 +1,15 @@
 ---
 title: "CAF: Deployment Acceleration sample policy statements"
-description: Sample policy statements for Deployment Acceleration
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Deployment Acceleration sample policy statements
 author: alexbuckgit
-ms.date: 1/18/2019
 ---
 
-# Sample policy statements for Deployment Acceleration
+# Deployment Acceleration sample policy statements
 
 Individual cloud policy statements are guidelines for addressing specific risks identified during your risk assessment process. These statements should provide a concise summary of risks and plans to deal with them. Each statement definition should include these pieces of information:
 

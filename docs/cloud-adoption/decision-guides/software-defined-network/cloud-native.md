@@ -1,8 +1,12 @@
 ---
 title: "CAF: Software Defined Networks - Cloud native" 
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 description: Discussion of cloud native virtual networking services
 author: rotycenh
-ms.date: 12/28/2018
 ---
 
 # Software Defined Networks: Cloud native
