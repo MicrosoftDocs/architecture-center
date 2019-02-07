@@ -5,7 +5,7 @@ author: BrianBlanchard
 ms.date: 1/3/2019
 ---
 
-# Maturing the Cost Management discipline as cloud adoption progresses
+# Cost Management: maturing the discipline
 
 The Cost Management discipline attempts to address core business risks related to expenses incurred when hosting cloud-based workloads. Within the five disciplines of Cloud Governance, Cost Management is involved in controlling cost and usage of cloud resources with the goal of creating and maintaining a planned cost cycle.
 

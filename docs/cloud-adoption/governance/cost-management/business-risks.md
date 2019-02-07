@@ -9,7 +9,7 @@ author: BrianBlanchard
 ms.date: 1/3/2019
 ---
 
-# Microsoft Cloud Adoption Framework for Azure: </br> Motivations and business risks that drive cost governance
+# Cost Management: Motivations and business risks that drive governance
 
 This article discusses the reasons that customers typically adopt a Cost Management discipline within a cloud governance strategy. It also provides a few examples of business risks that drive policy statements.
 

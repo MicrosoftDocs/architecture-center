@@ -4,11 +4,11 @@ description: Describes an overview of the first phase of an enterprise's digital
 author: petertaylor9999
 ms.date: 2/1/2019
 ---
-# Microsoft Cloud Adoption Framework for Azure: Getting started
+# Getting started with the Microsoft CAF for Azure
 
-The **digital transformation** to cloud computing represents a shift from operating on-premises to operating in the cloud. This shift includes new ways of doing business - for example, the digital transformation shifts from capital expenditures for software and datacenter hardware to operating expenditures for usage of cloud resources.
+The **digital transformation** to cloud computing represents a shift from operating on-premises to operating in the cloud. This shift includes new ways of doing business - for example, the digital transformation shifts from capital expenditures for software and datacenter hardware to operating expenditures for usage of cloud resources. Let's see how to get started using the [Microsoft CAF for Azure](..\overview.md).
 
-## Digital transformation: process
+## The digital transformation process
 
 To be successful in adopting the cloud, an enterprise must prepare its organization, people, and processes to be ready for this digital transformation. Every enterprise's organizational structure is different, so there is no one-size-fits-all approach to organizational readiness. This document outlines the high-level steps your enterprise can take to get ready. Your organization will have to spend time developing a detailed plan to accomplish each of the listed steps.
 
