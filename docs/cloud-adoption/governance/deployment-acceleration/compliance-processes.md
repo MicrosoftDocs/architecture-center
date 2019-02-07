@@ -55,7 +55,7 @@ The following triggers and enforcement actions provide examples you can use when
 
 Using the [Cloud Management template](./template.md), document the processes and triggers that align to the current cloud adoption plan.
 
-For guidance on executing cloud management policies in alignment with adoption plans, see the article on [maturity alignment](maturity-adoption-alignment.md).
+For guidance on executing cloud management policies in alignment with adoption plans, see the article on [discipline improvement](discipline-improvement.md).
 
 > [!div class="nextstepaction"]
-> [Align Discipline Maturity with Cloud Adoption Phases](./maturity-adoption-alignment.md)
+> [Align Discipline Improvement with Cloud Adoption Phases](./discipline-improvement.md)

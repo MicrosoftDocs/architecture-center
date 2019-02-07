@@ -93,7 +93,7 @@ The following six steps offer examples and potential options to consider when de
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./processes.md">
+    <a href="./compliance-processes.md">
         <div class="cardSize">
             <div class="cardPadding" >
                 <div class="card" >
@@ -112,7 +112,7 @@ The following six steps offer examples and potential options to consider when de
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./maturity-adoption-alignment.md">
+    <a href="./discipline-improvement.md">
         <div class="cardSize">
             <div class="cardPadding" >
                 <div class="card" >

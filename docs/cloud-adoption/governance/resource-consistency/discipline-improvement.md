@@ -40,7 +40,7 @@ This phase of governance maturity bridges the divide between business outcomes a
 **Potential activities:**
 
 * Work with the business stakeholders and/or your cloud strategy team to understand the desired cloud accounting approach and cost accounting practices within your business units and organization as a whole.
-* Define your [monitoring and policy enforcement](./processes.md) requirements.
+* Define your [monitoring and policy enforcement](compliance-processes.md) requirements.
 * Examine the business value and cost of outage to define remediation policy and SLA requirements.
 * Determine whether you'll deploy [single team](./governance-single-team.md) or [multiple team](./governance-multiple-teams.md) governance strategy for your resources.
 * Determine scalability requirements for your planned workloads.

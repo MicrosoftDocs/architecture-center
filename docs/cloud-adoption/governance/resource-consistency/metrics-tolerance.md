@@ -59,7 +59,7 @@ The exact metrics and triggers you use to gauge risk tolerance and the level of 
 
 Using the [Cloud Management template](./template.md), document metrics and tolerance indicators that align to the current cloud adoption plan.
 
-Building on risks and tolerance, establish a [process for governing and communicating security policy adherence](processes.md).
+Building on risks and tolerance, establish a [process for governing and communicating Resource Consistency policy adherence](compliance-processes.md).
 
 > [!div class="nextstepaction"]
-> [Monitor and Enforce Policy Statements](./processes.md)
+> [Monitor and Enforce Policy Statements](compliance-processes.md)
