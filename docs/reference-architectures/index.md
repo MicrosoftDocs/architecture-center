@@ -1,8 +1,6 @@
 ---
 title: Azure Reference Architectures
 description: Reference architectures and implementation guidance for common workloads on Azure.
-layout: LandingPage
-ms.topic: landing-page
 ---
 <!-- This file is generated! -->
 <!-- See the templates in ./build/reference-architectures  -->
@@ -15,6 +13,8 @@ Our reference architectures are arranged by scenario. Each architecture includes
 Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT](#internet-of-things) | [Microservices](#microservices) | [Serverless](#serverless-applications) | [Virtual networks](#virtual-networks) | [VM workloads](#vm-workloads) | [SAP](#sap) | [Active Directory](#extend-on-premises-active-directory-to-azure) | [Web apps](#web-applications)
 
 <!-- markdownlint-disable MD033 -->
+
+## AI and machine learning
 
 <ul  class="panelContent cardsF">
 <!-- Distributed training of deep learning models -->
@@ -160,6 +160,8 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
 </ul>
 
 
+## Big data solutions
+
 <ul  class="panelContent cardsF">
 <!-- Enterprise BI with SQL Data Warehouse -->
 <li style="display: flex; flex-direction: column;">
@@ -244,6 +246,8 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
 </ul>
 
 
+## Internet of Things
+
 <ul  class="panelContent cardsF">
 <!-- Azure IoT reference architecture -->
 <li style="display: flex; flex-direction: column;">
@@ -268,6 +272,8 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
 </ul>
 
 
+## Microservices
+
 <ul  class="panelContent cardsF">
 <!-- Microservices on Azure Kubernetes Service (AKS) -->
 <li style="display: flex; flex-direction: column;">
@@ -291,6 +297,8 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
 </li>
 </ul>
 
+
+## Serverless applications
 
 <ul  class="panelContent cardsF">
 <!-- Serverless web application -->
@@ -335,6 +343,8 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
 </li>
 </ul>
 
+
+## Virtual networks
 
 <ul  class="panelContent cardsF">
 <!-- Hybrid network using a virtual private network (VPN) -->
@@ -500,6 +510,8 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
 </ul>
 
 
+## VM workloads
+
 <ul  class="panelContent cardsF">
 <!-- N-tier application with SQL Server -->
 <li style="display: flex; flex-direction: column;">
@@ -604,6 +616,8 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
 </ul>
 
 
+## SAP
+
 <ul  class="panelContent cardsF">
 <!-- SAP NetWeaver -->
 <li style="display: flex; flex-direction: column;">
@@ -667,6 +681,8 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
 </li>
 </ul>
 
+
+## Extend on-premises Active Directory to Azure
 
 <ul  class="panelContent cardsF">
 <!-- Integrate with Azure Active Directory -->
@@ -751,6 +767,8 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
 </li>
 </ul>
 
+
+## Web applications
 
 <ul  class="panelContent cardsF">
 <!-- Basic web application -->
