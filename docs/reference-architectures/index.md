@@ -1,6 +1,8 @@
 ---
 title: Azure Reference Architectures
 description: Reference architectures and implementation guidance for common workloads on Azure.
+layout: LandingPage
+ms.topic: landing-page
 ---
 <!-- This file is generated! -->
 <!-- See the templates in ./build/reference-architectures  -->
@@ -71,6 +73,26 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
                     <div class="cardText">
                         <h3>Batch scoring of Python models</h3>
                         <p>Batch score many Python models in parallel on a schedule using Azure Batch AI.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<!-- Batch scoring of Spark models on Azure Databricks -->
+<li style="display: flex; flex-direction: column;">
+    <a href="./ai/batch-scoring-databricks.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/icons/databricks.png" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Batch scoring of Spark models on Azure Databricks</h3>
+                        <p>Build a scalable solution for batch scoring an Apache Spark classification model using Azure Databricks.</p>
                     </div>
                 </div>
             </div>
