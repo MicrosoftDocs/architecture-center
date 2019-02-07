@@ -13,7 +13,7 @@ However, adoption of the cloud is a means, it is not the end goal. Truly effecti
 
 ## Product Truths
 
-CAF is currently offered as a Public Preview. The framework will reach general availability (GA), when the aspirational objectives above have been realized. In the current preview release of CAF, the primary focus is on [Cloud Governance](./governance/journeys/overview). CAF will be expanded frequently, as the team moves closer to GA release.
+CAF is currently offered as a Public Preview. The framework will reach general availability (GA), when the aspirational objectives above have been realized. In the current preview release of CAF, the primary focus is on [Cloud Governance](./governance/journeys/overview.md). CAF will be expanded frequently, as the team moves closer to GA release.
 
 ## Audience
 

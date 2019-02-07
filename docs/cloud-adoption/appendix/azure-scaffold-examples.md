@@ -41,7 +41,7 @@ Dave creates a subscription to support developer tools that are common across al
 
 ### Role-based access control
 
-After creating his subscription, Dave wants to ensure that the appropriate teams and application owners can access their resources. Dave recognizes that each team has different requirements. He uses the groups that have been synched from Contoso's on-premises Active Directory (AD) to Azure Active Directory, and provides the right level of access to the teams.
+After creating his subscription, Dave wants to ensure that the appropriate teams and application owners can access their resources. Dave recognizes that each team has different requirements. He uses the groups that have been synced from Contoso's on-premises Active Directory (AD) to Azure Active Directory, and provides the right level of access to the teams.
 
 Dave assigns the following roles for the subscription:
 
