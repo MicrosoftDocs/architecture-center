@@ -764,13 +764,13 @@
     - name: Mainframe Migration
       items:
         - name: Overview
-          href: cloud-adoption/decision-guides/mainframe-migration/overview.md
+          href: cloud-adoption/infrastructure/mainframe-migration/overview.md
         - name: Myths & facts
-          href: cloud-adoption/decision-guides/mainframe-migration/myths-and-facts.md
+          href: cloud-adoption/infrastructure/mainframe-migration/myths-and-facts.md
         - name: Migration strategies
-          href: cloud-adoption/decision-guides/mainframe-migration/migration-strategies.md
+          href: cloud-adoption/infrastructure/mainframe-migration/migration-strategies.md
         - name: Application strategies
-          href: cloud-adoption/decision-guides/mainframe-migration/application-strategies.md
+          href: cloud-adoption/infrastructure/mainframe-migration/application-strategies.md
     - name: Create Hybrid Cloud Consistency
       href: cloud-adoption/infrastructure/misc/hybrid-consistency.md
   - name: Operations
