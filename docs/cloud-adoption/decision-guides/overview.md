@@ -22,7 +22,7 @@ Each of the following categories represents a foundational technology of all clo
 
 [Policy Enforcement](./policy-enforcement/overview.md): Define and enforce organizational policy rules for resources and workloads that you deploy to the cloud.
 
-[Resource Grouping](./resource-grouping/overview.md): Ensure that deployment and organization of your cloud-based resources align to enforce resource management and policy requirements.
+[Resource Consistency](./resource-consistency/overview.md): Ensure that deployment and organization of your cloud-based resources align to enforce resource management and policy requirements.
 
 [Resource Tagging](./resource-tagging/overview.md): Organize your cloud-based resources to support billing models, cloud accounting approaches, management, access control, and operational efficiency. Resource tagging requires a consistent and well-organized naming and metadata scheme.
 

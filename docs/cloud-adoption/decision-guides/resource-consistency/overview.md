@@ -18,7 +18,7 @@ The tools available to implement your resource deployment, grouping, and managem
 
 ## Resource consistency decision guide
 
-![Plotting resource consistency options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-resource-grouping.png)
+![Plotting resource consistency options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-resource-consistency.png)
 
 Jump to: [Basic grouping](#basic-grouping) | [Deployment consistency](#deployment-consistency) | [Policy consistency](#policy-consistency) | [Hierarchical consistency](#hierarchical-consistency) | [Automated consistency](#automated-consistency)
 

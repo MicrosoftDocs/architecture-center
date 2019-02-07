@@ -59,7 +59,7 @@ A number of technical and nontechnical prerequisites are required to successful 
 **Potential activities:**
 
 * Decide on a [subscription design strategy](../../decision-guides/subscriptions/overview.md), choosing the subscription patterns that best fit your organization and workload needs.
-* Leverage a [resource grouping](../../decision-guides/resource-grouping/overview.md) strategy to enforce architecture guidelines over time.
+* Use a [resource consistency](../../decision-guides/resource-consistency/overview.md) strategy to enforce architecture guidelines over time.
 * Implement [resource naming, and tagging standards](../../decision-guides/resource-tagging/overview.md) for your resources to match your organizational and accounting requirements.
 * To create proactive point-in-time governance, use deployment templates and automation to enforce common configurations and a consistent grouping structure when deploying resources and resource groups.
 * Establish a least privilege permissions model, where users have no permissions by default.

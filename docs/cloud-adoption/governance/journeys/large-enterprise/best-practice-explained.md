@@ -95,7 +95,7 @@ If any of the patterns chosen in this governance journey don't align with the re
 - [Identity patterns](../../../decision-guides/identity/overview.md)
 - [Logging and Reporting patterns](../../../decision-guides/log-and-report/overview.md)
 - [Policy Enforcement patterns](../../../decision-guides/policy-enforcement/overview.md)
-- [Resource Grouping patterns](../../../decision-guides/resource-grouping/overview.md)
+- [Resource Consistency patterns](../../../decision-guides/resource-consistency/overview.md)
 - [Resource Tagging patterns](../../../decision-guides/resource-tagging/overview.md)
 - [Software Defined Network patterns](../../../decision-guides/software-defined-network/overview.md)
 - [Subscription Design patterns](../../../decision-guides/subscriptions/overview.md)

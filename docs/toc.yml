@@ -799,7 +799,7 @@
       - name: Policy Enforcement
         href: cloud-adoption/decision-guides/policy-enforcement/overview.md
       - name: Resource Grouping
-        href: cloud-adoption/decision-guides/resource-grouping/overview.md
+        href: cloud-adoption/decision-guides/resource-consistency/overview.md
       - name: Resource Tagging
         href: cloud-adoption/decision-guides/resource-tagging/overview.md
       - name: Encryption

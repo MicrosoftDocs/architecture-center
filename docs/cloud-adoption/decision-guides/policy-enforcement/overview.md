@@ -25,7 +25,7 @@ For single subscription and simple cloud deployments, many corporate policies ca
 
 For example:
 
-- [Deployment templates](../resource-grouping/overview.md) can provision resources with standardized structure and configuration.
+- [Deployment templates](../resource-consistency/overview.md) can provision resources with standardized structure and configuration.
 - [Tagging and naming standards](../resource-tagging/overview.md) can help organize operations and support accounting and business requirements.
 - Traffic management and networking restrictions can be implemented through [software defined networking](../software-defined-network/overview.md).
 - [Role-based access control](../identity/overview.md) can secure and isolate your cloud resources.
@@ -58,7 +58,7 @@ For IT environments integrating cloud and on-premises resources, you may need us
 
 ## Next steps
 
-Learn how resource grouping is used to organize and standardize cloud deployments in support of subscription design and governance goals.
+Learn how resource consistency is used to organize and standardize cloud deployments in support of subscription design and governance goals.
 
 > [!div class="nextstepaction"]
-> [Resource grouping](../resource-grouping/overview.md)
+> [Resource consistency](../resource-consistency/overview.md)
