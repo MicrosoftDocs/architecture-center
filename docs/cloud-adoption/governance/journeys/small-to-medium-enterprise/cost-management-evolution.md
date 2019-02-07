@@ -7,7 +7,7 @@ ms.custom: governance
 ms.date: 02/11/2019
 description: Explanation Small-to-Medium Enterprise – Cost Management evolution 
 author: BrianBlanchard
-ms.date: 2/1/2019
+ms.date: 2/11/2019
 ---
 
 # Small-to-medium enterprise: Cost Management evolution

@@ -2,7 +2,7 @@
 title: "CAF: What is cloud resource governance?"
 description: Explanation cloud resource governance on Azure
 author: petertaylor9999
-ms.date: 2/1/2019
+ms.date: 2/11/2019
 ---
 
 <!-- markdownlint-disable MD026 -->
