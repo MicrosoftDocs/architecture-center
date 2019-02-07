@@ -1,5 +1,5 @@
 ---
-title: "CAF: Small to Medium Enterprise - Initial Narrative behind the governance strategy"
+title: "CAF: Small-to-Medium Enterprise - Initial Narrative behind the governance strategy"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
