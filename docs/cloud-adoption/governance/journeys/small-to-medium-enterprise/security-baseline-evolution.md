@@ -85,7 +85,7 @@ The governance MVP design will evolve to include new Azure policies and an imple
 2. The Identity and IT Security teams will define identity requirements and make any necessary changes to local Active Directory implementation. The Cloud Governance team will review changes.
 3. Create a repository in Azure DevOps to store and version all relevant Azure Resource Manager templates and scripted configurations.
 4. Azure Security Center implementation:
-    1. Configure Security Center for any management group that contains protected data classifications.
+    1. Configure Azure Security Center for any management group that contains protected data classifications.
     2. Set automatic provisioning to on by default to ensure patching compliance.
     3. Establish OS security configurations. The IT Security team will define the configuration.
     4. Support the IT Security team in the initial use of Security Center. Transition the use of Security Center to the IT Security team, but maintain access for the purpose of continually improving governance.
@@ -100,13 +100,13 @@ The governance MVP design will evolve to include new Azure policies and an imple
     4. Audit and enforce the use of approved network subnet and vNet per network interface.
     5. Audit and enforce the limitation of user-defined routing tables.
     6. Apply the Built-in Policies for Guest Configuration as follows:
-        1. Audit that Windows Web Servers are using secure communication protocols
+        1. Audit that Windows web servers are using secure communication protocols
         2. Audit that password security settings are set correctly inside Linux and Windows machines
 7. Firewall configuration:
     1. Identify a configuration of Azure Firewall that meets necessary security requirements. Alternatively, identify a compatible third-party appliance that is compatible with Azure.
     2. Create a Resource Manager template to deploy the firewall with required configurations.
-8. Azure Blueprint:
-    1. Create a new blueprint called `protected-data`.
+8. Azure blueprint:
+    1. Create a new blueprint named `protected-data`.
     2. Add the firewall and Azure Security Center templates to the blueprint.
     3. Add the new policies for protected data subscriptions.
     4. Publish the blueprint to any management group which current plans on hosting protected data.

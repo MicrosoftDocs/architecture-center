@@ -90,7 +90,7 @@ Following the experience of this fictional example, it is assumed that the Prote
     3. Audit and enforce use of approved network subnet and VNet per network interface.
     4. Audit and enforce the limitation of user-defined routing tables.
     5. Audit and enforce the deployment of Log Analytics agents for Windows and Linux virtual machines.
-2. Azure Blueprint
+2. Azure blueprint
     1. Create a blueprint named `mission-critical-workloads-and-protected-data`. This blueprint will apply assets in addition to the protected data blueprint.
     2. Add the new Azure policies to the blueprint.
     3. Apply the blueprint to any subscription that is expected to host a mission-critical application.

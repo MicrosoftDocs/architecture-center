@@ -64,17 +64,17 @@ The governance MVP design evolves to include new Azure policies and an implement
 
 Here are the new best practices:
 
-1. DMZ Blueprint: The on-premises side of the DMZ should be configured to allow communication between the following solution and the on-premises Active Directory servers. This best practice requires a DMZ to enable Active Directory Domain Services across network boundaries.
+1. DMZ blueprint: The on-premises side of the DMZ should be configured to allow communication between the following solution and the on-premises Active Directory servers. This best practice requires a DMZ to enable Active Directory Domain Services across network boundaries.
 2. Azure Resource Manager templates:
-    1. Define an NSG to block external traffic and whitelist internal traffic.
-    2. Deploy two AD virtual machines in a load balanced pair based on a golden image. On first boot, that image runs a PowerShell script to join the domain and register with domain services. For more information, see [Extend Active Directory Domain Services (AD DS) to Azure](../../../../reference-architectures/identity/adds-extend-domain.md).
+    a. Define an NSG to block external traffic and whitelist internal traffic.
+    b. Deploy two AD virtual machines in a load balanced pair based on a golden image. On first boot, that image runs a PowerShell script to join the domain and register with domain services. For more information, see [Extend Active Directory Domain Services (AD DS) to Azure](../../../../reference-architectures/identity/adds-extend-domain.md).
 3. Azure Policy: Apply the NSG to all resources.
-4. Azure Blueprint
-    1. Create a blueprint called "Active Directory VMs."
-    2. Add each of the AD templates and policies to the blueprint.
-    3. Publish the blueprint to any applicable management group.
-    4. Apply the blueprint to any subscription requiring legacy or third-party MFA authentication.
-    5. The instance of AD running in Azure can now be used as an extension of the on-premises AD solution, allowing it to integrate with the existing MFA tool and provide claims-based authentication, both through existing Active Directory functionality.
+4. Azure blueprint
+    a. Create a blueprint named `active-directory-virtual-machines`.
+    b. Add each of the AD templates and policies to the blueprint.
+    c. Publish the blueprint to any applicable management group.
+    d. Apply the blueprint to any subscription requiring legacy or third-party MFA authentication.
+    e. The instance of AD running in Azure can now be used as an extension of the on-premises AD solution, allowing it to integrate with the existing MFA tool and provide claims-based authentication, both through existing Active Directory functionality.
 
 ## Conclusion
 

@@ -26,7 +26,7 @@ Since then, some things have changed that will affect governance:
 - Disaster Recovery / Business Continuity is controlled by Azure Vault instances.
 - Azure Security Center is used to monitor security violations and attacks.
 - Azure Security Center and Azure Monitor are both used to monitor governance of the cloud.
-- Blueprints, Azure Policy, and management groups are used to automate compliance with policy.
+- Azure Blueprints, Azure Policy, and Azure management groups are used to automate compliance with policy.
 
 ### Evolution of the future state
 
