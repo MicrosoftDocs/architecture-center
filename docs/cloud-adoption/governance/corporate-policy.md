@@ -4,14 +4,14 @@ titleSuffix: Microsoft Cloud Adoption Framework
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
-description: Overview of governance content within Fusion
+description: Learn about using the Microsoft Cloud Adoption Framework (CAF) to implement a cloud governance strategy.
 author: BrianBlanchard
 ms.date: 1/3/2019
 layout: LandingPage
 ms.topic: landing-page
 ---
 
-# Fusion: Implementing a cloud governance strategy
+# Implement a cloud governance strategy
 
 <!-- markdownlint-disable MD033 -->
 

@@ -1,11 +1,15 @@
 ---
-title: "Fusion: Motivations and business risks that drive cost governance"
+title: Motivations and business risks that drive cost governance
+titleSuffix: Microsoft Cloud Adoption Framework
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
 description: Explanation of the concept Cost Management in relation to cloud governance
 author: BrianBlanchard
 ms.date: 1/3/2019
 ---
 
-# Motivations and business risks that drive cost governance
+# Microsoft Cloud Adoption Framework for Azure: </br> Motivations and business risks that drive cost governance
 
 This article discusses the reasons that customers typically adopt a Cost Management discipline within a cloud governance strategy. It also provides a few examples of business risks that drive policy statements.
 
