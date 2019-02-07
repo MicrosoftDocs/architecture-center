@@ -2,7 +2,7 @@
 title: "CAF: Cloud Governance"
 description: Introduction to Cloud Governance content
 author: BrianBlanchard
-ms.date: 2/1/2019
+ms.date: 2/11/2019
 ---
 
 # Cloud governance in the Microsoft CAF for Azure

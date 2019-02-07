@@ -2,7 +2,7 @@
 title: "CAF: What is Data Classification"
 description: What is Data Classification?
 author: BrianBlanchard
-ms.date: 2/1/2019
+ms.date: 2/11/2019
 ---
 
 <!-- markdownlint-disable MD026 -->

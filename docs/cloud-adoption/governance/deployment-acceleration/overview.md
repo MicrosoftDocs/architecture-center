@@ -7,14 +7,14 @@ ms.custom: governance
 ms.date: 02/11/2019
 description: Explanation of Deployment Acceleration in relation to cloud governance.
 author: BrianBlanchard
-ms.date: 2/1/2019
+ms.date: 2/11/2019
 layout: LandingPage
 ms.topic: landing-page
 ---
 
 # CAF: Deployment Acceleration discipline overview
 
-Deployment Acceleration is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md) within the [CAF Governance Model](../overview.md). This discipline focuses on ways of establishing policies to govern asset configuration or deployment. Within the five disciplines of Cloud Governance, configuration governance includes deployment, configuration alignment, and high availability/disaster recovery (HA/DR) strategies. This could be through manual activities or fully automated DevOps activities. In either case, the policies would remain largely the same.
+Deployment Acceleration is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md) within the [CAF Governance Model](../overview.md). This discipline focuses on ways of establishing policies to govern asset configuration or deployment. Within the five disciplines of Cloud Governance, Deployment Acceleration includes deployment, configuration alignment, and script reusability. This could be through manual activities or fully automated DevOps activities. In either case, the policies would remain largely the same. As this discipline matures, the Cloud Governance Team can serve as a partner in DevOps and deployment strategies by accelerating deployments and removing barriers to cloud adoption, through the application of reusable assets.
 
 This article outlines the Deployment Acceleration process that a company experiences during the planning, building, adopting, and operating phases of implementing a cloud solution. It's impossible for any one document to account for all of the requirements of any business. As such, each section of this article outlines suggested minimum and potential activities. The objective of these activities is to help you build a [policy MVP](../policy-compliance/overview.md#minimum-viable-product-mvp-for-policy), but establish a framework for [Incremental Policy](../policy-compliance/overview.md#incremental-policy-growth) evolution. The Cloud Governance team should decide how much to invest in these activities to improve the Deployment Acceleration position.
 

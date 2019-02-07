@@ -7,7 +7,7 @@ ms.custom: governance
 ms.date: 02/11/2019
 description: Large Enterprise - Initial corporate policy behind the governance strategy.
 author: BrianBlanchard
-ms.date: 2/1/2019
+ms.date: 2/11/2019
 ---
 
 # Large enterprise: Initial corporate policy behind the governance strategy
