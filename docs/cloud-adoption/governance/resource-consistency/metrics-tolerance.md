@@ -5,7 +5,7 @@ author: BrianBlanchard
 ms.date: 1/3/2019
 ---
 
-# Fusion: Metrics, indicators, and risk tolerance
+# Resource Consistency metrics, indicators, and risk tolerance
 
 This article is intended to help you quantify business risk tolerance as it relates to Resource Consistency. Defining metrics and indicators helps you create a business case for making an investment in maturing the Resource Consistency discipline.
 

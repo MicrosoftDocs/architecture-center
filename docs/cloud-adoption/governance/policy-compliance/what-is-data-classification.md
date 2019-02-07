@@ -7,11 +7,11 @@ ms.date: 2/1/2019
 
 <!-- markdownlint-disable MD026 -->
 
-# Fusion: What is Data Classification?
+# What is data classification?
 
 This is an introductory article on the general topic of Data Classification. Data classification is a very common starting point for all governance.
 
-## Business Risks and Governance
+## Business risks and governance
 
 In most organizations, the primary reasons for investing in governance can be reduced to three business risks:
 

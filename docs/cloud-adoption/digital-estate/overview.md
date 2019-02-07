@@ -45,4 +45,4 @@ Financial models and migration backlogs can be modified to reflect the rationali
 Before digital estate planning can begin, you must determine what approach to use.
 
 > [!div class="nextstepaction"]
-> [Determine the analysis approach](approach.md)
+> [Approaches to digital estate planning](approach.md)

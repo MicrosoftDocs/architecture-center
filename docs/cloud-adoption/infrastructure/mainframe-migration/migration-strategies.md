@@ -5,7 +5,7 @@ author: njray
 ms.date: 12/26/2018
 ---
 
-# Fusion: Make the switch from mainframes to Azure
+# Make the switch from mainframes to Azure
 
 As an alternative platform for running traditional mainframe applications, Azure offers hyperscale compute and storage in a high availability environment. You get the value and agility of a modern, cloud-based platform without the costs associated with a mainframe environment.
 

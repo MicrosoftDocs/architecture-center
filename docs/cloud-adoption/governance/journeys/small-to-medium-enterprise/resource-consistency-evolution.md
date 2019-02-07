@@ -5,7 +5,7 @@ author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
-# Fusion: Small to Medium Enterprise – Resource Consistency evolution
+# Small-to-medium enterprise: Resource Consistency evolution
 
 This article evolves the narrative by adding Resource Consistency controls to support mission-critical apps.
 

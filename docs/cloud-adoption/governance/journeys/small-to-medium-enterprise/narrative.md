@@ -5,7 +5,7 @@ author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
-# Fusion: Small to Medium Enterprise - The narrative behind the governance strategy
+# Small-to-medium enterprise: The narrative behind the governance strategy
 
 The following narrative describes the use case for the [small-to-medium enterprise governance journey](./overview.md). Before implementing the journey, it’s important to understand the assumptions and reasoning that are reflected in this narrative. Then you can better align the governance strategy to your own organization’s journey.
 

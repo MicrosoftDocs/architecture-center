@@ -6,7 +6,7 @@ author: BrianBlanchard
 ms.date: 12/10/2018
 ---
 
-# Fusion: The 5 Rs of rationalization
+# The 5 Rs of rationalization
 
 Cloud Rationalization is the process of evaluating assets to determine the best approach to migrating or modernizing each asset in the cloud. For more information about the process of rationalization, see [What is a digital estate?](overview.md)
 

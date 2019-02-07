@@ -5,7 +5,7 @@ author: rotycenh
 ms.date: 12/28/2018
 ---
 
-# Fusion: Software Defined Networks - Cloud native
+# Software Defined Networks: Cloud native
 
 A cloud native virtual network is a required when deploying IaaS resources such as virtual machines to a cloud platform. Access to virtual networks from external sources, similar to the web, need to be explicitly provisioned. These types of virtual networks support the creation of subnets, routing rules, and virtual firewall and traffic management devices.
 

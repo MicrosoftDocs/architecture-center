@@ -7,7 +7,7 @@ ms.date: 2/1/2019
 
 <!-- markdownlint-disable MD026 -->
 
-# Fusion: What tools can help better manage asset configuration in Azure?
+# What tools can help better manage asset configuration in Azure?
 
 In the [Introduction to Cloud Governance](../overview.md), [Deployment Acceleration](overview.md) is one of the five disciplines to Cloud Governance. This discipline focuses on ways of establishing policies to govern asset configuration or deployment. Within the five disciplines of Cloud Governance, configuration governance includes deployment, configuration alignment, and HA/DR strategies. This could be through manual activities or fully automated DevOps activities. In either case, the policies would remain largely the same.
 

@@ -5,7 +5,7 @@ author: BrianBlanchard
 ms.date: 10/03/2018
 ---
 
-# Fusion: CISO Cloud Readiness Guide
+# CISO cloud readiness guide
 
 Microsoft guidance like the Azure Cloud Adoption Framework (CAF) is not positioned to determine or guide the unique security constraints of the thousands of enterprises supported by this documentation. When moving to the cloud, the role of the Chief Information Security Officer or Chief Information Security Office (CISO) isn't supplanted by cloud technologies. Quite the contrary, the CISO and the office of the CISO, become more engrained and integrated. This guide assumes the reader is familiar with CISO processes and is seeking to modernize those processes to enable Cloud Transformation.
 
@@ -27,7 +27,7 @@ As solutions move further "up stack" to incorporate platform as a service (PaaS)
 
 Knowledge about the cloud is fundamental to approaching a [policy review](./what-is-a-cloud-policy-review.md) with a growth mindset. The following resources can help the CISO better understand the security posture of Microsoft's Azure platform.
 
-Security Platform Resources:
+Security platform resources:
 
 * [Security Development Cycle, internal audits](https://www.microsoft.com/sdl/)
 * [Mandatory security training, background checks](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx)
@@ -35,7 +35,7 @@ Security Platform Resources:
 * [State-of-the-art datacenter](https://www.microsoft.com/cloud-platform/global-datacenters), physical security, [secure network](/azure/security/security-network-overview)
 * [Microsoft Azure Security Response in the Cloud (PDF)](http://aka.ms/SecurityResponsePaper)
 
-Privacy and Controls:
+Privacy and controls:
 
 * [Manage your data all the time](https://www.microsoft.com/trustcenter/Privacy/You-own-your-data)
 * [Control on data location](https://www.microsoft.com/trustcenter/Privacy/Where-your-data-is-located)

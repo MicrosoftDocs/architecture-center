@@ -5,7 +5,7 @@ author: alexbuckgit
 ms.date: 1/18/2019
 ---
 
-# Fusion: Motivations and business risks that drive Resource Consistency governance
+# Motivations and business risks that drive Resource Consistency governance
 
 <!-- markdownlint-disable MD026 -->
 

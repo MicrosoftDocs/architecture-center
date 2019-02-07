@@ -5,7 +5,7 @@ author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
-# Fusion: Large Enterprise – Best practice explained
+# Large enterprise: Best practice explained
 
 The governance journey starts with a set of initial [corporate policies](./initial-corporate-policy.md). These policies are used to establish a minimum viable product (MVP) for governance that reflects [best practices](./overview.md).
 

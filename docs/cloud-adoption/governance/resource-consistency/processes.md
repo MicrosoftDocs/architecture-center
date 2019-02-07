@@ -5,7 +5,7 @@ author: BrianBlanchard
 ms.date: 1/4/2019
 ---
 
-# Fusion: Resource Consistency policy compliance processes
+# Resource Consistency policy compliance processes
 
 This article discusses an approach to policy adherence processes that govern [Resource Consistency](./overview.md). Effective cloud Resource Consistency governance starts with recurring manual processes designed to identify operational inefficiency, improve management of deployed resources, and ensure mission-critical workloads have minimal disruptions. These manual processes are supplemented with monitoring, automation, and tooling to help reduce the overhead of governance and allow for faster response to policy deviation.
 

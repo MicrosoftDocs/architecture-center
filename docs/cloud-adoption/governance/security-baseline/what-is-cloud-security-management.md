@@ -7,14 +7,14 @@ ms.date: 10/10/2018
 
 <!-- markdownlint-disable MD026 -->
 
-# Fusion: What is Cloud Security Baseline?
+# What is the Cloud Security Baseline?
 
 This is an introductory article on the general topic of Cloud Security Baseline which builds on the [Five disciplines of Governance](../overview.md) to establish a governance framework. More detailed information about Cloud Security is available from [Azure's Trusted Cloud](https://azure.microsoft.com/overview/trusted-cloud/). Approaches to improving your organizations security posture can be found in the [Cloud Security Service Catalog](https://www.microsoft.com/security/information-protection)
 
 > [!NOTE]
 > This article is not expected to provide enough context to allow the reader to implement a security strategy. It is for general awareness only.
 
-## Cloud Security
+## Cloud security
 
 Cloud security is an extension of traditional information security practices. Traditional IT security would include policies and controls governing computer security, network security, data protection, information usage, etc... These same policies and controls are needed in the cloud. During any Cloud Transformation, it is imperative that the CISO be actively involved and understand the cloud landscape, to ensure legacy IT policies map to proper levels of control in the cloud.
 

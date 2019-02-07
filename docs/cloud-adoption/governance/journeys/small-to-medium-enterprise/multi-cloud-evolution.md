@@ -5,7 +5,7 @@ author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
-# Fusion: Small to Medium Enterprise – Multi-cloud evolution
+# Small-to-medium enterprise: Multi-cloud evolution
 
 This article evolves the narrative by adding controls for multi-cloud adoption.
 

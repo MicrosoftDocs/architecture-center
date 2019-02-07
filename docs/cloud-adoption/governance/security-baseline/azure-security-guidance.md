@@ -7,7 +7,7 @@ ms.date: 2/1/2019
 
 <!-- markdownlint-disable MD026 -->
 
-# Fusion: What security guidance does Microsoft provide?
+# What security guidance does Microsoft provide?
 
 <!-- markdownlint-disable MD026 -->
 

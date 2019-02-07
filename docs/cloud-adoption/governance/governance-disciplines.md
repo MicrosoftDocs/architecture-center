@@ -7,7 +7,7 @@ layout: LandingPage
 ms.topic: landing-page
 ---
 
-# Fusion: 5 Disciplines of Cloud Governance
+# The 5 Disciplines of Cloud Governance
 
 <!-- markdownlint-disable MD033 -->
 

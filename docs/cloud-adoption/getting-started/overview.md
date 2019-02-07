@@ -1,10 +1,10 @@
 ---
-title: "Fusion: Getting started"
+title: "Cloud Adoption Framework: Getting started"
 description: Describes an overview of the first phase of an enterprise's digital transformation in adopting Azure cloud technologies
 author: petertaylor9999
 ms.date: 2/1/2019
 ---
-# Fusion: Getting started
+# Microsoft Cloud Adoption Framework for Azure: Getting started
 
 The **digital transformation** to cloud computing represents a shift from operating on-premises to operating in the cloud. This shift includes new ways of doing business - for example, the digital transformation shifts from capital expenditures for software and datacenter hardware to operating expenditures for usage of cloud resources.
 
@@ -23,7 +23,7 @@ The high-level process for the digital transformation is:
 <!--6. Develop processes for operating in the cloud to make solutions more robust in terms of availability, resiliency, and security.
 1. Optimize solutions for performance, scalability, and cost efficiency.-->
 
-## Step 1: create a cloud strategy team
+## Step 1: Create a cloud strategy team
 
 The first step in your enterprise's digital transformation is engaging business leaders from across the organization to create a cloud strategy team (CST). This team consists of business leaders from finance, IT infrastructure, and application groups. These teams can help with the cloud analysis and experimentation phase.
 
@@ -37,7 +37,7 @@ The governance team is responsible for designing and implementing the enterprise
 
 The security team is responsible for designing and implementing the enterprise's security policy in the cloud, working closely with the governance team. The security team owns the extension of the security boundary of the on-premises network to include virtual networking in the cloud. This may take the form of owning and maintaining the inbound and outbound firewalls on the cloud virtual network as well as ensuring that tools and policy prevent the deployment of unauthorized resources.
 
-## Step 2: learn what's new in the cloud
+## Step 2: Learn what's new in the cloud
 
 The next step in your enterprise's digital transformation is for the members of the cloud strategy team to learn about how cloud technology will change the way the enterprise does business. This is preparation and planning for the changes to your business, people, and technology. It's important for the members of the cloud strategy team to understand what's new and different in the cloud as compared to on-premises.
 
@@ -47,7 +47,7 @@ The starting point for understanding the cloud is learning [how Azure works](wha
 
 For advanced learning, the governance team should review the concepts and design guides in the governance section of the table of contents. The infrastructure and workloads sections are useful for learning about typical architectures and workloads in the cloud.
 
-## Step 3: identify gaps in business strategy
+## Step 3: Identify gaps in business strategy
 
 The next step is for the cloud strategy team to enumerate the business problems that require a digital transformation solution. For example, an enterprise may have an existing on-premises data center with end-of-life hardware that requires replacement. In another example, an enterprise may be experiencing difficulty with time-to-market for new features and services and may be falling behind to competition. These gaps represent the *goals* of your enterprise's digital transformation.
 
@@ -75,7 +75,7 @@ When all of the gaps in business strategy have been enumerated and high-level so
 
 The output of this process is a stack-ranked list of high-level solutions aligned with business categories.
 
-## Step 4: align high-level solutions with business groups to design solutions
+## Step 4: Align high-level solutions with business groups to design solutions
 
 Now that the goals of the digital transformation have been enumerated, prioritized, and high-level solutions proposed, the next step is for the cloud strategy team to align each of the high-level solutions with design and implementation teams in each of the business groups.
 
@@ -87,7 +87,7 @@ The design of each solution is a non-trivial task and as designs are created, mu
 
 Once the design of the solution is complete, the team moves on to the implementation phase for each design. The implementation phase for each solution design can be run using standard project management processes.
 
-## Step 5: translate existing roles, skills, and process for the cloud
+## Step 5: Translate existing roles, skills, and process for the cloud
 
 At each evolutionary phase during the history of the IT industry, the most notable industry changes are often marked by changes in staff roles. During the transition from mainframes to the client/server model, the role of the computer operator largely disappeared, replaced by the system administrator. When the age of virtualization arrived, the requirement for individuals working with physical servers diminished, replaced with a need for virtualization specialists. Similarly, as institutions shift to cloud computing, roles will likely change again. For example, datacenter specialists might be replaced with cloud financial analysts. Even in cases where IT job titles have not changed, the daily work roles have evolved significantly.
 

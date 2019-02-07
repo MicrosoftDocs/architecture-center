@@ -5,7 +5,7 @@ author: BrianBlanchard
 ms.date: 1/8/2019
 ---
 
-# Fusion: Motivations and business risks that drive identity governance
+# Motivations and business risks that drive identity governance
 
 This article discusses the reasons that customers typically adopt an Identity Baseline discipline within a cloud governance strategy. It also provides a few examples of business risks that drive policy statements.
 

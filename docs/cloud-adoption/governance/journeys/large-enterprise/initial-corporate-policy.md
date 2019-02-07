@@ -5,7 +5,7 @@ author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
-# Fusion: Large Enterprise - Initial corporate policy behind the governance strategy
+# Large enterprise: Initial corporate policy behind the governance strategy
 
 The following corporate policy defines the initial governance position, which is the starting point for this journey. This article defines early-stage risks, initial policy statements, and early processes to enforce policy statements.
 

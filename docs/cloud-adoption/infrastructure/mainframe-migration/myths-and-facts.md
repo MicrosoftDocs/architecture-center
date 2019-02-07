@@ -5,7 +5,7 @@ author: njray
 ms.date: 12/27/2018
 ---
 
-# Fusion: Mainframe myths and facts
+# Mainframe myths and facts
 
 Mainframes figure prominently in the history of computing and remain viable for highly specific workloads. Most agree that mainframes are a proven platform with long-established operating procedures that make them reliable, robust environments. Software runs based on usage, measured in million instructions per second (MIPS), and extensive usage reports are available for charge backs.
 

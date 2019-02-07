@@ -6,7 +6,7 @@ author: BrianBlanchard
 ms.date: 12/10/2018
 ---
 
-# Fusion: How to create a financial model for cloud transformation
+# How to create a financial model for cloud transformation
 
 Creating a financial model that accurately represents the full business value of any cloud transformation can be complicated. Financial models and business justifications tend to be different from one organization to the next. This article establishes some formulas and points out a few things that are commonly missed when creating a financial model.
 
@@ -42,11 +42,11 @@ To calculate earnings, two variables are required:
 
 Each is described below.
 
-## Revenue Delta
+## Revenue delta
 
 Revenue delta should be forecasted in partnership with the business. Once the business stakeholders agree on a revenue impact, that can be used to improve the earning position.
 
-## Cost Deltas
+## Cost deltas
 
 Cost deltas are the amount of increase or decrease that will come as a result of the transformation. There are a number of independent variables that can impact cost deltas. Earnings are largely based on hard costs like capital expense reductions, cost avoidance, operational cost reductions, and depreciation reductions. The following sections are examples of cost deltas to consider.
 

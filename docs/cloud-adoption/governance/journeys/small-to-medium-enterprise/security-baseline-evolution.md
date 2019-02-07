@@ -5,7 +5,7 @@ author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
-# Fusion: Small to Medium Enterprise – Security Baseline evolution
+# Fusion: Small-to-medium enterprise: Security Baseline evolution
 
 This article evolves the narrative by adding security controls that support moving protected data to the cloud.
 

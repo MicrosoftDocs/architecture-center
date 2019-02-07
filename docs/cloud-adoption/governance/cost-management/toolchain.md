@@ -7,7 +7,7 @@ ms.date: 1/4/2019
 
 <!-- markdownlint-disable MD026 -->
 
-# Fusion: What tools can help better manage costs in Azure?
+# What tools can help better manage costs in Azure?
 
 In the [Introduction to Cloud Governance](../overview.md), [Cost Management](overview.md) is one of the Five Disciplines of Cloud Governance. This discipline focuses on ways of establishing cloud spending plans, allocating cloud budgets, monitoring and enforcement of cloud budgets, detecting costly anomalies, and adjusting the cloud governance plan when actual spending is misaligned.
 

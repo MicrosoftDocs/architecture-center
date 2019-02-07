@@ -7,7 +7,7 @@ ms.date: 2/1/2019
 
 <!-- markdownlint-disable MD026 -->
 
-# Fusion: What tools can help better manage user identities in Azure?
+# What tools can help better manage user identities in Azure?
 
 In the [Introduction to Cloud Governance](../overview.md), [Identity Baseline](overview.md) is one of the five disciplines to Cloud Governance. This discipline focuses on ways of establishing policies that ensure consistency and continuity of user identities regardless of the cloud provider that hosts the application or workload.
 

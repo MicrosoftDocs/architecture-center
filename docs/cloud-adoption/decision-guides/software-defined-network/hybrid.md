@@ -5,7 +5,7 @@ author: rotycenh
 ms.date: 12/29/2018
 ---
 
-# Fusion: Software Defined Networks - Hybrid networks
+# Software Defined Networks: Hybrid network
 
 The hybrid cloud network architecture allows virtual networks to access your on-premises resources and services and vice versa, using a Dedicated WAN connection such as ExpressRoute or other connection method to directly connect the networks.
 

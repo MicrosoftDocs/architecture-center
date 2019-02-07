@@ -4,7 +4,7 @@ ms.topic: landing-page
 ms.date: 09/10/2018
 ---
 
-# Fusion
+# Microsoft Cloud Adoption Framework for Azure
 
 The cloud presents a fundamental shift in the way that enterprises procure and utilize technology resources. In the past, enterprises assumed ownership and responsibility of all levels of technology from infrastructure to software. Now, the cloud offers the potential to transform the way enterprises utilize technology by provisioning and consuming resources as needed.
 
@@ -22,7 +22,7 @@ Enter the Cloud Architect: The Cloud Architect serves as the thought leader and 
 
 Cloud Architect Specializations: Each section of Fusion represents a different specialization or variant of the Cloud Architect role. Those sections also create opportunities to share the cloud architect load amongst a team of cloud architects. Example of a specialization: The Governance section of Fusion is designed for Cloud Architects with a passion for mitigating or cleaning up technical risks. Many cloud providers refer to these specialists as Cloud Custodians, we prefer Cloud Guardian or collectively Cloud Governance Team.
 
-## How to use Fusion
+## How to use the Cloud Adoption Framework
 
 If your enterprise is new to Azure, begin with the [overview](./getting-started/overview.md) in the *getting started* section. This document includes prescriptive guidance for your enterprise's digital transformation, walking through each step of the process.
 

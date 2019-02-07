@@ -6,7 +6,7 @@ author: BrianBlanchard
 ms.date: 12/10/2018
 ---
 
-# Fusion: Gather inventory data for a digital estate
+# Gather inventory data for a digital estate
 
 Developing an inventory is the first step in [Digital Estate Planning](overview.md). In this process, a list of IT assets that support specific business functions would be collected for later analysis and rationalization. This article assumes that a bottom-up approach to analysis is most appropriate for planning needs. For more information, see [Approaches to digital estate planning](./approach.md).
 

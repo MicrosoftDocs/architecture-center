@@ -5,7 +5,7 @@ author: rotycenh
 ms.date: 12/29/2018
 ---
 
-# Fusion: Software Defined Networks - Cloud DMZ
+# Software Defined Networks: Cloud DMZ
 
 The Cloud DMZ network architecture allows limited access between your on-premises and cloud-based networks, using a virtual private network (VPN) to connect the networks. A DMZ is deployed in the cloud to secure access to the on-premises network from cloud-based resources.
 

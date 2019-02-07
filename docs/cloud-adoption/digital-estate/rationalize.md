@@ -116,7 +116,7 @@ In parallel to continued rationalization, the Cloud Adoption team can begin migr
 - Understand any inherent business risks and the business' tolerance for those risks.
 - Establish a baseline or minimally viable product (MVP) for governance based on the business' risk tolerance
 
-## Release Planning
+## Release planning
 
 While the Cloud Adoption team is executing the migration or implementation of the first workload, the Cloud Strategy team can begin prioritizing the remaining applications/workloads.
 

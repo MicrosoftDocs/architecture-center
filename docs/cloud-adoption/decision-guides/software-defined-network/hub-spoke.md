@@ -1,4 +1,4 @@
-# Fusion: Software Defined Networks - Hub and Spoke
+# Software Defined Networks: Hub and Spoke
 
 The hub and spoke networking model organizes your Azure-based cloud network infrastructure into multiple connected virtual networks. This model allows you to more efficiently manage common communication or security requirements and deal with potential subscription limitations.
 

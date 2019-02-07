@@ -6,7 +6,7 @@ author: BrianBlanchard
 ms.date: 12/10/2018
 ---
 
-# Fusion: Align cost models with the digital estate to forecast cloud costs
+# Align cost models with the digital estate to forecast cloud costs
 
 Once a digital estate has been rationalized, it can be aligned to equivalent costing models with the chosen cloud provider. Discussing cost models is difficult without focusing on a specific cloud provider. To provide tangible examples in this article, Azure is the assumed cloud provider.
 

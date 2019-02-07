@@ -5,7 +5,7 @@ author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
-# Fusion: Small to Medium Enterprise - Initial corporate policy behind the governance strategy
+# Small-to-medium enterprise: Initial corporate policy behind the governance strategy
 
 The following corporate policy defines an initial governance position, which is the starting point for this journey. This article defines early-stage risks, initial policy statements, and early processes to enforce policy statements.
 

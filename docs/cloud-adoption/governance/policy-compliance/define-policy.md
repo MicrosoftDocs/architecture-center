@@ -10,7 +10,7 @@ I understand risk & tolerance, now what do I do?
 Define the policy... [aspirational statement to move towards 2/1] If you need help defining policies, each discipline includes references to common business risks & policies to mitigate the risks...
 --->
 
-# Fusion: Defining policy
+# Defining corporate policy for cloud governance
 
 Once you've analyzed the known risks and related risk tolerances for your organization's cloud transformation journey, your next step is to establish policy that will explicitly address those risks and define the steps needed to mitigate them where possible.
 
@@ -61,7 +61,7 @@ The need to integrate cloud policy with your legacy IT policies depends largely 
 
 ## Next steps
 
-After defining your policies, [draft an architecture design guide](align-governance-journeys.md) to provide IT staff and developers with actionable guidance.
+After defining your policies, draft an architecture design guide to provide IT staff and developers with actionable guidance.
 
 > [!div class="nextstepaction"]
 > [Draft an architecture design guide](align-governance-journeys.md)

@@ -7,9 +7,7 @@ layout: LandingPage
 ms.topic: landing-page
 ---
 
-<!-- markdownlint-disable MD026 -->
- 
-# Fusion: How can a company add Deployment Acceleration to their Cloud Governance execution?
+# Fusion: Deployment Acceleration discipline
 
 Deployment Acceleration is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md) within the [CAF Governance Model](../overview.md). This discipline focuses on ways of establishing policies to govern asset configuration or deployment. Within the five disciplines of Cloud Governance, configuration governance includes deployment, configuration alignment, and high availability/disaster recovery (HA/DR) strategies. This could be through manual activities or fully automated DevOps activities. In either case, the policies would remain largely the same.
 

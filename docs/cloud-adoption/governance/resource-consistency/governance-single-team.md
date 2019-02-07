@@ -5,7 +5,7 @@ author: petertaylor9999
 ms.date: 2/1/2019
 ---
 
-# Fusion: Governance design for a simple workload
+# Governance design for a simple workload
 
 The goal of this guidance is to help you learn the process for designing a resource governance model in Azure to support a single team and a simple workload. You'll look at a set of hypothetical governance requirements, then go through several example implementations that satisfy those requirements.
 

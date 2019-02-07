@@ -5,7 +5,7 @@ author: alexbuckgit
 ms.date: 1/9/2019
 ---
 
-# Fusion: Motivations and business risks that drive Deployment Acceleration investments
+# Motivations and business risks that drive Deployment Acceleration investments
 
 This article discusses the reasons that customers typically adopt a Deployment Acceleration discipline within a cloud governance strategy. It also provides a few examples of business risks that drive policy statements.
 

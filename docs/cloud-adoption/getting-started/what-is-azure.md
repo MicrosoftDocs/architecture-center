@@ -27,7 +27,7 @@ So, very simply, Azure is a huge collection of servers and networking hardware, 
 
 ## Next steps
 
-Now that you understand the internal functioning of Azure, learn about [resource access governance](what-is-governance.md).
+Now that you understand the internal functioning of Azure, learn about cloud resource governance.
 
 > [!div class="nextstepaction"]
 > [Learn about resource governance](what-is-governance.md)

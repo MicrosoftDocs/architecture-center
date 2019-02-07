@@ -7,9 +7,9 @@ ms.date: 2/1/2019
 
 <!-- markdownlint-disable MD026 -->
 
-# Fusion: What is Cloud Native - Security Baseline Policy?
+# What is "Cloud-Native" Security Baseline policy?
 
-Security Baseline is one of the [five disciplines of Cloud Governance](../overview.md). This discipline focuses on general security topics including protection of the network, digital assets, data, etc. As outlined in the [policy review guide](../policy-compliance/what-is-a-cloud-policy-review.md), the CAF includes three levels of **sample policy**: Cloud-Native, Enterprise, and Cloud Design Principle Compliant for each of the five disciplines. This article discusses the Cloud-Native, Sample Policy for the Security Baseline Discipline.
+Security Baseline is one of the [five disciplines of Cloud Governance](../overview.md). This discipline focuses on general security topics including protection of the network, digital assets, data, etc. As outlined in the [policy review guide](../policy-compliance/what-is-a-cloud-policy-review.md), the CAF includes three levels of **sample policy**: Cloud-Native, Enterprise, and Cloud Design Principle Compliant for each of the five disciplines. This article discusses the Cloud-Native Sample Policy for the Security Baseline Discipline.
 
 > [!NOTE]
 > Microsoft is in no position to dictate corporate or IT policy. This article is intended to help you prepare for an internal policy review. It is assumed that this sample policy will be extended, validated, and tested against your corporate policy before attempting to use it. Any use of this sample policy, as is, is discouraged.

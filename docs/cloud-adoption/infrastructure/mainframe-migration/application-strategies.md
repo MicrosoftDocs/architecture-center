@@ -5,7 +5,7 @@ author: njray
 ms.date: 12/26/2018
 ---
 
-# Fusion: Mainframe application migration
+# Mainframe application migration
 
 When migrating applications from mainframe environments to Azure, most teams follow a pragmatic approach: reuse wherever and whenever possible, and then start a phased deployment where applications are rewritten or replaced.
 

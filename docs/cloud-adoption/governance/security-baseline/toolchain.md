@@ -7,7 +7,7 @@ ms.date: 2/1/2019
 
 <!-- markdownlint-disable MD026 -->
 
-# Fusion: What tools can help better manage Security Baseline in Azure?
+# What tools can help better manage Security Baseline in Azure?
 
 In the [Introduction to Cloud Governance](../overview.md), Security Baseline is one of the five disciplines to Cloud Governance. This discipline focuses on ways of establishing policies that protect the network, assets, and most importantly the data that will reside on a Cloud Provider's solution. Within the five disciplines of Cloud Governance, Security Baseline includes classification of the digital estate and data. It also includes documentation of risks, business tolerance, and mitigation strategies associated with the security of the data, assets, and network. From a technical perspective, this also includes involvement in decisions regarding [encryption](../../decision-guides/encryption/overview.md), [network requirements](../../decision-guides/software-defined-network/overview.md), [hybrid identity strategies](../../decision-guides/identity/overview.md), and tools to [automate enforcement](../../decision-guides/policy-enforcement/overview.md) of security policies across [resource groups](../../decision-guides/resource-consistency/overview.md).
 

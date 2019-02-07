@@ -5,7 +5,7 @@ author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
-# Fusion: Large Enterprise – Cost Management evolution
+# Large enterprise: Cost Management evolution
 
 This article evolves the narrative by adding cost controls to the minimum viable product (MVP) governance.
 
@@ -15,7 +15,7 @@ Adoption has grown beyond the tolerance indicator defined in the governance MVP.
 
 As a clear driver of innovation, IT is no longer seen primarily as a cost center. As the IT organization delivers more value, the CIO and CFO agree that the time is right to evolve the role IT plays in the company. Amongst other changes, the CFO wants to test a direct pay approach to cloud accounting for the Canadian branch of one of the business units. One of the two retired datacenters was exclusively hosted assets for that business unit’s Canadian operations. In this model, the business unit’s Canadian subsidiary will be billed directly for the operational expenses related to the hosted assets. This model allows IT to focus less on managing someone else’s spending and more on creating value. However, before this transition can begin Cost Management tooling needs to be in place.
 
-### Evolution of Current State
+### Evolution of current state
 
 In the previous phase of this narrative, the IT team was actively moving production workloads with protected data into Azure.
 
@@ -25,7 +25,7 @@ Since then, some things have changed that will affect governance:
 - The application development teams have implemented CI/CD pipelines to deploy a number of cloud native applications, significantly affecting customer experiences.
 - The BI team has created aggregation, curation, insight, and prediction processes driving tangible benefits for business operations. Those predictions are now empowering creative new products and services.
 
-### Evolution of Future State
+### Evolution of future state
 
 - Cost monitoring and reporting is to be added to the cloud solution. Reporting should tie direct operational expenses to the functions that are consuming the cloud costs. Additional reporting should allow IT to monitor spending and provide technical guidance on cost management. For the Canadian branch, the department will be billed directly.
 
@@ -68,7 +68,7 @@ This section of the article will evolve the governance MVP design to include new
 
 Adding the above processes and changes to the governance MVP helps mitigate many of the risks associated with cost governance. Together, they create the visibility, accountability, and optimization needed to control costs.
 
-## Next Steps
+## Next steps
 
 As cloud adoption continues to evolve and deliver additional business value, risks and cloud governance needs will also evolve. For the fictional company in this journey, the next step is using this governance investment to manage multiple clouds.
 

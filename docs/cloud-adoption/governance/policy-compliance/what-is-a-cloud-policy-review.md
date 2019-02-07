@@ -7,11 +7,11 @@ ms.date: 2/8/2019
 
 <!-- markdownlint-disable MD026 -->
 
-# Fusion: What is a cloud policy review?
+# What is a cloud policy review?
 
 A **cloud policy review** is the first step toward [governance maturity](../overview.md) in the cloud. The objective of this process is to modernize existing corporate IT policies. When completed, the updated policies provide an equivalent level of risk mitigation for cloud-based resources. This article explains the cloud policy review process and its importance.
 
-## Why perform a Cloud Policy Review?
+## Why perform a cloud policy review?
 
 Most businesses manage IT through the execution of processes which alignment with governing policies. In small businesses, these policies may anecdotal and processes loosely defined. As businesses grow into large enterprises, policies and processes tend to be more clearly documented & consistently executed.
 

@@ -5,7 +5,7 @@ author: petertaylor9999
 ms.date: 12/31/2018
 ---
 
-# Fusion: Deploy a basic workload
+# Deploy a basic workload in Azure
 
 The term *workload* is typically defined as an arbitrary unit of functionality, such as an application or service. It helps to think about a workload in terms of the code artifacts that are deployed to a server, and also other services specific to an application. This may be a useful definition for an on-premises application or service, but for cloud applications it needs to be expanded.
 

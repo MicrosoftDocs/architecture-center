@@ -31,14 +31,14 @@ Resource groups and the resources they contain are associated with an Azure **su
 
 ## What is an Azure subscription?
 
-An Azure subscription is similar to a resource group in that it's a logical construct that groups together resource groups and their resources. However, an Azure subscription is also associated with the controls used by Azure resource manager. What does this mean? Let's take a closer look at Azure resource manager to learn about the relationship between it and an Azure subscription.
+An Azure subscription is similar to a resource group in that it's a logical construct that groups together resource groups and their resources. However, an Azure subscription is also associated with the controls used by Azure Resource Manager. What does this mean? Let's take a closer look at Resource Manager to learn about the relationship between it and an Azure subscription.
 
 ![](../_images/governance-1-11.png)
 *Figure 3. An Azure subscription.*
 
-## What is Azure resource manager?
+## What is Azure Resource Manager?
 
-In [how does Azure work?](what-is-azure.md) you learned that Azure includes a "front end" with many services that orchestrate all the functions of Azure. One of these services is [Azure resource manager](/azure/azure-resource-manager/), and this service hosts the RESTful API used by clients to manage resources.
+In [how does Azure work?](what-is-azure.md) you learned that Azure includes a "front end" with many services that orchestrate all the functions of Azure. One of these services is [Resource Manager](/azure/azure-resource-manager/), and this service hosts the RESTful API used by clients to manage resources.
 
 ![](../_images/governance-1-12.png)
 *Figure 4. Azure resource manager.*
@@ -46,23 +46,23 @@ In [how does Azure work?](what-is-azure.md) you learned that Azure includes a "f
 The following figure shows three clients: [PowerShell](/powershell/azure/overview), the [Azure portal](https://portal.azure.com), and the [Azure command line interface (CLI)](/cli/azure):
 
 ![](../_images/governance-1-13.png)
-*Figure 5. Azure clients connect to the Azure resource manager RESTful API.*
+*Figure 5. Azure clients connect to the Resource Manager RESTful API.*
 
-While these clients connect to Azure resource manager using the RESTful API, Azure resource manager does not include functionality to manage resources directly. Rather, most resource types in Azure have their own [**resource provider**](/azure/azure-resource-manager/resource-group-overview#terminology).
+While these clients connect to Resource Manager using the RESTful API, Resource Manager does not include functionality to manage resources directly. Rather, most resource types in Azure have their own [**resource provider**](/azure/azure-resource-manager/resource-group-overview#terminology).
 
 ![](../_images/governance-1-14.png)
 *Figure 6. Azure resource providers.*
 
-When a client makes a request to manage a specific resource, Azure resource manager connects to the resource provider for that resource type to complete the request. For example, if a client makes a request to manage a virtual machine resource, Azure resource manager connects to the **Microsoft.Compute** resource provider.
+When a client makes a request to manage a specific resource, Resource Manager connects to the resource provider for that resource type to complete the request. For example, if a client makes a request to manage a virtual machine resource, Resource Manager connects to the **Microsoft.Compute** resource provider.
 
 ![](../_images/governance-1-15.png)
-*Figure 7. Azure resource manager connects to the **Microsoft.Compute** resource provider to manage the resource specified in the client request.*
+*Figure 7. Resource Manager connects to the **Microsoft.Compute** resource provider to manage the resource specified in the client request.*
 
-Azure resource manager requires the client to specify an identifier for both the subscription and the resource group in order to manage the virtual machine resource.
+Resource Manager requires the client to specify an identifier for both the subscription and the resource group in order to manage the virtual machine resource.
 
-Now that you have an understanding of how Azure resource manager works, let's return to our discussion of how an Azure subscription is associated with the controls used by Azure resource manager. Before any resource management request can be executed by Azure resource manager, a set of controls are checked.
+Now that you have an understanding of how Resource Manager works, let's return to our discussion of how an Azure subscription is associated with the controls used by Azure resource manager. Before any resource management request can be executed by Resource Manager, a set of controls are checked.
 
-The first control is that a request must be made by a validated user, and Azure resource manager has a trusted relationship with [Azure Active Directory (Azure AD)](/azure/active-directory/) to provide user identity functionality.
+The first control is that a request must be made by a validated user, and Resource Manager has a trusted relationship with [Azure Active Directory](/azure/active-directory/) (Azure AD) to provide user identity functionality.
 
 ![](../_images/governance-1-16.png)
 *Figure 8. Azure Active Directory.*
@@ -91,20 +91,20 @@ The next control is a check that the request does not exceed an [Azure subscript
 ![](../_images/governance-1-20.png)
 *Figure 12. Azure resource limits.*
 
-The final control is a check that the request is within the financial commitment associated with the subscription. For example, if the request is to deploy a virtual machine, Azure resource manager verifies that the subscription has sufficient payment information.
+The final control is a check that the request is within the financial commitment associated with the subscription. For example, if the request is to deploy a virtual machine, Resource Manager verifies that the subscription has sufficient payment information.
 
 ![](../_images/governance-1-21.png)
 *Figure 13. A financial commitment is associated with a subscription.*
 
 ## Summary
 
-In this article, you learned about how resource access is managed in Azure using Azure resource manager.
+In this article, you learned about how resource access is managed in Azure using Azure Resource Manager.
 
 ## Next steps
 
-Now that you understand how resource access is managed in Azure, move on to learn how to design a governance model [for a single team](../governance/governance-single-team.md) or [multiple teams](../governance/governance-multiple-teams.md) using these services.
+Now that you understand how resource access is managed in Azure, move on to learn how to design a governance model.
 
 > [!div class="nextstepaction"]
-> [An overview of governance](../governance/overview.md)
+> [Cloud governance](../governance/overview.md)
 
 <!-- markdownlint-enable MD026 -->

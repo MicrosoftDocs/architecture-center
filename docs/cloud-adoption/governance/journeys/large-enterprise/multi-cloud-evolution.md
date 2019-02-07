@@ -5,7 +5,7 @@ author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
-# Fusion: Large Enterprise – Multi-Cloud Evolution
+# Large enterprise: Multi-cloud evolution
 
 ## Evolution of the narrative
 

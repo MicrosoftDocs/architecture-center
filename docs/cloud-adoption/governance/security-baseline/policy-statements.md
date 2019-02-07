@@ -5,7 +5,7 @@ author: BrianBlanchard
 ms.date: 1/4/2019
 ---
 
-# Fusion: Security Baseline sample policy statements
+# Security Baseline sample policy statements
 
 Individual cloud policy statements are guidelines for addressing specific risks identified during your risk assessment process. These statements should provide a concise summary of risks and plans to deal with them. Each statement definition should include these pieces of information:
 

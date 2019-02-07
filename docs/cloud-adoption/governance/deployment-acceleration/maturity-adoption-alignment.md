@@ -7,7 +7,7 @@ ms.date: 01/17/2019
 
 <!-- markdownlint-disable MD026 -->
 
-# Fusion: How can a company add Deployment Acceleration to their Cloud Governance execution?
+# How can a company add Deployment Acceleration to their cloud governance?
 
 The Deployment Acceleration discipline focuses on establishing policies that ensure that resources are deployed and configured consistently and repeatably, and remain in compliance throughout their lifecycle. Within the Five Disciplines of Cloud Governance, Deployment Acceleration includes decisions regarding automating deployments, source-controlling deployment artifacts, monitoring deployed resources to maintain desired state, and auditing any compliance issues.
 

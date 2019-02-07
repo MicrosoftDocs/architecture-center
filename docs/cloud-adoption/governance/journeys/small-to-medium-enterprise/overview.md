@@ -5,7 +5,7 @@ author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
-# Fusion: Small-to-medium enterprise governance journey
+# Small-to-medium enterprise governance journey
 
 ## Best practice overview
 

@@ -5,7 +5,7 @@ author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
-# Fusion: Small to Medium Enterprise – Best practice explained
+# Small-to-medium enterprise: Best practice explained
 
 The governance journey starts with a set of initial [corporate policies](./initial-corporate-policy.md). These policies are used to establish a governance MVP that reflects [best practices](./overview.md).
 

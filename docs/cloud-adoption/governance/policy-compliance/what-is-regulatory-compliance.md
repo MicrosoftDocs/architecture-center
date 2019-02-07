@@ -5,7 +5,7 @@ author: BrianBlanchard
 ms.date: 2/8/2019
 ---
 
-# Fusion: Introduction to regulatory compliance
+# Introduction to regulatory compliance
 
 This is an introductory article about regulatory compliance, therefore it's not intended for implementing a compliance strategy. It is for general awareness only. More detailed information about [Azure compliance offerings](https://aka.ms/allcompliance) is available at the [Microsoft Trust Center]. Moreover, all downloadable documentation is available to Azure customers under a nondisclosure agreement from the [Microsoft Service Trust Portal](https://servicetrust.microsoft.com/).
 

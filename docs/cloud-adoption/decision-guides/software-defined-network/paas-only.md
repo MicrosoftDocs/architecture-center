@@ -5,7 +5,7 @@ author: rotycenh
 ms.date: 11/07/2018
 ---
 
-# Fusion: Software Defined Networks - PaaS only
+# Software Defined Networks: PaaS only
 
 When you implement a platform as a service (PaaS) resource, the deployment process automatically creates an assumed underlying network with a limited number of controls over that network, including load balancing, port blocking, and connections to other PaaS services.
 

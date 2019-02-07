@@ -4,7 +4,7 @@ description: Defining the approach to create hybrid cloud consistency
 author: BrianBlanchard
 ms.date: 12/27/2018
 ---
-# Fusion: How To: Create hybrid cloud consistency
+# Create hybrid cloud consistency
 
 This article guides you through the high level approaches for creating hybrid cloud consistency.
 

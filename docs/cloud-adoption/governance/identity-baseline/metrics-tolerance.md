@@ -5,7 +5,7 @@ author: BrianBlanchard
 ms.date: 1/3/2019
 ---
 
-# Fusion: Metrics, indicators, and risk tolerance
+# Identity Baseline metrics, indicators, and risk tolerance
 
 This article is intended to help you quantify business risk tolerance as it relates to Identity Baseline. Defining metrics and indicators helps you create a business case for making an investment in maturing the Identity Baseline discipline.
 

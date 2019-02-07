@@ -5,7 +5,7 @@ author: BrianBlanchard
 ms.date: 2/1/2019
 ---
 
-# Fusion: Large Enterprise – Security Baseline evolution
+# Large enterprise: Security Baseline evolution
 
 This article evolves the narrative by adding security controls that support moving protected data to the cloud.
 

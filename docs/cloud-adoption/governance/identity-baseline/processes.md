@@ -5,7 +5,7 @@ author: BrianBlanchard
 ms.date: 1/4/2019
 ---
 
-# Fusion: Identity Baseline policy compliance processes
+# Identity Baseline policy compliance processes
 
 This article discusses an approach to policy adherence processes that govern [Identity Baseline](./overview.md). Effective governance of identity starts with recurring manual processes that guide identity policy adoption and revisions. This requires regular involvement of the Cloud Governance team and interested business and IT stakeholders to review and update policy and ensure policy compliance. In addition, many ongoing monitoring and enforcement processes can be automated or supplemented with tooling to reduce the overhead of governance and allow for faster response to policy deviation.
 
