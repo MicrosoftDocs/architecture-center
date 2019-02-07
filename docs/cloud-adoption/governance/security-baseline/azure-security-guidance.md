@@ -4,16 +4,14 @@ titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
+ms.date: 02/11/2019
 description: What security guidance does Microsoft provide?
 author: BrianBlanchard
-ms.date: 2/1/2019
 ---
 
 <!-- markdownlint-disable MD026 -->
 
 # What security guidance does Microsoft provide?
-
-<!-- markdownlint-disable MD026 -->
 
 ## Security guidance and tools
 

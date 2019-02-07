@@ -73,5 +73,3 @@ The following table lists the native tools that can help mature the policies and
 The [Hybrid Identity Digital Transformation Framework](https://resources.office.com/ww-landing-M365E-EMS-IDAM-Hybrid-Identity-WhitePaper.html?LCID=EN-US) outlines a number of combinations and solutions for choosing and integrating each of these components.
 
 The [Azure AD Connect tool](https://aka.ms/aadconnectwiz) helps you to integrate your on-premises directories with Azure AD.
-
-<!-- markdownlint-enable MD026 -->

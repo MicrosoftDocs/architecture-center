@@ -1,8 +1,12 @@
 ---
 title: "CAF: Resource access management in Azure"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 description: "Explanation of resource access management constructs in Azure: Azure Resource Manager, subscriptions, resource groups, and resources"
 author: petertaylor9999
-ms.date: 2/1/2019
 ---
 
 # Resource access management in Azure
@@ -106,5 +110,3 @@ Now that you understand how to manage resource access in Azure, move on to learn
 
 > [!div class="nextstepaction"]
 > [An overview of governance](../overview.md)
-
-<!-- markdownlint-enable MD026 -->

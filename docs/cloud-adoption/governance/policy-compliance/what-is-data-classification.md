@@ -47,5 +47,3 @@ Apply data classifications during one of the actionable governance journeys.
 
 > [!div class="nextstepaction"]
 > [Begin an Actionable Governance Journeys](../journeys/overview.md)
-
-<!-- markdownlint-enable MD026 -->

@@ -1,13 +1,15 @@
 ---
-title: "CAF: How can a company add Resource Consistency discipline to their Cloud Governance execution?"
-description: Explanation of the concept Resource Consistency in relation to cloud governance
+title: "CAF: Resource Consistency discipline improvement"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Resource Consistency discipline improvement
 author: BrianBlanchard
-ms.date: 12/14/2018
 ---
 
-<!-- markdownlint-disable MD026 -->
-
-# How can a company add the Resource Consistency discipline to their cloud governance?
+# Resource Consistency discipline improvement
 
 The Resource Consistency discipline focuses on ways of establishing policies related to the operational management of an environment, application, or workload. Within the five disciplines of Cloud Governance, Resource Consistency includes monitoring of applications, workload, and asset performance. It also includes the tasks required to meet scale demands, remediate performance Service Level Agreement (SLA) violations, and proactively avoid SLA violations through automated remediation.
 
@@ -21,8 +23,6 @@ It's impossible for any one document to account for the requirements of all busi
 
 > [!CAUTION]
 > Neither the minimum or potential activities outlined in this article are aligned to specific corporate policies or third party compliance requirements. This guidance is designed to help facilitate the conversations that will lead to alignment of both requirements with a cloud governance model.
-
-<!-- markdownlint-disable MD026 -->
 
 ## Planning and readiness
 

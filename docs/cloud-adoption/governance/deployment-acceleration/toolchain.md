@@ -9,8 +9,6 @@ ms.date: 02/11/2019
 author: BrianBlanchard
 ---
 
-<!-- markdownlint-disable MD026 -->
-
 # Deployment Acceleration tools in Azure
 
 [Deployment Acceleration](overview.md) is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md). This discipline focuses on ways of establishing policies to govern asset configuration or deployment. Within the five disciplines of Cloud Governance, configuration governance includes deployment, configuration alignment, and HA/DR strategies. This could be through manual activities or fully automated DevOps activities. In either case, the policies would remain largely the same.

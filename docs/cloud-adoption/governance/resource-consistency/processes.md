@@ -1,8 +1,12 @@
 ---
-title: "CAF: Policy adherence processes for Resource Consistency"
-description: Explanation of the concept Resource Consistency in relation to cloud governance processes
+title: "CAF: Resource Consistency policy compliance processes"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Resource Consistency policy compliance processes
 author: BrianBlanchard
-ms.date: 1/4/2019
 ---
 
 # Resource Consistency policy compliance processes

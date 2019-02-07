@@ -39,5 +39,3 @@ Once an understanding of realistic business risks is established, the next step 
 
 > [!div class="nextstepaction"]
 > [Metrics, indicators, and risk tolerance](./metrics-tolerance.md)
-
-<!-- markdownlint-enable MD026 -->

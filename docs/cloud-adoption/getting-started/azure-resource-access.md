@@ -106,5 +106,3 @@ Now that you understand how resource access is managed in Azure, move on to lear
 
 > [!div class="nextstepaction"]
 > [Cloud governance](../governance/overview.md)
-
-<!-- markdownlint-enable MD026 -->

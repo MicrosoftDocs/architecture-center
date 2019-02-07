@@ -1,13 +1,15 @@
 ---
-title: "CAF: What tools can help better manage resources in Azure?"
-description: Explanation of the tools that can facilitate improved Resource Consistency in Azure
+title: "CAF: Resource Consistency tools in Azure"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Resource Consistency tools in Azure
 author: BrianBlanchard
-ms.date: 2/1/2019
 ---
 
-<!-- markdownlint-disable MD026 -->
-
-# What tools can help better manage Resource Consistency in Azure?
+# Resource Consistency tools in Azure
 
 [Resource Consistency](overview.md) is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md). This discipline focuses on ways of establishing policies related to the operational management of an environment, application, or workload. Within the five disciplines of Cloud Governance, Resource Consistency includes monitoring of application, workload, and asset performance. It also includes the tasks required to meet scale demands, remediate performance SLA violations, and proactively avoid performance SLA violations through automated remediation.
 
@@ -54,5 +56,3 @@ When planning your deployment, you will need to consider where logging data is s
 # Next steps
 
 Learn how to create, assign, and manage [policy definitions](/azure/governance/policy/) in Azure.
-
-<!-- markdownlint-enable MD026 -->

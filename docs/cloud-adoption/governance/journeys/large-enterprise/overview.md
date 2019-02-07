@@ -73,5 +73,3 @@ Now that you’re familiar with the governance MVP and have an idea of the gover
 
 > [!div class="nextstepaction"]
 > [Read the supporting narrative](./narrative.md)
-
-<!-- markdownlint-enable MD026 -->

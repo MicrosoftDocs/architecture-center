@@ -1,11 +1,17 @@
 ---
-title: "CAF: Motivations and business risks that drive Resource Consistency governance"
-description: Learn about the discipline of Resource Consistency as part of a cloud governance strategy.
+title: "CAF: Resource Consistency motivations and business risks"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Resource Consistency motivations and business risks
 author: alexbuckgit
-ms.date: 1/18/2019
 ---
 
-# Motivations and business risks that drive Resource Consistency governance
+# Resource Consistency motivations and business risks
+
+This article discusses the reasons that customers typically adopt a Resource Consistency discipline within a cloud governance strategy. It also provides a few examples of potential business risks that can drive policy statements.
 
 <!-- markdownlint-disable MD026 -->
 
@@ -38,5 +44,3 @@ Once an understanding of realistic business risks is established, the next step 
 
 > [!div class="nextstepaction"]
 > [Understand indicators, metrics, and risk tolerance](./metrics-tolerance.md)
-
-<!-- markdownlint-enable MD026 -->
