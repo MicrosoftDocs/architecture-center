@@ -106,7 +106,7 @@
             href: data-guide/scenarios/interactive-data-exploration.md
           - name: Natural language processing
             href: data-guide/scenarios/natural-language-processing.md
-          - name: Time series solutions
+          - name: Time series solutions 
             href: data-guide/scenarios/time-series.md
           - name: Working with CSV and JSON files
             href: data-guide/scenarios/csv-and-json.md
