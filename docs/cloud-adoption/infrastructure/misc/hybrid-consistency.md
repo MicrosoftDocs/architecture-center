@@ -14,7 +14,7 @@ Hybrid deployment models during migration can reduce risk and contribute to a sm
 
 Using a hybrid cloud solution allows organizations to scale computing resources. It also eliminates the need to make massive capital expenditures to handle short-term spikes in demand. When changes to your business drive the need to free up local resources for more sensitive data or applications, it is easier, faster, and less expensive to deprovision cloud resources. You pay only for those resources your organization temporarily uses, instead of having to purchase and maintain additional resources. This reduces the amount of equipment that might remain idle over long periods of time. Hybrid cloud computing is a “best of all possible worlds” platform, delivering all the benefits of cloud computing flexibility, scalability, and cost efficiencies; all with the lowest possible risk of data exposure.
 
-![Creating hybrid cloud consistency across identity, management, security, data, development, & devops](../../_images/hybrid-consistency.png)
+![Creating hybrid cloud consistency across identity, management, security, data, development, and DevOps](../../_images/hybrid-consistency.png)
 *Figure 1. Creating hybrid cloud consistency across identity, management, security, data, development, and DevOps*
 
 A true hybrid cloud solution must provide four components, each of which brings significant benefits, including:
@@ -22,7 +22,7 @@ A true hybrid cloud solution must provide four components, each of which brings 
 - Common identity for on-premises and cloud applications: This improves user productivity by giving users single sign-on (SSO) to all their applications. It also ensures consistency as applications and users cross network/cloud boundaries.
 - Integrated management and security across your hybrid cloud: This provides you with a cohesive way to monitor, manage, and secure the environment, enabling increased visibility and control.
 - A consistent data platform for the datacenter and the cloud: This creates data portability, combined with seamless access to on-premises and cloud data services for deep insight into all data sources.
-- Unified development and DevOps across the cloud and on-premises datacenters: This lets you move applications between the two environments as needed, improving developer productivity, as both places now have the same development environment.
+- Unified development and DevOps across the cloud and on-premises datacenters: This allows you to move applications between the two environments as needed, improving developer productivity, as both places now have the same development environment.
   
 Examples of these components from an Azure perspective include:
 

@@ -12,7 +12,7 @@ Enterprises are increasingly adopting the public cloud for its agility and flexi
 Deciding to use Microsoft Azure is only the first step to achieving the benefit of the cloud. The second step is understanding how the enterprise can effectively use Azure and identify the baseline capabilities that need to be in place to address questions like:
 
 * "I'm concerned about data sovereignty; how can I ensure that my data and systems meet our regulatory requirements?"
-* "How do I know what every resource is supporting so I can account for it and bill it back accurately?"
+* "How do I know what each resource is supporting so I can account for it and bill it back accurately?"
 * "I want to make sure that everything we deploy or do in the public cloud starts with the mindset of security first, how do I help facilitate that?"
 
 The prospect of an empty subscription with no guard rails is daunting. This blank space can hamper your move to Azure.
@@ -62,7 +62,7 @@ The three common patterns for Azure Enrollments are:
 
 Though each of these patterns has its place, the **business unit** pattern is increasingly being adopted for its flexibility in modeling an organization's cost model as well as reflecting span of control. Microsoft Core Engineering and Operations group has created a sub-set of the **business unit** pattern that is very effective, modeled on **Federal**, **State**, and **Local**. (For more information, see [Organizing subscriptions and resource groups within the Enterprise](https://azure.microsoft.com/blog/organizing-subscriptions-and-resource-groups-within-the-enterprise/).)
 
-### Management Groups
+### Azure management groups
 
 Microsoft has recently released a new way of modeling your hierarchy: [Azure management groups](/azure/azure-resource-manager/management-groups-overview). Management groups are much more flexible than departments and accounts and can be nested up to six levels. Management groups allow you to create a hierarchy that is separate from your billing hierarchy, solely for efficient management of resources. Management groups can mirror your billing hierarchy and often enterprises start that way. However, the power of management groups is when you use them to model your organization where related subscriptions &mdash; regardless where they are in the billing hierarchy &mdash; are grouped together and need common roles assigned as well as policies and initiatives. A few examples:
 
@@ -135,7 +135,7 @@ The introduction of initiatives provided enterprises a way to group logical poli
 
 * **Enable monitoring in Azure Security Center**. This is a default initiative in the Azure Policy and an excellent example of what initiative are. It enables policies that identify un-encrypted SQL databases, virtual machine (VM) vulnerabilities and more common security related needs.
 * **Regulatory specific initiative**. Enterprises often group policies common to a regulatory requirement (such as HIPAA) so that controls and compliancy to those controls are tracked efficiently.
-* **Resource Types & SKUs**. Creating an initiative that restricts the types of resources that can be deployed as well as the SKUs that can be deployed can help to control costs and ensure your organization is only deploying resources that your team have the skillset and procedures to support.
+* **Resource Types and SKUs**. Creating an initiative that restricts the types of resources that can be deployed as well as the SKUs that can be deployed can help to control costs and ensure your organization is only deploying resources that your team have the skillset and procedures to support.
 
 > [!TIP]
 > We recommend you always use initiative definitions instead of policy definitions. After assigning an initiative to a scope, such as subscription or management group, you can easily add another policy to the initiative without having to change any assignments. This makes understanding what is applied and tracking compliance far easier.
@@ -160,7 +160,7 @@ When implementing role-based access, the following are highly recommended:
 
 * Control the Administrator/Co-Administrator of a subscription as these roles have extensive permissions. You only need to add the Subscription Owner as a Co-administrator if they need to managed Azure Classic deployments.
 
-* Use Management Groups to assign [roles](/azure/azure-resource-manager/management-groups-overview#management-group-access) across multiple subscriptions and reduce the burden of managing them at the subscription level.
+* Use management groups to assign [roles](/azure/azure-resource-manager/management-groups-overview#management-group-access) across multiple subscriptions and reduce the burden of managing them at the subscription level.
 * Add Azure users to a group (for example, Application X Owners) in Active Directory. Use the synced group to provide group members the appropriate rights to manage the resource group containing the application.
 * Follow the principle of granting the **least privilege** required to do the expected work.
 
@@ -192,10 +192,10 @@ The "Secure DevOps Kit for Azure" (AzSK) is a collection of scripts, tools, exte
 * Enable secure development
 * Integrate security into CICD
 * Continuous Assurance
-* Alerting & Monitoring
+* Alerting and Monitoring
 * Cloud Risk Governance
 
-![Azure dev ops Toolkit](_images/Secure_DevOps_Kit_Azure.png)
+![Azure DevOps Toolkit](_images/Secure_DevOps_Kit_Azure.png)
 
 The AzSK is a rich set of tools, scripts and information that are an important part of a full Azure governance plan and incorporating this into your scaffold is crucial to supporting your organizations risk management goals
 
@@ -281,7 +281,7 @@ Cost management is a discipline that is core to the effective and efficient runn
 
 ## Automate
 
-One of the many capabilities that differentiates the maturity of organizations using cloud providers is the level of automation that they have incorporated.  Automation is a never-ending process and as your organization moves to the cloud it is any area that you need to invest resources and time in building.  Automation serves many purposes including consistent rollout of resources (where it ties directly to another core scaffold concept, Templates & DevOps) to the remediation of issues.  Automation is the "connective tissue" of the Azure scaffold and links each area together.
+One of the many capabilities that differentiates the maturity of organizations using cloud providers is the level of automation that they have incorporated.  Automation is a never-ending process and as your organization moves to the cloud it is any area that you need to invest resources and time in building.  Automation serves many purposes including consistent rollout of resources (where it ties directly to another core scaffold concept, Templates and DevOps) to the remediation of issues.  Automation is the "connective tissue" of the Azure scaffold and links each area together.
 
 There are a number of tools that are available as you build out this capability, from first party tools such as Azure Automation, EventGrid and AzureCLI to an extensive amount of third party tools such as Terraform, Jenkins, Chef, and Puppet (to name a few). Core to your operations team ability to automate are Azure Automation, Event Grid and the Azure Cloud Shell:
 
@@ -298,7 +298,7 @@ Automation is a full-time job and it will rapidly become one of the most importa
 
 As highlighted in the Automate section, your goal as an organization should be to provision resources through source-controlled templates and scripts and to minimize interactive configuration of your environments. This approach of "infrastructure as code" along with a disciplined DevOps process for continuous deployment can ensure consistency and reduce drift across your environments. Almost every Azure resource is deployable through [Azure Resource Manager JSON templates](/azure/azure-resource-manager/resource-group-template-deploy) in conjunction with PowerShell or the Azure cross platform CLI and tools such as Terraform from Hashicorp (which has first class support and integrated into the Azure Cloud Shell).
 
-Article such as [this one](https://blogs.msdn.microsoft.com/mvpawardprogram/2018/05/01/azure-resource-manager/) provide an excellent discussion on best practices and lessons learned in applying a DevOps approach to Azure Resource Manager templates with the [Azure DevOps](/azure/devops/user-guide/?view=vsts) tool chain. Take the time and effort to develop a core set of templates specific to your organization's requirements, and to develop continuous delivery pipelines with DevOps tool chains (Azure DevOps, Jenkins, Bamboo, Teamcity, Concourse), especially for your production and QA environments. There is a large library of [Azure Quick Start templates](https://github.com/Azure/azure-quickstart-templates) on GitHub that you can use as a starting point for templates, and you can quickly create cloud-based delivery pipelines with Azure DevOps.
+Article such as [this one](https://blogs.msdn.microsoft.com/mvpawardprogram/2018/05/01/azure-resource-manager/) provide an excellent discussion on best practices and lessons learned in applying a DevOps approach to Azure Resource Manager templates with the [Azure DevOps](/azure/devops/user-guide/?view=vsts) toolchain. Take the time and effort to develop a core set of templates specific to your organization's requirements, and to develop continuous delivery pipelines with DevOps toolchains (such as Azure DevOps, Jenkins, Bamboo, Teamcity, Concourse), especially for your production and QA environments. There is a large library of [Azure Quick Start templates](https://github.com/Azure/azure-quickstart-templates) on GitHub that you can use as a starting point for templates, and you can quickly create cloud-based delivery pipelines with Azure DevOps.
 
 As a best practice for production subscriptions or resource groups, your goal should be utilizing RBAC security to disallow interactive users by default and utilizing automated continuous delivery pipelines based on service principals to provision all resources and deliver all application code. No admin or developer should touch the Azure Portal to interactively configure resources. This level of DevOps takes a concerted effort and utilizes all the concepts of the Azure scaffold and provides a consistent and more secure environment that will meet your organizations to grow scale.
 
@@ -313,7 +313,7 @@ The final component of the Azure scaffold reference model is core to how your or
 
 * **Virtual networks** are container objects for subnets. Though not strictly necessary, it is often used when connecting applications to internal corporate resources.
 * **User Defined Routes** allow you to manipulate the route table within a subnet enabling you to send traffic through a network virtual appliance or to a remote gateway on a peered virtual network.
-* **Virtual Network Peering** enables you to seamlessly connect two or more Azure virtual networks, creating more complex hub & spoke designs or shared services networks.
+* **Virtual Network Peering** enables you to seamlessly connect two or more Azure virtual networks, creating more complex hub-and-spoke designs or shared services networks.
 * **Service Endpoints**. In the past, PaaS services relied on different methods to secure access to those resources from your virtual networks. Service endpoints allow you to secure access to enabled PaaS services from ONLY connected endpoints, increasing overall security.
 * **Security groups** are an extensive set of rules which provide you the ability to allow or deny inbound and outbound traffic to/from Azure Resources. [Security Groups](/azure/virtual-network/security-overview) consist of Security Rules, which can be augmented with **Service Tags** (which define common Azure services such as Azure KeyVault, Azure SQL Database, and others) and **Application Groups** (which define and application structure, such as web servers or app servers).
 

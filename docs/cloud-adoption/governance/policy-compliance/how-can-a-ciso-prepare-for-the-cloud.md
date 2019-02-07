@@ -31,7 +31,7 @@ Security platform resources:
 
 * [Security Development Cycle, internal audits](https://www.microsoft.com/sdl/)
 * [Mandatory security training, background checks](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx)
-* [Penetration testing, intrusion detection, DDoS, audits & logging](https://www.microsoft.com/trustcenter/Security/AuditingAndLogging)
+* [Penetration testing, intrusion detection, DDoS, audits, and logging](https://www.microsoft.com/trustcenter/Security/AuditingAndLogging)
 * [State-of-the-art datacenter](https://www.microsoft.com/cloud-platform/global-datacenters), physical security, [secure network](/azure/security/security-network-overview)
 * [Microsoft Azure Security Response in the Cloud (PDF)](http://aka.ms/SecurityResponsePaper)
 

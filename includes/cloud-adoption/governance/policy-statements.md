@@ -1,6 +1,8 @@
+<!-- TEMPLATE FILE - DO NOT ADD METADATA -->
+
 ## Policy statements
 
-The following policy statements establish the requirements needed to mitigate the defined risks. These policies define the functional requirements for the governance MVP. Each will be represented in the implementation of the governance MVP. 
+The following policy statements establish the requirements needed to mitigate the defined risks. These policies define the functional requirements for the governance MVP. Each will be represented in the implementation of the governance MVP.
 
 Deployment Acceleration:
 
@@ -31,7 +33,7 @@ Resource Consistency:
 
 ## Processes
 
-No budget has been allocated for ongoing monitoring and enforcement of these governance policies. Given that, the cloud governance team has some ad hoc ways to monitor adherence to policy statements.
+No budget has been allocated for ongoing monitoring and enforcement of these governance policies. Because of that, the Cloud Governance team has some ad hoc ways to monitor adherence to policy statements.
 
-- **Education**: The cloud governance team is investing time to educate the cloud adoption teams on the governance journeys that support these policies.
-- **Deployment** reviews: Before deploying any asset, the cloud governance team will review the governance journey with the cloud adoption teams.
+- **Education**: The Cloud Governance team is investing time to educate the cloud adoption teams on the governance journeys that support these policies.
+- **Deployment** reviews: Before deploying any asset, the Cloud Governance team will review the governance journey with the cloud adoption teams.

@@ -107,7 +107,7 @@ The first workload is often deployed in an experimental environment with no oper
 
 ### Qualitative analysis
 
-The Cloud Adoption and Cloud Strategy teams can work together to analyze this small workload. This creates a controlled opportunity to create and test qualitative analysis criteria. The smaller population creates an opportunity to survey the impacted users, to complete a detailed qualitative analysis in a week or less. For common qualitative analysis factors, see the specific rationalization target in the [5 Rs of Rationalization](5-rs-of-rationalization.md).
+The Cloud Adoption and Cloud Strategy teams can work together to analyze this small workload. This creates a controlled opportunity to create and test qualitative analysis criteria. The smaller population creates an opportunity to survey the affected users, to complete a detailed qualitative analysis in a week or less. For common qualitative analysis factors, see the specific rationalization target in the [5 Rs of Rationalization](5-rs-of-rationalization.md).
 
 ### Migration
 
@@ -117,7 +117,7 @@ In parallel to continued rationalization, the Cloud Adoption team can begin migr
 - Define the core services (and Azure standards) needed to fit the long term vision.
 - Better understand how operations may need to evolve later in the transformation.
 - Understand any inherent business risks and the business' tolerance for those risks.
-- Establish a baseline or minimally viable product (MVP) for governance based on the business' risk tolerance
+- Establish a baseline or minimum viable product (MVP) for governance based on the business' risk tolerance.
 
 ## Release planning
 
@@ -149,7 +149,7 @@ In some cases, the financial model may be too tight to make a decision to act, w
 
 ## Next steps
 
-The output of a rationalization effort is a prioritized backlog of all assets to be impacted by the chosen transformation. This backlog is now ready to serve as the foundation for costing models of cloud services.
+The output of a rationalization effort is a prioritized backlog of all assets that will be affected by the chosen transformation. This backlog is now ready to serve as the foundation for costing models of cloud services.
 
 > [!div class="nextstepaction"]
 > [Align cost models with the digital estate](calculate.md)
