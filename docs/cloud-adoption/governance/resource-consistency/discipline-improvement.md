@@ -42,7 +42,7 @@ This phase of governance maturity bridges the divide between business outcomes a
 * Work with the business stakeholders and/or your cloud strategy team to understand the desired cloud accounting approach and cost accounting practices within your business units and organization as a whole.
 * Define your [monitoring and policy enforcement](compliance-processes.md) requirements.
 * Examine the business value and cost of outage to define remediation policy and SLA requirements.
-* Determine whether you'll deploy [single team](./governance-single-team.md) or [multiple team](./governance-multiple-teams.md) governance strategy for your resources.
+* Determine whether you'll deploy a [simple workload](./governance-simple-workload.md) or [multi-team](./governance-multiple-teams.md) governance strategy for your resources.
 * Determine scalability requirements for your planned workloads.
 
 ## Build and pre-deployment
@@ -120,7 +120,7 @@ Once the transformation is complete, governance and operations must live on for 
 
 ## Next steps
 
-Now that you understand the concept of cloud resource governance, move on to learn more about [how resource access is managed](azure-resource-access.md) in Azure in preparation for learning how to design a governance model for a [single team](governance-single-team.md) or [multiple teams](governance-multiple-teams.md).
+Now that you understand the concept of cloud resource governance, move on to learn more about [how resource access is managed](azure-resource-access.md) in Azure in preparation for learning how to design a governance model for a [simple workload](governance-simple-workload.md) or for [multiple teams](governance-multiple-teams.md).
 
 > [!div class="nextstepaction"]
 > [Learn about resource access in Azure](azure-resource-access.md)
