@@ -1,5 +1,9 @@
 ---
-title: "Fusion: Implementing a cloud governance strategy"
+title: Implement a cloud governance strategy
+titleSuffix: Microsoft Cloud Adoption Framework
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
 description: Overview of governance content within Fusion
 author: BrianBlanchard
 ms.date: 1/3/2019
