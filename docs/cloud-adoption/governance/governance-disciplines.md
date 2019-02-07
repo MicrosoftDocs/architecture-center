@@ -1,6 +1,6 @@
 ---
 title: "Fusion: 5 Disciplines of Cloud Governance"
-description: Overview of governance content within Fusion
+description: Overview of governance content within CAF
 author: BrianBlanchard
 ms.date: 12/08/2018
 layout: LandingPage
