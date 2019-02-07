@@ -1,6 +1,6 @@
 ---
 title: Motivations and business risks that drive cost governance
-titleSuffix: Microsoft Cloud Adoption Framework
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance

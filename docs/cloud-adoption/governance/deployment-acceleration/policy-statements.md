@@ -5,7 +5,7 @@ author: alexbuckgit
 ms.date: 1/18/2019
 ---
 
-# Deployment Acceleration sample policy statements
+# Deployment Acceleration:<br />Sample policy statements
 
 Individual cloud policy statements are guidelines for addressing specific risks identified during your risk assessment process. These statements should provide a concise summary of risks and plans to deal with them. Each statement definition should include these pieces of information:
 
