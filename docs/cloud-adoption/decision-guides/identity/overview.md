@@ -25,10 +25,10 @@ Cloud-based software as a service (SaaS) identity solutions provide a base level
 
 | Question | Cloud baseline | Directory synchronization | Cloud-hosted Domain Services | AD Federation Services |
 |------|------|------|------|------|
-| Do you currently lack an on-premises directory service? | Yes | No | No  | No |
-| Do your workloads need to authenticate against on-premises identity services? | No | Yes | No | No  |
+| Do you currently lack an on-premises directory service? | Yes | No | No | No |
+| Do your workloads need to authenticate against on-premises identity services? | No | Yes | No | No |
 | Do your workloads depend on legacy authentication mechanisms, such as Kerberos or NTLM? | No | No | Yes | No |
-| Is integration between cloud and on-premises identity services impossible? | No    | No | Yes | No |
+| Is integration between cloud and on-premises identity services impossible? | No | No | Yes | No |
 | Do you require single sign-on across multiple identity providers? | No | No | No | Yes |
 
 As part of planning your migration to Azure, you will need to determine how best to integrate your existing identity management and cloud identity services. The following are common integration scenarios.

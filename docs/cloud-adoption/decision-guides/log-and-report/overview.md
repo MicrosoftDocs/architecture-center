@@ -28,9 +28,9 @@ When planning your deployment, you need to consider where logging data is stored
 | Question | Cloud native | On-premises extension | Hybrid monitoring | Gateway aggregation |
 |-----|-----|-----|-----|-----|
 | Do you have an existing on-premises monitoring infrastructure? | No | Yes | Yes |  No |
-| Do you have requirements preventing storage of log data on external storage locations? | No | Yes | No | No  |
+| Do you have requirements preventing storage of log data on external storage locations? | No | Yes | No | No |
 | Do you need to integrate cloud monitoring with on-premises systems? | No | No | Yes | No |
-Do you need to process or filter telemetry data before submitting it to your monitoring systems? | No | No | No | Yes  |
+Do you need to process or filter telemetry data before submitting it to your monitoring systems? | No | No | No | Yes |
 
 ### Cloud native
 
