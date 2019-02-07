@@ -6,7 +6,7 @@ author: BrianBlanchard
 ms.date: 12/10/2018
 ---
 
-# Fusion: Rationalize the digital estate
+# Rationalize the digital estate
 
 Cloud rationalization is the process of evaluating assets to determine the best approach to hosting them in the cloud. Once an [approach](approach.md) has been determined and [inventory](inventory.md) has been aggregated, cloud rationalization can begin. The [5 Rs of rationalization](5-rs-of-rationalization.md) discusses the most common rationalization options.
 

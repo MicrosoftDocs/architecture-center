@@ -7,7 +7,7 @@ layout: LandingPage
 ms.topic: landing-page
 ---
 
-# Fusion: Actionable Governance Journeys
+# Actionable governance journeys
 
 The governance journeys in this section illustrate the incremental approach of the CAF governance model. You can establish an agile governance platform that will evolve to meet the needs of any cloud governance scenario.
 
