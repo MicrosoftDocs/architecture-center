@@ -55,7 +55,7 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
                     <div class="card">
                         <img src="_images/cloud-adoption.svg" alt="" />
                         <div class="cardText">
-                            <h3>Fusion</h3>
+                            <h3>Microsoft Cloud Adoption Framework for Azure</h3>
                             <p>This guide outlines a process for creating an organization-wide cloud adoption strategy. It focuses on organizational readiness, governance, and infrastructure.</p>
                         </div>
                     </div>
