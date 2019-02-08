@@ -18,6 +18,7 @@ Jump to: {% for section in sections %}[{{ section.shortName }}](#{{ section.titl
 <!-- markdownlint-disable MD033 -->
 
 {%- for section in sections %}
+
 ## {{ section.title }}
 
 <ul  class="panelContent cardsF">
@@ -25,4 +26,4 @@ Jump to: {% for section in sections %}[{{ section.shortName }}](#{{ section.titl
 {% include 'tile' with card %}
 {%- endfor %}
 </ul>
-{% endfor %}
+{%- endfor %}

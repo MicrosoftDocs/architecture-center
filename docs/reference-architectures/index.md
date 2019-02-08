@@ -16,6 +16,7 @@ Our reference architectures are arranged by scenario. Each architecture includes
 Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT](#internet-of-things) | [Microservices](#microservices) | [Serverless](#serverless-applications) | [Virtual networks](#virtual-networks) | [VM workloads](#vm-workloads) | [SAP](#sap) | [Active Directory](#extend-on-premises-active-directory-to-azure) | [Web apps](#web-applications)
 
 <!-- markdownlint-disable MD033 -->
+
 ## AI and machine learning
 
 <ul  class="panelContent cardsF">

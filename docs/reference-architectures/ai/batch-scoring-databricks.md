@@ -68,17 +68,17 @@ The reference implementation uses [notebooks][notebooks] to execute tasks in seq
 
 You can monitor job execution through the Databricks user interface, the data store, or the Databricks [CLI][cli] as necessary. Monitor the cluster using the [event log][log] and other [metrics][metrics] that Databricks provides.
 
-### Performance considerations
+## Performance considerations
 
 An Azure Databricks cluster enables autoscaling by default so that during runtime, Databricks dynamically reallocates workers to account for the characteristics of your job. Certain parts of your pipeline may be more computationally demanding than others. Databricks adds additional workers during these phases of your job (and removes them when they’re no longer needed). Autoscaling makes it easier to achieve high [cluster utilization][cluster], because you don’t need to provision the cluster to match a workload.
 
 Additionally, more complex scheduled pipelines can be developed by using [Azure Data Factory][adf] with Azure Databricks.
 
-### Storage considerations
+## Storage considerations
 
 In this reference implementation, the data is stored directly within Databricks storage for simplicity. In a production setting, however, the data can be stored on cloud data storage such as [Azure Blob Storage][blob]. [Databricks][databricks-connect] also supports Azure Data Lake Store, Azure SQL Data Warehouse, Azure Cosmos DB, Apache Kafka, and Hadoop.
 
-### Cost considerations
+## Cost considerations
 
 Azure Databricks is a premium Spark offering with an associated cost. In addition, there are standard and premium Databricks [pricing tiers][pricing].
 
