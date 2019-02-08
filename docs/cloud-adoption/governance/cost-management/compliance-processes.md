@@ -54,7 +54,7 @@ The following are examples of triggers:
 
 Using the [Cloud Management template](./template.md), document the processes and triggers that align to the current cloud adoption plan.
 
-For guidance on executing cloud management policies in alignment with adoption plans, see the article on [discipline improvement](discipline-improvement.md).
+For guidance on executing cloud management policies in alignment with adoption plans, see the article on Cost Management discipline improvement.
 
 > [!div class="nextstepaction"]
-> [Align Discipline Improvement with Cloud Adoption Phases](./discipline-improvement.md)
+> [Cost Management discipline improvement](./discipline-improvement.md)

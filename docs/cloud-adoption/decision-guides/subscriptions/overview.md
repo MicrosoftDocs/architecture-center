@@ -9,7 +9,7 @@ description: Learn about cloud platform subscriptions as a core service in Azure
 author: rotycenh
 ---
 
-# Subscription design guide
+# Subscription decision guide
 
 All cloud platforms are based on a core ownership model that provides organizations with numerous billing and resource management options. The structure that Azure uses is different from other cloud providers because it includes various support options for organizational hierarchy and grouped subscription ownership. Regardless, there is generally one individual responsible for billing and another who is assigned as the top-level owner for managing resources.
 

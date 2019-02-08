@@ -92,3 +92,10 @@ An exception is when operational capacity is provided by a third party or manage
 Capital expenses (CapEx) are slightly different that operational expenses. Generally, this category is driven by refresh cycles or datacenter expansion. An example of a datacenter expansion would be a new high-performance cluster to host a Big Data solution or data warehouse, and would generally fit into a CapEx category. More common are the basic refresh cycles. Some companies have rigid hardware refresh cycles, meaning assets are retired and replaced on a regular cycle (usually every 3, 5, or 8 years). These cycles often coincide with asset lease cycles or forecasted lifespan of equipment. When a refresh cycle hits, IT draws CapEx to acquire new equipment.
 
 If a refresh cycle is approved and budgeted, the Cloud Transformation could help eliminate that cost. If a refresh cycle is planned but not yet approved, the Cloud Transformation could create a CapEx cost avoidance. Both scenarios would be added to the cost delta.
+
+## Next steps
+
+Read some example fiscal outcomes in the context of a cloud transformation.
+
+> [!div class="nextstepaction"]
+> [Examples of fiscal outcomes](./business-outcomes/fiscal-outcomes.md)

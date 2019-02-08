@@ -42,7 +42,7 @@ Risks will differ between organization, but the following serve as common securi
 
 Using the [Cloud Management Template](./template.md), document business risks that are likely to be introduced by the current cloud adoption plan.
 
-Once an understanding of realistic business risks is established, the next step is to document the business's [tolerance for risk](./metrics-tolerance.md) and the indicators and key metrics to monitor that tolerance.
+Once an understanding of realistic business risks is established, the next step is to document the business's tolerance for risk and the indicators and key metrics to monitor that tolerance.
 
 > [!div class="nextstepaction"]
 > [Understand indicators, metrics, and risk tolerance](./metrics-tolerance.md)

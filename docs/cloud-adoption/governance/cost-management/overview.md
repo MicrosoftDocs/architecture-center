@@ -151,7 +151,7 @@ The following six steps will help you define governance policies to control cost
 
 ## Next steps
 
-Get started by evaluating [business risks](./business-risks.md) in a specific environment.
+Get started by evaluating business risks in a specific environment.
 
 > [!div class="nextstepaction"]
 > [Understand business risks](./business-risks.md)

@@ -155,7 +155,7 @@ The following six steps offer examples and potential options to consider when de
 
 ## Next steps
 
-Get started by evaluating [business risks](./business-risks.md) in a specific environment.
+Get started by evaluating business risks in a specific environment.
 
 > [!div class="nextstepaction"]
 > [Understand business risks](./business-risks.md)

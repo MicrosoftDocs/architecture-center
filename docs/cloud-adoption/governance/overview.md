@@ -34,7 +34,7 @@ For a crash course on the theory and quick access to Azure implementation, get s
 
 ## Next steps
 
-Review the Actionable Governance Journeys
+Review the Actionable Governance Journeys.
 
 > [!div class="nextstepaction"]
 > [Actionable Governance Journeys](./journeys/overview.md)

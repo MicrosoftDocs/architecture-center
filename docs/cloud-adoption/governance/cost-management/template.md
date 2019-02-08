@@ -26,7 +26,7 @@ Although it contains example content related to the Cost Management discipline, 
 
 ## Next steps
 
-Solid governance practices start with an [understanding of business risk](./business-risks.md). Review the article on business risks and begin to document the business risks that align with your current cloud adoption plan.
+Solid governance practices start with an understanding of business risk. Review the article on business risks and begin to document the business risks that align with your current cloud adoption plan.
 
 > [!div class="nextstepaction"]
 > [Understand business risks](./business-risks.md)

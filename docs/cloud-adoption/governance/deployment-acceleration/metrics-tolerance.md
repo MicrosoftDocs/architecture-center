@@ -47,7 +47,7 @@ Once you have a baseline, establish minimum benchmarks representing an unaccepta
 
 Using the [Cloud Management template](./template.md), document metrics and tolerance indicators that align to the current cloud adoption plan.
 
-Building on risks and tolerance, establish a [process for governing and communicating Deployment Acceleration policy adherence](compliance-processes.md).
+Building on risks and tolerance, establish a process for governing and communicating Deployment Acceleration policy adherence.
 
 > [!div class="nextstepaction"]
-> [Establish Policy Adherence Processes](compliance-processes.md)
+> [Establish policy adherence processes](compliance-processes.md)
