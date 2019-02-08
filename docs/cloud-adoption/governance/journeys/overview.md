@@ -1,8 +1,12 @@
 ---
-title: "CAF: Governance Customer Journeys Overview"
-description: Explanation of Governance Customer Journeys Overview
+title: "CAF: Actionable governance journeys"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Actionable governance journeys
 author: BrianBlanchard
-ms.date: 2/11/2019
 layout: LandingPage
 ms.topic: landing-page
 ---

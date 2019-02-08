@@ -7,7 +7,7 @@ ms.custom: governance
 ms.date: 02/11/2019
 description: Cost Management sample policy statements
 author: BrianBlanchard
-ms.date: 1/4/2019
+ms.date: 01/04/2019
 ---
 
 # Cost Management sample policy statements

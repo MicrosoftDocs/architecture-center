@@ -1,8 +1,12 @@
 ---
 title: "CAF: What is a Cloud Policy Review?"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 description: What is Cloud Policy Review?
 author: BrianBlanchard
-ms.date: 2/8/2019
 ---
 
 <!-- markdownlint-disable MD026 -->

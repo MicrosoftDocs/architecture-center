@@ -3,10 +3,9 @@ title: "CAF: How does Azure work?"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
-ms.custom: governance
 description: Explanation of the internal functioning of Azure
 author: petertaylor9999
-ms.date: 2/11/2019
+ms.date: 02/11/2019
 ---
 
 <!-- markdownlint-disable MD026 -->
@@ -15,7 +14,7 @@ ms.date: 2/11/2019
 
 Azure is Microsoft's public cloud platform. Azure offers a large collection of services including platform as a service (PaaS), infrastructure as a service (IaaS), database as a service (DBaaS), and many others. But what exactly is Azure, and how does it work?
 
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2ixGo]
+> [!VIDEO <https://www.microsoft.com/en-us/videoplayer/embed/RE2ixGo>]
 
 Azure, like other cloud platforms, relies on a technology known as **virtualization**. Most computer hardware can be emulated in software, because most computer hardware is simply a set of instructions permanently or semi-permanently encoded in silicon. Using an emulation layer that maps software instructions to hardware instructions, virtualized hardware can execute in software as if it were the actual hardware itself.
 

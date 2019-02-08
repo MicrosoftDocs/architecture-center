@@ -5,8 +5,7 @@ ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 description: Describes an overview of the first phase of an enterprise's digital transformation in adopting Azure cloud technologies.
-author: petertaylor9999
-ms.date: 2/11/2019
+ms.date: 02/11/2019
 ---
 
 # Getting started with the Cloud Adoption Framework

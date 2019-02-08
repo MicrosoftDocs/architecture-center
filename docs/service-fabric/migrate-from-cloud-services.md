@@ -7,7 +7,8 @@ ms.topic: guide
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ---
-# Migrate an Azure Cloud Services application to Azure Service Fabric 
+
+# Migrate an Azure Cloud Services application to Azure Service Fabric
 
 [![GitHub](../_images/github.png) Sample code][sample-code]
 

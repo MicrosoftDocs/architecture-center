@@ -1,8 +1,12 @@
 ---
 title: "CAF: Introduction to regulatory compliance"
-description: What is regulatory compliance
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Introduction to regulatory compliance
 author: BrianBlanchard
-ms.date: 2/8/2019
 ---
 
 # Introduction to regulatory compliance

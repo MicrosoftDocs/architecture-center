@@ -1,11 +1,14 @@
 ---
-title: "CAF: Cloud Governance"
-description: Introduction to Cloud Governance content
+title: "CAF: Governance in the Microsoft CAF for Azure"
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Governance in the Microsoft CAF for Azure
 author: BrianBlanchard
-ms.date: 2/11/2019
 ---
 
-# Cloud governance in the Microsoft CAF for Azure
+# Governance in the Microsoft CAF for Azure
 
 The cloud creates new paradigms regarding the technologies that support the business. These new paradigms also cause shifts in how those technologies are adopted, managed, and governed. When entire datacenters can be destroyed and recreated with one line of code executed from an unattended process, we have to rethink traditional approaches. This is equally true when it comes to governance.
 

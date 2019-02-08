@@ -3,7 +3,7 @@ title: Best practices for enterprises moving to Azure
 description: Describes a scaffold that enterprises can use to ensure a secure and manageable environment.
 author: rdendtler
 ms.author: rodend
-ms.date: 9/22/2018
+ms.date: 09/22/2018
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption

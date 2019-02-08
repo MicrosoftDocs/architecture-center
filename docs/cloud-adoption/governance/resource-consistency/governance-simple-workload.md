@@ -6,7 +6,7 @@ ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 description: Guidance for configuring Azure governance controls to enable a user to deploy a simple workload
 author: petertaylor9999
-ms.date: 2/11/2019
+ms.date: 02/11/2019
 ---
 
 # Governance design for a simple workload

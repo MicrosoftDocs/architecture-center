@@ -6,7 +6,7 @@ ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 description: Learn about using the Microsoft Cloud Adoption Framework for Azure (CAF) to implement a cloud governance strategy.
 author: BrianBlanchard
-ms.date: 1/3/2019
+ms.date: 01/03/2019
 layout: LandingPage
 ms.topic: landing-page
 ---

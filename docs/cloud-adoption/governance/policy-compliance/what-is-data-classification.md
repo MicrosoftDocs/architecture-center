@@ -1,8 +1,12 @@
 ---
-title: "CAF: What is Data Classification"
-description: What is Data Classification?
+title: "CAF: What is data classification?"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: What is data classification?
 author: BrianBlanchard
-ms.date: 2/11/2019
 ---
 
 <!-- markdownlint-disable MD026 -->

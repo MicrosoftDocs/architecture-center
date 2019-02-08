@@ -1,8 +1,12 @@
 ---
 title: "CAF: Monitor and enforce policy adherence"
 description: How do you ensure compliance with established policies? 
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 author: BrianBlanchard
-ms.date: 1/4/2019
 ---
 
 <!-- markdownlint-disable MD026 -->

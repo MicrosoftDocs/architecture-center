@@ -1,8 +1,11 @@
 ---
 title: "CAF: Resource access management in Azure"
 description: Explanation of resource access management constructs in Azure - Azure Resource Manager, subscriptions, resource groups, and resources.
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.date: 02/11/2019
 author: petertaylor9999
-ms.date: 2/11/2019
 ---
 
 # Resource access management in Azure
