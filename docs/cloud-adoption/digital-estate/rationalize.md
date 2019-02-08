@@ -1,7 +1,10 @@
 ---
-title: Rationalize the digital estate
-titleSuffix: Enterprise Cloud Adoption
-description: A process for evaluating digital assets to find the best way to host them in the cloud.
+title: "CAF: Rationalize the digital estate"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+description: Evaluate your digital assets to determine how best to host them in the cloud.
 author: BrianBlanchard
 ms.date: 12/10/2018
 ms.topic: guide
@@ -9,7 +12,7 @@ ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ---
 
-# Enterprise Cloud Adoption: Rationalize the digital estate
+# Rationalize the digital estate
 
 Cloud rationalization is the process of evaluating assets to determine the best approach to hosting them in the cloud. Once an [approach](approach.md) has been determined and [inventory](inventory.md) has been aggregated, cloud rationalization can begin. The [5 Rs of rationalization](5-rs-of-rationalization.md) discusses the most common rationalization options.
 
@@ -45,7 +48,7 @@ Very few organizations invest the time, energy, and expense to maintain an accur
 
 In a Cloud Transformation, inventory directly correlates to operating costs. Accurate inventory data is required for proper planning. Unfortunately, current environmental scanning options can delay decisions by weeks or months, to scan and catalog the full inventory. Fortunately, there are a few tricks to accelerating data collection.
 
-Agent-based scanning is the most frequently cited delay. The robust data required for a traditional rationalization often depends on data that can only be collected with an agent running on each asset. This dependency on agents often slows progress, as it can require feedback from security, operations, and adminstration functions.
+Agent-based scanning is the most frequently cited delay. The robust data required for a traditional rationalization often depends on data that can only be collected with an agent running on each asset. This dependency on agents often slows progress, as it can require feedback from security, operations, and administration functions.
 
 In an incremental rationalization process, an agent-less solution could be used for an initial discovery to accelerate early decisions. Depending on the level of complexity in the environment, an agent-based solution may still be required, but it can be removed from the critical path to business change.
 
@@ -107,7 +110,7 @@ The first workload is often deployed in an experimental environment with no oper
 
 ### Qualitative analysis
 
-The Cloud Adoption and Cloud Strategy teamss can work together to analyze this small workload. This creates a controlled opportunity to create and test qualitative analysis criteria. The smaller population creates an opportunity to survey the impacted users, to complete a detailed qualitative analysis in a week or less. For common qualitative analysis factors, see the specific rationalization target in the [5 Rs of Rationalization](5-rs-of-rationalization.md).
+The Cloud Adoption and Cloud Strategy teams can work together to analyze this small workload. This creates a controlled opportunity to create and test qualitative analysis criteria. The smaller population creates an opportunity to survey the affected users, to complete a detailed qualitative analysis in a week or less. For common qualitative analysis factors, see the specific rationalization target in the [5 Rs of Rationalization](5-rs-of-rationalization.md).
 
 ### Migration
 
@@ -117,9 +120,9 @@ In parallel to continued rationalization, the Cloud Adoption team can begin migr
 - Define the core services (and Azure standards) needed to fit the long term vision.
 - Better understand how operations may need to evolve later in the transformation.
 - Understand any inherent business risks and the business' tolerance for those risks.
-- Establish a baseline or minimally viable product (MVP) for governance based on the business' risk tolerance
+- Establish a baseline or minimum viable product (MVP) for governance based on the business' risk tolerance.
 
-## Release Planning
+## Release planning
 
 While the Cloud Adoption team is executing the migration or implementation of the first workload, the Cloud Strategy team can begin prioritizing the remaining applications/workloads.
 
@@ -149,7 +152,7 @@ In some cases, the financial model may be too tight to make a decision to act, w
 
 ## Next steps
 
-The output of a rationalization effort is a prioritized backlog of all assets to be impacted by the chosen transformation. This backlog is now ready to serve as the foundation for costing models of cloud services.
+The output of a rationalization effort is a prioritized backlog of all assets that will be affected by the chosen transformation. This backlog is now ready to serve as the foundation for costing models of cloud services.
 
 > [!div class="nextstepaction"]
 > [Align cost models with the digital estate](calculate.md)

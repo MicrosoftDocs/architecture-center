@@ -1,7 +1,10 @@
 ---
-title:  Building a cloud migration business case
-titleSuffix: Enterprise Cloud Adoption
-description: Things to consider when building a business justification for cloud migration
+title:  "CAF: Build a cloud migration business case"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+description: Considerations for building a business justification for cloud migration.
 author: BrianBlanchard
 ms.date: 12/10/2018
 ms.topic: guide
@@ -9,7 +12,7 @@ ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ---
 
-# Enterprise Cloud Adoption: Building a cloud migration business case
+# Build a business justification for cloud migration
 
 Cloud migrations can generate early return on investment (ROI) from cloud transformation efforts. However, developing a clear business justification with tangible, relevant costs and returns can be a complex process. This article will help you think about what data is needed to create a financial model that aligns with cloud migration outcomes. First, let's dispel a few myths about cloud migration, so your organization can avoid some common mistakes.
 
@@ -21,7 +24,7 @@ Cloud migrations can generate early return on investment (ROI) from cloud transf
 
 **Myth: Mirroring my on-premises environment will help me save money in the cloud.** During Digital Estate planning, it's not unheard of for customers to detect unused capacity in excess of 50% of the provisioned environment. If assets are provisioned in the cloud to match current provisioning, cost savings will be hard to realize. Consider reducing the size of the deployed assets to align with usage patterns, not provisioning patterns.
 
-**Myth: Server costs drive the business cases for cloud migration.** Sometimes this is true. For some companies, it's important to reduce ongoing capital expenses related to servers. However, this depends on several factors. Companies with a 5&ndash; to 8&ndash;year hardware refresh cycle are unlikely to see fast returns on their cloud migration. Companies with standardized or enforced refresh cycles can hit a break-even point quickly. In either case, other expenses may be the financial triggers that justify the migration. The following are a few examples of costs that are commonly overlooked when taking a server-only or VM-only view of costs:
+**Myth: Server costs drive the business cases for cloud migration.** Sometimes this is true. For some companies, it's important to reduce ongoing capital expenses related to servers. However, this depends on several factors. Companies with a five- to eight-year hardware refresh cycle are unlikely to see fast returns on their cloud migration. Companies with standardized or enforced refresh cycles can hit a break-even point quickly. In either case, other expenses may be the financial triggers that justify the migration. The following are a few examples of costs that are commonly overlooked when taking a server-only or VM-only view of costs:
 
 - Software costs of virtualization, servers, and middleware can be extensive. Cloud providers eliminate some of these costs. Two examples of a cloud provider reducing virtualization costs are the [Azure Hybrid Benefits](https://azure.microsoft.com/pricing/hybrid-benefit/#services) and [Reservations](https://azure.microsoft.com/reservations/) programs.
 - Business losses due to outages can quickly exceed hardware or software costs. If the current datacenter is unstable, work with the business to quantify the impact of outages in terms of opportunity costs or actual business costs.
@@ -104,4 +107,4 @@ If the ROI is still misaligned, seek help from your Microsoft sales representati
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a financial model for cloud transformation](financial-models.md)
+> [Create a financial model for cloud transformation](./financial-models.md)

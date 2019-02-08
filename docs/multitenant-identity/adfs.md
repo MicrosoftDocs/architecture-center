@@ -36,7 +36,7 @@ There are three main roles in the trust relation:
   ![Federation trust](./images/federation-trust.png)
 
 > [!NOTE]
-> In this article, we assume the application uses OpenID connect as the authentication protocol. Another option is to use WS-Federation.
+> In this article, we assume the application uses OpenID Connect as the authentication protocol. Another option is to use WS-Federation.
 >
 > For OpenID Connect, the SaaS provider must use AD FS 2016, running in Windows Server 2016. AD FS 3.0 does not support OpenID Connect.
 >

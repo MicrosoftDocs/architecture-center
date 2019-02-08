@@ -19,7 +19,7 @@ This example scenario is applicable to any industry that needs to deploy resilie
 - Business tier: Processes the user interactions and makes logical decisions about the next steps. This layer connects the web tier and the data tier.
 - Data tier: Stores the application data. Either a database, object storage, or file storage is typically used.
 
-Common application scenarios include any mission critical application running on Windows or Linux. This can be an off-the-shelf application such as SAP and SharePoint or a custom line-of-business application.
+Common application scenarios include any mission-critical application running on Windows or Linux. This can be an off-the-shelf application such as SAP and SharePoint or a custom line-of-business application.
 
 ## Relevant use cases
 
