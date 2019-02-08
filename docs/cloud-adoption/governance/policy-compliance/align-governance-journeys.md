@@ -27,7 +27,7 @@ While cloud design guides should take into account some of the technical details
 
 ## Using the actionable governance journeys
 
-If you're planning to use the Azure platform for your cloud adoption, the CAF provides [governance journeys](../journeys/overview.md) illustrate the incremental approach of the CAF governance mode. These narrative journeys cover a range of common adoption scenarios, including the business risks, tolerance requirements, and policy statements that went into creating a governance minimum viable product (MVP). These journeys represent a synthesis of real-world customer experience of the cloud adoption process in Azure.
+If you're planning to use the Azure platform for your cloud adoption, the CAF provides [governance journeys](../journeys/overview.md) illustrating the incremental approach of the CAF governance model. These narrative journeys cover a range of common adoption scenarios, including the business risks, tolerance requirements, and policy statements that went into creating a governance minimum viable product (MVP). These journeys represent a synthesis of real-world customer experience of the cloud adoption process in Azure.
 
 While every cloud adoption has unique goals, priorities, and challenges, these samples should provide a good template for converting your policy into guidance. Pick the closest scenario to your situation as a starting point, and mold it to fit your specific policy needs.
 
