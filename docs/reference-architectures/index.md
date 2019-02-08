@@ -3,6 +3,7 @@ title: Azure Reference Architectures
 description: Reference architectures and implementation guidance for common workloads on Azure.
 layout: LandingPage
 ms.topic: landing-page
+ms.date: 02/07/2019
 ---
 <!-- This file is generated! -->
 <!-- See the templates in ./build/reference-architectures  -->
@@ -15,7 +16,6 @@ Our reference architectures are arranged by scenario. Each architecture includes
 Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT](#internet-of-things) | [Microservices](#microservices) | [Serverless](#serverless-applications) | [Virtual networks](#virtual-networks) | [VM workloads](#vm-workloads) | [SAP](#sap) | [Active Directory](#extend-on-premises-active-directory-to-azure) | [Web apps](#web-applications)
 
 <!-- markdownlint-disable MD033 -->
-
 ## AI and machine learning
 
 <ul  class="panelContent cardsF">
@@ -181,7 +181,6 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
 </li>
 </ul>
 
-
 ## Big data solutions
 
 <ul  class="panelContent cardsF">
@@ -267,7 +266,6 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
 </li>
 </ul>
 
-
 ## Internet of Things
 
 <ul  class="panelContent cardsF">
@@ -293,7 +291,6 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
 </li>
 </ul>
 
-
 ## Microservices
 
 <ul  class="panelContent cardsF">
@@ -318,7 +315,6 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
     </a>
 </li>
 </ul>
-
 
 ## Serverless applications
 
@@ -364,7 +360,6 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
     </a>
 </li>
 </ul>
-
 
 ## Virtual networks
 
@@ -531,7 +526,6 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
 </li>
 </ul>
 
-
 ## VM workloads
 
 <ul  class="panelContent cardsF">
@@ -637,7 +631,6 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
 </li>
 </ul>
 
-
 ## SAP
 
 <ul  class="panelContent cardsF">
@@ -703,7 +696,6 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
 </li>
 </ul>
 
-
 ## Extend on-premises Active Directory to Azure
 
 <ul  class="panelContent cardsF">
@@ -749,7 +741,7 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
 </li>
 <!-- Create an AD DS forest in Azure -->
 <li style="display: flex; flex-direction: column;">
-    <a href="" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./identity/adds-forest.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -788,7 +780,6 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
     </a>
 </li>
 </ul>
-
 
 ## Web applications
 

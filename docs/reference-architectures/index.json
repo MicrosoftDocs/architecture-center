@@ -257,6 +257,7 @@
                     "summary": "Deploy Active Directory Domain Services (AD DS) in Azure to extend your on-premises domain."
                 },
                 {
+                    "url": "./identity/adds-forest.md",
                     "image": "../_images/icons/active-directory-vm.svg",
                     "title": "Create an AD DS forest in Azure",
                     "summary": "Create a separate AD domain in Azure that is trusted by your on-premises AD forest."
