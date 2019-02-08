@@ -3,6 +3,10 @@ title: Batch scoring of Spark models on Azure Databricks
 description:  Build a scalable solution for batch scoring an Apache Spark classification model on a schedule using Azure Databricks.
 author: njray
 ms.date: 02/07/2019
+ms.topic: reference-architecture
+ms.service: architecture-center
+ms.subservice: reference-architecture
+ms.custom: azcat-ai
 ---
 
 # Batch scoring of Spark models on Azure Databricks
