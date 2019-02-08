@@ -71,6 +71,8 @@ server {
 }
 ```
 
+On Azure, multiple services can be [setup behind an Application Gateway instace](/azure/application-gateway/tutorial-multiple-sites-cli).
+
 ## Related guidance
 
 - [Backends for Frontends pattern](./backends-for-frontends.md)
