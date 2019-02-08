@@ -1,11 +1,11 @@
 ---
-title: "CAF: Governance Design Guide future-proof"
+title: "CAF: Large enterprise governance narrative"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 ms.date: 02/11/2019
-description: Explanation Design guide to action the concepts within governance.
+description: This narrative establishes a use case for a large enterprise governance journey.
 author: BrianBlanchard
 ---
 
