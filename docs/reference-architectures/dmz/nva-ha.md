@@ -4,7 +4,10 @@ titleSuffix: Azure Reference Architectures
 description: Deploy network virtual appliances with high availability.
 author: telmosampaio
 ms.date: 12/08/2018
-ms.custom: seodec18
+ms.topic: reference-architecture
+ms.service: architecture-center
+ms.subservice: reference-architecture
+ms.custom: seodec18, networking
 ---
 
 # Deploy highly available network virtual appliances

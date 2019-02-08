@@ -4,6 +4,9 @@ titleSuffix: Azure Reference Architectures
 description: Recommended architecture for a basic web application running in Azure.
 author: MikeWasson
 ms.date: 12/12/2017
+ms.topic: reference-architecture
+ms.service: architecture-center
+ms.subservice: reference-architecture
 ms.custom: seodec18
 ---
 

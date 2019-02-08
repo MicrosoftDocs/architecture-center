@@ -5,6 +5,9 @@ description: Delegate authentication to an external identity provider.
 keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
+ms.topic: design-pattern
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
 ms.custom: seodec18
 ---
 

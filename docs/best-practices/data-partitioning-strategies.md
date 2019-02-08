@@ -4,6 +4,9 @@ titleSuffix: Best practices for cloud applications
 description: Guidance on separating data partitions to be managed and accessed separately.
 author: dragon119
 ms.date: 11/04/2018
+ms.topic: best-practice
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
 ms.custom: seodec18
 ---
 
@@ -234,7 +237,7 @@ Client applications simply send requests to any of the participating Redis serve
 This model is implemented by using Redis clustering, and is described in more detail on the [Redis cluster tutorial] page on the Redis website. Redis clustering is transparent to client applications. Additional Redis servers can be added to the cluster (and the data can be re-partitioned) without requiring that you reconfigure the clients.
 
 > [!IMPORTANT]
-> Azure Redis Cache does not currently support Redis clustering. If you want to implement this approach with Azure, then you must implement your own Redis servers by installing Redis on a set of Azure virtual machines and configuring them manually. The page [Running Redis on a CentOS Linux VM in Azure] walks through an example that shows you how to build and configure a Redis node running as an Azure VM.
+> Azure Redis Cache currently supports Redis clustering in [premium](/azure/azure-cache-for-redis/cache-how-to-premium-clustering) tier only.
 
 The page [Partitioning: how to split data among multiple Redis instances] on the Redis website provides more information about implementing partitioning with Redis. The remainder of this section assumes that you are implementing client-side or proxy-assisted partitioning.
 

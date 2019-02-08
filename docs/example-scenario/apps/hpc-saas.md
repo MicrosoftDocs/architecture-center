@@ -4,6 +4,11 @@ titleSuffix: Azure Example Scenarios
 description: Provide a software-as-a-service (SaaS) platform for computer-aided engineering (CAE) on Azure.
 author: alexbuckgit
 ms.date: 08/22/2018
+ms.topic: example-scenario
+ms.service: architecture-center
+ms.subservice: example-scenario
+ms.custom: HPC
+social_image_url: /azure/architecture/example-scenario/apps/media/architecture-hpc-saas.png
 ---
 
 # A computer-aided engineering service on Azure

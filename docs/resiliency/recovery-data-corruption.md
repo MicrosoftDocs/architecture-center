@@ -3,6 +3,10 @@ title: Recover from data corruption or accidental deletion
 description: Understanding how to recover from data corruption of data or accidental data deletion to and designing resilient, highly available, fault tolerant applications as well as planning for disaster recovery.
 author: MikeWasson
 ms.date: 11/11/2018
+ms.topic: article
+ms.service: architecture-center
+ms.subservice: cloud-design-principles
+ms.custom: resiliency
 ---
 
 # Recover from data corruption or accidental deletion

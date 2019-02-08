@@ -3,6 +3,9 @@ title: Choosing a data transfer technology
 description: 
 author: zoinerTejada
 ms.date: 02/12/2018
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
 ---
 
 # Transferring data to and from Azure
@@ -129,7 +132,7 @@ The following tables summarize the key differences in capabilities.
 | --- | --- | --- | --- |
 | Optimized for big data | No | No | Yes |
 | Copy to relational database | No | No | Yes |
-| Copy to relational database | No | No | Yes |
+| Copy from relational database | No | No | Yes |
 | Copy to Blob storage | Yes | No | Yes |
 | Copy from Blob storage | Yes | No | Yes |
 | Copy to Data Lake Store | No | No | Yes |

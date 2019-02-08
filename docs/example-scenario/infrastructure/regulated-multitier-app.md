@@ -4,7 +4,11 @@ titleSuffix: Azure Example Scenarios
 description: Build a secure, multi-tier web application with Windows Server on Azure using scale sets, Application Gateway, and load balancers.
 author: iainfoulds
 ms.date: 12/06/2018
-ms.custom: seodec18
+ms.topic: example-scenario
+ms.service: architecture-center
+ms.subservice: example-scenario
+ms.custom: seodec18, Windows
+social_image_url: /azure/architecture/example-scenario/infrastructure/media/architecture-regulated-multitier-app.png
 ---
 
 # Building secure web applications with Windows virtual machines on Azure
@@ -92,7 +96,7 @@ To deploy the core infrastructure for this scenario with an Azure Resource Manag
 
 <!-- markdownlint-disable MD033 -->
 
-1. Select the **Deploy to Azure** button:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Finfrastructure%2Fregulated-multitier-app%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+1. Select the **Deploy to Azure** button:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Finfrastructure%2Fregulated-multitier-app.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 2. Wait for the template deployment to open in the Azure portal, then complete the following steps:
    - Choose to **Create new** resource group, then provide a name such as *myWindowsscenario* in the text box.
    - Select a region from the **Location** drop-down box.

@@ -5,6 +5,9 @@ description: Deploy static content to a cloud-based storage service that can del
 keywords: design pattern
 author: dragon119
 ms.date: 01/04/2019
+ms.topic: design-pattern
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
 ms.custom: seodec18
 ---
 

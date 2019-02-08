@@ -4,6 +4,9 @@ titleSuffix: Azure Application Architecture Guide
 description: When possible, use platform as a service (PaaS) over infrastructure as a service (IaaS).
 author: MikeWasson
 ms.date: 08/30/2018
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: reference-architecture
 ms.custom: seojan19
 ---
 

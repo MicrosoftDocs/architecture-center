@@ -4,7 +4,10 @@ titleSuffix: Azure Reference Architectures
 description:  Proven practices for running SAP HANA in a high availability environment on Azure Large Instances.
 author: lbrader
 ms.date: 05/16/2018
-ms.custom: seodec18
+ms.topic: reference-architecture
+ms.service: architecture-center
+ms.subservice: reference-architecture
+ms.custom: seodec18, SAP
 ---
 
 # Run SAP HANA on Azure Large Instances

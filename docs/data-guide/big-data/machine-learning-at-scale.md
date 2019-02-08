@@ -3,6 +3,9 @@ title: Machine learning at scale
 description: 
 author: zoinerTejada
 ms.date: 02/12/2018
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
 ---
 
 # Machine learning at scale

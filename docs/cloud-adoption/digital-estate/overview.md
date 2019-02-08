@@ -4,6 +4,9 @@ titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: What is a digital estate?
 author: BrianBlanchard
 ms.date: 12/10/2018
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
 ---
 
 <!-- markdownlint-disable MD026 -->

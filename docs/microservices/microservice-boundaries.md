@@ -3,6 +3,10 @@ title: Identifying microservice boundaries
 description: Identifying microservice boundaries.
 author: MikeWasson
 ms.date: 10/23/2018
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: reference-architecture
+ms.custom: microservices
 ---
 
 # Designing microservices: Identifying microservice boundaries

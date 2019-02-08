@@ -3,6 +3,9 @@ title: Interactive data exploration
 description: 
 author: zoinerTejada
 ms.date: 02/12/2018
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
 ---
 
 # Interactive data exploration

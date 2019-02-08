@@ -4,6 +4,9 @@ titleSuffix: Azure Reference Architectures
 description: Deploy an application on Azure virtual machines in multiple regions for high availability and resiliency.
 author: MikeWasson
 ms.date: 07/19/2018
+ms.topic: reference-architecture
+ms.service: architecture-center
+ms.subservice: reference-architecture
 ms.custom: seodec18
 ---
 

@@ -3,6 +3,9 @@ title: Online transaction processing (OLTP)
 description: 
 author: zoinerTejada
 ms.date: 02/12/2018
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
 ---
 
 # Online transaction processing (OLTP)

@@ -7,6 +7,9 @@ ms.custom: governance
 description: How to create a financial model for cloud transformation.
 author: BrianBlanchard
 ms.date: 12/10/2018
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
 ---
 
 # Create a financial model for cloud transformation

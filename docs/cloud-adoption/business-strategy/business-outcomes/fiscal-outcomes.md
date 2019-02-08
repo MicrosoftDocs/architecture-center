@@ -7,6 +7,9 @@ ms.custom: governance
 description: Examples of fiscal outcomes
 author: BrianBlanchard
 ms.date: 10/10/2018
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
 ---
 
 # Examples of fiscal outcomes

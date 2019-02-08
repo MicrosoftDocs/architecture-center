@@ -3,6 +3,9 @@ title: "CAF: Operations overview"
 description: Overview of operations content for Microsoft Cloud Adoption Framework for Azure
 author: petertaylor9999
 ms.date: 09/20/2018
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
 ---
 
 # CAF: Operations overview

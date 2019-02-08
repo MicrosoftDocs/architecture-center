@@ -4,6 +4,9 @@ titleSuffix: Azure Application Architecture Guide
 description: Minimize coordination between application services to achieve scalability.
 author: MikeWasson
 ms.date: 08/30/2018
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: reference-architecture
 ms.custom: seojan19
 ---
 

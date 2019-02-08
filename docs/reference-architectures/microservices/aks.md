@@ -3,6 +3,10 @@ title: Microservices architecture on Azure Kubernetes Service (AKS)
 description: Deploy a microservices architecture on Azure Kubernetes Service (AKS)
 author: MikeWasson
 ms.date: 12/10/2018
+ms.topic: reference-architecture
+ms.service: architecture-center
+ms.subservice: reference-architecture
+ms.custom: microservices
 ---
 
 # Microservices architecture on Azure Kubernetes Service (AKS)
@@ -351,7 +355,7 @@ Assuming this build succeeds, it triggers a deployment process using an Azure Pi
 
 1. Run `helm upgrade` to deploy the Helm chart to a QA environment.
 1. An approver signs off before the package moves to production. See [Release deployment control using approvals](/azure/devops/pipelines/release/approvals/approvals).
-1. Re-tag the Docker image for the production namespace in Azure Container Registry. For example, if the current tag is `myrepo.azurecr.io/delivery:v1.0.2`, the production tag is `reponame.azurecr.io/prod/delivery:v1.0.2`.
+1. Re-tag the Docker image for the production namespace in Azure Container Registry. For example, if the current tag is `myrepo.azurecr.io/delivery:v1.0.2`, the production tag is `myrepo.azurecr.io/prod/delivery:v1.0.2`.
 1. Run `helm upgrade` to deploy the Helm chart to the production environment.
 
 ![CI/CD workflow](./_images/aks-cicd-3.png)

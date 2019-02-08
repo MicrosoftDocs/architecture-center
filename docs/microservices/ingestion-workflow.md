@@ -3,6 +3,10 @@ title: Ingestion and workflow in microservices
 description: Ingestion and workflow in microservices
 author: MikeWasson
 ms.date: 10/23/2018
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: reference-architecture
+ms.custom: microservices
 ---
 
 # Designing microservices: Ingestion and workflow

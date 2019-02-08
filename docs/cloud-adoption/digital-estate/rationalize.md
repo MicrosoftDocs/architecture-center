@@ -7,6 +7,9 @@ ms.custom: governance
 description: Evaluate your digital assets to determine how best to host them in the cloud.
 author: BrianBlanchard
 ms.date: 12/10/2018
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
 ---
 
 # Rationalize the digital estate

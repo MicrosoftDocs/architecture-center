@@ -4,7 +4,10 @@ titleSuffix: Azure Reference Architectures
 description: Implement a secure hybrid network architecture using Azure Active Directory (Azure AD).
 author: telmosampaio
 ms.date: 11/28/2016
-ms.custom: seodec18
+ms.topic: reference-architecture
+ms.service: architecture-center
+ms.subservice: reference-architecture
+ms.custom: seodec18, identity
 ---
 
 # Integrate on-premises Active Directory domains with Azure Active Directory

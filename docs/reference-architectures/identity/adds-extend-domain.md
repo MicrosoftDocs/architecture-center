@@ -4,7 +4,10 @@ titleSuffix: Azure Reference Architectures
 description: Extend your on-premises Active Directory domain to Azure.
 author: telmosampaio
 ms.date: 05/02/2018
-ms.custom: seodec18
+ms.topic: reference-architecture
+ms.service: architecture-center
+ms.subservice: reference-architecture
+ms.custom: seodec18, identity
 ---
 
 # Extend Active Directory Domain Services (AD DS) to Azure
@@ -139,7 +142,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 3. Run the following command and wait for the deployment to finish.
 
     ```bash
-    azbb -s <subscription_id> -g <resource group> -l <location> -p onoprem.json --deploy
+    azbb -s <subscription_id> -g <resource group> -l <location> -p azure.json --deploy
     ```
 
    Deploy to the same resource group as the on-premises VNet.

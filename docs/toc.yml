@@ -297,6 +297,8 @@
       href: example-scenario/ai/commerce-chatbot.md
     - name: Image classification
       href: example-scenario/ai/intelligent-apps-image-processing.md
+    - name: Movie recommendation
+      href: example-scenario/ai/movie-recommendations.md
   - name: Apps
     items:
     - name: Computer-aided engineering
@@ -347,6 +349,8 @@
       href: example-scenario/infrastructure/regulated-multitier-app.md
     - name: HPC video rendering
       href: example-scenario/infrastructure/video-rendering.md
+    - name: Image Modeling
+      href: example-scenario/infrastructure/image-modeling.md
    
 - name: Reference Architectures
   items:
@@ -355,14 +359,18 @@
 
     - name: AI
       items:
-      - name: Batch scoring for deep learning models
+      - name: Distributed training of deep learning models
+        href: reference-architectures/ai/training-deep-learning.md
+      - name: Batch scoring of deep learning models
         href: reference-architectures/ai/batch-scoring-deep-learning.md
       - name: Batch scoring of Python models
         href: reference-architectures/ai/batch-scoring-python.md
-      - name: Real-time scoring of Python models
+      - name: Real-time scoring of Python and deep learning models
         href: reference-architectures/ai/realtime-scoring-python.md
       - name: Real-time scoring of R machine learning models
         href: reference-architectures/ai/realtime-scoring-r.md
+      - name: Conversational bot
+        href: reference-architectures/ai/conversational-bot.md
       - name: Real-time Recommendation API
         href: reference-architectures/ai/real-time-recommendation.md
 
@@ -413,6 +421,14 @@
         href: reference-architectures/identity/adds-forest.md
       - name: Extend AD FS to Azure
         href: reference-architectures/identity/adfs.md
+
+    - name: Internet of Things (IoT)
+      href: reference-architectures/iot/index.md
+
+    - name: Microservices
+      items:
+      - name: Azure Kubernetes Service (AKS)
+        href: reference-architectures/microservices/aks.md
 
     - name: Network DMZ
       items:

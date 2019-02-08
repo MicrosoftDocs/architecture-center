@@ -4,6 +4,9 @@ titleSuffix: Azure Application Architecture Guide
 description: An overview of Azure compute options.
 author: MikeWasson
 ms.date: 06/13/2018
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: reference-architecture
 ms.custom: seojan19
 ---
 

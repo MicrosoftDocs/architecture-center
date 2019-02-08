@@ -4,6 +4,9 @@ titleSuffix: Performance antipatterns for cloud apps
 description: Retrieving more data than needed for a business operation can result in unnecessary I/O overhead and reduce responsiveness.
 author: dragon119
 ms.date: 06/05/2017
+ms.topic: article
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
 ms.custom: seodec18
 ---
 
