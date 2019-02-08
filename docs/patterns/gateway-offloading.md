@@ -5,6 +5,9 @@ description: Offload shared or specialized service functionality to a gateway pr
 keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
+ms.topic: design-pattern
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
 ms.custom: seodec18
 ---
 
@@ -81,6 +84,8 @@ proxy_set_header X-Real-IP $remote_addr;
         }
 }
 ```
+
+On Azure, this can be achieved by [setting up SSL termination on Application Gateway](/azure/application-gateway/tutorial-ssl-cli).
 
 ## Related guidance
 

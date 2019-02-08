@@ -4,12 +4,18 @@ titleSuffix: Azure Reference Architectures
 description: How to implement a secure hybrid network architecture with Internet access in Azure.
 author: telmosampaio
 ms.date: 10/22/2018
-ms.custom: seodec18
+ms.topic: reference-architecture
+ms.service: architecture-center
+ms.subservice: reference-architecture
+ms.custom: seodec18, networking
 ---
 
 # Implement a DMZ between Azure and the Internet
 
 This reference architecture shows a secure hybrid network that extends an on-premises network to Azure and also accepts Internet traffic. [**Deploy this solution**](#deploy-the-solution).
+
+> [!NOTE]
+> This scenario can also be accomplished using [Azure Firewall](/azure/firewall/), a cloud-based network security service.
 
 ![Secure hybrid network architecture](./images/dmz-public.png)
 
@@ -90,7 +96,9 @@ A deployment for a reference architecture that implements these recommendations 
     azbb -s <subscription_id> -g <resource_group_name> -l <region> -p onprem.json --deploy
     ```
 
-3. Run the following command:
+3. Navigate to the `/dmz/ssecure-vnet-hybrid` folder of the reference architectures GitHub repository.
+
+4. Run the following command:
 
     ```bash
     azbb -s <subscription_id> -g <resource_group_name> -l <region> -p secure-vnet-hybrid.json --deploy

@@ -5,7 +5,7 @@ ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 ms.date: 02/11/2019
-description: Explanation Design guide to action the concepts within governance.
+description: This narrative establishes a use case for a small-to-medium enterprise governance journey.
 author: BrianBlanchard
 ---
 

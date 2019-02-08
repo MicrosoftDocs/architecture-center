@@ -15,7 +15,7 @@ author: BrianBlanchard
 
 The following is a list of Azure tools that can help mature the policies and processes that support this governance discipline.
 
-|    | [Azure Portal](https://azure.microsoft.com/features/azure-portal/)  | [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)  | [Azure Blueprints](/azure/governance/blueprints/overview) | [Azure Automation](/azure/automation/automation-intro) | [Azure AD](/azure/active-directory/fundamentals/active-directory-whatis) |
+|    | [Azure portal](https://azure.microsoft.com/features/azure-portal/)  | [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)  | [Azure Blueprints](/azure/governance/blueprints/overview) | [Azure Automation](/azure/automation/automation-intro) | [Azure AD](/azure/active-directory/fundamentals/active-directory-whatis) |
 |---------|---------|---------|---------|---------|---------|
 | Deploy resources                             | Yes | Yes | Yes | Yes | No  |
 | Manage resources                             | Yes | Yes | Yes | Yes | No  |
@@ -25,7 +25,7 @@ The following is a list of Azure tools that can help mature the policies and pro
 | Manage workload and account owners           | Yes | Yes | Yes | No  | No  |
 | Manage conditional access to resources       | Yes | Yes | Yes | No  | No  |
 | Configure RBAC users                         | Yes | No  | No  | No  | Yes |
-| Assign roles and permissions to to resources | Yes | Yes | Yes | No  | Yes |
+| Assign roles and permissions to resources | Yes | Yes | Yes | No  | Yes |
 | Define dependencies between resources        | No  | Yes | Yes | No  | No  |
 | Apply access control                         | Yes | Yes | Yes | No  | Yes |
 | Assess availability and scalability          | No  | No  | No  | Yes | No  |
@@ -37,7 +37,7 @@ The following is a list of Azure tools that can help mature the policies and pro
 
 Along with these Resource Consistency tools and features, you will need to monitor your deployed resources for performance and health issues. [Azure Monitor](/azure/azure-monitor/overview) is the default monitoring and reporting solution in Azure. Azure Monitor provides a number of individual features that you can use to monitor your cloud resources, and the following list shows which feature allows you to address common monitoring requirements.
 
-|                                                    | [Azure Portal](https://azure.microsoft.com/features/azure-portal/) | [Application Insights](/azure/application-insights/app-insights-overview) | [Log Analytics](/azure/azure-monitor/log-query/log-query-overview) | [Azure Monitor Rest API](/rest/api/monitor/) |
+|                                                    | [Azure portal](https://azure.microsoft.com/features/azure-portal/) | [Application Insights](/azure/application-insights/app-insights-overview) | [Log Analytics](/azure/azure-monitor/log-query/log-query-overview) | [Azure Monitor Rest API](/rest/api/monitor/) |
 |----------------------------------------------------|--------------|----------------------|---------------|------------------------|
 | Log virtual machine telemetry data                 | No           | No                   | Yes           | No                     |
 | Log virtual networking telemetry data              | No           | No                   | Yes           | No                     |

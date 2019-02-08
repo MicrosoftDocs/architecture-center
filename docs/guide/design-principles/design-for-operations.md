@@ -4,6 +4,9 @@ titleSuffix: Azure Application Architecture Guide
 description: Design an application so that the operations team has the tools they need.
 author: MikeWasson
 ms.date: 08/30/2018
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: reference-architecture
 ms.custom: seojan19
 ---
 

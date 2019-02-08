@@ -75,3 +75,7 @@ This section of the article will evolve the governance MVP design to include new
     2. The corporate policies established in the governance journey are not cloud-specific. While the implementation may vary from cloud to cloud, the policies can be applied to the secondary provider.
 
 As multi-cloud adoption grows, the design evolution above will continue to mature.
+
+## Conclusion
+
+This series of articles outlined the evolution of governance best practices, aligned with the experiences of this fictional company. By starting small, but with the right foundation, the company could move quickly and yet still apply the right amount of governance at the right time. The MVP by itself did not protect the customer. Instead, it created the foundation to mitigate risk and add protections. From there, layers of governance were applied to mitigate tangible risks. The exact journey presented here won't align 100% with the experiences of any reader. Rather, it serves as a pattern for incremental governance. The reader is advised to mold these best practices to fit their own unique constraints and governance requirements.

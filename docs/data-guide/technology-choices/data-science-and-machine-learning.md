@@ -3,6 +3,9 @@ title: Choosing a machine learning technology
 description: 
 author: zoinerTejada
 ms.date: 02/12/2018
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
 ---
 
 # Choosing a machine learning technology in Azure

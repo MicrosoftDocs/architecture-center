@@ -17,7 +17,7 @@ Individual cloud policy statements are guidelines for addressing specific risks 
 - Policy statement - A clear summary explanation of the policy requirements.
 - Design options - Actionable recommendations, specifications, or other guidance that IT teams and developers can use when implementing the policy.
 
-The following sample policy statements address a number of common identity-related business risks, and are provided as examples for you to reference when drafting policy statements to address your own organization's needs. Note that these examples are not meant to be proscriptive, and there are potentially several policy options for dealing with any particular risk. Work closely with business and IT teams to identify the best policy solutions for your unique set of risks.
+The following sample policy statements address a number of common identity-related business risks, and are provided as examples for you to reference when drafting policy statements to address your own organization's needs. These examples are not meant to be proscriptive, and there are potentially several policy options for dealing with any particular risk. Work closely with business and IT teams to identify the best policy solutions for your unique set of risks.
 
 ## Lack of access controls
 
@@ -29,7 +29,7 @@ The following sample policy statements address a number of common identity-relat
 
 ## Overprovisioned access
 
-**Technical risk**: Users and groups with control over resources beyond their area of responsibility can can result in unauthorized modifications leading to outages or security vulnerabilities.
+**Technical risk**: Users and groups with control over resources beyond their area of responsibility can result in unauthorized modifications leading to outages or security vulnerabilities.
 
 **Policy statement**: The following policies will be implemented:
 
@@ -44,7 +44,7 @@ The following sample policy statements address a number of common identity-relat
 
 **Policy statement**: All groups in the on-premises Active Directory infrastructure that have elevated privileges should be mapped to an approved RBAC role.
 
-**Potential design options**: Implement a hybrid identity solution between your cloud-based Azure Active Directory's and your on-premise Active Directory, and add the required on-premises groups to the RBAC roles necessary to do their work.
+**Potential design options**: Implement a hybrid identity solution between your cloud-based Azure Active Directory and your on-premise Active Directory, and add the required on-premises groups to the RBAC roles necessary to do their work.
 
 ## Weak authentication mechanisms
 
@@ -76,7 +76,7 @@ Use the samples mentioned in this article as a starting point to develop policie
 
 To begin developing your own custom policy statements related to Identity Baseline, download the [Identity Baseline template](template.md).
 
-To accelerate adoption of this discipline, see the list of [Azure Design Guides](../journeys/overview.md). Find one that most closely aligns with your environment. Then modify the design to incorporate your specific corporate policy decisions.
+To accelerate adoption of this discipline, choose the [Actionable Governance Journey](../journeys/overview.md) that most closely aligns with your environment. Then modify the design to incorporate your specific corporate policy decisions.
 
 > [!div class="nextstepaction"]
-> [Implement an Azure Design Guide](../journeys/overview.md)
+> [Actionable Governance Journeys](../journeys/overview.md)

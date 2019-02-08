@@ -7,6 +7,9 @@ ms.custom: governance
 description: Considerations for building a business justification for cloud migration.
 author: BrianBlanchard
 ms.date: 12/10/2018
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
 ---
 
 # Build a business justification for cloud migration
@@ -104,4 +107,4 @@ If the ROI is still misaligned, seek help from your Microsoft sales representati
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Create a financial model for cloud transformation](financial-models.md)
+> [Create a financial model for cloud transformation](./financial-models.md)

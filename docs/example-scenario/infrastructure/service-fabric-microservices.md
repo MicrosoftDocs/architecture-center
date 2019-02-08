@@ -4,7 +4,11 @@ titleSuffix: Azure Example Scenarios
 description: Decompose a large monolithic application into microservices.
 author: timomta
 ms.date: 09/20/2018
+ms.topic: example-scenario
+ms.service: architecture-center
+ms.subservice: example-scenario
 ms.custom: fasttrack
+social_image_url: /azure/architecture/example-scenario/infrastructure/media/architecture-service-fabric-complete.png
 ---
 
 # Using Service Fabric to decompose monolithic applications

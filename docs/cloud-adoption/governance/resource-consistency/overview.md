@@ -13,7 +13,7 @@ ms.topic: landing-page
 
 # CAF: Resource Consistency discipline overview
 
-Resource Consistency is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md) within the [CAF governance model](../overview.md). This discipline focuses on ways of establishing policies related to the operational management of an environment, application, or workload. Within the five disciplines of Cloud Governance, Resource Consistency includes monitoring of applications, workload, and asset performance. It also includes the tasks required to meet scale demands, remediate performance Service Level Agreement (SLA) violations, and proactively avoid performance SLA violations through automated remediation.
+Resource Consistency is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md) within the [CAF governance model](../overview.md). This discipline focuses on ways of establishing policies related to the operational management of an environment, application, or workload. IT Operations teams often provide monitoring of applications, workload, and asset performance. They also commonly execute the tasks required to meet scale demands, remediate performance Service Level Agreement (SLA) violations, and proactively avoid performance SLA violations through automated remediation. Within the five disciplines of Cloud Governance, Resource Consistency is a discipline that ensure resources are consistently configured in such a way that they can be discoverable by IT operations, are included in recovery solutions, and can be on-boarded into repeatable operations processes.
 
 > [!NOTE]
 > Resource Consistency governance does not replace the existing IT teams, processes, and procedures that allow your organization to effectively manage cloud-based resources. The primary purpose of this discipline is to identify potential business risks and provide risk-mitigation guidance to the IT staff that are responsible for managing your resources in the cloud. As you develop governance policies and processes make sure to involve relevant IT teams in your planning and review processes.
@@ -48,7 +48,7 @@ The following six steps offer examples and potential options to consider when de
                     </div>
                     <div class="cardText" style="padding-left:0px;">
                         <h3>Resource Consistency Template</h3>
-                        <p class="x-hidden-focus">Download the template for documenting an Resource Consistency discipline</p>
+                        <p class="x-hidden-focus">Download the template for documenting a Resource Consistency discipline</p>
                     </div>
                 </div>
             </div>

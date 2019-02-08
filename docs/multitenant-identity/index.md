@@ -3,6 +3,9 @@ title: Identity management for multitenant applications
 description: Best practices for authentication, authorization, and identity management in multitenant apps.
 author: MikeWasson
 ms.date: 07/21/2017
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: reference-architecture
 ---
 
 # Manage identity in multitenant applications

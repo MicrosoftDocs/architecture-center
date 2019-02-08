@@ -27,7 +27,7 @@ Sadly, the true business risks will be based on the what & how behind specific t
 
 The above are a few of the most common risks mentioned by customers. The Cloud Governance team and the cloud adoption teams can begin to develop a risk profile, as workloads are migrated and readied for production release. Be prepared for conversations to define, refine, and mitigate risks based on the desired business outcomes and transformation effort.
 
-# Understanding risk tolerance
+## Understanding risk tolerance
 
 Identifying risk is a fairly direct process. Risks are pretty standard across industries. However, tolerance for risk is extremely personalize. This is the point where business and IT conversations tend to get hung up. Each side of the conversation is essentially speaking a different language. The following comparisons and questions are designed to start conversations that help each party better understand and calculate risk tolerance.
 

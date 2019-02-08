@@ -4,6 +4,10 @@ titleSuffix: Azure Reference Architectures
 description: Implement a secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using a VPN.
 author: RohitSharma-pnp
 ms.date: 10/22/2018
+ms.topic: reference-architecture
+ms.service: architecture-center
+ms.subservice: reference-architecture
+ms.custom: networking
 ---
 
 # Connect an on-premises network to Azure using a VPN gateway

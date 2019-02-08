@@ -11,12 +11,12 @@ author: BrianBlanchard
 
 # Security Baseline template
 
-The first step to implementing change is communicating the desired change. The same is true when changing governance practices. The template below serves as a starting point for documenting and communicating policy statements that govern Security Baseline in the cloud. The template also outlines the business criteria that may have led you to create the documented policy statements.
+The first step to implementing change is communicating the desired change. The same is true when changing governance practices. The generic template below provides a starting point for documenting and communicating policy statements that govern Security Baseline in the cloud.
+
+Although it contains example content related to the Cost Management discipline, this template can be used as the basis for capturing the business risks, risk tolerances, compliance processes, and tooling used to define policy statements for the Security Baseline discipline.
 
 > [!IMPORTANT]
-> The template linked below provides a example of how to document policy statements as part of a cloud governance discipline. Although it uses the Cost Management discipline as sample content, the template can be used as the basis for capturing the business risks, risk tolerances, compliance processes, and tooling used to define policy statements for the Security Baseline discipline.
->
-> Before updating this template to reflect your requirements, you should review the subsequent steps for defining an effective Security Baseline discipline within your cloud governance strategy.
+> This template is a limited sample. Before updating this template to reflect your requirements, you should review the subsequent steps for defining an effective Security Baseline discipline within your cloud governance strategy.
 
 <!-- markdownlint-disable MD033 -->
 
@@ -26,7 +26,7 @@ The first step to implementing change is communicating the desired change. The s
 
 ## Next steps
 
-Solid governance practices start with an [understanding of business risk](./business-risks.md). Review the article on business risks and begin to document the business risks that align with your current cloud adoption plan.
+Solid governance practices start with an understanding of business risk. Review the article on business risks and begin to document the business risks that align with your current cloud adoption plan.
 
 > [!div class="nextstepaction"]
 > [Understand business risks](./business-risks.md)

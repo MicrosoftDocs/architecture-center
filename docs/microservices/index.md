@@ -3,6 +3,10 @@ title: Designing, building, and operating microservices on Azure with Kubernetes
 description: Designing, building, and operating microservices on Azure.
 author: MikeWasson
 ms.date: 10/23/2018
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: reference-architecture
+ms.custom: microservices
 ---
 
 # Designing, building, and operating microservices on Azure

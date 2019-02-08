@@ -9,7 +9,7 @@ description: Discussion of Software Defined Networks as a core service in Azure 
 author: rotycenh
 ---
 
-# CAF: Software Defined Network
+# CAF: Software Defined Network decision guide
 
 Software Defined Networking (SDN) is a network architecture designed to allow virtualized networking functionality that can be centrally managed, configured, and modified through software. SDN provides an abstraction layer over the physical networking infrastructure, and enables the virtualized equivalent to physical routers, firewalls, and other networking hardware you would find in an on-premises network.
 

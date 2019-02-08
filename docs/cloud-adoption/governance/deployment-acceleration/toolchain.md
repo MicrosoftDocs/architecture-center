@@ -13,7 +13,7 @@ author: BrianBlanchard
 
 [Deployment Acceleration](overview.md) is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md). This discipline focuses on ways of establishing policies to govern asset configuration or deployment. Within the five disciplines of Cloud Governance, configuration governance includes deployment, configuration alignment, and HA/DR strategies. This could be through manual activities or fully automated DevOps activities. In either case, the policies would remain largely the same.
 
-Cloud custodians, cloud guardians, and cloud architects with an interest in governance are each likely to invest a lot of time in the Deployment Acceleration discipline, which codifies policies and requirementsacross multiple cloud adoption efforts. The tools in this toolchain are important to the Cloud Governance team and should be a high priority on the learning path for the team.
+Cloud custodians, cloud guardians, and cloud architects with an interest in governance are each likely to invest a lot of time in the Deployment Acceleration discipline, which codifies policies and requirements across multiple cloud adoption efforts. The tools in this toolchain are important to the Cloud Governance team and should be a high priority on the learning path for the team.
 
 The following is a list of Azure tools that can help mature the policies and processes that support this governance discipline.
 
@@ -27,9 +27,9 @@ The following is a list of Azure tools that can help mature the policies and pro
 |Query Azure resources      |No |No  |No  |No |Yes |No |
 |Report on cost of resources      |No |No  |No  |No |No |Yes |
 
-The following are additional tools that may be required to accomplish specific Deployment Acceleration objectives. Of times these tools are used outside of the governance team, but are still considered an aspect of Deployment Acceleration as a discipline.
+The following are additional tools that may be required to accomplish specific Deployment Acceleration objectives. Often these tools are used outside of the governance team, but are still considered an aspect of Deployment Acceleration as a discipline.
 
-|  |Azure Portal  |Azure Resource Manager Templates  |Azure Policy  | Azure DevOps | Azure Backup | Azure Site Recovery |
+|  |Azure portal  |Azure Resource Manager Templates  |Azure Policy  | Azure DevOps | Azure Backup | Azure Site Recovery |
 |---------|---------|---------|---------|---------|---------|---------|
 |Manual deployment (single asset)     | Yes | Yes  | No  | Not efficiently | No | Yes |
 |Manual deployment (full environment)     | Not efficiently | Yes | No  | Not efficiently | No | Yes |
@@ -41,4 +41,4 @@ The following are additional tools that may be required to accomplish specific D
 |Recover data during an outage or SLA violation     | No | No | No | Yes | Yes | Yes |
 |Recover applications and data during an outage or SLA violation     | No | No | No | Yes | No | Yes |
 
-Aside from the Azure native tools mentioned above, it is very common for customers to use third-party tools to facilitate Deployment Acceleration and DevOps deployments.
+Aside from the Azure native tools mentioned above, it is common for customers to use third-party tools to facilitate Deployment Acceleration and DevOps deployments.

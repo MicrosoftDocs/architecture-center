@@ -62,7 +62,7 @@ A number of technical and nontechnical prerequisites are required to successful 
 **Potential activities:**
 
 - Determine your organization's [encryption](../../decision-guides/encryption/overview.md) strategy for cloud-hosted data.
-- Evaluate your cloud deployment's [identity](../../decision-guides/identity/overview.md) strategy. Determine how your cloud-based identity solution will co-exist or integrate with on-premises identity providers.
+- Evaluate your cloud deployment's [identity](../../decision-guides/identity/overview.md) strategy. Determine how your cloud-based identity solution will coexist or integrate with on-premises identity providers.
 - Determine network boundary policies for your [Software Defined Networking (SDN)](../../decision-guides/software-defined-network/overview.md) design to ensure secure virtualized networking capabilities.
 - Evaluate your organization's [least privilege access](/azure/active-directory/users-groups-roles/roles-delegate-by-task) policies, and use task-based roles to provide access to specific resources.
 - Apply security and monitoring mechanisms to for all cloud services and virtual machines.
@@ -86,7 +86,7 @@ Migration is an incremental process that focuses on the movement, testing, and a
 - Identify deviations from policy, and enforce corrections.
 - Adjust security and access control automation to ensure maximum policy compliance.  
 - Validate that the best practices defined during the Build / Pre-deployment phases are properly executed.
-- Review your least privilege access polices and adjust access controls to maximize security.
+- Review your least privilege access policies and adjust access controls to maximize security.
 - Test your Security Baseline toolchain against your workloads to identify and resolve any vulnerabilities.
 
 ## Operate and post-implementation
@@ -102,7 +102,7 @@ Once the transformation is complete, governance and operations must live on for 
 
 **Potential activities:**
 
-- Discover patterns and behavior for your workloads and configure your monitoring and reporting tools to identify and notify you of any abnormal activity, access or resource usage.
+- Discover patterns and behavior for your workloads and configure your monitoring and reporting tools to identify and notify you of any abnormal activity, access, or resource usage.
 - Continuously update your monitoring and reporting policies to detect the latest vulnerabilities, exploits, and attacks.
 - Have procedures in place to quickly stop unauthorized access and disable resources that may have been compromised by an attacker.
 - Regularly review the latest security best practices and apply recommendations to your security policy, automation, and monitoring capabilities where possible.

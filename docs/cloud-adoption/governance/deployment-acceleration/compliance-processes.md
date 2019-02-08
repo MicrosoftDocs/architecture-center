@@ -15,7 +15,7 @@ This article discusses an approach to policy adherence processes that govern [De
 
 ## Planning, review, and reporting processes
 
-The best Deployment Acceleration tools in the cloud are only as good as the processes and policies that they support. The following is a set of example processes commonly used as part of a Security Baseline discipline. Use these examples as a starting point when planning the processes that will allow you to continue to update security policy based on business change and feedback from the security and IT teams tasked with turning governance guidance into action.
+The best Deployment Acceleration tools in the cloud are only as good as the processes and policies that they support. The following is a set of example processes commonly used as part of a Security Baseline discipline. Use these examples as a starting point when planning the processes that will allow you to continue to update security policy based on business change and feedback from the security and IT teams responsible for turning governance guidance into action.
 
 **Initial risk assessment and planning**: As part of your initial adoption of the Deployment Acceleration discipline, identify your core business risks and tolerances related to deployment of your business applications. Use this information to discuss specific technical risks with members of the IT Operations team and the Security team, and develop a baseline set of deployment and configuration policies for mitigating these risks to establish your initial governance strategy.
 
@@ -31,11 +31,11 @@ This planning process is also a good time to evaluate the current membership of 
 
 **Education and training**: On a bi-monthly basis, offer training sessions to make sure IT staff and developers are up-to-date on the latest Deployment Acceleration strategy and requirements. As part of this process review and update any documentation, guidance, or other training assets to ensure they are in sync with the latest corporate policy statements.
 
-**Monthly audit and reporting reviews**: Perform a monthly audit on all cloud deployments to assure their continued alignment with configuration policy. Review security related activities with IT staff and identify any compliance issues not already handled as part of the ongoing monitoring and enforcement process. The result of this review is a report for the Cloud Strategy team and each cloud adoption team to communicate overall adherence to policy. The report is also stored for auditing and legal purposes.
+**Monthly audit and reporting reviews**: Perform a monthly audit on all cloud deployments to assure their continued alignment with configuration policy. Review security-related activities with IT staff and identify any compliance issues not already handled as part of the ongoing monitoring and enforcement process. The result of this review is a report for the Cloud Strategy team and each cloud adoption team to communicate overall adherence to policy. The report is also stored for auditing and legal purposes.
 
 ## Ongoing monitoring processes
 
-Determining if your Deployment Acceleration governance strategy is successful depends on visibility into the current and past state of your cloud infrastructure. Without the ability to analyze the relevant metrics and data of your cloud resources security health and activity, you cannot identify changes in your risks or detect violations of your risk tolerances. The ongoing governance processes discussed above requires quality data to ensure policy can be modified to support protect your infrastructure against changing threats and risks from misconfigured resources.
+Determining if your Deployment Acceleration governance strategy is successful depends on visibility into the current and past state of your cloud infrastructure. Without the ability to analyze the relevant metrics and data of your cloud resources security health and activity, you cannot identify changes in your risks or detect violations of your risk tolerances. The ongoing governance processes discussed above requires quality data to ensure policy can be modified to protect your infrastructure against changing threats and risks from misconfigured resources.
 
 Ensure that your security and IT teams have implemented automated monitoring systems for your cloud infrastructure that capture the relevant logs data you need to evaluate risk. Be proactive in monitoring these systems to ensure prompt detection and mitigation of potential policy violation, and ensure your monitoring strategy is in line with deployment and configuration needs.
 
@@ -55,7 +55,7 @@ The following triggers and enforcement actions provide examples you can use when
 
 Using the [Cloud Management template](./template.md), document the processes and triggers that align to the current cloud adoption plan.
 
-For guidance on executing cloud management policies in alignment with adoption plans, see the article on [discipline improvement](discipline-improvement.md).
+For guidance on executing cloud management policies in alignment with adoption plans, see the article on discipline improvement.
 
 > [!div class="nextstepaction"]
-> [Align Discipline Improvement with Cloud Adoption Phases](./discipline-improvement.md)
+> [Deployment Acceleration discipline improvement](./discipline-improvement.md)

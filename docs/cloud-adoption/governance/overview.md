@@ -2,7 +2,7 @@
 title: "CAF: Cloud Governance"
 description: Introduction to Cloud Governance content
 author: BrianBlanchard
-ms.date: 2/1/2019
+ms.date: 2/11/2019
 ---
 
 # Cloud governance in the Microsoft CAF for Azure
@@ -34,7 +34,7 @@ For a crash course on the theory and quick access to Azure implementation, get s
 
 ## Next steps
 
-Review the Actionable Governance Journeys
+Review the Actionable Governance Journeys.
 
 > [!div class="nextstepaction"]
 > [Actionable Governance Journeys](./journeys/overview.md)

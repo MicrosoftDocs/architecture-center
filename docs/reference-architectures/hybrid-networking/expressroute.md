@@ -4,7 +4,10 @@ titleSuffix: Azure Reference Architectures
 description: Implement a secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using Azure ExpressRoute.
 author: telmosampaio
 ms.date: 10/22/2017
-ms.custom: seodec18
+ms.topic: reference-architecture
+ms.service: architecture-center
+ms.subservice: reference-architecture
+ms.custom: seodec18, networking
 ---
 
 # Connect an on-premises network to Azure using ExpressRoute

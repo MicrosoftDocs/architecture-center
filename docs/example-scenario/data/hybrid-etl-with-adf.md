@@ -4,7 +4,11 @@ titleSuffix: Azure Example Scenarios
 description: Hybrid ETL with existing on-premises SQL Server Integration Services (SSIS) deployments and Azure Data Factory.
 author: alhieng
 ms.date: 09/20/2018
+ms.topic: example-scenario
+ms.service: architecture-center
+ms.subservice: example-scenario
 ms.custom: tsp-team
+social_image_url: /azure/architecture/example-scenario/data/media/architecture-diagram-hybrid-etl-with-adf.png
 ---
 
 # Hybrid ETL with existing on-premises SSIS and Azure Data Factory

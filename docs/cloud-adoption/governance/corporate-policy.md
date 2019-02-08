@@ -21,7 +21,7 @@ ms.topic: landing-page
         <div class="cardPadding" style="padding-bottom:10px;">
             <div class="card" style="padding-bottom:10px;">
                 <div class="cardText" style="padding-left:0px;">
-Any change to business processes or technology platforms introduces risk to the business. Cloud governance teams, whose members are sometimes known as cloud custodians, are tasked with mitigating these risks with minimal interruption to adoption or innovation efforts.<br/><br/>However, cloud governance requires more than technical implementation. Subtle changes in the corporate narrative or corporate policies can affect adoption efforts significantly. Prior to implementation, its important to look beyond IT while Defining Corporate Policy.<br/><br/>
+Any change to business processes or technology platforms introduces risk to the business. Cloud governance teams, whose members are sometimes known as cloud custodians, are tasked with mitigating these risks with minimal interruption to adoption or innovation efforts.<br/><br/>However, cloud governance requires more than technical implementation. Subtle changes in the corporate narrative or corporate policies can affect adoption efforts significantly. Prior to implementation, it's important to look beyond IT while Defining Corporate Policy.<br/><br/>
                 </div>
             </div>
         </div>
@@ -73,7 +73,7 @@ Defining corporate policy focuses on identifying and mitigating business risks r
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./policy-compliance/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./policy-compliance/define-policy.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -84,7 +84,7 @@ Defining corporate policy focuses on identifying and mitigating business risks r
                     </div>
                     <div class="cardText">
                         <h3>Policy and compliance</h3>
-                        <p>Evaluate risk tolerance to inform minimally invasive policies that govern cloud adoption and mitigate risks. In some industries, third party compliance affects initial policy creation.</p>
+                        <p>Evaluate risk tolerance to inform minimally invasive policies that govern cloud adoption and mitigate risks. In some industries, third-party compliance affects initial policy creation.</p>
                     </div>
                 </div>
             </div>
@@ -116,7 +116,7 @@ Defining corporate policy focuses on identifying and mitigating business risks r
 
 ## Next steps
 
-Sound cloud governance strategy begins with [understanding business risk](./policy-compliance/understanding-business-risk.md).
+Sound cloud governance strategy begins with understanding business risk.
 
 > [!div class="nextstepaction"]
-> [Understanding Business Risk](./policy-compliance/understanding-business-risk.md)
+> [Understanding business risk](./policy-compliance/understanding-business-risk.md)

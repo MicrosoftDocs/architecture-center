@@ -3,6 +3,10 @@ title: Advanced analytics
 description: 
 author: zoinerTejada
 ms.date: 02/12/2018
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
+ms.custom: data-analytics, AI
 ---
 
 # Advanced analytics

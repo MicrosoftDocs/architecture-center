@@ -4,7 +4,10 @@ titleSuffix: Azure Resiliency Technical Guidance
 description: Understanding and designing recovery systems from on-premises infrastructure to Azure.
 author: adamglick
 ms.date: 08/18/2016
-ms.custom: seojan19
+ms.topic: article
+ms.service: architecture-center
+ms.subservice: cloud-design-principles
+ms.custom: seojan19, resiliency 
 ---
 
 [!INCLUDE [header](../_includes/header.md)]

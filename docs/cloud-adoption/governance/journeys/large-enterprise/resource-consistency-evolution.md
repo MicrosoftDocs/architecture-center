@@ -29,7 +29,7 @@ The cloud adoption teams have met all requirements to move protected data. With 
 
 The changes to current and future state expose new risks that will require new policy statements.
 
-## Evolution of tangible tisks
+## Evolution of tangible risks
 
 **Business Interruption**: There is an inherent risk of any new platform causing interruptions to mission-critical business processes. The IT Operations team and the teams executing on various cloud adoptions are relatively inexperienced with cloud operations. This increases the risk of interruption and must be mitigated and governed.
 
@@ -67,7 +67,7 @@ The following changes to policy will help mitigate the new risks and guide imple
 13. Upon discovery, asset sizing is to be validated by operational management teams to validate that the asset meets performance requirements.
 14. Deployment tooling must be approved by the Cloud Governance team to ensure ongoing governance of deployed assets.
 15. Deployment scripts must be maintained in central repository accessible by the Cloud Governance team for periodic review and auditing.
-16. Governance review processes must validate that deployed assets are properly configure in alignment with SLA and recovery requirements.
+16. Governance review processes must validate that deployed assets are properly configured in alignment with SLA and recovery requirements.
 
 ## Evolution of the best practices
 

@@ -9,7 +9,7 @@ description: Learn about cloud platform subscriptions as a core service in Azure
 author: rotycenh
 ---
 
-# Subscription design guide
+# Subscription decision guide
 
 All cloud platforms are based on a core ownership model that provides organizations with numerous billing and resource management options. The structure that Azure uses is different from other cloud providers because it includes various support options for organizational hierarchy and grouped subscription ownership. Regardless, there is generally one individual responsible for billing and another who is assigned as the top-level owner for managing resources.
 
@@ -25,7 +25,7 @@ The complexity of subscription designs varies. Decisions regarding a design stra
 
 **Inflection point**: The dashed line in the image above references an inflection point between simple and more complex patterns for subscription design. Additional technical decision points based on digital estate size versus Azure subscription limits, isolation and segregation policies, and IT operational divisions usually have a significant effect on subscription design.
 
-**Other considerations**: An important thing to note when selecting a subscription design is that subscriptions aren’t the only way to group resources or deployments. Subscriptions were created in the early days of Azure, as such they have limitations related to previous Azure solutions like Azure Service Manager (ASM).
+**Other considerations**: An important thing to note when selecting a subscription design is that subscriptions aren’t the only way to group resources or deployments. Subscriptions were created in the early days of Azure, as such they have limitations related to previous Azure solutions like Azure Service Manager.
 
 Deployment structure, automation, and new approaches to grouping resources can affect your structure subscription design. Before finalizing a subscription design, consider how [resource consistency](../resource-consistency/overview.md) decisions might influence your design choices. For example, a large multinational organization might initially consider a complex pattern for subscription management. However, that same company might realize greater benefits with a simpler business unit pattern by adding a management group hierarchy.
 
@@ -105,7 +105,7 @@ Management groups can mirror your billing hierarchy, and often enterprises start
 Examples include:
 
 - Production/non-production: Some enterprises create management groups to identify their production and non-production subscriptions. Management groups allow these customers to more easily manage roles and policies, for example: non-production subscription may allow developers "contributor" access, but in production, they have only "reader" access.
-- Internal services/external services: Much like production/non-production, enterprises often have different requirements, policies and roles for internal services versus external customer-facing services.
+- Internal services/external services: Much like production/non-production, enterprises often have different requirements, policies, and roles for internal services versus external customer-facing services.
 
 ## Organization at the subscription level
 

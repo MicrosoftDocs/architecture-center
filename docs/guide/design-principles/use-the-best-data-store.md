@@ -4,6 +4,9 @@ titleSuffix: Azure Application Architecture Guide
 description: Pick the storage technology that is the best fit for your data and how it will be used.
 author: MikeWasson
 ms.date: 08/30/2018
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: reference-architecture
 ms.custom: seojan19
 ---
 

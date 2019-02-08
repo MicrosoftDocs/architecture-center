@@ -4,6 +4,9 @@ description: Describes a scaffold that enterprises can use to ensure a secure an
 author: rdendtler
 ms.author: rodend
 ms.date: 9/22/2018
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
 ---
 # Azure enterprise scaffold: Prescriptive subscription governance
 

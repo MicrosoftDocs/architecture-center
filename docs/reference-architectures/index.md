@@ -4,13 +4,16 @@ description: Reference architectures, blueprints, and prescriptive implementatio
 layout: LandingPage
 ms.topic: landing-page
 ms.date: 08/30/2018
+ms.topic: reference-architecture
+ms.service: architecture-center
+ms.subservice: reference-architecture
 ---
 
 # Azure Reference Architectures
 
 Our reference architectures are arranged by scenario, with related architectures grouped together. Each architecture includes recommended practices, along with considerations for scalability, availability, manageability, and security. Most also include a deployable solution.
 
-Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [Serverless](#serverless-applications) | [Virtual networks](#virtual-networks) | [VM workloads](#vm-workloads) | [SAP](#sap) | [Web apps](#web-applications) | [Active Directory](#extend-on-premises-active-directory-to-azure)
+Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT](#internet-of-things) | [Serverless](#serverless-applications) | [Virtual networks](#virtual-networks) | [VM workloads](#vm-workloads) | [SAP](#sap) | [Web apps](#web-applications) | [Active Directory](#extend-on-premises-active-directory-to-azure)
 
 <!-- markdownlint-disable MD033 -->
 
@@ -18,20 +21,20 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [Ser
 
 <!-- markdownlint-disable MD033 -->
 <ul  class="panelContent cardsF">
-<!-- Batch scoring of Python models -->
+<!-- Distributed training of deep learning models -->
 <li style="display: flex; flex-direction: column;">
-    <a href="./ai/batch-scoring-python.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./ai/training-deep-learning.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="../_images/icons/python-powered-h.svg" />
+                            <img src="../_images/icons/batch-ai.svg" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Batch scoring of Python models</h3>
-                        <p>Batch score many Python models in parallel on a schedule using Azure Batch AI.</p>
+                        <h3>Distributed training of deep learning models</h3>
+                        <p>Run distributed training of deep learning models across clusters of GPU-enabled VMs.</p>
                     </div>
                 </div>
             </div>
@@ -58,6 +61,26 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [Ser
         </div>
     </a>
 </li>
+<!-- Batch scoring of Python models -->
+<li style="display: flex; flex-direction: column;">
+    <a href="./ai/batch-scoring-python.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/icons/python-powered-h.svg" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Batch scoring of Python models</h3>
+                        <p>Batch score many Python models in parallel on a schedule using Azure Batch AI.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
 <!-- Real-time scoring of Python models -->
 <li style="display: flex; flex-direction: column;">
     <a href="./ai/realtime-scoring-python.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
@@ -70,7 +93,7 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [Ser
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Real-time scoring of Python models</h3>
+                        <h3>Real-time scoring of Python and deep learning models</h3>
                         <p>Deploy Python models as web services to make real-time predictions, using regular Python models or deep learning models.</p>
                     </div>
                 </div>
@@ -112,6 +135,26 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [Ser
                     <div class="cardText">
                         <h3>Real-time recommendation API</h3>
                         <p>Train a recommendation model using Azure Databricks and deploy it as an API using Azure Machine Learning.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<!-- Distributed training of deep learning models -->
+<li style="display: flex; flex-direction: column;">
+    <a href="./ai/conversational-bot.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/icons/bot-services.svg" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Enterprise-grade conversational bot</h3>
+                        <p>How to build an enterprise-grade conversational bot using the Azure Bot Framework.</p>
                     </div>
                 </div>
             </div>
@@ -196,6 +239,56 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [Ser
                     <div class="cardText">
                         <h3>Stream processing with Azure Stream Analytics</h3>
                         <p>End-to-end stream processing pipeline that correlates records from two data streams to calculate a rolling average.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+</ul>
+
+## Internet of Things
+
+<ul class="panelContent cardsF">
+<!-- IoT reference architecture -->
+<li style="display: flex; flex-direction: column;">
+    <a href="./iot/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="./iot/_images/iot.svg" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Azure IoT reference architecture</h3>
+                        <p>Recommended architecture for IoT applications on Azure using PaaS (platform-as-a-service) components.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+</ul>
+
+## Microservices
+
+<ul class="panelContent cardsF">
+<!-- IoT reference architecture -->
+<li style="display: flex; flex-direction: column;">
+    <a href="./microservices/aks.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/icons/aks.svg" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Microservices on Azure Kubernetes Service (AKS)</h3>
+                        <p>Recommended architecture for deploying a microservices architecture on AKS.</p>
                     </div>
                 </div>
             </div>

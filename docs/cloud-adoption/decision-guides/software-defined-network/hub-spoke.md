@@ -21,13 +21,13 @@ This model aims to address the following issues:
 
 - Cost savings and management efficiency. Centralizing services that can be shared by multiple workloads, such as network virtual appliances (NVAs) and DNS servers, in a single location allows IT to minimize redundant resources and management effort across multiple workloads.
 - Overcoming subscriptions limits. Large cloud-based workloads may require the use of more resources than are allowed within a single Azure subscription (see [subscription limits](/azure/azure-subscription-service-limits)). Peering workload virtual networks from different subscriptions to a central hub can overcome these limits.
-- Separation of concerns. The ability to deploy individual workloads between central IT teams and workloads teams by allowing .
+- Separation of concerns. The ability to deploy individual workloads between central IT teams and workloads teams.
 
 The following diagram shows an example hub and spoke architecture including centrally managed hybrid connectivity.
 
 ![Hub-spoke network architecture](../../../reference-architectures/hybrid-networking/images/hub-spoke.png)
 
-The hub and spoke architecture is often used alongside the hybrid networking architecture, providing a centrally managed connection to your on-premises environment shared between multiple workloads. In this scenario all traffic travelling between the workloads and on-premises passes through the hub where it can be managed and secured.
+The hub and spoke architecture is often used alongside the hybrid networking architecture, providing a centrally managed connection to your on-premises environment shared between multiple workloads. In this scenario, all traffic traveling between the workloads and on-premises passes through the hub where it can be managed and secured.
 
 ## Hub and spoke assumptions
 

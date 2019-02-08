@@ -7,7 +7,7 @@ ms.custom: governance
 ms.date: 02/11/2019
 description: Explanation Small-to-Medium Enterprise – Cost Management evolution 
 author: BrianBlanchard
-ms.date: 2/1/2019
+ms.date: 2/11/2019
 ---
 
 # Small-to-medium enterprise: Cost Management evolution
@@ -61,7 +61,7 @@ The following changes to policy will help mitigate the new risks and guide imple
 This section of the article will evolve the governance MVP design to include new Azure policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
 
 1. Implement Azure Cost Management
-    1. Establish the right scope of access to align with the subscription pattern and the Resource Consistency discipline. Assuming alignment with the governance MVP defined in prior articles, this requires **Enrollment Account Scope** access for the Cloud Governance team executing on high level reporting. Additional teams outside of governance may require **Resource Group Scope** access.
+    1. Establish the right scope of access to align with the subscription pattern and the Resource Consistency discipline. Assuming alignment with the governance MVP defined in prior articles, this requires **Enrollment Account Scope** access for the Cloud Governance team executing on high-level reporting. Additional teams outside of governance may require **Resource Group Scope** access.
     2. Establish a budget in Azure Cost Management.
     3. Review and act on initial recommendations. Have a recurring process to support reporting.
     4. Configure and execute Azure Cost Management Reporting, both initial and recurring.

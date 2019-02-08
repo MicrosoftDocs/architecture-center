@@ -17,7 +17,7 @@ Individual cloud policy statements are guidelines for addressing specific risks 
 - Policy statement - A clear summary explanation of the policy requirements.
 - Technical options - Actionable recommendations, specifications, or other guidance that IT teams and developers can use when implementing the policy.
 
-The following sample policy statements address a number of common security-related business risks, and are provided as examples for you to reference when drafting actual policy statements addressing your own organization's needs. Note that these examples are not meant to be proscriptive, and there are potentially several policy options for dealing with any single identified risk. Work closely with business, security, and IT teams to identify the best policy solutions for your particular security risks.  
+The following sample policy statements address a number of common security-related business risks, and are provided as examples for you to reference when drafting actual policy statements addressing your own organization's needs. These examples are not meant to be proscriptive, and there are potentially several policy options for dealing with any single identified risk. Work closely with business, security, and IT teams to identify the best policy solutions for your particular security risks.  
 
 ## Asset classification
 
@@ -89,7 +89,7 @@ Use the samples mentioned in this article as a starting point to develop policie
 
 To begin developing your own custom policy statements related to Security Baseline, download the [Security Baseline template](template.md).
 
-To accelerate adoption of this discipline, see the list of [Azure Design Guides](../journeys/overview.md). Find one that most closely aligns with your environment. Then modify the design to incorporate your specific corporate policy decisions.
+To accelerate adoption of this discipline, choose the [Actionable Governance Journey](../journeys/overview.md) that most closely aligns with your environment. Then modify the design to incorporate your specific corporate policy decisions.
 
 > [!div class="nextstepaction"]
-> [Implement an Azure Design Guide](../journeys/overview.md)
+> [Actionable Governance Journeys](../journeys/overview.md)

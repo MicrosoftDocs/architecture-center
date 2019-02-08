@@ -31,7 +31,7 @@ The Resource Consistency discipline attempts to address core operational busines
 
 Risks will differ between organization, but the following serve as common risks that you can use as a starting point for discussions within your Cloud Governance team:
 
-- **Unneccessary operational cost**. Obsolete or unused resources, or resources that are overprovisioned during times of low demand, add unnecessary operational costs.
+- **Unnecessary operational cost**. Obsolete or unused resources, or resources that are overprovisioned during times of low demand, add unnecessary operational costs.
 - **Underprovisioned resources**. Resources that experience higher than anticipated demand can result in business disruption as cloud resources are overwhelmed by demand.
 - **Management inefficiencies**. Lack of consistent naming and tagging metadata associated with resources can lead to IT staff having difficulty finding resources for management tasks or identifying ownership and accounting information related to assets. This results in management inefficiencies that can increase cost and slow IT responsiveness to service disruption or other operational issues.
 - **Business Interruption**. Service disruptions that result in violations of your organization's established Service Level Agreements (SLAs) can result in loss of business or other financial impacts to your company.
@@ -40,7 +40,7 @@ Risks will differ between organization, but the following serve as common risks 
 
 Using the [Cloud Management Template](./template.md), document business risks that are likely to be introduced by the current cloud adoption plan.
 
-Once an understanding of realistic business risks is established, the next step is to document the business's [tolerance for risk](./metrics-tolerance.md) and the indicators and key metrics to monitor that tolerance.
+Once an understanding of realistic business risks is established, the next step is to document the business's tolerance for risk and the indicators and key metrics to monitor that tolerance.
 
 > [!div class="nextstepaction"]
 > [Understand indicators, metrics, and risk tolerance](./metrics-tolerance.md)

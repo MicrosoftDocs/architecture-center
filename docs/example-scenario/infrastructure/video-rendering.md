@@ -4,7 +4,11 @@ titleSuffix: Azure Example Scenarios
 description: Run native HPC workloads in Azure using the Azure Batch service.
 author: adamboeglin
 ms.date: 07/13/2018
+ms.topic: example-scenario
+ms.service: architecture-center
+ms.subservice: example-scenario
 ms.custom: fasttrack
+social_image_url: /azure/architecture/example-scenario/infrastructure/media/architecture-video-rendering.png
 ---
 
 # 3D video rendering on Azure

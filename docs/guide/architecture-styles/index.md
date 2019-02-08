@@ -3,6 +3,9 @@ title: Architecture styles
 titleSuffix: Azure Application Architecture Guide
 description: Common architecture styles for cloud applications.
 layout: LandingPage
+ms.topic: landing-page
+ms.service: architecture-center
+ms.subservice: reference-architecture
 ms.date: 08/30/2018
 ---
 

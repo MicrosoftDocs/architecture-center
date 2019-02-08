@@ -4,6 +4,9 @@ titleSuffix: Performance antipatterns for cloud apps
 description: A large number of I/O requests can hurt performance and responsiveness.
 author: dragon119
 ms.date: 06/05/2017
+ms.topic: article
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
 ms.custom: seodec18
 ---
 

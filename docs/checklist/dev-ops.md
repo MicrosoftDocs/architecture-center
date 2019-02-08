@@ -4,6 +4,9 @@ titleSuffix: Azure Design Review Framework
 description: Checklist that provides guidance related to DevOps.
 author: dragon119
 ms.date: 01/10/2018
+ms.topic: checklist
+ms.service: architecture-center
+ms.subservice: cloud-design-principles
 ms.custom: checklist
 ---
 
