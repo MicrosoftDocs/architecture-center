@@ -36,7 +36,7 @@ Do you need to process or filter telemetry data before submitting it to your mon
 
 If your organization currently lacks established logging and reporting systems, or if your planned cloud deployment does not need to be integrated with existing on-premises or other external monitoring systems, a cloud native SaaS solution is the simplest choice.
 
-In this scenario, log data is recorded and stored in the same cloud environment as your workload, while the logging and reporting tools that process and surface information to IT staff are offered as part of the could platform.
+In this scenario, log data is recorded and stored in the same cloud environment as your workload, while the logging and reporting tools that process and surface information to IT staff are offered as part of the cloud platform.
 
 Cloud native logging solutions can be implemented ad hoc per subscription or workload for smaller or experimental deployments and are organized in a centralized manner to monitor log data across your entire cloud estate.
 
@@ -113,4 +113,4 @@ Multi-cloud logging support often requires the use of gateway services to proces
 - A unified platform for collecting app telemetry, host telemetry (such as VMs), container metrics, Azure platform metrics, and event logs.
 - Visualization, queries, alerts, and analytical tools. It can provide insights into virtual machines, guest operating systems, virtual networks, and workload application events.
 - [REST APIs](/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough) for integration with external services and automation of monitoring and alerting services
-- [Integration](/azure/monitoring-and-diagnostics/monitoring-partners) with may popular third-party vendors.
+- [Integration](/azure/monitoring-and-diagnostics/monitoring-partners) with many popular third-party vendors.

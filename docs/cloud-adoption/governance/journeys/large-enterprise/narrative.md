@@ -34,7 +34,7 @@ The company has the following business profile:
 Here is the current state of the company's IT and cloud operations:
 
 - IT operates more than 20 privately owned datacenters around the globe.
-- Each datacenter is connected by a series of regional leased lines, creating a loosely-coupled global WAN.
+- Each datacenter is connected by a series of regional leased lines, creating a loosely coupled global WAN.
 - IT entered the cloud by migrating all end-user email accounts to Office 365. This migration was completed more than six months ago. Since then, only a few IT assets have been deployed to the cloud.
 - The CDO's primary development team is working in a dev/test capacity to learn about cloud native capabilities.
 - One business unit is experimenting with big data in the cloud. The BI team inside of IT is participating in that effort.

@@ -27,7 +27,7 @@ Every organization has different operational scenarios, but the following items 
 - **Service availability**. Percentage of actual uptime cloud-hosted workloads compared to the expected uptime.
 - **VMs in critical condition**. Number of deployed VMs where one or more critical issues are detected which need to be addressed in order to restore normal functionality.
 - **Alerts by Severity**. Total number of alerts on a deployed asset, broken down by severity.
-- **Unhealthy subnet links**. Number of resources with with network connectivity issues.
+- **Unhealthy subnet links**. Number of resources with network connectivity issues.
 - **Unhealthy Service Endpoints**. Number of issues with external network endpoints.
 - **Cloud Provider Service Health incidents**. Number of disruptions or performance incidents caused by the cloud provider.
 - **Backup Health**. Number of backups actively being synchronized.

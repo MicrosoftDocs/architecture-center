@@ -48,7 +48,7 @@ The following six steps offer examples and potential options to consider when de
                     </div>
                     <div class="cardText" style="padding-left:0px;">
                         <h3>Resource Consistency Template</h3>
-                        <p class="x-hidden-focus">Download the template for documenting an Resource Consistency discipline</p>
+                        <p class="x-hidden-focus">Download the template for documenting a Resource Consistency discipline</p>
                     </div>
                 </div>
             </div>

@@ -63,7 +63,7 @@ A number of technical and nontechnical prerequisites are required to successful 
 * Implement [resource naming, and tagging standards](../../decision-guides/resource-tagging/overview.md) for your resources to match your organizational and accounting requirements.
 * To create proactive point-in-time governance, use deployment templates and automation to enforce common configurations and a consistent grouping structure when deploying resources and resource groups.
 * Establish a least privilege permissions model, where users have no permissions by default.
-* Determine who in your organization owns each workload and account, and who will need to access to maintain or modify these resources. Define cloud roles and responsibilities that match these needs and use use these roles as the basis for access control.
+* Determine who in your organization owns each workload and account, and who will need to access to maintain or modify these resources. Define cloud roles and responsibilities that match these needs and use these roles as the basis for access control.
 * Define dependencies between resources.
 * Implement automated resource scaling to match requirements defined in the Plan stage.
 * Conduct access performance to measure the quality of services received.
@@ -116,7 +116,7 @@ Once the transformation is complete, governance and operations must live on for 
 * Assist the cloud adoption teams and the Cloud Strategy team in understanding and resolving these anomalies.
 * Determine if changes need to be made to Resource Consistency for billing and SLAs.
 * Evaluate logging and monitoring tools to determine whether your on-premises, cloud gateway, or hybrid solution needs adjusting.
-* For business units and geographically-distributed groups, determine if your organization should consider using additional cloud management features (for example [Azure management groups](/azure/governance/management-groups/)) to better apply centralized policy and meet SLA requirements.
+* For business units and geographically distributed groups, determine if your organization should consider using additional cloud management features (for example [Azure management groups](/azure/governance/management-groups/)) to better apply centralized policy and meet SLA requirements.
 
 ## Next steps
 

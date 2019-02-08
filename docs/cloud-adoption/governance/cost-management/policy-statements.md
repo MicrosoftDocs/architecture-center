@@ -18,7 +18,7 @@ Individual cloud policy statements are guidelines for addressing specific risks 
 - Policy statement - A clear summary explanation of the policy requirements.
 - Design options - Actionable recommendations, specifications, or other guidance that IT teams and developers can use when implementing the policy.
 
-The following sample policy statements address a number of common cost-related business risks, and are provided as examples for you to reference when drafting actual policy statements addressing your own organization's needs. Note that these examples are not meant to be proscriptive, and there are potentially several policy options for dealing with any single identified risk. Work closely with business and IT teams to identify the best policy solutions for your particular cost-related risks.  
+The following sample policy statements address a number of common cost-related business risks, and are provided as examples for you to reference when drafting actual policy statements addressing your own organization's needs. These examples are not meant to be proscriptive, and there are potentially several policy options for dealing with any single identified risk. Work closely with business and IT teams to identify the best policy solutions for your particular cost-related risks.  
 
 ## Future-proofing
 
@@ -60,7 +60,7 @@ The following sample policy statements address a number of common cost-related b
 
 ## Overoptimization
 
-**Business risk:** Effective cost nanagement can actually create new risks. Optimization of spending is inverse to system performance. When reducing costs, there is a risk of overtightening spending and producing poor user experiences.
+**Business risk:** Effective cost management can actually create new risks. Optimization of spending is inverse to system performance. When reducing costs, there is a risk of overtightening spending and producing poor user experiences.
 
 **Policy statement:** Any asset that directly affects customer experiences must be identified through grouping or tagging. Before optimizing any asset that affects customer experience, the Cloud Governance team must adjust optimization based on no fewer than 90 days of utilization trends. Document any seasonal or event driven bursts considered when optimizing assets.
 

@@ -33,7 +33,7 @@ This phase of governance maturity bridges the divide between business outcomes a
 - Evaluate your [Deployment Acceleration toolchain](toolchain.md) options and implement a hybrid strategy that is appropriate to your organization.
 - Develop a draft Architecture Guidelines document and distribute to key stakeholders.
 - Educate and involve the people and teams affected by the development of Architecture Guidelines.
-- Train development teams and IT staff to understand DevSecOps principles and strategies and the importance of fully automated deployments in the Deployment Acceleration Discpline.
+- Train development teams and IT staff to understand DevSecOps principles and strategies and the importance of fully automated deployments in the Deployment Acceleration Discipline.
 
 **Potential activities:**
 
@@ -46,7 +46,7 @@ This phase of governance maturity bridges the divide between business outcomes a
 - For new cloud-based applications, introduce fully automated deployments early in the development process. This investment will improve the reliability of your testing processes and ensure consistency across your development, QA, and production environments.
 - Store all deployment artifacts such as deployment templates or configuration scripts using a source-control platform such as GitHub or Azure DevOps.
 - Consider a pilot test before implementing your [Deployment Acceleration toolchain](toolchain.md), making sure it streamlines your deployments as much as possible. Apply feedback from pilot tests during the pre-deployment phase, repeating as needed.
-- Evaluate the logical and physial architecture of your applications, and identify opportunities to automate the deployment of application resources or improve portions of the architecture using other cloud-based resources.
+- Evaluate the logical and physical architecture of your applications, and identify opportunities to automate the deployment of application resources or improve portions of the architecture using other cloud-based resources.
 - Update the Architecture Guidelines document to include deployment and user adoption plans, and distribute to key stakeholders.
 - Continue to educate the people and teams most affected by the architecture guidelines.
 

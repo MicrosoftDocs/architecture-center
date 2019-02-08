@@ -35,7 +35,7 @@ As part of planning your migration to Azure, you will need to determine how best
 
 ### Cloud baseline
 
-Public cloud platforms provide a native IAM system for granting users and groups access to management features. If your organization lacks a significant on-premises identity solution, and you plan on migrating workloads to be compatible with cloud-based authentication mechanisms, you should to build your identity infrastructure using a cloud-native identity service.
+Public cloud platforms provide a native IAM system for granting users and groups access to management features. If your organization lacks a significant on-premises identity solution, and you plan on migrating workloads to be compatible with cloud-based authentication mechanisms, you should build your identity infrastructure using a cloud-native identity service.
 
 **Cloud baseline assumptions**. Using a purely cloud-native identity infrastructure assumes the following:
 
