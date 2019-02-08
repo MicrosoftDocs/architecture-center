@@ -109,7 +109,7 @@ Review the following resources to learn more about CI/CD and Azure DevOps:
 - [What is DevOps?][devops-whatis]
 - [DevOps at Microsoft - How we work with Azure DevOps][devops-microsoft]
 - [Step-by-step Tutorials: DevOps with Azure DevOps][devops-with-vsts]
-- [Devops Checklist][devops-checklist]
+- [DevOps Checklist][devops-checklist]
 - [Create a CI/CD pipeline for .NET with the Azure DevOps project][devops-project-create]
 
 <!-- links -->
