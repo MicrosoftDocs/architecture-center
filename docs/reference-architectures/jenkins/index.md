@@ -36,7 +36,7 @@ The architecture consists of the following components:
 
 - **Virtual network**. A [virtual network][vnet] connects Azure resources to each other and provides logical isolation. In this architecture, the Jenkins server runs in a virtual network.
 
-- **Subnets**. The Jenkins server is isolated in a [subnet][subnet] to make it easier to manage and segregate network traffic without impacting performance.
+- **Subnets**. The Jenkins server is isolated in a [subnet][subnet] to make it easier to manage and segregate network traffic without affecting performance.
 
 - **NSGs**. Use [network security groups][nsg] (NSGs) to restrict network traffic from the Internet to the subnet of a virtual network.
 
@@ -106,7 +106,7 @@ Also, use Azure Storage to share build artifacts that may be used in the next st
 
 ### Scaling the Jenkins server
 
-You can scale the Jenkins server VM up or down by changing the VM size. The [solution template for Jenkins on Azure][azure-market] specifies the DS2 v2 size (with two CPUs, 7 GB) by default. This size handles a small to medium team workload. Change the VM size by choosing a different option when building out the server.
+You can scale the Jenkins server VM up or down by changing the VM size. The [solution template for Jenkins on Azure][azure-market] specifies the DS2 v2 size (with two CPUs, 7 GB) by default. This size handles a small-to-medium team workload. Change the VM size by choosing a different option when building out the server.
 
 Selecting the correct server size depends on the size of the expected workload. The Jenkins community maintains a [selection guide][selection-guide] to help identify the configuration that best meets your requirements. Azure offers many [sizes for Linux VMs][sizes-linux] to meet any requirements. For more information about scaling the Jenkins master, refer to the Jenkins community of [best practices][best-practices], which also includes details about scaling Jenkins master.
 

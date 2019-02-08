@@ -290,7 +290,7 @@ This is another reason why it's important to analyze possible failure points dur
 
 **Load testing**. Load testing is crucial for identifying failures that only happen under load, such as the backend database being overwhelmed or service throttling. Test for peak load, using production data or synthetic data that is as close to production data as possible. The goal is to see how the application behaves under real-world conditions.
 
-**Disaster recovery drills**. It is not enough if you have a good disaster recovery plan in place. You need to test it periodically to ensure your recovery plan works fine when it matters. For Azure virtual machines, you can use [Azure Site Recovery][site-recovery] to replicate and [perform DR drills][site-recovery-test-failover] without impacting production applications or ongoing replication.
+**Disaster recovery drills**. It is not enough if you have a good disaster recovery plan in place. You need to test it periodically to ensure your recovery plan works fine when it matters. For Azure virtual machines, you can use [Azure Site Recovery][site-recovery] to replicate and [perform DR drills][site-recovery-test-failover] without affecting production applications or ongoing replication.
 
 ## Deploy using reliable processes
 
