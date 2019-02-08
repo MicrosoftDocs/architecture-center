@@ -226,6 +226,16 @@
          "source_path": "docs/example-scenario/apps/app-monitoring.md",
          "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/app-monitoring",
          "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/cloud-adoption/governance/governance-single-team.md",
+         "redirect_url": "/azure/architecture/cloud-adoption/governance/",
+         "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/cloud-adoption/governance/governance-multiple-teams.md",
+         "redirect_url": "/azure/architecture/cloud-adoption/governance",
+         "redirect_document_id": true
       }
   ] 
   } 

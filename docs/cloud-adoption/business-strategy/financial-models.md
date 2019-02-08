@@ -1,7 +1,10 @@
 ---
-title: Create a financial model for cloud transformation
-titleSuffix: Enterprise Cloud Adoption
-description: How to create a financial model for cloud transformation
+title: "CAF: Create a financial model for cloud transformation"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+description: How to create a financial model for cloud transformation.
 author: BrianBlanchard
 ms.date: 12/10/2018
 ms.topic: guide
@@ -9,7 +12,7 @@ ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ---
 
-# Enterprise Cloud Adoption: How to create a financial model for cloud transformation
+# Create a financial model for cloud transformation
 
 Creating a financial model that accurately represents the full business value of any cloud transformation can be complicated. Financial models and business justifications tend to be different from one organization to the next. This article establishes some formulas and points out a few things that are commonly missed when creating a financial model.
 
@@ -45,11 +48,11 @@ To calculate earnings, two variables are required:
 
 Each is described below.
 
-## Revenue Delta
+## Revenue delta
 
 Revenue delta should be forecasted in partnership with the business. Once the business stakeholders agree on a revenue impact, that can be used to improve the earning position.
 
-## Cost Deltas
+## Cost deltas
 
 Cost deltas are the amount of increase or decrease that will come as a result of the transformation. There are a number of independent variables that can impact cost deltas. Earnings are largely based on hard costs like capital expense reductions, cost avoidance, operational cost reductions, and depreciation reductions. The following sections are examples of cost deltas to consider.
 
@@ -57,7 +60,7 @@ Cost deltas are the amount of increase or decrease that will come as a result of
 
 For guidance on depreciation, speak with the CFO or finance team. The following is meant to serve as a general reference on the topic of depreciation.
 
-When capital is invested in the acquisition of an asset, that investment could be used for financial or tax purposes to produce on-going benefits over the expected lifespan of the asset. Some companies see depreciation as a positive tax advantage. Others see it as committed, ongoing expense similar to other recurring expenses attributed to the annual IT budget.
+When capital is invested in the acquisition of an asset, that investment could be used for financial or tax purposes to produce ongoing benefits over the expected lifespan of the asset. Some companies see depreciation as a positive tax advantage. Others see it as committed, ongoing expense similar to other recurring expenses attributed to the annual IT budget.
 
 Speak with the finance office to see if elimination of depreciation is possible, and if it would make a positive contribution to cost deltas.
 
@@ -92,3 +95,10 @@ An exception is when operational capacity is provided by a third party or manage
 Capital expenses (CapEx) are slightly different that operational expenses. Generally, this category is driven by refresh cycles or datacenter expansion. An example of a datacenter expansion would be a new high-performance cluster to host a Big Data solution or data warehouse, and would generally fit into a CapEx category. More common are the basic refresh cycles. Some companies have rigid hardware refresh cycles, meaning assets are retired and replaced on a regular cycle (usually every 3, 5, or 8 years). These cycles often coincide with asset lease cycles or forecasted lifespan of equipment. When a refresh cycle hits, IT draws CapEx to acquire new equipment.
 
 If a refresh cycle is approved and budgeted, the Cloud Transformation could help eliminate that cost. If a refresh cycle is planned but not yet approved, the Cloud Transformation could create a CapEx cost avoidance. Both scenarios would be added to the cost delta.
+
+## Next steps
+
+Read some example fiscal outcomes in the context of a cloud transformation.
+
+> [!div class="nextstepaction"]
+> [Examples of fiscal outcomes](./business-outcomes/fiscal-outcomes.md)
