@@ -404,6 +404,6 @@ Here are the major points to take away from this article:
 [cloud-init]: /azure/virtual-machines/windows/infrastructure-automation#cloud-init
 [azure-devops-services]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
 [jenkins]: /azure/virtual-machines/windows/infrastructure-automation#jenkins
-[staging-slots]: /azure/app-service/web-sites-staged-publishing
+[staging-slots]: /azure/app-service/deploy-staging-slots
 [powershell]: /powershell/azure/overview
 [cli]: /cli/azure
