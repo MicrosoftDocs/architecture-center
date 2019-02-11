@@ -134,8 +134,7 @@ N-series VMs feature NVIDIA GPUs designed for compute-intensive or graphics-inte
 
 Large-scale Batch and HPC workloads have demands for data storage and access that exceed the capabilities of traditional cloud file systems.  There are a number of solutions to manage both the speed and capacity needs of HPC applications on Azure
 
-- [Parallel virtual file systems on Azure](https://azure.microsoft.com/resources/parallel-virtual-file-systems-on-microsoft-azure/)
-- [Avere](http://www.averesystems.com/about-us/about-avere) high-performance cloud storage solutions
+- [Avere vFXT](https://azure.microsoft.com/en-us/services/storage/avere-vfxt/) for faster, more accessible data storage for high-performance computing at the edge
 - [BeeGFS](https://azure.microsoft.com/resources/implement-glusterfs-on-azure/en-us/)
 - [Storage Optimized Virtual Machines](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-storage?toc=/azure/architecture/topics/high-performance-computing/toc.json)
 - [Blob, table, and queue storage](https://docs.microsoft.com/azure/storage/storage-introduction?toc=/azure/architecture/topics/high-performance-computing/toc.json)
