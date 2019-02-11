@@ -394,7 +394,7 @@ Here are the major points to take away from this article:
 [site-recovery]: /azure/site-recovery/azure-to-azure-quickstart/
 [site-recovery-test-failover]: /azure/site-recovery/azure-to-azure-tutorial-dr-drill/
 [site-recovery-failover]: /azure/site-recovery/azure-to-azure-tutorial-failover-failback/
-[deployment-topologies]: ../disaster-recovery-azure-applications.md#deployment-topologies-for-disaster-recovery
+[deployment-topologies]: ./disaster-recovery-azure-applications.md#deployment-topologies-for-disaster-recovery
 [bulkhead-pattern]: ../patterns/bulkhead.md
 [terraform]: /azure/virtual-machines/windows/infrastructure-automation#terraform
 [ansible]: /azure/virtual-machines/windows/infrastructure-automation#ansible
