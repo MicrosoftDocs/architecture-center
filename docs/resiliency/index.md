@@ -98,7 +98,7 @@ In Azure, the [Service Level Agreement][sla] (SLA) describes Microsoft’s commi
 > [!NOTE]
 > The Azure SLA also includes provisions for obtaining a service credit if the SLA is not met, along with specific definitions of "availability" for each service. That aspect of the SLA acts as an enforcement policy.
 
-You should define your own target SLAs for each workload in your solution. An SLA makes it possible to evaluate whether the architecture meets the business requirements. It is very important that you perform dependency mapping exercise to identify internal/external dependencies. For example, dependencies relating to security or identity such as Active Directory for Infrastructure as a Service (IaaS) solutions or third-party services such as a payment provider or e-mail messaging service. Particularly pay attention to any external dependencies that can be single point of failure or cause bottlenecks during an event. For example, if a workload requires 99.99% uptime, but depends on a service with a 99.9% SLA, that service cannot be a single-point of failure in the system. One remedy is to have a fallback path in case the service fails, or take other measures to recover from a failure in that service.
+You should define your own target SLAs for each workload in your solution. An SLA makes it possible to evaluate whether the architecture meets the business requirements. Perform a dependency mapping exercise to identify internal and external dependencies, such as Active Directory or third-party services such as a payment provider or e-mail messaging service. In particular, pay attention to any external dependencies that can be single point of failure or cause bottlenecks during an event. For example, if a workload requires 99.99% uptime, but depends on a service with a 99.9% SLA, that service cannot be a single-point of failure in the system. One remedy is to have a fallback path in case the service fails, or take other measures to recover from a failure in that service.
 
 The following table shows the potential cumulative downtime for various SLA levels.
 
@@ -204,7 +204,7 @@ If you are planning to use Availability Zones in your deployment, first validate
 
 When you design a multi-region application, take into account that network latency across regions is higher than within a region. For example, if you are replicating a database to enable failover, use synchronous data replication within a region, but asynchronous data replication across regions.
 
-When you select paired regions, ensure both regions have required Azure services. To check what products available in each region, see Products available by region. Also it is very critical that you select the right deployment topology for disaster recovery especially when your RPO/RTO are very short and you want to ensure when you failover, the region has enough capacity to support your workload. For this reason, you should select either Active/Passive (Full Replica) or Active/Active topology. Keep in mind these deployment topologies might increase complexity and cost as resources in the secondary region are pre-provisioned and may sit idle. For more information, see [Deployment topologies for disaster recovery][deployment-topologies]
+When you select paired regions, ensure both regions have required Azure services. For a list of services by region, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). It's also critical to select the right deployment topology for disaster recovery, especially if your RPO/RTO are short. To ensure the failover region has enough capacity to support your workload, select either an active/passive (full replica) topology or an active/active topology. Keep in mind these deployment topologies might increase complexity and cost as resources in the secondary region are pre-provisioned and may sit idle. For more information, see [Deployment topologies for disaster recovery][deployment-topologies]
 
 | &nbsp; | Availability Set | Availability Zone | Azure Site Recovery/Paired region |
 |--------|------------------|-------------------|---------------|
@@ -286,8 +286,6 @@ Testing is an iterative process. Test the application, measure the outcome, anal
 - Unmount disks.
 - Redeploy a VM.
 
-For example Service Fabric gives developers the ability to induce faults to test their services. For more information, see [Induce controlled Chaos in Service Fabric clusters][controlled-chaos-in-sf]
-
 Measure the recovery times and verify that your business requirements are met. Test combinations of failure modes as well. Make sure that failures don't cascade, and are handled in an isolated way.
 
 This is another reason why it's important to analyze possible failure points during the design phase. The results of that analysis should be inputs into your test plan.
@@ -303,7 +301,7 @@ Once an application is deployed to production, updates are a possible source of 
 The crucial point is that manual deployments are prone to error. Therefore, it's recommended to have an automated, idempotent process that you can run on demand, and re-run if something fails.
 
 * To automate provisioning of Azure resources you can use [Terraform][terraform], [Ansible][ansible], [Chef][chef], [Puppet][puppet], [PowerShell][powershell], [CLI][cli] or [Azure Resource Manager templates][template-deployment]
-* Use [Cloud-init][cloud-init] for Linux VMs or [Azure Automation Desired State Configuration][dsc] (DSC) to configure VMs.
+* Use [Azure Automation Desired State Configuration][dsc] (DSC) to configure VMs. For Linux VMs, you can use [Cloud-init][cloud-init].
 * You can automate application deployment using [Azure DevOps Services][azure-devops-services] or [Jenkins][jenkins].
 
 Two concepts related to resilient deployment are *infrastructure as code* and *immutable infrastructure*.
@@ -314,9 +312,9 @@ Two concepts related to resilient deployment are *infrastructure as code* and *i
 Another question is how to roll out an application update. We recommend techniques such as blue-green deployment or canary releases, which push updates in highly controlled way to minimize possible impacts from a bad deployment.
 
 - [Blue-green deployment][blue-green] is a technique where an update is deployed into a production environment separate from the live application. After you validate the deployment, switch the traffic routing to the updated version. For example, Azure App Service Web Apps enables this with [staging slots][staging-slots].
-- [Canary releases][canary-release] are similar to blue-green deployments. Instead of switching all traffic to the updated version, you roll out the update to a small percentage of users, by routing a portion of the traffic to the new deployment. If there is a problem, back off and revert to the old deployment. Otherwise, route more of the traffic to the new version, until it gets 100% of the traffic. For example, Azure App Service enables this through Testing in production feature.
+- [Canary releases][canary-release] are similar to blue-green deployments. Instead of switching all traffic to the updated version, you roll out the update to a small percentage of users, by routing a portion of the traffic to the new deployment. If there is a problem, back off and revert to the old deployment. Otherwise, route more of the traffic to the new version, until it gets 100% of the traffic.
 
-Whatever approach you take, make sure that you can roll back to the last-known-good deployment, in case the new version is not functioning. For example, from a web or API app perspective you can use Azure App Service to maintain last-known-good-site slot and roll back when needed. Also make sure you have a strategy in place to roll back database changes and any other dependency service changes as well. If errors occur, the application logs must indicate which version caused the error.
+Whatever approach you take, make sure that you can roll back to the last-known-good deployment, in case the new version is not functioning. Also have a strategy in place to roll back database changes and any other changes to dependent services. If errors occur, the application logs must indicate which version caused the error.
 
 ## Monitor to detect failures
 
@@ -398,7 +396,6 @@ Here are the major points to take away from this article:
 [site-recovery-failover]: /azure/site-recovery/azure-to-azure-tutorial-failover-failback/
 [deployment-topologies]: ../disaster-recovery-azure-applications.md#deployment-topologies-for-disaster-recovery
 [bulkhead-pattern]: ../patterns/bulkhead.md
-[controlled-chaos-in-sf]: /azure/service-fabric/service-fabric-controlled-chaos
 [terraform]: /azure/virtual-machines/windows/infrastructure-automation#terraform
 [ansible]: /azure/virtual-machines/windows/infrastructure-automation#ansible
 [chef]: /azure/virtual-machines/windows/infrastructure-automation#chef
