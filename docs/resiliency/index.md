@@ -357,8 +357,8 @@ This article discussed resiliency from a holistic perspective, emphasizing some 
 
 Here are the major points to take away from this article:
 
-- Resiliency leads to higher availability, and lower mean time to recover from failures. 
-- Achieving resiliency in the cloud requires a different set of techniques from traditional on-premises solutions. 
+- Resiliency leads to higher availability, and lower mean time to recover from failures.
+- Achieving resiliency in the cloud requires a different set of techniques from traditional on-premises solutions.
 - Resiliency does not happen by accident. It must be designed and built in from the start.
 - Resiliency touches every part of the application lifecycle, from planning and coding to operations.
 - Test and monitor!
