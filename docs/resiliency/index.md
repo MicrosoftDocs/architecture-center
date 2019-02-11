@@ -6,7 +6,7 @@ ms.date: 12/18/2018
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: cloud-design-principles
-ms.custom: resiliency
+ms.custom: resiliency,fasttrack
 ---
 
 # Designing resilient applications for Azure
