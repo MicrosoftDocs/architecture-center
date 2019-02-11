@@ -98,7 +98,7 @@ In Azure, the [Service Level Agreement][sla] (SLA) describes Microsoft’s commi
 > [!NOTE]
 > The Azure SLA also includes provisions for obtaining a service credit if the SLA is not met, along with specific definitions of "availability" for each service. That aspect of the SLA acts as an enforcement policy.
 
-You should define your own target SLAs for each workload in your solution. An SLA makes it possible to evaluate whether the architecture meets the business requirements. For example, if a workload requires 99.99% uptime, but depends on a service with a 99.9% SLA, that service cannot be a single-point of failure in the system. One remedy is to have a fallback path in case the service fails, or take other measures to recover from a failure in that service.
+You should define your own target SLAs for each workload in your solution. An SLA makes it possible to evaluate whether the architecture meets the business requirements. Perform a dependency mapping exercise to identify internal and external dependencies, such as Active Directory or third-party services such as a payment provider or e-mail messaging service. In particular, pay attention to any external dependencies that can be single point of failure or cause bottlenecks during an event. For example, if a workload requires 99.99% uptime, but depends on a service with a 99.9% SLA, that service cannot be a single-point of failure in the system. One remedy is to have a fallback path in case the service fails, or take other measures to recover from a failure in that service.
 
 The following table shows the potential cumulative downtime for various SLA levels.
 
@@ -204,6 +204,8 @@ If you are planning to use Availability Zones in your deployment, first validate
 
 When you design a multi-region application, take into account that network latency across regions is higher than within a region. For example, if you are replicating a database to enable failover, use synchronous data replication within a region, but asynchronous data replication across regions.
 
+When you select paired regions, ensure both regions have required Azure services. For a list of services by region, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). It's also critical to select the right deployment topology for disaster recovery, especially if your RPO/RTO are short. To ensure the failover region has enough capacity to support your workload, select either an active/passive (full replica) topology or an active/active topology. Keep in mind these deployment topologies might increase complexity and cost as resources in the secondary region are pre-provisioned and may sit idle. For more information, see [Deployment topologies for disaster recovery][deployment-topologies]
+
 | &nbsp; | Availability Set | Availability Zone | Azure Site Recovery/Paired region |
 |--------|------------------|-------------------|---------------|
 | Scope of failure | Rack | Datacenter | Region |
@@ -253,7 +255,7 @@ Applications may experience sudden spikes in traffic, which can overwhelm servic
 
 **Isolate critical resources**. Failures in one subsystem can sometimes cascade, causing failures in other parts of the application. This can happen if a failure causes some resources, such as threads or sockets, not to get freed in a timely manner, leading to resource exhaustion.
 
-To avoid this, you can partition a system into isolated groups, so that a failure in one partition does not bring down the entire system. This technique is sometimes called the Bulkhead pattern.
+To avoid this, you can partition a system into isolated groups, so that a failure in one partition does not bring down the entire system. This technique is sometimes called the [Bulkhead pattern][bulkhead-pattern].
 
 Examples:
 
@@ -298,9 +300,9 @@ Once an application is deployed to production, updates are a possible source of 
 
 The crucial point is that manual deployments are prone to error. Therefore, it's recommended to have an automated, idempotent process that you can run on demand, and re-run if something fails.
 
-- Use Azure Resource Manager templates to automate provisioning of Azure resources.
-- Use [Azure Automation Desired State Configuration][dsc] (DSC) to configure VMs.
-- Use an automated deployment process for application code.
+* To automate provisioning of Azure resources you can use [Terraform][terraform], [Ansible][ansible], [Chef][chef], [Puppet][puppet], [PowerShell][powershell], [CLI][cli] or [Azure Resource Manager templates][template-deployment]
+* Use [Azure Automation Desired State Configuration][dsc] (DSC) to configure VMs. For Linux VMs, you can use [Cloud-init][cloud-init].
+* You can automate application deployment using [Azure DevOps Services][azure-devops-services] or [Jenkins][jenkins].
 
 Two concepts related to resilient deployment are *infrastructure as code* and *immutable infrastructure*.
 
@@ -309,25 +311,24 @@ Two concepts related to resilient deployment are *infrastructure as code* and *i
 
 Another question is how to roll out an application update. We recommend techniques such as blue-green deployment or canary releases, which push updates in highly controlled way to minimize possible impacts from a bad deployment.
 
-- [Blue-green deployment][blue-green] is a technique where an update is deployed into a production environment separate from the live application. After you validate the deployment, switch the traffic routing to the updated version. For example, Azure App Service Web Apps enables this with staging slots.
+- [Blue-green deployment][blue-green] is a technique where an update is deployed into a production environment separate from the live application. After you validate the deployment, switch the traffic routing to the updated version. For example, Azure App Service Web Apps enables this with [staging slots][staging-slots].
 - [Canary releases][canary-release] are similar to blue-green deployments. Instead of switching all traffic to the updated version, you roll out the update to a small percentage of users, by routing a portion of the traffic to the new deployment. If there is a problem, back off and revert to the old deployment. Otherwise, route more of the traffic to the new version, until it gets 100% of the traffic.
 
-Whatever approach you take, make sure that you can roll back to the last-known-good deployment, in case the new version is not functioning. Also, if errors occur, the application logs must indicate which version caused the error.
+Whatever approach you take, make sure that you can roll back to the last-known-good deployment, in case the new version is not functioning. Also have a strategy in place to roll back database changes and any other changes to dependent services. If errors occur, the application logs must indicate which version caused the error.
 
 ## Monitor to detect failures
+Monitoring is crucial for resiliency. If something fails, you need to know that it failed, and you need insights into the cause of the failure. 
 
-Monitoring and diagnostics are crucial for resiliency. If something fails, you need to know that it failed, and you need insights into the cause of the failure.
+Monitoring a large-scale distributed system poses a significant challenge. Think about an application that runs on a few dozen VMs &mdash; it's not practical to log into each VM, one at a time, and look through log files, trying to troubleshoot a problem. Moreover, the number of VM instances is probably not static VMs get added and removed as the application scales in and out, and occasionally an instance may fail and need to be reprovisioned. In addition, a typical cloud application might use multiple data stores (Azure storage, SQL Database, Cosmos DB, Redis cache), and a single user action may span multiple subsystems. 
 
-Monitoring a large-scale distributed system poses a significant challenge. Think about an application that runs on a few dozen VMs &mdash; it's not practical to log into each VM, one at a time, and look through log files, trying to troubleshoot a problem. Moreover, the number of VM instances is probably not static. VMs get added and removed as the application scales in and out, and occasionally an instance may fail and need to be reprovisioned. In addition, a typical cloud application might use multiple data stores (Azure storage, SQL Database, Cosmos DB, Redis cache), and a single user action may span multiple subsystems.
-
-You can think of the monitoring and diagnostics process as a pipeline with several distinct stages:
+You can think of the monitoring process as a pipeline with several distinct stages:
 
 ![Composite SLA](./images/monitoring.png)
 
-- **Instrumentation**. The raw data for monitoring and diagnostics comes from a variety of sources, including application logs, web server logs, OS performance counters, database logs, and diagnostics built into the Azure platform. Most Azure services have a diagnostics feature that you can use to determine the cause of problems.
-- **Collection and storage**. Raw instrumentation data can be held in various locations and with various formats (e.g., application trace logs, IIS logs, performance counters). These disparate sources are collected, consolidated, and put into reliable storage.
-- **Analysis and diagnosis**. After the data is consolidated, it can be analyzed to troubleshoot issues and provide an overall view of application health.
-- **Visualization and alerts**. In this stage, telemetry data is presented in such a way that an operator can quickly notice problems or trends. Example include dashboards or email alerts.  
+* **Instrumentation**. The raw data for monitoring comes from a variety of sources, including [application logs](/azure/application-insights/app-insights-overview?toc=/azure/azure-monitor/toc.json), [operating systems performance metrics](/azure/azure-monitor/platform/agents-overview), [Azure resources](/azure/monitoring-and-diagnostics/monitoring-supported-metrics?toc=/azure/azure-monitor/toc.json), [Azure subscriptions](/azure/service-health/service-health-overview) and [Azure tenants](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics). Most Azure services expose [metrics](/azure/azure-monitor/platform/data-collection) that you can configure to analyze and determine the cause of problems.
+* **Collection and storage**. Raw instrumentation data can be held in various locations and with various formats (e.g., application trace logs, IIS logs, performance counters). These disparate sources are collected, consolidated, and put into reliable data stores such as Application Insights, Azure Monitor metrics, Service Health, storage accounts and Log Analytics.
+* **Analysis and diagnosis**. After the data is consolidated in these different data stores, it can be analyzed to troubleshoot issues and provide an overall view of application health. Generally, you can search for the data in Application Insights and Log Analytics using [Kusto queries](/azure/log-analytics/log-analytics-queries). Azure Advisor provides recommendations with a focus on [resiliency](/azure/advisor/advisor-high-availability-recommendations) and [optimization](/azure/advisor/advisor-performance-recommendations). 
+* **Visualization and alerts**. In this stage, telemetry data is presented in such a way that an operator can quickly notice problems or trends. Examples include dashboards or email alerts. With [Azure dashboards](/azure/azure-portal/azure-portal-dashboards), you can build a single-pane of glass view of monitoring graphs originating from Application Insights, Log Analytics, Azure Monitor metrics and service health. With [Azure Monitor alerts](/azure/monitoring-and-diagnostics/monitoring-overview-alerts?toc=/azure/azure-monitor/toc.json), you can create alerts on service health and resource health.
 
 Monitoring is not the same as failure detection. For example, your application might detect a transient error and retry, resulting in no downtime. But it should also log the retry operation, so that you can monitor the error rate, in order to get an overall picture of application health.
 
@@ -342,19 +343,18 @@ Application logs are an important source of diagnostics data. Best practices for
 For more information about monitoring and diagnostics, see [Monitoring and diagnostics guidance][monitoring-guidance].
 
 ## Respond to failures
-
 Previous sections have focused on automated recovery strategies, which are critical for high availability. However, sometimes manual intervention is needed.
 
-- **Alerts**. Monitor your application for warning signs that may require proactive intervention. For example, if you see that SQL Database or Cosmos DB consistently throttles your application, you might need to increase your database capacity or optimize your queries. In this example, even though the application might handle the throttling errors transparently, your telemetry should still raise an alert so that you can follow up.  
-- **Manual failover**. Some systems cannot fail over automatically and require a manual failover. For Azure virtual machines configured with [Azure Site Recovery][site-recovery], you can [perform failover][site-recovery-failover] and recover your virtual machines in another region within minutes.
-- **Operational readiness testing**. If your application fails over to a secondary region, you should perform an operational readiness test before you fail back to the primary region. The test should verify that the primary region is healthy and ready to receive traffic again.
-- **Data consistency check**. If a failure happens in a data store, there may be data inconsistencies when the store becomes available again, especially if the data was replicated.
-- **Restoring from backup**. For example, if SQL Database experiences a regional outage, you can geo-restore the database from the latest backup.
+* **Alerts**. Monitor your application for warning signs that may require proactive intervention. For example, if you see that SQL Database or Cosmos DB consistently throttles your application, you might need to increase your database capacity or optimize your queries. In this example, even though the application might handle the throttling errors transparently, your telemetry should still raise an alert so that you can follow up. It is recommended to configure alerts on Azure resources metrics and diagnostics logs against the services limits and quotas thresholds. We recommend to setup alerts on metrics as they are lower latency vs. diagnostics logs. In addition, Azure is able to provide with some out-of-the-box health status through [resource health](https://docs.microsoft.com/en-us/azure/service-health/resource-health-checks-resource-types) which can help diagnose throttling of Azure services.    
+* **Failover**. Configure a disaster recovery strategy your application. The appropriate strategy will depend on your SLAs. For more scenarous, an active-passive implementation is sufficient. For more information, see [Deployment topologies for disaster recovery
+](./disaster-recovery-azure-applications.md#deployment-topologies-for-disaster-recovery). Most Azure services allow for either manual or automated failover. For example, in an IaaS application, use [Azure Site Recovery](/azure/site-recovery/azure-to-azure-architecture) for the web and logic tiers and [SQL AlwaysOn Availability Groups](/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-availability-group-dr) for the database tier. [Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-overview) provides automated failover across regions.
+* **Operational readiness testing**. Perform an operational readiness test for both failover to the secondary region and failback to the primary region. Many Azure services support manual failover or test failover for disaster recovery drills. Alternatevely, you can simulate an outage by shutting down or removing services.
+* **Data consistency check**. If a failure happens in a data store, there may be data inconsistencies when the store becomes available again, especially if the data was replicated. For Azure services that provide cross-regional replication, look at the RTO and RPO to understand the expected data loss in a failure. Review the SLAs for Azure services to understand whether cross-regional failover can be initiated manually or is initiated by Microsoft. For some services, Microsoft decides when to perform the failover. Microsoft may prioritize the recovery of data in the primary region, only failing over to a secondary region if data in the primary region is deemed unrecoverable. For example, [Geo-redundant storage)](/azure/storage/common/storage-redundancy-grs) and [Key Vault](/azure/key-vault/key-vault-disaster-recovery-guidance) follow this model.
+* **Restoring from backup**. In some scenarios, restoring from backup is only possible within the same region. This is the case for [Azure VMs Backup](/azure/backup/backup-azure-vms-first-look-arm). Other Azure services provide geo-replicated backups, such as [Redis Cache Geo-Replicas](/azure/redis-cache/cache-how-to-geo-replication). The purpose of backups is to protect against accidental deletion or corruption of data, restoring the application to a functional version earlier in time. Therefore, while backups can serve as a disaster recovery solution in some cases, the inverse is not always true: Disaster recovery won't protect you against accidental deletion or corruption a data.  
 
-Document and test your disaster recovery plan. Evaluate the business impact of application failures. Automate the process as much as possible, and document any manual steps, such as manual failover or data restoration from backups. Regularly test your disaster recovery process to validate and improve the plan.
+Document and test your disaster recovery plan. Evaluate the business impact of application failures. Automate the process as much as possible, and document any manual steps, such as manual failover or data restoration from backups. Regularly test your disaster recovery process to validate and improve the plan. Set up alerts for the Azure services consumed by your application.
 
 ## Summary
-
 This article discussed resiliency from a holistic perspective, emphasizing some of the unique challenges of the cloud. These include the distributed nature of cloud computing, the use of commodity hardware, and the presence of transient network faults.
 
 Here are the major points to take away from this article:
@@ -369,12 +369,12 @@ Here are the major points to take away from this article:
 
 [blue-green]: https://martinfowler.com/bliki/BlueGreenDeployment.html
 [canary-release]: https://martinfowler.com/bliki/CanaryRelease.html
-[circuit-breaker-pattern]: https://msdn.microsoft.com/library/dn589784.aspx
-[compensating-transaction-pattern]: https://msdn.microsoft.com/library/dn589804.aspx
+[circuit-breaker-pattern]: ../patterns/circuit-breaker.md
+[compensating-transaction-pattern]: ../patterns/compensating-transaction.md
 [containers]: https://en.wikipedia.org/wiki/Operating-system-level_virtualization
 [dsc]: /azure/automation/automation-dsc-overview
 [contingency-planning-guide]: https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-34r1.pdf
-[fma]: failure-mode-analysis.md
+[fma]: ./failure-mode-analysis.md
 [hystrix]: https://medium.com/netflix-techblog/introducing-hystrix-for-resilience-engineering-13531c1ab362
 [jmeter]: https://jmeter.apache.org/
 [load-leveling-pattern]: ../patterns/queue-based-load-leveling.md
@@ -389,6 +389,19 @@ Here are the major points to take away from this article:
 [tm]: https://azure.microsoft.com/services/traffic-manager/
 [tm-failover]: /azure/traffic-manager/traffic-manager-monitoring
 [tm-sla]: https://azure.microsoft.com/support/legal/sla/traffic-manager
-[site-recovery]:/azure/site-recovery/azure-to-azure-quickstart/
-[site-recovery-test-failover]:/azure/site-recovery/azure-to-azure-tutorial-dr-drill/
-[site-recovery-failover]:/azure/site-recovery/azure-to-azure-tutorial-failover-failback/
+[site-recovery]: /azure/site-recovery/azure-to-azure-quickstart/
+[site-recovery-test-failover]: /azure/site-recovery/azure-to-azure-tutorial-dr-drill/
+[site-recovery-failover]: /azure/site-recovery/azure-to-azure-tutorial-failover-failback/
+[deployment-topologies]: ./disaster-recovery-azure-applications.md#deployment-topologies-for-disaster-recovery
+[bulkhead-pattern]: ../patterns/bulkhead.md
+[terraform]: /azure/virtual-machines/windows/infrastructure-automation#terraform
+[ansible]: /azure/virtual-machines/windows/infrastructure-automation#ansible
+[chef]: /azure/virtual-machines/windows/infrastructure-automation#chef
+[puppet]: /azure/virtual-machines/windows/infrastructure-automation#puppet
+[template-deployment]: /azure/azure-resource-manager/resource-group-overview#template-deployment
+[cloud-init]: /azure/virtual-machines/windows/infrastructure-automation#cloud-init
+[azure-devops-services]: /azure/virtual-machines/windows/infrastructure-automation#azure-devops-services
+[jenkins]: /azure/virtual-machines/windows/infrastructure-automation#jenkins
+[staging-slots]: /azure/app-service/deploy-staging-slots
+[powershell]: /powershell/azure/overview
+[cli]: /cli/azure
