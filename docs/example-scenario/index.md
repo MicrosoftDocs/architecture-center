@@ -7,6 +7,8 @@ layout: LandingPage
 ms.topic: landing-page
 ms.service: architecture-center
 ms.subservice: example-scenario
+experimental: true
+experiment_id: 4d428657-5d85-46
 ---
 
 # Azure Example Scenarios
