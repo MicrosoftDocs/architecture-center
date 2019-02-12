@@ -9,7 +9,7 @@
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./ai/media/architecture-commerce-chatbot.png" height="140px" />
+                            <img src="./ai/media-thumbnail/architecture-commerce-chatbot.png" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -28,7 +28,7 @@
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./ai/media/architecture-intelligent-apps-image-processing.png" height="140px" />
+                            <img src="./ai/media-thumbnail/architecture-intelligent-apps-image-processing.png"/>
                         </div>
                     </div>
                     <div class="cardText">
@@ -47,7 +47,7 @@
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./ai/media/architecture-movie-recommender.png" height="140px" />
+                            <img src="./ai/media-thumbnail/architecture-movie-recommender.png"/>
                         </div>
                     </div>
                     <div class="cardText">
@@ -72,7 +72,7 @@
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./apps/media/architecture-apim-api-scenario.png" height="140px" />
+                            <img src="./apps/media-thumbnail/architecture-apim-api-scenario.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -91,7 +91,7 @@
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./apps/media/architecture-decentralized-trust.png" height="140px" />
+                            <img src="./apps/media-thumbnail/architecture-decentralized-trust.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -110,7 +110,7 @@
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./apps/media/architecture-devops-dotnet-webapp.svg" height="140px" />
+                            <img src="./apps/media-thumbnail/architecture-devops-dotnet-webapp.svg" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -129,7 +129,7 @@
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./apps/media/architecture-devops-with-aks.png" height="140px" />
+                            <img src="./apps/media-thumbnail/architecture-devops-with-aks.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -148,7 +148,7 @@
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./apps/media/architecture-ecommerce-scenario.png" height="140px" />
+                            <img src="./apps/media-thumbnail/architecture-ecommerce-scenario.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -167,7 +167,7 @@
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./apps/media/architecture-ecommerce-search.png" height="140px" />
+                            <img src="./apps/media-thumbnail/architecture-ecommerce-search.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -186,7 +186,7 @@
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./apps/media/architecture-hpc-saas.png" height="140px" />
+                            <img src="./apps/media-thumbnail/architecture-hpc-saas.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -205,7 +205,7 @@
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./apps/media/architecture-sap-dev-test.png" height="140px" />
+                            <img src="./apps/media-thumbnail/architecture-sap-dev-test.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -224,7 +224,7 @@
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./apps/media/architecture-sap-production.png" height="140px" />
+                            <img src="./apps/media-thumbnail/architecture-sap-production.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -249,7 +249,7 @@
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./data/media/architecture-big-data-with-iot.png" height="140px" />
+                            <img src="./data/media-thumbnail/architecture-big-data-with-iot.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -268,7 +268,7 @@
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./data/media/architecture-data-warehouse.png" height="140px" />
+                            <img src="./data/media-thumbnail/architecture-data-warehouse.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -287,7 +287,7 @@
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./data/media/architecture-ecommerce-order-processing.png" height="140px" />
+                            <img src="./data/media-thumbnail/architecture-ecommerce-order-processing.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -306,7 +306,7 @@
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./data/media/architecture-fraud-detection.png" height="140px" />
+                            <img src="./data/media-thumbnail/architecture-fraud-detection.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -325,7 +325,7 @@
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./data/media/architecture-diagram-hybrid-etl-with-adf.png" height="140px" />
+                            <img src="./data/media-thumbnail/architecture-diagram-hybrid-etl-with-adf.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -344,7 +344,7 @@
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./data/media/architecture-realtime-analytics-vehicle-data1.png" height="140px" />
+                            <img src="./data/media-thumbnail/architecture-realtime-analytics-vehicle-data1.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -369,7 +369,7 @@
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./infrastructure/media/architecture-hpc-cfd.png" height="140px" />
+                            <img src="./infrastructure/media-thumbnail/architecture-hpc-cfd.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -388,7 +388,7 @@
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./infrastructure/media/architecture-image-modeling.png" height="140px" />
+                            <img src="./infrastructure/media-thumbnail/architecture-image-modeling.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -407,7 +407,7 @@
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./infrastructure/media/azure-citrix-sample-diagram.png" height="140px" />
+                            <img src="./infrastructure/media-thumbnail/azure-citrix-sample-diagram.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -426,7 +426,7 @@
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./infrastructure/media/arhitecture-disaster-recovery-multi-tier-app.png" height="140px" />
+                            <img src="./infrastructure/media-thumbnail/arhitecture-disaster-recovery-multi-tier-app.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -445,7 +445,7 @@
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./infrastructure/media/architecture-regulated-multitier-app.png" height="140px" />
+                            <img src="./infrastructure/media-thumbnail/architecture-regulated-multitier-app.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -464,7 +464,7 @@
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./infrastructure/media/architecture-service-fabric-complete.png" height="140px" />
+                            <img src="./infrastructure/media-thumbnail/architecture-service-fabric-complete.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -483,7 +483,7 @@
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./infrastructure/media/architecture-video-rendering.png" height="140px" />
+                            <img src="./infrastructure/media-thumbnail/architecture-video-rendering.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -502,7 +502,7 @@
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./infrastructure/media/secure-scalable-wordpress.png" height="140px" />
+                            <img src="./infrastructure/media-thumbnail/secure-scalable-wordpress.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
