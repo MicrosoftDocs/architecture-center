@@ -1,6 +1,6 @@
 ---
-title: Solution Accelerator for Monitoring Azure Databricks
-titleSuffix: Azure Solution Accelerators
+title: Monitoring Azure Databricks in Azure Log Analytics
+titleSuffix: A solution for monitoring Azure Databricks in Azure Log Analytics
 description: A scala library to deploy to a Databricks cluster to enable monitoring of metrics and logging data in Azure Log Analytics
 author: petertaylor9999
 ms.date: 01/28/2019
@@ -9,37 +9,37 @@ ms.service:
 ms.subservice:
 ---
 
-# Solution Accelerator: Monitoring Azure Databricks using Azure Log Analytics
+# Monitoring Azure Databricks in Azure Log Analytics
 
-Azure Databricks is a fast, easy and collaborative Apache Spark–based analytics service that makes it easy to rapidly develop and deploy big data analytics and artificial intelligence (AI) solutions. Monitoring is a critical part of any production-level solution, and Azure Databricks offers robust functionality for monitoring metrics, streaming query event information, and application logging data.
+Azure Databricks is a fast, powerful, and collaborative Apache Spark–based analytics service that makes it easy to rapidly develop and deploy big data analytics and artificial intelligence (AI) solutions. Most users take advantage of the simplicity of notebooks in their Azure Databricks solutions. For users that require more robust computing options, Azure Databricks supports the distributed execution of custom application code written in Scala.
 
-Databricks is a flexible and extensible service that supports delivery of metrics and logging data to many different logging services. This solution accelerator extends the core monitoring functionality of Azure Databricks to support Azure Log Analytics.
+Monitoring in custom application code is a critical part of any production-level solution, and Azure Databricks offers robust functionality for monitoring metrics, streaming query event information, and application logging data. Azure Databricks supports delivery of metrics and logging data to many different logging services, and the code library that accompanies this document extends the core monitoring functionality of Azure Databricks to send streaming query event information to Azure Log Analytics.
 
-# Monitoring Apache Spark Structured Streaming queries in Azure Databricks
+## Monitoring Apache Spark Structured Streaming queries in Azure Databricks
 
-Azure Databricks is based on Apache Spark, which includes a set of structured APIs for batch processing data using Datasets, DataFrames, and SQL. With Apache Spark 2.0, support was added for [Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html), a data stream processing API built upon Spark's batch processing APIs.
+Azure Databricks is a service based on Apache Spark, which includes a set of structured APIs for batch processing data using Datasets, DataFrames, and SQL. With Apache Spark 2.0, support was added for [Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html), a data stream processing API built upon Spark's batch processing APIs.
 
-The Structured Streaming API includes functionality to monitor active streams as data is processed by sending event information to an external metrics system. The external metrics system is registered with Spark Structured Streaming by attaching an implementation of a **StreamingQueryListener** object to the current Spark streaming session.
+The Structured Streaming API includes functionality to monitor active streams as data is processed by sending event information to an external metrics system. An external metrics system is registered with Spark Structured Streaming by attaching an implementation of a **StreamingQueryListener** object to the current Spark streaming session.
 
-This solution accelerator includes a **StreamingQueryListener** implementation, **LogAnalyticsStreamingQueryListener**, to send Structured Streaming event information to an Azure Log Analytics workspace. You first attach the **LogAnalyticsStreamingQueryListener** to the Spark session in your job application code. Next, the solution accelerator includes a Spark initialization script that copies the **LogAnalyticsStreamingQueryListener** implementation to each node in your Spark cluster. Finally, specify the connection string, workspace ID, and shared access signature (SAS) token for your Log Analytics workspace in the Spark configuration settings. When your job runs, metrics are sent to the specified Log Analytics workspace.
+This code library that accompanites this document includes a **StreamingQueryListener** implementation named **LogAnalyticsStreamingQueryListener**. Attaching an instance of **LogAnalyticsStreamingQueryListener** to the Spark session in your application sends Structured Streaming event information to an Azure Log Analytics workspace.
 
-# Use the solution accelerator
+## Use the Azure Databricks monitoring library
 
-This solution accelerator has the following prerequisites:
+Integration of the code library accompanying this document into your application has the following prerequisites:
 
 * Clone, fork, or download the [GitHub repository](https://github.com/mspnp/spark-monitoring).
 
-* An Azure Databricks workspace. For instructions, see [get started with Azure Databricks.](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal).
+* An active Azure Databricks workspace. For instructions on how to deploy an Azure Databricks workspace, see [get started with Azure Databricks.](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal).
 * Install the [Azure Databricks CLI](https://docs.databricks.com/user-guide/dev-tools/databricks-cli.html#install-the-cli).
   * An Azure Databricks personal access token is required to use the CLI. For instructions, see [token management](https://docs.azuredatabricks.net/api/latest/authentication.html#token-management).
   * You can also use the Azure Databricks CLI from the Azure Cloud Shell. 
 
 * A Java IDE, with the following resources:
-  * JDK 1.8
-  * Scala SDK 2.11
-  * Maven 3.5.4
+  * Java Devlopment Kit (JDK) version 1.8
+  * Scala language SDK 2.11
+  * Maven build system 3.5.4
 
-To use the solution accelerator, import the Maven project configuration file, _pom.xml_, located in the **spark-monitoring** folder into your project. This will import four projects:
+To use the solution accelerator, first import the Maven project configuration file, _pom.xml_, located in the **spark-monitoring** folder into your project. This will import four projects:
 
 * spark-listeners
 * spark-metrics
@@ -48,7 +48,7 @@ To use the solution accelerator, import the Maven project configuration file, _p
 
 For this solution accelerator, you'll work with the **spark-listeners** project.
 
-## Develop your Apache Spark job application for Azure Databricks
+### Develop your Apache Spark job application for Azure Databricks
 
 There are three requirements for using the **LogAnalyticsStreamingQueryListener** object in your Apache Spark job application code:
 
@@ -92,7 +92,7 @@ val spark = SparkSession
 spark.streams.addListener(new LogAnalyticsStreamingQueryListener(spark.sparkContext.getConf))
 ```
 
-First, the current Spark session is assigned to the variable **spark**. Next, the **LogAnalyticsStreamingQueryListener** is attached to the **streams** property of the current Spark session. Not that the **LogAnalyticsStreamingQueryListener** constructor takes a single parameter, which is the configuration information for the Spark cluster.
+First, the current Spark session is assigned to the variable **spark**. Next, the **LogAnalyticsStreamingQueryListener** is attached to the **streams** property of the current Spark session. Note that the **LogAnalyticsStreamingQueryListener** constructor takes a single parameter, which is the configuration information for the Spark cluster.
 
 Attaching the **LogAnalyticsStreamingQueryListener** enables asynchronous monitoring of all structured streaming queries associated with the current Apache Spark session. For more information, see [reporting metrics programmatically using asynchronous APIs](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html#reporting-metrics-programmatically-using-asynchronous-apis) in the [Apache Spark structured streaming programming guide](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html).
 
@@ -100,7 +100,7 @@ The remaining code in the sample configures and executes the structured streamin
 
 Let's move on to creating and configuring an Azure Databricks cluster to run your job application.
 
-## Create and configure your Azure Databricks cluster
+### Create and configure your Azure Databricks cluster
 
 To create and configure your Azure Databricks cluster, follow these steps:
 
@@ -136,7 +136,7 @@ To create and configure your Azure Databricks cluster, follow these steps:
 
 Ensure that your job application is code is running by checking the job's status in the Azure Databricks job dialog. If it is running successfully you will see "running" beside your job's name.
 
-## Monitor Azure Databricks structured streaming in Azure Log Analytics
+### Monitor Azure Databricks structured streaming in Azure Log Analytics
 
 Once you have completed all the steps above, the Spark Structured Streaming event data from Azure Databricks is sent to your Azure Log Analytics workspace as your query is processed. The log data is available under the "Active" "Custom Logs" "SparkListenerEvent_CL" schema.
 
