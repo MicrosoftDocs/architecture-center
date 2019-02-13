@@ -13,15 +13,16 @@ author: rotycenh
 
 Encrypting data protects it against unauthorized access. Properly implemented encryption policy provides additional layers of security for your cloud-based workloads and guards against attackers and other unauthorized users from both inside and outside your organization and networks.
 
-While encrypting resources is generally desirable, encryption does have costs that can increase latency and overall resource usage. For demanding workloads, striking the correct balance between encryption and performance is essential.
-
 ![Plotting encryption options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-encryption.png)
 
 Jump to: [Key management](#key-management) | [Data encryption](#data-encryption) | [Learn more](#learn-more)
 
-The inflection point when determining a cloud encryption strategy focuses on corporate policy and compliance mandates.
+Cloud encryption strategy focuses on corporate policy and compliance mandates. Encrypting resources is generally desirable, and in Azure many services such as Azure Storage and Azure SQL Database enable encryption by default. However, encryption does have costs that can increase latency and overall resource usage. 
 
-There are multiple ways to implement encryption in a cloud environment, with varying cost and complexity. Corporate policy and third-party compliance are the biggest drivers when planning an encryption strategy. Most cloud-based solutions provide standard mechanisms for encrypting data, whether at rest or in transit. However, for policies and compliance requirements that demand tighter controls, such as standardized secrets and key management, encryption in-use, or data specific encryption, you will likely need to implement a complex solution.
+For demanding workloads, striking the correct balance between encryption and performance, and determining how data and traffic is encrypted can be essential. Encryption mechanisms can vary in cost and complexity, and both technical and policy requirements can influence your decisions on how encryption is applied and how you store and manage critical secrets and keys. 
+
+Corporate policy and third-party compliance are the biggest drivers when planning an encryption strategy. Azure provides multiple standard mechanisms that can meet common requirements for encrypting data, whether at rest or in transit. However, for policies and compliance requirements that demand tighter controls, such as standardized secrets and key management, encryption in-use, or data specific encryption, you will need to develop a more sophisticated encryption strategy to support these requirements.
+
 
 ## Key management
 
@@ -33,11 +34,11 @@ When planning a cloud migration, the following table describes how you can store
 |---------------------------------------------------------------------------------------------------------------------------------------|--------------|--------|-------------|
 | Does your organization lack centralized key and secret management?                                                                    | Yes          | No     | No          |
 | Will you need to limit the creation of keys and secrets to devices to your on-premises hardware, while using these keys in the cloud? | No           | Yes    | No          |
-| Does your organization have rules or policies in place that would prevent keys and secrets from being stored offsite?                | No           | No     | Yes         |
+| Does your organization have rules or policies in place that would prevent keys  from being stored off-site?                | No           | No     | Yes         |
 
 ### Cloud native
 
-With cloud native key management, all keys and secrets are generated, managed, and stored in a cloud-based vault. This approach simplifies many IT tasks related to key management.
+With cloud native key management, all keys and secrets are generated, managed, and stored in a cloud-based vault such as Azure Key Vault. This approach simplifies many IT tasks related to key management, such as key backup, storage, and renewal.
 
 Cloud native key management assumptions: Using a cloud native key management system assumes the following:
 
@@ -46,11 +47,12 @@ Cloud native key management assumptions: Using a cloud native key management sys
 
 ### Hybrid (bring your own key)
 
-With a bring-your-own-key approach, you generate keys on dedicated HSM hardware within your on-premises environment, then transfer the keys to a secure cloud key management system for use with cloud resources.
+With a bring your own key approach, you generate keys on dedicated HSM hardware within your on-premises environment, then transfer the keys to a secure cloud key vault for use with cloud resources.
 
 Hybrid key management assumptions: Using a hybrid key management system assumes the following:
 
 - You trust the underlying security and access control infrastructure of the cloud platform for hosting and using your keys and secrets.
+- Your cloud-hosted applications or services are able to access and use keys and secrets in a robust and secure way.
 - You are required by regulatory or organizational policy to keep the creation and management of your organization's secrets and keys on-premises.
 
 ### On-premises (hold your own key)

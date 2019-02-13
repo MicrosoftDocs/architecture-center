@@ -14,7 +14,7 @@ author: rotycenh
 Organizing cloud-based resources is one of the most important tasks for IT, unless you have very simple deployments. Organizing your resources serves three primary purposes:
 
 - **Resource Management**. Your IT teams will need to quickly find resources associated with specific workloads, environments, ownership groups, or other important information. Organizing resources is critical to assigning organizational roles and access permissions for resource management.
-- **Operations**. In addition to making resources easier for IT to manage, a proper organizational scheme allows you to take advantage of automation as part of resource creation, operational monitoring, and the creation of DevOps processes.
+- **Automation**. In addition to making resources easier for IT to manage, a proper organizational scheme allows you to take advantage of automation as part of resource creation, operational monitoring, and the creation of DevOps processes.
 - **Accounting**. Making business groups aware of cloud resource consumption requires IT to understand what workloads and teams are using which resources. To support approaches such as chargeback and showback accounting, cloud resources need to be organized to reflect ownership and usage.
 
 ## Tagging decision guide
@@ -25,13 +25,13 @@ Jump to: [Baseline naming conventions](#baseline-naming-conventions) | [Resource
 
 Your tagging approach can be simple or complex, with the emphasis ranging from supporting IT teams managing cloud workloads to integrating information relating to all aspects of the entire business.
 
-An IT-aligned tagging focus will reduce the complexity of monitoring assets and make management decisions based on functionality and classification much easier.
+An IT aligned tagging focus, such as tagging based on workload, function, or environment, will reduce the complexity of monitoring assets and make management decisions based on operational requirements much easier.
 
-Tagging schemes that also include non-IT policies may require a larger time investment to create tagging standards that reflect business interests and maintain those standards over time. However, the result of this process is a tagging system providing an improved ability to account for costs and value of IT assets. This association of an asset's value to its operational cost is one of the first steps in changing the cost center perception of IT within your organization.
+Tagging schemes that include a business aligned focus, such as accounting, business ownership, or business criticality may require a larger time investment to create tagging standards that reflect business interests and maintain those standards over time. However, the result of this process is a tagging system providing an improved ability to account for costs and value of IT assets to the overall business. This association of an asset's business value to its operational cost is one of the first steps in changing the cost center perception of IT within your wider organization.
 
 ## Baseline naming conventions
 
-A standardized naming convention is the starting point for organizing your cloud-hosted resources. A properly structured naming system allows you to quickly identify resources for both management and accounting purposes. If you have existing IT naming conventions in other parts of your organization, consider whether your cloud resource naming conventions should align with them or if you should establish separate cloud-based standards.
+A standardized naming convention is the starting point for organizing your cloud-hosted resources. A properly structured naming system allows you to quickly identify resources for both management and accounting purposes. If you have existing IT naming conventions in other parts of your organization, consider whether your cloud naming conventions should align with them or if you should establish separate cloud-based standards.
 
 Note also that different Azure resource types have different [naming requirements](../../../best-practices/naming-conventions.md#naming-rules-and-restrictions). Your naming conventions must be compatible with these naming requirements.
 
@@ -60,7 +60,7 @@ Here are some examples of common tagging patterns:
 Your naming and tagging policy will evolve over time. However, determining your core organizational priorities at the outset of a cloud migration is critical. As part of your planning process, carefully consider the following questions:
 
 - How best can your naming and tagging policies integrate with existing naming and organizational policies within your organization?
-- Will you implement a chargeback or showback accounting system? How are your departments, business groups, and teams represented in this organizational structure?
+- Will you implement a chargeback or showback accounting system? Will you need to provide accounting information for departments, business groups, and teams in more detail than a simple subscription-level breakdown allows?
 - What tagging information will be required for all resources? What tagging information will be left up to individual teams to implement or not implement?
 - Does tagging need to represent details such regulatory compliance requirements for a resource? What about operational details such as uptime requirements, patching schedules, or security requirements?
 
