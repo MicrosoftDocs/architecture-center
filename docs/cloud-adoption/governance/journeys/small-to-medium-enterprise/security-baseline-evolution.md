@@ -1,11 +1,11 @@
 ---
-title: "CAF: Small-to-Medium Enterprise – Security Baseline evolution"
+title: "CAF: Small-to-medium enterprise – Security Baseline evolution"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 ms.date: 02/11/2019
-description: Explanation Small-to-Medium Enterprise – Security Baseline evolution
+description: Explanation small-to-medium enterprise – Security Baseline evolution
 author: BrianBlanchard
 ---
 
@@ -21,7 +21,7 @@ IT and business leadership have been happy with results from early stage experim
 
 Given the impact of the changing narrative and support provided so far, the Cloud Governance team is now viewed differently. The two system administrators who started the team are now viewed as experienced cloud architects. As this narrative develops, the perception of them will shift from being Cloud Custodians to more of a Cloud Guardian role.
 
-While the difference is subtle, it’s an important distinction when building a governance- focused IT culture. A Cloud Custodian cleans up the messes made by innovative cloud architects. The two roles have natural friction and opposing objectives. On the other hand, a Cloud Guardian helps keep the cloud safe, so other cloud architects can move more quickly, with less messes. Additionally, a Cloud Guardian is involved in creating templates that accelerate deployment and adoption, making them an innovation accelerator as well as a defender of the five cloud disciplines.
+While the difference is subtle, it’s an important distinction when building a governance- focused IT culture. A Cloud Custodian cleans up the messes made by innovative cloud architects. The two roles have natural friction and opposing objectives. On the other hand, a Cloud Guardian helps keep the cloud safe, so other cloud architects can move more quickly, with less messes. Additionally, a Cloud Guardian is involved in creating templates that accelerate deployment and adoption, making them an innovation accelerator as well as a defender of the Five Disciplines of Cloud Governance.
 
 ### Evolution of the current state
 

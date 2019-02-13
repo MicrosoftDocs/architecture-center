@@ -11,20 +11,16 @@ author: rotycenh
 
 # CAF: Resource consistency decision guide
 
-Azure [subscription design](../subscriptions/overview.md) defines how you organize your cloud assets in relation to your organization's overall structure. In addition, integrating your existing IT management standards and your organizational policies depends on how you deploy and organize cloud resources within a subscription.
-
-The tools available to implement your resource deployment, grouping, and management designs vary by cloud platform. In general, each solution includes the following features:
-
-- A logical grouping mechanism below the subscription or account level.
-- The ability to deploy resources programmatically with APIs.
-- Templates for creating standardized deployments.
-- The ability to deploy policy rules at the subscription, account, and resource grouping levels.
+Azure [subscription design](../subscriptions/overview.md) defines how you organize your cloud assets in relation to your organization's structure, accounting practices, and workload requirements. In addition to this level of structure, addressing your organizational governance policy requirements across your cloud estate requires the ability to consistently organize, deploy, and manage resources within a subscription.
 
 ![Plotting resource consistency options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-resource-consistency.png)
 
 Jump to: [Basic grouping](#basic-grouping) | [Deployment consistency](#deployment-consistency) | [Policy consistency](#policy-consistency) | [Hierarchical consistency](#hierarchical-consistency) | [Automated consistency](#automated-consistency)
 
-Resource deployment and grouping decisions are primarily driven by these factors: post-migration digital estate size, business or environmental complexity that doesn't fit neatly within your existing subscription design approaches, or the need to enforce governance over time after resources have been deployed. More advanced resource grouping designs require an increased effort to ensure accurate grouping, and this results in an increase in the time spent on change management and tracking.
+Decisions regarding the level of your cloud estate's resource consistency requirements are primarily driven by these factors: post-migration digital estate size, business or environmental requirements that don't fit neatly within your existing subscription design approaches, or the need to enforce governance over time after resources have been deployed. 
+
+As these factors increase in importance, the benefits of ensuring consistent deployment, grouping, and management of cloud-based resources becomes more important. Achieving more advanced levels of resource consistency to meet increasing requirements requires more effort spent in automation, tooling, and consistency enforcement, and this results in an more time spent on change management and tracking.
+
 
 ## Basic grouping
 
@@ -37,11 +33,11 @@ Resource groups act as containers for resources with a common lifecycle or share
 
 ## Deployment consistency
 
-Building on top of the base resource grouping mechanism, most cloud platforms provide a system for using templates to deploy your resources to the cloud environment. You can use templates to create consistent organization and naming conventions when deploying workloads, enforcing those aspects of your resource deployment and management design.
+Building on top of the base resource grouping mechanism, the Azure platform provides a system for using templates to deploy your resources to the cloud environment. You can use templates to create consistent organization and naming conventions when deploying workloads, enforcing those aspects of your resource deployment and management design.
 
 [Azure Resource Manager templates](/azure/azure-resource-manager/resource-group-overview#template-deployment) allow you to repeatedly deploy your resources in a consistent state using a predetermined configuration and resource group structure. Resource Manager templates help you define a set of standards as a basis for your deployments.
 
-For example, you can have a standard template for deploying a web server workload that contains two virtual machines as web servers combined with a load balancer to manage traffic between the servers. You can then reuse this template to create structurally identical deployments whenever a new web server workload is needed, only changing the deployment name and IP addresses involved.
+For example, you can have a standard template for deploying a web server workload that contains two virtual machines as web servers combined with a load balancer to distribute traffic between the servers. You can then reuse this template to create structurally identical set of virtual machines and load balancer whenever this type of workload is needed, only changing the deployment name and IP addresses involved.
 
 Note that you can also programmatically deploy these templates and integrate them with your CI/CD systems.
 
@@ -57,9 +53,9 @@ For a more in-depth discussion of enforcing your policy decisions within a cloud
 
 ## Hierarchical consistency
 
-As the size of your cloud estate grows, you may need to support more complicated governance requirements than can be supported using the Azure Enterprise Agreement's Enterprise/Department/Account/Subscription hierarchy. Resource groups allows you to support additional levels of hierarchy within your organization, applying Azure Policy rules and access controls at a resource group level.
+Resource groups allows you to support additional levels of hierarchy within your organization within the subscription, applying Azure Policy rules and access controls at a resource group level. However, As the size of your cloud estate grows, you may need to support more complicated cross-subscription governance requirements than can be supported using the Azure Enterprise Agreement's Enterprise/Department/Account/Subscription hierarchy. 
 
-[Azure management groups](../subscriptions/overview.md#management-groups) can support more complicated organizational structures by overlaying an alternative hierarchy on top of your enterprise agreement's structure. This allows subscriptions, and the resources they contain, to support access control and policy enforcement mechanisms organized to match your business organizational requirements.
+[Azure management groups](../subscriptions/overview.md#management-groups) allows you to organization subscriptions into more sophisticated organizational structures by grouping subscriptions in an alternative hierarchy to that established by your enterprise agreement's structure. This alternate hierarchy allows you to apply access control and policy enforcement mechanisms across multiple subscriptions and the resources they contain. Management group hierarchies can be used to match your cloud estate's subscriptions with operations or business governance requirements. 
 
 ## Automated consistency
 

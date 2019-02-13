@@ -1,8 +1,12 @@
 ---
 title: "CAF: How can corporate IT policy become cloud-ready?"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 description: Explanation of the concept of corporate policy in relation to cloud governance
 author: BrianBlanchard
-ms.date: 2/8/2019
 ---
 
 <!-- markdownlint-disable MD026 -->

@@ -1,11 +1,14 @@
 ---
-title: "CAF: Cloud Governance"
-description: Introduction to Cloud Governance content
+title: "CAF: Governance in the Microsoft CAF for Azure"
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Governance in the Microsoft CAF for Azure
 author: BrianBlanchard
-ms.date: 2/11/2019
 ---
 
-# Cloud governance in the Microsoft CAF for Azure
+# Governance in the Microsoft CAF for Azure
 
 The cloud creates new paradigms regarding the technologies that support the business. These new paradigms also cause shifts in how those technologies are adopted, managed, and governed. When entire datacenters can be destroyed and recreated with one line of code executed from an unattended process, we have to rethink traditional approaches. This is equally true when it comes to governance.
 
@@ -30,11 +33,11 @@ The Cloud Architect serves as the thought leader and facilitator to bring these 
 
 For readers who wish to follow this guide from beginning to end, this content will aid in developing a robust cloud governance strategy in parallel to cloud implementation. The guidance walks the reader through the theory and implementation of such a strategy.
 
-For a crash course on the theory and quick access to Azure implementation, get started with the [Overview of Actionable Governance Journeys](./journeys/overview.md). Through this guidance, the reader can start small and evolve their governance needs in parallel with cloud adoption efforts.
+For a crash course on the theory and quick access to Azure implementation, get started with the [Overview of actionable governance journeys](./journeys/overview.md). Through this guidance, the reader can start small and evolve their governance needs in parallel with cloud adoption efforts.
 
 ## Next steps
 
-Review the Actionable Governance Journeys.
+Review the actionable governance journeys.
 
 > [!div class="nextstepaction"]
 > [Actionable Governance Journeys](./journeys/overview.md)

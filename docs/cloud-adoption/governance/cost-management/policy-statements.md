@@ -7,7 +7,7 @@ ms.custom: governance
 ms.date: 02/11/2019
 description: Cost Management sample policy statements
 author: BrianBlanchard
-ms.date: 1/4/2019
+ms.date: 01/04/2019
 ---
 
 # Cost Management sample policy statements
@@ -75,7 +75,7 @@ Use the samples mentioned in this article as a starting point to develop policie
 
 To begin developing your own custom policy statements related to Cost Management, download the [Cost Management template](template.md).
 
-To accelerate adoption of this discipline, choose the [Actionable Governance Journey](../journeys/overview.md) that most closely aligns with your environment. Then modify the design to incorporate your specific corporate policy decisions.
+To accelerate adoption of this discipline, choose the [actionable governance journey](../journeys/overview.md) that most closely aligns with your environment. Then modify the design to incorporate your specific corporate policy decisions.
 
 > [!div class="nextstepaction"]
 > [Actionable Governance Journeys](../journeys/overview.md)

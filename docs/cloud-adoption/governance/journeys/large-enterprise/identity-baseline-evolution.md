@@ -1,11 +1,11 @@
 ---
-title: "CAF: Large Enterprise – Identity Baseline evolution"
+title: "CAF: Large enterprise – Identity Baseline evolution"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 ms.date: 02/11/2019
-description: Large Enterprise – Identity Baseline evolution
+description: Large enterprise – Identity Baseline evolution
 author: BrianBlanchard
 ---
 
