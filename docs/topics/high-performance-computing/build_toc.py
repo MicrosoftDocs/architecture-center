@@ -47,13 +47,22 @@ for line in input_file:
         # Skip internal anchors
         if re.match('^#.*', inline_link.group(2)):
             continue
+
+        if re.match('^(.(?<!docs.microsoft.com))*?$', inline_link.group(2)):
+            continue
+
         toc_list.append({'level': level + 1, 'name': inline_link.group(1), 'href': inline_link.group(2)})
+        
     # Find links with <a href.., but the link title is probably in an h3, see below
     elif href_link:
         url = href_link.group(1)
         continue
     # Grab titles from h3, we're assuming we already have the URL at this point
     elif h3_title:
+        if ".com" in url:
+            if re.match('^(.(?<!docs.microsoft.com))*?$', url):
+                continue
+
         toc_list.append({'level': level + 1, 'name': h3_title.group(1), 'href': url})
     # Anything else is not a line we know how to deal with, skip
     else:
@@ -85,10 +94,10 @@ for i in range(0,len(toc_list)):
         elif toc_list[i].get('href'):
             #continue
             # TODO: Also add marker to links with domains ending in other than .com
-            if ".com" in toc_list[i].get('href'):
+            #if ".com" in toc_list[i].get('href'):
                 # Only show docs links
-                if re.match('^(.(?<!docs.microsoft.com))*?$', toc_list[i].get('href')):
-                    continue
+                #if re.match('^(.(?<!docs.microsoft.com))*?$', toc_list[i].get('href')):
+                #    continue
                     #item_name = item_name + u" ↗"
             toc += indent + "- name: " + item_name + '\n'
             toc += indent + "  href: " + toc_list[i].get('href') + "\n"
