@@ -3,7 +3,7 @@ title: Accelerate digital image-based modeling on Azure
 titleSuffix: Azure Example Scenarios
 description: Accelerate digital image-based modeling on Azure using Avere and Agisoft PhotoScan
 author: adamboeglin
-ms.date: 1/11/2019
+ms.date: 01/11/2019
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
