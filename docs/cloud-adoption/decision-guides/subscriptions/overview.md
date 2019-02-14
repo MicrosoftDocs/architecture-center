@@ -107,7 +107,7 @@ Examples include:
 
 ## Organization at the subscription level
 
-When determining your departments and accounts (or management groups), you will primarily need to decide how you're going to divide your Azure environment to match your organization. However, subscriptions are where the real work happens, and these decisions will impact security, scalability, and billing.
+When determining your departments and accounts (or management groups), you will primarily need to decide how you're going to divide your Azure environment to match your organization. However, subscriptions are where the real work happens, and these decisions will affect security, scalability, and billing.
 
 Consider the following patterns as guides:
 

@@ -21,7 +21,7 @@ Sadly, the true business risks will be based on the what and how behind specific
 
 * Data Protection Risk: The number one risk associated with any transformation, is the protection of data. In today's digital age of business, data is the new oil. It fuels the economy, it warms the office, it delights customers. However, when it leaks, the outcome is equally destructive. Any changes to the way data is stored, processed, or used creates risk. Cloud Transformations create a high degree of change regarding data management, so the risk should not be taken lightly. [Security Baseline](../security-baseline/overview.md), [Data Classification](./what-is-data-classification.md), and [Incremental Rationalization](../../digital-estate/rationalize.md#incremental-rationalization) can each help mitigate this risk.
 
-* Operations and Customer Experience Risk: Business operations and customer experiences rely heavily on technical operations. Cloud Transformations will create change in technical operations (TechOps). In some organizations, that change is small and easily adjusted. In other organizations, changes to TechOps could require retooling, reskilling, or new approaches to support. The bigger the change, the bigger the potential impact on Business Operations and Customer Experience. Mitigation of this risk will come from the involvement of the business in transformation planning. Release planning and First workload selection in the [Incremental Rationalization](../../digital-estate/rationalize.md#incremental-rationalization) article discuss ways to choose workloads for transformation projects. The business' role in that activity, is to communicate the Business Operations risk from changes to prioritized workloads. Helping IT choose workloads that would have a reduced impact on operations, will reduce the overall risk.
+* Operations and Customer Experience Risk: Business operations and customer experiences rely heavily on technical operations. Cloud Transformations will create change in technical operations (TechOps). In some organizations, that change is small and easily adjusted. In other organizations, changes to TechOps could require retooling, reskilling, or new approaches to support. The bigger the change, the bigger the potential effect on Business Operations and Customer Experience. Mitigation of this risk will come from the involvement of the business in transformation planning. Release planning and First workload selection in the [Incremental Rationalization](../../digital-estate/rationalize.md#incremental-rationalization) article discuss ways to choose workloads for transformation projects. The business's role in that activity is to communicate the Business Operations risk of changing prioritized workloads. Helping IT choose workloads that have a lower impact on operations will reduce the overall risk.
 
 * Cost Risk: Cost models change in the Cloud. This change can create risks associated with cost overruns or increases in Cost of Goods Sold (COGS), especially directly attributed operational expenses. When business works closely with IT, it is feasible to create transparency regarding costs and services consumed by various business units, programs, projects, etc... [Cost Management] provides examples of ways Business and IT can partner on this topic.
 
@@ -36,8 +36,8 @@ Identifying risk is a fairly direct process. Risks are pretty standard across in
 To help understand risk tolerance, let's examine customer data. If a company in any industry posts customer data on an unsecured server, the risk of that data being compromised or stolen is relatively the same. However, the nature of the data and the companies tolerance for that risk changes wildly.
 
 * Companies in healthcare and finance in the United States, are governed by rigid, third-party compliance requirements. It is assumed that personally identifiable information (PII) or healthcare-related data is extremely confidential. There are severe consequences for these types of companies, if they are involved in the risks scenario above. Their tolerance will be extremely low. Any customer data published inside or outside of the network will need to be governed by those third-party compliance policies.
-* A gaming company whose customer data is limited to a user name, play times, and high scores, is not as likely to suffer any significant consequences, if they engage in the risky behavior above. Will any unsecured data is at risk, the impact of that risk is small. Therefore the tolerance for risk in this case is high.
-* A medium sized enterprise that provides carpet cleaning services to thousands of customers would fall in between these two tolerance extremes. There customer data may be more robust, containing details like address or phone number. Both could be considered PII and should be protected. However, there may not be any specific governance requirement mandating that the data be secured. From an IT perspective, the answer is simple, secure the data. From a business perspective, it may not be as simple. The business would need more details before they could determine a level of tolerance for this risk.
+* A gaming company whose customer data is limited to a user name, play times, and high scores is not as likely to suffer any significant consequences, if they engage in the risky behavior above. While any unsecured data is at risk, the impact of that risk is small. Therefore, the tolerance for risk in this case is high.
+* A medium-sized enterprise that provides carpet cleaning services to thousands of customers would fall in between these two tolerance extremes. There customer data may be more robust, containing details like address or phone number. Both could be considered PII and should be protected. However, there may not be any specific governance requirement mandating that the data be secured. From an IT perspective, the answer is simple, secure the data. From a business perspective, it may not be as simple. The business would need more details before they could determine a level of tolerance for this risk.
 
 The next section, shares a few sample questions that could help the business determine a level of risk tolerance for the use case above or others.
 
@@ -49,8 +49,8 @@ This section lists conversation provoking questions in three categories: Loss Im
 
 * Does this risk violate third-party compliance requirements?
 * Does this risk violate internal corporate policies?
-* Could this risk cost customers or market share? If so, can this impact be quantified?
-* Could this risk create negative customer experiences? Are those experiences likely to impact sales or revenue realization?
+* Could this risk cost customers or market share? If so, can this cost be quantified?
+* Could this risk create negative customer experiences? Are those experiences likely to affect sales or revenue realization?
 * Could this risk create new legal liability? If so, is there a precedence for damage awards in these types of cases?
 * Could this risk stop business operations? If so, how long would operations be down?
 * Could this risk slow business operations? If so, how slow and how long?
@@ -81,11 +81,11 @@ These questions over simplify the technical solutions needed to mitigate risks. 
 
 After answering these questions along with questions as determined by the Cloud Governance team, groupings of probability will likely emerge. The following are a few grouping samples to help get started:
 
-* No indication: Not enough research has been completed to determine probability
-* Low Risk: Current research suggests the risk is not likely to be realized
-* Future risk: The current probability is Low Risk. However, continued adoption would trigger a fresh analysis
-* Medium Risk: It's likely that the risk will impact the business
-* High Risk: Overtime, it is increasing less likely that the business will avoid impact from this risk
+* No indication: Not enough research has been completed to determine probability.
+* Low Risk: Current research suggests the risk is not likely to be realized.
+* Future risk: The current probability is Low Risk. However, continued adoption would trigger a fresh analysis.
+* Medium Risk: It's likely that the risk will impact the business.
+* High Risk: Overtime, it is increasing less likely that the business will avoid impact from this risk.
 * Declining Risk: The risk is Medium to High. However, actions in IT or business are reducing the likelihood of an impact.
 
 **Determining Tolerance:**

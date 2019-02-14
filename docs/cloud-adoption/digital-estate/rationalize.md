@@ -74,7 +74,7 @@ The outcome of the prior section is a rough rationalization loaded with assumpti
 
 ### Retiring assets
 
-In a traditional on-premises environment, hosting small, unused assets seldom causes a significant impact on annual costs. With a few exceptions, the cost savings associated with pruning and retiring those assets is outweighed by the FTE effort required to analyze and retire the actual asset.
+In a traditional on-premises environment, hosting small unused assets seldom increases annual costs. With a few exceptions, the cost savings associated with pruning and retiring those assets is outweighed by the FTE effort required to analyze and retire the actual asset.
 
 However, when moving to a cloud accounting model, retiring assets can produce significant savings in annual operating costs and up-front migration efforts.
 

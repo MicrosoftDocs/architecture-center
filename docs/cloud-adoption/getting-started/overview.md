@@ -102,7 +102,7 @@ IT staff members may feel anxious about their roles and positions as they realiz
 During the digital transformation, each team should capture any staff concerns as they arise. When capturing concerns, identify the following:
 
 * The type of concern. For example, workers may be resistant to the changes in job duties that accompany the digital transformation.
-* The impact of the concern if it is not addressed. For example, resistance to the digital transformation may be result in workers being slow to execute the changes necessary.
+* The effect if the concern is not addressed. For example, resistance to the digital transformation may be result in workers being slow to execute the changes necessary.
 * The area equipped to address the concern. For example, if workers in the IT department are reluctant to acquire new skills, the IT stakeholder's area is best equipped to address this concern. Identifying the area may be clear for some concerns, and in these cases you may need to escalate to executive leadership.
 
 ### Identify gaps

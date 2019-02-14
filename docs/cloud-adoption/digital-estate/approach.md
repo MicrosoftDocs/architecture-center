@@ -42,7 +42,7 @@ Like much of CAF, an incremental approach is highly suggested. In the case of di
 
 - Release planning: At each release, the migration backlog is pruned and re-prioritized to focus on the most relevant business impact. During this process, the next 5&ndash;10 workloads would be selected as prioritized releases. At this point, the Cloud Strategy team would invest the time in completing an exhaustive workload-driven approach. Delaying this assessment until a release is aligned, better respects the time of stakeholders. It also delays the investment in full analysis until the business starts to see results from earlier efforts.
 
-- Execution analysis: Prior to the migration, modernization, or replication of any asset, the asset should be assessed individually and as part of a collective release. At this point, the data from the initial asset-driven approach can be scrutinized to ensure accurate sizing and operational constraints.
+- Execution analysis: Before migrating, modernizing, or replicating any asset, each should be assessed both individually and as part of a collective release. At this point, the data from the initial asset-driven approach can be scrutinized to ensure accurate sizing and operational constraints.
 
 > [!TIP]
 > This incremental approach allows for streamlined planning and accelerated results. It is very important that all parties involved understand the approach to delayed decision making. It is equally important that assumptions made at each stage be documented to avoid loss of details.
