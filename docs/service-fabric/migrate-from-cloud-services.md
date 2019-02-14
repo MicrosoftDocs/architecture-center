@@ -304,7 +304,7 @@ Now that the Surveys application has been successfully ported, Tailspin wants to
 [cloud-service-autoscale]: /azure/cloud-services/cloud-services-how-to-scale-portal
 [cloud-service-config]: /azure/cloud-services/cloud-services-model-and-package
 [cloud-service-endpoints]: /azure/cloud-services/cloud-services-enable-communication-role-instances#worker-roles-vs-web-roles
-[kestrel]: https://docs.microsoft.com/aspnet/core/fundamentals/servers/kestrel
+[kestrel]: /aspnet/core/fundamentals/servers/kestrel
 [lb-probes]: /azure/load-balancer/load-balancer-custom-probe-overview
 [owin]: https://www.asp.net/aspnet/overview/owin-and-katana
 [refactor-surveys]: refactor-migrated-app.md

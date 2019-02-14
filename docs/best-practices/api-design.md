@@ -437,7 +437,7 @@ Rather than providing multiple URIs, you can specify the version of the resource
 This approach has the semantic advantage that the same resource is always retrieved from the same URI, but it depends on the code that handles the request to parse the query string and send back the appropriate HTTP response. This approach also suffers from the same complications for implementing HATEOAS as the URI versioning mechanism.
 
 > [!NOTE]
-> Some older web browsers and web proxies will not cache responses for requests that include a query string in the URI. This can have an adverse impact on performance for web applications that use a web API and that run from within such a web browser.
+> Some older web browsers and web proxies will not cache responses for requests that include a query string in the URI. This can degrade performance for web applications that use a web API and that run from within such a web browser.
 
 ### Header versioning
 

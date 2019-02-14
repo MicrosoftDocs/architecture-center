@@ -66,7 +66,7 @@ The following tables summarize the key differences in capabilities.
 
 | | Azure HDInsight | Microsoft Cognitive Services |
 | --- | --- | --- |
-| Entity/intent identification & extraction | No | Yes (Language Understanding Intelligent Service (LUIS) API) |
+| Entity/intent identification and extraction | No | Yes (Language Understanding Intelligent Service (LUIS) API) |
 | Topic detection | Yes (Spark NLP) | Yes (Text Analytics API) |
 | Spell checking | Yes (Spark NLP) | Yes (Bing Spell Check API) |
 | Sentiment analysis | Yes (Spark NLP) | Yes (Text Analytics API) |

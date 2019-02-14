@@ -23,7 +23,7 @@ In most organizations, the primary reasons for investing in governance can be re
 * Interruption to the business from outages
 * Unplanned or unexpected spending
 
-There are many variants of these three business risks. However, the tend to be the most common.
+There are many variants of these three business risks. However, these tend to be the most common.
 
 ## Understand then mitigate
 

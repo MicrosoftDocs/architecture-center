@@ -171,7 +171,7 @@ If the logic for compensating transactions is complex, consider creating a separ
 
 ![Diagram showing the Supervisor microservice](./images/supervisor.png)
 
-## Idempotent vs non-idempotent operations
+## Idempotent versus non-idempotent operations
 
 To avoid losing any requests, the Scheduler service must guarantee that all messages are processed at least once. Event Hubs can guarantee at-least-once delivery if the client checkpoints correctly.
 

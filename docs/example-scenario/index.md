@@ -19,6 +19,8 @@ In each scenario you'll find an architecture diagram, data flows, and details ab
 
 Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-scenarios) | [Data scenarios](#data-scenarios) | [Infrastructure scenarios](#infrastructure-scenarios)
 
+<!-- markdownlint-disable MD033 -->
+
 <ul class="panelContent cardsL">
     <li>
         <div class="cardSize">
