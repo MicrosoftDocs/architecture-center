@@ -611,7 +611,7 @@
       items:
       - name: Overview of the journeys
         href: cloud-adoption/migrate/journeys/overview.md
-      - name: Azure Migration Playbook
+      - name: Azure Migration Playbook - Option 1
         items:
         - name: Getting started
           href: cloud-adoption/migrate/journeys/azure-migration-playbook/index.md
@@ -623,6 +623,78 @@
           href: cloud-adoption/migrate/journeys/azure-migration-playbook/planning-checklist.md
         - name: Pre-requisite - Planning Checklist
           href: cloud-adoption/migrate/journeys/azure-migration-playbook/planning-checklist.md
+        - name: Assessment Tools
+          href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+        - name: Scenarios and Stakeholders
+          href: cloud-adoption/migrate/journeys/azure-migration-playbook/qualify.md
+        - name: Timelines based on this narrative
+          href: cloud-adoption/migrate/journeys/azure-migration-playbook/planning-checklist.md
+        - name: Native Migration Tools
+          href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+        - name: 3rd Party Migration Tools
+          href: cloud-adoption/migrate/journeys/azure-migration-playbook/qualify.md
+        - name: Project Management Tools
+          href: cloud-adoption/migrate/journeys/azure-migration-playbook/planning-checklist.md
+        - name: Portal How-To Videos
+          href: cloud-adoption/migrate/journeys/azure-migration-playbook/planning-checklist.md
+        - name: Evaluate Options to Transform
+          href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+        - name: Right size deployed assets
+          href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+        - name: Azure Monitor
+          href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+        - name: Azure Advisor
+          href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+        - name: Azure Security Center
+          href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+        - name: Azure Backup
+          href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+      - name: Azure Migration Playbook - Option 2
+        items:
+        - name: Getting started
+          href: cloud-adoption/migrate/journeys/azure-migration-playbook/index.md
+        - name: Pre-requisite
+          items:
+          - name: Narrative
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+          - name: When to use this approach
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/qualify.md
+          - name: Planning Checklist
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/planning-checklist.md
+        - name: Assess
+          items:
+          - name: Assessment Tools
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+          - name: Scenarios and Stakeholders
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/qualify.md
+          - name: Timelines based on this narrative
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/planning-checklist.md
+        - name: Migrate
+          items:
+          - name: Native Migration Tools
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+          - name: 3rd Party Migration Tools
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/qualify.md
+          - name: Project Management Tools
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/planning-checklist.md
+          - name: Portal How-To Videos
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/planning-checklist.md
+        - name: Optimize
+          items:
+          - name: Evaluate Options to Transform
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+          - name: Right size deployed assets
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+        - name: Secure and Manage
+          items:
+          - name: Azure Monitor
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+          - name: Azure Advisor
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+          - name: Azure Security Center
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+          - name: Azure Backup
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
   - name: Govern
     items:
     - name: Overview
