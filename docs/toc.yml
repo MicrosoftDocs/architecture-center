@@ -577,29 +577,53 @@
       href: cloud-adoption/getting-started/what-is-governance.md
     - name: Resource access management in Azure
       href: cloud-adoption/getting-started/azure-resource-access.md
-  - name: Business justification
+  - name: Plan
     items:
-    - name: Build a cloud migration business case
-      href: cloud-adoption/business-strategy/cloud-migration-business-case.md
-    - name: Create a financial model for cloud transformation
-      href: cloud-adoption/business-strategy/financial-models.md
-    - name: Examples of fiscal outcomes
-      href: cloud-adoption/business-strategy/business-outcomes/fiscal-outcomes.md
-  - name: Digital estate
-    items: 
-    - name: The 5 Rs of Rationalization 
-      href: cloud-adoption/digital-estate/5-rs-of-rationalization.md
-    - name: What is a digital estate?
-      href: cloud-adoption/digital-estate/overview.md
-    - name: Approaches to digital estate planning
-      href: cloud-adoption/digital-estate/approach.md
-    - name: Gather inventory data
-      href: cloud-adoption/digital-estate/inventory.md
-    - name: Rationalize the digital estate
-      href: cloud-adoption/digital-estate/rationalize.md
-    - name: Align cost models to forecast cost
-      href: cloud-adoption/digital-estate/calculate.md
-  - name: Governance
+    - name: Overview
+      href: cloud-adoption/governance/plan/overview.md
+    - name: Business justification
+      items:
+      - name: Build a cloud migration business case
+        href: cloud-adoption/business-strategy/cloud-migration-business-case.md
+      - name: Create a financial model for cloud transformation
+        href: cloud-adoption/business-strategy/financial-models.md
+      - name: Examples of fiscal outcomes
+        href: cloud-adoption/business-strategy/business-outcomes/fiscal-outcomes.md
+    - name: Digital estate
+      items: 
+      - name: The 5 Rs of Rationalization 
+        href: cloud-adoption/digital-estate/5-rs-of-rationalization.md
+      - name: What is a digital estate?
+        href: cloud-adoption/digital-estate/overview.md
+      - name: Approaches to digital estate planning
+        href: cloud-adoption/digital-estate/approach.md
+      - name: Gather inventory data
+        href: cloud-adoption/digital-estate/inventory.md
+      - name: Rationalize the digital estate
+        href: cloud-adoption/digital-estate/rationalize.md
+      - name: Align cost models to forecast cost
+        href: cloud-adoption/digital-estate/calculate.md
+  - name: Migrate
+    items:
+    - name: Overview
+      href: cloud-adoption/migrate/overview.md
+    - name: Best Practice Journeys
+      items:
+      - name: Overview of the journeys
+        href: cloud-adoption/migrate/journeys/overview.md
+      - name: Azure Migration Playbook
+        items:
+        - name: Getting started
+          href: cloud-adoption/migrate/journeys/azure-migration-playbook/index.md
+        - name: Pre-requisite: Narrative
+          href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+        - name: Pre-requisite: When to use this approach
+          href: cloud-adoption/migrate/journeys/azure-migration-playbook/qualify.md
+        - name: Pre-requisite: Planning Checklist
+          href: cloud-adoption/migrate/journeys/azure-migration-playbook/planning-checklist.md
+        - name: Pre-requisite: Planning Checklist
+          href: cloud-adoption/migrate/journeys/azure-migration-playbook/planning-checklist.md
+  - name: Govern
     items:
     - name: Overview
       href: cloud-adoption/governance/overview.md
