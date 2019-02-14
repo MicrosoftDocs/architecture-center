@@ -1,8 +1,12 @@
 ---
 title: "CAF: What is a Cloud Policy Review?"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 description: What is Cloud Policy Review?
 author: BrianBlanchard
-ms.date: 2/8/2019
 ---
 
 <!-- markdownlint-disable MD026 -->
@@ -17,10 +21,10 @@ Most businesses manage IT through the execution of processes which alignment wit
 
 As companies mature corporate IT policies, dependencies on past technical decisions have a tendency to seep into governing policies. For instance, its common to see disaster recovery processes include policy that mandates offsite tape backups. This inclusion assumes a dependency on one type of technology (tape backups), that may no longer be the most relevant solution.
 
-Cloud Transformations create a natural inflection point to reconsider the legacy policy decisions of the past. Technical capabilities and default processes change considerably in the cloud, as do the inherit risks. Leveraging the prior example, the tape backup policy stemmed from the risk of a single point of failure by keeping data in one location and the business need to minimize the risk profile by mitigating this risk. In a cloud deployment, there are several options that deliver the same risk mitigation, with much lower recovery time objectives (RTO). For instance:
+Cloud Transformations create a natural inflection point to reconsider the legacy policy decisions of the past. Technical capabilities and default processes change considerably in the cloud, as do the inherit risks. Using the prior example, the tape backup policy stemmed from the risk of a single point of failure by keeping data in one location and the business need to minimize the risk profile by mitigating this risk. In a cloud deployment, there are several options that deliver the same risk mitigation, with much lower recovery time objectives (RTO). For instance:
 
 - A cloud-native solution could enable geo-replication of the SQL Azure database
-- A hybrid solution could leverage Azure Site Recovery (ASR) to replicate an IaaS workload to multiple datacenters
+- A hybrid solution could use Azure Site Recovery to replicate an IaaS workload to multiple datacenters.
 
 When executing a cloud transformation, policies often govern many of the tools, services, and processes available to the cloud adoption teams. If those policies are based on legacy technologies, they may hinder the team's efforts to drive change. In the worst case, important policies are entirely ignored by the migration team to enable workarounds. Neither is an acceptable outcome.
 

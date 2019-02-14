@@ -1,11 +1,11 @@
 ---
-title: "CAF: Small-to-Medium Enterprise – Multi-cloud evolution"
+title: "CAF: Small-to-medium enterprise – Multi-cloud evolution"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 ms.date: 02/11/2019
-description: Explanation Small-to-Medium Enterprise – Multi-cloud evolution
+description: Small-to-medium Enterprise – Multi-cloud evolution
 author: BrianBlanchard
 ---
 

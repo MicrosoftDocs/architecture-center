@@ -30,7 +30,7 @@ It's easy to understand rationalization, when visualizing the traditional proces
 
 ## Rationalization at enterprise scale
 
-If this effort is time consuming and daunting for a 50-VM digital estate, imagine the effort required to drive business transformation in an environment with thousands of VMs and hundreds of applications. The human effort required can easily exceed 1,500 FTE hours and 9 months of planning.
+If this effort is time consuming and daunting for a 50-VM digital estate, imagine the effort required to drive business transformation in an environment with thousands of VMs and hundreds of applications. The human effort required can easily exceed 1,500 FTE hours and nine months of planning.
 
 While full rationalization is the end state and a great direction to move towards, it seldom produces a high ROI relative to the time and energy required.
 
@@ -64,9 +64,9 @@ By reducing the number of potential outcomes, it’s easier to reach an initial 
 
 Continuing with the example above, if the options are limited to rehost or retire, there is really only one question to ask the business during initial rationalization &mdash; namely, whether to retire.
 
-"Analysis suggests that there are no users actively leveraging this asset. Is that accurate or have we overlooked something?" Such a binary question is generally much easier to run through a qualitative analysis.
+"Analysis suggests that there are no users actively using this asset. Is that accurate or have we overlooked something?" Such a binary question is generally much easier to run through a qualitative analysis.
 
-This streamlined approach produces baselines, financial plans, strategy, and direction. In later activities, each asset would go through further rationalization and qualitative analysis to evaluate other options. All assumptions made in this initial rationalization would be tested prior to implementation.
+This streamlined approach produces baselines, financial plans, strategy, and direction. In later activities, each asset would go through further rationalization and qualitative analysis to evaluate other options. All assumptions made in this initial rationalization would be tested before implementation.
 
 ## Challenging assumptions
 
@@ -74,7 +74,7 @@ The outcome of the prior section is a rough rationalization loaded with assumpti
 
 ### Retiring assets
 
-In a traditional on-premises environment, hosting small, unused assets seldom causes a significant impact on annual costs. With a few exceptions, the cost savings associated with pruning and retiring those assets is outweighed by the FTE effort required to analyze and retire the actual asset.
+In a traditional on-premises environment, hosting small unused assets seldom increases annual costs. With a few exceptions, the cost savings associated with pruning and retiring those assets is outweighed by the FTE effort required to analyze and retire the actual asset.
 
 However, when moving to a cloud accounting model, retiring assets can produce significant savings in annual operating costs and up-front migration efforts.
 

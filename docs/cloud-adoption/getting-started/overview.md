@@ -5,8 +5,7 @@ ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 description: Describes an overview of the first phase of an enterprise's digital transformation in adopting Azure cloud technologies.
-author: petertaylor9999
-ms.date: 2/11/2019
+ms.date: 02/11/2019
 ---
 
 # Getting started with the Cloud Adoption Framework
@@ -54,7 +53,7 @@ For advanced learning, the governance team should review the concepts and design
 
 ## Step 3: Identify gaps in business strategy
 
-The next step is for the cloud strategy team to enumerate the business problems that require a digital transformation solution. For example, an enterprise may have an existing on-premises data center with end-of-life hardware that requires replacement. In another example, an enterprise may be experiencing difficulty with time-to-market for new features and services and may be falling behind to competition. These gaps represent the *goals* of your enterprise's digital transformation.
+The next step is for the cloud strategy team to enumerate the business problems that require a digital transformation solution. For example, an enterprise may have an existing on-premises datacenter with end-of-life hardware that requires replacement. In another example, an enterprise may be experiencing difficulty with time-to-market for new features and services and may be falling behind to competition. These gaps represent the *goals* of your enterprise's digital transformation.
 
 Gaps in business strategy can be classified into the following categories:
 
@@ -103,7 +102,7 @@ IT staff members may feel anxious about their roles and positions as they realiz
 During the digital transformation, each team should capture any staff concerns as they arise. When capturing concerns, identify the following:
 
 * The type of concern. For example, workers may be resistant to the changes in job duties that accompany the digital transformation.
-* The impact of the concern if it is not addressed. For example, resistance to the digital transformation may be result in workers being slow to execute the changes necessary.
+* The effect if the concern is not addressed. For example, resistance to the digital transformation may be result in workers being slow to execute the changes necessary.
 * The area equipped to address the concern. For example, if workers in the IT department are reluctant to acquire new skills, the IT stakeholder's area is best equipped to address this concern. Identifying the area may be clear for some concerns, and in these cases you may need to escalate to executive leadership.
 
 ### Identify gaps

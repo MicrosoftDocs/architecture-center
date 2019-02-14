@@ -1,5 +1,5 @@
 ---
-title: "CAF: Small-to-Medium Enterprise - Initial Narrative behind the governance strategy"
+title: "CAF: Small-to-medium enterprise - The narrative behind the governance strategy"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
@@ -45,7 +45,7 @@ The following changes are anticipated over the next several years:
 - The CIO is reviewing the policy on PII and financial data to allow for the future state goals.
 - The application development and BI teams want to release cloud-based solutions to production over the next 24 months based on the vision for customer engagement and new products.
 - This year, the IT team will finish retiring the disaster recovery workloads of the DR datacenter by migrating 2,000 VMs to the cloud. This is expected to produce an estimated $25M USD cost savings over the next five years.
-    ![On-premise costs versus Azure costs demonstrating a return of $25M USD over the next five years](../../../_images/governance/calculator-small-to-medium-enterprise.png)
+    ![On-premises costs versus Azure costs demonstrating a return of $25M USD over the next five years](../../../_images/governance/calculator-small-to-medium-enterprise.png)
 - The company plans to change how it makes IT investments by repositioning the committed CapEx as an operational expense (OpEx) within IT. This change will provide greater cost control and enable IT to accelerate other planned efforts.
 
 ## Next steps

@@ -1,11 +1,11 @@
 ---
-title: "Large Enterprise – Resource Consistency evolution"
+title: "Large enterprise – Resource Consistency evolution"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 ms.date: 02/11/2019
-description: Large Enterprise – Resource Consistency evolution
+description: Large enterprise – Resource Consistency evolution
 author: BrianBlanchard
 ---
 
@@ -63,7 +63,7 @@ The following changes to policy will help mitigate the new risks and guide imple
 9. Governance tooling must validate tagging related to cost, criticality, SLA, application, and data classification. All values must align to predefined values managed by the Cloud Governance team.
 10. Governance processes must include audits at the point of deployment and at regular cycles to ensure consistency across all assets.
 11. Trends and exploits that could affect cloud deployments should be reviewed regularly by the security team to provide updates to Security Baseline tooling used in the cloud.
-12. Prior to release into production, all mission-critical applications and protected data must be added to the designated operational monitoring solution. Assets that cannot be discovered by the chosen IT operations tooling cannot be released for production use. Any changes required to make the assets discoverable must be made to the relevant deployment processes to ensure assets will be discoverable in future deployments.
+12. Before release into production, all mission-critical applications and protected data must be added to the designated operational monitoring solution. Assets that cannot be discovered by the chosen IT operations tooling cannot be released for production use. Any changes required to make the assets discoverable must be made to the relevant deployment processes to ensure assets will be discoverable in future deployments.
 13. Upon discovery, asset sizing is to be validated by operational management teams to validate that the asset meets performance requirements.
 14. Deployment tooling must be approved by the Cloud Governance team to ensure ongoing governance of deployed assets.
 15. Deployment scripts must be maintained in central repository accessible by the Cloud Governance team for periodic review and auditing.

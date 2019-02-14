@@ -44,7 +44,7 @@ The following sample policy statements address a number of common identity-relat
 
 **Policy statement**: All groups in the on-premises Active Directory infrastructure that have elevated privileges should be mapped to an approved RBAC role.
 
-**Potential design options**: Implement a hybrid identity solution between your cloud-based Azure Active Directory and your on-premise Active Directory, and add the required on-premises groups to the RBAC roles necessary to do their work.
+**Potential design options**: Implement a hybrid identity solution between your cloud-based Azure Active Directory and your on-premises Active Directory, and add the required on-premises groups to the RBAC roles necessary to do their work.
 
 ## Weak authentication mechanisms
 
@@ -76,7 +76,7 @@ Use the samples mentioned in this article as a starting point to develop policie
 
 To begin developing your own custom policy statements related to Identity Baseline, download the [Identity Baseline template](template.md).
 
-To accelerate adoption of this discipline, choose the [Actionable Governance Journey](../journeys/overview.md) that most closely aligns with your environment. Then modify the design to incorporate your specific corporate policy decisions.
+To accelerate adoption of this discipline, choose the [actionable governance journey](../journeys/overview.md) that most closely aligns with your environment. Then modify the design to incorporate your specific corporate policy decisions.
 
 > [!div class="nextstepaction"]
 > [Actionable Governance Journeys](../journeys/overview.md)

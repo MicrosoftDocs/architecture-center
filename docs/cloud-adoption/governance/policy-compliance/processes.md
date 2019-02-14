@@ -1,8 +1,12 @@
 ---
 title: "CAF: Monitor and enforce policy adherence"
 description: How do you ensure compliance with established policies? 
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 author: BrianBlanchard
-ms.date: 1/4/2019
 ---
 
 <!-- markdownlint-disable MD026 -->
@@ -15,7 +19,7 @@ I've defined policies, I've provided an architecture guide. Now how do I monitor
 
 After establishing your cloud policy statements and drafting a design guide, you'll need to create a strategy for ensuring your cloud deployment stays in compliance with your policy requirements. This strategy will need to encompass your Cloud Governance team's ongoing review and communication processes, establish criteria for when policy violations require action, and defining the requirements for automated monitoring and compliance systems that will detect violations and trigger remediation actions.
 
-See the corporate policy sections of the [Actionable Governance Journeys](../journeys/overview.md) for examples of how policy adherence process fit into a cloud governance plan.
+See the corporate policy sections of the [actionable governance journeys](../journeys/overview.md) for examples of how policy adherence process fit into a cloud governance plan.
 
 ## Prioritize policy adherence processes
 

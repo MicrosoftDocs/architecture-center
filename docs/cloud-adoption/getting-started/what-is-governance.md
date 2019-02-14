@@ -1,8 +1,11 @@
 ---
 title: "CAF: What is cloud resource governance?"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.date: 02/11/2019
 description: Explanation cloud resource governance on Azure
 author: petertaylor9999
-ms.date: 2/11/2019
 ---
 
 <!-- markdownlint-disable MD026 -->

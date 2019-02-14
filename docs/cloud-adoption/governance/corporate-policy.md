@@ -6,7 +6,7 @@ ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 description: Learn about using the Microsoft Cloud Adoption Framework for Azure (CAF) to implement a cloud governance strategy.
 author: BrianBlanchard
-ms.date: 1/3/2019
+ms.date: 01/03/2019
 layout: LandingPage
 ms.topic: landing-page
 ---
@@ -21,7 +21,7 @@ ms.topic: landing-page
         <div class="cardPadding" style="padding-bottom:10px;">
             <div class="card" style="padding-bottom:10px;">
                 <div class="cardText" style="padding-left:0px;">
-Any change to business processes or technology platforms introduces risk to the business. Cloud governance teams, whose members are sometimes known as cloud custodians, are tasked with mitigating these risks with minimal interruption to adoption or innovation efforts.<br/><br/>However, cloud governance requires more than technical implementation. Subtle changes in the corporate narrative or corporate policies can affect adoption efforts significantly. Prior to implementation, it's important to look beyond IT while Defining Corporate Policy.<br/><br/>
+Any change to business processes or technology platforms introduces risk to the business. Cloud governance teams, whose members are sometimes known as cloud custodians, are tasked with mitigating these risks with minimal interruption to adoption or innovation efforts.<br/><br/>However, cloud governance requires more than technical implementation. Subtle changes in the corporate narrative or corporate policies can affect adoption efforts significantly. Before implementation, it's important to look beyond IT while Defining Corporate Policy.<br/><br/>
                 </div>
             </div>
         </div>

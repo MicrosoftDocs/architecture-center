@@ -18,7 +18,7 @@ Contoso is a worldwide company that provides supply chain solutions for customer
 
 The ISV portion of the company is divided into several independent business units that manage products in a significant business. Each business unit has its own developers, product managers, and architects.
 
-The Enterprise Technology Services (ETS) business unit provides centralized IT capability, and manages several data centers where business units host their applications. Along with managing the data centers, the ETS organization provides and manages centralized collaboration (such as email and websites) and network/telephony services. They also manage customer-facing workloads for smaller business units who don't have operational staff.
+The Enterprise Technology Services (ETS) business unit provides centralized IT capability, and manages several datacenters where business units host their applications. Along with managing the datacenters, the ETS organization provides and manages centralized collaboration (such as email and websites) and network/telephony services. They also manage customer-facing workloads for smaller business units who don't have operational staff.
 
 The following personas are used in this article:
 
@@ -29,7 +29,7 @@ Contoso needs to build a line-of-business app and a customer-facing app. It has 
 
 ## Scenario 1: line-of-business application
 
-Contoso is building a source code management system (BitBucket) to be used by developers across the world.  The application uses Infrastructure as a Service (IaaS) for hosting, and consists of web servers and a database server. Developers access servers in their development environments, but they don't need access to the servers in Azure. Contoso ETS wants to allow the application owner and team to manage the application. The application is only available while on Contoso's corporate network. Dave needs to set up the subscription for this application. The subscription will also host other developer-related software in the future.
+Contoso is building a source code management system (BitBucket) to be used by developers across the world. The application uses infrastructure as a service (IaaS) for hosting, and consists of web servers and a database server. Developers access servers in their development environments, but they don't need access to the servers in Azure. Contoso ETS wants to allow the application owner and team to manage the application. The application is only available while on Contoso's corporate network. Dave needs to set up the subscription for this application. The subscription will also host other developer-related software in the future.
 
 ### Naming standards and resource groups
 
@@ -43,7 +43,7 @@ Dave creates a subscription to support developer tools that are common across al
 
 ### Role-based access control
 
-After creating his subscription, Dave wants to ensure that the appropriate teams and application owners can access their resources. Dave recognizes that each team has different requirements. He uses the groups that have been synched from Contoso's on-premises Active Directory (AD) to Azure Active Directory, and provides the right level of access to the teams.
+After creating his subscription, Dave wants to ensure that the appropriate teams and application owners can access their resources. Dave recognizes that each team has different requirements. He uses the groups that have been synced from Contoso's on-premises Active Directory (AD) to Azure Active Directory, and provides the right level of access to the teams.
 
 Dave assigns the following roles for the subscription:
 
@@ -145,7 +145,7 @@ For the **production subscription**, they create the following policies:
 
 | Field | Effect | Description |
 | --- | --- | --- |
-| location |deny |Deny the creation of any resources outside of the US data centers |
+| location |deny |Deny the creation of any resources outside of the US datacenters |
 | tags |deny |Require application owner tag |
 | tags |deny |Require department tag |
 | tags |append |Append tag to each resource group that indicates production environment |
