@@ -46,7 +46,7 @@ Using a cloud native key management system assumes the following:
 
 ### Hybrid (bring your own key)
 
-With a bring your own key approach, you generate keys on dedicated HSM hardware within your on-premises environment, then transfer the keys to a secure cloud key vault for use with cloud resources.
+With this approach, you generate keys on dedicated HSM hardware within your on-premises environment, then transfer the keys to a secure cloud key vault for use with cloud resources.
 
 Hybrid key management assumptions: Using a hybrid key management system assumes the following:
 
