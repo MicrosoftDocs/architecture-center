@@ -26,7 +26,7 @@ These two use cases have somewhat different requirements. A public API must be c
 
 Here are some things to think about when choosing how to implement an API.
 
-**REST vs RPC**. Consider the tradeoffs between using a REST-style interface versus an RPC-style interface.
+**REST versus RPC**. Consider the tradeoffs between using a REST-style interface versus an RPC-style interface.
 
 - REST models resources, which can be a natural way express your domain model. It defines a uniform interface based on HTTP verbs, which encourages evolvability. It has well-defined semantics in terms of idempotency, side effects, and response codes. And it enforces stateless communication, which improves scalability.
 

@@ -40,7 +40,7 @@ The architecture has the following components.
 
 - **Azure AD tenant**. An instance of [Azure AD][azure-active-directory] created by your organization. It acts as a directory service for cloud applications by storing objects copied from the on-premises Active Directory and provides identity services.
 - **Web tier subnet**. This subnet holds VMs that run a web application. Azure AD can act as an identity broker for this application.
-- **On-premises AD DS server**. An on-premise directory and identity service. The AD DS directory can be synchronized with Azure AD to enable it to authenticate on-premise users.
+- **On-premises AD DS server**. An on-premises directory and identity service. The AD DS directory can be synchronized with Azure AD to enable it to authenticate on-premises users.
 - **Azure AD Connect sync server**. An on-premises computer that runs the [Azure AD Connect][azure-ad-connect] sync service. This service synchronizes information held in the on-premises Active Directory to Azure AD. For example, if you provision or deprovision groups and users on-premises, these changes propagate to Azure AD.
 
   > [!NOTE]

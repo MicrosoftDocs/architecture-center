@@ -63,7 +63,7 @@ Azure Virtual Machines differs from platform as a service (PaaS) compute roles i
 
 Unlike PaaS role instances, data stored on virtual machine drives is persistent even when the virtual machine is relocated. Azure virtual machines use VM disks that exist as blobs in Azure Storage. Because of the availability characteristics of Azure Storage, the data stored on a virtual machine’s drives is also highly available.
 
-Note that drive D (in Windows VMs) is the exception to this rule. Drive D is actually physical storage on the rack server that hosts the VM, and its data will be lost if the VM is recycled. Drive D is intended for temporary storage only. In Linux, Azure “usually” (but not always) exposes the local temporary disk as /dev/sdb block device. It is often mounted by the Azure Linux Agent as /mnt/resource or /mnt mount points (configurable via /etc/waagent.conf).
+Note that drive D (in Windows VMs) is the exception to this rule. Drive D is actually physical storage on the rack server that hosts the VM, and its data will be lost if the VM is recycled. Drive D is intended for temporary storage only. In Linux, Azure _usually_ (but not always) exposes the local temporary disk as /dev/sdb block device. It is often mounted by the Azure Linux Agent as /mnt/resource or /mnt mount points (configurable via /etc/waagent.conf).
 
 <!-- markdownlint-disable MD024 -->
 

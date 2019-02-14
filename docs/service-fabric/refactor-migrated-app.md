@@ -20,11 +20,12 @@ As discussed in the previous article, [Migrating an Azure Cloud Services applica
 ![](./images/tailspin01.png)
 
 The **Tailspin.Web** web role hosts an ASP.NET MVC site that Tailspin customers use to:
-* sign up for the Surveys application,
-* create or delete a single survey,
-* view results for a single survey,
-* request that survey results be exported to SQL, and
-* view aggregated survey results and analysis.
+
+- sign up for the Surveys application,
+- create or delete a single survey,
+- view results for a single survey,
+- request that survey results be exported to SQL, and
+- view aggregated survey results and analysis.
 
 The **Tailspin.Web.Survey.Public** web role also hosts an ASP.NET MVC site that the public visits to fill out the surveys. These responses are put in a queue to be saved.
 
@@ -40,22 +41,23 @@ The **Tailspin.Web.Survey.Public** service is ported from the original *Tailspin
 
 The **Tailspin.AnswerAnalysisService** service is ported from the original *Tailspin.Workers.Survey* worker role.
 
-> [!NOTE] 
+> [!NOTE]
 > While minimal code changes were made to each of the web and worker roles, **Tailspin.Web** and **Tailspin.Web.Survey.Public** were modified to self-host a [Kestrel] web server. The earlier Surveys application is an ASP.NET application that was hosted using Interet Information Services (IIS), but it is not possible to run IIS as a service in Service Fabric. Therefore, any web server must be capable of being self-hosted, such as [Kestrel]. It is possible to run IIS in a container in Service Fabric in some situations. See [scenarios for using containers][container-scenarios] for more information.  
 
 Now, Tailspin is refactoring the Surveys application to a more granular architecture. Tailspin's motivation for refactoring is to make it easier to develop, build, and deploy the Surveys application. By decomposing the existing web and worker roles to a more granular architecture, Tailspin wants to remove the existing tightly coupled communication and data dependencies between these roles.
 
 Tailspin sees other benefits in moving the Surveys application to a more granular architecture:
-* Each service can be packaged into independent projects with a scope small enough to be managed by a small team.
-* Each service can be independently versioned and deployed.
-* Each service can be implemented using the best technology for that service. For example, a service fabric cluster can include services built using different versions of the .Net Frameworks, Java, or other languages such as C or C++.
-* Each service can be independently scaled to respond to increases and decreases in load.
 
-> [!NOTE] 
+- Each service can be packaged into independent projects with a scope small enough to be managed by a small team.
+- Each service can be independently versioned and deployed.
+- Each service can be implemented using the best technology for that service. For example, a service fabric cluster can include services built using different versions of the .Net Frameworks, Java, or other languages such as C or C++.
+- Each service can be independently scaled to respond to increases and decreases in load.
+
+> [!NOTE]
 > Multitenancy is out of scope for the refactoring of this application. Tailspin has several options to support multitenancy and can make these design decisions later without affecting the initial design. For example, Tailspin can create separate instances of the services for each tenant within a cluster or create a separate cluster for each tenant.
 
 ## Design considerations
- 
+
 The following diagram shows the architecture of the Surveys application refactored to a more granular architecture:
 
 ![](./images/surveys_03.png)
@@ -75,10 +77,11 @@ The following diagram shows the architecture of the Surveys application refactor
 ## Stateless versus stateful services
 
 Azure Service Fabric supports the following programming models:
-* The guest executable model allows any executable to be packaged as a service and deployed to a Service Fabric cluster. Service Fabric orchestrates and manages execution of the guest executable.
-* The container model allows for deployment of services in container images. Service Fabric supports creation and management of containers on top of Linux kernel containers as well as Windows Server containers. 
-* The reliable services programming model allows for the creation of stateless or stateful services that integrate with all Service Fabric platform features. Stateful services allow for replicated state to be stored in the Service Fabric cluster. Stateless services do not.
-* The reliable actors programming model allows for the creation of services that implement the virtual actor pattern.
+
+- The guest executable model allows any executable to be packaged as a service and deployed to a Service Fabric cluster. Service Fabric orchestrates and manages execution of the guest executable.
+- The container model allows for deployment of services in container images. Service Fabric supports creation and management of containers on top of Linux kernel containers as well as Windows Server containers.
+- The reliable services programming model allows for the creation of stateless or stateful services that integrate with all Service Fabric platform features. Stateful services allow for replicated state to be stored in the Service Fabric cluster. Stateless services do not.
+- The reliable actors programming model allows for the creation of services that implement the virtual actor pattern.
 
 All the services in the Surveys application are stateless reliable services, except for the *Tailspin.SurveyResponseService* service. This service implements a [ReliableConcurrentQueue][reliable-concurrent-queue] to process survey answers when they are received. Responses in the ReliableConcurrentQueue are saved into Azure Blob Storage and passed to the *Tailspin.SurveyAnalysisService* for analysis. Tailspin chooses a ReliableConcurrentQueue because responses do not require strict first-in-first-out (FIFO) ordering provided by a queue such as Azure Service Bus. A ReliableConcurrentQueue is also designed to deliver high throughput and low latency for queue and dequeue operations.
 
@@ -87,11 +90,12 @@ Note that operations to persist dequeued items from a ReliableConcurrentQueue sh
 ## Communication framework
 
 Each service in the Surveys application communicates using a RESTful web API. RESTful APIs offer the following benefits:
-* Ease of use: each service is built using ASP.NET Core MVC, which natively supports the creation of Web APIs.
-* Security: While each service does not require SSL, Tailspin could require each service to do so. 
-* Versioning: clients can be written and tested against a specific version of a web API.
 
-Services in the Survey application make use of the [reverse proxy][reverse-proxy] implemented by Service Fabric. Reverse proxy is a service that runs on each node in the Service Fabric cluster and provides endpoint resolution, automatic retry, and handles other types of connection failures. To use the reverse proxy, each RESTful API call to a specific service is made using a predefined reverse proxy port.  For example, if the reverse proxy port has been set to **19081**, a call to the *Tailspin.SurveyAnswerService* can be made as follows:
+- Ease of use: each service is built using ASP.NET Core MVC, which natively supports the creation of Web APIs.
+- Security: While each service does not require SSL, Tailspin could require each service to do so.
+- Versioning: clients can be written and tested against a specific version of a web API.
+
+Services in the Survey application use the [reverse proxy][reverse-proxy] implemented by Service Fabric. Reverse proxy is a service that runs on each node in the Service Fabric cluster and provides endpoint resolution, automatic retry, and handles other types of connection failures. To use the reverse proxy, each RESTful API call to a specific service is made using a predefined reverse proxy port.  For example, if the reverse proxy port has been set to **19081**, a call to the *Tailspin.SurveyAnswerService* can be made as follows:
 
 ```csharp
 static SurveyAnswerService()
@@ -102,6 +106,7 @@ static SurveyAnswerService()
     };
 }
 ```
+
 To enable reverse proxy, specify a reverse proxy port during creation of the Service Fabric cluster. For more information, see [reverse proxy][reverse-proxy] in Azure Service Fabric.
 
 ## Performance considerations
@@ -151,8 +156,8 @@ If you are just getting started with [Azure Service Fabric][service-fabric], fir
 <!-- links -->
 [azure-sdk]: https://azure.microsoft.com/downloads/archive-net-downloads/
 [container-scenarios]: /azure/service-fabric/service-fabric-containers-overview
-[kestrel]: https://docs.microsoft.com/aspnet/core/fundamentals/servers/kestrel?tabs=aspnetcore2x
-[kestrel-intro]: https://docs.microsoft.com/aspnet/core/fundamentals/servers/kestrel?tabs=aspnetcore1x
+[kestrel]: /aspnet/core/fundamentals/servers/kestrel?tabs=aspnetcore2x
+[kestrel-intro]: /aspnet/core/fundamentals/servers/kestrel?tabs=aspnetcore1x
 [migrate-from-cloud-services]: migrate-from-cloud-services.md
 [monitoring-diagnostics]: /azure/service-fabric/service-fabric-diagnostics-overview
 [reliable-concurrent-queue]: /azure/service-fabric/service-fabric-reliable-services-reliable-concurrent-queue
@@ -160,4 +165,4 @@ If you are just getting started with [Azure Service Fabric][service-fabric], fir
 [sample-code]: https://github.com/mspnp/cloud-services-to-service-fabric/tree/master/servicefabric-phase-2
 [service-fabric]: /azure/service-fabric/service-fabric-get-started
 [service-fabric-sdk]: /azure/service-fabric/service-fabric-get-started
-[weblistener]: https://docs.microsoft.com/aspnet/core/fundamentals/servers/weblistener
+[weblistener]: /aspnet/core/fundamentals/servers/weblistener

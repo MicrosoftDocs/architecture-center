@@ -2,9 +2,9 @@
 
 ## What is a Reference Architecture?
 
-The term *reference architecture* means a lot of things, but in the context of the Azure Architecture Center, it refers to a specific type of guidance artifact, found [here](https://docs.microsoft.com/azure/architecture/reference-architectures/). 
+The term *reference architecture* means a lot of things, but in the context of the Azure Architecture Center, it refers to a specific type of guidance artifact, found [here](/azure/architecture/reference-architectures/).
 
-Our reference architectures focus on real-world scenarios. Each reference architecture consists of: 
+Our reference architectures focus on real-world scenarios. Each reference architecture consists of:
 
 - A diagram of the architecture.
 - A set of recommendations and best practices.
@@ -28,20 +28,20 @@ In other cases, the series contains a set of recommended alternatives for a sing
 
 - **Concrete**. Our reference architectures show specific Azure services, as opposed to logical components such as "data store" or "stream processing."
 
-  > We know that more generalized architectures, showing logical components, are also very useful. However, we treat these as a separate type of guidance artifact. For example, see [here](https://docs.microsoft.com/azure/architecture/guide/architecture-styles/web-queue-worker) and [here](https://docs.microsoft.com/azure/architecture/data-guide/concepts/big-data).
+  > We know that more generalized architectures, showing logical components, are also very useful. However, we treat these as a separate type of guidance artifact. For example, see [here](/azure/architecture/guide/architecture-styles/web-queue-worker) and [here](/azure/architecture/data-guide/concepts/big-data).
 
 - **Infrastructure**. A reference architecture focuses on infrastructure (what you deploy), rather than application development. It can be IaaS or PaaS, or a mix of both.
 
 - **Audience**. The main audience is architects, developers, and DevOps.
 
-- **Golden path**. A single reference architecture shows one way to do something. The goal is to guide a customer to a solution that works. A reference architecture does _not_ describe every possible option or variation. 
+- **Golden path**. A single reference architecture shows one way to do something. The goal is to guide a customer to a solution that works. A reference architecture does _not_ describe every possible option or variation.
 
 - **Best practices**. A reference architecture embodies a set of best practices _for that scenario_. It does not comprehensively describe every feature of every Azure service being used - that's what the product docs are for.
 
 - **Deployable**. In most cases, a reference architecture should include a Resource Manager template or script that deploys the architecture. There are exceptions to this, however.
 
 - **Starting point**. A reference architecture includes pointers to additional guidance, such as relevant product documentation.
- 
+
 ## Document Structure
 
 We use a consistent structure for reference architecture documents. That said, if the structure doesn't work for a particular case, we can and should evolve the structure.
@@ -114,7 +114,7 @@ These are four sections (H2) that describe non-functional characteristics of the
 - Manageability
 - Security
 
-These correspond to 4 of our 5 [pillars of software quality](https://docs.microsoft.com/azure/architecture/guide/pillars).
+These correspond to 4 of our 5 [pillars of software quality](/azure/architecture/guide/pillars).
 
 Only include the sections that are relevant for the reference architecture. In some cases, there won't be anything to say for a particular pillar, especially if a reference architecture builds on a previous reference architecture, as part of a series.
 

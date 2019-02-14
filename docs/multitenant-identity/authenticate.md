@@ -151,7 +151,7 @@ During the authentication process, the OpenID Connect middleware raises a series
 
 To provide callbacks for these events, set the **Events** option on the middleware. There are two different ways to declare the event handlers: Inline with lambdas, or in a class that derives from **OpenIdConnectEvents**. The second approach is recommended if your event callbacks have any substantial logic, so they don't clutter your startup class. Our reference implementation uses this approach.
 
-### OpenID connect endpoints
+### OpenID Connect endpoints
 
 Azure AD supports [OpenID Connect Discovery](https://openid.net/specs/openid-connect-discovery-1_0.html), wherein the identity provider (IDP) returns a JSON metadata document from a [well-known endpoint](https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderConfig). The metadata document contains information such as:
 
@@ -161,7 +161,7 @@ Azure AD supports [OpenID Connect Discovery](https://openid.net/specs/openid-con
 
 By default, the OIDC middleware knows how to fetch this metadata. Set the **Authority** option in the middleware, and the middleware constructs the URL for the metadata. (You can override the metadata URL by setting the **MetadataAddress** option.)
 
-### OpenID connect flows
+### OpenID Connect flows
 
 By default, the OIDC middleware uses hybrid flow with form post response mode.
 

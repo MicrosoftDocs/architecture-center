@@ -132,7 +132,7 @@ The deployment shown here resides in a single Azure region. For a more resilient
 
 ### Authentication
 
-The `GetStatus` API in the reference implementation uses Azure AD to authenticate requests. Azure AD supports the Open ID Connect protocol, which is an authentication protocol built on top of the OAuth 2 protocol.
+The `GetStatus` API in the reference implementation uses Azure AD to authenticate requests. Azure AD supports the OpenID Connect protocol, which is an authentication protocol built on top of the OAuth 2 protocol.
 
 In this architecture, the client application is a single-page application (SPA) that runs in the browser. This type of client application cannot keep a client secret or an authorization code hidden, so the implicit grant flow is appropriate. (See [Which OAuth 2.0 flow should I use?][oauth-flow]). Here's the overall flow:
 

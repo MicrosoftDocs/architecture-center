@@ -48,7 +48,7 @@ The following technologies are recommended choices for batch processing solution
 
 ### Data storage
 
-- **Azure Storage Blob Containers**. Many existing Azure business processes already make use of Azure blob storage, making this a good choice for a big data store.
+- **Azure Storage Blob Containers**. Many existing Azure business processes already use Azure blob storage, making this a good choice for a big data store.
 - **Azure Data Lake Store**. Azure Data Lake Store offers virtually unlimited storage for any size of file, and extensive security options, making it a good choice for extremely large-scale big data solutions that require a centralized store for data in heterogeneous formats.
 
 For more information, see [Data storage](../technology-choices/data-storage.md).
