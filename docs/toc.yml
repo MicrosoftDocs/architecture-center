@@ -607,7 +607,7 @@
     items:
     - name: Overview
       href: cloud-adoption/migrate/overview.md
-    - name: Best Practice Journeys
+    - name: Actionable Migration Journeys
       items:
       - name: Overview of the journeys
         href: cloud-adoption/migrate/journeys/overview.md
@@ -679,7 +679,7 @@
             href: cloud-adoption/migrate/journeys/azure-migration-playbook/planning-checklist.md
           - name: Portal How-To Videos
             href: cloud-adoption/migrate/journeys/azure-migration-playbook/planning-checklist.md
-        - name: Optimize
+        - name: Optimize and Transform
           items:
           - name: Evaluate Options to Transform
             href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
@@ -694,6 +694,72 @@
           - name: Azure Security Center
             href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
           - name: Azure Backup
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+      - name: Parallel More Complex Journey
+        items:
+        - name: Getting started
+          href: cloud-adoption/migrate/journeys/azure-migration-playbook/index.md
+        - name: Pre-requisite
+          items:
+          - name: Narrative
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+          - name: When to use this approach
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/qualify.md
+          - name: Migration Process (Effort, Roles, Definition of Done)
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+          - name: Planning Checklist
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/planning-checklist.md
+          - name: Technical complexity and change management
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/planning-checklist.md
+          - name: Cultural complexity and change management
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/planning-checklist.md
+        - name: Assess
+          items:
+          - name: Assessment Process
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+          - name: Assessment Tools
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+          - name: Technical Evaluation
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/qualify.md
+          - name: Architecture Decisions
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/planning-checklist.md
+          - name: Sprint and Release Backlogs (Digital Estate segmentation)
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/planning-checklist.md
+          - name: Change management approval
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/planning-checklist.md
+        - name: Migrate
+          items:
+          - name: Migration process
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+          - name: Remediate incompatible assets
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/qualify.md
+          - name: Replicate assets
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/planning-checklist.md
+          - name: Stage applications
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/planning-checklist.md
+          - name: Document change
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/planning-checklist.md
+        - name: Optimize and Promote
+          items:
+          - name: Optimize and Promote Processes
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+          - name: Business Testing
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+          - name: Business Change Plan
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+          - name: Ready for Production
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+          - name: Promote to Production
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+          - name: Decomission retired assets
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+        - name: Secure and Manage
+          items:
+          - name: Secure and Manage Transition Processes
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+          - name: Operations MVP
+            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+          - name: Prepare for Cloud Operations
             href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
   - name: Govern
     items:
