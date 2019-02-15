@@ -53,8 +53,8 @@ There are a number of different ways to design and implement your HPC architectu
 
 The following scenarios outline a few of the common ways HPC solutions are built.
 
-<ul class="panelContent cardsC">
-<li style="display: flex; flex-direction: column;">
+
+
     <a href="/azure/architecture/example-scenario/apps/hpc-saas?toc=/azure/architecture/topics/high-performance-computing/toc.json" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
@@ -72,8 +72,8 @@ The following scenarios outline a few of the common ways HPC solutions are built
             </div>
         </div>
     </a>
-</li>
-<li style="display: flex; flex-direction: column;">
+
+
     <a href="/azure/architecture/example-scenario/infrastructure/hpc-cfd?toc=/azure/architecture/topics/high-performance-computing/toc.json" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
@@ -91,8 +91,8 @@ The following scenarios outline a few of the common ways HPC solutions are built
             </div>
         </div>
     </a>
-</li>
-<li style="display: flex; flex-direction: column;">
+
+
     <a href="/azure/architecture/example-scenario/infrastructure/video-rendering?toc=/azure/architecture/topics/high-performance-computing/toc.json" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
@@ -110,7 +110,7 @@ The following scenarios outline a few of the common ways HPC solutions are built
             </div>
         </div>
     </a>
-</li>
+
 </ul>
 
 ### Compute
@@ -166,8 +166,8 @@ If you have an existing on-premise HPC system that you'd like to connect to Azur
 
 First, review the [Options for connecting an on-premises network to Azure](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking?toc=/azure/architecture/topics/high-performance-computing/toc.json) article in the documentation.  From there, you may want information on these connectivity options:
 
-<ul class="panelContent cardsC">
-<li style="display: flex; flex-direction: column;">
+
+
     <a href="/azure/architecture/reference-architectures/hybrid-networking/vpn?toc=/azure/architecture/topics/high-performance-computing/toc.json" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
@@ -185,8 +185,8 @@ First, review the [Options for connecting an on-premises network to Azure](https
             </div>
         </div>
     </a>
-</li>
-<li style="display: flex; flex-direction: column;">
+
+
     <a href="/azure/architecture/reference-architectures/hybrid-networking/vpn?toc=/azure/architecture/topics/high-performance-computing/toc.json" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
@@ -204,8 +204,8 @@ First, review the [Options for connecting an on-premises network to Azure](https
             </div>
         </div>
     </a>
-</li>
-<li style="display: flex; flex-direction: column;">
+
+
     <a href="/azure/architecture/reference-architectures/hybrid-networking/expressroute?toc=/azure/architecture/topics/high-performance-computing/toc.json" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
@@ -223,8 +223,8 @@ First, review the [Options for connecting an on-premises network to Azure](https
             </div>
         </div>
     </a>
-</li>
-<li style="display: flex; flex-direction: column;">
+
+
     <a href="/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover?toc=/azure/architecture/topics/high-performance-computing/toc.json" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
@@ -242,7 +242,7 @@ First, review the [Options for connecting an on-premises network to Azure](https
             </div>
         </div>
     </a>
-</li>
+
 </ul>
 
 Once network connectivity is securely established, you can start using cloud compute resources on-demand with the bursting capabilities of your existing [workload manager](#workload-manager).
@@ -311,8 +311,8 @@ For an overview of security best practices on Azure, review the [Azure Security 
 
 In addition to the network configurations available in the [Cloud Bursting](#) section, you may want to implement a hub/spoke configuration to isolate your compute resources:
 
-<ul class="panelContent cardsC">
-<li style="display: flex; flex-direction: column;">
+
+
     <a href="/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=/azure/architecture/topics/high-performance-computing/toc.json" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
@@ -330,8 +330,8 @@ In addition to the network configurations available in the [Cloud Bursting](#) s
             </div>
         </div>
     </a>
-</li>
-<li style="display: flex; flex-direction: column;">
+
+
     <a href="/azure/architecture/reference-architectures/hybrid-networking/shared-services?toc=/azure/architecture/topics/high-performance-computing/toc.json" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
@@ -349,7 +349,7 @@ In addition to the network configurations available in the [Cloud Bursting](#) s
             </div>
         </div>
     </a>
-</li>
+
 </ul>
 
 ## HPC applications
@@ -383,8 +383,8 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
 
 ## Remote Visualization
 
-<ul class="panelContent cardsC">
-<li style="display: flex; flex-direction: column;">
+
+
     <a href="/azure/architecture/example-scenario/infrastructure/linux-vdi-citrix?toc=/azure/architecture/topics/high-performance-computing/toc.json" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
@@ -402,7 +402,7 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
             </div>
         </div>
     </a>
-</li>
+
 </ul>
 
 ## Performance Benchmarks
