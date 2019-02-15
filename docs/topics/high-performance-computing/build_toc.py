@@ -49,7 +49,8 @@ for line in input_file:
             continue
 
         if re.match('^(.(?<!docs.microsoft.com))*?$', inline_link.group(2)):
-            continue
+            if not re.match('^\/.*', inline_link.group(2)):
+                continue
 
         toc_list.append({'level': level + 1, 'name': inline_link.group(1), 'href': inline_link.group(2)})
         
@@ -102,9 +103,9 @@ for i in range(0,len(toc_list)):
             toc += indent + "- name: " + item_name + '\n'
             toc += indent + "  href: " + toc_list[i].get('href') + "\n"
         # Set anchors for sections within the article
-        else:
-            toc += indent + "- name: " + item_name + '\n'
-            toc += indent + "  href: index.md#" + overviewlink(item_name) + "\n"
+        #else:
+        #    toc += indent + "- name: " + item_name + '\n'
+        #    toc += indent + "  href: index.md#" + overviewlink(item_name) + "\n"
 
 # Write the TOC file
 output_file_path = join(current_dir, 'TOC.yml')

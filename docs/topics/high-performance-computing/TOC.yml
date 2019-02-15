@@ -3,9 +3,11 @@
 - name: Introduction to HPC
   items:
   - name: How is HPC different on the cloud
-    href: index.md#how-is-hpc-different-on-the-cloud
-- name: Implementation Checklist
-  href: index.md#implementation-checklist
+    items:
+    - name: Big Compute Architecture Style
+      href: /azure/architecture/guide/architecture-styles/big-compute?toc=/azure/architecture/topics/high-performance-computing/toc.json
+    - name: Autoscaling best practices
+      href: /azure/architecture/best-practices/auto-scaling?toc=/azure/architecture/topics/high-performance-computing/toc.json
 - name: Infrastructure
   items:
   - name: Example HPC Architectures
@@ -72,8 +74,6 @@
     items:
     - name: Azure Batch
       href: https://docs.microsoft.com/azure/batch/batch-technical-overview?toc=/azure/architecture/topics/high-performance-computing/toc.json) is a platform service for running large-scale parallel and high-performance computing (HPC
-  - name: Azure CycleCloud
-    href: index.md#azure-cyclecloud
   - name: Workload managers
     items:
     - name: HPC Pack for Windows
@@ -124,8 +124,6 @@
   items:
   - name: Compute Benchmarks
     href: https://docs.microsoft.com/azure/virtual-machines/windows/compute-benchmark-scores?toc=/azure/architecture/topics/high-performance-computing/toc.json
-- name: Customer stories
-  href: index.md#customer-stories
 - name: Other Important Information
   items:
   - name: vCPU quota
