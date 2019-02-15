@@ -53,6 +53,72 @@ There are a number of different ways to design and implement your HPC architectu
 
 The following scenarios outline a few of the common ways HPC solutions are built.
 
+<ul class="columns is-multiline has-margin-bottom-none has-padding-top-medium">
+					<li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
+						<a data-learn-uid="learn.deploy-a-website-with-azure-app-service" data-learn-type="path" class="is-undecorated is-full-height is-block" href="/learn/paths/deploy-a-website-with-azure-app-service"><!---->
+		<article class="card has-outline-hover is-relative is-fullheight">
+			<div class="card-content has-padding-bottom-none has-text-overflow-ellipsis">
+				
+				<figure class="image is-64x64 has-margin-right-none has-margin-left-none has-margin-top-none">
+					<img role="presentation" alt="" src="/learn/achievements/deploy-a-website-with-azure-app-service.svg">
+				</figure>
+				<div class="has-padding-bottom-none">
+					<h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary"><!---->Deploy a website to Azure with Azure App Service<!----></h3>
+					
+				</div>
+				<div class="is-size-7 has-margin-top-small has-line-height-reset"><!----><p sourcefile="paths/deploy-a-website-with-azure-app-service/index.yml" sourcestartlinenumber="1">Web apps in Azure allow you to publish and manage your website easily without having to work with the underlying servers, storage, or network assets. Instead, you can focus on your website features and rely on the robust Azure platform to provide secure access to your site.</p>
+<!----></div>
+			</div>
+			
+		</article>
+<!----></a>
+					</li>
+					<li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
+						<a data-learn-uid="learn.cloud-foundations" data-learn-type="path" class="is-undecorated is-full-height is-block" href="/learn/paths/azure-fundamentals"><!---->
+		<article class="card has-outline-hover is-relative is-fullheight">
+			<div class="card-content has-padding-bottom-none has-text-overflow-ellipsis">
+				<div class="progress-tag is-absolute has-top-zero has-right-zero is-hidden">
+					<span class="progress-icon docon" role="presentation"></span>
+				</div>
+				<figure class="image is-64x64 has-margin-right-none has-margin-left-none has-margin-top-none">
+					<img role="presentation" alt="" src="/learn/achievements/azure-fundamentals.svg">
+				</figure>
+				<div class="has-padding-bottom-none">
+					<h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary"><!---->Azure fundamentals<!----></h3>
+					
+				</div>
+				<div class="is-size-7 has-margin-top-small has-line-height-reset"><!----><p sourcefile="paths/azure-fundamentals/index.yml" sourcestartlinenumber="1">Interested in the cloud, but aren't quite sure what it can do for you? This path is the place to start.</p>
+<!----></div>
+			</div>
+			
+		</article>
+<!----></a>
+					</li>
+					<li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
+						<a data-learn-uid="learn.work-with-nosql-data-in-azure-cosmos-db" data-learn-type="path" class="is-undecorated is-full-height is-block" href="/learn/paths/work-with-nosql-data-in-azure-cosmos-db"><!---->
+		<article class="card has-outline-hover is-relative is-fullheight">
+			<div class="card-content has-padding-bottom-none has-text-overflow-ellipsis">
+				<div class="progress-tag is-absolute has-top-zero has-right-zero is-hidden">
+					<span class="progress-icon docon" role="presentation"></span>
+				</div>
+				<figure class="image is-64x64 has-margin-right-none has-margin-left-none has-margin-top-none">
+					<img role="presentation" alt="" src="/learn/achievements/work-with-nosql-data-in-azure-cosmos-db.svg">
+				</figure>
+				<div class="has-padding-bottom-none">
+					<h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary"><!---->Work with NoSQL data in Azure Cosmos DB<!----></h3>
+					
+				</div>
+				<div class="is-size-7 has-margin-top-small has-line-height-reset"><!----><p sourcefile="paths/work-with-nosql-data-in-azure-cosmos-db/index.yml" sourcestartlinenumber="1">NoSQL data is an efficient way to store information that doesn’t map to the requirements of a relational SQL database. Learn how to use the Azure portal, the Azure Cosmos DB extension for Visual Studio Code, and the Azure Cosmos DB .NET Core SDK to work with your NoSQL data where you want, and provide your users with high availability, no matter where they are in the world.</p>
+<!----></div>
+			</div>
+			<div class="card-footer has-border-none">
+				
+			</div>
+		</article>
+<!----></a>
+					</li>
+			</ul>
+
 <ul class="columns is-multiline">
 <li class="column">
     <a href="/azure/architecture/example-scenario/apps/hpc-saas?toc=/azure/architecture/topics/high-performance-computing/toc.json" style="display: flex; flex-direction: column; flex: 1 0 auto;">
