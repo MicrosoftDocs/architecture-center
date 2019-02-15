@@ -88,8 +88,8 @@ for i in range(0,len(toc_list)):
                 toc += indent + "  href: index.md\n"
             else:
                 toc += indent + "  items:" + "\n"
-                toc += indent + "  - name: Overview\n"
-                toc += indent + "    href: index.md#" + overviewlink(item_name) + "\n"
+        #        toc += indent + "  - name: Overview\n"
+        #        toc += indent + "    href: index.md#" + overviewlink(item_name) + "\n"
         # Add an arror indicating external links
         elif toc_list[i].get('href'):
             #continue
