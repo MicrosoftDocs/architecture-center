@@ -61,7 +61,7 @@ The following scenarios outline a few of the common ways HPC solutions are built
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="../../example-scenario/apps/media/architecture-hpc-saas.png" height="140px" />
+                            <img src="../../example-scenario/apps/media/architecture-hpc-saas.png" height="40px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -80,7 +80,7 @@ The following scenarios outline a few of the common ways HPC solutions are built
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="../../example-scenario/infrastructure/media/architecture-hpc-cfd.png" height="140px" />
+                            <img src="../../example-scenario/infrastructure/media/architecture-hpc-cfd.png" height="40px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -99,7 +99,7 @@ The following scenarios outline a few of the common ways HPC solutions are built
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="../../example-scenario/infrastructure/media/architecture-video-rendering.png" height="140px" />
+                            <img src="../../example-scenario/infrastructure/media/architecture-video-rendering.png" height="40px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -174,7 +174,7 @@ First, review the [Options for connecting an on-premises network to Azure](https
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/azure/architecture/reference-architectures/hybrid-networking/images/vpn.png" height="140px" />
+                            <img src="/azure/architecture/reference-architectures/hybrid-networking/images/vpn.png" height="40px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -193,7 +193,7 @@ First, review the [Options for connecting an on-premises network to Azure](https
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/azure/architecture/reference-architectures/hybrid-networking/images/vpn.png" height="140px" />
+                            <img src="/azure/architecture/reference-architectures/hybrid-networking/images/vpn.png" height="40px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -212,7 +212,7 @@ First, review the [Options for connecting an on-premises network to Azure](https
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/azure/architecture/reference-architectures/hybrid-networking/images/expressroute.png" height="140px" />
+                            <img src="/azure/architecture/reference-architectures/hybrid-networking/images/expressroute.png" height="40px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -231,7 +231,7 @@ First, review the [Options for connecting an on-premises network to Azure](https
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/azure/architecture/reference-architectures/hybrid-networking/images/expressroute-vpn-failover.png" height="140px" />
+                            <img src="/azure/architecture/reference-architectures/hybrid-networking/images/expressroute-vpn-failover.png" height="40px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -319,7 +319,7 @@ In addition to the network configurations available in the [Cloud Bursting](#) s
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/azure/architecture/reference-architectures/hybrid-networking/images/hub-spoke.png" height="140px" />
+                            <img src="/azure/architecture/reference-architectures/hybrid-networking/images/hub-spoke.png" height="40px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -338,7 +338,7 @@ In addition to the network configurations available in the [Cloud Bursting](#) s
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="/azure/architecture/reference-architectures/hybrid-networking/images/shared-services.png" height="140px" />
+                            <img src="/azure/architecture/reference-architectures/hybrid-networking/images/shared-services.png" height="40px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -391,7 +391,7 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="../../example-scenario/infrastructure/media/azure-citrix-sample-diagram.png" height="140px" />
+                            <img src="../../example-scenario/infrastructure/media/azure-citrix-sample-diagram.png" height="40px" />
                         </div>
                     </div>
                     <div class="cardText">
