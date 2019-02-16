@@ -4,6 +4,7 @@ description: A guide to building running HPC workloads on Azure
 author: adamboeglin
 ms.date: 2/4/2019
 ---
+<!-- markdownlint-disable MD033 -->
 
 # High Performance Computing (HPC) on Azure
 
@@ -53,7 +54,7 @@ There are a number of different ways to design and implement your HPC architectu
 
 The following scenarios outline a few of the common ways HPC solutions are built.
 
-<ul class="columns is-multiline has-margin-bottom-none has-padding-top-medium">
+<ul class="columns is-multiline has-margin-left-none has-margin-bottom-none has-padding-top-medium">
     <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
         <a class="is-undecorated is-full-height is-block"
             href="/azure/architecture/example-scenario/apps/hpc-saas?toc=/azure/architecture/topics/high-performance-computing/toc.json">
@@ -122,6 +123,7 @@ The following scenarios outline a few of the common ways HPC solutions are built
 Azure offers a range of sizes that are optimized for both CPU & GPU intensive workloads.
 
 #### CPU-based virtual machines
+
 - [Linux VMs](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc?toc=/azure/architecture/topics/high-performance-computing/toc.json)
 - [Windows VM's](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc?toc=/azure/architecture/topics/high-performance-computing/toc.json) VMs
   
