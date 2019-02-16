@@ -55,13 +55,13 @@ The following scenarios outline a few of the common ways HPC solutions are built
 
 <ul class="columns is-multiline has-margin-bottom-none has-padding-top-medium">
     <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
-        <a data-learn-uid="learn.deploy-a-website-with-azure-app-service" data-learn-type="path" class="is-undecorated is-full-height is-block"
+        <a class="is-undecorated is-full-height is-block"
             href="/azure/architecture/example-scenario/apps/hpc-saas?toc=/azure/architecture/topics/high-performance-computing/toc.json">
             <article class="card has-outline-hover is-relative is-fullheight">
-                <div class="card-content has-padding-bottom-none has-text-overflow-ellipsis">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none">
                         <img role="presentation" alt="" src="../../example-scenario/apps/media/architecture-hpc-saas.png">
                     </figure>
+                <div class="card-content has-padding-bottom-none has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
                         <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">
                             Computer-aided engineering services on Azure
@@ -76,13 +76,13 @@ The following scenarios outline a few of the common ways HPC solutions are built
         </a>
     </li>
     <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
-        <a data-learn-uid="learn.deploy-a-website-with-azure-app-service" data-learn-type="path" class="is-undecorated is-full-height is-block"
+        <a class="is-undecorated is-full-height is-block"
             href="/azure/architecture/example-scenario/infrastructure/hpc-cfd?toc=/azure/architecture/topics/high-performance-computing/toc.json">
             <article class="card has-outline-hover is-relative is-fullheight">
-                <div class="card-content has-padding-bottom-none has-text-overflow-ellipsis">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none">
                         <img role="presentation" alt="" src="../../example-scenario/infrastructure/media/architecture-hpc-cfd.png">
                     </figure>
+                <div class="card-content has-padding-bottom-none has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
                         <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">
                             Computational fluid dynamics (CFD) simulations on Azure
@@ -96,13 +96,13 @@ The following scenarios outline a few of the common ways HPC solutions are built
         </a>
     </li>
     <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
-        <a data-learn-uid="learn.deploy-a-website-with-azure-app-service" data-learn-type="path" class="is-undecorated is-full-height is-block"
+        <a class="is-undecorated is-full-height is-block"
             href="/azure/architecture/example-scenario/infrastructure/video-rendering?toc=/azure/architecture/topics/high-performance-computing/toc.json">
             <article class="card has-outline-hover is-relative is-fullheight">
-                <div class="card-content has-padding-bottom-none has-text-overflow-ellipsis">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none">
                         <img role="presentation" alt="" src="../../example-scenario/infrastructure/media/architecture-video-rendering.png">
                     </figure>
+                <div class="card-content has-padding-bottom-none has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
                         <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">
                             3D video rendering on Azure
