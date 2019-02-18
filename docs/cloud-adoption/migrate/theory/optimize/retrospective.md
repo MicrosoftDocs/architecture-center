@@ -1,11 +1,11 @@
 ---
-title: "Fusion: How do retrospectives help build a Growth Mindset?"
+title: "How do retrospectives help build a Growth Mindset?"
 description: A process within Cloud Migration that focuses on the tasks of migrating workloads to the cloud
 author: BrianBlanchard
 ms.date: 10/11/2018
 ---
 
-# Fusion: How do retrospectives help build a Growth Mindset?
+# How do retrospectives help build a Growth Mindset?
 
 "Culture eats strategy for breakfast". The best migration plan can easily be undone without executive support and encouragement from leadership. Learning, Growing, and even Failure are at the heart of a growth mindset. They are also at the heart of any transformation effort.
 

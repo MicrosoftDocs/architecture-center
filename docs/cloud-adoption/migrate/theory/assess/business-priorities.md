@@ -1,11 +1,11 @@
 ---
-title: "Fusion: During a long term transformation process, how can business priorities stay aligned?"
+title: "During a long term transformation process, how can business priorities stay aligned?"
 description: A process within Cloud Migration that focuses on the tasks of migrating workloads to the cloud
 author: BrianBlanchard
 ms.date: 10/11/2018
 ---
 
-# Fusion: Why do business priorities and technical priorities become misaligned?
+# Why do business priorities and technical priorities become misaligned?
 
 Transformation seldom happens overnight. A single application or workload can be migrated quickly. Sometimes groups of applications can even be migrated relatively quickly. However, it takes time to train users. It takes even longer for changes to propagate through various layers of existing business processes. If transformation is expected to shape behavior patterns in consumers, the results can take even longer to produce significant results.
 

@@ -1,10 +1,10 @@
 ---
-title: "Fusion: Partnership Options" 
+title: "Partnership Options" 
 description: Describes a The options and approaches a company can follow when migrating to the cloud.
 author: BrianBlanchard
 ms.date: 10/11/2018
 ---
-# Fusion: Understanding Partnership Options
+# Understanding Partnership Options
 
 The [Migration section](overview.md) of the [Fusion framework](../../overview.md), outlines the processes typically required to migrate a DataCenter to the cloud. This section extends the migration conversation by focusing on the [Execution of actual migration work](overview.md).
 

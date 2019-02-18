@@ -1,11 +1,11 @@
 ---
-title: "Fusion: Getting a migrated application ready for production promotion"
+title: "Getting a migrated application ready for production promotion"
 description: A process within Cloud Migration that focuses on the tasks of migrating workloads to the cloud
 author: BrianBlanchard
 ms.date: 10/11/2018
 ---
 
-# Fusion: Getting a migrated application ready for production promotion
+# Getting a migrated application ready for production promotion
 
 Once an application is promoted, production user traffic will be routed to the migrated assets. Readiness activities provide an opportunity to prepare the application for that traffic. The following are a few business and technology considerations to help guide readiness activities.
 

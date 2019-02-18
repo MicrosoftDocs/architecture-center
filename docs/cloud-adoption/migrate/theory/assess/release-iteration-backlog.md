@@ -1,11 +1,11 @@
 ---
-title: "Fusion: Iteration and Release Backlog"
+title: "Iteration and Release Backlog"
 description: Building an iteration and release backlog
 author: BrianBlanchard
 ms.date: 10/11/2018
 ---
 
-# Fusion: Migration Execution
+# Migration Execution
 
 The [Migration section](../overview.md) of the [Fusion framework](../../overview.md), outlines the processes typically required to migrate a DataCenter to the cloud. This series of articles, expands on the [Migration Execution Process](overview.md) within any migration. This article focuses specifically on building an iteration and/or release backlog.
   

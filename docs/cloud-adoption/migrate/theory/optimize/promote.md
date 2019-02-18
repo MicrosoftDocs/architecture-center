@@ -1,11 +1,11 @@
 ---
-title: "Fusion: What is required to promote a migrated resource to production?"
+title: "What is required to promote a migrated resource to production?"
 description: A process within Cloud Migration that focuses on the tasks of migrating workloads to the cloud
 author: BrianBlanchard
 ms.date: 10/11/2018
 ---
 
-# Fusion: What is required to promote a migrated resource to production?
+# What is required to promote a migrated resource to production?
 
 Promotion to production marks the completion of an application or workloads migration to the cloud. Once the asset and all of its dependencies are promoted, production traffic is re-routed. The re-routing of traffic makes the on-prem assets obsolete, allowing them to be de-commissioned.
 

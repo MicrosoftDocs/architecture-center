@@ -1,11 +1,11 @@
 ---
-title: "Fusion: Guidance to developing a Business Change Plan"
+title: "Guidance to developing a Business Change Plan"
 description: A process within Cloud Migration that focuses on the tasks of migrating workloads to the cloud
 author: BrianBlanchard
 ms.date: 10/11/2018
 ---
 
-# Fusion: Why do we need a Business Change Plan
+# Why do we need a Business Change Plan
 
 The [Migration section](../overview.md) of the [Fusion framework](../../overview.md), outlines the processes typically required to migrate a DataCenter to the cloud. This article, expands on the [Migration Execution Process](overview.md) by reviewing activities associated with the creation and execution of a Business Change Plan for a release.
   

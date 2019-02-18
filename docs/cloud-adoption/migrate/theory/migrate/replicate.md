@@ -1,11 +1,11 @@
 ---
-title: "Fusion: What role does replication and synchronization play in the migration process?"
+title: "What role does replication and synchronization play in the migration process?"
 description: A process within Cloud Migration that focuses on the tasks of migrating workloads to the cloud
 author: BrianBlanchard
 ms.date: 10/11/2018
 ---
 
-# Fusion: What role does replication play in the migration process?
+# What role does replication play in the migration process?
 
 On-prem DataCenters are generally filled with physical assets; servers, appliances, network devices, etc... However, each of those servers is only a physical shell. The real value comes from the binary running on the server. The applications and data are the purpose for the DataCenter those are the primary binary to migrate. Powering the apps and data are other digital assets, other binary sources; operating systems, network routes, files, security protocols, etc...
 
