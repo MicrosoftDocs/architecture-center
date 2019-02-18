@@ -614,7 +614,7 @@
       - name: Azure Migration Playbook - Option 1
         items:
         - name: Getting started
-          href: cloud-adoption/migrate/journeys/azure-migration-playbook/index.md
+          href: cloud-adoption/migrate/journeys/complex-path/index.md
         - name: Pre-requisite - Narrative
           href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
         - name: Pre-requisite - When to use this approach
@@ -698,69 +698,135 @@
       - name: Parallel More Complex Journey
         items:
         - name: Getting started
-          href: cloud-adoption/migrate/journeys/azure-migration-playbook/index.md
+          href: cloud-adoption/migrate/journeys/complex-path/index.md
         - name: Pre-requisite
           items:
           - name: Narrative
-            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+            href: cloud-adoption/migrate/journeys/complex-path/pre-requisites/narrative.md
           - name: When to use this approach
-            href: cloud-adoption/migrate/journeys/azure-migration-playbook/qualify.md
+            href: cloud-adoption/migrate/journeys/complex-path/pre-requisites/qualify.md
           - name: Migration Process (Effort, Roles, Definition of Done)
-            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+            href: cloud-adoption/migrate/journeys/complex-path/pre-requisites/process.md
           - name: Planning Checklist
-            href: cloud-adoption/migrate/journeys/azure-migration-playbook/planning-checklist.md
+            href: cloud-adoption/migrate/journeys/complex-path/pre-requisites/planning-checklist.md
           - name: Technical complexity and change management
-            href: cloud-adoption/migrate/journeys/azure-migration-playbook/planning-checklist.md
+            href: cloud-adoption/migrate/journeys/complex-path/pre-requisites/technical-complexity.md
           - name: Cultural complexity and change management
-            href: cloud-adoption/migrate/journeys/azure-migration-playbook/planning-checklist.md
+            href: cloud-adoption/migrate/journeys/complex-path/pre-requisites/culture-complexity.md
         - name: Assess
           items:
           - name: Assessment Process
-            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+            href: cloud-adoption/migrate/journeys/complex-path/assess/process.md
           - name: Assessment Tools
-            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+            href: cloud-adoption/migrate/journeys/complex-path/assess/tools.md
           - name: Technical Evaluation
-            href: cloud-adoption/migrate/journeys/azure-migration-playbook/qualify.md
+            href: cloud-adoption/migrate/journeys/complex-path/assess/evaluation.md
           - name: Architecture Decisions
-            href: cloud-adoption/migrate/journeys/azure-migration-playbook/planning-checklist.md
+            href: cloud-adoption/migrate/journeys/complex-path/assess/architecture.md
           - name: Sprint and Release Backlogs (Digital Estate segmentation)
-            href: cloud-adoption/migrate/journeys/azure-migration-playbook/planning-checklist.md
+            href: cloud-adoption/migrate/journeys/complex-path/assess/backlogs.md
           - name: Change management approval
-            href: cloud-adoption/migrate/journeys/azure-migration-playbook/planning-checklist.md
+            href: cloud-adoption/migrate/journeys/complex-path/assess/approval.md
         - name: Migrate
           items:
           - name: Migration process
-            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+            href: cloud-adoption/migrate/journeys/complex-path/assess/process.md
           - name: Remediate incompatible assets
-            href: cloud-adoption/migrate/journeys/azure-migration-playbook/qualify.md
+            href: cloud-adoption/migrate/journeys/complex-path/assess/remediate.md
           - name: Replicate assets
-            href: cloud-adoption/migrate/journeys/azure-migration-playbook/planning-checklist.md
+            href: cloud-adoption/migrate/journeys/complex-path/assess/replicate.md
           - name: Stage applications
-            href: cloud-adoption/migrate/journeys/azure-migration-playbook/planning-checklist.md
+            href: cloud-adoption/migrate/journeys/complex-path/assess/stage.md
           - name: Document change
-            href: cloud-adoption/migrate/journeys/azure-migration-playbook/planning-checklist.md
+            href: cloud-adoption/migrate/journeys/complex-path/assess/document.md
         - name: Optimize and Promote
           items:
           - name: Optimize and Promote Processes
-            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+            href: cloud-adoption/migrate/journeys/complex-path/optimize-and-promote/process.md
           - name: Business Testing
-            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+            href: cloud-adoption/migrate/journeys/complex-path/optimize-and-promote/business-testing.md
           - name: Business Change Plan
-            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+            href: cloud-adoption/migrate/journeys/complex-path/optimize-and-promote/business-change-plan.md
           - name: Ready for Production
-            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+            href: cloud-adoption/migrate/journeys/complex-path/optimize-and-promote/ready.md
           - name: Promote to Production
-            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+            href: cloud-adoption/migrate/journeys/complex-path/optimize-and-promote/promote.md
           - name: Decomission retired assets
-            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+            href: cloud-adoption/migrate/journeys/complex-path/optimize-and-promote/decomission.md
+          - name: Retrospective
+            href: cloud-adoption/migrate/journeys/complex-path/optimize-and-promote/Retrospective.md
         - name: Secure and Manage
           items:
           - name: Secure and Manage Transition Processes
-            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+            href: cloud-adoption/migrate/journeys/complex-path/secure-and-manage/process.md
           - name: Operations MVP
-            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+            href: cloud-adoption/migrate/journeys/complex-path/secure-and-manage/operations-mvp.md
           - name: Prepare for Cloud Operations
-            href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+            href: cloud-adoption/migrate/journeys/complex-path/secure-and-manage/prepare-for-cloud-operations.md
+    - name: Tool Chain and Azure Best Practices
+      items:
+      - name: Overview
+        href: cloud-adoption/migrate/toolchain/overview.md
+      - name: Azure Migrate and Azure Site Recovery
+        items:
+        - name: Overview
+          href: cloud-adoption/migrate/toolchain/migrate/overview.md
+        - name: Insert Migrate best practices here!!!!
+          href: cloud-adoption/migrate/toolchain/migrate/overview.md
+    - name: Migration Theory
+      items:
+      - name: Overview
+        href: cloud-adoption/migrate/theory/overview.md
+      - name: Assess
+        items:
+        - name: xx-Overview
+          href: cloud-adoption/migrate/theory/assess/overview.md
+        - name: Business Priorities
+          href: cloud-adoption/migrate/theory/assess/business-priorities.md
+        - name: Evaluate
+          href: cloud-adoption/migrate/theory/assess/evaluate.md
+        - name: Architect
+          href: cloud-adoption/migrate/theory/assess/architect.md
+        - name: Release and Iteration Backlog
+          href: cloud-adoption/migrate/theory/assess/release-iteration-backlog.md
+        - name: xx-Approve
+          href: cloud-adoption/migrate/theory/assess/approve.md
+      - name: Migrate
+        items:
+        - name: xx-Overview
+          href: cloud-adoption/migrate/theory/migrate/overview.md
+        - name: xx-Promote or Stage
+          href: cloud-adoption/migrate/theory/migrate/promote-or-stage.md
+        - name: Partnership Options
+          href: cloud-adoption/migrate/theory/migrate/partnership-options.md
+        - name: Remediate
+          href: cloud-adoption/migrate/theory/migrate/remediate.md
+        - name: Replicate
+          href: cloud-adoption/migrate/theory/migrate/replicate.md
+        - name: Replicate Options
+          href: cloud-adoption/migrate/theory/migrate/replicate-options.md
+        - name: Stage
+          href: cloud-adoption/migrate/theory/migrate/stage.md
+      - name: Optimize
+        items:
+        - name: xx-Overview
+          href: cloud-adoption/migrate/theory/optimize/overview.md
+        - name: Business Change Plan
+          href: cloud-adoption/migrate/theory/optimize/business-change-plan.md
+        - name: Business Testing
+          href: cloud-adoption/migrate/theory/optimize/business-test.md
+        - name: Ready for promotion
+          href: cloud-adoption/migrate/theory/optimize/ready.md
+        - name: Promote
+          href: cloud-adoption/migrate/theory/optimize/ready.md
+        - name: xx-Decomission retired assets
+          href: cloud-adoption/migrate/theory/optimize/decomission.md
+        - name: Retrospective
+          href: cloud-adoption/migrate/theory/optimize/ready.md
+      - name: Secure and Manage
+        items:
+        - name: Overview
+          href: cloud-adoption/migrate/theory/secure-and-manage/overview.md
   - name: Govern
     items:
     - name: Overview
