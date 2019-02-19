@@ -172,83 +172,67 @@ If you have an existing on-premise HPC system that you'd like to connect to Azur
 
 First, review the [Options for connecting an on-premises network to Azure](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking?toc=/azure/architecture/topics/high-performance-computing/toc.json) article in the documentation.  From there, you may want information on these connectivity options:
 
-<ul class="panelContent cardsC">
-<li style="display: flex; flex-direction: column;">
-    <a href="/azure/architecture/reference-architectures/hybrid-networking/vpn?toc=/azure/architecture/topics/high-performance-computing/toc.json" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="/azure/architecture/reference-architectures/hybrid-networking/images/vpn.png" height="140px" />
-                        </div>
+<ul class="columns is-multiline has-margin-left-none has-margin-bottom-none has-padding-top-medium">
+    <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
+        <a class="is-undecorated is-full-height is-block"
+            href="/azure/architecture/reference-architectures/hybrid-networking/vpn?toc=/azure/architecture/topics/high-performance-computing/toc.json">
+            <article class="card has-outline-hover is-relative is-fullheight">
+                    <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
+                        <img role="presentation" alt="" src="/azure/architecture/reference-architectures/hybrid-networking/images/vpn.png">
+                    </figure>
+                <div class="card-content has-text-overflow-ellipsis">
+                    <div class="has-padding-bottom-none">
+                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">
+                            Connect an on-premises network to Azure using a VPN gateway
+                        </h3>
                     </div>
-                    <div class="cardText">
-                        <h3>Connect an on-premises network to Azure using a VPN gateway</h3>
+                    <div class="is-size-7 has-margin-top-small has-line-height-reset">
                         <p>This reference architecture shows how to extend an on-premises network to Azure, using a site-to-site virtual private network (VPN).</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </a>
-</li>
-<li style="display: flex; flex-direction: column;">
-    <a href="/azure/architecture/reference-architectures/hybrid-networking/vpn?toc=/azure/architecture/topics/high-performance-computing/toc.json" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="/azure/architecture/reference-architectures/hybrid-networking/images/vpn.png" height="140px" />
-                        </div>
+            </article>
+        </a>
+    </li>
+    <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
+        <a class="is-undecorated is-full-height is-block"
+            href="/azure/architecture/reference-architectures/hybrid-networking/expressroute?toc=/azure/architecture/topics/high-performance-computing/toc.json">
+            <article class="card has-outline-hover is-relative is-fullheight">
+                    <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
+                        <img role="presentation" alt="" src="/azure/architecture/reference-architectures/hybrid-networking/images/expressroute.png">
+                    </figure>
+                <div class="card-content has-text-overflow-ellipsis">
+                    <div class="has-padding-bottom-none">
+                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">
+                            Connect an on-premises network to Azure using ExpressRoute
+                        </h3>
                     </div>
-                    <div class="cardText">
-                        <h3>Connect an on-premises network to Azure using a VPN gateway</h3>
-                        <p>This reference architecture shows how to extend an on-premises network to Azure, using a site-to-site virtual private network (VPN).</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-<li style="display: flex; flex-direction: column;">
-    <a href="/azure/architecture/reference-architectures/hybrid-networking/expressroute?toc=/azure/architecture/topics/high-performance-computing/toc.json" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="/azure/architecture/reference-architectures/hybrid-networking/images/expressroute.png" height="140px" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Connect an on-premises network to Azure using ExpressRoute</h3>
+                    <div class="is-size-7 has-margin-top-small has-line-height-reset">
                         <p>ExpressRoute connections use a private, dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure.</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </a>
-</li>
-<li style="display: flex; flex-direction: column;">
-    <a href="/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover?toc=/azure/architecture/topics/high-performance-computing/toc.json" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="/azure/architecture/reference-architectures/hybrid-networking/images/expressroute-vpn-failover.png" height="140px" />
-                        </div>
+            </article>
+        </a>
+    </li>
+    <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
+        <a class="is-undecorated is-full-height is-block"
+            href="/azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover?toc=/azure/architecture/topics/high-performance-computing/toc.json">
+            <article class="card has-outline-hover is-relative is-fullheight">
+                    <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
+                        <img role="presentation" alt="" src="/azure/architecture/reference-architectures/hybrid-networking/images/expressroute-vpn-failover.png">
+                    </figure>
+                <div class="card-content has-text-overflow-ellipsis">
+                    <div class="has-padding-bottom-none">
+                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">
+                            Connect an on-premises network to Azure using ExpressRoute with VPN failover
+                        </h3>
                     </div>
-                    <div class="cardText">
-                        <h3>Connect an on-premises network to Azure using ExpressRoute with VPN failover</h3>
+                    <div class="is-size-7 has-margin-top-small has-line-height-reset">
                         <p>Implement a highly available and secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using ExpressRoute with VPN gateway failover.</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </a>
-</li>
+            </article>
+        </a>
+    </li>
 </ul>
 
 Once network connectivity is securely established, you can start using cloud compute resources on-demand with the bursting capabilities of your existing [workload manager](#workload-manager).
@@ -317,45 +301,47 @@ For an overview of security best practices on Azure, review the [Azure Security 
 
 In addition to the network configurations available in the [Cloud Bursting](#) section, you may want to implement a hub/spoke configuration to isolate your compute resources:
 
-<ul class="panelContent cardsC">
-<li style="display: flex; flex-direction: column;">
-    <a href="/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=/azure/architecture/topics/high-performance-computing/toc.json" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="/azure/architecture/reference-architectures/hybrid-networking/images/hub-spoke.png" height="140px" />
-                        </div>
+<ul class="columns is-multiline has-margin-left-none has-margin-bottom-none has-padding-top-medium">
+    <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
+        <a class="is-undecorated is-full-height is-block"
+            href="/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=/azure/architecture/topics/high-performance-computing/toc.jso">
+            <article class="card has-outline-hover is-relative is-fullheight">
+                    <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
+                        <img role="presentation" alt="" src="/azure/architecture/reference-architectures/hybrid-networking/images/hub-spoke.png">
+                    </figure>
+                <div class="card-content has-text-overflow-ellipsis">
+                    <div class="has-padding-bottom-none">
+                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">
+                            Implement a hub-spoke network topology in Azure
+                        </h3>
                     </div>
-                    <div class="cardText">
-                        <h3>Implement a hub-spoke network topology in Azure</h3>
+                    <div class="is-size-7 has-margin-top-small has-line-height-reset">
                         <p>The hub is a virtual network (VNet) in Azure that acts as a central point of connectivity to your on-premises network. The spokes are VNets that peer with the hub, and can be used to isolate workloads.</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </a>
-</li>
-<li style="display: flex; flex-direction: column;">
-    <a href="/azure/architecture/reference-architectures/hybrid-networking/shared-services?toc=/azure/architecture/topics/high-performance-computing/toc.json" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="/azure/architecture/reference-architectures/hybrid-networking/images/shared-services.png" height="140px" />
-                        </div>
+            </article>
+        </a>
+    </li>
+    <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
+        <a class="is-undecorated is-full-height is-block"
+            href="/azure/architecture/reference-architectures/hybrid-networking/shared-services?toc=/azure/architecture/topics/high-performance-computing/toc.json">
+            <article class="card has-outline-hover is-relative is-fullheight">
+                    <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
+                        <img role="presentation" alt="" src="/azure/architecture/reference-architectures/hybrid-networking/images/shared-services.png">
+                    </figure>
+                <div class="card-content has-text-overflow-ellipsis">
+                    <div class="has-padding-bottom-none">
+                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">
+                            Implement a hub-spoke network topology with shared services in Azure
+                        </h3>
                     </div>
-                    <div class="cardText">
-                        <h3>Implement a hub-spoke network topology with shared services in Azure</h3>
+                    <div class="is-size-7 has-margin-top-small has-line-height-reset">
                         <p>This reference architecture builds on the hub-spoke reference architecture to include shared services in the hub that can be consumed by all spokes.</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </a>
-</li>
+            </article>
+        </a>
+    </li>
 </ul>
 
 ## HPC applications
@@ -389,26 +375,27 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
 
 ## Remote Visualization
 
-<ul class="panelContent cardsC">
-<li style="display: flex; flex-direction: column;">
-    <a href="/azure/architecture/example-scenario/infrastructure/linux-vdi-citrix?toc=/azure/architecture/topics/high-performance-computing/toc.json" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="../../example-scenario/infrastructure/media/azure-citrix-sample-diagram.png" height="140px" />
-                        </div>
+<ul class="columns is-multiline has-margin-left-none has-margin-bottom-none has-padding-top-medium">
+    <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
+        <a class="is-undecorated is-full-height is-block"
+            href="/azure/architecture/example-scenario/infrastructure/linux-vdi-citrix?toc=/azure/architecture/topics/high-performance-computing/toc.json">
+            <article class="card has-outline-hover is-relative is-fullheight">
+                    <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
+                        <img role="presentation" alt="" src="../../example-scenario/infrastructure/media/azure-citrix-sample-diagram.png">
+                    </figure>
+                <div class="card-content has-text-overflow-ellipsis">
+                    <div class="has-padding-bottom-none">
+                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">
+                            Linux virtual desktops with Citrix
+                        </h3>
                     </div>
-                    <div class="cardText">
-                        <h3>Linux virtual desktops with Citrix</h3>
+                    <div class="is-size-7 has-margin-top-small has-line-height-reset">
                         <p>Build a VDI environment for Linux Desktops using Citrix on Azure.</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </a>
-</li>
+            </article>
+        </a>
+    </li>
 </ul>
 
 ## Performance Benchmarks
