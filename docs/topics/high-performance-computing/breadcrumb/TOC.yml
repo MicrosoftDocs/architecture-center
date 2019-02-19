@@ -1,7 +1,12 @@
-- name: HPC on Azure
-  tocHref: /hpc/
-  topicHref: /azure/architecture/topics/high-performance-computing/index
-  items:
-  - name: Introduction to HPC
-    tocHref: /azure/architecture/guide/architecture-styles/big-compute
-    topicHref: /azure/architecture/topics/high-performance-computing/index
+### Testing from the contributor guide instructions. 
+- name: Azure
+  tocHref: /sccm/
+  topicHref: /azure/index
+  items: 
+  - name: Key Vault
+    tocHref: /sccm/apps/
+    topicHref: /azure/key-vault/index
+    items: 
+    - name: Run SCCM scripts
+      tocHref: /sccm/apps/deploy-use/
+      topicHref: /azure/key-vault/index
