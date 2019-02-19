@@ -88,14 +88,14 @@ Manage the Azure Databricks costs by retraining less frequently and turning off 
 
 ## Deploy the solution
 
-To deploy this architecture, first create an Azure Databricks environment to prepare data and train a recommender model:
+To deploy this architecture, follow the instructions in first create an Azure Databricks environment to prepare data and train a recommender model:
 
 1. Create an [Azure Databricks workspace][workspace].
 
 2. Create a new cluster in Azure Databricks. The following configuration is required:
 
     - Cluster mode: Standard
-    - Databricks Runtime Version: 4.1 (includes Apache Spark 2.3.0, Scala 2.11)
+    - Databricks Runtime Version: 4.3 (includes Apache Spark 2.3.1, Scala 2.11)
     - Python Version: 3
     - Driver Type: Standard\_DS3\_v2
     - Worker Type: Standard\_DS3\_v2 (min and max as required)
@@ -166,7 +166,7 @@ We have also built a reference architecture that uses Spark and Azure Databricks
 [resiliency]: /azure/architecture/resiliency/
 [ru]: /azure/cosmos-db/request-units
 [sec-docs]: /azure/security/
-[setup]: https://github.com/Microsoft/Recommenders/blob/master/SETUP.md%60
+[setup]: https://github.com/Microsoft/Recommenders/blob/master/SETUP.md
 [scale]: /azure/aks/tutorial-kubernetes-scale
 [sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/
 [vm-size]: /azure/virtual-machines/virtual-machines-linux-change-vm-size
