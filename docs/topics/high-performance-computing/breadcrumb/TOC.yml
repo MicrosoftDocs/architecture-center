@@ -1,0 +1,7 @@
+- name: HPC on Azure
+  tocHref: /hpc/
+  topicHref: /azure/architecture/topics/high-performance-computing/index
+  items:
+  - name: Introduction to HPC
+    tocHref: /azure/architecture/guide/architecture-styles/big-compute
+    topicHref: /azure/architecture/topics/high-performance-computing/index

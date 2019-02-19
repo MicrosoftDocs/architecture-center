@@ -10,14 +10,6 @@
       href: /azure/architecture/best-practices/auto-scaling?toc=/azure/architecture/topics/high-performance-computing/toc.json
 - name: Infrastructure
   items:
-  - name: Example HPC Architectures
-    items:
-    - name: Computer-aided engineering services on Azure
-      href: /azure/architecture/example-scenario/apps/hpc-saas?toc=/azure/architecture/topics/high-performance-computing/toc.json
-    - name: Computational fluid dynamics (CFD) simulations on Azure
-      href: /azure/architecture/example-scenario/infrastructure/hpc-cfd?toc=/azure/architecture/topics/high-performance-computing/toc.json
-    - name: 3D video rendering on Azure
-      href: /azure/architecture/example-scenario/infrastructure/video-rendering?toc=/azure/architecture/topics/high-performance-computing/toc.json
   - name: Compute
     items:
     - name: CPU-based virtual machines
@@ -58,14 +50,6 @@
     items:
     - name: Options for connecting an on-premises network to Azure
       href: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking?toc=/azure/architecture/topics/high-performance-computing/toc.json
-    - name: Connect an on-premises network to Azure using a VPN gateway
-      href: /azure/architecture/reference-architectures/hybrid-networking/vpn?toc=/azure/architecture/topics/high-performance-computing/toc.json
-    - name: Connect an on-premises network to Azure using a VPN gateway
-      href: /azure/architecture/reference-architectures/hybrid-networking/vpn?toc=/azure/architecture/topics/high-performance-computing/toc.json
-    - name: Connect an on-premises network to Azure using ExpressRoute
-      href: /azure/architecture/reference-architectures/hybrid-networking/expressroute?toc=/azure/architecture/topics/high-performance-computing/toc.json
-    - name: Connect an on-premises network to Azure using ExpressRoute with VPN failover
-      href: /azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover?toc=/azure/architecture/topics/high-performance-computing/toc.json
   - name: Marketplace solutions
     items:
     - name: Azure Data Science VM for Windows and Linux
@@ -74,10 +58,6 @@
     items:
     - name: Azure Batch
       href: https://docs.microsoft.com/azure/batch/batch-technical-overview?toc=/azure/architecture/topics/high-performance-computing/toc.json) is a platform service for running large-scale parallel and high-performance computing (HPC
-  - name: Azure CycleCloud
-    items:
-    - name: Azure CycleCloud
-      href: https://docs.microsoft.com/azure/cyclecloud?toc=/azure/architecture/topics/high-performance-computing/toc.json) Provides the simplest way to manage HPC workloads using any scheduler (like Slurm, Grid Engine, HPC Pack, HTCondor, LSF, PBS Pro, or Symphony
   - name: Workload managers
     items:
     - name: HPC Pack for Windows
@@ -98,10 +78,6 @@
   items:
   - name: Azure Security Documentation
     href: https://docs.microsoft.com/azure/security/azure-security?toc=/azure/architecture/topics/high-performance-computing/toc.json
-  - name: Implement a hub-spoke network topology in Azure
-    href: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=/azure/architecture/topics/high-performance-computing/toc.json
-  - name: Implement a hub-spoke network topology with shared services in Azure
-    href: /azure/architecture/reference-architectures/hybrid-networking/shared-services?toc=/azure/architecture/topics/high-performance-computing/toc.json
 - name: HPC applications
   items:
   - name: Engineering applications
@@ -120,10 +96,6 @@
     items:
     - name: Microsoft MPI
       href: https://docs.microsoft.com/message-passing-interface/microsoft-mpi
-- name: Remote Visualization
-  items:
-  - name: Linux virtual desktops with Citrix
-    href: /azure/architecture/example-scenario/infrastructure/linux-vdi-citrix?toc=/azure/architecture/topics/high-performance-computing/toc.json
 - name: Performance Benchmarks
   items:
   - name: Compute Benchmarks

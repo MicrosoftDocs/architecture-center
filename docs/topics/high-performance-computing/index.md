@@ -29,8 +29,8 @@ One of the primary differences between an on-premise HPC system and one in the c
 
 The following articles provide more detail about this dynamic scaling capability.
 
-- [Big Compute Architecture Style](/azure/architecture/guide/architecture-styles/big-compute?toc=/azure/architecture/topics/high-performance-computing/toc.json)
-- [Autoscaling best practices](/azure/architecture/best-practices/auto-scaling?toc=/azure/architecture/topics/high-performance-computing/toc.json)
+- [Big Compute Architecture Style](/azure/architecture/guide/architecture-styles/big-compute?context=/azure/architecture/topics/high-performance-computing/context/context)
+- [Autoscaling best practices](/azure/architecture/best-practices/auto-scaling?context=)
 
 ## Implementation Checklist
 
