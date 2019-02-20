@@ -606,11 +606,11 @@
   - name: Migrate
     items:
     - name: Overview
-      href: cloud-adoption/migrate/overview.md
+      href: cloud-adoption/migrate/index.md
     - name: Actionable Migration Journeys
       items:
       - name: Overview of the journeys
-        href: cloud-adoption/migrate/journeys/overview.md
+        href: cloud-adoption/migrate/journeys/index.md
       - name: Azure Migration Playbook - Option 1
         items:
         - name: Getting started
