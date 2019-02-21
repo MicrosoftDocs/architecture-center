@@ -790,11 +790,11 @@
       - name: Migrate
         items:
         - name: Set up networking for migrated workloads
-          href: /azure/migrate/migrate-best-practices-networking?toc=/azure/architecture/toc.json&bc=/azure/architecture/-bread/toc.json
+          href: https://docs.microsoft.com/azure/migrate/migrate-best-practices-networking?toc=/azure/architecture/toc.json&bc=/azure/architecture/-bread/toc.json
       - name: Secure and Manage
         items:
         - name: Securing and managing workloads post migration
-          href: /azure/migrate/migrate-best-practices-security-management?toc=/azure/architecture/toc.json&bc=/azure/architecture/-bread/toc.json
+          href: https://docs.microsoft.com/azure/migrate/migrate-best-practices-security-management?toc=/azure/architecture/toc.json&bc=/azure/architecture/-bread/toc.json
     - name: Migration Theory
       items:
       - name: Overview
