@@ -5,59 +5,71 @@
   - name: How is HPC different on the cloud
     items:
     - name: Big Compute Architecture Style
-      href: /azure/architecture/guide/architecture-styles/big-compute?toc=/azure/architecture/topics/high-performance-computing/toc.json
+      href: /azure/architecture/guide/architecture-styles/big-compute?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
     - name: Autoscaling best practices
-      href: /azure/architecture/best-practices/auto-scaling?toc=/azure/architecture/topics/high-performance-computing/toc.json
+      href: /azure/architecture/best-practices/auto-scaling?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
 - name: Infrastructure
   items:
+  - name: Example HPC Architectures
+    items:
+    - name: Execute computational fluid dynamics (CFD) simulations on Azure.
+      href: /azure/architecture/example-scenario/infrastructure/hpc-cfd?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
+    - name: Run native HPC workloads in Azure using the Azure Batch service
+      href: /azure/architecture/example-scenario/infrastructure/video-rendering?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
   - name: Compute
     items:
     - name: CPU-based virtual machines
       items:
       - name: Linux VMs
-        href: https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc?toc=/azure/architecture/topics/high-performance-computing/toc.json
+        href: https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
       - name: Windows VM's
-        href: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc?toc=/azure/architecture/topics/high-performance-computing/toc.json
+        href: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
     - name: GPU-enabled virtual machines
       items:
       - name: Linux VMs
-        href: https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu?toc=/azure/architecture/topics/high-performance-computing/toc.json
+        href: https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
       - name: Windows VMs
-        href: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu?toc=/azure/architecture/topics/high-performance-computing/toc.json
+        href: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-gpu?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
   - name: Storage
     items:
     - name: Storage Optimized Virtual Machines
-      href: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-storage?toc=/azure/architecture/topics/high-performance-computing/toc.json
+      href: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-storage?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
     - name: Blob, table, and queue storage
-      href: https://docs.microsoft.com/azure/storage/storage-introduction?toc=/azure/architecture/topics/high-performance-computing/toc.json
+      href: https://docs.microsoft.com/azure/storage/storage-introduction?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
     - name: Azure SMB File storage
-      href: https://docs.microsoft.com/azure/storage/storage-files-introduction?toc=/azure/architecture/topics/high-performance-computing/toc.json
+      href: https://docs.microsoft.com/azure/storage/storage-files-introduction?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
   - name: Networking
     items:
     - name: RDMA Capable Instances
-      href: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc?toc=/azure/architecture/topics/high-performance-computing/toc.json#rdma-capable-instances
+      href: https://docs.microsoft.com/azure/virtual-machines/windows/sizes-hpc?context=/azure/architecture/topics/high-performance-computing/context/hpc-context#rdma-capable-instances
     - name: Virtual Network
-      href: https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview?toc=/azure/architecture/topics/high-performance-computing/toc.json
+      href: https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
     - name: ExpressRoute
-      href: https://docs.microsoft.com/azure/expressroute/expressroute-introduction?toc=/azure/architecture/topics/high-performance-computing/toc.json
+      href: https://docs.microsoft.com/azure/expressroute/expressroute-introduction?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
 - name: Management
   items:
   - name: Do-it-yourself
     items:
     - name: virtual machine scale sets
-      href: https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview?toc=/azure/architecture/topics/high-performance-computing/toc.json
+      href: https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
   - name: Hybrid & Cloud Bursting
     items:
     - name: Options for connecting an on-premises network to Azure
-      href: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking?toc=/azure/architecture/topics/high-performance-computing/toc.json
+      href: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
+    - name: This reference architecture shows how to extend an on-premises network to Azure, using a site-to-site virtual private network (VPN).
+      href: /azure/architecture/reference-architectures/hybrid-networking/vpn?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
+    - name: ExpressRoute connections use a private, dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure.
+      href: /azure/architecture/reference-architectures/hybrid-networking/expressroute?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
+    - name: Implement a highly available and secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using ExpressRoute with VPN gateway failover.
+      href: /azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
   - name: Marketplace solutions
     items:
     - name: Azure Data Science VM for Windows and Linux
-      href: https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview?toc=/azure/architecture/topics/high-performance-computing/toc.json
+      href: https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
   - name: Azure Batch
     items:
     - name: Azure Batch
-      href: https://docs.microsoft.com/azure/batch/batch-technical-overview?toc=/azure/architecture/topics/high-performance-computing/toc.json) is a platform service for running large-scale parallel and high-performance computing (HPC
+      href: https://docs.microsoft.com/azure/batch/batch-technical-overview?context=/azure/architecture/topics/high-performance-computing/context/hpc-context) is a platform service for running large-scale parallel and high-performance computing (HPC
   - name: Workload managers
     items:
     - name: HPC Pack for Windows
@@ -67,27 +79,31 @@
     - name: Containers
       items:
       - name: Azure Kubernetes Service (AKS)
-        href: https://docs.microsoft.com/azure/aks/intro-kubernetes?toc=/azure/architecture/topics/high-performance-computing/toc.json
+        href: https://docs.microsoft.com/azure/aks/intro-kubernetes?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
       - name: Container Registry
-        href: https://docs.microsoft.com/azure/container-registry/container-registry-intro?toc=/azure/architecture/topics/high-performance-computing/toc.json
+        href: https://docs.microsoft.com/azure/container-registry/container-registry-intro?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
 - name: Cost Management
   items:
   - name: Low priority VMs
-    href: https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority?toc=/azure/architecture/topics/high-performance-computing/toc.json
+    href: https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
 - name: Security
   items:
   - name: Azure Security Documentation
-    href: https://docs.microsoft.com/azure/security/azure-security?toc=/azure/architecture/topics/high-performance-computing/toc.json
+    href: https://docs.microsoft.com/azure/security/azure-security?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
+  - name: The hub is a virtual network (VNet) in Azure that acts as a central point of connectivity to your on-premises network. The spokes are VNets that peer with the hub, and can be used to isolate workloads.
+    href: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=/azure/architecture/topics/high-performance-computing/toc.jso
+  - name: This reference architecture builds on the hub-spoke reference architecture to include shared services in the hub that can be consumed by all spokes.
+    href: /azure/architecture/reference-architectures/hybrid-networking/shared-services?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
 - name: HPC applications
   items:
   - name: Engineering applications
     items:
     - name: MATLAB Distributed Computing Server
-      href: https://docs.microsoft.com/azure/virtual-machines/windows/matlab-mdcs-cluster?toc=/azure/architecture/topics/high-performance-computing/toc.json
+      href: https://docs.microsoft.com/azure/virtual-machines/windows/matlab-mdcs-cluster?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
   - name: Graphics and rendering
     items:
     - name: Autodesk Maya, 3ds Max, and Arnold
-      href: https://docs.microsoft.com/azure/batch/batch-rendering-service?toc=/azure/architecture/topics/high-performance-computing/toc.json
+      href: https://docs.microsoft.com/azure/batch/batch-rendering-service?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
   - name: AI and deep learning
     items:
     - name: Microsoft Cognitive Toolkit
@@ -96,19 +112,23 @@
     items:
     - name: Microsoft MPI
       href: https://docs.microsoft.com/message-passing-interface/microsoft-mpi
+- name: Remote Visualization
+  items:
+  - name: Build a VDI environment for Linux Desktops using Citrix on Azure.
+    href: /azure/architecture/example-scenario/infrastructure/linux-vdi-citrix?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
 - name: Performance Benchmarks
   items:
   - name: Compute Benchmarks
-    href: https://docs.microsoft.com/azure/virtual-machines/windows/compute-benchmark-scores?toc=/azure/architecture/topics/high-performance-computing/toc.json
+    href: https://docs.microsoft.com/azure/virtual-machines/windows/compute-benchmark-scores?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
 - name: Other Important Information
   items:
   - name: vCPU quota
-    href: https://docs.microsoft.com/azure/virtual-machines/linux/quotas?toc=/azure/architecture/topics/high-performance-computing/toc.json
+    href: https://docs.microsoft.com/azure/virtual-machines/linux/quotas?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
 - name: Next steps
   items:
   - name: Microsoft Batch Examples
     items:
     - name: Get started developing with Batch
-      href: https://docs.microsoft.com/azure/batch/quick-run-dotnet?toc=/azure/architecture/topics/high-performance-computing/toc.json
+      href: https://docs.microsoft.com/azure/batch/quick-run-dotnet?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
     - name: Use low-priority VMs with Batch
-      href: https://docs.microsoft.com/azure/batch/batch-low-pri-vms?toc=/azure/architecture/topics/high-performance-computing/toc.json
+      href: https://docs.microsoft.com/azure/batch/batch-low-pri-vms?context=/azure/architecture/topics/high-performance-computing/context/hpc-context

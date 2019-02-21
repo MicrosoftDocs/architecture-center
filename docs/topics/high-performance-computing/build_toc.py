@@ -30,11 +30,11 @@ for line in input_file:
     inline_link = inline_match.match(line)
 
     # Look for an html link
-    href_match = re.compile('.*href=\"(.*)\" .*')
+    href_match = re.compile('.*href=\"(.*)\".*')
     href_link = href_match.match(line)
 
     # Look for an h3 title
-    h3_match = re.compile('.*<h3>(.*)</h3>.*')
+    h3_match = re.compile('.*<p>(.*)</p>.*')
     h3_title = h3_match.match(line)
 
     # Find all the sections
@@ -54,7 +54,7 @@ for line in input_file:
 
         toc_list.append({'level': level + 1, 'name': inline_link.group(1), 'href': inline_link.group(2)})
         
-    # Find links with <a href.., but the link title is probably in an h3, see below
+    # Find links with <a href.., but the link title is probably in an <p>, see below
     elif href_link:
         url = href_link.group(1)
         continue
