@@ -1,12 +1,114 @@
-### Testing from the contributor guide instructions. 
-- name: Azure
-  tocHref: /sccm/
-  topicHref: /azure/index
-  items: 
-  - name: Key Vault
-    tocHref: /sccm/apps/
-    topicHref: /azure/key-vault/index
-    items: 
-    - name: Run SCCM scripts
-      tocHref: /sccm/apps/deploy-use/
-      topicHref: /azure/key-vault/index
+- name: High Performance Computing (HPC) on Azure
+  topichref: index.md
+- name: Introduction to HPC
+  items:
+  - name: How is HPC different on the cloud
+    items:
+    - name: Big Compute Architecture Style
+      topichref: /azure/architecture/guide/architecture-styles/big-compute
+    - name: Autoscaling best practices
+      topichref: /azure/architecture/best-practices/auto-scaling
+- name: Infrastructure
+  items:
+  - name: Compute
+    items:
+    - name: CPU-based virtual machines
+      items:
+      - name: Linux VMs
+        topichref: /azure/virtual-machines/linux/sizes-hpc
+      - name: Windows VM's
+        topichref: /azure/virtual-machines/windows/sizes-hpc
+    - name: GPU-enabled virtual machines
+      items:
+      - name: Linux VMs
+        topichref: /azure/virtual-machines/linux/sizes-gpu
+      - name: Windows VMs
+        topichref: /azure/virtual-machines/windows/sizes-gpu
+  - name: Storage
+    items:
+    - name: Storage Optimized Virtual Machines
+      topichref: /azure/virtual-machines/windows/sizes-storage
+    - name: Blob, table, and queue storage
+      topichref: /azure/storage/storage-introduction
+    - name: Azure SMB File storage
+      topichref: /azure/storage/storage-files-introduction
+  - name: Networking
+    items:
+    - name: RDMA Capable Instances
+      topichref: /azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances
+    - name: Virtual Network
+      topichref: /azure/virtual-network/virtual-networks-overview
+    - name: ExpressRoute
+      topichref: /azure/expressroute/expressroute-introduction
+- name: Management
+  items:
+  - name: Do-it-yourself
+    items:
+    - name: virtual machine scale sets
+      topichref: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
+  - name: Hybrid & Cloud Bursting
+    items:
+    - name: Options for connecting an on-premises network to Azure
+      topichref: /en-us/azure/architecture/reference-architectures/hybrid-networking
+  - name: Marketplace solutions
+    items:
+    - name: Azure Data Science VM for Windows and Linux
+      topichref: /azure/machine-learning/machine-learning-data-science-virtual-machine-overview
+  - name: Azure Batch
+    items:
+    - name: Azure Batch
+      topichref: /azure/batch/batch-technical-overview) is a platform service for running large-scale parallel and high-performance computing (HPC
+  - name: Workload managers
+    items:
+    - name: HPC Pack for Windows
+      topichref: /azure/virtual-machines/windows/hpcpack-cluster-options
+    - name: HPC Pack for Linux
+      topichref: /azure/virtual-machines/linux/hpcpack-cluster-options
+    - name: Containers
+      items:
+      - name: Azure Kubernetes Service (AKS)
+        topichref: /azure/aks/intro-kubernetes
+      - name: Container Registry
+        topichref: /azure/container-registry/container-registry-intro
+- name: Cost Management
+  items:
+  - name: Low priority VMs
+    topichref: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority
+- name: Security
+  items:
+  - name: Azure Security Documentation
+    topichref: /azure/security/azure-security
+- name: HPC applications
+  items:
+  - name: Engineering applications
+    items:
+    - name: MATLAB Distributed Computing Server
+      topichref: /azure/virtual-machines/windows/matlab-mdcs-cluster
+  - name: Graphics and rendering
+    items:
+    - name: Autodesk Maya, 3ds Max, and Arnold
+      topichref: /azure/batch/batch-rendering-service
+  - name: AI and deep learning
+    items:
+    - name: Microsoft Cognitive Toolkit
+      topichref: /cognitive-toolkit/cntk-on-azure
+  - name: MPI Providers
+    items:
+    - name: Microsoft MPI
+      topichref: /message-passing-interface/microsoft-mpi
+- name: Performance Benchmarks
+  items:
+  - name: Compute Benchmarks
+    topichref: /azure/virtual-machines/windows/compute-benchmark-scores
+- name: Other Important Information
+  items:
+  - name: vCPU quota
+    topichref: /azure/virtual-machines/linux/quotas
+- name: Next steps
+  items:
+  - name: Microsoft Batch Examples
+    items:
+    - name: Get started developing with Batch
+      topichref: /azure/batch/quick-run-dotnet
+    - name: Use low-priority VMs with Batch
+      topichref: /azure/batch/batch-low-pri-vms
