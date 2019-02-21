@@ -54,11 +54,13 @@ To start down an adoption path, choose one of the following journeys. Each journ
 
 A journey without a target destination is just wandering. It’s important to establish a rough vision of the end state before taking the first step. The infographic below outlines a starting point consisting of existing applications, data, and infrastructure, which defines the Digital Estate. During the migration process, those assets are transitioned into one of the options on the right.
 
-![Infographic of the migration options](../../_images/migration/migrate-options.png)
+![Infographic of the migration options](../../_images/migration/migration-options.png)
 
 ## Incremental Migration Model
 
 This series of articles will outline two journeys, each with a similar end state: Migrate a large percentage of existing assets to Azure. However, the business outcomes and current state will heavily influence the processes required to get there. Those subtle deviations will result in two radically different approaches to reaching the a similar end state.
+
+![CAF Migration Model](../../_images/operational-transformation-migrate.png)
 
 To guide incremental execution during the transition to the end state, this model breaks migration into two areas of focus.
 
@@ -95,9 +97,19 @@ CAF's **incremental migration** approach empowers builds an incremental plan tha
      -->
 
 <!-- TODO: 
-**Simple Migration**: TODO:
+## Choosing the right journey
 
-This approach consists of fewer than 1,000 VMs. Less than 10 of the applications supported are owned by an application owner who is not a part of IT. The remainder of the applications, VMs, and associated data are owned and supported by members of the Cloud Adoption Team. Members of the cloud adoption team have administrative access to the production environments in the existing data center.
+The following two journeys outline migration experiences aligned to the narrative of two fictional customers. Choose the journey that best aligns to your current objectives and constraints to establish a baseline for your own migration plan.
+
+**Simple Migration**: Rapid migration approach with little overhead.
+
+Narrative Summary: This approach consists of fewer than 1,000 VMs. Less than 10 of the applications supported are owned by an application owner who is not a part of IT. The remainder of the applications, VMs, and associated data are owned and supported by members of the Cloud Adoption Team. Members of the cloud adoption team have administrative access to the production environments in the existing data center.
+
+![Example of Incremental migration evolutions](../../_images/migration/incremental-migration-example.png)
+
+**Complex Migration**: Longer term migration with greater rigor in areas of change management, and deeper process controls
+
+Narrative Summary: This approach consists of fewer than 10,000 VMs. Applications are supported by a number of business and IT Application Owners. Central IT has established governance best practices, but prioritizes innovation over control. Administrative access to production environments is dispersed across business units to create separation of responsibility. 
 
 ![Example of Incremental migration evolutions](../../_images/migration/incremental-migration-example.png)
 
@@ -113,7 +125,7 @@ This approach consists of fewer than 1,000 VMs. Less than 10 of the applications
                 <div class="card">
                     <div class="cardText">
                         <h3>Simple Migration</h3>
-                        <p>A migration journey involving fewer than 1,000 virtual machines and single cloud adoption team.</p>
+                        <p>Narrative Summary: This customer's migration consists of fewer than 1,000 VMs. Less than 10 of the applications supported are owned by an application owner who is not a part of IT. The remainder of the applications, VMs, and associated data are owned and supported by members of the Cloud Adoption Team. Members of the cloud adoption team have administrative access to the production environments in the existing data center.</p>
                     </div>
                 </div>
             </div>
@@ -127,7 +139,7 @@ This approach consists of fewer than 1,000 VMs. Less than 10 of the applications
                 <div class="card">
                     <div class="cardText">
                         <h3>Complex Migration</h3>
-                        <p>A migration journey for enterprises which exceed 1,000 virtual machines, have multiple adoption teams, and/or clear separation of duties.</p>
+                        <p>Narrative Summary: This customer's migration consists of fewer than 10,000 VMs. Applications are supported by a number of business and IT Application Owners. Central IT has established governance best practices, but prioritizes innovation over control. Administrative access to production environments is dispersed across business units to create separation of responsibility.</p>
                     </div>
                 </div>
             </div>
