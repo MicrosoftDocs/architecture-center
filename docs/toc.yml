@@ -695,6 +695,18 @@
             href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
           - name: Azure Backup
             href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+      - name: Azure Migration Playbook - Option 3
+        items:
+        - name: Pre-requisite
+          href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+        - name: Assess
+          href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+        - name: Migrate
+          href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+        - name: Optimize and Transform
+          href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
+        - name: Secure and Manage
+          href: cloud-adoption/migrate/journeys/azure-migration-playbook/narrative.md
       - name: Parallel More Complex Journey
         items:
         - name: Getting started
