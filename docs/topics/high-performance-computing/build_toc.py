@@ -21,6 +21,7 @@ def overviewlink(name):
     return str(shortname).replace(" ", "-").replace("&", "")
 
 toc = ""
+breadcrumb_toc = ""
 toc_list = []
 url = ""
 
@@ -98,31 +99,30 @@ for i in range(0,len(toc_list)):
     if i+1 != len(toc_list):
         if toc_list[i+1].get('level') > item_level:
             toc += indent + "- name: " + item_name + '\n'
+            breadcrumb_toc += indent + "- name: " + item_name + '\n'
             # Don't create an overview link for the top level item
             if item_level == 1:
                 toc += indent + "  href: index.md\n"
             else:
+                breadcrumb_toc += indent + "  topicHref: /azure/architecture/topics/high-performance-computing#" + overviewlink(item_name) + "\n"
+                breadcrumb_toc += indent + "  items:" + "\n"
                 toc += indent + "  items:" + "\n"
-        #        toc += indent + "  - name: Overview\n"
-        #        toc += indent + "    href: index.md#" + overviewlink(item_name) + "\n"
         # Add an arror indicating external links
         elif toc_list[i].get('href'):
-            #continue
-            # TODO: Also add marker to links with domains ending in other than .com
-            #if ".com" in toc_list[i].get('href'):
-                # Only show docs links
-                #if re.match('^(.(?<!docs.microsoft.com))*?$', toc_list[i].get('href')):
-                #    continue
-                    #item_name = item_name + u" ↗"
             toc += indent + "- name: " + item_name.strip() + '\n'
             toc += indent + "  href: " + toc_list[i].get('href') + "\n"
+            breadcrumb_toc += indent + "- name: " + item_name.strip() + '\n'
+            breadcrumb_toc += indent + "  topicHref: /azure/architecture/topics/high-performance-computing/\n"
+            breadcrumb_toc += indent + "  tocHref: " + re.match('^([\/\w\-]*)\?*',toc_list[i].get('href')).group(1) + "\n"
         # Set anchors for sections within the article
         #else:
-        #    toc += indent + "- name: " + item_name + '\n'
-        #    toc += indent + "  href: index.md#" + overviewlink(item_name) + "\n"
+        #    breadcrumb_toc += indent + "- name: " + item_name + '\n'
+        #    breadcrumb_toc += indent + "  href: index.md#" + overviewlink(item_name) + "\n"
 
 # Write the TOC file
 output_file_path = join(current_dir, 'TOC.yml')
 output_file = codecs.open(output_file_path, 'w', "utf-8")
 output_file.write(toc)
 output_file.close()
+
+print(breadcrumb_toc)
