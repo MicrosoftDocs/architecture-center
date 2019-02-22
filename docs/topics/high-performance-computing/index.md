@@ -38,7 +38,7 @@ As you're looking to implement your own HPC solution on Azure, ensure you're rev
 
 > [!div class="checklist"]
 > - Choose the appropriate [architecture](#infrastructure) based on your requirements
-> - Know which [Compute](#compute) options is right for your workload
+> - Know which [compute](#compute) options is right for your workload
 > - Identify the right [storage](#storage) solution that meets your needs
 > - Decide how you're going to [manage](#management) all your resources
 > - Optimize your [application](#hpc-applications) for the cloud
@@ -281,7 +281,7 @@ Containers can also be used to manage some HPC workloads.  Services like the Azu
 
 Managing your HPC cost on Azure can be done through a few different ways.  Ensure you've reviewed the [Azure purchasing options](https://azure.microsoft.com/en-us/pricing/purchase-options/) to find the method that works best for your organization.
 
-[Low priority VMs](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority?context=/azure/architecture/topics/high-performance-computing/context/hpc-context) allow you to take advantage of our unutilized capacity at a significant cost savings.
+[Low priority VMs](/azure/batch/batch-low-pri-vms?context=/azure/architecture/topics/high-performance-computing/context/hpc-context) allow you to take advantage of our unutilized capacity at a significant cost savings.
 
 ## Security
 
