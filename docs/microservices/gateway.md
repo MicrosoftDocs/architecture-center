@@ -9,7 +9,7 @@ ms.subservice: reference-architecture
 ms.custom: microservices
 ---
 
-# Designing microservices: API gateways
+# Using API gateways in microservices
 
 In a microservices architecture, a client might interact with more than one front-end service. Given this fact, how does a client know what endpoints to call? What happens when new services are introduced, or existing services are refactored? How do services handle SSL termination, authentication, and other concerns? An *API gateway* can help to address these challenges.
 

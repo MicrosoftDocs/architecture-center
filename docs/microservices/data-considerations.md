@@ -13,8 +13,6 @@ ms.custom: microservices
 
 This article describes considerations for managing data in a microservices architecture. Because every microservice manages its own data, data integrity and data consistency are critical challenges.
 
-![Diagram of data considerations](./images/data-considerations.png)
-
 A basic principle of microservices is that each service manages its own data. Two services should not share a data store. Instead, each service is responsible for its own private data store, which other services cannot access directly.
 
 The reason for this rule is to avoid unintentional coupling between services, which can result if services share the same underlying data schemas. If there is a change to the data schema, the change must be coordinated across every service that relies on that database. By isolating each service's data store, we can limit the scope of change, and preserve the agility of truly independent deployments. Another reason is that each microservice may have its own data models, queries, or read/write patterns. Using a shared data store limits each team's ability to optimize data storage for their particular service.
@@ -59,6 +57,8 @@ The previous articles in this series discuss a drone delivery service as a runni
 To recap, this application defines several microservices for scheduling deliveries by drone. When a user schedules a new delivery, the client request includes information about the delivery, such as pickup and dropoff locations, and about the package, such as size and weight. This information defines a unit of work.
 
 The various backend services care about different portions of the information in the request, and also have different read and write profiles.
+
+![Diagram of data considerations](./images/data-considerations.png)
 
 ### Delivery service
 
