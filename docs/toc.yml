@@ -501,12 +501,14 @@
       href: microservices/api-design.md
     - name: Data considerations
       href: microservices/data-considerations.md
-  - name: Drone Delivery reference implementation
-    href: microservices/drone-delivery.md
-  - name: Interservice communication
-    href: microservices/interservice-communication.md
-  - name: API gateways
-    href: microservices/gateway.md
+  - name: Building microservices
+    items:
+    - name: Reference implementation
+      href: microservices/drone-delivery.md
+    - name: Interservice communication
+      href: microservices/interservice-communication.md
+    - name: API gateways
+      href: microservices/gateway.md
   - name: Logging and monitoring
     href: microservices/logging-monitoring.md
   - name: CI/CD
