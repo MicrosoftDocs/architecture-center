@@ -67,14 +67,6 @@ for line in input_file:
             if re.match('^(.(?<!docs.microsoft.com))*?$', url):
                 continue
 
-        #if re.match(".*<h3.*", line):
-        #    continue
-
-       # if h3_title:
-        #    title = h3_title.group(1)
-        #else:
-        #    title = re.match('.*', line)
-
         #print(title)
         if h3_title:
             if h3_title.group(1):
@@ -90,34 +82,34 @@ for i in range(0,len(toc_list)):
     item_name = toc_list[i]['name']
 
     # Automatically indent based on the heading level
-    if item_level <= 2:
+    if item_level <= 1:
         indent = ""
+        bc_indent = ""
     else:
         indent = "  " * (item_level - 2)
+        bc_indent = "  " * (item_level - 2) + "  "
 
     # If there are multiple items below a heading, provide an overview link
     if i+1 != len(toc_list):
         if toc_list[i+1].get('level') > item_level:
             toc += indent + "- name: " + item_name + '\n'
-            breadcrumb_toc += indent + "- name: " + item_name + '\n'
+            breadcrumb_toc += bc_indent + "- name: " + item_name + '\n'
             # Don't create an overview link for the top level item
             if item_level == 1:
                 toc += indent + "  href: index.md\n"
+                breadcrumb_toc += bc_indent + "  topicHref: /azure/architecture/topics/high-performance-computing#" + overviewlink(item_name) + "\n"
+                breadcrumb_toc += bc_indent + "  items:" + "\n"
             else:
-                breadcrumb_toc += indent + "  topicHref: /azure/architecture/topics/high-performance-computing#" + overviewlink(item_name) + "\n"
-                breadcrumb_toc += indent + "  items:" + "\n"
+                breadcrumb_toc += bc_indent + "  topicHref: /azure/architecture/topics/high-performance-computing#" + overviewlink(item_name) + "\n"
+                breadcrumb_toc += bc_indent + "  items:" + "\n"
                 toc += indent + "  items:" + "\n"
         # Add an arror indicating external links
         elif toc_list[i].get('href'):
             toc += indent + "- name: " + item_name.strip() + '\n'
             toc += indent + "  href: " + toc_list[i].get('href') + "\n"
-            breadcrumb_toc += indent + "- name: " + item_name.strip() + '\n'
-            breadcrumb_toc += indent + "  topicHref: /azure/architecture/topics/high-performance-computing/\n"
-            breadcrumb_toc += indent + "  tocHref: " + re.match('^([\/\w\-]*)\?*',toc_list[i].get('href')).group(1) + "\n"
-        # Set anchors for sections within the article
-        #else:
-        #    breadcrumb_toc += indent + "- name: " + item_name + '\n'
-        #    breadcrumb_toc += indent + "  href: index.md#" + overviewlink(item_name) + "\n"
+            breadcrumb_toc += bc_indent + "- name: " + item_name.strip() + '\n'
+            breadcrumb_toc += bc_indent + "  topicHref: /azure/architecture/topics/high-performance-computing/\n"
+            breadcrumb_toc += bc_indent + "  tocHref: " + re.match('^([\/\w\-]*)\?*',toc_list[i].get('href')).group(1) + "\n"
 
 # Write the TOC file
 output_file_path = join(current_dir, 'TOC.yml')
@@ -125,4 +117,7 @@ output_file = codecs.open(output_file_path, 'w', "utf-8")
 output_file.write(toc)
 output_file.close()
 
-print(breadcrumb_toc)
+bc_output_file_path = join(current_dir,"breadcrumb", 'TOC.yml')
+bc_output_file = codecs.open(bc_output_file_path, 'w', "utf-8")
+bc_output_file.write(breadcrumb_toc)
+bc_output_file.close()
