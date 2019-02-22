@@ -84,6 +84,11 @@
     items:
     - name: Azure Batch
       href: /azure/batch/batch-technical-overview?context=/azure/architecture/topics/high-performance-computing/context/hpc-context) is a platform service for running large-scale parallel and high-performance computing (HPC
+  - name: Azure CycleCloud
+    href: /azure/architecture/topics/high-performance-computing#azure-cyclecloud
+    items:
+    - name: Azure CycleCloud
+      href: /azure/cyclecloud/?context=/azure/architecture/topics/high-performance-computing/context/hpc-context) Provides the simplest way to manage HPC workloads using any scheduler (like Slurm, Grid Engine, HPC Pack, HTCondor, LSF, PBS Pro, or Symphony
   - name: Workload managers
     href: /azure/architecture/topics/high-performance-computing#workload-managers
     items:

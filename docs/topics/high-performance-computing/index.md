@@ -244,7 +244,7 @@ SaaS providers or developers can use the Batch SDKs and tools to integrate HPC a
 
 ### Azure CycleCloud
 
-[Azure CycleCloud](https://azure.microsoft.com/en-us/features/azure-cyclecloud/) Provides the simplest way to manage HPC workloads using any scheduler (like Slurm, Grid Engine, HPC Pack, HTCondor, LSF, PBS Pro, or Symphony), on Azure
+[Azure CycleCloud](/azure/cyclecloud/?context=/azure/architecture/topics/high-performance-computing/context/hpc-context) Provides the simplest way to manage HPC workloads using any scheduler (like Slurm, Grid Engine, HPC Pack, HTCondor, LSF, PBS Pro, or Symphony), on Azure
 
 CycleCloud allows you to:
 

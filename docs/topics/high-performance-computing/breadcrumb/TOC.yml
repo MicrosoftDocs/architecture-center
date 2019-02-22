@@ -110,6 +110,12 @@
       - name: Azure Batch
         topicHref: /azure/architecture/topics/high-performance-computing/
         tocHref: /azure/batch/batch-technical-overview
+    - name: Azure CycleCloud
+      topicHref: /azure/architecture/topics/high-performance-computing#azure-cyclecloud
+      items:
+      - name: Azure CycleCloud
+        topicHref: /azure/architecture/topics/high-performance-computing/
+        tocHref: /azure/cyclecloud/
     - name: Workload managers
       topicHref: /azure/architecture/topics/high-performance-computing#workload-managers
       items:
