@@ -103,6 +103,7 @@ for i in range(0,len(toc_list)):
             else:
                 breadcrumb_toc += bc_indent + "  topicHref: /azure/architecture/topics/high-performance-computing#" + overviewlink(item_name) + "\n"
                 breadcrumb_toc += bc_indent + "  items:" + "\n"
+                toc += indent + "  href: /azure/architecture/topics/high-performance-computing#" + overviewlink(item_name) + "\n"
                 toc += indent + "  items:" + "\n"
         # Add an arror indicating external links
         elif toc_list[i].get('href'):
