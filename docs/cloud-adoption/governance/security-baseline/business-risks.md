@@ -7,7 +7,6 @@ ms.custom: governance
 ms.date: 02/11/2019
 description: Security Baseline motivations and business risks
 author: BrianBlanchard
-ms.date: 1/8/2019
 ---
 
 # Security Baseline motivations and business risks

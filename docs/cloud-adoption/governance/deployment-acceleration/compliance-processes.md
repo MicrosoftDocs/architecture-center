@@ -19,7 +19,7 @@ The best Deployment Acceleration tools in the cloud are only as good as the proc
 
 **Initial risk assessment and planning**: As part of your initial adoption of the Deployment Acceleration discipline, identify your core business risks and tolerances related to deployment of your business applications. Use this information to discuss specific technical risks with members of the IT Operations team and the Security team, and develop a baseline set of deployment and configuration policies for mitigating these risks to establish your initial governance strategy.
 
-**Deployment planning**: Prior to deployment of any asset, perform a security review to identify any new risks and ensure all access and data security policy requirements are met.
+**Deployment planning**: Before deploying any asset, perform a security review to identify any new risks and ensure all access and data security policy requirements are met.
 
 **Deployment testing**: As part of the deployment process for any asset, the Cloud Governance team in cooperation with your corporate security teams is responsible for reviewing the deployment to validate security policy compliance.
 

@@ -163,7 +163,7 @@ Moving solutions from a mainframe to Azure may involve a *staged* migration, whe
 
 A common scenario is to move an application to Azure while keeping the data used by the application on the mainframe. Specific software is used to enable the applications on Azure to access data from the mainframe. Fortunately, a wide range of solutions provide integration between Azure and existing mainframe environments, support for hybrid scenarios, and migration over time. Microsoft partners, independent software vendors, and system integrators can help you on your journey.
 
-One option is [Microsoft Host Integration Server](https://docs.microsoft.com/host-integration-server/) (HIS), a solution that provides the distributed relational database architecture (DRDA) required for applications in Azure to access data in DB2 that remains on the mainframe. Other options for mainframe-to-Azure integration include solutions from IBM, Attunity, Codit, other vendors, and open source options.
+One option is [Microsoft Host Integration Server](/host-integration-server) (HIS), a solution that provides the distributed relational database architecture (DRDA) required for applications in Azure to access data in DB2 that remains on the mainframe. Other options for mainframe-to-Azure integration include solutions from IBM, Attunity, Codit, other vendors, and open source options.
 
 ## Partner solutions
 
@@ -183,4 +183,4 @@ For more information, see the following resources:
 
 - [Deploy IBM DB2 pureScale on Azure](https://azure.microsoft.com/resources/deploy-ibm-db2-purescale-on-azure)
 
-- [Host Integration Server (HIS) documentation](https://docs.microsoft.com/host-integration-server/)
+- [Host Integration Server (HIS) documentation](/host-integration-server)

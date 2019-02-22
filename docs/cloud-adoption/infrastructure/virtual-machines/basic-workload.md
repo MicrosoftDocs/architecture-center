@@ -26,7 +26,7 @@ Regardless of whether the workload is a web application or a VM, each of these d
 
 ## Basic web application (PaaS)
 
-For a basic web application, select one of the 5-minute quickstarts from the [web apps documentation](/azure/app-service?toc=/azure/architecture/cloud-adoption-guide/toc.json) and follow the steps.
+For a basic web application, select one of the five-minute quickstarts from the [web apps documentation](/azure/app-service?toc=/azure/architecture/cloud-adoption-guide/toc.json) and follow the steps.
 
 > [!NOTE]
 > Some of the Quickstart guides will deploy a resource group by default. In this case, it's not necessary to create a resource group explicitly. Otherwise, deploy the web application to the resource group created above.

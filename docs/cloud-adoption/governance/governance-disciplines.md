@@ -35,7 +35,7 @@ Any change to business processes or technology platforms introduces risk. Cloud 
                     <div class="cardText" style="padding-left:0px;">
 <img src="../_images/operational-transformation-govern-highres.png" alt="Diagram of the CAF governance model: Corporate policy and governance disciplines">
 <br>
-<i>Figure 1. Visual of Corporate Policy and Five Cloud Governance Disciplines</i>
+<i>Figure 1. Diagram of corporate policy and the Five Disciplines of Cloud Governance</i>
                     </div>
                 </div>
             </div>
@@ -48,7 +48,7 @@ Any change to business processes or technology platforms introduces risk. Cloud 
 
 ## Disciplines of Cloud Governance
 
-Across each cloud provider, there are common cloud governance disciplines that can serve as a guide to help inform policies and align toolchains. These disciplines guide decisions regarding the proper level of automation and enforcement of corporate policy across cloud providers.
+Across each cloud provider, there are common governance disciplines that can serve as a guide to help inform policies and align toolchains. These disciplines guide decisions regarding the proper level of automation and enforcement of corporate policy across cloud providers.
 
 <!-- markdownlint-disable MD033 -->
 

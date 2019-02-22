@@ -42,7 +42,7 @@ The web API does not allow anonymous requests, so the web app must authenticate 
 There are two main approaches you can take:
 
 * Delegated user identity. The web application authenticates with the user's identity.
-* Application identity. The web application authenticates with its client ID, using OAuth2 client credential flow.
+* Application identity. The web application authenticates with its client ID, using OAuth 2 client credential flow.
 
 The Tailspin application implements delegated user identity. Here are the main differences:
 
@@ -111,7 +111,7 @@ Here are the various parameters that are needed:
 * `authorizationCode`. the auth code that you got back from the IDP.
 * `clientId`. The web application's client ID.
 * `clientSecret`. The web application's client secret.
-* `redirectUri`. The redirect URI that you set for OpenID connect. This is where the IDP calls back with the token.
+* `redirectUri`. The redirect URI that you set for OpenID Connect. This is where the IDP calls back with the token.
 * `resourceID`. The App ID URI of the web API, which you created when you registered the web API in Azure AD
 * `tokenCache`. An object that caches the access tokens. See [Token caching].
 

@@ -577,7 +577,7 @@ ServicePoint sp = ServicePointManager.FindServicePoint(uri);
 sp.Expect100Continue = false;
 ```
 
-You can also set the static `Expect100Continue` property of the `ServicePointManager` class to specify the default value of this property for all subsequently created [ServicePoint]](/dotnet/api/system.net.servicepoint) objects.
+You can also set the static `Expect100Continue` property of the `ServicePointManager` class to specify the default value of this property for all subsequently created [ServicePoint](/dotnet/api/system.net.servicepoint) objects.
 
 ### Support pagination for requests that may return large numbers of objects
 

@@ -51,7 +51,7 @@ Requirements can vary, so use these recommendations as a starting point.
 
 ### HANA Large Instances compute
 
-[Large Instances][physical] are physical servers based on the Intel EX E7 CPU architecture and configured in a large instance stamp—that is, a specific set of servers or blades. A compute unit equals one server or blade, and a stamp is made up of multiple servers or blades. Within a large instance stamp, servers are not shared and are dedicated to running one customer’s deployment of SAP HANA.
+[Large Instances][physical] are physical servers based on the Intel EX E7 CPU architecture and configured in a large instance stamp &mdash; that is, a specific set of servers or blades. A compute unit equals one server or blade, and a stamp is made up of multiple servers or blades. Within a large instance stamp, servers are not shared and are dedicated to running one customer’s deployment of SAP HANA.
 
 A variety of SKUs are available for HANA Large Instances, supporting up to 20 TB single instance (60 TB scale-out) of memory for S/4HANA or other SAP HANA workloads. [Two classes][classes] of servers are offered:
 
@@ -73,7 +73,7 @@ To support high availability at the primary site, use different storage layouts.
 
 ### Networking
 
-This architecture uses both virtual and physical networks. The virtual network is part of Azure IaaS and connects to a discrete HANA Large Instances physical network through [ExpressRoute][expressroute]] circuits. A cross-premises gateway connects your workloads in the Azure virtual network to your on-premises sites.
+This architecture uses both virtual and physical networks. The virtual network is part of Azure IaaS and connects to a discrete HANA Large Instances physical network through [ExpressRoute][expressroute] circuits. A cross-premises gateway connects your workloads in the Azure virtual network to your on-premises sites.
 
 HANA Large Instances networks are isolated from each other for security. Instances residing in different regions do not communicate with each other, except for the dedicated storage replication. However, to use HSR, inter-region communications are required. [IP routing tables][ip] or proxies can be used to enable cross-regions HSR.
 
@@ -156,7 +156,7 @@ If you need more computing capability, you must get a larger SKU.
 
 - For physical security, access to Azure datacenters is limited to authorized personnel only. No customers can access the physical servers.
 
-For more information, see [SAP HANA Security—An Overview][sap-security].(A SAP Service Marketplace account is required for access.)
+For more information, see [SAP HANA Security  &mdash;  An Overview][sap-security].(A SAP Service Marketplace account is required for access.)
 
 ## Communities
 

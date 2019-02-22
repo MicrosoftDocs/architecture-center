@@ -1,13 +1,17 @@
 ---
+title: "Microsoft Cloud Adoption Framework for Azure"
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 layout: LandingPage
 ms.topic: landing-page
 author: BrianBlanchard
-ms.date: 2/11/2019
 ---
 
 # Microsoft Cloud Adoption Framework for Azure
 
-The cloud presents a fundamental shift in the way that enterprises procure and utilize technology resources. In the past, enterprises assumed ownership and responsibility of all levels of technology from infrastructure to software. Now, the cloud offers the potential to transform the way enterprises utilize technology by provisioning and consuming resources as needed. While the cloud offers nearly unlimited flexibility in terms of design choices, enterprises seek proven and consistent methodology for the adoption of cloud technologies. The Cloud Adoption Framework (CAF) provides the desired framework to guide decisions throughout adoption.
+The cloud presents a fundamental shift in the way that enterprises procure and use technology resources. In the past, enterprises assumed ownership and responsibility of all levels of technology from infrastructure to software. Now, the cloud offers the potential to transform the way enterprises use technology by provisioning and consuming resources as needed. While the cloud offers nearly unlimited flexibility in terms of design choices, enterprises seek proven and consistent methodology for the adoption of cloud technologies. The Cloud Adoption Framework (CAF) provides the desired framework to guide decisions throughout adoption.
 
 However, adoption of the cloud is a means, it is not the end goal. Truly effective cloud adoption begins well before a cloud platform vendor is selected. Cloud adoption begins when decisions makers in IT and Business realize that the cloud can accelerate a specific business transformation objective. The Cloud Adoption Framework (CAF) aids in aligning strategies for business, culture, and technical change to empower the desired business outcomes. The Cloud Adoption Framework provides technical guidance related to Microsoft Azure. Respecting that customers may still be in the process of choosing a cloud vendor, this framework provides cloud agnostic guidance to facilitate higher level decisions, when possible.
 

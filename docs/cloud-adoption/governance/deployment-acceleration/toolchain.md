@@ -17,7 +17,7 @@ Cloud custodians, cloud guardians, and cloud architects with an interest in gove
 
 The following is a list of Azure tools that can help mature the policies and processes that support this governance discipline.
 
-|  |Azure Policy  |Azure Management Groups  |Azure Resource Manager Templates  |Azure Blueprints  | Azure Resource Graph | Azure Cost Management |
+|  | Azure Policy | Azure Management Groups | Azure Resource Manager Templates | Azure Blueprints | Azure Resource Graph | Azure Cost Management |
 |---------|---------|---------|---------|---------|---------|---------|
 |Implement Corporate Policies     |Yes |No  |No  |No | No |No |
 |Apply Policies across subscriptions     |Required |Yes  |No  |No | No |No |

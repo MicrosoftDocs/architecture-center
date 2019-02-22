@@ -26,7 +26,7 @@ Cloud security is an extension of traditional information security practices. Tr
 At minimum, any cloud security strategy should consider the following topics:
 
 * Classify data: Proper data classification to understand any data sources that are private, protected, or highly confidential. This will help manage risk during planning.
-* Plan for a hybrid cloud scenario: Understanding how legacy, on-premise networks will connect to the cloud will help the CISO identify and mitigate risks.
+* Plan for a hybrid cloud scenario: Understanding how legacy, on-premises networks will connect to the cloud will help the CISO identify and mitigate risks.
 * Plan for attacks and mistakes: In the first few months of a transformation, mistakes will be made as the team learns. Start with low risk and highly restricted deployments to learn securely.
 * Prioritize privacy: Throughout any transformation, the entire team should keep customer and employee privacy top of mind. Your data is safe in the cloud, but the team should be aware and extra cautious when dealing with sensitive data.
 

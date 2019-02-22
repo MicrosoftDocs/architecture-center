@@ -7,7 +7,6 @@ ms.custom: governance
 ms.date: 02/11/2019
 description: Explanation of Deployment Acceleration in relation to cloud governance.
 author: BrianBlanchard
-ms.date: 2/11/2019
 layout: LandingPage
 ms.topic: landing-page
 ---
