@@ -96,8 +96,9 @@ for i in range(0,len(toc_list)):
             breadcrumb_toc += bc_indent + "- name: " + item_name + '\n'
             # Don't create an overview link for the top level item
             if item_level == 1:
-                toc += indent + "  href: index.md\n"
-                breadcrumb_toc += bc_indent + "  topicHref: /azure/architecture/topics/high-performance-computing#" + overviewlink(item_name) + "\n"
+                toc += indent + "  href: index.md?context=/azure/architecture/topics/high-performance-computing/context/hpc-context\n"
+                breadcrumb_toc += bc_indent + "  topicHref: /azure/architecture/topics/high-performance-computing?context=/azure/architecture/topics/high-performance-computing/context/hpc-context\n"
+                breadcrumb_toc += bc_indent + "  tocHref: /azure/architecture/topics/high-performance-computing\n"
                 breadcrumb_toc += bc_indent + "  items:" + "\n"
             else:
                 breadcrumb_toc += bc_indent + "  topicHref: /azure/architecture/topics/high-performance-computing#" + overviewlink(item_name) + "\n"
