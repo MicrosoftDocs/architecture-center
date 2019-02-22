@@ -1,5 +1,6 @@
 - name: High Performance Computing (HPC) on Azure
-  topicHref: /azure/architecture/topics/high-performance-computing#high-performance-computing-(hpc)-on-azure
+  topicHref: /azure/architecture/topics/high-performance-computing
+  tocHref: /azure/architecture/topics/high-performance-computing
   items:
   - name: Introduction to HPC
     topicHref: /azure/architecture/topics/high-performance-computing#introduction-to-hpc
