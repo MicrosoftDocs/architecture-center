@@ -1,0 +1,88 @@
+{
+    "title": "Building microservices on Azure",
+    "description": "Designing, building, and operating microservices architectures on Azure",
+    "iconPath": "../_images/microservices.svg",
+    "summary": "Microservices are a popular architectural style for building applications that are resilient, highly scalable, independently deployable, and able to evolve quickly. But a successful microservices architecture requires a different approach to designing and building applications.",
+    "sections": [
+        {
+            "cards": [
+                {
+                    "title": "What are microservices?",
+                    "url": "./introduction.md",
+                    "summary": "How do microservices differ from other architectures, and when should you use them?"
+                },
+                {
+                    "title": "Modeling microservices",
+                    "url": "./domain-analysis.md",
+                    "summary": "To avoid some common pitfalls when designing microservices, use domain analysis to define your microservice boundaries."
+                }
+            ]
+        },
+        {
+            "heading": "Example scenarios using microservices",
+            "cards": [
+                {
+                    "title": "Using Service Fabric to decompose monolithic applications",
+                    "url": "../example-scenario/infrastructure/service-fabric-microservices.md",
+                    "summary": "Shows an iterative approach to decomposing an ASP.NET web site into a microservices architecture."
+                },
+                {
+                    "title": "Scalable order processing on Azure",
+                    "url": "../example-scenario/data/ecommerce-order-processing",
+                    "summary":"Order processing using a functional programming model implemented via microservices."
+                }
+
+            ]
+        },
+        {
+            "heading": "Microservices reference architectures",
+            "cards": [
+                {
+                    "title": "Microservices using Azure Kubernetes Service (AKS)",
+                    "url": "../reference-architectures/microservices/aks.md",
+                    "summary": "This reference architecture shows a basic AKS configuration that can be the starting point for most deployments."
+                },
+                {
+                    "title": "Reference implementation for AKS",
+                    "url": "./reference-implementation.md",
+                    "summary":"This reference implementation shows best practices for a microservices architecture on Azure Kubernetes Service (AKS)."
+                }
+            ]
+        },
+        {
+            "heading": "Implementing a microservices application",
+            "cards": [
+                {
+                    "title": "API gateways",
+                    "url": "./gateway.md",
+                    "summary": "An API gateway acts as a reverse proxy, routing requests from clients to services. It may also perform cross-cutting tasks such as authentication, SSL termination, and rate limiting."
+                },
+                {
+                    "title": "Data considerations for microservices",
+                    "url": "../example-scenario/infrastructure/service-fabric-microservices.md",
+                    "summary": "Considerations for managing data in a microservices architecture."
+                },
+                {
+                    "title": "Interservice communication",
+                    "url": "./interservice-communication.md",
+                    "summary":"This article looks at the tradeoffs between asynchronous messaging versus synchronous APIs."
+                }
+            ]
+        },
+        {
+            "heading": "Deploying and running microservices in production",
+            "cards": [
+                {
+                    "title": "Logging and monitoring",
+                    "url": "./logging-monitoring.md",
+                    "summary": "The distributed nature of microservices architectures makes logging and monitoring especially critical."
+                },
+                {
+                    "title": "Continuous integration and deployment",
+                    "url": "./ci-cd.md",
+                    "summary":"Continuous integration and continuous delivery (CI/CD) are key to achieving success with microservices."
+                }
+            ]
+        }
+    ]
+}

@@ -485,31 +485,35 @@
       - name: Web application monitoring
         href: reference-architectures/app-service-web-app/app-monitoring.md
 
-- name: Design Guides
+- name: Build microservices on Azure
   items:
-  - name: Build microservices on Azure
+  - name: Overview
+    href: microservices/index.md
+  - name: Introduction to microservices
+    href: microservices/introduction.md
+  - name: Modeling microservices
     items:
-    - name: Introduction
-      href: microservices/index.md
     - name: Domain analysis
       href: microservices/domain-analysis.md
     - name: Identifying microservice boundaries
       href: microservices/microservice-boundaries.md
-    - name: Data considerations
-      href: microservices/data-considerations.md
-    - name: Interservice communication
-      href: microservices/interservice-communication.md
     - name: API design
       href: microservices/api-design.md
-    - name: Ingestion and workflow
-      href: microservices/ingestion-workflow.md
+  - name: Designing a microservices application
+    items:
+    - name: Interservice communication
+      href: microservices/interservice-communication.md
     - name: API gateways
       href: microservices/gateway.md
-    - name: Logging and monitoring
-      href: microservices/logging-monitoring.md
-    - name: CI/CD
-      href: microservices/ci-cd.md
+    - name: Data considerations
+      href: microservices/data-considerations.md
+  - name: Logging and monitoring
+    href: microservices/logging-monitoring.md
+  - name: CI/CD
+    href: microservices/ci-cd.md
 
+- name: Design Guides
+  items:
   - name: Manage multitenant identity
     items:
     - name: Introduction
