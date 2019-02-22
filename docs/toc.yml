@@ -499,14 +499,12 @@
       href: microservices/microservice-boundaries.md
     - name: API design
       href: microservices/api-design.md
-  - name: Designing a microservices application
-    items:
-    - name: Interservice communication
-      href: microservices/interservice-communication.md
-    - name: API gateways
-      href: microservices/gateway.md
     - name: Data considerations
       href: microservices/data-considerations.md
+  - name: Interservice communication
+    href: microservices/interservice-communication.md
+  - name: API gateways
+    href: microservices/gateway.md
   - name: Logging and monitoring
     href: microservices/logging-monitoring.md
   - name: CI/CD
