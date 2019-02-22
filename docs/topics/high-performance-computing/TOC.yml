@@ -88,9 +88,9 @@
     href: /azure/architecture/topics/high-performance-computing#workload-managers
     items:
     - name: HPC Pack for Windows
-      href: /azure/virtual-machines/windows/hpcpack-cluster-options?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
+      href: /azure/virtual-machines/windows/hpcpack-cluster-options?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
     - name: HPC Pack for Linux
-      href: /azure/virtual-machines/linux/hpcpack-cluster-options?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+      href: /azure/virtual-machines/linux/hpcpack-cluster-options?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
     - name: Containers
       href: /azure/architecture/topics/high-performance-computing#containers
       items:
@@ -109,7 +109,7 @@
   - name: Azure Security Documentation
     href: /azure/security/azure-security?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
   - name: Implement a hub-spoke network topology in Azure
-    href: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=/azure/architecture/topics/high-performance-computing/toc.jso
+    href: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
   - name: Implement a hub-spoke network topology with shared services in Azure
     href: /azure/architecture/reference-architectures/hybrid-networking/shared-services?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
 - name: HPC applications
