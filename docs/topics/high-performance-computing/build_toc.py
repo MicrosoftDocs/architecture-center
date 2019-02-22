@@ -22,6 +22,7 @@ def overviewlink(name):
 
 toc = ""
 toc_list = []
+url = ""
 
 # Iterate through every line of the index file to generate a list used for the TOC
 for line in input_file:
@@ -32,10 +33,6 @@ for line in input_file:
     # Look for an html link
     href_match = re.compile('.*href=\"(.*)\".*')
     href_link = href_match.match(line)
-
-    # Look for an h3 title
-    h3_match = re.compile('.*<p>(.*)</p>.*')
-    h3_title = h3_match.match(line)
 
     # Find all the sections
     if line.startswith("#"):
@@ -59,12 +56,29 @@ for line in input_file:
         url = href_link.group(1)
         continue
     # Grab titles from h3, we're assuming we already have the URL at this point
-    elif h3_title:
+    elif url:
+
+        # Look for an h3 title
+        h3_match = re.compile('.*<h3.*>\n*(.*)\n*</h3>.*', re.DOTALL)
+        h3_title = h3_match.match(line)
+
         if ".com" in url:
             if re.match('^(.(?<!docs.microsoft.com))*?$', url):
                 continue
 
-        toc_list.append({'level': level + 1, 'name': h3_title.group(1), 'href': url})
+        #if re.match(".*<h3.*", line):
+        #    continue
+
+       # if h3_title:
+        #    title = h3_title.group(1)
+        #else:
+        #    title = re.match('.*', line)
+
+        #print(title)
+        if h3_title:
+            if h3_title.group(1):
+                toc_list.append({'level': level + 1, 'name': h3_title.group(1), 'href': url})
+                url = ""
     # Anything else is not a line we know how to deal with, skip
     else:
         continue
@@ -100,7 +114,7 @@ for i in range(0,len(toc_list)):
                 #if re.match('^(.(?<!docs.microsoft.com))*?$', toc_list[i].get('href')):
                 #    continue
                     #item_name = item_name + u" ↗"
-            toc += indent + "- name: " + item_name + '\n'
+            toc += indent + "- name: " + item_name.strip() + '\n'
             toc += indent + "  href: " + toc_list[i].get('href') + "\n"
         # Set anchors for sections within the article
         #else:

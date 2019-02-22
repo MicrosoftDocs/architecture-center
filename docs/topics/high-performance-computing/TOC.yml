@@ -12,9 +12,11 @@
   items:
   - name: Example HPC Architectures
     items:
-    - name: Execute computational fluid dynamics (CFD) simulations on Azure.
+    - name: Computer-aided engineering services on Azure
+      href: /azure/architecture/example-scenario/apps/hpc-saas?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
+    - name: Computational fluid dynamics (CFD) simulations on Azure
       href: /azure/architecture/example-scenario/infrastructure/hpc-cfd?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
-    - name: Run native HPC workloads in Azure using the Azure Batch service
+    - name: 3D video rendering on Azure
       href: /azure/architecture/example-scenario/infrastructure/video-rendering?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
   - name: Compute
     items:
@@ -56,11 +58,11 @@
     items:
     - name: Options for connecting an on-premises network to Azure
       href: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
-    - name: This reference architecture shows how to extend an on-premises network to Azure, using a site-to-site virtual private network (VPN).
+    - name: Connect an on-premises network to Azure using a VPN gateway
       href: /azure/architecture/reference-architectures/hybrid-networking/vpn?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
-    - name: ExpressRoute connections use a private, dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure.
+    - name: Connect an on-premises network to Azure using ExpressRoute
       href: /azure/architecture/reference-architectures/hybrid-networking/expressroute?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
-    - name: Implement a highly available and secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using ExpressRoute with VPN gateway failover.
+    - name: Connect an on-premises network to Azure using ExpressRoute with VPN failover
       href: /azure/architecture/reference-architectures/hybrid-networking/expressroute-vpn-failover?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
   - name: Marketplace solutions
     items:
@@ -90,9 +92,9 @@
   items:
   - name: Azure Security Documentation
     href: https://docs.microsoft.com/azure/security/azure-security?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
-  - name: The hub is a virtual network (VNet) in Azure that acts as a central point of connectivity to your on-premises network. The spokes are VNets that peer with the hub, and can be used to isolate workloads.
+  - name: Implement a hub-spoke network topology in Azure
     href: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=/azure/architecture/topics/high-performance-computing/toc.jso
-  - name: This reference architecture builds on the hub-spoke reference architecture to include shared services in the hub that can be consumed by all spokes.
+  - name: Implement a hub-spoke network topology with shared services in Azure
     href: /azure/architecture/reference-architectures/hybrid-networking/shared-services?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
 - name: HPC applications
   items:
@@ -114,7 +116,7 @@
       href: https://docs.microsoft.com/message-passing-interface/microsoft-mpi
 - name: Remote Visualization
   items:
-  - name: Build a VDI environment for Linux Desktops using Citrix on Azure.
+  - name: Linux virtual desktops with Citrix
     href: /azure/architecture/example-scenario/infrastructure/linux-vdi-citrix?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
 - name: Performance Benchmarks
   items:

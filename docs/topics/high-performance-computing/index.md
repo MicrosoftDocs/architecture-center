@@ -64,9 +64,7 @@ The following scenarios outline a few of the common ways HPC solutions are built
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
-                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">
-                            Computer-aided engineering services on Azure
-                        </h3>
+                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">Computer-aided engineering services on Azure</h3>
                     </div>
                     <div class="is-size-7 has-margin-top-small has-line-height-reset">
                         <p>Provide a software-as-a-service (SaaS) platform for computer-aided engineering (CAE) on
@@ -85,9 +83,7 @@ The following scenarios outline a few of the common ways HPC solutions are built
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
-                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">
-                            Computational fluid dynamics (CFD) simulations on Azure
-                        </h3>
+                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">Computational fluid dynamics (CFD) simulations on Azure</h3>
                     </div>
                     <div class="is-size-7 has-margin-top-small has-line-height-reset">
                         <p>Execute computational fluid dynamics (CFD) simulations on Azure.</p>
@@ -105,9 +101,7 @@ The following scenarios outline a few of the common ways HPC solutions are built
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
-                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">
-                            3D video rendering on Azure
-                        </h3>
+                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">3D video rendering on Azure</h3>
                     </div>
                     <div class="is-size-7 has-margin-top-small has-line-height-reset">
                         <p>Run native HPC workloads in Azure using the Azure Batch service</p>
@@ -182,9 +176,7 @@ First, review the [Options for connecting an on-premises network to Azure](https
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
-                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">
-                            Connect an on-premises network to Azure using a VPN gateway
-                        </h3>
+                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">Connect an on-premises network to Azure using a VPN gateway</h3>
                     </div>
                     <div class="is-size-7 has-margin-top-small has-line-height-reset">
                         <p>This reference architecture shows how to extend an on-premises network to Azure, using a site-to-site virtual private network (VPN).</p>
@@ -202,9 +194,7 @@ First, review the [Options for connecting an on-premises network to Azure](https
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
-                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">
-                            Connect an on-premises network to Azure using ExpressRoute
-                        </h3>
+                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">Connect an on-premises network to Azure using ExpressRoute</h3>
                     </div>
                     <div class="is-size-7 has-margin-top-small has-line-height-reset">
                         <p>ExpressRoute connections use a private, dedicated connection through a third-party connectivity provider. The private connection extends your on-premises network into Azure.</p>
@@ -222,9 +212,7 @@ First, review the [Options for connecting an on-premises network to Azure](https
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
-                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">
-                            Connect an on-premises network to Azure using ExpressRoute with VPN failover
-                        </h3>
+                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">Connect an on-premises network to Azure using ExpressRoute with VPN failover</h3>
                     </div>
                     <div class="is-size-7 has-margin-top-small has-line-height-reset">
                         <p>Implement a highly available and secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using ExpressRoute with VPN gateway failover.</p>
@@ -311,9 +299,7 @@ In addition to the network configurations available in the [Cloud Bursting](#) s
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
-                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">
-                            Implement a hub-spoke network topology in Azure
-                        </h3>
+                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">Implement a hub-spoke network topology in Azure</h3>
                     </div>
                     <div class="is-size-7 has-margin-top-small has-line-height-reset">
                         <p>The hub is a virtual network (VNet) in Azure that acts as a central point of connectivity to your on-premises network. The spokes are VNets that peer with the hub, and can be used to isolate workloads.</p>
@@ -331,9 +317,7 @@ In addition to the network configurations available in the [Cloud Bursting](#) s
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
-                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">
-                            Implement a hub-spoke network topology with shared services in Azure
-                        </h3>
+                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">Implement a hub-spoke network topology with shared services in Azure</h3>
                     </div>
                     <div class="is-size-7 has-margin-top-small has-line-height-reset">
                         <p>This reference architecture builds on the hub-spoke reference architecture to include shared services in the hub that can be consumed by all spokes.</p>
@@ -385,9 +369,7 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
                     </figure>
                 <div class="card-content has-text-overflow-ellipsis">
                     <div class="has-padding-bottom-none">
-                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">
-                            Linux virtual desktops with Citrix
-                        </h3>
+                        <h3 class="is-size-4 has-margin-top-none has-margin-bottom-none has-text-primary">Linux virtual desktops with Citrix</h3>
                     </div>
                     <div class="is-size-7 has-margin-top-small has-line-height-reset">
                         <p>Build a VDI environment for Linux Desktops using Citrix on Azure.</p>
