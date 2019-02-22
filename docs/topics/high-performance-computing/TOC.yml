@@ -1,5 +1,3 @@
-- name: High Performance Computing (HPC) on Azure
-  href: index.md?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
 - name: Introduction to HPC
   href: /azure/architecture/topics/high-performance-computing#introduction-to-hpc
   items:

@@ -92,17 +92,18 @@ for i in range(0,len(toc_list)):
     # If there are multiple items below a heading, provide an overview link
     if i+1 != len(toc_list):
         if toc_list[i+1].get('level') > item_level:
-            toc += indent + "- name: " + item_name + '\n'
-            breadcrumb_toc += bc_indent + "- name: " + item_name + '\n'
             # Don't create an overview link for the top level item
             if item_level == 1:
-                toc += indent + "  href: index.md?context=/azure/architecture/topics/high-performance-computing/context/hpc-context\n"
+                #toc += indent + "  href: index.md?context=/azure/architecture/topics/high-performance-computing/context/hpc-context\n"
+                breadcrumb_toc += bc_indent + "- name: " + item_name + '\n'
                 breadcrumb_toc += bc_indent + "  topicHref: /azure/architecture/topics/high-performance-computing?context=/azure/architecture/topics/high-performance-computing/context/hpc-context\n"
                 breadcrumb_toc += bc_indent + "  tocHref: /azure/architecture/topics/high-performance-computing\n"
                 breadcrumb_toc += bc_indent + "  items:" + "\n"
             else:
+                breadcrumb_toc += bc_indent + "- name: " + item_name + '\n'
                 breadcrumb_toc += bc_indent + "  topicHref: /azure/architecture/topics/high-performance-computing#" + overviewlink(item_name) + "\n"
                 breadcrumb_toc += bc_indent + "  items:" + "\n"
+                toc += indent + "- name: " + item_name + '\n'
                 toc += indent + "  href: /azure/architecture/topics/high-performance-computing#" + overviewlink(item_name) + "\n"
                 toc += indent + "  items:" + "\n"
         # Add an arror indicating external links
