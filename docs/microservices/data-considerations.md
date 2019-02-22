@@ -9,9 +9,9 @@ ms.subservice: reference-architecture
 ms.custom: microservices
 ---
 
-# Designing microservices: Data considerations
+# Data considerations for microservices
 
-This chapter describes considerations for managing data in a microservices architecture. Because every microservice manages its own data, data integrity and data consistency are critical challenges.
+This article describes considerations for managing data in a microservices architecture. Because every microservice manages its own data, data integrity and data consistency are critical challenges.
 
 ![Diagram of data considerations](./images/data-considerations.png)
 
@@ -52,11 +52,11 @@ There is no single approach that's correct in all cases, but here are some gener
 
 - At high scale, events can become a bottleneck on the system, so consider using aggregation or batching to reduce the total load.
 
-## Drone Delivery: Choosing the data stores
+## Example: Choosing data stores for the Drone Delivery application
 
-Even with only a few services, the Shipping bounded context illustrates several of the points discussed in this section.
+The previous articles in this series discuss a drone delivery service as a running example. You can read more about the scenario and the corresponding reference implementation [here](./drone-delivery.md).
 
-When a user schedules a new delivery, the client request includes information about the both the delivery, such as the pickup and dropoff locations, and about the package, such as the size and weight. This information defines a unit of work, which the Ingestion service sends to Event Hubs. It's important that the unit of work stays in persistent storage while the Scheduler service is executing the workflow, so that no delivery requests are lost. For more discussion of the workflow, see [Ingestion and workflow](./ingestion-workflow.md).
+To recap, this application defines several microservices for scheduling deliveries by drone. When a user schedules a new delivery, the client request includes information about the delivery, such as pickup and dropoff locations, and about the package, such as size and weight. This information defines a unit of work.
 
 The various backend services care about different portions of the information in the request, and also have different read and write profiles.
 
@@ -83,6 +83,3 @@ The Package service stores information about all of the packages. The storage re
 - Support simple queries by package ID. No complex joins or requirements for referential integrity.
 
 Because the package data is not relational, a document oriented database is appropriate, and Cosmos DB can achieve very high throughput by using sharded collections. The team that works on the Package service is familiar with the MEAN stack (MongoDB, Express.js, AngularJS, and Node.js), so they select the [MongoDB API](/azure/cosmos-db/mongodb-introduction) for Cosmos DB. That lets them leverage their existing experience with MongoDB, while getting the benefits of Cosmos DB, which is a managed Azure service.
-
-> [!div class="nextstepaction"]
-> [Interservice communication](./interservice-communication.md)

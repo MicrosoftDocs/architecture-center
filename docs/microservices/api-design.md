@@ -9,7 +9,7 @@ ms.subservice: reference-architecture
 ms.custom: microservices
 ---
 
-# Designing microservices: API design
+# Designing APIs for microservices
 
 Good API design is important in a microservices architecture, because all data exchange between services happens either through messages or API calls. APIs must be efficient to avoid creating [chatty I/O](../antipatterns/chatty-io/index.md). Because services are designed by teams working independently, APIs must have well-defined semantics and versioning schemes, so that updates don't break other services.
 
@@ -144,5 +144,9 @@ When a service implementation changes, it's useful to tag the change with a vers
 
 For further discussion of API versioning, see [Versioning a RESTful web API](../best-practices/api-design.md#versioning-a-restful-web-api).
 
+## Next steps
+
+We've looked at the interfaces *between* microservices. By design, these interfaces treat each service as a black box. In particular, microservices should never expose implementation details about how they manage data. That has implications for data integrity and data consistency, explored in the next article.
+
 > [!div class="nextstepaction"]
-> [Ingestion and workflow](./ingestion-workflow.md)
+> [Data considerations for microservices](./data-considerations.md)

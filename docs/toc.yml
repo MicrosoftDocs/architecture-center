@@ -501,6 +501,8 @@
       href: microservices/api-design.md
     - name: Data considerations
       href: microservices/data-considerations.md
+  - name: Drone Delivery reference implementation
+    href: microservices/drone-delivery.md
   - name: Interservice communication
     href: microservices/interservice-communication.md
   - name: API gateways

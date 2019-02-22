@@ -44,7 +44,7 @@
                 },
                 {
                     "title": "Reference implementation for AKS",
-                    "url": "./reference-implementation.md",
+                    "url": "./drone-delivery.md",
                     "summary":"This reference implementation shows best practices for a microservices architecture on Azure Kubernetes Service (AKS)."
                 }
             ]

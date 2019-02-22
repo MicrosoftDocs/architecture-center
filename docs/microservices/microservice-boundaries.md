@@ -9,15 +9,17 @@ ms.subservice: reference-architecture
 ms.custom: microservices
 ---
 
-# Designing microservices: Identifying microservice boundaries
+# Identifying microservice boundaries
 
 What is the right size for a microservice? You often hear something to the effect of, "not too big and not too small" &mdash; and while that's certainly correct, it's not very helpful in practice. But if you start from a carefully designed domain model, it's much easier to reason about microservices.
 
 ![Diagram of bounded contexts](./images/bounded-contexts.png)
 
+This article uses a drone delivery service as a running example. You can read more about the scenario and the corresponding reference implementation [here](./drone-delivery.md).
+
 ## From domain model to microservices
 
-In the [previous chapter](./domain-analysis.md), we defined a set of bounded contexts for the Drone Delivery application. Then we looked more closely at one of these bounded contexts, the Shipping bounded context, and identified a set of entities, aggregates, and domain services for that bounded context.
+In the [previous article](./domain-analysis.md), we defined a set of bounded contexts for a Drone Delivery application. Then we looked more closely at one of these bounded contexts, the Shipping bounded context, and identified a set of entities, aggregates, and domain services for that bounded context.
 
 Now we're ready to go from domain model to application design. Here's an approach that you can use to derive microservices from the domain model.
 
@@ -45,7 +47,7 @@ After you identify the microservices in your application, validate your design a
 
 Above all, it's important to be pragmatic, and remember that domain-driven design is an iterative process. When in doubt, start with more coarse-grained microservices. Splitting a microservice into two smaller services is easier than refactoring functionality across several existing microservices.
   
-## Drone Delivery: Defining the microservices
+## Example: Defining microservices for the Drone Delivery application
 
 Recall that the development team had identified the four aggregates &mdash; Delivery, Package, Drone, and Account &mdash; and two domain services, Scheduler and Supervisor.
 
@@ -93,7 +95,7 @@ On the Azure platform, consider the following options:
 - [Azure Container Service](/azure/container-service/) (ACS) is an Azure service that lets you deploy a production-ready DC/OS, Docker Swarm, or Kubernetes cluster.
 
   > [!NOTE]
-  > Although Kubernetes is supported by ACS, we recommended AKS for running Kubernetes on Azure. AKS provides enhanced management capabilities and cost benefits.
+  > Although ACS supports Kubernetes, we recommended using AKS to run Kubernetes on Azure. AKS provides enhanced management capabilities and cost benefits.
 
 ### Containers
 
@@ -133,13 +135,15 @@ Here are some factors to consider when choosing between an orchestrator approach
 
 Our reference implementation primarily uses Kubernetes, but we did use Azure Functions for one service, namely the Delivery History service. Azure Functions was a good fit for this particular service, because it's is an event-driven workload. By using an Event Hubs trigger to invoke the function, the service needed a minimal amount of code. Also, the Delivery History service is not part of the main workflow, so running it outside of the Kubernetes cluster doesn't affect the end-to-end latency of user-initiated operations.
 
+## Next steps
+
+The communication boundary between two microservices is defined by an API. The next article in this series looks at API design for microservices.
+
 > [!div class="nextstepaction"]
-> [Data considerations](./data-considerations.md)
+> [Designing APIs for microservices](./api-design.md)
 
 <!-- links -->
 
-[acs-engine]: https://github.com/Azure/acs-engine
-[acs-faq]: /azure/container-service/dcos-swarm/container-service-faq
 [event-grid]: /azure/event-grid/
 [functions]: /azure/azure-functions/functions-overview
 [functions-triggers]: /azure/azure-functions/functions-triggers-bindings
