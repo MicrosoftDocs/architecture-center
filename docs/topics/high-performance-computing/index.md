@@ -267,8 +267,8 @@ The following are examples of cluster and workload managers that can run in Azur
 - [Altair](http://www.altair.com/)
 - [Rescale](https://www.rescale.com/azure/)
 - [Microsoft HPC Pack](https://technet.microsoft.com/library/mt744885.aspx)
-  - [HPC Pack for Windows](/azure/virtual-machines/windows/hpcpack-cluster-options?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-  - [HPC Pack for Linux](/azure/virtual-machines/linux/hpcpack-cluster-options?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+  - [HPC Pack for Windows](/azure/virtual-machines/windows/hpcpack-cluster-options?context=/azure/architecture/topics/high-performance-computing/context/hpc-context)
+  - [HPC Pack for Linux](/azure/virtual-machines/linux/hpcpack-cluster-options?context=/azure/architecture/topics/high-performance-computing/context/hpc-context)
 
 #### Containers
 
@@ -292,7 +292,7 @@ In addition to the network configurations available in the [Cloud Bursting](#) s
 <ul class="columns is-multiline has-margin-left-none has-margin-bottom-none has-padding-top-medium">
     <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
         <a class="is-undecorated is-full-height is-block"
-            href="/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=/azure/architecture/topics/high-performance-computing/toc.jso">
+            href="/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?context=/azure/architecture/topics/high-performance-computing/context/hpc-context">
             <article class="card has-outline-hover is-relative is-fullheight">
                     <figure class="image has-margin-right-none has-margin-left-none has-margin-top-none has-margin-bottom-none">
                         <img role="presentation" alt="" src="/azure/architecture/reference-architectures/hybrid-networking/images/hub-spoke.png">
