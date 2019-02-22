@@ -1,3 +1,5 @@
+- name: HPC on Azure
+  href: index.md
 - name: Introduction to HPC
   href: /azure/architecture/topics/high-performance-computing#introduction-to-hpc
   items:
