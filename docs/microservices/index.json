@@ -19,48 +19,44 @@
             ]
         },
         {
-            "heading": "Example scenarios using microservices",
+            "heading": "Example microservices architectures",
+            "intro": "The following scenarios show how microservices can be used in various application architectures.",
             "cards": [
                 {
                     "title": "Using Service Fabric to decompose monolithic applications",
                     "url": "../example-scenario/infrastructure/service-fabric-microservices.md",
-                    "summary": "Shows an iterative approach to decomposing an ASP.NET web site into a microservices architecture."
+                    "summary": "An iterative approach to decomposing an ASP.NET web site into a microservices architecture."
                 },
                 {
                     "title": "Scalable order processing on Azure",
-                    "url": "../example-scenario/data/ecommerce-order-processing",
+                    "url": "../example-scenario/data/ecommerce-order-processing.md",
                     "summary":"Order processing using a functional programming model implemented via microservices."
+                },
+                {
+                    "title": "SmartHotel360",
+                    "url": "https://azure.microsoft.com/blog/smarthotel360-microservices-on-azure-kubernetes-service/",
+                    "summary":"SmartHotel360 is a fictitious smart hospitality company. This example microservices architectur runs in an Azure Kubernetes Service (AKS) cluster."
                 }
-
             ]
         },
         {
-            "heading": "Microservices reference architectures",
+            "heading": "Building microservices on Azure Kubernetes Service (AKS)",
+            "intro": "These articles dive deep into building microservices architectures using AKS.",
             "cards": [
                 {
-                    "title": "Microservices using Azure Kubernetes Service (AKS)",
+                    "title": "Reference architecture for microservices on AKS",
                     "url": "../reference-architectures/microservices/aks.md",
                     "summary": "This reference architecture shows a basic AKS configuration that can be the starting point for most deployments."
                 },
                 {
-                    "title": "Reference implementation for AKS",
-                    "url": "./drone-delivery.md",
-                    "summary":"This reference implementation shows best practices for a microservices architecture on Azure Kubernetes Service (AKS)."
-                }
-            ]
-        },
-        {
-            "heading": "Implementing a microservices application",
-            "cards": [
-                {
-                    "title": "API gateways",
-                    "url": "./gateway.md",
-                    "summary": "An API gateway acts as a reverse proxy, routing requests from clients to services. It may also perform cross-cutting tasks such as authentication, SSL termination, and rate limiting."
+                    "title": "Reference implementation (GitHub)",
+                    "url": "https://github.com/mspnp/microservices-reference-implementation",
+                    "summary": "To illustrate best practices for a microservices architecture, we created a reference implementation called the Drone Delivery application."
                 },
                 {
-                    "title": "Data considerations for microservices",
-                    "url": "../example-scenario/infrastructure/service-fabric-microservices.md",
-                    "summary": "Considerations for managing data in a microservices architecture."
+                    "title": "Using API gateways in microservices",
+                    "url": "./gateway.md",
+                    "summary": "An API gateway routes requests from clients to services. It can also perform cross-cutting tasks such as authentication and SSL termination."
                 },
                 {
                     "title": "Interservice communication",

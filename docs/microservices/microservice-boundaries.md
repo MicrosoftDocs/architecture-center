@@ -71,7 +71,7 @@ Non-functional requirements led the team to create one additional service. All o
 
 The following diagram shows the design at this point:
 
-![Design diagram](./images/microservices.png)
+![Design diagram](./images/drone-delivery.png)
 
 ## Choosing a compute option
 

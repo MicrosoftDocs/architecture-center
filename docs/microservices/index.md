@@ -45,7 +45,9 @@ Microservices are a popular architectural style for building applications that a
 </li>
 </ul>
 
-## Example scenarios using microservices
+## Example microservices architectures
+
+The following scenarios show how microservices can be used in various application architectures.
 
 <ul  class="panelContent cardsZ">
 <li style="display: flex; flex-direction: column;">
@@ -55,7 +57,7 @@ Microservices are a popular architectural style for building applications that a
                 <div class="card">
                     <div class="cardText">
                         <h3>Using Service Fabric to decompose monolithic applications</h3>
-                        <p>Shows an iterative approach to decomposing an ASP.NET web site into a microservices architecture.</p>
+                        <p>An iterative approach to decomposing an ASP.NET web site into a microservices architecture.</p>
                     </div>
                 </div>
             </div>
@@ -63,7 +65,7 @@ Microservices are a popular architectural style for building applications that a
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="../example-scenario/data/ecommerce-order-processing" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="../example-scenario/data/ecommerce-order-processing.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -76,9 +78,25 @@ Microservices are a popular architectural style for building applications that a
         </div>
     </a>
 </li>
+<li style="display: flex; flex-direction: column;">
+    <a href="https://azure.microsoft.com/blog/smarthotel360-microservices-on-azure-kubernetes-service/" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>SmartHotel360</h3>
+                        <p>SmartHotel360 is a fictitious smart hospitality company. This example microservices architectur runs in an Azure Kubernetes Service (AKS) cluster.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
 </ul>
 
-## Microservices reference architectures
+## Building microservices on Azure Kubernetes Service (AKS)
+
+These articles dive deep into building microservices architectures using AKS.
 
 <ul  class="panelContent cardsZ">
 <li style="display: flex; flex-direction: column;">
@@ -87,7 +105,7 @@ Microservices are a popular architectural style for building applications that a
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Microservices using Azure Kubernetes Service (AKS)</h3>
+                        <h3>Reference architecture for microservices on AKS</h3>
                         <p>This reference architecture shows a basic AKS configuration that can be the starting point for most deployments.</p>
                     </div>
                 </div>
@@ -96,46 +114,27 @@ Microservices are a popular architectural style for building applications that a
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./drone-delivery.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="https://github.com/mspnp/microservices-reference-implementation" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Reference implementation for AKS</h3>
-                        <p>This reference implementation shows best practices for a microservices architecture on Azure Kubernetes Service (AKS).</p>
+                        <h3>Reference implementation (GitHub)</h3>
+                        <p>To illustrate best practices for a microservices architecture, we created a reference implementation called the Drone Delivery application.</p>
                     </div>
                 </div>
             </div>
         </div>
     </a>
 </li>
-</ul>
-
-## Implementing a microservices application
-
-<ul  class="panelContent cardsZ">
 <li style="display: flex; flex-direction: column;">
     <a href="./gateway.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardText">
-                        <h3>API gateways</h3>
-                        <p>An API gateway acts as a reverse proxy, routing requests from clients to services. It may also perform cross-cutting tasks such as authentication, SSL termination, and rate limiting.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-<li style="display: flex; flex-direction: column;">
-    <a href="../example-scenario/infrastructure/service-fabric-microservices.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Data considerations for microservices</h3>
-                        <p>Considerations for managing data in a microservices architecture.</p>
+                        <h3>Using API gateways in microservices</h3>
+                        <p>An API gateway routes requests from clients to services. It can also perform cross-cutting tasks such as authentication and SSL termination.</p>
                     </div>
                 </div>
             </div>
