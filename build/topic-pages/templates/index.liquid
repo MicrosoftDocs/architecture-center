@@ -19,6 +19,10 @@ ms.topic: landing-page
 {%- if section.heading %}
 ## {{ section.heading }}
 {%- endif %}
+{%- if section.intro %}
+
+{{ section.intro }}
+{%- endif %}
 
 <ul  class="panelContent cardsZ">
 {%- for card in section.cards %}
