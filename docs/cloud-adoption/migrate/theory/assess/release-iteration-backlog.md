@@ -2,7 +2,7 @@
 title: "Iteration and Release Backlog"
 description: Building an iteration and release backlog
 author: BrianBlanchard
-ms.date: 10/11/2018
+ms.date: 4/1/2019
 ---
 
 # Migration Execution

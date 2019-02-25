@@ -702,13 +702,17 @@
     - name: Azure Best Practices
       items:
       - name: Overview
-        href: cloud-adoption/migrate/toolchain/overview.md
-      - name: Insert Migrate best practices here!!!!
+        href: cloud-adoption/migrate/azure-best-practices/index.md
+      - name: WARNING THE TOC GETS A BIT WONKY WHEN YOU CLICK THROUGH!!!
         href: cloud-adoption/migrate/toolchain/migrate/overview.md
       - name: Migrate
         items:
         - name: Set up networking for migrated workloads
           href: https://docs.microsoft.com/azure/migrate/migrate-best-practices-networking?toc=/azure/architecture/toc.json%3Fbranch=caf%2Fmigrate-v1&bc=/azure/architecture/-bread/toc.json%3Fbranch=caf%2Fmigrate-v1
+      - name: Optimize
+        items:
+        - name: Costing and Sizing Workloads
+          href: https://docs.microsoft.com/azure/migrate/migrate-best-practices-costs?toc=/azure/architecture/toc.json%3Fbranch=caf%2Fmigrate-v1&bc=/azure/architecture/-bread/toc.json%3Fbranch=caf%2Fmigrate-v1
       - name: Secure and Manage
         items:
         - name: Securing and managing workloads post migration
@@ -716,21 +720,33 @@
     - name: Migration Theory
       items:
       - name: Overview
-        href: cloud-adoption/migrate/theory/overview.md
+        href: cloud-adoption/migrate/theory/index.md
+      - name: Pre-Requisites
+        items:
+        - name: xx-Overview
+          href: cloud-adoption/migrate/theory/assess/index.md
+        - name: Migration Process Decisions (Effort, Roles, Definition of Done)
+          href: cloud-adoption/migrate/theory/pre-requisites/process.md
+        - name: Environment Planning Checklist
+          href: cloud-adoption/migrate/theory/pre-requisites/planning-checklist.md
+        - name: xx-Technical complexity and change management
+          href: cloud-adoption/migrate/theory/pre-requisites/technical-complexity.md
+        - name: xx-Cultural complexity and change management
+          href: cloud-adoption/migrate/theory/pre-requisites/culture-complexity.md
       - name: Assess
         items:
         - name: xx-Overview
-          href: cloud-adoption/migrate/theory/assess/overview.md
+          href: cloud-adoption/migrate/theory/assess/index.md
         - name: Business Priorities
           href: cloud-adoption/migrate/theory/assess/business-priorities.md
         - name: Evaluate
           href: cloud-adoption/migrate/theory/assess/evaluate.md
         - name: Architect
           href: cloud-adoption/migrate/theory/assess/architect.md
-        - name: xx-Estimate Cost
+        - name: Estimate Cost
           href: cloud-adoption/migrate/theory/assess/estimate.md
-        - name: xx-Engage execution and support partners
-          href: cloud-adoption/migrate/theory/assess/engage-partners.md
+        - name: Engage Migration Partners and Support
+          href: cloud-adoption/migrate/theory/migrate/partnership-options.md
         - name: Release and Iteration Backlog
           href: cloud-adoption/migrate/theory/assess/release-iteration-backlog.md
         - name: xx-Approve
@@ -738,11 +754,9 @@
       - name: Migrate
         items:
         - name: xx-Overview
-          href: cloud-adoption/migrate/theory/migrate/overview.md
+          href: cloud-adoption/migrate/theory/migrate/index.md
         - name: xx-Release models - Promote, Stage, or Flight
-          href: cloud-adoption/migrate/theory/migrate/release-model.md
-        - name: Partnership Options
-          href: cloud-adoption/migrate/theory/migrate/partnership-options.md
+          href: cloud-adoption/migrate/theory/migrate/release-models.md
         - name: Remediate
           href: cloud-adoption/migrate/theory/migrate/remediate.md
         - name: Replicate
@@ -754,7 +768,7 @@
       - name: Optimize
         items:
         - name: xx-Overview
-          href: cloud-adoption/migrate/theory/optimize/overview.md
+          href: cloud-adoption/migrate/theory/optimize/index.md
         - name: Business Change Plan
           href: cloud-adoption/migrate/theory/optimize/business-change-plan.md
         - name: Business Testing
@@ -769,8 +783,8 @@
           href: cloud-adoption/migrate/theory/optimize/ready.md
       - name: Secure and Manage
         items:
-        - name: Overview
-          href: cloud-adoption/migrate/theory/secure-and-manage/overview.md
+        - name: xx-Overview
+          href: cloud-adoption/migrate/theory/secure-and-manage/index.md
   - name: Govern
     items:
     - name: Overview

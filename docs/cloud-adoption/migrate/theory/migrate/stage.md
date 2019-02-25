@@ -2,7 +2,7 @@
 title: "Guidance to Staging during migration"
 description: A process within Cloud Migration that focuses on the tasks of migrating workloads to the cloud
 author: BrianBlanchard
-ms.date: 10/11/2018
+ms.date: 4/1/2019
 ---
 
 # Guidance to Staging during to migration

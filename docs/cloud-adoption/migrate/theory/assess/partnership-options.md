@@ -2,7 +2,7 @@
 title: "Partnership Options" 
 description: Describes a The options and approaches a company can follow when migrating to the cloud.
 author: BrianBlanchard
-ms.date: 10/11/2018
+ms.date: 4/1/2019
 ---
 # Understanding Partnership Options
 

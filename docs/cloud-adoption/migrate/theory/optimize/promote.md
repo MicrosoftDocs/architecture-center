@@ -2,7 +2,7 @@
 title: "What is required to promote a migrated resource to production?"
 description: A process within Cloud Migration that focuses on the tasks of migrating workloads to the cloud
 author: BrianBlanchard
-ms.date: 10/11/2018
+ms.date: 4/1/2019
 ---
 
 # What is required to promote a migrated resource to production?
