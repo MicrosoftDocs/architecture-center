@@ -86,5 +86,5 @@ Because the package data is not relational, a document oriented database is appr
 
 ## Next steps
 
-- Explore the Drone Delivery [reference implementation](../drone-delivery-aks.md).
+- Explore the Drone Delivery [reference implementation](./drone-delivery-aks.md).
 - View the reference architecture for [Microservices on Azure Kubernetes Service](../reference-architectures/microservices/aks.md) (AKS)
