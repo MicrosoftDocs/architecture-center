@@ -6,6 +6,7 @@ ms.date: 12/18/2018
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: cloud-design-principles
+ms.custom: fasttrack
 ms.custom: resiliency
 ---
 
