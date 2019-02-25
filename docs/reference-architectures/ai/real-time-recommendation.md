@@ -113,15 +113,15 @@ To deploy this architecture, follow the **Azure Databricks** instructions in the
 
 6. Import the [ALS Movie Operationalization notebook][als-example] into your workspace. After logging into your Azure Databricks Workspace, do the following:
 
-    a. Click on the `Home` button on the left side of the workspace.
+    a. Click **Home** on the left side of the workspace.
 
-    b. Right-click on white space in your home directory. Select `Import`.
+    b. Right-click on white space in your home directory. Select **Import**.
     
-    c. Select the `URL` radio button, and paste `https://github.com/Microsoft/Recommenders/blob/master/notebooks/05_operationalize/als_movie_o16n.ipynb` into the text field.
+    c. Select **URL**, and paste the following into the text field: `https://github.com/Microsoft/Recommenders/blob/master/notebooks/05_operationalize/als_movie_o16n.ipynb`
     
-    d. Click `Import`.
+    d. Click **Import**.
 
-7. Open the notebook within Azure Databricks, and attach the configured cluster.
+7. Open the notebook within Azure Databricks and attach the configured cluster.
 
 8. Run the notebook to create the Azure resources required to create a recommendation API that provides the top-10 movie recommendations for a given user.
 
