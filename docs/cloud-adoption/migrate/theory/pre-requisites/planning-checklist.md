@@ -1,11 +1,11 @@
 ---
-title: "Migration Environment Planning Checklist"
+title: "Migration Environment - Planning Checklist"
 description: Validate environmental readiness prior to migration
 author: BrianBlanchard
 ms.date: 4/1/2019
 ---
 
-# Migration Environment Planning Checklist: Validate environmental readiness prior to migration
+# Migration Environment - Planning Checklist: Validate environmental readiness prior to migration
 
 Prior to migrating assets, the right environment must be created in the cloud to receive, host, and support those assets. This article will provide a list of things to validate in the current environment prior to migration.
 
