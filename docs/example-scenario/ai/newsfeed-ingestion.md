@@ -12,7 +12,7 @@ ms.subservice: example-scenario
 
 # Mass ingestion and analysis of news feeds on Azure
 
-This example scenario describes a pipeline for mass ingestion and near real-time analysis of documents using public RSS news feeds.  It uses Azure Cognitive Services to offer useful insights including text translation, facial recognition, and detecting sentiment.
+This example scenario describes a pipeline for mass ingestion and near real-time analysis of documents using public RSS news feeds.  It uses Azure Cognitive Services to offer useful insights including text translation, facial recognition, and sentiment detection.
 
 This scenario contains examples for [English][english], [Russian][russian], and [German][german] news feeds, but you can easily extend it to other RSS feeds. For ease of deployment, the data collection, processing, and analysis are based entirely on Azure services.
 
@@ -31,7 +31,7 @@ While this scenario is based on processing of RSS feeds, it's relevant to any do
 
 The data flows through the solution as follows:
 
-1. An RSS news feed acts as the generator that obtains data from a document or article. For example, with an article, data typically includes a title, a summary of the original body of the news item, and sometimes images
+1. An RSS news feed acts as the generator that obtains data from a document or article. For example, with an article, data typically includes a title, a summary of the original body of the news item, and sometimes images.
 
 2. A generator or ingestion process inserts the article and any associated images into an Azure Cosmos DB [Collection][collection].
 
@@ -45,7 +45,7 @@ The data flows through the solution as follows:
 
 7. When all functions are complete, the notify function is triggered. It loads the processed records for the article and scans them for any results you want. If found, the content is flagged and a notification is sent to the system of your choice.
 
-At each processing step, the Azure Function writes the results to Azure Cosmos DB. Ultimately, the data can be used as desired. For example, you can use it to enhance business processes, locate new customers, or identify customer satisfaction issues.
+At each processing step, the function writes the results to Azure Cosmos DB. Ultimately, the data can be used as desired. For example, you can use it to enhance business processes, locate new customers, or identify customer satisfaction issues.
 
 ### Components
 
@@ -65,11 +65,11 @@ The following list of Azure components is used in this example.
 
 ### Alternatives
 
-* Instead of using a pattern based on queue notification and Azure Functions, use another pattern for this data flow. For example, [Azure Service Bus Topics][topics] can used to processes the various parts of the article in parallel as opposed to the serial processing done in this example. For more information, compare [queues and topics][queues-topics].
+* Instead of using a pattern based on queue notification and Azure Functions, use another pattern for this data flow. For example, [Azure Service Bus Topics][topics] can be used to processes the various parts of the article in parallel as opposed to the serial processing done in this example. For more information, compare [queues and topics][queues-topics].
 
 * Use [Azure Logic App][logic-app] to implement the function code and implement record-level locking such as [Redlock][redlock] (needed for parallel processing until Azure Cosmos DB supports [partial document updates][partial]). For more information, [compare Functions and Logic Apps][compare].
 
-* Implement this architecture using customized AI components rather than existing Azure services. For example, extend the pipeline using a customized model that detects certain people in an image as opposed to the generic people count, gender and age data collected in this example. To use customized machine learning or AI models with this architecture, the models must be built as RESTful endpoints so they can be called from Azure Functions.
+* Implement this architecture using customized AI components rather than existing Azure services. For example, extend the pipeline using a customized model that detects certain people in an image as opposed to the generic people count, gender, and age data collected in this example. To use customized machine learning or AI models with this architecture, build the models as RESTful endpoints so they can be called from Azure Functions.
 
 * Use a different input mechanism instead of RSS feeds. Use multiple generators or ingestion processes to feed Azure Cosmos DB and Azure Storage.
 
@@ -86,7 +86,7 @@ With Azure Cosmos DB, the key is to distribute your workload roughly evenly amon
 
 ### Management and logging
 
-This solution uses [Microsoft Azure Application Insights][aai] to collect performance and logging information. An instance of Application Insights is created with the deployment in the same resource group as the other services needed for this deployment.
+This solution uses [Application Insights][aai] to collect performance and logging information. An instance of Application Insights is created with the deployment in the same resource group as the other services needed for this deployment.
 
 To view the logs generated by the solution:
 
@@ -104,7 +104,7 @@ Azure Cosmos DB uses a secured connection and shared access signature through th
 
 The estimated daily cost to keep this deployment available is approximately \$20 U.S. with no data moving through the system.
 
-Azure Cosmos DB is powerful but incurs the greatest [cost][db-cost] in this deployment. You can use another storage solution by refactoring the Azure Function code provided.
+Azure Cosmos DB is powerful but incurs the greatest [cost][db-cost] in this deployment. You can use another storage solution by refactoring the Azure Functions code provided.
 
 Pricing for Azure Functions varies depending on the [plan][function-plan] it runs in.
 
