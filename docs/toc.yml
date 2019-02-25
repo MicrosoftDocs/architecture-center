@@ -501,14 +501,16 @@
       href: microservices/api-design.md
     - name: Data considerations
       href: microservices/data-considerations.md
-  - name: Building microservices
+  - name: Building microservices on Azure Kubernetes Service (AKS)
     items:
-    - name: Reference implementation
-      href: microservices/drone-delivery.md
+    - name: Drone Delivery microservices reference implementation
+      href: microservices/drone-delivery-aks.md
     - name: Interservice communication
       href: microservices/interservice-communication.md
     - name: API gateways
       href: microservices/gateway.md
+  - name: Design patterns for microservices
+    href: microservices/patterns.md
   - name: Logging and monitoring
     href: microservices/logging-monitoring.md
   - name: CI/CD

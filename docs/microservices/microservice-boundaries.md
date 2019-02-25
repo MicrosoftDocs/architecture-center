@@ -15,7 +15,7 @@ What is the right size for a microservice? You often hear something to the effec
 
 ![Diagram of bounded contexts](./images/bounded-contexts.png)
 
-This article uses a drone delivery service as a running example. You can read more about the scenario and the corresponding reference implementation [here](./drone-delivery.md).
+This article uses a drone delivery service as a running example. You can read more about the scenario and the corresponding reference implementation [here](./drone-delivery-aks.md).
 
 ## From domain model to microservices
 

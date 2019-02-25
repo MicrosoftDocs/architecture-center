@@ -302,7 +302,7 @@ In this section, we present a possible CI/CD workflow, based on the following as
 - The team uses [Azure Pipelines](/azure/devops/pipelines) to run the CI/CD process.
 - The team uses [namespaces](/azure/container-registry/container-registry-best-practices#repository-namespaces) in Azure Container Registry to isolate images that are approved for production from images that are still being tested.
 
-In this example, a developer is working on a microservice called Delivery Service. (The name comes from the reference implementation described [here](../../microservices/drone-delivery.md).) While developing a new feature, the developer checks code into a feature branch.
+In this example, a developer is working on a microservice called Delivery Service. (The name comes from the reference implementation described [here](../../microservices/drone-delivery-aks.md).) While developing a new feature, the developer checks code into a feature branch.
 
 ![CI/CD workflow](./_images/aks-cicd-1.png)
 

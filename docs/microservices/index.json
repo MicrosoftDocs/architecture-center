@@ -35,13 +35,13 @@
                 {
                     "title": "SmartHotel360",
                     "url": "https://azure.microsoft.com/blog/smarthotel360-microservices-on-azure-kubernetes-service/",
-                    "summary":"SmartHotel360 is a fictitious smart hospitality company. This example microservices architectur runs in an Azure Kubernetes Service (AKS) cluster."
+                    "summary":"SmartHotel360 is a fictitious smart hospitality company. This example architecture runs in Kubernetes."
                 }
             ]
         },
         {
-            "heading": "Building microservices on Azure Kubernetes Service (AKS)",
-            "intro": "These articles dive deep into building microservices architectures using AKS.",
+            "heading": "Building microservices on Azure Kubernetes Service",
+            "intro": "These articles dive deep into building microservices architectures using Azure Kubernetes Service (AKS).",
             "cards": [
                 {
                     "title": "Reference architecture for microservices on AKS",
