@@ -503,7 +503,7 @@
       href: microservices/data-considerations.md
   - name: Designing a microservices application
     items:
-    - name: Drone Delivery reference implementation
+    - name: Reference implementation for AKS
       href: microservices/drone-delivery-aks.md
     - name: Interservice communication
       href: microservices/interservice-communication.md

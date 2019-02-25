@@ -57,3 +57,7 @@ The benefits of microservices don't come for free. Here are some of the challeng
 - **Versioning**. Updates to a service must not break services that depend on it. Multiple services could be updated at any given time, so without careful design, you might have problems with backward or forward compatibility.
 
 - **Skillset**. Microservices are highly distributed systems. Carefully evaluate whether the team has the skills and experience to be successful.
+
+## Next steps
+
+- One of the biggest challenges with microservices is to create the right service boundaries. The articles under [Modeling microservices][./domain-analysis.md] show a domain-driven approach to this problem.
