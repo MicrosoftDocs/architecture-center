@@ -23,9 +23,9 @@
             "intro": "The following scenarios show how microservices can be used in various application architectures.",
             "cards": [
                 {
-                    "title": "Using Service Fabric to decompose monolithic applications",
+                    "title": "Use Service Fabric to decompose monolithic applications",
                     "url": "../example-scenario/infrastructure/service-fabric-microservices.md",
-                    "summary": "An iterative approach to decomposing an ASP.NET web site into a microservices architecture."
+                    "summary": "An iterative approach to decomposing an ASP.NET web site into microservices."
                 },
                 {
                     "title": "Scalable order processing on Azure",

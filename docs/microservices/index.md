@@ -56,8 +56,8 @@ The following scenarios show how microservices can be used in various applicatio
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Using Service Fabric to decompose monolithic applications</h3>
-                        <p>An iterative approach to decomposing an ASP.NET web site into a microservices architecture.</p>
+                        <h3>Use Service Fabric to decompose monolithic applications</h3>
+                        <p>An iterative approach to decomposing an ASP.NET web site into microservices.</p>
                     </div>
                 </div>
             </div>
@@ -85,7 +85,7 @@ The following scenarios show how microservices can be used in various applicatio
                 <div class="card">
                     <div class="cardText">
                         <h3>SmartHotel360</h3>
-                        <p>SmartHotel360 is a fictitious smart hospitality company. This example microservices architectur runs in an Azure Kubernetes Service (AKS) cluster.</p>
+                        <p>SmartHotel360 is a fictitious smart hospitality company. This example architecture runs in Kubernetes.</p>
                     </div>
                 </div>
             </div>
@@ -94,9 +94,9 @@ The following scenarios show how microservices can be used in various applicatio
 </li>
 </ul>
 
-## Building microservices on Azure Kubernetes Service (AKS)
+## Building microservices on Azure Kubernetes Service
 
-These articles dive deep into building microservices architectures using AKS.
+These articles dive deep into building microservices architectures using Azure Kubernetes Service (AKS).
 
 <ul  class="panelContent cardsZ">
 <li style="display: flex; flex-direction: column;">
