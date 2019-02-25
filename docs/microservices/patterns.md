@@ -1,6 +1,17 @@
+---
+title: Design patterns for microservices
+description: Design patterns that to implement a robust microservices architecture.
+author: MikeWasson
+ms.date: 02/25/2019
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: reference-architecture
+ms.custom: microservices
+---
+
 # Design patterns for microservices
 
-The goal of microservices is to increase the velocity of application releases, by decomposing the application into small autonomous services that can be deployed independently. A microservices architecture also brings some challenges, and these patterns can help mitigate these challenges. We hope you will find them useful in your own projects. As always, we greatly appreciate your feedback.
+The goal of microservices is to increase the velocity of application releases, by decomposing the application into small autonomous services that can be deployed independently. A microservices architecture also brings some challenges. The design patterns shown here can help mitigate these challenges.
 
 ![Microservices design patterns](./images/microservices-patterns.png)
 
@@ -20,4 +31,6 @@ The goal of microservices is to increase the velocity of application releases, b
 
 [**Sidecar**](../patterns/sidecar.md) deploys helper components of an application as a separate container or process to provide isolation and encapsulation.
 
-[**Strangler**](../patterns/strangler.md) supports incremental migration by gradually replacing specific pieces of functionality with new services.
+[**Strangler**](../patterns/strangler.md) supports incremental refactoring of an application, by gradually replacing specific pieces of functionality with new services.
+
+For the complete catalog of cloud design patterns on the Azure Architecture Center, see [Cloud Design Patterns](../patterns/index.md).
