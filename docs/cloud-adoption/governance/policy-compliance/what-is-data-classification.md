@@ -1,8 +1,12 @@
 ---
-title: "CAF: What is Data Classification"
-description: What is Data Classification?
+title: "CAF: What is data classification?"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: What is data classification?
 author: BrianBlanchard
-ms.date: 2/11/2019
 ---
 
 <!-- markdownlint-disable MD026 -->
@@ -19,7 +23,7 @@ In most organizations, the primary reasons for investing in governance can be re
 * Interruption to the business from outages
 * Unplanned or unexpected spending
 
-There are many variants of these three business risks. However, the tend to be the most common.
+There are many variants of these three business risks. However, these tend to be the most common.
 
 ## Understand then mitigate
 
@@ -46,4 +50,4 @@ Every cloud provider should offer a mechanism for recording metadata about any a
 Apply data classifications during one of the actionable governance journeys.
 
 > [!div class="nextstepaction"]
-> [Begin an Actionable Governance Journeys](../journeys/overview.md)
+> [Begin an Actionable Governance Journey](../journeys/overview.md)

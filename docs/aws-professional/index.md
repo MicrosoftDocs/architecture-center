@@ -143,7 +143,7 @@ An [Availability Zone](/azure/availability-zones/az-overview) is a physically se
 
 To protect an application against a regional outage, you can deploy the application across multiple regions, using [Azure Traffic Manager][traffic-manager] to distribute internet traffic to the different regions. Each Azure region is paired with another region. Together, these form a [regional pair][paired-regions]. With the exception of Brazil South, regional pairs are located within the same geography in order to meet data residency requirements for tax and law enforcement jurisdiction purposes.
 
-Unlike Availability Zones, which are physically separate datacenters but may be in relatively nearby geographic areas, paired regions are usually separated by at least 300 miles. This is intended to ensure larger scale disasters only impact one of the regions in the pair. Neighboring pairs can be set to sync database and storage service data, and are configured so that platform updates are rolled out to only one region in the pair at a time.
+Unlike Availability Zones, which are physically separate datacenters but may be in relatively nearby geographic areas, paired regions are usually separated by at least 300 miles. This is intended to ensure larger scale disasters only affect one of the regions in the pair. Neighboring pairs can be set to sync database and storage service data, and are configured so that platform updates are rolled out to only one region in the pair at a time.
 
 Azure [geo-redundant storage](/azure/storage/common/storage-redundancy-grs) is automatically backed up to the appropriate paired region. For all other resources, creating a fully redundant solution using paired regions means
 creating a full copy of your solution in both regions.
@@ -310,9 +310,9 @@ at a lower cost.
 
 Azure provides several different relational database services that are the equivalent of AWS' Relational Database Service (RDS).
 
-- [SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview)
-- [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/overview)
-- [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/overview)
+- [SQL Database](/azure/sql-database/sql-database-technical-overview)
+- [Azure Database for MySQL](/azure/mysql/overview)
+- [Azure Database for PostgreSQL](/azure/postgresql/overview)
 
 Other database engines such as [SQL
 Server](https://azure.microsoft.com/services/virtual-machines/sql-server/),
@@ -427,7 +427,7 @@ testing resources for Linux and Windows environments.
 - [Understanding Microsoft big data
     solutions](https://msdn.microsoft.com/library/dn749804.aspx)
 
-- [Azure Data Lake & Azure HDInsight
+- [Azure Data Lake and Azure HDInsight
     Blog](https://blogs.msdn.microsoft.com/azuredatalake/)
 
 ### Internet of Things

@@ -27,8 +27,8 @@ Cloud migrations can generate early return on investment (ROI) from cloud transf
 **Myth: Server costs drive the business cases for cloud migration.** Sometimes this is true. For some companies, it's important to reduce ongoing capital expenses related to servers. However, this depends on several factors. Companies with a five- to eight-year hardware refresh cycle are unlikely to see fast returns on their cloud migration. Companies with standardized or enforced refresh cycles can hit a break-even point quickly. In either case, other expenses may be the financial triggers that justify the migration. The following are a few examples of costs that are commonly overlooked when taking a server-only or VM-only view of costs:
 
 - Software costs of virtualization, servers, and middleware can be extensive. Cloud providers eliminate some of these costs. Two examples of a cloud provider reducing virtualization costs are the [Azure Hybrid Benefits](https://azure.microsoft.com/pricing/hybrid-benefit/#services) and [Reservations](https://azure.microsoft.com/reservations/) programs.
-- Business losses due to outages can quickly exceed hardware or software costs. If the current datacenter is unstable, work with the business to quantify the impact of outages in terms of opportunity costs or actual business costs.
-- Environmental costs can also be impactful. For the average American family, their home is the biggest investment and highest cost in their budget. The same is often true for data centers. Real estate, facilities, and utility costs represent a fair portion of on-premises costs. When data centers are retired, those facilities can be repurposed by the business, or potentially the business could be released from the costs entirely.
+- Business losses due to outages can quickly exceed hardware or software costs. If the current datacenter is unstable, work with the business to quantify the effect of outages in terms of opportunity costs or actual business costs.
+- Environmental costs can also be significant. For the average American family, their home is the biggest investment and highest cost in their budget. The same is often true for datacenters. Real estate, facilities, and utility costs represent a fair portion of on-premises costs. When datacenters are retired, those facilities can be repurposed by the business, or potentially the business could be released from the costs entirely.
 
 **Myth: Operating Expense (OpEx) is better than Capital Expense (CapEx).** As explained in the [fiscal outcomes](business-outcomes/fiscal-outcomes.md) article, OpEx can be a good thing. However, there are a number of industries that can see OpEx as a negative. The following are a few examples that would trigger tighter integration with the accounting and business units regarding the OpEx conversation:
 
@@ -67,17 +67,17 @@ Unpacking this formula creates a migration-specific view of the formulas that dr
 
 ## Migration-specific initial investment
 
-- Cloud providers such as Azure offer calculators to estimate cloud investments. An example of such a calculator is the [Azure Pricing calculator](https://azure.microsoft.com/en-in/pricing/).
+- Cloud providers such as Azure offer calculators to estimate cloud investments. An example of such a calculator is the [Azure Pricing calculator](https://azure.microsoft.com/pricing).
 - Some cloud providers also support cost delta calculators. An example of a cost delta calculator is the [Azure Total Cost of Ownership (TCO) Calculator](https://azure.com/tco).
 - For more refined cost structures, consider a [Digital Estate Planning](../digital-estate/overview.md) exercise.
 - Estimate the cost of migration.
-- Estimate the cost of any expected training opportunities. [Microsoft Learn](https://docs.microsoft.com/learn/) may be able to help mitigate those costs.
+- Estimate the cost of any expected training opportunities. [Microsoft Learn](/learn) may be able to help mitigate those costs.
 - In some companies, the time invested by existing staff members may need to be included in the initial costs. Consult the finance office for guidance.
 - Discuss any additional costs or burden costs with the finance office for validation.
 
 ## Migration-specific revenue deltas
 
-This aspect is often overlooked when creating a migration business justification. In some areas, the cloud can cut costs. However, the ultimate goal of any transformation is to yield better results over time. Consider the downstream impacts to understand long-term revenue improvements. What new technologies will be available to the business after this migration, that can't be leveraged today? What projects or business objectives are blocked by dependencies on legacy technologies? What programs are on-hold, pending high cap-ex technology costs?
+This aspect is often overlooked when creating a migration business justification. In some areas, the cloud can cut costs. However, the ultimate goal of any transformation is to yield better results over time. Consider the downstream impacts to understand long-term revenue improvements. What new technologies will be available to the business after this migration that can't be used today? What projects or business objectives are blocked by dependencies on legacy technologies? What programs are on-hold, pending high cap-ex technology costs?
 
 After considering the opportunities unlocked by the cloud, work with the business to calculate the revenue increases that could come from those opportunities.
 
@@ -85,24 +85,24 @@ After considering the opportunities unlocked by the cloud, work with the busines
 
 Calculate any changes to costs that will come from the proposed migration. See [Financial Models](financial-models.md) for details of the different types of cost deltas. Cloud providers often provide tools for cost delta calculations. An example of a cost delta calculator is the [Azure Total Cost of Ownership (TCO) Calculator](https://azure.com/tco).
 
-Other examples of costs that may be reduced by a Cloud Migration:
+Other examples of costs that may be reduced by a cloud migration:
 
-- Data Center termination or reduction (Environmental costs)
-- Reduction in power consumed (Environmental costs)
-- Rack Termination (Physical asset recovery)
-- Prevent a hardware refresh (Cost Avoidance)
-- Avoid a software renewal (Operational Cost Reduction or Cost Avoidance)
-- Vendor consolidation (Operational Cost Reduction and potential Soft Cost Reduction)
+- Datacenter termination or reduction (environmental costs)
+- Reduction in power consumed (environmental costs)
+- Rack termination (physical asset recovery)
+- Hardware refresh prevention (cost avoidance)
+- Software renewal avoidance (operational cost reduction or cost avoidance)
+- Vendor consolidation (operational cost reduction and potential soft cost reduction)
 
 ## When ROI results are surprising
 
-If the ROI for a cloud migration isn't in line with expectations, it may be valuable to revisit the common myths listed at the begining of this article.
+If the ROI for a cloud migration doesn't match expectations, it may be valuable to revisit the common myths listed at the begining of this article.
 
 However, it's important to understand that a cost savings outcome is not always possible. There are applications that cost more to operate in the cloud than on-premises. These applications can significantly skew results in an analysis.
 
 When the ROI is below 20%, consider a [Digital Estate Planning](../digital-estate/overview.md) exercise, with specific attention to [rationalization](../digital-estate/rationalize.md). During quantitative analysis, perform a review of each application to find workloads that skew the results. It could be wise to remove those workloads from the plan. If usage data is available, consider reducing the size of VMs to match usage.
 
-If the ROI is still misaligned, seek help from your Microsoft sales representative or [engage an experienced partner](https://azure.microsoft.com/en-us/migration/partners/).
+If the ROI is still misaligned, seek help from your Microsoft sales representative or [engage an experienced partner](https://azure.microsoft.com/migration/support).
 
 ## Next steps
 

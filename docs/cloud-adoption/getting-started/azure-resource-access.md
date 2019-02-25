@@ -1,8 +1,11 @@
 ---
 title: "CAF: Resource access management in Azure"
 description: Explanation of resource access management constructs in Azure - Azure Resource Manager, subscriptions, resource groups, and resources.
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.date: 02/11/2019
 author: petertaylor9999
-ms.date: 2/11/2019
 ---
 
 # Resource access management in Azure
@@ -41,7 +44,7 @@ An Azure subscription is similar to a resource group in that it's a logical cons
 In [how does Azure work?](what-is-azure.md) you learned that Azure includes a "front end" with many services that orchestrate all the functions of Azure. One of these services is [Resource Manager](/azure/azure-resource-manager/), and this service hosts the RESTful API used by clients to manage resources.
 
 ![](../_images/governance-1-12.png)
-*Figure 4. Azure resource manager.*
+*Figure 4. Azure Resource Manager.*
 
 The following figure shows three clients: [PowerShell](/powershell/azure/overview), the [Azure portal](https://portal.azure.com), and the [Azure command line interface (CLI)](/cli/azure):
 
@@ -60,7 +63,7 @@ When a client makes a request to manage a specific resource, Resource Manager co
 
 Resource Manager requires the client to specify an identifier for both the subscription and the resource group in order to manage the virtual machine resource.
 
-Now that you have an understanding of how Resource Manager works, let's return to our discussion of how an Azure subscription is associated with the controls used by Azure resource manager. Before any resource management request can be executed by Resource Manager, a set of controls are checked.
+Now that you have an understanding of how Resource Manager works, let's return to our discussion of how an Azure subscription is associated with the controls used by Azure Resource Manager. Before any resource management request can be executed by Resource Manager, a set of controls are checked.
 
 The first control is that a request must be made by a validated user, and Resource Manager has a trusted relationship with [Azure Active Directory](/azure/active-directory/) (Azure AD) to provide user identity functionality.
 
