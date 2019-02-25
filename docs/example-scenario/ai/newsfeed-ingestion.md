@@ -12,9 +12,9 @@ ms.subservice: example-scenario
 
 # Mass ingestion and analysis of news feeds on Azure
 
-This example scenario describes a pipeline for mass ingestion of and near real-time analysis documents using public RSS news feeds.  It uses Azure Cognitive Services to offer useful insights including text translation, facial recognition, and detecting sentiment.
+This example scenario describes a pipeline for mass ingestion and near real-time analysis of documents using public RSS news feeds.  It uses Azure Cognitive Services to offer useful insights including text translation, facial recognition, and detecting sentiment.
 
-This scenario is based on [English][english], [Russian][russian], and [German][german] news feeds, but you can easily extend it to other RSS feeds. For ease of deployment, the data collection, processing, and analysis are based entirely on Azure services.
+This scenario contains examples for [English][english], [Russian][russian], and [German][german] news feeds, but you can easily extend it to other RSS feeds. For ease of deployment, the data collection, processing, and analysis are based entirely on Azure services.
 
 ## Relevant use cases
 
