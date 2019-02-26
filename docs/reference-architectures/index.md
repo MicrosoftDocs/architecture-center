@@ -73,7 +73,7 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
                     </div>
                     <div class="cardText">
                         <h3>Batch scoring of Python models</h3>
-                        <p>Batch score many Python models in parallel on a schedule using Azure Batch AI.</p>
+                        <p>Batch score many Python models in parallel on a schedule using Azure Machine Learning.</p>
                     </div>
                 </div>
             </div>
