@@ -1,3 +1,14 @@
+---
+title: Introduction to microservices architectures
+description: Introduction to microservices architectures.
+author: MikeWasson
+ms.date: 02/26/2019
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: reference-architecture
+ms.custom: microservices
+---
+
 # Introduction to microservices architectures
 
 A microservices architecture consists of a collection of small, autonomous services. Each service is self-contained and should implement a single business capability. Here are some of the defining characteristics of microservices:

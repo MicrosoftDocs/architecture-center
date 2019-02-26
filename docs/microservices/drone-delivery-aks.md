@@ -1,3 +1,14 @@
+---
+title: Microservices reference implementation for Azure Kubernetes Service
+description: This reference implementation illustrates best practices for a microservices architecture
+author: MikeWasson
+ms.date: 02/26/2019
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: reference-architecture
+ms.custom: microservices
+---
+
 # Microservices reference implementation for Azure Kubernetes Service
 
 To illustrate best practices for a microservices architecture, we created a reference implementation that we call the Drone Delivery application. This implementation runs on Kubernetes using Azure Kubernetes Service (AKS). You can find the reference implementation on [GitHub][drone-ri].
