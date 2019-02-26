@@ -15,7 +15,7 @@ ms.subservice:
 
 Monitoring in custom application code is a critical part of any production-level solution, and Azure Databricks offers robust functionality for monitoring custom application metrics, streaming query event information, and application log messages. Azure Databricks supports delivery of metrics and logging data to many different logging services, and the code library that accompanies this document extends the core monitoring functionality of Azure Databricks to send streaming query event information to Azure Log Analytics.
 
-The code library that accompanies this documentn extends the core monitoring functionality of Azure Databricks to send streaming query events, Apache Spark events and metrics, and application logging information to Azure Log Analytics.
+The code library that accompanies this document extends the core monitoring functionality of Azure Databricks to send streaming query events, Apache Spark events and metrics, and application logging information to Azure Log Analytics.
 
 The audience for this document and accompanying code library are advanced Apache Spark and Azure Databricks solution developers. The code must be built into Java Archive (JAR) files and then deployed to an Azure Databricks cluster using the [Azure Databricks file system](https://docs.azuredatabricks.net/user-guide/dbfs-databricks-file-system.html) and a [cluster node initilization script](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html). The code is a combination of [Scala](https://www.scala-lang.org/) and Java, with a corresponding set of [Maven](https://maven.apache.org) project object model (POM) files to build the output JAR files. An advanced understanding of Java, Scala, and Maven are recommended as prerequisistes.
 
