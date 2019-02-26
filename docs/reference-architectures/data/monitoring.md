@@ -15,6 +15,8 @@ ms.subservice:
 
 Monitoring in custom application code is a critical part of any production-level solution, and Azure Databricks offers robust functionality for monitoring custom application metrics, streaming query event information, and application log messages. Azure Databricks supports delivery of metrics and logging data to many different logging services, and the code library that accompanies this document extends the core monitoring functionality of Azure Databricks to send streaming query event information to Azure Log Analytics.
 
+The code library that accompanies this documentn extends the core monitoring functionality of Azure Databricks to send streaming query events, Apache Spark events and metrics, and application logging information to Azure Log Analytics.
+
 The audience for this document and accompanying code library are advanced Apache Spark and Azure Databricks solution developers. The code must be built into Java Archive (JAR) files and then deployed to an Azure Databricks cluster using the [Azure Databricks file system](https://docs.azuredatabricks.net/user-guide/dbfs-databricks-file-system.html) and a [cluster node initilization script](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html). The code is a combination of [Scala](https://www.scala-lang.org/) and Java, with a corresponding set of [Maven](https://maven.apache.org) project object model (POM) files to build the output JAR files. An advanced understanding of Java, Scala, and Maven are recommended as prerequisistes.
 
 ## About the Azure Databricks monitoring library
@@ -28,6 +30,10 @@ The library that accompanies this document is available from the [Spark monitori
 &nbsp;&nbsp;/pom.xml
 
 The **spark-jobs** directory is a sample Spark application with sample code demonstrating how to implement a Spark application metric counter.
+
+The **spark-listeners** directory includes functionality that enables Azure Databrick to send Apache Spark events at the service level to an Azure Log Analytics workspace. These events include streaming, and structured streaming events.
+
+The **spark-listeners-loganalytics** directory includes a sink for Spark listeners, a sink for DropWizard, and a client for an Azure Log Analytics Workspace. This directory also includes a log4j Appender for your Apache Spark application logs.
 
 The **spark-listeners-loganalytics** and **spark-listeners** directories contain the code for building the two JAR files that are deployed to the Databricks cluster. The **spark-listeners** directory includes a **scripts** directory that contains a cluster node initialization script to copy the JAR files from a staging directory in the Azure Databricks file system to execution nodes.
 
