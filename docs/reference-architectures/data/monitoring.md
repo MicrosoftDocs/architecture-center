@@ -22,10 +22,10 @@ The audience for this document and accompanying code library are advanced Apache
 The library that accompanies this document is available from the [Spark monitoring Github repository](https://github.com/mspnp/spark-monitoring). The repository has the following directory structure:
 
 /src
-  /spark-jobs
-  /spark-listeners-loganalytics
-  /spark-listeners
-  /pom.xml
+&nbsp;&nbsp;/spark-jobs
+&nbsp;&nbsp;/spark-listeners-loganalytics
+&nbsp;&nbsp;/spark-listeners
+&nbsp;&nbsp;/pom.xml
 
 The **spark-jobs** directory is a sample Spark application with sample code demonstrating how to implement a Spark application metric counter.
 
@@ -100,11 +100,12 @@ To create and configure the Azure Databricks cluster, follow these steps:
 4. In the "Databricks Runtime Version" dropdown, select **4.3 (includes Apache Spark 2.3.1, Scala 2.11)**.
 5. Under "Advanced Options", click on the "Spark" tab. Enter the following name-value pairs in the "Spark Config" text box:
 
-  | Name | Value |
-  |------|-------|
-  |spark.extraListeners| com.databricks.backend.daemon.driver.DBCEventLoggingListener,org.apache.spark.listeners.UnifiedSparkListener|
-  |spark.unifiedListener.sink |org.apache.spark.listeners.sink.loganalytics.LogAnalyticsListenerSink|
-  |spark.unifiedListener.logBlockUpdates|false|
+| Name | Value |
+|-------|--------|
+|spark.extraListeners|com.databricks.backend.daemon.driver.DBCEventLoggingListener,org.apache.spark.listeners.UnifiedSparkListener|
+|spark.unifiedListener.sink |org.apache.spark.listeners.sink.loganalytics.LogAnalyticsListenerSink|
+|spark.unifiedListener.logBlockUpdates|false|
+
 6. While still under the "Spark" tab, enter the following in the "Environment Variables" text box:
 * LOG_ANALYTICS_WORKSPACE_ID=[your Azure Log Analytics workspace ID](/azure/azure-monitor/platform/agent-windows#obtain-workspace-id-and-key)
 * LOG_ANALYTICS_WORKSPACE_KEY=[your Azure Log Analytics shared access signature](/azure/azure-monitor/platform/agent-windows#obtain-workspace-id-and-key)
