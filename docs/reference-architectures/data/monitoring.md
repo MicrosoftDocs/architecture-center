@@ -23,11 +23,11 @@ The audience for this document and accompanying code library are advanced Apache
 
 The library that accompanies this document is available from the [Spark monitoring Github repository](https://github.com/mspnp/spark-monitoring). The repository has the following directory structure:
 
-/src
-&nbsp;&nbsp;/spark-jobs
-&nbsp;&nbsp;/spark-listeners-loganalytics
-&nbsp;&nbsp;/spark-listeners
-&nbsp;&nbsp;/pom.xml
+/src  
+&nbsp;&nbsp;/spark-jobs  
+&nbsp;&nbsp;/spark-listeners-loganalytics  
+&nbsp;&nbsp;/spark-listeners  
+&nbsp;&nbsp;/pom.xml  
 
 The **spark-jobs** directory is a sample Spark application with sample code demonstrating how to implement a Spark application metric counter.
 
