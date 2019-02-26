@@ -82,7 +82,7 @@ The following scenarios show how microservices can be used in various applicatio
 
 ## Designing a microservices architecture
 
-These articles dive deep into how to build a microservices architecture.
+These articles dive deep into how to build a microservices application, based on a reference implementations that uses Azure Kubernetes Services (AKS).
 
 <ul  class="panelContent cardsZ">
 <li style="display: flex; flex-direction: column;">
