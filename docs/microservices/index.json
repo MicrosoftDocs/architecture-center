@@ -31,11 +31,6 @@
                     "title": "Scalable order processing on Azure",
                     "url": "../example-scenario/data/ecommerce-order-processing.md",
                     "summary":"Order processing using a functional programming model implemented via microservices."
-                },
-                {
-                    "title": "SmartHotel360",
-                    "url": "https://azure.microsoft.com/blog/smarthotel360-microservices-on-azure-kubernetes-service/",
-                    "summary":"SmartHotel360 is a fictitious smart hospitality company. This example architecture runs in Kubernetes."
                 }
             ]
         },

@@ -78,20 +78,6 @@ The following scenarios show how microservices can be used in various applicatio
         </div>
     </a>
 </li>
-<li style="display: flex; flex-direction: column;">
-    <a href="https://azure.microsoft.com/blog/smarthotel360-microservices-on-azure-kubernetes-service/" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>SmartHotel360</h3>
-                        <p>SmartHotel360 is a fictitious smart hospitality company. This example architecture runs in Kubernetes.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
 </ul>
 
 ## Building microservices on Azure Kubernetes Service
