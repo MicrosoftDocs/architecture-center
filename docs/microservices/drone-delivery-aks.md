@@ -21,5 +21,6 @@ Our reference implementation uses Kubernetes with [Azure Kubernetes Service](/az
 
 ## Next steps
 
-- [View the code and deploy the application][drone-ri]
-- Learn about using domain analysis to [model microservices](./domain-analysis.md)
+- [View the code and deploy the application][drone-ri] (GitHub).
+- Learn about using domain analysis to [model microservices](./domain-analysis.md).
+- Learn about [interservice communication](./interservice-communication.md) for microservices.
