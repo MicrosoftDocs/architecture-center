@@ -35,8 +35,8 @@
             ]
         },
         {
-            "heading": "Building microservices on Azure Kubernetes Service",
-            "intro": "These articles dive deep into building microservices architectures using Azure Kubernetes Service (AKS).",
+            "heading": "Designing a microservices architecture",
+            "intro": "These articles dive deep into how to build a microservices architecture.",
             "cards": [
                 {
                     "title": "Reference architecture for microservices on AKS",
