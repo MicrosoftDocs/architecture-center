@@ -7,6 +7,8 @@ layout: LandingPage
 ms.topic: landing-page
 ms.service: architecture-center
 ms.subservice: example-scenario
+experimental: true
+experiment_id: 4d428657-5d85-46
 ---
 
 # Azure Example Scenarios
@@ -16,6 +18,8 @@ Example scenarios show how to solve specific business or technical challenges us
 In each scenario you'll find an architecture diagram, data flows, and details about the technical components. You will also learn about considerations when running the solution in production, cost factors for the solution, and other options for solving similar problems. Many scenarios provide a way to easily deploy the solution in your own Azure subscription.
 
 Jump to: [AI scenarios](#ai-scenarios) | [Application scenarios](#application-scenarios) | [Data scenarios](#data-scenarios) | [Infrastructure scenarios](#infrastructure-scenarios)
+
+<!-- markdownlint-disable MD033 -->
 
 <ul class="panelContent cardsL">
     <li>

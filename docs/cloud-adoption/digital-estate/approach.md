@@ -1,6 +1,9 @@
 ---
-title: Approaches to digital estate planning
-titleSuffix: Enterprise Cloud Adoption
+title: "CAF: Approaches to digital estate planning"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
 description: Describes some approaches to digital estate planning
 author: BrianBlanchard
 ms.date: 12/10/2018
@@ -9,7 +12,7 @@ ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ---
 
-# Enterprise Cloud Adoption: Approaches to digital estate planning
+# Approaches to digital estate planning
 
 Digital estate planning can take a number of shapes, depending on the desired outcomes and size of the existing estate. There are also a number of options regarding the approach taken. It's important to set expectations regarding the approach early in planning cycles. Unclear expectations often lead to delays associated with additional inventory gathering exercises. This article outlines three approaches to analysis.
 
@@ -31,7 +34,7 @@ The asset-driven approach provides a plan based on the assets that support an ap
 
 ## Incremental approach
 
-Like much of the Enterprise Cloud Adoption framework, an incremental approach is highly suggested. In the case of digital estate planning, that equates to a multi-phase process, as follows:
+Like much of CAF, an incremental approach is highly suggested. In the case of digital estate planning, that equates to a multi-phase process, as follows:
 
 - Initial cost analysis: If financial validation is required, start with an asset-driven approach, described above, to get an initial cost calculation for the entire digital estate, with no rationalization. This establishes a worst-case scenario benchmark.
 
@@ -39,7 +42,7 @@ Like much of the Enterprise Cloud Adoption framework, an incremental approach is
 
 - Release planning: At each release, the migration backlog is pruned and re-prioritized to focus on the most relevant business impact. During this process, the next 5&ndash;10 workloads would be selected as prioritized releases. At this point, the Cloud Strategy team would invest the time in completing an exhaustive workload-driven approach. Delaying this assessment until a release is aligned, better respects the time of stakeholders. It also delays the investment in full analysis until the business starts to see results from earlier efforts.
 
-- Execution analysis: Prior to the migration, modernization, or replication of any asset, the asset should be assessed individually and as part of a collective release. At this point, the data from the initial asset-driven approach can be scrutinized to ensure accurate sizing and operational constraints.
+- Execution analysis: Before migrating, modernizing, or replicating any asset, each should be assessed both individually and as part of a collective release. At this point, the data from the initial asset-driven approach can be scrutinized to ensure accurate sizing and operational constraints.
 
 > [!TIP]
 > This incremental approach allows for streamlined planning and accelerated results. It is very important that all parties involved understand the approach to delayed decision making. It is equally important that assumptions made at each stage be documented to avoid loss of details.

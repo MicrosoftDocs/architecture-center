@@ -61,7 +61,7 @@ SAP provides flexible options for different combinations of operating system, da
 
 - Oracle databases also have recommended practices for Azure. For more information, see [Designing and implementing an Oracle database in Azure](/azure/virtual-machines/workloads/oracle/oracle-design).
 
-- Oracle Data Guard is used to eliminate single points of failure for mission critical Oracle databases. For more information, see [Implementing Oracle Data Guard on a Linux virtual machine in Azure](/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard).
+- Oracle Data Guard is used to eliminate single points of failure for mission-critical Oracle databases. For more information, see [Implementing Oracle Data Guard on a Linux virtual machine in Azure](/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard).
 
 - Microsoft Azure offers infrastructure services that can be used to deploy SAP products with an Oracle database. For more information, see [Deploying an Oracle DBMS on Azure for an SAP workload](/azure/virtual-machines/workloads/sap/dbms_guide_oracle).
 

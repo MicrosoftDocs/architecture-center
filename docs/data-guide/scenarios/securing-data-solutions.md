@@ -62,7 +62,7 @@ For more information, see [Azure Logging and Auditing](/azure/security/azure-log
 
 ### Rights management
 
-[Azure Rights Management](/information-protection/understand-explore/what-is-azure-rms) is a cloud-based service that uses encryption, identity, and authorization policies to secure files and email. It works across multiple devices—phones, tablets, and PCs. Information can be protected both within your organization and outside your organization because that protection remains with the data, even when it leaves your organization's boundaries.
+[Azure Rights Management](/information-protection/understand-explore/what-is-azure-rms) is a cloud-based service that uses encryption, identity, and authorization policies to secure files and email. It works across multiple devices &mdash; phones, tablets, and PCs. Information can be protected both within your organization and outside your organization because that protection remains with the data, even when it leaves your organization's boundaries.
 
 ### Access control
 

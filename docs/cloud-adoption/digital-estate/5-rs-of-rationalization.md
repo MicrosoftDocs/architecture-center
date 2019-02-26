@@ -1,7 +1,10 @@
 ---
-title: The 5 Rs of rationalization
-titleSuffix: Enterprise Cloud Adoption
-description: Describes the options that are available when rationalizing a digital estate
+title: "CAF: The 5 Rs of rationalization"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+description: Review the options available for rationalizing a digital estate.
 author: BrianBlanchard
 ms.date: 12/10/2018
 ms.topic: guide
@@ -9,7 +12,7 @@ ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ---
 
-# Enterprise Cloud Adoption: The 5 Rs of rationalization
+# The 5 Rs of rationalization
 
 Cloud Rationalization is the process of evaluating assets to determine the best approach to migrating or modernizing each asset in the cloud. For more information about the process of rationalization, see [What is a digital estate?](overview.md)
 
@@ -40,7 +43,7 @@ Qualitative analysis factors:
 
 ## Refactor
 
-Platform as a Service (PaaS) options can reduce operational costs associated with many applications. It can be prudent to slightly refactor an application to fit a PaaS based model.
+Platform as a service (PaaS) options can reduce operational costs associated with many applications. It can be prudent to slightly refactor an application to fit a PaaS based model.
 
 Refactor also refers to the application development process of refactoring code to allow an application to deliver on new business opportunities.
 
@@ -65,7 +68,7 @@ Qualitative analysis factors:
 
 ## Rearchitect
 
-Some aging applications aren't compatible with cloud providers because of the architectural decisions made when the application was built. In these cases, the application may need to be rearchitected prior to transformation.
+Some aging applications aren't compatible with cloud providers because of the architectural decisions made when the application was built. In these cases, the application may need to be rearchitected before transformation.
 
 In other cases, applications that are cloud compatible, but not cloud native benefits, may produce cost efficiencies and operational efficiencies by rearchitecting the solution to be a cloud native application.
 
@@ -113,7 +116,7 @@ Qualitative analysis Factors:
 
 ## Replace
 
-Solutions are generally implemented using the best technology and approach available at the time. In some cases, Software as a Service (SaaS) applications can meet all of the functionality required of the hosted application. In these scenarios, a workload could be slated for future replacement, effectively removing it from the transformation effort.
+Solutions are generally implemented using the best technology and approach available at the time. In some cases, software as a service (SaaS) applications can meet all of the functionality required of the hosted application. In these scenarios, a workload could be slated for future replacement, effectively removing it from the transformation effort.
 
 Common drivers could include:
 
@@ -130,7 +133,7 @@ Quantitative analysis factors:
 
 Qualitative analysis factors:
 
-* Cost benefit analysis of current architecture vs SaaS solution
+* Cost benefit analysis of the current architecture versus a SaaS solution
 * Business process maps
 * Data schemas
 * Custom or automated processes

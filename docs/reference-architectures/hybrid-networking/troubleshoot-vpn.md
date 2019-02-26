@@ -30,7 +30,7 @@ The *Message* property of each entry provides a description of the error. Some c
 
   ```console
   EventID            : 20111
-  MachineName        : on-prem-vm
+  MachineName        : on-premises-vm
   Data               : {41, 3, 0, 0}
   Index              : 14231
   Category           : (0)
@@ -62,7 +62,7 @@ The *Message* property of each entry provides a description of the error. Some c
 
   ```console
   EventID            : 20111
-  MachineName        : on-prem-vm
+  MachineName        : on-premises-vm
   Data               : {233, 53, 0, 0}
   Index              : 14245
   Category           : (0)
@@ -94,7 +94,7 @@ In the event of a failure to connect, this log will contain errors that look sim
 
 ```console
 EventID            : 20227
-MachineName        : on-prem-vm
+MachineName        : on-premises-vm
 Data               : {}
 Index              : 4203
 Category           : (0)

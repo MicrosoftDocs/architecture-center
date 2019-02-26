@@ -1,5 +1,5 @@
 ---
-title: "Enterprise Cloud Adoption: Operational Fundamentals"
+title: "CAF: Operational Fundamentals"
 description: Guidance on operational fundamentals
 author: petertaylor9999
 ms.date: 09/20/2018
@@ -10,7 +10,7 @@ ms.subservice: enterprise-cloud-adoption
 
 # Establishing an operational fitness review
 
-As your enterprise begins to operate workloads in Azure, the next step is to establish an **operational fitness review** process to enumerate, implement, and iteratively review the **non-functional** requirements for these workloads. _Non-functional_ requirements are related to the expected operational behavior of the service. There are five essential categories of non-functional requirements referred to as the [pillars of software quality](../../guide/pillars.md): scalability, availability, resiliency (including business continuity and disaster recovery), management, and security. The purpose of an operational fitness review process is ensuring that your mission critical workloads meet the expectations of your business with respect to the quality pillars.
+As your enterprise begins to operate workloads in Azure, the next step is to establish an **operational fitness review** process to enumerate, implement, and iteratively review the **non-functional** requirements for these workloads. _Non-functional_ requirements are related to the expected operational behavior of the service. There are five essential categories of non-functional requirements referred to as the [pillars of software quality](../../guide/pillars.md): scalability, availability, resiliency (including business continuity and disaster recovery), management, and security. The purpose of an operational fitness review process is ensuring that your mission-critical workloads meet the expectations of your business with respect to the quality pillars.
 
 For this reason,  your enterprise should undertake an operational fitness review process to fully understand the issues that result from running the workload in a production environment, determine how to remediate the issues, then resolve them. This article outlines a high-level operational fitness review process that your enterprise can use to achieve this goal.
 
@@ -44,11 +44,11 @@ At a high level, the process has two phases. In the prerequisites phase, the req
 
 The steps in this phase are intended to capture the necessary requirements for conducting a regular review of the important services.
 
-- **Identify critical business operations**. Identify the enterprise's **mission critical** business operations. Business operations are independent from any supporting service functionality. In other words, business operations represent the actual activities that the business needs to perform and are supported by a set of IT services. The term _mission critical_, or alternatively _business critical_, reflects a severe impact to the business if the operation is impeded. For example, an online retailer may have a business operation such as "enable a customer to add an item to a shopping cart" or "process a credit card payment". If either of these operations were to fail, a customer would be unable to complete the transaction and the enterprise would fail to realize sales.
+- **Identify critical business operations**. Identify the enterprise's mission-critical business operations. Business operations are independent from any supporting service functionality. In other words, business operations represent the actual activities that the business needs to perform and are supported by a set of IT services. The term **mission-critical** (or **business critical**) reflects a severe impact to the business if the operation is impeded. For example, an online retailer may have a business operation such as "enable a customer to add an item to a shopping cart" or "process a credit card payment". If either of these operations were to fail, a customer would be unable to complete the transaction and the enterprise would fail to realize sales.
 
 - **Map operations to services**. Map these business operations to the services that support them. In the above shopping cart example, several services may be involved: an inventory stock management service, a shopping cart service, and others. In the credit card payment example above, an on-premises payment service may interact with a third-party payment processing service.
 
-- **Analyze service dependencies**. Most business operations require orchestration between multiple supporting services. It is important to understand the dependences between the services and the flow of mission critical transactions through these services. You should also consider the dependencies between on-premises services and Azure services. In the shopping cart example, the inventory stock management service may be hosted on-premises and ingest data input by employees from a physical warehouse, but it may store data in an Azure service such as [Azure storage](/azure/storage/common/storage-introduction) or a database such as [Azure Cosmos DB](/azure/cosmos-db/introduction).
+- **Analyze service dependencies**. Most business operations require orchestration between multiple supporting services. It is important to understand the dependences between the services and the flow of mission-critical transactions through these services. You should also consider the dependencies between on-premises services and Azure services. In the shopping cart example, the inventory stock management service may be hosted on-premises and ingest data input by employees from a physical warehouse, but it may store data in an Azure service such as [Azure storage](/azure/storage/common/storage-introduction) or a database such as [Azure Cosmos DB](/azure/cosmos-db/introduction).
 
 An output from these activities is a set of **scorecard metrics** for service operations. The metrics are categorized in terms of non-functional criteria such as availability, scalability, and disaster recovery. Scorecard metrics express the criteria that the service is expected to meet operationally. These metrics can be expressed at any level of granularity that is appropriate for the service operation.
 
@@ -60,8 +60,7 @@ It is important to emphasize that these metrics should directly reflect business
 
 The service review phase is core of the operational fitness review process.
 
-- **Measure service metrics**. Using the scorecard metrics, the services should be monitored to ensure that they meet the business expectations. This means that service monitoring is essential. If you are not able to monitor a set of services with respect to the non-functional requirements, then the corresponding scorecard metrics should be considered red. In this case, the first step for remediation is to implement the appropriate service monitoring.
-For example, if the business expects a service to operate with 99.99% availability, but there is no production telemetry in place to measure the availability, you should assume that you're not meeting the requirement.
+- **Measure service metrics**. Using the scorecard metrics, the services should be monitored to ensure that they meet the business expectations. This means that service monitoring is essential. If you are not able to monitor a set of services with respect to the non-functional requirements, then the corresponding scorecard metrics should be considered red. In this case, the first step for remediation is to implement the appropriate service monitoring. For example, if the business expects a service to operate with 99.99% availability, but there is no production telemetry in place to measure the availability, you should assume that you're not meeting the requirement.
 
 - **Plan remediation**. For each service operation with metrics that fall below an acceptable threshold, determine the cost of remediating the service to bring operation to an acceptable metric. If the cost of remediating the service is greater than the expected revenue generation of the service, move on to consider the non-tangible costs such as customer experience. For example, if customers have difficulty placing a successful order using the service, they may choose a competitor instead.
 
@@ -73,7 +72,7 @@ This process is iterative, and ideally your enterprise should have a team dedica
 
 The operational fitness review team is composed of the following roles:
 
-1. **Business owner**. This role provides knowledge of the business to identify and prioritize each "mission critical" business operation. This role also compares the mitigation cost to the business impact and drives the final decision on remediation.
+1. **Business owner**. This role provides knowledge of the business to identify and prioritize each mission-critical business operation. This role also compares the mitigation cost to the business impact and drives the final decision on remediation.
 
 2. **Business advocate**. This role is responsible for breaking down business operations into discreet parts and mapping those parts to on-premises and cloud services and infrastructure. The role requires deep knowledge of the technology associated with each business operation.
 
@@ -102,10 +101,10 @@ The details of the process and meeting should be adapted to fit your specific ne
 ## Recommended resources
 
 - [Pillars of software quality](../../guide/pillars.md).
-This section of the Azure Application Architecture guide describes the five pillars of software quality: Scalability, availability, resiliency, management, and security.
+    This section of the Azure Application Architecture guide describes the five pillars of software quality: Scalability, availability, resiliency, management, and security.
 - [Ten design principles for Azure applications](../../guide/design-principles/index.md).
-This section of the Azure Application Architecture guide discusses a set of design principles to make your application more scalable, resilient, and manageable.
+    This section of the Azure Application Architecture guide discusses a set of design principles to make your application more scalable, resilient, and manageable.
 - [Designing resilient applications for Azure](../../resiliency/index.md).
-This guide starts with a definition of the term resiliency and related concepts. Then it describes a process for achieving resiliency, using a structured approach over the lifetime of an application, from design and implementation to deployment and operations.
+    This guide starts with a definition of the term resiliency and related concepts. Then it describes a process for achieving resiliency, using a structured approach over the lifetime of an application, from design and implementation to deployment and operations.
 - [Cloud Design Patterns](../../patterns/index.md).
-These design patterns are useful for engineering teams when building applications on the pillars of software quality.
+    These design patterns are useful for engineering teams when building applications on the pillars of software quality.

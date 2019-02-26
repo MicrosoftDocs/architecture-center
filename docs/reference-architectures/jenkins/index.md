@@ -36,7 +36,7 @@ The architecture consists of the following components:
 
 - **Virtual network**. A [virtual network][vnet] connects Azure resources to each other and provides logical isolation. In this architecture, the Jenkins server runs in a virtual network.
 
-- **Subnets**. The Jenkins server is isolated in a [subnet][subnet] to make it easier to manage and segregate network traffic without impacting performance.
+- **Subnets**. The Jenkins server is isolated in a [subnet][subnet] to make it easier to manage and segregate network traffic without affecting performance.
 
 - **NSGs**. Use [network security groups][nsg] (NSGs) to restrict network traffic from the Internet to the subnet of a virtual network.
 
@@ -60,7 +60,7 @@ The [Azure AD][azure-ad] tenant for your Azure subscription is used to enable SS
 
 SSO authentication and authorization are implemented by the Azure AD plugin installed on the Jenkins server. SSO allows you to authenticate using your organization credentials from Azure AD when logging on to the Jenkins server. When configuring the Azure AD plugin, you can specify the level of a user’s authorized access to the Jenkins server.
 
-To provide Jenkins jobs with access to Azure resources, an Azure AD administrator creates service principals. These grant applications—in this case, the Jenkins jobs—[authenticated, authorized access][ad-sp] to Azure resources.
+To provide Jenkins jobs with access to Azure resources, an Azure AD administrator creates service principals. These grant applications &mdash; in this case, the Jenkins jobs &mdash; [authenticated, authorized access][ad-sp] to Azure resources.
 
 [RBAC][rbac] further defines and controls access to Azure resources for users or service principals through their assigned role. Both built-in and custom roles are supported. Roles also help secure the pipeline and ensure that a user’s or agent’s responsibilities are assigned and authorized correctly. In addition, RBAC can be set up to limit access to Azure assets. For example, a user can be limited to working with only the assets in a particular resource group.
 
@@ -118,7 +118,7 @@ Availability in the context of a Jenkins server means being able to recover any 
 
 - Recovery Point Objective (RPO) indicates how much data you can afford to lose if a disruption in service affects Jenkins.
 
-In practice, RTO and RPO imply redundancy and backup. Availability is not a question of hardware recovery—that is part of Azure—but rather ensuring you maintain the state of your Jenkins server. Microsoft offers a [service level agreement][sla] (SLA) for single VM instances. If this SLA doesn't meet your uptime requirements, make sure you have a plan for disaster recovery, or consider using a [multi-master Jenkins server][multi-master] deployment (not covered in this document).
+In practice, RTO and RPO imply redundancy and backup. Availability is not a question of hardware recovery &mdash; that is part of Azure &mdash; but rather ensuring you maintain the state of your Jenkins server. Microsoft offers a [service level agreement][sla] (SLA) for single VM instances. If this SLA doesn't meet your uptime requirements, make sure you have a plan for disaster recovery, or consider using a [multi-master Jenkins server][multi-master] deployment (not covered in this document).
 
 Consider using the disaster recovery [scripts][disaster] in step 7 of the deployment to create an Azure Storage account with managed disks to store the Jenkins server state. If Jenkins goes down, it can be restored to the state stored in this separate storage account.
 
