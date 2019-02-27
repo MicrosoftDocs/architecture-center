@@ -1,12 +1,11 @@
 - name: High Performance Computing (HPC) on Azure
   href: /azure/architecture/topics/high-performance-computing
+- name: How is HPC different on the cloud
   items:
-  - name: How is HPC different on the cloud
-    items:
-    - name: Big Compute architecture style
-      href: /azure/architecture/guide/architecture-styles/big-compute?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
-    - name: Autoscaling best practices
-      href: /azure/architecture/best-practices/auto-scaling?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
+  - name: Big Compute architecture style
+    href: /azure/architecture/guide/architecture-styles/big-compute?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
+  - name: Autoscaling best practices
+    href: /azure/architecture/best-practices/auto-scaling?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
 - name: Infrastructure
   items:
   - name: Example HPC Architectures
