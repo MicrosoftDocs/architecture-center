@@ -124,6 +124,12 @@ In general, avoid having any special characters (`-` or `_`) as the first or las
 | --- | --- | --- | --- | --- | --- | --- |
 |Container Registry | Global |5-50 |Case insensitive | Alphanumeric |`<service short name>registry` |`app1registry` |
 
+### Service Bus
+
+| Entity | Scope | Length | Casing | Valid Characters | Suggested Pattern | Example |
+| --- | --- | --- | --- | --- | --- | --- |
+|Service Bus Namespace | Global |6-50 |Case insensitive | Alphanumeric, hyphen, must start with leter |`<service short name>-bus` |`app1-bus` |
+
 ## Organize resources with tags
 
 The Azure Resource Manager supports tagging entities with arbitrary text strings to identify context and streamline automation. For example, the tag `"sqlVersion"="sql2014ee"` could identify VMs running SQL Server 2014 Enterprise Edition. Tags should be used to augment and enhance context along side of the naming conventions chosen.
@@ -183,6 +189,7 @@ For more information on naming blobs, containers and tables, refer to the follow
 - [Naming and Referencing Containers, Blobs, and Metadata](https://msdn.microsoft.com/library/dd135715.aspx)
 - [Naming Queues and Metadata](https://msdn.microsoft.com/library/dd179349.aspx)
 - [Naming Tables](https://msdn.microsoft.com/library/azure/dd179338.aspx)
+- [Naming Service Bus](https://docs.microsoft.com/en-us/rest/api/servicebus/create-namespace)
 
 A blob name can contain any combination of characters, but reserved URL characters must be properly escaped. Avoid blob names that end with a period (.), a forward slash (/), or a sequence or combination of the two. By convention, the forward slash is the *virtual* directory separator. Do not use a backward slash (\\) in a blob name. The client APIs may allow it, but then fail to hash properly, and the signatures will not match.
 
