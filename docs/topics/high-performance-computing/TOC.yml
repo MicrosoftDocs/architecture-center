@@ -79,7 +79,7 @@
   - name: Azure CycleCloud
     items:
     - name: Azure CycleCloud
-      href: /azure/cyclecloud/?context=/azure/architecture/topics/high-performance-computing/context/hpc-context) Provides the simplest way to manage HPC workloads using any scheduler (like Slurm, Grid Engine, HPC Pack, HTCondor, LSF, PBS Pro, or Symphony
+      href: /azure/cyclecloud/?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
   - name: Workload managers
     items:
     - name: HPC Pack for Windows
