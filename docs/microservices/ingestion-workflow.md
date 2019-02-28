@@ -16,7 +16,7 @@ Microservices often have a workflow that spans multiple services for a single tr
 ![Diagram of the ingestion workflow](./images/ingestion-workflow.png)
 
 > [!NOTE]
-> This article is based on a microservices reference implementation called the [Drone Delivery application](./drone-delivery-aks.md).
+> This article is based on a microservices reference implementation called the [Drone Delivery application](./design/index.md).
 
 ## The drone delivery workflow
 

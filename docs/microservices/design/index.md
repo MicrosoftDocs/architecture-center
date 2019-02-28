@@ -17,9 +17,9 @@ In this set of articles, we explore how to build and run a microservices archite
 
 - [Interservice communication](./interservice-communication.md)
 - [API design](./api-design.md)
-- [API gateways](./gateways.md)
+- [API gateways](./gateway.md)
 - [Data considerations](./data-considerations.md)
-- [Design patterns](./design-patterns.md)
+- [Design patterns](./patterns.md)
 
 ## Prerequisites
 

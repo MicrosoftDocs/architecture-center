@@ -34,11 +34,11 @@
             ]
         },
         {
-            "heading": "Designing a microservices application",
+            "heading": "Build a microservices application",
             "cards": [
                 {
                     "title": "Use domain analysis to model microservices",
-                    "url": "./model/microservices/domain-analysis.md",
+                    "url": "./model/domain-analysis.md",
                     "summary": "To avoid some common pitfalls when designing microservices, use domain analysis to define your microservice boundaries."
                 },
                 {
@@ -59,7 +59,7 @@
             ]
         },
         {
-            "heading": "Deploying and running microservices in production",
+            "heading": "Deploy and run microservices in production",
             "cards": [
                 {
                     "title": "Logging and monitoring",

@@ -78,11 +78,11 @@ Microservices are a popular architectural style for building applications that a
 </li>
 </ul>
 
-## Designing a microservices application
+## Build a microservices application
 
 <ul  class="panelContent cardsZ">
 <li style="display: flex; flex-direction: column;">
-    <a href="./model/microservices/domain-analysis.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./model/domain-analysis.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -139,7 +139,7 @@ Microservices are a popular architectural style for building applications that a
 </li>
 </ul>
 
-## Deploying and running microservices in production
+## Deploy and run microservices in production
 
 <ul  class="panelContent cardsZ">
 <li style="display: flex; flex-direction: column;">
