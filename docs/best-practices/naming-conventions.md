@@ -128,7 +128,7 @@ In general, avoid having any special characters (`-` or `_`) as the first or las
 
 | Entity | Scope | Length | Casing | Valid Characters | Suggested Pattern | Example |
 | --- | --- | --- | --- | --- | --- | --- |
-|Service Bus Namespace | Global |6-50 |Case insensitive | Alphanumeric, hyphen, must start with leter |`<service short name>-bus` |`app1-bus` |
+|Service Bus Namespace | Global |6-50 |Case insensitive | Alphanumeric, hyphen, must start with leter; see [here](/rest/api/servicebus/create-namespace) for details. |`<service short name>-bus` |`app1-bus` |
 
 ## Organize resources with tags
 
