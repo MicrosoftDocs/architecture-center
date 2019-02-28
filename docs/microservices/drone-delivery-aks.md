@@ -11,6 +11,25 @@ ms.custom: microservices
 
 # Microservices reference implementation for Azure Kubernetes Service
 
+Microservices have become a popular architectural style for building cloud applications that are resilient, highly scalable, independently deployable, and able to evolve quickly. To be more than just a buzzword, however, microservices require a different approach to designing and building applications.
+
+In this set of articles, we explore how to build and run a microservices architecture on Azure. Topics include:
+
+- [Interservice communication](./interservice-communication.md)
+- [API design](./api-design.md)
+- [API gateways](./gateways.md)
+- [Data considerations](./data-considerations.md)
+- [Design patterns](./design-patterns.md)
+
+## Prerequisites
+
+Before reading these articles, you might start with the following:
+
+- [Introduction to microservices architectures](./introduction). Understand the benefits and challenges of microservices, and when to use this style of architecture.
+- [Using domain analysis to model microservices](./domain-analysis.md). Learn a domain-driven approach to modeling microservices.
+
+## Reference implementation
+
 To illustrate best practices for a microservices architecture, we created a reference implementation that we call the Drone Delivery application. This implementation runs on Kubernetes using Azure Kubernetes Service (AKS). You can find the reference implementation on [GitHub][drone-ri].
 
 ![Architecture of the Drone Delivery application](./images/drone-delivery.png)
