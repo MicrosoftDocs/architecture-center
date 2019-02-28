@@ -6,7 +6,8 @@
         "dest": ".",
         "files": [
           "**/*.md",
-          "**/toc.yml"
+          "**/toc.yml",
+          "**/*context.yml"
         ],
         "exclude": [
           "**/obj/**",
