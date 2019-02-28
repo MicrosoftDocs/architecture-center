@@ -23,7 +23,7 @@ Return on investment (ROI) is often an important criteria with the C-Suite or th
 ![Return on Investment (ROI) equals (Gain from Investment – Cost of Investment) / Cost of Investment](../_images/formula-roi.png)
 
 <!-- markdownlint-disable MD036 -->
-*ROI = (Gain from Investment &minus; Initial Investment) / Initial Investment*
+<!--*ROI = (Gain from Investment &minus; Initial Investment) / Initial Investment*-->
 <!-- markdownlint-enable MD036 -->
 
 In the next sections, we will walk through the data needed to calculate the initial investment and the gain from investment (earnings).
@@ -43,7 +43,7 @@ To calculate earnings, two variables are required:
 ![Gain from Investment equals Revenue Deltas + Cost Deltas](../_images/formula-gain-from-investment.png)
 
 <!-- markdownlint-disable MD036 -->
-*Gain from Investment = Revenue Deltas + Cost Deltas*
+<!--*Gain from Investment = Revenue Deltas + Cost Deltas*-->
 <!-- markdownlint-enable MD036 -->
 
 Each is described below.

@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
-description: Describes an overview of the first phase of an enterprise's digital transformation in adopting Azure cloud technologies.
+description: Provides an overview of the first phase of an enterprise's digital transformation in adopting Azure cloud technologies.
 ms.date: 02/11/2019
 ---
 
