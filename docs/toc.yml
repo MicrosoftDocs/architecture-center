@@ -729,10 +729,12 @@
           href: cloud-adoption/migrate/theory/pre-requisites/process.md
         - name: Environment Planning Checklist
           href: cloud-adoption/migrate/theory/pre-requisites/planning-checklist.md
-        - name: xx-Technical complexity and change management
+        - name: Technical complexity and change management
           href: cloud-adoption/migrate/theory/pre-requisites/technical-complexity.md
-        - name: xx-Cultural complexity and change management
+        - name: Cultural complexity and change management
           href: cloud-adoption/migrate/theory/pre-requisites/culture-complexity.md
+        - name: Digital Estate Review
+          href: cloud-adoption/migrate/theory/pre-requisites/digital-estate.md
       - name: Assess
         items:
         - name: xx-Overview
@@ -749,7 +751,7 @@
           href: cloud-adoption/migrate/theory/migrate/partnership-options.md
         - name: Release and Iteration Backlog
           href: cloud-adoption/migrate/theory/assess/release-iteration-backlog.md
-        - name: xx-Approve
+        - name: Approve
           href: cloud-adoption/migrate/theory/assess/approve.md
       - name: Migrate
         items:
@@ -772,6 +774,8 @@
         - name: Business Change Plan
           href: cloud-adoption/migrate/theory/optimize/business-change-plan.md
         - name: Business Testing
+          href: cloud-adoption/migrate/theory/optimize/business-test.md
+        - name: Optimize for performance and cost
           href: cloud-adoption/migrate/theory/optimize/business-test.md
         - name: Ready for promotion
           href: cloud-adoption/migrate/theory/optimize/ready.md

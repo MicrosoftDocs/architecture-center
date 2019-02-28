@@ -7,11 +7,11 @@ ms.date: 4/1/2019
 
 # Estimate Cloud Costs
 
-During migration, there are a number of factors that will impact decisions and execution activities. In this article, we will discuss various options for estimating cloud costs and help understand which of those options are best for the reader.
+During migration, there are a number of factors that will impact decisions and execution activities. This article discusses various options for estimating cloud costs to help understand which of those options are best for the reader.
 
 ## Digital Estate Size
 
-As with other decisions, the size of the digital estate will directly impact decisions. Migrations that involve less that 250 VMs can be estimated more easily that migrations of 10,000+ VMs. For 1,000 unit digital estates, its still possible to break down an estimate into 4-5 actionable iterations making the estimation process manageable.
+As with other decisions, the size of the digital estate will directly impact decisions. Migrations that involve less that 250 VMs can be estimated more easily that migrations of 10,000+ VMs. For 1,000+ unit digital estates, its still possible to break down an estimate into 4-5 actionable iterations making the estimation process manageable.
 
 If the digital estate size is under 1,000 VMs, a tool like [Azure Migrate](/azure/migrate/migrate-overview) is likely sufficient to gather data on the inventory and forecast costs. Additional cost estimate tooling options are described in the article on [digital estate cost calculations](../../../digital-estate/calculate.md).
 
@@ -23,11 +23,9 @@ For readers who are familiar with traditional IT procurement processes, estimati
 
 For readers who wish to replicate the legacy CapEx approach to accounting, leverage the outputs of either approach suggested in the [Digital Estate Size](#digital-estate-size) section above to get an annual costs basis. Next, multiply that annual cost by the companies typical hardware refresh cycle. Hardware refresh cycle is the rate at which a company replaces aging hardware, this is usually measured in years. Annual run rate multiplied by hardware refresh cycle will create a cost structure very similar to a CapEx investment pattern.
 
-For readers who will use a migration as an opportunity to modernize IT accounting practices, see the article on [Cloud Accounting](../../../business-strategy/cloud-accounting.md) for guidance on a modern approach to IT.
-
 ## Next steps
 
-After estimating costs, a common next step is to determine the partnership options that best align with a given migration. A few of the available options for partnership are described in the article on [Engaging Migration Partners and Support](partnership-options.md).
+After estimating costs, migration can begin. However, it would be wise to review [partnership and support options](partnership-options.md) before beginning any migration.
 
 > [!div class="nextstepaction"]
 > [Engaging Migration Partners and Support](partnership-options.md)

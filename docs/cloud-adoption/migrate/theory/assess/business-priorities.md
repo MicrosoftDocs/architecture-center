@@ -1,17 +1,19 @@
 ---
-title: "During a long term transformation process, how can business priorities stay aligned?"
-description: A process within Cloud Migration that focuses on the tasks of migrating workloads to the cloud
+title: "Maintain business priorities during a long term transformation process"
+description: Maintain business priorities during a long term transformation process
 author: BrianBlanchard
 ms.date: 4/1/2019
 ---
 
-# Why do business priorities and technical priorities become misaligned?
+# Business Priorities: Maintaining alignment
 
-Transformation seldom happens overnight. A single application or workload can be migrated quickly. Sometimes groups of applications can even be migrated relatively quickly. However, it takes time to train users. It takes even longer for changes to propagate through various layers of existing business processes. If transformation is expected to shape behavior patterns in consumers, the results can take even longer to produce significant results.
+Transformation is often defined as a dramatic or spontaneous change. At the board level, change can look like a dramatic transformation. However, for those of us who work through the process of change in an organization, transformation is a bit misleading. Under the surface, transformation is really better described as a series of properly executed transitions from one state to another.
 
-Unfortunately, the market doesn't wait for businesses to evolve. Consumer behavior patterns change on their own, often times unexpectedly. The market's perception of a company and its products can be swayed by social media or a competitor's positioning. Fast and unexpected market changes require companies to be nimble and responsive.
+In some cases, rationalization or transition of a single workload can happen quickly. Sometimes groups of applications can even be transitioned relatively quickly. Even in those cases, it takes time to produce substantial changes amongst a user base. It takes even longer for changes to propagate through various layers of existing business processes. If transformation is expected to shape behavior patterns in consumers, the results can take even longer to produce significant results.
 
-Maintaining stability in processes and technical efforts, requires a consistent stable effort. Responding to market conditions requires quick decisions and nimble actions. These two are at odds, making it easy for priorities to fall out of alignment.
+Unfortunately, the market doesn't wait for businesses to transition. Consumer behavior patterns change on their own, often times unexpectedly. The market's perception of a company and its products can be swayed by social media or a competitor's positioning. Fast and unexpected market changes require companies to be nimble and responsive.
+
+Executing processes and technical transitions, requires a consistent stable effort. Responding to market conditions requires quick decisions and nimble actions. These two are at odds, making it easy for priorities to fall out of alignment. This article describes approaches to maintaining transitional alignment during migration efforts.
 
 ## How can business and technical priorities stay aligned during a migration?
 
@@ -34,9 +36,9 @@ During the execution of the Business Change Plan, the Cloud Strategy Team monito
 
 When the market changes, the Cloud Strategy Team works with the business to understand how to best respond to the changes. When that response requires a change in migration priorities, the migration backlog is adjusted. This moves up applications that were previously lower in priority.
 
-## Next steps: Adjust Release and Iteration Backlogs
+## Next steps
 
-As changing business conditions are understood, [adjust the release and iteration backlog](iteration-release-backlog.md) to reflect current business priorities.
+With properly aligned business priorities, the Cloud Adoption Team can confidently begin to [Evaluate Workloads](./evaluate.md) to develop architecture and migration plans.
 
 > [!div class="nextstepaction"]
-> [Adjust the release and iteration backlog](iteration-release-backlog.md)
+> [Evaluate Workloads](./evaluate.md)

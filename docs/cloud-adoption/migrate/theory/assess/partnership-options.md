@@ -1,31 +1,28 @@
 ---
-title: "Partnership Options" 
-description: Describes a The options and approaches a company can follow when migrating to the cloud.
+title: "Partnership and Support Options" 
+description: Describes a options and approaches to support migration efforts
 author: BrianBlanchard
 ms.date: 4/1/2019
 ---
 # Understanding Partnership Options
 
-The [Migration section](overview.md) of the [Fusion framework](../../overview.md), outlines the processes typically required to migrate a DataCenter to the cloud. This section extends the migration conversation by focusing on the [Execution of actual migration work](overview.md).
-
-## What happens after you have developed a [migration backlog](../plan/migration-backlog.md) and [built out an Azure environment for migration](../../infrastructure/overview.md)?
-
-Now it’s time to start the [migration process](overview.md). In this process, the team will perform the actual migration of apps to the cloud. Unlike the collaborative and problem solving tasks when defining the [Digital Estate](../../digital-estate/overview.md) or building the [Core Cloud Infrastructure](../../infrastructure/overview.md), migration tends to be repetitive. Beyond the repetitive aspects, there will likely be testing and tuning efforts that require deep knowledge of the cloud provider. The repetitive nature of this process can sometimes be best addressed by a partner. Additionally, partners may be able to better align deep technical expertise, when problems arise in the repetitive processes.
+During migration, the Cloud Adoption Team will perform the actual migration of apps to the cloud. Unlike the collaborative and problem solving tasks when defining the [Digital Estate](../../digital-estate/overview.md) or building the [Core Cloud Infrastructure](../../infrastructure/overview.md), migration tends to be a series of repetitive execution tasks. Beyond the repetitive aspects, there will likely be testing and tuning efforts that require deep knowledge of the chosen cloud provider. The repetitive nature of this process can sometimes be best addressed by a partner, reducing strain on full time staff. Additionally, partners may be able to better align deep technical expertise, when the repetitive processes encounters execution anomalies.
 
 Partners tend to be very closely aligned with a single cloud vendor, or small number of cloud vendors. To better illustrate partnership options, the remainder of this article assumes Microsoft Azure is the chosen Cloud Provider.
 
-During Plan, Build, or Migrate, a company generally has three execution options:
+During Plan, Build, or Migrate, a company generally has four execution options:
 
 * Guided self-service: Existing technical team will execute the migration, with help from Microsoft
 * Microsoft FastTrack for Azure: Use the Microsoft FastTrack program for Azure to accelerate migration
-* Solutions partner: Get connected with Azure Solution Partners or Cloud Solution Providers (CSPs) to accelerate migration
+* Solutions Partner: Get connected with Azure Solution Partners or Cloud Solution Providers (CSPs) to accelerate migration
+* Supported self-service: Execution is completed by the existing technical staff with support from Microsoft
 
 ## Guided Self-Service
 
 If an organization is planning an Azure migration on its own, Microsoft is always there to assist throughout the migration journey. To help fast-track migration to Azure, Microsoft and its partners have developed an extensive set of architectures, guides, tools, and services to reduce risk and speed migration of virtual machines, applications, and databases. These tools and services support a broad selection of operating systems, programming languages, frameworks, and databases.
 
 * Assessment and migration tools: Azure allows you to leverage a wide range of tools to be used in different phases for your cloud transformation, including assessing your existing infrastructure. For more details on the tool, you can refer to the Assess section in the Migration chapter below.
-* [Fusion framework](../../overview.md): This guide presents a structured approach for [migrating to Azure](../overview.md). It is based on proven practices that Microsoft has prepared from different customer engagements. It is organized as a series of steps, from architecture and design to implementation. For each step, supporting guidance will help you with the design of your application architecture.
+* [Microsoft Cloud Adoption Framework](../../index.md): This framework presents a structured approach to cloud adoption and migration. It is based on proven practices across a number of Microsoft supported customer engagements. It is organized as a series of steps, from architecture and design to implementation. For each step, supporting guidance will help you with the design of your application architecture.
 * [Cloud design patterns](https://docs.microsoft.com/azure/architecture/patterns/): Azure provides a number of useful cloud design patterns for building reliable, scalable, secure applications in the cloud. Each pattern describes the problem that the pattern addresses, considerations for applying the pattern, and an example based on Azure. Most of the patterns include code samples or snippets that show how to implement the pattern on Azure. However, most of the patterns are relevant to any distributed system, whether hosted on Azure or on other cloud platforms.
 * [Cloud fundamentals](https://docs.microsoft.com/en-us/azure/architecture/guide/): Fundamentals help teach the basic approaches to implementation of core concepts. This guide helps technicians think about solutions that go beyond a single Azure service.
 * [Example Scenarios](https://docs.microsoft.com/en-us/azure/architecture/example-scenario/): The guide provides references from real customer implementations, outlining the tools, approaches, and processes that past customers have followed to accomplish specific business goals.
@@ -71,7 +68,6 @@ Get help from partners with ready-made or custom Azure solutions and partners wh
 
 ## Next steps
 
-Once a migration path is chosen, continue to the [Migrate section](overview.md) of the [Fusion framework](../../overview.md), to learn about the migration process.
-
+Once a partner and support strategy is selected, the [release and iteration backlogs](./release-iteration-backlog.md) can updated to reflect planned efforts and assignments.
 > [!div class="nextstepaction"]
-> [Migrate Process Guidance](overview.md)
+> [Refine release and iteration backlogs](./release-iteration-backlog.md)

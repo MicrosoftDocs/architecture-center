@@ -7,7 +7,9 @@ ms.date: 4/1/2019
 
 # Preparing for technical complexity - Agile Change Management
 
-When an entire data center can be destroyed and recreated with a single line of code, traditional processes struggle to keep up. the guidance throughout the Cloud Adoption Framework is built on top of time tested practices like ITSM, TOGAF, and others. However, to ensure agility and responsiveness to business change, this framework is based on agile methodologies. This article outlines the high level approach to change management in an agile based migration effort.
+When an entire data center can be destroyed and recreated with a single line of code, traditional processes struggle to keep up. the guidance throughout the Cloud Adoption Framework is built on practices like ITSM, TOGAF, and others. However, to ensure agility and responsiveness to business change, this framework molds those practices to fit agile methodologies and devops approaches.
+
+When shifting to an agile model, technical complexity and change management are managed differently than they are in a traditional waterfall model. This article outlines the high level approach to change management in an agile based migration effort. At this end of this article, the reader should have a general understanding of the levels of change management and documentation involved in an incremental migration approach. Additional training and decisions will be required to select and implement agile practices based on that understanding. The intention of this article is to prepare cloud architects for a facilitated conversation with the PMO to explain the general concept of change management in this approach.
 
 ## Addressing technical complexity
 
@@ -78,14 +80,22 @@ A Sprint Backlog (or iteration backlog) consists of the technical work to be com
 
 Within a single sprint or iteration, the Cloud Adoption Team would work to deliver the committed amount of technical work, driving towards the migration of a defined workload. Those efforts are the end result of the change management strategy. When complete, those efforts can be testing by validating production readiness of a workload staged in the cloud.
 
+### Large or complex sprint structures
+
+For a small migration with a self-contained migration team, a single sprint could include all four phases of a migration for a single workload (Assess, Migrate, Optimize, & Secure and Manage). More commonly, each of these processes are spread across multiple teams in distinct work items across numerous sprints. Depending on the effort type, effort scale, and roles these sprints can take a few different shapes.
+
+**Migration Factory:** Large scale migrations sometimes require an approach that resembles a factory in the execution model. In this model, various teams are allocated to the execution of a specific migration process (or subset of the process). Once complete, the output of one team's sprint populates the backlog for the next team. This is an efficient approach for large scale rehost migrations with thousands of virtual machines moving through phases of assessment, architecture, remediation, and migration. However, for this approach to work a new homogenous environment with streamlined change management and approval processes is a must.
+
+**Migration Waves:** Another approach that works well for large migrations is a wave model. In this model, division of labor isn't nearly as clear. Teams dedicate themselves to the migration process execution of individual workloads. However, the nature of each sprint changes. In one sprint the team may complete assessment and architecture work. In another sprint, the team may complete the migration work. In yet another sprint, optimization and production release would occur. This approach allows a core team to stay aligned to workloads seeing them through the process in its entirety. When using this approach, the diversity of skills and context switching could reduce potential velocity of the team, slowing the migration effort. Additionally, roadblocks during approval cycles can cause significant delays. It is important to maintain options in the release backlog to keep the team moving during blocked periods with this model. It is also important to cross train team members and ensure skill sets align with the theme of each sprint.
+
 ### Sprint Backlog Data Points
 
-The outcome of a sprint capture and documents the changes made to a workload, thus closing the change management loop. When completed the following should be documented at a minimum:
+The outcome of a sprint captures and documents the changes made to a workload, thus closing the change management loop. When completed the following should be documented at a minimum. Through out the execution of a sprint, the documentation regarding each of the following should be completed in tandem with the completion of technical work items.
 
 - Assets deployed: Any assets deployed to the cloud to host the workload
-- Remediation: Any changes to the assets to prepare the asset for cloud migration
-- Configuration: Chosen configuration of any assets deployed
-- Deployment model: Approach used to deploy the asset to Azure
+- Remediation: Any changes to the assets to prepare for cloud migration
+- Configuration: Chosen configuration of any assets deployed, including anr references to configuration scripts
+- Deployment model: Approach used to deploy the asset to the cloud, including references to any deployment scripts
 - Architecture: Documentation of the architecture deployed to the cloud
 - Performance metrics: Output of an automated &/or business testing performed to validate performance at the time of deployment
 - Unique requirements or configuration: Any unique aspects fo the deployment, configuration, or technical requirements necessary to operate the workload
@@ -94,7 +104,7 @@ The outcome of a sprint capture and documents the changes made to a workload, th
 
 ## Next steps
 
-Once change management approaches have been established, its time to begin aligning the culture to execute against the new plan. [Cultural complexity and change management](./culture-complexity.md) will help align roles and responsibilities to ensure proper expectations during execution of the plan.
+Once change management approaches have been established, its time to begin aligning the culture to execute against the backlog. [Cultural complexity and change management](./culture-complexity.md) will help align roles and responsibilities to ensure proper expectations during execution of the plan.
 
 > [!div class="nextstepaction"]
 > [Cultural complexity and change management](./culture-complexity.md)

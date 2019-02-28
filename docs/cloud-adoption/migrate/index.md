@@ -26,7 +26,7 @@ This content is intended for the Cloud Adoption team. It is also relevant to clo
 
 ## Audience
 
-The content in the CAF affects the business, technology, and culture of enterprises. This section of the CAF will interact heavily with Application owners, Finance, and Line-Of-Business (LOB) leaders, and the Cloud Adoption Team. There are various co-dependencies on these personas which will require a facilitative approach by the Cloud Architects using this guidance. Facilitation with these teams may be a one-time effort, but in some cases, it will result in recurring interactions with these other personas.
+The content in the CAF affects the business, technology, and culture of enterprises. This section of the CAF will interact heavily with Application owners, Change management personnel (PMO, Agile management, etc...) Finance, and Line-Of-Business (LOB) leaders, and the Cloud Adoption Team. There are various co-dependencies on these personas which will require a facilitative approach by the Cloud Architects using this guidance. Facilitation with these teams may be a one-time effort, but in some cases, it will result in recurring interactions with these other personas.
 
 The Cloud Architect serves as the thought leader and facilitator to bring these audiences together. The content in this collection of guides is designed to help the Cloud Architect facilitate the right conversation, with the right audience, to drive necessary decisions. Business transformation that is empowered by the cloud is dependent upon the Cloud Architect role to help guide decisions throughout the business and IT.
 

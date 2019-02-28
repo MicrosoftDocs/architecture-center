@@ -1,15 +1,13 @@
 ---
-title: "Guidance to prepare workload architecture prior to migration"
-description: A process within Cloud Migration that focuses on the tasks of migrating workloads to the cloud
+title: "Architecture workloads prior to migration"
+description: Architecture workloads prior to migration
 author: BrianBlanchard
 ms.date: 4/1/2019
 ---
 
-# Guidance to prepare workload architecture prior to migration
+# Architecture workloads prior to migration
 
-The [Migration section](../overview.md) of the [Fusion framework](../../overview.md), outlines the processes typically required to migrate a DataCenter to the cloud. This article, expands on the [Migration Execution Process](overview.md)by reviewing activities associated with defining the Architecture of a workload within a given iteration.
-
-As discussed in the article on [Incremental Rationalization](../../digital-estate/rationalize-incremental.md), a number of architectural assumptions are made during any business transformation that requires a migration. This article will clarify those assumptions, share a few roadblocks that can be avoided, and identify opportunities to accelerate business value by challenging those assumptions. This incremental model for architecture allows teams to move faster and obtain business outcomes sooner.
+This article, expands on the Assess process by reviewing activities associated with defining the Architecture of a workload within a given iteration. As discussed in the article on [Incremental Rationalization](../../digital-estate/rationalize-incremental.md), a number of architectural assumptions are made during any business transformation that requires a migration. This article will clarify those assumptions, share a few roadblocks that can be avoided, and identify opportunities to accelerate business value by challenging those assumptions. This incremental model for architecture allows teams to move faster and obtain business outcomes sooner.
 
 ## Architecture assumptions prior to migration
 
@@ -33,7 +31,7 @@ The assumptions above can create roadblocks which could slow progress or cause l
 
 There are a number scenarios that could prompt for an alternative architecture. The following are a few examples:
 
-* PaaS alternatives: Platform as a Service (PaaS) deployments can reduce hosting costs, they can also reduce the time required to migrate certain applications. See the article on [Assessing Assets](assess.md) for a list of approaches that could benefit from a PaaS conversion.
+* PaaS alternatives: Platform as a Service (PaaS) deployments can reduce hosting costs, they can also reduce the time required to migrate certain applications. See the article on [Evaluating Assets](./evaluate.md) for a list of approaches that could benefit from a PaaS conversion.
 * Scripted Deployments / DevOps: If an application has an existing DevOps deployment or other forms of scripted deployment, the cost of changing that scripts could be lower than the cost of migrating the asset.
 * Remediation efforts: The remediation efforts required to prepare an application for migration can be extensive. In some cases, it makes more sense to modernize the solution, than it does to remediate underlying compatibility issues.
 
@@ -41,8 +39,7 @@ In each of the above scenarios, an alternative architecture could be the best po
 
 ## Next steps
 
-Once the new architecture is defined, [Remediation activities](remediate.md) are a logical next step.
-If no remediation is required in a given iteration, [Replication activities](remediate.md) may be more appropriate.
+Once the new architecture is defined, [accurate cost estimations can be calculated](./estimate.md).
 
 > [!div class="nextstepaction"]
-> [Remediation assets](remediate.md)
+> [Estimate costs](./estimate.md)
