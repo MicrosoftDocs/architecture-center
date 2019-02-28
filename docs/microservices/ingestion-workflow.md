@@ -15,6 +15,9 @@ Microservices often have a workflow that spans multiple services for a single tr
 
 ![Diagram of the ingestion workflow](./images/ingestion-workflow.png)
 
+> [!NOTE]
+> This article is based on a microservices reference implementation called the [Drone Delivery application](./design/index.md).
+
 ## The drone delivery workflow
 
 In the Drone Delivery application, the following operations must be performed to schedule a delivery:
@@ -234,9 +237,6 @@ public async Task<IActionResult> Put([FromBody]Delivery delivery, string id)
 ```
 
 It's expected that most requests will create a new entity, so the method optimistically calls `CreateAsync` on the repository object, and then handles any duplicate-resource exceptions by updating the resource instead.
-
-> [!div class="nextstepaction"]
-> [API gateways](./gateway.md)
 
 <!-- links -->
 

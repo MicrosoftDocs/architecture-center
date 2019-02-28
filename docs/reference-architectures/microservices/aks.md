@@ -15,9 +15,6 @@ This reference architectures shows a microservices application deployed to Azure
 
 This article assumes basic knowledge of Kubernetes. The article focuses mainly on the infrastructure and DevOps considerations of running a microservices architecture on AKS. For guidance on how to design microservices from a Domain Driven Design (DDD) perspective, see [Designing, building, and operating microservices on Azure](/azure/architecture/microservices).
 
-> [!NOTE]
-> We are working on a reference implementation (RI) to accompany this article, which we expect to publish in early 2019. This article will be updated to incorporate additional best practices from that RI.
-
 ![AKS reference architecture](./_images/aks.png)
 
 ## Architecture
@@ -305,7 +302,7 @@ In this section, we present a possible CI/CD workflow, based on the following as
 - The team uses [Azure Pipelines](/azure/devops/pipelines) to run the CI/CD process.
 - The team uses [namespaces](/azure/container-registry/container-registry-best-practices#repository-namespaces) in Azure Container Registry to isolate images that are approved for production from images that are still being tested.
 
-In this example, a developer is working on a microservice called Delivery Service. (The name comes from the reference implementation described [here](../../microservices/index.md#the-drone-delivery-application).) While developing a new feature, the developer checks code into a feature branch.
+In this example, a developer is working on a microservice called Delivery Service. (The name comes from the reference implementation described [here](../../microservices/design/index.md#scenario).) While developing a new feature, the developer checks code into a feature branch.
 
 ![CI/CD workflow](./_images/aks-cicd-1.png)
 
