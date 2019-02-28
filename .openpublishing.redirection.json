@@ -263,11 +263,6 @@
          "redirect_document_id": true
       },
       {
-         "source_path": "docs/microservices.md",
-         "redirect_url": "/azure/architecture/microservices",
-         "redirect_document_id": true
-      },
-      {
          "source_path": "docs/microservices/gateway.md",
          "redirect_url": "/azure/architecture/microservices/design/gateway",
          "redirect_document_id": true
