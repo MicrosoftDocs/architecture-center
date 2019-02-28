@@ -11,9 +11,9 @@ ms.custom: microservices
 
 # Designing APIs for microservices
 
-Good API design is important in a microservices architecture, because all data exchange between services happens either through messages or API calls. APIs must be efficient to avoid creating [chatty I/O](../antipatterns/chatty-io/index.md). Because services are designed by teams working independently, APIs must have well-defined semantics and versioning schemes, so that updates don't break other services.
+Good API design is important in a microservices architecture, because all data exchange between services happens either through messages or API calls. APIs must be efficient to avoid creating [chatty I/O](../../antipatterns/chatty-io/index.md). Because services are designed by teams working independently, APIs must have well-defined semantics and versioning schemes, so that updates don't break other services.
 
-![API design for microservices](./images/api-design.png)
+![API design for microservices](../images/api-design.png)
 
 It's important to distinguish between two types of API:
 
@@ -52,9 +52,9 @@ However, if you choose REST over HTTP, you should do performance and load testin
 
 There are many resources for designing RESTful APIs. Here are some that you might find helpful:
 
-- [API design](../best-practices/api-design.md)
+- [API design](../../best-practices/api-design.md)
 
-- [API implementation](../best-practices/api-implementation.md)
+- [API implementation](../../best-practices/api-implementation.md)
 
 - [Microsoft REST API Guidelines](https://github.com/Microsoft/api-guidelines)
 
@@ -62,7 +62,7 @@ Here are some specific considerations to keep in mind.
 
 - Watch out for APIs that leak internal implementation details or simply mirror an internal database schema. The API should model the domain. It's a contract between services, and ideally should only change when new functionality is added, not just because you refactored some code or normalized a database table.
 
-- Different types of client, such as mobile application and desktop web browser, may require different payload sizes or interaction patterns. Consider using the [Backends for Frontends pattern](../patterns/backends-for-frontends.md) to create separate backends for each client, that expose an optimal interface for that client.
+- Different types of client, such as mobile application and desktop web browser, may require different payload sizes or interaction patterns. Consider using the [Backends for Frontends pattern](../../patterns/backends-for-frontends.md) to create separate backends for each client, that expose an optimal interface for that client.
 
 - For operations with side effects, consider making them idempotent and implementing them as PUT methods. That will enable safe retries and can improve resiliency. The article [Interservice communication](./interservice-communication.md) discuss this issue in more detail.
 
@@ -94,11 +94,11 @@ These sorts of coding practices are particularly important when building a tradi
 
 Another example is the Repository pattern, which ensures that other parts of the application do not make direct reads or writes to the data store:
 
-![Diagram of a Drone Repository](./images/repository.png)
+![Diagram of a Drone Repository](../images/repository.png)
 
 In a microservices architecture, however, services don't share the same code base and don't share data stores. Instead, they communicate through APIs. Consider the case where the Scheduler service requests information about a drone from the Drone service. The Drone service has its internal model of a drone, expressed through code. But the Scheduler doesn't see that. Instead, it gets back a *representation* of the drone entity &mdash; perhaps a JSON object in an HTTP response.
 
-![Diagram of the Drone Service](./images/ddd-rest.png)
+![Diagram of the Drone Service](../images/ddd-rest.png)
 
 The Scheduler service can't modify the Drone service's internal models, or write to the Drone service's data store. That means the code that implements the Drone service has a smaller exposed surface area, compared with code in a traditional monolith. If the Drone service defines a Location class, the scope of that class is limited &mdash; no other service will directly consume the class.
 
@@ -136,13 +136,13 @@ Whenever possible, make API changes backward compatible. For example, avoid remo
 
 Support versioning in your API contract. If you introduce a breaking API change, introduce a new API version. Continue to support the previous version, and let clients select which version to call. There are a couple of ways to do this. One is simply to expose both versions in the same service. Another option is to run two versions of the service side-by-side, and route requests to one or the other version, based on HTTP routing rules.
 
-![Versioning](./images/versioning.png)
+![Versioning](../images/versioning.png)
 
 There's a cost to supporting multiple versions, in terms of developer time, testing, and operational overhead. Therefore, it's good to deprecate old versions as quickly as possible. For internal APIs, the team that owns the API can work with other teams to help them migrate to the new version. This is when having a cross-team governance process is useful. For external (public) APIs, it can be harder to deprecate an API version, especially if the API is consumed by third parties or by native client applications.
 
 When a service implementation changes, it's useful to tag the change with a version. The version provides important information when troubleshooting errors. It can be very helpful for root cause analysis to know exactly which version of the service was called. Consider using [semantic versioning](https://semver.org/) for service versions. Semantic versioning uses a *MAJOR.MINOR.PATCH* format. However, clients should only select an API by the major version number, or possibly the minor version if there are significant (but non-breaking) changes between minor versions. In other words, it's reasonable for clients to select between version 1 and version 2 of an API, but not to select version 2.1.3. If you allow that level of granularity, you risk having to support a proliferation of versions.
 
-For further discussion of API versioning, see [Versioning a RESTful web API](../best-practices/api-design.md#versioning-a-restful-web-api).
+For further discussion of API versioning, see [Versioning a RESTful web API](../../best-practices/api-design.md#versioning-a-restful-web-api).
 
 ## Next steps
 

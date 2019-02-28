@@ -19,8 +19,7 @@
             ]
         },
         {
-            "heading": "Example microservices architectures",
-            "intro": "The following scenarios show how microservices can be used in various application architectures.",
+            "heading": "Examples of microservices architectures",
             "cards": [
                 {
                     "title": "Use Service Fabric to decompose monolithic applications",
@@ -35,8 +34,7 @@
             ]
         },
         {
-            "heading": "Designing microservices",
-            "intro": "These articles dive deep into how to build a microservices application, based on a reference implementations that uses Azure Kubernetes Services (AKS).",
+            "heading": "Designing a microservices application",
             "cards": [
                 {
                     "title": "Use domain analysis to model microservices",
@@ -44,35 +42,19 @@
                     "summary": "To avoid some common pitfalls when designing microservices, use domain analysis to define your microservice boundaries."
                 },
                 {
-                    "title": "Design a microservices architecture",
-                    "url": "./design/interservice-communication.md",
-                    "summary": "To show best practices, we created a reference microservices implementation called the Drone Delivery application. "
-                },
-                {
-                    "title": "Design patterns",
-                    "url": "./design/patterns.md",
-                    "summary":"A set of useful design patterns for microservices."
-                }
-            ]
-        },
-        {
-            "heading": "Designing a microservices architecture",
-            "intro": "These articles dive deep into how to build a microservices application, based on a reference implementations that uses Azure Kubernetes Services (AKS).",
-            "cards": [
-                {
                     "title": "Reference architecture for microservices on AKS",
                     "url": "../reference-architectures/microservices/aks.md",
                     "summary": "This reference architecture shows a basic AKS configuration that can be the starting point for most deployments."
                 },
                 {
-                    "title": "Design guide",
-                    "url": "./drone-delivery-aks.md",
-                    "summary": "To show best practices, we created a reference microservices implementation called the Drone Delivery application. "
+                    "title": "Design a microservices architecture",
+                    "url": "./design/index.md",
+                    "summary": "These articles dive deep into how to build a microservices application, based on a reference implementation that uses Azure Kubernetes Services (AKS)."
                 },
                 {
                     "title": "Design patterns",
-                    "url": "./interservice-communication.md",
-                    "summary":"A set of useful design patterns."
+                    "url": "./design/patterns.md",
+                    "summary":"A set of useful design patterns for microservices."
                 }
             ]
         },

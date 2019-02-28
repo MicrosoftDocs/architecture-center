@@ -515,10 +515,12 @@
       href: microservices/design/data-considerations.md
     - name: Design patterns for microservices
       href: microservices/design/patterns.md
-  - name: Logging and monitoring
-    href: microservices/logging-monitoring.md
-  - name: CI/CD
-    href: microservices/ci-cd.md
+  - name: Operate microservices in production
+    items:
+    - name: Logging and monitoring
+      href: microservices/logging-monitoring.md
+    - name: CI/CD
+      href: microservices/ci-cd.md
 
 - name: Design Guides
   items:

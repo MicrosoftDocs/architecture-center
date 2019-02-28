@@ -71,4 +71,4 @@ The benefits of microservices don't come for free. Here are some of the challeng
 
 ## Next steps
 
-- One of the biggest challenges with microservices is to create the right service boundaries. The articles under [Modeling microservices](./domain-analysis.md) show a domain-driven approach to this problem.
+- One of the biggest challenges with microservices is to create the right service boundaries. The articles under [Modeling microservices](./model/domain-analysis.md) show a domain-driven approach to this problem.

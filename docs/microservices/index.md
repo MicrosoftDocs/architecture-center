@@ -1,7 +1,7 @@
 ---
 title: Building microservices on Azure
 description: Designing, building, and operating microservices architectures on Azure
-ms.date: 02/26/2019
+ms.date: 02/27/2019
 layout: LandingPage
 ms.topic: landing-page
 ---
@@ -30,13 +30,13 @@ Microservices are a popular architectural style for building applications that a
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./domain-analysis.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="../guide/architecture-styles/microservices.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Modeling microservices</h3>
-                        <p>To avoid some common pitfalls when designing microservices, use domain analysis to define your microservice boundaries.</p>
+                        <h3>Microservices architecture style</h3>
+                        <p>High-level overview of the microservices architecture style</p>
                     </div>
                 </div>
             </div>
@@ -45,9 +45,7 @@ Microservices are a popular architectural style for building applications that a
 </li>
 </ul>
 
-## Example microservices architectures
-
-The following scenarios show how microservices can be used in various application architectures.
+## Examples of microservices architectures
 
 <ul  class="panelContent cardsZ">
 <li style="display: flex; flex-direction: column;">
@@ -80,11 +78,23 @@ The following scenarios show how microservices can be used in various applicatio
 </li>
 </ul>
 
-## Designing a microservices architecture
-
-These articles dive deep into how to build a microservices application, based on a reference implementations that uses Azure Kubernetes Services (AKS).
+## Designing a microservices application
 
 <ul  class="panelContent cardsZ">
+<li style="display: flex; flex-direction: column;">
+    <a href="./model/microservices/domain-analysis.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Use domain analysis to model microservices</h3>
+                        <p>To avoid some common pitfalls when designing microservices, use domain analysis to define your microservice boundaries.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
 <li style="display: flex; flex-direction: column;">
     <a href="../reference-architectures/microservices/aks.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -100,13 +110,13 @@ These articles dive deep into how to build a microservices application, based on
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="https://github.com/mspnp/microservices-reference-implementation" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./design/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Reference implementation (GitHub)</h3>
-                        <p>To illustrate best practices for a microservices architecture, we created a reference implementation called the Drone Delivery application.</p>
+                        <h3>Design a microservices architecture</h3>
+                        <p>These articles dive deep into how to build a microservices application, based on a reference implementation that uses Azure Kubernetes Services (AKS).</p>
                     </div>
                 </div>
             </div>
@@ -114,27 +124,13 @@ These articles dive deep into how to build a microservices application, based on
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./gateway.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./design/patterns.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Using API gateways in microservices</h3>
-                        <p>An API gateway routes requests from clients to services. It can also perform cross-cutting tasks such as authentication and SSL termination.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-<li style="display: flex; flex-direction: column;">
-    <a href="./interservice-communication.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Interservice communication</h3>
-                        <p>This article looks at the tradeoffs between asynchronous messaging versus synchronous APIs.</p>
+                        <h3>Design patterns</h3>
+                        <p>A set of useful design patterns for microservices.</p>
                     </div>
                 </div>
             </div>

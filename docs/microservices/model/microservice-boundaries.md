@@ -13,9 +13,9 @@ ms.custom: microservices
 
 What is the right size for a microservice? You often hear something to the effect of, "not too big and not too small" &mdash; and while that's certainly correct, it's not very helpful in practice. But if you start from a carefully designed domain model, it's much easier to reason about microservices.
 
-![Diagram of bounded contexts](./images/bounded-contexts.png)
+![Diagram of bounded contexts](../images/bounded-contexts.png)
 
-This article uses a drone delivery service as a running example. You can read more about the scenario and the corresponding reference implementation [here](./drone-delivery-aks.md).
+This article uses a drone delivery service as a running example. You can read more about the scenario and the corresponding reference implementation [here](../design/index.md).
 
 ## From domain model to microservices
 
@@ -61,23 +61,24 @@ The details of the Drone and Account bounded contexts are beyond the scope of th
 
 - Is the data schema for the other bounded context suitable for this context, or is it better to have a schema that's tailored to this bounded context?
 
-- Is the other bounded context a legacy system? If so, you might create a service that acts as an [anti-corruption layer](../patterns/anti-corruption-layer.md) to translate between the legacy system and the modern application.
+- Is the other bounded context a legacy system? If so, you might create a service that acts as an [anti-corruption layer](../../patterns/anti-corruption-layer.md) to translate between the legacy system and the modern application.
 
 - What is the team structure? Is it easy to communicate with the team that's responsible for the other bounded context? If not, creating a service that mediates between the two contexts can help to mitigate the cost of cross-team communication.
 
-So far, we haven't considered any non-functional requirements. Thinking about the application's throughput requirements, the development team decided to create a separate Ingestion microservice that is responsible for ingesting client requests. This microservice will implement [load leveling](../patterns/queue-based-load-leveling.md) by putting incoming requests into a buffer for processing. The Scheduler will read the requests from the buffer and execute the workflow.
+So far, we haven't considered any non-functional requirements. Thinking about the application's throughput requirements, the development team decided to create a separate Ingestion microservice that is responsible for ingesting client requests. This microservice will implement [load leveling](../../patterns/queue-based-load-leveling.md) by putting incoming requests into a buffer for processing. The Scheduler will read the requests from the buffer and execute the workflow.
 
-Non-functional requirements led the team to create one additional service. All of the services so far have been about the process of scheduling and delivering packages in real time. But the system also needs to store the history of every delivery in long-term storage for data analysis. The team considered making this the responsibility of the Delivery service. However, the data storage requirements are quite different for historical analysis versus in-flight operations (see [Data considerations](./data-considerations.md)). Therefore, the team decided to create a separate Delivery History service, which will listen for DeliveryTracking events from the Delivery service and write the events into long-term storage.
+Non-functional requirements led the team to create one additional service. All of the services so far have been about the process of scheduling and delivering packages in real time. But the system also needs to store the history of every delivery in long-term storage for data analysis. The team considered making this the responsibility of the Delivery service. However, the data storage requirements are quite different for historical analysis versus in-flight operations (see [Data considerations](../design/data-considerations.md)). Therefore, the team decided to create a separate Delivery History service, which will listen for DeliveryTracking events from the Delivery service and write the events into long-term storage.
 
 The following diagram shows the design at this point:
 
-![Design diagram](./images/drone-delivery.png)
-
+![Design diagram](../images/drone-delivery.png)
 
 ## Next steps
 
-- [Interservice communication](./interservice-communication.md)
-- [Design patterns for microservices](./design-patterns.md)
+At this point, you should have a clear understanding of the purpose and functionality of each microservice in your design. Now you can architect the system.
+
+> [!div class="nextstepaction"]
+> [Design a microservices architecture](../design/index.md)
 
 <!-- links -->
 

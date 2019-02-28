@@ -13,7 +13,7 @@ ms.custom: microservices
 
 In a microservices architecture, a client might interact with more than one front-end service. Given this fact, how does a client know what endpoints to call? What happens when new services are introduced, or existing services are refactored? How do services handle SSL termination, authentication, and other concerns? An *API gateway* can help to address these challenges.
 
-![Diagram of an API gateway](./images/gateway.png)
+![Diagram of an API gateway](../images/gateway.png)
 
 <!-- markdownlint-disable MD026 -->
 
@@ -32,11 +32,11 @@ An API gateway sits between clients and services. It acts as a reverse proxy, ro
 
 A gateway helps to address these issues by decoupling clients from services. Gateways can perform a number of different functions, and you may not need all of them. The functions can be grouped into the following design patterns:
 
-[Gateway Routing](../patterns/gateway-routing.md). Use the gateway as a reverse proxy to route requests to one or more backend services, using layer 7 routing. The gateway provides a single endpoint for clients, and helps to decouple clients from services.
+[Gateway Routing](../../patterns/gateway-routing.md). Use the gateway as a reverse proxy to route requests to one or more backend services, using layer 7 routing. The gateway provides a single endpoint for clients, and helps to decouple clients from services.
 
-[Gateway Aggregation](../patterns/gateway-aggregation.md). Use the gateway to aggregate multiple individual requests into a single request. This pattern applies when a single operation requires calls to multiple backend services. The client sends one request to the gateway. The gateway dispatches requests to the various backend services, and then aggregates the results and sends them back to the client. This helps to reduce chattiness between the client and the backend.
+[Gateway Aggregation](../../patterns/gateway-aggregation.md). Use the gateway to aggregate multiple individual requests into a single request. This pattern applies when a single operation requires calls to multiple backend services. The client sends one request to the gateway. The gateway dispatches requests to the various backend services, and then aggregates the results and sends them back to the client. This helps to reduce chattiness between the client and the backend.
 
-[Gateway Offloading](../patterns/gateway-offloading.md). Use the gateway to offload functionality from individual services to the gateway, particularly cross-cutting concerns. It can be useful to consolidate these functions into one place, rather than making every service responsible for implementing them. This is particularly true for features that requires specialized skills to implement correctly, such as authentication and authorization.
+[Gateway Offloading](../../patterns/gateway-offloading.md). Use the gateway to offload functionality from individual services to the gateway, particularly cross-cutting concerns. It can be useful to consolidate these functions into one place, rather than making every service responsible for implementing them. This is particularly true for features that requires specialized skills to implement correctly, such as authentication and authorization.
 
 Here are some examples of functionality that could be offloaded to a gateway:
 

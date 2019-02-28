@@ -30,7 +30,7 @@ Sometimes people talk about containers and microservices as if they were the sam
 
 - **Density**. Containers are lightweight compared with running a virtual machine, because they share OS resources. That makes it possible to pack multiple containers onto a single node, which is especially useful when the application consists of many small services.
 
-- **Resource isolation**. You can limit the amount of memory and CPU that is available to a container, which can help to ensure that a runaway process doesn't exhaust the host resources. See the [Bulkhead pattern](../patterns/bulkhead.md) for more information.
+- **Resource isolation**. You can limit the amount of memory and CPU that is available to a container, which can help to ensure that a runaway process doesn't exhaust the host resources. See the [Bulkhead pattern](../../patterns/bulkhead.md) for more information.
 
 ## Serverless (Functions as a Service)
 
@@ -59,3 +59,8 @@ Here are some factors to consider when choosing between an orchestrator approach
 **Scalability**. Azure Functions scales automatically to meet demand, based on the number of incoming events. With an orchestrator, you can scale out by increasing the number of service instances running in the cluster. You can also scale by adding additional VMs to the cluster.
 
 Our reference implementation primarily uses Kubernetes, but we did use Azure Functions for one service, namely the Delivery History service. Azure Functions was a good fit for this particular service, because it's is an event-driven workload. By using an Event Hubs trigger to invoke the function, the service needed a minimal amount of code. Also, the Delivery History service is not part of the main workflow, so running it outside of the Kubernetes cluster doesn't affect the end-to-end latency of user-initiated operations.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Interservice communication](./interservice-communication.md)

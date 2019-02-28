@@ -1,14 +1,12 @@
 # Using tactical DDD to design microservices
 
-## Tactical DDD
-
 During the strategic phase of DDD, you are mapping out the business domain and defining bounded contexts for your domain models. Tactical DDD is when you define your domain models with more precision. The tactical patterns are applied within a single bounded context. In a microservices architecture, we are particularly interested in the entity and aggregate patterns. Applying these patterns will help us to identify natural boundaries for the services in our application (see the [next article](./microservice-boundaries.md) in this series). As a general principle, a microservice should be no smaller than an aggregate, and no larger than a bounded context. First, we'll review the tactical patterns. Then we'll apply them to the Shipping bounded context in the Drone Delivery application.
 
-### Overview of the tactical patterns
+## Overview of the tactical patterns
 
 This section provides a brief summary of the tactical DDD patterns, so if you are already familiar with DDD, you can probably skip this section. The patterns are described in more detail in chapters 5 &ndash; 6 of Eric Evans' book, and in *Implementing Domain-Driven Design* by Vaughn Vernon.
 
-![Diagram of tactical patterns in domain-driven design](./images/ddd-patterns.png)
+![Diagram of tactical patterns in domain-driven design](../images/ddd-patterns.png)
 
 **Entities**. An entity is an object with a unique identity that persists over time. For example, in a banking application, customers and accounts would be entities.
 
@@ -33,7 +31,7 @@ Traditional applications have often used database transactions to enforce consis
 > [!NOTE]
 > The term *service* is overloaded in software development. The definition here is not directly related to microservices.
 
-**Domain events**. Domain events can be used to notify other parts of the system when something happens. As the name suggests, domain events should mean something within the domain. For example, "a record was inserted into a table" is not a domain event. "A delivery was cancelled" is a domain event. Domain events are especially relevant in a microservices architecture. Because microservices are distributed and don't share data stores, domain events provide a way for microservices to coordinate with each other. The article [Interservice communication](./interservice-communication.md) discusses asynchronous messaging in more detail.
+**Domain events**. Domain events can be used to notify other parts of the system when something happens. As the name suggests, domain events should mean something within the domain. For example, "a record was inserted into a table" is not a domain event. "A delivery was cancelled" is a domain event. Domain events are especially relevant in a microservices architecture. Because microservices are distributed and don't share data stores, domain events provide a way for microservices to coordinate with each other. The article [Interservice communication](../design/interservice-communication.md) discusses asynchronous messaging in more detail.
 
 There are a few other DDD patterns not listed here, including factories, repositories, and modules. These can be useful patterns for when you are implementing a microservice, but they are less relevant when designing the boundaries between microservice.
 
@@ -67,7 +65,7 @@ The **value objects** in this design include Location, ETA, PackageWeight, and P
 
 To illustrate, here is a UML diagram of the Delivery aggregate. Notice that it holds references to other aggregates, including Account, Package, and Drone.
 
-![UML diagram of the Delivery aggregate](./images/delivery-entity.png)
+![UML diagram of the Delivery aggregate](../images/delivery-entity.png)
 
 There are two domain events:
 
@@ -77,7 +75,13 @@ There are two domain events:
 
 Notice that these events describe things that are meaningful within the domain model. They describe something about the domain, and aren't tied to a particular programming language construct.
 
-The development team identified one more area of functionality, which doesn't fit neatly into any of the entities described so far. Some part of the system must coordinate all of the steps involved in scheduling or updating a delivery. Therefore, the development team added two **domain services** to the design: a *Scheduler* that coordinates the steps, and a *Supervisor* that monitors the status of each step, in order to detect whether any steps have failed or timed out. This is a variation of the [Scheduler Agent Supervisor pattern](../patterns/scheduler-agent-supervisor.md).
+The development team identified one more area of functionality, which doesn't fit neatly into any of the entities described so far. Some part of the system must coordinate all of the steps involved in scheduling or updating a delivery. Therefore, the development team added two **domain services** to the design: a *Scheduler* that coordinates the steps, and a *Supervisor* that monitors the status of each step, in order to detect whether any steps have failed or timed out. This is a variation of the [Scheduler Agent Supervisor pattern](../../patterns/scheduler-agent-supervisor.md).
 
-![Diagram of the revised domain model](./images/drone-ddd.png)
+![Diagram of the revised domain model](../images/drone-ddd.png)
 
+## Next steps
+
+The next step is to define the boundaries for each microservice.
+
+> [!div class="nextstepaction"]
+> [Identify microservice boundaries](./microservice-boundaries.md)
