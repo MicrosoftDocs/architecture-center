@@ -236,6 +236,36 @@
          "source_path": "docs/cloud-adoption/governance/governance-multiple-teams.md",
          "redirect_url": "/azure/architecture/cloud-adoption/governance",
          "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/microservices/domain-analysis.md",
+         "redirect_url": "/azure/architecture/microservices/model/domain-analysis",
+         "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/microservices/microservice-boundaries.md",
+         "redirect_url": "/azure/architecture/microservices/model/microservice-boundaries",
+         "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/microservices/data-considerations.md",
+         "redirect_url": "/azure/architecture/microservices/design/data-considerations",
+         "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/microservices/interservice-communication.md",
+         "redirect_url": "/azure/architecture/microservices/design/interservice-communication",
+         "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/microservices/api-design.md",
+         "redirect_url": "/azure/architecture/microservices/design/api-design",
+         "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/microservices/gateway.md",
+         "redirect_url": "/azure/architecture/microservices/design/gateway",
+         "redirect_document_id": true
       }
   ] 
   } 
