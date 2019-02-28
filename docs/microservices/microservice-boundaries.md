@@ -137,10 +137,8 @@ Our reference implementation primarily uses Kubernetes, but we did use Azure Fun
 
 ## Next steps
 
-The communication boundary between two microservices is defined by an API. The next article in this series looks at API design for microservices.
-
-> [!div class="nextstepaction"]
-> [Designing APIs for microservices](./api-design.md)
+- [Interservice communication](./interservice-communication.md)
+- [Design patterns for microservices](./design-patterns.md)
 
 <!-- links -->
 

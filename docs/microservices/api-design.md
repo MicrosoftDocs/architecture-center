@@ -146,7 +146,7 @@ For further discussion of API versioning, see [Versioning a RESTful web API](../
 
 ## Next steps
 
-We've looked at the interfaces *between* microservices. By design, these interfaces treat each service as a black box. In particular, microservices should never expose implementation details about how they manage data. That has implications for data integrity and data consistency, explored in the next article.
+Learn about using an API gateway at the boundary between client applications and microservices.
 
 > [!div class="nextstepaction"]
-> [Data considerations for microservices](./data-considerations.md)
+> [API gateways](./gateway.md)

@@ -497,20 +497,20 @@
       href: microservices/domain-analysis.md
     - name: Identifying microservice boundaries
       href: microservices/microservice-boundaries.md
-    - name: API design
-      href: microservices/api-design.md
-    - name: Data considerations
-      href: microservices/data-considerations.md
-  - name: Designing a microservices application
+  - name: Designing a microservices architecture
     items:
     - name: Reference implementation for AKS
       href: microservices/drone-delivery-aks.md
     - name: Interservice communication
       href: microservices/interservice-communication.md
+    - name: API design
+      href: microservices/api-design.md
     - name: API gateways
       href: microservices/gateway.md
+    - name: Data considerations
+      href: microservices/data-considerations.md
     - name: Design patterns for microservices
-      href: microservices/patterns.md
+      href: microservices/design-patterns.md
   - name: Logging and monitoring
     href: microservices/logging-monitoring.md
   - name: CI/CD

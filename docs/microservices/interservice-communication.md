@@ -112,5 +112,9 @@ Right now, the main options for a service mesh in Kubernetes are [linkerd](https
 
 Do you need a service mesh? The value they add to a distributed system is certainly compelling. If you don't have a service mesh, you will need to consider each of the challenges mentioned at the beginning of the article. You can solve problems like retry, circuit breaker, and distributed tracing without a service mesh, but a service mesh moves these concerns out of the individual services and into a dedicated layer. On the other hand, service meshes are a relatively new technology that is still maturing. Deploying a service mesh adds complexity to the setup and configuration of the cluster. There may be performance implications, because requests now get routed through the service mesh proxy, and because extra services are now running on every node in the cluster. You should do thorough performance and load testing before deploying a service mesh in production.
 
+## Next steps
+
+For microservices that talk directly to each other, it's important to create well-designed APIs.
+
 > [!div class="nextstepaction"]
 > [API design](./api-design.md)

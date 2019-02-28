@@ -83,8 +83,3 @@ The Package service stores information about all of the packages. The storage re
 - Support simple queries by package ID. No complex joins or requirements for referential integrity.
 
 Because the package data is not relational, a document oriented database is appropriate, and Cosmos DB can achieve very high throughput by using sharded collections. The team that works on the Package service is familiar with the MEAN stack (MongoDB, Express.js, AngularJS, and Node.js), so they select the [MongoDB API](/azure/cosmos-db/mongodb-introduction) for Cosmos DB. That lets them leverage their existing experience with MongoDB, while getting the benefits of Cosmos DB, which is a managed Azure service.
-
-## Next steps
-
-- Explore the Drone Delivery [reference implementation](./drone-delivery-aks.md).
-- View the reference architecture for [Microservices on Azure Kubernetes Service](../reference-architectures/microservices/aks.md) (AKS)

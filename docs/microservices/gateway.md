@@ -86,5 +86,9 @@ Also consider running the gateway on a dedicated set of nodes in the cluster. Be
 
 - Performance. You may want to use a specific VM configuration for the gateway for performance reasons.
 
+## Next steps
+
+The previous articles have looked at the interfaces *between* microservices or between microservices and client applications. By design, these interfaces treat each service as a black box. In particular, microservices should never expose implementation details about how they manage data. That has implications for data integrity and data consistency, explored in the next article.
+
 > [!div class="nextstepaction"]
-> [Logging and monitoring](./logging-monitoring.md)
+> [Data considerations for microservices](./data-considerations.md)
