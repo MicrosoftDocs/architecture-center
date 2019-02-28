@@ -495,7 +495,9 @@
     items:
     - name: Domain analysis
       href: microservices/domain-analysis.md
-    - name: Identifying microservice boundaries
+    - name: Tactical DDD
+      href: microservices/tactical-ddd.md
+    - name: Identify microservice boundaries
       href: microservices/microservice-boundaries.md
   - name: Designing a microservices architecture
     items:
