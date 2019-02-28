@@ -5,25 +5,30 @@ author: adamboeglin
 ms.date: 2/4/2019
 ---
 <!-- markdownlint-disable MD033 -->
+<!-- markdownlint-disable MD026 -->
 
 # High Performance Computing (HPC) on Azure
 
 ## Introduction to HPC
 
+<!-- markdownlint-disable MD034 -->
+
 > [!VIDEO https://www.youtube.com/embed/rKURT32faJk]
+
+<!-- markdownlint-enable MD034 -->
 
 High Performance Computing (HPC), also called "Big Compute", uses a large number of CPU or GPU-based computers to solve complex mathematical tasks.
 
 Many industries use HPC to solve some of their most difficult problems.  These include workloads such as:
 
 - Genomics
-- Oil & Gas Simulations
+- Oil and gas simulations
 - Finance
-- Semiconductor Design
+- Semiconductor design
 - Engineering
 - Weather modeling
 
-### How is HPC different on the cloud
+### How is HPC different on the cloud?
 
 One of the primary differences between an on-premise HPC system and one in the cloud is the ability for resources to dynamically be added and removed as they're needed.  Dynamic scaling removes compute capacity as a bottleneck and instead allow customers to right size their infrastructure for the requirements of their jobs.
 
@@ -32,9 +37,11 @@ The following articles provide more detail about this dynamic scaling capability
 - [Big Compute Architecture Style](/azure/architecture/guide/architecture-styles/big-compute?context=/azure/architecture/topics/high-performance-computing/context/hpc-context)
 - [Autoscaling best practices](/azure/architecture/best-practices/auto-scaling?context=/azure/architecture/topics/high-performance-computing/context/hpc-context)
 
-## Implementation Checklist
+## Implementation checklist
 
 As you're looking to implement your own HPC solution on Azure, ensure you're reviewed the following topics:
+
+<!-- markdownlint-disable MD032 -->
 
 > [!div class="checklist"]
 > - Choose the appropriate [architecture](#infrastructure) based on your requirements
@@ -44,11 +51,13 @@ As you're looking to implement your own HPC solution on Azure, ensure you're rev
 > - Optimize your [application](#hpc-applications) for the cloud
 > - [Secure](#security) your Infrastructure
 
+<!-- markdownlint-enable MD032 -->
+
 ## Infrastructure
 
 There are a number of infrastructure components necessary to build an HPC system.  Compute, Storage, and Networking provide the underlying components, no matter how you choose to manage your HPC workloads.
 
-### Example HPC Architectures
+### Example HPC architectures
 
 There are a number of different ways to design and implement your HPC architecture on Azure.  HPC applications can scale to thousands of compute cores, extend on-premises clusters, or run as a 100% cloud native solution.
 
@@ -160,7 +169,7 @@ Building an HPC system from scratch on Azure offers a significant amount of flex
 3. Choose [HPC and GPU VM sizes](#hpc-and-gpu-sizes) that include specialized hardware and network connections for MPI or GPU workloads.
 4. Add [high performance storage](#hpc-storage) for I/O-intensive workloads.
 
-### Hybrid & Cloud Bursting
+### Hybrid and cloud Bursting
 
 If you have an existing on-premise HPC system that you'd like to connect to Azure, there are a number of resources to help get you started.
 
@@ -260,7 +269,7 @@ CycleCloud allows you to:
 The following are examples of cluster and workload managers that can run in Azure infrastructure. Create stand-alone clusters in Azure VMs or burst to Azure VMs from an on-premises cluster.
 
 - [Alces Flight Compute](https://azuremarketplace.microsoft.com/marketplace/apps/alces-flight-limited.alces-flight-compute-solo?tab=Overview)
-- [TIBCO DataSynapse GridServer](https://azure.microsoft.com/blog/tibco-datasynapse-comes-to-the-azure-marketplace/) 
+- [TIBCO DataSynapse GridServer](https://azure.microsoft.com/blog/tibco-datasynapse-comes-to-the-azure-marketplace/)
 - [Bright Cluster Manager](http://www.brightcomputing.com/technology-partners/microsoft)
 - [IBM Spectrum Symphony and Symphony LSF](https://azure.microsoft.com/blog/ibm-and-microsoft-azure-support-spectrum-symphony-and-spectrum-lsf/)
 - [PBS Pro](http://pbspro.org)
@@ -277,7 +286,7 @@ Containers can also be used to manage some HPC workloads.  Services like the Azu
 - [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes?context=/azure/architecture/topics/high-performance-computing/context/hpc-context)
 - [Container Registry](/azure/container-registry/container-registry-intro?context=/azure/architecture/topics/high-performance-computing/context/hpc-context)
 
-## Cost Management
+## Cost management
 
 Managing your HPC cost on Azure can be done through a few different ways.  Ensure you've reviewed the [Azure purchasing options](https://azure.microsoft.com/en-us/pricing/purchase-options/) to find the method that works best for your organization.
 
@@ -287,7 +296,7 @@ Managing your HPC cost on Azure can be done through a few different ways.  Ensur
 
 For an overview of security best practices on Azure, review the [Azure Security Documentation](/azure/security/azure-security?context=/azure/architecture/topics/high-performance-computing/context/hpc-context).  
 
-In addition to the network configurations available in the [Cloud Bursting](#) section, you may want to implement a hub/spoke configuration to isolate your compute resources:
+In addition to the network configurations available in the [Cloud Bursting](#hybrid-and-cloud-bursting) section, you may want to implement a hub/spoke configuration to isolate your compute resources:
 
 <ul class="columns is-multiline has-margin-left-none has-margin-bottom-none has-padding-top-medium">
     <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
@@ -357,7 +366,7 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
 
 - [Microsoft MPI](/message-passing-interface/microsoft-mpi)
 
-## Remote Visualization
+## Remote visualization
 
 <ul class="columns is-multiline has-margin-left-none has-margin-bottom-none has-padding-top-medium">
     <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
@@ -382,13 +391,13 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
 
 ## Performance Benchmarks
 
-- [Compute Benchmarks](/azure/virtual-machines/windows/compute-benchmark-scores?context=/azure/architecture/topics/high-performance-computing/context/hpc-context)
+- [Compute benchmarks](/azure/virtual-machines/windows/compute-benchmark-scores?context=/azure/architecture/topics/high-performance-computing/context/hpc-context)
 
 ## Customer stories
 
 There are a number of customers who have seen great success by using Azure for their HPC workloads.  You can find a few of these customer case studies below:
 
-- [ANEO](https://customers.microsoft.com/story/it-provider-finds-highly-scalable-cloud-based-hpc-redu) 
+- [ANEO](https://customers.microsoft.com/story/it-provider-finds-highly-scalable-cloud-based-hpc-redu)
 - [AXA Global P&C](https://customers.microsoft.com/story/axa-global-p-and-c)
 - [Axioma](https://customers.microsoft.com/story/axioma-delivers-fintechs-first-born-in-the-cloud-multi-asset-class-enterprise-risk-solution)
 - [d3View](https://customers.microsoft.com/story/big-data-solution-provider-adopts-new-cloud-gains-thou)
@@ -402,15 +411,16 @@ There are a number of customers who have seen great success by using Azure for t
 - [Schlumberger](https://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
 - [Towers Watson](https://customers.microsoft.com/story/insurance-tech-provider-delivers-disruptive-solutions)
 
-## Other Important Information
+## Other important information
 
 - Ensure your [vCPU quota](/azure/virtual-machines/linux/quotas?context=/azure/architecture/topics/high-performance-computing/context/hpc-context) has been increased before attempting to run large-scale workloads.
 
 ## Next steps
 
 For the latest announcements, see:
-  - [Microsoft HPC and Batch team blog](http://blogs.technet.com/b/windowshpc/)
-  - Visit the [Azure blog](https://azure.microsoft.com/blog/tag/hpc/).
+
+- [Microsoft HPC and Batch team blog](http://blogs.technet.com/b/windowshpc/)
+- Visit the [Azure blog](https://azure.microsoft.com/blog/tag/hpc/).
 
 ### Microsoft Batch Examples
 
