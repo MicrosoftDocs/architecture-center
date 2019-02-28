@@ -189,7 +189,6 @@ For more information on naming blobs, containers and tables, refer to the follow
 - [Naming and Referencing Containers, Blobs, and Metadata](https://msdn.microsoft.com/library/dd135715.aspx)
 - [Naming Queues and Metadata](https://msdn.microsoft.com/library/dd179349.aspx)
 - [Naming Tables](https://msdn.microsoft.com/library/azure/dd179338.aspx)
-- [Naming Service Bus](https://docs.microsoft.com/en-us/rest/api/servicebus/create-namespace)
 
 A blob name can contain any combination of characters, but reserved URL characters must be properly escaped. Avoid blob names that end with a period (.), a forward slash (/), or a sequence or combination of the two. By convention, the forward slash is the *virtual* directory separator. Do not use a backward slash (\\) in a blob name. The client APIs may allow it, but then fail to hash properly, and the signatures will not match.
 
