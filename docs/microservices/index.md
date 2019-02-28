@@ -139,7 +139,7 @@ Microservices are a popular architectural style for building applications that a
 </li>
 </ul>
 
-## Deploy and run microservices in production
+## Operate microservices in production
 
 <ul  class="panelContent cardsZ">
 <li style="display: flex; flex-direction: column;">

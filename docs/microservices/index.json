@@ -59,7 +59,7 @@
             ]
         },
         {
-            "heading": "Deploy and run microservices in production",
+            "heading": "Operate microservices in production",
             "cards": [
                 {
                     "title": "Logging and monitoring",
