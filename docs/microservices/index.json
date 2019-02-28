@@ -12,9 +12,9 @@
                     "summary": "How do microservices differ from other architectures, and when should you use them?"
                 },
                 {
-                    "title": "Modeling microservices",
-                    "url": "./domain-analysis.md",
-                    "summary": "To avoid some common pitfalls when designing microservices, use domain analysis to define your microservice boundaries."
+                    "title": "Microservices architecture style",
+                    "url": "../guide/architecture-styles/microservices.md",
+                    "summary": "High-level overview of the microservices architecture style"
                 }
             ]
         },
@@ -31,6 +31,27 @@
                     "title": "Scalable order processing on Azure",
                     "url": "../example-scenario/data/ecommerce-order-processing.md",
                     "summary":"Order processing using a functional programming model implemented via microservices."
+                }
+            ]
+        },
+        {
+            "heading": "Designing microservices",
+            "intro": "These articles dive deep into how to build a microservices application, based on a reference implementations that uses Azure Kubernetes Services (AKS).",
+            "cards": [
+                {
+                    "title": "Use domain analysis to model microservices",
+                    "url": "./model/microservices/domain-analysis.md",
+                    "summary": "To avoid some common pitfalls when designing microservices, use domain analysis to define your microservice boundaries."
+                },
+                {
+                    "title": "Design a microservices architecture",
+                    "url": "./design/interservice-communication.md",
+                    "summary": "To show best practices, we created a reference microservices implementation called the Drone Delivery application. "
+                },
+                {
+                    "title": "Design patterns",
+                    "url": "./design/patterns.md",
+                    "summary":"A set of useful design patterns for microservices."
                 }
             ]
         },

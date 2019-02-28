@@ -491,28 +491,30 @@
     href: microservices/index.md
   - name: Introduction to microservices
     href: microservices/introduction.md
-  - name: Modeling microservices
+  - name: Model microservices
     items:
     - name: Domain analysis
-      href: microservices/domain-analysis.md
+      href: microservices/model/domain-analysis.md
     - name: Tactical DDD
-      href: microservices/tactical-ddd.md
+      href: microservices/model/tactical-ddd.md
     - name: Identify microservice boundaries
-      href: microservices/microservice-boundaries.md
-  - name: Designing a microservices architecture
+      href: microservices/model/microservice-boundaries.md
+  - name: Design a microservices architecture
     items:
-    - name: Reference implementation for AKS
-      href: microservices/drone-delivery-aks.md
+    - name: Introduction
+      href: microservices/design/index.md
+    - name: Choose a compute option
+      href: microservices/design/compute-options.md
     - name: Interservice communication
-      href: microservices/interservice-communication.md
+      href: microservices/design/interservice-communication.md
     - name: API design
-      href: microservices/api-design.md
+      href: microservices/design/api-design.md
     - name: API gateways
-      href: microservices/gateway.md
+      href: microservices/design/gateway.md
     - name: Data considerations
-      href: microservices/data-considerations.md
+      href: microservices/design/data-considerations.md
     - name: Design patterns for microservices
-      href: microservices/design-patterns.md
+      href: microservices/design/patterns.md
   - name: Logging and monitoring
     href: microservices/logging-monitoring.md
   - name: CI/CD
