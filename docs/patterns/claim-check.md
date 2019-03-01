@@ -12,20 +12,18 @@ ms.subservice: cloud-fundamentals
 
 # Claim-Check Pattern
 
-Split a large message into a claim check and a payload. Send the claim check into the messaging platform and store the payload into an external service. This allows large messages to be processed, while protecting the message bus and the client from being overwhelmed or slowed down by their presence. This pattern also helps to reduce costs, as storage is usually cheaper than resource units used by the messaging platform.
+Split a large message into a claim check and a payload. Send the claim check into the messaging platform and store the payload into an external service. This pattern allows large messages to be processed, while protecting the message bus and the client from being overwhelmed or slowed down. This pattern also helps to reduce costs, as storage is usually cheaper than resource units used by the messaging platform.
 
 > [!NOTE]
 > This is a messaing pattern and isn't related to claims-based identiy.
 
-This pattern is also known as Reference Based Messaging, and was originally [described][enterprise-integration-patterns] in the book *Enterprise Integration Patterns*, by Gregor Hohpe and Bobby Woolf.
+This pattern is also known as Reference-Based Messaging, and was originally [described][enterprise-integration-patterns] in the book *Enterprise Integration Patterns*, by Gregor Hohpe and Bobby Woolf.
 
 ## Context and problem
 
-A messaging based architecture at some point needs to be able to send, receive, and manipulate large messages. Such messages may contain anything, including images (for example, MRI scans), sound files (for example, call-center calls), text documents, or any kind of binary data of abritrary size.
+A messaging-based architecture at some point must be able to send, receive, and manipulate large messages. Such messages may contain anything, including images (for example, MRI scans), sound files (for example, call-center calls), text documents, or any kind of binary data of arbitrary size.
 
-Sending such large messages to the message bus directly is not recommended, because they will require more resources and bandwidth to be consumed. Large message can also slow down the entire solution, because messaging platforms are usually fine-tuned to handle huge quantities of small messages.
-
-Moreover, messaging platforms usually have limits on message size. In that case, you may need to work around this limit for large messages.
+Sending such large messages to the message bus directly is not recommended, because they require more resources and bandwidth to be consumed. Large messages can also slow down the entire solution, because messaging platforms are usually fine-tuned to handle huge quantities of small messages. Messaging platforms usually have limits on message size. In that case, you may need to work around this limit for large messages.
 
 ## Solution
 
@@ -37,13 +35,13 @@ Store the entire message payload into an external service, such as a database. G
 
 Consider the following points when deciding how to implement this pattern:
 
-- Consider deleting the message data after consuming it, if you don't need to archive the messages. Although blob storage is relatively cheaper, cost some money in the long run. Deleting the message can be done synchronously by the application that receives and processes the message, or can be done asynchronously by a separate dedicated process. The asynchronous approach removes old data without having any impact on the throughput and message processing performance of the receiving application.
+- Consider deleting the message data after consuming it, if you don't need to archive the messages. Although blob storage is relatively cheaper, cost some money in the long run. Deleting the message can be done synchronously by the application that receives and processes the message, or asynchronously by a separate dedicated process. The asynchronous approach removes old data with no impact on the throughput and message processing performance of the receiving application.
 
-- Storing and retrieving the message causes some additional overhead and latency. You may want to implement logic in the sending application to use this pattern only when the message size exceeds the data limit of the message bus. The pattern would be skipped for smaller messages. This would result in a conditional claim-check pattern.
+- Storing and retrieving the message causes some additional overhead and latency. You may want to implement logic in the sending application to use this pattern only when the message size exceeds the data limit of the message bus. The pattern would be skipped for smaller messages. This approach result would result in a conditional claim-check pattern.
 
 ## When to use this pattern
 
-This pattern should be used whenever a message cannot fit the supported message limit of the chosen message bus technology. For example, Event Hubs currently has a limit of 256KB (Basic Tier) while Event Grid supports only 64Kb messages.
+This pattern should be used whenever a message cannot fit the supported message limit of the chosen message bus technology. For example, Event Hubs currently has a limit of 256 KB (Basic Tier), while Event Grid supports only 64-KB messages.
 
 The pattern can also be used if the payload should be accessed only by services that are authorized to see it. By offloading the payload to an external resource, stricter authentication and authorization rules can be put in place, to ensure that security is enforced when sensitive data is stored in the payload.
 
@@ -55,7 +53,7 @@ On Azure, this pattern can be implemented in several ways and with different tec
 
 - **Manual claim check generation**. In this approach, the sender is responsible for managing the payload. The sender stores the payload using the appropriate service, gets or generates the claim check, and sends the claim check to the message bus.
 
-Event Grid is an event routing service and tries to deliver events within a configurable amount of time up to 24 hours. After that, events are either discarded or dead lettered. If you need to archive the event payloads or have the ability to replay the event stream, you can add an Event Grid subscription to Event Hubs or Queue Storage, where messages can be retained for longer periods and archiving messages is supported. For information about fine tuning Event Grid message delivery and retry, and dead letter configuration, see  [Dead letter and retry policies](/azure/event-grid/manage-event-delivery).
+Event Grid is an event routing service and tries to deliver events within a configurable amount of time up to 24 hours. After that, events are either discarded or dead lettered. If you need to archive the event payloads or replay the event stream, you can add an Event Grid subscription to Event Hubs or Queue Storage, where messages can be retained for longer periods and archiving messages is supported. For information about fine tuning Event Grid message delivery and retry, and dead letter configuration, see  [Dead letter and retry policies](/azure/event-grid/manage-event-delivery).
 
 ### Automatic claim-check generation with Blob Storage and Event Grid
 
@@ -67,13 +65,13 @@ You can find example code for this approach [here][example-1].
 
 ### Event Grid with Event Hubs
 
-Similar to the previous example, Event Grid automatically generates a message when a payload is written to the designated Azure Blob container. But in this example,  the message bus is implemented using Event Hubs. A client can register itself to receive the stream of messages as they are written to the event hub. The event hub can also be configured to archive received messages, making them available as an AVRO file that is easily queryable using tools like Apache Spark, Apache Drill, or any of the available Avro libraries.
+Similar to the previous example, Event Grid automatically generates a message when a payload is written to an Azure Blob container. But in this example,  the message bus is implemented using Event Hubs. A client can register itself to receive the stream of messages as they are written to the event hub. The event hub can also be configured to archive messages, making them available as an AVRO file can be queried using tools like Apache Spark, Apache Drill, or any of the available Avro libraries.
 
 You can find example code for this approach [here][example-2].
 
 ### Claim check generation with Service Bus
 
-This solution takes advantage of a specific Service Bus plugin, [ServiceBus.AttachmentPlugin](https://www.nuget.org/packages/ServiceBus.AttachmentPlugin/), which makes the claim-check workflow easy to implement. The plugin is used to convert any message body into an attachment which gets stored in Azure Blob Storage on message send.
+This solution takes advantage of a specific Service Bus plugin, [ServiceBus.AttachmentPlugin](https://www.nuget.org/packages/ServiceBus.AttachmentPlugin/), which makes the claim-check workflow easy to implement. The plugin is used to convert any message body into an attachment that gets stored in Azure Blob Storage on message send.
 
 ```csharp
 using ServiceBus.AttachmentPlugin;
@@ -101,13 +99,13 @@ var message = new Message(payloadAsBytes);
 await sender.SendAsync(message);
 ```
 
-The Service Bus message is used to act as a notification queue which can subscribed on to read the message. When the consumer receives the message, the plugin makes it possible to directly read the message data from Blob Storage. You can then choose how you to process the message further. An advantage of this approach is that it abstracts the actual claim-check workflow from the caller.
+The Service Bus message acts as a notification queue, which a client can subscribe to. When the consumer receives the message, the plugin makes it possible to directly read the message data from Blob Storage. You can then choose how you to process the message further. An advantage of this approach is that it abstracts the claim-check workflow from the caller.
 
 You can find example code for this approach [here][example-3].
 
 ### Manual claim-check generation with Kafka
 
-A Kafka client writes the payload to Azure Blob Storage. Then it sends a notification message using Kakfa-enable Event Hubs. The consumer receives the message and can access the payload from Blog Storage. This example shows how a different messaging protocal can be used to implement the claim-check pattern in Azure. For example, you might need to support existing Kafka clients.
+A Kafka client writes the payload to Azure Blob Storage. Then it sends a notification message using Kakfa-enable Event Hubs. The consumer receives the message and can access the payload from Blog Storage. This example shows how a different messaging protocol can be used to implement the claim-check pattern in Azure. For example, you might need to support existing Kafka clients.
 
 You can find example code for this approach [here][example-4].
 
