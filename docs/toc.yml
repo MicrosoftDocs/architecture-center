@@ -177,6 +177,8 @@
       href: patterns/cache-aside.md
     - name: Circuit Breaker
       href: patterns/circuit-breaker.md
+    - name: Claim Check
+      href: patterns/claim-check.md
     - name: Command and Query Responsibility Segregation (CQRS)
       href: patterns/cqrs.md
     - name: Compensating Transaction
