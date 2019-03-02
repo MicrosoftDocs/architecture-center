@@ -2,7 +2,7 @@
 title: "Preparing for technical complexity - Agile Change Management"
 description: Preparing for technical complexity - Agile Change Management
 author: BrianBlanchard
-ms.date: 4/1/2019
+ms.date: 4/4/2019
 ---
 
 # Preparing for technical complexity - Agile Change Management

@@ -2,16 +2,17 @@
 title: "Guidance to Business Testing (UAT Testing) during migration"
 description: A process within Cloud Migration that focuses on the tasks of migrating workloads to the cloud
 author: BrianBlanchard
-ms.date: 4/1/2019
+ms.date: 4/4/2019
 ---
 
 # Guidance to Business Testing (UAT Testing) during to migration
 
-The [Migration section](../overview.md) of the [Fusion framework](../../overview.md), outlines the processes typically required to migrate a DataCenter to the cloud. This article, expands on the [Migration Execution Process](overview.md)by reviewing activities associated with Business Testing within a given release.
-  
-Traditionally seen as an IT function, User Acceptance Testing during a business transformation is often most impactfully executed as a business function. IT then supports this business activity by facilitating the testing, developing testing plans, and automating tests when possible. While IT can often serve as a surrogate for testing, there is no replacement for first hand observation of real users attempting to leverage a new solution in the context of a real or replicated business process.
+Traditionally seen as an IT function, User Acceptance Testing during a business transformation can be orchestrated solely by IT. However, this function is often most impactfully executed as a business function. IT then supports this business activity by facilitating the testing, developing testing plans, and automating tests when possible. While IT can often serve as a surrogate for testing, there is no replacement for first hand observation of real users attempting to leverage a new solution in the context of a real or replicated business process.
 
- Power users the most impactful testing source for process and technology change. Power users are the people that commonly execute a real-world process that requires interactions with a technology tool or set of tools. Power users could be represented by an external customer using an e-commerce site to acquire goods or services. Power users could also be represented by a group of employees executing a business process, such as, a call center servicing customers and recording their experiences.
+> [!NOTE]
+> When available, automated testing is a much more effective and efficient means of testing any system. However, cloud migrations often focus most heavily on legacy systems or at least stable production systems. Often times, those systems aren't managed by thorough and well-maintained automated tests. This article assumes no such tests are available at the time of migration.
+
+Second to automated testing, would be testing of the process and technology changes by power users. Power users are the people that commonly execute a real-world process that requires interactions with a technology tool or set of tools. Power users could be represented by an external customer using an e-commerce site to acquire goods or services. Power users could also be represented by a group of employees executing a business process, such as, a call center servicing customers and recording their experiences.
 
 The goal of Business Testing is to solicit validation from Power Users to certify that the new solution performs inline with expectations and does not imped business processes. If that goal isn't met, the Business Testing serves as a feedback loop that can help define why & how the application isn't meeting expectations.
 
@@ -41,7 +42,7 @@ IT serves as one of the recipients of the business testing output. The feedback 
 
 ## Next steps
 
-Once the business has accepted or validated the solution, [business change activities](business-change-plan.md) can begin.
+In conjunction with business testing, [optimization of migrated assets](./optimize.md) can refine cost and workload performance.
 
 > [!div class="nextstepaction"]
-> [User Adoption Planning](business-change-plan.md)
+> [Optimize migrated assets](./optimize.md)

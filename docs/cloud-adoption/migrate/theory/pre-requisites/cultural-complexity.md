@@ -2,7 +2,7 @@
 title: "Preparing for cultural complexity - Aligning roles and responsibilities"
 description: Preparing for cultural complexity - Aligning roles and responsibilities
 author: BrianBlanchard
-ms.date: 4/1/2019
+ms.date: 4/4/2019
 ---
 
 # Preparing for cultural complexity - Aligning roles and responsibilities

@@ -2,13 +2,11 @@
 title: "Guidance to developing a Business Change Plan"
 description: A process within Cloud Migration that focuses on the tasks of migrating workloads to the cloud
 author: BrianBlanchard
-ms.date: 4/1/2019
+ms.date: 4/4/2019
 ---
 
-# Why do we need a Business Change Plan
+# Business Change Plan
 
-The [Migration section](../overview.md) of the [Fusion framework](../../overview.md), outlines the processes typically required to migrate a DataCenter to the cloud. This article, expands on the [Migration Execution Process](overview.md) by reviewing activities associated with the creation and execution of a Business Change Plan for a release.
-  
 Traditionally Information Technology (IT) has overseen the release of new applications or workloads. During a major transformation like a DataCenter migration, or a Cloud Migration, a similar pattern of IT lead adoption could been applied as well. However, the traditional approach could miss opportunities to realize additional business value. For this reason, a broader approach to user adoption is suggested. This article will outline the ways in which a Business Change Plan adds to a standard User Adoption Plan.
 
 ## Traditional User Adoption Approach
@@ -51,10 +49,10 @@ The Business Change Plan will vary from company to company. The goal of these qu
 
 ## Next steps
 
-Once Business Change Plan is complete, [Production Readiness activities](ready.md) can begin.
+Once business change is documented and planned, [Business Testing](./business-test.md) can begin.
 
 > [!div class="nextstepaction"]
-> [Production Readiness](ready.md)
+> [Business Testing](./business-test.md)
 
 ## References
 

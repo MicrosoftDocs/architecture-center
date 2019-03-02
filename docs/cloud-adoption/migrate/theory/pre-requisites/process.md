@@ -2,7 +2,7 @@
 title: "Migration Process Decisions"
 description: Important decisions to be made regarding the migration process
 author: BrianBlanchard
-ms.date: 4/1/2019
+ms.date: 4/4/2019
 ---
 
 # Migration Process Decisions (Effort, Roles, Definition of Done)

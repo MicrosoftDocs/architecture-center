@@ -2,7 +2,7 @@
 title: "What is required to promote a migrated resource to production?"
 description: A process within Cloud Migration that focuses on the tasks of migrating workloads to the cloud
 author: BrianBlanchard
-ms.date: 4/1/2019
+ms.date: 4/4/2019
 ---
 
 # What is required to promote a migrated resource to production?
@@ -41,7 +41,7 @@ Various applications may require detailed promotion processes. However, the comm
 
 ## Next steps: Align Business Priorities
 
-Promotion of an application, or group of applications signals the completion of a release. The next step in the iterative migration process, is to [align business priorities](business-priorities.md).
+Promotion of an application, or group of applications signals the completion of a release. This creates a good opportunity to improve the process, a [Retrospective](./retrospective.md) engages the cloud adoption team in a review of the release in an effort to learn and improve.
 
 > [!div class="nextstepaction"]
-> [Align business priorities](business-priorities.md)
+> [Retrospective](./retrospective.md)

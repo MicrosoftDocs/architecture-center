@@ -2,7 +2,7 @@
 title: "Migration Environment - Planning Checklist"
 description: Validate environmental readiness prior to migration
 author: BrianBlanchard
-ms.date: 4/1/2019
+ms.date: 4/4/2019
 ---
 
 # Migration Environment - Planning Checklist: Validate environmental readiness prior to migration

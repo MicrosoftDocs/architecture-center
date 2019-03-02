@@ -1,13 +1,13 @@
 ---
 title: "Remediating assets prior to migration"
-description: A process within Cloud Migration that focuses on the tasks of migrating workloads to the cloud
+description: Remediating incompatible assets prior to migration
 author: BrianBlanchard
-ms.date: 4/1/2019
+ms.date: 4/4/2019
 ---
 
 # Remediating assets prior to migration
   
-During the [Assess activities](assess.md) of [Migration Execution](overview.md), a number of potential incompatibilities may have been identified. Remediate is a checkpoint in the migration process to ensure those incompatibilities wisely. This article will discuss a few common remediation tasks for reference. This article will also establish a skeleton process for deciding if remediation is a wise investment.
+During the assess process of migration, the team seeks to identify any configurations that would make an asset incompatible with the chosen cloud provider. Remediate is a checkpoint in the migration process to ensure those incompatibilities have been resolved. This article will discuss a few common remediation tasks for reference. This article will also establish a skeleton process for deciding if remediation is a wise investment.
 
 ## Common Remediation Tasks
 

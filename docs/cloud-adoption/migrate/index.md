@@ -2,7 +2,7 @@
 title: "CAF: Cloud Migration"
 description: Introduction to Cloud Migration content
 author: BrianBlanchard
-ms.date: 4/1/2019
+ms.date: 4/4/2019
 ---
 
 # Cloud migration in the Microsoft CAF for Azure

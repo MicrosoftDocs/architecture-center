@@ -2,7 +2,7 @@
 title: "Architecture workloads prior to migration"
 description: Architecture workloads prior to migration
 author: BrianBlanchard
-ms.date: 4/1/2019
+ms.date: 4/4/2019
 ---
 
 # Architecture workloads prior to migration

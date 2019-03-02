@@ -757,8 +757,8 @@
         items:
         - name: xx-Overview
           href: cloud-adoption/migrate/theory/migrate/index.md
-        - name: xx-Release models - Promote, Stage, or Flight
-          href: cloud-adoption/migrate/theory/migrate/release-models.md
+        - name: Promotion models - Promote, Stage, or Flight
+          href: cloud-adoption/migrate/theory/migrate/promotion-models.md
         - name: Remediate
           href: cloud-adoption/migrate/theory/migrate/remediate.md
         - name: Replicate
@@ -775,16 +775,16 @@
           href: cloud-adoption/migrate/theory/optimize/business-change-plan.md
         - name: Business Testing
           href: cloud-adoption/migrate/theory/optimize/business-test.md
-        - name: Optimize for performance and cost
-          href: cloud-adoption/migrate/theory/optimize/business-test.md
+        - name: Benchmark and optimize assets
+          href: cloud-adoption/migrate/theory/optimize/optimization.md
         - name: Ready for promotion
           href: cloud-adoption/migrate/theory/optimize/ready.md
         - name: Promote
           href: cloud-adoption/migrate/theory/optimize/ready.md
-        - name: xx-Decomission retired assets
-          href: cloud-adoption/migrate/theory/optimize/decomission.md
         - name: Retrospective
           href: cloud-adoption/migrate/theory/optimize/ready.md
+        - name: Decomission retired assets
+          href: cloud-adoption/migrate/theory/optimize/decomission.md
       - name: Secure and Manage
         items:
         - name: xx-Overview

@@ -2,7 +2,7 @@
 title: "Partnership and Support Options" 
 description: Describes a options and approaches to support migration efforts
 author: BrianBlanchard
-ms.date: 4/1/2019
+ms.date: 4/4/2019
 ---
 # Understanding Partnership Options
 

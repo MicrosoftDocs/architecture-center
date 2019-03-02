@@ -1,26 +1,26 @@
 ---
-title: "Guidance to Staging during migration"
-description: A process within Cloud Migration that focuses on the tasks of migrating workloads to the cloud
+title: "Staging activities during a migration"
+description: Staging activities during a migration
 author: BrianBlanchard
-ms.date: 4/1/2019
+ms.date: 4/4/2019
 ---
 
-# Guidance to Staging during to migration
+# Staging activities during a migration
 
-The [Migration section](../overview.md) of the [Fusion framework](../../overview.md), outlines the processes typically required to migrate a DataCenter to the cloud. This article, expands on the [Migration Execution Process](overview.md)by reviewing activities associated with Staging a given release.
-  
-![Migration Execution Process and related activities](../../_images/migration-execute.png)
-*Figure 1. Migration Execution Process and related activities.*
+As described in the article on promotion models, staging is the point at which assets have been "migrated" to the cloud. However, they are not yet ready to be promoted to production. This is often the last step in the Migrate process of a migration. Once staged, the workload is managed by an IT Operations or Cloud Operations team to prepare the workload for production usage.
 
-Coming Soon...
+## Deliverables
 
-How is a staged environment used in the cloud? Why is it important?
+Staged assets may not be ready to be used in production. However, there are a number of production readiness checks that should be completed before this stage is considered complete. The following area a list of deliverables often associated with completion of asset staging.
 
-How does ASR stage the replicated content for testing? How can people interact with that staged environment? What is unique about the staged workload that wouldn't persist to promotion?
+- **Automated Testing:** Any automated tests available to validate application performance should be run before concluding the staging process. Once the asset leaves staging, synchronization with the original, source system is terminated. As such, it is harder to re-deploy the replicated assets, once the assets are staged for optimization.
+- **Migration Documentation:** Most migration tools can produce an automated report of the assets being migrated. Before concluding the staging activity, it is suggested that all migrated assets be documented for clarity.
+- **Configuration Documentation:** Any changes made to an asset (during remediation, replication, or staging) should be documented for operational readiness.
+- **Backlog documentation:** The Migration Backlog should be updated to reflect the workload and assets staged.
 
 ## Next steps
 
-Once Staging is complete, [UAT Testing](business-test.md) can begin.
+Once staged assets are tested and documented, the process can proceed to [optimization activities](../optimize/index.md).
 
 > [!div class="nextstepaction"]
-> [UAT Testing](business-test.md)
+> [Optimize](../optimize/index.md)
