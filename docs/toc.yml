@@ -723,10 +723,10 @@
         href: cloud-adoption/migrate/theory/index.md
       - name: Pre-Requisites
         items:
-        - name: xx-Overview
+        - name: Overview
           href: cloud-adoption/migrate/theory/assess/index.md
-        - name: Migration Process Decisions (Effort, Roles, Definition of Done)
-          href: cloud-adoption/migrate/theory/pre-requisites/process.md
+        - name: Early Decisions
+          href: cloud-adoption/migrate/theory/pre-requisites/decisions.md
         - name: Environment Planning Checklist
           href: cloud-adoption/migrate/theory/pre-requisites/planning-checklist.md
         - name: Technical complexity and change management
@@ -737,7 +737,7 @@
           href: cloud-adoption/migrate/theory/pre-requisites/digital-estate.md
       - name: Assess
         items:
-        - name: xx-Overview
+        - name: Overview
           href: cloud-adoption/migrate/theory/assess/index.md
         - name: Business Priorities
           href: cloud-adoption/migrate/theory/assess/business-priorities.md
@@ -755,7 +755,7 @@
           href: cloud-adoption/migrate/theory/assess/approve.md
       - name: Migrate
         items:
-        - name: xx-Overview
+        - name: Overview
           href: cloud-adoption/migrate/theory/migrate/index.md
         - name: Promotion models - Promote, Stage, or Flight
           href: cloud-adoption/migrate/theory/migrate/promotion-models.md
@@ -769,7 +769,7 @@
           href: cloud-adoption/migrate/theory/migrate/stage.md
       - name: Optimize
         items:
-        - name: xx-Overview
+        - name: Overview
           href: cloud-adoption/migrate/theory/optimize/index.md
         - name: Business Change Plan
           href: cloud-adoption/migrate/theory/optimize/business-change-plan.md
@@ -787,7 +787,7 @@
           href: cloud-adoption/migrate/theory/optimize/decomission.md
       - name: Secure and Manage
         items:
-        - name: xx-Overview
+        - name: Overview
           href: cloud-adoption/migrate/theory/secure-and-manage/index.md
   - name: Govern
     items:

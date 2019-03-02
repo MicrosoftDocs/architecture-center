@@ -1,11 +1,11 @@
 ---
-title: "Migration Process Decisions"
+title: "Decisions that impact migrations"
 description: Important decisions to be made regarding the migration process
 author: BrianBlanchard
 ms.date: 4/4/2019
 ---
 
-# Migration Process Decisions (Effort, Roles, Definition of Done)
+# Decisions that impact migrations
 
 During migration, there are a number of factors that will impact decisions and execution activities. This article will explain the central theme to those decisions and a few questions that will carry through all of the migration theory content.
 
@@ -34,18 +34,6 @@ Scale of the migration is the next most important pre-requisite decision. The pr
 ### Effort Timing
 
 Often times, migrations are driving by a compelling business event that is time sensitive. For instance, termination or renewal of a 3rd party hosting contract is a common driver. While there are many potential business events necessitating a migration, they are share one commonality; an end date. It is important to understand the timing of any approaching business events, so activities and velocity can be planned and validated properly.
-
-## Definition of Done
-
-Understanding the effort will drive a definition of done for each of the four migrations processes: Assess, Migrate, Optimize, & Secure and Manage. The process page in each section of the migration theory section will outline decisions regarding definition of done. Those decisions will have a significant impact on the day to day operations of migration processes.
-
-For instance, during assessment of a small migration effort of less than 1,000 vms, the definition of done could consist of a simple statement like: Execute Azure Migrate for each of the five hosts to be migrated. For a 10,000 unit migration, the definition of done could be a complex assessment process that requires years to complete, in parallel to on-going migration efforts.
-
-## Roles
-
-During each process of the migration, the assignment of roles and responsibilities will directly shape effort, assignments, and definition of done. It is important to understand which roles will be participate in the process and how.
-
-Example of the impacts of Roles. A self-contained migration team could execute a full migration, including promotion of an application to production during the Migrate process. More commonly in large enterprises, a number of architects, IT admins, vendors, and applications owners would be required to review, approve, and execute the same type of work. In the case of the larger enterprises with separated duties, promotion to production would most likely occur during the Optimize process.
 
 ## Recap
 
