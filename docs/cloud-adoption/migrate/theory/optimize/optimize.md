@@ -34,7 +34,7 @@ Determine optimal VM usage, identify idle VMs, or remove idle VMs and unattached
 
 ## Next steps
 
-In conjunction with business testing, [optimization of the migration assets](./optimization.md) can refine cost and workload performance.
+Once a workload has been tested and optimized, it is time to [ready the workload for migration](./ready.md).
 
 > [!div class="nextstepaction"]
-> [optimization of the migration assets](./optimization.md)
+> [Ready the workload for migration](./ready.md)

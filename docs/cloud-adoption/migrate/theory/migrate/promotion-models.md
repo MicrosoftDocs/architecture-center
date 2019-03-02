@@ -70,4 +70,11 @@ This model is similar to the staged promotion model. However, there is one funda
 **Cons:** Negative aspects of this approach.
 
 - The chosen migration tool can not facilitate on-going replication after migration
-- A secondary means of data replication is required to synchronize data platforms during the staged timeframe
+- A secondary means of data replication is required to synchronize data platforms during the staged time frame
+
+## Next steps
+
+Once a promotion model is defined and accepted by the Cloud Adoption Team, [Remediation of assets](./remediate.md) can begin.
+
+> [!div class="nextstepaction"]
+> [Remediate assets](./remediate.md)

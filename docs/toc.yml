@@ -724,7 +724,7 @@
       - name: Pre-Requisites
         items:
         - name: Overview
-          href: cloud-adoption/migrate/theory/assess/index.md
+          href: cloud-adoption/migrate/theory/pre-requisites/index.md
         - name: Early Decisions
           href: cloud-adoption/migrate/theory/pre-requisites/decisions.md
         - name: Environment Planning Checklist
@@ -748,7 +748,7 @@
         - name: Estimate Cost
           href: cloud-adoption/migrate/theory/assess/estimate.md
         - name: Engage Migration Partners and Support
-          href: cloud-adoption/migrate/theory/migrate/partnership-options.md
+          href: cloud-adoption/migrate/theory/assess/partnership-options.md
         - name: Release and Iteration Backlog
           href: cloud-adoption/migrate/theory/assess/release-iteration-backlog.md
         - name: Approve
@@ -776,13 +776,13 @@
         - name: Business Testing
           href: cloud-adoption/migrate/theory/optimize/business-test.md
         - name: Benchmark and optimize assets
-          href: cloud-adoption/migrate/theory/optimize/optimization.md
+          href: cloud-adoption/migrate/theory/optimize/optimize.md
         - name: Ready for promotion
           href: cloud-adoption/migrate/theory/optimize/ready.md
         - name: Promote
-          href: cloud-adoption/migrate/theory/optimize/ready.md
+          href: cloud-adoption/migrate/theory/optimize/promote.md
         - name: Retrospective
-          href: cloud-adoption/migrate/theory/optimize/ready.md
+          href: cloud-adoption/migrate/theory/optimize/retrospective.md
         - name: Decomission retired assets
           href: cloud-adoption/migrate/theory/optimize/decomission.md
       - name: Secure and Manage

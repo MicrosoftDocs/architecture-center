@@ -35,7 +35,7 @@ The retrospective marks the end of a release or iteration, as teams gain experie
 
 ## Next steps
 
-In parallel to migration, retied assets need to be [decomissioned](./decomission.md) taking them out of service.
+In parallel to migration, retired assets need to be [decomissioned](./decomission.md) taking them out of service.
 
 > [!div class="nextstepaction"]
 > [Decomission retired assets](./decomission.md)

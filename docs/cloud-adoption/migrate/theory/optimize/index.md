@@ -39,7 +39,7 @@ In addition to core activities, there are a few parallel activities that will re
 
 ## Next steps
 
-With a general understanding of the optimization process, the reader is ready begin the process by [establishing a plan for business testing](./business-test.md).
+With a general understanding of the optimization process, the reader is ready begin the process by [establishing a business change plan for the candidate workload](./business-change-plan.md).
 
 > [!div class="nextstepaction"]
-> [Establish a plan for business testing](./business-test.md).
+> [establishing a business change plan for the candidate workload](./business-change-plan.md)

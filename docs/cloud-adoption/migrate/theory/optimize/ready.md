@@ -37,7 +37,7 @@ Once the Business Change Plan and Technical Readiness have been validated, the f
 
 ## Next steps: Promote the application
 
-Once all readiness activities have been completed, its time to [promote the application](promote.md).
+Once all readiness activities have been completed, its time to [promote the application](./promote.md).
 
 > [!div class="nextstepaction"]
-> [Promote the application](promote.md)
+> [Promote the application](./promote.md)

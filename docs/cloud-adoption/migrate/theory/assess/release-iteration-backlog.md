@@ -28,4 +28,4 @@ During each iteration, team members will work as a self-organizing team to fulfi
 Once an iteration backlog is defined and accepted by the Cloud Adoption Team, [change management approvals](./approve.md) can be finalized.
 
 > [!div class="nextstepaction"]
-> [Approve Changes](../approve.md)
+> [Approve Changes](./approve.md)
