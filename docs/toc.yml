@@ -701,7 +701,7 @@
             href: cloud-adoption/migrate/journeys/complex-path/secure-and-manage/prepare-for-cloud-operations.md
     - name: Azure Best Practices
       items:
-      - name: XX-Overview
+      - name: Overview
         href: cloud-adoption/migrate/azure-best-practices/index.md
       - name: Migrate
         items:

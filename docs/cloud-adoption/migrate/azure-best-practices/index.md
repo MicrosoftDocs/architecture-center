@@ -7,6 +7,6 @@ ms.date: 4/4/2019
 
 # Azure Migration Best Practices
 
-The Cloud Adoption Framework aims to guide customers through cloud adoption by following fictional customers through actionable journeys, each based on actual customer experiences. Respecting that Azure may not be the only cloud adopted by our customers, CAF includes the theory behind each stage of adoption so it can be molded to the reader's unique needs. Additionally, the guidance in CAF assumes that readers will use the theory content to expand on the actionable journeys to create their own adoption plans. The Azure Migration Best Practice section of CAF attempts to consolidate best practices from around Microsoft to empower readers to build their own technology strategy, based on their specific use cases.
+Included in the Azure platform are a number of tools to aid in execution of a migration effort. This section of the Cloud Adoption Framework is designed to help readers implement those tools in alignment with best practices for migration. For each of readership, each best practice is aligned to one of the processes within the CAF Migration Model pictured below. Expand any process in the Table of Contents (TOC) to the left, to see best practices typically required during that process.
 
-The content in this section mirrors the CAF Migration Model by dividing best practices into one of four processes: Assess, Migration, Optimize, and Secure & Manage. The table of content to the left can aid in finding best practices that can compliment the reader's technology strategy.
+![CAF Migration Model](../../_images/operational-transformation-migrate.png)
