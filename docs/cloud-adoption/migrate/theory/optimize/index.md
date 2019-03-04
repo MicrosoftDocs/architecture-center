@@ -42,4 +42,4 @@ In addition to core activities, there are a few parallel activities that will re
 With a general understanding of the optimization process, the reader is ready begin the process by [establishing a business change plan for the candidate workload](./business-change-plan.md).
 
 > [!div class="nextstepaction"]
-> [establishing a business change plan for the candidate workload](./business-change-plan.md)
+> [Business change plan](./business-change-plan.md)

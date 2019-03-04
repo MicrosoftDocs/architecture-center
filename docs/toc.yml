@@ -701,22 +701,50 @@
             href: cloud-adoption/migrate/journeys/complex-path/secure-and-manage/prepare-for-cloud-operations.md
     - name: Azure Best Practices
       items:
-      - name: Overview
+      - name: XX-Overview
         href: cloud-adoption/migrate/azure-best-practices/index.md
-      - name: WARNING THE TOC GETS A BIT WONKY WHEN YOU CLICK THROUGH!!!
-        href: cloud-adoption/migrate/toolchain/migrate/overview.md
       - name: Migrate
         items:
         - name: Set up networking for migrated workloads
-          href: https://docs.microsoft.com/azure/migrate/migrate-best-practices-networking?toc=/azure/architecture/toc.json%3Fbranch=caf%2Fmigrate-v1&bc=/azure/architecture/-bread/toc.json%3Fbranch=caf%2Fmigrate-v1
+          href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-networking
+        - name: Contoso migration series
+          items:
+          - name: 1. Contoso-Migration overview
+            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-overview.md
+          - name: 2. Contoso-Deploy an Azure infrastructure
+            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-infrastructure.md
+          - name: 3. Contoso-Assess on-premises resources for migration to Azure
+            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-assessment.md
+          - name: 4. Contoso-Rehost an app on Azure VMs and Azure SQL Database Managed Instance
+            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm-sql-managed-instance.md
+          - name: 5. Contoso-Rehost an app on Azure VMs
+            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm.md
+          - name: 6. Contoso-Rehost an app on Azure VMs and Azure SQL Server AlwaysOn Availability Groups
+            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm-sql-ag.md
+          - name: 7. Contoso-Rehost a Linux app on Azure VMs
+            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-linux-vm.md
+          - name: 8. Contoso-Rehost a Linux app on Azure VMs and Azure MySQL
+            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-linux-vm-mysql.md
+          - name: 9. Contoso-Refactor an app on Azure Web Apps and Azure SQL Database
+            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-refactor-web-app-sql.md
+          - name: 10. Contoso-Refactor a Linux app on Azure Web Apps and Azure MySQL
+            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-refactor-linux-app-service-mysql.md
+          - name: 11. Contoso-Migrate TFS to Azure DevOps Services
+            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-tfs-vsts.md
+          - name: 12. Contoso-Rearchitect an app on Azure Containers and Azure SQL Database
+            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rearchitect-container-sql.md
+          - name: 13. Contoso-Rebuild an app in Azure
+            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rebuild.md
+          - name: 14. Contoso-Scale a migration
+            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-scale.md
       - name: Optimize
         items:
         - name: Costing and Sizing Workloads
-          href: https://docs.microsoft.com/azure/migrate/migrate-best-practices-costs?toc=/azure/architecture/toc.json%3Fbranch=caf%2Fmigrate-v1&bc=/azure/architecture/-bread/toc.json%3Fbranch=caf%2Fmigrate-v1
+          href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-costs
       - name: Secure and Manage
         items:
         - name: Securing and managing workloads post migration
-          href: https://docs.microsoft.com/azure/migrate/migrate-best-practices-security-management?toc=/azure/architecture/toc.json%3Fbranch=caf%2Fmigrate-v1&bc=/azure/architecture/-bread/toc.json%3Fbranch=caf%2Fmigrate-v1
+          href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-management
     - name: Migration Theory
       items:
       - name: Overview

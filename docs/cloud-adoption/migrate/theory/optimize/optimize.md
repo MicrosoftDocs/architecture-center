@@ -34,7 +34,7 @@ Determine optimal VM usage, identify idle VMs, or remove idle VMs and unattached
 
 ## Next steps
 
-Once a workload has been tested and optimized, it is time to [ready the workload for migration](./ready.md).
+Once a workload has been tested and optimized, it is time to [ready the workload for promotion](./ready.md).
 
 > [!div class="nextstepaction"]
-> [Ready the workload for migration](./ready.md)
+> [Ready the workload for promotion](./ready.md)
