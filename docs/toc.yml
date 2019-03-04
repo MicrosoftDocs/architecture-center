@@ -609,6 +609,54 @@
         href: cloud-adoption/plan/change-management/partnerhips.md
       - name: xx- Support options
         href: cloud-adoption/plan/change-management/support.md
+  - name: Build
+    items:
+    - name: XX-Overview
+      href: cloud-adoption/build/index.md
+    - name: Actionable Migration Journeys
+      items:
+      - name: XX-Overview of the journeys
+        href: cloud-adoption/build/journeys/index.md
+      - name: XX-Azure Readiness Guide - (Simple Journey)
+        items:
+        - name: Absorb the existing readiness guide
+          href: cloud-adoption/build/journeys/simple/index.md
+      - name: XX-Complex Journey
+        items:
+        - name: Fill in TOC Later
+          href: cloud-adoption/build/journeys/complex/index.md
+    - name: Azure Best Practices
+      items:
+      - name: XX-Overview
+        href: cloud-adoption/build/azure-best-practices/index.md
+    - name: Build Theory
+      items:
+      - name: XX-Overview
+        href: cloud-adoption/build/theory/index.md
+      - name: XX-Governance and Security Alignment
+        href: cloud-adoption/build/theory/index.md
+      - name: XX-Business Stakeholder Alignment
+        href: cloud-adoption/build/theory/index.md
+      - name: XX-Agile Change Management Tool
+        href: cloud-adoption/build/theory/index.md
+      - name: XX-Nomenclature
+        href: cloud-adoption/build/theory/index.md
+      - name: XX-Cloud Primatives
+        href: cloud-adoption/build/theory/index.md
+      - name: XX-Azure Primatives
+        items: 
+        - name: xx- Subscriptions
+          href: cloud-adoption/build/theory/index.md
+        - name: xx- Management Groups
+          href: cloud-adoption/build/theory/index.md
+        - name: xx- Resource Groups
+          href: cloud-adoption/build/theory/index.md
+      - name: XX-Network
+        href: cloud-adoption/build/theory/index.md
+      - name: XX-Identity
+        href: cloud-adoption/build/theory/index.md
+      - name: XX-Monitoring
+        href: cloud-adoption/build/theory/index.md
   - name: Migrate
     items:
     - name: Overview
