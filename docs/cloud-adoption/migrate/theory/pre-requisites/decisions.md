@@ -9,6 +9,34 @@ ms.date: 4/4/2019
 
 During migration, there are a number of factors that will impact decisions and execution activities. This article will explain the central theme to those decisions and a few questions that will carry through all of the migration theory content.
 
+## Business Outcomes
+
+The objective or goal of any adoption effort can have a significant impact on the suggested approach to execution.
+
+- Operational Transformation: Urgent business drivers, speed of adoption, or cost savings are examples of operational outcomes. These outcomes are central to efforts that drive business value from transitive change in IT or operations models.
+- Incremental Transformation: Improving customer experience or growing market share are examples of incremental outcomes. The outcomes come from a collection of incremental changes focused on the needs and desires of current customers.
+- Disruptive Transformation: New products or services, especially those that come from the power of data, are examples of disruptive outcomes. These outcomes are the result of experimentation and predictions that use data to disrupt status quo in the market.
+
+No business would pursue just one of these outcomes. Without operations there are no customers and vice versus. Without looking to the customers of tomorrow, it's hard to care for the customers of today. Cloud adoption is the no different. Companies commonly work to each of these outcomes.
+
+This pre-requisite isn't a demand for the reader to pick one of the three options above. Instead the need captured in this pre-requisite is to help the Cloud Strategy Team and Cloud Adoption Team establish a set of operational priorities that will guide execution for the next 3 to 6 months. These priorities are set by ranking each of the three options above from most impactful to least impactful, as it relates to the efforts this team can contribute to in the next 1-2 quarters.
+
+### Acting on Operational Transformation
+
+If operational outcomes rank highest in the list, then this section of the Cloud Adoption Framework will work well for the team. In this section, it is assumed that the team needs to value speed and cost savings as primary KPIs. In which case, a migration model to adoption would be well aligned with the outcomes. A migration focused model is heavily predicated on shift/lift migration of IaaS assets to deplete a data center and produce cost savings. In such a model, modernization may occur, but is a secondary focus until the primary migration mission is realized.
+
+### Acting on Incremental Transformation
+
+If market share and customer experience are the primary drivers, then this may not be the best section of the Cloud Adoption Framework to guide the teams' efforts. An Incremental Transformation requires a plan that focuses on the modernization and transition of applications, regardless of the underlying infrastructure. In such a case, the guidance in this section can be informative but may not be the best approach to guide core decisions.
+
+### Acting on Disruptive Transformation
+
+If data, experimentation, R&D, or new products are this teams priority for the next 6+ months, then this may not be the best section of the Cloud Adoption Framework to guide the teams' efforts. Any Disruptive Transformation effort could benefit from migration guidance regarding the migration of existing source data. However, the broader focus of that effort would be on the ingress and integration of additional data sources. Extending that guidance with predictions and new experiences is much more important than the migration of IaaS assets.
+
+> [!WARNING]
+> Only proceed to adopt the guidance in this section of the Cloud Adoption Framework, if Operational Transformation or Operational Outcomes are the primary focus of the cloud adoption team for the next 3-6 months.
+> In some cases, a desire to **urgently drive change** could justify a company using an Operational Transformation approach, in spite of a desire to modernize or create new products. This is especially true for large application or data portfolios.
+
 ## Effort
 
 Migration is a broad term. This term could describe the tactical process of migrating a small digital estate of a few hundred vms using an automated tool like [Azure Migrate](/azure/migrate/migrate-overview). Conversely, Migration could also describe the process for modernizing tens of thousands of applications during a highly strategic PaaS migration process that creates new experiences for a customer base. Before making any decisions that could have a long term impact, it is vital to create consensus on the following decisions regarding the current migration program.
@@ -38,11 +66,12 @@ Often times, migrations are driving by a compelling business event that is time 
 ## Recap
 
 Before proceeding, document the following assumptions and share them with the cloud strategy and cloud adoption teams:
--Effort Type:
--Effort Scale:
--Effort Timing:
--Definition of Done: This will be documented and refined for each of the four migration processes.
--Roles: This will be documented and refined for each of the four migration processes.
+
+- Effort Type:
+- Effort Scale:
+- Effort Timing:
+- Definition of Done: This will be documented and refined for each of the four migration processes.
+- Roles: This will be documented and refined for each of the four migration processes.
 
 ## Next steps
 
