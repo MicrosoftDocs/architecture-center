@@ -61,7 +61,7 @@
     - name: Data Architecture Guide
       tocHref: /azure/architecture/data-guide/
       topicHref: /azure/architecture/data-guide
-    - name: Design Microservices
+    - name: Microservices
       tocHref: /azure/architecture/microservices/
       topicHref: /azure/architecture/microservices
     - name: Performance Antipatterns
