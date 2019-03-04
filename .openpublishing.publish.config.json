@@ -41,7 +41,11 @@
     }
   ],
   "branch_target_mapping": {
-    "live": [ "Publish", "PDF" ]
+    "live": [ "Publish", "PDF" ],
+    "master": [
+      "Publish",
+      "PDF"
+    ]
   },
   "need_generate_pdf_url_template": true,
   "Targets": {
