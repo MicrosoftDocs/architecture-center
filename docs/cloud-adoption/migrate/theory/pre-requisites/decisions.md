@@ -13,9 +13,9 @@ During migration, there are a number of factors that will impact decisions and e
 
 The objective or goal of any adoption effort can have a significant impact on the suggested approach to execution.
 
-- Operational Transformation: Urgent business drivers, speed of adoption, or cost savings are examples of operational outcomes. These outcomes are central to efforts that drive business value from transitive change in IT or operations models.
-- Incremental Transformation: Improving customer experience or growing market share are examples of incremental outcomes. The outcomes come from a collection of incremental changes focused on the needs and desires of current customers.
-- Disruptive Transformation: New products or services, especially those that come from the power of data, are examples of disruptive outcomes. These outcomes are the result of experimentation and predictions that use data to disrupt status quo in the market.
+- **Operational Transformation**: Urgent business drivers, speed of adoption, or cost savings are examples of operational outcomes. These outcomes are central to efforts that drive business value from transitive change in IT or operations models.
+- **Incremental Transformation**: Improving customer experience or growing market share are examples of incremental outcomes. The outcomes come from a collection of incremental changes focused on the needs and desires of current customers.
+- **Disruptive Transformation**: New products or services, especially those that come from the power of data, are examples of disruptive outcomes. These outcomes are the result of experimentation and predictions that use data to disrupt status quo in the market.
 
 No business would pursue just one of these outcomes. Without operations there are no customers and vice versus. Without looking to the customers of tomorrow, it's hard to care for the customers of today. Cloud adoption is the no different. Companies commonly work to each of these outcomes.
 
@@ -67,9 +67,10 @@ Often times, migrations are driving by a compelling business event that is time 
 
 Before proceeding, document the following assumptions and share them with the cloud strategy and cloud adoption teams:
 
-- Effort Type:
-- Effort Scale:
-- Effort Timing:
+- Business Outcomes
+- Effort Type
+- Effort Scale
+- Effort Timing
 - Definition of Done: This will be documented and refined for each of the four migration processes.
 - Roles: This will be documented and refined for each of the four migration processes.
 

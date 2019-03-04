@@ -19,7 +19,6 @@ Azure Site Recovery orchestrates and manages disaster recovery for Azure VMs, on
 * Migrate between Azure regions: Migrate Azure VMs from one Azure region to another. After the migration is complete, configure disaster recovery for the Azure VMs now in the secondary region to which you migrated.
 * Migrate from other cloud to Azure: You can migrate your compute instances provisioned on other cloud providers to Azure VMs. Site Recovery treats those instances as physical servers for migration purposes.
 
-
 ![Azure Site Recover (ASR)](../../_images/asr-replication-image.png)
 *Figure 1. Azure Site Recovery (ASR) moving assets to Azure or other clouds*
 
