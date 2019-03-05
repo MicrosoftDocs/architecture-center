@@ -1,74 +1,106 @@
 ---
 title: <Article Title>
 description: <Article Description>
-author: david-stanford
-ms.date: <publish or update date>
+author: <github username>
+ms.date: <publish or update date - mm/dd/yyyy>
 ---
 # Article Title
 
-Introductory Paragraphs
+The title is a noun phrase that describes the scenario.
+
+> Example: "Insurance claim image classification on Azure"
+
+Avoid naming the scenario after the Azure technologies that are used.
+
+<Introductory section (no heading)>
+
+> This should be an introduction of the business problem and why this scenario was built to solve it.
+>> What industry is the customer in?  
+>> What prompted them to solve the problem?  
+>> What services were used in building out this solution?
+>> What does this example scenario show? What are the customer's goals?  
+
+> What were the benefits of implementing the solution described blow?
 
 ## Potential use cases
 
-Consider this solution for the following use cases:
+> Are there any other use cases or industries where this would be a fit?  
+> How similar or different are they to what's in this article?
+
+These other uses cases have similar design patterns:
 
 * List of example use cases
 
 ## Architecture
 
-![Description][architecture]
+*Architecture Diagram goes here*
 
-This solution covers ###What does the solution cover###, the data flows through the solution as follows:
-
-1. Numbered data flow through the solution.
+> What does the solution look like at a high level?  
+> Why did we build the solution this way?  
+> What will the customer need to bring to this?  (Software, skills, etc?)  
+> Is there a data flow that should be described?
 
 ### Components
 
-* List of components with links to documentation.
+A bullet list of components in the architecture (including all relevant Azure services) with links to the product documentation.
 
-* [Resource Groups][resource-groups] is a logical container for Azure resources.
+> Why is each component there?  
+> What does it do and why was it necessary?
+
+* Example: [Resource Groups][resource-groups] is a logical container for Azure resources.  We use resource groups to organize everything related to this project in the Azure console.
 
 ### Alternatives
 
-* List of alternative options and why you might use them.
+Use this section to talk about alternative Azure services or architectures that you might consider for this solution. Include the reasons why you might choose these alternatives.
+
+> What alternative technologies were considered and why didn't we use them?
 
 ## Considerations
 
-### Availability
+> Are there any lessons learned from running this that would be helpful for new customers?  What went wrong when building it out?  What went right?
 
-For other availability topics, see the [availability checklist][availability] in the Azure Architecure Center.
+### Availability, Scalability, and Security
 
-### Scalability
+> How do I need to think about managing, maintaining, and monitoring this long term?
 
-For other scalability topics, see the [scalability checklist][scalability] in the Azure Architecure Center.
+> Are there any size considerations around this specific solution?  
+> What scale does this work at?  
+> At what point do things break or not make sense for this architecture?
 
-### Security
+> Are there any security considerations (past the typical) that I should know about this?
 
-For general guidance on designing secure solutions, see the [Azure Security Documentation][security].
+## Deploy this scenario
 
-### Resiliency
 
-For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][resiliency].
+> (Optional if it doesn't make sense)
+>
+> Is there an example deployment that can show me this in action?  What would I need to change to run this in production?
 
 ## Pricing
 
-To explore the cost of running this solution, all of the services are pre-configured in the cost calculator.  To see how the pricing would change for your particular use case, change the appropriate variables to match your expected traffic.
+> How much will this cost to run?  
+> Are there ways I could save cost?  
+> If it scales linearly, than we should break it down by cost/unit.  If it does not, why?  
+> What are the components that make up the cost?  
+> How does scale effect the cost?
+> 
+> Link to the pricing calculator with all of the components in the architecture included, even if they're a $0 or $1 usage.  
+> If it makes sense, include a small/medium/large configurations.  Describe what needs to be changed as you move to larger sizes
 
-We have provided three sample cost profiles based on amount of traffic you expect to get:
+## Next Steps
 
-* [Small][small-pricing]: describe what a small implementation is.
-* [Medium][medium-pricing]: describe what a medium implementation is.
-* [Large][large-pricing]: describe what a large implementation is.
+> Where should I go next if I want to start building this?  
+> Are there any reference architectures that help me build this?
 
 ## Related Resources
 
-Other resources that are relevant that aren't linked from else where in the doc.
+> Are there any relevant case studies or customers doing something similar?
+> Is there any other documentation that might be useful?  
+> Are there product documents that go into more detail on specific technologies not already linked
+
 
 <!-- links -->
-[small-pricing]: https://azure.com/e/
-[medium-pricing]: https://azure.com/e/
-[large-pricing]: https://azure.com/e/
-[architecture]:
+[calculator]: https://azure.com/e/
 [availability]: /azure/architecture/checklist/availability
 [resource-groups]: /azure/azure-resource-manager/resource-group-overview
 [resiliency]: /azure/architecture/resiliency/

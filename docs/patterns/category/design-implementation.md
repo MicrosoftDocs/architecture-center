@@ -1,17 +1,19 @@
 ---
 title: Design and Implementation patterns
+titleSuffix: Cloud Design Patterns
 description: Good design encompasses factors such as consistency and coherence in component design and deployment, maintainability to simplify administration and development, and reusability to allow components and subsystems to be used in other applications and in other scenarios. Decisions made during the design and implementation phase have a huge impact on the quality and the total cost of ownership of cloud hosted applications and services.
 keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
-
-pnp.series.title: Cloud Design Patterns
+ms.topic: design-pattern
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
+ms.custom: seodec18
 ---
 
 # Design and Implementation patterns
 
 Good design encompasses factors such as consistency and coherence in component design and deployment, maintainability to simplify administration and development, and reusability to allow components and subsystems to be used in other applications and in other scenarios. Decisions made during the design and implementation phase have a huge impact on the quality and the total cost of ownership of cloud hosted applications and services.
-
 
 |                                Pattern                                 |                                                                                                      Summary                                                                                                       |
 |------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -29,4 +31,3 @@ Good design encompasses factors such as consistency and coherence in component d
 |                        [Sidecar](../sidecar.md)                        |                                                  Deploy components of an application into a separate process or container to provide isolation and encapsulation.                                                  |
 |         [Static Content Hosting](../static-content-hosting.md)         |                                                        Deploy static content to a cloud-based storage service that can deliver them directly to the client.                                                        |
 |                      [Strangler](../strangler.md)                      |                                         Incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services.                                          |
-

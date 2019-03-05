@@ -7,7 +7,6 @@ ms.date: mm/dd/yyyy
 
 [NOTE: You can find more detailed guidelines about creating reference architectures [here](../reference-architectures.md).]
 
-
 # Article title
 
 _Brief introduction goes here._ [**Deploy this solution**.](#deploy-the-solution)
@@ -34,11 +33,9 @@ _Include considerations for deploying or configuring the elements of this archit
 
 _Identify and address scalability concerns relevant to the architecture in this scenario._
 
-
 ## Availability considerations
 
 _Identify and address availability concerns relevant to the architecture in this scenario._
-
 
 ## Manageability considerations
 
@@ -52,8 +49,8 @@ _Identify and address security concerns relevant to the architecture in this sce
 
 _Describe a step-by-step process for implementing the reference architecture solution. Best practices are to add the solution to GitHub, provide a link (use boilerplate text below), and explain how to roll out the solution._
 
-A deployment for a reference architecture that implements these recommendations and considerations is available on [GitHub](http://www.github.com/path-to-repo).
+A deployment for a reference architecture that implements these recommendations and considerations is available on [GitHub](https://www.github.com/path-to-repo).
+
 1. First step
 2. Second step
 3. Third step ...
-

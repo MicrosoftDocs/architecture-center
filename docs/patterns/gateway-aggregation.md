@@ -1,8 +1,14 @@
 ---
 title: Gateway Aggregation pattern
+titleSuffix: Cloud Design Patterns
 description: Use a gateway to aggregate multiple individual requests into a single request.
+keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
+ms.topic: design-pattern
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
+ms.custom: seodec18
 ---
 
 # Gateway Aggregation pattern
@@ -11,11 +17,11 @@ Use a gateway to aggregate multiple individual requests into a single request. T
 
 ## Context and problem
 
-To perform a single task, a client may have to make multiple calls to various backend services. An application that relies on many services to perform a task must expend resources on each request. When any new feature or service is added to the application, additional requests are needed, further increasing resource requirements and network calls. This chattiness between a client and a backend can adversely impact the performance and scale of the application.  Microservice architectures have made this problem more common, as applications built around many smaller services naturally have a higher amount of cross-service calls. 
+To perform a single task, a client may have to make multiple calls to various backend services. An application that relies on many services to perform a task must expend resources on each request. When any new feature or service is added to the application, additional requests are needed, further increasing resource requirements and network calls. This chattiness between a client and a backend can adversely impact the performance and scale of the application.  Microservice architectures have made this problem more common, as applications built around many smaller services naturally have a higher amount of cross-service calls.
 
 In the following diagram, the client sends requests to each service (1,2,3). Each service processes the request and sends the response back to the application (4,5,6). Over a cellular network with typically high latency, using individual requests in this manner is inefficient and could result in broken connectivity or incomplete requests. While each request may be done in parallel, the application must send, wait, and process data for each request, all on separate connections, increasing the chance of failure.
 
-![](./_images/gateway-aggregation-problem.png) 
+![Problem diagram for the Gateway Aggregation pattern](./_images/gateway-aggregation-problem.png)
 
 ## Solution
 
@@ -25,7 +31,7 @@ This pattern can reduce the number of requests that the application makes to bac
 
 In the following diagram, the application sends a request to the gateway (1). The request contains a package of additional requests. The gateway decomposes these and processes each request by sending it to the relevant service (2). Each service returns a response to the gateway (3). The gateway combines the responses from each service and sends the response to the application (4). The application makes a single request and receives only a single response from the gateway.
 
-![](./_images/gateway-aggregation.png)
+![Solution diagram for the Gateway Aggregation pattern](./_images/gateway-aggregation.png)
 
 ## Issues and considerations
 

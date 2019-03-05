@@ -2,26 +2,33 @@
 title: Choosing a data storage technology
 description: 
 author: zoinerTejada
-ms:date: 02/12/2018
+ms.date: 02/12/2018
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
 ---
 
 # Choosing a big data storage technology in Azure
 
 This topic compares options for data storage for big data solutions &mdash; specifically, data storage for bulk data ingestion and batch processing, as opposed to [analytical data stores](./analytical-data-stores.md) or [real-time streaming ingestion](./real-time-ingestion.md).
 
+<!-- markdownlint-disable MD026 -->
+
 ## What are your options when choosing data storage in Azure?
 
-There are several options for ingesting data into Azure, depending on your needs:
+<!-- markdownlint-enable MD026 -->
 
-**File storage**
+There are several options for ingesting data into Azure, depending on your needs.
+
+**File storage:**
 
 - [Azure Storage blobs](/azure/storage/blobs/storage-blobs-introduction)
 - [Azure Data Lake Store](/azure/data-lake-store/)
 
-**NoSQL databases**
+**NoSQL databases:**
 
 - [Azure Cosmos DB](/azure/cosmos-db/)
-- [HBase on HDInsight](http://hbase.apache.org/)
+- [HBase on HDInsight](https://hbase.apache.org/)
 
 ## Azure Storage blobs
 
@@ -54,7 +61,7 @@ Coupled with Azure Data Lake Analytics, Data Lake Store is specifically designed
 
 [Azure Cosmos DB](/azure/cosmos-db/) is Microsoft’s globally distributed multi-model database. Cosmos DB guarantees single-digit-millisecond latencies at the 99th percentile anywhere in the world, offers multiple well-defined consistency models to fine-tune performance, and guarantees high availability with multi-homing capabilities.
 
-Azure Cosmos DB is schema-agnostic. It automatically indexes all the data without requiring you to deal with schema and index management. It’s also multi-model, natively supporting document, key-value, graph, and column-family data models. 
+Azure Cosmos DB is schema-agnostic. It automatically indexes all the data without requiring you to deal with schema and index management. It’s also multi-model, natively supporting document, key-value, graph, and column-family data models.
 
 Azure Cosmos DB features:
 
@@ -64,7 +71,7 @@ Azure Cosmos DB features:
 
 ## HBase on HDInsight
 
-[Apache HBase](http://hbase.apache.org/) is an open-source, NoSQL database that is built on Hadoop and modeled after Google BigTable. HBase provides random access and strong consistency for large amounts of unstructured and semi-structured data in a schemaless database organized by column families.
+[Apache HBase](https://hbase.apache.org/) is an open-source, NoSQL database that is built on Hadoop and modeled after Google BigTable. HBase provides random access and strong consistency for large amounts of unstructured and semi-structured data in a schemaless database organized by column families.
 
 Data is stored in the rows of a table, and data within a row is grouped by column family. HBase is schemaless in the sense that neither the columns nor the type of data stored in them need to be defined before using them. The open-source code scales linearly to handle petabytes of data on thousands of nodes. It can rely on data redundancy, batch processing, and other features that are provided by distributed applications in the Hadoop ecosystem.
 
@@ -109,9 +116,8 @@ The following tables summarize the key differences in capabilities.
 |------------------------------------|-----------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 |       Primary database model       |                      Document store, graph, key-value store, wide column store                      |                                                             Wide column store                                                              |
 |         Secondary indexes          |                                                 Yes                                                 |                                                                     No                                                                     |
-|        SQL language support        |                                                 Yes                                                 |                                     Yes (using the [Phoenix](http://phoenix.apache.org/) JDBC driver)                                      |
+|        SQL language support        |                                                 Yes                                                 |                                     Yes (using the [Phoenix](https://phoenix.apache.org/) JDBC driver)                                      |
 |            Consistency             |                   Strong, bounded-staleness, session, consistent prefix, eventual                   |                                                                   Strong                                                                   |
 | Native Azure Functions integration |                        [Yes](/azure/cosmos-db/serverless-computing-database)                        |                                                                     No                                                                     |
 |   Automatic global distribution    |                          [Yes](/azure/cosmos-db/distribute-data-globally)                           | No [HBase cluster replication can be configured](/azure/hdinsight/hbase/apache-hbase-replication) across regions with eventual consistency |
 |           Pricing model            | Elastically scalable request units (RUs) charged per-second as needed, elastically scalable storage |                              Per-minute pricing for HDInsight cluster (horizontal scaling of nodes), storage                               |
-

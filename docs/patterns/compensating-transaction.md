@@ -1,12 +1,14 @@
 ---
-title: Compensating Transaction
+title: Compensating Transaction pattern
+titleSuffix: Cloud Design Patterns
 description: Undo the work performed by a series of steps, which together define an eventually consistent operation.
 keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
-
-pnp.series.title: Cloud Design Patterns
-pnp.pattern.categories: [resiliency]
+ms.topic: design-pattern
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
+ms.custom: seodec18
 ---
 
 # Compensating Transaction pattern
@@ -33,9 +35,9 @@ The solution is to implement a compensating transaction. The steps in a compensa
 
 A common approach is to use a workflow to implement an eventually consistent operation that requires compensation. As the original operation proceeds, the system records information about each step and how the work performed by that step can be undone. If the operation fails at any point, the workflow rewinds back through the steps it's completed and performs the work that reverses each step. Note that a compensating transaction might not have to undo the work in the exact reverse order of the original operation, and it might be possible to perform some of the undo steps in parallel.
 
-> This approach is similar to the Sagas strategy discussed in [Clemens Vasters’ blog](http://vasters.com/clemensv/2012/09/01/Sagas.aspx).
+> This approach is similar to the Sagas strategy discussed in [Clemens Vasters’ blog](https://vasters.com/clemensv/2012/09/01/Sagas.aspx).
 
-A compensating transaction is also an eventually consistent operation and it could also fail. The system should be able to resume the compensating transaction at the point of failure and continue. It might be necessary to repeat a step that's failed, so the steps in a compensating transaction should be defined as idempotent commands. For more information, see [Idempotency Patterns](http://blog.jonathanoliver.com/idempotency-patterns/) on Jonathan Oliver’s blog.
+A compensating transaction is also an eventually consistent operation and it could also fail. The system should be able to resume the compensating transaction at the point of failure and continue. It might be necessary to repeat a step that's failed, so the steps in a compensating transaction should be defined as idempotent commands. For more information, see [Idempotency Patterns](https://blog.jonathanoliver.com/idempotency-patterns/) on Jonathan Oliver’s blog.
 
 In some cases it might not be possible to recover from a step that has failed except through manual intervention. In these situations the system should raise an alert and provide as much information as possible about the reason for the failure.
 
@@ -81,7 +83,7 @@ Notice that the steps in the compensating transaction might not be the exact opp
 
 ![Generating a compensating transaction to undo a long-running transaction to book a travel itinerary](./_images/compensating-transaction-diagram.png)
 
-
+> [!NOTE]
 > It might be possible for the steps in the compensating transaction to be performed in parallel, depending on how you've designed the compensating logic for each step.
 
 In many business solutions, failure of a single step doesn't always necessitate rolling the system back by using a compensating transaction. For example, if&mdash;after having booked flights F1, F2, and F3 in the travel website scenario&mdash;the customer is unable to reserve a room at hotel H1, it's preferable to offer the customer a room at a different hotel in the same city rather than canceling the flights. The customer can still decide to cancel (in which case the compensating transaction runs and undoes the bookings made on flights F1, F2, and F3), but this decision should be made by the customer rather than by the system.
@@ -92,6 +94,6 @@ The following patterns and guidance might also be relevant when implementing thi
 
 - [Data Consistency Primer](https://msdn.microsoft.com/library/dn589800.aspx). The Compensating Transaction pattern is often used to undo operations that implement the eventual consistency model. This primer provides information on the benefits and tradeoffs of eventual consistency.
 
-- [Scheduler-Agent-Supervisor Pattern](scheduler-agent-supervisor.md). Describes how to implement resilient systems that perform business operations that use distributed services and resources. Sometimes, it might be necessary to undo the work performed by an operation by using a compensating transaction.
+- [Scheduler-Agent-Supervisor pattern](./scheduler-agent-supervisor.md). Describes how to implement resilient systems that perform business operations that use distributed services and resources. Sometimes, it might be necessary to undo the work performed by an operation by using a compensating transaction.
 
-- [Retry Pattern](./retry.md). Compensating transactions can be expensive to perform, and it might be possible to minimize their use by implementing an effective policy of retrying failing operations by following the Retry pattern.
+- [Retry pattern](./retry.md). Compensating transactions can be expensive to perform, and it might be possible to minimize their use by implementing an effective policy of retrying failing operations by following the Retry pattern.

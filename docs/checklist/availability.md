@@ -1,14 +1,18 @@
 ---
 title: Availability checklist
+titleSuffix: Azure Design Review Framework
 description: Checklist that provides guidance for availability concerns during design.
 author: dragon119
-ms.date: 01/10/2018
+ms.date: 11/26/2018
+ms.topic: checklist
+ms.service: architecture-center
+ms.subservice: cloud-design-principles
 ms.custom: checklist
-
 ---
+
 # Availability checklist
 
-Availability is the proportion of time that a system is functional and working, and is one of the [pillars of software quality](../guide/pillars.md). Use this checklist to review your application architecture from an availability standpoint. 
+Availability is the proportion of time that a system is functional and working, and is one of the [pillars of software quality](../guide/pillars.md). Use this checklist to review your application architecture from an availability standpoint.
 
 ## Application design
 
@@ -16,7 +20,7 @@ Availability is the proportion of time that a system is functional and working, 
 
 **Decompose workloads by service-level objective.** If a service is composed of critical and less-critical workloads, manage them differently and specify the service features and number of instances to meet their availability requirements.
 
-**Minimize and understand service dependencies.** Minimize the number of different services used where possible, and ensure you understand all of the feature and service dependencies that exist in the system. This includes the nature of these dependencies, and the impact of failure or reduced performance in each one on the overall application. See [Defining your resiliency requirements](../resiliency/index.md#defining-your-resiliency-requirements).
+**Minimize and understand service dependencies.** Minimize the number of different services used where possible, and ensure you understand all of the feature and service dependencies that exist in the system. This includes the nature of these dependencies, and the impact of failure or reduced performance in each one on the overall application.
 
 **Design tasks and messages to be idempotent where possible**. An operation is idempotent if it can be repeated multiple times and produce the same result. Idempotency can ensure that duplicated requests don't cause problems. Message consumers and the operations they carry out should be idempotent so that repeating a previously executed operation does not render the results invalid. This may mean detecting duplicated messages, or ensuring consistency by using an optimistic approach to handling conflicts.
 
@@ -24,7 +28,7 @@ Availability is the proportion of time that a system is functional and working, 
 
 **Design applications to gracefully degrade.** The load on an application may exceed the capacity of one or more parts, causing reduced availability and failed connections. Scaling can help to alleviate this, but it may reach a limit imposed by other factors, such as resource availability or cost. When an application reaches a resource limit, it should take appropriate action to minimize the impact for the user. For example, in an ecommerce system, if the order-processing subsystem is under strain or fails, it can be temporarily disabled while allowing other functionality, such as browsing the product catalog. It might be appropriate to postpone requests to a failing subsystem, for example still enabling customers to submit orders but saving them for later processing, when the orders subsystem is available again.
 
-**Gracefully handle rapid burst events.** Most applications need to handle varying workloads over time. Auto-scaling can help to handle the load, but it may take some time for additional instances to come online and handle requests. Prevent sudden and unexpected bursts of activity from overwhelming the application: design it to queue requests to the services it uses and degrade gracefully when queues are near to full capacity. Ensure that there is sufficient performance and capacity available under non-burst conditions to drain the queues and handle outstanding requests. For more information, see the [Queue-Based Load Leveling Pattern](https://msdn.microsoft.com/library/dn589783.aspx).
+**Gracefully handle rapid burst events.** Most applications need to handle varying workloads over time. Auto-scaling can help to handle the load, but it may take some time for additional instances to come online and handle requests. Prevent sudden and unexpected bursts of activity from overwhelming the application: design it to queue requests to the services it uses and degrade gracefully when queues are near to full capacity. Ensure that there is sufficient performance and capacity available under non-burst conditions to drain the queues and handle outstanding requests. For more information, see the [Queue-Based Load Leveling pattern](../patterns/queue-based-load-leveling.md).
 
 ## Deployment and maintenance
 
@@ -36,7 +40,9 @@ Availability is the proportion of time that a system is functional and working, 
 
 **Use staging and production features of the platform.**. For example, Azure App Service supports [deployment slots](/azure/app-service/web-sites-staged-publishing), which you can use to stage a deployment before swapping it to production. Azure Service Fabric supports [rolling upgrades](/azure/service-fabric/service-fabric-application-upgrade) to application services.
 
-**Place virtual machines (VMs) in an availability set.** To maximize availability, create multiple instances of each VM role and place these instances in the same availability set. If have multiple VMs that serve different roles, such as different application tiers, create an availability set for each VM role. For example, create an availability set for the web tier and another for the data tier.
+**Place virtual machines (VMs) in an availability set.** To maximize availability, create multiple instances of each VM role and place these instances in the same availability set. If you have multiple VMs that serve different roles, such as different application tiers, create an availability set for each VM role. For example, create an availability set for the web tier and another for the data tier.
+
+**Replicate VMs using Azure Site Recovery.** To maximize availability, replicate all your virtual machines into another Azure region using [Site Recovery][site-recovery]. Ensure that all the VMs across all the tiers of your application are replicated. If there is a disruption in the source region, you can fail over the VMs into the other region within minutes.
 
 ## Data management
 
@@ -48,13 +54,15 @@ Availability is the proportion of time that a system is functional and working, 
 
 **Use periodic backup and point-in-time restore**. Regularly and automatically back up data that is not preserved elsewhere, and verify you can reliably restore both the data and the application itself should a failure occur. Ensure that backups meet your Recovery Point Objective (RPO). Data replication is not a backup feature, because human error or malicious operations can corrupt data across all the replicas. The backup process must be secure to protect the data in transit and in storage. Databases or parts of a data store can usually be recovered to a previous point in time by using transaction logs. For more information, see [Recover from data corruption or accidental deletion](../resiliency/recovery-data-corruption.md)
 
+**Replicate VM disks using Azure Site Recovery.** When you replicate Azure VMs using [Site Recovery][site-recovery], all the VM disks are continuously replicated to the target region asynchronously. The recovery points are created every few minutes. This gives you an RPO in the order of minutes.
+
 ## Errors and failures
 
 **Configure request timeouts.** Services and resources may become unavailable, causing requests to fail. Ensure that the timeouts you apply are appropriate for each service or resource as well as the client that is accessing them. In some cases, you might allow a longer timeout for a particular instance of a client, depending on the context and other actions that the client is performing. Very short timeouts may cause excessive retry operations for services and resources that have considerable latency. Very long timeouts can cause blocking if a large number of requests are queued, waiting for a service or resource to respond.
 
 **Retry failed operations caused by transient faults.** Design a retry strategy for access to all services and resources where they do not inherently support automatic connection retry. Use a strategy that includes an increasing delay between retries as the number of failures increases, to prevent overloading of the resource and to allow it to gracefully recover and handle queued requests. Continual retries with very short delays are likely to exacerbate the problem. For more information, see [Retry guidance for specific services](../best-practices/retry-service-specific.md).
 
-**Implement circuit breaking to avoid cascading failures.** There may be situations in which transient or other faults, ranging in severity from a partial loss of connectivity to the complete failure of a service, take much longer than expected to return to normal. , if a service is very busy, failure in one part of the system may lead to cascading failures, and result in many operations becoming blocked while holding onto critical system resources such as memory, threads, and database connections. Instead of continually retrying an operation that is unlikely to succeed, the application should quickly accept that the operation has failed, and gracefully handle this failure. Use the Circuit Breaker pattern to reject requests for specific operations for defined periods. For more information, see [Circuit Breaker Pattern](../patterns/circuit-breaker.md).
+**Implement circuit breaking to avoid cascading failures.** There may be situations in which transient or other faults, ranging in severity from a partial loss of connectivity to the complete failure of a service, take much longer than expected to return to normal. , if a service is very busy, failure in one part of the system may lead to cascading failures, and result in many operations becoming blocked while holding onto critical system resources such as memory, threads, and database connections. Instead of continually retrying an operation that is unlikely to succeed, the application should quickly accept that the operation has failed, and gracefully handle this failure. Use the Circuit Breaker pattern to reject requests for specific operations for defined periods. For more information, see the [Circuit Breaker pattern](../patterns/circuit-breaker.md).
 
 **Compose or fall back to multiple components.** Design applications to use multiple instances without affecting operation and existing connections where possible. Use multiple instances and distribute requests between them, and detect and avoid sending requests to failed instances, in order to maximize availability.
 
@@ -66,13 +74,15 @@ Availability is the proportion of time that a system is functional and working, 
 
 **Monitor system health by implementing checking functions.** The health and performance of an application can degrade over time, without being noticeable until it fails. Implement probes or check functions that are executed regularly from outside the application. These checks can be as simple as measuring response time for the application as a whole, for individual parts of the application, for individual services that the application uses, or for individual components. Check functions can execute processes to ensure they produce valid results, measure latency and check availability, and extract information from the system.
 
-**Regularly test all failover and fallback systems.** Changes to systems and operations may affect failover and fallback functions, but the impact may not be detected until the main system fails or becomes overloaded. Test it before it is required to compensate for a live problem at runtime.
+**Regularly test all failover and fallback systems.** Changes to systems and operations may affect failover and fallback functions, but the impact may not be detected until the main system fails or becomes overloaded. Test it before it is required to compensate for a live problem at runtime. If you are using [Azure Site Recovery][site-recovery] to replicate VMs, run disaster recovery drills periodically by doing a test failover. For more information, see [Run a disaster recovery drill to Azure][site-recovery-test].
 
 **Test the monitoring systems.** Automated failover and fallback systems, and manual visualization of system health and performance by using dashboards, all depend on monitoring and instrumentation functioning correctly. If these elements fail, miss critical information, or report inaccurate data, an operator might not realize that the system is unhealthy or failing.
 
-**Track the progress of long-running workflows and retry on failure.** Long-running workflows are often composed of multiple steps. Ensure that each step is independent and can be retried to minimize the chance that the entire workflow will need to be rolled back, or that multiple compensating transactions need to be executed. Monitor and manage the progress of long-running workflows by implementing a pattern such as [Scheduler Agent Supervisor Pattern](../patterns/scheduler-agent-supervisor.md).
+**Track the progress of long-running workflows and retry on failure.** Long-running workflows are often composed of multiple steps. Ensure that each step is independent and can be retried to minimize the chance that the entire workflow will need to be rolled back, or that multiple compensating transactions need to be executed. Monitor and manage the progress of long-running workflows by implementing a pattern such as [Scheduler Agent Supervisor pattern](../patterns/scheduler-agent-supervisor.md).
 
-**Plan for disaster recovery.** Create an accepted, fully-tested plan for recovery from any type of failure that may affect system availability. Choose a multi-site disaster recovery architecture for any mission-critical applications. Identify a specific owner of the disaster recovery plan, including automation and testing. Ensure the plan is well-documented, and automate the process as much as possible. Establish a backup strategy for all reference and transactional data, and test the restoration of these backups regularly. Train operations staff to execute the plan, and perform regular disaster simulations to validate and improve the plan.
+**Plan for disaster recovery.** Create an accepted, fully-tested plan for recovery from any type of failure that may affect system availability. Choose a multi-site disaster recovery architecture for any mission-critical applications. Identify a specific owner of the disaster recovery plan, including automation and testing. Ensure the plan is well-documented, and automate the process as much as possible. Establish a backup strategy for all reference and transactional data, and test the restoration of these backups regularly. Train operations staff to execute the plan, and perform regular disaster simulations to validate and improve the plan. If you are using [Azure Site Recovery][site-recovery] to replicate VMs, create a fully automated recovery plan to failover the entire application within minutes.
 
 <!-- links -->
 [availability-sets]:/azure/virtual-machines/virtual-machines-windows-manage-availability/
+[site-recovery]: /azure/site-recovery/
+[site-recovery-test]: /azure/site-recovery/site-recovery-test-failover-to-azure

@@ -1,8 +1,16 @@
 ---
 title: Cloud Design Patterns
-description: Cloud Design Patterns for Microsoft Azure
+titleSuffix: Azure Architecture Center
+description: Design patterns for building reliable, scalable, secure applications in the cloud.
 keywords: Azure
+author: dragon119
+ms.date: 03/01/2018
+ms.topic: design-pattern
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
+ms.custom: seodec18
 ---
+
 # Cloud Design Patterns
 
 These design patterns are useful for building reliable, scalable, secure applications in the cloud.
@@ -11,6 +19,7 @@ Each pattern describes the problem that the pattern addresses, considerations fo
 
 ## Challenges in cloud development
 
+<!-- markdownlint-disable MD033 -->
 <table>
 <tr>
     <td style="width: 64px; vertical-align: middle;"><a href="./category/availability.md"><img src="_images/category/availability.svg" alt="Availability" /></a></td>
@@ -69,6 +78,7 @@ Each pattern describes the problem that the pattern addresses, considerations fo
     </td>
 </tr>
 </table>
+<!-- markdownlint-disable MD033 -->
 
 ## Catalog of patterns
 
@@ -80,10 +90,11 @@ Each pattern describes the problem that the pattern addresses, considerations fo
 |                       [Bulkhead](./bulkhead.md)                       |                                                        Isolate elements of an application into pools so that if one fails, the others will continue to function.                                                        |
 |                    [Cache-Aside](./cache-aside.md)                    |                                                                                   Load data on demand into a cache from a data store                                                                                    |
 |                [Circuit Breaker](./circuit-breaker.md)                |                                                     Handle faults that might take a variable amount of time to fix when connecting to a remote service or resource.                                                     |
-|                           [CQRS](./cqrs.md)                           |                                                           Segregate operations that read data from operations that update data by using separate interfaces.                                                            |
+| [Claim Check](./claim-check.md) | Split a large message into a claim check and a payload to avoid overwhelming a message bus. |
 |       [Compensating Transaction](./compensating-transaction.md)       |                                                         Undo the work performed by a series of steps, which together define an eventually consistent operation.                                                         |
 |            [Competing Consumers](./competing-consumers.md)            |                                                            Enable multiple concurrent consumers to process messages received on the same messaging channel.                                                             |
 | [Compute Resource Consolidation](./compute-resource-consolidation.md) |                                                                        Consolidate multiple tasks or operations into a single computational unit                                                                        |
+|                           [CQRS](./cqrs.md)                           |                                                           Segregate operations that read data from operations that update data by using separate interfaces.                                                            |
 |                 [Event Sourcing](./event-sourcing.md)                 |                                                      Use an append-only store to record the full series of events that describe actions taken on data in a domain.                                                      |
 |   [External Configuration Store](./external-configuration-store.md)   |                                                           Move configuration information out of the application deployment package to a centralized location.                                                           |
 |             [Federated Identity](./federated-identity.md)             |                                                                                Delegate authentication to an external identity provider.                                                                                |
@@ -97,6 +108,7 @@ Each pattern describes the problem that the pattern addresses, considerations fo
 |              [Materialized View](./materialized-view.md)              |                                        Generate prepopulated views over the data in one or more data stores when the data isn't ideally formatted for required query operations.                                        |
 |              [Pipes and Filters](./pipes-and-filters.md)              |                                                        Break down a task that performs complex processing into a series of separate elements that can be reused.                                                        |
 |                 [Priority Queue](./priority-queue.md)                 |                                 Prioritize requests sent to services so that requests with a higher priority are received and processed more quickly than those with a lower priority.                                  |
+| [Publisher/Subscriber](./publisher-subscriber.md) | Enable an application to announce events to multiple interested consumers aynchronously, without coupling the senders to the receivers. |
 |      [Queue-Based Load Leveling](./queue-based-load-leveling.md)      |                                               Use a queue that acts as a buffer between a task and a service that it invokes in order to smooth intermittent heavy loads.                                               |
 |                          [Retry](./retry.md)                          |               Enable an application to handle anticipated, temporary failures when it tries to connect to a service or network resource by transparently retrying an operation that's previously failed.                |
 |     [Scheduler Agent Supervisor](./scheduler-agent-supervisor.md)     |                                                              Coordinate a set of actions across a distributed set of services and other remote resources.                                                               |
@@ -106,4 +118,3 @@ Each pattern describes the problem that the pattern addresses, considerations fo
 |                      [Strangler](./strangler.md)                      |                                            Incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services.                                            |
 |                     [Throttling](./throttling.md)                     |                                                 Control the consumption of resources used by an instance of an application, an individual tenant, or an entire service.                                                 |
 |                      [Valet Key](./valet-key.md)                      |                                                        Use a token or key that provides clients with restricted direct access to a specific resource or service.                                                        |
-

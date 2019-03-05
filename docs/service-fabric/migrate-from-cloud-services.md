@@ -2,7 +2,10 @@
 title: Migrate an Azure Cloud Services application to Azure Service Fabric 
 description: How to migrate an application from Azure Cloud Services to Azure Service Fabric.
 author: MikeWasson
-ms.date: 04/27/2017
+ms.date: 04/11/2018
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: reference-architecture
 ---
 # Migrate an Azure Cloud Services application to Azure Service Fabric 
 
@@ -301,7 +304,7 @@ Now that the Surveys application has been successfully ported, Tailspin wants to
 [cloud-service-autoscale]: /azure/cloud-services/cloud-services-how-to-scale-portal
 [cloud-service-config]: /azure/cloud-services/cloud-services-model-and-package
 [cloud-service-endpoints]: /azure/cloud-services/cloud-services-enable-communication-role-instances#worker-roles-vs-web-roles
-[kestrel]: https://docs.microsoft.com/aspnet/core/fundamentals/servers/kestrel
+[kestrel]: /aspnet/core/fundamentals/servers/kestrel
 [lb-probes]: /azure/load-balancer/load-balancer-custom-probe-overview
 [owin]: https://www.asp.net/aspnet/overview/owin-and-katana
 [refactor-surveys]: refactor-migrated-app.md

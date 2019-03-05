@@ -1,12 +1,14 @@
 ---
-title: Federated Identity
+title: Federated Identity pattern
+titleSuffix: Cloud Design Patterns
 description: Delegate authentication to an external identity provider.
 keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
-
-pnp.series.title: Cloud Design Patterns
-pnp.pattern.categories: [security]
+ms.topic: design-pattern
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
+ms.custom: seodec18
 ---
 
 # Federated Identity pattern
@@ -36,7 +38,6 @@ The trusted identity providers include corporate directories, on-premises federa
 The figure illustrates the Federated Identity pattern when a client application needs to access a service that requires authentication. The authentication is performed by an IdP that works in concert with an STS. The IdP issues security tokens that provide information about the authenticated user. This information, referred to as claims, includes the user’s identity, and might also include other information such as role membership and more granular access rights.
 
 ![An overview of federated authentication](./_images/federated-identity-overview.png)
-
 
 This model is often called claims-based access control. Applications and services authorize access to features and functionality based on the claims contained in the token. The service that requires authentication must trust the IdP. The client application contacts the IdP that performs the authentication. If the authentication is successful, the IdP returns a token containing the claims that identify the user to the STS (note that the IdP and STS can be the same service). The STS can transform and augment the claims in the token based on predefined rules, before returning it to the client. The client application can then pass this token to the service as proof of its identity.
 
@@ -80,7 +81,6 @@ An organization hosts a multi-tenant software as a service (SaaS) application in
 
 ![How users at a large enterprise subscriber access the application](./_images/federated-identity-multitenat.png)
 
-
 The figure shows how tenants authenticate with their own identity provider (step 1), in this case ADFS. After successfully authenticating a tenant, ADFS issues a token. The client browser forwards this token to the SaaS application’s federation provider, which trusts tokens issued by the tenant’s ADFS, in order to get back a token that is valid for the SaaS federation provider (step 2). If necessary, the SaaS federation provider performs a transformation on the claims in the token into claims that the application recognizes (step 3) before returning the new token to the client browser. The application trusts tokens issued by the SaaS federation provider and uses the claims in the token to apply authorization rules (step 4).
 
 Tenants won't need to remember separate credentials to access the application, and an administrator at the tenant’s company can configure in its own ADFS the list of users that can access the application.
@@ -90,5 +90,5 @@ Tenants won't need to remember separate credentials to access the application, a
 - [Microsoft Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 - [Active Directory Domain Services](https://msdn.microsoft.com/library/bb897402.aspx)
 - [Active Directory Federation Services](https://msdn.microsoft.com/library/bb897402.aspx)
-- [Identity management for multitenant applications in Microsoft Azure](https://azure.microsoft.com/documentation/articles/guidance-multitenant-identity/)
-- [Multitenant Applications in Azure](https://azure.microsoft.com/documentation/articles/dotnet-develop-multitenant-applications/)
+- [Identity management for multitenant applications in Microsoft Azure](/azure/architecture/multitenant-identity)
+- [Multitenant Applications in Azure](/azure/dotnet-develop-multitenant-applications)

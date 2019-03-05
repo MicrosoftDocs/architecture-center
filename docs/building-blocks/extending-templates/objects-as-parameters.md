@@ -1,9 +1,11 @@
 ---
 title: Use an object as a parameter in an Azure Resource Manager template
-description: Describes how to extend the functionality of Azure Resource Manager templates to use objects as parameters
+description: Describes how to extend the functionality of Azure Resource Manager templates to use objects as parameters.
 author: petertay
-ms.date: 06/09/2017
-
+ms.date: 10/30/2018
+ms.topic: article
+ms.service: architecture-center
+ms.subservice: reference-architecture
 ---
 
 # Use an object as a parameter in an Azure Resource Manager template
@@ -20,10 +22,11 @@ Let's take a look at an example that deploys a virtual network resource. First, 
     "VNetSettings":{"type":"object"}
 },
 ```
+
 Next, let's provide values for the `VNetSettings` object:
 
 > [!NOTE]
-> To learn how to provide parameter values during deploment, see the **parameters** section of [understand the structure and syntax of Azure Resource Manager templates][azure-resource-manager-authoring-templates]. 
+> To learn how to provide parameter values during deployment, see the **parameters** section of [understand the structure and syntax of Azure Resource Manager templates][azure-resource-manager-authoring-templates].
 
 ```json
 "parameters":{
@@ -87,9 +90,10 @@ Now let's have a look at the rest of our template to see how the `VNetSettings` 
     }
   ]
 ```
-The values of our `VNetSettings` object are applied to the properties required by our virtual network resource using the `parameters()` function with both the `[]` array indexer and the dot operator. This approach works if you just want to statically apply the values of the parameter object to the resource. However, if you want to dynamically assign an array of property values during deployment you can use a [copy loop][azure-resource-manager-create-multiple-instances]. To use a copy loop, you provide a JSON array of resource property values and the copy loop dynamically applies the values to the resource's properties. 
 
-There is one issue to be aware of if you use the dynamic approach. To demonstrate the issue, let's take a look at a typical array of property values. In this example the values for our properties are stored in a variable. Notice we have two arrays here&mdash;one named `firstProperty` and one named `secondProperty`. 
+The values of our `VNetSettings` object are applied to the properties required by our virtual network resource using the `parameters()` function with both the `[]` array indexer and the dot operator. This approach works if you just want to statically apply the values of the parameter object to the resource. However, if you want to dynamically assign an array of property values during deployment you can use a [copy loop][azure-resource-manager-create-multiple-instances]. To use a copy loop, you provide a JSON array of resource property values and the copy loop dynamically applies the values to the resource's properties.
+
+There is one issue to be aware of if you use the dynamic approach. To demonstrate the issue, let's take a look at a typical array of property values. In this example the values for our properties are stored in a variable. Notice we have two arrays here&mdash;one named `firstProperty` and one named `secondProperty`.
 
 ```json
 "variables": {
@@ -162,9 +166,9 @@ Notice the third element in the array? It's missing the `number` property, but i
 
 ## Using a property object in a copy loop
 
-This approach becomes even more useful when combined with the [serial copy loop][azure-resource-manager-create-multiple], particularly for deploying child resources. 
+This approach becomes even more useful when combined with the [serial copy loop][azure-resource-manager-create-multiple], particularly for deploying child resources.
 
-To demonstrate this, let's look at a template that deploys a [network security group (NSG)][nsg] with two security rules. 
+To demonstrate this, let's look at a template that deploys a [network security group (NSG)][nsg] with two security rules.
 
 First, let's take a look at our parameters. When we look at our template we'll see that we've defined one parameter named `networkSecurityGroupsSettings` that includes an array named `securityRules`. This array contains two JSON objects that specify a number of settings for a security rule.
 
@@ -172,7 +176,7 @@ First, let's take a look at our parameters. When we look at our template we'll s
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
     "contentVersion": "1.0.0.0",
-    "parameters":{ 
+    "parameters":{
       "networkSecurityGroupsSettings": {
       "value": {
           "securityRules": [
@@ -238,14 +242,14 @@ Now let's take a look at our template. Our first resource named `NSG1` deploys t
             "mode":"Incremental",
             "parameters":{},
             "template": {
-                "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+                "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
                 "contentVersion": "1.0.0.0",
                 "parameters": {},
                 "variables": {},
                 "resources": [],
                 "outputs": {}
             }
-        }       
+        }
     },
     {
         "apiVersion": "2015-01-01",
@@ -261,7 +265,7 @@ Now let's take a look at our template. Our first resource named `NSG1` deploys t
         "properties": {
           "mode": "Incremental",
           "template": {
-            "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+            "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
             "contentVersion": "1.0.0.0",
            "parameters": {},
             "variables": {},
@@ -288,38 +292,36 @@ Now let's take a look at our template. Our first resource named `NSG1` deploys t
           }
         }
     }
-  ],          
+  ],
   "outputs": {}
 }
 ```
 
-Let's take a closer look at how we specify our property values in the `securityRules` child resource. All of our properties are referenced using the `parameter()` function, and then we use the dot operator to reference our `securityRules` array, indexed by the current value of the iteration. Finally, we use another dot operator to reference the name of the object. 
+Let's take a closer look at how we specify our property values in the `securityRules` child resource. All of our properties are referenced using the `parameter()` function, and then we use the dot operator to reference our `securityRules` array, indexed by the current value of the iteration. Finally, we use another dot operator to reference the name of the object.
 
 ## Try the template
 
-If you would like to experiment with this template, follow these steps: 
+An example template is available on [GitHub][github]. To deploy the template, clone the repo and run the following [Azure CLI][cli] commands:
 
-1.  Go to the Azure portal, select the **+** icon, and search for the **template deployment** resource type, and select it.
-2.  Navigate to the **template deployment** page, select the **create** button. This button opens the **custom deployment** blade.
-3.  Select the **edit template** button.
-4.  Delete the empty template. 
-5.  Copy and paste the sample template into the right pane.
-6.  Select the **save** button.
-7.  When you are returned to the **custom deployment** pane, select the **edit parameters** button.
-8.  On the **edit parameters** blade, delete the existing template.
-9.  Copy and paste the sample parameter template from above.
-10. Select the **save** button, which returns you to the **custom deployment** blade.
-11. On the **custom deployment** blade, select your subscription, either create new or use existing resource group, and select a location. Review the terms and conditions, and select the **I agree** checkbox.
-12. Select the **purchase** button.
+```bash
+git clone https://github.com/mspnp/template-examples.git
+cd template-examples/example3-object-param
+az group create --location <location> --name <resource-group-name>
+az group deployment create -g <resource-group-name> \
+    --template-uri https://raw.githubusercontent.com/mspnp/template-examples/master/example3-object-param/deploy.json \
+    --parameters deploy.parameters.json
+```
 
 ## Next steps
 
-* You can expand upon these techniques to implement a [property object transformer and collector](./collector.md). The transformer and collector techniques are more general and can be linked from your templates.
-* This technique is also implemented in the [template building blocks project](https://github.com/mspnp/template-building-blocks) and the [Azure reference architectures](/azure/architecture/reference-architectures/). You can review our templates to see how we've implemented this technique.
+- Learn how to create a template that iterates through an object array and transforms it into a JSON schema. See [Implement a property transformer and collector in an Azure Resource Manager template](./collector.md)
 
 <!-- links -->
+
 [azure-resource-manager-authoring-templates]: /azure/azure-resource-manager/resource-group-authoring-templates
 [azure-resource-manager-create-template]: /azure/azure-resource-manager/resource-manager-create-first-template
 [azure-resource-manager-create-multiple-instances]: /azure/azure-resource-manager/resource-group-create-multiple
 [azure-resource-manager-functions]: /azure/azure-resource-manager/resource-group-template-functions-resource
 [nsg]: /azure/virtual-network/virtual-networks-nsg
+[cli]: /cli/azure/?view=azure-cli-latest
+[github]: https://github.com/mspnp/template-examples

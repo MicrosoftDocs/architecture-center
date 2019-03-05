@@ -1,13 +1,19 @@
 ---
 title: Strangler pattern
+titleSuffix: Cloud Design Patterns
 description: Incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services.
+keywords: design pattern
 author: dragon119
 ms.date: 06/23/2017
+ms.topic: design-pattern
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
+ms.custom: seodec18
 ---
 
 # Strangler pattern
 
-Incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services. As features from the legacy system are replaced, the new system eventually replaces all of the old system's features, strangling the old system and allowing you to decommission it. 
+Incrementally migrate a legacy system by gradually replacing specific pieces of functionality with new applications and services. As features from the legacy system are replaced, the new system eventually replaces all of the old system's features, strangling the old system and allowing you to decommission it.
 
 ## Context and problem
 
@@ -19,7 +25,7 @@ Completely replacing a complex system can be a huge undertaking. Often, you will
 
 Incrementally replace specific pieces of functionality with new applications and services. Create a façade that intercepts requests going to the backend legacy system. The façade routes these requests either to the legacy application or the new services. Existing features can be migrated to the new system gradually, and consumers can continue using the same interface, unaware that any migration has taken place.
 
-![](./_images/strangler.png)  
+![Diagram of the Strangler pattern](./_images/strangler.png)
 
 This pattern helps to minimize risk from the migration, and spread the development effort over time. With the façade safely routing users to the correct application, you can add functionality to the new system at whatever pace you like, while ensuring the legacy application continues to function. Over time, as features are migrated to the new system, the legacy system is eventually "strangled" and is no longer necessary. Once this process is complete, the legacy system can safely be retired.
 
@@ -42,9 +48,4 @@ This pattern may not be suitable:
 
 ## Related guidance
 
-- [Anti-Corruption Layer pattern](./anti-corruption-layer.md)
-- [Gateway Routing pattern](./gateway-routing.md)
-
-
- 
-
+- Martin Fowler's blog post on [StranglerApplication](https://www.martinfowler.com/bliki/StranglerApplication.html)

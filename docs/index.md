@@ -3,9 +3,13 @@ title: Azure Architecture Center
 description: The Azure Architecture Center is the official center for guidance, blueprints, patterns, and best practices for building solutions with Microsoft Azure. It is curated by the Microsoft patterns & practices team.
 layout: LandingPage
 ms.topic: landing-page
+ms.date: 09/28/2018
+google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
 ---
 
 # Azure Architecture Center
+
+<!-- markdownlint-disable MD033 -->
 
 <!-- main panel -->
 <ul class="panelContent cardsC">
@@ -43,17 +47,16 @@ ms.topic: landing-page
             </div>
         </a>
     </li>
-    <!-- Cloud design patterns -->
+    <!-- Cloud Adoption -->
     <li>
-        <a href="/azure/architecture/patterns/">
+        <a href="/azure/architecture/cloud-adoption/">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
-                        <img src="_images/cloud-design-patterns.svg" alt="" />
+                        <img src="_images/cloud-adoption.svg" alt="" />
                         <div class="cardText">
-                            <h3>Cloud Design Patterns</h3>
-                            <p>Design patterns for developers and solution architects. Each pattern describes a problem, a pattern
-                                that addresses the problem, and an example based on Azure.</p>
+                            <h3>Microsoft Cloud Adoption Framework for Azure</h3>
+                            <p>A process for creating an organization-wide cloud adoption strategy, focusing on policies, governance, and infrastructure.</p>
                         </div>
                     </div>
                 </div>
@@ -165,6 +168,26 @@ ms.topic: landing-page
             </div>
         </a>
     </li>
+    <!-- design patterns -->
+    <li>
+        <a href="/azure/architecture/patterns">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                        <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img src="_images/cloud-design-patterns.svg" alt="" />
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <h3>Cloud Design Patterns</h3>
+                            <p>Design patterns for developers and solution architects. Each pattern describes a problem, a pattern that addresses the problem, and an example based on Azure.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
     <!-- Checklists -->
     <li>
         <a href="/azure/architecture/checklist/">
@@ -245,24 +268,138 @@ ms.topic: landing-page
             </div>
         </a>
     </li>
-    <!-- Multitenant identity -->
+</ul>
+
+<ul class="panelContent cardsJ">
     <li>
-        <a href="/azure/architecture/multitenant-identity">
+        <a href="https://azure-architecture.uservoice.com/forums/918127-general" data-linktype="external">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
                             <div class="cardImage">
-                                <img src="_images/multitenant-identity.svg" alt="" />
+                                <img src="https://docs.microsoft.com/en-us/media/common/i_feedback.svg" alt="" data-linktype="external">
                             </div>
                         </div>
                         <div class="cardText">
-                            <h3>Identity Management for Multitenant Applications</h3>
-                            <p>Understand the best practices for multitenancy, when using Azure AD for identity management.</p>
+                            <h3>Submit your ideas for the Architecture Center</h3>
+                            <p>Do you have ideas for new architecture or design documentation?</p>
+                            <p>What kinds of articles would you like to see in the Azure Architecture Center?</p>
                         </div>
                     </div>
                 </div>
             </div>
+        </a>
+    </li>
+</ul>
+
+---
+
+## Build your skills with Microsoft Learn
+
+<ul class="panelContent cardsFTitle">
+    <li>
+        <a href="/learn/modules/pillars-of-a-great-azure-architecture/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/learn/achievements/pillars-of-a-great-azure-architecture.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3> Pillars of a great Azure architecture</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li><li>
+        <a href="/learn/modules/design-for-security-in-azure/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/learn/achievements/design-for-security-in-azure.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3> Design for security in Azure</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li><li>
+        <a href="/learn/modules/design-for-performance-and-scalability-in-azure/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/learn/achievements/design-for-performance-and-scalability-in-azure.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Design for performance and scalability in Azure</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li><li>
+        <a href="/learn/modules/design-for-efficiency-and-operations-in-azure/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/learn/achievements/design-for-efficiency-and-operations-in-azure.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Design for efficiency and operations in Azure</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li><li>
+        <a href="/learn/modules/design-for-availability-and-recoverability-in-azure/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/learn/achievements/design-for-availability-and-recoverability-in-azure.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Design for availability and recoverability in Azure</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/learn/modules/n-tier-architecture/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="/learn/achievements/n-tier-architecture.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Tour the N-tier architecture style</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
         </a>
     </li>
 </ul>

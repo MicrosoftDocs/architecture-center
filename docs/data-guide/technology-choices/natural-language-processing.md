@@ -2,19 +2,27 @@
 title: Choosing a natural language processing technology
 description: 
 author: zoinerTejada
-ms:date: 02/12/2018
+ms.date: 02/12/2018
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
 ---
 
 # Choosing a natural language processing technology in Azure
 
 Free-form text processing is performed against documents containing paragraphs of text, typically for the purpose of supporting search, but is also used to perform other natural language processing (NLP) tasks such as sentiment analysis, topic detection, language detection, key phrase extraction, and document categorization. This article focuses on the technology choices that act in support of the NLP tasks.
 
+<!-- markdownlint-disable MD026 -->
+
 ## What are your options when choosing an NLP service?
+
+<!-- markdownlint-enable MD026 -->
 
 In Azure, the following services provide natural language processing (NLP) capabilities:
 
 - [Azure HDInsight with Spark and Spark MLlib](/azure/hdinsight/spark/apache-spark-overview)
-- [Microsoft Cognitive Services](/azure/#pivot=products&panel=cognitive)
+- [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks)
+- [Microsoft Cognitive Services](/azure/cognitive-services/welcome)
 
 ## Key selection criteria
 
@@ -30,7 +38,7 @@ To narrow the choices, start by answering these questions:
 
 ## Capability matrix
 
-The following tables summarize the key differences in capabilities.  
+The following tables summarize the key differences in capabilities.
 
 ### General capabilities
 
@@ -44,7 +52,7 @@ The following tables summarize the key differences in capabilities.
 ### Low-level natural language processing capabilities
 
 | | Azure HDInsight | Microsoft Cognitive Services |  
-| --- | --- | --- | 
+| --- | --- | --- |
 | Tokenizer | Yes (Spark NLP) | Yes (Linguistic Analysis API) |
 | Stemmer | Yes (Spark NLP) | No |
 | Lemmatizer | Yes (Spark NLP) | No |
@@ -57,8 +65,8 @@ The following tables summarize the key differences in capabilities.
 ### High-level natural language processing capabilities
 
 | | Azure HDInsight | Microsoft Cognitive Services |
-| --- | --- | --- | 
-| Entity/intent identification & extraction | No | Yes (Language Understanding Intelligent Service (LUIS) API) |    
+| --- | --- | --- |
+| Entity/intent identification and extraction | No | Yes (Language Understanding Intelligent Service (LUIS) API) |
 | Topic detection | Yes (Spark NLP) | Yes (Text Analytics API) |
 | Spell checking | Yes (Spark NLP) | Yes (Bing Spell Check API) |
 | Sentiment analysis | Yes (Spark NLP) | Yes (Text Analytics API) |

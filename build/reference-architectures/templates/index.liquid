@@ -1,27 +1,29 @@
 ---
-title: {{ title }}
-description: {{ description }}
+title: Azure Reference Architectures
+description: Reference architectures and implementation guidance for common workloads on Azure.
 layout: LandingPage
 ms.topic: landing-page
+ms.date: {{ "now" | date: "%m/%d/%Y" }}
 ---
 <!-- This file is generated! -->
 <!-- See the templates in ./build/reference-architectures  -->
 <!-- See data in index.json -->
 
-# {{ title }}
+# Azure Reference Architectures
 
-{{ summary }}
+Our reference architectures are arranged by scenario. Each architecture includes recommended practices, along with considerations for scalability, availability, manageability, and security. Most also include a deployable solution or reference implementation.
 
-<section class="series">
-    <ul class="panelContent">
-    {%- for x in series %}
-    {% include 'tile' with x %}
-    {%- endfor %}
-    </ul>
-</section>
+Jump to: {% for section in sections %}[{{ section.shortName }}](#{{ section.title | downcase | replace: " ", "-" }}){%- if forloop.last == false %} | {% endif %}{% endfor %}
 
-<ul class="panelContent cardsI">
-    {%- for x in individuals %}
-    {% include 'tile' with x %}
-    {%- endfor %}
+<!-- markdownlint-disable MD033 -->
+
+{%- for section in sections %}
+
+## {{ section.title }}
+
+<ul  class="panelContent cardsF">
+{%- for card in section.cards %}
+{% include 'tile' with card %}
+{%- endfor %}
 </ul>
+{%- endfor %}

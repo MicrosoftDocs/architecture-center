@@ -1,12 +1,18 @@
 ---
 title: Busy Database antipattern
+titleSuffix: Performance antipatterns for cloud apps
 description: Offloading processing to a database server can cause performance and scalability problems.
 author: dragon119
 ms.date: 06/05/2017
+ms.topic: article
+ms.service: architecture-center
+ms.subservice: cloud-fundamentals
+ms.custom: seodec18
 ---
+
 # Busy Database antipattern
 
-Offloading processing to a database server can cause it to spend a significant proportion of time running code, rather than responding to requests to store and retrieve data. 
+Offloading processing to a database server can cause it to spend a significant proportion of time running code, rather than responding to requests to store and retrieve data.
 
 ## Problem description
 
@@ -114,10 +120,10 @@ INNER JOIN [Person].[Person] p ON c.[PersonID] = p.[BusinessEntityID]
 INNER JOIN [Sales].[SalesOrderDetail] sod ON soh.[SalesOrderID] = sod.[SalesOrderID]
 WHERE soh.[TerritoryId] = @TerritoryId
 AND soh.[SalesOrderId] IN (
-	SELECT TOP 20 SalesOrderId
-	FROM [Sales].[SalesOrderHeader] soh
-	WHERE soh.[TerritoryId] = @TerritoryId
-	ORDER BY soh.[TotalDue] DESC)
+    SELECT TOP 20 SalesOrderId
+    FROM [Sales].[SalesOrderHeader] soh
+    WHERE soh.[TerritoryId] = @TerritoryId
+    ORDER BY soh.[TotalDue] DESC)
 ORDER BY soh.[TotalDue] DESC, sod.[SalesOrderDetailID]
 ```
 
@@ -212,9 +218,9 @@ using (var command = new SqlCommand(...))
 
 ## How to detect the problem
 
-Symptoms of a busy database include a disproportionate decline in throughput and response times in operations that access the database. 
+Symptoms of a busy database include a disproportionate decline in throughput and response times in operations that access the database.
 
-You can perform the following steps to help identify this problem: 
+You can perform the following steps to help identify this problem:
 
 1. Use performance monitoring to identify how much time the production system spends performing database activity.
 
@@ -257,12 +263,11 @@ CPU and DTU utilization shows that the system took longer to reach saturation, d
 
 ![Azure SQL Database monitor showing the performance of the database while performing processing in the client application][ProcessingInClientApplicationMonitor]
 
-## Related resources 
+## Related resources
 
 - [Extraneous Fetching antipattern][ExtraneousFetching]
 
-
-[dtu]: /sql-database/sql-database-what-is-a-dtu
+[dtu]: /azure/sql-database/sql-database-service-tiers-dtu
 [ExtraneousFetching]: ../extraneous-fetching/index.md
 [sample-app]: https://github.com/mspnp/performance-optimization/tree/master/BusyDatabase
 

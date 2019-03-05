@@ -8,7 +8,7 @@ const engine = Liquid({
     extname: '.liquid'
 });
 
-module.exports = function (indexFolder) {
+function writeIndexPage(indexFolder) {
 
     const basePath = path.resolve(__dirname, `../../docs/reference-architectures/`, indexFolder);
     const outputhPath = path.resolve(basePath, 'index.md');
@@ -20,3 +20,6 @@ module.exports = function (indexFolder) {
     engine.renderFile('index', index)
         .then(markdown => fs.writeFile(outputhPath, markdown));
 }
+
+
+writeIndexPage('.');
