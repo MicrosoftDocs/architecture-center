@@ -4,7 +4,7 @@ titleSuffix: Cloud Design Patterns
 description: Split a large message into a claim check and a payload to avoid overwhelming a message bus.
 keywords: design pattern
 author: yorek
-ms.date: 03/01/2019
+ms.date: 03/05/2019
 ms.topic: design-pattern
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
