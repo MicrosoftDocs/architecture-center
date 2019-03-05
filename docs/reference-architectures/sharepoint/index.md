@@ -284,7 +284,7 @@ This logon tunnels from the Fabrikam.com domain used by the on-premises network 
 [azure-ps]: /powershell/azure/overview
 [azure-pricing]: https://azure.microsoft.com/pricing/calculator/
 [bastion-host]: https://en.wikipedia.org/wiki/Bastion_host
-[create-availability-group]: https://technet.microsoft.com/library/mt793548(v=office.16).aspx
+[create-availability-group]: https://docs.microsoft.com/en-us/SharePoint/administration/sharepoint-intranet-farm-in-azure-phase-5-create-the-availability-group-and-add
 [connect-to-vm]: /azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine
 [github]: https://github.com/mspnp/reference-architectures
 [hybrid-ra]: ../hybrid-networking/index.md
