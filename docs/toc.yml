@@ -621,8 +621,6 @@
         items:
         - name: Set up your Azure environment
           href: cloud-adoption/ready/journeys/simple/index.md
-        - name: Overview
-          href: cloud-adoption/ready/journeys/simple/before-you-start.md
         - name: Manage access
           href: cloud-adoption/ready/journeys/simple/manage-access.md
         - name: Organize your resources
