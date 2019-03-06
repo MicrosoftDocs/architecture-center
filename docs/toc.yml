@@ -609,54 +609,68 @@
         href: cloud-adoption/plan/change-management/partnerhips.md
       - name: xx- Support options
         href: cloud-adoption/plan/change-management/support.md
-  - name: Build
+  - name: Ready
     items:
     - name: XX-Overview
-      href: cloud-adoption/build/index.md
+      href: cloud-adoption/ready/index.md
     - name: Actionable Migration Journeys
       items:
       - name: XX-Overview of the journeys
-        href: cloud-adoption/build/journeys/index.md
-      - name: XX-Azure Readiness Guide - (Simple Journey)
+        href: cloud-adoption/ready/journeys/index.md
+      - name: Azure Readiness Guide - (Simple Journey)
         items:
-        - name: Absorb the existing readiness guide
-          href: cloud-adoption/build/journeys/simple/index.md
+        - name: Set up your Azure environment
+          href: cloud-adoption/ready/journeys/simple/index.md
+        - name: Overview
+          href: cloud-adoption/ready/journeys/simple/before-you-start.md
+        - name: Manage access
+          href: cloud-adoption/ready/journeys/simple/manage-access.md
+        - name: Organize your resources
+          href: cloud-adoption/ready/journeys/simple/organize-resources.md
+        - name: Manage costs and billing
+          href: cloud-adoption/ready/journeys/simple/manage-costs.md
+        - name: Plan governance, security, and compliance
+          href: cloud-adoption/ready/journeys/simple/govern-org-compliance.md
+        - name: Use monitoring and reporting
+          href: cloud-adoption/ready/journeys/simple/monitoring-reporting.md
       - name: XX-Complex Journey
         items:
         - name: Fill in TOC Later
-          href: cloud-adoption/build/journeys/complex/index.md
+          href: cloud-adoption/ready/journeys/complex/index.md
     - name: Azure Best Practices
       items:
       - name: XX-Overview
-        href: cloud-adoption/build/azure-best-practices/index.md
+        href: cloud-adoption/ready/azure-best-practices/index.md
     - name: Build Theory
       items:
       - name: XX-Overview
-        href: cloud-adoption/build/theory/index.md
+        href: cloud-adoption/ready/theory/index.md
       - name: XX-Governance and Security Alignment
-        href: cloud-adoption/build/theory/index.md
+        href: cloud-adoption/ready/theory/index.md
       - name: XX-Business Stakeholder Alignment
-        href: cloud-adoption/build/theory/index.md
+        href: cloud-adoption/ready/theory/index.md
       - name: XX-Agile Change Management Tool
-        href: cloud-adoption/build/theory/index.md
+        href: cloud-adoption/ready/theory/index.md
       - name: XX-Nomenclature
-        href: cloud-adoption/build/theory/index.md
+        href: cloud-adoption/ready/theory/index.md
       - name: XX-Cloud Primatives
-        href: cloud-adoption/build/theory/index.md
+        href: cloud-adoption/ready/theory/index.md
       - name: XX-Azure Primatives
         items: 
         - name: xx- Subscriptions
-          href: cloud-adoption/build/theory/index.md
+          href: cloud-adoption/ready/theory/index.md
         - name: xx- Management Groups
-          href: cloud-adoption/build/theory/index.md
+          href: cloud-adoption/ready/theory/index.md
         - name: xx- Resource Groups
-          href: cloud-adoption/build/theory/index.md
+          href: cloud-adoption/ready/theory/index.md
       - name: XX-Network
-        href: cloud-adoption/build/theory/index.md
+        href: cloud-adoption/ready/theory/index.md
       - name: XX-Identity
-        href: cloud-adoption/build/theory/index.md
+        href: cloud-adoption/ready/theory/index.md
       - name: XX-Monitoring
-        href: cloud-adoption/build/theory/index.md
+        href: cloud-adoption/ready/theory/index.md
+      - name: Create hybrid cloud consistency
+        href: cloud-adoption/infrastructure/misc/hybrid-consistency.md
   - name: Migrate
     items:
     - name: Overview
@@ -1059,8 +1073,6 @@
           href: cloud-adoption/infrastructure/mainframe-migration/migration-strategies.md
         - name: Application strategies
           href: cloud-adoption/infrastructure/mainframe-migration/application-strategies.md
-    - name: Create hybrid cloud consistency
-      href: cloud-adoption/infrastructure/misc/hybrid-consistency.md
   - name: Operations
     items:
     - name: Overview
