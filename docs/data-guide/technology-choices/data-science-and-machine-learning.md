@@ -1,8 +1,8 @@
 ---
 title: Choosing a machine learning technology
 description: Compare options for building, deploying, and managing your machine learning models. Decide which Microsoft products to choose for your solution.
-author: zoinerTejada
-ms.date: 02/26/2019
+author: MikeWasson
+ms.date: 03/06/2019
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -82,8 +82,8 @@ Try [Azure Machine Learning Studio](https://studio.azureml.net/?selectAccess=tru
 |**Type**                   |Cloud-based, drag-and-drop machine learning solution|
 |**Supported languages**    |Python, R|
 |**Machine learning phases**|Data preparation<br>Model training<br>Deployment<br>Management|
-|**Key benefits**           |<ul><li>Interactive visual interface enables machine learning modeling with minimal code.</li><li>Built-in Jupyter Notebooks for data exploration.</li><li>Direct deployment of trained models as Azure web services.</li></ul>|
-|**Considerations**         |<ul><li>Limited scalability. The maximum size of a training dataset is 10 GB.</li><li>Online only. No offline development environment.</li></ul>|
+|**Key benefits**           |Interactive visual interface enables machine learning modeling with minimal code.<br/><br/>Built-in Jupyter Notebooks for data exploration.<br/><br/>Direct deployment of trained models as Azure web services.|
+|**Considerations**         |Limited scalability. The maximum size of a training dataset is 10 GB.<br/><br/>Online only. No offline development environment.|
 
 ## Azure Cognitive Services
 
@@ -101,8 +101,8 @@ Use Cognitive Services to develop apps across devices and platforms. The APIs ke
 |**Type**                   |APIs for building intelligent applications|
 |**Supported languages**    |many options depending on the service|
 |**Machine learning phases**|Deployment|
-|**Key benefits**           |<ul><li>Incorporating machine learning capabilities in applications using pre-trained models.</li><li>Variety of models for natural communication methods with vision and speech.</li></ul>|
-|**Considerations**         |<ul><li>Models have been pre-trained and are not customizable.</li></ul>|
+|**Key benefits**           |Incorporating machine learning capabilities in applications using pre-trained models.<br/><br/>Variety of models for natural communication methods with vision and speech.|
+|**Considerations**         |Models have been pre-trained and are not customizable.|
 
 ## SQL Server Machine Learning Services
 
@@ -115,8 +115,8 @@ Use SQL Server Machine Learning Services when you need built-in AI and predictiv
 |**Type**                   |On-premises predictive analytics for relational data|
 |**Supported languages**    |Python, R|
 |**Machine learning phases**|Data preparation<br>Model training<br>Deployment|
-|**Key benefits**           |<ul><li>Encapsulate predictive logic in a database function, making it easy to include in data-tier logic.</li></ul>|
-|**Considerations**         |<ul><li>Assumes a SQL Server database as the data tier for your application.</li></ul>|
+|**Key benefits**           |Encapsulate predictive logic in a database function, making it easy to include in data-tier logic.|
+|**Considerations**         |Assumes a SQL Server database as the data tier for your application.|
 
 ## Microsoft Machine Learning Server
 
@@ -129,8 +129,8 @@ Use Microsoft Machine Learning Server when you need to build and operationalize 
 |**Type**                   |On-premises enterprise server for predictive analytics|
 |**Supported languages**    |Python, R|
 |**Machine learning phases**|Model training<br>Deployment|
-|**Key benefits**           |<ul><li>High scalability.</li></ul>|
-|**Considerations**         |<ul><li>You need to deploy and manage Machine Learning Server in your enterprise.</li></ul>|
+|**Key benefits**           |High scalability.|
+|**Considerations**         |You need to deploy and manage Machine Learning Server in your enterprise.|
 
 ## Azure Data Science Virtual Machine
 
@@ -145,8 +145,8 @@ Use the Data Science VM when you need to run or host your jobs on a single node.
 |||
 |-|-|
 |**Type**                   |Customized virtual machine environment for data science|
-|**Key benefits**           |<ul><li>Reduced time to install, manage, and troubleshoot data science tools and frameworks.</li><li>The latest versions of all commonly used tools and frameworks are included.</li><li>Virtual machine options include highly scalable images with GPU capabilities for intensive data modeling.</li></ul>|
-|**Considerations**         |<ul><li>The virtual machine cannot be accessed when offline.</li><li>Running a virtual machine incurs Azure charges, so you must be careful to have it running only when required.</li></ul>|
+|**Key benefits**           |Reduced time to install, manage, and troubleshoot data science tools and frameworks.<br/><br/>The latest versions of all commonly used tools and frameworks are included.<br/><br/>Virtual machine options include highly scalable images with GPU capabilities for intensive data modeling.|
+|**Considerations**         |The virtual machine cannot be accessed when offline.<br/><br/>Running a virtual machine incurs Azure charges, so you must be careful to have it running only when required.|
 
 ## Azure Databricks
 
