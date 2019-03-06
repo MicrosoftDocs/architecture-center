@@ -633,10 +633,6 @@
           href: cloud-adoption/ready/journeys/simple/govern-org-compliance.md
         - name: Use monitoring and reporting
           href: cloud-adoption/ready/journeys/simple/monitoring-reporting.md
-      - name: XX-Complex Journey
-        items:
-        - name: Fill in TOC Later
-          href: cloud-adoption/ready/journeys/complex/index.md
     - name: Azure Best Practices
       items:
       - name: XX-Overview
@@ -653,16 +649,8 @@
         href: cloud-adoption/ready/theory/index.md
       - name: XX-Nomenclature
         href: cloud-adoption/ready/theory/index.md
-      - name: XX-Cloud Primatives
+      - name: XX-Primitives
         href: cloud-adoption/ready/theory/index.md
-      - name: XX-Azure Primatives
-        items: 
-        - name: xx- Subscriptions
-          href: cloud-adoption/ready/theory/index.md
-        - name: xx- Management Groups
-          href: cloud-adoption/ready/theory/index.md
-        - name: xx- Resource Groups
-          href: cloud-adoption/ready/theory/index.md
       - name: XX-Network
         href: cloud-adoption/ready/theory/index.md
       - name: XX-Identity
