@@ -572,7 +572,7 @@
     - name: Refactor a Service Fabric application
       href: service-fabric/refactor-migrated-app.md
 
-- name: Design review framework
+- name: Design Review Framework
   items:
   - name: Design for resiliency
     href: resiliency/index.md
