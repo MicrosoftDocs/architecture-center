@@ -1,7 +1,7 @@
 - name: Azure Architecture Center
   href: index.md
 
-- name: Cloud Fundamentals
+- name: Cloud fundamentals
   items:
   - name: Application architecture guide
     items:
@@ -65,83 +65,6 @@
         href: guide/design-principles/build-for-business.md
     - name: Pillars of software quality
       href: guide/pillars.md
-
-  - name: Data architecture guide
-    items:
-    - name: Introduction
-      href: data-guide/index.md
-    - name: Traditional RDBMS workloads
-      items:
-      - name: Overview
-        href: data-guide/relational-data/index.md 
-      - name: Online transaction processing (OLTP)
-        href: data-guide/relational-data/online-transaction-processing.md 
-      - name: Data warehousing
-        href: data-guide/relational-data/data-warehousing.md
-      - name: Online analytical processing (OLAP)
-        href: data-guide/relational-data/online-analytical-processing.md
-      - name: Extract, transform, and load (ETL)
-        href: data-guide/relational-data/etl.md 
-    - name: Big data architectures
-      items:
-        - name: Overview
-          href: data-guide/big-data/index.md
-        - name: Batch processing
-          href: data-guide/big-data/batch-processing.md
-        - name: Real time processing
-          href: data-guide/big-data/real-time-processing.md
-        - name: Machine learning at scale
-          href: data-guide/big-data/machine-learning-at-scale.md
-        - name: Non-relational data stores
-          href: data-guide/big-data/non-relational-data.md
-        - name: Scenarios
-          items:
-          - name: Advanced analytics
-            href: data-guide/scenarios/advanced-analytics.md 
-          - name: Data lakes
-            href: data-guide/scenarios/data-lake.md
-          - name: Free-form text search
-            href: data-guide/scenarios/search.md
-          - name: Interactive data exploration
-            href: data-guide/scenarios/interactive-data-exploration.md
-          - name: Natural language processing
-            href: data-guide/scenarios/natural-language-processing.md
-          - name: Time series solutions 
-            href: data-guide/scenarios/time-series.md
-          - name: Working with CSV and JSON files
-            href: data-guide/scenarios/csv-and-json.md
-        - name: Technology choices
-          items:
-          - name: Analytical data stores
-            href: data-guide/technology-choices/analytical-data-stores.md 
-          - name: Analytics and reporting
-            href: data-guide/technology-choices/analysis-visualizations-reporting.md 
-          - name: Batch processing
-            href: data-guide/technology-choices/batch-processing.md 
-          - name: Cognitive services
-            href: data-guide/technology-choices/cognitive-services.md 
-          - name: Data storage
-            href: data-guide/technology-choices/data-storage.md
-          - name: Machine learning
-            href: data-guide/technology-choices/data-science-and-machine-learning.md 
-          - name: Natural language processing
-            href: data-guide/technology-choices/natural-language-processing.md 
-          - name: Pipeline orchestration
-            href: data-guide/technology-choices/pipeline-orchestration-data-movement.md 
-          - name: Real-time message ingestion
-            href: data-guide/technology-choices/real-time-ingestion.md
-          - name: Search data stores
-            href: data-guide/technology-choices/search-options.md
-          - name: Stream processing
-            href: data-guide/technology-choices/stream-processing.md
-    - name: Cross-cutting concerns
-      items:
-      - name: Data transfer
-        href: data-guide/scenarios/data-transfer.md 
-      - name: Extending on-premises data solutions to the cloud
-        href: data-guide/scenarios/hybrid-on-premises-and-cloud.md 
-      - name: Securing data solutions
-        href: data-guide/scenarios/securing-data-solutions.md 
 
   - name: Cloud design patterns
     items:
@@ -289,7 +212,7 @@
     - name: Services comparison
       href: aws-professional/services.md
 
-- name: Example Scenarios
+- name: Example scenarios
   items:
   - name: Overview
     href: example-scenario/index.md
@@ -321,7 +244,7 @@
       href: example-scenario/apps/apim-api-scenario.md
     - name: E-commerce product search
       href: example-scenario/apps/ecommerce-search.md
-  - name: Data and Analytics
+  - name: Data and analytics
     items:
     - name: Hybrid ETL with Data Factory
       href: example-scenario/data/hybrid-etl-with-adf.md
@@ -354,7 +277,7 @@
     - name: Image Modeling
       href: example-scenario/infrastructure/image-modeling.md
    
-- name: Reference Architectures
+- name: Reference architectures
   items:
     - name: Overview
       href: reference-architectures/index.md
@@ -524,8 +447,96 @@
     - name: CI/CD
       href: microservices/ci-cd.md
 
-- name: Design Guides
+- name: Design guides
   items:
+  - name: Data architecture guide
+    items:
+    - name: Introduction
+      href: data-guide/index.md
+    - name: Traditional RDBMS workloads
+      items:
+      - name: Overview
+        href: data-guide/relational-data/index.md 
+      - name: Online transaction processing (OLTP)
+        href: data-guide/relational-data/online-transaction-processing.md 
+      - name: Data warehousing
+        href: data-guide/relational-data/data-warehousing.md
+      - name: Online analytical processing (OLAP)
+        href: data-guide/relational-data/online-analytical-processing.md
+      - name: Extract, transform, and load (ETL)
+        href: data-guide/relational-data/etl.md 
+    - name: Big data architectures
+      items:
+        - name: Overview
+          href: data-guide/big-data/index.md
+        - name: Batch processing
+          href: data-guide/big-data/batch-processing.md
+        - name: Real time processing
+          href: data-guide/big-data/real-time-processing.md
+        - name: Machine learning at scale
+          href: data-guide/big-data/machine-learning-at-scale.md
+        - name: Non-relational data stores
+          href: data-guide/big-data/non-relational-data.md
+        - name: Scenarios
+          items:
+          - name: Advanced analytics
+            href: data-guide/scenarios/advanced-analytics.md 
+          - name: Data lakes
+            href: data-guide/scenarios/data-lake.md
+          - name: Free-form text search
+            href: data-guide/scenarios/search.md
+          - name: Interactive data exploration
+            href: data-guide/scenarios/interactive-data-exploration.md
+          - name: Natural language processing
+            href: data-guide/scenarios/natural-language-processing.md
+          - name: Time series solutions 
+            href: data-guide/scenarios/time-series.md
+          - name: Working with CSV and JSON files
+            href: data-guide/scenarios/csv-and-json.md
+        - name: Technology choices
+          items:
+          - name: Analytical data stores
+            href: data-guide/technology-choices/analytical-data-stores.md 
+          - name: Analytics and reporting
+            href: data-guide/technology-choices/analysis-visualizations-reporting.md 
+          - name: Batch processing
+            href: data-guide/technology-choices/batch-processing.md 
+          - name: Cognitive services
+            href: data-guide/technology-choices/cognitive-services.md 
+          - name: Data storage
+            href: data-guide/technology-choices/data-storage.md
+          - name: Machine learning
+            href: data-guide/technology-choices/data-science-and-machine-learning.md 
+          - name: Natural language processing
+            href: data-guide/technology-choices/natural-language-processing.md 
+          - name: Pipeline orchestration
+            href: data-guide/technology-choices/pipeline-orchestration-data-movement.md 
+          - name: Real-time message ingestion
+            href: data-guide/technology-choices/real-time-ingestion.md
+          - name: Search data stores
+            href: data-guide/technology-choices/search-options.md
+          - name: Stream processing
+            href: data-guide/technology-choices/stream-processing.md
+    - name: Cross-cutting concerns
+      items:
+      - name: Data transfer
+        href: data-guide/scenarios/data-transfer.md 
+      - name: Extending on-premises data solutions to the cloud
+        href: data-guide/scenarios/hybrid-on-premises-and-cloud.md 
+      - name: Securing data solutions
+        href: data-guide/scenarios/securing-data-solutions.md 
+  - name: Extend Azure Resource Manager templates
+    items:
+    - name: Introduction
+      href: building-blocks/extending-templates/index.md
+    - name: Update a resource
+      href: building-blocks/extending-templates/update-resource.md
+    - name: Conditionally deploy a resource
+      href: building-blocks/extending-templates/conditional-deploy.md
+    - name: Use an object as a parameter
+      href: building-blocks/extending-templates/objects-as-parameters.md
+    - name: Property transformer and collector
+      href: building-blocks/extending-templates/collector.md
   - name: Manage multitenant identity
     items:
     - name: Introduction
@@ -554,7 +565,6 @@
       href: multitenant-identity/adfs.md
     - name: Run the Surveys application
       href: multitenant-identity/run-the-app.md
-      
   - name: Migrate from Cloud Services to Service Fabric
     items:
     - name: Migrate a Cloud Services application to Service Fabric
@@ -562,7 +572,7 @@
     - name: Refactor a Service Fabric application
       href: service-fabric/refactor-migrated-app.md
 
-- name: Design Review Framework
+- name: Design review framework
   items:
   - name: Design for resiliency
     href: resiliency/index.md
@@ -799,7 +809,7 @@
       items:
         - name: Deploy a basic workload
           href: cloud-adoption/infrastructure/virtual-machines/basic-workload.md
-    - name: Mainframe Migration
+    - name: Mainframe migration
       items:
         - name: Overview
           href: cloud-adoption/infrastructure/mainframe-migration/overview.md
