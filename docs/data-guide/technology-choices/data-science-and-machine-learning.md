@@ -65,8 +65,8 @@ Try the [free or paid version of Azure Machine Learning service](http://aka.ms/A
 |**Type**                   |Cloud-based machine learning solution|
 |**Supported languages**    |Python|
 |**Machine learning phases**|Data preparation<br>Model training<br>Deployment<br>Management|
-|**Key benefits**           |<ul><li>Central management of scripts and run history, making it easy to compare model versions.</li><li>Easy deployment and management of models to the cloud or edge devices.</li></ul>|
-|**Considerations**         |<ul><li>Requires some familiarity with the model management model.</li></ul>|
+|**Key benefits**           |Central management of scripts and run history, making it easy to compare model versions.<br/><br/>Easy deployment and management of models to the cloud or edge devices.|
+|**Considerations**         |Requires some familiarity with the model management model.|
 
 ## Azure Machine Learning Studio
 
