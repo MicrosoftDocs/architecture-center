@@ -1,7 +1,7 @@
 ---
 title: Building microservices on Azure
 description: Designing, building, and operating microservices architectures on Azure
-ms.date: 02/27/2019
+ms.date: 03/07/2019
 layout: LandingPage
 ms.topic: landing-page
 ---
@@ -101,8 +101,22 @@ Microservices are a popular architectural style for building applications that a
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Reference architecture for microservices on AKS</h3>
+                        <h3>Reference architecture for Azure Kubernetes Services (AKS)</h3>
                         <p>This reference architecture shows a basic AKS configuration that can be the starting point for most deployments.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<li style="display: flex; flex-direction: column;">
+    <a href="../reference-architectures/microservices/service-fabric.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Reference architecture for Azure Service Fabric</h3>
+                        <p>This reference architecture shows recommended configuration that can be the starting point for most deployments.</p>
                     </div>
                 </div>
             </div>
@@ -131,20 +145,6 @@ Microservices are a popular architectural style for building applications that a
                     <div class="cardText">
                         <h3>Design patterns</h3>
                         <p>A set of useful design patterns for microservices.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-<li style="display: flex; flex-direction: column;">
-    <a href="../reference-architectures/microservices/sf.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Reference architecture for microservices on Service Fabric</h3>
-                        <p>This reference architecture shows a basic Service Fabric configuration that can be the starting point for most deployments.</p>
                     </div>
                 </div>
             </div>

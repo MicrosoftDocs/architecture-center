@@ -3,7 +3,7 @@ title: Azure Reference Architectures
 description: Reference architectures and implementation guidance for common workloads on Azure.
 layout: LandingPage
 ms.topic: landing-page
-ms.date: 02/07/2019
+ms.date: 03/07/2019
 ---
 <!-- This file is generated! -->
 <!-- See the templates in ./build/reference-architectures  -->
@@ -73,7 +73,7 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
                     </div>
                     <div class="cardText">
                         <h3>Batch scoring of Python models</h3>
-                        <p>Batch score many Python models in parallel on a schedule using Azure Machine Learning.</p>
+                        <p>Batch score many Python models in parallel on a schedule using Azure Batch AI.</p>
                     </div>
                 </div>
             </div>
@@ -308,16 +308,16 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
                     </div>
                     <div class="cardText">
                         <h3>Microservices on Azure Kubernetes Service (AKS)</h3>
-                        <p>Recommended architecture for deploying a microservices architecture on AKS.</p>
+                        <p>Recommended architecture for deploying microservices on AKS.</p>
                     </div>
                 </div>
             </div>
         </div>
     </a>
 </li>
-<!-- Microservices on Azure Service Fabric -->
+<!-- Microservices architecture on Azure Service Fabric -->
 <li style="display: flex; flex-direction: column;">
-    <a href="./microservices/sf.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./microservices/service-fabric.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -327,8 +327,8 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Microservices on Azure Service Fabric</h3>
-                        <p>Recommended architecture for deploying a Service Fabric configuration.</p>
+                        <h3>Microservices architecture on Azure Service Fabric</h3>
+                        <p>Recommended architecture for microservices on Service Fabric.</p>
                     </div>
                 </div>
             </div>
