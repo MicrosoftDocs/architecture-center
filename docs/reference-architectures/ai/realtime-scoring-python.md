@@ -10,7 +10,7 @@ ms.subservice: reference-architecture
 ms.custom: azcat-ai
 ---
 
-# Real-time scoring of Python Scikit-Learn and deep learning models on Azure
+# Real-time scoring of Python scikit-learn and deep learning models on Azure
 
 This reference architecture shows how to deploy Python models as web services to make real-time predictions using the Azure Machine Learning service. Two scenarios are covered: deploying regular Python models, and the specific requirements of deploying deep learning models. Both scenarios use the architecture shown.
 

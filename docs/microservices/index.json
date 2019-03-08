@@ -42,9 +42,14 @@
                     "summary": "To avoid some common pitfalls when designing microservices, use domain analysis to define your microservice boundaries."
                 },
                 {
-                    "title": "Reference architecture for microservices on AKS",
+                    "title": "Reference architecture for Azure Kubernetes Services (AKS)",
                     "url": "../reference-architectures/microservices/aks.md",
                     "summary": "This reference architecture shows a basic AKS configuration that can be the starting point for most deployments."
+                },
+                {
+                    "title": "Reference architecture for Azure Service Fabric",
+                    "url": "../reference-architectures/microservices/service-fabric.md",
+                    "summary":"This reference architecture shows recommended configuration that can be the starting point for most deployments."
                 },
                 {
                     "title": "Design a microservices architecture",

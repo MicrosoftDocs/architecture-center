@@ -3,7 +3,7 @@ title: Azure Reference Architectures
 description: Reference architectures and implementation guidance for common workloads on Azure.
 layout: LandingPage
 ms.topic: landing-page
-ms.date: 02/07/2019
+ms.date: 03/07/2019
 ---
 <!-- This file is generated! -->
 <!-- See the templates in ./build/reference-architectures  -->
@@ -34,6 +34,26 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
                     <div class="cardText">
                         <h3>Distributed training of deep learning models</h3>
                         <p>Run distributed training of deep learning models across clusters of GPU-enabled VMs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<!-- Training of Python scikit-learn models -->
+<li style="display: flex; flex-direction: column;">
+    <a href="./ai/training-python-models.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/icons/python-powered-h.svg" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Training of Python scikit-learn models</h3>
+                        <p>Recommended practices for tuning the hyperparameters of a scikit-learn Python model.</p>
                     </div>
                 </div>
             </div>
@@ -308,7 +328,27 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
                     </div>
                     <div class="cardText">
                         <h3>Microservices on Azure Kubernetes Service (AKS)</h3>
-                        <p>Recommended architecture for deploying a microservices architecture on AKS.</p>
+                        <p>Recommended architecture for deploying microservices on AKS.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<!-- Microservices architecture on Azure Service Fabric -->
+<li style="display: flex; flex-direction: column;">
+    <a href="./microservices/service-fabric.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/icons/sf.svg" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Microservices architecture on Azure Service Fabric</h3>
+                        <p>Recommended architecture for microservices on Service Fabric.</p>
                     </div>
                 </div>
             </div>
