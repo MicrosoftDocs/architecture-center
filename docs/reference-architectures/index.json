@@ -20,7 +20,7 @@
                     "url": "./ai/batch-scoring-python.md",
                     "image": "../_images/icons/python-powered-h.svg",
                     "title": "Batch scoring of Python models",
-                    "summary": "Batch score many Python models in parallel on a schedule using Azure Batch AI."
+                    "summary": "Batch score many Python models in parallel on a schedule using Azure Machine Learning."
                 },
                 {
                     "url": "./ai/batch-scoring-databricks.md",
