@@ -45,7 +45,7 @@ The architecture consists of the following components. For other terms, [Service
 
 ## Design considerations
 
-This RA is focused on [microservices architectures](/azure/architecture/guide/architecture-styles/microservices). A microservice is a small, independently versioned unit of code. It is discoverable through service discovery mechanisms and can communicate with other services over APIs. Each service is self-contained and should implement a single business capability. For more information about how to decompose your application domain into microservices, see [Using domain analysis to model microservices](/azure/architecture/microservices/model/domain-analysis).
+This reference architecture is focused on [microservices architectures](../../guide/architecture-styles/microservices.md). A microservice is a small, independently versioned unit of code. It is discoverable through service discovery mechanisms and can communicate with other services over APIs. Each service is self-contained and should implement a single business capability. For more information about how to decompose your application domain into microservices, see [Using domain analysis to model microservices](../../microservices/model/domain-analysis.md).
 
 Service Fabric provides an infrastructure to build, deploy, and upgrade microservices efficiently. It also provides options for auto scaling, managing state, monitoring health, and restarting services in case of failure.
 
@@ -78,11 +78,11 @@ For more information, see:
 
 ### API gateway
 
-An [API gateway](/azure/architecture/microservices/gateway) (ingress) sits between external clients and the microservices. It acts as a reverse proxy, routing requests from clients to microservices. It may also perform various cross-cutting tasks such as authentication, SSL termination, and rate limiting.
+An [API gateway](../..//microservices/design/gateway.md) (ingress) sits between external clients and the microservices. It acts as a reverse proxy, routing requests from clients to microservices. It may also perform various cross-cutting tasks such as authentication, SSL termination, and rate limiting.
 
 Azure API Management is recommended for most scenarios, but Træfik is a popular open-source alternative. Both technology options are integrated with Service Fabric.
 
-- [Azure API Management](/azure/api-management/) exposes a public IP address and routes traffic to your services. It runs in a dedicated subnet in the same virtual network as the Service Fabric cluster.  can access services in a node type that is exposed through a load balancer with a private IP address. This option is only available in the Premium and Developer tiers of API Management. For production workloads, use the Premium tier. Pricing information is described in [API Management pricing](https://azure.microsoft.com/en-us/pricing/details/api-management/). For more information, see Service Fabric with [Azure API Management overview](/azure/service-fabric/service-fabric-api-management-overview).
+- [Azure API Management](/azure/api-management/) exposes a public IP address and routes traffic to your services. It runs in a dedicated subnet in the same virtual network as the Service Fabric cluster.  can access services in a node type that is exposed through a load balancer with a private IP address. This option is only available in the Premium and Developer tiers of API Management. For production workloads, use the Premium tier. Pricing information is described in [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/). For more information, see Service Fabric with [Azure API Management overview](/azure/service-fabric/service-fabric-api-management-overview).
 - [Træfik](https://docs.traefik.io/) supports features such as routing, tracing, logs, and metrics. Træfik runs as a stateless service in the Service Fabric cluster. Service versioning can be supported through routing. For information on how to set up Træfik for service ingress and as the reverse proxy within the cluster, see [Azure Service Fabric Provider](https://docs.traefik.io/configuration/backends/servicefabric/). For more information about using Træfik with Service Fabric, see [Intelligent routing on Service Fabric with Træfik](https://blogs.msdn.microsoft.com/azureservicefabric/2018/04/05/intelligent-routing-on-service-fabric-with-traefik/) (blog post).
 
 Other API Managementment options include [Azure Application Gateway](/azure/application-gateway/) and [Azure Front Door](/azure/frontdoor/). These services can be used in conjunction with API Management to perform tasks such as routing, SSL termination, and firewall.
@@ -97,7 +97,7 @@ To facilitate service-to-service communication, consider using HTTP as the commu
 Other options for interservice communication include,
 
 - [Træfik](https://docs.traefik.io/) for advanced routing.
-- [DNS](https://docs.microsoft.com/en-us/azure/dns/) for compatibility scenarios where a service expects to use DNS.
+- [DNS](/azure/dns/) for compatibility scenarios where a service expects to use DNS.
 - [ServicePartitionClient&lt;TCommunicationClient&gt;](/dotnet/api/microsoft.servicefabric.services.communication.client.servicepartitionclient-1?view=azure-dotnet) class. The class caches service endpoints and can enable better performance, as calls go directly between services without intermediaries or custom protocols.
 
 ## Scalability considerations
@@ -165,7 +165,7 @@ The initially specified default load for a service will not change over the life
 - Place your services in a node type other than the primary node type. The Service Fabric system services are always deployed to the primary node type. If your services are deployed to the primary node type, they might compete with system services for resources and interfere with the system services.
 - If a node type is expected to host stateful services, make sure there are at least 5 node instances and you select the Silver or Gold Durability tier.
 - Consider constraining the resources of your services.  See [Resource governance mechanism](/azure/service-fabric/service-fabric-resource-governance#resource-governance-mechanism).
-  - Do not mix resource governed and resource non-governed services on the same node type. The non-governed services might consume too many resources, affecting the resource governed services. Specify [placement constraints](/azure/service-fabric/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies) to make sure that those types of services do not run on the same set of nodes. See [Specify resource governance](/azure/service-fabric/service-fabric-resource-governance#specify-resource-governance). (This is an example of the [Bulkhead pattern](/azure/architecture/patterns/bulkhead).)
+  - Do not mix resource governed and resource non-governed services on the same node type. The non-governed services might consume too many resources, affecting the resource governed services. Specify [placement constraints](/azure/service-fabric/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies) to make sure that those types of services do not run on the same set of nodes. See [Specify resource governance](/azure/service-fabric/service-fabric-resource-governance#specify-resource-governance). (This is an example of the [Bulkhead pattern](../../patterns/bulkhead.md).)
   - Specify the CPU cores and memory to reserve for a service instance. For information about usage and limitations of resource governance policies, see [Resource governance](/azure/service-fabric/service-fabric-resource-governance).
 - Make sure every service’s target instance or replica count is greater than 1 to avoid a single point of failure (SPOF). The largest number that you can use as service instance or replica count equals the number nodes that to which the service is constrained.
 - Make sure every stateful service has at least two active secondary replicas. Five replicas are recommended for production workloads.
@@ -180,7 +180,7 @@ Here are some key points for securing your application on Service Fabric:
 - To secure your interservice communications:
   - Consider enabling HTTPS endpoints in your ASP.NET Core or Java web services.
   - Establish a secure connection between the reverse proxy and services.  For details, see [Connect to a secure service](/azure/service-fabric/service-fabric-reverseproxy-configure-secure-communication).
-- If you are using an [API gateway](/azure/architecture/microservices/gateway), you can [offload authentication](/azure/architecture/patterns/gateway-offloading) to the gateway. Make sure that the individual services cannot be reached directly (without the API gateway) unless additional security is in place to authenticate messages whether they come from the gateway.
+- If you are using an [API gateway](../../microservices/design/gateway.md), you can [offload authentication](../../patterns/gateway-offloading.md) to the gateway. Make sure that the individual services cannot be reached directly (without the API gateway) unless additional security is in place to authenticate messages whether they come from the gateway.
 - Consider defining subnet boundaries for each VMSS to control the flow of communication. Each node type has its own VMSS in a subnet within the Service Fabric cluster's virtual network. Network Security Groups (NSGs) can be added to the subnets to allow or reject network traffic. For example, with front-end and back-end node types, you can add an NSG to the backend subnet to accept inbound traffic only the front-end subnet.
 - To access Key Vault secrets from a Service Fabric service, enable [managed identity](/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-virtual-machine-scale-sets) on the VMSS that hosts the service. Sample code: Use Key Vault from App Service with Managed Service Identity.
 - Do not use client certificates to access Service Fabric Explorer. Instead, use Azure Active Directory (Azure AD). Also see, [Azure services that support Azure AD authentication](/azure/active-directory/managed-identities-azure-resources/services-support-msi%23azure-services-that-support-azure-ad-authentication).
@@ -215,7 +215,7 @@ You can use Azure Monitor to set up dashboards for monitoring and to send alerts
 
 Application telemetry provides data about your service that can help you monitor the health of your service and identify issues. To add traces and events in your service:
 
-- [Microsoft.Extensions.Logging](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-how-to-diagnostics-log#microsoftextensionslogging) if you are developing your service with ASP.NET Core. For other frameworks, use a logging library of your choice such as Serilog.
+- [Microsoft.Extensions.Logging](/azure/service-fabric/service-fabric-how-to-diagnostics-log#microsoftextensionslogging) if you are developing your service with ASP.NET Core. For other frameworks, use a logging library of your choice such as Serilog.
 - You can add your own instrumentation by using the [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) class in the SDK and view the data in Application Insights. See [Add custom instrumentation to your application](/azure/service-fabric/service-fabric-tutorial-monitoring-aspnet#add-custom-instrumentation-to-your-application).
 - Log ETW events by using [EventSource](/azure/service-fabric/service-fabric-diagnostics-event-generation-app#eventsource). This option is available by default in a Visual Studio Service Fabric solution.
 
@@ -289,5 +289,5 @@ Service Fabric telemetry includes health metrics and events about the operation 
 
 ## Next steps
 
-- Using domain analysis to model microservices
-- Designing a microservices architecture
+- [Using domain analysis to model microservices](../../microservices/model/domain-analysis.md)
+- [Designing a microservices architecture](../../microservices/design/index.md)
