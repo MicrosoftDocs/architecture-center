@@ -1,7 +1,7 @@
 ---
 title: Microservices architecture on Azure Service Fabric
 description: Deploy a microservices architecture on Azure Service Fabric
-author: PageWriter
+author: PageWriter-MSFT
 ms.date: 3/07/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
@@ -11,31 +11,31 @@ ms.custom: microservices
 
 # Microservices architecture on Azure Service Fabric
 
-This reference architecture (RA) shows a microservices application deployed to Azure Service Fabric. It shows a basic cluster configuration that can be the starting point for most deployments.
+This reference architecture shows a microservices architecture deployed to Azure Service Fabric. It shows a basic cluster configuration that can be the starting point for most deployments.
 
 > [!NOTE]
-> We are working on a reference implementation (RI) to accompany this article, which we expect to publish in early 2019. This article will be updated to include additional best practices from that RI. Using Service Fabric for deploying and managing containers is beyond the scope of this document. While most recommendations apply to both Windows and Linux environments, this reference implementation is for Windows.
+> This article focuses on the [Reliable Services](/azure/service-fabric/service-fabric-reliable-services-introduction) programming model for Service Fabric. Using Service Fabric to deploy and manage [containers](/azure/service-fabric/service-fabric-containers-overview) is beyond the scope of this article.
 
 ![Service Fabric reference architecture](./_images/ra-sf-arch.png)
 
 ## Architecture
 
-The architecture consists of the following components. For other terms, [Service Fabric terminology overview](/azure/service-fabric/service-fabric-technical-overview).
+The architecture consists of the following components. For other terms, see [Service Fabric terminology overview](/azure/service-fabric/service-fabric-technical-overview).
 
 **Service Fabric cluster**. A network-connected set of virtual machines (VMs) into which your microservices are deployed and managed.
 
 **Virtual machine scale sets (VMSS)**. VM scale sets allow you to create and manage a group of identical, load balanced, and autoscaling VMs. It also provides the fault and upgrade domains.
 
-**Nodes**. The VMs that belong to the Service Fabric cluster.
+**Nodes**. The nodes are the VMs that belong to the Service Fabric cluster.
 
-**Node type**. Represents a VMSS that deploys a collection of nodes. A Service Fabric cluster has at least one node type. In a cluster with multiple node types, one must be declared the [Primary node type](/azure/service-fabric/service-fabric-cluster-capacity#primary-node-type). The primary node type in the cluster runs the [Service Fabric system services](/azure/service-fabric/service-fabric-technical-overview#system-services). These services provide the platform capabilities of Service Fabric. The primary node type also acts as the [seed nodes](/azure/service-fabric/service-fabric-disaster-recovery#random-failures-leading-to-cluster-failures) for the cluster, which are the nodes that maintain the availability of the underlying cluster. Configure [additional node types](/azure/service-fabric/service-fabric-cluster-capacity#non-primary-node-type) to run your services.
+**Node types**. A node type represents a VMSS that deploys a collection of nodes. A Service Fabric cluster has at least one node type. In a cluster with multiple node types, one must be declared the [Primary node type](/azure/service-fabric/service-fabric-cluster-capacity#primary-node-type). The primary node type in the cluster runs the [Service Fabric system services](/azure/service-fabric/service-fabric-technical-overview#system-services). These services provide the platform capabilities of Service Fabric. The primary node type also acts as the [seed nodes](/azure/service-fabric/service-fabric-disaster-recovery#random-failures-leading-to-cluster-failures) for the cluster, which are the nodes that maintain the availability of the underlying cluster. Configure [additional node types](/azure/service-fabric/service-fabric-cluster-capacity#non-primary-node-type) to run your services.
 
-**Services**. A service performs a standalone function and can start and run independently of other services. Instances of services get deployed to nodes in the cluster. There are two varieties of service in Service Fabric:
+**Services**. A service performs a standalone function that can start and run independently of other services. Instances of services get deployed to nodes in the cluster. There are two varieties of service in Service Fabric:
 
-- **Stateless service**. A stateless service does not maintain state within the service. If state persistence is required, then state is written to and retrieved from an external storage, such as Azure Cosmos DB.
+- **Stateless service**. A stateless service does not maintain state within the service. If state persistence is required, then state is written to and retrieved from an external store, such as Azure Cosmos DB.
 - **Stateful service**. The [service state](/azure/service-fabric/service-fabric-concepts-state) is kept within the service itself. Most stateful services implement this through Service Fabric’s [Reliable Collections](/azure/service-fabric/service-fabric-reliable-services-reliable-collections).
 
-**Azure Pipelines**. Pipelines is part of Azure DevOps Services and runs automated builds, tests, and deployments. You can also use third-party CI/CD solutions such as Jenkins.
+**Azure Pipelines**. Pipelines is part of [Azure DevOps Services](/azure/devops/index?view=azure-devops) and runs automated builds, tests, and deployments. You can also use third-party CI/CD solutions such as Jenkins.
 
 **Azure Monitor**. Azure Monitor collects and stores metrics and logs, including platform metrics for the Azure services in the solution and application telemetry. Use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures. Azure Monitor integrates with Service Fabric to collect metrics from controllers, nodes, and containers, as well as container logs and master node logs.
 
@@ -53,6 +53,7 @@ Service Fabric follows an application model where an application is a collection
 
 Optionally, the application manifest can describe services that are automatically provisioned when an instance of the application is created. These are called default services. In this case, the application manifest also describes how these services should be created, including the service’s name, instance count, security/isolation policy, and placement constraints.
 
+> [!NOTE]
 > Avoid using default services if you want to control the life time of your services. Default services are created when the application is created, and run as long as the application is running.
 
 For more information about understanding Service Fabric, see [So you want to learn about Service Fabric?](/azure/service-fabric/service-fabric-content-roadmap)
@@ -162,13 +163,16 @@ The initially specified default load for a service will not change over the life
 
 # Availability considerations
 
-- Place your services in a node type other than the primary node type. The Service Fabric system services are always deployed to the primary node type. If your services are deployed to the primary node type, they might compete with system services for resources and interfere with the system services.
-- If a node type is expected to host stateful services, make sure there are at least 5 node instances and you select the Silver or Gold Durability tier.
-- Consider constraining the resources of your services.  See [Resource governance mechanism](/azure/service-fabric/service-fabric-resource-governance#resource-governance-mechanism).
-  - Do not mix resource governed and resource non-governed services on the same node type. The non-governed services might consume too many resources, affecting the resource governed services. Specify [placement constraints](/azure/service-fabric/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies) to make sure that those types of services do not run on the same set of nodes. See [Specify resource governance](/azure/service-fabric/service-fabric-resource-governance#specify-resource-governance). (This is an example of the [Bulkhead pattern](../../patterns/bulkhead.md).)
-  - Specify the CPU cores and memory to reserve for a service instance. For information about usage and limitations of resource governance policies, see [Resource governance](/azure/service-fabric/service-fabric-resource-governance).
-- Make sure every service’s target instance or replica count is greater than 1 to avoid a single point of failure (SPOF). The largest number that you can use as service instance or replica count equals the number nodes that to which the service is constrained.
-- Make sure every stateful service has at least two active secondary replicas. Five replicas are recommended for production workloads.
+Place your services in a node type other than the primary node type. The Service Fabric system services are always deployed to the primary node type. If your services are deployed to the primary node type, they might compete with system services for resources and interfere with the system services. If a node type is expected to host stateful services, make sure there are at least 5 node instances and you select the Silver or Gold Durability tier.
+
+Consider constraining the resources of your services. See [Resource governance mechanism](/azure/service-fabric/service-fabric-resource-governance#resource-governance-mechanism).
+
+- Do not mix resource governed and resource non-governed services on the same node type. The non-governed services might consume too many resources, affecting the resource governed services. Specify [placement constraints](/azure/service-fabric/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies) to make sure that those types of services do not run on the same set of nodes. See [Specify resource governance](/azure/service-fabric/service-fabric-resource-governance#specify-resource-governance). (This is an example of the [Bulkhead pattern](../../patterns/bulkhead.md).)
+- Specify the CPU cores and memory to reserve for a service instance. For information about usage and limitations of resource governance policies, see [Resource governance](/azure/service-fabric/service-fabric-resource-governance).
+
+Make sure every service’s target instance or replica count is greater than 1 to avoid a single point of failure (SPOF). The largest number that you can use as service instance or replica count equals the number nodes that to which the service is constrained.
+
+Make sure every stateful service has at least two active secondary replicas. Five replicas are recommended for production workloads.
 
 For more information, see [Availability of Service Fabric services](/azure/service-fabric/service-fabric-availability-services).
 
@@ -176,18 +180,28 @@ For more information, see [Availability of Service Fabric services](/azure/servi
 
 Here are some key points for securing your application on Service Fabric:
 
-- Do not create an unsecured Service Fabric cluster. If the cluster exposes management endpoints to the public internet, anonymous users can connect to it. Unsecured clusters are not supported for production workloads. See: [Service Fabric cluster security scenarios](/azure/service-fabric/service-fabric-cluster-security).
-- To secure your interservice communications:
-  - Consider enabling HTTPS endpoints in your ASP.NET Core or Java web services.
-  - Establish a secure connection between the reverse proxy and services.  For details, see [Connect to a secure service](/azure/service-fabric/service-fabric-reverseproxy-configure-secure-communication).
-- If you are using an [API gateway](../../microservices/design/gateway.md), you can [offload authentication](../../patterns/gateway-offloading.md) to the gateway. Make sure that the individual services cannot be reached directly (without the API gateway) unless additional security is in place to authenticate messages whether they come from the gateway.
-- Consider defining subnet boundaries for each VMSS to control the flow of communication. Each node type has its own VMSS in a subnet within the Service Fabric cluster's virtual network. Network Security Groups (NSGs) can be added to the subnets to allow or reject network traffic. For example, with front-end and back-end node types, you can add an NSG to the backend subnet to accept inbound traffic only the front-end subnet.
-- To access Key Vault secrets from a Service Fabric service, enable [managed identity](/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-virtual-machine-scale-sets) on the VMSS that hosts the service. Sample code: Use Key Vault from App Service with Managed Service Identity.
-- Do not use client certificates to access Service Fabric Explorer. Instead, use Azure Active Directory (Azure AD). Also see, [Azure services that support Azure AD authentication](/azure/active-directory/managed-identities-azure-resources/services-support-msi%23azure-services-that-support-azure-ad-authentication).
-- Do not use self-signed certificates for production.
-- When calling external Azure Services from the cluster, use [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) if the Azure service supports it. Using a service endpoint secures the service to only the cluster’s Virtual Network. For example, if you are using Cosmos DB to store data, configure the Cosmos DB account with a service endpoint to allow access only from a specific subnet. See [Access Azure Cosmos DB resources from virtual networks](/azure/cosmos-db/vnet-service-endpoint).
-- Do not expose the Service Fabric reverse proxy publicly. Doing so causes all services that expose HTTP endpoints to be addressable from outside the cluster, introducing security vulnerabilities and potentially exposing additional information outside the cluster unnecessarily. If you want to access a service publicly then use an API gateway. Some options are mentioned in the [API gateway](#api-gateway) section.
-- Remote desktop is useful for diagnostic and troubleshooting, but make sure not to leave it open otherwise it causes a security hole.
+Do not create an unsecured Service Fabric cluster. If the cluster exposes management endpoints to the public internet, anonymous users can connect to it. Unsecured clusters are not supported for production workloads. See: [Service Fabric cluster security scenarios](/azure/service-fabric/service-fabric-cluster-security).
+
+To secure your interservice communications:
+
+- Consider enabling HTTPS endpoints in your ASP.NET Core or Java web services.
+- Establish a secure connection between the reverse proxy and services.  For details, see [Connect to a secure service](/azure/service-fabric/service-fabric-reverseproxy-configure-secure-communication).
+
+If you are using an [API gateway](../../microservices/design/gateway.md), you can [offload authentication](../../patterns/gateway-offloading.md) to the gateway. Make sure that the individual services cannot be reached directly (without the API gateway) unless additional security is in place to authenticate messages whether they come from the gateway.
+
+Consider defining subnet boundaries for each VMSS to control the flow of communication. Each node type has its own VMSS in a subnet within the Service Fabric cluster's virtual network. Network Security Groups (NSGs) can be added to the subnets to allow or reject network traffic. For example, with front-end and back-end node types, you can add an NSG to the backend subnet to accept inbound traffic only the front-end subnet.
+
+To access Key Vault secrets from a Service Fabric service, enable [managed identity](/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-virtual-machine-scale-sets) on the VMSS that hosts the service. Sample code: Use Key Vault from App Service with Managed Service Identity.
+
+Do not use client certificates to access Service Fabric Explorer. Instead, use Azure Active Directory (Azure AD). Also see, [Azure services that support Azure AD authentication](/azure/active-directory/managed-identities-azure-resources/services-support-msi%23azure-services-that-support-azure-ad-authentication).
+
+Do not use self-signed certificates for production.
+
+When calling external Azure Services from the cluster, use [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) if the Azure service supports it. Using a service endpoint secures the service to only the cluster’s Virtual Network. For example, if you are using Cosmos DB to store data, configure the Cosmos DB account with a service endpoint to allow access only from a specific subnet. See [Access Azure Cosmos DB resources from virtual networks](/azure/cosmos-db/vnet-service-endpoint).
+
+Do not expose the Service Fabric reverse proxy publicly. Doing so causes all services that expose HTTP endpoints to be addressable from outside the cluster, introducing security vulnerabilities and potentially exposing additional information outside the cluster unnecessarily. If you want to access a service publicly then use an API gateway. Some options are mentioned in the [API gateway](#api-gateway) section.
+
+Remote desktop is useful for diagnostic and troubleshooting, but make sure not to leave it open otherwise it causes a security hole.
 
 For additional information about securing Service Fabric, see:
 
@@ -226,7 +240,7 @@ To view the trace and event logs, use [Application Insights](/azure/service-fabr
 - [Application Insights .NET SDK](/azure/application-insights/app-insights-api-custom-events-metrics)
 - [Application Insights SDK for Service Fabric](https://github.com/Microsoft/ApplicationInsights-ServiceFabric)
 
-ASP.NET Core services use the [ILogger interface](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2) for application logging. To make these application logs available in Azure Monitor, send the ILogger events to Application Insights. For more information, see [ILogger in an ASP.NET Core application](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/blob/develop/src/ILogger/Readme.md#aspnet-core-application). Application Insights can add correlation properties to ILogger events, which is useful for visualizing distributed tracing.
+ASP.NET Core services use the [ILogger interface](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2) for application logging. To make these application logs available in Azure Monitor, send the `ILogger` events to Application Insights. For more information, see [ILogger in an ASP.NET Core application](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/blob/develop/src/ILogger/Readme.md#aspnet-core-application). Application Insights can add correlation properties to ILogger events, which is useful for visualizing distributed tracing.
 
 For more information, see:
 
@@ -235,11 +249,9 @@ For more information, see:
 
 #### Distributed tracing
 
-In microservices architecture, several services often participate to complete a task. The telemetry from each of those services is correlated by using context fields (operation id, request id etc.) in a distributed trace. By using [Application Map](/azure/azure-monitor/app/app-map) in Application Insights, you can build the view of distributed logical operation and visualize the entire service graph of your application. You can also use transaction diagnostics in Application Insight to correlate server-side telemetry. For more information, see [Unified cross-component transaction diagnostics](/azure/application-insights/app-insights-transaction-diagnostics).
+In microservices architecture, several services often participate to complete a task. The telemetry from each of those services is correlated by using context fields (operation ID, request ID, and so forth) in a distributed trace. By using [Application Map](/azure/azure-monitor/app/app-map) in Application Insights, you can build the view of distributed logical operation and visualize the entire service graph of your application. You can also use transaction diagnostics in Application Insight to correlate server-side telemetry. For more information, see [Unified cross-component transaction diagnostics](/azure/application-insights/app-insights-transaction-diagnostics).
 
-[Application Insights Application Map](/azure/azure-monitor/app/app-map) provides the topology of the application by using HTTP dependency calls made between  services, with the installed Application Insights SDK. It’s also important to correlate tasks that are dispatched asynchronously using a queue.
-
-For details about sending correlation telemetry in a queue message, see [Queue instrumentation](/azure/azure-monitor/app/custom-operations-tracking#queue-instrumentation).
+[Application Insights Application Map](/azure/azure-monitor/app/app-map) provides the topology of the application by using HTTP dependency calls made between  services, with the installed Application Insights SDK. It’s also important to correlate tasks that are dispatched asynchronously using a queue. For details about sending correlation telemetry in a queue message, see [Queue instrumentation](/azure/azure-monitor/app/custom-operations-tracking#queue-instrumentation).
 
 For more information, see:
 
