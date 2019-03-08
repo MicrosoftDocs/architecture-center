@@ -17,7 +17,7 @@ This library enables logging of Azure Databricks service metrics as well as Apac
 
 ## Deploy dashboards
 
-There are two sets of artifacts in the Github respository, one for an Azure Log Analytics dashboard and another for a Grafana dashboard. Before you begin, clone the [Github repository](https://github.com/mspnp/spark-monitoring) and [follow the deployment instructions](monitoring.md) to build and configure the Azure Monitor logging for Azure Databricks library to send logs to your Azure Log Analytics workspace.
+There are two sets of artifacts in the Github respository, one for an Azure Log Analytics dashboard and another for a Grafana dashboard. Before you begin, clone the [Github repository](https://github.com/mspnp/spark-monitoring) and [follow the deployment instructions](databricks-monitoring.md) to build and configure the Azure Monitor logging for Azure Databricks library to send logs to your Azure Log Analytics workspace.
 
 ### Deploy the Azure Log Analytics workspace dashboard
 
