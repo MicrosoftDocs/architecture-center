@@ -24,11 +24,11 @@ The architecture consists of the following components. For other terms, see [Ser
 
 **Service Fabric cluster**. A network-connected set of virtual machines (VMs) into which your microservices are deployed and managed.
 
-**Virtual machine scale sets (VMSS)**. VM scale sets allow you to create and manage a group of identical, load balanced, and autoscaling VMs. It also provides the fault and upgrade domains.
+**Virtual machine scale sets**. Virtual machine scale sets allow you to create and manage a group of identical, load balanced, and autoscaling VMs. It also provides the fault and upgrade domains.
 
 **Nodes**. The nodes are the VMs that belong to the Service Fabric cluster.
 
-**Node types**. A node type represents a VMSS that deploys a collection of nodes. A Service Fabric cluster has at least one node type. In a cluster with multiple node types, one must be declared the [Primary node type](/azure/service-fabric/service-fabric-cluster-capacity#primary-node-type). The primary node type in the cluster runs the [Service Fabric system services](/azure/service-fabric/service-fabric-technical-overview#system-services). These services provide the platform capabilities of Service Fabric. The primary node type also acts as the [seed nodes](/azure/service-fabric/service-fabric-disaster-recovery#random-failures-leading-to-cluster-failures) for the cluster, which are the nodes that maintain the availability of the underlying cluster. Configure [additional node types](/azure/service-fabric/service-fabric-cluster-capacity#non-primary-node-type) to run your services.
+**Node types**. A node type represents a virtual machine scale set that deploys a collection of nodes. A Service Fabric cluster has at least one node type. In a cluster with multiple node types, one must be declared the [Primary node type](/azure/service-fabric/service-fabric-cluster-capacity#primary-node-type). The primary node type in the cluster runs the [Service Fabric system services](/azure/service-fabric/service-fabric-technical-overview#system-services). These services provide the platform capabilities of Service Fabric. The primary node type also acts as the [seed nodes](/azure/service-fabric/service-fabric-disaster-recovery#random-failures-leading-to-cluster-failures) for the cluster, which are the nodes that maintain the availability of the underlying cluster. Configure [additional node types](/azure/service-fabric/service-fabric-cluster-capacity#non-primary-node-type) to run your services.
 
 **Services**. A service performs a standalone function that can start and run independently of other services. Instances of services get deployed to nodes in the cluster. There are two varieties of service in Service Fabric:
 
@@ -114,19 +114,19 @@ This section is focused on autoscaling. You can choose to manually scale in situ
 
 ### Initial cluster configuration for scalability
 
-When you create a Service Fabric cluster, provision the node types based on your security and scalability needs. Each node type is mapped to a virtual machine scale set (VMSS) and can be scaled independently.
+When you create a Service Fabric cluster, provision the node types based on your security and scalability needs. Each node type is mapped to a virtual machine scale set and can be scaled independently.
 
 - Create a node type for each group of services that have different scalability or resource requirements. Start by provisioning a node type (which becomes the [primary node type](/azure/service-fabric/service-fabric-cluster-capacity#primary-node-type)) for the Service Fabric system services. Then create separate node types to run your public or front-end services, and other node types as necessary for your backend and private or isolated services. Specify [placement constraints](/azure/service-fabric/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies) so that the services are only deployed to the intended node types.
-- Specify the durability tier for each node type. The durability tier represents the ability for Service Fabric to influence VMSS updates and maintenance operations. For production workloads, choose the Silver or higher durability tier. For information about each tier, see [The durability characteristics of the cluster](/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
-- If using the Bronze durability tier, be aware that certain operations require manual steps.  For node types with Bronze durability tier additional steps are required during scale in. For more information on scaling operations, see [this guide](/azure/service-fabric/service-fabric-cluster-scale-up-down).
+- Specify the durability tier for each node type. The durability tier represents the ability for Service Fabric to influence virtual machine scale set updates and maintenance operations. For production workloads, choose the Silver or higher durability tier. For information about each tier, see [The durability characteristics of the cluster](/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
+- If using the Bronze durability tier, certain operations require manual steps.  For node types with Bronze durability tier additional steps are required during scale in. For more information on scaling operations, see [this guide](/azure/service-fabric/service-fabric-cluster-scale-up-down).
 
 ### Scaling nodes
 
 Service Fabric supports autoscaling for scale-in and scale-out. Each node type can be configured for autoscaling independently.
 
-Each node type can have a maximum of 100 nodes. Start with a smaller set of nodes and add more nodes depending on your load. If you require more than 100 nodes in a node type, you will need to add more node types. For details, see [Service Fabric cluster capacity planning considerations](/azure/service-fabric/service-fabric-cluster-capacity). Note that a VM scale set does not scale instantaneously. Consider this when you set up autoscale rules.
+Each node type can have a maximum of 100 nodes. Start with a smaller set of nodes and add more nodes depending on your load. If you require more than 100 nodes in a node type, you will need to add more node types. For details, see [Service Fabric cluster capacity planning considerations](/azure/service-fabric/service-fabric-cluster-capacity). A virtual machine scale set does not scale instantaneously, so consider that factor when you set up autoscale rules.
 
-To support automatic scale-in, configure the node type to have the Silver or Gold durability tier. This makes sure that scaling in is delayed until Service Fabric is finished relocating services and that the VM scale sets inform Service Fabric that the VMs are removed, not just down temporarily.
+To support automatic scale-in, configure the node type to have the Silver or Gold durability tier. This makes sure that scaling in is delayed until Service Fabric is finished relocating services and that the virtual machine scale sets inform Service Fabric that the VMs are removed, not just down temporarily.
 
 For more information about scaling at the node/cluster level, see [Scaling Azure Service Fabric clusters](/azure/service-fabric/service-fabric-cluster-scaling).
 
@@ -134,7 +134,7 @@ For more information about scaling at the node/cluster level, see [Scaling Azure
 
 Stateless and stateful services apply different approaches to scaling.
 
-#### Auto-scaling for stateless services
+#### Autoscaling for stateless services
 
 - Use the average partition load trigger. This trigger determines when the service is scaled in or out, based on a load threshold value specified in the scaling policy. You can also set how often the trigger is checked. See [Average partition load trigger with instance-based scaling](/azure/service-fabric/service-fabric-cluster-resource-manager-autoscaling#average-partition-load-trigger-with-instance-based-scaling). This allows you to scale up to the number of available nodes.
 - Set **InstanceCount** to -1 in the service manifest, which tells Service Fabric to run an instance of the service on every node. This approach enables the service to scale dynamically as the cluster scales. As the number of nodes in the cluster changes, Service Fabric automatically creates and deletes service instances to match.
@@ -151,7 +151,7 @@ For a stateful service, scaling is controlled by the number of partitions, the s
 
 For more information, see:
 
-- [Scale a Service Fabric cluster in or out using auto-scale rules or manually](/azure/service-fabric/service-fabric-cluster-scale-up-down)
+- [Scale a Service Fabric cluster in or out using autoscale rules or manually](/azure/service-fabric/service-fabric-cluster-scale-up-down)
 - [Scale a Service Fabric cluster programmatically](/azure/service-fabric/service-fabric-cluster-programmatic-scaling)
 - [Scale a Service Fabric cluster out by adding a Virtual Machine Scale Set](/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out)
 
@@ -165,7 +165,7 @@ The initially specified default load for a service will not change over the life
 
 # Availability considerations
 
-Place your services in a node type other than the primary node type. The Service Fabric system services are always deployed to the primary node type. If your services are deployed to the primary node type, they might compete with system services for resources and interfere with the system services. If a node type is expected to host stateful services, make sure there are at least 5 node instances and you select the Silver or Gold Durability tier.
+Place your services in a node type other than the primary node type. The Service Fabric system services are always deployed to the primary node type. If your services are deployed to the primary node type, they might compete with system services for resources and interfere with the system services. If a node type is expected to host stateful services, make sure there are at least five node instances and you select the Silver or Gold Durability tier.
 
 Consider constraining the resources of your services. See [Resource governance mechanism](/azure/service-fabric/service-fabric-resource-governance#resource-governance-mechanism).
 
@@ -184,7 +184,7 @@ Here are some key points for securing your application on Service Fabric:
 
 ### Virtual network
 
-Consider defining subnet boundaries for each VMSS to control the flow of communication. Each node type has its own VMSS in a subnet within the Service Fabric cluster's virtual network. Network Security Groups (NSGs) can be added to the subnets to allow or reject network traffic. For example, with front-end and back-end node types, you can add an NSG to the backend subnet to accept inbound traffic only the front-end subnet.
+Consider defining subnet boundaries for each virtual machine scale set to control the flow of communication. Each node type has its own virtual machine scale set in a subnet within the Service Fabric cluster's virtual network. Network Security Groups (NSGs) can be added to the subnets to allow or reject network traffic. For example, with front-end and back-end node types, you can add an NSG to the backend subnet to accept inbound traffic only the front-end subnet.
 
 When calling external Azure Services from the cluster, use [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) if the Azure service supports it. Using a service endpoint secures the service to only the cluster’s Virtual Network. For example, if you are using Cosmos DB to store data, configure the Cosmos DB account with a service endpoint to allow access only from a specific subnet. See [Access Azure Cosmos DB resources from virtual networks](/azure/cosmos-db/vnet-service-endpoint).
 
@@ -199,19 +199,19 @@ To secure your interservice communications:
 
 If you are using an [API gateway](../../microservices/design/gateway.md), you can [offload authentication](../../patterns/gateway-offloading.md) to the gateway. Make sure that the individual services cannot be reached directly (without the API gateway) unless additional security is in place to authenticate messages whether they come from the gateway.
 
-Do not expose the Service Fabric reverse proxy publicly. Doing so causes all services that expose HTTP endpoints to be addressable from outside the cluster, introducing security vulnerabilities and potentially exposing additional information outside the cluster unnecessarily. If you want to access a service publicly then use an API gateway. Some options are mentioned in the [API gateway](#api-gateway) section.
+Do not expose the Service Fabric reverse proxy publicly. Doing so causes all services that expose HTTP endpoints to be addressable from outside the cluster, introducing security vulnerabilities and potentially exposing additional information outside the cluster unnecessarily. If you want to access a service publicly, use an API gateway. Some options are mentioned in the [API gateway](#api-gateway) section.
 
 Remote desktop is useful for diagnostic and troubleshooting, but make sure not to leave it open otherwise it causes a security hole.
 
 ### Secrets and certificates
 
-To access Key Vault secrets from a Service Fabric service, enable [managed identity](/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-virtual-machine-scale-sets) on the VMSS that hosts the service. Sample code: Use Key Vault from App Service with Managed Service Identity.
+To access Key Vault secrets from a Service Fabric service, enable [managed identity](/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-virtual-machine-scale-sets) on the virtual machine scale set that hosts the service. Sample code: Use Key Vault from App Service with Managed Service Identity.
 
 Do not use client certificates to access Service Fabric Explorer. Instead, use Azure Active Directory (Azure AD). Also see, [Azure services that support Azure AD authentication](/azure/active-directory/managed-identities-azure-resources/services-support-msi%23azure-services-that-support-azure-ad-authentication).
 
 Do not use self-signed certificates for production.
 
-For additional information about securing Service Fabric, see:
+For more information about securing Service Fabric, see:
 
 - [Azure Service Fabric security overview](/azure/security/azure-service-fabric-security-overview)
 - [Azure Service Fabric security best practices](/azure/security/azure-service-fabric-security-best-practices)
@@ -267,7 +267,7 @@ Service Fabric telemetry includes health metrics and events about the operation 
 
 Infrastructure metrics help you to understand resource allocation in the cluster. Here are the main options for collecting this information:
 
-- Windows Azure Diagnostics (WAD). Collect logs and metrics at the node level on Windows. You can use WAD by configuring the IaaSDiagnostics VM extension on any VMSS that is mapped to a node type to collect diagnostic events, such as Windows event logs, performance counters, ETW/manifests system and operational events, and custom logs.
+- Windows Azure Diagnostics (WAD). Collect logs and metrics at the node level on Windows. You can use WAD by configuring the IaaSDiagnostics VM extension on any virtual machine scale set that is mapped to a node type to collect diagnostic events, such as Windows event logs, performance counters, ETW/manifests system and operational events, and custom logs.
 - Log Analytics agent. Configure the MicrosoftMonitoringAgent VM extension to send Windows event logs, performance counters, and custom logs to Log Analytics.
 
 There is some overlap in the type of metrics collected through the preceding mechanisms, such as performance counters. Where there is overlap, we recommend using the Log Analytics agent. Because there is no Azure storage for the Log Analytics agent, there is low latency. Also, the performance counters in IaaSDiagnostics cannot be fed into Log Analytics easily.
