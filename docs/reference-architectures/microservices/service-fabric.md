@@ -43,7 +43,7 @@ The architecture consists of the following components. For other terms, see [Ser
 
 **Azure Key Vault**. Use [Key Vault](/azure/key-vault/) to store any application secrets used by the microservices, such as connection strings.
 
-**Azure API Management**. In this architecture, [API Management][apim] acts as an API gateway that accepts requests from clients and routes them to your services.
+**Azure API Management**. In this architecture, [API Management](/azure/api-management/api-management-key-concepts) acts as an API gateway that accepts requests from clients and routes them to your services.
 
 ## Design considerations
 
