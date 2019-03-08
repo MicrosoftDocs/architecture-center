@@ -221,10 +221,10 @@ For additional information about securing Service Fabric, see:
 
 Before you explore the monitoring options, we recommend you read this article about [diagnosing common scenarios with Service Fabric](/azure/service-fabric/service-fabric-diagnostics-common-scenarios). You can think of monitoring data in these sets:
 
-- Application metrics and logs.
-- Service Fabric health and event data.
-- Infrastructure metrics and logs.
-- Metrics and logs for dependent services such as Cosmos DB.
+- [Application metrics and logs](#application-metrics-and-logs)
+- [Service Fabric health and event data](#service-fabric-health-and-event-data)
+- [Infrastructure metrics and logs](#infrastructure-metrics-and-logs)
+- [Metrics and logs for dependent services](#dependent-service-metrics)
 
 These are the two main options for analyzing that data:
 
@@ -255,22 +255,17 @@ For more information, see:
 - [Application logging](/azure/service-fabric/service-fabric-diagnostics-event-generation-app)
 - [Add logging to your Service Fabric application](/azure/azure-monitor/app/correlation)
 
-### Distributed tracing
+### Service Fabric health and event data
 
-In microservices architecture, several services often participate to complete a task. The telemetry from each of those services is correlated by using context fields (operation ID, request ID, and so forth) in a distributed trace. By using [Application Map](/azure/azure-monitor/app/app-map) in Application Insights, you can build the view of distributed logical operation and visualize the entire service graph of your application. You can also use transaction diagnostics in Application Insight to correlate server-side telemetry. For more information, see [Unified cross-component transaction diagnostics](/azure/application-insights/app-insights-transaction-diagnostics).
+Service Fabric telemetry includes health metrics and events about the operation and performance of a Service Fabric cluster and its entities: its nodes, applications, services, partitions, and replicas.
 
-[Application Insights Application Map](/azure/azure-monitor/app/app-map) provides the topology of the application by using HTTP dependency calls made between  services, with the installed Application Insights SDK. It’s also important to correlate tasks that are dispatched asynchronously using a queue. For details about sending correlation telemetry in a queue message, see [Queue instrumentation](/azure/azure-monitor/app/custom-operations-tracking#queue-instrumentation).
+- [EventStore](/azure/service-fabric/service-fabric-diagnostics-eventstore). A stateful system service that collects events related to the cluster and its entities. Service Fabric uses EventStore to write [Service Fabric events](/azure/service-fabric/service-fabric-diagnostics-event-generation-operational) to provide information about your cluster and can be used for status updates, troubleshooting, monitoring. It can also correlate events from different entities at a given time to identify issues in the cluster. The service exposes those events through a REST API. For information about how to query the EventStore APIs, see [Query EventStore APIs for cluster events](/azure/service-fabric/service-fabric-diagnostics-eventstore-query). You can view the events from EventStore in Log Analytics by configuring your cluster with WAD extension.
+- [HealthStore](/azure/service-fabric/service-fabric-health-introduction). Provides a snapshot of the current health of the cluster. A stateful service that aggregates all health data reported by entities in a hierarchy. The data is visualized in [Service Fabric Explorer][sfx]. The HealthStore also monitors application upgrades. You can use health queries in PowerShell, a .NET application, or REST APIs. See, [Introduction to Service Fabric health monitoring](/azure/service-fabric/service-fabric-health-introduction).
+- Consider implementing internal custom watchdog services. Those services can periodically report custom health data such as faulty states of running services. For more information, see [Custom health reports](/azure/service-fabric/service-fabric-report-health). You can read the health reports using the Service Fabric explorer.  
 
-For more information, see:
+### Infrastructure metrics and logs
 
-- [Performing a query across multiple resources](/azure/azure-monitor/log-query/cross-workspace-query#performing-a-query-across-multiple-resources)
-- [Telemetry correlation in Application Insights](/azure/azure-monitor/app/correlation)
-
-### Infrastructure-level metrics and logs
-
-Infrastructure metrics help you to understand resource allocation in the cluster.
-
-Here are the main options for collecting information:
+Infrastructure metrics help you to understand resource allocation in the cluster. Here are the main options for collecting this information:
 
 - Windows Azure Diagnostics (WAD). Collect logs and metrics at the node level on Windows. You can use WAD by configuring the IaaSDiagnostics VM extension on any VMSS that is mapped to a node type to collect diagnostic events, such as Windows event logs, performance counters, ETW/manifests system and operational events, and custom logs.
 - Log Analytics agent. Configure the MicrosoftMonitoringAgent VM extension to send Windows event logs, performance counters, and custom logs to Log Analytics.
@@ -287,25 +282,30 @@ You can also view performance logs and telemetry data related to a Service Fabri
 
 [Service Map solution in Log Analytics](/azure/azure-monitor/insights/service-map) provides information about the topology of the cluster (that is, the processes running in each node). Send the data in the storage account to [Application Insights](/azure/monitoring-and-diagnostics/azure-diagnostics-configure-application-insights). There might be some delay in getting data into Application Insights. If you want to see the data real time, consider configuring [Event Hub](/azure/monitoring-and-diagnostics/azure-diagnostics-streaming-event-hubs) using sinks and channels. For more information, see [Event aggregation and collection using Windows Azure Diagnostics](/azure/service-fabric/service-fabric-diagnostics-event-aggregation-wad).
 
-### Service Fabric metrics and events
-
-Service Fabric telemetry includes health metrics and events about the operation and performance of a Service Fabric cluster and its entities: its nodes, applications, services, partitions, and replicas.
-
-- [EventStore](/azure/service-fabric/service-fabric-diagnostics-eventstore). A stateful system service that collects events related to the cluster and its entities. Service Fabric uses EventStore to write [Service Fabric events](/azure/service-fabric/service-fabric-diagnostics-event-generation-operational) to provide information about your cluster and can be used for status updates, troubleshooting, monitoring. It can also correlate events from different entities at a given time to identify issues in the cluster. The service exposes those events through a REST API. For information about how to query the EventStore APIs, see [Query EventStore APIs for cluster events](/azure/service-fabric/service-fabric-diagnostics-eventstore-query). You can view the events from EventStore in Log Analytics by configuring your cluster with WAD extension.
-- [HealthStore](/azure/service-fabric/service-fabric-health-introduction). Provides a snapshot of the current health of the cluster. A stateful service that aggregates all health data reported by entities in a hierarchy. The data is visualized in [Service Fabric Explorer][sfx]. The HealthStore also monitors application upgrades. You can use health queries in PowerShell, a .NET application, or REST APIs. See, [Introduction to Service Fabric health monitoring](/azure/service-fabric/service-fabric-health-introduction).
-- Consider implementing internal custom watchdog services. Those services can periodically report custom health data such as faulty states of running services. For more information, see [Custom health reports](/azure/service-fabric/service-fabric-report-health). You can read the health reports using the Service Fabric explorer.  
-
 ### Dependent service metrics
 
 - [Application Insights Application Map](/azure/azure-monitor/app/app-map) provides the topology of the application by using HTTP dependency calls made between services, with the installed Application Insights SDK.
 - [Service Map solution in Log Analytics](/azure/azure-monitor/insights/service-map) provides information about inbound and outbound traffic from/to external services. In addition, Service Map integrates with other solutions such as updates or security.
 - Custom watchdogs can be used to report error conditions on external services. For example, the service could report an error health report if it cannot access an external service or data storage (Azure Cosmos DB).  
 
-### Alerts and Dashboards
+### Distributed tracing
 
-- Application Insights and Log Analytics support an [extensive query language](/azure/log-analytics/query-language/get-started-queries) (Kusto query language) that lets you retrieve and analyze log data. Use the queries to create data sets and visualize it in diagnostics dashboards.
-- Use Azure Monitor alerts to notify sysadmins when certain conditions occur in specific resources. The notification could be an email, Azure function, call a web hook, and so on. For more information, see [Alerts in Azure Monitor](/azure/azure-monitor/platform/alerts-overview).
-- Log search alert rules allow to define and run a Kusto query against a Log Analytics workspace at regular intervals. An alert is created if the query result matches a certain condition.
+In microservices architecture, several services often participate to complete a task. The telemetry from each of those services is correlated by using context fields (operation ID, request ID, and so forth) in a distributed trace. By using [Application Map](/azure/azure-monitor/app/app-map) in Application Insights, you can build the view of distributed logical operation and visualize the entire service graph of your application. You can also use transaction diagnostics in Application Insight to correlate server-side telemetry. For more information, see [Unified cross-component transaction diagnostics](/azure/application-insights/app-insights-transaction-diagnostics).
+
+[Application Insights Application Map](/azure/azure-monitor/app/app-map) provides the topology of the application by using HTTP dependency calls made between  services, with the installed Application Insights SDK. It’s also important to correlate tasks that are dispatched asynchronously using a queue. For details about sending correlation telemetry in a queue message, see [Queue instrumentation](/azure/azure-monitor/app/custom-operations-tracking#queue-instrumentation).
+
+For more information, see:
+
+- [Performing a query across multiple resources](/azure/azure-monitor/log-query/cross-workspace-query#performing-a-query-across-multiple-resources)
+- [Telemetry correlation in Application Insights](/azure/azure-monitor/app/correlation)
+
+#### Alerts and Dashboards
+
+Application Insights and Log Analytics support an [extensive query language](/azure/log-analytics/query-language/get-started-queries) (Kusto query language) that lets you retrieve and analyze log data. Use the queries to create data sets and visualize it in diagnostics dashboards.
+
+Use Azure Monitor alerts to notify sysadmins when certain conditions occur in specific resources. The notification could be an email, Azure function, call a web hook, and so on. For more information, see [Alerts in Azure Monitor](/azure/azure-monitor/platform/alerts-overview).
+
+[Log search alert rules](/azure/azure-monitor/platform/alerts-unified-log) allow you to define and run a Kusto query against a Log Analytics workspace at regular intervals. An alert is created if the query result matches a certain condition.
 
 ## Next steps
 
