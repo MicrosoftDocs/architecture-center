@@ -39,11 +39,11 @@ The architecture consists of the following components. For other terms, see [Ser
 
 **Azure Pipelines**. [Pipelines](/azure/devops/pipelines/?view=azure-devops) is part of [Azure DevOps Services](/azure/devops/index?view=azure-devops) and runs automated builds, tests, and deployments. You can also use third-party CI/CD solutions such as Jenkins.
 
-**Azure Monitor**. Azure Monitor collects and stores metrics and logs, including platform metrics for the Azure services in the solution and application telemetry. Use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures. Azure Monitor integrates with Service Fabric to collect metrics from controllers, nodes, and containers, as well as container logs and master node logs.
+**Azure Monitor**. [Azure Monitor](/azure/azure-monitor/) collects and stores metrics and logs, including platform metrics for the Azure services in the solution and application telemetry. Use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures. Azure Monitor integrates with Service Fabric to collect metrics from controllers, nodes, and containers, as well as container logs and master node logs.
 
-**Azure Key Vault**. Stores cryptographic keys and secrets used by the application.
+**Azure Key Vault**. Use [Key Vault](/azure/key-vault/) to store any application secrets used by the microservices, such as connection strings.
 
-**Azure API Management**. In this architecture, API Management acts as an API gateway that accepts requests from clients and routes them to your services.
+**Azure API Management**. In this architecture, [API Management][apim] acts as an API gateway that accepts requests from clients and routes them to your services.
 
 ## Design considerations
 
@@ -83,10 +83,10 @@ For more information, see:
 
 An [API gateway](../..//microservices/design/gateway.md) (ingress) sits between external clients and the microservices. It acts as a reverse proxy, routing requests from clients to microservices. It may also perform various cross-cutting tasks such as authentication, SSL termination, and rate limiting.
 
-Azure API Management is recommended for most scenarios, but Træfik is a popular open-source alternative. Both technology options are integrated with Service Fabric.
+Azure API Management is recommended for most scenarios, but [Træfik](https://docs.traefik.io/) is a popular open-source alternative. Both technology options are integrated with Service Fabric.
 
-- [Azure API Management](/azure/api-management/) exposes a public IP address and routes traffic to your services. It runs in a dedicated subnet in the same virtual network as the Service Fabric cluster.  can access services in a node type that is exposed through a load balancer with a private IP address. This option is only available in the Premium and Developer tiers of API Management. For production workloads, use the Premium tier. Pricing information is described in [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/). For more information, see Service Fabric with [Azure API Management overview](/azure/service-fabric/service-fabric-api-management-overview).
-- [Træfik](https://docs.traefik.io/) supports features such as routing, tracing, logs, and metrics. Træfik runs as a stateless service in the Service Fabric cluster. Service versioning can be supported through routing. For information on how to set up Træfik for service ingress and as the reverse proxy within the cluster, see [Azure Service Fabric Provider](https://docs.traefik.io/configuration/backends/servicefabric/). For more information about using Træfik with Service Fabric, see [Intelligent routing on Service Fabric with Træfik](https://blogs.msdn.microsoft.com/azureservicefabric/2018/04/05/intelligent-routing-on-service-fabric-with-traefik/) (blog post).
+- API Management exposes a public IP address and routes traffic to your services. It runs in a dedicated subnet in the same virtual network as the Service Fabric cluster.  can access services in a node type that is exposed through a load balancer with a private IP address. This option is only available in the Premium and Developer tiers of API Management. For production workloads, use the Premium tier. Pricing information is described in [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/). For more information, see Service Fabric with [Azure API Management overview](/azure/service-fabric/service-fabric-api-management-overview).
+- Træfik supports features such as routing, tracing, logs, and metrics. Træfik runs as a stateless service in the Service Fabric cluster. Service versioning can be supported through routing. For information on how to set up Træfik for service ingress and as the reverse proxy within the cluster, see [Azure Service Fabric Provider](https://docs.traefik.io/configuration/backends/servicefabric/). For more information about using Træfik with Service Fabric, see [Intelligent routing on Service Fabric with Træfik](https://blogs.msdn.microsoft.com/azureservicefabric/2018/04/05/intelligent-routing-on-service-fabric-with-traefik/) (blog post).
 
 Other API Managementment options include [Azure Application Gateway](/azure/application-gateway/) and [Azure Front Door](/azure/frontdoor/). These services can be used in conjunction with API Management to perform tasks such as routing, SSL termination, and firewall.
 
