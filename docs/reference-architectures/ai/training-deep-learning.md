@@ -130,10 +130,9 @@ The reference implementation of this architecture is available on [GitHub][githu
 
 ## Next steps
 
-The output from this architecture is a trained model that is saved to blob storage. You can operationalize this model for either real-time scoring
-or batch scoring. For more information, see the following reference architectures:
+The output from this architecture is a trained model that is saved to blob storage. You can operationalize this model for either real-time scoring or batch scoring. For more information, see the following reference architectures:
 
-- [Real-time scoring of Python Scikit-Learn and deep learning models on Azure][real-time-scoring]
+- [Real-time scoring of Python scikit-learn and deep learning models on Azure][real-time-scoring]
 - [Batch scoring on Azure for deep learning models][batch-scoring]
 
 [0]: ./_images/distributed_dl_architecture.png

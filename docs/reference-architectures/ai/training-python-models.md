@@ -2,13 +2,13 @@
 title: Training of Python scikit-learn models on Azure
 description:  This reference architecture shows recommended practices for tuning the hyperparameters (training parameters) of a scikit-learn Python model.
 author: njray
-ms.date: 03/04/19
+ms.date: 03/07/19
 ms.custom: azcat-ai
 ---
 
 # Training of Python scikit-learn models on Azure
 
-This reference architecture shows recommended practices for tuning the hyperparameters (training parameters) of a scikit-learn Python model. A reference implementation for this architecture is available on [GitHub][github].
+This reference architecture shows recommended practices for tuning the hyperparameters (training parameters) of a [scikit-learn][scikit] Python model. A reference implementation for this architecture is available on [GitHub][github].
 
 ![Architecture diagram][0]
 
@@ -16,17 +16,17 @@ This reference architecture shows recommended practices for tuning the hyperpara
 
 Processing in this scenario involves the following steps:
 
-1.  The training Python script is submitted to the [Azure Machine Learning service][aml].
+1. The training Python script is submitted to the [Azure Machine Learning service][aml].
 
-2.  The script runs in Docker containers that are created on each node.
+1. The script runs in Docker containers that are created on each node.
 
-3.  That script retrieves training and testing data from [Azure Storage][storage].
+1. That script retrieves training and testing data from [Azure Storage][storage].
 
-4.  The script learns a model from the training data using its combination of training parameters.
+1. The script learns a model from the training data using its combination of training parameters.
 
-5.  The model’s performance is evaluated on the testing data, and is written to Azure Storage.
+1. The model's performance is evaluated on the testing data, and is written to Azure Storage.
 
-6.  The best performing model is registered with the Azure Machine Learning service.
+1. The best performing model is registered with the Azure Machine Learning service.
 
 See also considerations for training [deep learning models][training-deep-learning] with GPUs.
 
@@ -36,7 +36,7 @@ This architecture consists of several Azure cloud services that scale resources 
 
 [Microsoft Data Science Virtual Machine][dsvm] (DSVM) is a VM image configured with tools used for data analytics and machine learning. Both Windows Server and Linux versions are available. This deployment uses the Linux editions of the DSVM on Ubuntu 16.04 LTS.
 
-[Azure Machine Learning service][aml] is used to train, deploy, automate, and manage machine learning models at cloud scale. It is used in this architecture to manage the allocation and use of the Azure resources described below.
+[Azure Machine Learning service][aml] is used to train, deploy, automate, and manage machine learning models at cloud scale. It's used in this architecture to manage the allocation and use of the Azure resources described below.
 
 [Azure Machine Learning Compute][aml-compute] is the resource used to train and test machine learning and AI models at scale in Azure. The [compute target][target] in this scenario is a cluster of nodes that are allocated on demand based on an automatic [scaling][scaling] option. Each node is a VM that runs a training job for a particular [hyperparameter][hyperparameter] set.
 
@@ -44,12 +44,11 @@ This architecture consists of several Azure cloud services that scale resources 
 
 [Azure Blob][blob] storage receives the training and test data sets from the Machine Learning service that are used by the training Python script. Storage is mounted as a virtual drive onto each node of a Machine Learning Compute cluster. 
 
-
 ## Performance considerations
 
 Each set of [hyperparameters][hyperparameter] runs on one node of the Machine Learning [compute target][target]. For this architecture, each node is a Standard D4 v2 VM, which has four cores. This architecture uses a [LightGBM][lightgbm] classifier for machine learning, a gradient boosting framework. This software can run on all four cores at the same time, speeding up each run by a factor of up to four. That way, the whole hyperparameter tuning run takes up to one-quarter of the time it would take had it been run on a Machine Learning Compute target based on Standard D1 v2 VMs, which have only one core each.
 
-The maximum number of Machine Learning Compute nodes impacts the total run time. The recommended minimum number of nodes is zero. With this setting, the time it takes for a job to start up includes some minutes for auto-scaling at least one node into the cluster. If the hyperparameter tuning runs for a short time, however, scaling up the job adds to the overhead. For example, a job can run in under five minutes, but scaling up to one node might take another five minutes. In this case, setting the minimum to one node saves time but adds to the cost.
+The maximum number of Machine Learning Compute nodes affects the total run time. The recommended minimum number of nodes is zero. With this setting, the time it takes for a job to start up includes some minutes for auto-scaling at least one node into the cluster. If the hyperparameter tuning runs for a short time, however, scaling up the job adds to the overhead. For example, a job can run in under five minutes, but scaling up to one node might take another five minutes. In this case, setting the minimum to one node saves time but adds to the cost.
 
 ## Monitoring and logging considerations
 
@@ -61,7 +60,7 @@ Use the Run object with the RunDetails [Jupyter widget][jupyter] to conveniently
 
 ### Azure portal
 
-Print a Run object to display a link to the run’s page in Azure portal like this:
+Print a Run object to display a link to the run's page in Azure portal like this:
 
 ![Run object][1]
 
@@ -69,9 +68,9 @@ Use this page to monitor the status of the run and its children runs. Each child
 
 ## Cost considerations
 
-The cost of a hyperparameter tuning run depends linearly on the choice of Machine Learning Compute VM size, whether low priority nodes are used, and the maximum number of nodes allowed in the cluster.
- 
-Ongoing costs when the cluster is not in use depend on the minimum number of nodes required by the cluster. With cluster auto-scaling, the system automatically adds nodes up to the allowed maximum to match the number of jobs, and then removes nodes down to the requested minimum as they are no longer needed. If the cluster can auto-scale down to zero nodes, it does not cost anything when it is not in use.
+The cost of a hyperparameter tuning run depends linearly on the choice of Machine Learning Compute VM size, whether low-priority nodes are used, and the maximum number of nodes allowed in the cluster.
+
+Ongoing costs when the cluster is not in use depend on the minimum number of nodes required by the cluster. With cluster autoscaling, the system automatically adds nodes up to the allowed maximum to match the number of jobs, and then removes nodes down to the requested minimum as they are no longer needed. If the cluster can autoscale down to zero nodes, it does not cost anything when it is not in use.
 
 ## Security considerations
 
@@ -87,8 +86,7 @@ In scenarios that use sensitive data, encrypt the data at rest—that is, the da
 
 ### Secure data in a virtual network
 
-For production deployments, consider deploying the cluster into a subnet of a virtual network that you specify. This allows the compute nodes in the cluster to communicate securely with other virtual machines or with an on-premises network. You can also use [service
-endpoints][endpoints] with blob storage to grant access from a virtual network or use a single-node NFS inside the virtual network with Azure Machine Learning service.
+For production deployments, consider deploying the cluster into a subnet of a virtual network that you specify. This allows the compute nodes in the cluster to communicate securely with other virtual machines or with an on-premises network. You can also use [service endpoints][endpoints] with blob storage to grant access from a virtual network or use a single-node NFS inside the virtual network with Azure Machine Learning service.
 
 ## Deployment
 
@@ -101,7 +99,7 @@ The reference implementation of this architecture is available on GitHub.
 [aml]: /azure/machine-learning/service/overview-what-is-azure-ml
 [aml-compute]: /azure/machine-learning/service/how-to-set-up-training-targets
 [amls]: /azure/machine-learning/service/overview-what-is-azure-ml
-[blob]: /azure/storage/blobs/storage-blobs-introduction 
+[blob]: /azure/storage/blobs/storage-blobs-introduction
 [dsvm]: /azure/machine-learning/data-science-virtual-machine/overview
 [endpoints]: /azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network
 [github]: https://github.com/Microsoft/MLHyperparameterTuning
@@ -109,6 +107,7 @@ The reference implementation of this architecture is available on GitHub.
 [jupyter]: http://jupyter.org/widgets
 [lightgbm]: https://github.com/Microsoft/LightGBM
 [scaling]: /azure/virtual-machine-scale-sets/overview
+[scikit]: https://pypi.org/project/scikit-learn/
 [storage]: /azure/storage/common/storage-introduction
 [storage-security]: /azure/storage/common/storage-security-guide
 [target]: /azure/machine-learning/service/how-to-auto-train-remote
