@@ -90,7 +90,7 @@ For production deployments, consider deploying the cluster into a subnet of a vi
 
 ## Deployment
 
-The reference implementation of this architecture is available on GitHub.
+To deploy the reference implementation for this architecture, follow the steps in the [GitHub][github] repo.
 
 [0]: ./_images//training-python-models.png
 [1]: ./_images/run-object.png
