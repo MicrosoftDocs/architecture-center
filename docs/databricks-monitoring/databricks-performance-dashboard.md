@@ -45,7 +45,7 @@ Grafana is an open source project you can deploy to visualize the time series me
   1. Log in to the Azure portal.  
   2. Select the resource group where the resources were deployed.
   3. Select the virtual machine where Grafana was installed. If you used the default parameter name in the deployment template, the virtual machine name is prefaced with **sparkmonitoring-vm-grafana**. 
-  4. In the **Support + troubleshooting** section, click on **Boot diagnostics** to open the boot diagnostics page. 
+  4. In the **Support + troubleshooting** section, click on **Boot diagnostics** to open the boot diagnostics page.
   5. Click on **serial log** on the boot diagnostics page.
   6. Search for the following string: "Setting Bitnami application password to". 
   7. Copy the password to a safe location.

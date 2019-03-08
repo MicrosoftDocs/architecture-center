@@ -179,4 +179,4 @@ Spark Structured Streaming event data from Azure Databricks also streams to your
 
 ## Next steps
 
-Learn more about [Structured Streaming](https://docs.databricks.com/spark/latest/structured-streaming/index.html) in Azure Databricks.
+Deploy the [performance monitoring dashboard](databricks-performance-dashboard.md) that accompanies this code library to troubleshoot performance issues in your production Azure Databricks workloads.
