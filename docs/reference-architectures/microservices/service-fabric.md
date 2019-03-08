@@ -35,7 +35,9 @@ The architecture consists of the following components. For other terms, see [Ser
 - **Stateless service**. A stateless service does not maintain state within the service. If state persistence is required, then state is written to and retrieved from an external store, such as Azure Cosmos DB.
 - **Stateful service**. The [service state](/azure/service-fabric/service-fabric-concepts-state) is kept within the service itself. Most stateful services implement this through Service Fabric’s [Reliable Collections](/azure/service-fabric/service-fabric-reliable-services-reliable-collections).
 
-**Azure Pipelines**. Pipelines is part of [Azure DevOps Services](/azure/devops/index?view=azure-devops) and runs automated builds, tests, and deployments. You can also use third-party CI/CD solutions such as Jenkins.
+**Service Fabric Explorer**. [Service Fabric Explorer][sfx] is an open-source tool for inspecting and managing Service Fabric clusters.
+
+**Azure Pipelines**. [Pipelines](/azure/devops/pipelines/?view=azure-devops) is part of [Azure DevOps Services](/azure/devops/index?view=azure-devops) and runs automated builds, tests, and deployments. You can also use third-party CI/CD solutions such as Jenkins.
 
 **Azure Monitor**. Azure Monitor collects and stores metrics and logs, including platform metrics for the Azure services in the solution and application telemetry. Use this data to monitor the application, set up alerts and dashboards, and perform root cause analysis of failures. Azure Monitor integrates with Service Fabric to collect metrics from controllers, nodes, and containers, as well as container logs and master node logs.
 
@@ -180,6 +182,14 @@ For more information, see [Availability of Service Fabric services](/azure/servi
 
 Here are some key points for securing your application on Service Fabric:
 
+### Virtual network
+
+Consider defining subnet boundaries for each VMSS to control the flow of communication. Each node type has its own VMSS in a subnet within the Service Fabric cluster's virtual network. Network Security Groups (NSGs) can be added to the subnets to allow or reject network traffic. For example, with front-end and back-end node types, you can add an NSG to the backend subnet to accept inbound traffic only the front-end subnet.
+
+When calling external Azure Services from the cluster, use [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) if the Azure service supports it. Using a service endpoint secures the service to only the cluster’s Virtual Network. For example, if you are using Cosmos DB to store data, configure the Cosmos DB account with a service endpoint to allow access only from a specific subnet. See [Access Azure Cosmos DB resources from virtual networks](/azure/cosmos-db/vnet-service-endpoint).
+
+### Endpoints and interservice communication
+
 Do not create an unsecured Service Fabric cluster. If the cluster exposes management endpoints to the public internet, anonymous users can connect to it. Unsecured clusters are not supported for production workloads. See: [Service Fabric cluster security scenarios](/azure/service-fabric/service-fabric-cluster-security).
 
 To secure your interservice communications:
@@ -189,19 +199,17 @@ To secure your interservice communications:
 
 If you are using an [API gateway](../../microservices/design/gateway.md), you can [offload authentication](../../patterns/gateway-offloading.md) to the gateway. Make sure that the individual services cannot be reached directly (without the API gateway) unless additional security is in place to authenticate messages whether they come from the gateway.
 
-Consider defining subnet boundaries for each VMSS to control the flow of communication. Each node type has its own VMSS in a subnet within the Service Fabric cluster's virtual network. Network Security Groups (NSGs) can be added to the subnets to allow or reject network traffic. For example, with front-end and back-end node types, you can add an NSG to the backend subnet to accept inbound traffic only the front-end subnet.
+Do not expose the Service Fabric reverse proxy publicly. Doing so causes all services that expose HTTP endpoints to be addressable from outside the cluster, introducing security vulnerabilities and potentially exposing additional information outside the cluster unnecessarily. If you want to access a service publicly then use an API gateway. Some options are mentioned in the [API gateway](#api-gateway) section.
+
+Remote desktop is useful for diagnostic and troubleshooting, but make sure not to leave it open otherwise it causes a security hole.
+
+### Secrets and certificates
 
 To access Key Vault secrets from a Service Fabric service, enable [managed identity](/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-virtual-machine-scale-sets) on the VMSS that hosts the service. Sample code: Use Key Vault from App Service with Managed Service Identity.
 
 Do not use client certificates to access Service Fabric Explorer. Instead, use Azure Active Directory (Azure AD). Also see, [Azure services that support Azure AD authentication](/azure/active-directory/managed-identities-azure-resources/services-support-msi%23azure-services-that-support-azure-ad-authentication).
 
 Do not use self-signed certificates for production.
-
-When calling external Azure Services from the cluster, use [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) if the Azure service supports it. Using a service endpoint secures the service to only the cluster’s Virtual Network. For example, if you are using Cosmos DB to store data, configure the Cosmos DB account with a service endpoint to allow access only from a specific subnet. See [Access Azure Cosmos DB resources from virtual networks](/azure/cosmos-db/vnet-service-endpoint).
-
-Do not expose the Service Fabric reverse proxy publicly. Doing so causes all services that expose HTTP endpoints to be addressable from outside the cluster, introducing security vulnerabilities and potentially exposing additional information outside the cluster unnecessarily. If you want to access a service publicly then use an API gateway. Some options are mentioned in the [API gateway](#api-gateway) section.
-
-Remote desktop is useful for diagnostic and troubleshooting, but make sure not to leave it open otherwise it causes a security hole.
 
 For additional information about securing Service Fabric, see:
 
@@ -284,7 +292,7 @@ You can also view performance logs and telemetry data related to a Service Fabri
 Service Fabric telemetry includes health metrics and events about the operation and performance of a Service Fabric cluster and its entities: its nodes, applications, services, partitions, and replicas.
 
 - [EventStore](/azure/service-fabric/service-fabric-diagnostics-eventstore). A stateful system service that collects events related to the cluster and its entities. Service Fabric uses EventStore to write [Service Fabric events](/azure/service-fabric/service-fabric-diagnostics-event-generation-operational) to provide information about your cluster and can be used for status updates, troubleshooting, monitoring. It can also correlate events from different entities at a given time to identify issues in the cluster. The service exposes those events through a REST API. For information about how to query the EventStore APIs, see [Query EventStore APIs for cluster events](/azure/service-fabric/service-fabric-diagnostics-eventstore-query). You can view the events from EventStore in Log Analytics by configuring your cluster with WAD extension.
-- [HealthStore](/azure/service-fabric/service-fabric-health-introduction). Provides a snapshot of the current health of the cluster. A stateful service that aggregates all health data reported by entities in a hierarchy. The data is visualized in [Service Fabric Explorer](/azure/service-fabric/service-fabric-visualizing-your-cluster). The HealthStore also monitors application upgrades. You can use health queries in PowerShell, a .NET application, or REST APIs. See, [Introduction to Service Fabric health monitoring](/azure/service-fabric/service-fabric-health-introduction).
+- [HealthStore](/azure/service-fabric/service-fabric-health-introduction). Provides a snapshot of the current health of the cluster. A stateful service that aggregates all health data reported by entities in a hierarchy. The data is visualized in [Service Fabric Explorer][sfx]. The HealthStore also monitors application upgrades. You can use health queries in PowerShell, a .NET application, or REST APIs. See, [Introduction to Service Fabric health monitoring](/azure/service-fabric/service-fabric-health-introduction).
 - Consider implementing internal custom watchdog services. Those services can periodically report custom health data such as faulty states of running services. For more information, see [Custom health reports](/azure/service-fabric/service-fabric-report-health). You can read the health reports using the Service Fabric explorer.  
 
 #### Dependent service metrics
@@ -303,3 +311,5 @@ Service Fabric telemetry includes health metrics and events about the operation 
 
 - [Using domain analysis to model microservices](../../microservices/model/domain-analysis.md)
 - [Designing a microservices architecture](../../microservices/design/index.md)
+
+[sfx]: /azure/service-fabric/service-fabric-visualizing-your-cluster
