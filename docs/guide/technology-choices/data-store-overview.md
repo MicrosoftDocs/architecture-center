@@ -35,6 +35,8 @@ Relevant Azure service:
 - [Azure SQL Database][sql-db]
 - [Azure Database for MySQL][mysql]
 - [Azure Database for PostgreSQL][postgres]
+- [Azure Database for MariaDB][mariadb]
+
 
 ## Key/value stores
 
@@ -147,6 +149,7 @@ Relevant Azure service: [File Storage][file-storage]
 [hbase]: /azure/hdinsight/hdinsight-hbase-overview
 [mysql]: https://azure.microsoft.com/services/mysql/
 [postgres]: https://azure.microsoft.com/services/postgresql/
+[mariadb]: https://azure.microsoft.com/services/mariadb/
 [redis-cache]: https://azure.microsoft.com/services/cache/
 [search]: https://azure.microsoft.com/services/search/
 [sql-db]: https://azure.microsoft.com/services/sql-database
