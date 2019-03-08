@@ -13,10 +13,10 @@ ms.custom: microservices
 
 This reference architecture shows a microservices architecture deployed to Azure Service Fabric. It shows a basic cluster configuration that can be the starting point for most deployments.
 
+![Service Fabric reference architecture](./_images/ra-sf-arch.png)
+
 > [!NOTE]
 > This article focuses on the [Reliable Services](/azure/service-fabric/service-fabric-reliable-services-introduction) programming model for Service Fabric. Using Service Fabric to deploy and manage [containers](/azure/service-fabric/service-fabric-containers-overview) is beyond the scope of this article.
-
-![Service Fabric reference architecture](./_images/ra-sf-arch.png)
 
 ## Architecture
 
