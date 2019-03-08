@@ -255,7 +255,7 @@ For more information, see:
 - [Application logging](/azure/service-fabric/service-fabric-diagnostics-event-generation-app)
 - [Add logging to your Service Fabric application](/azure/azure-monitor/app/correlation)
 
-#### Distributed tracing
+### Distributed tracing
 
 In microservices architecture, several services often participate to complete a task. The telemetry from each of those services is correlated by using context fields (operation ID, request ID, and so forth) in a distributed trace. By using [Application Map](/azure/azure-monitor/app/app-map) in Application Insights, you can build the view of distributed logical operation and visualize the entire service graph of your application. You can also use transaction diagnostics in Application Insight to correlate server-side telemetry. For more information, see [Unified cross-component transaction diagnostics](/azure/application-insights/app-insights-transaction-diagnostics).
 
@@ -295,13 +295,13 @@ Service Fabric telemetry includes health metrics and events about the operation 
 - [HealthStore](/azure/service-fabric/service-fabric-health-introduction). Provides a snapshot of the current health of the cluster. A stateful service that aggregates all health data reported by entities in a hierarchy. The data is visualized in [Service Fabric Explorer][sfx]. The HealthStore also monitors application upgrades. You can use health queries in PowerShell, a .NET application, or REST APIs. See, [Introduction to Service Fabric health monitoring](/azure/service-fabric/service-fabric-health-introduction).
 - Consider implementing internal custom watchdog services. Those services can periodically report custom health data such as faulty states of running services. For more information, see [Custom health reports](/azure/service-fabric/service-fabric-report-health). You can read the health reports using the Service Fabric explorer.  
 
-#### Dependent service metrics
+### Dependent service metrics
 
 - [Application Insights Application Map](/azure/azure-monitor/app/app-map) provides the topology of the application by using HTTP dependency calls made between services, with the installed Application Insights SDK.
 - [Service Map solution in Log Analytics](/azure/azure-monitor/insights/service-map) provides information about inbound and outbound traffic from/to external services. In addition, Service Map integrates with other solutions such as updates or security.
 - Custom watchdogs can be used to report error conditions on external services. For example, the service could report an error health report if it cannot access an external service or data storage (Azure Cosmos DB).  
 
-#### Alerts and Dashboards
+### Alerts and Dashboards
 
 - Application Insights and Log Analytics support an [extensive query language](/azure/log-analytics/query-language/get-started-queries) (Kusto query language) that lets you retrieve and analyze log data. Use the queries to create data sets and visualize it in diagnostics dashboards.
 - Use Azure Monitor alerts to notify sysadmins when certain conditions occur in specific resources. The notification could be an email, Azure function, call a web hook, and so on. For more information, see [Alerts in Azure Monitor](/azure/azure-monitor/platform/alerts-overview).
