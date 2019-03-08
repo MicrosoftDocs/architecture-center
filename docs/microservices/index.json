@@ -55,6 +55,11 @@
                     "title": "Design patterns",
                     "url": "./design/patterns.md",
                     "summary":"A set of useful design patterns for microservices."
+                },
+                {
+                    "title": "Reference architecture for microservices on Service Fabric",
+                    "url": "../reference-architectures/microservices/sf.md",
+                    "summary":"This reference architecture shows a basic Service Fabric configuration that can be the starting point for most deployments."
                 }
             ]
         },

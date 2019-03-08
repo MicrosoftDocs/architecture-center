@@ -356,6 +356,9 @@
       items:
       - name: Azure Kubernetes Service (AKS)
         href: reference-architectures/microservices/aks.md
+      - name: Azure Service Fabric
+        href: reference-architectures/microservices/sf.md
+
 
     - name: Network DMZ
       items:

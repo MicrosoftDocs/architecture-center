@@ -137,6 +137,20 @@ Microservices are a popular architectural style for building applications that a
         </div>
     </a>
 </li>
+<li style="display: flex; flex-direction: column;">
+    <a href="../reference-architectures/microservices/sf.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Reference architecture for microservices on Service Fabric</h3>
+                        <p>This reference architecture shows a basic Service Fabric configuration that can be the starting point for most deployments.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
 </ul>
 
 ## Operate microservices in production
