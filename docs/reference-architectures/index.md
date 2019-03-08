@@ -328,7 +328,27 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
                     </div>
                     <div class="cardText">
                         <h3>Microservices on Azure Kubernetes Service (AKS)</h3>
-                        <p>Recommended architecture for deploying a microservices architecture on AKS.</p>
+                        <p>Recommended architecture for deploying microservices on AKS.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<!-- Microservices architecture on Azure Service Fabric -->
+<li style="display: flex; flex-direction: column;">
+    <a href="./microservices/service-fabric.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/icons/sf.svg" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Microservices architecture on Azure Service Fabric</h3>
+                        <p>Recommended architecture for microservices on Service Fabric.</p>
                     </div>
                 </div>
             </div>

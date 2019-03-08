@@ -110,7 +110,13 @@
                     "url": "./microservices/aks.md",
                     "image": "../_images/icons/aks.svg",
                     "title": "Microservices on Azure Kubernetes Service (AKS)",
-                    "summary": "Recommended architecture for deploying a microservices architecture on AKS."
+                    "summary": "Recommended architecture for deploying microservices on AKS."
+                },
+                {
+                    "url": "./microservices/service-fabric.md",
+                    "image": "../_images/icons/sf.svg",
+                    "title": "Microservices architecture on Azure Service Fabric",
+                    "summary": "Recommended architecture for microservices on Service Fabric."
                 }
             ]
         },
