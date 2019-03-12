@@ -8,68 +8,58 @@ ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: "fasttrack - new"
 ---
-# Manage access to your Azure environment with role-based access controls
-
-Managing access to your Azure resources and subscriptions, who can access what, forms an important part of your Azure governance strategy. Role-based access control (RBAC) is the primary method of managing access in Azure.
-
-RBAC provides fine-grained access management of resources in Azure. It helps you manage who has access to Azure resources, what they can do with those resources, and what scopes they can access.
-
-When planning your access control strategy, grant users the least privilege to get their work done. The following image shows a suggested pattern for assigning RBAC.
-
-![Diagram that shows RBAC roles](./media/manage-access/role-examples.png)
-
-When you plan your access and control methodology, we recommend you work with people in your organizations with the following roles: security and compliance, IT administration, and enterprise architect.
 
 ::: zone target="chromeless"
 
-## Actions
-
-**Grant resource group access**
-
-To add a user to a resource group,
-
-1. Go to **Resource Groups**.
-2. Select a resource group.
-3. Select **Access control (IAM)**.
-4. Add a user.
-
-::: form action="OpenBlade[#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fsubscriptions%2FresourceGroups]" submitText="Go to resource groups" ::: form-end
-
-**Grant subscription access**
-
-To add a user to a subscription,
-
-1. Go to **Subscriptions**.
-1. Select a subscription.
-1. Select **Access control (IAM)**.
-1. Add a user.
-
-::: form action="OpenBlade[#blade/Microsoft_Azure_Billing/SubscriptionsBlade]" submitText="Go to subscriptions" ::: form-end
+# Staying current with Azure
 
 ::: zone-end
 
+::: zone target="chromeless"
+
+# Learn how to stay current with Azure updates
+
+::: zone-end
+
+We know that staying up to date with Azure can be challenging, but it really should be part of your governance strategy so that you know about new features that may benefit you or upcoming changes that may affect you. Below you can find the top resources that we use ourselves to stay up to date, as well as some additional resources for deeper content.
+
+::: zone target="chromeless"
+
+For the best experience within the Azure Portal we recommend opening the links provided below in a new tab/window.
+
+::: zone-end
+
+## Top Resources
+
+* [Azure Service Health](https://docs.microsoft.com/azure/service-health/service-health-overview)
+  * You can use this to get timely notifications for ongoing service issues, planned maintenance and health advisories including features being deprecated
+* [Azure Updates](https://azure.microsoft.com/updates/)
+  * A single place where most updates are posted and that you can subscribe to
+  * These are mostly just very short announcements with a link to details, so this is quite easy to follow
+  * Subscribe via [RSS](https://azurecomcdn.azureedge.net/en-us/updates/feed/)
+* [Azure Blog](https://azure.microsoft.com/blog/)
+  * This blog contains the most important announcements for the Azure platform, so by following this you will also get the most critical information
+  * Subscribe via [RSS](https://azurecomcdn.azureedge.net/en-us/blog/feed/)
+* Service specific blogs
+  * Usually there are also specific blogs for individual Azure services as well that are good to follow if you heavily rely on them
+  * There are of course too many to list here, but you can easily find them through a web search
+* [Azure Info Hub](http://aka.ms/azureinfohub)
+  * This is an unofficial resource but contains an aggregation of most of the resources above and you can go into details for individual services (also making it a great way to discover those service-specific blogs for example)
+  * Subscribe via [RSS](http://azureinfohub.azurewebsites.net/Feed?serviceTitle=Azure)
+
+## Additional Resources
+
+* [Azure Friday](https://channel9.msdn.com/Shows/Azure-Friday)
+  * Weekly videos with the engineers who build Azure, demo it, answer questions, and share insights
+  * Subscribe via [RSS](https://channel9.msdn.com/Shows/Azure-Friday/feed)
+* [Azure Weekly Newsletter](http://azureweekly.info/)
+  * This is an unofficial resource provided by [endjin](https://endjin.com/) which is a summary of the week's top news in the Microsoft Azure ecosystem, as well as interesting historic content that's well worth reading
+  * Subscribe via [email](http://azureweekly.info/)
+
 ::: zone target="docs"
 
-## Grant resource group access
+## Next steps
 
-To add a user to a resource group,
-
-1. Go to [Resource Group](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fsubscriptions%2FresourceGroups).
-1. Select a resource group.
-1. Select **Access control (IAM)**.
-1. Add a user.
-
-## Grant subscription access
-
-To add a user to a subscription,
-
-1. Go to [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)
-1. Select a subscription.
-1. Select **Access control (IAM)**.
-1. Add a user.
-
-## Learn more
-
-To learn more, see [What is role-based access control (RBAC)?](/azure/role-based-access-control/overview)
+TBA???
 
 ::: zone-end

@@ -39,11 +39,12 @@ When you deploy resources to Azure, you have flexibility on the types of resourc
 This playbook helps address those questions. It suggests the tasks and features you should consider as you get ready to deploy resources in Azure. Specifically, you:
 
 > [!div class="checklist"]
-> * **Manage access**: Assign users to roles and assign the roles to a scope.
 > * **Organize your resources**: Lock resources critical to your system and tag resources to track them.
+> * **Manage access**: Assign users to roles and assign the roles to a scope.
 > * **Manage costs and billing**: Look at the costs of your resources.
 > * **Plan governance, security, and compliance**: Apply policies for resources in your subscription.
 > * **Use monitoring and reporting**: Monitor the health of your resources.
+> * **Staying Current with Azure**: Learn the resources which can assist in staying current with Azure updates
 
 ::: zone target="docs"
 
