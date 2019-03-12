@@ -56,10 +56,3 @@ For the best experience within the Azure Portal we recommend opening the links p
   * This is an unofficial resource provided by [endjin](https://endjin.com/) which is a summary of the week's top news in the Microsoft Azure ecosystem, as well as interesting historic content that's well worth reading
   * Subscribe via [email](http://azureweekly.info/)
 
-::: zone target="docs"
-
-## Next steps
-
-TBA???
-
-::: zone-end
