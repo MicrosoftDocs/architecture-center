@@ -1,8 +1,12 @@
 ---
 title: "CAF: Assess the digital estate"
 description: Assess the digital estate
-author: BrianBlanchard
+author: matticusau
+ms.author: mlavery
 ms.date: 4/14/2019
+ms.topic: conceptual
+ms.service: azure-portal
+ms.custom: "fasttrack - new"
 ---
 
 # Assess the digital estate

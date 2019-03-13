@@ -1,7 +1,7 @@
 ---
 title: "CAF: Simple Migration Journey"
 description: Learn how to migrate your services to Azure effectively for your organization with step-by-step guidance.
-author: mattlavery
+author: matticusau
 ms.author: mlavery
 ms.date: 4/14/2019
 ms.topic: conceptual

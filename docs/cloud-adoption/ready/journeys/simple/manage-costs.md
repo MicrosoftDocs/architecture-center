@@ -6,6 +6,7 @@ ms.author: dchimes
 ms.date    : 11/5/2018
 ms.topic: conceptual
 ms.service: azure-portal
+ms.custom: "fasttrack-edit"
 ---
 # Manage costs and billing to understand charges and usage from your Azure Resources
 
@@ -18,6 +19,8 @@ Pay-as-you-go customers have access to all Azure portal cost management and bill
 * **Understand your bill**: Your invoice is the actual monthly cost of your services.
 
 * **Manage payment methods**: You can pay for an Azure subscription with a credit or debit card. Make sure you have the card you want your subscription billed to in the payment methods on your account.
+
+* **Resource tags**: Tags can also be used for billing management. You can combine your resources by tag and group them to one cost center.
 
 ::: zone target="docs"
 
@@ -37,6 +40,15 @@ To manage payments:
 1. Go to [Cost Management + Billing](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Payment) in **Azure Portal**.
 1. Select **Payment methods**.
 1. Use the menu to add and delete payment methods.
+
+## Apply a resource tag
+
+To apply a tag to a resource group:
+
+1. Go to **Resource Groups**
+1. Select on a resource group
+1. Select **Tags**
+1. Type in a new name and value or select an existing name and value
 
 ## Learn more
 
@@ -67,6 +79,17 @@ If you would like to pay by invoice, contact support. If you would like to updat
 
 ::: form action="OpenBlade[#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview]" submitText="Go to Cost Management + Billing" ::: form-end
 
+**Apply a resource tag**
+
+To apply a tag to a resource group:
+
+1. Go to **Resource Groups**
+1. Select on a resource group
+1. Select **Tags**
+1. Type in a new name and value or select an existing name and value
+
+::: form action="OpenBlade[#blade/HubsExtension/Resources/resourceType/Microsoft.Resources/subscriptions/resourceGroups]" submitText="Go to Resource Groups" ::: form-end
+
 ::: zone-end
 
 # [For Enterprise Agreement Customers](#tab/ForEnterpriseAgreementCustomers)
@@ -78,8 +101,17 @@ If you would like to pay by invoice, contact support. If you would like to updat
   * **Account Owner**: can create and manage subscriptions and manage Service Administrators
   * **Service Administrator**: can access and manage subscriptions and development projects on the developer portal
   * **Notification Contact**: can receive usage notifications related to the enrollment
+  * **Resource tags**: you can manage billing by combining your resources and group them to one cost center
 
 Assign these roles to help manage your organization's usage and spending. Use the Azure EA portal to assign and view these roles.
+
+**Manage Budgets**
+
+You can manage budgets on a subscription level or resource level
+
+1. Go to **Cost Management + Billing**
+1. Under **Cost Management**, select budget
+1. Click **Add**
 
 **Download and understand your usage**
 
@@ -96,6 +128,16 @@ Microsoft bills annually at the enrollment effective date for any commitment pur
 
 ## Actions
 
+**Manage Budgets**
+
+You can manage budgets on a subscription level or resource level
+
+1. Go to **Cost Management + Billing**
+1. Under **Cost Management**, select budget
+1. Click **Add**
+
+::: form action="OpenBlade[#blade/Microsoft_Azure_CostManagement/Menu/budgets]" submitText="Go to Cost Management + Billing" ::: form-end
+
 **Download usage**
 
 1. Go to **Cost Management + Billing**.
@@ -110,6 +152,17 @@ Microsoft bills annually at the enrollment effective date for any commitment pur
 To explore cost analysis, create a budget, or view advisor recommendations: 
 
 ::: form action="OpenBlade[#blade/Microsoft_Azure_CostManagement/Menu/costanalysis]" submitText="Go to Azure Cost Management" ::: form-end
+
+**Apply a resource tag**
+
+To apply a tag to a resource group:
+
+1. Go to **Resource Groups**
+1. Select on a resource group
+1. Select **Tags**
+1. Type in a new name and value or select an existing name and value
+
+::: form action="OpenBlade[#blade/HubsExtension/Resources/resourceType/Microsoft.Resources/subscriptions/resourceGroups]" submitText="Go to Resource Groups" ::: form-end
 
 ::: zone-end
 
@@ -166,8 +219,6 @@ The following diagram shows the relationship between a billing account, the bill
 Use Access Control (IAM) on Cost Management + Billing page to give others permission to view and manage billing for your account. Control who can view charges, organize billing, create Azure subscriptions and make purchases like Azure reservations and Marketplace products. 
 
 **Manage your costs with Azure Cost Management** 
-
-
 
 Azure provides several ways to help you predict and manage costs: 
 
