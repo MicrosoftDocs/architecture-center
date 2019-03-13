@@ -616,31 +616,57 @@
       href: cloud-adoption/ready/index.md
     - name: Initial Org Alignment
       href: cloud-adoption/ready/initial-org-alignment.md
-    - name: XX-Governance and Security Alignment
-      href: cloud-adoption/ready/theory/index.md
-    - name: XX-Business Stakeholder Alignment
-      href: cloud-adoption/ready/theory/index.md
-    - name: XX-Agile Change Management Tool
-      href: cloud-adoption/ready/theory/index.md
-    - name: XX-Primitives
-      href: cloud-adoption/ready/theory/index.md
-    - name: XX-Network
-      href: cloud-adoption/ready/theory/index.md
-    - name: XX-Identity
-      href: cloud-adoption/ready/theory/index.md
-    - name: XX-Monitoring
-      href: cloud-adoption/ready/theory/index.md
-    - name: Create hybrid cloud consistency
-      href: cloud-adoption/infrastructure/misc/hybrid-consistency.md
+    - name: Readiness Guides
+      items:
+      - name: XX-Overview of the Guides
+        href: cloud-adoption/ready/journeys/index.md
+      - name: FastTrack Readiness Guide
+        items:
+        - name: Set up your Azure environment
+          href: cloud-adoption/ready/journeys/simple/index.md
+        - name: Manage access
+          href: cloud-adoption/ready/journeys/simple/manage-access.md
+        - name: Organize your resources
+          href: cloud-adoption/ready/journeys/simple/organize-resources.md
+        - name: Manage costs and billing
+          href: cloud-adoption/ready/journeys/simple/manage-costs.md
+        - name: Plan governance, security, and compliance
+          href: cloud-adoption/ready/journeys/simple/govern-org-compliance.md
+        - name: Use monitoring and reporting
+          href: cloud-adoption/ready/journeys/simple/monitoring-reporting.md
+    - name: Azure Best Practices
+      items:
+      - name: XX-Overview
+        href: cloud-adoption/ready/azure-best-practices/index.md
+    - name: Readiness Considerations
+      items:
+      - name: XX-Overview
+        href: cloud-adoption/ready/theory/index.md
+      - name: XX-Governance and Security Alignment
+        href: cloud-adoption/ready/theory/index.md
+      - name: XX-Business Stakeholder Alignment
+        href: cloud-adoption/ready/theory/index.md
+      - name: XX-Agile Change Management Tool
+        href: cloud-adoption/ready/theory/index.md
+      - name: XX-Primitives
+        href: cloud-adoption/ready/theory/index.md
+      - name: XX-Network
+        href: cloud-adoption/ready/theory/index.md
+      - name: XX-Identity
+        href: cloud-adoption/ready/theory/index.md
+      - name: XX-Monitoring
+        href: cloud-adoption/ready/theory/index.md
+      - name: Create hybrid cloud consistency
+        href: cloud-adoption/infrastructure/misc/hybrid-consistency.md
   - name: Migrate
     items:
     - name: Overview
       href: cloud-adoption/migrate/index.md
-    - name: Actionable Migration Journeys
+    - name: Migration Guides
       items:
-      - name: Overview of the journeys
+      - name: Overview of the Guides
         href: cloud-adoption/migrate/journeys/index.md
-      - name: Azure Migration Guide - (Simple Journey)
+      - name: FastTrack Migration Guide
         items:
         - name: Getting Started
           href: cloud-adoption/migrate/journeys/simple-migration/index.md
@@ -654,7 +680,7 @@
           href: cloud-adoption/migrate/journeys/simple-migration/optimize-and-transform.md
         - name: Secure and Manage
           href: cloud-adoption/migrate/journeys/simple-migration/secure-and-manage.md
-      - name: Parallel More Complex Journey
+      - name: Complex Scenarios
         items:
         - name: Getting started
           href: cloud-adoption/migrate/journeys/complex-path/index.md
@@ -768,7 +794,7 @@
         items:
         - name: Securing and managing workloads post migration
           href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-management
-    - name: Migration Theory
+    - name: Migration Considerations
       items:
       - name: Overview
         href: cloud-adoption/migrate/theory/index.md
@@ -844,11 +870,11 @@
     items:
     - name: Overview
       href: cloud-adoption/governance/overview.md
-    - name: Actionable governance journeys
+    - name: Governance Guides
       items:
-      - name: Overview of the journeys
+      - name: Overview of the Guides
         href: cloud-adoption/governance/journeys/overview.md
-      - name: Small-to-medium enterprise journey
+      - name: FastTrack Guide
         items:
         - name: Best practice
           href: cloud-adoption/governance/journeys/small-to-medium-enterprise/overview.md
@@ -866,7 +892,7 @@
           href: cloud-adoption/governance/journeys/small-to-medium-enterprise/cost-management-evolution.md
         - name: Multi-cloud evolution
           href: cloud-adoption/governance/journeys/small-to-medium-enterprise/multi-cloud-evolution.md
-      - name: Large enterprise journey
+      - name: Complex Scenarios
         items:
         - name: Best practice
           href: cloud-adoption/governance/journeys/large-enterprise/overview.md
@@ -888,7 +914,7 @@
           href: cloud-adoption/governance/journeys/large-enterprise/multi-cloud-evolution.md
         - name: Multiple layers of governance
           href: cloud-adoption/governance/journeys/large-enterprise/multiple-layers-of-governance.md
-    - name: Governance theory
+    - name: Governance Considerations
       items:
       - name: Implement a cloud governance strategy
         href: cloud-adoption/governance/corporate-policy.md
