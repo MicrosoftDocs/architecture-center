@@ -1,8 +1,12 @@
 ---
 title: "CAF: Secure and Manage"
 description: Secure and Manage
-author: BrianBlanchard
+author: Matticusau
+ms.author: mlavery
 ms.date: 4/14/2019
+ms.topic: conceptual
+ms.service: azure-portal
+ms.custom: "fasttrack-new"
 ---
 
 # Secure and Manage
