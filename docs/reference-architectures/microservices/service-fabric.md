@@ -163,7 +163,7 @@ Service Fabric uses metrics to know how to place and balance services within a c
 
 The initially specified default load for a service will not change over the lifetime of the service. To capture changing metrics for a given service, we recommend that you monitor your service and then report the load dynamically. This allows Service Fabric to adjust the allocation based on the reported load at a given time. Use the [IServicePartition.ReportLoad](/dotnet/api/system.fabric.iservicepartition.reportload?view=azure-dotnet) method to report custom metrics. For more information, see [Dynamic load](/azure/service-fabric/service-fabric-cluster-resource-manager-metrics#dynamic-load).
 
-# Availability considerations
+## Availability considerations
 
 Place your services in a node type other than the primary node type. The Service Fabric system services are always deployed to the primary node type. If your services are deployed to the primary node type, they might compete with system services for resources and interfere with the system services. If a node type is expected to host stateful services, make sure there are at least five node instances and you select the Silver or Gold Durability tier.
 
