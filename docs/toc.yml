@@ -755,7 +755,7 @@
       - name: Migrate
         items:
         - name: Set up networking for migrated workloads
-          href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-networking
+          href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-networking.md
         - name: Application migration examples
           items:
           - name: Overview
@@ -797,11 +797,11 @@
       - name: Optimize
         items:
         - name: Costing and Sizing Workloads
-          href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-costs
+          href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-costs.md
       - name: Secure and Manage
         items:
         - name: Securing and managing workloads post migration
-          href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-management
+          href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-management.md
     - name: Migration Considerations
       items:
       - name: Overview
