@@ -801,7 +801,7 @@
       - name: Secure and Manage
         items:
         - name: Securing and managing workloads post migration
-          href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-management.md
+          href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-security-management.md
     - name: Migration Considerations
       items:
       - name: Overview
