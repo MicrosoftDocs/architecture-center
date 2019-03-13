@@ -571,12 +571,13 @@
     items:
     - name: Overview
       href: cloud-adoption/getting-started/overview.md
-    - name: How does Azure work?
-      href: cloud-adoption/getting-started/what-is-azure.md
-    - name: What is cloud resource governance?
-      href: cloud-adoption/getting-started/what-is-governance.md
-    - name: Resource access management in Azure
-      href: cloud-adoption/getting-started/azure-resource-access.md
+    - name: Migrate
+      href: cloud-adoption/getting-started/migrate.md
+    - name: Innovate
+      href: cloud-adoption/getting-started/innovate.md
+    - name: Evolve
+      href: cloud-adoption/getting-started/evolve.md
+      
   - name: Plan
     items:
     - name: Overview
@@ -613,50 +614,24 @@
     items:
     - name: XX-Overview
       href: cloud-adoption/ready/index.md
-    - name: Actionable Migration Journeys
-      items:
-      - name: XX-Overview of the journeys
-        href: cloud-adoption/ready/journeys/index.md
-      - name: Azure Readiness Guide - (Simple Journey)
-        items:
-        - name: Set up your Azure environment
-          href: cloud-adoption/ready/journeys/simple/index.md
-        - name: Manage access
-          href: cloud-adoption/ready/journeys/simple/manage-access.md
-        - name: Organize your resources
-          href: cloud-adoption/ready/journeys/simple/organize-resources.md
-        - name: Manage costs and billing
-          href: cloud-adoption/ready/journeys/simple/manage-costs.md
-        - name: Plan governance, security, and compliance
-          href: cloud-adoption/ready/journeys/simple/govern-org-compliance.md
-        - name: Use monitoring and reporting
-          href: cloud-adoption/ready/journeys/simple/monitoring-reporting.md
-    - name: Azure Best Practices
-      items:
-      - name: XX-Overview
-        href: cloud-adoption/ready/azure-best-practices/index.md
-    - name: Build Theory
-      items:
-      - name: XX-Overview
-        href: cloud-adoption/ready/theory/index.md
-      - name: XX-Governance and Security Alignment
-        href: cloud-adoption/ready/theory/index.md
-      - name: XX-Business Stakeholder Alignment
-        href: cloud-adoption/ready/theory/index.md
-      - name: XX-Agile Change Management Tool
-        href: cloud-adoption/ready/theory/index.md
-      - name: XX-Nomenclature
-        href: cloud-adoption/ready/theory/index.md
-      - name: XX-Primitives
-        href: cloud-adoption/ready/theory/index.md
-      - name: XX-Network
-        href: cloud-adoption/ready/theory/index.md
-      - name: XX-Identity
-        href: cloud-adoption/ready/theory/index.md
-      - name: XX-Monitoring
-        href: cloud-adoption/ready/theory/index.md
-      - name: Create hybrid cloud consistency
-        href: cloud-adoption/infrastructure/misc/hybrid-consistency.md
+    - name: Initial Org Alignment
+      href: cloud-adoption/ready/initial-org-alignment.md
+    - name: XX-Governance and Security Alignment
+      href: cloud-adoption/ready/theory/index.md
+    - name: XX-Business Stakeholder Alignment
+      href: cloud-adoption/ready/theory/index.md
+    - name: XX-Agile Change Management Tool
+      href: cloud-adoption/ready/theory/index.md
+    - name: XX-Primitives
+      href: cloud-adoption/ready/theory/index.md
+    - name: XX-Network
+      href: cloud-adoption/ready/theory/index.md
+    - name: XX-Identity
+      href: cloud-adoption/ready/theory/index.md
+    - name: XX-Monitoring
+      href: cloud-adoption/ready/theory/index.md
+    - name: Create hybrid cloud consistency
+      href: cloud-adoption/infrastructure/misc/hybrid-consistency.md
   - name: Migrate
     items:
     - name: Overview
@@ -1067,6 +1042,8 @@
       href: cloud-adoption/operations/operational-fitness-review.md
   - name: References
     items:
+    - name: How does Azure work?
+      href: cloud-adoption/getting-started/what-is-azure.md
     - name: Virtual Data Center (VDC)
       href: vdc/index.md
     - name: Azure enterprise scaffold
