@@ -1,5 +1,5 @@
 ---
-title: Contoso-Set up a migration infrastructure | Microsoft Docs
+title: Application migration examples - Set up a migration infrastructure | Microsoft Docs
 description: Learn how Contoso sets up an Azure infrastructure for migration to Azure.
 services: azure-migrate
 author: rayne-wiselman
@@ -11,7 +11,7 @@ ms.author: raynew
 
 ---
 
-# Contoso - Deploy a migration infrastructure
+# Application migration examples - Deploy a migration infrastructure
 
 In this article, Contoso prepares its on-premises infrastructure for migration, and sets up an Azure infrastructure, in preparation for migration, and for running the business in a hybrid environment.
 

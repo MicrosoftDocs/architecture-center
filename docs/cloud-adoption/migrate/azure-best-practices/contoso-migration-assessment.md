@@ -1,5 +1,5 @@
 ---
-title: Assess on-premises workloads for Contoso migration to Azure  | Microsoft Docs
+title: Assess on-premises workloads for migration to Azure  | Microsoft Docs
 description: Learn how Contoso assesses its on-premises machines for migration to Azure by using Azure Migrate and Data Migration Assistant.
 services: site-recovery
 author: rayne-wiselman
@@ -12,7 +12,7 @@ ms.author: raynew
 
 ---
 
-# Contoso migration: Assess on-premises workloads for migration to Azure
+# Application migration examples: Assess on-premises workloads for migration to Azure
 
 In this article, Contoso assesses its on-premises SmartHotel360 app for migration to Azure.
 
@@ -40,7 +40,7 @@ Article 3: Assess on-premises resources for migration to Azure | Contoso runs an
 
 As Contoso considers migrating to Azure, the company wants to run a technical and financial assessment to determine whether its on-premises workloads are suitable for migration to the cloud. In particular, the Contoso team wants to assess machine and database compatibility for migration. It wants to estimate capacity and costs for running Contoso's resources in Azure.
 
-To get started and to better understand the technologies involved, Contoso assesses two of its on-premises apps, summarized in the following table. The company assesses for migration scenarios that rehost and refactor apps for migration. Learn more about rehosting and refactoring in the [Contoso migration overview](contoso-migration-overview.md).
+To get started and to better understand the technologies involved, Contoso assesses two of its on-premises apps, summarized in the following table. The company assesses for migration scenarios that rehost and refactor apps for migration. Learn more about rehosting and refactoring in the [migration examples overview](contoso-migration-overview.md).
 
 App name | Platform | App tiers | Details
 --- | --- | --- | ---

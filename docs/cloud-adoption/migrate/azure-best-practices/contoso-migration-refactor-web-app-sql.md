@@ -1,5 +1,5 @@
 ---
-title: Refactor a Contoso app by migrating it to Azure Web App and Azure SQL Database | Microsoft Docs
+title: Refactor an app by migrating it to Azure Web App and Azure SQL Database | Microsoft Docs
 description: Learn how Contoso rehosts an on-premises app by migrating it to an Azure Web App and Azure SQL Server database.
 services: site-recovery
 author: rayne-wiselman
@@ -10,7 +10,7 @@ ms.date: 10/11/2018
 ms.author: raynew
 ---
 
-# Contoso migration: Refactor an on-premises app to an Azure Web App and Azure SQL database
+# Application migration examples: Refactor an on-premises app to an Azure Web App and Azure SQL database
 
 This article demonstrates how Contoso refactors their SmartHotel360 app in Azure. They migrate the app frontend VM to an Azure Web App, and the app database to an Azure SQL database.
 

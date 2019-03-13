@@ -1,6 +1,6 @@
 ---
-title: Rearchitect a Contoso app in an Azure container and Azure SQL Database | Microsoft Docs
-description: Learn how Contoso rearchitect an app in Azure Windows containers and Azure SQL Database.
+title: Rearchitect an app in an Azure container and Azure SQL Database | Microsoft Docs
+description: Learn how Contoso rearchitects an app in Azure Windows containers and Azure SQL Database.
 services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
@@ -9,7 +9,7 @@ ms.date: 10/11/2018
 ms.author: raynew
 ---
 
-# Contoso migration: Rearchitect an on-premises app to an Azure container and Azure SQL Database
+#  Application migration examples: Rearchitect an on-premises app to an Azure container and Azure SQL Database
 
 This article demonstrates how Contoso migrates and rearchitect its SmartHotel360 app in Azure. Contoso migrates the app frontend VM to an Azure Windows container, and the app database to an Azure SQL database.
 

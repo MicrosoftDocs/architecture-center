@@ -1,5 +1,5 @@
 ---
-title: Rebuild a Contoso on-premises app to Azure | Microsoft Docs
+title: Rebuild an on-premises app to Azure | Microsoft Docs
 description: Learn how Contoso rebuilds an app to Azure using Azure App Services, the Kubernetes service, CosmosDB, Azure Functions, and Cognitive services.
 services: site-recovery
 author: rayne-wiselman
@@ -10,7 +10,7 @@ ms.date: 10/11/2018
 ms.author: raynew
 ---
 
-# Contoso migration: Rebuild an on-premises app to Azure
+# Application migration examples: Rebuild an on-premises app to Azure
 
 This article demonstrates how Contoso migrates and rebuilds the SmartHotel360 app in Azure. Contoso migrates the app's front end VM to Azure App Services Web apps. The app back end is built using microservices deployed to containers managed by Azure Kubernetes Service (AKS). The site interacts with Azure Functions to provide pet photo functionality. 
 

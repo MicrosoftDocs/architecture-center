@@ -1,5 +1,5 @@
 ---
-title: Rehost a Contoso app by migrating it to Azure VMs and SQL Server AlwaysOn availability group | Microsoft Docs
+title: Rehost an app by migrating it to Azure VMs and SQL Server AlwaysOn availability group | Microsoft Docs
 description: Learn how Contoso rehost an on-premises app by migrating it to Azure VMs and SQL Server AlwaysOn availability group
 services: site-recovery
 author: rayne-wiselman
@@ -10,7 +10,7 @@ ms.date: 10/11/2018
 ms.author: raynew
 ---
 
-# Contoso migration: Rehost an on-premises app on Azure VMs and SQL Server AlwaysOn Availability Group
+# Application migration examples: Rehost an on-premises app on Azure VMs and SQL Server AlwaysOn Availability Group
 
 This article demonstrates how Contoso rehosts the SmartHotel360 app in Azure. Contoso migrates the app frontend VM to an Azure VM, and the app database to an Azure SQL Server VM, running in a Windows Server failover cluster with SQL Server AlwaysOn Availability gGroups.
 

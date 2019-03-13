@@ -1,6 +1,6 @@
 ---
-title: Overview of Contoso migration to Azure | Microsoft Docs
-description: Provides an overview of the migration strategy and scenarios used by Contoso to migrate their on-premises datacenter to Azure.
+title: Overview of CAF application migration examples to Azure | Microsoft Docs
+description: Provides an overview of the application migration examples included as part of the Cloud Adoption Framework Migrate section.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
@@ -9,7 +9,7 @@ ms.date: 10/11/2018
 ms.author: raynew
 
 ---
-# Contoso migration: Overview
+# Application migration examples: Overview
 
 
 This article demonstrates how the fictitious organization Contoso migrates on-premises infrastructure to the [Microsoft Azure](https://azure.microsoft.com/overview/what-is-azure/) cloud. 

@@ -1,5 +1,5 @@
 ---
-title: Refactor a Contoso Linux service desk app to the Azure App Service and Azure MySQL | Microsoft Docs
+title: Refactor a Linux service desk app to the Azure App Service and Azure MySQL | Microsoft Docs
 description: Learn how Contoso refactors on-premises Linux app by migrating it to Azure App Service using GitHub for Web Tier and Azure SQL Database.
 author: rayne-wiselman
 manager: carmonm
@@ -9,7 +9,7 @@ ms.date: 10/11/2018
 ms.author: raynew
 ---
 
-# Contoso migration: Refactor a Contoso Linux service desk app to multiple regions with Azure App Service, Traffic Manager, and Azure MySQL
+# Application migration examples: Refactor a Contoso Linux service desk app to multiple regions with Azure App Service, Traffic Manager, and Azure MySQL
 
 This article shows how Contoso refactors their on-premises two-tier Linux service desk app (osTicket), by migrating it to Azure App Service with GitHub integration, and Azure MySQL.
 

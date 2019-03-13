@@ -1,5 +1,5 @@
 ---
-title: Rehost a Contoso Linux service desk app to Azure and Azure MySQL | Microsoft Docs
+title: Rehost a Linux service desk app to Azure and Azure MySQL | Microsoft Docs
 description: Learn how Contoso rehosts an on-premises Linux app by migrating it to Azure VMs and Azure MySQL.
 author: rayne-wiselman
 manager: carmonm
@@ -9,7 +9,7 @@ ms.date: 10/10/2018
 ms.author: raynew
 ---
 
-# Contoso migration: Rehost an on-premises Linux app to Azure VMs and Azure MySQL
+# Application migration examples: Rehost an on-premises Linux app to Azure VMs and Azure MySQL
 
 This article shows how Contoso rehosts its on-premises two-tier Linux service desk app (osTicket), by migrating it to Azure and Azure MySQL.
 

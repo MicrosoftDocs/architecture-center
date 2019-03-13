@@ -11,7 +11,7 @@ ms.author: raynew
 
 ---
 
-# Contoso migration: Rehost an on-premises Linux app to Azure VMs
+# Application migration examples: Rehost an on-premises Linux app to Azure VMs
 
 This article shows how Contoso is rehosting an on-premises Linux-based service desk app (**osTicket**), to Azure IaaS VMs.
 
