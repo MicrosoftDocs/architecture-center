@@ -15,7 +15,7 @@ ms.custom: "fasttrack - new"
 
 ::: zone-end
 
-::: zone target="chromeless"
+::: zone target="docs"
 
 # Learn how to stay current with Azure updates
 
@@ -29,7 +29,7 @@ For the best experience within the Azure Portal we recommend opening the links p
 
 ::: zone-end
 
-## Top Resources
+# [Top Resources](#tab/TopResources)
 
 * [Azure Service Health](https://docs.microsoft.com/azure/service-health/service-health-overview)
   * You can use this to get timely notifications for ongoing service issues, planned maintenance and health advisories including features being deprecated
@@ -47,7 +47,7 @@ For the best experience within the Azure Portal we recommend opening the links p
   * This is an unofficial resource but contains an aggregation of most of the resources above and you can go into details for individual services (also making it a great way to discover those service-specific blogs for example)
   * Subscribe via [RSS](http://azureinfohub.azurewebsites.net/Feed?serviceTitle=Azure)
 
-## Additional Resources
+# [Additional Resources](#tab/AdditionalResources)
 
 * [Azure Friday](https://channel9.msdn.com/Shows/Azure-Friday)
   * Weekly videos with the engineers who build Azure, demo it, answer questions, and share insights
