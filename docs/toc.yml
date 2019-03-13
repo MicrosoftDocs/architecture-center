@@ -614,26 +614,30 @@
     items:
     - name: XX-Overview
       href: cloud-adoption/ready/index.md
-    - name: Initial Org Alignment
-      href: cloud-adoption/ready/initial-org-alignment.md
-    - name: Readiness Guides
+    - name: Organizational Readiness
       items:
-      - name: XX-Overview of the Guides
-        href: cloud-adoption/ready/journeys/index.md
-      - name: FastTrack Readiness Guide
-        items:
-        - name: Set up your Azure environment
-          href: cloud-adoption/ready/journeys/simple/index.md
-        - name: Manage access
-          href: cloud-adoption/ready/journeys/simple/manage-access.md
-        - name: Organize your resources
-          href: cloud-adoption/ready/journeys/simple/organize-resources.md
-        - name: Manage costs and billing
-          href: cloud-adoption/ready/journeys/simple/manage-costs.md
-        - name: Plan governance, security, and compliance
-          href: cloud-adoption/ready/journeys/simple/govern-org-compliance.md
-        - name: Use monitoring and reporting
-          href: cloud-adoption/ready/journeys/simple/monitoring-reporting.md
+      - name: Initial Org Alignment
+        href: cloud-adoption/ready/initial-org-alignment.md
+      - name: XX-Governance and Security Alignment
+        href: cloud-adoption/ready/theory/index.md
+      - name: XX-Business Stakeholder Alignment
+        href: cloud-adoption/ready/theory/index.md
+      - name: XX-Change Management
+        href: cloud-adoption/ready/theory/index.md
+    - name: FastTrack Readiness Guide
+      items:
+      - name: Set up your Azure environment
+        href: cloud-adoption/ready/journeys/simple/index.md
+      - name: Manage access
+        href: cloud-adoption/ready/journeys/simple/manage-access.md
+      - name: Organize your resources
+        href: cloud-adoption/ready/journeys/simple/organize-resources.md
+      - name: Manage costs and billing
+        href: cloud-adoption/ready/journeys/simple/manage-costs.md
+      - name: Plan governance, security, and compliance
+        href: cloud-adoption/ready/journeys/simple/govern-org-compliance.md
+      - name: Use monitoring and reporting
+        href: cloud-adoption/ready/journeys/simple/monitoring-reporting.md
     - name: Azure Best Practices
       items:
       - name: XX-Overview
@@ -642,11 +646,7 @@
       items:
       - name: XX-Overview
         href: cloud-adoption/ready/theory/index.md
-      - name: XX-Governance and Security Alignment
-        href: cloud-adoption/ready/theory/index.md
-      - name: XX-Business Stakeholder Alignment
-        href: cloud-adoption/ready/theory/index.md
-      - name: XX-Agile Change Management Tool
+      - name: XX-Naming Standards
         href: cloud-adoption/ready/theory/index.md
       - name: XX-Primitives
         href: cloud-adoption/ready/theory/index.md
