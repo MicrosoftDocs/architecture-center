@@ -1,7 +1,7 @@
 ---
 title: "CAF: Secure and Manage"
 description: Secure and Manage
-author: Matticusau
+author: matticusau
 ms.author: mlavery
 ms.date: 4/14/2019
 ms.topic: conceptual
