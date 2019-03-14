@@ -571,12 +571,13 @@
     items:
     - name: Overview
       href: cloud-adoption/getting-started/overview.md
-    - name: How does Azure work?
-      href: cloud-adoption/getting-started/what-is-azure.md
-    - name: What is cloud resource governance?
-      href: cloud-adoption/getting-started/what-is-governance.md
-    - name: Resource access management in Azure
-      href: cloud-adoption/getting-started/azure-resource-access.md
+    - name: Migrate
+      href: cloud-adoption/getting-started/migrate.md
+    - name: Innovate
+      href: cloud-adoption/getting-started/innovate.md
+    - name: Evolve
+      href: cloud-adoption/getting-started/evolve.md
+      
   - name: Plan
     items:
     - name: Overview
@@ -613,41 +614,41 @@
     items:
     - name: XX-Overview
       href: cloud-adoption/ready/index.md
-    - name: Actionable Migration Journeys
+    - name: Organizational Readiness
       items:
-      - name: XX-Overview of the journeys
-        href: cloud-adoption/ready/journeys/index.md
-      - name: Azure Readiness Guide - (Simple Journey)
-        items:
-        - name: Set up your Azure environment
-          href: cloud-adoption/ready/journeys/simple/index.md
-        - name: Organize your resources
-          href: cloud-adoption/ready/journeys/simple/organize-resources.md
-        - name: Manage access
-          href: cloud-adoption/ready/journeys/simple/manage-access.md
-        - name: Manage costs and billing
-          href: cloud-adoption/ready/journeys/simple/manage-costs.md
-        - name: Plan governance, security, and compliance
-          href: cloud-adoption/ready/journeys/simple/govern-org-compliance.md
-        - name: Use monitoring and reporting
-          href: cloud-adoption/ready/journeys/simple/monitoring-reporting.md
-        - name: Staying current with Azure
+      - name: Initial Org Alignment
+        href: cloud-adoption/ready/initial-org-alignment.md
+      - name: XX-Governance and Security Alignment
+        href: cloud-adoption/ready/theory/index.md
+      - name: XX-Business Stakeholder Alignment
+        href: cloud-adoption/ready/theory/index.md
+      - name: XX-Change Management
+        href: cloud-adoption/ready/theory/index.md
+    - name: FastTrack Readiness Guide
+      items:
+      - name: Set up your Azure environment
+        href: cloud-adoption/ready/journeys/simple/index.md
+      - name: Organize your resources
+        href: cloud-adoption/ready/journeys/simple/organize-resources.md
+      - name: Manage access
+        href: cloud-adoption/ready/journeys/simple/manage-access.md
+      - name: Manage costs and billing
+        href: cloud-adoption/ready/journeys/simple/manage-costs.md
+      - name: Plan governance, security, and compliance
+        href: cloud-adoption/ready/journeys/simple/govern-org-compliance.md
+      - name: Use monitoring and reporting
+        href: cloud-adoption/ready/journeys/simple/monitoring-reporting.md
+      - name: Staying current with Azure
           href: cloud-adoption/ready/journeys/simple/staying-current.md
     - name: Azure Best Practices
       items:
       - name: XX-Overview
         href: cloud-adoption/ready/azure-best-practices/index.md
-    - name: Build Theory
+    - name: Readiness Considerations
       items:
       - name: XX-Overview
         href: cloud-adoption/ready/theory/index.md
-      - name: XX-Governance and Security Alignment
-        href: cloud-adoption/ready/theory/index.md
-      - name: XX-Business Stakeholder Alignment
-        href: cloud-adoption/ready/theory/index.md
-      - name: XX-Agile Change Management Tool
-        href: cloud-adoption/ready/theory/index.md
-      - name: XX-Nomenclature
+      - name: XX-Naming Standards
         href: cloud-adoption/ready/theory/index.md
       - name: XX-Primitives
         href: cloud-adoption/ready/theory/index.md
@@ -663,11 +664,11 @@
     items:
     - name: Overview
       href: cloud-adoption/migrate/index.md
-    - name: Actionable Migration Journeys
+    - name: Migration Guides
       items:
-      - name: Overview of the journeys
+      - name: Overview of the Guides
         href: cloud-adoption/migrate/journeys/index.md
-      - name: Azure Migration Guide - (Simple Journey)
+      - name: FastTrack Migration Guide
         items:
         - name: Getting Started
           href: cloud-adoption/migrate/journeys/simple-migration/index.md
@@ -685,7 +686,7 @@
           href: cloud-adoption/migrate/journeys/simple-migration/secure-and-manage.md
         - name: Help + Support
           href: cloud-adoption/migrate/journeys/simple-migration/assistance.md
-      - name: Parallel More Complex Journey
+      - name: Complex Scenarios
         items:
         - name: Getting started
           href: cloud-adoption/migrate/journeys/complex-path/index.md
@@ -760,46 +761,54 @@
       - name: Migrate
         items:
         - name: Set up networking for migrated workloads
-          href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-networking
-        - name: Contoso migration series
+          href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-networking.md
+        - name: Application migration examples
           items:
-          - name: 1. Contoso-Migration overview
+          - name: Overview
             href: cloud-adoption/migrate/azure-best-practices/contoso-migration-overview.md
-          - name: 2. Contoso-Deploy an Azure infrastructure
+          - name: Deploy an Azure infrastructure
             href: cloud-adoption/migrate/azure-best-practices/contoso-migration-infrastructure.md
-          - name: 3. Contoso-Assess on-premises resources for migration to Azure
+          - name: Assess on-premises resources for migration to Azure
             href: cloud-adoption/migrate/azure-best-practices/contoso-migration-assessment.md
-          - name: 4. Contoso-Rehost an app on Azure VMs and Azure SQL Database Managed Instance
-            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm-sql-managed-instance.md
-          - name: 5. Contoso-Rehost an app on Azure VMs
-            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm.md
-          - name: 6. Contoso-Rehost an app on Azure VMs and Azure SQL Server AlwaysOn Availability Groups
-            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm-sql-ag.md
-          - name: 7. Contoso-Rehost a Linux app on Azure VMs
-            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-linux-vm.md
-          - name: 8. Contoso-Rehost a Linux app on Azure VMs and Azure MySQL
-            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-linux-vm-mysql.md
-          - name: 9. Contoso-Refactor an app on Azure Web Apps and Azure SQL Database
-            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-refactor-web-app-sql.md
-          - name: 10. Contoso-Refactor a Linux app on Azure Web Apps and Azure MySQL
-            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-refactor-linux-app-service-mysql.md
-          - name: 11. Contoso-Migrate TFS to Azure DevOps Services
-            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-tfs-vsts.md
-          - name: 12. Contoso-Rearchitect an app on Azure Containers and Azure SQL Database
-            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rearchitect-container-sql.md
-          - name: 13. Contoso-Rebuild an app in Azure
-            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rebuild.md
-          - name: 14. Contoso-Scale a migration
+          - name: Windows Server workloads
+            items:
+            - name: Rehost an app on Azure VMs
+              href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm.md
+            - name: Migrate TFS to Azure DevOps Services
+              href: cloud-adoption/migrate/azure-best-practices/contoso-migration-tfs-vsts.md          
+          - name: Linux workloads
+            items:
+            - name: Rehost a Linux app on Azure VMs
+              href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-linux-vm.md
+            - name: Rehost a Linux app on Azure VMs and Azure MySQL
+              href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-linux-vm-mysql.md
+          - name: SQL Server workloads
+            items:
+            - name: Rehost an app on Azure VMs and Azure SQL Database Managed Instance
+              href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm-sql-managed-instance.md
+            - name: Rehost an app on Azure VMs and Azure SQL Server AlwaysOn Availability Groups
+              href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm-sql-ag.md
+            - name: Rearchitect an app on Azure Containers and Azure SQL Database
+              href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rearchitect-container-sql.md
+          - name: ASP.NET/PHP/Java Apps
+            items:
+            - name: Refactor an app on Azure Web Apps and Azure SQL Database
+              href: cloud-adoption/migrate/azure-best-practices/contoso-migration-refactor-web-app-sql.md
+            - name: Refactor a Linux app on Azure Web Apps and Azure MySQL
+              href: cloud-adoption/migrate/azure-best-practices/contoso-migration-refactor-linux-app-service-mysql.md
+            - name: Rebuild an app in Azure
+              href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rebuild.md
+          - name: Scale a migration
             href: cloud-adoption/migrate/azure-best-practices/contoso-migration-scale.md
       - name: Optimize
         items:
         - name: Costing and Sizing Workloads
-          href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-costs
+          href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-costs.md
       - name: Secure and Manage
         items:
         - name: Securing and managing workloads post migration
-          href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-management
-    - name: Migration Theory
+          href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-security-management.md
+    - name: Migration Considerations
       items:
       - name: Overview
         href: cloud-adoption/migrate/theory/index.md
@@ -875,11 +884,11 @@
     items:
     - name: Overview
       href: cloud-adoption/governance/overview.md
-    - name: Actionable governance journeys
+    - name: Governance Guides
       items:
-      - name: Overview of the journeys
+      - name: Overview of the Guides
         href: cloud-adoption/governance/journeys/overview.md
-      - name: Small-to-medium enterprise journey
+      - name: FastTrack Guide
         items:
         - name: Best practice
           href: cloud-adoption/governance/journeys/small-to-medium-enterprise/overview.md
@@ -897,7 +906,7 @@
           href: cloud-adoption/governance/journeys/small-to-medium-enterprise/cost-management-evolution.md
         - name: Multi-cloud evolution
           href: cloud-adoption/governance/journeys/small-to-medium-enterprise/multi-cloud-evolution.md
-      - name: Large enterprise journey
+      - name: Complex Scenarios
         items:
         - name: Best practice
           href: cloud-adoption/governance/journeys/large-enterprise/overview.md
@@ -919,7 +928,7 @@
           href: cloud-adoption/governance/journeys/large-enterprise/multi-cloud-evolution.md
         - name: Multiple layers of governance
           href: cloud-adoption/governance/journeys/large-enterprise/multiple-layers-of-governance.md
-    - name: Governance theory
+    - name: Governance Considerations
       items:
       - name: Implement a cloud governance strategy
         href: cloud-adoption/governance/corporate-policy.md
@@ -1049,23 +1058,7 @@
               href: cloud-adoption/governance/deployment-acceleration/discipline-improvement.md
             - name: Azure-specific toolchain
               href: cloud-adoption/governance/deployment-acceleration/toolchain.md
-  - name: Infrastructure
-    items:
-    - name: Virtual Machines
-      items:
-        - name: Deploy a basic workload
-          href: cloud-adoption/infrastructure/virtual-machines/basic-workload.md
-    - name: Mainframe Migration
-      items:
-        - name: Overview
-          href: cloud-adoption/infrastructure/mainframe-migration/overview.md
-        - name: Myths and facts
-          href: cloud-adoption/infrastructure/mainframe-migration/myths-and-facts.md
-        - name: Migration strategies
-          href: cloud-adoption/infrastructure/mainframe-migration/migration-strategies.md
-        - name: Application strategies
-          href: cloud-adoption/infrastructure/mainframe-migration/application-strategies.md
-  - name: Operations
+  - name: Operate
     items:
     - name: Overview
       href: cloud-adoption/operations/overview.md
@@ -1073,6 +1066,24 @@
       href: cloud-adoption/operations/operational-fitness-review.md
   - name: References
     items:
+    - name: Infrastructure
+      items:
+      - name: Virtual Machines
+        items:
+          - name: Deploy a basic workload
+            href: cloud-adoption/infrastructure/virtual-machines/basic-workload.md
+      - name: Mainframe Migration
+        items:
+          - name: Overview
+            href: cloud-adoption/infrastructure/mainframe-migration/overview.md
+          - name: Myths and facts
+            href: cloud-adoption/infrastructure/mainframe-migration/myths-and-facts.md
+          - name: Migration strategies
+            href: cloud-adoption/infrastructure/mainframe-migration/migration-strategies.md
+          - name: Application strategies
+            href: cloud-adoption/infrastructure/mainframe-migration/application-strategies.md
+    - name: How does Azure work?
+      href: cloud-adoption/getting-started/what-is-azure.md
     - name: Virtual Data Center (VDC)
       href: vdc/index.md
     - name: Azure enterprise scaffold

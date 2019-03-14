@@ -10,29 +10,9 @@ ms.author: raynew
 
 ---
 
-# Contoso migration:  Refactor a Team Foundation Server deployment to Azure DevOps Services
+# Application migration examples:  Refactor a Team Foundation Server deployment to Azure DevOps Services
 
-This article shows how Contoso are refactoring their on-premises Team Foundation Server (TFS) deployment by migrating it to Azure DevOps Services in Azure. Contoso's development team have used TFS for team collaboration and source control for the past five years. Now, they want to move to a cloud-based solution for dev and test work, and for source control. Azure DevOps Services will play a role as they move to an Azure DevOps model, and develop new cloud-native apps.
-
-This document is one in a series of articles that show how the fictitious company Contoso migrates its on-premises resources to the Microsoft Azure cloud. The series includes background information, and scenarios that illustrate how to set up a migration infrastructure, and run different types of migrations. Scenarios grow in complexity. We'll add additional articles over time.
-
-**Article** | **Details** | **Status**
---- | --- | ---
-[Article 1: Overview](contoso-migration-overview.md) | Provides an overview of Contoso's migration strategy, the article series, and the sample apps we use. | Available
-[Article 2: Deploy an Azure infrastructure](contoso-migration-infrastructure.md) | Describes how Contoso prepares its on-premises and Azure infrastructure for migration. The same infrastructure is used for all Contoso migration scenarios. | Available
-[Article 3: Assess on-premises resources](contoso-migration-assessment.md)  | Shows how Contoso runs an assessment of their on-premises two-tier SmartHotel app running on VMware. They assess app VMs with the [Azure Migrate](migrate-overview.md) service, and the app SQL Server database with the [Azure Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Available
-[Article 4: Rehost to Azure VMs and a SQL Managed Instance](contoso-migration-rehost-vm-sql-managed-instance.md) | Demonstrates how Contoso migrates the SmartHotel app to Azure. They migrate the app web VM using [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), and the app database using the [Azure Database Migration](https://docs.microsoft.com/azure/dms/dms-overview) service, to migrate to a SQL Managed Instance. | Available
-[Article 5: Rehost to Azure VMs](contoso-migration-rehost-vm.md) | Shows how Contoso migrate their SmartHotel to Azure IaaS VMs, using the Site Recovery service.
-[Article 6: Rehost to Azure VMs and SQL Server Availability Groups](contoso-migration-rehost-vm-sql-ag.md) | Shows how Contoso migrates the SmartHotel app. They use Site Recovery to migrate the app VMs, and the Database Migration service to migrate the app database to a SQL Server Availability Group. | Available
-[Article 7: Rehost a Linux app to Azure VMs](contoso-migration-rehost-linux-vm.md) | Shows how Contoso migrates their osTicket Linux app to Azure IaaS VMs using Azure Site Recovery.
-[Article 8: Rehost a Linux app to Azure VMs and Azure MySQL Server](contoso-migration-rehost-linux-vm-mysql.md) | Demonstrates how Contoso migrates the osTicket Linux app. They use Site Recovery for VM migration, and MySQL Workbench to migrate to an Azure MySQL Server instance. | Available
-[Article 9: Refactor an app to an Azure Web App and Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Demonstrates how Contoso migrates the SmartHotel app to an Azure container-based web app, and migrates the app database to Azure SQL Server. | Available
-[Article 10: Refactor a Linux app to Azure App Service and Azure MySQL Server](contoso-migration-refactor-linux-app-service-mysql.md) | Shows how Contoso migrates the osTicket Linux app to Azure App Service using PHP 7.0 Docker container. The code base for the deployment is migrated to GitHub. The app database is migrated to Azure MySQL. | Available
-Article 11: Refactor a TFS deployment in Azure DevOps Services | Migrate the dev app TFS to Azure DevOps Services in Azure | This article
-[Article 12: Rearchitect an app on Azure containers and Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Shows how Contoso migrates and rearchitects their SmartHotel app to Azure. They rearchitect the app web tier as a Windows container, and the app database in an Azure SQL Database. | Available
-[Article 13: Rebuild an app in Azure](contoso-migration-rebuild.md) | Shows how Contoso rebuild their SmartHotel app using a range of Azure capabilities and services, including App Services, Azure Kubernetes, Azure Functions, Cognitive services, and Cosmos DB. | Available
-[Article 14: Scale a migration to Azure](contoso-migration-scale.md) | After trying out migration combinations, Contoso prepares to scale to a full migration to Azure. | Available
-
+This article shows how the fictional company Contoso refactors their on-premises Team Foundation Server (TFS) deployment by migrating it to Azure DevOps Services in Azure. Contoso's development team have used TFS for team collaboration and source control for the past five years. Now, they want to move to a cloud-based solution for dev and test work, and for source control. Azure DevOps Services will play a role as they move to an Azure DevOps model, and develop new cloud-native apps.
 
 ## Business drivers
 

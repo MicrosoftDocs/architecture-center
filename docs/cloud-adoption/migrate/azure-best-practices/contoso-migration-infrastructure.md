@@ -1,5 +1,5 @@
 ---
-title: Contoso-Set up a migration infrastructure | Microsoft Docs
+title: Application migration examples - Set up a migration infrastructure | Microsoft Docs
 description: Learn how Contoso sets up an Azure infrastructure for migration to Azure.
 services: azure-migrate
 author: rayne-wiselman
@@ -11,35 +11,12 @@ ms.author: raynew
 
 ---
 
-# Contoso - Deploy a migration infrastructure
+# Application migration examples - Deploy a migration infrastructure
 
-In this article, Contoso prepares its on-premises infrastructure for migration, and sets up an Azure infrastructure, in preparation for migration, and for running the business in a hybrid environment.
+This article shows how the fictional company Contoso prepares its on-premises infrastructure for migration, sets up an Azure infrastructure in preparation for migration, and runs the business in a hybrid environment. When you use this example to help plan your own infrastructure migration efforts, keep the following in mind:
 
-- It's a sample architecture that's specific to Contoso.
+- The provided sample architecture is specific to Contoso. Review your own organization's business needs, structure, and technical requirements when making decisions regarding important infrastructure decisions like subscription design or networking architecture.
 - Whether you need all the elements described in this article depends upon your migration strategy. For example, if you're building only cloud-native apps in Azure, you might need a less complex networking structure.
-
-This article is part of a series of articles that document how the fictitious company Contoso migrates its on-premises resources to the Microsoft Azure cloud. The series includes background information and a series of deployment scenarios that illustrate how to set up a migration infrastructure, assess the suitability of on-premises resources for migration, and run different types of migrations. Scenarios grow in complexity. Articles will be added to the series over time.
-
-
-**Article** | **Details** | **Status**
---- | --- | ---
-[Article 1: Overview](contoso-migration-overview.md) | Overview of the article series, Contoso's migration strategy, and the sample apps that are used in the series. | Available
-Article 2: Deploy an Azure infrastructure | Contoso prepares its on-premises infrastructure and its Azure infrastructure for migration. The same infrastructure is used for all migration articles in the series. | This article
-[Article 3: Assess on-premises resources for migration to Azure](contoso-migration-assessment.md)  | SContoso runs an assessment of its on-premises SmartHotel360 app running on VMware. Contoso assesses app VMs using the Azure Migrate service, and the app SQL Server database using Data Migration Assistant. | Available
-[Article 4: Rehost an app on an Azure VM and SQL Database Managed Instance](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso runs a lift-and-shift migration to Azure for its on-premises SmartHotel360 app. Contoso migrates the app front-end VM using [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Contoso migrates the app database to an Azure SQL Database Managed Instance using the [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Available	
-[Article 5: Rehost an app on Azure VMs](contoso-migration-rehost-vm.md) | Contoso migrates its SmartHotel360 app VMs to Azure VMs using the Site Recovery service. | Available
-[Article 6: Rehost an app on Azure VMs and in a  SQL Server AlwaysOn availability group](contoso-migration-rehost-vm-sql-ag.md) | Contoso migrates the app, using Site Recovery to migrate the app VMs, and the Database Migration Service to migrate the app database to a SQL Server cluster that's protected by an AlwaysOn availability group. | Available
-[Article 7: Rehost a Linux app on Azure VMs](contoso-migration-rehost-linux-vm.md) | Contoso completes a lift-and-shift migration of its Linux osTicket app to Azure VMs, using the Site Recovery service. | Available
-[Article 8: Rehost a Linux app on Azure VMs and Azure Database for MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Contoso migrates its Linux osTicket app to Azure VMs by using Site Recovery. It migrates the app database to Azure Database for MySQL by using MySQL Workbench. | Available
-[Article 9: Refactor an app in an Azure web app and Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Contoso migrates its SmartHotel360 app to an Azure web app and migrates the app database to an Azure SQL Server instance with the Database Migration Assistant. | Available	
-[Article 10: Refactor a Linux app in an Azure web app and Azure Database for MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso migrates its Linux osTicket app to an Azure web app on multiple sites. The web app is integrated with GitHub for continuous delivery. It migrates the app database to an Azure Database for MySQL instance. | Available
-[Article 11: Refactor Team Foundation Server on Azure DevOps Services](contoso-migration-tfs-vsts.md) | Contoso migrates its on-premises Team Foundation Server deployment to Azure DevOps Services in Azure. | Available
-[Article 12: Rearchitect an app in Azure containers and Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Contoso migrates its SmartHotel app to Azure. Then, it rearchitects the app web tier as a Windows container running in Azure Service Fabric, and the app database with Azure SQL Database. | Available	
-[Article 13: Rebuild an app in Azure](contoso-migration-rebuild.md) | Contoso rebuilds its SmartHotel app by using a range of Azure capabilities and services, including Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services, and Azure Cosmos DB. | Available
-[Article 14: Scale a migration to Azure](contoso-migration-scale.md) | After trying out migration combinations, Contoso prepares to scale to a full migration to Azure. | Available	
-
-In this article Contoso sets up all the infrastructure elements it needs to complete all migration scenarios. 
-
 
 ## Overview
 
@@ -642,7 +619,7 @@ As they configure identity and access control, Contoso has already begun to put 
 
 The Azure Policy service evaluates your resources, scanning for those not compliant with the policy definitions you have in place. For example, you might have a policy that only allows certain types of VMs, or requires resources to have a specific tag. 
 
-Azure policies specify a policy definition, and a policy assignment specifies the scope in which a policy should be applied. The scope can range from a management group to a resource group. [Learn](../governance/policy/tutorials/create-and-manage.md) about creating and managing policies.
+Azure policies specify a policy definition, and a policy assignment specifies the scope in which a policy should be applied. The scope can range from a management group to a resource group. [Learn](/azure/governance/policy/tutorials/create-and-manage.md) about creating and managing policies.
 
 Contoso wants to get started with a couple of policies:
 
