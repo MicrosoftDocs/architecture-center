@@ -614,12 +614,12 @@
     items:
     - name: XX-Overview
       href: cloud-adoption/ready/index.md
+    - name: XX-Governance and Security Alignment
+      href: cloud-adoption/ready/theory/index.md
     - name: Organizational Readiness
       items:
       - name: Initial Org Alignment
         href: cloud-adoption/ready/initial-org-alignment.md
-      - name: XX-Governance and Security Alignment
-        href: cloud-adoption/ready/theory/index.md
       - name: XX-Business Stakeholder Alignment
         href: cloud-adoption/ready/theory/index.md
       - name: XX-Change Management
@@ -638,10 +638,6 @@
         href: cloud-adoption/ready/journeys/simple/govern-org-compliance.md
       - name: Use monitoring and reporting
         href: cloud-adoption/ready/journeys/simple/monitoring-reporting.md
-    - name: Azure Best Practices
-      items:
-      - name: XX-Overview
-        href: cloud-adoption/ready/azure-best-practices/index.md
     - name: Readiness Considerations
       items:
       - name: XX-Overview
@@ -658,6 +654,10 @@
         href: cloud-adoption/ready/theory/index.md
       - name: Create hybrid cloud consistency
         href: cloud-adoption/infrastructure/misc/hybrid-consistency.md
+    - name: Azure Best Practices
+      items:
+      - name: XX-Overview
+        href: cloud-adoption/ready/azure-best-practices/index.md
   - name: Migrate
     items:
     - name: Overview
@@ -665,89 +665,105 @@
     - name: Migration Guides
       items:
       - name: Overview of the Guides
-        href: cloud-adoption/migrate/journeys/index.md
+        href: cloud-adoption/migrate/guides/index.md
       - name: FastTrack Migration Guide
         items:
         - name: Getting Started
-          href: cloud-adoption/migrate/journeys/simple-migration/index.md
+          href: cloud-adoption/migrate/guides/fasttrack-migration-guide/index.md
         - name: Pre-requisite
-          href: cloud-adoption/migrate/journeys/simple-migration/pre-requisites.md
+          href: cloud-adoption/migrate/guides/fasttrack-migration-guide/pre-requisites.md
         - name: Assess
-          href: cloud-adoption/migrate/journeys/simple-migration/assess.md
+          href: cloud-adoption/migrate/guides/fasttrack-migration-guide/assess.md
         - name: Migrate
-          href: cloud-adoption/migrate/journeys/simple-migration/migrate.md
+          href: cloud-adoption/migrate/guides/fasttrack-migration-guide/migrate.md
         - name: Optimize and Transform
-          href: cloud-adoption/migrate/journeys/simple-migration/optimize-and-transform.md
+          href: cloud-adoption/migrate/guides/fasttrack-migration-guide/optimize-and-transform.md
         - name: Secure and Manage
-          href: cloud-adoption/migrate/journeys/simple-migration/secure-and-manage.md
+          href: cloud-adoption/migrate/guides/fasttrack-migration-guide/secure-and-manage.md
       - name: Complex Scenarios
         items:
-        - name: Getting started
-          href: cloud-adoption/migrate/journeys/complex-path/index.md
+        - name: XX- Getting started
+          href: cloud-adoptionmigrate/guides/complex-scenarios/index.md
+        - name: XX- Planning checklist for complex migration scenarios
+          href: cloud-adoption/migrate/journeys/complex-scenarios/checklists.md
         - name: Pre-requisite
           items:
-          - name: Narrative
-            href: cloud-adoption/migrate/journeys/complex-path/pre-requisites/narrative.md
-          - name: When to use this approach
-            href: cloud-adoption/migrate/journeys/complex-path/pre-requisites/qualify.md
-          - name: Migration Process (Effort, Roles, Definition of Done)
-            href: cloud-adoption/migrate/journeys/complex-path/pre-requisites/process.md
-          - name: Planning Checklist
-            href: cloud-adoption/migrate/journeys/complex-path/pre-requisites/planning-checklist.md
-          - name: Technical complexity and change management
-            href: cloud-adoption/migrate/journeys/complex-path/pre-requisites/technical-complexity.md
-          - name: Cultural complexity and change management
-            href: cloud-adoption/migrate/journeys/complex-path/pre-requisites/culture-complexity.md
+          - name: XX- Balancing the portfolio
+            href: cloud-adoption/migrate/journeys/complex-scenarios/pre-requisites/planning-at-scale.md
+          - name: XX- Migrating at scale - High volume or velocity of migrations
+            href: cloud-adoption/migrate/journeys/complex-scenarios/pre-requisites/migrating-at-scale.md
+          - name: XX- Multiple geographical regions
+            href: cloud-adoption/migrate/journeys/complex-scenarios/pre-requisites/multiple-regions.md
+          - name: XX- Multiple data centers
+            href: cloud-adoption/migrate/journeys/complex-scenarios/pre-requisites/multiple-data-centers.md
+          - name: XX- Governance or compliance strategy
+            href: cloud-adoption/migrate/journeys/complex-scenarios/pre-requisites/governance-or-compliance.md
+          - name: XX- Technical complexity and change management
+            href: cloud-adoptionmigrate/guides/complex-scenarios/pre-requisites/technical-complexity.md
+          - name: XX- Cultural complexity and change management
+            href: cloud-adoptionmigrate/guides/complex-scenarios/pre-requisites/culture-complexity.md
+          - name: XX- Organizational complexity (Executive readiness)
+            href: cloud-adoptionmigrate/guides/complex-scenarios/pre-requisites/executive-readiness.md
+          - name: XX- Organizational complexity (Skills readiness)
+            href: cloud-adoptionmigrate/guides/complex-scenarios/pre-requisites/skill-readiness.md
+          - name: XX- Organizational complexity (Partner alignment)
+            href: cloud-adoptionmigrate/guides/complex-scenarios/pre-requisites/partner-alignment.md
         - name: Assess
           items:
-          - name: Assessment Process
-            href: cloud-adoption/migrate/journeys/complex-path/assess/process.md
-          - name: Assessment Tools
-            href: cloud-adoption/migrate/journeys/complex-path/assess/tools.md
-          - name: Technical Evaluation
-            href: cloud-adoption/migrate/journeys/complex-path/assess/evaluation.md
-          - name: Architecture Decisions
-            href: cloud-adoption/migrate/journeys/complex-path/assess/architecture.md
-          - name: Sprint and Release Backlogs (Digital Estate segmentation)
-            href: cloud-adoption/migrate/journeys/complex-path/assess/backlogs.md
-          - name: Change management approval
-            href: cloud-adoption/migrate/journeys/complex-path/assess/approval.md
+          - name: XX- Which of the complexity components are advanced during assess
+            href: cloud-adoptionmigrate/guides/complex-scenarios/assess/process.md
+          - name: XX- Assessment Tools
+            href: cloud-adoptionmigrate/guides/complex-scenarios/assess/tools.md
+          - name: XX- Technical Evaluation
+            href: cloud-adoptionmigrate/guides/complex-scenarios/assess/evaluation.md
+          - name: XX- Architecture Decisions
+            href: cloud-adoptionmigrate/guides/complex-scenarios/assess/architecture.md
+          - name: XX- Sprint and Release Backlogs (Digital Estate segmentation)
+            href: cloud-adoptionmigrate/guides/complex-scenarios/assess/backlogs.md
+          - name: XX- Change management approval
+            href: cloud-adoptionmigrate/guides/complex-scenarios/assess/approval.md
         - name: Migrate
           items:
-          - name: Migration process
-            href: cloud-adoption/migrate/journeys/complex-path/assess/process.md
-          - name: Remediate incompatible assets
-            href: cloud-adoption/migrate/journeys/complex-path/assess/remediate.md
-          - name: Replicate assets
-            href: cloud-adoption/migrate/journeys/complex-path/assess/replicate.md
-          - name: Stage applications
-            href: cloud-adoption/migrate/journeys/complex-path/assess/stage.md
-          - name: Document change
-            href: cloud-adoption/migrate/journeys/complex-path/assess/document.md
+          - name: XX- Which of the complexity components are advanced during migrate
+            href: cloud-adoptionmigrate/guides/complex-scenarios/assess/process.md
+          - name: XX- Migration process
+            href: cloud-adoptionmigrate/guides/complex-scenarios/assess/process.md
+          - name: XX- Remediate incompatible assets
+            href: cloud-adoptionmigrate/guides/complex-scenarios/assess/remediate.md
+          - name: XX- Replicate assets
+            href: cloud-adoptionmigrate/guides/complex-scenarios/assess/replicate.md
+          - name: XX- Stage applications
+            href: cloud-adoptionmigrate/guides/complex-scenarios/assess/stage.md
+          - name: XX- Document change
+            href: cloud-adoptionmigrate/guides/complex-scenarios/assess/document.md
         - name: Optimize and Promote
           items:
-          - name: Optimize and Promote Processes
-            href: cloud-adoption/migrate/journeys/complex-path/optimize-and-promote/process.md
-          - name: Business Testing
-            href: cloud-adoption/migrate/journeys/complex-path/optimize-and-promote/business-testing.md
-          - name: Business Change Plan
-            href: cloud-adoption/migrate/journeys/complex-path/optimize-and-promote/business-change-plan.md
-          - name: Ready for Production
-            href: cloud-adoption/migrate/journeys/complex-path/optimize-and-promote/ready.md
-          - name: Promote to Production
-            href: cloud-adoption/migrate/journeys/complex-path/optimize-and-promote/promote.md
-          - name: Decomission retired assets
-            href: cloud-adoption/migrate/journeys/complex-path/optimize-and-promote/decomission.md
-          - name: Retrospective
-            href: cloud-adoption/migrate/journeys/complex-path/optimize-and-promote/Retrospective.md
+          - name: XX- Which of the complexity components are advanced during optimize and promote
+            href: cloud-adoptionmigrate/guides/complex-scenarios/assess/process.md
+          - name: XX- Optimize and Promote Processes
+            href: cloud-adoptionmigrate/guides/complex-scenarios/optimize-and-promote/process.md
+          - name: XX- Business Testing
+            href: cloud-adoptionmigrate/guides/complex-scenarios/optimize-and-promote/business-testing.md
+          - name: XX- Business Change Plan
+            href: cloud-adoptionmigrate/guides/complex-scenarios/optimize-and-promote/business-change-plan.md
+          - name: XX- Ready for Production
+            href: cloud-adoptionmigrate/guides/complex-scenarios/optimize-and-promote/ready.md
+          - name: XX- Promote to Production
+            href: cloud-adoptionmigrate/guides/complex-scenarios/optimize-and-promote/promote.md
+          - name: XX- Decomission retired assets
+            href: cloud-adoptionmigrate/guides/complex-scenarios/optimize-and-promote/decomission.md
+          - name: XX- Retrospective
+            href: cloud-adoptionmigrate/guides/complex-scenarios/optimize-and-promote/Retrospective.md
         - name: Secure and Manage
           items:
-          - name: Secure and Manage Transition Processes
-            href: cloud-adoption/migrate/journeys/complex-path/secure-and-manage/process.md
-          - name: Operations MVP
-            href: cloud-adoption/migrate/journeys/complex-path/secure-and-manage/operations-mvp.md
-          - name: Prepare for Cloud Operations
-            href: cloud-adoption/migrate/journeys/complex-path/secure-and-manage/prepare-for-cloud-operations.md
+          - name: XX- Which of the complexity components are advanced during secure and manage
+            href: cloud-adoptionmigrate/guides/complex-scenarios/assess/process.md
+          - name: XX- Secure and Manage Transition Processes
+            href: cloud-adoptionmigrate/guides/complex-scenarios/secure-and-manage/process.md
+          - name: XX- Operations MVP
+            href: cloud-adoptionmigrate/guides/complex-scenarios/secure-and-manage/operations-mvp.md
+          - name: XX- Prepare for Cloud Operations
+            href: cloud-adoptionmigrate/guides/complex-scenarios/secure-and-manage/prepare-for-cloud-operations.md
     - name: Azure Best Practices
       items:
       - name: Overview
