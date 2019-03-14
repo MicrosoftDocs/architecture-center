@@ -675,16 +675,16 @@
           href: cloud-adoption/migrate/journeys/simple-migration/pre-requisites.md
         - name: Assess
           href: cloud-adoption/migrate/journeys/simple-migration/assess.md
-        - name: Manage Cost
-          href: cloud-adoption/migrate/journeys/simple-migration/manage-cost.md
         - name: Migrate
           href: cloud-adoption/migrate/journeys/simple-migration/migrate.md
+        - name: Manage Cost
+          href: cloud-adoption/migrate/journeys/simple-migration/manage-cost.md
         - name: Optimize and Transform
           href: cloud-adoption/migrate/journeys/simple-migration/optimize-and-transform.md
         - name: Secure and Manage
           href: cloud-adoption/migrate/journeys/simple-migration/secure-and-manage.md
         - name: Help + Support
-          href: cloud-adoption/migrate/journeys/simple-migration/help-support.md
+          href: cloud-adoption/migrate/journeys/simple-migration/assistance.md
       - name: Parallel More Complex Journey
         items:
         - name: Getting started

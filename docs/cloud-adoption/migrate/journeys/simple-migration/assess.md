@@ -17,7 +17,6 @@ Intro Text
 
 What options are available?
 
-
 ::: zone target="docs"
 
 ## Link to tools in docs view
@@ -43,3 +42,7 @@ add text
 
 Based on this narrative, what is the expected timeline?
 What variables would influence that timeline?
+
+# [Cost Management](#tab/ManageCost)
+
+As you assess your environment this presents a perfect opportunity to include a cost analysis step within those activities. Utilizing the data collected by the assessment activities you should be able to analyse and predict costs. This cost predication should factor both the consumption service costs in addition to any one time costs (increased data ingress, etc).
