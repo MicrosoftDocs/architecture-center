@@ -639,7 +639,7 @@
       - name: Use monitoring and reporting
         href: cloud-adoption/ready/journeys/simple/monitoring-reporting.md
       - name: Staying current with Azure
-          href: cloud-adoption/ready/journeys/simple/staying-current.md
+        href: cloud-adoption/ready/journeys/simple/staying-current.md
     - name: Azure Best Practices
       items:
       - name: XX-Overview
