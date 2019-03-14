@@ -53,6 +53,11 @@ What do they hope to accomplish after this migration?
 
 This guide has been designed for environments
 
+# Learn More
+
+- [CAF: Migration Theory](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/migrate/theory/pre-requisites/?branch=caf%2Fmigrate-v1)
+- [CAF: 5 Rs of Rationalization](https://docs.microsoft.com/en-gb/azure/architecture/cloud-adoption/digital-estate/5-rs-of-rationalization)
+
 # [Planning Checklist](#tab/Checklist)
 
 Before starting a migration there are a number of activities you will need to complete. The exact details of these activities will vary depending on the environment you are migrating, however as a general rule the following checklist may apply:
@@ -74,9 +79,8 @@ Assuming you choose a "rehost" approach to migration the following child activit
 
 ::: zone target="docs"
 
-# Related content
+# Learn More
 
-- [CAF: Migration Theory](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/migrate/theory/pre-requisites/?branch=caf%2Fmigrate-v1)
 - [CAF: 5 Rs of Rationalization](https://docs.microsoft.com/en-gb/azure/architecture/cloud-adoption/digital-estate/5-rs-of-rationalization)
 - [CAF: Planning Checklist](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/migrate/theory/pre-requisites/planning-checklist?branch=caf%2Fmigrate-v1)
 
