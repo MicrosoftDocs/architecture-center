@@ -1,7 +1,7 @@
 ---
 title: Learn how to stay current with Azure in todays cloud cadence | Microsoft docs
 description: Learn how to stay current with Azure in todays cloud cadence.
-author: "Jelle Druyts"   
+author: jelledruyts
 ms.author: jelled
 ms.date: 03/12/2019
 ms.topic: conceptual
