@@ -10,7 +10,7 @@ ms.date: 10/11/2018
 ms.author: raynew
 ---
 
-# Application migration examples: Rehost an on-premises app to Azure VMs
+# Rehost an on-premises app to Azure VMs
 
 
 This article demonstrates how the fictional company Contoso rehosts a two-tier Windows .NET frontend app running on VMware VMs, by migrating the app VMs to Azure VMs.

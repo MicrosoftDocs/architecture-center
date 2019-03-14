@@ -10,7 +10,7 @@ ms.author: raynew
 
 ---
 
-# Application migration examples: Refactor a Contoso Linux service desk app to multiple regions with Azure App Service, Traffic Manager, and Azure MySQL
+# Refactor a Linux app to multiple regions using Azure App Service, Traffic Manager, and Azure MySQL
 
 This article shows how the fictional company Contoso refactors a two-tier Linux-based Apache MySQL PHP (LAMP) app, migrating it from on-premises to Azure using Azure App Service with GitHub integration and Azure MySQL.
 

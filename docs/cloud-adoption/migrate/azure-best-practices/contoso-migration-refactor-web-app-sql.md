@@ -10,7 +10,7 @@ ms.date: 10/11/2018
 ms.author: raynew
 ---
 
-# Application migration examples: Refactor an on-premises app to an Azure Web App and Azure SQL database
+# Refactor an on-premises app to an Azure Web App and Azure SQL database
 
 This article demonstrates how the fictional company Contoso refactors a two-tier Windows .NET app running on VMware VMs as part of a migration to Azure. They migrate the app frontend VM to an Azure Web App, and the app database to an Azure SQL database.
 

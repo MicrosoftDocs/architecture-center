@@ -9,7 +9,7 @@ ms.date: 10/10/2018
 ms.author: raynew
 ---
 
-# Application migration examples: Rehost an on-premises Linux app to Azure VMs and Azure MySQL
+# Rehost an on-premises Linux app to Azure VMs and Azure MySQL
 
 This article shows how the fictional company Contoso rehosts a two-tier Linux-based Apache MySQL PHP (LAMP) app, migrating it from on-premises to Azure using Azure VMs and Azure MySQL.
 
