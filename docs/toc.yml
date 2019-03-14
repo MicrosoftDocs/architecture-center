@@ -771,45 +771,53 @@
       - name: Migrate
         items:
         - name: Set up networking for migrated workloads
-          href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-networking
-        - name: Contoso migration series
+          href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-networking.md
+        - name: Application migration examples
           items:
-          - name: 1. Contoso-Migration overview
+          - name: Overview
             href: cloud-adoption/migrate/azure-best-practices/contoso-migration-overview.md
-          - name: 2. Contoso-Deploy an Azure infrastructure
+          - name: Deploy an Azure infrastructure
             href: cloud-adoption/migrate/azure-best-practices/contoso-migration-infrastructure.md
-          - name: 3. Contoso-Assess on-premises resources for migration to Azure
+          - name: Assess on-premises resources for migration to Azure
             href: cloud-adoption/migrate/azure-best-practices/contoso-migration-assessment.md
-          - name: 4. Contoso-Rehost an app on Azure VMs and Azure SQL Database Managed Instance
-            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm-sql-managed-instance.md
-          - name: 5. Contoso-Rehost an app on Azure VMs
-            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm.md
-          - name: 6. Contoso-Rehost an app on Azure VMs and Azure SQL Server AlwaysOn Availability Groups
-            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm-sql-ag.md
-          - name: 7. Contoso-Rehost a Linux app on Azure VMs
-            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-linux-vm.md
-          - name: 8. Contoso-Rehost a Linux app on Azure VMs and Azure MySQL
-            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-linux-vm-mysql.md
-          - name: 9. Contoso-Refactor an app on Azure Web Apps and Azure SQL Database
-            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-refactor-web-app-sql.md
-          - name: 10. Contoso-Refactor a Linux app on Azure Web Apps and Azure MySQL
-            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-refactor-linux-app-service-mysql.md
-          - name: 11. Contoso-Migrate TFS to Azure DevOps Services
-            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-tfs-vsts.md
-          - name: 12. Contoso-Rearchitect an app on Azure Containers and Azure SQL Database
-            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rearchitect-container-sql.md
-          - name: 13. Contoso-Rebuild an app in Azure
-            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rebuild.md
-          - name: 14. Contoso-Scale a migration
+          - name: Windows Server workloads
+            items:
+            - name: Rehost an app on Azure VMs
+              href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm.md
+            - name: Migrate TFS to Azure DevOps Services
+              href: cloud-adoption/migrate/azure-best-practices/contoso-migration-tfs-vsts.md          
+          - name: Linux workloads
+            items:
+            - name: Rehost a Linux app on Azure VMs
+              href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-linux-vm.md
+            - name: Rehost a Linux app on Azure VMs and Azure MySQL
+              href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-linux-vm-mysql.md
+          - name: SQL Server workloads
+            items:
+            - name: Rehost an app on Azure VMs and Azure SQL Database Managed Instance
+              href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm-sql-managed-instance.md
+            - name: Rehost an app on Azure VMs and Azure SQL Server AlwaysOn Availability Groups
+              href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm-sql-ag.md
+            - name: Rearchitect an app on Azure Containers and Azure SQL Database
+              href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rearchitect-container-sql.md
+          - name: ASP.NET/PHP/Java Apps
+            items:
+            - name: Refactor an app on Azure Web Apps and Azure SQL Database
+              href: cloud-adoption/migrate/azure-best-practices/contoso-migration-refactor-web-app-sql.md
+            - name: Refactor a Linux app on Azure Web Apps and Azure MySQL
+              href: cloud-adoption/migrate/azure-best-practices/contoso-migration-refactor-linux-app-service-mysql.md
+            - name: Rebuild an app in Azure
+              href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rebuild.md
+          - name: Scale a migration
             href: cloud-adoption/migrate/azure-best-practices/contoso-migration-scale.md
       - name: Optimize
         items:
         - name: Costing and Sizing Workloads
-          href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-costs
+          href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-costs.md
       - name: Secure and Manage
         items:
         - name: Securing and managing workloads post migration
-          href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-management
+          href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-security-management.md
     - name: Migration Considerations
       items:
       - name: Overview
