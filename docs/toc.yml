@@ -784,7 +784,7 @@
               href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm-sql-ag.md
             - name: Rearchitect an app on Azure Containers and Azure SQL Database
               href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rearchitect-container-sql.md
-          - name: ASP.net/PHP/Java Apps
+          - name: ASP.NET/PHP/Java Apps
             items:
             - name: Refactor an app on Azure Web Apps and Azure SQL Database
               href: cloud-adoption/migrate/azure-best-practices/contoso-migration-refactor-web-app-sql.md

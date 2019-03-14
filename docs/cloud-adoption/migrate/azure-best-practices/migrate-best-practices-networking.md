@@ -94,7 +94,7 @@ DEV-DB-EUS2 | 10.245.24.0/23 | 507 | Database VMs
 
 **Learn more:**
 - [Learn about](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm#segmentation) designing subnets.
-- [Learn how](https://docs.microsoft.com/azure/migrate/contoso-migration-infrastructure) a fictitious company (Contoso) prepared their networking infrastructure for migration.
+- [Learn how](https://docs.microsoft.com/azure/migrate/contoso-migration-infrastructure) a fictional company (Contoso) prepared their networking infrastructure for migration.
 
 
 ## Best practice: Set up a DNS server

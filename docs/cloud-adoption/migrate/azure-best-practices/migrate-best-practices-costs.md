@@ -76,7 +76,7 @@ You can choose a number of options when you deploy Azure VMs to support workload
 **Learn more:**
 - [Learn more](https://docs.microsoft.com/azure/virtual-machines/windows/sizes) about VM types and sizing, and map sizes to types.
 - [Plan](https://docs.microsoft.com/azure/cloud-services/cloud-services-sizes-specs) VM sizing.
-- [Review](https://docs.microsoft.com/azure/migrate/contoso-migration-assessment) a sample assessment for the fictitious Contoso company.
+- [Review](https://docs.microsoft.com/azure/migrate/contoso-migration-assessment) a sample assessment for the fictional Contoso company.
 
 ## Best practice: Select the right storage
 
