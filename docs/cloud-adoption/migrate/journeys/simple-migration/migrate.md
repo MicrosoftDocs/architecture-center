@@ -1,18 +1,29 @@
 ---
 title: "CAF: Migrate assets"
 description: Migrate assets
-author: BrianBlanchard
+author: matticusau
+ms.author: mlavery
 ms.date: 4/14/2019
+ms.topic: conceptual
+ms.service: azure-portal
+ms.custom: "fasttrack-new"
 ---
 
 # Migrate assets
 
-Intro Text
+The following options exist for migrating your solution.
+
+> * **Rehost** - Also known as "lift and shift," a rehost effort moves the current state asset to the chosen cloud provider, with minimal change to overall architecture.
+> * **Refactor** - Platform as a Service (PaaS) options can reduce operational costs associated with many applications. It can be prudent to slightly refactor an application to fit a PaaS based model. Refactor also refers to the application development process of refactoring code to allow an application to deliver on new business opportunities.
+> * **Rearchitect** - Some aging applications aren't compatible with cloud providers because of the architectural decisions made when the application was built. In these cases, the application may need to be rearchitected prior to transformation.
+> * **Rebuild** - In some scenarios, the delta that must be overcome to carry forward an application can be too large to justify further investment and the solution must be rebuilt.
+> * **Replace** - Solutions are generally implemented using the best technology and approach available at the time. In some cases, Software as a Service (SaaS) applications can meet all of the functionality required of the hosted application. In these scenarios, a workload could be slated for future replacement, effectively removing it from the transformation effort.
+
+![Infographic of the migration options](../../../_images/migration/migration-options.png)
 
 # [Native Migration Tools](#tab/Tools)
 
-What options are available?
-
+Native migrations tools.
 
 ::: zone target="docs"
 
