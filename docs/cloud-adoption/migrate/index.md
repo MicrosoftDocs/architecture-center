@@ -60,13 +60,13 @@ To start down an adoption path, choose one of the following guides. Each guide o
 
 A journey without a target destination is just wandering. It’s important to establish a rough vision of the end state before taking the first step. The infographic below outlines a starting point consisting of existing applications, data, and infrastructure, which defines the Digital Estate. During the migration process, those assets are transitioned into one of the options on the right.
 
-![Infographic of the migration options](../../_images/migration/migration-options.png)
+![Infographic of the migration options](../_images/migration/migration-options.png)
 
 ## Incremental Migration Model
 
 This series of articles will outline two journeys, each with a similar end state: Migrate a large percentage of existing assets to Azure. However, the business outcomes and current state will heavily influence the processes required to get there. Those subtle deviations will result in two radically different approaches to reaching the a similar end state.
 
-![CAF Migration Model](../../_images/operational-transformation-migrate.png)
+![CAF Migration Model](../_images/operational-transformation-migrate.png)
 
 To guide incremental execution during the transition to the end state, this model breaks migration into two areas of focus.
 
