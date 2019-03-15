@@ -10,7 +10,7 @@ ms.date: 10/11/2018
 ms.author: raynew
 ---
 
-# Application migration examples: Rehost an on-premises app on an Azure VM and SQL Database Managed Instance
+# Rehost an on-premises app on an Azure VM and SQL Database Managed Instance
 
 This article shows how the fictional company Contoso migrates a two-tier Windows .NET frontend app running on VMware VMs to an Azure VM using the Azure Site Recovery service. It also shows how Contoso migrates the app database to Azure SQL Database Managed Instance.
 

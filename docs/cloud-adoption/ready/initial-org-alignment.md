@@ -1,15 +1,15 @@
 ---
-title: "CAF: Getting started with the Cloud Adoption Framework"
+title: "CAF: Initial organization alignment"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
-description: Describes an overview of the first phase of an enterprise's digital transformation in adopting Azure cloud technologies.
+description: Describes an overview of the Initial organization alignment
 author: petertaylor9999
-ms.date: 2/11/2019
+ms.date: 4/04/2019
 ---
 
-# Getting started with the Cloud Adoption Framework
+# Initial organization alignment
 
 The **digital transformation** to cloud computing represents a shift from operating on-premises to operating in the cloud. This shift includes new ways of doing business - for example, the digital transformation shifts from capital expenditures for software and datacenter hardware to operating expenditures for usage of cloud resources. Let's see how to get started using the [Microsoft Cloud Adoption Framework for Azure](../overview.md).
 

@@ -10,7 +10,7 @@ ms.author: raynew
 
 ---
 
-# Application migration examples:  Refactor a Team Foundation Server deployment to Azure DevOps Services
+# Refactor a Team Foundation Server deployment to Azure DevOps Services
 
 This article shows how the fictional company Contoso refactors their on-premises Team Foundation Server (TFS) deployment by migrating it to Azure DevOps Services in Azure. Contoso's development team have used TFS for team collaboration and source control for the past five years. Now, they want to move to a cloud-based solution for dev and test work, and for source control. Azure DevOps Services will play a role as they move to an Azure DevOps model, and develop new cloud-native apps.
 
