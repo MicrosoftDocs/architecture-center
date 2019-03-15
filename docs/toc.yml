@@ -679,7 +679,7 @@
         - name: Migrate
           href: cloud-adoption/migrate/journeys/simple-migration/migrate.md
         - name: Manage Cost
-          href: cloud-adoption/migrate/journeys/simple-migration/manage-cost.md
+          href: cloud-adoption/migrate/journeys/simple-migration/manage-costs.md
         - name: Optimize and Transform
           href: cloud-adoption/migrate/journeys/simple-migration/optimize-and-transform.md
         - name: Secure and Manage

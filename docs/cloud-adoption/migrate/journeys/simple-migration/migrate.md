@@ -42,3 +42,7 @@ add text
 # [How-To Videos](#tab/videos)
 
 add text
+
+# [Cost Management](#tab/ManageCost)
+
+As you migration your resources into your cloud environment it is important to perform regular cost analysis. This provides you with an opportunity to avoid an unexpected usage charges as a migration process can place additional usage requirements on your services. You also have the ability to resize resources as needed to balance cost and workload, which is covered in more detail within the **Optimize and Transform** section.

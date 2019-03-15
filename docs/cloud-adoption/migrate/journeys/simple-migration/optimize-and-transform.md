@@ -33,3 +33,7 @@ Intro Text
 # [Right Size Assets](#tab/optimize)
 
 How can assets be right sized?
+
+# [Cost Management](#tab/ManageCost)
+
+It is important to perform ongoing cost analysis and review. This provides you with an opportunity to resize resources as needed to balance cost and workload.

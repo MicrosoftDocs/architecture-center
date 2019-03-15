@@ -1,6 +1,6 @@
 ---
 title: "CAF: How to obtain assistance"
-description: CAF: How to obtain assistance during your journey to Azure
+description: How to obtain assistance during your journey to Azure
 author: matticusau
 ms.author: mlavery
 ms.date: 4/14/2019
