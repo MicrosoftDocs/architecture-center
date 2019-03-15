@@ -663,7 +663,7 @@
     - name: Overview
       href: cloud-adoption/migrate/index.md
     - name: Methodology and approach
-      href: cloud-adoption/migrate/index.md
+      href: cloud-adoption/migrate/using-these-guides.md
     - name: Azure Migration Guide
       items:
       - name: Getting Started
@@ -758,6 +758,24 @@
           href: cloud-adoption/migrate/complex-scenarios/secure-and-manage/operations-mvp.md
         - name: XX- Prepare for Cloud Operations
           href: cloud-adoption/migrate/complex-scenarios/secure-and-manage/prepare-for-cloud-operations.md
+      - name: Expanded Complexity Guidance
+        items:
+        - name: XX- Overview
+          href: cloud-adoption/migrate/expanded-complexity-guidance/index.md
+        - name: XX- 
+          href: cloud-adoption/migrate/expanded-complexity-guidance/.md
+        - name: XX- 
+          href: cloud-adoption/migrate/expanded-complexity-guidance/.md
+        - name: XX- 
+          href: cloud-adoption/migrate/expanded-complexity-guidance/.md
+        - name: XX- 
+          href: cloud-adoption/migrate/expanded-complexity-guidance/.md
+        - name: XX- 
+          href: cloud-adoption/migrate/expanded-complexity-guidance/.md
+        - name: XX- 
+          href: cloud-adoption/migrate/expanded-complexity-guidance/.md
+        - name: XX- 
+          href: cloud-adoption/migrate/expanded-complexity-guidance/.md
     - name: Azure Best Practices
       items:
       - name: Overview
@@ -815,75 +833,75 @@
     - name: Migration Considerations
       items:
       - name: Overview
-        href: cloud-adoption/migrate/theory/index.md
+        href: cloud-adoption/migrate/migration-considerations/index.md
       - name: Pre-Requisites
         items:
         - name: Overview
-          href: cloud-adoption/migrate/theory/pre-requisites/index.md
+          href: cloud-adoption/migrate/migration-considerations/pre-requisites/index.md
         - name: Early Decisions
-          href: cloud-adoption/migrate/theory/pre-requisites/decisions.md
+          href: cloud-adoption/migrate/migration-considerations/pre-requisites/decisions.md
         - name: Environment Planning Checklist
-          href: cloud-adoption/migrate/theory/pre-requisites/planning-checklist.md
+          href: cloud-adoption/migrate/migration-considerations/pre-requisites/planning-checklist.md
         - name: Technical complexity and change management
-          href: cloud-adoption/migrate/theory/pre-requisites/technical-complexity.md
+          href: cloud-adoption/migrate/migration-considerations/pre-requisites/technical-complexity.md
         - name: Cultural complexity and change management
-          href: cloud-adoption/migrate/theory/pre-requisites/culture-complexity.md
+          href: cloud-adoption/migrate/migration-considerations/pre-requisites/culture-complexity.md
         - name: Digital Estate Review
-          href: cloud-adoption/migrate/theory/pre-requisites/digital-estate.md
+          href: cloud-adoption/migrate/migration-considerations/pre-requisites/digital-estate.md
       - name: Assess
         items:
         - name: Overview
-          href: cloud-adoption/migrate/theory/assess/index.md
+          href: cloud-adoption/migrate/migration-considerations/assess/index.md
         - name: Business Priorities
-          href: cloud-adoption/migrate/theory/assess/business-priorities.md
+          href: cloud-adoption/migrate/migration-considerations/assess/business-priorities.md
         - name: Evaluate
-          href: cloud-adoption/migrate/theory/assess/evaluate.md
+          href: cloud-adoption/migrate/migration-considerations/assess/evaluate.md
         - name: Architect
-          href: cloud-adoption/migrate/theory/assess/architect.md
+          href: cloud-adoption/migrate/migration-considerations/assess/architect.md
         - name: Estimate Cost
-          href: cloud-adoption/migrate/theory/assess/estimate.md
+          href: cloud-adoption/migrate/migration-considerations/assess/estimate.md
         - name: Engage Migration Partners and Support
-          href: cloud-adoption/migrate/theory/assess/partnership-options.md
+          href: cloud-adoption/migrate/migration-considerations/assess/partnership-options.md
         - name: Release and Iteration Backlog
-          href: cloud-adoption/migrate/theory/assess/release-iteration-backlog.md
+          href: cloud-adoption/migrate/migration-considerations/assess/release-iteration-backlog.md
         - name: Approve
-          href: cloud-adoption/migrate/theory/assess/approve.md
+          href: cloud-adoption/migrate/migration-considerations/assess/approve.md
       - name: Migrate
         items:
         - name: Overview
-          href: cloud-adoption/migrate/theory/migrate/index.md
+          href: cloud-adoption/migrate/migration-considerations/migrate/index.md
         - name: Promotion models - Promote, Stage, or Flight
-          href: cloud-adoption/migrate/theory/migrate/promotion-models.md
+          href: cloud-adoption/migrate/migration-considerations/migrate/promotion-models.md
         - name: Remediate
-          href: cloud-adoption/migrate/theory/migrate/remediate.md
+          href: cloud-adoption/migrate/migration-considerations/migrate/remediate.md
         - name: Replicate
-          href: cloud-adoption/migrate/theory/migrate/replicate.md
+          href: cloud-adoption/migrate/migration-considerations/migrate/replicate.md
         - name: Replicate Options
-          href: cloud-adoption/migrate/theory/migrate/replicate-options.md
+          href: cloud-adoption/migrate/migration-considerations/migrate/replicate-options.md
         - name: Stage
-          href: cloud-adoption/migrate/theory/migrate/stage.md
+          href: cloud-adoption/migrate/migration-considerations/migrate/stage.md
       - name: Optimize
         items:
         - name: Overview
-          href: cloud-adoption/migrate/theory/optimize/index.md
+          href: cloud-adoption/migrate/migration-considerations/optimize/index.md
         - name: Business Change Plan
-          href: cloud-adoption/migrate/theory/optimize/business-change-plan.md
+          href: cloud-adoption/migrate/migration-considerations/optimize/business-change-plan.md
         - name: Business Testing
-          href: cloud-adoption/migrate/theory/optimize/business-test.md
+          href: cloud-adoption/migrate/migration-considerations/optimize/business-test.md
         - name: Benchmark and optimize assets
-          href: cloud-adoption/migrate/theory/optimize/optimize.md
+          href: cloud-adoption/migrate/migration-considerations/optimize/optimize.md
         - name: Ready for promotion
-          href: cloud-adoption/migrate/theory/optimize/ready.md
+          href: cloud-adoption/migrate/migration-considerations/optimize/ready.md
         - name: Promote
-          href: cloud-adoption/migrate/theory/optimize/promote.md
+          href: cloud-adoption/migrate/migration-considerations/optimize/promote.md
         - name: Retrospective
-          href: cloud-adoption/migrate/theory/optimize/retrospective.md
+          href: cloud-adoption/migrate/migration-considerations/optimize/retrospective.md
         - name: Decomission retired assets
-          href: cloud-adoption/migrate/theory/optimize/decomission.md
+          href: cloud-adoption/migrate/migration-considerations/optimize/decomission.md
       - name: Secure and Manage
         items:
         - name: Overview
-          href: cloud-adoption/migrate/theory/secure-and-manage/index.md
+          href: cloud-adoption/migrate/migration-considerations/secure-and-manage/index.md
   - name: Innovate
     items:
     - name: Overview
