@@ -575,7 +575,7 @@
       href: cloud-adoption/getting-started/migrate.md
     - name: Innovate
       href: cloud-adoption/getting-started/innovate.md
-    - name: Evolve
+    - name: Enable
       href: cloud-adoption/getting-started/evolve.md
       
   - name: Plan
@@ -662,7 +662,7 @@
     items:
     - name: Overview
       href: cloud-adoption/migrate/index.md
-    - name: Using this guidance
+    - name: Methodology and approach
       href: cloud-adoption/migrate/index.md
     - name: Azure Migration Guide
       items:
@@ -884,6 +884,10 @@
         items:
         - name: Overview
           href: cloud-adoption/migrate/theory/secure-and-manage/index.md
+  - name: Innovate
+    items:
+    - name: Overview
+      href: cloud-adoption/innovate/index.md
   - name: Govern
     items:
     - name: Overview
