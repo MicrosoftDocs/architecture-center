@@ -3,6 +3,7 @@ title: Learn how to stay current with Azure in todays cloud cadence | Microsoft 
 description: Learn how to stay current with Azure in todays cloud cadence.
 author: jelledruyts
 ms.author: jelled
+ms.author: andym
 ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: azure-portal
@@ -21,7 +22,7 @@ ms.custom: "fasttrack - new"
 
 ::: zone-end
 
-We know that staying up to date with Azure can be challenging, but it really should be part of your governance strategy so that you know about new features that may benefit you or upcoming changes that may affect you. Below you can find the top resources that we use ourselves to stay up to date, as well as some additional resources for deeper content.
+Cloud services like Azure evolve at a greater cadence than most organizations are experienced with. This requires organizations to adapt their people and processes to this new cadence. As a technologist responsible for helping your organization keep up with this pace of change and make sense of it all, it is easy to be overwhelmed. In the following sections you can find resources to assist with staying up to date.
 
 ::: zone target="chromeless"
 
@@ -30,6 +31,8 @@ For the best experience within the Azure Portal we recommend opening the links p
 ::: zone-end
 
 # [Top Resources](#tab/TopResources)
+
+The following resources have been curated to assist with staying current with Azure.
 
 * [Azure Service Health](https://docs.microsoft.com/azure/service-health/service-health-overview)
   * You can use this to get timely notifications for ongoing service issues, planned maintenance and health advisories including features being deprecated
@@ -49,10 +52,11 @@ For the best experience within the Azure Portal we recommend opening the links p
 
 # [Additional Resources](#tab/AdditionalResources)
 
+The following resources are provided for deeper content to enhance your ability to stay current with Azure.
+
 * [Azure Friday](https://channel9.msdn.com/Shows/Azure-Friday)
   * Weekly videos with the engineers who build Azure, demo it, answer questions, and share insights
   * Subscribe via [RSS](https://channel9.msdn.com/Shows/Azure-Friday/feed)
 * [Azure Weekly Newsletter](http://azureweekly.info/)
   * This is an unofficial resource provided by [endjin](https://endjin.com/) which is a summary of the week's top news in the Microsoft Azure ecosystem, as well as interesting historic content that's well worth reading
   * Subscribe via [email](http://azureweekly.info/)
-
