@@ -12,7 +12,7 @@ ms.custom: networking
 
 # Connect an on-premises network to Azure using a VPN gateway
 
-This reference architecture shows how to extend an on-premises network to Azure, using a site-to-site virtual private network (VPN). Traffic flows between the on-premises network and an Azure Virtual Network (VNet) through an IPSec VPN tunnel. [**Deploy this solution**](#deploy-the-solution).
+This reference architecture shows how to extend a network on premises or on Azure Stack to Azure, using a site-to-site virtual private network (VPN). Traffic flows between the on-premises network and an Azure Virtual Network (VNet) through an IPSec VPN tunnel or through the Azure Stack multitenant VPN gateway. [**Deploy this solution**](#deploy-the-solution).
 
 ![Hybrid network spanning on-premises and Azure infrastructures](./images/vpn.png)
 
@@ -24,11 +24,16 @@ The architecture consists of the following components.
 
 - **On-premises network**. A private local-area network running within an organization.
 
+- **Azure Stack**. A network environment on an Azure Stack tenant subscription, running within an organization. The Azure Stack [VPN][az-vpn] gateway sends encrypted traffic across a public connection to virtual IP (VIP) addresses and includes the following components:
+     - Gateway subnet. A special subnet required to deploy the VPN Gateway on Azure Stack.
+     - Local network gateway. To indicate the target IP of the VPN gateway in Azure, as well as the address space of the Azure VNet.
+     - Site-to-site VPN tunnel. The connection type (IPSec) and the key shared with the Azure VPN Gateway to encrypt traffic.
+
 - **VPN appliance**. A device or service that provides external connectivity to the on-premises network. The VPN appliance may be a hardware device, or it can be a software solution such as the Routing and Remote Access Service (RRAS) in Windows Server 2012. For a list of supported VPN appliances and information on configuring them to connect to an Azure VPN gateway, see the instructions for the selected device in the article [About VPN devices for Site-to-Site VPN Gateway connections][vpn-appliance].
 
 - **Virtual network (VNet)**. The cloud application and the components for the Azure VPN gateway reside in the same [VNet][azure-virtual-network].
 
-- **Azure VPN gateway**. The [VPN gateway][azure-vpn-gateway] service enables you to connect the VNet to the on-premises network through a VPN appliance. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network][connect-to-an-Azure-vnet]. The VPN gateway includes the following elements:
+- **Azure VPN gateway**. The [VPN gateway][azure-vpn-gateway] service enables you to connect the VNet to the on-premises network through a VPN appliance or to connect to Azure Stack through a site-to-site VPN tunnel. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network][connect-to-an-Azure-vnet]. The VPN gateway includes the following elements:
 
   - **Virtual network gateway**. A resource that provides a virtual VPN appliance for the VNet. It is responsible for routing traffic from the on-premises network to the VNet.
   - **Local network gateway**. An abstraction of the on-premises VPN appliance. Network traffic from the cloud application to the on-premises network is routed through this gateway.
@@ -100,6 +105,23 @@ Test the connection to verify that:
 - The VNet correctly routes traffic back to the on-premises network.
 - Prohibited traffic in both directions is blocked correctly.
 
+### Azure Stack network connection
+
+This reference architecture shows how to connect a virtual network in your Azure Stack deployment to a virtual network in Azure through the Azure Stack multitenant VPN gateway. A common scenario is to isolate critical operations and sensitive data in Azure Stack and take advantage of Azure for public transaction and transitory, non-sensitive operations.
+
+In this architecture, network traffic flows through a VPN tunnel using the multitenant gateway on Azure Stack. Alternatively, traffic can flow over the Internet between Azure Stack and Azure through tenant VIPs, Azure ExpressRoute, or a network virtual appliance that acts as the VPN endpoint.
+
+### Azure Stack virtual network gateway capacity
+
+Both the Azure VPN Gateway and the Azure Stack VPN gateway support Border Gateway Protocol (BGP) for exchanging routing information between Azure and Azure Stack. Azure Stack does not support static routing for the multitenant gateway.
+
+Create an Azure Stack VNet with an assigned IP address space large enough for all your required resources. The address space of the VNet must not overlap with any other network that is going to be connected to this VNet.
+
+A public IP address is assigned to the multitenant gateway during the deployment of Azure Stack. It is taken from the public VIP pool. The Azure Stack operator has no control over what IP address is used but can determine its assignment.
+
+> [!CAUTION]
+> Workload VMs cannot be deployed on the Azure Stack gateway subnet. Also, do not assign an NSG to this subnet, as it will cause the gateway to stop functioning.
+
 ## Scalability considerations
 
 You can achieve limited vertical scalability by moving from the Basic or Standard VPN Gateway SKUs to the High Performance VPN SKU.
@@ -111,6 +133,8 @@ You can partition the VNet either horizontally or vertically. To partition horiz
 Replicating an on-premises Active Directory domain controller in the VNet, and implementing DNS in the VNet, can help to reduce some of the security-related and administrative traffic flowing from on-premises to the cloud. For more information, see [Extending Active Directory Domain Services (AD DS) to Azure][adds-extend-domain].
 
 ## Availability considerations
+
+On Azure Stack, you can expand VPN gateways to include interfaces to multiple Azure Stack stamps and Azure deployments.
 
 If you need to ensure that the on-premises network remains available to the Azure VPN gateway, implement a failover cluster for the on-premises VPN gateway.
 
@@ -133,6 +157,8 @@ Monitor connectivity, and track connectivity failure events. You can use a monit
 ## Security considerations
 
 Generate a different shared key for each VPN gateway. Use a strong shared key to help resist brute-force attacks.
+
+For Azure Stack connections, generate a different shared key for each VPN tunnel. Use a strong shared key to help resist brute-force attacks.
 
 > [!NOTE]
 > Currently, you cannot use Azure Key Vault to preshare keys for the Azure VPN gateway.
@@ -174,7 +200,7 @@ To troubleshoot the connection, see [Troubleshoot a hybrid VPN connection](./tro
 [adds-extend-domain]: ../identity/adds-extend-domain.md
 [windows-vm-ra]: ../virtual-machines-windows/index.md
 [linux-vm-ra]: ../virtual-machines-linux/index.md
-
+[az-vpn]: /azure/azure-stack/azure-stack-connect-vpn
 [azure-cli]: /azure/virtual-machines-command-line-tools
 [azure-virtual-network]: /azure/virtual-network/virtual-networks-overview
 [vpn-appliance]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
