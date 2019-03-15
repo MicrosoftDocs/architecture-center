@@ -10,7 +10,7 @@ ms.date: 10/11/2018
 ms.author: raynew
 ---
 
-# Application migration examples: Rebuild an on-premises app on Azure
+# Rebuild an on-premises app on Azure
 
 This article demonstrates how the fictional company Contoso rebuilds a two-tier Windows .NET app running on VMware VMs as part of a migration to Azure. Contoso migrates the app's front end VM to Azure App Services Web apps. The app back end is built using microservices deployed to containers managed by Azure Kubernetes Service (AKS). The site interacts with Azure Functions to provide pet photo functionality. 
 

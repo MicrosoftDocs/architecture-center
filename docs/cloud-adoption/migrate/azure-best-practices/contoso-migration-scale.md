@@ -10,7 +10,7 @@ ms.author: raynew
 
 ---
 
-# Contoso - Scale a migration to Azure
+# Scale a migration to Azure
 
 This article demonstrates how the fictional company Contoso performs a migration at scale to Azure. They consider how to plan and perform a migration of more than 3000 workloads, 8000 databases, and over 10,000 VMs.
 

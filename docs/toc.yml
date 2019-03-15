@@ -766,7 +766,7 @@
         items:
         - name: Set up networking for migrated workloads
           href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-networking.md
-        - name: Application migration examples
+        - name: Application migration patterns and examples
           items:
           - name: Overview
             href: cloud-adoption/migrate/azure-best-practices/contoso-migration-overview.md
@@ -778,8 +778,8 @@
             items:
             - name: Rehost an app on Azure VMs
               href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm.md
-            - name: Migrate TFS to Azure DevOps Services
-              href: cloud-adoption/migrate/azure-best-practices/contoso-migration-tfs-vsts.md          
+            - name: Rearchitect an app on Azure Containers and Azure SQL Database
+              href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rearchitect-container-sql.md            
           - name: Linux workloads
             items:
             - name: Rehost a Linux app on Azure VMs
@@ -792,8 +792,6 @@
               href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm-sql-managed-instance.md
             - name: Rehost an app on Azure VMs and Azure SQL Server AlwaysOn Availability Groups
               href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rehost-vm-sql-ag.md
-            - name: Rearchitect an app on Azure Containers and Azure SQL Database
-              href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rearchitect-container-sql.md
           - name: ASP.NET/PHP/Java Apps
             items:
             - name: Refactor an app on Azure Web Apps and Azure SQL Database
@@ -802,6 +800,8 @@
               href: cloud-adoption/migrate/azure-best-practices/contoso-migration-refactor-linux-app-service-mysql.md
             - name: Rebuild an app in Azure
               href: cloud-adoption/migrate/azure-best-practices/contoso-migration-rebuild.md
+            - name: Migrate TFS to Azure DevOps Services
+              href: cloud-adoption/migrate/azure-best-practices/contoso-migration-tfs-vsts.md
           - name: Scale a migration
             href: cloud-adoption/migrate/azure-best-practices/contoso-migration-scale.md
       - name: Optimize

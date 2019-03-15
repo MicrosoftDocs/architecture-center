@@ -9,7 +9,7 @@ ms.date: 10/11/2018
 ms.author: raynew
 ---
 
-# Application migration examples: Rearchitect an on-premises app to an Azure container and Azure SQL Database
+# Rearchitect an on-premises app to an Azure container and Azure SQL Database
 
 This article demonstrates how the fictional company Contoso rearchitects a two-tier Windows .NET app running on VMware VMs as part of a migration to Azure. Contoso migrates the app frontend VM to an Azure Windows container, and the app database to an Azure SQL database.
 

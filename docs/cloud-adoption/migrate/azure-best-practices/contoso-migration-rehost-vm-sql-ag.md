@@ -10,7 +10,7 @@ ms.date: 10/11/2018
 ms.author: raynew
 ---
 
-# Application migration examples: Rehost an on-premises app on Azure VMs and SQL Server AlwaysOn Availability Group
+# Rehost an on-premises app on Azure VMs and SQL Server AlwaysOn Availability Group
 
 This article demonstrates how the fictional company Contoso rehosts a two-tier Windows .NET app running on VMware VMs as part of a migration to Azure. Contoso migrates the app frontend VM to an Azure VM, and the app database to an Azure SQL Server VM, running in a Windows Server failover cluster with SQL Server AlwaysOn Availability Groups.
 

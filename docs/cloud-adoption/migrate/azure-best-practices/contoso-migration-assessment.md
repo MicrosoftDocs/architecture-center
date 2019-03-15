@@ -12,7 +12,7 @@ ms.author: raynew
 
 ---
 
-# Application migration examples: Assess on-premises workloads for migration to Azure
+# Assess on-premises workloads for migration to Azure
 
 This article shows how the fictional company Contoso assesses an on-premises app for migration to Azure. In the example scenario, Contoso's on-premises SmartHotel360 app currently runs on VMware. Contoso assesses app VMs using the Azure Migrate service, and the app SQL Server database using Data Migration Assistant.
 
