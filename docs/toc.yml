@@ -569,8 +569,6 @@
     href: cloud-adoption/overview.md
   - name: Getting started
     items:
-    - name: Overview
-      href: cloud-adoption/getting-started/index.md
     - name: Enable
       href: cloud-adoption/getting-started/enable.md
     - name: Migrate
