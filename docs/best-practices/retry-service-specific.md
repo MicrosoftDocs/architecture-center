@@ -1082,7 +1082,7 @@ Consider the following when accessing Azure or third party services:
 
 - In the case of a service unavailable status, the service might indicate the appropriate delay before retrying in the **Retry-After** response header or a different custom header. Services might also send additional information as custom headers, or embedded in the content of the response.
 
-- Do not retry for status codes representing client errors (errors in the 4xx range) except for a 408 Request Timeout.
+- Do not retry for status codes representing client errors (errors in the 4xx range) except for a 408 Request Timeout and 429 Too Many Requests.
 
 - Thoroughly test your retry strategies and mechanisms under a range of conditions, such as different network states and varying system loadings.
 
