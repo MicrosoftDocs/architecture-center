@@ -570,14 +570,13 @@
   - name: Getting started
     items:
     - name: Overview
-      href: cloud-adoption/getting-started/overview.md
+      href: cloud-adoption/getting-started/index.md
     - name: Migrate
       href: cloud-adoption/getting-started/migrate.md
     - name: Innovate
       href: cloud-adoption/getting-started/innovate.md
     - name: Enable
-      href: cloud-adoption/getting-started/evolve.md
-      
+      href: cloud-adoption/getting-started/enable.md
   - name: Plan
     items:
     - name: Overview
