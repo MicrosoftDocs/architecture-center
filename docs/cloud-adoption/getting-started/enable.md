@@ -53,7 +53,7 @@ This section of the Cloud Adoption Framework highlights a few common topics that
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="../plan/technical-skills.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="../ready/technical-skills.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">

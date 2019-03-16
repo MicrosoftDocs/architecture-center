@@ -617,6 +617,8 @@
       items:
       - name: Initial Org Alignment
         href: cloud-adoption/ready/initial-org-alignment.md
+      - name: Building Technical Skills
+        href: cloud-adoption/ready/technical-skills.md
       - name: XX-Business Stakeholder Alignment
         href: cloud-adoption/ready/theory/index.md
       - name: XX-Change Management
