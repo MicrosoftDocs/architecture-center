@@ -26,7 +26,7 @@ This section of the Cloud Adoption Framework highlights a few common topics that
                     </div>
                     <div class="cardText">
                         <h3>Cloud Governance</h3>
-                        <p>Aligning business risk, adoption policies, governance processes and cloud governance tooling minimizes risks and improves the likelihood of success.</p>
+                        <p>Understand business risk, map those risks to proper policies and processes. Leveraging cloud governance tools and the five disciplines of cloud governance minimizes risks and improves the likelihood of success. Cloud governance helps control costs, create consistency, improve security, and accelerate deployment.</p>
                     </div>
                 </div>
             </div>
