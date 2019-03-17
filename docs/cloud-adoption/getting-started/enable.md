@@ -9,7 +9,11 @@ ms.topic: landing-page
 
 # Enable: Helping customers succeed
 
-This section of the Cloud Adoption Framework highlights a few common topics that can significantly improve success when adopting the cloud. Each of these topics are discussed in various sections of the framework. However, these topics are so impactful that it seemed prudent to call them out as key enablers to customer success.
+The Microsoft Cloud Adoption Framework for Azure is provided as a free self-service tool to guide readers through various cloud adoption efforts. The focus of this content is to help customers succeed at realizing business goals that can be enabled by Azure. However, this content also respects that the reader may be addressing business, culture, or technical challenges that can be very broad in nature and may at times require a cloud-neutral position. As such, each section of this guidance starts with an Azure first approach, but follows with cloud neutral theory that can scale across business and technical decisions.
+
+## Additional Tools
+
+In addition to the Cloud Adoption Framework, Microsoft provides a number of additional topics that can enable success. This article highlights a few common tools that can significantly improve success beyond the scope of the Cloud Adoption Framework. Establishing cloud governance, resilient architectures, technical skills, and a DevOps approach are each important to the success of any cloud adoption effort. The reader is advised to bookmark this page as a resource to revisit throughout any cloud adoption journey.
 
 <!-- markdownlint-disable MD033 -->
 
