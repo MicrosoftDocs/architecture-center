@@ -592,7 +592,7 @@
       - name: The 5 Rs of Rationalization 
         href: cloud-adoption/digital-estate/5-rs-of-rationalization.md
       - name: What is a digital estate?
-        href: cloud-adoption/digital-estate/overview.md
+        href: cloud-adoption/digital-estate/index.md
       - name: Approaches to digital estate planning
         href: cloud-adoption/digital-estate/approach.md
       - name: Gather inventory data
@@ -705,93 +705,53 @@
             href: cloud-adoption/migrate/complex-scenarios/pre-requisites/culture-complexity.md
         - name: Assess
           items:
-          - name: XX- Which of the complexity components are advanced during assess
-            href: cloud-adoption/migrate/complex-scenarios/assess/process.md
-          - name: XX- Assessment Tools
-            href: cloud-adoption/migrate/complex-scenarios/assess/tools.md
-          - name: XX- Technical Evaluation
-            href: cloud-adoption/migrate/complex-scenarios/assess/evaluation.md
-          - name: XX- Architecture Decisions
-            href: cloud-adoption/migrate/complex-scenarios/assess/architecture.md
-          - name: XX- Sprint and Release Backlogs (Digital Estate segmentation)
-            href: cloud-adoption/migrate/complex-scenarios/assess/backlogs.md
-          - name: XX- Change management approval
-            href: cloud-adoption/migrate/complex-scenarios/assess/approval.md
+          - name: XX- Pending completion of the expanded complexity guidance section
+            href: cloud-adoption/migrate/complex-scenarios/secure-and-manage/index.md
         - name: Migrate
           items:
-          - name: XX- Which of the complexity components are advanced during migrate
-            href: cloud-adoption/migrate/complex-scenarios/assess/process.md
-          - name: XX- Migration process
-            href: cloud-adoption/migrate/complex-scenarios/assess/process.md
-          - name: XX- Remediate incompatible assets
-            href: cloud-adoption/migrate/complex-scenarios/assess/remediate.md
-          - name: XX- Replicate assets
-            href: cloud-adoption/migrate/complex-scenarios/assess/replicate.md
-          - name: XX- Stage applications
-            href: cloud-adoption/migrate/complex-scenarios/assess/stage.md
-          - name: XX- Document change
-            href: cloud-adoption/migrate/complex-scenarios/assess/document.md
+          - name: XX- Pending completion of the expanded complexity guidance section
+            href: cloud-adoption/migrate/complex-scenarios/secure-and-manage/index.md
         - name: Optimize and Promote
           items:
-          - name: XX- Which of the complexity components are advanced during optimize and promote
-            href: cloud-adoption/migrate/complex-scenarios/assess/process.md
-          - name: XX- Optimize and Promote Processes
-            href: cloud-adoption/migrate/complex-scenarios/optimize-and-promote/process.md
-          - name: XX- Business Testing
-            href: cloud-adoption/migrate/complex-scenarios/optimize-and-promote/business-testing.md
-          - name: XX- Business Change Plan
-            href: cloud-adoption/migrate/complex-scenarios/optimize-and-promote/business-change-plan.md
-          - name: XX- Ready for Production
-            href: cloud-adoption/migrate/complex-scenarios/optimize-and-promote/ready.md
-          - name: XX- Promote to Production
-            href: cloud-adoption/migrate/complex-scenarios/optimize-and-promote/promote.md
-          - name: XX- Decomission retired assets
-            href: cloud-adoption/migrate/complex-scenarios/optimize-and-promote/decomission.md
-          - name: XX- Retrospective
-            href: cloud-adoption/migrate/complex-scenarios/optimize-and-promote/Retrospective.md
-        - name: Secure and Manage
+          - name: XX- Pending completion of the expanded complexity guidance section
+            href: cloud-adoption/migrate/complex-scenarios/secure-and-manage/index.md
+        - name: xx- Secure and Manage
           items:
-          - name: XX- Which of the complexity components are advanced during secure and manage
-            href: cloud-adoption/migrate/complex-scenarios/assess/process.md
-          - name: XX- Secure and Manage Transition Processes
-            href: cloud-adoption/migrate/complex-scenarios/secure-and-manage/process.md
-          - name: XX- Operations MVP
-            href: cloud-adoption/migrate/complex-scenarios/secure-and-manage/operations-mvp.md
-          - name: XX- Prepare for Cloud Operations
-            href: cloud-adoption/migrate/complex-scenarios/secure-and-manage/prepare-for-cloud-operations.md
+          - name: XX- Pending completion of the expanded complexity guidance section
+            href: cloud-adoption/migrate/complex-scenarios/secure-and-manage/index.md
         - name: Expanded Complexity Guidance
           items:
           - name: XX- Overview
             href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/index.md
           - name: Business Complexity
             items:
-            - name: XX- Balance the portfolio
+            - name: Balance the portfolio
               href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/balance-the-portfolio.md
-            - name: XX- Business justification
+            - name: Business justification
               href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/business-justification.md
+            - name: Multiple geographical regions
+              href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/multiple-regions.md
           - name: Cultural Complexity
             items:
-            - name: XX- Change management and approval processes
+            - name: Change management and approval processes
               href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/change-management-and-approval-process.md
-            - name: XX- Organizational complexity (Executive readiness)
+            - name: Organizational complexity (Executive readiness)
               href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/executive-readiness.md
-            - name: XX- Organizational complexity (Skills readiness)
+            - name: Organizational complexity (Skills readiness)
               href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/skills-readiness.md
-            - name: XX- Aligning support (Partner and other support options)
+            - name: Aligning support (Partner and other support options)
               href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/partner-service-support-alignment.md
           - name: Technical Complexity
             items:
-            - name: XX- Existing data center constraints
+            - name: Existing data center constraints
               href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/existing-data-center-constraints.md
-            - name: XX- Migrate at scale - High volume or velocity of migrations
+            - name: Migrate at scale - High volume or velocity of migrations
               href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/migrate-at-scale.md
-            - name: XX- Multiple geographical regions
-              href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/multiple-regions.md
-            - name: XX- Multiple data centers
+            - name: Multiple data centers
               href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/multiple-data-centers.md
-            - name: XX- Governance or compliance strategy
+            - name: Governance or compliance strategy
               href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/governance-or-compliance.md
-            - name: XX- Technical complexity (Change management)
+            - name: Technical complexity (Change management)
               href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/technical-complexity.md
       - name: Azure Best Practices
         items:
