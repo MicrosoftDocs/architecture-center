@@ -681,10 +681,10 @@
           href: cloud-adoption/migrate/baseline-migration-guide/secure-and-manage.md
       - name: Complex Scenario Guide
         items:
-        - name: XX- Getting started
+        - name: Getting started
           href: cloud-adoption/migrate/complex-scenarios/index.md
-        - name: XX- Checklist to evaluate complexity
-          href: cloud-adoption/migrate/complex-scenarios/checklists.md
+        - name: Checklist to evaluate complexity
+          href: cloud-adoption/migrate/complex-scenarios/checklist.md
         - name: Pre-requisite
           items:
           - name: XX- Inventory relevant markets
@@ -762,21 +762,37 @@
         - name: Expanded Complexity Guidance
           items:
           - name: XX- Overview
-            href: cloud-adoption/migrate/expanded-complexity-guidance/index.md
-          - name: XX- 
-            href: cloud-adoption/migrate/expanded-complexity-guidance/.md
-          - name: XX- 
-            href: cloud-adoption/migrate/expanded-complexity-guidance/.md
-          - name: XX- 
-            href: cloud-adoption/migrate/expanded-complexity-guidance/.md
-          - name: XX- 
-            href: cloud-adoption/migrate/expanded-complexity-guidance/.md
-          - name: XX- 
-            href: cloud-adoption/migrate/expanded-complexity-guidance/.md
-          - name: XX- 
-            href: cloud-adoption/migrate/expanded-complexity-guidance/.md
-          - name: XX- 
-            href: cloud-adoption/migrate/expanded-complexity-guidance/.md
+            href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/index.md
+          - name: Business Complexity
+            items:
+            - name: XX- Balance the portfolio
+              href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/balance-the-portfolio.md
+            - name: XX- Business justification
+              href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/business-justification.md
+          - name: Cultural Complexity
+            items:
+            - name: XX- Change management and approval processes
+              href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/change-management-and-approval-process.md
+            - name: XX- Organizational complexity (Executive readiness)
+              href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/executive-readiness.md
+            - name: XX- Organizational complexity (Skills readiness)
+              href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/skills-readiness.md
+            - name: XX- Aligning support (Partner and other support options)
+              href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/partner-service-support-alignment.md
+          - name: Technical Complexity
+            items:
+            - name: XX- Existing data center constraints
+              href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/existing-data-center-constraints.md
+            - name: XX- Migrate at scale - High volume or velocity of migrations
+              href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/migrate-at-scale.md
+            - name: XX- Multiple geographical regions
+              href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/multiple-regions.md
+            - name: XX- Multiple data centers
+              href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/multiple-data-centers.md
+            - name: XX- Governance or compliance strategy
+              href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/governance-or-compliance.md
+            - name: XX- Technical complexity (Change management)
+              href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/technical-complexity.md
       - name: Azure Best Practices
         items:
         - name: Overview
