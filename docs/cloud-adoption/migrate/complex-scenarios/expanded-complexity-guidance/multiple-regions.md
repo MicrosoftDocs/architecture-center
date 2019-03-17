@@ -1,15 +1,15 @@
 ---
-title: "CAF: Multiple geographical regions"
-description: Multiple geographical regions
+title: "CAF: Addressing the complexity of migrating multiple geographical regions"
+description: Addressing the complexity of migrating multiple geographical regions
 author: BrianBlanchard
 ms.date: 4/4/2019
 ---
 
-# Multiple geographical regions
+# Multiple geographic regions
 
 When businesses operate in multiple geographic regions, additional complexity can be introduced into cloud migration efforts. These complexities manifest in three primary forms: asset distribution, user access profiles, and compliance requirements. Before addressing complexities related to multiple regions its important to understand the extent of the potential complexity. 
 
-## Approach to addressing complexity
+## Approach to addressing migration complexity
 
 The following approach can help assess the potential challenges and establish a general course of action:
 
@@ -17,6 +17,8 @@ The following approach can help assess the potential challenges and establish a 
 - Document data sovereignty requirements: Do the countries identified have compliance requirements which govern data sovereignty?
 - Document the user base: Will employees, partners, or customers in the identified country be impacted by the cloud migration?
 - Document data centers &/or assets: Are there assets in the identified country that might be included in the migration effort?
+
+Align changes across the migration process to address the initial inventory.
 
 ### Documenting complexity
 
@@ -45,8 +47,9 @@ Since the company supports employees, partners, and customers in Germany but the
 
 The location of existing data centers can have a number of impacts on a migration strategy. THe following are a few of the most common impacts:
 
-- Architecture decisions: Target region/location is one of the first steps in migration strategy design. This is often influenced by the location of the existing assets. Additionally, the available of cloud services and the unit cost of those services can vary from one region to the next. As such, understanding the current and future location of assets impacts the architecture decisions and can also impact budget estimates.
-- Data center dependencies: Based on the data in the table above, there is a high likelihood of dependencies existing between the various data centers around the globe. In many organizations which operate on this type of scale, those dependencies may not be documented or well understood. The approaches used to evaluate user profiles will help identify some these dependencies. However, additional steps are suggested during the assess process to mitigate risks associated with this complexity.
+**Architecture decisions:** Target region/location is one of the first steps in migration strategy design. This is often influenced by the location of the existing assets. Additionally, the available of cloud services and the unit cost of those services can vary from one region to the next. As such, understanding the current and future location of assets impacts the architecture decisions and can also impact budget estimates.
+
+**Data center dependencies:** Based on the data in the table above, there is a high likelihood of dependencies existing between the various data centers around the globe. In many organizations which operate on this type of scale, those dependencies may not be documented or well understood. The approaches used to evaluate user profiles will help identify some these dependencies. However, additional steps are suggested during the assess process to mitigate risks associated with this complexity.
 
 ## Implementing the general approach
 
@@ -91,15 +94,15 @@ When migrating an application that must be deployed to multiple regions, there a
 
 ### Suggested action during the migrate process
 
-ASR Vault design: Azure Site Recovery (ASR) is the suggested tool for cloud-native replication and synchronization of digital assets to Azure. ASR replicates data about the asset to an ASR Vault, which is bound to a specific subscription in a specific region & Azure data center. When replicating assets to a second region, a second ASR vault may be required.
+**ASR Vault design:** Azure Site Recovery (ASR) is the suggested tool for cloud-native replication and synchronization of digital assets to Azure. ASR replicates data about the asset to an ASR Vault, which is bound to a specific subscription in a specific region & Azure data center. When replicating assets to a second region, a second ASR vault may be required.
 
-Configuration/process server design: ASR works with a local instance of a configuration and process server, which is bound to a single ASR vault. This means that a second instance of these servers may need to be installed in the source data center to facilitate replication.
+**Configuration/process server design:** ASR works with a local instance of a configuration and process server, which is bound to a single ASR vault. This means that a second instance of these servers may need to be installed in the source data center to facilitate replication.
 
-Network bandwidth design: During replication and on-going synchronization, binary data is moved over the network from the source data center to the ASR vault in the target Azure data center. This process consumes bandwidth. Duplication of the workload to a second region will double the amount of bandwidth consumed. When bandwidth is limited or a workload involves a large amount of configuration/data drift, this can interfere with the time required to complete the migration or more importantly it could impact the experience of users/applications which still depend on bandwidth in the source data center.
+**Network bandwidth design:** During replication and on-going synchronization, binary data is moved over the network from the source data center to the ASR vault in the target Azure data center. This process consumes bandwidth. Duplication of the workload to a second region will double the amount of bandwidth consumed. When bandwidth is limited or a workload involves a large amount of configuration/data drift, this can interfere with the time required to complete the migration or more importantly it could impact the experience of users/applications which still depend on bandwidth in the source data center.
 
-Data synchronization: Often times the largest bandwidth drain comes from synchronization of the data platform. As defined in the reference architectures for [Multi-region Web Applications](/azure/architecture/reference-architectures/app-service-web-app/multi-region) and [Multi-region N-tier applications](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server), data synchronization is often required to keep the applications aligned. If this is the desired operational state of the application, it may be wise to complete a synchronization between the source data platform and each of the cloud platforms before migrating the application and middle tier assets.
+**Data synchronization:** Often times the largest bandwidth drain comes from synchronization of the data platform. As defined in the reference architectures for [Multi-region Web Applications](/azure/architecture/reference-architectures/app-service-web-app/multi-region) and [Multi-region N-tier applications](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server), data synchronization is often required to keep the applications aligned. If this is the desired operational state of the application, it may be wise to complete a synchronization between the source data platform and each of the cloud platforms before migrating the application and middle tier assets.
 
-Azure Site to Site recovery: There is an alternative option that may reduce complexity further. If timelines and data synchronization approaches approach a two-step deployment, [Azure to Azure disaster recovery](/azure/site-recovery/azure-to-azure-architecture) could be an acceptable solution. In this scenario, the workload is migrated to the first Azure data center using a single ASR vault and configuration/process server design. Once the workload is tested, it can then be recovered to a the second Azure data center from the migrated assets. This approach reduces the impact to resources in the source data center & takes advantage of faster transfer speeds & high bandwidth limits available between Azure data centers.
+**Azure Site to Site recovery:** There is an alternative option that may reduce complexity further. If timelines and data synchronization approaches approach a two-step deployment, [Azure to Azure disaster recovery](/azure/site-recovery/azure-to-azure-architecture) could be an acceptable solution. In this scenario, the workload is migrated to the first Azure data center using a single ASR vault and configuration/process server design. Once the workload is tested, it can then be recovered to a the second Azure data center from the migrated assets. This approach reduces the impact to resources in the source data center & takes advantage of faster transfer speeds & high bandwidth limits available between Azure data centers.
 
 > [!NOTE]
 > This approach may increase the short term cost of migration, as it could result in additional egress bandwidth charges.
@@ -110,15 +113,15 @@ Addressing global complexity during optimization and promotion could require dup
 
 ### Suggested action during the optimize and promote process
 
-Pre-test optimization: Initial automation testing can identify potential optimization opportunities, as with any migration effort. In the case of global workloads, it is important to test the workload in each region independently, as minor configuration changes in the network or the target Azure data center could impact performance.
+**Pre-test optimization:** Initial automation testing can identify potential optimization opportunities, as with any migration effort. In the case of global workloads, it is important to test the workload in each region independently, as minor configuration changes in the network or the target Azure data center could impact performance.
 
-Business Change Plans: For any complex migration scenario, it is advised that a business change plan be created to ensure clear communication regarding any changes to business processes, user experiences, and timing of the efforts required to integration the changes. In the case of global migration efforts, the plan should include considerations for end users in each impacted geography.
+**Business Change Plans:** For any complex migration scenario, it is advised that a business change plan be created to ensure clear communication regarding any changes to business processes, user experiences, and timing of the efforts required to integration the changes. In the case of global migration efforts, the plan should include considerations for end users in each impacted geography.
 
-Business testing: In conjunction with the business change plan, business testing may be required in each region to ensure adequate performance and adherence to the modified networking routing patterns.
+**Business testing:** In conjunction with the business change plan, business testing may be required in each region to ensure adequate performance and adherence to the modified networking routing patterns.
 
-Promotion flights: Often times, promotion happens as a single activity, re-routing production traffic to the migrated workload(s). In the case of global release efforts it is advised that promotion be delivered in flights (or pre-defined collections of users). This allows the Cloud Strategy Team and Cloud Adoption Team to better observe performance and improve support of users in each region. Promotion flights are often controlled at the networking level by changing the routing of specific IP ranges from the source workload assets to the newly migrated assets. After a specified collection of end users have been migrated, the next group can be re-routed.
+**Promotion flights:** Often times, promotion happens as a single activity, re-routing production traffic to the migrated workload(s). In the case of global release efforts it is advised that promotion be delivered in flights (or pre-defined collections of users). This allows the Cloud Strategy Team and Cloud Adoption Team to better observe performance and improve support of users in each region. Promotion flights are often controlled at the networking level by changing the routing of specific IP ranges from the source workload assets to the newly migrated assets. After a specified collection of end users have been migrated, the next group can be re-routed.
 
-Flight optimization: One of the benefits of promotion flights, is that it allows for deeper observations and additional optimization of the deployed assets. After a brief period of production usage by the first flight, additional refinement of the migrated assets is suggested, when allowed by IT operation procedures.
+**Flight optimization:** One of the benefits of promotion flights, is that it allows for deeper observations and additional optimization of the deployed assets. After a brief period of production usage by the first flight, additional refinement of the migrated assets is suggested, when allowed by IT operation procedures.
 
 ## Next steps
 
