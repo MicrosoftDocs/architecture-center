@@ -1,11 +1,11 @@
 ---
-title: "CAF: {Name of the complexity being addressed}"
-description: {Name of the complexity being addressed}
+title: "CAF: Name of the complexity being addressed"
+description: Name of the complexity being addressed
 author: BrianBlanchard
 ms.date: 4/4/2019
 ---
 
-# {Name of the complexity being addressed}
+# Name of the complexity being addressed
 
 Describe the complexity and cause
 
