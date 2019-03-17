@@ -50,9 +50,21 @@ add text
 
 add text
 
+::: zone target="docs"
+
 # [How-To Videos](#tab/videos)
 
-add text
+The following videos may assist with understanding the concepts available. The videos are part of the [Azure Portal Series](https://www.youtube.com/playlist?list=PLLasX02E8BPBKgXP4oflOL29TtqTzwhxR).
+
+* [How to manage multiple accounts, directories, and subscriptions in Azure](https://youtu.be/0Jx_oftPCLY)
+* [How to create a virtual machine in Azure](https://youtu.be/rOiSRkxtTeU)
+* [How to manage virtual machines on the go via the Azure mobile app](https://youtu.be/5UOgVZa5zrQ)
+* [How to configure a new virtual machine with the Azure Portal](https://youtu.be/z5J5MQkbqvE)
+* [How to create, share, and use Azure Portal dashboards](https://youtu.be/GetnBRKNXco)
+* [How to manage virtual machine connectivity with the Azure Portal](https://youtu.be/jCx4rxdWkTM)
+* [How to create a storage account and upload a blob](https://youtu.be/3s2D9XXzcDg)
+
+::: zone-end
 
 # [Cost Management](#tab/ManageCost)
 
