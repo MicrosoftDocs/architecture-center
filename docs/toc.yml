@@ -677,10 +677,14 @@
           href: cloud-adoption/migrate/baseline-migration-guide/assess.md
         - name: Migrate
           href: cloud-adoption/migrate/baseline-migration-guide/migrate.md
+        - name: Manage Cost
+          href: cloud-adoption/migrate/baseline-migration-guide/manage-costs.md
         - name: Optimize and Transform
           href: cloud-adoption/migrate/baseline-migration-guide/optimize-and-transform.md
         - name: Secure and Manage
           href: cloud-adoption/migrate/baseline-migration-guide/secure-and-manage.md
+        - name: Assistance
+          href: cloud-adoption/migrate/baseline-migration-guide/assistance.md
       - name: Complex Scenario Guide
         items:
         - name: Getting started
