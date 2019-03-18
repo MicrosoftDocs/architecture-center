@@ -208,20 +208,20 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
             </div>
         </a>
     </li>
-    <!-- Azure Virtual Datacenter -->
+    <!-- HPC Topic Page -->
     <li>
-        <a href="./vdc/index.md">
+        <a href="./topics/high-performance-computing/index.md">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
                         <div class="cardImageOuter">
                             <div class="cardImage">
-                                <img src="_images/virtual-datacenter.svg" alt="" />
+                                <img src="_images/hpc-blue-multi.svg" alt="" />
                             </div>
                         </div>
                         <div class="cardText">
-                            <h3>Azure Virtual Datacenter</h3>
-                            <p>When deploying enterprise workloads to the cloud, organizations must balance governance with developer agility. Azure Virtual Datacenter provides models to achieve this balance with an emphasis on governance.</p>
+                            <h3>High Performance Computing (HPC) on Azure</h3>
+                            <p>Design guidance and component information for building High Performance Computing (HPC) applications on Azure.</p>
                         </div>
                     </div>
                 </div>
@@ -262,6 +262,26 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
                         <div class="cardText">
                             <h3>Performance Antipatterns</h3>
                             <p>How to detect and fix some common causes of performance and scalability problems in cloud applications.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <!-- Azure Virtual Datacenter -->
+    <li>
+        <a href="./vdc/index.md">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                        <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img src="_images/virtual-datacenter.svg" alt="" />
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <h3>Azure Virtual Datacenter</h3>
+                            <p>When deploying enterprise workloads to the cloud, organizations must balance governance with developer agility. Azure Virtual Datacenter provides models to achieve this balance with an emphasis on governance.</p>
                         </div>
                     </div>
                 </div>

@@ -57,7 +57,7 @@
   - name: Hybrid and cloud bursting
     items:
     - name: Options for connecting an on-premises network to Azure
-      href: /azure/architecture/reference-architectures/hybrid-networking?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
+      href: /azure/architecture/reference-architectures/hybrid-networking/?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
     - name: Connect an on-premises network to Azure using a VPN gateway
       href: /azure/architecture/reference-architectures/hybrid-networking/vpn?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
     - name: Connect an on-premises network to Azure using ExpressRoute
@@ -67,7 +67,7 @@
   - name: Marketplace solutions
     items:
     - name: Azure Data Science VM for Windows and Linux
-      href: /azure/machine-learning/machine-learning-data-science-virtual-machine-overview?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
+      href: /azure/machine-learning/data-science-virtual-machine/overview?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
   - name: Azure Batch
     items:
     - name: Azure Batch
