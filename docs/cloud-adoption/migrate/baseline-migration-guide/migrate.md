@@ -19,44 +19,11 @@ The following options exist for migrating your solution.
 > * **Rebuild** - In some scenarios, the delta that must be overcome to carry forward an application can be too large to justify further investment and the solution must be rebuilt.
 > * **Replace** - Solutions are generally implemented using the best technology and approach available at the time. In some cases, Software as a Service (SaaS) applications can meet all of the functionality required of the hosted application. In these scenarios, a workload could be slated for future replacement, effectively removing it from the transformation effort.
 
-![Infographic of the migration options](../../../_images/migration/migration-options.png)
+![Infographic of the migration options](../../_images/migration/migration-options.png)
 
 # [Native Migration Tools](#tab/Tools)
 
 Native migrations tools.
-
-## Azure Migrate
-
-The Azure Migrate service assesses on-premises workloads for migration to Azure. The service assesses the migration suitability of on-premises machines, performs performance-based sizing, and provides cost estimations for running on-premises machines in Azure. If you're contemplating lift-and-shift migrations, or are in the early assessment stages of migration, this service is for you. After the assessment, you can use services such as Azure Site Recovery and Azure Database Migration Service, to migrate the machines to Azure.
-
-![Azure migrate overview](media/azuremigrate-overview-1.png)
-
-::: zone target="docs"
-
-### Read more
-
-* [Azure Migration Overview](https://docs.microsoft.com/en-us/azure/migrate/migrate-overview)
-* [Azure Migrate in the Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_ManagementGroups/HierarchyBlade)
-* [Create Migration project in the Azure Portal](https://ms.portal.azure.com/#create/Microsoft.AzureMigrate)
-
-::: zone-end
-
-::: zone target="chromeless"
-
-### Create a new Migration Project
-
-1. Select **Azure Migrate**
-1. Create a new Migration Project
-1. Select **Discover and Assess**
-1. Follow the **Discover machines** wizard
-    1. Download, create, configure the collector appliance for on-premises
-1. Follow the **Create assessment** wizard
-
-::: form action="OpenBlade[#blade/Microsoft_Azure_ManagementGroups/HierarchyBlade]" submitText="Go to Azure Migration" :::
-
-::: form action="OpenBlade[#create/Microsoft.AzureMigrate]" submitText="Create new Migration Project" :::
-
-::: zone-end
 
 ## Azure Site Recovery
 
