@@ -25,20 +25,77 @@ The following options exist for migrating your solution.
 
 Native migrations tools.
 
+## Azure Migrate
+
+The Azure Migrate service assesses on-premises workloads for migration to Azure. The service assesses the migration suitability of on-premises machines, performs performance-based sizing, and provides cost estimations for running on-premises machines in Azure. If you're contemplating lift-and-shift migrations, or are in the early assessment stages of migration, this service is for you. After the assessment, you can use services such as Azure Site Recovery and Azure Database Migration Service, to migrate the machines to Azure.
+
+![Azure migrate overview](media/azuremigrate-overview-1.png)
+
 ::: zone target="docs"
 
-## Link to tools in docs view
+### Read more
 
-- [Management Groups](https://portal.azure.com/#blade/Microsoft_Azure_ManagementGroups/HierarchyBlade).
-- [Understanding resource access management in Azure](/azure/architecture/cloud-adoption-guide/adoption-intro/azure-resource-access)
+* [Azure Migration Overview](https://docs.microsoft.com/en-us/azure/migrate/migrate-overview)
+* [Azure Migrate in the Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_ManagementGroups/HierarchyBlade)
+* [Create Migration project in the Azure Portal](https://ms.portal.azure.com/#create/Microsoft.AzureMigrate)
 
 ::: zone-end
 
 ::: zone target="chromeless"
 
-## Actions to tools in Quick Start Center view
+### Create a new Migration Project
 
-::: form action="OpenBlade[#blade/Microsoft_Azure_ManagementGroups/HierarchyBlade]" submitText="Go to Management groups" :::
+1. Select **Azure Migrate**
+1. Create a new Migration Project
+1. Select **Discover and Assess**
+1. Follow the **Discover machines** wizard
+    1. Download, create, configure the collector appliance for on-premises
+1. Follow the **Create assessment** wizard
+
+::: form action="OpenBlade[#blade/Microsoft_Azure_ManagementGroups/HierarchyBlade]" submitText="Go to Azure Migration" :::
+
+::: form action="OpenBlade[#create/Microsoft.AzureMigrate]" submitText="Create new Migration Project" :::
+
+::: zone-end
+
+## Azure Site Recovery
+
+
+
+## Azure Database Migration Service
+
+The Azure Database Migration Service is a fully managed service designed to enable seamless migrations from multiple database sources to Azure data platforms with minimal downtime (online migrations). The Azure Database Migration Service performs all of the required steps. You can fire and forget your migration projects with peace of mind, knowing that the process takes advantage of best practices as determined by Microsoft.
+
+::: zone target="docs"
+
+### Read more
+
+* [Database Migration Service Overview](https://docs.microsoft.com/en-gb/azure/dms/dms-overview)
+* [Azure Migrate in the Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_ManagementGroups/HierarchyBlade)
+* [Create Migration project in the Azure Portal](https://ms.portal.azure.com/#create/Microsoft.AzureMigrate)
+
+::: zone-end
+
+::: zone target="chromeless"
+
+### Create a Database Migration Service
+
+If this is the first time using the Database Migration Service then you need to first Register the resource provider within your Azure subscription.
+
+1. Select **All Services**, then **Subscriptions** and the target subscription
+1. Select **Resource providers**
+1. Search for `migration`, and then to the right of **Microsoft.DataMigration**, select **Register**
+
+::: form action="OpenBlade[#blade/Microsoft_Azure_Billing/SubscriptionsBlade]" submitText="Go to Subscriptions" :::
+
+Once you have registered the resource provider, you can proceed to create an instance of the Database Migration Service
+
+1. Select **+Create a resource** and search the marketplace for **Azure Database Migration Service**
+1. Complete the **Create Migration Service** wizard, and select **Create**
+
+The migration service is now ready to migrate the supported source databases (e.g. SQL Server, MySQL, PostgreSQL, MongoDb, etc).
+
+::: form action="OpenBlade[#create/Microsoft.AzureDMS]" submitText="Create a Database Migration Service" :::
 
 ::: zone-end
 
