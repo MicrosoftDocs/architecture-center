@@ -39,7 +39,7 @@
     - name: Blob, table, and queue storage
       href: /azure/storage/storage-introduction?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
     - name: Azure SMB file storage
-      href: /azure/storage/storage-files-introduction?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
+      href: /azure/storage/files/storage-files-introduction?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
   - name: Networking
     items:
     - name: RDMA-capable instances
@@ -53,7 +53,7 @@
   - name: Do-it-yourself
     items:
     - name: Virtual machine scale sets
-      href: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
+      href: /azure/virtual-machine-scale-sets/overview?context=/azure/architecture/topics/high-performance-computing/context/hpc-context
   - name: Hybrid and cloud bursting
     items:
     - name: Options for connecting an on-premises network to Azure
