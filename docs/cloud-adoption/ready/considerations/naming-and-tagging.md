@@ -11,83 +11,39 @@ author: BrianBlanchard
 
 # CAF - Ready: Recommended naming and tagging conventions
 
-Organizing cloud-based assets in ways that both aid operational management and
-support accounting requirements is a common challenge facing large cloud
-adoption efforts. A naming convention and required metadata tagging standards
-for cloud-hosted resources allows IT staff to quickly find and manage resources,
-while also helping to align cloud usage costs with business teams using
-chargeback and showback accounting mechanisms.
+Organizing cloud-based assets in ways that both aid operational management and support accounting requirements is a common challenge facing large cloud adoption efforts. Applying well-defined naming and metadata tagging conventions to cloud-hosted resources allows IT staff to quickly find and manage resources, while also helping to align cloud usage costs with business teams using chargeback and showback accounting mechanisms.
 
-The Azure Architecture Center's [naming conventions for Azure
-resources](/azure/architecture/best-practices/naming-conventions)
-guidance provides general recommendations on naming conventions as well as
-discussions of naming limitations and platform rules. The discussion below
-extends that generic guidance with more detailed recommendations aimed
-specifically at supporting enterprise cloud adoption efforts.
+The Azure Architecture Center's [naming conventions for Azure resources](/azure/architecture/best-practices/naming-conventions) guidance provides general recommendations on naming conventions as well as discussions of naming limitations and platform rules. The discussion below extends that generic guidance with more detailed recommendations aimed specifically at supporting enterprise cloud adoption efforts.
 
-Resource names can be difficult to change, so establishing a comprehensive
-naming convention before you begin any large cloud deployment should be a
-priority for your Cloud Strategy team.
+Resource names can be difficult to change, so establishing a comprehensive naming convention before you begin any large cloud deployment should be a priority for your cloud adoption teams.
 
 ## Naming and tagging resources
 
-Naming and tagging strategy should include business and operational details as
-components of resource names and metadata tags. The business-related side of
-this strategy should ensure resource names and tags include the organizational
-information needed to identify the teams using a resource along with the
-business owners responsible for resource costs. The operational should ensure
-names and tags include information that IT teams use to identify the workload,
-application, environment, criticality, and other information useful for managing
-resources.
+Naming and tagging strategy should include business and operational details as components of resource names and metadata tags. The business-related side of this strategy should ensure resource names and tags include the organizational information needed to identify the teams using a resource along with the business owners responsible for resource costs. The operational side should ensure names and tags include information that IT teams use to identify the workload, application, environment, criticality, and other information useful for managing resources.
 
 ### Resource naming
 
-A usable naming convention constructs uses components representing important
-information about your resources in the resource name. As an example, using the
-recommended naming conventions discussed [later in this
-article](#sample-naming-convention), a public IP resource used by a production
-SharePoint workload would have a name that looks like this:
+A usable naming convention constructs resource names using important information about your resources as components of a resource's name. As an example, using the recommended naming conventions discussed [later in this article](#sample-naming-convention), a public IP resource used by a production SharePoint workload would have a name that looks like this:
 
 *pip-sharepoint-prod-westus-001*
 
-The components of this name allows you to quickly determine the resource's type,
-the workload it's associated with, its deployment environment, and what Azure
-region it is deployed to.
+The components of this name allows you to quickly determine the resource's type, the workload it's associated with, its deployment environment, and what Azure region it is deployed to.
 
 #### Naming scope
 
-All Azure resources types have a scope that defines how these assets can be
-managed in relation to other resource types. In terms of naming conventions,
-this means that a resource must have a unique name within its scope.
+All Azure resources types have a scope defining how these assets can be managed in relation to other resource types. In terms of naming conventions, this means that a resource must have a unique name within its scope.
 
-As an example, a virtual network has a resource group scope, meaning that there
-can only be on network named *vnet-prod-westus-001* in a given resource group.
-However, other resource groups can have their own virtual network named
-*vnet-prod-westus-001*. Subnets, on the other hand, are scoped to virtual
-networks, and so any given network can only have a single subnet named
-*snet-prod-westus-003*.
+For example, a virtual network has a resource group scope, meaning that there can only be on network named *vnet-prod-westus-001* in a given resource group. However, other resource groups can have their own virtual network named *vnet-prod-westus-001*. Subnets, on the other hand, are scoped to virtual networks, and so any given network can only have a single subnet named *snet-prod-westus-003*.
 
-Some resources names, such as PaaS services with public endpoints or virtual
-machine DNS labels, have global scopes, meaning that they must be unique across
-the entire Azure platform.
+Some resources names, such as PaaS services with public endpoints or virtual machine DNS labels, have global scopes, meaning that they must be unique across the entire Azure platform.
 
-Resource names have length limits, so balancing the context embedded in a name
-with its scope and length is important when developing your naming conventions.
-For more information about naming rules regarding allowed characters, scopes,
-and name lengths for resource types, see the general patterns and practices
-article [Naming conventions for Azure
-resources](/azure/architecture/best-practices/naming-conventions).
+Resource names have length limits, so balancing the context embedded in a name with its scope and length is important when developing your naming conventions. For more information about naming rules regarding allowed characters, scopes, and name lengths for resource types, see the general patterns and practices article [Naming conventions for Azure resources](/azure/architecture/best-practices/naming-conventions).
 
 #### Recommended naming components
 
-When constructing your naming convention, you need to identify the key pieces of
-information that you want to reflect in a resource name. Different information
-will be relevant for different resource types, but the following list provides
-examples of information that are useful components when constructing resource
-names.
+When constructing your naming convention, you need to identify the key pieces of information that you want to reflect in a resource name. Different information will be relevant for different resource types, but the following list provides examples of information that are useful when constructing resource names.
 
-Note: Keep the length of naming components short to prevent exceeding resource
-name length limits.
+Note: Keep the length of naming components short to prevent exceeding resource name length limits.
 
 | Naming component           | Description                                                                                                                                                                                          | Examples                                         |
 |----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
@@ -99,12 +55,9 @@ name length limits.
 
 #### Recommended resource type prefixes
 
-Each workload can consist of many individual resources and services.
-Incorporating resource type prefixes into your resource names makes visually
-identifying application or service components much easier.
+Each workload can consist of many individual resources and services. Incorporating resource type prefixes into your resource names makes visually identifying application or service components much easier.
 
-The following list provides recommended Azure resource type prefixes to use when
-defining your naming conventions.
+The following list provides recommended Azure resource type prefixes to use when defining your naming conventions.
 
 | Resource type                       | Resource name prefix |
 |-------------------------------------|----------------------|
@@ -151,17 +104,9 @@ defining your naming conventions.
 
 ### Metadata tags
 
-Applying metadata tags to your cloud resources allows you to include information
-about those assets that couldn't be included in part of a naming. These tags
-should include context about the resource's associated workload or application,
-operational requirements, and ownership information, which can be used by IT or
-business teams to find resources or generate reports about resource usage and
-billing.
+Applying metadata tags to your cloud resources allows you to include information about those assets that couldn't be included in the resource name, and also allows you to perform more sophisticated filtering and reporting on resources. These tags should include context about the resource's associated workload or application, operational requirements, and ownership information, which can be used by IT or business teams to find resources or generate reports about resource usage and billing.
 
-What tags you apply to resources, and what tags are required versus optional,
-will differ between organizations. The list below provides examples of common
-tags capturing important context and information about a resource that you can
-use as a starting point for tagging related discussions.
+What tags you apply to resources, and what tags are required versus optional, will differ between organizations. The list below provides examples of common tags capturing important context and information about a resource that you can use as a starting point for establishing your own tagging conventions.
 
 | Tag Name                  | Description                                                                                                                                                                                                    | Key               | Example Value                                   |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------|-------------------------------------------------|
@@ -180,20 +125,15 @@ use as a starting point for tagging related discussions.
 
 ## Naming and tagging template
 
-Every business has different organizational and management requirements, and the
-recommendations in this article should act as a starting point for discussions
-within your cloud adoption teams.
+Every business has different organizational and management requirements, and the recommendations in this article should act as a starting point for discussions within your cloud adoption teams.
 
-As these discussions progress, use the template linked below to capture the
-naming decisions you make to align these recommendations with your specific
-business needs.
+As these discussions progress, use the template linked below to capture the naming and tagging decisions you make when aligning these recommendations to your specific business needs.
 
 [Download the naming and tagging convention tracking template.](https://archcenter.blob.core.windows.net/cdn/fusion/readiness/CAF%20Readiness%20Naming%20and%20Tagging%20tracking%20template.xlsx)
 
 ## Sample naming convention
 
-The following section provides examples of naming schemes for common types of
-Azure resources deployed as part of an enterprise cloud deployment.
+The following section provides examples of naming schemes for common Azure resource types deployed during an enterprise cloud deployment.
 
 ### Subscriptions
 
