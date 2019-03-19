@@ -679,6 +679,8 @@
           href: cloud-adoption/migrate/baseline-migration-guide/migrate.md
         - name: Manage Cost
           href: cloud-adoption/migrate/baseline-migration-guide/manage-costs.md
+        - name: Organise Resources
+          href: cloud-adoption/migrate/baseline-migration-guide/organize-resources.md
         - name: Optimize and Transform
           href: cloud-adoption/migrate/baseline-migration-guide/optimize-and-transform.md
         - name: Secure and Manage
