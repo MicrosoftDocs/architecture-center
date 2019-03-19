@@ -516,6 +516,8 @@
             href: data-guide/technology-choices/natural-language-processing.md 
           - name: Pipeline orchestration
             href: data-guide/technology-choices/pipeline-orchestration-data-movement.md 
+          - name: R developer's guide to Azure
+            href: r-developers-guide.md
           - name: Real-time message ingestion
             href: data-guide/technology-choices/real-time-ingestion.md
           - name: Search data stores
