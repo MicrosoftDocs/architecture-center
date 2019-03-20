@@ -64,3 +64,16 @@ What variables would influence that timeline?
 # [Cost Management](#tab/ManageCost)
 
 As you assess your environment this presents a perfect opportunity to include a cost analysis step within those activities. Utilizing the data collected by the assessment activities you should be able to analyse and predict costs. This cost predication should factor both the consumption service costs in addition to any one time costs (increased data ingress, etc).
+
+During migration, there are a number of factors that will impact decisions and execution activities:
+
+> * **Digital Estate Size** - Understanding the size of your digital estate will directly impact decisions and the resources required to perform the migration.
+> * **Accounting Models** - Shifting from a structured capital expenditure (CapEx) to a fluid operating expense (OpEx) model.
+
+::: zone target="docs"
+
+The following resources provide related information:
+
+* [CAF: Estimate Cloud Costs](../migration-considerations/assess/estimate)
+
+::: zone-end

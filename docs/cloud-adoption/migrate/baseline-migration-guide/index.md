@@ -25,7 +25,7 @@ Before you start migrating your services to your Azure environment, you need to 
 
 ::: zone target="docs"
 
-For the best experience, view this playbook in the portal. Go to the Azure Quickstart Center in the Azure portal and select **Migrate your environment to Azure**. The Azure Quickstart Center is in preview.
+For the best experience, view this playbook in the Azure portal. Go to the **Azure QuickStart Center** in the Azure portal and select **Migrate your environment to Azure**. The Azure QuickStart Center is currently in preview.
 
 ::: zone-end
 
@@ -38,15 +38,17 @@ When you migrate to Azure, you may have to migrate as-is, however you may have f
 * How do I ensure I remain compliant and meet regulations?
 * How do I meet legal requirements for data sovereignty in certain countries?
 
-This playbook helps address those questions. It suggests the tasks and features you should consider as you get ready to deploy resources in Azure. Specifically, you:
+This playbook helps address those questions. It suggests the tasks and features you should consider as you get ready to deploy resources in Azure. Specifically:
 
 > [!div class="checklist"]
-> * **Getting ready**: Plan and determine your migration.
-> * **Organize your resources**: Lock resources critical to your system and tag resources to track them.
-> * **Manage costs and billing**: Look at the costs of your resources.
+> * **Pre-requisites**: Plan and determine your migration.
 > * **Assess your technical fit**: Validate the technical readiness and suitability for migration.
 > * **Migrate your services**: Perform the actual migration.
-> * **Post Migration**: Understand what is required after you migrate your environment to Azure.
+> * **Manage costs and billing**: Look at the costs of your resources.
+> * **Organize your resources**: Lock resources critical to your system and tag resources to track them.
+> * **Optimize and Transform**: Utilize the post migration opportunity to review your resources
+> * **Secure and Manage**: Ensure that your environment is secure and being monitored.
+> * **Assistance**: Get help and support during your migration or post migration activities.
 
 ::: zone target="docs"
 

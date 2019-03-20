@@ -51,7 +51,13 @@ What do they hope to accomplish after this migration?
 
 # [When to use this approach](#tab/Approach)
 
-This guide has been designed for environments
+This guide has been designed largely for Rehost ("lift and shift") migrations, however many principals apply to Replatform or Refactor migrations.
+
+If your goal is simply to move existing applications to the cloud, first, identify existing applications that would not require substantial modification to run in Azure App Service. These apps should be the first candidates for Cloud-Optimized. Then, for the apps that still cannot move to Windows Containers and PaaS such as App Service or orchestrators like Azure Service Fabric, migrate those to VMs (IaaS).
+
+But, keep in mind that correctly configuring, securing, and maintaining VMs requires much more time and IT expertise compared to using PaaS services in Azure. If you are considering Azure Virtual Machines, make sure that you take into account the ongoing maintenance effort required to patch, update, and manage your VM environment. Azure Virtual Machines is IaaS.
+
+*Remove before GA: Content taken from [When to migrate to IaaS instead of to PaaS](https://docs.microsoft.com/en-us/dotnet/standard/modernize-with-azure-and-containers/lift-and-shift-existing-apps-azure-iaas#when-to-migrate-to-iaas-instead-of-to-paas)*
 
 # Learn More
 
