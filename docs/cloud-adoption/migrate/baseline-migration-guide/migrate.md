@@ -23,11 +23,54 @@ The following options exist for migrating your solution.
 
 # [Native Migration Tools](#tab/Tools)
 
-Native migrations tools.
+Azure provides a number of native tools which can perform the migration, or assist with stages of the migration. The following sections outline the various tools available.
 
 ## Azure Site Recovery
 
+Azure Site Recovery service can not only be used to manage and orchestrate disaster recovery of on-premises machines and Azure VMs for the purposes of business continuity and disaster recovery (BCDR). You can also use Site Recovery to manage migration of on-premises machines to Azure.
 
+The steps required are:
+> Prepare Azure
+> Prepare on-premises VMware or Hyper-V services
+> Migrate using Azure Site Recovery
+    > Select a replication goal
+    > Set up the source and target environment
+    > Set up a replication policy
+    > Enable replication
+    > Run a test migration
+    > Run a one-time failover to Azure
+
+The following steps outline the process to use Site Recovery service to migrate. Depending on your scenario, the exact steps may differ slightly:
+
+1. In the Azure Portal, click **Create a resource > Management Tools > Backup and Site Recovery**
+1. Complete the wizard to create a **Recovery Services vault** resource
+1. In the Resource Menu, click **Site Recovery > Prepare Infrastructure > Protection goal**
+1. In **Protection goal**, select what you want to migrate.
+    1. **VMware**: Select To Azure > Yes, with VMWare vSphere Hypervisor.
+    1. **Physical machine**: Select To Azure > Not virtualized/Other.
+    1. **Hyper-V**: Select To Azure > Yes, with Hyper-V. If Hyper-V VMs are managed by VMM, select Yes.
+1. Set up the source environment as appropriate
+1. Set up the target environment
+    1. Click **Prepare infrastructure > Target**, and select the Azure subscription you want to use.
+    1. Specify the Resource Manager deployment model.
+    1. Site Recovery checks that you have one or more compatible Azure storage accounts and networks.
+1. Set up a replication policy
+1. Enable replication
+1. Run a test migration (test failover)
+1. Migrate to Azure (failover)
+    1. In **Settings > Replicated items** click the machine > **Failover**.
+    1. In **Failover** select a **Recovery Point** to fail over to. Select the latest recovery point.
+    1. Configure any encryption key settings as required
+    1. Select **Shut down machine before beginning failover**. Site Recovery will attempt to shutdown virtual machines before triggering the failover. Failover continues even if shutdown fails. You can follow the failover progress on the Jobs page.
+    1. Check that the Azure VM appears in Azure as expected.
+    1. In **Replicated items**, right-click the VM > **Complete Migration**.
+1. Perform any post migration steps as required (see relevant information in this guide)
+
+::: zone target="chromeless"
+
+::: form action="OpenBlade[#create/Microsoft.RecoveryServices]" submitText="Create a Recovery Services vault" :::
+
+::: zone-end
 
 ## Azure Database Migration Service
 
@@ -37,6 +80,7 @@ The Azure Database Migration Service is a fully managed service designed to enab
 
 ### Read more
 
+* [Migrate on-premises machines to Azure](https://docs.microsoft.com/en-gb/azure/site-recovery/migrate-tutorial-on-premises-azure)
 * [Database Migration Service Overview](https://docs.microsoft.com/en-gb/azure/dms/dms-overview)
 * [Azure Migrate in the Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_ManagementGroups/HierarchyBlade)
 * [Create Migration project in the Azure Portal](https://ms.portal.azure.com/#create/Microsoft.AzureMigrate)
@@ -68,7 +112,12 @@ The migration service is now ready to migrate the supported source databases (e.
 
 # [3rd Party Migration Tools](#tab/3rd-party-tools)
 
-add text
+Several 3rd Party migration tools and ISV services exist to assist you with the migration process. Each offers different benefits and focus areas. The following are just a selection available:
+
+* [Cloudamize](https://www.cloudamize.com/) - An ISV service which covers all phases of the migration strategy
+* []()
+
+>>> Insert a disclaimer here ??? <<<
 
 # [Project Management Tools](#tab/project-management-tools)
 
