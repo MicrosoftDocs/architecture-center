@@ -166,8 +166,8 @@ Building an HPC system from scratch on Azure offers a significant amount of flex
 
 1. Set up your own cluster environment in Azure virtual machines or [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview?context=/azure/architecture/topics/high-performance-computing/context/hpc-context).
 2. Use Azure Resource Manager templates to deploy leading [workload managers](#workload-managers), infrastructure, and [applications](#hpc-applications).
-3. Choose [HPC and GPU VM sizes](#hpc-and-gpu-sizes) that include specialized hardware and network connections for MPI or GPU workloads.
-4. Add [high performance storage](#hpc-storage) for I/O-intensive workloads.
+3. Choose HPC and GPU VM sizes that include specialized hardware and network connections for MPI or GPU workloads.
+4. Add high performance storage for I/O-intensive workloads.
 
 ### Hybrid and cloud Bursting
 
@@ -232,7 +232,7 @@ First, review the [Options for connecting an on-premises network to Azure](/azur
     </li>
 </ul>
 
-Once network connectivity is securely established, you can start using cloud compute resources on-demand with the bursting capabilities of your existing [workload manager](#workload-manager).
+Once network connectivity is securely established, you can start using cloud compute resources on-demand with the bursting capabilities of your existing [workload manager](#workload-managers).
 
 ### Marketplace solutions
 
