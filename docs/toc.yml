@@ -569,12 +569,12 @@
     href: cloud-adoption/overview.md
   - name: Getting started
     items:
-    - name: Enable
-      href: cloud-adoption/getting-started/enable.md
     - name: Migrate
       href: cloud-adoption/getting-started/migrate.md
     - name: Innovate
       href: cloud-adoption/getting-started/innovate.md
+    - name: Enable
+      href: cloud-adoption/getting-started/enable.md
   - name: Plan
     items:
     - name: Overview
@@ -679,80 +679,42 @@
           href: cloud-adoption/migrate/baseline-migration-guide/optimize-and-transform.md
         - name: Secure and Manage
           href: cloud-adoption/migrate/baseline-migration-guide/secure-and-manage.md
-      - name: Complex Scenario Guide
+      - name: Expanded Scope
         items:
         - name: Getting started
-          href: cloud-adoption/migrate/complex-scenarios/index.md
-        - name: Checklist to evaluate complexity
-          href: cloud-adoption/migrate/complex-scenarios/checklist.md
-        - name: Pre-requisite
+          href: cloud-adoption/migrate/expanded-scope/index.md
+        - name: Checklist to identify scope requirements
+          href: cloud-adoption/migrate/expanded-scope/checklist.md
+        - name: Business Strategy
           items:
-          - name: XX- Inventory relevant markets
-            href: cloud-adoption/migrate/complex-scenarios/pre-requisites/planning-at-scale.md
-          - name: XX- Inventory Data Centers
-            href: cloud-adoption/migrate/complex-scenarios/pre-requisites/migrating-at-scale.md
-          - name: XX- Inventory of Assets
-            href: cloud-adoption/migrate/complex-scenarios/pre-requisites/multiple-regions.md
-          - name: XX- Digital Estate Plan
-            href: cloud-adoption/migrate/complex-scenarios/pre-requisites/multiple-data-centers.md
-          - name: XX- Identify essential roles & responsibilities
-            href: cloud-adoption/migrate/complex-scenarios/pre-requisites/governance-or-compliance.md
-          - name: XX- Identify partners and depdendencies
-            href: cloud-adoption/migrate/complex-scenarios/pre-requisites/technical-complexity.md
-          - name: XX- Identify skills gaps and training plans
-            href: cloud-adoption/migrate/complex-scenarios/pre-requisites/executive-readiness.md
-          - name: XX- Establish collaboration environment
-            href: cloud-adoption/migrate/complex-scenarios/pre-requisites/culture-complexity.md
-        - name: Assess
+          - name: Balance the portfolio
+            href: cloud-adoption/migrate/expanded-scope/balance-the-portfolio.md
+          - name: Business justification
+            href: cloud-adoption/migrate/expanded-scope/business-justification.md
+          - name: Multiple geographical regions
+            href: cloud-adoption/migrate/expanded-scope/multiple-regions.md
+        - name: Cultural Strategy
           items:
-          - name: XX- Pending completion of the expanded complexity guidance section
-            href: cloud-adoption/migrate/complex-scenarios/secure-and-manage/index.md
-        - name: Migrate
+          - name: Change management and approval processes
+            href: cloud-adoption/migrate/expanded-scope/change-management-and-approval-process.md
+          - name: Organizational complexity (Executive readiness)
+            href: cloud-adoption/migrate/expanded-scope/executive-readiness.md
+          - name: Organizational complexity (Skills readiness)
+            href: cloud-adoption/migrate/expanded-scope/skills-readiness.md
+          - name: Aligning support (Partner and other support options)
+            href: cloud-adoption/migrate/expanded-scope/partner-service-support-alignment.md
+        - name: Technical Strategy
           items:
-          - name: XX- Pending completion of the expanded complexity guidance section
-            href: cloud-adoption/migrate/complex-scenarios/secure-and-manage/index.md
-        - name: Optimize and Promote
-          items:
-          - name: XX- Pending completion of the expanded complexity guidance section
-            href: cloud-adoption/migrate/complex-scenarios/secure-and-manage/index.md
-        - name: xx- Secure and Manage
-          items:
-          - name: XX- Pending completion of the expanded complexity guidance section
-            href: cloud-adoption/migrate/complex-scenarios/secure-and-manage/index.md
-        - name: Expanded Complexity Guidance
-          items:
-          - name: XX- Overview
-            href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/index.md
-          - name: Business Complexity
-            items:
-            - name: Balance the portfolio
-              href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/balance-the-portfolio.md
-            - name: Business justification
-              href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/business-justification.md
-            - name: Multiple geographical regions
-              href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/multiple-regions.md
-          - name: Cultural Complexity
-            items:
-            - name: Change management and approval processes
-              href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/change-management-and-approval-process.md
-            - name: Organizational complexity (Executive readiness)
-              href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/executive-readiness.md
-            - name: Organizational complexity (Skills readiness)
-              href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/skills-readiness.md
-            - name: Aligning support (Partner and other support options)
-              href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/partner-service-support-alignment.md
-          - name: Technical Complexity
-            items:
-            - name: Existing data center constraints
-              href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/existing-data-center-constraints.md
-            - name: Migrate at scale - High volume or velocity of migrations
-              href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/migrate-at-scale.md
-            - name: Multiple data centers
-              href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/multiple-data-centers.md
-            - name: Governance or compliance strategy
-              href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/governance-or-compliance.md
-            - name: Technical complexity (Change management)
-              href: cloud-adoption/migrate/complex-scenarios/expanded-complexity-guidance/technical-complexity.md
+          - name: Addressing existing data center constraints
+            href: cloud-adoption/migrate/expanded-scope/existing-data-center-constraints.md
+          - name: Migrate at scale - High volume or velocity of migrations
+            href: cloud-adoption/migrate/expanded-scope/migrate-at-scale.md
+          - name: Multiple data centers
+            href: cloud-adoption/migrate/expanded-scope/multiple-data-centers.md
+          - name: Governance or compliance strategy
+            href: cloud-adoption/migrate/expanded-scope/governance-or-compliance.md
+          - name: Addressing technical complexity (Change management)
+            href: cloud-adoption/migrate/expanded-scope/technical-complexity.md
       - name: Azure Best Practices
         items:
         - name: Overview

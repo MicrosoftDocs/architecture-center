@@ -1,15 +1,15 @@
 ---
-title: "CAF: Migrating at scale"
-description: Migrating at scale
+title: "CAF: Executive readiness"
+description: Executive readiness
 author: BrianBlanchard
 ms.date: 4/4/2019
 ---
 
-# Migrating at scale
+# Executive readiness
 
-- **Migrating at scale:** Migrations exceeding 2,000 assets are likely to run into constraints that require additional planning and a disciplined approach to execution. The Assess and Migrate processes are adjusted to account for scale complexity.
+- **Organizational complexity (Executive readiness):** Proper levels of executive support and leadership are critical to the success of a migration effort. If the executive team is not ready to engage, then support is unlikely to follow. This complexity is addressed during the pre-requisite and assess processes.
 
-## Approach to addressing complexity
+## General scope expansion
 
 Summarize the general approach to overcoming this challenge
 

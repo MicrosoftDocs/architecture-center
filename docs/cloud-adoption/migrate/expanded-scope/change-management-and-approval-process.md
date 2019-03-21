@@ -1,15 +1,15 @@
 ---
-title: "CAF: Multiple data centers"
-description: Multiple data centers
+title: "CAF: Change management and approval processes"
+description: Change management and approval processes
 author: BrianBlanchard
 ms.date: 4/4/2019
 ---
 
-# Multiple data centers
+# Change management and approval processes
 
-- **Multiple data centers:** Migration of multiple data centers adds a great deal of complexity. During Assess, Migrate, Optimization, and Manage processes, additional considerations will be discussed.
+- **Change management and approval processes:** When the culture is complex, highly matrixed, or siloed the processes related to change management and approvals becomes challenging. Guidance on managing this complexity can be found in assess, migrate, and optimize processes.
 
-## Approach to addressing complexity
+## General scope expansion
 
 Summarize the general approach to overcoming this challenge
 

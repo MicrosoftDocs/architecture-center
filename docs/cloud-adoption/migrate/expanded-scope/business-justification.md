@@ -1,15 +1,15 @@
 ---
-title: "CAF: Technical complexity (Change management)"
-description: Technical complexity (Change management)
+title: "CAF: Business justification"
+description: Business justification
 author: BrianBlanchard
 ms.date: 4/4/2019
 ---
 
-# Technical complexity (Change management)
+# Business justification
 
-- **Technical complexity (Change management):** Extensive solution architectures, long standing technical debt, and interdependencies can create a complexity that should be addressed during assess, migrate, and optimize processes.
+- **Business justification:** Cost and Total Cost of Ownership may not be enough to establish priorities and justification with the business. During the Assess process, options and guidance for creating a balanced business justification is discussed.
 
-## Approach to addressing complexity
+## General scope expansion
 
 Summarize the general approach to overcoming this challenge
 

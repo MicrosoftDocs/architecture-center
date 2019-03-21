@@ -165,4 +165,4 @@ Choose one of these journeys:
 > [!div class="nextstepaction"]
 > [Baseline Migration Guide](./baseline-migration-guide/index.md)
 >
-> [Complex Scenarios Guide](./complex-scenarios/index.md)
+> [Complex Scenarios Guide](./expanded-scope/index.md)
