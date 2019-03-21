@@ -641,8 +641,8 @@
       items:
       - name: XX-Overview
         href: cloud-adoption/ready/theory/index.md
-      - name: XX-Naming Standards
-        href: cloud-adoption/ready/theory/index.md
+      - name: Naming and tagging
+        href: cloud-adoption/ready/considerations/naming-and-tagging.md
       - name: XX-Primitives
         href: cloud-adoption/ready/theory/index.md
       - name: XX-Network
