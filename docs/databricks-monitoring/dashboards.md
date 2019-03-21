@@ -9,7 +9,7 @@ ms.service:
 ms.subservice:
 ---
 
-# Performance monitoring and troubleshooting for Azure Databricks using Azure Monitor
+# Use dashboards to visualize Azure Databricks metrics
 
 [Azure Databricks](/azure/azure-databricks/) is a fast, powerful, and collaborative [Apache Spark](https://spark.apache.org/)–based analytics service that makes it easy to rapidly develop and deploy big data analytics and artificial intelligence (AI) solutions. Monitoring and troubleshooting performance issues is a critical component of operating your production Azure Databricks workloads, and the first step in the process is to gather metrics into a workspace for analysis. In Azure, the best solution for managing log data is [Azure Monitor](/azure/azure-monitor/). Azure Databricks does not natively support sending log data to Azure monitor, but a [library for this functionality](https://github.com/mspnp/spark-monitoring) is available in [Github](https://github.com).
 
@@ -134,4 +134,4 @@ The final set of visualizations show the data shuffle metrics associated with a 
 
 ## Next steps
 
-Learn more about the diagnosis and troubleshooting of common Azure Databricks [performance patterns](databricks-troubleshooting.md) that can be identified using these visualizations.
+Learn more about the diagnosis and troubleshooting of common Azure Databricks [performance patterns](./performance-troubleshooting.md) that can be identified using these visualizations.

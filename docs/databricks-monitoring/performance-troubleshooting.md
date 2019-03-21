@@ -9,7 +9,7 @@ ms.service:
 ms.subservice:
 ---
 
-# Performance troubleshooting for Azure Databricks using Azure Monitor
+# Troubleshoot performance bottlenecks in Azure Databricks
 
 [Azure Databricks](/azure/azure-databricks/) is a fast, powerful, and collaborative [Apache Spark](https://spark.apache.org/)–based analytics service that makes it easy to rapidly develop and deploy big data analytics and artificial intelligence (AI) solutions. Monitoring and troubleshooting performance issues is a critical component of operating your production Azure Databricks workloads, and the the final step in the process is to identify common performance issues using the monitoring visualizations based on telemetry data you've sent to your Log Analytics workspace and correct them in your application.
 
@@ -37,19 +37,19 @@ To troubleshoot the task straggler issue, investigate the following graphs in th
 
 | Visualization | Description |
 |---------------|-------------|
-| [Job latency](databricks-performance-dashboard.md#job-latency)   | Investigate job execution by cluster and application, looking for spikes in latency. Once clusters and applications with high latency are identified, move on to investigate stage latency.|
-| [Stage latency](databricks-performance-dashboard.md#stage-latency) | Select display of the clusters and applications identified above, then investigate to identify stages that have high latency and are blocking other stages. |
-| [Task latency](databricks-performance-dashboard.md#task-latency) | Select display of the stages experiencing high latency identified above. Identify spikes in task latency in the graph to determine which tasks are holding back completion of the stage. |
-| [Sum of Task Execution per host](databricks-performance-dashboard.md#sum-task-execution-per-host) | Select display of tasks with high latency identified in the task latency panel. Investigate spikes in the sum of task execution hosts to find the hosts that are stressed with a high number of tasks. This may be caused by inefficient task distribution by the executor.|
-| [Task metrics](databricks-performance-dashboard.md#task-metrics) | These panels dispaly the breakdown of resource cost for a particular task execution. Investigating areas of excessive resource cost may identify opportunties for serialization and deserialization optimization. 
-| [Streaming throughput/latency](databricks-performance-dashboard.md#streaming-throughputlatency) | For structured streaming queries, the number of input rows per second and the number of processed rows per second are the most important metrics for performance. Use this panel to identify tasks that have low streaming throughput and latency metrics. |
-| [Resource consumption per executor](databricks-performance-dashboard.md#resource-consumption-per-executor) | Again, select tasks to find spikes in resource consumption that identify tasks that are running slowly and blocking the execution of other tasks.|
+| [Job latency](./dashboards.md#job-latency)   | Investigate job execution by cluster and application, looking for spikes in latency. Once clusters and applications with high latency are identified, move on to investigate stage latency.|
+| [Stage latency](./dashboards.md#stage-latency) | Select display of the clusters and applications identified above, then investigate to identify stages that have high latency and are blocking other stages. |
+| [Task latency](./dashboards.md#task-latency) | Select display of the stages experiencing high latency identified above. Identify spikes in task latency in the graph to determine which tasks are holding back completion of the stage. |
+| [Sum of Task Execution per host](./dashboards.md#sum-task-execution-per-host) | Select display of tasks with high latency identified in the task latency panel. Investigate spikes in the sum of task execution hosts to find the hosts that are stressed with a high number of tasks. This may be caused by inefficient task distribution by the executor.|
+| [Task metrics](./dashboards.md#task-metrics) | These panels dispaly the breakdown of resource cost for a particular task execution. Investigating areas of excessive resource cost may identify opportunties for serialization and deserialization optimization. 
+| [Streaming throughput/latency](./dashboards.md#streaming-throughputlatency) | For structured streaming queries, the number of input rows per second and the number of processed rows per second are the most important metrics for performance. Use this panel to identify tasks that have low streaming throughput and latency metrics. |
+| [Resource consumption per executor](./dashboards.md#resource-consumption-per-executor) | Again, select tasks to find spikes in resource consumption that identify tasks that are running slowly and blocking the execution of other tasks.|
 
 ## Degree of Parallelism
 
 During a structured streaming query, the assignment of a task to an executor is a resource intensive operation for the cluster. If the data under shuffle is not the optimal size, the amount of delay for a task will negatively impact throughput and latency. Another aspect is if there are too few partitions, the cores in the cluster will be underutilized and can also result in processing inefficiency. Conversely, if there are too many paritions, there is a great deal of management overhead for a small number of tasks.
 
-To diagnose these problems, review the panels related to [cluster throughput](databricks-performance-dashboard.md#cluster-throughput), [job latency](databricks-performance-dashboard.md#job-latency), [streaming latency](databricks-performance-dashboard.md#streaming-throughputlatency), and scheduler delay time.
+To diagnose these problems, review the panels related to [cluster throughput](./dashboards.md#cluster-throughput), [job latency](./dashboards.md#job-latency), [streaming latency](./dashboards.md#streaming-throughputlatency), and scheduler delay time.
 
 ## Exceptions
 

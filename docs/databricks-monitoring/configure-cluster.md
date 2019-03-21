@@ -9,15 +9,7 @@ ms.service:
 ms.subservice:
 ---
 
-# Monitoring Azure Databricks in Azure Log Analytics
-
-[Azure Databricks](/azure/azure-databricks/) is a fast, powerful, and collaborative [Apache Spark](https://spark.apache.org/)–based analytics service that makes it easy to rapidly develop and deploy big data analytics and artificial intelligence (AI) solutions. Most users take advantage of the simplicity of notebooks in their Azure Databricks solutions. For users that require more robust computing options, Azure Databricks supports the distributed execution of custom application code written in Scala.
-
-Monitoring in custom application code is a critical part of any production-level solution, and Azure Databricks offers robust functionality for monitoring custom application metrics, streaming query event information, and application log messages. Azure Databricks supports delivery of metrics and logging data to many different logging services, and the code library that accompanies this document extends the core monitoring functionality of Azure Databricks to send streaming query event information to [Azure Monitor](/azure/azure-monitor/overview).
-
-The code library that accompanies this document extends the core monitoring functionality of Azure Databricks to send streaming query events, Apache Spark events and metrics, and application logging information to Azure Log Analytics.
-
-The audience for this document and accompanying code library are advanced Apache Spark and Azure Databricks solution developers. The code must be built into Java Archive (JAR) files and then deployed to an Azure Databricks cluster using the [Azure Databricks file system](https://docs.azuredatabricks.net/user-guide/dbfs-databricks-file-system.html) and a [cluster node initilization script](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html). The code is a combination of [Scala](https://www.scala-lang.org/) and Java, with a corresponding set of [Maven](https://maven.apache.org) project object model (POM) files to build the output JAR files. An advanced understanding of Java, Scala, and Maven are recommended as prerequisistes.
+# Configure Azure Databricks to send metrics to Log Analytics
 
 ## About the Azure Databricks monitoring library
 
@@ -59,42 +51,42 @@ To build the Azure Databricks monitoring library, follow these steps:
 
 1. Import the Maven project project object model file, _pom.xml_, located in the **/src** folder into your project. This will import three projects:
 
-* spark-jobs
-* spark-listeners
-* spark-listeners-loganalytics
+    * spark-jobs
+    * spark-listeners
+    * spark-listeners-loganalytics
 
-2. Execute the Maven **package** build phase in your Java IDE to build the JAR files for each of the these three projects:
+1. Execute the Maven **package** build phase in your Java IDE to build the JAR files for each of the these three projects:
 
-|Project| JAR file|
-|-------|---------|
-|spark-jobs|spark-jobs-1.0-SNAPSHOT.jar|
-|spark-listeners|spark-listeners-1.0-SNAPSHOT.jar|
-|spark-listeners-loganalytics|spark-listeners-loganalytics-1.0-SNAPSHOT.jar|
+    |Project| JAR file|
+    |-------|---------|
+    |spark-jobs|spark-jobs-1.0-SNAPSHOT.jar|
+    |spark-listeners|spark-listeners-1.0-SNAPSHOT.jar|
+    |spark-listeners-loganalytics|spark-listeners-loganalytics-1.0-SNAPSHOT.jar|
 
-3. Use the Azure Databricks CLI to create a directory named **dbfs:/databricks/monitoring-staging**:  
+1. Use the Azure Databricks CLI to create a directory named **dbfs:/databricks/monitoring-staging**:  
 
-  ```bash
-  dbfs mkdirs dbfs:/databricks/monitoring-staging
-  ```
+    ```bash
+    dbfs mkdirs dbfs:/databricks/monitoring-staging
+    ```
 
-4. Use the Azure Databricks CLI to copy **/src/spark-listeners/scripts/listeners.sh** to the directory created in step 3:
+1. Use the Azure Databricks CLI to copy **/src/spark-listeners/scripts/listeners.sh** to the directory created in step 3:
 
-```bash
-dbfs cp <local path to listeners.sh> dbfs:/databricks/monitoring-staging/listeners.sh
-```
+    ```bash
+    dbfs cp ./src/spark-listeners/scripts/listeners.sh dbfs:/databricks/monitoring-staging/listeners.sh
+    ```
 
-5. Use the Azure Databricks CLI to copy **/src/spark-listeners/scripts/metrics.properties** to the directory created in step 3:
+1. Use the Azure Databricks CLI to copy **/src/spark-listeners/scripts/metrics.properties** to the directory created in step 3:
 
-```bash
-dbfs cp <local path to metrics.properties> dbfs:/databricks/monitoring-staging/metrics.properties
-```
+    ```bash
+    dbfs cp <local path to metrics.properties> dbfs:/databricks/monitoring-staging/metrics.properties
+    ```
 
-6. Use the Azure Databricks CLI to copy **spark-listeners-1.0-SNAPSHOT.jar** and **spark-listeners-loganalytics-1.0-SNAPSHOT.jar** that were built in step 2 to the directory created in step 3:
+1. Use the Azure Databricks CLI to copy **spark-listeners-1.0-SNAPSHOT.jar** and **spark-listeners-loganalytics-1.0-SNAPSHOT.jar** that were built in step 2 to the directory created in step 3:
 
-```bash
-dbfs cp <local path to spark-listeners-1.0-SNAPSHOT.jar> dbfs:/databricks/monitoring-staging/spark-listeners-1.0-SNAPSHOT.jar
-dbfs cp <local path to spark-listeners-loganalytics-1.0-SNAPSHOT.jar> dbfs:/databricks/monitoring-staging/spark-listeners-loganalytics-1.0-SNAPSHOT.jar
-```
+    ```bash
+    dbfs cp <local path to spark-listeners-1.0-SNAPSHOT.jar> dbfs:/databricks/monitoring-staging/spark-listeners-1.0-SNAPSHOT.jar
+    dbfs cp <local path to spark-listeners-loganalytics-1.0-SNAPSHOT.jar> dbfs:/databricks/monitoring-staging/spark-listeners-loganalytics-1.0-SNAPSHOT.jar
+    ```
 
 ### Create and configure the Azure Databricks cluster
 
@@ -106,15 +98,17 @@ To create and configure the Azure Databricks cluster, follow these steps:
 4. In the "Databricks Runtime Version" dropdown, select **4.3 (includes Apache Spark 2.3.1, Scala 2.11)**.
 5. Under "Advanced Options", click on the "Spark" tab. Enter the following name-value pairs in the "Spark Config" text box:
 
-| Name | Value |
-|-------|--------|
-|spark.extraListeners|com.databricks.backend.daemon.driver.DBCEventLoggingListener,org.apache.spark.listeners.UnifiedSparkListener|
-|spark.unifiedListener.sink |org.apache.spark.listeners.sink.loganalytics.LogAnalyticsListenerSink|
-|spark.unifiedListener.logBlockUpdates|false|
+    | Name | Value |
+    |-------|--------|
+    |spark.extraListeners|com.databricks.backend.daemon.driver.DBCEventLoggingListener,org.apache.spark.listeners.UnifiedSparkListener|
+    |spark.unifiedListener.sink |org.apache.spark.listeners.sink.loganalytics.LogAnalyticsListenerSink|
+    |spark.unifiedListener.logBlockUpdates|false|
 
 6. While still under the "Spark" tab, enter the following in the "Environment Variables" text box:
-* LOG_ANALYTICS_WORKSPACE_ID=[your Azure Log Analytics workspace ID](/azure/azure-monitor/platform/agent-windows#obtain-workspace-id-and-key)
-* LOG_ANALYTICS_WORKSPACE_KEY=[your Azure Log Analytics shared access signature](/azure/azure-monitor/platform/agent-windows#obtain-workspace-id-and-key)
+
+    * LOG_ANALYTICS_WORKSPACE_ID=[your Azure Log Analytics workspace ID](/azure/azure-monitor/platform/agent-windows#obtain-workspace-id-and-key)
+    * LOG_ANALYTICS_WORKSPACE_KEY=[your Azure Log Analytics shared access signature](/azure/azure-monitor/platform/agent-windows#obtain-workspace-id-and-key)
+
 7. While still under the "Advanced Options" section, click on the "Init Scripts" tab. Go to the last line under the "Init Scripts section" Under the "destination" dropdown, select "DBFS". Enter "dbfs:/databricks/monitoring-staging/listeners.sh" in the text box. Click the "add" button.
 8. Click the "create cluster" button to create the cluster. Next, click on the "start" button to start the cluster.
 
@@ -153,13 +147,14 @@ To send your Azure Databricks application logs to Azure Log Analytics using the 
 2. In your application code, include the **spark-listeners-loganalytics** project, and `import com.microsoft.pnp.logging.Log4jconfiguration` to your application code.
 3. Create a **log4j.properties** file for your application. In addition to any properties that you specify, you must include the following and substitute your application package name and log level where indicated:
 
-```YAML
-log4j.appender.A1=com.microsoft.pnp.logging.loganalytics.LogAnalyticsAppender
-log4j.appender.A1.layout=com.microsoft.pnp.logging.JSONLayout
-log4j.appender.A1.layout.LocationInfo=false
-log4j.additivity.<your application package name>=false
-log4j.logger.<your application package name>=<log level>, A1
-```
+    ```YAML
+    log4j.appender.A1=com.microsoft.pnp.logging.loganalytics.LogAnalyticsAppender
+    log4j.appender.A1.layout=com.microsoft.pnp.logging.JSONLayout
+    log4j.appender.A1.layout.LocationInfo=false
+    log4j.additivity.<your application package name>=false
+    log4j.logger.<your application package name>=<log level>, A1
+    ```
+
 4. Configure log4j using with the **log4j.properties** file you created in step 3:
 
 ```Scala
@@ -169,6 +164,7 @@ getClass.getResourceAsStream("<path to file in your JAR file>/log4j.properties")
       }
 }
 ```
+
 5. Add [Apache Spark log messages at the appropriate level](https://spark.apache.org/docs/2.3.0/api/java/org/apache/spark/internal/Logging.html) in your code as required. For example, if the **log4j.logger** log level is set to **DEBUG**, use the `logDebug("message")` method to send `message` to your Azure Log Analytics workspace.
 
 ### Monitor your Azure Databricks cluster
@@ -179,4 +175,4 @@ Spark Structured Streaming event data from Azure Databricks also streams to your
 
 ## Next steps
 
-Deploy the [performance monitoring dashboard](databricks-performance-dashboard.md) that accompanies this code library to troubleshoot performance issues in your production Azure Databricks workloads.
+Deploy the [performance monitoring dashboard](dashboards.md) that accompanies this code library to troubleshoot performance issues in your production Azure Databricks workloads.
