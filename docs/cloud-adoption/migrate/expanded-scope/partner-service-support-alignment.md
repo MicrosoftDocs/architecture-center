@@ -1,15 +1,15 @@
 ---
-title: "CAF: Business justification"
-description: Business justification
+title: "CAF: Partner, service, and support alignment"
+description: Partner, service, and support alignment
 author: BrianBlanchard
 ms.date: 4/4/2019
 ---
 
-# Business justification
+# Partner, service, and support alignment
 
-- **Business justification:** Cost and Total Cost of Ownership may not be enough to establish priorities and justification with the business. During the Assess process, options and guidance for creating a balanced business justification is discussed.
+- **Aligning support (Partner, service, and support alignment):** Within each of the the processes outlined, there are ways in which a partner, services from the cloud vendor, and/or support from the cloud vendor can aid in execution. In each of the porcesses sections a page on support alignment will discuss the options further.
 
-## Approach to addressing complexity
+## General scope expansion
 
 Summarize the general approach to overcoming this challenge
 

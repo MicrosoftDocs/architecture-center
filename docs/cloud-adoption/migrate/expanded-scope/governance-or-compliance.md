@@ -1,15 +1,15 @@
 ---
-title: "CAF: Partner, service, and support alignment"
-description: Partner, service, and support alignment
+title: "CAF: Governance or compliance strategy"
+description: Governance or compliance strategy
 author: BrianBlanchard
 ms.date: 4/4/2019
 ---
 
-# Partner, service, and support alignment
+# Governance or compliance strategy
 
-- **Aligning support (Partner, service, and support alignment):** Within each of the the processes outlined, there are ways in which a partner, services from the cloud vendor, and/or support from the cloud vendor can aid in execution. In each of the porcesses sections a page on support alignment will discuss the options further.
+- **Governance or compliance strategy:** When governance and compliance are vital to the success of a migration, additional alignment between IT Governance teams and the Cloud Adoption team is required.
 
-## Approach to addressing complexity
+## General scope expansion
 
 Summarize the general approach to overcoming this challenge
 

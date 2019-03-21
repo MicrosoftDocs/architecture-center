@@ -11,6 +11,9 @@ Microsoft has defined a cloud adoption framework, to help organizations with a s
 
 This framework is designed to speak most directly to Cloud Architects and the Cloud Strategy Team who lead cloud adoption efforts. However, many of the topics in this framework will be relevant to additional roles across the business and IT. It is assumed that Cloud Architects will serve as facilitators engaging each of the relevant roles. This executive summary is designed to prepare those various roles prior to those facilitated conversations.
 
+> [!NOTE]
+> This guidance is currently in a public preview state. Terms, approaches, and guidance are being thoroughly tested with customers, partners, and Microsoft teams during this preview. As such the TOC and guidance my change slightly.
+
 ## Framework for cloud migrations
 
 This framework is based on an incremental approach to cloud adoption that aligns to Agile technology strategies, Growth Mindset based cultural growth, and Business Outcomes driven business strategies. This framework consists of the following high level components which guide the implementation of each strategy.
@@ -33,7 +36,7 @@ Throughout this migration experience this framework will be used to address ambi
 Cloud migrations can align to a number of business outcomes. Most commonly migrations are related to stability, scale, or efficiency drivers. The following are few common business outcomes that would lead to a migration focused effort.
 
 - Critical Business Event
-    - Data center lease expiration
+    - Data center exit
     - Mergers, acquisition or divestiture
     - Reductions in capital expenses
     - End of support for mission critical technologies
@@ -46,6 +49,19 @@ Cloud migrations can align to a number of business outcomes. Most commonly migra
 - Scale to meet geographic demands
 
 Clearly communicating business drivers and the metrics used to measure success is an important first step in cloud migration efforts.
+
+## Common cultural change
+
+The effort to realize the desired business outcomes may trigger slight changes to the culture of IT, and to some degree the culture of the business. The following are a few common cultural changes seen in this process:
+
+- The IT team is likely to adopt new skills to support workloads in the cloud
+- Execution of a cloud migration encourages iterative or agile approaches
+- Inclusion of cloud governance also tends to inspire DevOps approaches
+- Creation of a Cloud Strategy Team can lead to tighter integration between business and IT leaders
+- Collectively, these changes tend to lead to business and IT agility
+
+Cultural change is not a goal of cloud migration or the Cloud Adoption Framework, but it is a commonly experienced outcome.
+Cultural changes are not directly guided, instead subtle changes to the culture are embedded in the suggested process improvements and approaches throughout the guidance.
 
 ## Common technical efforts
 
@@ -62,7 +78,7 @@ Cloud migrations often target a broad portfolio of workloads and applications. W
 - Globally distributed solutions
 - Highly scalable solutions
 
-## Common technologies
+## Common technologies migrated in this approach
 
 The technologies migrated to the cloud constantly expand as cloud providers add new capabilities. The following are a few examples of the technologies commonly seen in a migration effort:
 

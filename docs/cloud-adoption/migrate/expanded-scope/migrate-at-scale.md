@@ -1,15 +1,15 @@
 ---
-title: "CAF: Governance or compliance strategy"
-description: Governance or compliance strategy
+title: "CAF: Migrating at scale"
+description: Migrating at scale
 author: BrianBlanchard
 ms.date: 4/4/2019
 ---
 
-# Governance or compliance strategy
+# Migrating at scale
 
-- **Governance or compliance strategy:** When governance and compliance are vital to the success of a migration, additional alignment between IT Governance teams and the Cloud Adoption team is required.
+- **Migrating at scale:** Migrations exceeding 2,000 assets are likely to run into constraints that require additional planning and a disciplined approach to execution. The Assess and Migrate processes are adjusted to account for scale complexity.
 
-## Approach to addressing complexity
+## General scope expansion
 
 Summarize the general approach to overcoming this challenge
 

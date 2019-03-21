@@ -1,19 +1,19 @@
 ---
-title: "CAF: Cloud migration complexity checklist"
-description: Cloud migration complexity checklist
+title: "CAF: Cloud migration expanded scope checklist"
+description: Cloud migration expanded scope checklist
 author: BrianBlanchard
 ms.date: 4/4/2019
 ---
 
-# Cloud migration complexity checklist
+# Cloud migration expanded scope checklist
 
-The following checklist outlines the areas of complexity addressed by this guide.
+The following checklist outlines the areas of complexity which require scope to be expanded beyond the baseline migration guide.
 
 - Balancing the portfolio
 - Business justification
 - Change management and approval processes
-- Organizational complexity (Executive readiness)
-- Organizational complexity (Skills readiness)
+- Executive readiness
+- Skills readiness
 - Aligning support (Partner and other support options)
 - Existing data center constraints
 - Migrating at scale - High volume or velocity of migrations
@@ -22,15 +22,13 @@ The following checklist outlines the areas of complexity addressed by this guide
 - Governance or compliance strategy
 - Technical complexity (Change management)
 
-If any of these complexities align with the reader's scenario, then this section of the Cloud Adoption Framework will likely provide the type of guidance needed during the migration process.
+If any of these complexities align with the reader's scenario, then this section of the Cloud Adoption Framework will likely provide the type of guidance needed properly align scope in the migration processes.
 
-Various different point of complexity require different actions during each of the migration processes: [Assess](./assess/index.md), [Migrate](./migrate/index.md), [Optimize](./optimize-and-promote/index.md), & [Secure and Manage](./secure-and-manage/index.md). To better align with the reader's current challenges, the areas of complexity are distributed across the processes. The intro to each process will outline the complexities addressed in that section with links to the relevant guidance.
+Each of these scenarios is addressed by the various articles in this section of the Cloud Adoption Framework.
 
-For an alternative view, see the [expanded complexity guidance section](./expanded-complexity-guidance/index.md) at the end of this guide, which will provide links back to the various points of guidance across each of the processes.
+## Scope options explained
 
-## Complexities explained
-
-The following expand on the short checklist above to aid the reader's understanding of each point of complexity. These brief statements are designed to add clarity beyond the brief titles above.
+The following expand on the short checklist above to aid the reader's understanding of each scope expansion. These brief statements are designed to add clarity beyond the brief titles above.
 
 ### Business Complexity
 
@@ -55,17 +53,7 @@ The following expand on the short checklist above to aid the reader's understand
 
 ## Next steps
 
-The next steps are best determined by the reader's current challenges and the process the reader is attempting to improve.
-
-Choose one of the following processes to begin addressing complexity:
-
-- [Assess](./assess/index.md)
-- [Migrate](./migrate/index.md)
-- [Optimize](./optimize-and-promote/index.md)
-- [Secure and Manage](./secure-and-manage/index.md).
+Browse the TOC to the left to address specific needs or scope changes. Alternatively, the first scope enhancement on the list, [Balancing the Portfolio](./balance-the-portfolio.md) could be a good enhancement to review first.
 
 > [!div class="nextstepaction"]
-> [Assess](./assess/index.md)
-> [Migrate](./migrate/index.md)
-> [Optimize](./optimize-and-promote/index.md)
-> [Secure and Manage](./secure-and-manage/index.md).
+> [Balancing the Portfolio](./balance-the-portfolio.md)
