@@ -29,16 +29,7 @@ Azure provides a number of native tools which can perform the migration, or assi
 
 Azure Site Recovery service can not only be used to manage and orchestrate disaster recovery of on-premises machines and Azure VMs for the purposes of business continuity and disaster recovery (BCDR). You can also use Site Recovery to manage migration of on-premises machines to Azure.
 
-The steps required are:
-> Prepare Azure
-> Prepare on-premises VMware or Hyper-V services
-> Migrate using Azure Site Recovery
-    > Select a replication goal
-    > Set up the source and target environment
-    > Set up a replication policy
-    > Enable replication
-    > Run a test migration
-    > Run a one-time failover to Azure
+### Migrate to Azure with Site Recovery service
 
 The following steps outline the process to use Site Recovery service to migrate. Depending on your scenario, the exact steps may differ slightly:
 
@@ -72,22 +63,17 @@ The following steps outline the process to use Site Recovery service to migrate.
 
 ::: zone-end
 
-## Azure Database Migration Service
-
-The Azure Database Migration Service is a fully managed service designed to enable seamless migrations from multiple database sources to Azure data platforms with minimal downtime (online migrations). The Azure Database Migration Service performs all of the required steps. You can fire and forget your migration projects with peace of mind, knowing that the process takes advantage of best practices as determined by Microsoft.
-
 ::: zone target="docs"
 
-### Read more
+Additional information can be found in the following resources:
 
 * [Migrate on-premises machines to Azure](https://docs.microsoft.com/en-gb/azure/site-recovery/migrate-tutorial-on-premises-azure)
-* [Database Migration Service Overview](https://docs.microsoft.com/en-gb/azure/dms/dms-overview)
-* [Azure Migrate in the Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_ManagementGroups/HierarchyBlade)
-* [Create Migration project in the Azure Portal](https://ms.portal.azure.com/#create/Microsoft.AzureMigrate)
 
 ::: zone-end
 
-::: zone target="chromeless"
+## Azure Database Migration Service
+
+The Azure Database Migration Service is a fully managed service designed to enable seamless migrations from multiple database sources to Azure data platforms with minimal downtime (online migrations). The Azure Database Migration Service performs all of the required steps. You can fire and forget your migration projects with peace of mind, knowing that the process takes advantage of best practices as determined by Microsoft.
 
 ### Create a Database Migration Service
 
@@ -97,7 +83,11 @@ If this is the first time using the Database Migration Service then you need to 
 1. Select **Resource providers**
 1. Search for `migration`, and then to the right of **Microsoft.DataMigration**, select **Register**
 
+::: zone target="chromeless"
+
 ::: form action="OpenBlade[#blade/Microsoft_Azure_Billing/SubscriptionsBlade]" submitText="Go to Subscriptions" :::
+
+::: zone-end
 
 Once you have registered the resource provider, you can proceed to create an instance of the Database Migration Service
 
@@ -106,9 +96,22 @@ Once you have registered the resource provider, you can proceed to create an ins
 
 The migration service is now ready to migrate the supported source databases (e.g. SQL Server, MySQL, PostgreSQL, MongoDb, etc).
 
+::: zone target="chromeless"
+
 ::: form action="OpenBlade[#create/Microsoft.AzureDMS]" submitText="Create a Database Migration Service" :::
 
 ::: zone-end
+
+::: zone target="docs"
+
+Additional information can be found in the following resources:
+
+* [Database Migration Service Overview](https://docs.microsoft.com/en-gb/azure/dms/dms-overview)
+* [Azure Migrate in the Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_ManagementGroups/HierarchyBlade)
+* [Create Migration project in the Azure Portal](https://ms.portal.azure.com/#create/Microsoft.AzureMigrate)
+
+::: zone-end
+
 
 # [3rd Party Migration Tools](#tab/3rd-party-tools)
 
@@ -117,7 +120,7 @@ Several 3rd Party migration tools and ISV services exist to assist you with the 
 * [Cloudamize](https://www.cloudamize.com/) - An ISV service which covers all phases of the migration strategy
 * []()
 
->>> Insert a disclaimer here ??? <<<
+[--- Insert a disclaimer here ??? ---]
 
 # [Project Management Tools](#tab/project-management-tools)
 
