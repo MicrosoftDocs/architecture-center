@@ -27,6 +27,12 @@ Prior to beginning any migrations, the environment must be prepared for the comi
 
 Tell the customer's story
 
+points to possibly call out in story:
+legacy hardware
+Reduce CapEx
+Free up datacenter space
+Quick cloud ROI
+
 ## Migration Characteristics
 
 What does the digital estate look like for this customer before the migration?
