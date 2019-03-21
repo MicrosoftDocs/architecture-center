@@ -107,6 +107,26 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
             </div>
         </a>
     </li>
+    <!-- HPC Topic Page -->
+    <li>
+        <a href="./topics/high-performance-computing/index.md">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                        <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img src="_images/hpc-blue-multi.svg" alt="" />
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <h3>High Performance Computing (HPC) on Azure</h3>
+                            <p>Design guidance and component information for building High Performance Computing (HPC) applications on Azure.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
     <!-- Best practices -->
     <li>
         <a href="/azure/architecture/best-practices/">
@@ -202,26 +222,6 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
                         <div class="cardText">
                             <h3>Design Review Checklists</h3>
                             <p>Checklists to assist developers and solution architects during the design process.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </li>
-    <!-- HPC Topic Page -->
-    <li>
-        <a href="./topics/high-performance-computing/index.md">
-            <div class="cardSize">
-                <div class="cardPadding">
-                    <div class="card">
-                        <div class="cardImageOuter">
-                            <div class="cardImage">
-                                <img src="_images/hpc-blue-multi.svg" alt="" />
-                            </div>
-                        </div>
-                        <div class="cardText">
-                            <h3>High Performance Computing (HPC) on Azure</h3>
-                            <p>Design guidance and component information for building High Performance Computing (HPC) applications on Azure.</p>
                         </div>
                     </div>
                 </div>
