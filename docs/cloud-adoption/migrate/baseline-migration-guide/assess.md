@@ -11,7 +11,7 @@ ms.custom: "fasttrack - new"
 
 # Assess the digital estate
 
-Not everything should be migrated to the cloud. Further, every asset is not compatible with cloud platforms. Before migrating assets to the cloud, it is important to assess the workload and each asset.
+In an ideal migration every asset would be compatible with a cloud platform, and in a state ready for migration. The reality is not everything should be migrated to the cloud. Furthermore, not every asset is compatible with cloud platforms. Before migrating assets to the cloud, it is important to assess the workload and each asset.
 
 The tools and assets provided in this section will assist you in performing the assessment of your environment to determine it's suitability for migration and possible methodologies to utilize.
 
@@ -35,9 +35,9 @@ The Azure Migrate service assesses on-premises workloads for migration to Azure.
 
 ::: zone-end
 
-::: zone target="chromeless"
-
 ### Create a new Migration Project
+
+To get started with Azure Migrate follow these steps:
 
 1. Select **Azure Migrate**
 1. Create a new Migration Project
@@ -45,6 +45,8 @@ The Azure Migrate service assesses on-premises workloads for migration to Azure.
 1. Follow the **Discover machines** wizard
     1. Download, create, configure the collector appliance for on-premises
 1. Follow the **Create assessment** wizard
+
+::: zone target="chromeless"
 
 ::: form action="OpenBlade[#blade/Microsoft_Azure_ManagementGroups/HierarchyBlade]" submitText="Go to Azure Migration" :::
 
@@ -55,6 +57,14 @@ The Azure Migrate service assesses on-premises workloads for migration to Azure.
 # [Scenarios and Stakeholders](#tab/Scenarios)
 
 add text
+
+Legacy migration scenario
+
+Capacity growth scenario
+
+Datacentre extention scenario
+
+
 
 # [Timelines](#tab/Timelines)
 
