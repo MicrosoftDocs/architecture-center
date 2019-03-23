@@ -11,6 +11,25 @@ ms.subservice:
 
 # Configure Azure Databricks to send metrics to Log Analytics
 
+This article shows how to configure an Azure Databricks cluster to send metrics to a Log Analytics workspace.
+
+## Prerequisites
+
+Deploy the following Azure resources:
+
+- An Azure Databricks workspace. See [Quickstart: Run a Spark job on Azure Databricks using the Azure portal](/azure/azure-databricks/quickstart-create-databricks-workspace-portal)
+- A Log Analytics workspace. See [Create a Log Analytics workspace in the Azure portal](/azure/azure-monitor/learn/quick-create-workspace).
+
+Install the [Azure Databricks CLI](https://docs.databricks.com/user-guide/dev-tools/databricks-cli.html#install-the-cli). An Azure Databricks personal access token is required to use the CLI. For instructions, see [token management](https://docs.azuredatabricks.net/api/latest/authentication.html#token-management). You can also use the Azure Databricks CLI from the Azure Cloud Shell.
+
+Find your Log Analytics workspace ID and key. For instructions, see [Obtain workspace ID and key](/azure/azure-monitor/platform/agent-windows#obtain-workspace-id-and-key). You will need these when you configure the Databricks cluster.
+
+To build the monitoring library, you will need a Java IDE with the following resources:
+
+- [Java Devlopment Kit (JDK) version 1.8](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+- [Scala language SDK 2.11](https://www.scala-lang.org/download/)
+- [Apache Maven 3.5.4](http://maven.apache.org/download.cgi)
+
 ## About the Azure Databricks monitoring library
 
 The library that accompanies this document is available from the [Spark monitoring Github repository](https://github.com/mspnp/spark-monitoring). The repository has the following directory structure:
@@ -31,29 +50,17 @@ The **spark-listeners-loganalytics** and **spark-listeners** directories contain
 
 The **pom.xml** file is the main Maven project object model build file for the entire project.
 
-## Build the Azure Databricks monitoring library and configure an Azure Databricks cluster
+## Build the Azure Databricks monitoring library
 
 Integration of the code library accompanying this document into your application has the following prerequisites:
 
-* Clone, fork, or download the [GitHub repository](https://github.com/mspnp/spark-monitoring).
-* An active Azure Databricks workspace. For instructions on how to deploy an Azure Databricks workspace, see [get started with Azure Databricks.](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal).
-* Install the [Azure Databricks CLI](https://docs.databricks.com/user-guide/dev-tools/databricks-cli.html#install-the-cli).
-  * An Azure Databricks personal access token is required to use the CLI. For instructions, see [token management](https://docs.azuredatabricks.net/api/latest/authentication.html#token-management).
-  * You can also use the Azure Databricks CLI from the Azure Cloud Shell.
-* A Java IDE, with the following resources:
-  * [Java Devlopment Kit (JDK) version 1.8](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
-  * [Scala language SDK 2.11](https://www.scala-lang.org/download/)
-  * [Apache Maven 3.5.4](http://maven.apache.org/download.cgi)
-
-### Build the Azure Databricks monitoring library
-
-To build the Azure Databricks monitoring library, follow these steps:
+1. Clone, fork, or download the [GitHub repository](https://github.com/mspnp/spark-monitoring).
 
 1. Import the Maven project project object model file, _pom.xml_, located in the **/src** folder into your project. This will import three projects:
 
-    * spark-jobs
-    * spark-listeners
-    * spark-listeners-loganalytics
+    - spark-jobs
+    - spark-listeners
+    - spark-listeners-loganalytics
 
 1. Execute the Maven **package** build phase in your Java IDE to build the JAR files for each of the these three projects:
 
@@ -84,33 +91,41 @@ To build the Azure Databricks monitoring library, follow these steps:
 1. Use the Azure Databricks CLI to copy **spark-listeners-1.0-SNAPSHOT.jar** and **spark-listeners-loganalytics-1.0-SNAPSHOT.jar** that were built in step 2 to the directory created in step 3:
 
     ```bash
-    dbfs cp <local path to spark-listeners-1.0-SNAPSHOT.jar> dbfs:/databricks/monitoring-staging/spark-listeners-1.0-SNAPSHOT.jar
-    dbfs cp <local path to spark-listeners-loganalytics-1.0-SNAPSHOT.jar> dbfs:/databricks/monitoring-staging/spark-listeners-loganalytics-1.0-SNAPSHOT.jar
+    dbfs cp ./src/spark-listeners/target/spark-listeners-1.0-SNAPSHOT.jar dbfs:/databricks/monitoring-staging/spark-listeners-1.0-SNAPSHOT.jar
+    dbfs cp ./src/spark-listeners-loganalytics/target/spark-listeners-loganalytics-1.0-SNAPSHOT.jar dbfs:/databricks/monitoring-staging/spark-listeners-loganalytics-1.0-SNAPSHOT.jar
     ```
 
-### Create and configure the Azure Databricks cluster
+## Create and configure the Azure Databricks cluster
 
 To create and configure the Azure Databricks cluster, follow these steps:
 
 1. Navigate to your Azure Databricks workspace in the Azure Portal.
 2. On the home page, click "new cluster".
-3. Choose a name for your cluster and enter it in "cluster name" text box. 
-4. In the "Databricks Runtime Version" dropdown, select **4.3 (includes Apache Spark 2.3.1, Scala 2.11)**.
+3. Choose a name for your cluster and enter it in "cluster name" text box.
+4. In the "Databricks Runtime Version" dropdown, select **4.3** or greater.
 5. Under "Advanced Options", click on the "Spark" tab. Enter the following name-value pairs in the "Spark Config" text box:
 
-    | Name | Value |
-    |-------|--------|
-    |spark.extraListeners|com.databricks.backend.daemon.driver.DBCEventLoggingListener,org.apache.spark.listeners.UnifiedSparkListener|
-    |spark.unifiedListener.sink |org.apache.spark.listeners.sink.loganalytics.LogAnalyticsListenerSink|
-    |spark.unifiedListener.logBlockUpdates|false|
+    ```
+    spark.extraListeners  com.databricks.backend.daemon.driver.DBCEventLoggingListener,org.apache.spark.listeners.UnifiedSparkListener
+    spark.unifiedListener.sink org.apache.spark.listeners.sink.loganalytics.LogAnalyticsListenerSink
+    spark.unifiedListener.logBlockUpdates false
+    ```
 
 6. While still under the "Spark" tab, enter the following in the "Environment Variables" text box:
 
-    * LOG_ANALYTICS_WORKSPACE_ID=[your Azure Log Analytics workspace ID](/azure/azure-monitor/platform/agent-windows#obtain-workspace-id-and-key)
-    * LOG_ANALYTICS_WORKSPACE_KEY=[your Azure Log Analytics shared access signature](/azure/azure-monitor/platform/agent-windows#obtain-workspace-id-and-key)
+    - LOG_ANALYTICS_WORKSPACE_ID=[your Azure Log Analytics workspace ID]
+    - LOG_ANALYTICS_WORKSPACE_KEY=[your Azure Log Analytics workspace key]
 
 7. While still under the "Advanced Options" section, click on the "Init Scripts" tab. Go to the last line under the "Init Scripts section" Under the "destination" dropdown, select "DBFS". Enter "dbfs:/databricks/monitoring-staging/listeners.sh" in the text box. Click the "add" button.
 8. Click the "create cluster" button to create the cluster. Next, click on the "start" button to start the cluster.
+
+After you complete these steps, your Databricks cluster streams some metric data about the cluster itself to your Azure Log Analytics workspace. This log data is available in your Azure Log Analytics workspace under the "Active | Custom Logs |SparkMetric_CL" schema.
+
+Spark Structured Streaming event data from Azure Databricks also streams to your Azure Log Analytics workspace. This log data is available under the "Active | Custom Logs | SparkListenerEvent_CL" schema.
+
+You can view the schemas in the Azure portal, as shown below. See [Viewing and analyzing log data in Azure Monitor](/azure/azure-monitor/log-query/portals).
+
+![Screenshot of a Log Analytics workspace](./_images/workspace.png)
 
 ## Use the monitoring library in your code
 
