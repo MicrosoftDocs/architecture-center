@@ -3,15 +3,15 @@ title: Monitoring Azure Databricks in Azure Log Analytics
 titleSuffix: A library for monitoring Azure Databricks in Azure Monitor
 description: A scala library to enable monitoring of metrics and logging data in Azure Log Analytics
 author: petertaylor9999
-ms.date: 02/28/2019
+ms.date: 03/25/2019
 ms.topic:
 ms.service:
 ms.subservice:
 ---
 
-# Configure Azure Databricks to send metrics to Log Analytics
+# Configure Azure Databricks to send metrics to Azure Monitor
 
-This article shows how to configure an Azure Databricks cluster to send metrics to a Log Analytics workspace. It uses the [Azure Databricks Monitoring Library](https://github.com/mspnp/spark-monitoring), which is available on GitHub.
+This article shows how to configure an Azure Databricks cluster to send metrics to a [Log Analytics workspace](/azure/azure-monitor/platform/manage-access). It uses the [Azure Databricks Monitoring Library](https://github.com/mspnp/spark-monitoring), which is available on GitHub.
 
 ## About the Azure Databricks Monitoring Library
 
@@ -128,78 +128,20 @@ To create and configure the Azure Databricks cluster, follow these steps:
     ![Screenshot of Databricks UI](./_images/create-cluster2.png)
 
 1. Click "Create Cluster** button to create the cluster.
-1. Click **Start** to start the cluster.
 
-After you complete these steps, your Databricks cluster streams some metric data about the cluster itself to your Azure Log Analytics workspace. This log data is available in your Azure Log Analytics workspace under the "Active | Custom Logs |SparkMetric_CL" schema. For more information about the types of metrics that are logged, see [Metrics Core](https://metrics.dropwizard.io/4.0.0/manual/core.html) in the Dropwizard documentation. The metric type, such as gauge, counter, or histrogram, is written to the Type field.
+## View metrics
 
-Spark Structured Streaming event data from Azure Databricks also streams to your Azure Log Analytics workspace. This log data is available under the "Active | Custom Logs | SparkListenerEvent_CL" schema.
+After you complete these steps, your Databricks cluster streams some metric data about the cluster itself to Azure Monitor. This log data is available in your Azure Log Analytics workspace under the "Active | Custom Logs |SparkMetric_CL" schema. For more information about the types of metrics that are logged, see [Metrics Core](https://metrics.dropwizard.io/4.0.0/manual/core.html) in the Dropwizard documentation. The metric type, such as gauge, counter, or histrogram, is written to the Type field.
 
-You can view the schemas in the Azure portal, as shown below. See [Viewing and analyzing log data in Azure Monitor](/azure/azure-monitor/log-query/portals).
+In addition, the library streams Apache Spark level events and Spark Structured Streaming metrics from your jobs to Azure Monitor. You don't need to make any changes to your application code for these events and metrics. Spark Structured Streaming log data is available under the "Active | Custom Logs | SparkListenerEvent_CL" schema.
 
 ![Screenshot of a Log Analytics workspace](./_images/workspace.png)
 
-
-## Use the monitoring library in your code
-
-The Azare Databricks monitoring library supports the following types of metrics and message logging:
-
-### Apache Spark level events
-
-To send Apache Spark level event from Azure Databricks to your Azure Log Analytics workspace, follow these steps:
-
-1. Follow the instructions above to deploy the **spark-listeners-1.0-SNAPSHOT.jar** file that is built from the **spark-listeners** project.
-2. Once this is successfully deployed, metrics flow to your Azure Log Analytics workspace. You do not need to make any changes to your application code.
-
-### Apache Spark structured streaming sink for Azure Log Analytics
-
-To deploy the Apache Spark structured streaming sink for Azure Log Analytics in your Azure Databricks workspace, follow these steps:
-
-1. Follow the instructions above to deploy the **spark-listeners-loganalytics-1.0-SNAPSHOT.jar** file that is built from the **spark-listeners-loganalytics** project.
-2. Once this is successfully deployed, metrics flow to your Azure Log Analytics workspace. You do not need to make any changes to your application code.
-
-### Azure Databricks application metrics using Dropwizard
-
-To send application [metrics](https://spark.apache.org/docs/latest/monitoring.html#metrics) from your Azure Databricks application code to your Azure Log Analytics workspace using Dropwizard, follow these steps:
-
-1. Follow the instructions above to deploy the **spark-listeners-loganalytics-1.0-SNAPSHOT.jar** file that is built from the **spark-listeners-loganalytics** project.
-2. Create any [Dropwizard gauges or counters](https://metrics.dropwizard.io/4.0.0/manual/core.html) in your application code. 
-
-The code library includes a sample application that demonstrates how to implement custom DropWizard metrics. The **StreamingQueryListenerSampleJob** class creates an instance of the **UserMetricsSystem** class. A discussion of these classes is beyond the scope of this document, however, these can be used as the basis for your own custom metrics system.  
-
-### Azure Databrick log4j Appender
-
-To send your Azure Databricks application logs to Azure Log Analytics using the [log4j appender](https://logging.apache.org/log4j/2.x/manual/appenders.html) in the library, follow these steps:
-
-1. Follow the instructions above to deploy the **spark-listeners-loganalytics-1.0-SNAPSHOT.jar** file that is built from the **spark-listeners-loganalytics** project.
-2. In your application code, include the **spark-listeners-loganalytics** project, and `import com.microsoft.pnp.logging.Log4jconfiguration` to your application code.
-3. Create a **log4j.properties** file for your application. In addition to any properties that you specify, you must include the following and substitute your application package name and log level where indicated:
-
-    ```YAML
-    log4j.appender.A1=com.microsoft.pnp.logging.loganalytics.LogAnalyticsAppender
-    log4j.appender.A1.layout=com.microsoft.pnp.logging.JSONLayout
-    log4j.appender.A1.layout.LocationInfo=false
-    log4j.additivity.<your application package name>=false
-    log4j.logger.<your application package name>=<log level>, A1
-    ```
-
-4. Configure log4j using with the **log4j.properties** file you created in step 3:
-
-```Scala
-getClass.getResourceAsStream("<path to file in your JAR file>/log4j.properties")) {
-      stream => {
-        Log4jConfiguration.configure(stream)
-      }
-}
-```
-
-5. Add [Apache Spark log messages at the appropriate level](https://spark.apache.org/docs/2.3.0/api/java/org/apache/spark/internal/Logging.html) in your code as required. For example, if the **log4j.logger** log level is set to **DEBUG**, use the `logDebug("message")` method to send `message` to your Azure Log Analytics workspace.
-
-### Monitor your Azure Databricks cluster
-
-Once you have completed all the steps above, your Databricks cluster streams some metric data about the cluster itself to your Azure Log Analytics workspace. This log data is available in your Azure Log Analytics workspace under the "Active" "Custom Logs" "SparkMetric_CL" namespace.
-
-Spark Structured Streaming event data from Azure Databricks also streams to your Azure Log Analytics workspace. This log data is available under the "Active", "Custom Logs", "SparkListenerEvent_CL" schema.
+For more information about viewing logs, see [Viewing and analyzing log data in Azure Monitor](/azure/azure-monitor/log-query/portals).
 
 ## Next steps
 
-Deploy the [performance monitoring dashboard](dashboards.md) that accompanies this code library to troubleshoot performance issues in your production Azure Databricks workloads.
+This article described how to configure your cluster to send metrics to Azure Monitor. You can also use the Azure Databricks Monitoring Library to send application metrics and logs.
+
+> [!div class="nextstepaction"]
+> [Application logging](./application-logs.md)
