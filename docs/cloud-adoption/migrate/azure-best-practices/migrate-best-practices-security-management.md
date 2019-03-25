@@ -472,50 +472,9 @@ Azure storage is replicated for built-in resilience and high availability.
     - ZRS replicates data synchronously across three storage clusters in a single region. Clusters and physically separated and each located in its own availability zone.
     - If disaster occurs, your storage will still be available. ZRS should be the minimum target for mission-critical workloads.
 
-
-
 **Learn more:**
 
 - [Learn about](https://docs.microsoft.com/azure/storage/common/storage-redundancy) Azure storage replication.
-
-
-### Set up disaster recovery for PaaS workloads
-
-Let's consider disaster recovery options for our PaaS workload examples.
-
-#### Disaster recovery of Azure SQL Server
-
-There are a number of different options, each impacting data loss, recovery time, and cost.
-
-You can use failover groups and active geo-replication to provide resilience against regional outages and catastrophic failures
-
-- **Active geo-replication**: Deploy active geo-replication for quick disaster recovery if a datacenter outage occurs, or a connection can't be made to a primary database.
-    - Geo-replication continually creates readable replicas of your database in up to four secondaries in the same or different regions.
-    - In an outage, you fail over to one of the secondary regions, and bring your database back online.
-- **Auto-failover groups**: Auto-failover groups extend active geo-replication with transparent failover of multiple databases.
-    - An auto-failover group provides a powerful abstraction of active geo-replication with group level database replication and automatic failover.
-    - You create a failover group that contains a primary server hosting one or more primary databases, a secondary server hosting read-only replicas of the primary databases, listeners that point to each server, and an automatic failover policy.
-    - The specified listener endpoints remove the need to change the SQL connection string after failover.
-- **Geo-restore**: 
-    -   Geo-restore allows you to recover the database to a different region. The automated backup of all Azure databases will be replicated to a secondary region in the background. It will always restore the database from the copy of backup files stored in the secondary region.
--   **Zone-redundant databases** provide built-in support for Azure availability zones.
-    - Zone-redundant databases enhance high availability for Azure SQL Server in the event of a data center failure.
-    - With zone-redundancy, you can place redundant database replicas within different availability zones in a region. 
-
-
-
-![Geo-replication](./media/migrate-best-practices-security-management/geo-replication.png)
-*Geo-replication*
-
-**Learn more:**
-- [Learn about](https://docs.microsoft.com/azure/sql-database/sql-database-high-availability) high availability for Azure SQL Server.
-- [Read](https://azure.microsoft.com/blog/azure-sql-databases-disaster-recovery-101/) Azure SQL Databases 101 for disaster recovery.
-- [Get an overview](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) of active geo-replication and failover groups.
-- [Learn about](https://docs.microsoft.com/azure/sql-database/sql-database-designing-cloud-solutions-for-disaster-recovery) designing for disaster recovery.
-- [Get best practices](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) for failover groups.
-- [Get best practices](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-security-config) for security after geo-restore or failover.
-- [Learn about](https://docs.microsoft.com/azure/sql-database/sql-database-high-availability#zone-redundant-configuration) zone redundancy
-- [Learn how to](https://docs.microsoft.com/azure/sql-database/sql-database-disaster-recovery-drills) perform a disaster recovery drill for SQL database.
 
 ### Disaster recovery for Azure Functions
 
@@ -525,7 +484,6 @@ If the compute infrastructure in Azure fails, an Azure function app might become
 - Azure Traffic Manager can be configured to detect problems in the primary function app, and automatically redirect traffic to the function app in the secondary region
 - Traffic Manager with geo-redundant storage allows you to have the same function in multiple regions, in case of regional failure
 
-
 ![Traffic Manager](./media/migrate-best-practices-security-management/traffic-manager.png)
 *Traffic Manager*
 
@@ -533,7 +491,6 @@ If the compute infrastructure in Azure fails, an Azure function app might become
 
 - [Learn about](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications) disaster recovery for Azure apps.
 - [Learn about](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-disaster-recovery-geo-distribution) disaster recovery and geo-distribution for durable Azure functions.
-
 
 ## Best practice: Use managed disks and availability sets
 
@@ -553,7 +510,6 @@ Azure-Managed Disks simplify disk management for Azure IaaS VMs, by managing the
 - [Get an overview](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) of managed disks.
 - [Learn about](https://docs.microsoft.com/azure/virtual-machines/windows/convert-unmanaged-to-managed-disks) converting disks to managed.
 - [Learn how to](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) manage the availability of Windows VMs in Azure.
-
 
 ## Best Practice: Monitor resource usage and performance 
 
