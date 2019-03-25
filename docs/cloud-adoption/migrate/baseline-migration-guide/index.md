@@ -71,16 +71,13 @@ This guide is designed for migration scopes with minimal complexity. To determin
 > * Do you consider your dependency mapping of the components to be migrated as Complex
 > * Do you need to conform to industry regulation
 
-If you answer "yes" to any of those questions then you should consider the information provided in the [Expanded Scope](../expanded-scope/) guide. We also recommend that you obtain assistance from one of our Microsoft teams or Partners to complete the migration as we have found those customers that engage with Microsoft or Certified Partners are more successful in complex migration scenarios.
+If you answer "yes" to any of those questions then you should consider the information provided in the **Expanded Scope guide**. We also recommend that you obtain assistance from one of our Microsoft teams or Partners to complete the migration as we have found those customers that engage with Microsoft or Certified Partners are more successful in complex migration scenarios. More details on obtaining assistance can be found in the relevant section of this guide.
 
 ::: zone target="docs"
 
-To obtain assistance with your migration see:
+To learn more about the expanded scope see:
 
-* [Link to MS Premier Support](https://www.microsoft.com)
-* [Link to Partners](https://www.microsoft.com)
-
-*CAF ToDo: Obtain the correct places to link to. Do we want these links here?*
+* [Migration Expanded Scope](../expanded-scope/)
 
 ::: zone-end
 
