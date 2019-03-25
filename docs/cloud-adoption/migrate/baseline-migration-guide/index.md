@@ -21,7 +21,7 @@ ms.custom: "fasttrack - new"
 
 ::: zone-end
 
-Before you start migrating your services to your Azure environment, you need to decide which migration methodology will be utilized together with which features to use to govern and secure your environment. This playbook walks you through this journey.
+Before you start migrating your services to your Azure environment, you need to decide the migration methodology and features which will be utilized to govern and secure your environment. This playbook walks you through this journey and decision making.
 
 ::: zone target="docs"
 
@@ -31,9 +31,9 @@ For the best experience, view this playbook in the Azure portal. Go to the **Azu
 
 # [Overview](#tab/Overview)
 
-This guide will focus on the **Rehost** migration journey. Also known as "lift and shift," a rehost effort moves the current state asset to the chosen cloud provider, with minimal change to overall architecture.
+This guide will focus on the **Rehost** migration journey. Also known as "lift and shift," a rehost effort moves the current state asset to the chosen cloud provider, with minimal change to overall architecture. This guide is designed for straightforward migration scopes, for information related to migration scopes which require more planning and expanded scopes, please refer to the accompanying documentation in the [CAF: Azure Migration Guide > Expanded Scope](../expanded-scope/).
 
-When you migrate to Azure, you may have to migrate as-is, however you may have flexibility on the types of resources, where they are located, and how to set them up. As you consider your migration strategy, you might wonder:
+When you migrate to Azure, you may migrate as-is, however you may have flexibility on the types of resources, where they are located, and how to set them up. As you consider your migration strategy, you might wonder:
 
 * How do I know which services to migrate to?
 * How do I minimize downtime during the migration?
@@ -69,5 +69,7 @@ There are a number of methodologies available for performing a cloud migration. 
 > * **Rearchitect** - Some aging applications aren't compatible with cloud providers because of the architectural decisions made when the application was built. In these cases, the application may need to be rearchitected prior to transformation.
 > * **Rebuild** - In some scenarios, the delta that must be overcome to carry forward an application can be too large to justify further investment and the solution must be rebuilt.
 > * **Replace** - Solutions are generally implemented using the best technology and approach available at the time. In some cases, Software as a Service (SaaS) applications can meet all of the functionality required of the hosted application. In these scenarios, a workload could be slated for future replacement, effectively removing it from the transformation effort.
+
+These methodologies are not mutually exclusive as while the initial migration used **Rehost**, you may choose to implement **Refactor** or **Rearchitect** as part of the post migration optimization phase. This will be revisited in the Optimize and Transform section of this guide.
 
 ![Infographic of the migration options](../../_images/migration/migration-options.png)
