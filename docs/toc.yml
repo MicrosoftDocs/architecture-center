@@ -681,12 +681,10 @@
           href: cloud-adoption/migrate/baseline-migration-guide/optimize-and-transform.md
         - name: Secure and Manage
           href: cloud-adoption/migrate/baseline-migration-guide/secure-and-manage.md
-      - name: Expanded Scope
+      - name: Expanded scope
         items:
-        - name: Getting started
+        - name: Expanded scope checklist
           href: cloud-adoption/migrate/expanded-scope/index.md
-        - name: Checklist to identify scope requirements
-          href: cloud-adoption/migrate/expanded-scope/checklist.md
         - name: Business-driven scope changes
           items:
           - name: Balance the portfolio
@@ -695,32 +693,14 @@
             href: cloud-adoption/migrate/expanded-scope/multiple-regions.md
         - name: Culture-driven scope changes
           items:
-          - name: Change management and approval processes
-            href: cloud-adoption/migrate/expanded-scope/change-management-and-approval-process.md
-          - name: Executive readiness
-            href: cloud-adoption/migrate/expanded-scope/executive-readiness.md
           - name: Skills readiness
             href: cloud-adoption/migrate/expanded-scope/skills-readiness.md
-          - name: Aligning support (Partner and other support options)
-            href: cloud-adoption/migrate/expanded-scope/partner-service-support-alignment.md
         - name: Technical strategy-driven scope changes
           items:
-          - name: Addressing existing data center constraints
-            href: cloud-adoption/migrate/expanded-scope/existing-data-center-constraints.md
-          - name: Migrate at scale - High volume or velocity of migrations
-            href: cloud-adoption/migrate/expanded-scope/migrate-at-scale.md
           - name: Multiple data centers
             href: cloud-adoption/migrate/expanded-scope/multiple-data-centers.md
           - name: Governance or compliance strategy
             href: cloud-adoption/migrate/expanded-scope/governance-or-compliance.md
-          - name: Addressing technical complexity (Change management)
-            href: cloud-adoption/migrate/expanded-scope/technical-complexity.md
-        - name: Workload-specific scope changes
-          items:
-          - name: Architecting for resiliency
-            href: cloud-adoption/migrate/expanded-scope/architect-for-resiliency.md
-          - name: Align migration to application patterns
-            href: cloud-adoption/migrate/expanded-scope/application-pattern-alignment.md
       - name: Azure Best Practices
         items:
         - name: Overview

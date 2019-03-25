@@ -53,7 +53,7 @@ The motivations that align well with a migrate strategy are as follows. The moti
 - Increase business agility
 - Prepare for new technical capabilities
 
-**Innovate:** Data is the new commodity... Modern apps are data's supply chain... In today's business market, its hard to find a transformative product or service that isn't built on top of data, insights, and customer experiences. The motivations that fall later in the list align to a technology strategy that this framework refers to simply as [Innovate](../getting-started/innovate.md). 
+**Innovate:** Data is the new commodity... Modern apps are the supply chain which drives that data into various experiences... In today's business market, its hard to find a transformative product or service that isn't built on top of data, insights, and customer experiences. The motivations that fall later in the list align to a technology strategy that this framework refers to simply as [Innovate](../getting-started/innovate.md).
 
 The following are a list of the motivations that would make an IT organization focus more on an innovate strategy than a migrate strategy.
 
