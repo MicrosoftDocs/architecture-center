@@ -39,10 +39,7 @@ The architecture has the following components.
 
 ## Recommendations
 
-For specific recommendations on implementing Active Directory in Azure, see the following articles:
-
-- [Extending Active Directory Domain Services (AD DS) to Azure][adds-extend-domain].
-- [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines][ad-azure-guidelines].
+For specific recommendations on implementing Active Directory in Azure, see [Extending Active Directory Domain Services (AD DS) to Azure][adds-extend-domain].
 
 ### Trust
 
