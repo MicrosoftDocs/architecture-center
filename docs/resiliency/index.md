@@ -151,8 +151,8 @@ Let *N* be the composite SLA for the application deployed in one region, and *R*
 
 For example, if the single-region SLA is 99.95%,
 
-- The combined SLA for two regions = (1 &minus; (0.9995 ^ 2)) = 99.999975%
-- The combined SLA for four regions = (1 &minus; (0.9995 ^ 4)) = 99.999999%
+- The combined SLA for two regions = (1 &minus; (1 &minus; 0.9995) ^ 2) = 99.999975%
+- The combined SLA for four regions = (1 &minus; (1 &minus; 0.9995) ^ 4) = 99.999999%
 
 You must also factor in the [SLA for Traffic Manager][tm-sla]. At the time of this writing, the SLA for Traffic Manager SLA is 99.99%.
 
