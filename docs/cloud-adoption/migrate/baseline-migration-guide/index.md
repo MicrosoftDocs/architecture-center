@@ -31,7 +31,7 @@ For the best experience, view this playbook in the Azure portal. Go to the **Azu
 
 # [Overview](#tab/Overview)
 
-This guide will focus on the **Rehost** migration journey. Also known as "lift and shift," a rehost effort moves the current state asset to the chosen cloud provider, with minimal change to overall architecture. This guide is designed for straightforward migration scopes, for information related to migration scopes which require more planning and expanded scopes, please refer to the accompanying documentation in the [CAF: Azure Migration Guide > Expanded Scope](../expanded-scope/).
+This guide will focus on the **Rehost** migration journey. Also known as "lift and shift," a rehost effort moves the current state asset to the chosen cloud provider, with minimal change to overall architecture. This guide is designed for migration scopes with minimal complexity, to determine your suitability for this scope please see the **When to use this guide** tab.
 
 When you migrate to Azure, you may migrate as-is ("lift and shift"), however you may have flexibility on the types of resources, where they are located, and how to set them up. As you consider your migration strategy, you might wonder:
 
