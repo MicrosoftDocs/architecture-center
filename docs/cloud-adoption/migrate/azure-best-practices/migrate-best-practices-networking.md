@@ -26,7 +26,7 @@ Azure provides virtual networks (VNets):
 - A VNet is a logical isolation of the Azure cloud that's dedicated to your subscription.
 - You can implement multiple VNets within each Azure subscription and Azure region.
 - Each VNet is isolated from other VNets.
-- VNets can contain private and public IP addresses defined in [RFC 1918](https://tools.ietf.org/html/rfc1918), expressed in CIDR notation. Public IP addresses are not directly accessible from the internet.
+- VNets can contain private and public IP addresses defined in [RFC 1918](https://tools.ietf.org/html/rfc1918), expressed in CIDR notation. Public IP addresses specified in a VNet's address space will not be directly accessible from the internet.
 - VNets can connect to each other using VNet peering. Connected VNets can be in the same or different regions. Thus resources in one VNet can connect to resources in other VNets.
 - By default, Azure routes traffic between subnets within a VNet, connected VNets, on-premises networks, and the internet.
 
