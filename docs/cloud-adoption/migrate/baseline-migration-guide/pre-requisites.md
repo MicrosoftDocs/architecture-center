@@ -50,7 +50,10 @@ The focus of this migration journey is to realise:
 * Realizing ROI
 
 > [!Note]
-> An additional benefit realized through this migration journey, is the additional software support model for Windows 2008 and SQL Server 2008.
+> An additional benefit realized through this migration journey, is the additional software support model for Windows 2008/2008 R2 and SQL Server 2008/2008 R2. For further information please see:
+>
+> * [Windows Server 2008/2008 R2](https://www.microsoft.com/en-us/cloud-platform/windows-server-2008).
+> * [SQL Server 2008/2008 R2](https://www.microsoft.com/en-us/sql-server/sql-server-2008).
 
 # [When to use this approach](#tab/Approach)
 
