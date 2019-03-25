@@ -25,35 +25,32 @@ Prior to beginning any migrations, the environment must be prepared for the comi
 
 # [Narrative](#tab/Narrative)
 
-Tell the customer's story
+*Tell the customer's story*
 
-points to possibly call out in story:
-legacy hardware
-Reduce CapEx
-Free up datacenter space
-Quick cloud ROI
+As a customer you may find you have several motivating factors for migrating to Azure. These may range from removing risks associated with legacy hardware, reducing CapEx, freeing up datacenter space, looking for a quick cloud return on investment (ROI).
+
+> * **legacy hardware** - You may have applications hosted on infrastructure reaching it's end of life or support, either on-premises or with a hosting provider. Migration to the cloud offers an attractive remediation to the challenge as the ability to migrate "as-is" allows the team to quickly resolve the current infrastructure life cycle challenge, while then turning attention to the long term planning of application life cycle and optimization to take advantage of the cloud.
+> * **reduce CapEx** - Hosting your own server infrastructure requires considerable investment in hardware, software, electricity, and personal. Migrating to a cloud solution can provide significant reductions in CapEx. To achieve the best CapEx reductions a redesign of the solution may be required, however an "as-is" migration is a great first step.
+> * **Freeing up Datacenter space** - You may become an Azure customer though the need to expand your datacenter capacity and one way to do this is to leverage the cloud as an extension of your on-premises services.
+> * **Quick cloud ROI** - Getting a "return on investment" (ROI) is much easier with cloud solutions as the overall infrastructure costs are shared across customers. The cloud payment model provides a great way to realise ROI.
+
+Each of the above scenarios may be entry points to then extend your cloud footprint utilizing another scenario.
 
 ## Migration Characteristics
 
-What does the digital estate look like for this customer before the migration?
-What do they hope to accomplish after this migration?
+*What does the digital estate look like for this customer before the migration?*
+*What do they hope to accomplish after this migration?*
 
-::: zone target="docs"
+Prior to this migration the digital estate will consist of mostly on-premises hosted infrastructure, possibly with hosting business critical applications. After a successful migration your data estate may look very much how it did on-premises but with the infrastructure hosted in cloud resources. Alternatively the ideal data estate will be a variation of your current data estate as it will have aspects of your on-premises infrastructure with components which have been refactored to optimize and take advantage of the cloud platform.
 
-## Link examples in docs view
+The focus of this migration journey is to realise:
 
-- [Management Groups](https://portal.azure.com/#blade/Microsoft_Azure_ManagementGroups/HierarchyBlade).
-- [Understanding resource access management in Azure](/azure/architecture/cloud-adoption-guide/adoption-intro/azure-resource-access)
+* Remediation of legacy hardware end-of-life
+* Reduce CapEx
+* Realizing ROI
 
-::: zone-end
-
-::: zone target="chromeless"
-
-## Actions examples in Quick Start Center view
-
-::: form action="OpenBlade[#blade/Microsoft_Azure_ManagementGroups/HierarchyBlade]" submitText="Go to Management groups" :::
-
-::: zone-end
+> [!Note]
+> An additional benefit realized through this migration journey, is the additional software support model for Windows 2008 and SQL Server 2008.
 
 # [When to use this approach](#tab/Approach)
 
@@ -65,10 +62,10 @@ But, keep in mind that correctly configuring, securing, and maintaining VMs requ
 
 *Remove before GA: Content taken from [When to migrate to IaaS instead of to PaaS](https://docs.microsoft.com/en-us/dotnet/standard/modernize-with-azure-and-containers/lift-and-shift-existing-apps-azure-iaas#when-to-migrate-to-iaas-instead-of-to-paas)*
 
-# Learn More
+## Learn More
 
-- [CAF: Migration Theory](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/migrate/theory/pre-requisites/?branch=caf%2Fmigrate-v1)
-- [CAF: 5 Rs of Rationalization](https://docs.microsoft.com/en-gb/azure/architecture/cloud-adoption/digital-estate/5-rs-of-rationalization)
+* [CAF: Migration Theory](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/migrate/theory/pre-requisites/?branch=caf%2Fmigrate-v1)
+* [CAF: 5 Rs of Rationalization](https://docs.microsoft.com/en-gb/azure/architecture/cloud-adoption/digital-estate/5-rs-of-rationalization)
 
 # [Planning Checklist](#tab/Checklist)
 
@@ -91,9 +88,9 @@ Assuming you choose a "rehost" approach to migration the following child activit
 
 ::: zone target="docs"
 
-# Learn More
+## Learn More
 
-- [CAF: 5 Rs of Rationalization](https://docs.microsoft.com/en-gb/azure/architecture/cloud-adoption/digital-estate/5-rs-of-rationalization)
-- [CAF: Planning Checklist](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/migrate/theory/pre-requisites/planning-checklist?branch=caf%2Fmigrate-v1)
+* [CAF: 5 Rs of Rationalization](https://docs.microsoft.com/en-gb/azure/architecture/cloud-adoption/digital-estate/5-rs-of-rationalization)
+* [CAF: Planning Checklist](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/migrate/theory/pre-requisites/planning-checklist?branch=caf%2Fmigrate-v1)
 
 ::: zone-end

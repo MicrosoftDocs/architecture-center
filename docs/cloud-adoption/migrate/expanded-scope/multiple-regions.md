@@ -9,10 +9,11 @@ ms.date: 4/4/2019
 
 When businesses operate in multiple geographic regions, additional complexity can be introduced into cloud migration efforts. These complexities manifest in three primary forms: asset distribution, user access profiles, and compliance requirements. Before addressing complexities related to multiple regions its important to understand the extent of the potential complexity. 
 
-## Approach to addressing migration complexity
+## General scope expansion
 
 The following approach can help assess the potential challenges and establish a general course of action:
 
+- Consider a more robust readiness and governance implementation
 - Inventory the impacted geographies: Compile a list of the regions and countries that will be impacted by the cloud migration.
 - Document data sovereignty requirements: Do the countries identified have compliance requirements which govern data sovereignty?
 - Document the user base: Will employees, partners, or customers in the identified country be impacted by the cloud migration?
@@ -59,7 +60,12 @@ This approach is driven by quantifiable information. As such, the following appr
 
 It is suggested that the Cloud Adoption Team begin with the migration of a simple workload using the [Baseline migration guide](../../baseline-migration-guide/index.md), before attempting to address global scale. This will ensure the team is familiar with the general process of cloud migration prior to attempting a more complex migration scenario.
 
-Once the team is comfortable with the baseline approach, there are a few pre-requisites to address:
+When scope for a migration includes multiple regions, the following readiness considerations should be evaluated by the Cloud Adoption Team:
+
+- Data sovereignty might require localization of some assets, but there are a many assets that may not be governed by those compliance constraints. Things like logging, reporting, network routing, identity, and other central IT services may be eligible to be hosted as a shared services across multiple subscriptions or even multiple regions. It is advised that the cloud adoption team evaluate a share service model to those services, as outlined in the [reference architecture for a hub-spoke model with shared services](/azure/architecture/reference-architectures/hybrid-networking/shared-services)
+- When deploying multiple instances of similar environments, an environment factory could create consistency, improve governance, and accelerate deployment. The [large enterprise governance journey](../../governance/journeys/large-enterprise/overview.md) establishes an approach that creates an environment factory which scales across multiple regions.
+
+Once the team is comfortable with the baseline approach and readiness is aligned, there are a few data-driven pre-requisites to consider:
 
 - General discovery: Complete the [Documenting complexity](#documenting-complexity) table above.
 - Perform a user profile analysis on each impacted country: It is important to understand general end user routing early in the migration process. Changing global lease lines and adding connections like ExpressRoute to a cloud data center can require months of networking delays. Address this as early in the process as possible. **TODO: Can any tools in Azure create a network routing profile from on-prem users to on-prem workloads?**
@@ -76,7 +82,7 @@ When dealing with global asset and user base complexities, there are a few key a
 
 ### Suggested action during the assess process
 
-**Evaluate cross data center dependencies:** The [dependency visualization tools in Azure Migrate](https://docs.microsoft.com/en-us/azure/migrate/concepts-dependency-visualization) can help pinpoint dependencies. Use of this tool set prior to migration is a good general best practice. However, when dealing with global complexity it becomes a necessary step to the assessment process. Through [dependency grouping](https://docs.microsoft.com/en-us/azure/migrate/how-to-create-group-machine-dependencies), the visualization can help identify the IP addresses and ports of any assets required to support the workload.
+**Evaluate cross data center dependencies:** The [dependency visualization tools in Azure Migrate](/azure/migrate/concepts-dependency-visualization) can help pinpoint dependencies. Use of this tool set prior to migration is a good general best practice. However, when dealing with global complexity it becomes a necessary step to the assessment process. Through [dependency grouping](/azure/migrate/how-to-create-group-machine-dependencies), the visualization can help identify the IP addresses and ports of any assets required to support the workload.
 
 > [!IMPORTANT]
 > Two important notes: First, a subject matter expert with an understanding of asset placement and IP address schemas will be required to identify assets that reside in a secondary data center. Second, it is important to evaluate both downstream dependencies and Clients in the visual to understand bi-directional dependencies.

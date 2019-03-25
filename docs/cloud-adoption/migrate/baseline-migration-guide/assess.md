@@ -11,7 +11,7 @@ ms.custom: "fasttrack - new"
 
 # Assess the digital estate
 
-Not everything should be migrated to the cloud. Further, every asset is not compatible with cloud platforms. Before migrating assets to the cloud, it is important to assess the workload and each asset.
+In an ideal migration every asset would be compatible with a cloud platform, and in a state ready for migration. The reality is not everything should be migrated to the cloud. Furthermore, not every asset is compatible with cloud platforms. Before migrating assets to the cloud, it is important to assess the workload and each asset.
 
 The tools and assets provided in this section will assist you in performing the assessment of your environment to determine it's suitability for migration and possible methodologies to utilize.
 
@@ -23,7 +23,26 @@ The following tools can assist you with performing the assessment of your enviro
 
 The Azure Migrate service assesses on-premises workloads for migration to Azure. The service assesses the migration suitability of on-premises machines, performs performance-based sizing, and provides cost estimations for running on-premises machines in Azure. If you're contemplating lift-and-shift migrations, or are in the early assessment stages of migration, this service is for you. After the assessment, you can use services such as Azure Site Recovery and Azure Database Migration Service, to migrate the machines to Azure.
 
-![Azure migrate overview](media/azuremigrate-overview-1.png)
+![Azure migrate overview](./media/assess/azuremigrate-overview-1.png)
+
+### Create a new Migration Project
+
+To get started with Azure Migrate follow these steps:
+
+1. Select **Azure Migrate**
+1. Create a new Migration Project
+1. Select **Discover and Assess**
+1. Follow the **Discover machines** wizard
+    1. Download, create, configure the collector appliance for on-premises
+1. Follow the **Create assessment** wizard
+
+::: zone target="chromeless"
+
+::: form action="OpenBlade[#blade/Microsoft_Azure_ManagementGroups/HierarchyBlade]" submitText="Go to Azure Migration" :::
+
+::: form action="OpenBlade[#create/Microsoft.AzureMigrate]" submitText="Create new Migration Project" :::
+
+::: zone-end
 
 ::: zone target="docs"
 
@@ -35,26 +54,17 @@ The Azure Migrate service assesses on-premises workloads for migration to Azure.
 
 ::: zone-end
 
-::: zone target="chromeless"
-
-### Create a new Migration Project
-
-1. Select **Azure Migrate**
-1. Create a new Migration Project
-1. Select **Discover and Assess**
-1. Follow the **Discover machines** wizard
-    1. Download, create, configure the collector appliance for on-premises
-1. Follow the **Create assessment** wizard
-
-::: form action="OpenBlade[#blade/Microsoft_Azure_ManagementGroups/HierarchyBlade]" submitText="Go to Azure Migration" :::
-
-::: form action="OpenBlade[#create/Microsoft.AzureMigrate]" submitText="Create new Migration Project" :::
-
-::: zone-end
-
 # [Scenarios and Stakeholders](#tab/Scenarios)
 
 add text
+
+Legacy migration scenario
+
+Capacity growth scenario
+
+Datacentre extention scenario
+
+
 
 # [Timelines](#tab/Timelines)
 

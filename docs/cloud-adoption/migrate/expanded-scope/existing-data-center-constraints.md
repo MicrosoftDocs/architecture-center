@@ -1,15 +1,15 @@
 ---
-title: "CAF: Executive readiness"
-description: Executive readiness
+title: "CAF: Existing data center constraints"
+description: Existing data center constraints
 author: BrianBlanchard
 ms.date: 4/4/2019
 ---
 
-# Executive readiness
+# Existing data center constraints
 
-- **Organizational complexity (Executive readiness):** Proper levels of executive support and leadership are critical to the success of a migration effort. If the executive team is not ready to engage, then support is unlikely to follow. This complexity is addressed during the pre-requisite and assess processes.
+- **Existing data center constraints:** Often times companies choose to migrate to the cloud because the capacity, speed, and stability of an existing data center is no longer satisfactory. Unfortunately, those same constraints add complexity to the migration process, requiring additional planning during the assessment and migration processes.
 
-## Approach to addressing complexity
+## General scope expansion
 
 Summarize the general approach to overcoming this challenge
 

@@ -1,15 +1,15 @@
 ---
-title: "CAF: Change management and approval processes"
-description: Change management and approval processes
+title: "CAF: Technical complexity (Change management)"
+description: Technical complexity (Change management)
 author: BrianBlanchard
 ms.date: 4/4/2019
 ---
 
-# Change management and approval processes
+# Technical complexity (Change management)
 
-- **Change management and approval processes:** When the culture is complex, highly matrixed, or siloed the processes related to change management and approvals becomes challenging. Guidance on managing this complexity can be found in assess, migrate, and optimize processes.
+- **Technical complexity (Change management):** Extensive solution architectures, long standing technical debt, and interdependencies can create a complexity that should be addressed during assess, migrate, and optimize processes.
 
-## Approach to addressing complexity
+## General scope expansion
 
 Summarize the general approach to overcoming this challenge
 
