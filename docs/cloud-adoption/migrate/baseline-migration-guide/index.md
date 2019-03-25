@@ -33,7 +33,7 @@ For the best experience, view this playbook in the Azure portal. Go to the **Azu
 
 This guide will focus on the **Rehost** migration journey. Also known as "lift and shift," a rehost effort moves the current state asset to the chosen cloud provider, with minimal change to overall architecture. This guide is designed for straightforward migration scopes, for information related to migration scopes which require more planning and expanded scopes, please refer to the accompanying documentation in the [CAF: Azure Migration Guide > Expanded Scope](../expanded-scope/).
 
-When you migrate to Azure, you may migrate as-is, however you may have flexibility on the types of resources, where they are located, and how to set them up. As you consider your migration strategy, you might wonder:
+When you migrate to Azure, you may migrate as-is ("lift and shift"), however you may have flexibility on the types of resources, where they are located, and how to set them up. As you consider your migration strategy, you might wonder:
 
 * How do I know which services to migrate to?
 * How do I minimize downtime during the migration?
@@ -57,6 +57,30 @@ This guide helps address those questions. It suggests the tasks and features you
 ::: zone target="docs"
 
 To learn more, see [Governance in Azure](/azure/security/governance-in-azure/). 
+
+::: zone-end
+
+# [When to use this guide](#tab/WhenToUseThisGuide)
+
+This guide is designed for migration scopes with minimal complexity. To determine if you are suitable for this migration guide please consider the following questions:
+
+> * Would you class your environment as a Heterogeneous Environment
+> * Do you have many business unit's which need to align to complete the migration
+> * Are you planning to automate the whole migration
+> * The Scale of migration includes a high number of servers
+> * Do you consider your dependency mapping of the components to be migrated as Complex
+> * Do you need to conform to industry regulation
+
+If you answer "yes" to any of those questions then you should consider the information provided in the [Expanded Scope](../expanded-scope/) guide. We also recommend that you obtain assistance from one of our Microsoft teams or Partners to complete the migration as we have found those customers that engage with Microsoft or Certified Partners are more successful in complex migration scenarios.
+
+::: zone target="docs"
+
+To obtain assistance with your migration see:
+
+* [Link to MS Premier Support](https://www.microsoft.com)
+* [Link to Partners](https://www.microsoft.com)
+
+*CAF ToDo: Obtain the correct places to link to. Do we want these links here?*
 
 ::: zone-end
 

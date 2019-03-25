@@ -23,17 +23,7 @@ The following tools can assist you with performing the assessment of your enviro
 
 The Azure Migrate service assesses on-premises workloads for migration to Azure. The service assesses the migration suitability of on-premises machines, performs performance-based sizing, and provides cost estimations for running on-premises machines in Azure. If you're contemplating lift-and-shift migrations, or are in the early assessment stages of migration, this service is for you. After the assessment, you can use services such as Azure Site Recovery and Azure Database Migration Service, to migrate the machines to Azure.
 
-![Azure migrate overview](media/azuremigrate-overview-1.png)
-
-::: zone target="docs"
-
-### Read more
-
-* [Azure Migration Overview](https://docs.microsoft.com/en-us/azure/migrate/migrate-overview)
-* [Azure Migrate in the Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_ManagementGroups/HierarchyBlade)
-* [Create Migration project in the Azure Portal](https://ms.portal.azure.com/#create/Microsoft.AzureMigrate)
-
-::: zone-end
+![Azure migrate overview](./media/assess/azuremigrate-overview-1.png)
 
 ### Create a new Migration Project
 
@@ -51,6 +41,16 @@ To get started with Azure Migrate follow these steps:
 ::: form action="OpenBlade[#blade/Microsoft_Azure_ManagementGroups/HierarchyBlade]" submitText="Go to Azure Migration" :::
 
 ::: form action="OpenBlade[#create/Microsoft.AzureMigrate]" submitText="Create new Migration Project" :::
+
+::: zone-end
+
+::: zone target="docs"
+
+### Read more
+
+* [Azure Migration Overview](https://docs.microsoft.com/en-us/azure/migrate/migrate-overview)
+* [Azure Migrate in the Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_ManagementGroups/HierarchyBlade)
+* [Create Migration project in the Azure Portal](https://ms.portal.azure.com/#create/Microsoft.AzureMigrate)
 
 ::: zone-end
 

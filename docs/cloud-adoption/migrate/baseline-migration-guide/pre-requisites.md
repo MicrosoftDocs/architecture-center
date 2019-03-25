@@ -25,7 +25,7 @@ Prior to beginning any migrations, the environment must be prepared for the comi
 
 # [Narrative](#tab/Narrative)
 
-Tell the customer's story
+*Tell the customer's story*
 
 As a customer you may find you have several motivating factors for migrating to Azure. These may range from removing risks associated with legacy hardware, reducing CapEx, freeing up datacenter space, looking for a quick cloud return on investment (ROI).
 
@@ -38,8 +38,8 @@ Each of the above scenarios may be entry points to then extend your cloud footpr
 
 ## Migration Characteristics
 
-What does the digital estate look like for this customer before the migration?
-What do they hope to accomplish after this migration?
+*What does the digital estate look like for this customer before the migration?*
+*What do they hope to accomplish after this migration?*
 
 Prior to this migration the digital estate will consist of mostly on-premises hosted infrastructure, possibly with hosting business critical applications. After a successful migration your data estate may look very much how it did on-premises but with the infrastructure hosted in cloud resources. Alternatively the ideal data estate will be a variation of your current data estate as it will have aspects of your on-premises infrastructure with components which have been refactored to optimize and take advantage of the cloud platform.
 
@@ -64,8 +64,8 @@ But, keep in mind that correctly configuring, securing, and maintaining VMs requ
 
 ## Learn More
 
-- [CAF: Migration Theory](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/migrate/theory/pre-requisites/?branch=caf%2Fmigrate-v1)
-- [CAF: 5 Rs of Rationalization](https://docs.microsoft.com/en-gb/azure/architecture/cloud-adoption/digital-estate/5-rs-of-rationalization)
+* [CAF: Migration Theory](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/migrate/theory/pre-requisites/?branch=caf%2Fmigrate-v1)
+* [CAF: 5 Rs of Rationalization](https://docs.microsoft.com/en-gb/azure/architecture/cloud-adoption/digital-estate/5-rs-of-rationalization)
 
 # [Planning Checklist](#tab/Checklist)
 
@@ -90,7 +90,7 @@ Assuming you choose a "rehost" approach to migration the following child activit
 
 ## Learn More
 
-- [CAF: 5 Rs of Rationalization](https://docs.microsoft.com/en-gb/azure/architecture/cloud-adoption/digital-estate/5-rs-of-rationalization)
-- [CAF: Planning Checklist](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/migrate/theory/pre-requisites/planning-checklist?branch=caf%2Fmigrate-v1)
+* [CAF: 5 Rs of Rationalization](https://docs.microsoft.com/en-gb/azure/architecture/cloud-adoption/digital-estate/5-rs-of-rationalization)
+* [CAF: Planning Checklist](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/migrate/theory/pre-requisites/planning-checklist?branch=caf%2Fmigrate-v1)
 
 ::: zone-end
