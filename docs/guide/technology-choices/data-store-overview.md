@@ -107,6 +107,7 @@ Relevant Azure services:
 
 - [SQL Data Warehouse][sql-dw]
 - [Azure Data Lake][data-lake]
+- [Azure Data Explorer](https://azure.microsoft.com/services/data-explorer/)
 
 ## Search Engine Databases  
 
