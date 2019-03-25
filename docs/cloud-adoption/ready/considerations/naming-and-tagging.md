@@ -17,6 +17,13 @@ The Azure Architecture Center's [naming conventions for Azure resources](/azure/
 
 Resource names can be difficult to change, so establishing a comprehensive naming convention before you begin any large cloud deployment should be a priority for your cloud adoption teams.
 
+> [!NOTE]
+> Every business has different organizational and management requirements, and the recommendations in this article should act as a starting point for discussions within your cloud adoption teams.
+>
+> As these discussions progress, use the template linked below to capture the naming and tagging decisions you make when aligning these recommendations to your specific business needs.
+>
+> [Download the naming and tagging convention tracking template.](https://archcenter.blob.core.windows.net/cdn/fusion/readiness/CAF%20Readiness%20Naming%20and%20Tagging%20tracking%20template.xlsx)
+
 ## Naming and tagging resources
 
 Naming and tagging strategy should include business and operational details as components of resource names and metadata tags. The business-related side of this strategy should ensure resource names and tags include the organizational information needed to identify the teams using a resource along with the business owners responsible for resource costs. The operational side should ensure names and tags include information that IT teams use to identify the workload, application, environment, criticality, and other information useful for managing resources.
@@ -33,7 +40,7 @@ The components of this name allows you to quickly determine the resource's type,
 
 All Azure resources types have a scope defining how these assets can be managed in relation to other resource types. In terms of naming conventions, this means that a resource must have a unique name within its scope.
 
-For example, a virtual network has a resource group scope, meaning that there can only be on network named *vnet-prod-westus-001* in a given resource group. However, other resource groups can have their own virtual network named *vnet-prod-westus-001*. Subnets, on the other hand, are scoped to virtual networks, and so any given network can only have a single subnet named *snet-prod-westus-003*.
+For example, a virtual network has a resource group scope, meaning that there can only be one network named *vnet-prod-westus-001* in a given resource group. However, other resource groups can have their own virtual network named *vnet-prod-westus-001*. Subnets, to give another example, are scoped to virtual networks, meaning each subnet within a virtual network must be uniquely named.
 
 Some resources names, such as PaaS services with public endpoints or virtual machine DNS labels, have global scopes, meaning that they must be unique across the entire Azure platform.
 
@@ -122,14 +129,6 @@ What tags you apply to resources, and what tags are required versus optional, wi
 | Requester Name            | User that requested the creation of this application.                                                                                                                                                          | *Requestor*       | *{email}*                                       |
 | Service Class             | Service Level Agreement level of this application, workload, or service.                                                                                                                                       | *ServiceClass*    | *Dev, Bronze, Silver, Gold*                     |
 | Start Date of the project | Date when this application, workload, or service was first deployed.                                                                                                                                           | *StartDate*       | *{date}*                                        |
-
-## Naming and tagging template
-
-Every business has different organizational and management requirements, and the recommendations in this article should act as a starting point for discussions within your cloud adoption teams.
-
-As these discussions progress, use the template linked below to capture the naming and tagging decisions you make when aligning these recommendations to your specific business needs.
-
-[Download the naming and tagging convention tracking template.](https://archcenter.blob.core.windows.net/cdn/fusion/readiness/CAF%20Readiness%20Naming%20and%20Tagging%20tracking%20template.xlsx)
 
 ## Sample naming convention
 
