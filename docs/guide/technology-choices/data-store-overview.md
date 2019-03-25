@@ -30,11 +30,13 @@ An RDBMS typically supports a schema-on-write model, where the data structure is
 
 An RDBMS is very useful when strong consistency guarantees are important &mdash; where all changes are atomic, and transactions always leave the data in a consistent state. However, the underlying structures do not lend themselves to scaling out by distributing storage and processing across machines. Also, information stored in an RDBMS, must be put into a relational structure by following the normalization process. While this process is well understood, it can lead to inefficiencies, because of the need to disassemble logical entities into rows in separate tables, and then reassemble the data when running queries.
 
-Relevant Azure service:
+Relevant Azure services:
 
 - [Azure SQL Database][sql-db]
 - [Azure Database for MySQL][mysql]
 - [Azure Database for PostgreSQL][postgres]
+- [Azure Database for MariaDB][mariadb]
+
 
 ## Key/value stores
 
@@ -148,6 +150,7 @@ Relevant Azure service: [File Storage][file-storage]
 [hbase]: /azure/hdinsight/hdinsight-hbase-overview
 [mysql]: https://azure.microsoft.com/services/mysql/
 [postgres]: https://azure.microsoft.com/services/postgresql/
+[mariadb]: https://azure.microsoft.com/services/mariadb/
 [redis-cache]: https://azure.microsoft.com/services/cache/
 [search]: https://azure.microsoft.com/services/search/
 [sql-db]: https://azure.microsoft.com/services/sql-database
