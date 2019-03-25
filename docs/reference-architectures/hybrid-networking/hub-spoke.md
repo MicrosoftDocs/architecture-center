@@ -97,12 +97,6 @@ If you require connectivity between spokes, consider implementing an NVA for rou
 
 In this scenario, you must configure the peering connections to **allow forwarded traffic**.
 
-### Overcoming VNet peering limits
-
-Make sure you consider the [limitation on number of VNets peerings per VNet][vnet-peering-limit] in Azure. If you decide you need more spokes than the limit will allow, consider creating a hub-spoke-hub-spoke topology, where the first level of spokes also act as hubs. The following diagram shows this approach.
-
-![[3]][3]
-
 Also consider what services are shared in the hub, to ensure the hub scales for a larger number of spokes. For instance, if your hub provides firewall services, consider the bandwidth limits of your firewall solution when adding multiple spokes. You might want to move some of these shared services to a second level of hubs.
 
 ## Deploy the solution
