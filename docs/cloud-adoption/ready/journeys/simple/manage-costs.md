@@ -17,9 +17,7 @@ Cost control is a critical component to maximize the value of your investment in
 Pay-as-you-go customers have access to all Azure portal cost management and billing services. Use the following features to understand and prepare for your future costs:
 
 * **Understand your bill**: Your invoice is the actual monthly cost of your services.
-
 * **Manage payment methods**: You can pay for an Azure subscription with a credit or debit card. Make sure you have the card you want your subscription billed to in the payment methods on your account.
-
 * **Resource tags**: Tags can also be used for billing management. You can combine your resources by tag and group them to one cost center.
 
 ::: zone target="docs"
