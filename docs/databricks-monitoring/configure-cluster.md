@@ -9,6 +9,8 @@ ms.service:
 ms.subservice:
 ---
 
+<!-- markdownlint-disable MD040 -->
+
 # Configure Azure Databricks to send metrics to Azure Monitor
 
 This article shows how to configure an Azure Databricks cluster to send metrics to a [Log Analytics workspace](/azure/azure-monitor/platform/manage-access). It uses the [Azure Databricks Monitoring Library](https://github.com/mspnp/spark-monitoring), which is available on GitHub.
@@ -108,7 +110,7 @@ To create and configure the Azure Databricks cluster, follow these steps:
 1. Under **Advanced Options**, click on the **Spark** tab. Enter the following name-value pairs in the **Spark Config** text box:
 
     ```
-    spark.extraListeners  com.databricks.backend.daemon.driver.DBCEventLoggingListener,org.apache.spark.listeners.UnifiedSparkListener
+    spark.extraListeners com.databricks.backend.daemon.driver.DBCEventLoggingListener,org.apache.spark.listeners.UnifiedSparkListener
     spark.unifiedListener.sink org.apache.spark.listeners.sink.loganalytics.LogAnalyticsListenerSink
     spark.unifiedListener.logBlockUpdates false
     ```
@@ -123,11 +125,13 @@ To create and configure the Azure Databricks cluster, follow these steps:
     ![Screenshot of Databricks UI](./_images/create-cluster1.png)
 
 1. While still under the **Advanced Options** section, click on the **Init Scripts** tab.
-1. In the **Destination** dropdown, select **DBFS**. Enter "dbfs:/databricks/monitoring-staging/listeners.sh" in the text box. Click **Add**.
+1. In the **Destination** dropdown, select **DBFS**.
+1. Under **Init Script Path**, enter `dbfs:/databricks/monitoring-staging/listeners.sh`
+1. Click **Add**.
 
     ![Screenshot of Databricks UI](./_images/create-cluster2.png)
 
-1. Click "Create Cluster** button to create the cluster.
+1. Click **Create Cluster** to create the cluster.
 
 ## View metrics
 
