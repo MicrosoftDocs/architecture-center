@@ -39,12 +39,41 @@ Azure Monitor maximizes the availability and performance of your applications by
 
 # [Azure Service Health](#tab/servicehealth)
 
-text
+Azure Service Health is a suite of experiences that provide personalized guidance and support when issues in Azure services affect you. It can notify you, help you understand the impact of issues, and keep you updated as the issue resolves. It can also help you prepare for planned maintenance and changes that could affect the availability of your resources.
 
+Azure Service Health is composed of:
+
+* Azure status - A global view of the health of Azure services
+* Service Health - A personalized view of the health of your Azure services
+* Resource Health - A deeper view of the health of the individual resources provisioned to you by your Azure services
+* Together, these experiences provide you with a comprehensive view into the health of Azure, at the granularity that is most relevant to you.
+
+::: zone target="chromeless"
+
+::: form action="OpenBlade[#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues]" submitText="Go to Service Health" :::
+
+::: zone-end
+
+::: zone target="docs"
+
+[Overview](https://docs.microsoft.com/en-us/azure/service-health/).
+::: zone-end
 
 # [Azure Advisor](#tab/advisor)
 
-text
+Azure Advisor is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry. It then recommends solutions to help improve the performance, security, and high availability of your resources while looking for opportunities to reduce your overall Azure spend.
+
+::: zone target="chromeless"
+
+::: form action="OpenBlade[#blade/Microsoft_Azure_Expert/AdvisorMenuBlade/overview]" submitText="Go to Azure Advisor" :::
+
+::: zone-end
+
+
+::: zone target="docs"
+
+[Overview](https://docs.microsoft.com/en-us/azure/advisor/advisor-overview).
+::: zone-end
 
 # [Azure Security Center](#tab/security)
 
