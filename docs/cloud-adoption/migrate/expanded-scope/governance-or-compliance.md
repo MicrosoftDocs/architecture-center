@@ -7,51 +7,45 @@ ms.date: 4/4/2019
 
 # Governance or compliance strategy
 
-- **Governance or compliance strategy:** When governance and compliance are vital to the success of a migration, additional alignment between IT Governance teams and the Cloud Adoption team is required.
+When governance or compliance are required throughout a migration effort, additional scope is required. The following guidance will expand the scope of the [baseline migration guide](../baseline-migration-guide/index.md) to address different approaches to addressing governance or compliance requirements.
 
 ## General scope expansion
 
-Summarize the general approach to overcoming this challenge
+Pre-requisites activities are impacted the most when governance or compliance are required. Additional adjustments may be required during assessment, migration, and optimization.
 
 ## Suggested pre-requisites
 
-What should be done prior to the migration process to reduce the impact of this complexity.
+Configuration of the base Azure environment could change significantly when integrating governance or compliance requirements. To understand how pre-requisites change it's important to understand the nature of the requirements. Prior to beginning any migration which requires governance or compliance, an approach should be chosen and implemented in the cloud environment. The following are a few high level approaches commonly seen during migrations:
+
+**Common governance approach:** For most organizations, the [CAF governance model](../../governance/journeys/overview.md) is a sufficient approach which consists of a Minimally Viable Product (MVP) implementation, followed by targeted iterations of governance maturity to address tangible risks identified in the adoption plan. This approach provides the minimum tooling needed to establish consistent governance, so the team can understand the tools. It then expands on those tools to address common governance concerns.
+
+**ISO 27001 Compliance blueprints:** For customer who are required to adhere to ISO compliance standards, the [ISO 27001 Shared Services blueprint samples](/azure/governance/blueprints/samples/iso27001-shared/index) can serve as a more effective MVP to produce richer governance constraints earlier in the iterative process. The [ISO 27001 App Service Environment/SQL Database Sample](/azure/governance/blueprints/samples/iso27001-ase-sql-workload/) expands on the blueprint to map controls and deploy a common architecture for an application environment. As additional compliance blueprints are released, they will be referenced here as well.
+
+**Virtual Data Center:** A more robust governance starting point may be required. In such cases, please consider the [Azure Virtual Datacenter](../../../vdc/index.md). This approach is commonly suggested during enterprise-scale adoption efforts, and especially for efforts which exceed 10,000 assets. It is also the de facto choice for complex governance scenarios when any of the following are required: extensive 3rd party compliance requirements, deep domain expertise, or parity with mature IT governance policies and compliance requirements.
 
 ## Assess process changes
 
-How does the baseline solution need to change to address this complexity
+During assessment, additional decisions will be required to align to the required governance approach. The Cloud Governance Team should provide all members of the Cloud Adoption Team with any policy statements, architectural guidance, or governance/compliance requirements prior to the assessment of a workload. 
 
 ### Suggested action during the assess process
 
-Actionable go-do steps... When possible outline the technical change required.
+Governance and Compliance assessment requirements are too specific to each customer to provide clear guidance on the actual steps taken during assessment. However, it is advised that the process include tasks and time allocations for "alignment to compliance/governance requirements". For additional understanding of these requirements see the following links:
 
-## Migrate process changes
+For a deeper understanding of the five disciplines of cloud governance, see the [Five Disciplines of Cloud Governance Overview](/azure/architecture/cloud-adoption/governance/governance-disciplines.md). That section of the Cloud Adoption Framework also includes templates to document the policies, guidance, and requirements see the following links in each of the five sections: [Cost Management](/azure/architecture/cloud-adoption/governance/cost-management/template.md), [Security Baseline](/azure/architecture/cloud-adoption/governance/security-baseline/template.md), [Resource Consistency](/azure/architecture/cloud-adoption/governance/resource-consistency/template.md), [Identity Baseline](/azure/architecture/cloud-adoption/governance/identity-baseline/template.md), [Deployment Acceleration](/azure/architecture/cloud-adoption/governance/deployment-acceleration/template.md)
 
-How does the baseline solution need to change to address this complexity
-
-### Suggested action during the migrate process
-
-Actionable go-do steps... When possible outline the technical change required.
+For guidance on developing governance guidance based on the CAF governance model, see the article series on [Implementing a cloud governance strategy](/azure/architecture/cloud-adoption/governance/corporate-policy).
 
 ## Optimize and promote process changes
 
-How does the baseline solution need to change to address this complexity
+During the optimization and promotion processes, it is advised that the Cloud Governance Team invest time to test and validate adherence to governance and compliance standards. Additionally, this is a good time to inject processes for the Cloud Governance Team to curate templates which could provide additional [deployment acceleration](/azure/architecture/cloud-adoption/governance/deployment-acceleration/overview.md) for future projects.
 
 ### Suggested action during the optimize and promote process
 
-Actionable go-do steps... When possible outline the technical change required.
-
-## Secure and manage process changes
-
-How does the baseline solution need to change to address this complexity
-
-### Suggested action during the secure and manage process
-
-Actionable go-do steps... When possible outline the technical change required.
+During this process, it is advised that the project plan include time allocations for the Cloud Governance Team to execute a compliance review for each workload planned for production promotion.
 
 ## Next steps
 
-Hand off statement to the next complexity topic with [link](./link.md)
+As the final item on the [expanded scope checklist](./checklist.md), the reader is advised to return to the checklist and re-evaluate any additional scope requirements for the migration effort.
 
 > [!div class="nextstepaction"]
-> [Link](./link.md)
+> [Expanded Scope Checklist](./checklist.md)

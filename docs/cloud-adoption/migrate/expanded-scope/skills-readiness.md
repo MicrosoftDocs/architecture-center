@@ -32,29 +32,29 @@ Before beginning migration efforts, there are a number of fundamental readiness 
 
 The following tools can aid the team in execution of assess activities:
 
-- [Application portfolio assessment](/learn/modules/app-and-infra-migration-and-modernization/): Criteria for making decisions regarding migration or innovation options within the application portfolio
 - [Balance the portfolio](./balance-the-portfolio.md): Ensure balance and proper investment allocations across an application portfolio.
 - [Build a business justification](../../../business-strategy/cloud-migration-business-case): Create &/or understand the business justification driving the cloud migration effort
 - [Rationalize the digital estate](../../../digital-estate/rationalize): Rationalize assets in the digital estate
+- [Application portfolio assessment](/learn/modules/app-and-infra-migration-and-modernization/): Criteria for making decisions regarding migration or innovation options within the application portfolio
 
 ## Migrate skilling resources
 
 The following tutorial can prepare the team for migration activities:
 
-[Migrate to Azure](/azure/site-recovery/migrate-tutorial-on-premises-azure): Using Azure Site Recovery to migrate VMs to Azure
+- [Migrate to Azure](/azure/site-recovery/migrate-tutorial-on-premises-azure): Using Azure Site Recovery to migrate VMs to Azure
 
 ## Optimize and promote process changes
 
 The following tools can help the team optimize resources and promote to production:
 
-[Cost and sizing](../azure-best-practices/migrate-best-practices-costs): Adjust sizing to align costs and budgets.
-[Promote a workload](../azure-best-practices/migrate-best-practices-networking): Change network configuration to re-route production users to migrated workloads
+- [Cost and sizing](../azure-best-practices/migrate-best-practices-costs): Adjust sizing to align costs and budgets.
+- [Promote a workload](../azure-best-practices/migrate-best-practices-networking): Change network configuration to re-route production users to migrated workloads
 
 ## Secure and manage process changes
 
 The following tools can help the team find ways to secure and manage migrated assets:
 
-[Secure and manage workloads in Azure](../azure-best-practices/migrate-best-practices-security-management): Best practices for securing and managing workloads in Azure
+- [Secure and manage workloads in Azure](../azure-best-practices/migrate-best-practices-security-management): Best practices for securing and managing workloads in Azure
 
 ## Next steps
 

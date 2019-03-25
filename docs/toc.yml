@@ -623,7 +623,7 @@
         href: cloud-adoption/ready/theory/index.md
       - name: XX-Change Management
         href: cloud-adoption/ready/theory/index.md
-    - name: FastTrack Readiness Guide
+    - name: Azure Readiness Guide
       items:
       - name: Set up your Azure environment
         href: cloud-adoption/ready/journeys/simple/index.md
@@ -650,6 +650,8 @@
       - name: XX-Identity
         href: cloud-adoption/ready/theory/index.md
       - name: XX-Monitoring
+        href: cloud-adoption/ready/theory/index.md
+      - name: XX-Environment Resiliency 
         href: cloud-adoption/ready/theory/index.md
       - name: Create hybrid cloud consistency
         href: cloud-adoption/infrastructure/misc/hybrid-consistency.md
@@ -685,25 +687,23 @@
           href: cloud-adoption/migrate/expanded-scope/index.md
         - name: Checklist to identify scope requirements
           href: cloud-adoption/migrate/expanded-scope/checklist.md
-        - name: Business Strategy
+        - name: Business-driven scope changes
           items:
           - name: Balance the portfolio
             href: cloud-adoption/migrate/expanded-scope/balance-the-portfolio.md
-          - name: Business justification
-            href: cloud-adoption/migrate/expanded-scope/business-justification.md
           - name: Multiple geographical regions
             href: cloud-adoption/migrate/expanded-scope/multiple-regions.md
-        - name: Cultural Strategy
+        - name: Culture-driven scope changes
           items:
           - name: Change management and approval processes
             href: cloud-adoption/migrate/expanded-scope/change-management-and-approval-process.md
-          - name: Organizational complexity (Executive readiness)
+          - name: Executive readiness
             href: cloud-adoption/migrate/expanded-scope/executive-readiness.md
-          - name: Organizational complexity (Skills readiness)
+          - name: Skills readiness
             href: cloud-adoption/migrate/expanded-scope/skills-readiness.md
           - name: Aligning support (Partner and other support options)
             href: cloud-adoption/migrate/expanded-scope/partner-service-support-alignment.md
-        - name: Technical Strategy
+        - name: Technical strategy-driven scope changes
           items:
           - name: Addressing existing data center constraints
             href: cloud-adoption/migrate/expanded-scope/existing-data-center-constraints.md
@@ -715,6 +715,12 @@
             href: cloud-adoption/migrate/expanded-scope/governance-or-compliance.md
           - name: Addressing technical complexity (Change management)
             href: cloud-adoption/migrate/expanded-scope/technical-complexity.md
+        - name: Workload-specific scope changes
+          items:
+          - name: Architecting for resiliency
+            href: cloud-adoption/migrate/expanded-scope/architect-for-resiliency.md
+          - name: Align migration to application patterns
+            href: cloud-adoption/migrate/expanded-scope/application-pattern-alignment.md
       - name: Azure Best Practices
         items:
         - name: Overview
@@ -761,6 +767,16 @@
                 href: cloud-adoption/migrate/azure-best-practices/contoso-migration-tfs-vsts.md
             - name: Scale a migration
               href: cloud-adoption/migrate/azure-best-practices/contoso-migration-scale.md
+          - name: Mainframe Migration
+            items:
+              - name: Overview
+                href: cloud-adoption/infrastructure/mainframe-migration/overview.md
+              - name: Myths and facts
+                href: cloud-adoption/infrastructure/mainframe-migration/myths-and-facts.md
+              - name: Migration strategies
+                href: cloud-adoption/infrastructure/mainframe-migration/migration-strategies.md
+              - name: Application strategies
+                href: cloud-adoption/infrastructure/mainframe-migration/application-strategies.md
         - name: Optimize
           items:
           - name: Costing and Sizing Workloads
@@ -1037,16 +1053,6 @@
         items:
           - name: Deploy a basic workload
             href: cloud-adoption/infrastructure/virtual-machines/basic-workload.md
-      - name: Mainframe Migration
-        items:
-          - name: Overview
-            href: cloud-adoption/infrastructure/mainframe-migration/overview.md
-          - name: Myths and facts
-            href: cloud-adoption/infrastructure/mainframe-migration/myths-and-facts.md
-          - name: Migration strategies
-            href: cloud-adoption/infrastructure/mainframe-migration/migration-strategies.md
-          - name: Application strategies
-            href: cloud-adoption/infrastructure/mainframe-migration/application-strategies.md
     - name: How does Azure work?
       href: cloud-adoption/getting-started/what-is-azure.md
     - name: Virtual Data Center (VDC)

@@ -14,39 +14,57 @@ In this article, we will discuss a few motivations behind cloud migration that c
 
 ## Common Motivations for Cloud Transformation
 
-The following is a list of common motivations for cloud transformation ranked from least to most impactful. 
+The following is a list of common motivations for cloud adoption
 
-* The C-Suite said to
-* Critical Business Event
-* Cost Savings
-* Optimize internal operations
-* Increase business agility
-* Build new technical capabilities
-* Scale to meet market demands
-* Scale to meet geographic demands
-* Improve customer experiences / engagements
-* Transform products or services
+- Unclear direction from board or others at an executive level
+- Critical Business Event
+    - Data center exit
+    - Mergers, acquisition or divestiture
+    - Reductions in capital expenses
+    - End of support for mission critical technologies
+- Cost Savings
+- Reduction in vendor or technical complexity
+- Optimization of internal operations
+- Increase business agility
+- Prepare for new technical capabilities
+- Build new technical capabilities
+- Scale to meet market demands
+- Scale to meet geographic demands
+- Improve customer experiences / engagements
+- Transform products or services
 
 There are technical strategies to execute against each of these motivations. However, the further down the list a specific motivation is, the more likely the business is to experience positive business outcomes as a result of the transformation efforts. This is expanded on in the next section on evolving the IT worldview.
 
-## Evolving the IT worldview
+## Business outcome-driven adoption strategies
 
-**Traditional IT Operations Worldview** The first five motivations above are the most common (but not necessarily the most impactful) reasons for adopting the cloud. These motivations are signals that the IT organization aligns with the Traditional IT mindset. That mindset is largely internal focused. As a result, IT is viewed as a cost center or a means of hosting the technical assets the business is dependent on. As a cost center, the most common conversations center around agility, efficiencies, and cost reduction.
+**Migrate:** The motivations near the top of the list above are the most common (but not necessarily the most impactful) reasons for adopting the cloud. These are each important outcomes to achieve, but are most effectively used as a means of transitioning to other more effective worldviews in the future. This important first step to cloud adoption is often called a cloud migration, this framework refers to the strategy behind execution of such a migration by the verb [Migrate](../getting-started/migrate.md).
 
-These are important outcomes to achieve, but are most effectively used as a means of transitioning to other more effective worldviews. IT organizations that help the business tackle Customer or Industry challenges can move from cost center to value creator. Efficiency in a vacuum produces diminishing returns & often inspires demands for greater efficiency or cost reduction. Efficiency combined with improvements to customer engagement or creation of new revenue streams, drive more impactful IT enabled business outcomes, as seen in the next two worldviews.
+The motivations that align well with a migrate strategy are as follows. The motives at the top of the list are likely to have significantly less business impact than those which fall closer to the bottom of the list.
 
-To help guide the strategies and execution of these traditional journeys, the Fusion framework has built the [Operational Transformation Journey](../transformation-journeys/operational-transformation/overview.md) to help facilitate the decisions and interactions needed to execute effective strategies throughout this journey.
+- Unclear direction from board or others at an executive level
+- Critical Business Event
+    - Data center exit
+    - Mergers, acquisition or divestiture
+    - Reductions in capital expenses
+    - End of support for mission critical technologies
+- Cost Savings
+- Reduction in vendor or technical complexity
+- Optimization of internal operations
+- Increase business agility
+- Prepare for new technical capabilities
 
-**Customer Obsessed Worldview** The next three motivations (Build new technical capabilities, scale to meet market & geographical demand, and improve customer experiences) are indicators of an outward facing worldview that is very customer centric. Incrementally evolving current solutions to meet the changing demands of customers is the defining difference. That focus moves IT a bit from the cost center mindset & into the first stage of transformation.
+**Innovate:** Data is the new commodity... Modern apps are data's supply chain... In today's business market, its hard to find a transformative product or service that isn't built on top of data, insights, and customer experiences. The motivations that fall later in the list align to a technology strategy that this framework refers to simply as [Innovate](../getting-started/innovate.md). 
 
-Coming Spring of 2019, the Incremental Transformation Journey will help guide execution in a customer focused, DevOps centric journey.
+The following are a list of the motivations that would make an IT organization focus more on an innovate strategy than a migrate strategy.
 
-**Market Leader (Future Customer) Worldview** The last motivation (Transform products or services) speaks to a future looking view of IT. This approach seeks to align with the business to tackle much tougher questions. Transforming products and services requires a vision of the customer & the needs they will face in the future. Building new solutions that get ahead of current customers and tackle larger industry needs is the most common focus of IT organizations with this type of transformative view of the world.
-
-Data is the new commodity... In today's business market, its hard to find a transformative product or service that isn't built on top of data & insights. IT orgs with an industry worldview tend to start with variety, velocity, and veracity data challenges. The transformation centers around an understanding for current and projected business challenges and the development of the capabilities required to address those future needs.
-
-Coming Summer fo 2019, the Disruptive Transformation Journey will help guide execution of Industry focused, forward looking strategies.
+- Increase business agility
+- Prepare for new technical capabilities
+- Build new technical capabilities
+- Scale to meet market demands
+- Scale to meet geographic demands
+- Improve customer experiences / engagements
+- Transform products or services
 
 ## Guiding Transformation conversations
 
-To guide transformation conversations, see [Business Outcomes](business-outcomes/overview.md) which serve as a model for facilitating the business conversations needed to drive each worldview, in alignment with the business strategy.
+To guide transformation conversations, see [Business Outcomes](business-outcomes/overview.md) which serve as a model for facilitating the business conversations needed to drive document motives and the supporting metrics, in alignment with the business strategy.
