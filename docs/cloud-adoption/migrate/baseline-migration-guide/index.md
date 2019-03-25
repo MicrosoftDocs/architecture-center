@@ -64,12 +64,12 @@ To learn more, see [Governance in Azure](/azure/security/governance-in-azure/).
 
 This guide is designed for migration scopes with minimal complexity. To determine if you are suitable for this migration guide please consider the following questions:
 
-> * Would you class your environment as a Heterogeneous Environment
-> * Do you have many business unit's which need to align to complete the migration
-> * Are you planning to automate the whole migration
-> * The Scale of migration includes a high number of servers
-> * Do you consider your dependency mapping of the components to be migrated as Complex
-> * Do you need to conform to industry regulation
+* Would you class your environment as a Heterogeneous Environment
+* Do you have many business unit's which need to align to complete the migration
+* Are you planning to automate the whole migration
+* The Scale of migration includes a high number of servers
+* Do you consider your dependency mapping of the components to be migrated as Complex
+* Do you need to conform to industry regulation
 
 If you answer "yes" to any of those questions then you should consider the information provided in the **Expanded Scope guide**. We also recommend that you obtain assistance from one of our Microsoft teams or Partners to complete the migration as we have found those customers that engage with Microsoft or Certified Partners are more successful in complex migration scenarios. More details on obtaining assistance can be found in the relevant section of this guide.
 
@@ -85,11 +85,11 @@ To learn more about the expanded scope see:
 
 There are a number of methodologies available for performing a cloud migration. Some are better suited to different scenarios than others. While this guide focuses on the **Rehost** methodology, as you consider how to migrate your environment please consider all of the following options to decide if this guide is the right approach for your purpose.
 
-> * **Rehost** - Also known as "lift and shift," a rehost effort moves the current state asset to the chosen cloud provider, with minimal change to overall architecture.
-> * **Refactor** - Platform as a Service (PaaS) options can reduce operational costs associated with many applications. It can be prudent to slightly refactor an application to fit a PaaS based model. Refactor also refers to the application development process of refactoring code to allow an application to deliver on new business opportunities.
-> * **Rearchitect** - Some aging applications aren't compatible with cloud providers because of the architectural decisions made when the application was built. In these cases, the application may need to be rearchitected prior to transformation.
-> * **Rebuild** - In some scenarios, the delta that must be overcome to carry forward an application can be too large to justify further investment and the solution must be rebuilt.
-> * **Replace** - Solutions are generally implemented using the best technology and approach available at the time. In some cases, Software as a Service (SaaS) applications can meet all of the functionality required of the hosted application. In these scenarios, a workload could be slated for future replacement, effectively removing it from the transformation effort.
+* **Rehost** - Also known as "lift and shift," a rehost effort moves the current state asset to the chosen cloud provider, with minimal change to overall architecture.
+* **Refactor** - Platform as a Service (PaaS) options can reduce operational costs associated with many applications. It can be prudent to slightly refactor an application to fit a PaaS based model. Refactor also refers to the application development process of refactoring code to allow an application to deliver on new business opportunities.
+* **Rearchitect** - Some aging applications aren't compatible with cloud providers because of the architectural decisions made when the application was built. In these cases, the application may need to be rearchitected prior to transformation.
+* **Rebuild** - In some scenarios, the delta that must be overcome to carry forward an application can be too large to justify further investment and the solution must be rebuilt.
+* **Replace** - Solutions are generally implemented using the best technology and approach available at the time. In some cases, Software as a Service (SaaS) applications can meet all of the functionality required of the hosted application. In these scenarios, a workload could be slated for future replacement, effectively removing it from the transformation effort.
 
 These methodologies are not mutually exclusive as while the initial migration used **Rehost**, you may choose to implement **Refactor** or **Rearchitect** as part of the post migration optimization phase. This will be revisited in the Optimize and Transform section of this guide.
 
