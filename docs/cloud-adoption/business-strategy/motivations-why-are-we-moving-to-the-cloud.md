@@ -1,11 +1,11 @@
 ---
-title: "Fusion: Why are we moving to the cloud?"
+title: "CAF: Why are we moving to the cloud?"
 description: Explanation of the concept of Cloud Accounting
 author: BrianBlanchard
 ms.date: 10/10/2018
 ---
 
-# Fusion: Why are we moving to the cloud?
+# CAF: Why are we moving to the cloud?
 
 "Why are we moving to the cloud?" is an extremely common question for business and technical stakeholders alike.
 If the answer is "Our board (CIO, C-Suite) told us to move to the cloud", it is unlikely that the business will experience the desired outcomes.

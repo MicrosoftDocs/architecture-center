@@ -9,7 +9,7 @@ ms.date: 4/4/2019
 
 Before any migration, you will want to ensure primary systems are safe and will continue to run without issues. Any downtime disrupts users or customers, and costs time and money. Migration is not as simple as turning off the virtual machines on-premises and copying them across to Azure. Migration tools must take into account asynchronous or synchronous replication to ensure live systems can be copied to Azure with no downtime. Most of all, systems must be kept in lock-step with on-premises counterparts. You might want to test migrated resources in isolated partitions in Azure, to ensure applications work as expected.
 
-The content within the Fusion framework, assumes that Azure Migrate (or Azure Site Recovery) is the most appropriate tool for replicating assets to the cloud. However, there are other options available. This article discusses those options to help enable decision making.
+The content within the CAF framework, assumes that Azure Migrate (or Azure Site Recovery) is the most appropriate tool for replicating assets to the cloud. However, there are other options available. This article discusses those options to help enable decision making.
 
 ## Azure Site Recovery (Also known as Azure Migrate)
 
