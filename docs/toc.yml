@@ -607,14 +607,6 @@
     items:
     - name: XX-Overview
       href: cloud-adoption/ready/index.md
-    - name: XX-Governance and Security Alignment
-      href: cloud-adoption/ready/theory/index.md
-    - name: Organizational Readiness
-      items:
-      - name: Initial Org Alignment
-        href: cloud-adoption/ready/initial-org-alignment.md
-      - name: Building Technical Skills
-        href: cloud-adoption/ready/technical-skills.md
     - name: Azure Readiness Guide
       items:
       - name: Set up your Azure environment
@@ -633,14 +625,6 @@
       items:
       - name: XX-Overview
         href: cloud-adoption/ready/azure-best-practices/index.md
-    - name: Azure Best Practices
-      items:
-      - name: XX-Overview
-        href: cloud-adoption/ready/azure-best-practices/index.md
-    - name: Readiness Considerations
-      items:
-      - name: XX-Overview
-        href: cloud-adoption/ready/considerations/index.md
       - name: Naming and tagging
         href: cloud-adoption/ready/considerations/naming-and-tagging.md
       - name: XX-Primitives
@@ -655,6 +639,18 @@
         href: cloud-adoption/ready/considerations/index.md
       - name: Create hybrid cloud consistency
         href: cloud-adoption/infrastructure/misc/hybrid-consistency.md
+    - name: Azure Best Practices
+      items:
+      - name: XX-Overview
+        href: cloud-adoption/ready/azure-best-practices/index.md
+    - name: Organizational Readiness
+      items:
+      - name: XX-Governance and Security Alignment
+        href: cloud-adoption/ready/theory/index.md
+      - name: Initial Org Alignment
+        href: cloud-adoption/ready/initial-org-alignment.md
+      - name: Building Technical Skills
+        href: cloud-adoption/ready/technical-skills.md
   - name: Adopt
     items:
     - name: Migrate
