@@ -31,11 +31,17 @@ To deploy an Azure Log Analytics workspace with dashboards, follow these steps:
     * **dataRetention** (optional): The number of days log data is retained in the Log Analytics workspace. The default value is 30 days. If the pricing tier is `Free`, the data retention must be 7 days.
     * **workspaceName** (optional): A name for the workspace. If not specified, the template generates a name.
 
-    ```azurecli
+    ```bash
     az group deployment create --resource-group <resource-group-name> --template-file logAnalyticsDeploy.json --parameters location='East US' serviceTier='Standalone'
     ```
 
 For more information about deploying Resource Manager templates, see [Deploy resources with Resource Manager templates and Azure CLI][rm-cli].
+
+## Accept the Azure Marketplace image terms
+
+```bash
+az vm image accept-terms --publisher bitnami --offer grafana --plan default
+```
 
 ### Deploy the Grafana dashboard
 
