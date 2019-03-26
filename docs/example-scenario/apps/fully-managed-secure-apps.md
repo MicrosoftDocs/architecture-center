@@ -17,7 +17,7 @@ social_image_url: /azure/architecture/example-scenario/apps/media/ilb-ase-with-a
 
 This example scenario walks you through a secure application deployment using the [Azure App Service Environment (ASE)][intro-to-app-svc-env] and Internal Load Balancer (ILB).  This scenario will also demonstrate how you can expose applications to the internet in a secure manner using the Azure Application Gateway service and Web Application Firewall. We'll also cover some best practices around continuous integration & continuous deployment (CI/CD) for ILB ASE using Azure DevOps for automatic application builds & releases.
 
-This is a commonly deployed scenario in industries such as Banking and Insurance where customers are conscious of platform level security in addition to application level security.
+This is a commonly deployed scenario in industries such as Banking and Insurance where customers are conscious of platform level security in addition to application level security.  We'll use an application that allows users to submit expense reports in this example.
 
 ## Relevant use cases
 
