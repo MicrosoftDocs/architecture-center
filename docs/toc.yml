@@ -615,24 +615,20 @@
         href: cloud-adoption/ready/initial-org-alignment.md
       - name: Building Technical Skills
         href: cloud-adoption/ready/technical-skills.md
-      - name: XX-Business Stakeholder Alignment
-        href: cloud-adoption/ready/theory/index.md
-      - name: XX-Change Management
-        href: cloud-adoption/ready/theory/index.md
     - name: Azure Readiness Guide
       items:
       - name: Set up your Azure environment
-        href: cloud-adoption/ready/journeys/simple/index.md
+        href: cloud-adoption/ready/azure-readiness-guide/index.md
       - name: Manage access
-        href: cloud-adoption/ready/journeys/simple/manage-access.md
+        href: cloud-adoption/ready/azure-readiness-guide/manage-access.md
       - name: Organize your resources
-        href: cloud-adoption/ready/journeys/simple/organize-resources.md
+        href: cloud-adoption/ready/azure-readiness-guide/organize-resources.md
       - name: Manage costs and billing
-        href: cloud-adoption/ready/journeys/simple/manage-costs.md
+        href: cloud-adoption/ready/azure-readiness-guide/manage-costs.md
       - name: Plan governance, security, and compliance
-        href: cloud-adoption/ready/journeys/simple/govern-org-compliance.md
+        href: cloud-adoption/ready/azure-readiness-guide/govern-org-compliance.md
       - name: Use monitoring and reporting
-        href: cloud-adoption/ready/journeys/simple/monitoring-reporting.md
+        href: cloud-adoption/ready/azure-readiness-guide/monitoring-reporting.md
     - name: Expanded Scope
       items:
       - name: XX-Overview
