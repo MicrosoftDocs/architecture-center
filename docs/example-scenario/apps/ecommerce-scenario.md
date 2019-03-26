@@ -147,7 +147,6 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [docs-storage-queues]: /azure/storage/queues/storage-queues-introduction
 [docs-traffic-manager]: /azure/traffic-manager/traffic-manager-overview
 [docs-webapps]: /azure/app-service/app-service-web-overview
-[docs-service-bus]: /azure/service-bus/
 [end-to-end-walkthrough]: https://github.com/Azure/fta-customerfacingapps/tree/master/ecommerce/articles
 [microservices-ecommerce]: https://github.com/dotnet-architecture/eShopOnContainers
 [multi-region-web-app]: /azure/architecture/reference-architectures/app-service-web-app/multi-region
