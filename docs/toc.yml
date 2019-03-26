@@ -579,6 +579,8 @@
     items:
     - name: Overview
       href: cloud-adoption/business-strategy/overview.md
+    - name: Motivations (Why are we moving to the cloud)
+      href: cloud-adoption/business-strategy/motivations-why-are-we-moving-to-the-cloud.md
     - name: Business justification
       items:
       - name: Build a cloud migration business case
@@ -601,12 +603,6 @@
         href: cloud-adoption/digital-estate/rationalize.md
       - name: Align cost models to forecast cost
         href: cloud-adoption/digital-estate/calculate.md
-    - name: Change Management and Oversight
-      items: 
-      - name: xx- Partnership options
-        href: cloud-adoption/plan/change-management/partnerhips.md
-      - name: xx- Support options
-        href: cloud-adoption/plan/change-management/support.md
   - name: Ready
     items:
     - name: XX-Overview
@@ -637,36 +633,38 @@
         href: cloud-adoption/ready/journeys/simple/govern-org-compliance.md
       - name: Use monitoring and reporting
         href: cloud-adoption/ready/journeys/simple/monitoring-reporting.md
-    - name: Readiness Considerations
+    - name: Expanded Scope
       items:
       - name: XX-Overview
-        href: cloud-adoption/ready/theory/index.md
-      - name: Naming and tagging
-        href: cloud-adoption/ready/considerations/naming-and-tagging.md
-      - name: XX-Primitives
-        href: cloud-adoption/ready/theory/index.md
-      - name: XX-Network
-        href: cloud-adoption/ready/theory/index.md
-      - name: XX-Identity
-        href: cloud-adoption/ready/theory/index.md
-      - name: XX-Monitoring
-        href: cloud-adoption/ready/theory/index.md
-      - name: XX-Environment Resiliency 
-        href: cloud-adoption/ready/theory/index.md
-      - name: Create hybrid cloud consistency
-        href: cloud-adoption/infrastructure/misc/hybrid-consistency.md
+        href: cloud-adoption/ready/azure-best-practices/index.md
     - name: Azure Best Practices
       items:
       - name: XX-Overview
         href: cloud-adoption/ready/azure-best-practices/index.md
+    - name: Readiness Considerations
+      items:
+      - name: XX-Overview
+        href: cloud-adoption/ready/considerations/index.md
+      - name: Naming and tagging
+        href: cloud-adoption/ready/considerations/naming-and-tagging.md
+      - name: XX-Primitives
+        href: cloud-adoption/ready/considerations/index.md
+      - name: XX-Network
+        href: cloud-adoption/ready/considerations/index.md
+      - name: XX-Identity
+        href: cloud-adoption/ready/considerations/index.md
+      - name: XX-Monitoring
+        href: cloud-adoption/ready/considerations/index.md
+      - name: XX-Environment Resiliency 
+        href: cloud-adoption/ready/considerations/index.md
+      - name: Create hybrid cloud consistency
+        href: cloud-adoption/infrastructure/misc/hybrid-consistency.md
   - name: Adopt
     items:
     - name: Migrate
       items:
-      - name: Overview
+      - name: Overview (Methodology and Approach)
         href: cloud-adoption/migrate/index.md
-      - name: Methodology and approach
-        href: cloud-adoption/migrate/using-these-guides.md
       - name: Azure Migration Guide
         items:
         - name: Getting Started
