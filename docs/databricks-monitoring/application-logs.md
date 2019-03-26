@@ -6,7 +6,7 @@ This article shows how to send application logs and metrics from Azure Databrick
 
 Configure your Azure Databricks cluster to use the monitoring library, as described in [Configure Azure Databricks to send metrics to Azure Monitor][config-cluster].
 
-The monitoring library streams Apache Spark level events and Spark Structured Streaming metrics from your jobs to Azure Monitor. You don't need to make any changes to your application code for these events and metrics.
+The monitoring library streams Apache Spark level events and Spark Structured Streaming metrics from your jobs to Azure Monitor. You don't need to make any changes to your application code for these events and metrics. The next section describes how to send custom application metrics.
 
 ## Send application metrics using Dropwizard
 
@@ -51,7 +51,7 @@ To send your Azure Databricks application logs to Azure Log Analytics using the 
 
 1. Build the **spark-listeners-loganalytics-1.0-SNAPSHOT.jar** JAR file as described in [Build the Azure Databricks Monitoring Library][build-lib].
 
-1. Create a **log4j.properties** [configuration file](https://logging.apache.org/log4j/2.x/manual/configuration.html) for your application. In addition to any properties that you specify, include the following and substitute your application package name and log level where indicated:
+1. Create a **log4j.properties** [configuration file](https://logging.apache.org/log4j/2.x/manual/configuration.html) for your application. Include the following configuration properties. Substitute your application package name and log level where indicated:
 
     ```YAML
     log4j.appender.A1=com.microsoft.pnp.logging.loganalytics.LogAnalyticsAppender
@@ -61,7 +61,7 @@ To send your Azure Databricks application logs to Azure Log Analytics using the 
     log4j.logger.<your application package name>=<log level>, A1
     ```
 
-    You can find an sample configuration file [here][log4j.properties].
+    You can find a sample configuration file [here][log4j.properties].
 
 1. In your application code, include the **spark-listeners-loganalytics** project, and import `com.microsoft.pnp.logging.Log4jconfiguration` to your application code.
 

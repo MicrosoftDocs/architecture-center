@@ -19,17 +19,23 @@ This library enables logging of Azure Databricks service metrics as well as Apac
 
 There are two sets of artifacts in the Github respository, one for an Azure Log Analytics dashboard and another for a Grafana dashboard. Before you begin, clone the [Github repository](https://github.com/mspnp/spark-monitoring) and [follow the deployment instructions](databricks-monitoring.md) to build and configure the Azure Monitor logging for Azure Databricks library to send logs to your Azure Log Analytics workspace.
 
-### Deploy the Azure Log Analytics workspace dashboard
+### Deploy the Azure Log Analytics workspace
 
 To deploy an Azure Log Analytics workspace with dashboards, follow these steps:
 
-1. Navigate to the `/spark-monitoring/perftools/deployment/loganalytics` directory in the local location of the **spark-monitoring** Github respository.
-2. Deploy the **logAnalyticsDeploy.json** [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview) [template](/azure/azure-resource-manager/resource-group-authoring-templates). You can deploy this template using the [Azure portal](/azure/azure-resource-manager/resource-group-authoring-templates), the [Azure CLI](/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](/azure/azure-resource-manager/resource-group-template-deploy-portal), or using the [Resource Manager REST API](/azure/azure-resource-manager/resource-group-template-deploy-rest).
-3. There are three parameters to set when you deploy the template:
-  * **location**: the region where the Log Analytics workspace and dashboards are deployed. Valid values are **East US***, **West Europe**, **Southeast Asia**, and **Australia Southeast**.
-  * **serviceTier**: the Azure Log Analytics workspace pricing tier. Valid values are **Free**, **Standalone**, **PerNode**, and **PerGB2018**. 
-  * **dataRetention**: the number of days log data is retained in the Azure Log Analytics workspace. The default value is 30 days,  with a minimum of 7 days and a maximum of 730 days.
-4. Once the template is deployed, stream your log data to the Azure Log Analytics workspace for the dashboard visualizations to display.
+1. Navigate to the `/perftools/deployment/loganalytics` directory.
+1. Deploy the **logAnalyticsDeploy.json** Azure Resource Manager template. The template has the following parameters:
+
+    * **location**: The region where the Log Analytics workspace and dashboards are deployed.
+    * **serviceTier**: Rhe workspace pricing tier. See [here][sku] for a list of valid values.
+    * **dataRetention** (optional): The number of days log data is retained in the Log Analytics workspace. The default value is 30 days. If the pricing tier is `Free`, the data retention must be 7 days.
+    * **workspaceName** (optional): A name for the workspace. If not specified, the template generates a name.
+
+    ```azurecli
+    az group deployment create --resource-group <resource-group-name> --template-file logAnalyticsDeploy.json --parameters location='East US' serviceTier='Standalone'
+    ```
+
+For more information about deploying Resource Manager templates, see [Deploy resources with Resource Manager templates and Azure CLI][rm-cli].
 
 ### Deploy the Grafana dashboard
 
@@ -38,53 +44,63 @@ Grafana is an open source project you can deploy to visualize the time series me
 1. Navigate to the `/spark-monitoring/perftools/deployment/grafana` directory in the local location of the **spark-monitoring** Github respository.
 2. Deploy the **logAnalyticsDeploy.json** [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview) [template](/azure/azure-resource-manager/resource-group-authoring-templates). You can deploy this template using the [Azure portal](/azure/azure-resource-manager/resource-group-authoring-templates), the [Azure CLI](/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](/azure/azure-resource-manager/resource-group-template-deploy-portal), or using the [Resource Manager REST API](/azure/azure-resource-manager/resource-group-template-deploy-rest).
 3. The template includes a set of parameters, and most have a default value that you can use unles you have a reason to change. However, there are three You must set the following parameters when you deploy the template:
-  *  **adminPass**: the password for the host operating system of the virtual machine.  
-  * **dataSource**: Github URL for the bash script to install Grafana. The URL is: `https://raw.githubusercontent.com/mspnp/spark-monitoring/master/perftools/deployment/grafana/AzureDataSource.sh`
+
+    * **adminPass**: the password for the host operating system of the virtual machine.  
+    * **dataSource**: Github URL for the bash script to install Grafana. The URL is: `https://raw.githubusercontent.com/mspnp/spark-monitoring/master/perftools/deployment/grafana/AzureDataSource.sh`
+
 4. Once the deployment is complete, the bitnami image of Grafana is installed on the virtual machine. As part of the setup process, the Grafana installation script output a temporary password for the **admin** user. You require this temporary password to login. To obtain the temporary password, follow these steps:  
 
-  1. Log in to the Azure portal.  
-  2. Select the resource group where the resources were deployed.
-  3. Select the virtual machine where Grafana was installed. If you used the default parameter name in the deployment template, the virtual machine name is prefaced with **sparkmonitoring-vm-grafana**. 
-  4. In the **Support + troubleshooting** section, click on **Boot diagnostics** to open the boot diagnostics page.
-  5. Click on **serial log** on the boot diagnostics page.
-  6. Search for the following string: "Setting Bitnami application password to". 
-  7. Copy the password to a safe location.
+    1. Log in to the Azure portal.  
+    2. Select the resource group where the resources were deployed.
+    3. Select the virtual machine where Grafana was installed. If you used the default parameter name in the deployment template, the virtual machine name is prefaced with **sparkmonitoring-vm-grafana**. 
+    4. In the **Support + troubleshooting** section, click on **Boot diagnostics** to open the boot diagnostics page.
+    5. Click on **serial log** on the boot diagnostics page.
+    6. Search for the following string: "Setting Bitnami application password to". 
+    7. Copy the password to a safe location.
+
 5. Next, change the Grafana administrator password by following these steps:
-  1. In the Azure portal, select the public IP address associated with the virtual machine where Grafana is installed. If you used the default parameter name in the deployment template, the virtual machine name is prefaced with **grafanavm-ip**. Make note of the IP address.
-  2.  Open a web browser and open the URL **http://<IP addresss from step 1>:3000**.
-  3. At the Grafana log in screen, enter **admin** for the user name, and use the Grafana password from above.
-  4. Once logged in, select **Configuration**.
-  5. Then select **Server Admin**.
-  6. On the **Users** tab, select the **admin** login:
-  7. Enter a new password in the **New password** text box, and click the **update** button.
+
+    1. In the Azure portal, select the public IP address associated with the virtual machine where Grafana is installed. If you used the default parameter name in the deployment template, the virtual machine name is prefaced with **grafanavm-ip**. Make note of the IP address.
+    2. Open a web browser and open the URL **http://<IP addresss from step 1>:3000**.
+    3. At the Grafana log in screen, enter **admin** for the user name, and use the Grafana password from above.
+    4. Once logged in, select **Configuration**.
+    5. Then select **Server Admin**.
+    6. On the **Users** tab, select the **admin** login:
+    7. Enter a new password in the **New password** text box, and click the **update** button.
+
 6. Grafana requires an [Azure Service Principal](/azure/active-directory/develop/app-objects-and-service-principals) to manage access to your Azure Log Analytics workspace. Follow the instuctions to [create an Azure service principal with Azure CLI](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest). The **--role** of the Service Principal must be **Log Analytics Reader**. When the Service Principal is created, make note of the application ID, password, and tenant ID returned.
 7. Next, create the Azure Monitor datasource in Grafana by following these steps:
-  1. At the Grafana **Home Dashboard**, select **Configuration**.
-  2. Select **Data Sources**.
-  3. On the **Configuration** page, select **Add data source** in the **Data Sources** pane.
-  4. Select **Azure Monitor** on the **Choose data source type** page.
-  5. In the **Settings** section, enter a name for the data source in the **Name** textbox.
-  6. In the **Azure Monitor API Details** section, enter your subscription ID and tenant ID the text box for each.
-  7. Enter the application ID from the previous step in the **Client ID** text box.
-  8. Enter the password from the previous step in the **Client Secret** text box.
-  9. In the **Azure Log Analytics API Details** section, check the **Same Details as Azure Monitor API** checkbox.
-  10. Click on the **Save & Test** button.
-  11. When the Log Analytics data source is correctly configured, a success message is displayed.
-8. Create the dashboards in Grafana by following these steps:
-  1. Navigate to the `/spark-monitoring/perftools/dashboards/grafana` directory in the local location of the **spark-monitoring** Github respository.
-  2. Create the **sparkMonitoringDash.json** file that describes the Grafana dashboard by executing the **DashGen.sh** script as follows:
-  ```bash
-  export WORKSPACE=<your Azure Log Analytics workspace ID>
-  export LOGTYPE=SparkListenerEvent_CL
 
-  sh DashGen.sh
-  ```
-  3. Return to the Grafana **Home Dashboard** and select the **Create** icon.
-  4. Select **Import**.
-  5. On the **Import** page, click on the **Upload .json File** button.
-  6. Select the **sparkMonitoringDash.json** file created in step 1 and click okay.
-  7. In the options section, select the Azure Monitor data source created earlier.
-  8. Click the **Import** button.
+    1. At the Grafana **Home Dashboard**, select **Configuration**.
+    2. Select **Data Sources**.
+    3. On the **Configuration** page, select **Add data source** in the **Data Sources** pane.
+    4. Select **Azure Monitor** on the **Choose data source type** page.
+    5. In the **Settings** section, enter a name for the data source in the **Name** textbox.
+    6. In the **Azure Monitor API Details** section, enter your subscription ID and tenant ID the text box for each.
+    7. Enter the application ID from the previous step in the **Client ID** text box.
+    8. Enter the password from the previous step in the **Client Secret** text box.
+    9. In the **Azure Log Analytics API Details** section, check the **Same Details as Azure Monitor API** checkbox.
+    10. Click on the **Save & Test** button.
+    11. When the Log Analytics data source is correctly configured, a success message is displayed.
+
+8. Create the dashboards in Grafana by following these steps:
+
+    1. Navigate to the `/spark-monitoring/perftools/dashboards/grafana` directory in the local location of the **spark-monitoring** Github respository.
+    1. Create the **sparkMonitoringDash.json** file that describes the Grafana dashboard by executing the **DashGen.sh** script as follows:
+
+        ```bash
+        export WORKSPACE=<your Azure Log Analytics workspace ID>
+        export LOGTYPE=SparkListenerEvent_CL
+
+        sh DashGen.sh
+        ```
+
+    1. Return to the Grafana **Home Dashboard** and select the **Create** icon.
+    1. Select **Import**.
+    1. On the **Import** page, click on the **Upload .json File** button.
+    1. Select the **sparkMonitoringDash.json** file created in step 1 and click okay.
+    1. In the options section, select the Azure Monitor data source created earlier.
+    1. Click the **Import** button.
 
 ## Visualizations in the dashboards
 
@@ -106,7 +122,7 @@ This visualization shows task execution latency. Latency is represented as a per
 
 ### Sum Task Execution per host
 
-This visualization shows the sum of task execution latency per host running on a cluster. Viewing task execution latency per host identifies hosts that have much higher overall task latency thatn other hosts. This may mean that tasks have been inefficiently or unevenly distributed to hosts.
+This visualization shows the sum of task execution latency per host running on a cluster. Viewing task execution latency per host identifies hosts that have much higher overall task latency than other hosts. This may mean that tasks have been inefficiently or unevenly distributed to hosts.
 
 ### Task metrics
 
@@ -135,3 +151,8 @@ The final set of visualizations show the data shuffle metrics associated with a 
 ## Next steps
 
 Learn more about the diagnosis and troubleshooting of common Azure Databricks [performance patterns](./performance-troubleshooting.md) that can be identified using these visualizations.
+
+<!-- links -->
+
+[rm-cli]: /azure/azure-resource-manager/resource-group-template-deploy-cli
+[sku]: https://docs.microsoft.com/en-us/azure/templates/Microsoft.OperationalInsights/2015-11-01-preview/workspaces#sku-object

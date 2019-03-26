@@ -29,7 +29,7 @@ The [GitHub repo](https://github.com/mspnp/spark-monitoring) for the Azure Datab
 
 The **spark-jobs** directory is a sample Spark application with sample code demonstrating how to implement a Spark application metric counter.
 
-The **spark-listeners** directory includes functionality that enables Azure Databrick to send Apache Spark events at the service level to an Azure Log Analytics workspace. Azure Databricks is a service based on Apache Spark, which includes a set of structured APIs for batch processing data using Datasets, DataFrames, and SQL. With Apache Spark 2.0, support was added for [Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html), a data stream processing API built upon Spark's batch processing APIs.
+The **spark-listeners** directory includes functionality that enables Azure Databricks to send Apache Spark events at the service level to an Azure Log Analytics workspace. Azure Databricks is a service based on Apache Spark, which includes a set of structured APIs for batch processing data using Datasets, DataFrames, and SQL. With Apache Spark 2.0, support was added for [Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html), a data stream processing API built upon Spark's batch processing APIs.
 
 The **spark-listeners-loganalytics** directory includes a sink for Spark listeners, a sink for DropWizard, and a client for an Azure Log Analytics Workspace. This directory also includes a log4j Appender for your Apache Spark application logs.
 
@@ -44,13 +44,13 @@ To get started, deploy the following Azure resources:
 - An Azure Databricks workspace. See [Quickstart: Run a Spark job on Azure Databricks using the Azure portal](/azure/azure-databricks/quickstart-create-databricks-workspace-portal)
 - A Log Analytics workspace. See [Create a Log Analytics workspace in the Azure portal](/azure/azure-monitor/learn/quick-create-workspace).
 
-Install the [Azure Databricks CLI](https://docs.databricks.com/user-guide/dev-tools/databricks-cli.html#install-the-cli). An Azure Databricks personal access token is required to use the CLI. For instructions, see [token management](https://docs.azuredatabricks.net/api/latest/authentication.html#token-management). You can also use the Azure Databricks CLI from the Azure Cloud Shell.
+Install the [Azure Databricks CLI](https://docs.databricks.com/user-guide/dev-tools/databricks-cli.html#install-the-cli). An Azure Databricks personal access token is required to use the CLI. For instructions, see [Generate a token](https://docs.azuredatabricks.net/api/latest/authentication.html#token-management).
 
-Find your Log Analytics workspace ID and key. For instructions, see [Obtain workspace ID and key](/azure/azure-monitor/platform/agent-windows#obtain-workspace-id-and-key). You will need these when you configure the Databricks cluster.
+Find your Log Analytics workspace ID and key. For instructions, see [Obtain workspace ID and key](/azure/azure-monitor/platform/agent-windows#obtain-workspace-id-and-key). You will need these values when you configure the Databricks cluster.
 
 To build the monitoring library, you will need a Java IDE with the following resources:
 
-- [Java Devlopment Kit (JDK) version 1.8](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+- [Java Development Kit (JDK) version 1.8](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 - [Scala language SDK 2.11](https://www.scala-lang.org/download/)
 - [Apache Maven 3.5.4](http://maven.apache.org/download.cgi)
 
@@ -60,13 +60,13 @@ To build the Azure Databricks Monitoring Library, perform the following steps:
 
 1. Clone, fork, or download the [GitHub repository](https://github.com/mspnp/spark-monitoring).
 
-1. Import the Maven project project object model file, _pom.xml_, located in the **/src** folder into your project. This will import three projects:
+1. Import the Maven project object model file, _pom.xml_, located in the **/src** folder into your project. This will import three projects:
 
     - spark-jobs
     - spark-listeners
     - spark-listeners-loganalytics
 
-1. Execute the Maven **package** build phase in your Java IDE to build the JAR files for each of the these three projects:
+1. Execute the Maven **package** build phase in your Java IDE to build the JAR files for each of these projects:
 
     |Project| JAR file|
     |-------|---------|
@@ -103,7 +103,7 @@ To build the Azure Databricks Monitoring Library, perform the following steps:
 
 To create and configure the Azure Databricks cluster, follow these steps:
 
-1. Navigate to your Azure Databricks workspace in the Azure Portal.
+1. Navigate to your Azure Databricks workspace in the Azure portal.
 1. On the home page, click **New Cluster**.
 1. Enter a name for your cluster in the **Cluster Name** text box.
 1. In the **Databricks Runtime Version** dropdown, select **4.3** or greater.
@@ -115,7 +115,7 @@ To create and configure the Azure Databricks cluster, follow these steps:
     spark.unifiedListener.logBlockUpdates false
     ```
 
-1. While still under the **Spark** tab, enter the following in the **Environment Variables** text box:
+1. While still under the **Spark** tab, enter the following values in the **Environment Variables** text box:
 
     ```
     LOG_ANALYTICS_WORKSPACE_ID=[your Azure Log Analytics workspace ID]
@@ -135,7 +135,7 @@ To create and configure the Azure Databricks cluster, follow these steps:
 
 ## View metrics
 
-After you complete these steps, your Databricks cluster streams some metric data about the cluster itself to Azure Monitor. This log data is available in your Azure Log Analytics workspace under the "Active | Custom Logs |SparkMetric_CL" schema. For more information about the types of metrics that are logged, see [Metrics Core](https://metrics.dropwizard.io/4.0.0/manual/core.html) in the Dropwizard documentation. The metric type, such as gauge, counter, or histrogram, is written to the Type field.
+After you complete these steps, your Databricks cluster streams some metric data about the cluster itself to Azure Monitor. This log data is available in your Azure Log Analytics workspace under the "Active | Custom Logs | SparkMetric_CL" schema. For more information about the types of metrics that are logged, see [Metrics Core](https://metrics.dropwizard.io/4.0.0/manual/core.html) in the Dropwizard documentation. The metric type, such as gauge, counter, or histogram, is written to the Type field.
 
 In addition, the library streams Apache Spark level events and Spark Structured Streaming metrics from your jobs to Azure Monitor. You don't need to make any changes to your application code for these events and metrics. Spark Structured Streaming log data is available under the "Active | Custom Logs | SparkListenerEvent_CL" schema.
 
