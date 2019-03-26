@@ -15,9 +15,9 @@ social_image_url: /azure/architecture/example-scenario/apps/media/ilb-ase-with-a
 
 # Fully managed applications built for secure access
 
-This scenario provides an overview of deploying secure applications using the [Azure App Service Environment (ASE)][intro-to-app-svc-env]. To restrict application access from the Internet, the Azure Application Gateway service and Web Application Firewall are used. We'll also cover best practices around continuous integration & continuous deployment (CI/CD) for App Service Environments using Azure DevOps.
+This example scenario walks you through a secure application deployment using the [Azure App Service Environment (ASE)][intro-to-app-svc-env] and Internal Load Balancer (ILB).  This scenario will also demonstrate how you can expose applications to the internet in a secure manner using the Azure Application Gateway service and Web Application Firewall. We'll also cover some best practices around continuous integration & continuous deployment (CI/CD) for ILB ASE using Azure DevOps for automatic application builds & releases.
 
-This is a commonly deployed scenario in industries such as banking and insurance where customers are conscious of platform level security in addition to application level security.
+This is a commonly deployed scenario in industries such as Banking and Insurance where customers are conscious of platform level security in addition to application level security.
 
 ## Relevant use cases
 
@@ -44,10 +44,10 @@ Data flows through the scenario as follows:
 
 ### Components
 
-* The [App Service Environment][intro-to-app-svc-env] provides a fully isolated and dedicated environment for securely running the application at high scale at high scale.
-  * This workload is using the [isolated App Service pricing tier][isolated-tier-pricing-and-ase-pricing] so the application is running in a private, dedicated environment in an Azure datacenter using Dv2-series VMs with faster processors, SSD storage, and double the memory-to-core ratio compared to Standard
+* ILB [App Service Environment][intro-to-app-svc-env] The Azure App Service Environment is an Azure App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale. 
+* [Isolated App Service Plan Pricing Tier][isolated-tier-pricing-and-ase-pricing] The Isolated service plan is designed to run mission critical workloads, that are required to run in a virtual network. The Isolated plan allows customers to run their apps in a private, dedicated environment in an Azure datacenter using Dv2-series VMs with faster processors, SSD storage, and double the memory-to-core ratio compared to Standard
 * Azure App Services [Web App][docs-webapps] and [API App][docs-apiapps] hosts web applications and RESTful APIs allowing autoscale and high availability without having to manage infrastructure.
-* Azure [Application Gateway][docs-appgw] is a web traffic load balancer that manages traffic to the web application.
+* [Application Gateway][docs-appgw] Azure Application Gateway is a web traffic load balancer that enables you to manage traffic to your web applications.
 * [Web Application Firewall][docs-waf] Web application firewall (WAF) is a feature of Application Gateway that provides centralized protection of your web applications from common exploits and vulnerabilities.
 * [Azure SQL Database][docs-sql-database] Azure SQL Database is a relational database-as-a-service (DBaaS) based on the latest stable version of Microsoft SQL Server Database Engine.
 * [Azure Networking] Azure provides a variety of networking capabilities that can be used together or separately
@@ -148,7 +148,7 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [bring-your-own-dns]: /azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#specify-dns-servers
 [private-zones]: /azure/dns/private-dns-overview
 
-[architecture]: ./media/ilb-ase-architecture.png
+[architecture]: ./media/ilb-ase-with-architecture.png
 [small-pricing]: https://azure.com/e/22e2c9d300ee425a89a001726221c7b2
 [medium-pricing]: https://azure.com/e/c280777e16bd4fd5bc9c23f3b8caf91f
 [large-pricing]: https://azure.com/e/294d5b09fa064ced87d6422826f2a0fc
