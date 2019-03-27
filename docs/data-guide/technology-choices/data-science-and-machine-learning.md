@@ -70,7 +70,7 @@ Try the [free or paid version of Azure Machine Learning service](http://aka.ms/A
 
 ## Azure Machine Learning Studio
 
-[Azure Machine Learning Studio](https://docs.microsoft.com/azure/machine-learning/studio/) gives you an interactive, visual workspace that you can use to easily and quickly build, test, and deploy models using pre-built machine learning algorithms. Machine Learning Studio publishes models as web services that can easily be consumed by custom apps or BI tools such as Excel.
+[Azure Machine Learning Studio](/azure/machine-learning/studio/) gives you an interactive, visual workspace that you can use to easily and quickly build, test, and deploy models using pre-built machine learning algorithms. Machine Learning Studio publishes models as web services that can easily be consumed by custom apps or BI tools such as Excel.
 No programming is required - you construct your machine learning model by connecting datasets and analysis modules on an interactive canvas, and then deploy it with a couple clicks.
 
 Use Machine Learning Studio when you want to develop and deploy models with no code required.
