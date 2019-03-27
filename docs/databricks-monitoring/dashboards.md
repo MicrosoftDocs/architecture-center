@@ -11,19 +11,19 @@ ms.subservice:
 
 # Use dashboards to visualize Azure Databricks metrics
 
-[Azure Databricks](/azure/azure-databricks/) is a fast, powerful, and collaborative [Apache Spark](https://spark.apache.org/)–based analytics service that makes it easy to rapidly develop and deploy big data analytics and artificial intelligence (AI) solutions. Monitoring and troubleshooting performance issues is a critical component of operating your production Azure Databricks workloads, and the first step in the process is to gather metrics into a workspace for analysis. In Azure, the best solution for managing log data is [Azure Monitor](/azure/azure-monitor/). Azure Databricks does not natively support sending log data to Azure monitor, but a [library for this functionality](https://github.com/mspnp/spark-monitoring) is available in [Github](https://github.com).
+[Azure Databricks](/azure/azure-databricks/) is a fast, powerful, and collaborative [Apache Spark](https://spark.apache.org/)–based analytics service that makes it easy to rapidly develop and deploy big data analytics and artificial intelligence (AI) solutions. Monitoring is a critical component of operating Azure Databricks workloads in production. The first step is to gather metrics into a workspace for analysis. In Azure, the best solution for managing log data is [Azure Monitor](/azure/azure-monitor/). Azure Databricks does not natively support sending log data to Azure monitor, but a [library for this functionality](https://github.com/mspnp/spark-monitoring) is available in [Github](https://github.com).
 
 This library enables logging of Azure Databricks service metrics as well as Apache Spark structure streaming query event metrics. Once you've successfully deployed this library to an Azure Databricks cluster, you can further deploy a set of [Azure Monitor](/azure/azure-monitor/) or [Grafana](https://granfana.com) dashboards that you can deploy as part of your production environment. This document includes a discussion of the common types of performance issues and how to identify them using these dashboards.
 
 ![Screenshot of dashboard](./_images/dashboard-screenshot.png)
 
-## Deploy dashboards
+## Prequisites
 
-There are two sets of artifacts in the Github respository, one for an Azure Log Analytics dashboard and another for a Grafana dashboard. Before you begin, clone the [Github repository](https://github.com/mspnp/spark-monitoring) and [follow the deployment instructions](./configure-cluster.md) to build and configure the Azure Monitor logging for Azure Databricks library to send logs to your Azure Log Analytics workspace.
+Clone the [Github repository](https://github.com/mspnp/spark-monitoring) and [follow the deployment instructions](./configure-cluster.md) to build and configure the Azure Monitor logging for Azure Databricks library to send logs to your Azure Log Analytics workspace.
 
 ## Deploy the Azure Log Analytics workspace
 
-To deploy an Azure Log Analytics workspace, follow these steps:
+To deploy the Azure Log Analytics workspace, follow these steps:
 
 1. Navigate to the `/perftools/deployment/loganalytics` directory.
 1. Deploy the **logAnalyticsDeploy.json** Azure Resource Manager template. For more information about deploying Resource Manager templates, see [Deploy resources with Resource Manager templates and Azure CLI][rm-cli]. The template has the following parameters:
@@ -187,7 +187,6 @@ Next is a set of visualizations for the dashboard that show the ratio of executo
 ### Shuffle metrics
 
 The final set of visualizations show the data shuffle metrics associated with a structured streaming query across all executors. These include shuffle bytes read, shuffle bytes written, shuffle memory, and disk usage in queries where the file system is used.
-
 
 <!-- links -->
 

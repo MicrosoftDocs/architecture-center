@@ -13,7 +13,7 @@ ms.subservice:
 
 # Configure Azure Databricks to send metrics to Azure Monitor
 
-This article shows how to configure an Azure Databricks cluster to send metrics to a [Log Analytics workspace](/azure/azure-monitor/platform/manage-access). It uses the [Azure Databricks Monitoring Library](https://github.com/mspnp/spark-monitoring), which is available on GitHub.
+This article shows how to configure an Azure Databricks cluster to send metrics to a [Log Analytics workspace](/azure/azure-monitor/platform/manage-access). It uses the [Azure Databricks Monitoring Library](https://github.com/mspnp/spark-monitoring), which is available on GitHub. Understanding of Java, Scala, and Maven are recommended as prerequisistes.
 
 ## About the Azure Databricks Monitoring Library
 
@@ -27,9 +27,9 @@ The [GitHub repo](https://github.com/mspnp/spark-monitoring) for the Azure Datab
     /pom.xml  
 ```
 
-The **spark-jobs** directory is a sample Spark application with sample code demonstrating how to implement a Spark application metric counter.
+The **spark-jobs** directory is a sample Spark application demonstrating how to implement a Spark application metric counter.
 
-The **spark-listeners** directory includes functionality that enables Azure Databricks to send Apache Spark events at the service level to an Azure Log Analytics workspace. Azure Databricks is a service based on Apache Spark, which includes a set of structured APIs for batch processing data using Datasets, DataFrames, and SQL. With Apache Spark 2.0, support was added for [Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html), a data stream processing API built upon Spark's batch processing APIs.
+The **spark-listeners** directory includes functionality that enables Azure Databricks to send Apache Spark events at the service level to an Azure Log Analytics workspace. Azure Databricks is a service based on Apache Spark, which includes a set of structured APIs for batch processing data using Datasets, DataFrames, and SQL. With Apache Spark 2.0, support was added for [Structured Streaming](https://spark.apache.org/docs/latest/structured-streaming-programming-guide.html), a data stream processing API built on Spark's batch processing APIs.
 
 The **spark-listeners-loganalytics** directory includes a sink for Spark listeners, a sink for DropWizard, and a client for an Azure Log Analytics Workspace. This directory also includes a log4j Appender for your Apache Spark application logs.
 
@@ -41,10 +41,10 @@ The **pom.xml** file is the main Maven build file for the entire project.
 
 To get started, deploy the following Azure resources:
 
-- An Azure Databricks workspace. See [Quickstart: Run a Spark job on Azure Databricks using the Azure portal](/azure/azure-databricks/quickstart-create-databricks-workspace-portal)
+- An Azure Databricks workspace. See [Quickstart: Run a Spark job on Azure Databricks using the Azure portal](/azure/azure-databricks/quickstart-create-databricks-workspace-portal).
 - A Log Analytics workspace. See [Create a Log Analytics workspace in the Azure portal](/azure/azure-monitor/learn/quick-create-workspace).
 
-Install the [Azure Databricks CLI](https://docs.databricks.com/user-guide/dev-tools/databricks-cli.html#install-the-cli). An Azure Databricks personal access token is required to use the CLI. For instructions, see [Generate a token](https://docs.azuredatabricks.net/api/latest/authentication.html#token-management).
+Next, install the [Azure Databricks CLI](https://docs.databricks.com/user-guide/dev-tools/databricks-cli.html#install-the-cli). An Azure Databricks personal access token is required to use the CLI. For instructions, see [Generate a token](https://docs.azuredatabricks.net/api/latest/authentication.html#token-management).
 
 Find your Log Analytics workspace ID and key. For instructions, see [Obtain workspace ID and key](/azure/azure-monitor/platform/agent-windows#obtain-workspace-id-and-key). You will need these values when you configure the Databricks cluster.
 
@@ -80,28 +80,28 @@ To build the Azure Databricks Monitoring Library, perform the following steps:
     dbfs mkdirs dbfs:/databricks/monitoring-staging
     ```
 
-1. Use the Azure Databricks CLI to copy **/src/spark-listeners/scripts/listeners.sh** to the directory created in step 3:
+1. Use the Azure Databricks CLI to copy **/src/spark-listeners/scripts/listeners.sh** to the directory previously:
 
     ```bash
     dbfs cp ./src/spark-listeners/scripts/listeners.sh dbfs:/databricks/monitoring-staging/listeners.sh
     ```
 
-1. Use the Azure Databricks CLI to copy **/src/spark-listeners/scripts/metrics.properties** to the directory created in step 3:
+1. Use the Azure Databricks CLI to copy **/src/spark-listeners/scripts/metrics.properties** to the directory created previously:
 
     ```bash
     dbfs cp <local path to metrics.properties> dbfs:/databricks/monitoring-staging/metrics.properties
     ```
 
-1. Use the Azure Databricks CLI to copy **spark-listeners-1.0-SNAPSHOT.jar** and **spark-listeners-loganalytics-1.0-SNAPSHOT.jar** that were built in step 2 to the directory created in step 3:
+1. Use the Azure Databricks CLI to copy **spark-listeners-1.0-SNAPSHOT.jar** and **spark-listeners-loganalytics-1.0-SNAPSHOT.jar** to the directory created previously:
 
     ```bash
     dbfs cp ./src/spark-listeners/target/spark-listeners-1.0-SNAPSHOT.jar dbfs:/databricks/monitoring-staging/spark-listeners-1.0-SNAPSHOT.jar
     dbfs cp ./src/spark-listeners-loganalytics/target/spark-listeners-loganalytics-1.0-SNAPSHOT.jar dbfs:/databricks/monitoring-staging/spark-listeners-loganalytics-1.0-SNAPSHOT.jar
     ```
 
-## Create and configure the Azure Databricks cluster
+## Create and configure an Azure Databricks cluster
 
-To create and configure the Azure Databricks cluster, follow these steps:
+To create and configure an Azure Databricks cluster, follow these steps:
 
 1. Navigate to your Azure Databricks workspace in the Azure portal.
 1. On the home page, click **New Cluster**.
@@ -126,7 +126,7 @@ To create and configure the Azure Databricks cluster, follow these steps:
 
 1. While still under the **Advanced Options** section, click on the **Init Scripts** tab.
 1. In the **Destination** dropdown, select **DBFS**.
-1. Under **Init Script Path**, enter `dbfs:/databricks/monitoring-staging/listeners.sh`
+1. Under **Init Script Path**, enter `dbfs:/databricks/monitoring-staging/listeners.sh`.
 1. Click **Add**.
 
     ![Screenshot of Databricks UI](./_images/create-cluster2.png)
@@ -145,7 +145,7 @@ For more information about viewing logs, see [Viewing and analyzing log data in 
 
 ## Next steps
 
-This article described how to configure your cluster to send metrics to Azure Monitor. You can also use the Azure Databricks Monitoring Library to send application metrics and logs.
+This article described how to configure your cluster to send metrics to Azure Monitor. The next article shows how to use the Azure Databricks Monitoring Library to send application metrics and logs.
 
 > [!div class="nextstepaction"]
-> [Application logging](./application-logs.md)
+> [Send application logs to Azure Monitor](./application-logs.md)
