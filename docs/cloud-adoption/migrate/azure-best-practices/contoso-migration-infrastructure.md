@@ -237,7 +237,7 @@ Contoso admins now assigns roles to the AD groups that they synchronized from on
     ![On-premises AD members in Azure](./media/contoso-migration-infrastructure/on-prem-ad-groups.png) 
 
 
-## Step 3: Design for resilience and disaster
+## Step 3: Design for resiliency
 
 ### Set up regions
 
@@ -247,7 +247,6 @@ Azure resources are deployed within regions.
 - A region is composed of a set of datacenters. These datacenters are deployed within a latency-defined perimeter, and connected through a dedicated regional low-latency network.
 - Each Azure region is paired with a different region for resiliency.
 - Read about [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/), and understand [how regions are paired](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
-
 
 Contoso has decided to go with the East US 2 (located in Virginia) as the primary region, and Central US (located in Iowa) as the secondary region. There are a couple of reasons for this:
 
@@ -259,7 +258,9 @@ As it thinks about the hybrid environment, Contoso needs to consider how to buil
 
 Contoso has decided to take a middle road. It will deploy apps and resources in a primary region, and keep a full copy of the infrastructure in the secondary region, so that it's ready to act as a full backup in case of complete app disaster, or regional failure.
 
-### Set up availability zones
+### Set up availability
+
+**Availability zones**
 
 Availability zones help protect apps and data from datacenter failures.
 
@@ -270,6 +271,40 @@ Availability zones help protect apps and data from datacenter failures.
 
 Contoso will deploy availability zones as apps call for scalability, high-availability, and resiliency. [Learn more](https://docs.microsoft.com/azure/availability-zones/az-overview). 
 
+**Availability sets**
+
+Availability sets help protect your virtual machines from outages within a datacenter.
+
+- VM instances in an availability set are distributed across fault domains. Fault domains represent  underlying hardware with a common power source and network switch. Grouping virtual machines across different fault domains minimizes outages caused by a single hardware or networking failure.
+- Each VM instance in an availability set is also distributed across update domains. Update domains represent underlying hardware that can undergo maintenance or be rebooted at the same time. Distributing virtual machine instances across multiple update domains ensure at least one instance will be running at all times.
+
+Contoso will implement availability sets whenever VM workloads require high availability and resiliency. [Learn more](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability).
+
+### Set up backup
+
+**Azure Backup**
+
+Azure Backup allows you to back up Azure VM disks to the cloud using Azure storage. 
+
+- Azure backup allows automated snapshots of VM disk images, that can be restored at will.
+- Backups are application consistent, ensuring backed up data is transactionally consistent and that applications will boot up post-restore.  
+- Azure Backup supports locally redundant storage (LRS) to replicate multiple copies of your backup data within a datacenter, in case of a local hardware failure.
+- In the event of a regional outage, Azure Backup also supports geo-redundant storage (GRS), replicating your backup data to a secondary paired region.
+- Azure Backup encrypts data in-flight using AES 256 and sends it over HTTPS to Azure. Backed-up data at-rest in Azure is encrypted using [Storage Service Encryption (SSE)](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fqueues%2ftoc.json), and  data for transmission and storage.
+
+Contoso will use Azure Backup with GRS on any production VMs to ensure workload data is backed up. [Learn more](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup).
+
+### Set up disaster recovery
+
+**Azure Site Recovery**
+
+Azure Site Recovery helps ensure business continuity by keeping business apps and workloads running during outages.
+
+- Site recovery continually replicates Azure VMs from a primary to a secondary region, ensuring functional copies in both location.
+- In the event of an outage in the primary region, your application or service fails over to using VMs instances replicated in the secondary region, minimizing potential disruption.
+- When operations return to normal, your applications or services can fail back to VMs in the primary region.
+
+Contoso will implement Azure Site Recovery for all production VMs used in mission critical workloads, ensuring minimal disruption during an outage in the primary region. [Learn more](https://docs.microsoft.com/en-us/azure/site-recovery/site-recovery-overview)
 
 ## Step 4: Design a network infrastructure
 
