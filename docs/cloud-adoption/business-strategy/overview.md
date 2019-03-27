@@ -1,11 +1,11 @@
 ---
-title: "Fusion: How can the cloud advance my business strategy?"
+title: "CAF: How can the cloud advance my business strategy?"
 description: Explanation of the cloud can be leveraged to advance a business strategy
 author: BrianBlanchard
 ms.date: 10/10/2018
 ---
 
-# Fusion: How can the cloud advance my business strategy?
+# CAF: How can the cloud advance my business strategy?
 
 It depends... The cloud delivers a number of fundamental technology benefits that can aid in executing a number of business strategies. Leveraging cloud based approaches can improve basic business agility, reduce costs, accelerate time to market, and even allow businesses to quickly expand into new markets.
 

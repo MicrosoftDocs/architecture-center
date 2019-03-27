@@ -1,11 +1,11 @@
 ---
-title: "Fusion: How can we align efforts to meaningful learning metrics?"
+title: "CAF: How can we align efforts to meaningful learning metrics?"
 description: Explanation of the concept of learning metrics
 author: BrianBlanchard
 ms.date: 10/10/2018
 ---
 
-# Fusion: How can we align efforts to meaningful learning metrics?
+# CAF: How can we align efforts to meaningful learning metrics?
 
 The articles on [Business Outcomes](business-outcomes/overview.md) discussed ways to measure and communicate the impact a transformation will have on the business. Unfortunately, it can take years for some of those outcomes to produce measurable results. The Board and C-Suite generally are not happy to see reports that show a 0% delta for long periods of time.
 

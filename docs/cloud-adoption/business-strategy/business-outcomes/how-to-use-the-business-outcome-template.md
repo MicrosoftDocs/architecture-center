@@ -1,11 +1,11 @@
 ---
-title: "Fusion: How to use the business outcome template"
+title: "CAF: How to use the business outcome template"
 description: Explanation of the business outcome template
 author: BrianBlanchard
 ms.date: 10/10/2018
 ---
 
-# Fusion: How to use the business outcome template
+# CAF: How to use the business outcome template
 
 As discussed in Business Outcomes, it can be difficult to bridge the gap between business and technical conversations. This simple template is designed to help team uniformly capture business outcomes to be used later in the development of customer Transformation Journey strategies.
 

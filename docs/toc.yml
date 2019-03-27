@@ -579,6 +579,8 @@
     items:
     - name: Overview
       href: cloud-adoption/business-strategy/overview.md
+    - name: Motivations (Why are we moving to the cloud)
+      href: cloud-adoption/business-strategy/motivations-why-are-we-moving-to-the-cloud.md
     - name: Business justification
       items:
       - name: Build a cloud migration business case
@@ -601,74 +603,63 @@
         href: cloud-adoption/digital-estate/rationalize.md
       - name: Align cost models to forecast cost
         href: cloud-adoption/digital-estate/calculate.md
-    - name: Change Management and Oversight
-      items: 
-      - name: xx- Partnership options
-        href: cloud-adoption/plan/change-management/partnerhips.md
-      - name: xx- Support options
-        href: cloud-adoption/plan/change-management/support.md
   - name: Ready
     items:
     - name: XX-Overview
       href: cloud-adoption/ready/index.md
-    - name: XX-Governance and Security Alignment
-      href: cloud-adoption/ready/theory/index.md
-    - name: Organizational Readiness
-      items:
-      - name: Initial Org Alignment
-        href: cloud-adoption/ready/initial-org-alignment.md
-      - name: Building Technical Skills
-        href: cloud-adoption/ready/technical-skills.md
-      - name: XX-Business Stakeholder Alignment
-        href: cloud-adoption/ready/theory/index.md
-      - name: XX-Change Management
-        href: cloud-adoption/ready/theory/index.md
     - name: Azure Readiness Guide
       items:
       - name: Set up your Azure environment
-        href: cloud-adoption/ready/journeys/simple/index.md
+        href: cloud-adoption/ready/azure-readiness-guide/index.md
       - name: Organize your resources
-        href: cloud-adoption/ready/journeys/simple/organize-resources.md
+        href: cloud-adoption/ready/azure-readiness-guide/organize-resources.md
       - name: Manage access
-        href: cloud-adoption/ready/journeys/simple/manage-access.md
+        href: cloud-adoption/ready/azure-readiness-guide/manage-access.md
       - name: Manage costs and billing
-        href: cloud-adoption/ready/journeys/simple/manage-costs.md
+        href: cloud-adoption/ready/azure-readiness-guide/manage-costs.md
       - name: Plan governance, security, and compliance
-        href: cloud-adoption/ready/journeys/simple/govern-org-compliance.md
+        href: cloud-adoption/ready/azure-readiness-guide/govern-org-compliance.md
       - name: Use monitoring and reporting
-        href: cloud-adoption/ready/journeys/simple/monitoring-reporting.md
+        href: cloud-adoption/ready/azure-readiness-guide/monitoring-reporting.md
       - name: Staying current with Azure
-        href: cloud-adoption/ready/journeys/simple/staying-current.md
+        href: cloud-adoption/ready/azure-readiness-guide/staying-current.md
     - name: Readiness Considerations
+    - name: Expanded Scope
       items:
       - name: XX-Overview
-        href: cloud-adoption/ready/theory/index.md
+        href: cloud-adoption/ready/azure-best-practices/index.md
       - name: Naming and tagging
         href: cloud-adoption/ready/considerations/naming-and-tagging.md
       - name: XX-Primitives
-        href: cloud-adoption/ready/theory/index.md
+        href: cloud-adoption/ready/considerations/index.md
       - name: XX-Network
-        href: cloud-adoption/ready/theory/index.md
+        href: cloud-adoption/ready/considerations/index.md
       - name: XX-Identity
-        href: cloud-adoption/ready/theory/index.md
+        href: cloud-adoption/ready/considerations/index.md
       - name: XX-Monitoring
-        href: cloud-adoption/ready/theory/index.md
+        href: cloud-adoption/ready/considerations/index.md
       - name: XX-Environment Resiliency 
-        href: cloud-adoption/ready/theory/index.md
+        href: cloud-adoption/ready/considerations/index.md
       - name: Create hybrid cloud consistency
         href: cloud-adoption/infrastructure/misc/hybrid-consistency.md
     - name: Azure Best Practices
       items:
       - name: XX-Overview
         href: cloud-adoption/ready/azure-best-practices/index.md
+    - name: Organizational Readiness
+      items:
+      - name: XX-Governance and Security Alignment
+        href: cloud-adoption/ready/theory/index.md
+      - name: Initial Org Alignment
+        href: cloud-adoption/ready/initial-org-alignment.md
+      - name: Building Technical Skills
+        href: cloud-adoption/ready/technical-skills.md
   - name: Adopt
     items:
     - name: Migrate
       items:
-      - name: Overview
+      - name: Overview (Methodology and Approach)
         href: cloud-adoption/migrate/index.md
-      - name: Methodology and approach
-        href: cloud-adoption/migrate/using-these-guides.md
       - name: Azure Migration Guide
         items:
         - name: Getting Started
