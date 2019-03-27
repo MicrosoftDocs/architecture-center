@@ -578,6 +578,16 @@
       href: service-fabric/migrate-from-cloud-services.md
     - name: Refactor a Service Fabric application
       href: service-fabric/refactor-migrated-app.md
+  - name: Monitor Azure Databricks
+    items:
+    - name: Overview
+      href: databricks-monitoring/index.md
+    - name: Configure Databricks to send metrics to Azure Monitor
+      href: databricks-monitoring/configure-cluster.md
+    - name: Send Databricks application logs to Azure Monitor
+      href: databricks-monitoring/application-logs.md
+    - name: Use dashboards to visualize Databricks metrics
+      href: databricks-monitoring/dashboards.md
 
 - name: Design Review Framework
   items:
