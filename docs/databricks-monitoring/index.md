@@ -1,3 +1,10 @@
+---
+title: Monitoring Azure Databricks with Azure Monitor
+description: A scala library to enable monitoring of Azure Databricks in Azure Log Analytics
+author: petertaylor9999
+ms.date: 03/26/2019
+---
+
 # Monitoring Azure Databricks with Azure Monitor
 
 [Azure Databricks](/azure/azure-databricks/) is a fast, powerful [Apache Spark](https://spark.apache.org/)–based analytics service that makes it easy to rapidly develop and deploy big data analytics and artificial intelligence (AI) solutions. Many users take advantage of the simplicity of notebooks in their Azure Databricks solutions. For users that require more robust computing options, Azure Databricks supports the distributed execution of custom application code.

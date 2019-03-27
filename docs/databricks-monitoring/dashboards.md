@@ -1,12 +1,9 @@
 ---
-title: Performance monitoring and troubleshooting for Azure Databricks using Azure Monitor
-titleSuffix: 
-description: How to monitor and troubleshoot performance issues in Azure Databricks using a library that deploys Azure Monitor and Grafana Dashboards for monitoring and troubleshooting performance in Azure Databricks
+title: Use dashboards to visualize Azure Databricks metrics
+description: How to deploy a Grafana dashboard to monitor performance in Azure Databricks
 author: petertaylor9999
-ms.date: 02/28/2019
-ms.topic:
-ms.service:
-ms.subservice:
+ms.date: 03/26/2019
+
 ---
 
 # Use dashboards to visualize Azure Databricks metrics

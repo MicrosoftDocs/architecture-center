@@ -1,12 +1,8 @@
 ---
-title: Monitoring Azure Databricks in Azure Log Analytics
-titleSuffix: A library for monitoring Azure Databricks in Azure Monitor
+title: Configure Azure Databricks to send metrics to Azure Monitor
 description: A scala library to enable monitoring of metrics and logging data in Azure Log Analytics
 author: petertaylor9999
-ms.date: 03/25/2019
-ms.topic:
-ms.service:
-ms.subservice:
+ms.date: 03/26/2019
 ---
 
 <!-- markdownlint-disable MD040 -->
