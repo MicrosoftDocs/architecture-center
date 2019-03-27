@@ -36,7 +36,7 @@ To deploy the Azure Log Analytics workspace, follow these steps:
 
 This template creates the workspace and also creates a set of predefined queries that are used by by dashboard.
 
-## Deploy the Grafana dashboard
+## Deploy Grafana in a virtual machine
 
 Grafana is an open source project you can deploy to visualize the time series metrics stored in your Azure Log Analytics workspace using the Grafana plugin for Azure Monitor. Grafana executes on a virtual machine (VM) and requires a storage account, virtual network, and other resources. To deploy a virtual machine with the bitnami certified Grafana image and associated resources, follow these steps:
 
