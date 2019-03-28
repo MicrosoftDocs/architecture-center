@@ -8,7 +8,7 @@ ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom: fasttrack-new
-social_image_url: ./media/architecture.jpg
+social_image_url: ./media/architecture-internal-apim-ase-scenario.jpg
 ---
 
 # Publishing internal APIs to external consumers
@@ -155,7 +155,7 @@ Check out the related scenario on [Migrating legacy web APIs to API Management][
 
 <!-- links -->
 
-[architecture]: ./architecture.jpg
+[architecture]: ./media/architecture-internal-apim-ase-scenario.jpg
 [ase]: https://docs.microsoft.com/en-us/azure/app-service/environment/intro
 [apim]: https://docs.microsoft.com/en-us/azure/api-management/api-management-key-concepts
 [appgtwy]: https://docs.microsoft.com/en-us/azure/application-gateway/overview
