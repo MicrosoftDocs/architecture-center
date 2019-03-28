@@ -260,47 +260,48 @@ Contoso has decided to take a middle road. It will deploy apps and resources in 
 
 ### Set up availability
 
+**Availability sets**
+
+Availability sets help protect apps and data from a local hardware and networking outage within a datacenter.
+
+- Availability sets distribute Azure VMs across different physical hardware within a datacenter. 
+- Fault domains represent underlying hardware with a common power source and network switch within the datacenter. VMs in an availability set are distributed across different fault domains to minimize outages caused by a single hardware or networking failure.
+- Update domains represent underlying hardware that can undergo maintenance or be rebooted at the same time. Availability sets also distribute VMs across multiple update domains to ensure at least one instance will be running at all times.
+
+Contoso will implement availability sets whenever VM workloads require high availability. [Learn more](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability).
+
 **Availability zones**
 
-Availability zones help protect apps and data from datacenter failures.
+Availability zones help protect apps and data from failures affecting an entire datacenter within a region.
 
-- Each availability zone is a unique physical location within an Azure region.
+- Each availability zone represents a unique physical location within an Azure region.
 - Each zone is made up of one or more datacenters equipped with independent power, cooling, and networking. 
 - There's a minimum of three separate zones in all enabled regions.
 - The physical separation of zones within a region protects applications and data from datacenter failures.
 
 Contoso will deploy availability zones as apps call for scalability, high-availability, and resiliency. [Learn more](https://docs.microsoft.com/azure/availability-zones/az-overview). 
 
-**Availability sets**
-
-Availability sets help protect your virtual machines from outages within a datacenter.
-
-- VM instances in an availability set are distributed across fault domains. Fault domains represent  underlying hardware with a common power source and network switch. Grouping virtual machines across different fault domains minimizes outages caused by a single hardware or networking failure.
-- Each VM instance in an availability set is also distributed across update domains. Update domains represent underlying hardware that can undergo maintenance or be rebooted at the same time. Distributing virtual machine instances across multiple update domains ensure at least one instance will be running at all times.
-
-Contoso will implement availability sets whenever VM workloads require high availability and resiliency. [Learn more](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability).
-
 ### Set up backup
 
 **Azure Backup**
 
-Azure Backup allows you to back up Azure VM disks to the cloud using Azure storage. 
+Azure Backup allows you to back up and restore Azure VM disks. 
 
-- Azure backup allows automated snapshots of VM disk images, that can be restored at will.
+- Azure backup allows automated backups of VM disk images, stored in Azure storage.
 - Backups are application consistent, ensuring backed up data is transactionally consistent and that applications will boot up post-restore.  
 - Azure Backup supports locally redundant storage (LRS) to replicate multiple copies of your backup data within a datacenter, in case of a local hardware failure.
 - In the event of a regional outage, Azure Backup also supports geo-redundant storage (GRS), replicating your backup data to a secondary paired region.
-- Azure Backup encrypts data in-flight using AES 256 and sends it over HTTPS to Azure. Backed-up data at-rest in Azure is encrypted using [Storage Service Encryption (SSE)](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fqueues%2ftoc.json), and  data for transmission and storage.
+- Azure Backup encrypts data in-transit using AES 256. Backed-up data at-rest is encrypted using [Storage Service Encryption (SSE)](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fqueues%2ftoc.json).
 
-Contoso will use Azure Backup with GRS on any production VMs to ensure workload data is backed up. [Learn more](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup).
+Contoso will use Azure Backup with GRS on all production VMs to ensure workload data is backed up and can be quickly restored in case of outage or other disruption. [Learn more](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup).
 
 ### Set up disaster recovery
 
 **Azure Site Recovery**
 
-Azure Site Recovery helps ensure business continuity by keeping business apps and workloads running during outages.
+Azure Site Recovery helps ensure business continuity by keeping business apps and workloads running during regional outages.
 
-- Site recovery continually replicates Azure VMs from a primary to a secondary region, ensuring functional copies in both location.
+- Site recovery continually replicates Azure VMs from a primary to a secondary region, ensuring functional copies in both locations.
 - In the event of an outage in the primary region, your application or service fails over to using VMs instances replicated in the secondary region, minimizing potential disruption.
 - When operations return to normal, your applications or services can fail back to VMs in the primary region.
 

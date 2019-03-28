@@ -327,13 +327,15 @@ Azure Policy is a service in Azure that you use to create, assign and, manage po
 
 ## Best practice: Implement a BCDR strategy
 
-Planning for business continuity and disaster recovery (BCDR), is a critical exercise that you should complete during planning for migration to Azure. In legal terms, your contract includes a force majeure clause that excuse obligations due to a greater force such as hurricanes or earthquakes. However, you also have obligations around an ability to ensure that services will continue to run, and recover where necessary, when disaster strike. Your ability to do this can make or break your company's future.
+Planning for business continuity and disaster recovery (BCDR), is a critical exercise that you should complete as part of you Azure migration planningprocess. In legal terms, your contracts may include a force majeure clause that excuses obligations due to a greater force such as hurricanes or earthquakes. However, you also have obligations around your ability to ensure that services will continue to run, and recover where necessary, when disaster strike. Your ability to do this can make or break your company's future.
 
 Broadly, your BCDR strategy must consider:
+
 - **Data backup**: How to keep your data safe so that you can recover it easily if outages occur.
 - **Disaster recovery**: How to keep your apps resilient and available if outages occur. 
 
 ### Azure resiliency features
+
 The Azure platform provides a number of resiliency features.
 
 - **Region pairing**: Azure pairs regions to provide regional protection within data residency boundaries. Azure ensures physical isolation between region pairs, prioritizes the recovery of one region in the pair in case of a broad outage, deploys system updates separately in each region, and allows features such as Azure geo-redundant storage to replicate across the regional pairs.
@@ -344,7 +346,7 @@ The Azure platform provides a number of resiliency features.
 
 When migrating to Azure, it's important to understand that although the Azure platform provides these inbuilt resiliency capabilities, you need to design your Azure deployment to take advantage of Azure features and services that provide high availability, disaster recovery, and backup.
 
-- Your BCDR solution will depend your company objectives, and influenced by your Azure deployment strategy. Infrastructure as a Service (IaaS) and Platform as a Service (PaaS) deployments present different challenges for BCDR.
+- Your BCDR solution will depend on your company objectives, and will be influenced by your Azure deployment strategy. Infrastructure as a Service (IaaS) and Platform as a Service (PaaS) deployments present different challenges for BCDR.
 - Once in place, your BCDR solutions should be tested regularly to check that your strategy remains viable.
 
 ### Back up an IaaS deployment
@@ -354,17 +356,17 @@ In most cases an on-premises workload is retired after migration, and your on-pr
 For workloads running on Azure IaaS VMs, consider these backup solutions:
 
 - **Azure Backup**: Provides application-consistent backups for Azure Windows and Linux VMs.
-- **Storage snapshots**: Take snapshots of blob storage.
+- **Storage snapshots**: Takes snapshots of blob storage.
 
 #### Azure Backup
 
 Azure Backup creates data recovery points that are stored in Azure storage. Azure Backup can back up Azure VM disks, and Azure Files (preview). Azure Files provide file shares in the cloud, accessible via SMB.
-   
+
 You can use Azure Backup to back up VMs in a couple of ways.
 
-- **Direct backup from VM settings**: You can back up VMs with Azure Backup directly from the VM options in the Azure portal. You can back up the VM once and day, and restore the VM disk as needed. Azure Backup takes app-aware data snapshots (VSS), no agent is installed on the VM.
-- **Direct backup in a Recovery Services vault**: You can back up your IaaS VMs by deploying an Azure Backup Recovery Services vault. This provides a single location to track and manage backups, and provides granular backup and restore options. Backup is up to three times a day, at the file/folder level. It isn't app-aware and Linux isn't supported. You need to install the Microsoft Azure Recovery Services (MARS) agent on each VM you want to back up.
-- **Azure Backup Server: Protect the VM to Azure Backup Server**: Azure Backup Server is provided free with Azure Backup. The VM is backed up to local Azure Backup Server storage. You then back up the Azure Backup Server to Azure in a vault. Backup is app-aware, with full granularity over backup frequency and retention. You can back up at the app level. For example by backing up SQL Server or SharePoint.
+- **Direct backup from VM settings**: You can back up VMs with Azure Backup directly from the VM options in the Azure portal. You can back up the VM once and day, and restore the VM disk as needed. Azure Backup takes app-aware data snapshots (VSS), and no agent is installed on the VM.
+- **Direct backup in a Recovery Services vault**: You can back up your IaaS VMs by deploying an Azure Backup Recovery Services vault. This provides a single location to track and manage backups, and provides granular backup and restore options. Backup is up to three times a day, at the file/folder level. It isn't app-aware and Linux isn't supported. You need to install the Microsoft Azure Recovery Services (MARS) agent on each VM you want to back up using this method.
+- **Azure Backup Server: Protect the VM to Azure Backup Server**: Azure Backup Server is provided free with Azure Backup. The VM is backed up to local Azure Backup Server storage. You then back up the Azure Backup Server to Azure in a vault. Backup is app-aware, with full granularity over backup frequency and retention. You can back up at the app level, for example by backing up SQL Server or SharePoint.
 
 For security, Azure Backup encrypts data in-flight using AES 256 and sends it over HTTPS to Azure. Backed-up data at-rest in Azure is encrypted using [Storage Service Encryption (SSE)](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fqueues%2ftoc.json), and  data for transmission and storage.
 
@@ -402,11 +404,11 @@ In addition, you can use third-party solutions to back up Azure VMs and storage 
 
 In addition to protecting data, BCDR  planning must consider how to keep apps and workloads available in case of disaster. For workloads running on Azure IaaS VMs and Azure storage consider these solutions:
 
-- **Azure Site Recovery**: Orchestrates replication of Azure VMs in a primary to a secondary region. When outages occur, you fail over from the primary region to the secondary, and users can continue to access apps. When things are back to normal, you fail back to the primary region.
+#### Azure Site Recovery
 
-#### Azure Site Recovery 
+Azure Site Recovery is the primary Azure service for ensuring that Azure VMs can be brought online and VM apps made available when outages occur. 
 
-Azure Site Recovery is the primary Azure service for ensuring that Azure VMs can be brought online and VM apps made available when outages occur. Site Recovery replicates VMs from a primary to secondary Azure region. When disaster strikes, you fail VMs over from the primary region, and continue accessing them as normal in the secondary region. When operations return to normal, you can fail back VMs to the primary region.
+Site Recovery replicates VMs from a primary to secondary Azure region. When disaster strikes, you fail VMs over from the primary region, and continue accessing them as normal in the secondary region. When operations return to normal, you can fail back VMs to the primary region.
 
 ![Azure Site Recovery](./media/migrate-best-practices-security-management/site-recovery.png)
 *Site Recovery*
