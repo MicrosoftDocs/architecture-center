@@ -15,7 +15,7 @@ Cloud migration is the process of moving existing digital assets into a cloud pl
 
 In any balanced technology portfolio, there is a mixture of assets in various states. Some applications are slated for retirement, with minimal support. Other applications or assets are supported in a maintenance state, but the features associated with those solutions are stable. For newer processes within the business,  changing market conditions will likely result in on-going feature enhancements or modernization. When opportunities to drive new revenue streams present themselves, net new applications or assets are introduced into the environment. At each stage of an asset's lifecycle, the impact any investment has on revenue and profit will change. The later an asset is in its lifecycle, the less likely a company is to see a return from a new feature or modernization investment.
 
-The cloud provides various adoption mechanisms, each with similar degrees of investment and return. Building cloud native applications can significantly reduce operating expenses. Once a cloud native application is released, new features and solutions can iterate faster. Modernizing an application can have similar yields, by removing legacy constraints associated with on-premise development models. Unfortunately, these two approaches are labor-intensive and have a strong dependency on the size, skill, and experience of software development teams. Sadly, there is commonly a labor misalignment. The people with the skills and talent to modernize applications would much rather be building new applications. In a labor constrained market, modernization projects at scale can suffer from an employee satisfaction and talent issue. In a balanced portfolio, this approach should be reserved for applications that would receive significant feature enhancements, if they remained on-prem.
+The cloud provides various adoption mechanisms, each with similar degrees of investment and return. Building cloud native applications can significantly reduce operating expenses. Once a cloud native application is released, new features and solutions can iterate faster. Modernizing an application can have similar yields, by removing legacy constraints associated with on-premise development models. Unfortunately, these two approaches are labor-intensive and have a strong dependency on the size, skill, and experience of software development teams. Sadly, there is commonly a labor misalignment. The people with the skills and talent to modernize applications would much rather be building new applications. In a labor constrained market, modernization projects at scale can suffer from an employee satisfaction and talent issue. In a balanced portfolio, this approach should be reserved for applications that would receive significant feature enhancements, if they remained on-premises.
 
 ## Cloud migration guides
 
@@ -25,12 +25,12 @@ To start down an adoption path, choose one of the following guides. Each guide o
 
 <ul class="panelContent cardsZ">
 <li style="display: flex; flex-direction: column;">
-    <a href="./simple-path/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./baseline-migration-guide/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Baseline Migration Guide</h3>
+                        <h3>Baseline migration guide</h3>
                         <p>A migration journey involving fewer than 1,000 virtual machines and single cloud adoption team.</p>
                     </div>
                 </div>
@@ -39,13 +39,13 @@ To start down an adoption path, choose one of the following guides. Each guide o
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./large-enterprise/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./expanded-scope/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Complex Scenario Guide</h3>
-                        <p>If the baseline migration guidance isn't enough, the complex scenario guide is the next level of guidance through the migration process.</p>
+                        <h3>Expanded scope for cloud migration</h3>
+                        <p>If the baseline migration guidance isn't enough, the expanded scope scenario guides are the next level of guidance through the migration process.</p>
                     </div>
                 </div>
             </div>
@@ -125,7 +125,7 @@ Narrative Summary: This approach consists of fewer than 10,000 VMs. Applications
 
 <ul class="panelContent cardsZ">
 <li style="display: flex; flex-direction: column;">
-    <a href="./simple-migration/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./baseline-migration-guide/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -139,7 +139,7 @@ Narrative Summary: This approach consists of fewer than 10,000 VMs. Applications
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./complex-migration/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./expanded-scope/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">

@@ -40,7 +40,7 @@ This model leverages migration automation tools to replicate, stage, and promote
 **Cons:** Negative aspects of this approach.
 
 - Assets staged within the tools isolated sandbox don't allow for complex testing models
-- During replication, the migration tool will consume bandwidth in the local data center. Staging a large volume of assets over an extended period of time has an exponential impact on available bandwidth, hurting the migration process and potentially performance of production workloads in the on-prem environment
+- During replication, the migration tool will consume bandwidth in the local data center. Staging a large volume of assets over an extended period of time has an exponential impact on available bandwidth, hurting the migration process and potentially performance of production workloads in the on-premises environment
 
 ## Staged Promotion
 

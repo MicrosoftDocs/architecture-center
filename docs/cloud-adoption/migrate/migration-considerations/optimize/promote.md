@@ -7,7 +7,7 @@ ms.date: 4/4/2019
 
 # What is required to promote a migrated resource to production?
 
-Promotion to production marks the completion of an application or workloads migration to the cloud. Once the asset and all of its dependencies are promoted, production traffic is re-routed. The re-routing of traffic makes the on-prem assets obsolete, allowing them to be de-commissioned.
+Promotion to production marks the completion of an application or workloads migration to the cloud. Once the asset and all of its dependencies are promoted, production traffic is re-routed. The re-routing of traffic makes the on-premises assets obsolete, allowing them to be de-commissioned.
 
 The process of promotion varies according to the application's architecture. However, there are a number of consistent pre-requisites and a few common tasks. This article will describe each, to serve as a kind of pre-promotion checklist.
 

@@ -11,7 +11,7 @@ During the assess process of migration, the team seeks to identify any configura
 
 ## Common Remediation Tasks
 
-In any corporate environment technical debt exists, some of this is healthy and expected. Architecture decisions that were well suited for an on-prem environment, may not be entirely suitable in a cloud platform. In either case, common remediation tasks may be required to prepare assets for migration. The following are a few examples:
+In any corporate environment technical debt exists, some of this is healthy and expected. Architecture decisions that were well suited for an on-premises environment, may not be entirely suitable in a cloud platform. In either case, common remediation tasks may be required to prepare assets for migration. The following are a few examples:
 
 * Minor host upgrades: Occasionally, an outdated host will need to be upgraded prior to replication.
 * Minor Guest OS upgrades: It is more likely that an OS will need patching or upgrading prior to replication.

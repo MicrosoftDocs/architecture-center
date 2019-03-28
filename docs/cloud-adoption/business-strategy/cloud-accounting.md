@@ -27,7 +27,7 @@ In a Central IT accounting model, the IT team marks up the services provided to 
 
 One of the common first steps towards breaking the cost center reputation is a Charge Back model of accounting. This is especially common in smaller enterprises or highly efficient IT organizations. In the Charge Back model, any IT costs that are associated with a specific business unit are treated like an operational expense in that business units budget. This reduces can reduce the accumulative costs effects on IT, allowing business values to show more clearly.
 
-In a legacy, on-prem model, charge back is very difficult to realize because someone still has to carry the large capital expenses and depreciation. The on-going conversion from CapEx/Depreciation of purchases to OpEx associated with usage is a very difficult accounting exercise. Its a big reason for the creation of the Traditional IT accounting model and Central IT accounting model. The OpEx heavy model of cloud cost accounting is almost required to efficiently deliver a Charge Back model.
+In a legacy, on-premises model, charge back is very difficult to realize because someone still has to carry the large capital expenses and depreciation. The on-going conversion from CapEx/Depreciation of purchases to OpEx associated with usage is a very difficult accounting exercise. Its a big reason for the creation of the Traditional IT accounting model and Central IT accounting model. The OpEx heavy model of cloud cost accounting is almost required to efficiently deliver a Charge Back model.
 
 However, this is not a model that should be entered into lightly. The following are a few consequences that are unique to a charge back model:
 
