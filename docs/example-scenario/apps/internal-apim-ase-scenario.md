@@ -8,7 +8,7 @@ ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom: fasttrack-new
-social_image_url: ./architecture.jpg
+social_image_url: ./media/architecture.jpg
 ---
 
 # Publishing internal APIs to external consumers
