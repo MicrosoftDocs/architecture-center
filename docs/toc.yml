@@ -1039,10 +1039,10 @@
     - name: Implementing Azure enterprise scaffold
       href: cloud-adoption/appendix/azure-scaffold-examples.md
     - name: Decision Guides
+      href: cloud-adoption/decision-guides/overview.md
       items:
       - name: Overview
         href: cloud-adoption/decision-guides/overview.md
-        items:
       - name: Subscriptions
         href: cloud-adoption/decision-guides/subscriptions/overview.md
       - name: Identity
