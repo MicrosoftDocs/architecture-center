@@ -576,9 +576,8 @@
     - name: Enable success during either journey
       href: cloud-adoption/getting-started/enable.md
   - name: Plan
+    href: cloud-adoption/business-strategy/overview.md
     items:
-    - name: Overview
-      href: cloud-adoption/business-strategy/overview.md
     - name: Motivations (Why are we moving to the cloud)
       href: cloud-adoption/business-strategy/motivations-why-are-we-moving-to-the-cloud.md
     - name: Business justification
@@ -656,8 +655,6 @@
     - name: Migrate
       href: cloud-adoption/migrate/index.md
       items:
-      - name: Overview (Methodology and Approach)
-        href: cloud-adoption/migrate/index.md
       - name: Azure Migration Guide
         items:
         - name: Intro to the Migration Guide
@@ -699,17 +696,15 @@
           - name: Governance and compliance
             href: cloud-adoption/migrate/expanded-scope/governance-or-compliance.md
       - name: Best practices
+        href: cloud-adoption/migrate/azure-best-practices/index.md
         items:
-        - name: Overview
-          href: cloud-adoption/migrate/azure-best-practices/index.md
         - name: Best Practices for migrating workloads
           items:
           - name: Set up networking for migrated workloads
             href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-networking.md
           - name: Application migration patterns and examples
+            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-overview.md
             items:
-            - name: Overview
-              href: cloud-adoption/migrate/azure-best-practices/contoso-migration-overview.md
             - name: Deploy an Azure infrastructure
               href: cloud-adoption/migrate/azure-best-practices/contoso-migration-infrastructure.md
             - name: Assess on-premises resources for migration
@@ -745,9 +740,8 @@
             - name: Scale a migration
               href: cloud-adoption/migrate/azure-best-practices/contoso-migration-scale.md
           - name: Mainframe Migration
+            href: cloud-adoption/infrastructure/mainframe-migration/overview.md
             items:
-              - name: Overview
-                href: cloud-adoption/infrastructure/mainframe-migration/overview.md
               - name: Myths and facts
                 href: cloud-adoption/infrastructure/mainframe-migration/myths-and-facts.md
               - name: Migration strategies
@@ -763,13 +757,11 @@
           - name: Securing and managing workloads post migration
             href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-security-management.md
       - name: Migration Considerations
+        href: cloud-adoption/migrate/migration-considerations/index.md
         items:
-        - name: Overview
-          href: cloud-adoption/migrate/migration-considerations/index.md
         - name: Prerequisites
+          href: cloud-adoption/migrate/migration-considerations/pre-requisites/index.md
           items:
-          - name: Overview
-            href: cloud-adoption/migrate/migration-considerations/pre-requisites/index.md
           - name: Decisions that affect migration activities
             href: cloud-adoption/migrate/migration-considerations/pre-requisites/decisions.md
           - name: Environment Planning Checklist
@@ -780,7 +772,7 @@
             href: cloud-adoption/migrate/migration-considerations/pre-requisites/culture-complexity.md
           - name: Migration Backlog Review
             href: cloud-adoption/migrate/migration-considerations/pre-requisites/migration-backlog-review.md
-        - name: Assess
+        - name: Assess assets and workloads
           items:
           - name: Assess assets before migration
             href: cloud-adoption/migrate/migration-considerations/assess/index.md
@@ -798,10 +790,9 @@
             href: cloud-adoption/migrate/migration-considerations/assess/release-iteration-backlog.md
           - name: Change approval processes
             href: cloud-adoption/migrate/migration-considerations/assess/approve.md
-        - name: Migrate
+        - name: Migrate individual assets
+          href: cloud-adoption/migrate/migration-considerations/migrate/index.md
           items:
-          - name: Overview
-            href: cloud-adoption/migrate/migration-considerations/migrate/index.md
           - name: Promotion models - Promote, Stage, or Flight
             href: cloud-adoption/migrate/migration-considerations/migrate/promotion-models.md
           - name: Remediation tasks
@@ -812,10 +803,9 @@
             href: cloud-adoption/migrate/migration-considerations/migrate/replicate-options.md
           - name: Stage workloads for testing and promotion
             href: cloud-adoption/migrate/migration-considerations/migrate/stage.md
-        - name: Optimize
+        - name: Optimize and promote workloads
+          href: cloud-adoption/migrate/migration-considerations/optimize/index.md
           items:
-          - name: Overview
-            href: cloud-adoption/migrate/migration-considerations/optimize/index.md
           - name: Business Change Plan
             href: cloud-adoption/migrate/migration-considerations/optimize/business-change-plan.md
           - name: Business Testing
@@ -830,7 +820,7 @@
             href: cloud-adoption/migrate/migration-considerations/optimize/retrospective.md
           - name: Decomission retired assets
             href: cloud-adoption/migrate/migration-considerations/optimize/decomission.md
-        - name: Secure and Manage
+        - name: Secure and manage workloads in production
           items:
           - name: Overview
             href: cloud-adoption/migrate/migration-considerations/secure-and-manage/index.md
@@ -839,13 +829,11 @@
       - name: Overview
         href: cloud-adoption/innovate/index.md
     - name: Govern
+      href: cloud-adoption/governance/overview.md
       items:
-      - name: Overview
-        href: cloud-adoption/governance/overview.md
       - name: Governance Guides
+        href: cloud-adoption/governance/journeys/overview.md
         items:
-        - name: Overview of the Guides
-          href: cloud-adoption/governance/journeys/overview.md
         - name: Azure Governance Guide
           items:
           - name: Best practices for getting started with cloud governance
@@ -1041,8 +1029,6 @@
     - name: Decision Guides
       href: cloud-adoption/decision-guides/overview.md
       items:
-      - name: Overview
-        href: cloud-adoption/decision-guides/overview.md
       - name: Subscriptions
         href: cloud-adoption/decision-guides/subscriptions/overview.md
       - name: Identity
