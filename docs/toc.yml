@@ -410,6 +410,8 @@
       items:
       - name: Basic web application
         href: reference-architectures/app-service-web-app/basic-web-app.md
+      - name: Secure development
+        href: reference-architectures/app-service-web-app/secure-web-app.md
       - name: Improved scalability
         href: reference-architectures/app-service-web-app/scalable-web-app.md
       - name: Multi-region deployment
