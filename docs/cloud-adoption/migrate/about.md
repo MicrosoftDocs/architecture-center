@@ -28,7 +28,7 @@ The Cloud Architect serves as the thought leader and facilitator to bring these 
 
 **Separation of Duties:** In many enterprises, separation of duties exist to limit access to production systems or segments of the corporate environment. In such a case, the process of migration becomes more complex. In some cases, those roles and responsibilities may require multiple cloud architects to span the entire migration process.
 
-**Partnership options** Across each of these processes, teams will be learning new skills and approaches to technical execution. Expanding technical skills amongst the existing team members is one option during execution. Hiring additional staff another. Often times, partnering with third parties can provide significant acceleration and risk reductions. [Partnership options](./theory/migrate/partnership-options.md) can help guide decisions to choose the best partnership option.
+**Partnership options** Across each of these processes, teams will be learning new skills and approaches to technical execution. Expanding technical skills amongst the existing team members is one option during execution. Hiring additional staff another. Often times, partnering with third parties can provide significant acceleration and risk reductions. [Partnership options](./migration-considerations/assess/partnership-options.md) can help guide decisions to choose the best partnership option.
 
 ## Next steps
 

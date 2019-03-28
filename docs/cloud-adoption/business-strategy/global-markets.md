@@ -1,11 +1,11 @@
 ---
-title: "Fusion: Understanding the impact of Global Markets"
+title: "CAF: Understanding the impact of Global Markets"
 description: Explanation of the concept of global markets
 author: BrianBlanchard
 ms.date: 10/10/2018
 ---
 
-# Fusion: How will Global Market decisions impact the Transformation Journey?
+# CAF: How will Global Market decisions impact the Transformation Journey?
 
 The Cloud opens new opportunities to perform on a global scale. Barriers to global operations are significantly reduced, by empowering companies to deploy assets in market, without the need to invest heavily in new data centers. Unfortunately, this also adds a great deal of complexity from technical and legal perspectives.
 
@@ -21,7 +21,7 @@ It is important to understand which business units operate in foreign countries,
 
 ## Employee Usage Patterns
 
-It is important to understand how global users access applications that are not hosted in the same country as the user. Often time global WANs (Wide Area Networks) route users based on existing networking agreements. In a traditional on-prem world, there are a number of constraints that limit WAN design. Those constraints can lead to very poor user experiences, if not properly understood prior to cloud adoption. 
+It is important to understand how global users access applications that are not hosted in the same country as the user. Often time global WANs (Wide Area Networks) route users based on existing networking agreements. In a traditional on-premises world, there are a number of constraints that limit WAN design. Those constraints can lead to very poor user experiences, if not properly understood prior to cloud adoption. 
 
 In a Cloud model, commodity internet opens up many new options as well. Communicating the spread of employees across multiple geographies can help the Cloud Adoption Team design WAN solutions that create positive user experiences AND potential reduce networking costs.
 

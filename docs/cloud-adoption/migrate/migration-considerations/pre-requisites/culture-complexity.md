@@ -41,7 +41,7 @@ Each process within the migrate theory content includes a process article outlin
 |Pre-Requisite|Migration Backlog|Prioritize the sequence of workloads to be migrated|Cloud Strategy Team|
 |Assess|Architecture|Challenge initial assumptions to define the target architecture based on usage metrics|Cloud Adoption Team|
 |Assess|Approval|Approve the proposed architecture|Cloud Strategy Team|
-|Migrate|Replication Access|Access to existing on-prem hosts and assets to establish replication processes|Cloud Adoption Team*|
+|Migrate|Replication Access|Access to existing on-premises hosts and assets to establish replication processes|Cloud Adoption Team*|
 |Optimize|Ready|Validation that the system meets performance and cost requirements prior to promotion|Cloud Adoption Team|
 |Optimize|Promote|Permissions to promote a workload to production and redirect production traffic|Cloud Adoption Team*|
 |Secure and Manage|Ops Transition|Documentation of production systems prior to production operations|Cloud Adoption Team|

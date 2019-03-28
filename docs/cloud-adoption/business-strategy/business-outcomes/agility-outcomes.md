@@ -1,11 +1,11 @@
 ---
-title: "Fusion: Examples of Agility Outcomes"
+title: "CAF: Examples of Agility Outcomes"
 description: Examples of Agility Outcomes
 author: BrianBlanchard
 ms.date: 10/10/2018
 ---
 
-# Fusion: Examples of Agility Outcomes
+# CAF: Examples of Agility Outcomes
 
 As discussed in [Business Outcomes](overview.md), there are several potential business outcomes that can serve as the foundation for any Transformation Journey conversation with the business. In this article we will focus on the timeliest business measures: Business Agility. Understanding the company’s market position and competitive landscape will help to better articulate the business outcomes that are the target of a business’ Transformation Journey.
 
@@ -34,4 +34,4 @@ Aurora Health Care
 
 When business demands new IT services or scale to existing services, acquisition and provision of new hardware or virtual resources can take weeks. In a mature Operational Transformation, IT can enable self-service provisioning, allowing the business to scale in hours.
 
-* Example: A Consumer Packaged Goods (CPG) customer requires the creation and tear down of hundreds of database clusters per year to fulfill operational demands of the business. The on-prem virtual hosts can provision quickly, but the processes of recovering virtual assets is slow & requires significant time from the team. As such, the legacy on-prem environment suffers from bloat & can seldom keep up with demand. Through a mature Operational Transformation, the IT can learn to provide scripted self-provisioning of resources, with a charge-back approach to billing. Together, this allows the business to move as quickly as they need, but still be accountable for the cost of the resources they demand. Doing so in the cloud, limits deployments only to the business’ budget.
+* Example: A Consumer Packaged Goods (CPG) customer requires the creation and tear down of hundreds of database clusters per year to fulfill operational demands of the business. The on-premises virtual hosts can provision quickly, but the processes of recovering virtual assets is slow & requires significant time from the team. As such, the legacy on-premises environment suffers from bloat & can seldom keep up with demand. Through a mature Operational Transformation, the IT can learn to provide scripted self-provisioning of resources, with a charge-back approach to billing. Together, this allows the business to move as quickly as they need, but still be accountable for the cost of the resources they demand. Doing so in the cloud, limits deployments only to the business’ budget.
