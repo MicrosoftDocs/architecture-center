@@ -569,11 +569,11 @@
     href: cloud-adoption/overview.md
   - name: Getting started
     items:
-    - name: Migrate
+    - name: Understand the Migration Journey
       href: cloud-adoption/getting-started/migrate.md
-    - name: Innovate
+    - name: Understand the Innovation Journey
       href: cloud-adoption/getting-started/innovate.md
-    - name: Enable
+    - name: Enable success during either journey
       href: cloud-adoption/getting-started/enable.md
   - name: Plan
     items:
@@ -639,7 +639,7 @@
         href: cloud-adoption/ready/considerations/index.md
       - name: Create hybrid cloud consistency
         href: cloud-adoption/infrastructure/misc/hybrid-consistency.md
-    - name: Azure Best Practices
+    - name: Readiness best practices
       items:
       - name: XX-Overview
         href: cloud-adoption/ready/azure-best-practices/index.md
@@ -654,23 +654,30 @@
   - name: Adopt
     items:
     - name: Migrate
+      href: cloud-adoption/migrate/index.md
       items:
       - name: Overview (Methodology and Approach)
         href: cloud-adoption/migrate/index.md
       - name: Azure Migration Guide
         items:
-        - name: Getting Started
+        - name: Intro to the Migration Guide
           href: cloud-adoption/migrate/baseline-migration-guide/index.md
-        - name: Pre-requisite
+        - name: Prerequisites before migrating to Azure 
           href: cloud-adoption/migrate/baseline-migration-guide/pre-requisites.md
-        - name: Assess
+        - name: Assess individual workloads prior to migration
           href: cloud-adoption/migrate/baseline-migration-guide/assess.md
-        - name: Migrate
+        - name: Migrate assets that make up a workload
           href: cloud-adoption/migrate/baseline-migration-guide/migrate.md
+        - name: Manage costs and billing to understand charges and usage from your Azure Resources
+          href: cloud-adoption/migrate/baseline-migration-guide/manage-costs
+        - name: Organize your Azure resources
+          href: cloud-adoption/migrate/baseline-migration-guide/organize-resources.md
         - name: Optimize and Transform
           href: cloud-adoption/migrate/baseline-migration-guide/optimize-and-transform.md
         - name: Secure and Manage
           href: cloud-adoption/migrate/baseline-migration-guide/secure-and-manage.md
+        - name: Obtain assistance during your migration to Azure
+          href: cloud-adoption/migrate/baseline-migration-guide/assistance.md
       - name: Expanded scope
         items:
         - name: Expanded scope checklist
@@ -679,7 +686,7 @@
           items:
           - name: Balance the portfolio
             href: cloud-adoption/migrate/expanded-scope/balance-the-portfolio.md
-          - name: Multiple geographical regions
+          - name: Multiple geographic regions
             href: cloud-adoption/migrate/expanded-scope/multiple-regions.md
         - name: Culture-driven scope changes
           items:
@@ -687,15 +694,15 @@
             href: cloud-adoption/migrate/expanded-scope/skills-readiness.md
         - name: Technical strategy-driven scope changes
           items:
-          - name: Multiple data centers
+          - name: Multiple datacenters
             href: cloud-adoption/migrate/expanded-scope/multiple-data-centers.md
-          - name: Governance or compliance strategy
+          - name: Governance and compliance
             href: cloud-adoption/migrate/expanded-scope/governance-or-compliance.md
-      - name: Azure Best Practices
+      - name: Best practices
         items:
         - name: Overview
           href: cloud-adoption/migrate/azure-best-practices/index.md
-        - name: Migrate
+        - name: Best Practices for migrating workloads
           items:
           - name: Set up networking for migrated workloads
             href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-networking.md
@@ -705,7 +712,7 @@
               href: cloud-adoption/migrate/azure-best-practices/contoso-migration-overview.md
             - name: Deploy an Azure infrastructure
               href: cloud-adoption/migrate/azure-best-practices/contoso-migration-infrastructure.md
-            - name: Assess on-premises resources for migration to Azure
+            - name: Assess on-premises resources for migration
               href: cloud-adoption/migrate/azure-best-practices/contoso-migration-assessment.md
             - name: Windows Server workloads
               items:
@@ -747,11 +754,11 @@
                 href: cloud-adoption/infrastructure/mainframe-migration/migration-strategies.md
               - name: Application strategies
                 href: cloud-adoption/infrastructure/mainframe-migration/application-strategies.md
-        - name: Optimize
+        - name: Best practices for optimizing workloads
           items:
           - name: Costing and Sizing Workloads
             href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-costs.md
-        - name: Secure and Manage
+        - name: Best practices for securing and managing workloads
           items:
           - name: Securing and managing workloads post migration
             href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-security-management.md
@@ -759,37 +766,37 @@
         items:
         - name: Overview
           href: cloud-adoption/migrate/migration-considerations/index.md
-        - name: Pre-Requisites
+        - name: Prerequisites
           items:
           - name: Overview
             href: cloud-adoption/migrate/migration-considerations/pre-requisites/index.md
-          - name: Early Decisions
+          - name: Decisions that affect migration activities
             href: cloud-adoption/migrate/migration-considerations/pre-requisites/decisions.md
           - name: Environment Planning Checklist
             href: cloud-adoption/migrate/migration-considerations/pre-requisites/planning-checklist.md
-          - name: Technical complexity and change management
+          - name: Structure backlogs to manage change
             href: cloud-adoption/migrate/migration-considerations/pre-requisites/technical-complexity.md
-          - name: Cultural complexity and change management
+          - name: Align roles and responsibilities
             href: cloud-adoption/migrate/migration-considerations/pre-requisites/culture-complexity.md
-          - name: Digital Estate Review
-            href: cloud-adoption/migrate/migration-considerations/pre-requisites/digital-estate.md
+          - name: Migration Backlog Review
+            href: cloud-adoption/migrate/migration-considerations/pre-requisites/migration-backlog-review.md
         - name: Assess
           items:
-          - name: Overview
+          - name: Assess assets before migration
             href: cloud-adoption/migrate/migration-considerations/assess/index.md
-          - name: Business Priorities
+          - name: Keep priorities aligned
             href: cloud-adoption/migrate/migration-considerations/assess/business-priorities.md
-          - name: Evaluate
+          - name: Evaluate workload and asset readiness
             href: cloud-adoption/migrate/migration-considerations/assess/evaluate.md
-          - name: Architect
+          - name: Architect workloads
             href: cloud-adoption/migrate/migration-considerations/assess/architect.md
-          - name: Estimate Cost
+          - name: Estimate cloud cost
             href: cloud-adoption/migrate/migration-considerations/assess/estimate.md
-          - name: Engage Migration Partners and Support
+          - name: Engage migration partners and support
             href: cloud-adoption/migrate/migration-considerations/assess/partnership-options.md
-          - name: Release and Iteration Backlog
+          - name: Manage incremental processes
             href: cloud-adoption/migrate/migration-considerations/assess/release-iteration-backlog.md
-          - name: Approve
+          - name: Change approval processes
             href: cloud-adoption/migrate/migration-considerations/assess/approve.md
         - name: Migrate
           items:
@@ -797,13 +804,13 @@
             href: cloud-adoption/migrate/migration-considerations/migrate/index.md
           - name: Promotion models - Promote, Stage, or Flight
             href: cloud-adoption/migrate/migration-considerations/migrate/promotion-models.md
-          - name: Remediate
+          - name: Remediation tasks
             href: cloud-adoption/migrate/migration-considerations/migrate/remediate.md
-          - name: Replicate
+          - name: Replicate assets to the cloud
             href: cloud-adoption/migrate/migration-considerations/migrate/replicate.md
           - name: Replicate Options
             href: cloud-adoption/migrate/migration-considerations/migrate/replicate-options.md
-          - name: Stage
+          - name: Stage workloads for testing and promotion
             href: cloud-adoption/migrate/migration-considerations/migrate/stage.md
         - name: Optimize
           items:
@@ -817,7 +824,7 @@
             href: cloud-adoption/migrate/migration-considerations/optimize/optimize.md
           - name: Ready for promotion
             href: cloud-adoption/migrate/migration-considerations/optimize/ready.md
-          - name: Promote
+          - name: Promote workloads to production
             href: cloud-adoption/migrate/migration-considerations/optimize/promote.md
           - name: Retrospective
             href: cloud-adoption/migrate/migration-considerations/optimize/retrospective.md
@@ -839,43 +846,43 @@
         items:
         - name: Overview of the Guides
           href: cloud-adoption/governance/journeys/overview.md
-        - name: FastTrack Guide
+        - name: Azure Governance Guide
           items:
-          - name: Best practice
+          - name: Best practices for getting started with cloud governance
             href: cloud-adoption/governance/journeys/small-to-medium-enterprise/overview.md
-          - name: Narrative
+          - name: Example Scenario
             href: cloud-adoption/governance/journeys/small-to-medium-enterprise/narrative.md
           - name: Initial corporate policy
             href: cloud-adoption/governance/journeys/small-to-medium-enterprise/initial-corporate-policy.md
           - name: Best practice explained
             href: cloud-adoption/governance/journeys/small-to-medium-enterprise/best-practice-explained.md
-          - name: Security Baseline evolution
+          - name: Improve the Security Baseline for this governance guide
             href: cloud-adoption/governance/journeys/small-to-medium-enterprise/security-baseline-evolution.md
-          - name: Resource Consistency evolution
+          - name: Improve Resource Consistency for this governance guide
             href: cloud-adoption/governance/journeys/small-to-medium-enterprise/resource-consistency-evolution.md
-          - name: Cost Management evolution
+          - name: Improve Cost Management for this governance guide
             href: cloud-adoption/governance/journeys/small-to-medium-enterprise/cost-management-evolution.md
-          - name: Multi-cloud evolution
+          - name: Apply this guidance to multicloud scenarios
             href: cloud-adoption/governance/journeys/small-to-medium-enterprise/multi-cloud-evolution.md
-        - name: Complex Scenarios
+        - name: Expanded scope to address geography and billing complexity
           items:
-          - name: Best practice
+          - name: Best practices for getting started with cloud governance
             href: cloud-adoption/governance/journeys/large-enterprise/overview.md
-          - name: Narrative
+          - name: Example Scenario
             href: cloud-adoption/governance/journeys/large-enterprise/narrative.md
           - name: Initial corporate policy
             href: cloud-adoption/governance/journeys/large-enterprise/initial-corporate-policy.md
           - name: Best practice explained
             href: cloud-adoption/governance/journeys/large-enterprise/best-practice-explained.md
-          - name: Identity Baseline evolution
+          - name: Improve the Identity Baseline for this governance guide
             href: cloud-adoption/governance/journeys/large-enterprise/identity-baseline-evolution.md
-          - name: Security Baseline evolution
+          - name: Improve the Security Baseline for this governance guide
             href: cloud-adoption/governance/journeys/large-enterprise/security-baseline-evolution.md
-          - name: Resource Consistency evolution
+          - name: Improve Resource Consistency for this governance guide
             href: cloud-adoption/governance/journeys/large-enterprise/resource-consistency-evolution.md
-          - name: Cost Management evolution
+          - name: Improve Cost Management for this governance guide
             href: cloud-adoption/governance/journeys/large-enterprise/cost-management-evolution.md
-          - name: Multi-cloud evolution
+          - name: Apply this guidance to multicloud scenarios
             href: cloud-adoption/governance/journeys/large-enterprise/multi-cloud-evolution.md
           - name: Multiple layers of governance
             href: cloud-adoption/governance/journeys/large-enterprise/multiple-layers-of-governance.md
@@ -883,35 +890,35 @@
         items:
         - name: Implement a cloud governance strategy
           href: cloud-adoption/governance/corporate-policy.md
-        - name: The Five Disciplines of Cloud Governance
+        - name: Cloud Governance Disciplines
           href: cloud-adoption/governance/governance-disciplines.md
-        - name: Evolving corporate policy and compliance
+        - name: Cloud-ready corporate policy and compliance
           items:
-            - name: How can corporate IT policy become cloud-ready?
+            - name: Make corporate policy cloud-ready
               href: cloud-adoption/governance/policy-compliance/overview.md
             - name: Understand business risks
               href: cloud-adoption/governance/policy-compliance/understanding-business-risk.md
             - name: Evaluate risk tolerance
               href: cloud-adoption/governance/policy-compliance/risk-tolerance.md
-            - name: Define corporate policy statements
+            - name: Define corporate policy
               href: cloud-adoption/governance/policy-compliance/define-policy.md
-            - name: Align architecture design guides
+            - name: Align design with corporate policy
               href: cloud-adoption/governance/policy-compliance/align-governance-journeys.md
             - name: Develop policy adherence processes
               href: cloud-adoption/governance/policy-compliance/processes.md
-            - name: What is regulatory compliance?
+            - name: Regulatory compliance
               href: cloud-adoption/governance/policy-compliance/what-is-regulatory-compliance.md
-            - name: What is a cloud policy review?
+            - name: Cloud policy review
               href: cloud-adoption/governance/policy-compliance/what-is-a-cloud-policy-review.md
-            - name: How can a CISO prepare for the cloud?
+            - name: Cloud security readiness
               href: cloud-adoption/governance/policy-compliance/how-can-a-ciso-prepare-for-the-cloud.md
-            - name: What is data classification?
+            - name: Data classification
               href: cloud-adoption/governance/policy-compliance/what-is-data-classification.md
-        - name: Implementing the Five Disciplines of Cloud Governance
+        - name: Implement the cloud governance disciplines
           items:
           - name: Cost Management
             items:
-              - name: Overview of the Cost Management discipline
+              - name: Overview of Cost Management
                 href: cloud-adoption/governance/cost-management/overview.md
               - name: Download the template
                 href: cloud-adoption/governance/cost-management/template.md
@@ -919,17 +926,17 @@
                 href: cloud-adoption/governance/cost-management/business-risks.md
               - name: Risk tolerance metrics and indicators
                 href: cloud-adoption/governance/cost-management/metrics-tolerance.md
-              - name: Sample policy statements
+              - name: Sample cost management policies
                 href: cloud-adoption/governance/cost-management/policy-statements.md
               - name: Policy compliance processes
                 href: cloud-adoption/governance/cost-management/compliance-processes.md
-              - name: Discipline improvement
+              - name: Improve cost management 
                 href: cloud-adoption/governance/cost-management/discipline-improvement.md
-              - name: Azure-specific toolchain
+              - name: Azure tools for cost management
                 href: cloud-adoption/governance/cost-management/toolchain.md
           - name: Security Baseline
             items:
-              - name: Overview of the Security Baseline discipline
+              - name: Overview of the security baseline
                 href: cloud-adoption/governance/security-baseline/overview.md
               - name: Download the template
                 href: cloud-adoption/governance/security-baseline/template.md
@@ -937,21 +944,21 @@
                 href: cloud-adoption/governance/security-baseline/business-risks.md
               - name: Risk tolerance metrics and indicators
                 href: cloud-adoption/governance/security-baseline/metrics-tolerance.md
-              - name: Sample policy statements
+              - name: Sample security baseline policies
                 href: cloud-adoption/governance/security-baseline/policy-statements.md
               - name: Policy compliance processes
                 href: cloud-adoption/governance/security-baseline/compliance-processes.md
-              - name: Discipline improvement
+              - name: Improve the security baseline
                 href: cloud-adoption/governance/security-baseline/discipline-improvement.md
               - name: Cloud-Native Security Baseline
                 href: cloud-adoption/governance/security-baseline/cloud-native-policy.md          
               - name: Additional Azure security guidance
                 href: cloud-adoption/governance/security-baseline/azure-security-guidance.md
-              - name: Azure-specific toolchain
+              - name: Azure tools for security baseline
                 href: cloud-adoption/governance/security-baseline/toolchain.md        
           - name: Identity Baseline
             items:
-              - name: Overview of the Identity Baseline discipline
+              - name: Overview of the identity baseline
                 href: cloud-adoption/governance/identity-baseline/overview.md
               - name: Download the template
                 href: cloud-adoption/governance/identity-baseline/template.md
@@ -959,17 +966,17 @@
                 href: cloud-adoption/governance/identity-baseline/business-risks.md
               - name: Risk tolerance metrics and indicators
                 href: cloud-adoption/governance/identity-baseline/metrics-tolerance.md
-              - name: Sample policy statements
+              - name: Sample identity baseline policies
                 href: cloud-adoption/governance/identity-baseline/policy-statements.md
               - name: Policy compliance processes
                 href: cloud-adoption/governance/identity-baseline/compliance-processes.md
-              - name: Discipline improvement
+              - name: Improve the identity baseline
                 href: cloud-adoption/governance/identity-baseline/discipline-improvement.md
-              - name: Azure-specific toolchain
+              - name: Azure tools for identity baseline
                 href: cloud-adoption/governance/identity-baseline/toolchain.md
           - name: Resource Consistency
             items:
-              - name: Overview of the Resource Consistency discipline
+              - name: Overview of resource consistency
                 href: cloud-adoption/governance/resource-consistency/overview.md
               - name: Download the template
                 href: cloud-adoption/governance/resource-consistency/template.md
@@ -977,23 +984,23 @@
                 href: cloud-adoption/governance/resource-consistency/business-risks.md
               - name: Risk tolerance metrics and indicators
                 href: cloud-adoption/governance/resource-consistency/metrics-tolerance.md
-              - name: Sample policy statements
+              - name: Sample resource consistency policies
                 href: cloud-adoption/governance/resource-consistency/policy-statements.md
               - name: Policy compliance processes
                 href: cloud-adoption/governance/resource-consistency/compliance-processes.md
-              - name: Discipline improvement
+              - name: Improve resource consistency
                 href: cloud-adoption/governance/resource-consistency/discipline-improvement.md
+              - name: Azure tools for resource consistency
+                href: cloud-adoption/governance/resource-consistency/toolchain.md
               - name: Resource access management
                 href: cloud-adoption/governance/resource-consistency/azure-resource-access.md
               - name: Governance design for a simple workload
                 href: cloud-adoption/governance/resource-consistency/governance-simple-workload.md
               - name: Governance design for multiple teams
                 href: cloud-adoption/governance/resource-consistency/governance-multiple-teams.md
-              - name: Azure-specific toolchain
-                href: cloud-adoption/governance/resource-consistency/toolchain.md
           - name: Deployment Acceleration
             items:
-              - name: Overview of the Deployment Acceleration discipline
+              - name: Overview of deployment acceleration
                 href: cloud-adoption/governance/deployment-acceleration/overview.md
               - name: Download the template
                 href: cloud-adoption/governance/deployment-acceleration/template.md
@@ -1001,13 +1008,13 @@
                 href: cloud-adoption/governance/deployment-acceleration/business-risks.md
               - name: Risk tolerance metrics and indicators
                 href: cloud-adoption/governance/deployment-acceleration/metrics-tolerance.md
-              - name: Sample policy statements
+              - name: Sample deployment acceleration policies
                 href: cloud-adoption/governance/deployment-acceleration/policy-statements.md
               - name: Policy compliance processes
                 href: cloud-adoption/governance/deployment-acceleration/compliance-processes.md
-              - name: Discipline improvement
+              - name: Improve deployment acceleration
                 href: cloud-adoption/governance/deployment-acceleration/discipline-improvement.md
-              - name: Azure-specific toolchain
+              - name: Azure tools for deployment acceleration
                 href: cloud-adoption/governance/deployment-acceleration/toolchain.md
     - name: Operate
       items:

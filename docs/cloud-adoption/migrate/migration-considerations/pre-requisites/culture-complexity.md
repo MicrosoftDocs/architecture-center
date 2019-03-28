@@ -51,7 +51,7 @@ Each process within the migrate theory content includes a process article outlin
 
 ## Next steps
 
-When the team has a general understanding of roles and responsibilities, its time to address the final pre-requisite [Digital Estate Review](./digital-estate.md)
+When the team has a general understanding of roles and responsibilities, its time to address the final pre-requisite [Digital Estate Review](./migration-backlog-review.md)
 
 > [!div class="nextstepaction"]
-> [Digital Estate Review](./digital-estate.md)
+> [Digital Estate Review](./migration-backlog-review.md)
