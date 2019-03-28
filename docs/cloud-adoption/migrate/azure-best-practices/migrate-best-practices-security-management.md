@@ -334,14 +334,6 @@ Broadly, your BCDR strategy must consider:
 - **Data backup**: How to keep your data safe so that you can recover it easily if outages occur.
 - **Disaster recovery**: How to keep your apps resilient and available if outages occur. 
 
-### Azure resiliency features
-
-The Azure platform provides a number of resiliency features.
-
-- **Region pairing**: Azure pairs regions to provide regional protection within data residency boundaries. Azure ensures physical isolation between region pairs, prioritizes the recovery of one region in the pair in case of a broad outage, deploys system updates separately in each region, and allows features such as Azure geo-redundant storage to replicate across the regional pairs.
-- **Availability zones**: Availability zones protect against failure of an entire Azure datacenter by establishing physical separate zones with an Azure region. Each zone has a distinctive power source, network infrastructure, and cooling mechanism.
-- **Availability sets**: Availability sets protect against failures within a datacenter. You group VMs in availability sets to keep them highly available. Within each availability set, Azure implements multiple fault domains that group together underlying hardware with a common power source and network switch, and update domains that group together underlying hardware that can undergo maintenance, or be rebooted, at the same time. As an example, when a workload is spread across Azure VMs, you can put two or more VMs for each app tier into a set. For example, you can place frontend VMs in one set, and data tier VMs in another. Since only one update domain is every rebooted at a time in a set, and Azure ensures that VMs in a set are spread across fault domains, you ensure that not all VMs in a set will fail at the same time.
-
 ### Set up BCDR
 
 When migrating to Azure, it's important to understand that although the Azure platform provides these inbuilt resiliency capabilities, you need to design your Azure deployment to take advantage of Azure features and services that provide high availability, disaster recovery, and backup.
