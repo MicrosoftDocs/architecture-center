@@ -64,14 +64,14 @@ To learn more, see [Governance in Azure](/azure/security/governance-in-azure/).
 
 This guide is designed for migration scopes with minimal complexity. To determine if you are suitable for this migration guide please consider the following questions:
 
-* Would you class your environment as a Heterogeneous Environment
-* Do you have many business unit's which need to align to complete the migration
-* Are you planning to automate the whole migration
-* The Scale of migration includes a high number of servers
-* Do you consider your dependency mapping of the components to be migrated as Complex
-* Do you need to conform to industry regulation
+* You are migrating a Heterogeneous Environment
+* Very few business unit's which need to align to complete the migration
+* You are not planning to automate the whole migration
+* The scale of migration includes only a small number of servers
+* The dependency mapping of the components to be migrated is obvious and simple to define
+* Within your industry there are minimal regulation requirements contributing to this migration
 
-If you answer "yes" to any of those questions then you should consider the information provided in the **Expanded Scope guide**. We also recommend that you obtain assistance from one of our Microsoft teams or Partners to complete the migration as we have found those customers that engage with Microsoft or Certified Partners are more successful in complex migration scenarios. More details on obtaining assistance can be found in the relevant section of this guide.
+If you answer "no" to any of those questions then you should consider the information provided in the **Expanded Scope guide**. In addition we also recommend that you obtain assistance from one of our Microsoft teams or Partners to complete migrations requiring the expanded scope, as we have found those customers that engage with Microsoft or Certified Partners are more successful in such scenarios. More details on obtaining assistance can be found in the relevant section of this guide.
 
 ::: zone target="docs"
 
