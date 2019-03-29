@@ -312,6 +312,8 @@ SparkMetric_CL
 | where name_s contains "driver.DAGScheduler.job.allJobs"
 ```
 
+For more information, see [Monitoring Azure Databricks](../databricks-monitoring/index.md).
+
 ## Deploy the solution
 
 To the deploy and run the reference implementation, follow the steps in the [GitHub readme](https://github.com/mspnp/azure-databricks-streaming-analytics).
