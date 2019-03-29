@@ -1,0 +1,181 @@
+# CI/CD for microservices on Kubernetes
+
+## Overview of CI/CD process
+
+In this section, we present a possible CI/CD workflow, based on the following assumptions:
+
+- The code repository is a monorepo, with folders organized by microservice.
+- The team's branching strategy is based on [trunk-based development](https://trunkbaseddevelopment.com/).
+- The team uses [Azure Pipelines](/azure/devops/pipelines) to run the CI/CD process.
+- The team uses [namespaces](/azure/container-registry/container-registry-best-practices#repository-namespaces) in Azure Container Registry to isolate images that are approved for production from images that are still being tested.
+- The team uses Helm charts to package each microservice.
+
+In this example, a developer is working on a microservice called Delivery Service. (The name comes from the reference implementation described [here](../../microservices/design/index.md#scenario).) While developing a new feature, the developer checks code into a feature branch.
+
+![CI/CD workflow](./images/aks-cicd-1.png)
+
+Pushing commits to this branch tiggers a CI build for the microservice. By convention, feature branches are named `feature/*`. The [build definition file](/azure/devops/pipelines/yaml-schema) includes a trigger that filters by the branch name and the source path. Using this approach, each team can have its own build pipeline.
+
+```yaml
+trigger:
+  batch: true
+  branches:
+    include:
+    - master
+    - feature/*
+
+    exclude:
+    - feature/experimental/*
+
+  paths:
+     include:
+     - /src/shipping/delivery/
+```
+
+At this point in the workflow, the CI build runs some minimal code verification:
+
+1. Build code
+1. Run unit tests
+
+The idea here is to keep the build times short so the developer can get quick feedback. When the feature is ready to merge into master, the developer opens a PR. This triggers another CI build that performs some additional checks:
+
+1. Build code
+1. Run unit tests
+1. Build the runtime container image
+1. Run vulnerability scans on the image
+
+![CI/CD workflow](./images/aks-cicd-2.png)
+
+> [!NOTE]
+> In Azure Repos, you can define [policies](/azure/devops/repos/git/branch-policies) to protect branches. For example, the policy could require a successful CI build plus a sign-off from an approver in order to merge into master.
+
+At some point, the team is ready to deploy a new version of the Delivery service. To do so, the release manager creates a branch from master with this naming pattern: `release/<microservice name>/<semver>`. For example, `release/delivery/v1.0.2`.
+
+Creation of this branch triggers a full CI build that runs all the previous steps plus:
+
+1. Push the container image to Azure Container Registry. The image is tagged with the version number taken from the branch name.
+2. Run `helm package` to package the Helm chart
+3. Push the Helm package to Container Registry by running `az acr helm push`.
+
+Assuming this build succeeds, it triggers a deployment process using an Azure Pipelines [release pipeline](/azure/devops/pipelines/release/what-is-release-management). This pipeline 
+
+1. Run `helm upgrade` to deploy the Helm chart to a QA environment.
+1. An approver signs off before the package moves to production. See [Release deployment control using approvals](/azure/devops/pipelines/release/approvals/approvals).
+1. Re-tag the Docker image for the production namespace in Azure Container Registry. For example, if the current tag is `myrepo.azurecr.io/delivery:v1.0.2`, the production tag is `myrepo.azurecr.io/prod/delivery:v1.0.2`.
+1. Run `helm upgrade` to deploy the Helm chart to the production environment.
+
+![CI/CD workflow](./images/aks-cicd-3.png)
+
+Even in a monorepo, these tasks can be scoped to individual microservices, so that teams can deploy with high velocity. The process has some manual steps: Approving PRs, creating release branches, and approving deployments into the production cluster. These steps are manual by policy &mdash; they could be completely automated if the organization prefers.
+
+## Docker recommandations
+
+When possible, package your build process into a container. That allows you to build your code artifacts using Docker, without needing to configure the build environment on each build machine. 
+
+A containerized build process makes it easy to scale out the CI pipeline by adding new build agents. Also, any developer on the team can build the code simply by running the build container.
+
+Using multi-stage builds in Docker, you can define the build environment and the runtime image in a single Dockerfile.
+
+For example, here's a Dockerfile that builds an ASP.NET Core application:
+
+```
+FROM microsoft/dotnet:2.2-runtime AS base
+WORKDIR /app
+
+FROM microsoft/dotnet:2.2-sdk AS build
+WORKDIR /src/Fabrikam.Workflow.Service
+
+COPY Fabrikam.Workflow.Service/Fabrikam.Workflow.Service.csproj .
+RUN dotnet restore Fabrikam.Workflow.Service.csproj
+
+COPY Fabrikam.Workflow.Service/. .
+RUN dotnet build Fabrikam.Workflow.Service.csproj -c Release -o /app
+
+FROM build AS publish
+RUN dotnet publish Fabrikam.Workflow.Service.csproj -c Release -o /app
+
+FROM base AS final
+WORKDIR /app
+COPY --from=publish /app .
+ENTRYPOINT ["dotnet", "Fabrikam.Workflow.Service.dll"]
+```
+
+This Dockerfile defines several build stages. Notice that the stage named `base` uses the ASP.NET Core runtime, while the stage named `build` uses the full ASP.NET Core SDK.
+
+The `build` stage is used to compile and publish the ASP.NET Core project. But the final runtime container is built from `base`, contains just the runime and is significantly smaller than the full SDK image.
+
+Another good practice is to run unit tests in the container. Here is part of a Dockerfile that builds a test runner:
+
+```
+FROM build AS testrunner
+WORKDIR /src/tests
+
+COPY Fabrikam.Workflow.Service.Tests/*.csproj .
+RUN dotnet restore Fabrikam.Workflow.Service.Tests.csproj
+
+COPY Fabrikam.Workflow.Service.Tests/. .
+ENTRYPOINT ["dotnet", "test", "--logger:trx"]
+```
+
+A developer can use the Dockerfile to run the tests locally:
+
+```bash
+docker build . -t delivery-test:1 --target=testrunner
+docker run -p 8080:8080 delivery-test:1
+```
+
+The automated CI process can run the same tests.
+
+## Helm charts
+
+Consider using Helm to manage building and deploying services. Some of the features of Helm that help with CI/CD include:
+
+- Organizing all of the Kubernetes objects for a particular microservice into a single Helm chart.
+- Deploying the chart as a single helm command, rather than a series of kubectl commands.
+- Charts are explicitly versioned. Use Helm to release a version, view releases, and roll back to a previous version. Tracking updates and revisions, using semantic versioning, along with the ability to roll back to a previous version.
+- The use of templates to avoid duplicating information, such as labels and selectors, across many files.
+- Managing dependencies between charts.
+- Charts can be stored in a Helm repository, such as Azure Container Registry, and integrated into the build pipeline.
+
+For more information about using Container Registry as a Helm repository, see [Use Azure Container Registry as a Helm repository for your application charts](/azure/container-registry/container-registry-helm-repos).
+
+A single microservice may involve multiple k8s configuration files. Updating a service can mean touching all of these files to uppate selectors, labels, and image tags. Helm treats these as a single package called a chart and allows you to easily update the YAML files by using variables. Helm uses a template language (based on Go templates) to let you write parameterized YAML configuration files.
+
+
+
+For example, from the command line:
+
+```bash
+helm install $HELM_CHARTS/package/ \
+     --set image.tag=0.1.0 \
+     --set image.repository=package \
+     --set secrets.appinsights.ikey=$AI_IKEY \
+     --set secrets.mongo.pwd=$COSMOSDB_CONNECTION \
+     --set dockerregistry=$ACR_SERVER \
+     --namespace backend \
+     --name package-v0.1.0
+```
+
+Now you can reference these in the spec. For example,
+The container image:
+
+```yaml
+    spec:
+      containers:
+      - name: &package-container_name fabrikam-package
+        image: {{ .Values.dockerregistry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}
+```
+
+Secrets:
+
+```yaml
+kind: Secret
+apiVersion: v1
+metadata:
+  name: package-secrets
+type: Opaque
+data:
+  appinsights-ikey: {{ .Values.secrets.appinsights.ikey | b64enc }}
+  mongodb-pwd: {{ .Values.secrets.mongo.pwd | b64enc }}
+```
+

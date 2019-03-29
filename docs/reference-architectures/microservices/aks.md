@@ -251,17 +251,6 @@ Automate image patching using ACR Tasks, a feature of Azure Container Registry. 
 
 ## Deployment (CI/CD) considerations
 
-Here are some goals of a robust CI/CD process for a microservices architecture:
-
-- Each team can build and deploy the services that it owns independently, without affecting or disrupting other teams.
-
-- Before a new version of a service is deployed to production, it gets deployed to dev/test/QA environments for validation. Quality gates are enforced at each stage.
-
-- A new version of a service can be deployed side-by-side with the previous version.
-
-- Sufficient access control policies are in place.
-
-- You can trust the container images that are deployed to production.
 
 ### Isolation of environments
 

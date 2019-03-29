@@ -49,13 +49,36 @@ Here are some goals of a robust CI/CD process for a microservices architecture:
 
 - **Many small independent code bases**. Each team is responsible for building its own service, with its own build pipeline. In some organizations, teams may use separate code repositories. Separate repositories can lead to a situation where the knowledge of how to build the system is spread across teams, and nobody in the organization knows how to deploy the entire application. For example, what happens in a disaster recovery scenario, if you need to quickly deploy to a new cluster?
 
+    Mitigation: Have a unified and automated pipeline to build and deploy services, so that this knowledge is not "hidden" within each team.
+
 - **Multiple languages and frameworks**. With each team using its own mix of technologies, it can be difficult to create a single build process that works across the organization. The build process must be flexible enough that every team can adapt it for their choice of language or framework.
+
+    Mitigation: Containerize the build process for each service. That way, the build system just needs to be able to run the containers.
 
 - **Integration and load testing**. With teams releasing updates at their own pace, it can be challenging to design robust end-to-end testing, especially when services have dependencies on other services. Moreover, running a full production cluster can be expensive, so it's unlikely that every team will run its own full cluster at production scales, just for testing.
 
-- **Release management**. Every team should be able to deploy an update to production. That doesn't mean that every team member has permissions to do so. But having a centralized Release Manager role can reduce the velocity of deployments. The more that your CI/CD process is automated and reliable, the less there should be a need for a central authority. That said, you might have different policies for releasing major feature updates versus minor bug fixes. Being decentralized doesn't mean zero governance.
+- **Release management**. Every team should be able to deploy an update to production. That doesn't mean that every team member has permissions to do so. But having a centralized Release Manager role can reduce the velocity of deployments. 
+
+    Migitation: The more that your CI/CD process is automated and reliable, the less there should be a need for a central authority. That said, you might have different policies for releasing major feature updates versus minor bug fixes. Being decentralized doesn't mean zero governance.
 
 - **Service updates**. When you update a service to a new version, it shouldn't break other services that depend on it.
+
+    Mitigation: Use deployment techniques such as blue-green or canary release for non-breaking changes. For breaking API changes, deploy the new version side by side with the previous version. That way, services that consume the previous API can be updated and tested for the new API. See [Updating services](#updating-services), below.
+
+## Monorepo vs multi-repo
+
+Before creating a CI/CD workflow, you must know how the code base will be structured and managed.
+
+- Do teams work in separate respositories or in a monorepo (single respository)?
+- What is your branching strategy?
+- Who can push code to production? Is there a release manager role?
+
+The monorepo approach has been gaining favor but there are advantages and disadvantages to both.
+
+| &nbsp; | Monorepo | Multiple repos |
+|--------|----------|----------------|
+| **Advantages** | Code sharing<br/>Easier to standardize code and tooling<br/>Easier to refactor code<br/>Discoverability - single view of the code<br/> | Clear ownership per team<br/>Potentially fewer merge conflicts<br/>Helps to enforce decoupling of microservices |
+| **Challenges** | Changes to shared code can affect multiple microservices<br/>Greater potential for merge conflicts<br/>Tooling must scale to a large code base<br/>Access control<br/>More complex deployment process | Harder to share code<br/>Harder to enforce coding standards<br/>Dependency management<br/>Diffuse code base, poor discoverability<br/>Lack of shared infrastructure
 
 ## Updating services
 
