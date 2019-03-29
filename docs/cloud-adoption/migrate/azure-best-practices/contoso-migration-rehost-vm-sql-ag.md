@@ -1,6 +1,6 @@
 ---
-title: Rehost an app by migrating it to Azure VMs and SQL Server AlwaysOn availability group | Microsoft Docs
-description: Learn how Contoso rehost an on-premises app by migrating it to Azure VMs and SQL Server AlwaysOn availability group
+title: "CAF: Rehost an app by migrating it to Azure VMs and SQL Server AlwaysOn availability group | Microsoft Docs"
+description: Learn how Contoso rehosts an on-premises app by migrating it to Azure VMs and SQL Server AlwaysOn availability group
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm

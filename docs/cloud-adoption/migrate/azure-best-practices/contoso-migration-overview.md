@@ -1,5 +1,5 @@
 ---
-title: Overview of CAF application migration examples to Azure | Microsoft Docs
+title: "CAF: Overview of CAF application migration examples to Azure | Microsoft Docs"
 description: Provides an overview of the application migration examples included as part of the Cloud Adoption Framework Migrate section.
 author: rayne-wiselman
 manager: carmonm

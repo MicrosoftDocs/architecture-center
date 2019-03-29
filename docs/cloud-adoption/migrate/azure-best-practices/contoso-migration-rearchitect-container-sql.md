@@ -1,5 +1,5 @@
 ---
-title: Rearchitect an app in an Azure container and Azure SQL Database | Microsoft Docs
+title: "CAF: Rearchitect an app in an Azure container and Azure SQL Database | Microsoft Docs"
 description: Learn how Contoso rearchitects an app in Azure Windows containers and Azure SQL Database.
 services: site-recovery
 author: rayne-wiselman

@@ -1,5 +1,5 @@
 ---
-title: Rebuild an on-premises app to Azure | Microsoft Docs
+title: "CAF: Rebuild an on-premises app to Azure | Microsoft Docs"
 description: Learn how Contoso rebuilds an app to Azure using Azure App Services, the Kubernetes service, CosmosDB, Azure Functions, and Cognitive services.
 services: site-recovery
 author: rayne-wiselman

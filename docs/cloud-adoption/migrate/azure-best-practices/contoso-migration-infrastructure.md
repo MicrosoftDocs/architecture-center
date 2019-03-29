@@ -1,5 +1,5 @@
 ---
-title: Application migration examples - Set up a migration infrastructure | Microsoft Docs
+title: "CAF: Application migration examples - Set up a migration infrastructure | Microsoft Docs"
 description: Learn how Contoso sets up an Azure infrastructure for migration to Azure.
 services: azure-migrate
 author: rayne-wiselman
