@@ -312,7 +312,7 @@ SparkMetric_CL
 | where name_s contains "driver.DAGScheduler.job.allJobs"
 ```
 
-For more information, see [Monitoring Azure Databricks](../databricks-monitoring/index.md).
+For more information, see [Monitoring Azure Databricks](../../databricks-monitoring/index.md).
 
 ## Deploy the solution
 
