@@ -1,11 +1,11 @@
 ---
-title: "Digital Estate Review"
-description: Important review of the digital estate
+title: "Migration Backlog Review"
+description: Important review of the migration backlog
 author: BrianBlanchard
 ms.date: 4/4/2019
 ---
 
-# Digital Estate Review
+# Migration Backlog Review
 
 The actionable output of the plan phase, is a migration backlog. The migration backlog influences all of the pre-requisites discussed so far. Development of the migration backlog should be completed as a first pre-requisite. This article serves as a milestone to close out pre-requisite activities.
 

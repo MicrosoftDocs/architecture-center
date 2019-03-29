@@ -19,7 +19,7 @@ Assess a migration candidate, evaluating the workload, associated assets, and de
 
 This process is complete when the following are known about a single migration candidate:
 
-* Defined path from on-prem to cloud, including production promotion approach decision
+* Defined path from on-premises to cloud, including production promotion approach decision
 * Any required approvals, changes, cost estimates, and/or validation processes have been completed to allow the cloud adoption team to execute the migration
 
 ## Accountability during assessment

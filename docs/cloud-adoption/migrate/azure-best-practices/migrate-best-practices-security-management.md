@@ -327,48 +327,38 @@ Azure Policy is a service in Azure that you use to create, assign and, manage po
 
 ## Best practice: Implement a BCDR strategy
 
-Planning for business continuity and disaster recovery (BCDR), is a critical exercise that you should complete during planning for migration to Azure. In legal terms, your contract includes a force majeure clause that excuse obligations due to a greater force such as hurricanes or earthquakes. However, you also have obligations around an ability to ensure that services will continue to run, and recover where necessary, when disaster strike. Your ability to do this can make or break your company's future.
+Planning for business continuity and disaster recovery (BCDR), is a critical exercise that you should complete as part of you Azure migration planningprocess. In legal terms, your contracts may include a force majeure clause that excuses obligations due to a greater force such as hurricanes or earthquakes. However, you also have obligations around your ability to ensure that services will continue to run, and recover where necessary, when disaster strike. Your ability to do this can make or break your company's future.
 
 Broadly, your BCDR strategy must consider:
+
 - **Data backup**: How to keep your data safe so that you can recover it easily if outages occur.
 - **Disaster recovery**: How to keep your apps resilient and available if outages occur. 
-
-### Azure resiliency features
-The Azure platform provides a number of resiliency features.
-
-- **Region pairing**: Azure pairs regions to provide regional protection within data residency boundaries. Azure ensures physical isolation between region pairs, prioritizes the recovery of one region in the pair in case of a broad outage, deploys system updates separately in each region, and allows features such as Azure geo-redundant storage to replicate across the regional pairs.
-- **Availability zones**: Availability zones protect against failure of an entire Azure datacenter by establishing physical separate zones with an Azure region. Each zone has a distinctive power source, network infrastructure, and cooling mechanism.
-- **Availability sets**: Availability sets protect against failures within a datacenter. You group VMs in availability sets to keep them highly available. Within each availability set, Azure implements multiple fault domains that group together underlying hardware with a common power source and network switch, and update domains that group together underlying hardware that can undergo maintenance, or be rebooted, at the same time. As an example, when a workload is spread across Azure VMs, you can put two or more VMs for each app tier into a set. For example, you can place frontend VMs in one set, and data tier VMs in another. Since only one update domain is every rebooted at a time in a set, and Azure ensures that VMs in a set are spread across fault domains, you ensure that not all VMs in a set will fail at the same time.
 
 ### Set up BCDR
 
 When migrating to Azure, it's important to understand that although the Azure platform provides these inbuilt resiliency capabilities, you need to design your Azure deployment to take advantage of Azure features and services that provide high availability, disaster recovery, and backup.
 
-- Your BCDR solution will depend your company objectives, and influenced by your Azure deployment strategy. Infrastructure as a Service (IaaS) and Platform as a Service (PaaS) deployments present different challenges for BCDR.
+- Your BCDR solution will depend on your company objectives, and will be influenced by your Azure deployment strategy. Infrastructure as a Service (IaaS) and Platform as a Service (PaaS) deployments present different challenges for BCDR.
 - Once in place, your BCDR solutions should be tested regularly to check that your strategy remains viable.
 
-
-## Best practice: Back up your data
-
-In most cases an on-premises workload is retired after migration, and your on-premises strategy for backing up data must be extended or replaced. If you migrate your entire datacenter to Azure, you'll need to design and implement a full backup solution using Azure technologies, or third-party integrated solutions. 
-
-
 ### Back up an IaaS deployment
+
+In most cases an on-premises workload is retired after migration, and your on-premises strategy for backing up data must be extended or replaced. If you migrate your entire datacenter to Azure, you'll need to design and implement a full backup solution using Azure technologies, or third-party integrated solutions.
 
 For workloads running on Azure IaaS VMs, consider these backup solutions:
 
 - **Azure Backup**: Provides application-consistent backups for Azure Windows and Linux VMs.
-- **Storage snapshots**: Take snapshots of blob storage.
+- **Storage snapshots**: Takes snapshots of blob storage.
 
 #### Azure Backup
 
-Azure Backup backs up creates data recovery points that are stored in Azure storage. Azure Backup can back up Azure VM disks, and Azure Files (preview). Azure Files provide file shares in the cloud, accessible via SMB.
-   
+Azure Backup creates data recovery points that are stored in Azure storage. Azure Backup can back up Azure VM disks, and Azure Files (preview). Azure Files provide file shares in the cloud, accessible via SMB.
+
 You can use Azure Backup to back up VMs in a couple of ways.
 
-- **Direct backup from VM settings**: You can back up VMs with Azure Backup directly from the VM options in the Azure portal. You can back up the VM once and day, and restore the VM disk as needed. Azure Backup takes app-aware data snapshots (VSS), no agent is installed on the VM.
-- **Direct backup in a Recovery Services vault**: You can back up your IaaS VMs by deploying an Azure Backup Recovery Services vault. This provides a single location to track and manage backups, and provides granular backup and restore options. Backup is up to three times a day, at the file/folder level. It isn't app-aware and Linux isn't supported. You need to install the Microsoft Azure Recovery Services (MARS) agent on each VM you want to back up.
-- **Azure Backup Server: Protect the VM to Azure Backup Server**: Azure Backup Server is provided free with Azure Backup. The VM is backed up to local Azure Backup Server storage. You then back up the Azure Backup Server to Azure in a vault. Backup is app-aware, with full granularity over backup frequently and retention. You can back up at the app level. For example by backing up SQL Server or SharePoint.
+- **Direct backup from VM settings**: You can back up VMs with Azure Backup directly from the VM options in the Azure portal. You can back up the VM once and day, and restore the VM disk as needed. Azure Backup takes app-aware data snapshots (VSS), and no agent is installed on the VM.
+- **Direct backup in a Recovery Services vault**: You can back up your IaaS VMs by deploying an Azure Backup Recovery Services vault. This provides a single location to track and manage backups, and provides granular backup and restore options. Backup is up to three times a day, at the file/folder level. It isn't app-aware and Linux isn't supported. You need to install the Microsoft Azure Recovery Services (MARS) agent on each VM you want to back up using this method.
+- **Azure Backup Server: Protect the VM to Azure Backup Server**: Azure Backup Server is provided free with Azure Backup. The VM is backed up to local Azure Backup Server storage. You then back up the Azure Backup Server to Azure in a vault. Backup is app-aware, with full granularity over backup frequency and retention. You can back up at the app level, for example by backing up SQL Server or SharePoint.
 
 For security, Azure Backup encrypts data in-flight using AES 256 and sends it over HTTPS to Azure. Backed-up data at-rest in Azure is encrypted using [Storage Service Encryption (SSE)](https://docs.microsoft.com/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fqueues%2ftoc.json), and  data for transmission and storage.
 
@@ -402,95 +392,23 @@ Azure VMs are stored as page blobs in Azure Storage.
 
 In addition, you can use third-party solutions to back up Azure VMs and storage containers to local storage or other cloud providers. [Learn more](https://azuremarketplace.microsoft.com/marketplace/apps?search=backup&page=1) about backup solutions in the Azure marketplace. 
 
-
-### Back up a PaaS deployment
-
-
-Unlike IaaS where you manage your own VMs and infrastructure, in a PaaS model platform and infrastructure is managed by the provider, leaving you to focus on core app logic and capabilities. With so many different types of PaaS services, each service will be evaluated individually for the purposes of backup. We'll look at two common Azure PaaS services - Azure SQL Database, and Azure Functions.
-
-#### Back up Azure SQL Database
-
-Azure SQL Database is a fully managed PaaS Database Engine. It provides a number of business continuity features, including automate backup.
-
-- SQL Database automatically performs weekly full database backups, and differential backups every 12 hours. Transaction log backups are taken every five to ten minutes to protect the database from data loss.
-- Backups are transparent and don't incur additional cost.
-- Backups are stored in RA-GRS storage for geo-redundancy, and replicated to the paired geographical region.
-- Backup retention depends on the purchasing model. DTU-based service tiers go from seven days for Basic tier to 35 days for other tiers.
-- You can restore a database to a point-in-time within the retention period. You can also restore a deleted database, restore to a different geographical region, or restore from a long-term backup if the database has a long-term retention policy (LTR).
-
-
-![Azure SQL backup](./media/migrate-best-practices-security-management/sql-backup.png)
-*Azure SQL backup*
-
-**Learn more:**
-- [Automated backups](https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups) for SQL Database.
-- [Recover a database](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups) using automated backups.
-
- 
-#### Back up Azure Functions
-
-Since Azure Functions functions more or less as code, you should back them up using the same methods that you use to protect code such as source control in GitHub or Azure DevOps Services
-
-**Learn more:**
-
-- [Data protection](https://docs.microsoft.com/azure/devops/articles/team-services-security-whitepaper?view=vsts) for Azure DevOps.
-
-## Best practice: Set up disaster recovery 
-
-In addition to protecting data, BCDR  planning must consider how to keep apps and workloads available in case of disaster. 
-
 ### Set up disaster recovery for IaaS apps
 
-For workloads running on Azure IaaS VMs and Azure storage consider these solutions:
+In addition to protecting data, BCDR  planning must consider how to keep apps and workloads available in case of disaster. For workloads running on Azure IaaS VMs and Azure storage consider these solutions:
 
-- **Azure Site Recovery**: Orchestrates replication of Azure VMs in a primary to a secondary region. When outages occur, you fail over from the primary region to the secondary, and users can continue to access apps. When things are back to normal, you fail back to the primary region.
-- **Azure storage**: Azure provides in-build resilience and high availability for different types of storage:
+#### Azure Site Recovery
 
-#### Azure Site Recovery 
+Azure Site Recovery is the primary Azure service for ensuring that Azure VMs can be brought online and VM apps made available when outages occur. 
 
-Azure Site Recovery is the primary Azure service for ensuring that Azure VMs can be brought online and VM apps made available when outages occur. Site Recovery replicates VMs from a primary to secondary Azure region. When disaster strikes, you fail VMs over from the primary region, and continue accessing them as normal in the secondary region. When operations return to normal, you can fail back VMs to the primary region.
-
+Site Recovery replicates VMs from a primary to secondary Azure region. When disaster strikes, you fail VMs over from the primary region, and continue accessing them as normal in the secondary region. When operations return to normal, you can fail back VMs to the primary region.
 
 ![Azure Site Recovery](./media/migrate-best-practices-security-management/site-recovery.png)
 *Site Recovery*
 
 **Learn more:**
+
 - [Review](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-disaster-recovery-guidance) disaster recovery scenarios for Azure VMs.
 - [Learn how to](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-replicate-after-migration) set up disaster recovery for an Azure VM after migration.
-
-#### Azure storage
-
-Azure storage is replicated for built-in resilience and high availability.
-
--   **Geo-redundant storage (GRS)**: Protects against a region-wide outage, with at least 99.99999999999999% (16 9's) durability of objects over a given year.
-    - Storage data replicates to the secondary region with which your primary region is paired.
-    - If the primary region goes down, and Microsoft initiates a failover to the secondary region, you'll have read access to your data.
-- **Read access geo-redundant storage (RA-GRS)**: Protects against a region-wide outage.
-    - Storage data replicates to the secondary region.
-    - You have guaranteed read access to replicated data in the secondary region, regardless of whether or not Microsoft initiates a failover. where two or more data centers in the same region might have an issue yet your data is still available in a geographically separated region.
--   **Zone redundant storage (ZRS)**:  Protects against datacenter failure.
-    - ZRS replicates data synchronously across three storage clusters in a single region. Clusters and physically separated and each located in its own availability zone.
-    - If disaster occurs, your storage will still be available. ZRS should be the minimum target for mission-critical workloads.
-
-**Learn more:**
-
-- [Learn about](https://docs.microsoft.com/azure/storage/common/storage-redundancy) Azure storage replication.
-
-### Disaster recovery for Azure Functions
-
-If the compute infrastructure in Azure fails, an Azure function app might become unavailable.
-
-- To minimize the possibility of such downtime, use two function apps deployed to different regions.
-- Azure Traffic Manager can be configured to detect problems in the primary function app, and automatically redirect traffic to the function app in the secondary region
-- Traffic Manager with geo-redundant storage allows you to have the same function in multiple regions, in case of regional failure
-
-![Traffic Manager](./media/migrate-best-practices-security-management/traffic-manager.png)
-*Traffic Manager*
-
-**Learn more:**
-
-- [Learn about](https://docs.microsoft.com/azure/architecture/resiliency/disaster-recovery-azure-applications) disaster recovery for Azure apps.
-- [Learn about](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-disaster-recovery-geo-distribution) disaster recovery and geo-distribution for durable Azure functions.
 
 ## Best practice: Use managed disks and availability sets
 
@@ -502,11 +420,11 @@ Azure-Managed Disks simplify disk management for Azure IaaS VMs, by managing the
 - You can convert existing disks to managed.
 - You should create VMs in availability sets for high resilience and availability. When planned or unplanned outages occur, availability sets ensure that at least one of your VMs in the set continues to be available.
 
-
 ![Managed disks](./media/migrate-best-practices-security-management/managed-disks.png)
 *Managed disks*
 
 **Learn more:**
+
 - [Get an overview](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) of managed disks.
 - [Learn about](https://docs.microsoft.com/azure/virtual-machines/windows/convert-unmanaged-to-managed-disks) converting disks to managed.
 - [Learn how to](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability) manage the availability of Windows VMs in Azure.

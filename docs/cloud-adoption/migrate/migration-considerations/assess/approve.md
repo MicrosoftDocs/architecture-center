@@ -7,7 +7,7 @@ ms.date: 4/4/2019
 
 # Approve architecture changes prior to migration
 
-During the Assess process of migration, each workload should have been evaluated, architected, and estimated to develop a future state plan for the workload. Some workloads can be migrated to the cloud with no change to the architecture. Maintaining on-prem configuration and architecture can reduce risk and streamline the migration process. Unfortunately, not every application can run in the cloud without changes to the architecture. When architecture changes are required, this article can help classify the change an provides some guidance on the proper approval activities.
+During the Assess process of migration, each workload should have been evaluated, architected, and estimated to develop a future state plan for the workload. Some workloads can be migrated to the cloud with no change to the architecture. Maintaining on-premises configuration and architecture can reduce risk and streamline the migration process. Unfortunately, not every application can run in the cloud without changes to the architecture. When architecture changes are required, this article can help classify the change an provides some guidance on the proper approval activities.
 
 ## Business impact and approval
 

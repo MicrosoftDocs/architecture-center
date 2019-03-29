@@ -23,11 +23,11 @@ This framework is based on an incremental approach to cloud adoption that aligns
 As depicted in the image above, this framework aligns strategic decisions to a small number of contained processes, which operate within an iterative model:
 
 - Change management and oversight: Iterative approaches to implementation will be seen throughout this framework, which provides business and IT teams with a growth mindset approach to addressing ambiguity, learning, and succeeding in the fast paced environments demanded in today's marketplaces.
-- [Plan](../plan/index.md): When technical implementation is aligned with clear business objectives, it's much easier to measure and align success across multiple cloud adoption efforts.
+- [Plan](../business-strategy/overview.md): When technical implementation is aligned with clear business objectives, it's much easier to measure and align success across multiple cloud adoption efforts.
 - [Ready](../ready/index.md): Preparing the business, culture, people, and environment for coming changes leads to success in each effort and accelerates implementation and change projects.
 - [Migrate](../migrate/index.md): Iterative execution of the cloud migration adhering to the tested process of Assess, Migrate, Optimize, and Secure & Manage to create a repeatable process for migrating collections of IT assets.
-- [Operate](../operate/index.md): Expand IT operations to ensure cloud-based solutions can be operated through secure, cost effective processes using modern, cloud-first operations tools
-- [Govern](../govern/index.md): Align corporate policy to tangible risks, mitigated through policy, process, and cloud-based governance tooling.
+- [Operate](../operations/overview.md): Expand IT operations to ensure cloud-based solutions can be operated through secure, cost effective processes using modern, cloud-first operations tools
+- [Govern](../governance/overview.md): Align corporate policy to tangible risks, mitigated through policy, process, and cloud-based governance tooling.
 
 Throughout this migration experience this framework will be used to address ambiguity, manage change, and guide cross-functional teams through the realization of business outcomes.
 
@@ -92,12 +92,12 @@ The technologies migrated to the cloud constantly expand as cloud providers add 
 The Cloud Adoption Framework is a lifecycle solution. It is intended to help readers who are just beginning their journey and those who are deep into their migration. As such, content is very context and audience specific. Next steps are best aligned to the high level process the reader would like to improve next.
 
 > [!div class="nextstepaction"]
-> [Plan](../plan/index.md)
+> [Plan](../business-strategy/overview.md)
 >
 > [Ready](../ready/index.md)
 >
 > [Migrate](../migrate/index.md)
 >
-> [Operate](../operate/index.md)
+> [Operate](../operations/overview.md)
 >
-> [Govern](../govern/index.md)
+> [Govern](../governance/overview.md)
