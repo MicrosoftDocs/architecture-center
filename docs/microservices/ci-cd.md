@@ -13,16 +13,6 @@ ms.custom: microservices
 
 Faster release cycles are one of the major advantages of microservices architectures. But without a good CI/CD process, you won't achieve the agility that microservices promise. This article describes the challenges and recommends some approaches to the problem.
 
-## Why a robust CI/CD pipeline matters
-
-In a traditional monolithic application, there is a single build pipeline whose output is the application executable. All development work feeds into this pipeline. If a high-priority bug is found, a fix must be integrated, tested, and published, which can delay the release of new features. You can mitigate these problems by having well-factored modules and using feature branches to minimize the impact of code changes. But as the application grows more complex, and more features are added, the release process for a monolith tends to become more brittle and likely to break.
-
-Following the microservices philosophy, there should never be a long release train where every team has to get in line. The team that builds service "A" can release an update at any time, without waiting for changes in service "B" to be merged, tested, and deployed.
-
-![Diagram of a CI/CD monolith](./images/cicd-monolith.png)
-
-To achieve a high release velocity, your release pipeline must be automated and highly reliable, to minimize risk. If you release to production daily or multiple times a day, regressions or service disruptions must be very rare. At the same time, if a bad update does get deployed, you must have a reliable way to quickly roll back or roll forward to a previous version of a service.
-
 ## What is CI/CD?
 
 When we talk about CI/CD, we're really talking about several related processes: Continuous integration, continuous delivery, and continuous deployment.
@@ -45,25 +35,35 @@ Here are some goals of a robust CI/CD process for a microservices architecture:
 
 - For containerized workloads, you can trust the container images that are deployed to production.
 
+## Why a robust CI/CD pipeline matters
+
+In a traditional monolithic application, there is a single build pipeline whose output is the application executable. All development work feeds into this pipeline. If a high-priority bug is found, a fix must be integrated, tested, and published, which can delay the release of new features. You can mitigate these problems by having well-factored modules and using feature branches to minimize the impact of code changes. But as the application grows more complex, and more features are added, the release process for a monolith tends to become more brittle and likely to break.
+
+Following the microservices philosophy, there should never be a long release train where every team has to get in line. The team that builds service "A" can release an update at any time, without waiting for changes in service "B" to be merged, tested, and deployed.
+
+![Diagram of a CI/CD monolith](./images/cicd-monolith.png)
+
+To achieve a high release velocity, your release pipeline must be automated and highly reliable, to minimize risk. If you release to production daily or multiple times a day, regressions or service disruptions must be very rare. At the same time, if a bad update does get deployed, you must have a reliable way to quickly roll back or roll forward to a previous version of a service.
+
 ## Challenges
 
 - **Many small independent code bases**. Each team is responsible for building its own service, with its own build pipeline. In some organizations, teams may use separate code repositories. Separate repositories can lead to a situation where the knowledge of how to build the system is spread across teams, and nobody in the organization knows how to deploy the entire application. For example, what happens in a disaster recovery scenario, if you need to quickly deploy to a new cluster?
 
-    Mitigation: Have a unified and automated pipeline to build and deploy services, so that this knowledge is not "hidden" within each team.
+    **Mitigation**: Have a unified and automated pipeline to build and deploy services, so that this knowledge is not "hidden" within each team.
 
 - **Multiple languages and frameworks**. With each team using its own mix of technologies, it can be difficult to create a single build process that works across the organization. The build process must be flexible enough that every team can adapt it for their choice of language or framework.
 
-    Mitigation: Containerize the build process for each service. That way, the build system just needs to be able to run the containers.
+    **Mitigation**: Containerize the build process for each service. That way, the build system just needs to be able to run the containers.
 
 - **Integration and load testing**. With teams releasing updates at their own pace, it can be challenging to design robust end-to-end testing, especially when services have dependencies on other services. Moreover, running a full production cluster can be expensive, so it's unlikely that every team will run its own full cluster at production scales, just for testing.
 
-- **Release management**. Every team should be able to deploy an update to production. That doesn't mean that every team member has permissions to do so. But having a centralized Release Manager role can reduce the velocity of deployments. 
+- **Release management**. Every team should be able to deploy an update to production. That doesn't mean that every team member has permissions to do so. But having a centralized Release Manager role can reduce the velocity of deployments.
 
-    Migitation: The more that your CI/CD process is automated and reliable, the less there should be a need for a central authority. That said, you might have different policies for releasing major feature updates versus minor bug fixes. Being decentralized doesn't mean zero governance.
+    **Migitation**: The more that your CI/CD process is automated and reliable, the less there should be a need for a central authority. That said, you might have different policies for releasing major feature updates versus minor bug fixes. Being decentralized doesn't mean zero governance.
 
 - **Service updates**. When you update a service to a new version, it shouldn't break other services that depend on it.
 
-    Mitigation: Use deployment techniques such as blue-green or canary release for non-breaking changes. For breaking API changes, deploy the new version side by side with the previous version. That way, services that consume the previous API can be updated and tested for the new API. See [Updating services](#updating-services), below.
+    **Mitigation**: Use deployment techniques such as blue-green or canary release for non-breaking changes. For breaking API changes, deploy the new version side by side with the previous version. That way, services that consume the previous API can be updated and tested for the new API. See [Updating services](#updating-services), below.
 
 ## Monorepo vs multi-repo
 

@@ -1,5 +1,7 @@
 # CI/CD for microservices on Kubernetes
 
+This article describes how to create a CI/CD pipeline for microservices on Kubernetes.
+
 ## Overview of CI/CD process
 
 In this section, we present a possible CI/CD workflow, based on the following assumptions:
@@ -141,23 +143,18 @@ For more information about using Container Registry as a Helm repository, see [U
 
 A single microservice may involve multiple k8s configuration files. Updating a service can mean touching all of these files to uppate selectors, labels, and image tags. Helm treats these as a single package called a chart and allows you to easily update the YAML files by using variables. Helm uses a template language (based on Go templates) to let you write parameterized YAML configuration files.
 
-
-
 For example, from the command line:
 
 ```bash
 helm install $HELM_CHARTS/package/ \
      --set image.tag=0.1.0 \
      --set image.repository=package \
-     --set secrets.appinsights.ikey=$AI_IKEY \
-     --set secrets.mongo.pwd=$COSMOSDB_CONNECTION \
      --set dockerregistry=$ACR_SERVER \
      --namespace backend \
      --name package-v0.1.0
 ```
 
-Now you can reference these in the spec. For example,
-The container image:
+Now you can reference these in the spec. For example, here's part of a YAML file that defines the container image:
 
 ```yaml
     spec:
@@ -166,16 +163,46 @@ The container image:
         image: {{ .Values.dockerregistry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}
 ```
 
-Secrets:
-
 ```yaml
-kind: Secret
-apiVersion: v1
+apiVersion: apps/v1beta2
+kind: Deployment
 metadata:
-  name: package-secrets
-type: Opaque
-data:
-  appinsights-ikey: {{ .Values.secrets.appinsights.ikey | b64enc }}
-  mongodb-pwd: {{ .Values.secrets.mongo.pwd | b64enc }}
+  name: {{ include "package.fullname" . | replace "." "" }}
+  labels:
+    app.kubernetes.io/name: {{ include "package.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+  annotations:
+    kubernetes.io/change-cause: {{ .Values.reason }}
+spec:
+  replicas: {{ default 1 .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: {{ include "package.name" . }}
+      app.kubernetes.io/instance: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: {{ include "package.name" . }}
+        app.kubernetes.io/instance: {{ .Release.Name }}
+    spec:
+      containers:
+      - name: &package-container_name fabrikam-package
+        image: {{ .Values.dockerregistry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}
+        imagePullPolicy: {{ .Values.image.pullPolicy }}
+        env:
+        - name: LOG_LEVEL
+          value: {{ .Values.log.level }}
+        - name: CONTAINER_NAME
+          value: *package-container_name
+        ports:
+        - name: service
+          containerPort: 80
 ```
+
+
+
+>[!TIP]
+> Use the `--history-max` flag when initializing Helm. This setting limits the number of revisions that Tiller saves in its history. Tiller stores revision history in configmaps. If you're releasing updates frequently, the configmaps can easily grow too large unless you limit the history size.
+
+### 
 
