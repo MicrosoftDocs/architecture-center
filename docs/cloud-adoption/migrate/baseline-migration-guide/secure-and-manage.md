@@ -96,7 +96,9 @@ Site Recovery can manage replication for:
 
 ## Replicate an Azure VM to another region with Site Recovery service
 
-The following steps outline the process to use Site Recovery service to replicate an Azure VM to another region (azure-to-azure). Depending on your scenario, the exact steps may differ slightly:
+The following steps outline the process to use Site Recovery service to replicate an Azure VM to another region (azure-to-azure):
+
+[!TIP] Depending on your scenario, the exact steps may differ slightly.
 
 ## Enable replication for the Azure VM
 
