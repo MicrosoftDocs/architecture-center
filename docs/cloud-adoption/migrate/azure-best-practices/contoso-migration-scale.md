@@ -1,5 +1,5 @@
 ---
-title: Contoso-Scale a migration to Azure | Microsoft Docs
+title: "CAF: Contoso-Scale a migration to Azure | Microsoft Docs"
 description: Learn how Contoso handles a scaled migration to Azure.
 services: azure-migrate
 author: rayne-wiselman

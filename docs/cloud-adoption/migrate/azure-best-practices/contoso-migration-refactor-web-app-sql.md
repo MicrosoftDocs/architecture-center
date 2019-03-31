@@ -1,5 +1,5 @@
 ---
-title: Refactor an app by migrating it to Azure Web App and Azure SQL Database | Microsoft Docs
+title: "CAF: Refactor an app by migrating it to Azure Web App and Azure SQL Database | Microsoft Docs"
 description: Learn how Contoso rehosts an on-premises app by migrating it to an Azure Web App and Azure SQL Server database.
 services: site-recovery
 author: rayne-wiselman

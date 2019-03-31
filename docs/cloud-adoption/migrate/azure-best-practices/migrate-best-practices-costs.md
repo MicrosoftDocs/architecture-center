@@ -1,5 +1,5 @@
 ---
-title: Best practices for costing and sizing workloads migrated to Azure | Microsoft Docs
+title: "CAF: Best practices for costing and sizing workloads migrated to Azure | Microsoft Docs"
 description: Get best practices for costing and sizing workloads migrated to Azure.
 author: rayne-wiselman
 manager: carmonm

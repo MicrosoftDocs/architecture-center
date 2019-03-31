@@ -1,5 +1,5 @@
 ---
-title: Assess on-premises workloads for migration to Azure  | Microsoft Docs
+title: "CAF: Assess on-premises workloads for migration to Azure  | Microsoft Docs"
 description: Learn how Contoso assesses its on-premises machines for migration to Azure by using Azure Migrate and Data Migration Assistant.
 services: site-recovery
 author: rayne-wiselman

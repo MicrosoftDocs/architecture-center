@@ -1,5 +1,5 @@
 ---
-title: Refactor a Team Foundation Server deployment to Azure DevOps Services in Azure | Microsoft Docs
+title: "CAF: Refactor a Team Foundation Server deployment to Azure DevOps Services in Azure | Microsoft Docs"
 description: Learn how Contoso refactors its on-premises TFS deployment by migrating it to Azure DevOps Services in Azure.
 services: site-recovery
 author: rayne-wiselman
