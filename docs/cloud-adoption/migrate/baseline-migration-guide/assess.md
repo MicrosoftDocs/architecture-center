@@ -54,6 +54,61 @@ To get started with Azure Migrate follow these steps:
 
 ::: zone-end
 
+## Service Map
+
+Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. With Service Map, you can view your servers in the way that you think of them: as interconnected systems that deliver critical services. Service Map shows connections between servers, processes, inbound and outbound connection latency, and ports across any TCP-connected architecture, with no configuration required other than the installation of an agent
+
+### Enable Service Map
+
+1. In the Azure portal, select create a new resource
+1. Choose **Service Map** and click Create
+1. In **Configure a solution** pane, configure your **Log Analytics** workspace
+1. Click **Create**
+
+::: zone target="chromeless"
+
+::: form action="OpenBlade[#create/Microsoft.ServiceMapOMS]" submitText="Create a Service Map resource" :::
+
+::: zone-end
+
+### Navigate to Service Map
+
+1. Locate your **Log Analytics** resource which contains the workspace where you deployed **Service Map** to.
+1. Select **Solutions** from the Log Analytics menu.
+1. Click the **Service Map** title.
+
+::: zone target="chromeless"
+
+::: form action="OpenBlade[#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.OperationalInsights%2Fworkspaces]" submitText="Goto Log Analytics workspaces" :::
+
+::: zone-end
+
+::: zone target="docs"
+
+### Create a Machine Group
+
+Machine Groups allow you to see maps centered around a set of servers, not just one so you can see all the members of a multi-tier application or server cluster in one map.
+
+1. Within **Service Map**, navigate to the Machines tab/list.
+1. Select the Machines you with to add to a group.
+1. Click **Add to group**
+1. Select an existing group or create a new group to contain your servers.
+
+### View a Machine Group dependency report
+
+1. Within **Service Map**, navigate to the Groups tab/list.
+1. Select the Group you wish to focus on.
+1. The dependency view will then refresh to highlight the servers which belong to the group.
+
+[!TIP]
+There are many other options for analyzing the data within Service Map such as filtering by process. For more details see the full product documentation.
+
+### Read more
+
+* [Using Service Map solution in Azure](https://docs.microsoft.com/en-gb/azure/azure-monitor/insights/service-map)
+
+::: zone-end
+
 # [Scenarios and Stakeholders](#tab/Scenarios)
 
 add text
@@ -65,6 +120,25 @@ Capacity growth scenario
 Datacentre extention scenario
 
 
+### Stakeholders
+
+The complete list of stakeholders will vary from migration project to project. It is best to never assume you will know all of the stakeholders at the start of planning for a migration as often stakeholders are only identified during certain phases of the project. You can though mitigate this through more detailed planning and most importantly discussions with the known stakeholders. An important question to ask a known stakeholder is who else within their business organization/department will have an interest in the business outcome or be impacted by this project. To make this question easier here lets define what a stakeholder is:
+
+**Stakeholders:** Who in the organization is likely to see the greatest value in a specific business outcome? Who is most likely to support this transformation, especially when things get tough or time consuming? Who has the greatest stake in the success of this transformation? This person is a potential stakeholder.
+
+There are some common stakeholders which would apply to migration projects. These include:
+
+> * **CEO** - The project may have been an initiative from the CEO, but ultimately they have final sponsorship for the project. They will have an investment from the point-of-view to ensure that the migration aligns with the overall business objectives and vision for the company.
+> * **CTO** - Depending on the infrastructure being migrated the CTO may have initiated this project, but ultimately they will have a stake in the project to ensure it aligns with the long term infrastructure strategy of the business.
+> * **CIO** - Very similar to the CTO, the CIO though is likely to be invested in the project when it contains infrastructure critical to the internal business functions. They will have a stake in the project to ensure it aligns with the long term infrastructure strategy of the business.
+> * **Operations Management** - Any organization which manages infrastructure and services is likely to have a team who support and manage the day to day life of that infrastructure and services. The Management of those operational staff will have a stake in the project and how it impacts the day-to-day operations as well as the training and skills readiness of their staff.
+> * **Application/Service Owner** - Someone that has a responsibility to oversea the life cycle of the application or service. This may include implementation, maintenance, feature improvements, and retirement. They act as the voice across the various operational units for their application/service. Their stake in a migration is going to be from a perspective of aligning the project to the life cycle plans, along with understanding the impact of each operational components change as it pertains to the application/service. All while balancing this with the end-user or customer needs through the assistance of the Customer Advocate role.
+> * **Customer advocate** -  Someone that has an existing responsibility within the organization to act as a conduit between the operational teams and the business units or customers. Their primary role generally consists of being the voice of the end-user or business units when operational staff are planning maintenance activities, as well as providing any end-user feedback regarding the service to the application/service owners or operational management. Therefore their stake in the project is from a perspective of impact to the customer either before, during, or after the project.
+
+>
+> [!TIP]
+> For the purpose of this statement, a customer can be considered as any end-user of the service either external or internal. That is, someone that either interacts with directly or indirectly with the application or service which is supported by the infrastructure being migrated (or a related application or service with a dependency on that infrastructure).
+>
 
 # [Timelines](#tab/Timelines)
 
