@@ -1,6 +1,6 @@
 ---
-title: Basic Azure secure sample application | Microsoft Docs
-description: The sample app implements security best practices that improve your application and organization's security posture as you develop on Azure.
+title: Develop a secure web application | Microsoft Docs
+description: This simple sample app implements security best practices that improve your application and organization's security posture as you develop on Azure.
 keywords: na
 services: security
 documentationcenter: na
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/28/2019
+ms.date: 04/01/2019
 ms.author: terrylan
 ---
 
-# Basic Azure secure sample application
+# Develop a secure web application
 
 The sample application to be deployed is a simple Python application that displays a web page containing links to security resources for developing on Azure. The sample application implements security best practices that are worthwhile to look at to improve your application and organization’s security posture as you develop on Azure.
 
