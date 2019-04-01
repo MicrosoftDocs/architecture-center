@@ -102,9 +102,7 @@ COPY --from=publish /app .
 ENTRYPOINT ["dotnet", "Fabrikam.Workflow.Service.dll"]
 ```
 
-This Dockerfile defines several build stages. Notice that the stage named `base` uses the ASP.NET Core runtime, while the stage named `build` uses the full ASP.NET Core SDK.
-
-The `build` stage is used to compile and publish the ASP.NET Core project. But the final runtime container is built from `base`, contains just the runime and is significantly smaller than the full SDK image.
+This Dockerfile defines several build stages. Notice that the stage named `base` uses the ASP.NET Core runtime, while the stage named `build` uses the full ASP.NET Core SDK. The `build` stage is used to build the ASP.NET Core project. But the final runtime container is built from `base`, contains just the runime and is significantly smaller than the full SDK image.
 
 Another good practice is to run unit tests in the container. Here is part of a Dockerfile that builds a test runner:
 
@@ -119,7 +117,7 @@ COPY Fabrikam.Workflow.Service.Tests/. .
 ENTRYPOINT ["dotnet", "test", "--logger:trx"]
 ```
 
-A developer can use the Dockerfile to run the tests locally:
+A developer can use this Dockerfile to run the tests locally:
 
 ```bash
 docker build . -t delivery-test:1 --target=testrunner
@@ -154,14 +152,7 @@ helm install $HELM_CHARTS/package/ \
      --name package-v0.1.0
 ```
 
-Now you can reference these in the spec. For example, here's part of a YAML file that defines the container image:
-
-```yaml
-    spec:
-      containers:
-      - name: &package-container_name fabrikam-package
-        image: {{ .Values.dockerregistry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}
-```
+Now you can reference these in the spec. For example, here's part of a YAML file that defines a deployment:
 
 ```yaml
 apiVersion: apps/v1beta2
@@ -173,18 +164,10 @@ metadata:
     app.kubernetes.io/instance: {{ .Release.Name }}
   annotations:
     kubernetes.io/change-cause: {{ .Values.reason }}
-spec:
-  replicas: {{ default 1 .Values.replicaCount }}
-  selector:
-    matchLabels:
-      app.kubernetes.io/name: {{ include "package.name" . }}
-      app.kubernetes.io/instance: {{ .Release.Name }}
-  template:
-    metadata:
-      labels:
-        app.kubernetes.io/name: {{ include "package.name" . }}
-        app.kubernetes.io/instance: {{ .Release.Name }}
-    spec:
+
+...
+
+  spec:
       containers:
       - name: &package-container_name fabrikam-package
         image: {{ .Values.dockerregistry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}
@@ -192,17 +175,23 @@ spec:
         env:
         - name: LOG_LEVEL
           value: {{ .Values.log.level }}
-        - name: CONTAINER_NAME
-          value: *package-container_name
-        ports:
-        - name: service
-          containerPort: 80
 ```
 
+Although your CI/CD pipeline could simply install a chart directly to Kubernetes, we recommend creating a chart archive (.tgz file) and pushing the chart to a Helm repository such as Azure Container Registry. 
 
+For more information, see [Package Docker-based apps in Helm charts in Azure Pipelines](/azure/devops/pipelines/languages/helm?view=azure-devops)
+
+### Managing revisions with Helm
 
 >[!TIP]
-> Use the `--history-max` flag when initializing Helm. This setting limits the number of revisions that Tiller saves in its history. Tiller stores revision history in configmaps. If you're releasing updates frequently, the configmaps can easily grow too large unless you limit the history size.
+> Use the `--history-max` flag when initializing Helm. This setting limits the number of revisions that Tiller saves in its history. Tiller stores revision history in configmaps. If you're releasing updates frequently, the configmaps can grow very large unless you limit the history size.
 
-### 
+Blue-green deployment with Helm and Kubernetes
 
+This approach uses selectors to swap between the old and new versions of a microservice. The 
+
+In the deployment,
+
+  selector:
+    app.kubernetes.io/name: {{ template "delivery.name" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
