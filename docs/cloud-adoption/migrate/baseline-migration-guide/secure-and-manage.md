@@ -77,11 +77,44 @@ Azure Advisor is a personalized cloud consultant that helps you follow best prac
 
 # [Azure Security Center](#tab/security)
 
-text
+Azure Security Center is a unified infrastructure security management system that strengthens the security posture of your data centers, and provides advanced threat protection across your hybrid workloads in the cloud - whether they're in Azure or not - as well as on premises.
+
+
+::: form action="OpenBlade[#blade/Microsoft_Azure_Security/SecurityMenuBlade/0]" submitText="Go to Security Center" :::
+
+::: zone-end
+
+::: zone target="docs"
+
+[Overview](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro)
+
+::: zone-end
+
 
 # [Azure Backup](#tab/backup)
+Azure Backup is the Azure-based service you can use to back up (or protect) and restore your data in the Microsoft cloud. Azure Backup replaces your existing on-premises or off-site backup solution with a cloud-based solution that is reliable, secure, and cost-competitive.
 
-text
+::: zone target="chromeless"
+
+## Enable backup for an Azure VM
+
+1. In the Azure portal, click **Virtual machines**, and select the VM you want to replicate.
+1. In **Operations**, click **Backup**.
+1. Create or select an existing Recovery Services Vault
+1. Click **Create (or edit) a new policy**.
+1. Configure the schedule and retention period
+1. Click OK
+1. Click Enable Backup
+
+::: form action="OpenBlade[#blade/HubsExtension/Resources/resourceType/Microsoft.Compute%2FVirtualMachines]" submitText="Go to Virtual Machines" :::
+
+::: zone-end
+
+::: zone target="docs"
+
+[Overview](https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup)
+
+::: zone-end
 
 # [Azure Site Recovery](#tab/siterecovery)
 
