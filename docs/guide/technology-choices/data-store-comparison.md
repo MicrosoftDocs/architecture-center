@@ -56,7 +56,7 @@ To start your comparison, gather as much of the following information as you can
 
 - **Region availability**. For managed services, is the service available in all Azure regions? Does your solution need to be hosted in certain Azure regions?
 
-- **Portability**. Will your data need to migrated to on-premises, external datacenters, or other cloud hosting environments?
+- **Portability**. Will your data need to be migrated to on-premises, external datacenters, or other cloud hosting environments?
 
 - **Licensing**. Do you have a preference of a proprietary versus OSS license type? Are there any other external restrictions on what type of license you can use?
 
