@@ -79,6 +79,7 @@ Azure Advisor is a personalized cloud consultant that helps you follow best prac
 
 Azure Security Center is a unified infrastructure security management system that strengthens the security posture of your data centers, and provides advanced threat protection across your hybrid workloads in the cloud - whether they're in Azure or not - as well as on premises.
 
+::: zone target="chromeless"
 
 ::: form action="OpenBlade[#blade/Microsoft_Azure_Security/SecurityMenuBlade/0]" submitText="Go to Security Center" :::
 
