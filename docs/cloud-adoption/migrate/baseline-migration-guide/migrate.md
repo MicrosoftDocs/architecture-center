@@ -130,11 +130,17 @@ Cabonite - Server and data migration solutions to migrate workloads to, from or 
 
 [Learn More](https://www.carbonite.com/data-protection/data-migration-software)
 
-[--- Insert a disclaimer here ??? ---]
-
 # [Project Management Tools](#tab/project-management-tools)
 
-add text
+Most organizations already have project management tools within their business. In addition most Project Managers have personal favorites which may influence which tool your organization chooses should you not have an existing tool. The most important decision is that you choose to **use a project management tool**. Projects that do not use a sufficient tool to plan, track and manage the project are typically always more susceptible to delays, budget blow outs, failures, rejections, and other issues that prevent a successful outcome.
+
+There are many project management tools available but the following is a list which may assist you during your project. These tools do not need to be used in isolation, and may be used in combination for enhanced benefits:
+
+> * [Microsoft Planner](https://tasks.office.com/) - A simple, visual way to organize teamwork.
+> * [Microsoft Project](https://products.office.com/en-us/project/project-and-portfolio-management-software) - Project and Portfolio Management, Resource Capacity Management, Financial Management, Timesheeting and Schedule Management
+> * [Microsoft Teams](https://products.office.com/en-us/microsoft-teams) - Team collaboration and communication tool, as well as integration with Planner and other tools to improve collaboration
+
+This list is certainly not the only tools available, as there are many 3rd party tools widely used within the community to perform Project Management.
 
 # [Cost Management](#tab/ManageCost)
 
