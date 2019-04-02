@@ -17,23 +17,23 @@ After migrating your environment to Azure, it is important to consider the secur
 
 Azure Monitor maximizes the availability and performance of your applications by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. It helps you understand how your applications are performing and proactively identifies issues affecting them and the resources they depend on.
 
-::: zone target="docs"
+## Utilize and configure Azure Monitor
 
-## Link to options in docs view
-
-- [Overview](https://docs.microsoft.com/en-us/azure/azure-monitor/overview).
-
-::: zone-end
-
-::: zone target="chromeless"
-
-## Actions
-
-1. Go to **Monitor**
+1. Go to **Monitor** in the Azure Portal
 2. Select **Metrics**, **Logs**, or **Service Health** for overviews.
 3. Select any of the relevant Insights.
 
+::: zone target="chromeless"
+
 ::: form action="OpenBlade[#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/overview]" submitText="Go to Azure monitor" :::
+
+::: zone-end
+
+::: zone target="docs"
+
+## Read more
+
+- [Overview](https://docs.microsoft.com/en-us/azure/azure-monitor/overview).
 
 ::: zone-end
 
@@ -48,6 +48,11 @@ Azure Service Health is composed of:
 * Resource Health - A deeper view of the health of the individual resources provisioned to you by your Azure services
 * Together, these experiences provide you with a comprehensive view into the health of Azure, at the granularity that is most relevant to you.
 
+## Access Service Health
+
+1. Go to **Monitor** in the Azure Portal
+2. Select **Service Health**
+
 ::: zone target="chromeless"
 
 ::: form action="OpenBlade[#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/serviceIssues]" submitText="Go to Service Health" :::
@@ -56,12 +61,20 @@ Azure Service Health is composed of:
 
 ::: zone target="docs"
 
+## Read more
+
 [Overview](https://docs.microsoft.com/en-us/azure/service-health/).
+
 ::: zone-end
 
 # [Azure Advisor](#tab/advisor)
 
 Azure Advisor is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry. It then recommends solutions to help improve the performance, security, and high availability of your resources while looking for opportunities to reduce your overall Azure spend.
+
+## Access Azure Advisor
+
+1. Go to **Advisor** in the Azure Portal, or search for the resource
+2. Select **High Availability**, **Security**, **Performance**, **Cost**
 
 ::: zone target="chromeless"
 
@@ -71,6 +84,8 @@ Azure Advisor is a personalized cloud consultant that helps you follow best prac
 
 ::: zone target="docs"
 
+## Read more
+
 [Overview](https://docs.microsoft.com/en-us/azure/advisor/advisor-overview).
 
 ::: zone-end
@@ -78,6 +93,11 @@ Azure Advisor is a personalized cloud consultant that helps you follow best prac
 # [Azure Security Center](#tab/security)
 
 Azure Security Center is a unified infrastructure security management system that strengthens the security posture of your data centers, and provides advanced threat protection across your hybrid workloads in the cloud - whether they're in Azure or not - as well as on premises.
+
+## Access Azure Security Center
+
+1. Go to **Security Center** in the Azure Portal, or search for the resource
+2. Select **Recommendations**
 
 ::: zone target="chromeless"
 
@@ -87,6 +107,8 @@ Azure Security Center is a unified infrastructure security management system tha
 
 ::: zone target="docs"
 
+## Read more
+
 [Overview](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro)
 
 ::: zone-end
@@ -94,8 +116,6 @@ Azure Security Center is a unified infrastructure security management system tha
 
 # [Azure Backup](#tab/backup)
 Azure Backup is the Azure-based service you can use to back up (or protect) and restore your data in the Microsoft cloud. Azure Backup replaces your existing on-premises or off-site backup solution with a cloud-based solution that is reliable, secure, and cost-competitive.
-
-::: zone target="chromeless"
 
 ## Enable backup for an Azure VM
 
@@ -106,6 +126,8 @@ Azure Backup is the Azure-based service you can use to back up (or protect) and 
 1. Configure the schedule and retention period
 1. Click OK
 1. Click Enable Backup
+
+::: zone target="chromeless"
 
 ::: form action="OpenBlade[#blade/HubsExtension/Resources/resourceType/Microsoft.Compute%2FVirtualMachines]" submitText="Go to Virtual Machines" :::
 
