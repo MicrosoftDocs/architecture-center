@@ -33,13 +33,34 @@ As mentioned earlier, stages in an application are executed sequentially with ea
 2. If a data aggregation operation is large, it may be difficult to split into an efficient number of tasks and may slow the overall completion of a stage.
 3. In the case where partitions are of unequal size, a larger partition may cause unbalanced task execution.
 
-Telemetry to watch:
+### Job latency
 
-**Job latency**. This metric is the duration of a job execution from when it starts (not when it was submitted) until it completes. It is shown as percentiles (10%, 30%, 50%, 90%) of a job execution per cluster and application ID, to allow the visualization of outliers. The following graph shows a job history where the 90% reached 50 seconds, whereas the median was much less.
+Job latency is the duration of a job execution from when it starts (not when it was submitted) until it completes. It is shown as percentiles (10%, 30%, 50%, 90%) of a job execution per cluster and application ID, to allow the visualization of outliers. The following graph shows a job history where the 90% reached 50 seconds, whereas the median was much less.
 
 ![Graph showing job latency](./_images/grafana-job-latency.png)
 
 Investigate job execution by cluster and application, looking for spikes in latency. Once clusters and applications with high latency are identified, move on to investigate stage latency.
+
+### Stage latency
+
+Stage latency is the next step to assess task straggler scenario. It is also shown in percentiles breakdown to allow the visualization of outliers. The visualization of stage latency is per cluster, application and stage name to allow the detection of a particular stage running slow. A job that is broken down in 4 stages if each stage runs slow it will affect the overall completion of a job. Identify spikes in task latency in the graph to determine which tasks are holding back completion of the stage.
+
+![Graph showing stage latency](./_images/grafana-stage-latency.png)
+
+In Cluster Throughput we provide a visualization for the number of jobs, stages, and tasks completed per minute. This helps you to understood the workload in terms of the relative number of stages and tasks per job.
+
+![Graph showing cluster throughput](./_images/grafana-cluster-throughput.png)
+
+## Sum of task execution latency
+
+This visualization shows the sum of task execution latency per host running on a cluster. It allows to detect task straggler due to host slowing down on a cluster or a misallocation of tasks per executor for the auto scale scenario. In the following example, most of the hosts have a sum of about 30 seconds. However, two of the hosts have sums that hover around 10 minutes. Either the hosts are running slow or the numer of tasks per executor is misallocated.
+
+![Graph showing sum of task execution per host](./_images/grafana-sum-task-exec.png)
+
+By looking at the number of tasks per executor, we can see that two executors are assigned a disproportionate number of tasks, causing a bottleneck.
+
+![Graph showing tasks per executor](./_images/grafana-tasks-per-exec.png)
+
 
 | Visualization | Description |
 |---------------|-------------|
