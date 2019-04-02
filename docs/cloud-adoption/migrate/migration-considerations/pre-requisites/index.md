@@ -5,51 +5,59 @@ author: BrianBlanchard
 ms.date: 4/4/2019
 ---
 
-# Pre-requisites to migration
+# Prerequisites for migration
 
-Prior to beginning any migrations, the environment must be prepared for the coming changes. In this case, environment refers to the technical foundation in the cloud. Environment also means the business environment and mindset driving the migration. Likewise, the environment also includes the culture of the teams executing the change and those receiving the output of these changes. Failure to prepare for these changes is the most common reason for failure of migrations. This article series will walk the reader through a number of suggested pre-requisites to prepare the environment.
+Prior to beginning any migrations, your migration target *environment* must be prepared for the coming changes. In this case, environment refers to the technical foundation in the cloud. Environment also means the business environment and mindset driving the migration. Likewise, the environment includes the culture of the teams executing the changes and those receiving the output. Lack of preparation for these changes is the most common reason for failure of migrations. This article series will walk you through a number of suggested prerequisites to prepare the environment.
 
 ## Objective
 
 Ensure business, culture, and technical readiness prior to beginning an iterative migration plan.
 
-## Definition of Done
+## Review business drivers
 
-Pre-requisites are completed when the following are true:
+Before beginning any cloud migration, review the CAF [Plan](../../business-strategy/overview.md) and [Ready](../../ready/overview.md) guidance to ensure your organization is prepared for cloud adoption and migration processes. In particular, review the business requirements and expected outcomes driving the migration:
 
-* Technical Readiness: The landing zone (or allocated hosting space in the cloud) that will receive the migrated assets meets minimum requirements to host the first migrated workload
-* Business Readiness: The Cloud Strategy Team has defined and prioritized a high-level migration backlog representing the portion of the digital estate to be migrated in the next 2-3 releases. The Cloud Strategy Team and Cloud Adoption Team have agreed to an initial strategy for managing change
-* Culture Readiness: The roles, responsibilities, and expectations of the Cloud Adoption Team, Cloud Strategy Team, and impacted users have been agreed upon regarding the workloads to be migrated in the next 2-3 releases.
+- [Getting started: Migrate](../../../getting-started/migrate.md)
+- [Why are we moving to the cloud?](../../../business-strategy/motivations-why-are-we-moving-to-the-cloud.md)
+
+## Definition of *done*
+
+Prerequisites are completed when the following are true:
+
+- **Business readiness.** The Cloud Strategy Team has defined and prioritized a high-level migration backlog representing the portion of the digital estate to be migrated in the next two or three releases. The Cloud Strategy Team and Cloud Adoption Team have agreed to an initial strategy for managing change.
+- **Culture readiness.** The roles, responsibilities, and expectations of the Cloud Adoption Team, Cloud Strategy Team, and impacted users have been agreed upon regarding the workloads to be migrated in the next two or three releases.
+- **Technical readiness.** The landing zone (or allocated hosting space in the cloud) that will receive the migrated assets meets minimum requirements to host the first migrated workload.
 
 > [!CAUTION]
-> Not preparing for a migration can cause unintended consequences throughout the migration process. However, there is an equal risk of over-preparation stopping the migration from ever happening. It is suggested that initial planning focus on the next 2-3 workloads to avoid "analysis paralysis", a term used to describe the state in which over-investment in planning prevents productive outputs.
+> Preparation is key to the success of a migration. However, over-preparation can lead to *analysis paralysis*, where over-investment in planning can seriously delay a migration effort. The processes and prerequisites defined in this section are meant to help you make decisions, but don't let them block you from making meaningful progress.
+>
+> Choose a relatively simple workload for your initial migration. Use the processes discussed in this section as you plan and implement this first migration. This first migration effort will quickly demonstrate cloud principles to your team and force them to learn about how the cloud works. As your team gains experience, integrate these  learnings as you take on larger and more complex migrations.
 
-Generally speaking, if it takes more than a month to start migrating the first workload, too much thought is going into readiness. The teams making decisions often don't have the experience with cloud migrations to be able to complete accurate planning beyond the first few workloads. Attempting to migrate the first workload will quickly demonstrate cloud principles to the team and create a forcing function to learn about the cloud.
 
-## Accountability during pre-requisites
+## Accountability during prerequisites
 
-Two teams are accountable for readiness during the pre-requisites phase.
+Two teams are accountable for readiness during the prerequisites phase:
 
-* Cloud Strategy Team: The cloud strategy team is responsible for identifying and prioritizing the first 2-3 workloads to serve as migration candidates.
-* Cloud Adoption Team: The cloud adoption team is responsible for validating readiness of the technical environment and feasibility of migrating the proposed workloads.
+- **Cloud Strategy Team.** This team is responsible for identifying and prioritizing the first two or three workloads to serve as migration candidates.
+- **Cloud Adoption Team.** This team is responsible for validating readiness of the technical environment and the feasibility of migrating the proposed workloads.
 
-It is advised that a single member of each team be identified as accountable for each of the three definition of done statements in the prior section.
+A single member of each team should be identified as accountable for each of the three definitions of done statements in the prior section.
 
-## Responsibilities during pre-requisites
+## Responsibilities during prerequisites
 
-In addition to the high level accountability, there are a number of actions that an individual or group of individuals will need to be directly responsible for. The following are a few such responsibilities that will impact these activities.
+In addition to the high-level accountability, there are a number of actions that an individual or group needs to be directly responsible for. The following are a few such responsibilities that impact these activities:
 
-* **Digital estate inventory and analysis:** Execution of the tools required to inventory and analyze the digital estate
-* **Business prioritization:** Make business decisions regarding the workloads to be migrated and general timing constraints
-* **Landing zone readiness:** Evaluate the landing zone to ensure it complies with requirements of the first few workload candidates
-* **Change management readiness:** Establish and communicate the plan for tracking technical change during migration
-* **Business user alignment:** Establish a plan for readying the business user community for execution
+- **Business prioritization.** Make business decisions regarding the workloads to be migrated and general timing constraints. See the CAF discussion on [cloud migration business motivations](../../../business-strategy/motivations-why-are-we-moving-to-the-cloud.md) for more information.
+- **Change management readiness.** Establish and communicate the plan for tracking technical change during migration. More information on this topic will be available Summer 2019.
+- **Business user alignment.** Establish a plan for readying the business user community for migration execution. More information on this topic will be available Summer 2019.
+- **Digital estate inventory and analysis.** Execution of the tools required to inventory and analyze the digital estate. See the CAF discussion of the [digital estate](../../../digital-estate/index.md) for more information.
+- **Cloud readiness.** Evaluate the target deployment environment to ensure that it complies with requirements of the first few workload candidates. See the [Azure readiness guide](../../../ready/azure-readiness-guide/index.md) for more information.
 
-The remaining articles in this series will help with the execution of each.
+The remaining articles in this series help with the execution of each.
 
 ## Next steps
 
-With a general understanding of the pre-requisites, the reader is ready to address the first pre-requisite [Early Migration Decisions](decisions.md).
+With a general understanding of the prerequisites, you are ready to address the first prerequisite [Early Migration Decisions](./decisions.md).
 
 > [!div class="nextstepaction"]
-> [Early Migration Decisions](decisions.md)
+> [Early Migration Decisions](./decisions.md)
