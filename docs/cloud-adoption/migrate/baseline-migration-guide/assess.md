@@ -111,14 +111,14 @@ There are many other options for analyzing the data within Service Map such as f
 
 # [Scenarios and Stakeholders](#tab/Scenarios)
 
-add text
+## Scenarios
 
-Legacy migration scenario
+This guide focuses on the **Rehost** or "lift and shift" methodology for migration. Some scenarios that exist within the Rehost methodology are:
 
-Capacity growth scenario
-
-Datacentre extention scenario
-
+> * **Legacy hardware** - You are migrating to remove a dependency on legacy or hardware nearing end of support/life
+> * **Capacity growth** - You have a need to increase the capacity for assets which your current infrastructure cannot provide.
+> * **Data center modernization** - You have a need to extend your data center and/or modernize your data center with cloud technology to ensure your business remains current and competitive.
+> * **Application/service modernization** - While not officially a Rehost objective, an outcome of the Rehost migration may be an ability to create plans for application/service review and potential modernization.
 
 ### Stakeholders
 
@@ -131,6 +131,7 @@ There are some common stakeholders which would apply to migration projects. Thes
 > * **CEO** - The project may have been an initiative from the CEO, but ultimately they have final sponsorship for the project. They will have an investment from the point-of-view to ensure that the migration aligns with the overall business objectives and vision for the company.
 > * **CTO** - Depending on the infrastructure being migrated the CTO may have initiated this project, but ultimately they will have a stake in the project to ensure it aligns with the long term infrastructure strategy of the business.
 > * **CIO** - Very similar to the CTO, the CIO though is likely to be invested in the project when it contains infrastructure critical to the internal business functions. They will have a stake in the project to ensure it aligns with the long term infrastructure strategy of the business.
+> * **CFO** - The CFO will be invested in the project as it pertains to approval for spending as well as reducing the overall CapEx and OpEx for the business. They will also have strategic investments as well to ensure that the project aligns with the strategic plans for the business.
 > * **Operations Management** - Any organization which manages infrastructure and services is likely to have a team who support and manage the day to day life of that infrastructure and services. The Management of those operational staff will have a stake in the project and how it impacts the day-to-day operations as well as the training and skills readiness of their staff.
 > * **Application/Service Owner** - Someone that has a responsibility to oversea the life cycle of the application or service. This may include implementation, maintenance, feature improvements, and retirement. They act as the voice across the various operational units for their application/service. Their stake in a migration is going to be from a perspective of aligning the project to the life cycle plans, along with understanding the impact of each operational components change as it pertains to the application/service. All while balancing this with the end-user or customer needs through the assistance of the Customer Advocate role.
 > * **Customer advocate** -  Someone that has an existing responsibility within the organization to act as a conduit between the operational teams and the business units or customers. Their primary role generally consists of being the voice of the end-user or business units when operational staff are planning maintenance activities, as well as providing any end-user feedback regarding the service to the application/service owners or operational management. Therefore their stake in the project is from a perspective of impact to the customer either before, during, or after the project.
@@ -142,8 +143,15 @@ There are some common stakeholders which would apply to migration projects. Thes
 
 # [Timelines](#tab/Timelines)
 
-Based on this narrative, what is the expected timeline?
-What variables would influence that timeline?
+As a general statement, customer's find that for the scenario covered by this guide a migration can be completed between 1-6 months.
+
+Some of the factors to consider when evaluating the timeline of your migration will be:
+
+> * **Assets to migrate** - Number of and diversity of assets
+> * **Staff readiness** - Are your staff ready to manage the new environment or do they need training
+> * **Funding** - Do you have the appropriate approval and budget to complete the migration
+> * **Change management** - Does your business have specific requirements regarding the change implementation and approval
+> * **Segment Regulations** - Do you have segment or industry regulation to conform to
 
 # [Cost Management](#tab/ManageCost)
 
