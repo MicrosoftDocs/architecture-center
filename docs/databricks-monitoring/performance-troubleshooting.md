@@ -1,9 +1,9 @@
 ---
 title: Performance troubleshooting for Azure Databricks using Azure Monitor
 titleSuffix: 
-description: How to troubleshoot performance issues in Azure Databricks using Azure Monitor and Grafana Dashboards 
+description: Use Grafana dashboards to troubleshoot performance issues in Azure Databricks 
 author: petertaylor9999
-ms.date: 02/28/2019
+ms.date: 04/02/2019
 ms.topic:
 ms.service:
 ms.subservice:
@@ -11,9 +11,19 @@ ms.subservice:
 
 # Troubleshoot performance bottlenecks in Azure Databricks
 
-This article describes how to use monitoring dashboards to find performance bottleneck in Spark jobs on Azure Databricks.
+This article describes how to use monitoring dashboards to find performance bottlenecks in Spark jobs on Azure Databricks.
 
-[Azure Databricks](/azure/azure-databricks/) is a fast, powerful, and collaborative [Apache Spark](https://spark.apache.org/)–based analytics service that makes it easy to rapidly develop and deploy big data analytics and artificial intelligence (AI) solutions. Monitoring and troubleshooting performance issues is a critical component of operating your production Azure Databricks workloads, and the the final step in the process is to identify common performance issues using the monitoring visualizations based on telemetry data you've sent to your Log Analytics workspace and correct them in your application.
+[Azure Databricks](/azure/azure-databricks/) is an [Apache Spark](https://spark.apache.org/)–based analytics service that makes it easy to rapidly develop and deploy big data analytics. Monitoring and troubleshooting performance issues is a critical component of operating your production Azure Databricks workloads, and the the final step in the process is to identify common performance issues using the monitoring visualizations based on telemetry data you've sent to your Log Analytics workspace and correct them in your application.
+
+## Prequisites
+
+To set up the Grafana dashboards shown in this article, do the following:
+
+- Configure your Databricks cluster to send telemetry to a Log Analytics workspace, using the Azure Databricks Monitoring Library. For details, see [Configure Azure Databricks to send metrics to Azure Monitor](./configure-cluster.md).
+
+- Deploy Grafana in a virtual machine. See [Use dashboards to visualize Azure Databricks metrics](./dashboards.md).
+
+The Grafana dashboard that is deployed includes a set of time-series visualizations. Each graph is time-series plot of metrics related to an Apache Spark job, the stages of the job, and tasks that make up each stage.
 
 ## Azure Databricks performance overview
 
@@ -21,17 +31,9 @@ Azure Databricks is based on Apache Spark, a general-purpose distributed computi
 
 A job represents the complete operation performed by your Apache Spark application from end-to-end. A typical operation includes reading data from a source, applying data transformations, and writing the results to storage or another destination. An important aspect of job performance is that the job advances through stages **sequentially**, which means that later stages are blocked by earlier ones.
 
-Jobs are broken down into **stages** which represent , and stages further represent groups of identical **tasks** that can be executed in parallel on multiple nodes of the Spark cluster. Tasks are the most granular unit of execution taking place on a subset of the data.
+Jobs are broken down into **stages**, and stages contain groups of identical **tasks** that can be executed in parallel on multiple nodes of the Spark cluster. Tasks are the most granular unit of execution taking place on a subset of the data.
 
-## Prequisites
-
-To set up the Grafana dashboards shown in this article, 
-
-- Configure your Databricks cluster to send telemetry to an Azure Log Analytics workspace, using the Azure Databricks Monitoring Library. For details, see [Configure Azure Databricks to send metrics to Azure Monitor](./configure-cluster.md).
-
-- Deploy Grafana in a virtual machine. See [Use dashboards to visualize Azure Databricks metrics](./dashboards.md).
-
-The Grafana dashboard that is deployed includes a set of time-series visualizations. Each graph is time-series plot of metrics related to an Apache Spark [job](https://spark.apache.org/docs/latest/job-scheduling.html), stages of the job, and tasks that make up each stage.
+The next few sections describe some dashboard visualizations that are useful for 
 
 ## Job and stage latency
 
@@ -81,7 +83,9 @@ Note that two jobs can have similar cluster throughput but very different stream
 
 Streaming throughput is often a better business metric than cluster throughput, because it measures the number of data records that are processed.
 
-## Resource consumption per executor 
+## Resource consumption per executor
+
+These are metrics that help to 
 
 **Percentage metrics** measure how much time an executor spends on various things, expressed as a ratio of time spent versus the overall executor compute time. The metrics are:
 
@@ -92,6 +96,8 @@ Streaming throughput is often a better business metric than cluster throughput, 
 
 These visualizations show how much each of these metrics contributes to overall executor processing.
 
+![Graph showing percentage metrics](./_images/grafana-percentage.png)
+
 **Shuffle metrics** are metrics related to data shuffling across the executors.
 
 - Suffle I/O
@@ -99,7 +105,7 @@ These visualizations show how much each of these metrics contributes to overall 
 - File system usage
 - Disk usage
 
-## Task straggler
+## Task stragglers
 
 Stages in an application are executed sequentially with earlier stages blocking later stages. An Apache Spark task that executes a shuffle partition more slowly than other tasks will cause the whole cluster to run slowly because all tasks in the cluster must wait for the slow task to catch up before the stage can end. This can happen for the following reasons:
 
@@ -112,6 +118,4 @@ Stages in an application are executed sequentially with earlier stages blocking 
 ## Degree of parallelism
 
 During a structured streaming query, the assignment of a task to an executor is a resource intensive operation for the cluster. If the data under shuffle is not the optimal size, the amount of delay for a task will negatively impact throughput and latency. Another aspect is if there are too few partitions, the cores in the cluster will be underutilized and can also result in processing inefficiency. Conversely, if there are too many paritions, there is a great deal of management overhead for a small number of tasks.
-
-To diagnose these problems, review the panels related to [cluster throughput](./dashboards.md#cluster-throughput), [job latency](./dashboards.md#job-latency), [streaming latency](./dashboards.md#streaming-throughputlatency), and scheduler delay time.
 
