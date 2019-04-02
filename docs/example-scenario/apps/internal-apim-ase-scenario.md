@@ -94,9 +94,7 @@ This example scenario though talks more about configuration, the APIs hosted on 
 
 ### Deployment and putting the pieces together  
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/ https%3A%2F%2Fraw.githubusercontent.com%2Fsrikantsarwa%2FAPI-Management-ASE-AppGateway%2Fmaster%2Fazuredeploy.json" target="_blank">
-    <img src="https://azuredeploy.net/deploybutton.png"/>
-</a>
+[![Deploy to Azure](https://azuredeploy.net/deploybutton.svg)](https://deploy.azure.com/?repository=https://github.com/ssarwa/API-Management-ASE-AppGateway)
 
 The components deployed using the above ARM template
 
