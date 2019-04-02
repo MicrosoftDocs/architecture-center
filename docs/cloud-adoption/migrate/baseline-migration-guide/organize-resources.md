@@ -173,9 +173,6 @@ The following section provides examples of naming schemes for common Azure resou
 
 Additional sample naming conventions can be found in [Azure Architecture Center's naming conventions for Azure resources](/azure/architecture/cloud-adoption/ready/considerations/naming-and-tagging#sample-naming-convention)
 
-
-*CAF ToDo: Do we keep the following table?*
-
 In general, avoid having any special characters (`-` or `_`) as the first or last character in any name. These characters cause most validation rules to fail.
 
 | Entity | Scope | Length | Casing | Valid characters | Suggested pattern | Example |
