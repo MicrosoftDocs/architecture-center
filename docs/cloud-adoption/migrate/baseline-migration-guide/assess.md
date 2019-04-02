@@ -100,8 +100,10 @@ Machine Groups allow you to see maps centered around a set of servers, not just 
 1. Select the Group you wish to focus on.
 1. The dependency view will then refresh to highlight the servers which belong to the group.
 
-[!TIP]
-There are many other options for analyzing the data within Service Map such as filtering by process. For more details see the full product documentation.
+>
+> [!TIP]
+> There are many other options for analyzing the data within Service Map such as filtering by process. For more details see the full product documentation.
+>
 
 ### Read more
 
