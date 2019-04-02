@@ -51,7 +51,7 @@ In Cluster Throughput we provide a visualization for the number of jobs, stages,
 
 ![Graph showing cluster throughput](./_images/grafana-cluster-throughput.png)
 
-## Sum of task execution latency
+### Sum of task execution latency
 
 This visualization shows the sum of task execution latency per host running on a cluster. It allows to detect task straggler due to host slowing down on a cluster or a misallocation of tasks per executor for the auto scale scenario. In the following example, most of the hosts have a sum of about 30 seconds. However, two of the hosts have sums that hover around 10 minutes. Either the hosts are running slow or the numer of tasks per executor is misallocated.
 
@@ -61,15 +61,17 @@ By looking at the number of tasks per executor, we can see that two executors ar
 
 ![Graph showing tasks per executor](./_images/grafana-tasks-per-exec.png)
 
+### Task metrics per stage
 
-| Visualization | Description |
-|---------------|-------------|
-| [Stage latency](./dashboards.md#stage-latency) | Select display of the clusters and applications identified above, then investigate to identify stages that have high latency and are blocking other stages. |
-| [Task latency](./dashboards.md#task-latency) | Select display of the stages experiencing high latency identified above. Identify spikes in task latency in the graph to determine which tasks are holding back completion of the stage. |
-| [Sum of Task Execution per host](./dashboards.md#sum-task-execution-per-host) | Select display of tasks with high latency identified in the task latency panel. Investigate spikes in the sum of task execution hosts to find the hosts that are stressed with a high number of tasks. This may be caused by inefficient task distribution by the executor.|
-| [Task metrics](./dashboards.md#task-metrics) | These panels dispaly the breakdown of resource cost for a particular task execution. Investigating areas of excessive resource cost may identify opportunties for serialization and deserialization optimization. 
-| [Streaming throughput/latency](./dashboards.md#streaming-throughputlatency) | For structured streaming queries, the number of input rows per second and the number of processed rows per second are the most important metrics for performance. Use this panel to identify tasks that have low streaming throughput and latency metrics. |
-| [Resource consumption per executor](./dashboards.md#resource-consumption-per-executor) | Again, select tasks to find spikes in resource consumption that identify tasks that are running slowly and blocking the execution of other tasks.|
+Task Metrics panel will give the breakdown of cost for a task execution. It also will produce the shuffle data size for a task. This will present opportunities for optimization around serialization, deserialization with implementation of broadcasts. Also it will produce a visualization of scheduler latency important for the Degree of Parallelization scenario discussed in the next use  case. Hover over the mouse on task metrics panel. Note the ExecutorComputeTime is the amount of time to run the task or if you wish task latency metrics discussed on previous topic. Ideally you do not want to see other times with a high ratio compared with ExecutorComputeTime. Those metrics can be understood as the cost for running a task( serialization, deserialization, scheduler delay time, shuffle read time, shuffle write time, jvm gc time) and the bytes that were shuffled to run the task. With this view of task metrics one can reliably understand where the cost is going for task running a particular stage.
+
+The following graph shows the scheduler delay time exceeding the executor compute time. That means most tasks are waiting to run.
+
+![Graph showing task metrics per stage](./_images/grafana-metrics-per-stage.png)
+
+In this case, the problem was caused by having too many partitions, which caused a lot of overhead. Reducing the number of partitions lowered the scheduler delay time. Now most of the time is spent executing the task.
+
+![Graph showing task metrics per stage](./_images/grafana-metrics-per-stage2.png)
 
 ## Degree of Parallelism
 
