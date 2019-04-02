@@ -17,8 +17,6 @@ This phase is also an opportunity to optimize your environment and perform possi
 
 # [Right Size Assets](#tab/optimize)
 
-*How can assets be right sized?*
-
 All Azure services which provide a consumption based cost model can be resized through the Azure Portal, CLI, or PowerShell. The first step in correctly sizing a service is to review the usage metrics of the service. The Azure Monitor service provides access to these metrics. You may need to configure the collection of the metrics for the service you are analyzing, and allow an appropriate time to collect meaningful data based on your workload patterns.
 
 1. Go to **Monitor**

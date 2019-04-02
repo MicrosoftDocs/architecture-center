@@ -25,8 +25,6 @@ Prior to beginning any migrations, the environment must be prepared for the comi
 
 # [Narrative](#tab/Narrative)
 
-*Tell the customer's story*
-
 As a customer you may find you have several motivating factors for migrating to Azure. These may range from removing risks associated with legacy hardware, reducing CapEx, freeing up datacenter space, looking for a quick cloud return on investment (ROI).
 
 * **legacy hardware** - You may have applications hosted on infrastructure reaching it's end of life or support, either on-premises or with a hosting provider. Migration to the cloud offers an attractive remediation to the challenge as the ability to migrate "as-is" allows the team to quickly resolve the current infrastructure life cycle challenge, while then turning attention to the long term planning of application life cycle and optimization to take advantage of the cloud.
@@ -37,9 +35,6 @@ As a customer you may find you have several motivating factors for migrating to 
 Each of the above scenarios may be entry points to then extend your cloud footprint utilizing another scenario.
 
 ## Migration Characteristics
-
-*What does the digital estate look like for this customer before the migration?*
-*What do they hope to accomplish after this migration?*
 
 Prior to this migration the digital estate will consist of mostly on-premises hosted infrastructure, possibly with hosting business critical applications. After a successful migration your data estate may look very much how it did on-premises but with the infrastructure hosted in cloud resources. Alternatively the ideal data estate will be a variation of your current data estate as it will have aspects of your on-premises infrastructure with components which have been refactored to optimize and take advantage of the cloud platform.
 
@@ -62,8 +57,6 @@ This guide has been designed largely for Rehost ("lift and shift") migrations, h
 If your goal is simply to move existing applications to the cloud, first, identify existing applications that would not require substantial modification to run in Azure App Service. These apps should be the first candidates for Cloud-Optimized. Then, for the apps that still cannot move to Windows Containers and PaaS such as App Service or orchestrators like Azure Service Fabric, migrate those to VMs (IaaS).
 
 But, keep in mind that correctly configuring, securing, and maintaining VMs requires much more time and IT expertise compared to using PaaS services in Azure. If you are considering Azure Virtual Machines, make sure that you take into account the ongoing maintenance effort required to patch, update, and manage your VM environment. Azure Virtual Machines is IaaS.
-
-*Remove before GA: Content taken from [When to migrate to IaaS instead of to PaaS](https://docs.microsoft.com/en-us/dotnet/standard/modernize-with-azure-and-containers/lift-and-shift-existing-apps-azure-iaas#when-to-migrate-to-iaas-instead-of-to-paas)*
 
 ## Learn More
 

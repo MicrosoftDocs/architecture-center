@@ -27,7 +27,8 @@ Azure Site Recovery service can not only be used to manage and orchestrate disas
 
 The following steps outline the process to use Site Recovery service to migrate:
 
-[!TIP] Depending on your scenario, the exact steps may differ slightly.
+[!TIP]
+Depending on your scenario, the exact steps may differ slightly.
 
 1. In the Azure Portal, click **Create a resource > Management Tools > Backup and Site Recovery**
 1. Complete the wizard to create a **Recovery Services vault** resource
