@@ -286,20 +286,29 @@
 
     - name: AI
       items:
-      - name: Distributed training of deep learning models
-        href: reference-architectures/ai/training-deep-learning.md
-      - name: Training of Python scikit-learn models
-        href: reference-architectures/ai/training-python-models.md
-      - name: Batch scoring of deep learning models
-        href: reference-architectures/ai/batch-scoring-deep-learning.md
-      - name: Batch scoring of Python models
-        href: reference-architectures/ai/batch-scoring-python.md
+      - name: Training and scoring deep learning models and Python models
+        items:
+        - name: Distributed training of deep learning models
+          href: reference-architectures/ai/training-deep-learning.md
+        - name: Batch scoring of deep learning models
+          href: reference-architectures/ai/batch-scoring-deep-learning.md
+        - name: Training of Python scikit-learn models
+          href: reference-architectures/ai/training-python-models.md
+        - name: Batch scoring of Python models
+          href: reference-architectures/ai/batch-scoring-python.md
+        - name: Real-time scoring of Python and deep learning models
+          href: reference-architectures/ai/realtime-scoring-python.md
+
+      - name: Scoring R models
+        items:
+        - name: Batch scoring of R models
+          href: reference-architectures/ai/batch-scoring-R-models.md
+        - name: Real-time scoring of R models
+          href: reference-architectures/ai/realtime-scoring-r.md
+
       - name: Batch scoring of Spark models on Azure Databricks
         href: reference-architectures/ai/batch-scoring-databricks.md
-      - name: Real-time scoring of Python and deep learning models
-        href: reference-architectures/ai/realtime-scoring-python.md
-      - name: Real-time scoring of R machine learning models
-        href: reference-architectures/ai/realtime-scoring-r.md
+
       - name: Conversational bot
         href: reference-architectures/ai/conversational-bot.md
       - name: Real-time Recommendation API
