@@ -769,10 +769,10 @@
             href: cloud-adoption/migrate/migration-considerations/pre-requisites/decisions.md
           - name: Environment Planning Checklist
             href: cloud-adoption/migrate/migration-considerations/pre-requisites/planning-checklist.md
-          - name: Structure backlogs to manage change
-            href: cloud-adoption/migrate/migration-considerations/pre-requisites/technical-complexity.md
           - name: Align roles and responsibilities
             href: cloud-adoption/migrate/migration-considerations/pre-requisites/culture-complexity.md
+          - name: Structure backlogs to manage change
+            href: cloud-adoption/migrate/migration-considerations/pre-requisites/technical-complexity.md
           - name: Migration Backlog Review
             href: cloud-adoption/migrate/migration-considerations/pre-requisites/migration-backlog-review.md
         - name: Assess assets and workloads
@@ -819,10 +819,10 @@
             href: cloud-adoption/migrate/migration-considerations/optimize/ready.md
           - name: Promote workloads to production
             href: cloud-adoption/migrate/migration-considerations/optimize/promote.md
-          - name: Retrospective
-            href: cloud-adoption/migrate/migration-considerations/optimize/retrospective.md
           - name: Decomission retired assets
             href: cloud-adoption/migrate/migration-considerations/optimize/decomission.md
+          - name: Retrospective
+            href: cloud-adoption/migrate/migration-considerations/optimize/retrospective.md
         - name: Secure and manage workloads in production
           items:
           - name: Overview
