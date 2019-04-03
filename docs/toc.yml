@@ -590,6 +590,8 @@
       href: databricks-monitoring/application-logs.md
     - name: Use dashboards to visualize Databricks metrics
       href: databricks-monitoring/dashboards.md
+    - name: Troubleshoot performance bottlenecks
+      href: databricks-monitoring/performance-troubleshooting.md
 
 - name: Design Review Framework
   items:
