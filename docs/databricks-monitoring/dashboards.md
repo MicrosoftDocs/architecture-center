@@ -187,6 +187,11 @@ Next is a set of visualizations for the dashboard that show the ratio of executo
 
 The final set of visualizations show the data shuffle metrics associated with a structured streaming query across all executors. These include shuffle bytes read, shuffle bytes written, shuffle memory, and disk usage in queries where the file system is used.
 
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Troubleshoot performance bottlenecks](./performance-troubleshooting.md)
+
 <!-- links -->
 
 [rm-cli]: /azure/azure-resource-manager/resource-group-template-deploy-cli
