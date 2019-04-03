@@ -10,7 +10,7 @@ ms.subservice: reference-architecture
 ms.custom: azcat-ai
 ---
 
-# Batch scoring on Azure for deep learning models
+# Batch scoring of deep learning models on Azure
 
 This reference architecture shows how to apply neural style transfer to a video, using Azure Machine Learning. *Style transfer* is a deep learning technique that composes an existing image in the style of another image. This architecture can be generalized for any scenario that uses batch scoring with deep learning. [**Deploy this solution**](#deploy-the-solution).
 
