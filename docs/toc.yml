@@ -298,6 +298,8 @@
         href: reference-architectures/ai/batch-scoring-databricks.md
       - name: Real-time scoring of Python and deep learning models
         href: reference-architectures/ai/realtime-scoring-python.md
+      - name: Batch scoring of R Models
+        href: reference-architectures/ai/batch-scoring-R-models.md
       - name: Real-time scoring of R machine learning models
         href: reference-architectures/ai/realtime-scoring-r.md
       - name: Conversational bot
