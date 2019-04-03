@@ -286,7 +286,7 @@
 
     - name: AI
       items:
-      - name: Training and scoring deep learning models and Python models
+      - name: Training and scoring of Python machine learning models
         items:
         - name: Distributed training of deep learning models
           href: reference-architectures/ai/training-deep-learning.md
