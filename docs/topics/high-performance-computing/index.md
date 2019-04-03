@@ -141,11 +141,11 @@ N-series VMs feature NVIDIA GPUs designed for compute-intensive or graphics-inte
 
 Large-scale Batch and HPC workloads have demands for data storage and access that exceed the capabilities of traditional cloud file systems.  There are a number of solutions to manage both the speed and capacity needs of HPC applications on Azure
 
-- [Avere vFXT](https://azure.microsoft.com/en-us/services/storage/avere-vfxt/) for faster, more accessible data storage for high-performance computing at the edge
-- [BeeGFS](https://azure.microsoft.com/resources/implement-glusterfs-on-azure/en-us/)
+- [Avere vFXT](https://azure.microsoft.com/services/storage/avere-vfxt/) for faster, more accessible data storage for high-performance computing at the edge
+- [BeeGFS](https://azure.microsoft.com/resources/implement-glusterfs-on-azure/)
 - [Storage Optimized Virtual Machines](/azure/virtual-machines/windows/sizes-storage?context=/azure/architecture/topics/high-performance-computing/context/hpc-context)
 - [Blob, table, and queue storage](/azure/storage/storage-introduction?context=/azure/architecture/topics/high-performance-computing/context/hpc-context)
-- [Azure SMB File storage](/azure/storage/storage-files-introduction?context=/azure/architecture/topics/high-performance-computing/context/hpc-context)
+- [Azure SMB File storage](/azure/storage/files/storage-files-introduction?context=/azure/architecture/topics/high-performance-computing/context/hpc-context)
 - [Intel Cloud Edition Lustre](https://azuremarketplace.microsoft.com/marketplace/apps/intel.intel-cloud-edition-gs)
 
 For more information comparing Lustre, GlusterFS, and BeeGFS on Azure, review the [Parallel Files Systems on Azure eBook](https://blogs.msdn.microsoft.com/azurecat/2018/06/11/azurecat-ebook-parallel-virtual-file-systems-on-microsoft-azure/)
@@ -164,16 +164,16 @@ H16r, H16mr, A8, and A9 VMs can connect to a high throughput back-end RDMA netwo
 
 Building an HPC system from scratch on Azure offers a significant amount of flexibility, but is often very maintenance intensive.  
 
-1. Set up your own cluster environment in Azure virtual machines or [virtual machine scale sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview?context=/azure/architecture/topics/high-performance-computing/context/hpc-context).
+1. Set up your own cluster environment in Azure virtual machines or [virtual machine scale sets](/azure/virtual-machine-scale-sets/overview?context=/azure/architecture/topics/high-performance-computing/context/hpc-context).
 2. Use Azure Resource Manager templates to deploy leading [workload managers](#workload-managers), infrastructure, and [applications](#hpc-applications).
-3. Choose [HPC and GPU VM sizes](#hpc-and-gpu-sizes) that include specialized hardware and network connections for MPI or GPU workloads.
-4. Add [high performance storage](#hpc-storage) for I/O-intensive workloads.
+3. Choose HPC and GPU [VM sizes](#compute) that include specialized hardware and network connections for MPI or GPU workloads.
+4. Add [high performance storage](#storage) for I/O-intensive workloads.
 
 ### Hybrid and cloud Bursting
 
 If you have an existing on-premise HPC system that you'd like to connect to Azure, there are a number of resources to help get you started.
 
-First, review the [Options for connecting an on-premises network to Azure](/en-us/azure/architecture/reference-architectures/hybrid-networking?context=/azure/architecture/topics/high-performance-computing/context/hpc-context) article in the documentation.  From there, you may want information on these connectivity options:
+First, review the [Options for connecting an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking/?context=/azure/architecture/topics/high-performance-computing/context/hpc-context) article in the documentation.  From there, you may want information on these connectivity options:
 
 <ul class="columns is-multiline has-margin-left-none has-margin-bottom-none has-padding-top-medium">
     <li class="column is-one-third has-padding-top-small-mobile has-padding-bottom-small">
@@ -232,7 +232,7 @@ First, review the [Options for connecting an on-premises network to Azure](/en-u
     </li>
 </ul>
 
-Once network connectivity is securely established, you can start using cloud compute resources on-demand with the bursting capabilities of your existing [workload manager](#workload-manager).
+Once network connectivity is securely established, you can start using cloud compute resources on-demand with the bursting capabilities of your existing [workload manager](#workload-managers).
 
 ### Marketplace solutions
 
@@ -240,9 +240,9 @@ There are a number of workload managers offered in the [Azure Marketplace](https
 
 - [RogueWave CentOS-based HPC](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73HPC?tab=Overview)
 - [SUSE Linux Enterprise Server for HPC](https://azure.microsoft.com/marketplace/partners/suse/suselinuxenterpriseserver12optimizedforhighperformancecompute/)
-- [TIBCO Grid Server Engine](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/tibco-software.gridserverlinuxengine?tab=Overview)
-- [Azure Data Science VM for Windows and Linux](/azure/machine-learning/machine-learning-data-science-virtual-machine-overview?context=/azure/architecture/topics/high-performance-computing/context/hpc-context)
-- [D3View](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/xfinityinc.d3view-v5?tab=Overview)
+- [TIBCO Grid Server Engine](https://azuremarketplace.microsoft.com/marketplace/apps/tibco-software.gridserverlinuxengine?tab=Overview)
+- [Azure Data Science VM for Windows and Linux](/azure/machine-learning/data-science-virtual-machine/overview?context=/azure/architecture/topics/high-performance-computing/context/hpc-context)
+- [D3View](https://azuremarketplace.microsoft.com/marketplace/apps/xfinityinc.d3view-v5?tab=Overview)
 - [UberCloud](https://azure.microsoft.com/search/marketplace/?q=ubercloud)
 
 ### Azure Batch
@@ -288,7 +288,7 @@ Containers can also be used to manage some HPC workloads.  Services like the Azu
 
 ## Cost management
 
-Managing your HPC cost on Azure can be done through a few different ways.  Ensure you've reviewed the [Azure purchasing options](https://azure.microsoft.com/en-us/pricing/purchase-options/) to find the method that works best for your organization.
+Managing your HPC cost on Azure can be done through a few different ways.  Ensure you've reviewed the [Azure purchasing options](https://azure.microsoft.com/pricing/purchase-options/) to find the method that works best for your organization.
 
 [Low priority VMs](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority?context=/azure/architecture/topics/high-performance-computing/context/hpc-context) allow you to take advantage of our unutilized capacity at a significant cost savings.
 
@@ -403,11 +403,11 @@ There are a number of customers who have seen great success by using Azure for t
 - [d3View](https://customers.microsoft.com/story/big-data-solution-provider-adopts-new-cloud-gains-thou)
 - [EFS](https://customers.microsoft.com/story/efs-professionalservices-azure)
 - [Hymans Robertson](https://customers.microsoft.com/story/hymans-robertson)
-- [MetLife](https://enterprise.microsoft.com/en-us/customer-story/industries/insurance/metlife/)
+- [MetLife](https://enterprise.microsoft.com/customer-story/industries/insurance/metlife/)
 - [Microsoft Research](https://customers.microsoft.com/doclink/fast-lmm-and-windows-azure-put-genetics-research-on-fa)
 - [Milliman](https://customers.microsoft.com/story/actuarial-firm-works-to-transform-insurance-industry-w)
 - [Mitsubishi UFJ Securities International](https://customers.microsoft.com/story/powering-risk-compute-grids-in-the-cloud)
-- [NeuroInitiative](https://customers.microsoft.com/en-us/story/neuroinitiative-health-provider-azure)
+- [NeuroInitiative](https://customers.microsoft.com/story/neuroinitiative-health-provider-azure)
 - [Schlumberger](https://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
 - [Towers Watson](https://customers.microsoft.com/story/insurance-tech-provider-delivers-disruptive-solutions)
 

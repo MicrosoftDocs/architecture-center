@@ -9,7 +9,7 @@ ms.subservice: reference-architecture
 ms.custom: azcat-ai, AI
 ---
 
-# Batch scoring of Python models on Azure
+# Batch scoring of Python machine learning models on Azure
 
 This reference architecture shows how to build a scalable solution for batch scoring many models on a schedule in parallel using Azure Machine Learning Service. The solution can be used as a template and can generalize to different problems.
 

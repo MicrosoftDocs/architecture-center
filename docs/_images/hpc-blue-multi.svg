@@ -1,0 +1,33 @@
+<svg id="Shapes" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <title>HPC-blue-multi</title>
+  <g>
+    <path d="M5.556,27.6V32H26.444V27.6Z" fill="#0078d4"/>
+    <path d="M23.71,29.279v1.108h1.108V29.279Z" fill="#50e6ff"/>
+    <path d="M21.508,29.279v1.108h1.108V29.279Z" fill="#50e6ff"/>
+  </g>
+  <g>
+    <path d="M5.556,22.1v4.4H26.444V22.1Z" fill="#0078d4"/>
+    <path d="M23.71,23.752V24.86h1.108V23.752Z" fill="#50e6ff"/>
+    <path d="M21.508,23.752V24.86h1.108V23.752Z" fill="#fef000"/>
+  </g>
+  <g>
+    <path d="M5.556,16.6V21H26.444V16.6Z" fill="#0078d4"/>
+    <path d="M23.71,18.241v1.107h1.108V18.241Z" fill="#9bf00b"/>
+    <path d="M21.508,18.241v1.107h1.108V18.241Z" fill="#50e6ff"/>
+  </g>
+  <g>
+    <path d="M5.556,11.1v4.4H26.444V11.1Z" fill="#0078d4"/>
+    <path d="M23.71,12.762V13.87h1.108V12.762Z" fill="#50e6ff"/>
+    <path d="M21.508,12.762V13.87h1.108V12.762Z" fill="#50e6ff"/>
+  </g>
+  <g>
+    <path d="M5.556,5.5V9.9H26.444V5.5Z" fill="#0078d4"/>
+    <path d="M23.71,7.144V8.251h1.108V7.144Z" fill="#50e6ff"/>
+    <path d="M21.508,7.144V8.251h1.108V7.144Z" fill="#ffb900"/>
+  </g>
+  <g>
+    <path d="M5.556,0V4.4H26.444V0Z" fill="#0078d4"/>
+    <path d="M23.71,1.665V2.773h1.108V1.665Z" fill="#50e6ff"/>
+    <path d="M21.508,1.665V2.773h1.108V1.665Z" fill="#50e6ff"/>
+  </g>
+</svg>

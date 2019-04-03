@@ -9,7 +9,7 @@ ms.subservice: reference-architecture
 ms.custom: azcat-ai
 ---
 
-# Batch scoring of Spark models on Azure Databricks
+# Batch scoring of Spark machine learning models on Azure Databricks
 
 This reference architecture shows how to build a scalable solution for batch scoring an Apache Spark classification model on a schedule using Azure Databricks, an Apache Spark-based analytics platform optimized for Azure. The solution can be used as a template that can be generalized to other scenarios.
 

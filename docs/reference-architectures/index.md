@@ -3,7 +3,7 @@ title: Azure Reference Architectures
 description: Reference architectures and implementation guidance for common workloads on Azure.
 layout: LandingPage
 ms.topic: landing-page
-ms.date: 02/07/2019
+ms.date: 04/02/2019
 ---
 <!-- This file is generated! -->
 <!-- See the templates in ./build/reference-architectures  -->
@@ -60,6 +60,26 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
         </div>
     </a>
 </li>
+<!-- Training of Python scikit-learn models -->
+<li style="display: flex; flex-direction: column;">
+    <a href="./ai/training-python-models.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/icons/python-powered-h.svg" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Training of Python scikit-learn models</h3>
+                        <p>Recommended practices for tuning the hyperparameters of a scikit-learn Python model.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
 <!-- Batch scoring of Python models -->
 <li style="display: flex; flex-direction: column;">
     <a href="./ai/batch-scoring-python.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
@@ -74,26 +94,6 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
                     <div class="cardText">
                         <h3>Batch scoring of Python models</h3>
                         <p>Batch score many Python models in parallel on a schedule using Azure Machine Learning.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-<!-- Batch scoring of Spark models on Azure Databricks -->
-<li style="display: flex; flex-direction: column;">
-    <a href="./ai/batch-scoring-databricks.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="../_images/icons/databricks.png" height="140px" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Batch scoring of Spark models on Azure Databricks</h3>
-                        <p>Build a scalable solution for batch scoring an Apache Spark classification model using Azure Databricks.</p>
                     </div>
                 </div>
             </div>
@@ -120,6 +120,26 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
         </div>
     </a>
 </li>
+<!-- Batch scoring of R machine learning models -->
+<li style="display: flex; flex-direction: column;">
+    <a href="./ai/batch-scoring-R-models.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/icons/logo-r.svg" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Batch scoring of R machine learning models</h3>
+                        <p>Perform batch scoring of R models using Azure Batch.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
 <!-- Real-time scoring of R machine learning models -->
 <li style="display: flex; flex-direction: column;">
     <a href="./ai/realtime-scoring-r.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
@@ -134,6 +154,26 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
                     <div class="cardText">
                         <h3>Real-time scoring of R machine learning models</h3>
                         <p>Implement a real-time prediction service in R using Microsoft Machine Learning Server running in Azure Kubernetes Service (AKS).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<!-- Batch scoring of Spark models on Azure Databricks -->
+<li style="display: flex; flex-direction: column;">
+    <a href="./ai/batch-scoring-databricks.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/icons/databricks.png" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Batch scoring of Spark models on Azure Databricks</h3>
+                        <p>Build a scalable solution for batch scoring an Apache Spark classification model using Azure Databricks.</p>
                     </div>
                 </div>
             </div>
@@ -308,7 +348,27 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
                     </div>
                     <div class="cardText">
                         <h3>Microservices on Azure Kubernetes Service (AKS)</h3>
-                        <p>Recommended architecture for deploying a microservices architecture on AKS.</p>
+                        <p>Recommended architecture for deploying microservices on AKS.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<!-- Microservices architecture on Azure Service Fabric -->
+<li style="display: flex; flex-direction: column;">
+    <a href="./microservices/service-fabric.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/icons/sf.svg" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Microservices architecture on Azure Service Fabric</h3>
+                        <p>Recommended architecture for microservices on Service Fabric.</p>
                     </div>
                 </div>
             </div>

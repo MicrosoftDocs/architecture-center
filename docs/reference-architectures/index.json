@@ -17,16 +17,16 @@
                     "summary": "Automate running batch jobs that apply neural style transfer to a video."
                 },
                 {
+                    "url": "./ai/training-python-models.md",
+                    "image": "../_images/icons/python-powered-h.svg",
+                    "title": "Training of Python scikit-learn models",
+                    "summary": "Recommended practices for tuning the hyperparameters of a scikit-learn Python model."
+                },
+                {
                     "url": "./ai/batch-scoring-python.md",
                     "image": "../_images/icons/python-powered-h.svg",
                     "title": "Batch scoring of Python models",
-                    "summary": "Batch score many Python models in parallel on a schedule using Azure Batch AI."
-                },
-                {
-                    "url": "./ai/batch-scoring-databricks.md",
-                    "image": "../_images/icons/databricks.png",
-                    "title": "Batch scoring of Spark models on Azure Databricks",
-                    "summary": "Build a scalable solution for batch scoring an Apache Spark classification model using Azure Databricks."
+                    "summary": "Batch score many Python models in parallel on a schedule using Azure Machine Learning."
                 },
                 {
                     "url": "./ai/realtime-scoring-python.md",
@@ -35,10 +35,22 @@
                     "summary": "Deploy Python models as web services to make real-time predictions, using regular Python models or deep learning models."
                 },
                 {
+                    "url": "./ai/batch-scoring-R-models.md",
+                    "image": "../_images/icons/logo-r.svg",
+                    "title": "Batch scoring of R machine learning models",
+                    "summary": "Perform batch scoring of R models using Azure Batch."
+                },
+                {
                     "url": "./ai/realtime-scoring-r.md",
                     "image": "../_images/icons/logo-r.svg",
                     "title": "Real-time scoring of R machine learning models",
                     "summary": "Implement a real-time prediction service in R using Microsoft Machine Learning Server running in Azure Kubernetes Service (AKS)."
+                },
+                {
+                    "url": "./ai/batch-scoring-databricks.md",
+                    "image": "../_images/icons/databricks.png",
+                    "title": "Batch scoring of Spark models on Azure Databricks",
+                    "summary": "Build a scalable solution for batch scoring an Apache Spark classification model using Azure Databricks."
                 },
                 {
                     "url": "./ai/real-time-recommendation.md",
@@ -104,7 +116,13 @@
                     "url": "./microservices/aks.md",
                     "image": "../_images/icons/aks.svg",
                     "title": "Microservices on Azure Kubernetes Service (AKS)",
-                    "summary": "Recommended architecture for deploying a microservices architecture on AKS."
+                    "summary": "Recommended architecture for deploying microservices on AKS."
+                },
+                {
+                    "url": "./microservices/service-fabric.md",
+                    "image": "../_images/icons/sf.svg",
+                    "title": "Microservices architecture on Azure Service Fabric",
+                    "summary": "Recommended architecture for microservices on Service Fabric."
                 }
             ]
         },

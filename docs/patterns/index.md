@@ -4,7 +4,7 @@ titleSuffix: Azure Architecture Center
 description: Design patterns for building reliable, scalable, secure applications in the cloud.
 keywords: Azure
 author: dragon119
-ms.date: 12/10/2018
+ms.date: 03/01/2018
 ms.topic: design-pattern
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -90,10 +90,11 @@ Each pattern describes the problem that the pattern addresses, considerations fo
 |                       [Bulkhead](./bulkhead.md)                       |                                                        Isolate elements of an application into pools so that if one fails, the others will continue to function.                                                        |
 |                    [Cache-Aside](./cache-aside.md)                    |                                                                                   Load data on demand into a cache from a data store                                                                                    |
 |                [Circuit Breaker](./circuit-breaker.md)                |                                                     Handle faults that might take a variable amount of time to fix when connecting to a remote service or resource.                                                     |
-|                           [CQRS](./cqrs.md)                           |                                                           Segregate operations that read data from operations that update data by using separate interfaces.                                                            |
+| [Claim Check](./claim-check.md) | Split a large message into a claim check and a payload to avoid overwhelming a message bus. |
 |       [Compensating Transaction](./compensating-transaction.md)       |                                                         Undo the work performed by a series of steps, which together define an eventually consistent operation.                                                         |
 |            [Competing Consumers](./competing-consumers.md)            |                                                            Enable multiple concurrent consumers to process messages received on the same messaging channel.                                                             |
 | [Compute Resource Consolidation](./compute-resource-consolidation.md) |                                                                        Consolidate multiple tasks or operations into a single computational unit                                                                        |
+|                           [CQRS](./cqrs.md)                           |                                                           Segregate operations that read data from operations that update data by using separate interfaces.                                                            |
 |                 [Event Sourcing](./event-sourcing.md)                 |                                                      Use an append-only store to record the full series of events that describe actions taken on data in a domain.                                                      |
 |   [External Configuration Store](./external-configuration-store.md)   |                                                           Move configuration information out of the application deployment package to a centralized location.                                                           |
 |             [Federated Identity](./federated-identity.md)             |                                                                                Delegate authentication to an external identity provider.                                                                                |
