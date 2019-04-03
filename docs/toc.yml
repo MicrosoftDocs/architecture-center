@@ -816,10 +816,10 @@
             href: cloud-adoption/migrate/migration-considerations/optimize/ready.md
           - name: Promote workloads to production
             href: cloud-adoption/migrate/migration-considerations/optimize/promote.md
-          - name: Retrospective
-            href: cloud-adoption/migrate/migration-considerations/optimize/retrospective.md
           - name: Decomission retired assets
             href: cloud-adoption/migrate/migration-considerations/optimize/decomission.md
+          - name: Retrospective
+            href: cloud-adoption/migrate/migration-considerations/optimize/retrospective.md
         - name: Secure and manage workloads in production
           items:
           - name: Overview
