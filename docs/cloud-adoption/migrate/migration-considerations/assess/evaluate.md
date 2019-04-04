@@ -11,7 +11,7 @@ This activity focuses on evaluating readiness of a workload to migrate to the cl
 
 ## Evaluation assumptions
 
-Most of the content discussing principles in the Cloud Adoption Framework strives to be cloud agnostic. However, the readiness evaluation process must be largely specific to each specific cloud platform. The following guidance assumes an intention to migrate to Azure. It also assumes use of Azure Migrate (also known as Azure Site Recovery) for [replication activities](replicate.md). For alternative tools, see [replication options](./replicate-options.md).
+Most of the content discussing principles in the Cloud Adoption Framework strives to be cloud agnostic. However, the readiness evaluation process must be largely specific to each specific cloud platform. The following guidance assumes an intention to migrate to Azure. It also assumes use of Azure Migrate (also known as Azure Site Recovery) for [replication activities](../migrate/replicate.md). For alternative tools, see [replication options](../migrate/replicate-options.md).
 
 This article is not intended to capture all possible evaluation activities. It is assumed that each environment and business outcome will dictate specific requirements. To help accelerate the creation of those requirements, the remainder of this article shares a few common evaluation activities related to [infrastructure](#common-infrastructure-evaluation-activities), [database](#common-database-evaluation-activities), and [network](#common-network-evaluation-activities) evaluation.
 

@@ -45,7 +45,7 @@ During this process, it is advised that the project plan include time allocation
 
 ## Next steps
 
-As the final item on the [expanded scope checklist](./checklist.md), the reader is advised to return to the checklist and re-evaluate any additional scope requirements for the migration effort.
+As the final item on the [expanded scope checklist](./index.md), the reader is advised to return to the checklist and re-evaluate any additional scope requirements for the migration effort.
 
 > [!div class="nextstepaction"]
-> [Expanded Scope Checklist](./checklist.md)
+> [Expanded Scope Checklist](./index.md)

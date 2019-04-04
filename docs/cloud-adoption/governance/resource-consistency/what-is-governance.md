@@ -9,7 +9,7 @@ ms.date: 2/11/2019
 
 # What is cloud resource governance?
 
-In [how does Azure work?](what-is-azure.md), you learned that Azure is a collection of servers and networking hardware running virtualized hardware and software on behalf of users. Azure enables your organization's development and IT departments to be agile by making it easy to create, read, update, and delete resources as needed.
+In [how does Azure work?](../../getting-started/what-is-azure.md), you learned that Azure is a collection of servers and networking hardware running virtualized hardware and software on behalf of users. Azure enables your organization's development and IT departments to be agile by making it easy to create, read, update, and delete resources as needed.
 
 However, while giving unrestricted resource access to developers can make them very agile, it can also lead to unintended cost consequences. For example, a development team might be approved to deploy a set of resources for testing but forget to delete them when testing is complete. These resources will continue to accrue costs even though their use is no longer approved or necessary.
 
@@ -30,4 +30,4 @@ When configuring these tools, an important consideration is balancing governance
 Now that you understand the concept of cloud resource governance, learn more about how resource access is managed in Azure.
 
 > [!div class="nextstepaction"]
-> [Learn about resource access in Azure](azure-resource-access.md)
+> [Learn about resource access in Azure](./azure-resource-access.md)

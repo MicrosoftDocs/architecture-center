@@ -32,7 +32,7 @@ It is equally important to understand the usage patterns of external users, like
 ## Next steps
 
 Once global market decisions have been made and communicated, the team is ready to begin [establishing technical standards](../digital-estate/overview.md) against those metrics.
-The result will be a [Transformation Backlog or Migration Backlog](../migration/plan/migration-backlog.md).
+The result will be a [Transformation Backlog or Migration Backlog](..//migrate/migration-considerations/pre-requisites/technical-complexity.md).
 
 > [!div class="nextstepaction"]
 > [Assess the Digital Estate](../digital-estate/overview.md)

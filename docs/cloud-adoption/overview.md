@@ -13,7 +13,7 @@ However, adoption of the cloud is a means, it is not the end goal. Truly effecti
 
 ## Product Truths
 
-CAF is currently offered as a Public Preview. The framework will reach general availability (GA), when the aspirational objectives above have been realized. In the current preview release of CAF, the primary focus is on [Cloud Governance](./governance/journeys/overview.md) and [Cloud Migration](./migrate/overview.md). CAF will be expanded frequently, as the team moves closer to GA release.
+CAF is currently offered as a Public Preview. The framework will reach general availability (GA), when the aspirational objectives above have been realized. In the current preview release of CAF, the primary focus is on [Cloud Governance](./governance/journeys/overview.md) and [Cloud Migration](./migrate/index.md). CAF will be expanded frequently, as the team moves closer to GA release.
 
 ## Audience
 
@@ -25,9 +25,9 @@ Cloud Architect Specializations: Each section of CAF represents a different spec
 
 ## How to use the Microsoft Cloud Adoption Framework for Azure
 
-If your enterprise is new to Azure, begin with the [overview](./getting-started/overview.md) in the *getting started* section. This document includes prescriptive guidance for your enterprise's digital transformation, walking through each step of the process.
+If your enterprise is new to Azure, begin with the [overview](./getting-started/index.md) in the *getting started* section. This document includes prescriptive guidance for your enterprise's digital transformation, walking through each step of the process.
 
 If your enterprise has experience in Azure and is seeking more in-depth guidance and best practices for specific areas, there are sections for [governance](./governance/overview.md) and [Decision Guides](./decision-guides/overview.md). Additional sections will be made available, as the GA release approaches.
 
 > [!div class="nextstepaction"]
-> [Get Started](./getting-started/overview.md)
+> [Get Started](./getting-started/index.md)

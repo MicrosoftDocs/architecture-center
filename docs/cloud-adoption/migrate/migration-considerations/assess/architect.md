@@ -7,7 +7,7 @@ ms.date: 4/4/2019
 
 # Architect workloads prior to migration
 
-This article expands on the assessment process by reviewing activities associated with defining the architecture of a workload within a given iteration. As discussed in the article on [incremental rationalization](../../digital-estate/rationalize-incremental.md), a number of architectural assumptions are made during any business transformation that requires a migration. This article clarifies those assumptions, shares a few roadblocks that can be avoided, and identifies opportunities to accelerate business value by challenging those assumptions. This incremental model for architecture allows teams to move faster and to obtain business outcomes sooner.
+This article expands on the assessment process by reviewing activities associated with defining the architecture of a workload within a given iteration. As discussed in the article on [incremental rationalization](../../../digital-estate/rationalize.md), a number of architectural assumptions are made during any business transformation that requires a migration. This article clarifies those assumptions, shares a few roadblocks that can be avoided, and identifies opportunities to accelerate business value by challenging those assumptions. This incremental model for architecture allows teams to move faster and to obtain business outcomes sooner.
 
 ## Architecture assumptions prior to migration
 

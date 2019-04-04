@@ -118,7 +118,7 @@ POC candidate | Y/N | Can the app be used as a POC or early adopter for cloud mi
 Technical debt | None/Some/Severe | Is the inventory item running or using an out-of-support product, platform or operating system?
 Firewall implications | Y/N | Does the app communicate with the Internet/outside traffic?  Does it integrate with a firewall?
 Security issues | Y/N | Are there known security issues with the app?  Does the app use unencrypted data or out-of-date platforms?
-Migration strategy | Rehost/Refactor/Rearchitect/Rebuild | What kind of migration is needed for the app? How will the app be deployed in Azure? [Learn more](contoso-migration-overview.md#migration-strategies).
+Migration strategy | Rehost/Refactor/Rearchitect/Rebuild | What kind of migration is needed for the app? How will the app be deployed in Azure? [Learn more](contoso-migration-overview.md#migration-patterns).
 Technical complexity | 1-5 | How complex is the migration? This value should be defined by Contoso DevOps and relevant partners.
 Business criticality | 1-5 | How important is the app for the business? For example, a small workgroup app might be assigned a score of one, while a critical app used across the org might be assigned a score of five. This score will impact the migration priority level.
 Migration priority | 1/2/3 | What the migration priority for the app?
