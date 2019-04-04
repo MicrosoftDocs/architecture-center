@@ -19,6 +19,14 @@ In this phase of the journey you utilize the output of the assess phase to initi
 
 Azure provides a number of native tools which can perform the migration, or assist with stages of the migration. The following sections outline the various tools available.
 
+## Azure Migrate
+
+Azure Migrate V2
+
+### Access Migration V2
+
+TBA
+
 ## Azure Site Recovery
 
 Azure Site Recovery service can not only be used to manage and orchestrate disaster recovery of on-premises machines and Azure VMs for the purposes of business continuity and disaster recovery (BCDR). You can also use Site Recovery to manage migration of on-premises machines to Azure.
@@ -139,6 +147,7 @@ Most organizations already have project management tools within their business. 
 
 There are many project management tools available but the following is a list which may assist you during your project. These tools do not need to be used in isolation, and may be used in combination for enhanced benefits:
 
+> * [Azure DevOps](https://azure.microsoft.com/en-us/services/devops/) - In today's modern data center infrastructure is often managed as code. Azure DevOps can help to organize, plan, test, and build your infrastructure.
 > * [Microsoft Planner](https://tasks.office.com/) - A simple, visual way to organize teamwork.
 > * [Microsoft Project](https://products.office.com/en-us/project/project-and-portfolio-management-software) - Project and Portfolio Management, Resource Capacity Management, Financial Management, Timesheeting and Schedule Management
 > * [Microsoft Teams](https://products.office.com/en-us/microsoft-teams) - Team collaboration and communication tool, as well as integration with Planner and other tools to improve collaboration
