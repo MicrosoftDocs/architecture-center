@@ -29,7 +29,7 @@ Rely on the Azure Security Center for unified security monitoring and advanced t
 - **Prioritized alerts and incidents.** Focus on the most critical threats first, with prioritized security alerts and incidents.
 - **Integrated security solutions.** Collect, search, and analyze security data from a variety of sources, including connected partner solutions.
 
-Learn more about [Azure Security Center](/azure/security-center/) for securing migrated assets.
+Learn more about [Azure Security Center](/azure/security-center) for securing migrated assets.
 
 ## Protect assets and data
 
@@ -40,4 +40,4 @@ Azure Backup provides a means of protecting VMs, files, and data. Azure Backup c
 - Backing up SQL Server databases.
 - Recovering protected assets.
 
-Learn more about [Azure Backup](/azure/backup/) for protecting migrated assets.
+Learn more about [Azure Backup](/azure/backup) for protecting migrated assets.

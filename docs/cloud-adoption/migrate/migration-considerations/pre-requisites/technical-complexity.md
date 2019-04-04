@@ -13,7 +13,7 @@ When shifting to an agile model where flexibility and iteration are emphasized, 
 
 ## Addressing technical complexity
 
-When changing any technical system, complexity and interdependency inject risk into project plans. Cloud migrations are no exception. When moving thousands—or tens of thousands—of assets to the cloud, these risks are amplified. Detecting and mapping all dependencies across a large digital estate could take years. Few businesses can tolerate such a long analysis cycle. To balance the need for architectural analysis and business acceleration, CAF focuses on an INVEST model for product backlog management. The following sections summarize this type of model.
+When changing any technical system, complexity and interdependency inject risk into project plans. Cloud migrations are no exception. When moving thousands &mdash; or tens of thousands &mdash; of assets to the cloud, these risks are amplified. Detecting and mapping all dependencies across a large digital estate could take years. Few businesses can tolerate such a long analysis cycle. To balance the need for architectural analysis and business acceleration, CAF focuses on an INVEST model for product backlog management. The following sections summarize this type of model.
 
 ## INVEST in workloads
 
@@ -55,7 +55,6 @@ A *release backlog* is the future state plan which defines a coming release. Rel
 
 Given the degree of analysis required to validate a release, the Cloud Strategy Team should maintain a running list of the next two to four releases. The team should also attempt to validate as much of the following information as possible, before defining and submitting a release. A disciplined Cloud Strategy Team capable of maintaining the next four releases can significantly increase the consistency and accuracy of release timeline estimates.
 
-
 ### Release backlog data points
 
 A partnership between the Cloud Strategy Team and the Cloud Adoption Team collaborates to add the following data points for any workloads in the release backlog:
@@ -63,14 +62,15 @@ A partnership between the Cloud Strategy Team and the Cloud Adoption Team collab
 - **Refined inventory.** Validation of required assets to be migrated. Often validated through log or monitoring data at the host, network, or OS level to ensure an accurate understanding of network and hardware dependencies of each asset under standard load.
 - **Usage patterns.** An understanding of the patterns of usage from end users. These patterns often include an analysis of end-user geographical distribution, network routes, seasonal usage spikes, daily/hourly usage spikes, and end-user composition (interval versus external).
 - **Performance expectations.** Analysis of available log data capturing throughput, pageviews, network routes, and other performance data required to replicate the end user experience.
-- **Dependencies.** Analysis of network traffic and application usage patterns to identify any additional workload dependencies, which should be factored into sequencing and environmental readiness. A workload should not be included in a release until one of the following criteria can be met: 
+- **Dependencies.** Analysis of network traffic and application usage patterns to identify any additional workload dependencies, which should be factored into sequencing and environmental readiness. A workload should not be included in a release until one of the following criteria can be met:
   - All dependent workloads have been migrated.
   - Network and security configurations have been implemented to allow the workload to access all dependencies in alignment with existing performance expectations.
 - **Desired migration approach.** At the migration backlog level, the assumed migration effort is the only consideration used in analysis. For instance, if the business outcome is an exit from an existing datacenter, all migrations are assumed to be a rehost scenario in the migration backlog. In the release backlog, the Cloud Strategy Team and Cloud Adoption Team should evaluate the long-term value of additional features, modernization, and continued development investments to evaluate whether a more modern approach should be involved.
 - **Business testing criteria.** After a workload is added to the migration backlog, testing criteria should be mutually agreed upon. In some cases, testing criteria can be limited to a performance test with a defined power user group. However, for statistical validation, an automated performance test is desired and should be included. The existing instance of the application often has no automated testing capabilities. Should this prove accurate, it is not uncommon for the cloud architects to work with power users to create a baseline load test against the existing solution to establish a benchmark to be used during migration.
 
 ### Release backlog cadence
-In mature migrations, releases come in a regular cadence. The velocity of the Cloud Adoption Team often normalizes, producing a release every two to four iterations (approximately every one or two months). However, this should be an organic outcome. Creating artificial release cadences can negatively impact the Cloud Adoption Team’s ability to achieve consistent throughput.
+
+In mature migrations, releases come in a regular cadence. The velocity of the Cloud Adoption Team often normalizes, producing a release every two to four iterations (approximately every one or two months). However, this should be an organic outcome. Creating artificial release cadences can negatively affect the Cloud Adoption Team’s ability to achieve consistent throughput.
 
 To stabilize business impact, the Cloud Strategy Team should establish a monthly release process with the business to maintain regular dialogue but should also establish the expectation that it will be several months before a regular release cadence can be predicted.
 
@@ -89,7 +89,6 @@ For a small migration with a self-contained migration team, a single sprint coul
 - **Migration factory.** Large-scale migrations sometimes require an approach that resembles a factory in the execution model. In this model, various teams are allocated to the execution of a specific migration process (or subset of the process). After completion, the output of one team's sprint populates the backlog for the next team. This is an efficient approach for large-scale rehost migrations of many potential workloads involving thousands of virtual machines moving through phases of assessment, architecture, remediation, and migration. However, for this approach to work, a new homogenous environment with streamlined change management and approval processes is a must.
 - **Migration waves.** Another approach that works well for large migrations is a wave model. In this model, division of labor isn't nearly as clear. Teams dedicate themselves to the migration process execution of individual workloads. However, the nature of each sprint changes. In one sprint, the team may complete assessment and architecture work. In another sprint, it may complete the migration work. In yet another sprint, the focus would be on optimization and production release. This approach allows a core team to stay aligned to workloads, seeing them through the process in its entirety. When using this approach, the diversity of skills and context switching could reduce the potential velocity of the team, slowing the migration effort. Additionally, roadblocks during approval cycles can cause significant delays. It is important to maintain options in the release backlog to keep the team moving during blocked periods, with this model. It is also important to cross-train team members and to ensure that skill sets align with the theme of each sprint.
 
-
 ### Sprint backlog data points
 
 The outcome of a sprint captures and documents the changes made to a workload, thus closing the change-management loop. When completed, at minimum, the following should be documented. Throughout the execution of a sprint, this documentation should be completed in tandem with the technical work items.
@@ -101,12 +100,12 @@ The outcome of a sprint captures and documents the changes made to a workload, t
 - **Architecture.** Documentation of the architecture deployed to the cloud
 - **Performance metrics.** Output of an automated and/or business testing performed to validate performance at the time of deployment
 - **Unique requirements or configuration.** Any unique aspects of the deployment, configuration, or technical requirements necessary to operate the workload
-- **Operational approval.** Sign-off of validating operational readiness from the application owner and the IT operations staff responsible for managing the workload post deployment 
-- **Architecture approval.** Sign-off from the workload owner and Cloud Adoption Team to validate any architecture changes required to host each asset
+- **Operational approval.** Sign-off of validating operational readiness from the application owner and the IT operations staff responsible for managing the workload post deployment
+- **Architecture approval.** Sign-off from the workload owner and Cloud Adoption team to validate any architecture changes required to host each asset
 
 ## Next steps
 
-After change management approaches have been established, its time to address the final pre-requisite, [Migration Backlog Review](./migration-backlog-review.md)
+After change management approaches have been established, its time to address the final prerequisite, [Migration Backlog Review](./migration-backlog-review.md)
 
 > [!div class="nextstepaction"]
 > [Migration Backlog Review](./migration-backlog-review.md)

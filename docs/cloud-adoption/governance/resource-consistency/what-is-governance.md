@@ -23,11 +23,11 @@ RBAC defines roles, and roles define the capabilities for a user that is assigne
 
 Resource policies define rules for resource creation. For example, a resource policy can limit the SKU of a VM to a particular pre-appproved size. Or, a resource policy can enforce the addition of a tag with a cost center when the request is made to create the resource.
 
-When configuring these tools, an important consideration is balancing governance versus organizational agility. That is, the more restrictive your governance policy, the less agile your developers and IT workers become. This is because a restrictive goverance policy may require more manual steps, such as requiring a developer to fill out a form or send an email to a person on the governance team to manually create a resource. The goverance team has finite capabilities and may become backlogged, resulting in unproductive development teams waiting for their resources to be created and unneeded resources accruing costs while they wait to be deleted.
+When configuring these tools, an important consideration is balancing governance versus organizational agility. That is, the more restrictive your governance policy, the less agile your developers and IT workers become. This is because a restrictive governance policy may require more manual steps, such as requiring a developer to fill out a form or send an email to a person on the governance team to manually create a resource. The governance team has finite capabilities and may become backlogged, resulting in unproductive development teams waiting for their resources to be created and unneeded resources accruing costs while they wait to be deleted.
 
 ## Next steps
 
-Now that you understand the concept of cloud resource goverance, learn more about how resource access is managed in Azure.
+Now that you understand the concept of cloud resource governance, learn more about how resource access is managed in Azure.
 
 > [!div class="nextstepaction"]
 > [Learn about resource access in Azure](azure-resource-access.md)

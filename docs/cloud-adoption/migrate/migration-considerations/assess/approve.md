@@ -11,11 +11,11 @@ During the assess process of migration, each workload is evaluated, architected,
 
 ## Business impact and approval
 
-During migration, some things are likely to change in ways that impact the business. Although change sometimes can’t be avoided, surprises as a result of undisclosed or undocumented changes should be. To maintain stakeholder support throughout the migration effort, it’s important to avoid surprises. Surprising application owners or business stakeholders can slow—or even stop—a cloud adoption effort.
+During migration, some things are likely to change in ways that impact the business. Although change sometimes can’t be avoided, surprises as a result of undisclosed or undocumented changes should be. To maintain stakeholder support throughout the migration effort, it’s important to avoid surprises. Surprising application owners or business stakeholders can slow &mdash; or even stop &mdash; a cloud adoption effort.
 
-Prior to migration, it is important to prepare the workload’s business owner for any changes that could impact business processes, such as changes to: 
+Prior to migration, it is important to prepare the workload’s business owner for any changes that could affect business processes, such as changes to:
 
-- SLAs.
+- Service-level agreements.
 - Access patterns or security requirements that impact the end user.
 - Data retention practices.
 - Core application performance.
@@ -26,9 +26,9 @@ Regular approval activities can help minimize or avoid surprises as a result of 
 
 ## Existing culture
 
-Your IT teams likely have pre-existing mechanisms for managing change involving your on-premises assets. Typically these mechanisms are governed by traditional Information Technology Infrastructure Library–based (ITIL-based) change management processes. In many enterprise migrations, these processes involve a Change Advisory Board (CAB) that is responsible for reviewing, documenting, and approving all IT-related requests for changes (RFC). 
+Your IT teams likely have pre-existing mechanisms for managing change involving your on-premises assets. Typically these mechanisms are governed by traditional Information Technology Infrastructure Library–based (ITIL-based) change management processes. In many enterprise migrations, these processes involve a Change Advisory Board (CAB) that is responsible for reviewing, documenting, and approving all IT-related requests for changes (RFC).
 
-The CAB generally includes experts from multiple IT and Business teams, offering a variety of perspectives and detailed review for all IT-related changes. Approvals by a CAB is a proven means of reducing risk and minimizing business impact of changes involving during stable-state workloads managed by IT operations. 
+The CAB generally includes experts from multiple IT and Business teams, offering a variety of perspectives and detailed review for all IT-related changes. Approvals by a CAB is a proven means of reducing risk and minimizing business impact of changes involving during stable-state workloads managed by IT operations.
 
 ## Technical approval
 
@@ -36,7 +36,7 @@ Organizational readiness for the approval of technical change is among the most 
 
 ### ITIL Change Advisory Board challenges
 
-Every change management approach has its own set of controls and approval processes. Migration is a series of continuous changes that start with a high degree of ambiguity and develop additional clarity through the course of execution. As such, migration is best governed by agile-based change management approaches, with the Cloud Strategy Team serving as a product owner. 
+Every change management approach has its own set of controls and approval processes. Migration is a series of continuous changes that start with a high degree of ambiguity and develop additional clarity through the course of execution. As such, migration is best governed by agile-based change management approaches, with the Cloud Strategy Team serving as a product owner.
 
 However, the scale and frequency of change during a cloud migration doesn't fit well with the nature of ITIL processes. The requirements of a CAB approval can actually risk the success of a migration, slowing or stopping the effort. Further, in the early stages of migration, ambiguity is high and subject matter expertise tends to be low. For the first several workload migrations or releases, the Cloud Adoption Team is often in a learning mode. As such, it could be very difficult for the team to provide the types of data needed to pass a CAB approval.
 

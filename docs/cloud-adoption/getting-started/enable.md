@@ -66,7 +66,7 @@ In addition to the Cloud Adoption Framework, Microsoft provides a number of addi
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage bgdAccent1">
-                            <img alt="Build Technical Skills" src="https://docs.microsoft.com/en-us/media/learn/Product/Learn/learningpath_graphic.svg" data-linktype="external" />
+                            <img alt="Build Technical Skills" src="https://docs.microsoft.com/media/learn/Product/Learn/learningpath_graphic.svg" data-linktype="external" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -79,13 +79,13 @@ In addition to the Cloud Adoption Framework, Microsoft provides a number of addi
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="https://docs.microsoft.com/en-us/azure/devops/learn/" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="https://docs.microsoft.com/azure/devops/learn/" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage bgdAccent1">
-                            <img alt="Learn DevOps" src="https://docs.microsoft.com/en-us/azure/devops/learn/_img/learn-devops.svg" data-linktype="external" />
+                            <img alt="Learn DevOps" src="https://docs.microsoft.com/azure/devops/learn/_img/learn-devops.svg" data-linktype="external" />
                         </div>
                     </div>
                     <div class="cardText">

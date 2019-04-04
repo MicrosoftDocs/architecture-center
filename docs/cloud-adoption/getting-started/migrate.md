@@ -35,12 +35,12 @@ Throughout this migration experience this framework will be used to address ambi
 
 Cloud migrations can align to a number of business outcomes. Most commonly migrations are related to stability, scale, or efficiency drivers. The following are few common business outcomes that would lead to a migration focused effort.
 
-- Critical Business Event
-    - Data center exit
-    - Mergers, acquisition or divestiture
-    - Reductions in capital expenses
-    - End of support for mission critical technologies
-- Cost Savings
+- Critical business event
+  - Data center exit
+  - Mergers, acquisition or divestiture
+  - Reductions in capital expenses
+  - End of support for mission-critical technologies
+- Cost savings
 - Reduction in vendor or technical complexity
 - Optimize internal operations
 - Increase business agility
@@ -73,7 +73,7 @@ Cloud migrations often target a broad portfolio of workloads and applications. W
 
 - Line of business applications
 - Customer facing applications
-- 3rd party applications
+- Third-party applications
 - Data analytics platforms
 - Globally distributed solutions
 - Highly scalable solutions

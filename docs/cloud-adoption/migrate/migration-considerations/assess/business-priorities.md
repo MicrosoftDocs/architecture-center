@@ -11,7 +11,7 @@ ms.date: 4/4/2019
 
 The amount of time required to rationalize or transition a workload will vary, depending on the technical complexity involved. However, even when this process can be applied to a single workload or group of applications quickly, it takes time to produce substantial changes among a user base. It takes longer for changes to propagate through various layers of existing business processes. If transformation is expected to shape behavior patterns in consumers, the results can take longer to produce significant results.
 
-Unfortunately, the market doesn't wait for businesses to transition. Consumer behavior patterns change on their own—often unexpectedly. The market's perception of a company and its products can be swayed by social media or a competitor's positioning. Fast and unexpected market changes require companies to be nimble and responsive.
+Unfortunately, the market doesn't wait for businesses to transition. Consumer behavior patterns change on their own &mdash; often unexpectedly. The market's perception of a company and its products can be swayed by social media or a competitor's positioning. Fast and unexpected market changes require companies to be nimble and responsive.
 
 The ability to execute processes and technical transitions requires a consistent, stable effort. Quick decisions and nimble actions are needed to respond to market conditions. These two are at odds, making it easy for priorities to fall out of alignment. This article describes approaches to maintaining transitional alignment during migration efforts.
 

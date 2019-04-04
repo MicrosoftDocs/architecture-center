@@ -1,6 +1,6 @@
 ---
-title: "Pre-requisites to migration"
-description: Pre-requisites to migration
+title: "Prerequisites to migration"
+description: Prerequisites to migration
 author: BrianBlanchard
 ms.date: 4/4/2019
 ---
@@ -25,14 +25,13 @@ Before beginning any cloud migration, review the CAF [Plan](../../business-strat
 Prerequisites are completed when the following are true:
 
 - **Business readiness.** The Cloud Strategy Team has defined and prioritized a high-level migration backlog representing the portion of the digital estate to be migrated in the next two or three releases. The Cloud Strategy Team and Cloud Adoption Team have agreed to an initial strategy for managing change.
-- **Culture readiness.** The roles, responsibilities, and expectations of the Cloud Adoption Team, Cloud Strategy Team, and impacted users have been agreed upon regarding the workloads to be migrated in the next two or three releases.
+- **Culture readiness.** The roles, responsibilities, and expectations of the Cloud Adoption Team, Cloud Strategy Team, and affected users have been agreed upon regarding the workloads to be migrated in the next two or three releases.
 - **Technical readiness.** The landing zone (or allocated hosting space in the cloud) that will receive the migrated assets meets minimum requirements to host the first migrated workload.
 
 > [!CAUTION]
 > Preparation is key to the success of a migration. However, over-preparation can lead to *analysis paralysis*, where over-investment in planning can seriously delay a migration effort. The processes and prerequisites defined in this section are meant to help you make decisions, but don't let them block you from making meaningful progress.
 >
-> Choose a relatively simple workload for your initial migration. Use the processes discussed in this section as you plan and implement this first migration. This first migration effort will quickly demonstrate cloud principles to your team and force them to learn about how the cloud works. As your team gains experience, integrate these  learnings as you take on larger and more complex migrations.
-
+> Choose a relatively simple workload for your initial migration. Use the processes discussed in this section as you plan and implement this first migration. This first migration effort will quickly demonstrate cloud principles to your team and force them to learn about how the cloud works. As your team gains experience, integrate these learnings as you take on larger and more complex migrations.
 
 ## Accountability during prerequisites
 
@@ -45,7 +44,7 @@ A single member of each team should be identified as accountable for each of the
 
 ## Responsibilities during prerequisites
 
-In addition to the high-level accountability, there are a number of actions that an individual or group needs to be directly responsible for. The following are a few such responsibilities that impact these activities:
+In addition to the high-level accountability, there are a number of actions that an individual or group needs to be directly responsible for. The following are a few such responsibilities that affect these activities:
 
 - **Business prioritization.** Make business decisions regarding the workloads to be migrated and general timing constraints. See the CAF discussion on [cloud migration business motivations](../../../business-strategy/motivations-why-are-we-moving-to-the-cloud.md) for more information.
 - **Change management readiness.** Establish and communicate the plan for tracking technical change during migration. More information on this topic will be available Summer 2019.

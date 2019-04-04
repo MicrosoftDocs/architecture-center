@@ -11,7 +11,7 @@ ms.date: 4/4/2019
 
 Humility and curiosity have never been more important than they are during a business transformation. Embracing digital transformation requires both in ample supply. These traits are strengthened by regular introspection and an environment of encouragement. When employees are encouraged to take risks, they find better solutions. When employees are allowed to fail and learn, they succeed. Retrospectives are an opportunity for such investigation and growth.
 
-Retrospectives reinforce the principles of a growth mindset—experimentation, testing, learning, sharing, growing, and empowering. They provide a safe place for team members to share the challenges faced in the current sprint. And they allow the team to discuss and collaborate on ways to overcome those challenges. Retrospectives empower the team to create sustainable growth.
+Retrospectives reinforce the principles of a growth mindset &mdash; experimentation, testing, learning, sharing, growing, and empowering. They provide a safe place for team members to share the challenges faced in the current sprint. And they allow the team to discuss and collaborate on ways to overcome those challenges. Retrospectives empower the team to create sustainable growth.
 
 ## Retrospective structure
 

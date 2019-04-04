@@ -11,9 +11,9 @@ Often times the scope of a migration involves the transition of multiple data ce
 
 ## General scope expansion
 
-Most of this effort required in this scope expansion, will fall in the pre-requisites, assess and optimization processes of a migration.
+Most of this effort required in this scope expansion, will fall in the prerequisites, assess and optimization processes of a migration.
 
-## Suggested pre-requisites
+## Suggested prerequisites
 
 Prior to beginning the migration, it is advised that the reader create Epics within the project management tool to represent each data center to be migrated. It is then important to understand the business outcomes and motivations, which are justifying this migration. Those motivations can be used to prioritize the list of Epics (or data centers). For instance, if migration is driven by a desire to exit data centers before leases must be renewed, then each epic would be prioritized based on lease renewal date.
 
@@ -38,7 +38,7 @@ Migrating multiple data centers, is very similar to consolidating data centers. 
 
 ### Suggested action during the migrate process
 
-The following are activities that heavily impact the success of a cloud migration:
+The following are activities that heavily affect the success of a cloud migration:
 
 - Evaluate network conflicts: When consolidating data centers into a single cloud provider, there is a likelihood of creating network, DNS, or other conflicts. During migration it is important to test for conflicts to avoid interruptions to production systems hosted in the cloud.
 - Update Routing table: Often times, modifications to routing tables are required when consolidating networks or data centers.

@@ -1,11 +1,11 @@
 ---
-title: "CAF: Pre-requisites before starting the Simple Migration Journey"
-description: Pre-requisites before starting the Simple Migration Journey
+title: "CAF: Prerequisites before starting the Simple Migration Journey"
+description: Prerequisites before starting the Simple Migration Journey
 author: BrianBlanchard
 ms.date: 4/14/2019
 ---
 
-# Pre-requisites before migrating to Azure
+# Prerequisites before migrating to Azure
 
 Intro Text
 

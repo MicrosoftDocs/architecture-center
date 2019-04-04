@@ -25,7 +25,7 @@ In any migration, there are a few key functions that are best executed by the bu
 | Optimize | Change plan | Define a plan for consumption of change within the business, including periods of low activities and change freezes. |
 | Optimize | Testing | Align power users capable of validating performance and functionality. |
 | Secure and manage | Interruption impact | Aid the Cloud Adoption Team in quantifying the impact of a business process interruption. |
-| Secure and  manage | Service-level agreement (SLA) validation | Aid the Cloud Adoption Team in defining service level agreements and acceptable tolerances for business outages. |
+| Secure and manage | Service-level agreement (SLA) validation | Aid the Cloud Adoption Team in defining service level agreements and acceptable tolerances for business outages. |
 
 Ultimately, the Cloud Adoption Team is accountable for each of these activities. However, establishing responsibilities and a regular cadence with the business for the completion of these activities on an established rhythm can improve stakeholder alignment and cohesiveness with the business.
 
@@ -48,7 +48,7 @@ Each process within the discussion of CAF migration principles includes a proces
 | Secure and manage | Ops transition | Document production systems prior to production operations. | Cloud Adoption Team |
 
 > [!CAUTION]
-> For these activities, permissions and authorization heavily influence the accountable party, who must have direct access to production systems in the existing environment or must have means of securing access through other responsible actors. Determining this accountable party directly impacts the promotion strategy during the migrate and optimize processes.
+> For these activities, permissions and authorization heavily influence the accountable party, who must have direct access to production systems in the existing environment or must have means of securing access through other responsible actors. Determining this accountable party directly affects the promotion strategy during the migrate and optimize processes.
 
 ## Next steps
 

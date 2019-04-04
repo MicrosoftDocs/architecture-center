@@ -21,7 +21,7 @@ The first and most important decision regarding any migration-ready environment 
 
 ## Cloud readiness implementation
 
-Whether you choose to align with a broader cloud governance strategy or not for your initial migration, you will need to ensure your cloud deployment environment is configured to support your workloads. 
+Whether you choose to align with a broader cloud governance strategy or not for your initial migration, you will need to ensure your cloud deployment environment is configured to support your workloads.
 
 If you're planning to align your migration with a cloud governance strategy from the start, you'll need to use the [five disciplines of cloud governance](../../../governance/governance-disciplines.md) to help inform decisions on policies, toolchains, and enforcement mechanisms that will align your cloud environment with overall corporate requirements. Consult the CAF [actionable governance design guides](../../../governance/journeys/overview.md) for examples of how to implement this model using Azure services.
 
@@ -42,11 +42,11 @@ A consistent approach for naming resources, along with consistent naming schemas
 
 ### Resource Governance
 
-A decision regarding the tools to govern resources should be made prior to migration. The tools do not need to be fully implemented, but a direction should be selected and tested. It is advised that the cloud governance team define and require the implementation of a Minimally Viable Product (MVP) for governance tooling, prior to migration.
+A decision regarding the tools to govern resources should be made prior to migration. The tools do not need to be fully implemented, but a direction should be selected and tested. It is advised that the Cloud Governance team define and require the implementation of a minimum viable product (MVP) for governance tooling prior to migration.
 
 ## Network
 
-Your cloud-based workloads will require the provisioning of virtual networks to support end-user and administrative access. Based on resource organization and resource governance decisions, you should select a network approach align it to IT security requirements. Further, your networking decisions should be aligned with any hybrid network constraints required to operate the workloads  in the migration backlog and support any access to resources hosted on-premises.
+Your cloud-based workloads will require the provisioning of virtual networks to support end-user and administrative access. Based on resource organization and resource governance decisions, you should select a network approach align it to IT security requirements. Further, your networking decisions should be aligned with any hybrid network constraints required to operate the workloads in the migration backlog and support any access to resources hosted on-premises.
 
 ## Identity
 

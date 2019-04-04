@@ -29,11 +29,11 @@ Knowledge about the cloud is fundamental to approaching a [policy review](./what
 
 Security platform resources:
 
-* [Security Development Cycle, internal audits](https://www.microsoft.com/sdl/)
+* [Security Development Cycle, internal audits](https://www.microsoft.com/sdl)
 * [Mandatory security training, background checks](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx)
 * [Penetration testing, intrusion detection, DDoS, audits, and logging](https://www.microsoft.com/trustcenter/Security/AuditingAndLogging)
 * [State-of-the-art datacenter](https://www.microsoft.com/cloud-platform/global-datacenters), physical security, [secure network](/azure/security/security-network-overview)
-* [Microsoft Azure Security Response in the Cloud (PDF)](http://aka.ms/SecurityResponsePaper)
+* [Microsoft Azure Security Response in the Cloud (PDF)](https://aka.ms/SecurityResponsePaper)
 
 Privacy and controls:
 
@@ -53,7 +53,7 @@ Compliance:
 Transparency:
 
 * [How Microsoft secures customer data in Azure services](https://www.microsoft.com/trustcenter/Transparency/default.aspx)
-* [How Microsoft manages data location in Azure services](http://azuredatacentermap.azurewebsites.net/)
+* [How Microsoft manages data location in Azure services](https://azuredatacentermap.azurewebsites.net)
 * [Who in Microsoft can access your data on what terms](https://www.microsoft.com/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)
 * [How Microsoft secures customer data in Azure services](https://www.microsoft.com/trustcenter/Transparency/default.aspx)
 * [Review certification for Azure services, transparency hub](https://www.microsoft.com/trustcenter/Compliance/default.aspx)
