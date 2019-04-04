@@ -60,7 +60,7 @@ Data flows through the scenario as follows:
 
 Other options for the data tier include:
 
-* [Azure Cosmos DB](/azure/cosmos-db/introduction): Microsoft's globally distributed, multi-model database. This service provides a platform to run other data models such as Mongo DB, Cassandra, Graph data, or simple table storage.
+* [Azure Cosmos DB](/azure/cosmos-db/introduction): If majority of the data is in non-relational format, s Cosmos DB is a good alternative as this service provides a platform to run other data models such as Mongo DB, Cassandra, Graph data, or simple table storage.
 
 ## Considerations
 
