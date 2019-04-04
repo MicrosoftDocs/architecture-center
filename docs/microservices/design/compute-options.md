@@ -20,7 +20,7 @@ On the Azure platform, consider the following options:
 - [Azure Container Service](/azure/container-service/) (ACS) is an Azure service that lets you deploy a production-ready DC/OS, Docker Swarm, or Kubernetes cluster.
 
   > [!NOTE]
-  > Although ACS supports Kubernetes, we recommended using AKS to run Kubernetes on Azure. AKS provides enhanced management capabilities and cost benefits.
+  > ACS has been [deprecated](https://azure.microsoft.com/en-us/updates/azure-container-service-will-retire-on-january-31-2020); We recommended using AKS to run Kubernetes on Azure. AKS provides enhanced management capabilities and cost benefits.
 
 ## Containers
 
