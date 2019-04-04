@@ -33,7 +33,7 @@ This implementation can also be described using a simple checklist:
 
 1. Solicit decisions regarding core dependencies: Identity, Network, and Encryption.
 2. Determine the pattern to be used during corporate policy enforcement.
-3. Determine the appropriate governance patterns for the Resource Consistency, Resource Tagging, and Loging and Reporting disciplines.
+3. Determine the appropriate governance patterns for the Resource Consistency, Resource Tagging, and Logging and Reporting disciplines.
 4. Implement the governance tools aligned to the chosen policy enforcement pattern to apply the dependent decisions and governance decisions.
 
 [!INCLUDE [implementation-process](../../../../../includes/cloud-adoption/governance/implementation-process.md)]
