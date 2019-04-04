@@ -44,16 +44,15 @@ Data flows through the scenario as follows:
 
 ### Components
 
-* The [App Service Environment][intro-to-app-svc-env] provides a fully isolated and dedicated environment for securely running the application at high scale at high scale.
+* The [App Service Environment][intro-to-app-svc-env] provides a fully isolated and dedicated environment for securely running the application at high scale. In addition, since ASE and the workloads that run on it are behind a VNET, this provides an additional layer of security and isolation. The requirement of high scale and isolation drove towards selecting ILB ASE.
   * This workload is using the [isolated App Service pricing tier][isolated-tier-pricing-and-ase-pricing] so the application is running in a private, dedicated environment in an Azure datacenter using Dv2-series VMs with faster processors, SSD storage, and double the memory-to-core ratio compared to Standard
-* Azure App Services [Web App][docs-webapps] and [API App][docs-apiapps] hosts web applications and RESTful APIs allowing autoscale and high availability without having to manage infrastructure.
-* Azure [Application Gateway][docs-appgw] is a web traffic load balancer that manages traffic to the web application.
-* [Web Application Firewall][docs-waf] Web application firewall (WAF) is a feature of Application Gateway that provides centralized protection of your web applications from common exploits and vulnerabilities.
-* [Azure SQL Database][docs-sql-database] Azure SQL Database is a relational database-as-a-service (DBaaS) based on the latest stable version of Microsoft SQL Server Database Engine.
-* [Azure Networking] Azure provides a variety of networking capabilities that can be used together or separately
-* [Azure DevOps][docs-azure-devops] Azure DevOps Services provides development collaboration tools including high-performance pipelines,
-free private Git repositories, configurable Kanban boards, and extensive automated and cloud-based load testing
-* [Build Azure VM][docs-azure-vm] In Azure Portal, create a Visual Studio Enterprise 2017 (latest release) on Windows Server 2016 (x64) VM that will be used as the build agent. 
+* Azure App Services [Web App][docs-webapps] and [API App][docs-apiapps] hosts web applications and RESTful APIs. These are hosted on the Isolated Pricing Tier plan which also offers auto-scaling, custom domains and so on, but in a dedicated tier.
+* Azure [Application Gateway][docs-appgw] is a web traffic load balancer oerating at Layer 7 that manages traffic to the web application. It offers SSL off-loading, that removes additional overhead on the web servers hosting the web app to decrypt traffic again.  
+* [Web Application Firewall][docs-waf] Web application firewall (WAF) is a feature of Application Gateway. The reason for enabling the WAF in the Application Gateway is to further enhance security. The WAF uses OWASP rules to further protect the web application against attacks such as cross-site scripting, session hijacks, and SQL injection.
+* [Azure SQL Database][docs-sql-database] Azure SQL Database was selected as majority of data in this application is relational data, with some data as documents and BLOB. 
+* [Azure Networking] Azure provides a variety of networking capabilities in Azure and the the netowrks can further be peered with other VNETS in Azure or connectivity can be established with on-prem data centers via Express Route or Site to Site. In this case, the Microsoft.Sql service endpoint is enabled on the VNET, then the VNET is allowed access in the Firewall settings hosting the Azure SQL Database. This was done to ensure the data is flowing just between the Azure VNET and the SQL Database instance.
+* [Azure DevOps][docs-azure-devops] Azure DevOps was used for teams to collaborate during many sprints, utilizing features of Azure DevOps that support Agile Development, and create build and release pipelines. 
+* [Build Azure VM][docs-azure-vm] In Azure Portal, create a Visual Studio Enterprise 2017 (latest release) on Windows Server 2016 (x64) VM that will be used as the build agent. This was done, so that the installed agent can pull down the respective build, and deploy the web app to the ASE environment.
 
 ### Alternatives
 - [Azure Service Fabric][docs-service-fabric] - A platform focused around building distributed components that benefit from being deployed and run across a cluster with a high degree of control. Service Fabric makes it easy to package, deploy, and manage scalable and reliable microservices and containers. Service Fabric supports C# or Java Programming APIs, and clusters can be provisioned as Windows or Linux based.
