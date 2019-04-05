@@ -602,6 +602,10 @@
         href: cloud-adoption/digital-estate/rationalize.md
       - name: Align cost models to forecast cost
         href: cloud-adoption/digital-estate/calculate.md
+    - name: Best practices
+      items:
+      - name: Overview
+        href: cloud-adoption/business-strategy/azure-best-practices/overview.md
   - name: Ready
     items:
     - name: XX-Overview
@@ -638,9 +642,9 @@
         href: cloud-adoption/ready/considerations/overview.md
       - name: Create hybrid cloud consistency
         href: cloud-adoption/infrastructure/misc/hybrid-consistency.md
-    - name: Readiness best practices
+    - name: Best practices
       items:
-      - name: XX-Overview
+      - name: Overview
         href: cloud-adoption/ready/azure-best-practices/overview.md
     - name: Organizational Readiness
       items:
@@ -828,6 +832,10 @@
       items:
       - name: Overview
         href: cloud-adoption/innovate/overview.md
+      - name: Best practices
+        items:
+        - name: Overview
+          href: cloud-adoption/innovate/azure-best-practices/overview.md
     - name: Govern
       href: cloud-adoption/governance/overview.md
       items:
@@ -874,6 +882,10 @@
             href: cloud-adoption/governance/journeys/large-enterprise/multi-cloud-evolution.md
           - name: Multiple layers of governance
             href: cloud-adoption/governance/journeys/large-enterprise/multiple-layers-of-governance.md
+      - name: Best practices
+        items:
+        - name: Overview
+          href: cloud-adoption/governance/azure-best-practices/overview.md
       - name: Governance Considerations
         items:
         - name: Implement a cloud governance strategy
@@ -1010,6 +1022,10 @@
         href: cloud-adoption/operations/overview.md
       - name: Establish an operational fitness review
         href: cloud-adoption/operations/operational-fitness-review.md
+      - name: Best practices
+        items:
+        - name: Overview
+          href: cloud-adoption/operations/azure-best-practices/overview.md
   - name: References
     items:
     - name: Infrastructure
