@@ -88,11 +88,11 @@ This [decision tree for Azure compute services](/azure/architecture/guide/techno
 
 ### Walk-through
 
-The [Azure DevOps project](/azure/devops-project/azure-devops-project-github) will deploy an App Service Plan, App Service, and an App Insights resource for you, as well as configure the Azure DevOps project for you.
+[Azure DevOps Projects](/azure/devops-project/azure-devops-project-github) will deploy an App Service Plan, App Service, and an App Insights resource for you, as well as configure an Azure Pipelines pipeline for you.
 
-Once you've deployed the Azure DevOps project and the build is completed, review the associated code changes, work items, and test results. You will notice that no test results are displayed, because the code does not contain any tests to run.
+Once you've configure a pipeline with Azure DevOps Projects and the build is completed, review the associated code changes, work items, and test results. You will notice that no test results are displayed, because the code does not contain any tests to run.
 
-The project creates a release pipeline and continuous deployment trigger, deploying our application into the Dev environment. As part of a continuous deployment process, you may see releases that span multiple environments. A release can span both infrastructure (using techniques such as infrastructure-as-code), and can also deploy the application packages required along with any post-configuration tasks.
+The pipeline creates a release definition and a continuous deployment trigger, deploying our application into the Dev environment. As part of a continuous deployment process, you may see releases that span multiple environments. A release can span both infrastructure (using techniques such as infrastructure-as-code), and can also deploy the application packages required along with any post-configuration tasks.
 
 ## Pricing
 
@@ -110,7 +110,7 @@ Review the following resources to learn more about CI/CD and Azure DevOps:
 - [DevOps at Microsoft - How we work with Azure DevOps][devops-microsoft]
 - [Step-by-step Tutorials: DevOps with Azure DevOps][devops-with-vsts]
 - [DevOps Checklist][devops-checklist]
-- [Create a CI/CD pipeline for .NET with the Azure DevOps project][devops-project-create]
+- [Create a CI/CD pipeline for .NET with Azure DevOps Projects][devops-project-create]
 
 <!-- links -->
 
