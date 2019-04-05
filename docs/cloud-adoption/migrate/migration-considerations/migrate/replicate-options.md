@@ -19,7 +19,7 @@ The content within the Cloud Adoption Framework assumes that Azure Migrate (or A
 - **Migrate between Azure regions.** Migrate Azure VMs from one Azure region to another. After the migration is complete, configure disaster recovery for the Azure VMs now in the secondary region to which you migrated.
 - **Migrate from other cloud to Azure.** You can migrate your compute instances provisioned on other cloud providers to Azure VMs. Site Recovery treats those instances as physical servers for migration purposes.
 
-![Azure Site Recover (ASR)](../../_images/asr-replication-image.png)
+![Azure Site Recover (ASR)](../../../_images/asr-replication-image.png)
 *Azure Site Recovery (ASR) moving assets to Azure or other clouds*
 
 After you have assessed on-premises and cloud infrastructure for migration, Azure Site Recovery contributes to your migration strategy by replicating on-premises machines. With the following easy steps, you can set up migration of on-premises VMs, physical servers, and cloud VM instances to Azure:
