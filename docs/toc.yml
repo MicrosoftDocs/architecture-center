@@ -286,7 +286,7 @@
 
     - name: AI
       items:
-      - name: Training and scoring deep learning models and Python models
+      - name: Training and scoring Python models
         items:
         - name: Distributed training of deep learning models
           href: reference-architectures/ai/training-deep-learning.md
@@ -311,7 +311,7 @@
 
       - name: Conversational bot
         href: reference-architectures/ai/conversational-bot.md
-      - name: Real-time Recommendation API
+      - name: Real-time recommendation API
         href: reference-architectures/ai/real-time-recommendation.md
 
     - name: Big data
