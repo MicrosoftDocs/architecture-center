@@ -2,7 +2,7 @@
 title: "CAF: Building Technical Skills"
 description: Introduction to Building Technical Skills
 author: BrianBlanchard
-ms.date: 2/11/2019
+ms.date: 4/4/2019
 ---
 
 # Building Technical Skills
