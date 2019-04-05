@@ -593,7 +593,7 @@
       - name: The 5 Rs of Rationalization 
         href: cloud-adoption/digital-estate/5-rs-of-rationalization.md
       - name: What is a digital estate?
-        href: cloud-adoption/digital-estate/index.md
+        href: cloud-adoption/digital-estate/overview.md
       - name: Approaches to digital estate planning
         href: cloud-adoption/digital-estate/approach.md
       - name: Gather inventory data
@@ -605,11 +605,11 @@
   - name: Ready
     items:
     - name: XX-Overview
-      href: cloud-adoption/ready/index.md
+      href: cloud-adoption/ready/overview.md
     - name: Azure Readiness Guide
       items:
       - name: Set up your Azure environment
-        href: cloud-adoption/ready/azure-readiness-guide/index.md
+        href: cloud-adoption/ready/azure-readiness-guide/overview.md
       - name: Manage access
         href: cloud-adoption/ready/azure-readiness-guide/manage-access.md
       - name: Organize your resources
@@ -623,29 +623,29 @@
     - name: Expanded Scope
       items:
       - name: XX-Overview
-        href: cloud-adoption/ready/azure-best-practices/index.md
+        href: cloud-adoption/ready/azure-best-practices/overview.md
       - name: Naming and tagging
         href: cloud-adoption/ready/considerations/naming-and-tagging.md
       - name: XX-Primitives
-        href: cloud-adoption/ready/considerations/index.md
+        href: cloud-adoption/ready/considerations/overview.md
       - name: XX-Network
-        href: cloud-adoption/ready/considerations/index.md
+        href: cloud-adoption/ready/considerations/overview.md
       - name: XX-Identity
-        href: cloud-adoption/ready/considerations/index.md
+        href: cloud-adoption/ready/considerations/overview.md
       - name: XX-Monitoring
-        href: cloud-adoption/ready/considerations/index.md
+        href: cloud-adoption/ready/considerations/overview.md
       - name: XX-Environment Resiliency 
-        href: cloud-adoption/ready/considerations/index.md
+        href: cloud-adoption/ready/considerations/overview.md
       - name: Create hybrid cloud consistency
         href: cloud-adoption/infrastructure/misc/hybrid-consistency.md
     - name: Readiness best practices
       items:
       - name: XX-Overview
-        href: cloud-adoption/ready/azure-best-practices/index.md
+        href: cloud-adoption/ready/azure-best-practices/overview.md
     - name: Organizational Readiness
       items:
       - name: XX-Governance and Security Alignment
-        href: cloud-adoption/ready/theory/index.md
+        href: cloud-adoption/ready/theory/overview.md
       - name: Initial Org Alignment
         href: cloud-adoption/ready/initial-org-alignment.md
       - name: Building Technical Skills
@@ -653,12 +653,12 @@
   - name: Adopt
     items:
     - name: Migrate
-      href: cloud-adoption/migrate/index.md
+      href: cloud-adoption/migrate/overview.md
       items:
       - name: Azure Migration Guide
         items:
         - name: Intro to the Migration Guide
-          href: cloud-adoption/migrate/baseline-migration-guide/index.md
+          href: cloud-adoption/migrate/baseline-migration-guide/overview.md
         - name: Prerequisites before migrating to Azure 
           href: cloud-adoption/migrate/baseline-migration-guide/pre-requisites.md
         - name: Assess individual workloads prior to migration
@@ -678,7 +678,7 @@
       - name: Expanded scope
         items:
         - name: Expanded scope checklist
-          href: cloud-adoption/migrate/expanded-scope/index.md
+          href: cloud-adoption/migrate/expanded-scope/overview.md
         - name: Business-driven scope changes
           items:
           - name: Balance the portfolio
@@ -696,7 +696,7 @@
           - name: Governance and compliance
             href: cloud-adoption/migrate/expanded-scope/governance-or-compliance.md
       - name: Best practices
-        href: cloud-adoption/migrate/azure-best-practices/index.md
+        href: cloud-adoption/migrate/azure-best-practices/overview.md
         items:
         - name: Best Practices for migrating workloads
           items:
@@ -757,10 +757,10 @@
           - name: Securing and managing workloads post migration
             href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-security-management.md
       - name: Migration Considerations
-        href: cloud-adoption/migrate/migration-considerations/index.md
+        href: cloud-adoption/migrate/migration-considerations/overview.md
         items:
         - name: Prerequisites
-          href: cloud-adoption/migrate/migration-considerations/pre-requisites/index.md
+          href: cloud-adoption/migrate/migration-considerations/pre-requisites/overview.md
           items:
           - name: Decisions that affect migration activities
             href: cloud-adoption/migrate/migration-considerations/pre-requisites/decisions.md
@@ -775,7 +775,7 @@
         - name: Assess assets and workloads
           items:
           - name: Assess assets before migration
-            href: cloud-adoption/migrate/migration-considerations/assess/index.md
+            href: cloud-adoption/migrate/migration-considerations/assess/overview.md
           - name: Keep priorities aligned
             href: cloud-adoption/migrate/migration-considerations/assess/business-priorities.md
           - name: Evaluate workload and asset readiness
@@ -791,7 +791,7 @@
           - name: Change approval processes
             href: cloud-adoption/migrate/migration-considerations/assess/approve.md
         - name: Migrate individual assets
-          href: cloud-adoption/migrate/migration-considerations/migrate/index.md
+          href: cloud-adoption/migrate/migration-considerations/migrate/overview.md
           items:
           - name: Promotion models - Promote, Stage, or Flight
             href: cloud-adoption/migrate/migration-considerations/migrate/promotion-models.md
@@ -804,7 +804,7 @@
           - name: Stage workloads for testing and promotion
             href: cloud-adoption/migrate/migration-considerations/migrate/stage.md
         - name: Optimize and promote workloads
-          href: cloud-adoption/migrate/migration-considerations/optimize/index.md
+          href: cloud-adoption/migrate/migration-considerations/optimize/overview.md
           items:
           - name: Business Change Plan
             href: cloud-adoption/migrate/migration-considerations/optimize/business-change-plan.md
@@ -823,11 +823,11 @@
         - name: Secure and manage workloads in production
           items:
           - name: Overview
-            href: cloud-adoption/migrate/migration-considerations/secure-and-manage/index.md
+            href: cloud-adoption/migrate/migration-considerations/secure-and-manage/overview.md
     - name: Innovate
       items:
       - name: Overview
-        href: cloud-adoption/innovate/index.md
+        href: cloud-adoption/innovate/overview.md
     - name: Govern
       href: cloud-adoption/governance/overview.md
       items:

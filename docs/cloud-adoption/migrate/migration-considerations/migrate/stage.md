@@ -20,7 +20,7 @@ Staged assets may not be ready for use in production. There are a number of prod
 
 ## Next steps
 
-After staged assets are tested and documented, you can proceed to [optimization activities](../optimize/index.md).
+After staged assets are tested and documented, you can proceed to [optimization activities](../optimize/overview.md).
 
 > [!div class="nextstepaction"]
-> [Optimize migrated workloads](../optimize/index.md)
+> [Optimize migrated workloads](../optimize/overview.md)

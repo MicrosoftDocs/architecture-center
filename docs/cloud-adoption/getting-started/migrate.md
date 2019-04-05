@@ -24,8 +24,8 @@ As depicted in the image above, this framework aligns strategic decisions to a s
 
 - Change management and oversight: Iterative approaches to implementation will be seen throughout this framework, which provides business and IT teams with a growth mindset approach to addressing ambiguity, learning, and succeeding in the fast paced environments demanded in today's marketplaces.
 - [Plan](../business-strategy/overview.md): When technical implementation is aligned with clear business objectives, it's much easier to measure and align success across multiple cloud adoption efforts.
-- [Ready](../ready/index.md): Preparing the business, culture, people, and environment for coming changes leads to success in each effort and accelerates implementation and change projects.
-- [Migrate](../migrate/index.md): Iterative execution of the cloud migration adhering to the tested process of Assess, Migrate, Optimize, and Secure & Manage to create a repeatable process for migrating collections of IT assets.
+- [Ready](../ready/overview.md): Preparing the business, culture, people, and environment for coming changes leads to success in each effort and accelerates implementation and change projects.
+- [Migrate](../migrate/overview.md): Iterative execution of the cloud migration adhering to the tested process of Assess, Migrate, Optimize, and Secure & Manage to create a repeatable process for migrating collections of IT assets.
 - [Operate](../operations/overview.md): Expand IT operations to ensure cloud-based solutions can be operated through secure, cost effective processes using modern, cloud-first operations tools
 - [Govern](../governance/overview.md): Align corporate policy to tangible risks, mitigated through policy, process, and cloud-based governance tooling.
 
@@ -94,9 +94,9 @@ The Cloud Adoption Framework is a lifecycle solution. It is intended to help rea
 > [!div class="nextstepaction"]
 > [Plan](../business-strategy/overview.md)
 >
-> [Ready](../ready/index.md)
+> [Ready](../ready/overview.md)
 >
-> [Migrate](../migrate/index.md)
+> [Migrate](../migrate/overview.md)
 >
 > [Operate](../operations/overview.md)
 >

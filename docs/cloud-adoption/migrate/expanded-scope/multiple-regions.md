@@ -58,7 +58,7 @@ This approach is driven by quantifiable information. As such, the following appr
 
 ## Suggested prerequisites
 
-It is suggested that the Cloud Adoption Team begin with the migration of a simple workload using the [Baseline migration guide](../baseline-migration-guide/index.md), before attempting to address global scale. This will ensure the team is familiar with the general process of cloud migration prior to attempting a more complex migration scenario.
+It is suggested that the Cloud Adoption Team begin with the migration of a simple workload using the [Baseline migration guide](../baseline-migration-guide/overview.md), before attempting to address global scale. This will ensure the team is familiar with the general process of cloud migration prior to attempting a more complex migration scenario.
 
 When scope for a migration includes multiple regions, the following readiness considerations should be evaluated by the Cloud Adoption Team:
 
@@ -69,9 +69,9 @@ Once the team is comfortable with the baseline approach and readiness is aligned
 
 - General discovery: Complete the [Documenting complexity](#documenting-complexity) table above.
 - Perform a user profile analysis on each affected country: It is important to understand general end user routing early in the migration process. Changing global lease lines and adding connections like ExpressRoute to a cloud data center can require months of networking delays. Address this as early in the process as possible. **TODO: Can any tools in Azure create a network routing profile from on-premises users to on-premises workloads?**
-- Initial Digital Estate rationalization: Any time complexity is introduced into a migration strategy, an initial digital estate rationalization should be completed. See the guidance on [Digital Estate rationalization](../../digital-estate/index.md) for assistance.
+- Initial Digital Estate rationalization: Any time complexity is introduced into a migration strategy, an initial digital estate rationalization should be completed. See the guidance on [Digital Estate rationalization](../../digital-estate/overview.md) for assistance.
   - Additional digital estate requirements: Establish tagging policies to identify any workload affected by data sovereignty requirements. Required tags should begin in the digital estate rationalization and carry through to the migrated assets.
-- Evaluate a hub-spoke model: Distribute systems often share a number of common dependencies. Those dependencies can often be addressed through the implementation of a hub-spoke model. While such a model is out of scope for the migration process, it should be flagged for consideration during future iterations of the [Ready processes](../../../ready/index.md).
+- Evaluate a hub-spoke model: Distribute systems often share a number of common dependencies. Those dependencies can often be addressed through the implementation of a hub-spoke model. While such a model is out of scope for the migration process, it should be flagged for consideration during future iterations of the [Ready processes](../../../ready/overview.md).
 - Prioritization of the migration backlog: When network changes are required to support the production deployment of a workload that supports multiple regions, it is important for the Cloud Strategy Team to track and manage escalations regarding those network changes. The higher level of executive support will aid in accelerating the change. However, the more important impact is that it gives the strategy team an ability to re-prioritize the backlog to ensure that global workloads aren't roadblocked by network changes. Such workloads should only be prioritized, after the network changes are complete.
 
 These prerequisites will help establish processes that can address this complexity during execution of the migration strategy.

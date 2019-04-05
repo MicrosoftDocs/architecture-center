@@ -7,7 +7,7 @@ ms.date: 4/4/2019
 
 # Governance or compliance strategy
 
-When governance or compliance are required throughout a migration effort, additional scope is required. The following guidance will expand the scope of the [baseline migration guide](../baseline-migration-guide/index.md) to address different approaches to addressing governance or compliance requirements.
+When governance or compliance are required throughout a migration effort, additional scope is required. The following guidance will expand the scope of the [baseline migration guide](../baseline-migration-guide/overview.md) to address different approaches to addressing governance or compliance requirements.
 
 ## General scope expansion
 
@@ -45,7 +45,7 @@ During this process, it is advised that the project plan include time allocation
 
 ## Next steps
 
-As the final item on the [expanded scope checklist](./index.md), the reader is advised to return to the checklist and re-evaluate any additional scope requirements for the migration effort.
+As the final item on the [expanded scope checklist](./overview.md), the reader is advised to return to the checklist and re-evaluate any additional scope requirements for the migration effort.
 
 > [!div class="nextstepaction"]
-> [Expanded Scope Checklist](./index.md)
+> [Expanded Scope Checklist](./overview.md)

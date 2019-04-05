@@ -7,7 +7,7 @@ ms.date: 4/4/2019
 
 # Skills readiness
 
-During a cloud migration, it is very likely that employees, and even some incumbent systems integration partners or managed services partners, will need to develop new skills to be effective during migration efforts. This is amongst the most common scope expansions beyond the [baseline migration guide](../baseline-migration-guide/index.md).
+During a cloud migration, it is very likely that employees, and even some incumbent systems integration partners or managed services partners, will need to develop new skills to be effective during migration efforts. This is amongst the most common scope expansions beyond the [baseline migration guide](../baseline-migration-guide/overview.md).
 
 ## General scope expansion
 
@@ -33,8 +33,8 @@ Before beginning migration efforts, there are a number of fundamental readiness 
 The following tools can aid the team in execution of assess activities:
 
 - [Balance the portfolio](./balance-the-portfolio.md): Ensure balance and proper investment allocations across an application portfolio.
-- [Build a business justification](../../../business-strategy/cloud-migration-business-case.md): Create &/or understand the business justification driving the cloud migration effort
-- [Rationalize the digital estate](../../../digital-estate/rationalize.md): Rationalize assets in the digital estate
+- [Build a business justification](../../business-strategy/cloud-migration-business-case.md): Create &/or understand the business justification driving the cloud migration effort
+- [Rationalize the digital estate](../../digital-estate/rationalize.md): Rationalize assets in the digital estate
 - [Application portfolio assessment](/learn/modules/app-and-infra-migration-and-modernization): Criteria for making decisions regarding migration or innovation options within the application portfolio
 
 ## Migrate skilling resources

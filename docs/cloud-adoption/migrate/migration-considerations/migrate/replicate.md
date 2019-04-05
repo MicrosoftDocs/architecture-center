@@ -13,7 +13,7 @@ Replication is the workhorse of migration efforts. It is the process of copying 
 
 ## Required prerequisites to replication
 
-Prior to replication, the *new platform* and hardware must be prepared to receive the binary copies. The article on [prerequisites](../prerequisites/index.md) outlines minimum environment requirements to help create a safe, robust, performant platform to receive the binary replicas.
+Prior to replication, the *new platform* and hardware must be prepared to receive the binary copies. The article on [prerequisites](../prerequisites/overview.md) outlines minimum environment requirements to help create a safe, robust, performant platform to receive the binary replicas.
 
 The *source binaries* must also be prepared for replication and synchronization. The articles on assessment, architecture, and remediation each address the actions necessary to ensure that the source binary is ready for replication and synchronization.
 

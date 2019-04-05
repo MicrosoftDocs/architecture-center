@@ -62,7 +62,7 @@ Scale of the migration is the next important prerequisite decision. The processe
 
 - **How many assets support the migrating workloads today?** Assets would include data structures, applications, VMs, and necessary IT appliances. It's recommended that you choose a relatively small workload for you first migration candidate.
 - **Of those assets, how many are slated for migration?** It is common for a percentage of assets to be terminated during a migration process, due to lack of sustained end-user dependency.
-- **What are the top-down estimates of the migratable assets scale?** For the workloads slated for migration, estimate the number of supporting assets such as applications, virtual machines, data sources , and IT appliances. See the CAF [digital estate](../../../digital-estate/index.md) section for guidance on identifying relevant assets.
+- **What are the top-down estimates of the migratable assets scale?** For the workloads slated for migration, estimate the number of supporting assets such as applications, virtual machines, data sources , and IT appliances. See the CAF [digital estate](../../../digital-estate/overview.md) section for guidance on identifying relevant assets.
 
 ### Effort Timing
 

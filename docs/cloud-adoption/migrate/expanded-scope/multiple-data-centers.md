@@ -7,7 +7,7 @@ ms.date: 4/4/2019
 
 # Multiple data centers
 
-Often times the scope of a migration involves the transition of multiple data centers. The following guidance will expand the scope of the [baseline migration guide](../baseline-migration-guide/index.md) to address multiple data centers.
+Often times the scope of a migration involves the transition of multiple data centers. The following guidance will expand the scope of the [baseline migration guide](../baseline-migration-guide/overview.md) to address multiple data centers.
 
 ## General scope expansion
 

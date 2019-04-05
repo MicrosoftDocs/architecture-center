@@ -30,7 +30,7 @@ Conversely, there are positive indicators that are often associated with data dr
 ## Next steps
 
 Once learning metrics have been aligned, the team is ready to begin [Assessing the Digital Estate](../digital-estate/overview.md) against those metrics.
-The result will be a [Transformation Backlog or Migration Backlog](../migrate/migration-considerations/pre-requisites/technical-complexity.md).
+The result will be a [Transformation Backlog or Migration Backlog](../migrate/migration-considerations/prerequisites/technical-complexity.md).
 
 > [!div class="nextstepaction"]
 > [Assess the Digital Estate](../digital-estate/overview.md)
