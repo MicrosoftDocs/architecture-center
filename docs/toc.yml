@@ -603,9 +603,7 @@
       - name: Align cost models to forecast cost
         href: cloud-adoption/digital-estate/calculate.md
     - name: Best practices
-      items:
-      - name: Overview
-        href: cloud-adoption/business-strategy/azure-best-practices/overview.md
+      href: cloud-adoption/business-strategy/azure-best-practices/overview.md
   - name: Ready
     items:
     - name: XX-Overview
@@ -643,9 +641,7 @@
       - name: Create hybrid cloud consistency
         href: cloud-adoption/infrastructure/misc/hybrid-consistency.md
     - name: Best practices
-      items:
-      - name: Overview
-        href: cloud-adoption/ready/azure-best-practices/overview.md
+      href: cloud-adoption/ready/azure-best-practices/overview.md
     - name: Organizational Readiness
       items:
       - name: XX-Governance and Security Alignment
@@ -833,9 +829,7 @@
       - name: Overview
         href: cloud-adoption/innovate/overview.md
       - name: Best practices
-        items:
-        - name: Overview
-          href: cloud-adoption/innovate/azure-best-practices/overview.md
+        href: cloud-adoption/innovate/azure-best-practices/overview.md
     - name: Govern
       href: cloud-adoption/governance/overview.md
       items:
@@ -883,9 +877,7 @@
           - name: Multiple layers of governance
             href: cloud-adoption/governance/journeys/large-enterprise/multiple-layers-of-governance.md
       - name: Best practices
-        items:
-        - name: Overview
-          href: cloud-adoption/governance/azure-best-practices/overview.md
+        href: cloud-adoption/governance/azure-best-practices/overview.md
       - name: Governance Considerations
         items:
         - name: Implement a cloud governance strategy
@@ -1023,9 +1015,7 @@
       - name: Establish an operational fitness review
         href: cloud-adoption/operations/operational-fitness-review.md
       - name: Best practices
-        items:
-        - name: Overview
-          href: cloud-adoption/operations/azure-best-practices/overview.md
+        href: cloud-adoption/operations/azure-best-practices/overview.md
   - name: References
     items:
     - name: Infrastructure
