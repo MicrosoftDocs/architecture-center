@@ -660,7 +660,7 @@
         - name: Intro to the Migration Guide
           href: cloud-adoption/migrate/baseline-migration-guide/overview.md
         - name: Prerequisites before migrating to Azure 
-          href: cloud-adoption/migrate/baseline-migration-guide/pre-requisites.md
+          href: cloud-adoption/migrate/baseline-migration-guide/prerequisites.md
         - name: Assess individual workloads prior to migration
           href: cloud-adoption/migrate/baseline-migration-guide/assess.md
         - name: Migrate assets that make up a workload
@@ -760,18 +760,18 @@
         href: cloud-adoption/migrate/migration-considerations/overview.md
         items:
         - name: Prerequisites
-          href: cloud-adoption/migrate/migration-considerations/pre-requisites/overview.md
+          href: cloud-adoption/migrate/migration-considerations/prerequisites/overview.md
           items:
           - name: Decisions that affect migration activities
-            href: cloud-adoption/migrate/migration-considerations/pre-requisites/decisions.md
+            href: cloud-adoption/migrate/migration-considerations/prerequisites/decisions.md
           - name: Environment Planning Checklist
-            href: cloud-adoption/migrate/migration-considerations/pre-requisites/planning-checklist.md
+            href: cloud-adoption/migrate/migration-considerations/prerequisites/planning-checklist.md
           - name: Align roles and responsibilities
-            href: cloud-adoption/migrate/migration-considerations/pre-requisites/culture-complexity.md
+            href: cloud-adoption/migrate/migration-considerations/prerequisites/culture-complexity.md
           - name: Structure backlogs to manage change
-            href: cloud-adoption/migrate/migration-considerations/pre-requisites/technical-complexity.md
+            href: cloud-adoption/migrate/migration-considerations/prerequisites/technical-complexity.md
           - name: Migration Backlog Review
-            href: cloud-adoption/migrate/migration-considerations/pre-requisites/migration-backlog-review.md
+            href: cloud-adoption/migrate/migration-considerations/prerequisites/migration-backlog-review.md
         - name: Assess assets and workloads
           items:
           - name: Assess assets before migration

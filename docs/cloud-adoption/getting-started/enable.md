@@ -41,7 +41,7 @@ In addition to the Cloud Adoption Framework, Microsoft provides a number of addi
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="../../resiliency/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="../../resiliency/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
