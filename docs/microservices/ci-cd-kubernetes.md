@@ -1,6 +1,19 @@
 # CI/CD for microservices on Kubernetes
 
-This article describes how to create a CI/CD pipeline for microservices on Kubernetes.
+This article describes a proven CI/CD process for deploying microservices to Azure Kubernetes Service (AKS).
+
+This pipeline uses [Azure Pipelines](/azure/devops/pipelines/?view=azure-devops) to build, test, and deploy microservices to AKS. The container images for the microservices are stored in [Azure Container Registry](/azure/container-registry/). However, the basic approach described here can work with other tools and services such as Jenkins and Docker Hub.
+
+Before reading this article, consider reading [CI/CD for microservices architectures](./ci-cd) to understand the goals and challenges that this pipeline is attempting to meet.
+
+- Teams can build and deploy their services independently.
+- 
+- Quality gates are enforced at each stage of the pipeline.
+- 
+
+
+
+Let's start by looking at the overall flow of the pipeline.
 
 ## Overview of CI/CD process
 
@@ -8,7 +21,6 @@ In this section, we present a possible CI/CD workflow, based on the following as
 
 - The code repository is a monorepo, with folders organized by microservice.
 - The team's branching strategy is based on [trunk-based development](https://trunkbaseddevelopment.com/).
-- The team uses [Azure Pipelines](/azure/devops/pipelines) to run the CI/CD process.
 - The team uses [namespaces](/azure/container-registry/container-registry-best-practices#repository-namespaces) in Azure Container Registry to isolate images that are approved for production from images that are still being tested.
 - The team uses Helm charts to package each microservice.
 
@@ -39,7 +51,7 @@ At this point in the workflow, the CI build runs some minimal code verification:
 1. Build code
 1. Run unit tests
 
-The idea here is to keep the build times short so the developer can get quick feedback. When the feature is ready to merge into master, the developer opens a PR. This triggers another CI build that performs some additional checks:
+The goal is to keep build times short, so the developer can get quick feedback. When the feature is ready to merge into master, the developer opens a PR. This triggers another CI build that performs some additional checks:
 
 1. Build code
 1. Run unit tests
@@ -59,7 +71,7 @@ Creation of this branch triggers a full CI build that runs all the previous step
 2. Run `helm package` to package the Helm chart
 3. Push the Helm package to Container Registry by running `az acr helm push`.
 
-Assuming this build succeeds, it triggers a deployment process using an Azure Pipelines [release pipeline](/azure/devops/pipelines/release/what-is-release-management). This pipeline 
+Assuming this build succeeds, it triggers a deployment (CD) process using an Azure Pipelines [release pipeline](/azure/devops/pipelines/release/what-is-release-management). This pipeline 
 
 1. Run `helm upgrade` to deploy the Helm chart to a QA environment.
 1. An approver signs off before the package moves to production. See [Release deployment control using approvals](/azure/devops/pipelines/release/approvals/approvals).
@@ -69,6 +81,10 @@ Assuming this build succeeds, it triggers a deployment process using an Azure Pi
 ![CI/CD workflow](./images/aks-cicd-3.png)
 
 Even in a monorepo, these tasks can be scoped to individual microservices, so that teams can deploy with high velocity. The process has some manual steps: Approving PRs, creating release branches, and approving deployments into the production cluster. These steps are manual by policy &mdash; they could be completely automated if the organization prefers.
+
+The following diagram shows the end-to-end CI and CD pipelines:
+
+![CD/CD pipeline](./images/aks-cicd-flow.png)
 
 ## Docker recommandations
 
@@ -104,7 +120,7 @@ ENTRYPOINT ["dotnet", "Fabrikam.Workflow.Service.dll"]
 
 This Dockerfile defines several build stages. Notice that the stage named `base` uses the ASP.NET Core runtime, while the stage named `build` uses the full ASP.NET Core SDK. The `build` stage is used to build the ASP.NET Core project. But the final runtime container is built from `base`, contains just the runime and is significantly smaller than the full SDK image.
 
-Another good practice is to run unit tests in the container. Here is part of a Dockerfile that builds a test runner:
+Another good practice is to run unit tests in the container. For example, here is part of a Dockerfile that builds a test runner. A developer can run the test runner locallty, and the automated CI process can run the same tests.
 
 ```
 FROM build AS testrunner
@@ -124,14 +140,22 @@ docker build . -t delivery-test:1 --target=testrunner
 docker run -p 8080:8080 delivery-test:1
 ```
 
-The automated CI process can run the same tests.
+Here are some other best practices to consider with resepct to containers:
+
+- Define organization-wide conventions for container tags, versioning, and naming conventions for resources deployed to the cluster (pods, services, and so on). That can make it easier to diagnose deployment issues.
+
+- Use specific container version tags, not `latest`.
+
+- Create two separate container registries, one for development/testing and one for production. Don't push an image to the production registry until you're ready to deploy it into production. If you combine this practice with semantic versioning of container images, it can reduce the chance of accidentally deploying a version that wasn't approved for release.
+
+- Follow the principle of least privilege by running containers as a nonprivileged user. In Kubernetes, you can create a pod security policy that prevents containers from running as *root*. See [Prevent Pods From Running With Root Privileges](https://docs.bitnami.com/kubernetes/how-to/secure-kubernetes-cluster-psp/)
 
 ## Helm charts
 
 Consider using Helm to manage building and deploying services. Some of the features of Helm that help with CI/CD include:
 
 - Organizing all of the Kubernetes objects for a particular microservice into a single Helm chart.
-- Deploying the chart as a single helm command, rather than a series of kubectl commands.
+- Deploying the chart as a single Helm command, rather than a series of kubectl commands.
 - Charts are explicitly versioned. Use Helm to release a version, view releases, and roll back to a previous version. Tracking updates and revisions, using semantic versioning, along with the ability to roll back to a previous version.
 - The use of templates to avoid duplicating information, such as labels and selectors, across many files.
 - Managing dependencies between charts.
