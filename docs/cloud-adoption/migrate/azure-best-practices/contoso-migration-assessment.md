@@ -514,4 +514,4 @@ In this scenario, Contoso assesses its SmartHotel360 app database by using the D
 
 ## Next steps
 
-In the next article in the series, Contoso rehosts its SmartHotel360 app in Azure by using a lift-and-shift migration. Contoso migrates the front-end WEBVM for the app by using Azure Site Recovery. It migrates the app database to an Azure SQL Database Managed Instance by using the Database Migration Service. [Get started](contoso-migration-rehost-vm-sql-managed-instance.md) with this deployment.
+After Contoso assesses this workload as a potential migration candidate, it can begin preparing its on-premises infrastructure and its Azure infrastructure for migration. See the [deploy Azure infrastructure](contoso-migration-infrastructure.md) article in the CAF migrate best practices section for an example of how Contoso performs these processes.

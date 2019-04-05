@@ -58,6 +58,19 @@ Contoso will complete the migration process as follows:
 
 ![Migration process](./media/contoso-migration-tfs-vsts/migration-process.png)
 
+## Prerequisites
+
+Here's what Contoso needs to run this scenario.
+
+<!-- markdownlint-disable MD033 -->
+
+**Requirements** | **Details**
+--- | ---
+**Azure subscription** | Contoso created subscriptions in an earlier article in this series. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial).<br/><br/> If you create a free account, you're the administrator of your subscription and can perform all actions.<br/><br/> If you use an existing subscription and you're not the administrator, you need to work with the admin to assign you Owner or Contributor permissions.<br/><br/> If you need more granular permissions, review [this article](/azure/site-recovery/site-recovery-role-based-linked-access-control.md).
+**Azure infrastructure** | Contoso set up their Azure infrastructure as described in [Azure infrastructure for migration](contoso-migration-infrastructure.md).
+**On-premises TFS server** | On-premises need to either be running TFS 2018 Upgrade 2 or be upgraded to it as part of this process.
+
+
 ## Scenario steps
 
 Here's how Contoso will complete the migration:
@@ -457,6 +470,6 @@ With migration complete, Contoso needs to do the following:
 - Review the [post-import](/azure/devops/articles/migration-post-import?view=vsts) article for information about additional import activities.
 - Either delete the TFVC repos, or place them in read-only mode. The code bases mustn't used, but can be referenced for their history.
 
-## Next steps
+## Post-migration training
 
 Contoso will need to provide Azure DevOps Services and Git training for relevant team members.

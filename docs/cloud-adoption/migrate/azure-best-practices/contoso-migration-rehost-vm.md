@@ -431,6 +431,3 @@ For business continuity and disaster recovery (BCDR), Contoso takes the followin
 
 In this article, Contoso rehosted the SmartHotel360 app in Azure by migrating the app VMs to Azure VMs using the Site Recovery service.
 
-## Next steps
-
-In the [next article](contoso-migration-rehost-vm-sql-ag.md) in the series, we'll show you how Contoso rehosts the SmartHotel360 app front-end VM on an Azure VM, and migrates the database to a SQL Server AlwaysOn Availability Group in Azure.

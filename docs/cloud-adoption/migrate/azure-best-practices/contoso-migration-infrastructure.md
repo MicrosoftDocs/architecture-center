@@ -795,4 +795,4 @@ With this infrastructure in place, Contoso is ready to move on and try out migra
 
 ## Next steps
 
-As a first migration scenario, Contoso is going to [assess the on-premises SmartHotel360 two-tiered app for migration to Azure](contoso-migration-assessment.md).
+After setting up their Azure infrastructure, Contoso is ready to begin migrating workloads to the cloud. See the [migration patterns and examples overview](./contoso-migration-overview.md#windows-server-workloads) section for a selection of scenarios using this sample infrastructure as a migration target.
