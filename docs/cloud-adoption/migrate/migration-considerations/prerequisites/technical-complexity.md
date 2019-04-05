@@ -32,7 +32,14 @@ This acronym is not intended as a basis for rigid adherence but should help guid
 
 ## Migration backlog: Aligning business priorities and timing
 
-Prior to migration, the Cloud Strategy Team and Cloud Adoption Team are encouraged to agree to a prioritized list of workloads to be migrated. Initially, workloads on the migration backlog are unlikely to meet the INVEST criteria outlined in the previous section. Instead, they serve as a logical grouping of assets from an initial inventory as a placeholder for future work. Those placeholders may not be technically accurate, but they serve as the basis for coordination with the business.
+The migration backlog allows you to track your top-level portfolio of migratable workloads. Prior to migration, the Cloud Strategy Team and Cloud Adoption Team are encouraged to agree to a prioritized list of workloads to be migrated, which form the basis for the initial migration backlog.
+
+Initially, workloads on the migration backlog are unlikely to meet the INVEST criteria outlined in the previous section. Instead, they serve as a logical grouping of assets from an initial inventory as a placeholder for future work. Those placeholders may not be technically accurate, but they serve as the basis for coordination with the business.
+
+![Relationship between the migration, release, and iteration backlogs used during the migration process](../../../_images/migration/migrate-release-iteration-backlog-relationship.png)
+
+*The migration, release, and iteration backlogs track different levels of activity during migration processes.*
+
 
 In any migration backlog, the change management team should strive to obtain the following information for any workload in the plan. At minimum, this data should be available for any workloads prioritized for migration in the next two or three releases.
 
@@ -78,7 +85,7 @@ To stabilize business impact, the Cloud Strategy Team should establish a monthly
 
 A *sprint*, or *iteration*, is a consistent, time-bound unit of work. In the migration process, this is often measured in two-week increments. However, it’s not unheard of to have one-week or four-week iterations. Creating time-bound iterations forces consistent intervals of effort completion and allows for more frequent adjustment to plans, based on new learnings. During any given sprint, there is commonly work related to the assessment, migration, and optimization of workloads defined in the migration backlog. Those units of work should be tracked and managed in the same project-management tool as the migration and release backlog, to drive consistency across each level of change management.
 
-A *sprint backlog*, or *iteration backlog*, consists of the technical work to be completed in a single sprint or iteration. That work should be derived from the workloads to be migrated. When using tools like Azure DevOps (previously Visual Studio Online) for project management, the work items in a sprint would be *children* of the product backlog Items in a release backlog and the *epics* in a migration backlog. Such a parent-child relationship allows for clarity at all levels of change management.
+A *sprint backlog*, or *iteration backlog*, consists of the technical work to be completed in a single sprint or iteration, dealing with migrating individual assets. That work should be derived from the list of workloads being migrated. When using tools like Azure DevOps (previously Visual Studio Online) for project management, the work items in a sprint would be children of the product backlog Items in a release backlog and the epics in a migration backlog. Such a parent-child relationship allows for clarity at all levels of change management.
 
 Within a single sprint or iteration, the Cloud Adoption Team would work to deliver the committed amount of technical work, driving toward the migration of a defined workload. This is the end result of the change management strategy. When complete, these efforts can be tested by validating production readiness of a workload staged in the cloud.
 
