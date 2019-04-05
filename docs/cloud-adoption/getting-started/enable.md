@@ -14,6 +14,14 @@ ms.topic: landing-page
 
 The Microsoft Cloud Adoption Framework for Azure is provided as a free self-service tool to guide readers through various cloud adoption efforts. The focus of this content is to help customers succeed at realizing business goals that can be enabled by Azure. However, this content also respects that the reader may be addressing business, culture, or technical challenges that can be very broad in nature and may at times require a cloud-neutral position. As such, each section of this guidance starts with an Azure first approach, but follows with cloud neutral theory that can scale across business and technical decisions.
 
+Throughout this framework, enablement is a core theme. The following are the central components to enablement that should be present in any cloud adoption journey:
+
+* Plan: Establishing clear [business outcomes](../business-strategy/business-outcomes/overview.md), a defined [digital estate plan](../digital-estate/index.md), and well understood [adoption backlogs](../migrate/migration-considerations/pre-requisites/migration-backlog-review.md)
+* Ready: Ensure the readiness of staff through [skills and learning plans](../ready/technical-skills.md)
+* Govern: Align proper [governance disciplines](../governance/index.md)
+* Operate: On-going operations of performant, resilient, cost effective workloads
+* Support: Align proper partnership and support options
+
 ## Additional Tools
 
 In addition to the Cloud Adoption Framework, Microsoft provides a number of additional topics that can enable success. This article highlights a few common tools that can significantly improve success beyond the scope of the Cloud Adoption Framework. Establishing cloud governance, resilient architectures, technical skills, and a DevOps approach are each important to the success of any cloud adoption effort. The reader is advised to bookmark this page as a resource to revisit throughout any cloud adoption journey.
