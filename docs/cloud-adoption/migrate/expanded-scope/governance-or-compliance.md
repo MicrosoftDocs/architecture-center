@@ -7,25 +7,25 @@ ms.date: 4/4/2019
 
 # Governance or compliance strategy
 
-When governance or compliance are required throughout a migration effort, additional scope is required. The following guidance will expand the scope of the [baseline migration guide](../baseline-migration-guide/index.md) to address different approaches to addressing governance or compliance requirements.
+When governance or compliance are required throughout a migration effort, additional scope is required. The following guidance will expand the scope of the [baseline migration guide](../baseline-migration-guide/overview.md) to address different approaches to addressing governance or compliance requirements.
 
 ## General scope expansion
 
-Pre-requisites activities are impacted the most when governance or compliance are required. Additional adjustments may be required during assessment, migration, and optimization.
+Prerequisite activities are affected the most when governance or compliance are required. Additional adjustments may be required during assessment, migration, and optimization.
 
-## Suggested pre-requisites
+## Suggested prerequisites
 
-Configuration of the base Azure environment could change significantly when integrating governance or compliance requirements. To understand how pre-requisites change it's important to understand the nature of the requirements. Prior to beginning any migration which requires governance or compliance, an approach should be chosen and implemented in the cloud environment. The following are a few high level approaches commonly seen during migrations:
+Configuration of the base Azure environment could change significantly when integrating governance or compliance requirements. To understand how prerequisites change it's important to understand the nature of the requirements. Prior to beginning any migration which requires governance or compliance, an approach should be chosen and implemented in the cloud environment. The following are a few high level approaches commonly seen during migrations:
 
-**Common governance approach:** For most organizations, the [CAF governance model](../../governance/journeys/overview.md) is a sufficient approach which consists of a Minimally Viable Product (MVP) implementation, followed by targeted iterations of governance maturity to address tangible risks identified in the adoption plan. This approach provides the minimum tooling needed to establish consistent governance, so the team can understand the tools. It then expands on those tools to address common governance concerns.
+**Common governance approach:** For most organizations, the [CAF governance model](../../governance/journeys/overview.md) is a sufficient approach which consists of a minimum viable product (MVP) implementation, followed by targeted iterations of governance maturity to address tangible risks identified in the adoption plan. This approach provides the minimum tooling needed to establish consistent governance, so the team can understand the tools. It then expands on those tools to address common governance concerns.
 
-**ISO 27001 Compliance blueprints:** For customer who are required to adhere to ISO compliance standards, the [ISO 27001 Shared Services blueprint samples](/azure/governance/blueprints/samples/iso27001-shared/index) can serve as a more effective MVP to produce richer governance constraints earlier in the iterative process. The [ISO 27001 App Service Environment/SQL Database Sample](/azure/governance/blueprints/samples/iso27001-ase-sql-workload/) expands on the blueprint to map controls and deploy a common architecture for an application environment. As additional compliance blueprints are released, they will be referenced here as well.
+**ISO 27001 Compliance blueprints:** For customer who are required to adhere to ISO compliance standards, the [ISO 27001 Shared Services blueprint samples](/azure/governance/blueprints/samples/iso27001-shared/index) can serve as a more effective MVP to produce richer governance constraints earlier in the iterative process. The [ISO 27001 App Service Environment/SQL Database Sample](/azure/governance/blueprints/samples/iso27001-ase-sql-workload) expands on the blueprint to map controls and deploy a common architecture for an application environment. As additional compliance blueprints are released, they will be referenced here as well.
 
-**Virtual Data Center:** A more robust governance starting point may be required. In such cases, please consider the [Azure Virtual Datacenter](../../../vdc/index.md). This approach is commonly suggested during enterprise-scale adoption efforts, and especially for efforts which exceed 10,000 assets. It is also the de facto choice for complex governance scenarios when any of the following are required: extensive 3rd party compliance requirements, deep domain expertise, or parity with mature IT governance policies and compliance requirements.
+**Virtual Data Center:** A more robust governance starting point may be required. In such cases, please consider the [Azure virtual datacenter (VDC)](../../../vdc/index.md). This approach is commonly suggested during enterprise-scale adoption efforts, and especially for efforts which exceed 10,000 assets. It is also the de facto choice for complex governance scenarios when any of the following are required: extensive third-party compliance requirements, deep domain expertise, or parity with mature IT governance policies and compliance requirements.
 
 ## Assess process changes
 
-During assessment, additional decisions will be required to align to the required governance approach. The Cloud Governance Team should provide all members of the Cloud Adoption Team with any policy statements, architectural guidance, or governance/compliance requirements prior to the assessment of a workload. 
+During assessment, additional decisions will be required to align to the required governance approach. The Cloud Governance Team should provide all members of the Cloud Adoption Team with any policy statements, architectural guidance, or governance/compliance requirements prior to the assessment of a workload.
 
 ### Suggested action during the assess process
 
@@ -45,7 +45,7 @@ During this process, it is advised that the project plan include time allocation
 
 ## Next steps
 
-As the final item on the [expanded scope checklist](./checklist.md), the reader is advised to return to the checklist and re-evaluate any additional scope requirements for the migration effort.
+As the final item on the [expanded scope checklist](./overview.md), the reader is advised to return to the checklist and re-evaluate any additional scope requirements for the migration effort.
 
 > [!div class="nextstepaction"]
-> [Expanded Scope Checklist](./checklist.md)
+> [Expanded Scope Checklist](./overview.md)

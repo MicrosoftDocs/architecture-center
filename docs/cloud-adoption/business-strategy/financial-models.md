@@ -54,7 +54,7 @@ Revenue delta should be forecasted in partnership with the business. Once the bu
 
 ## Cost deltas
 
-Cost deltas are the amount of increase or decrease that will come as a result of the transformation. There are a number of independent variables that can impact cost deltas. Earnings are largely based on hard costs like capital expense reductions, cost avoidance, operational cost reductions, and depreciation reductions. The following sections are examples of cost deltas to consider.
+Cost deltas are the amount of increase or decrease that will come as a result of the transformation. There are a number of independent variables that can affect cost deltas. Earnings are largely based on hard costs like capital expense reductions, cost avoidance, operational cost reductions, and depreciation reductions. The following sections are examples of cost deltas to consider.
 
 ### Depreciation reductions or acceleration
 

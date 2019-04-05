@@ -566,7 +566,7 @@
 - name: Cloud Adoption Framework
   items:
   - name: Introduction
-    href: cloud-adoption/overview.md
+    href: cloud-adoption/index.md
   - name: Getting started
     items:
     - name: Understand the Migration Journey
@@ -576,7 +576,7 @@
     - name: Enable success during either journey
       href: cloud-adoption/getting-started/enable.md
   - name: Plan
-    href: cloud-adoption/business-strategy/overview.md
+    href: cloud-adoption/business-strategy/index.md
     items:
     - name: Motivations (Why are we moving to the cloud)
       href: cloud-adoption/business-strategy/motivations-why-are-we-moving-to-the-cloud.md
@@ -602,6 +602,8 @@
         href: cloud-adoption/digital-estate/rationalize.md
       - name: Align cost models to forecast cost
         href: cloud-adoption/digital-estate/calculate.md
+    - name: Best practices
+      href: cloud-adoption/business-strategy/azure-best-practices/index.md
   - name: Ready
     items:
     - name: XX-Overview
@@ -638,10 +640,8 @@
         href: cloud-adoption/ready/considerations/index.md
       - name: Create hybrid cloud consistency
         href: cloud-adoption/infrastructure/misc/hybrid-consistency.md
-    - name: Readiness best practices
-      items:
-      - name: XX-Overview
-        href: cloud-adoption/ready/azure-best-practices/index.md
+    - name: Best practices
+      href: cloud-adoption/ready/azure-best-practices/index.md
     - name: Organizational Readiness
       items:
       - name: XX-Governance and Security Alignment
@@ -660,7 +660,7 @@
         - name: Intro to the Migration Guide
           href: cloud-adoption/migrate/baseline-migration-guide/index.md
         - name: Prerequisites before migrating to Azure 
-          href: cloud-adoption/migrate/baseline-migration-guide/pre-requisites.md
+          href: cloud-adoption/migrate/baseline-migration-guide/prerequisites.md
         - name: Assess individual workloads prior to migration
           href: cloud-adoption/migrate/baseline-migration-guide/assess.md
         - name: Migrate assets that make up a workload
@@ -698,6 +698,10 @@
       - name: Best practices
         href: cloud-adoption/migrate/azure-best-practices/index.md
         items:
+        - name: Best Practices for assessing workloads
+          items:
+          - name: Assess on-premises resources for migration
+            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-assessment.md
         - name: Best Practices for migrating workloads
           items:
           - name: Set up networking for migrated workloads
@@ -707,8 +711,6 @@
             items:
             - name: Deploy an Azure infrastructure
               href: cloud-adoption/migrate/azure-best-practices/contoso-migration-infrastructure.md
-            - name: Assess on-premises resources for migration
-              href: cloud-adoption/migrate/azure-best-practices/contoso-migration-assessment.md
             - name: Windows Server workloads
               items:
               - name: Rehost an app on Azure VMs
@@ -760,18 +762,18 @@
         href: cloud-adoption/migrate/migration-considerations/index.md
         items:
         - name: Prerequisites
-          href: cloud-adoption/migrate/migration-considerations/pre-requisites/index.md
+          href: cloud-adoption/migrate/migration-considerations/prerequisites/index.md
           items:
           - name: Decisions that affect migration activities
-            href: cloud-adoption/migrate/migration-considerations/pre-requisites/decisions.md
+            href: cloud-adoption/migrate/migration-considerations/prerequisites/decisions.md
           - name: Environment Planning Checklist
-            href: cloud-adoption/migrate/migration-considerations/pre-requisites/planning-checklist.md
-          - name: Structure backlogs to manage change
-            href: cloud-adoption/migrate/migration-considerations/pre-requisites/technical-complexity.md
+            href: cloud-adoption/migrate/migration-considerations/prerequisites/planning-checklist.md
           - name: Align roles and responsibilities
-            href: cloud-adoption/migrate/migration-considerations/pre-requisites/culture-complexity.md
+            href: cloud-adoption/migrate/migration-considerations/prerequisites/culture-complexity.md
+          - name: Structure backlogs to manage change
+            href: cloud-adoption/migrate/migration-considerations/prerequisites/technical-complexity.md
           - name: Migration Backlog Review
-            href: cloud-adoption/migrate/migration-considerations/pre-requisites/migration-backlog-review.md
+            href: cloud-adoption/migrate/migration-considerations/prerequisites/migration-backlog-review.md
         - name: Assess assets and workloads
           items:
           - name: Assess assets before migration
@@ -816,10 +818,10 @@
             href: cloud-adoption/migrate/migration-considerations/optimize/ready.md
           - name: Promote workloads to production
             href: cloud-adoption/migrate/migration-considerations/optimize/promote.md
-          - name: Retrospective
-            href: cloud-adoption/migrate/migration-considerations/optimize/retrospective.md
           - name: Decomission retired assets
             href: cloud-adoption/migrate/migration-considerations/optimize/decomission.md
+          - name: Retrospective
+            href: cloud-adoption/migrate/migration-considerations/optimize/retrospective.md
         - name: Secure and manage workloads in production
           items:
           - name: Overview
@@ -828,6 +830,8 @@
       items:
       - name: Overview
         href: cloud-adoption/innovate/index.md
+      - name: Best practices
+        href: cloud-adoption/innovate/azure-best-practices/index.md
     - name: Govern
       href: cloud-adoption/governance/overview.md
       items:
@@ -874,6 +878,8 @@
             href: cloud-adoption/governance/journeys/large-enterprise/multi-cloud-evolution.md
           - name: Multiple layers of governance
             href: cloud-adoption/governance/journeys/large-enterprise/multiple-layers-of-governance.md
+      - name: Best practices
+        href: cloud-adoption/governance/azure-best-practices/overview.md
       - name: Governance Considerations
         items:
         - name: Implement a cloud governance strategy
@@ -1007,9 +1013,11 @@
     - name: Operate
       items:
       - name: Overview
-        href: cloud-adoption/operations/overview.md
+        href: cloud-adoption/operations/index.md
       - name: Establish an operational fitness review
         href: cloud-adoption/operations/operational-fitness-review.md
+      - name: Best practices
+        href: cloud-adoption/operations/azure-best-practices/index.md
   - name: References
     items:
     - name: Infrastructure

@@ -7,13 +7,13 @@ ms.date: 4/4/2019
 
 # Executive readiness
 
-- **Organizational complexity (Executive readiness):** Proper levels of executive support and leadership are critical to the success of a migration effort. If the executive team is not ready to engage, then support is unlikely to follow. This complexity is addressed during the pre-requisite and assess processes.
+- **Organizational complexity (Executive readiness):** Proper levels of executive support and leadership are critical to the success of a migration effort. If the executive team is not ready to engage, then support is unlikely to follow. This complexity is addressed during the prerequisite and assess processes.
 
 ## General scope expansion
 
 Summarize the general approach to overcoming this challenge
 
-## Suggested pre-requisites
+## Suggested prerequisites
 
 What should be done prior to the migration process to reduce the impact of this complexity.
 

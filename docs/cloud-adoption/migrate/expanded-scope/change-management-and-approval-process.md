@@ -13,7 +13,7 @@ ms.date: 4/4/2019
 
 Summarize the general approach to overcoming this challenge
 
-## Suggested pre-requisites
+## Suggested prerequisites
 
 What should be done prior to the migration process to reduce the impact of this complexity.
 

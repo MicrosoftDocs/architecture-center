@@ -11,7 +11,7 @@ Intro Text
 
 # [Evaluate Options to Transform](#tab/options)
 
-![Infographic of the migration options](../../../_images/migration/migration-options.png)
+![Infographic of the migration options](../../_images/migration/migration-options.png)
 
 ::: zone target="docs"
 

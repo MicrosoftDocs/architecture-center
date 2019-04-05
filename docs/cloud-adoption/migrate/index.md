@@ -9,13 +9,13 @@ ms.topic: landing-page
 
 # Cloud migration in the Microsoft CAF for Azure
 
-Cloud migration is the process of moving existing digital assets into a cloud platform. In this approach, existing assets are replicated to the cloud with minimal modifications. When an application or workload is operational in the cloud, users are transitioned from the existing solution to the cloud solution. Cloud migration is one means of effectively balancing a cloud portfolio. Often times, this is the fastest and most agile approach, short term. Conversely, some of the benefits of the cloud may not be realized through this approach without additional future modification. Enterprises and mid-market customers use this approach to accelerate the pace of change, avoid planned capital expenditures, and reduce on-going operational costs.
+Cloud migration is the process of moving existing digital assets into a cloud platform. In this approach, existing assets are replicated to the cloud with minimal modifications. When an application or workload is operational in the cloud, users are transitioned from the existing solution to the cloud solution. Cloud migration is one means of effectively balancing a cloud portfolio. Often times, this is the fastest and most agile approach, short term. Conversely, some of the benefits of the cloud may not be realized through this approach without additional future modification. Enterprises and mid-market customers use this approach to accelerate the pace of change, avoid planned capital expenditures, and reduce ongoing operational costs.
 
 ## Creating a balanced cloud portfolio
 
-In any balanced technology portfolio, there is a mixture of assets in various states. Some applications are slated for retirement, with minimal support. Other applications or assets are supported in a maintenance state, but the features associated with those solutions are stable. For newer processes within the business,  changing market conditions will likely result in on-going feature enhancements or modernization. When opportunities to drive new revenue streams present themselves, net new applications or assets are introduced into the environment. At each stage of an asset's lifecycle, the impact any investment has on revenue and profit will change. The later an asset is in its lifecycle, the less likely a company is to see a return from a new feature or modernization investment.
+In any balanced technology portfolio, there is a mixture of assets in various states. Some applications are slated for retirement, with minimal support. Other applications or assets are supported in a maintenance state, but the features associated with those solutions are stable. For newer processes within the business, changing market conditions will likely result in ongoing feature enhancements or modernization. When opportunities to drive new revenue streams present themselves, net new applications or assets are introduced into the environment. At each stage of an asset's lifecycle, the impact any investment has on revenue and profit will change. The later an asset is in its lifecycle, the less likely a company is to see a return from a new feature or modernization investment.
 
-The cloud provides various adoption mechanisms, each with similar degrees of investment and return. Building cloud native applications can significantly reduce operating expenses. Once a cloud native application is released, new features and solutions can iterate faster. Modernizing an application can have similar yields, by removing legacy constraints associated with on-premise development models. Unfortunately, these two approaches are labor-intensive and have a strong dependency on the size, skill, and experience of software development teams. Sadly, there is commonly a labor misalignment. The people with the skills and talent to modernize applications would much rather be building new applications. In a labor constrained market, modernization projects at scale can suffer from an employee satisfaction and talent issue. In a balanced portfolio, this approach should be reserved for applications that would receive significant feature enhancements, if they remained on-premises.
+The cloud provides various adoption mechanisms, each with similar degrees of investment and return. Building cloud native applications can significantly reduce operating expenses. Once a cloud native application is released, new features and solutions can iterate faster. Modernizing an application can have similar yields, by removing legacy constraints associated with on-premises development models. Unfortunately, these two approaches are labor-intensive and have a strong dependency on the size, skill, and experience of software development teams. Sadly, there is commonly a labor misalignment. The people with the skills and talent to modernize applications would much rather be building new applications. In a labor constrained market, modernization projects at scale can suffer from an employee satisfaction and talent issue. In a balanced portfolio, this approach should be reserved for applications that would receive significant feature enhancements, if they remained on-premises.
 
 ## Cloud migration guides
 
@@ -25,7 +25,7 @@ To start down an adoption path, choose one of the following guides. Each guide o
 
 <ul class="panelContent cardsZ">
 <li style="display: flex; flex-direction: column;">
-    <a href="./baseline-migration-guide/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./baseline-migration-guide/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -84,13 +84,13 @@ These three initial inputs will shape the Migration Backlog. The output of the m
 - Assess: Evaluate the existing asset and establish a plan for migration of the asset
 - Migrate: Replicate the functionality of an asset in the cloud
 - Optimize: Balance performance, cost, access, and operational capacity of the cloud asset
-- Secure and Manage: Ensure the asset is ready for on-going operations
+- Secure and Manage: Ensure the asset is ready for ongoing operations
 
 The questions asked during the development of a migration backlog will determine the complexity and level of effort required within the Cloud Migration Process during each iteration and each release of functionality.
 
 ## Transition to the end state
 
-The desired goal is a smooth, semi-automated migration to the cloud. In such a scenario, the migration process would leverage the tools provided by a cloud vendor to rapidly replicate and stage assets in the cloud. Once verified a simple network change would re-route users to the cloud solution. For many use cases, the technology to reach this desired goal is largely available. There are tested cases that demonstrate the speed at which 10,000 VMs can be replicated into Azure.
+The desired goal is a smooth, semi-automated migration to the cloud. In such a scenario, the migration process uses the tools provided by a cloud vendor to rapidly replicate and stage assets in the cloud. Once verified a simple network change would re-route users to the cloud solution. For many use cases, the technology to reach this desired goal is largely available. There are tested cases that demonstrate the speed at which 10,000 VMs can be replicated into Azure.
 
 Unfortunately, an **incremental migration** approach is still required. In most environments, the long list of VMs to be migrated has to be decomposed into smaller units of work for a migration to be successful. There are many factors that create limits to the number of VMs that can be migrated in a given period of time. Outbound Network speed is one of the few limiters that are technical in nature. Most of the limiters are based on the businesses ability to validate and consume change.
 
@@ -115,7 +115,7 @@ Narrative Summary: This approach consists of fewer than 1,000 VMs. Less than 10 
 
 **Complex Migration**: Longer term migration with greater rigor in areas of change management, and deeper process controls
 
-Narrative Summary: This approach consists of fewer than 10,000 VMs. Applications are supported by a number of business and IT Application Owners. Central IT has established governance best practices, but prioritizes innovation over control. Administrative access to production environments is dispersed across business units to create separation of responsibility. 
+Narrative Summary: This approach consists of fewer than 10,000 VMs. Applications are supported by a number of business and IT Application Owners. Central IT has established governance best practices, but prioritizes innovation over control. Administrative access to production environments is dispersed across business units to create separation of responsibility.
 
 ![Example of Incremental migration evolutions](../../_images/migration/incremental-migration-example.png)
 
@@ -125,7 +125,7 @@ Narrative Summary: This approach consists of fewer than 10,000 VMs. Applications
 
 <ul class="panelContent cardsZ">
 <li style="display: flex; flex-direction: column;">
-    <a href="./baseline-migration-guide/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./baseline-migration-guide/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -139,7 +139,7 @@ Narrative Summary: This approach consists of fewer than 10,000 VMs. Applications
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./expanded-scope/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./expanded-scope/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -163,6 +163,6 @@ These two journeys represent two extremes of experience for customers who invest
 Choose one of these journeys:
 
 > [!div class="nextstepaction"]
-> [Baseline Migration Guide](./baseline-migration-guide/index.md)
+> [Baseline Migration Guide](./baseline-migration-guide/overview.md)
 >
-> [Complex Scenarios Guide](./expanded-scope/index.md)
+> [Complex Scenarios Guide](./expanded-scope/overview.md)

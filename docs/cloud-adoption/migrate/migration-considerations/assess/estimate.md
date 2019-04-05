@@ -5,27 +5,29 @@ author: BrianBlanchard
 ms.date: 4/4/2019
 ---
 
-# Estimate Cloud Costs
+# Estimate cloud costs
 
-During migration, there are a number of factors that will impact decisions and execution activities. This article discusses various options for estimating cloud costs to help understand which of those options are best for the reader.
+During migration, there are a number of factors that can affect decisions and execution activities. To help understand which of those options are best for different situations, this article discusses various options for estimating cloud costs.
 
 ## Digital Estate Size
 
-As with other decisions, the size of the digital estate will directly impact decisions. Migrations that involve less that 250 VMs can be estimated more easily that migrations of 10,000+ VMs. For 1,000+ unit digital estates, its still possible to break down an estimate into 4-5 actionable iterations making the estimation process manageable.
+The size of your digital estate directly affects migration decisions. Migrations that involve fewer than 250 VMs can be estimated much more easily than a migration involving 10,000+ VMs. It's highly recommended that you select a smaller workload as your first migration. This gives your team a chance to learn how to estimate the costs of a simple migration effort before attempting to estimate larger and more complicated workload migrations.
 
-If the digital estate size is under 1,000 VMs, a tool like [Azure Migrate](/azure/migrate/migrate-overview) is likely sufficient to gather data on the inventory and forecast costs. Additional cost estimate tooling options are described in the article on [digital estate cost calculations](../../../digital-estate/calculate.md).
+However, note that smaller, single-workload, migrations can still involve a widely varying amount of supporting assets. If your migration involves under 1,000 VMs, a tool like [Azure Migrate](/azure/migrate/migrate-overview) is likely sufficient to gather data on the inventory and forecast costs. Additional cost-estimate tooling options are described in the article on [digital estate cost calculations](../../../digital-estate/calculate.md).
 
-For larger estates or when a higher degree of forecast accuracy is required, a more comprehensive approach like that outlined in the [Digital Estate section of the Cloud Adoption Framework](../../../digital-estate/overview.md) will likely be required.
+For 1,000+ unit digital estates, it’s still possible to break down an estimate into four or five actionable iterations, making the estimation process manageable. For larger estates or when a higher degree of forecast accuracy is required, a more comprehensive approach, like that outlined in the "[Digital estate](../../../digital-estate/overview.md)" section of the Cloud Adoption Framework, will likely be required.
 
 ## Accounting Models
 
-For readers who are familiar with traditional IT procurement processes, estimation in the cloud will seem foreign. When adopting cloud technologies, acquisition shifts from a rigid, structured capital expenditure (CapEx) to a fluid operating expense (OpEx) model. In the traditional CapEx model, the IT team would attempt to consolidate buying power for multiple applications across multiple programs to centralize a pool of share IT assets that could support each of those solutions. In the OpEx based cloud model, costs can be directly attributed to the support needs of individual applications, teams, or business units. This approach allows for a more direct attribution of costs to the supported internal customer. When estimating costs its important to first understand how much of this new accounting capability will be leveraged by the IT team.
+Accounting models
 
-For readers who wish to replicate the legacy CapEx approach to accounting, leverage the outputs of either approach suggested in the [Digital Estate Size](#digital-estate-size) section above to get an annual costs basis. Next, multiply that annual cost by the companies typical hardware refresh cycle. Hardware refresh cycle is the rate at which a company replaces aging hardware, this is usually measured in years. Annual run rate multiplied by hardware refresh cycle will create a cost structure very similar to a CapEx investment pattern.
+If you are familiar with traditional IT procurement processes, estimation in the cloud may seem foreign. When adopting cloud technologies, acquisition shifts from a rigid, structured capital expenditure (CapEx) model to a fluid operating expense (OpEx) one. In the traditional CapEx model, the IT team would attempt to consolidate buying power for multiple workloads across various programs to centralize a pool of shared IT assets that could support each of those solutions. In the OpEx-based cloud model, costs can be directly attributed to the support needs of individual workloads, teams, or business units. This approach allows for a more direct attribution of costs to the supported internal customer. When estimating costs, it’s important to first understand how much of this new accounting capability will be used by the IT team.
+
+For those wanting to replicate the legacy CapEx approach to accounting, use the outputs of either approach suggested in the "[Digital estate size](#digital-estate-size)" section above to get an annual cost basis. Next, multiply that annual cost by the company’s typical hardware refresh cycle. Hardware refresh cycle is the rate at which a company replaces aging hardware, usually measured in years. Annual run rate multiplied by hardware refresh cycle creates a cost structure very similar to a CapEx investment pattern.
 
 ## Next steps
 
-After estimating costs, migration can begin. However, it would be wise to review [partnership and support options](partnership-options.md) before beginning any migration.
+After estimating costs, migration can begin. However, it would be wise to review [partnership and support options](./partnership-options.md) before beginning any migration.
 
 > [!div class="nextstepaction"]
-> [Engaging Migration Partners and Support](partnership-options.md)
+> [Understanding partnership options](./partnership-options.md)
