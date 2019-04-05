@@ -698,6 +698,10 @@
       - name: Best practices
         href: cloud-adoption/migrate/azure-best-practices/overview.md
         items:
+        - name: Best Practices for assessing workloads
+          items:
+          - name: Assess on-premises resources for migration
+            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-assessment.md
         - name: Best Practices for migrating workloads
           items:
           - name: Set up networking for migrated workloads
@@ -707,8 +711,6 @@
             items:
             - name: Deploy an Azure infrastructure
               href: cloud-adoption/migrate/azure-best-practices/contoso-migration-infrastructure.md
-            - name: Assess on-premises resources for migration
-              href: cloud-adoption/migrate/azure-best-practices/contoso-migration-assessment.md
             - name: Windows Server workloads
               items:
               - name: Rehost an app on Azure VMs
