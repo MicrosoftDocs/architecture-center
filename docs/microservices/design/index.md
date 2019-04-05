@@ -47,7 +47,7 @@ Our reference implementation uses Kubernetes with [Azure Kubernetes Service](/az
 
 <!-- links -->
 
-[drone-ri]: https://github.com/mspnp/microservices-reference-implementation
+[drone-ri]: https://github.com/mspnp/microservices-reference-implementation/tree/v0.1.0-orig
 
 ## Next steps
 
