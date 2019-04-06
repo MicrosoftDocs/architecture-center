@@ -2,9 +2,7 @@
 
 This article describes a proven CI/CD process for deploying microservices to Azure Kubernetes Service (AKS).
 
-This pipeline uses [Azure Pipelines](/azure/devops/pipelines/?view=azure-devops) to build, test, and deploy microservices to AKS. The container images for the microservices are stored in [Azure Container Registry](/azure/container-registry/). However, the basic approach described here can work with other tools and services such as Jenkins and Docker Hub.
-
-Before reading this article, consider reading [CI/CD for microservices architectures](./ci-cd) to understand the goals and challenges that this pipeline attempts to meet. These goals can be summarized as follows:
+Before reading this article, consider reading [CI/CD for microservices architectures](./ci-cd.md) to understand the goals and challenges that this pipeline attempts to meet. These goals can be summarized as follows:
 
 - Teams can build and deploy their services independently.
 - 
@@ -22,7 +20,9 @@ In this section, we present a possible CI/CD workflow, based on the following as
 - The team uses [namespaces](/azure/container-registry/container-registry-best-practices#repository-namespaces) in Azure Container Registry to isolate images that are approved for production from images that are still being tested.
 - The team uses Helm charts to package each microservice.
 
-In this example, a developer is working on a microservice called Delivery Service. While developing a new feature, the developer checks code into a feature branch.
+This pipeline uses [Azure Pipelines](/azure/devops/pipelines/?view=azure-devops) to build, test, and deploy microservices to AKS. The container images for the microservices are stored in [Azure Container Registry](/azure/container-registry/). However, the basic approach described here can work with other tools and services such as Jenkins and Docker Hub.
+
+In this example, a developer is working on a microservice called the Delivery Service. While developing a new feature, the developer checks code into a feature branch.
 
 ![CI/CD workflow](./images/aks-cicd-1.png)
 
