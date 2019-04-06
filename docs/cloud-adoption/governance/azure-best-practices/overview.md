@@ -7,4 +7,4 @@ ms.date: 4/4/2019
 
 # Azure governance best practices
 
-Coming summer 2019: Guidance and examples for aligning corporate policy to tangible risks, establishing risk remediation through policy and processes, and implementing cloud-based governance tooling.
+Coming summer 2019: Best practices showing how to use Azure-based tools, features, and services to support corporate policy and cloud governance efforts.
