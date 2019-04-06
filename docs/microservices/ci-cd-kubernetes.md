@@ -4,18 +4,16 @@ This article describes a proven CI/CD process for deploying microservices to Azu
 
 This pipeline uses [Azure Pipelines](/azure/devops/pipelines/?view=azure-devops) to build, test, and deploy microservices to AKS. The container images for the microservices are stored in [Azure Container Registry](/azure/container-registry/). However, the basic approach described here can work with other tools and services such as Jenkins and Docker Hub.
 
-Before reading this article, consider reading [CI/CD for microservices architectures](./ci-cd) to understand the goals and challenges that this pipeline is attempting to meet.
+Before reading this article, consider reading [CI/CD for microservices architectures](./ci-cd) to understand the goals and challenges that this pipeline attempts to meet. These goals can be summarized as follows:
 
 - Teams can build and deploy their services independently.
 - 
 - Quality gates are enforced at each stage of the pipeline.
 - 
 
-
-
 Let's start by looking at the overall flow of the pipeline.
 
-## Overview of CI/CD process
+## Overview of the CI/CD process
 
 In this section, we present a possible CI/CD workflow, based on the following assumptions:
 
@@ -24,11 +22,11 @@ In this section, we present a possible CI/CD workflow, based on the following as
 - The team uses [namespaces](/azure/container-registry/container-registry-best-practices#repository-namespaces) in Azure Container Registry to isolate images that are approved for production from images that are still being tested.
 - The team uses Helm charts to package each microservice.
 
-In this example, a developer is working on a microservice called Delivery Service. (The name comes from the reference implementation described [here](../../microservices/design/index.md#scenario).) While developing a new feature, the developer checks code into a feature branch.
+In this example, a developer is working on a microservice called Delivery Service. While developing a new feature, the developer checks code into a feature branch.
 
 ![CI/CD workflow](./images/aks-cicd-1.png)
 
-Pushing commits to this branch tiggers a CI build for the microservice. By convention, feature branches are named `feature/*`. The [build definition file](/azure/devops/pipelines/yaml-schema) includes a trigger that filters by the branch name and the source path. Using this approach, each team can have its own build pipeline.
+Pushing commits to this branch tiggers a CI build for the microservice. By convention, feature branches are named `feature/*`. The build definition file includes a trigger that filters by the branch name and the source path:
 
 ```yaml
 trigger:
@@ -37,23 +35,27 @@ trigger:
     include:
     - master
     - feature/*
+    - topic/*
 
     exclude:
     - feature/experimental/*
+    - topic/experimental/*
 
   paths:
      include:
      - /src/shipping/delivery/
 ```
 
-At this point in the workflow, the CI build runs some minimal code verification:
+(You can find the complete file [here](https://github.com/mspnp/microservices-reference-implementation/blob/master/src/shipping/delivery/azure-pipelines-validation.yml).)
 
-1. Build code
+ Using this approach, each team can have its own build pipeline. Only code that is checked into the `/src/shipping/delivery` folder triggers a build of the Delivery Service. At this point in the workflow, the CI build runs some minimal code verification:
+
+1. Build the code
 1. Run unit tests
 
-The goal is to keep build times short, so the developer can get quick feedback. When the feature is ready to merge into master, the developer opens a PR. This triggers another CI build that performs some additional checks:
+The goal is to keep build times short, so the developer can get quick feedback. Once the feature is ready to merge into master, the developer opens a PR. This triggers another CI build that performs some additional checks:
 
-1. Build code
+1. Build the code
 1. Run unit tests
 1. Build the runtime container image
 1. Run vulnerability scans on the image
@@ -82,11 +84,7 @@ Assuming this build succeeds, it triggers a deployment (CD) process using an Azu
 
 Even in a monorepo, these tasks can be scoped to individual microservices, so that teams can deploy with high velocity. The process has some manual steps: Approving PRs, creating release branches, and approving deployments into the production cluster. These steps are manual by policy &mdash; they could be completely automated if the organization prefers.
 
-The following diagram shows the end-to-end CI and CD pipelines:
-
-![CD/CD pipeline](./images/aks-cicd-flow.png)
-
-## Docker recommandations
+## Docker recommendations
 
 When possible, package your build process into a container. That allows you to build your code artifacts using Docker, without needing to configure the build environment on each build machine. 
 
@@ -219,3 +217,27 @@ In the deployment,
   selector:
     app.kubernetes.io/name: {{ template "delivery.name" . }}
     app.kubernetes.io/instance: {{ .Release.Name }}
+
+## Azure DevOps Pipeline
+
+
+-	Trigger(s)
+o	GitHub PR (see ‘pr’ trigger)
+o	Commits (filtered by branches and/or paths)
+
+
+
+The following diagram shows the end-to-end CI and CD pipelines:
+
+![CD/CD pipeline](./images/aks-cicd-flow.png)
+
+Tasks in the CI job:
+-	Build the testrunner container
+-	Run the tests, by invoking docker run against the testrunner container
+-	Publish the test results
+o	See here: https://docs.microsoft.com/en-us/azure/devops/pipelines/languages/docker?view=azure-devops&tabs=yaml
+-	Build the runtime image
+-	Push to ACR (or other container registry)
+-	Install Helm on the agent, using HelmInstaller and HelmDeploy tasks. (For CI, the HelmDeploy task runs ‘helm init --client-only to set up the Helm client on the agent. You could also use this task to install Tiller on the cluster when creating a new cluster environment.)
+-	Package the Helm chart 
+-	Push the Helm package to ACR (or other Helm repository)
