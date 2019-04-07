@@ -5,9 +5,9 @@ This article describes a proven CI/CD process for deploying microservices to Azu
 Before reading this article, consider reading [CI/CD for microservices architectures](./ci-cd.md) to understand the goals and challenges that this pipeline attempts to meet. These goals can be summarized as follows:
 
 - Teams can build and deploy their services independently.
-- 
+- Code changes that pass the CI process are automatically deployed to a production-like environment.
 - Quality gates are enforced at each stage of the pipeline.
-- 
+- A new version of a service can be deployed side by side with the previous version.
 
 Let's start by looking at the overall flow of the pipeline.
 
@@ -21,11 +21,11 @@ This workflow is based on the following assumptions:
 - The container images for each microservice are stored in [Azure Container Registry](/azure/container-registry/).
 - The team uses Helm charts to package each microservice.
 
-However, the basic approach described here can work with other tools and services such as Jenkins and Docker Hub.
+The basic approach described here can work with other tools and services such as Jenkins and Docker Hub.
 
 ### Validation builds
 
-Suppose that a developer is working on a microservice called the Delivery Service. This service manages deliveries in a drone delivery service. (The complete scenario is described [here](./model/domain-analysis.md).) While developing a new feature, the developer checks code into a feature branch. By convention, feature branches are named `feature/*`. 
+Suppose that a developer is working on a microservice called the Delivery Service. This service manages deliveries in a drone delivery service. (The complete scenario is described [here](./model/domain-analysis.md).) While developing a new feature, the developer checks code into a feature branch. By convention, feature branches are named `feature/*`.
 
 The build definition file includes a trigger that filters by the branch name and the source path:
 
@@ -80,7 +80,7 @@ Creation of this branch triggers a full CI build that runs all of the previous s
 2. Run `helm package` to package the Helm chart for the service.
 3. Push the Helm package to Container Registry.
 
-Assuming this build succeeds, it triggers a deployment (CD) process using an Azure Pipelines [release pipeline](/azure/devops/pipelines/release/what-is-release-management). This pipeline 
+Assuming this build succeeds, it triggers a deployment (CD) process using an Azure Pipelines [release pipeline](/azure/devops/pipelines/release/what-is-release-management). This pipeline has the following steps:
 
 1. Deploy the Helm chart to a QA environment.
 1. An approver signs off before the package moves to production. See [Release deployment control using approvals](/azure/devops/pipelines/release/approvals/approvals).
@@ -331,6 +331,8 @@ Tasks in the build pipeline:
         az acr helm push $(System.ArtifactsDirectory)/$(repositoryName)-$(Build.SourceBranchName).tgz --name $(AzureContainerRegistry);
     ```
 
+&#11162; See the [source file](https://github.com/mspnp/microservices-reference-implementation/blob/master/src/shipping/delivery/azure-pipelines-ci.yml).
+
 Tasks in the release pipeline:
 
 - Deploy to dev/QA/staging environments.
@@ -339,7 +341,9 @@ Tasks in the release pipeline:
 - Push the release tag to the container registry.
 - Upgrade the Helm chart in the production cluster.
 
-The following diagram shows the end-to-end CI and CD pipelines:
+For more information about creating a release pipeline, see [Release pipelines, draft releases, and release options](/azure/devops/pipelines/release/?view=azure-devops).
+
+The following diagram shows the end-to-end CI/CD process described in this article:
 
 ![CD/CD pipeline](./images/aks-cicd-flow.png)
 
