@@ -58,7 +58,7 @@ The following tools can help the team find ways to secure and manage migrated as
 
 ## Next steps
 
-Once the team feel comfortable with the skills required to successfully migrate, it is time to [align partner, service, and support options](./partner-service-support-alignment.md).
+Return to the [Expanded Scope Checklist](./index.md) to ensure your migration methodology is fully aligned.
 
 > [!div class="nextstepaction"]
-> [Align partner, service, and support options](./partner-service-support-alignment.md)
+> [Expanded Scope Checklist](./index.md)

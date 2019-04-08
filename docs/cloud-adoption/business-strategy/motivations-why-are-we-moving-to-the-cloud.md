@@ -2,7 +2,7 @@
 title: "CAF: Why are we moving to the cloud?"
 description: Explanation of the concept of Cloud Accounting
 author: BrianBlanchard
-ms.date: 10/10/2018
+ms.date: 4/4/2019
 ---
 
 # CAF: Why are we moving to the cloud?

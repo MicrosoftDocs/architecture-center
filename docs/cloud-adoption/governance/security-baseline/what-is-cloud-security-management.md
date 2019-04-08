@@ -7,7 +7,7 @@ ms.custom: governance
 ms.date: 02/11/2019
 description: What is the Cloud Security Baseline?
 author: BrianBlanchard
-ms.date: 10/10/2018
+ms.date: 4/4/2019
 ---
 
 <!-- markdownlint-disable MD026 -->

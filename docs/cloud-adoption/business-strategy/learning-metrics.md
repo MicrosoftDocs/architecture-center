@@ -2,7 +2,7 @@
 title: "CAF: How can we align efforts to meaningful learning metrics?"
 description: Explanation of the concept of learning metrics
 author: BrianBlanchard
-ms.date: 10/10/2018
+ms.date: 4/4/2019
 ---
 
 # CAF: How can we align efforts to meaningful learning metrics?

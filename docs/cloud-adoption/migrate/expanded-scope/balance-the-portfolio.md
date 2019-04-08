@@ -115,7 +115,7 @@ No additional changes are required during Secure and manage processes within the
 
 ## Next steps
 
-Hand off statement to the next complexity topic with [link](./link.md)
+Return to the [Expanded Scope Checklist](./index.md) to ensure your migration methodology is fully aligned.
 
 > [!div class="nextstepaction"]
-> [Link](./link.md)
+> [Expanded Scope Checklist](./index.md)

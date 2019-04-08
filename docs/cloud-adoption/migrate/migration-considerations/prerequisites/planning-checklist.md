@@ -9,7 +9,7 @@ ms.date: 4/4/2019
 
 As an initial step in the migration process, you need to create the right environment in the cloud to receive, host, and support migrating assets. This article provides a list of things to validate in the current environment prior to migration.
 
-The following checklist aligns with the guidance found in the "[Build](../../../build/overview.md)" section of the Cloud Adoption Framework, please review that section for guidance regarding execution of any of the following.
+The following checklist aligns with the guidance found in the "[Ready](../../../ready/index.md)" section of the Cloud Adoption Framework, please review that section for guidance regarding execution of any of the following.
 
 ## Effort Type Assumption
 
@@ -17,7 +17,7 @@ This article and checklist assume a *rehost* or *cloud transition* approach to c
 
 ## Governance alignment
 
-The first and most important decision regarding any migration-ready environment is the choice of governance alignment. Has a consensus been achieved regarding alignment of governance with the migration foundation? At minimum, the Cloud Adoption Team should understand whether this migration is landing in a single environment with limited governance, a fully governed environment factory, or some variant in between. For more options and guidance on governance alignment, see the article on [Governance Alignment](../../../build/governance-alignment.md) in the "[Build](../../../build/overview.md)" section of the Cloud Adoption Framework.
+The first and most important decision regarding any migration-ready environment is the choice of governance alignment. Has a consensus been achieved regarding alignment of governance with the migration foundation? At minimum, the Cloud Adoption Team should understand whether this migration is landing in a single environment with limited governance, a fully governed environment factory, or some variant in between. For more options and guidance on governance alignment, see the article on [Governance and compliance alignment](../../expanded-scope/governance-or-compliance.md).
 
 ## Cloud readiness implementation
 

@@ -2,7 +2,7 @@
 title: "CAF: Understanding the impact of Global Markets"
 description: Explanation of the concept of global markets
 author: BrianBlanchard
-ms.date: 10/10/2018
+ms.date: 4/4/2019
 ---
 
 # CAF: How will global market decisions affect the transformation journey?

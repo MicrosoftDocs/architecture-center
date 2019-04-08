@@ -2,7 +2,7 @@
 title: "CAF: Examples of Agility Outcomes"
 description: Examples of Agility Outcomes
 author: BrianBlanchard
-ms.date: 10/10/2018
+ms.date: 4/4/2019
 ---
 
 # CAF: Examples of Agility Outcomes

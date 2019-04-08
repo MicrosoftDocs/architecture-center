@@ -606,7 +606,7 @@
       href: cloud-adoption/business-strategy/azure-best-practices/index.md
   - name: Ready
     items:
-    - name: XX-Overview
+    - name: Overview
       href: cloud-adoption/ready/index.md
     - name: Azure Readiness Guide
       items:
@@ -624,28 +624,14 @@
         href: cloud-adoption/ready/azure-readiness-guide/monitoring-reporting.md
     - name: Expanded Scope
       items:
-      - name: XX-Overview
-        href: cloud-adoption/ready/azure-best-practices/index.md
       - name: Naming and tagging
         href: cloud-adoption/ready/considerations/naming-and-tagging.md
-      - name: XX-Primitives
-        href: cloud-adoption/ready/considerations/index.md
-      - name: XX-Network
-        href: cloud-adoption/ready/considerations/index.md
-      - name: XX-Identity
-        href: cloud-adoption/ready/considerations/index.md
-      - name: XX-Monitoring
-        href: cloud-adoption/ready/considerations/index.md
-      - name: XX-Environment Resiliency 
-        href: cloud-adoption/ready/considerations/index.md
       - name: Create hybrid cloud consistency
         href: cloud-adoption/infrastructure/misc/hybrid-consistency.md
     - name: Best practices
       href: cloud-adoption/ready/azure-best-practices/index.md
     - name: Organizational Readiness
       items:
-      - name: XX-Governance and Security Alignment
-        href: cloud-adoption/ready/theory/index.md
       - name: Initial Org Alignment
         href: cloud-adoption/ready/initial-org-alignment.md
       - name: Building Technical Skills

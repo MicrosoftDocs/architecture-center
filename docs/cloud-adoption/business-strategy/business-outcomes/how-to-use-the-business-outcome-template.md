@@ -2,7 +2,7 @@
 title: "CAF: How to use the business outcome template"
 description: Explanation of the business outcome template
 author: BrianBlanchard
-ms.date: 10/10/2018
+ms.date: 4/4/2019
 ---
 
 # CAF: How to use the business outcome template

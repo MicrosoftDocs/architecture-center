@@ -57,7 +57,7 @@ Secure an manage processes should be unchanged by this scope expansion
 
 ## Next steps
 
-[Adding governance and compliance](./governance-or-compliance.md) to the migration effort.
+Return to the [Expanded Scope Checklist](./index.md) to ensure your migration methodology is fully aligned.
 
 > [!div class="nextstepaction"]
-> [Adding governance and compliance](./governance-or-compliance.md)
+> [Expanded Scope Checklist](./index.md)
