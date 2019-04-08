@@ -8,9 +8,8 @@ ms.service: architecture-center
 ms.subservice: cloud-design-principles
 ms.custom: resiliency
 ---
-[!INCLUDE [header](../_includes/header.md)]
 
-# Azure resiliency technical guidance: recovery from a region-wide service disruption
+# Recover from a region-wide service disruption
 
 Azure is divided physically and logically into units called regions. A region consists of one or more datacenters in close proximity.
 
@@ -115,7 +114,7 @@ When attempting to run your cloud service in multiple Azure regions, you must co
 
 ### Service Bus
 
-Azure Service Bus uses a unique namespace that does not span Azure regions. So the first requirement is to setup the necessary service bus namespaces in the alternate region. However, there are also considerations for the durability of the queued messages. There are several strategies for replicating messages across Azure regions. For the details on these replication strategies and other disaster recovery strategies, see [Best practices for insulating applications against Service Bus outages and disasters](/azure/service-bus-messaging/service-bus-outages-disasters/). For other availability considerations, see [Service Bus (Availability)](recovery-local-failures.md#other-azure-platform-services).
+Azure Service Bus uses a unique namespace that does not span Azure regions. So the first requirement is to setup the necessary service bus namespaces in the alternate region. However, there are also considerations for the durability of the queued messages. There are several strategies for replicating messages across Azure regions. For the details on these replication strategies and other disaster recovery strategies, see [Best practices for insulating applications against Service Bus outages and disasters](/azure/service-bus-messaging/service-bus-outages-disasters/).
 
 ### App Service
 
@@ -123,7 +122,7 @@ To migrate an Azure App Service application, such as Web Apps or Mobile Apps, to
 
 ### HDInsight
 
-The data associated with HDInsight is stored by default in Azure Blob Storage. HDInsight requires that a Hadoop cluster processing MapReduce jobs must be co-located in the same region as the storage account that contains the data being analyzed. Provided you use the geo-replication feature available to Azure Storage, you can access your data in the secondary region where the data was replicated if for some reason the primary region is no longer available. You can create a new Hadoop cluster in the region where the data has been replicated and continue processing it. For other availability considerations, see [HDInsight (Availability)](recovery-local-failures.md#other-azure-platform-services).
+The data associated with HDInsight is stored by default in Azure Blob Storage. HDInsight requires that a Hadoop cluster processing MapReduce jobs must be co-located in the same region as the storage account that contains the data being analyzed. Provided you use the geo-replication feature available to Azure Storage, you can access your data in the secondary region where the data was replicated if for some reason the primary region is no longer available. You can create a new Hadoop cluster in the region where the data has been replicated and continue processing it.
 
 ### SQL Reporting
 

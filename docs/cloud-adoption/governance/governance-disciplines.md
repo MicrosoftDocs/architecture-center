@@ -21,7 +21,7 @@ ms.topic: landing-page
         <div class="cardPadding" style="padding-bottom:10px;">
             <div class="card" style="padding-bottom:10px;">
                 <div class="cardText" style="padding-left:0px;">
-Any change to business processes or technology platforms introduces risk. Cloud Governance teams, whose members are sometimes known as cloud custodians, are tasked with mitigating these risks, with minimal interruption to adoption or innovation efforts.<br/><br/>The CAF governance model guides these decisions (regardless of the chosen cloud platform) by focusing on <a href="#corporate-policy">development of corporate policy</a> and <a href="#disciplines-of-cloud-governance">Disciplines of Cloud Governance</a>. <a href="#actionable-journeys">Actionable design guides</a> demonstrate this model using Azure services. This article serves as a landing page for the five disciplines of the CAF governance model.
+Any change to business processes or technology platforms introduces risk. Cloud Governance teams, whose members are sometimes known as cloud custodians, are tasked with mitigating these risks, with minimal interruption to adoption or innovation efforts.<br/><br/>The CAF governance model guides these decisions (regardless of the chosen cloud platform) by focusing on development of corporate policy and <a href="#disciplines-of-cloud-governance">Disciplines of Cloud Governance</a>. <a href="./journeys/overview.md">Actionable journeys</a> demonstrate this model using Azure services. This article serves as a landing page for the five disciplines of the CAF governance model.
                 </div>
             </div>
         </div>
