@@ -13,9 +13,7 @@ ms.custom: microservices
 
 This reference architectures shows a microservices application deployed to Azure Kubernetes Service (AKS). It describes a basic AKS configuration that can be the starting point for most deployments. This article assumes basic knowledge of Kubernetes. The article focuses mainly on the infrastructure and DevOps considerations of running a microservices architecture on AKS. For guidance on how to design microservices, see [Building microservices on Azure](../../microservices/index.md).
 
-![GitHub logo](../../_images/github.png) A reference implementation of this architecture is available on [GitHub](https://github.com/mspnp/microservices-reference-implementation).
-
-
+![GitHub logo](../../_images/github.png) A reference implementation of this architecture is available on [GitHub][ri].
 
 ![AKS reference architecture](./_images/aks.png)
 
@@ -197,7 +195,7 @@ Because the cluster admin credentials are so powerful, use Azure RBAC to restric
 
 - The "Azure Kubernetes Service Cluster Admin Role" has permission to download the cluster admin credentials. Only cluster administrators should be assigned to this role.
 
-- The "Azure Kubernetes Service Cluster User Role" has permission to download the cluster user credentials. Non-admin users can be assigned to this role. This role does not give any particular permissions on Kubernetes resources inside the cluster &mdash; it just allows a user to connect to the API server. 
+- The "Azure Kubernetes Service Cluster User Role" has permission to download the cluster user credentials. Non-admin users can be assigned to this role. This role does not give any particular permissions on Kubernetes resources inside the cluster &mdash; it just allows a user to connect to the API server.
 
 When you define your RBAC policies (both Kubernetes and Azure), think about the roles in your organization:
 
@@ -262,3 +260,10 @@ Here are some goals of a robust CI/CD process for a microservices architecture:
 To learn more about the challenges, see [CI/CD for microservices architectures](../../microservices/ci-cd.md).
 
 For specific recommendations and best practices, see [CI/CD for microservices on Kubernetes](../../microservices/ci-cd-kubernetes.md).
+
+## Deploy the solution
+
+To deploy the reference implementation for this architecture, follow the steps in the [GitHub repo][ri-deploy].
+
+[ri]: https://github.com/mspnp/microservices-reference-implementation
+[ri-deploy]: https://github.com/mspnp/microservices-reference-implementation/blob/master/deployment.md
