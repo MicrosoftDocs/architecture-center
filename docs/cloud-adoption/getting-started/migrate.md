@@ -14,9 +14,50 @@ This framework is designed to speak most directly to Cloud Architects and the Cl
 > [!NOTE]
 > This guidance is currently in a public preview state. Terms, approaches, and guidance are being thoroughly tested with customers, partners, and Microsoft teams during this preview. As such the TOC and guidance my change slightly.
 
-## Framework for cloud migrations
+## Motivations and Methodology
 
-This framework is based on an incremental approach to cloud adoption that aligns to Agile technology strategies, Growth Mindset based cultural growth, and Business Outcomes driven business strategies. This framework consists of the following high level components which guide the implementation of each strategy.
+The motivation or business outcome driving a cloud migration can heavily influence the best approach to migration. Cloud migrations can align to a number of business outcomes. Clearly communicating business drivers and the metrics used to measure success is an important first step in cloud migration efforts. The following are a few examples of common migration motivations, grouped by the methodology (or type of migration).
+
+### Asset Migration
+
+Respond to a critical event or a need to move specific assets. Asset migrations are usually motivated by the following short term critical business events.
+
+- Data center exit
+- Mergers, acquisition or divestiture
+- Reductions in capital expenses
+- End of support for mission-critical technologies
+
+**Aligned Methodology:** Asset migrations can be successfully executed within the limited scope of the [Azure Migration Guide](../migrate/baseline-migration-guide/index.md). Note the pre-requites which outlines some environment readiness.
+
+![Methodology supporting asset migration](../_images/migration/asset-migration.png)
+
+### Workload Migration
+
+More often cloud migrations are part of a focused effort to streamline IT operations, costs, or complexity. The following are a few longer term motivations associated with a workload migration.
+
+- Cost savings
+- Reduction in vendor or technical complexity
+- Optimize internal operations
+
+**Aligned Methodology:** Successful workload migrations build on the [Azure Migration Guide](../migrate/baseline-migration-guide/index.md) and [Azure Readiness Guide](../ready/azure-readiness-guide/index.md). However, additional considerations should be given to the expanded scope checklists associated with each of those guides.
+
+![Methodology supporting workload migration](../_images/operational-transformation-migrate.png)
+
+### Portfolio Migration
+
+C-level conversations regarding cloud migration tend to focus on the benefits associated with portfolio migrations. These migrations are more likely to produce tangible business outcomes like the following:
+
+- Decrease business interruptions
+- Increase business agility
+- Prepare for new technical capabilities
+- Scale to meet market demands
+- Scale to meet geographic demands
+
+**Aligned methodology:** Portfolio migrations require a deeper alignment between the business and IT. The technical implementation is a slight extension of the workload or asset migration methodologies. The methodology differs most when it comes to the rigor of business planning, rich readiness, improved migration change management, and a more disciplined approach to cloud governance. The following section outlines this methodology in more detail.
+
+## Portfolio Migration Methodology
+
+This methodology is based on an incremental approach to cloud adoption that aligns to Agile technology strategies, Growth Mindset based cultural growth, and Business Outcome-driven strategies. This methodology consists of the following high level components which guide the implementation of each strategy.
 
 ![Cloud Adoption Framework's approach to cloud migration](../_images/migrate.png)
 
@@ -30,25 +71,6 @@ As depicted in the image above, this framework aligns strategic decisions to a s
 - [Govern](../governance/overview.md): Align corporate policy to tangible risks, mitigated through policy, process, and cloud-based governance tooling.
 
 Throughout this migration experience this framework will be used to address ambiguity, manage change, and guide cross-functional teams through the realization of business outcomes.
-
-## Common business outcomes
-
-Cloud migrations can align to a number of business outcomes. Most commonly migrations are related to stability, scale, or efficiency drivers. The following are few common business outcomes that would lead to a migration focused effort.
-
-- Critical business event
-  - Data center exit
-  - Mergers, acquisition or divestiture
-  - Reductions in capital expenses
-  - End of support for mission-critical technologies
-- Cost savings
-- Reduction in vendor or technical complexity
-- Optimize internal operations
-- Increase business agility
-- Prepare for new technical capabilities
-- Scale to meet market demands
-- Scale to meet geographic demands
-
-Clearly communicating business drivers and the metrics used to measure success is an important first step in cloud migration efforts.
 
 ## Common cultural change
 
