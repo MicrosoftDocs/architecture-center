@@ -1,21 +1,14 @@
 ---
-<<<<<<< HEAD:docs/cloud-adoption/migrate/baseline-migration-guide/pre-requisites.md
 title: "CAF: Pre-requisites before starting the Simple Migration Journey"
 description: Pre-requisites before starting the Simple Migration Journey
 author: matticusau
 ms.author: mlavery
-=======
-title: "CAF: Prerequisites before starting the Simple Migration Journey"
-description: Prerequisites before starting the Simple Migration Journey
-author: BrianBlanchard
->>>>>>> caf/migrate-v1:docs/cloud-adoption/migrate/baseline-migration-guide/prerequisites.md
 ms.date: 4/14/2019
 ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: "fasttrack - new"
 ---
 
-<<<<<<< HEAD:docs/cloud-adoption/migrate/baseline-migration-guide/pre-requisites.md
 ::: zone target="chromeless"
 
 # Pre-requisites
@@ -25,9 +18,6 @@ ms.custom: "fasttrack - new"
 ::: zone target="docs"
 
 # Pre-requisites before migrating to Azure
-=======
-# Prerequisites before migrating to Azure
->>>>>>> caf/migrate-v1:docs/cloud-adoption/migrate/baseline-migration-guide/prerequisites.md
 
 ::: zone-end
 
