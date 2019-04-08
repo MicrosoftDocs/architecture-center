@@ -2,7 +2,7 @@
 title: "CAF: What is Cloud Accounting"
 description: Explanation of the concept of Cloud Accounting
 author: BrianBlanchard
-ms.date: 10/10/2018
+ms.date: 4/4/2019
 ---
 
 # CAF: What is Cloud Accounting?
@@ -27,9 +27,9 @@ In a Central IT accounting model, the IT team marks up the services provided to 
 
 One of the common first steps towards breaking the cost center reputation is a Charge Back model of accounting. This is especially common in smaller enterprises or highly efficient IT organizations. In the Charge Back model, any IT costs that are associated with a specific business unit are treated like an operational expense in that business units budget. This reduces can reduce the accumulative costs effects on IT, allowing business values to show more clearly.
 
-In a legacy, on-premises model, charge back is very difficult to realize because someone still has to carry the large capital expenses and depreciation. The on-going conversion from CapEx/Depreciation of purchases to OpEx associated with usage is a very difficult accounting exercise. Its a big reason for the creation of the Traditional IT accounting model and Central IT accounting model. The OpEx heavy model of cloud cost accounting is almost required to efficiently deliver a Charge Back model.
+In a legacy on-premises model, charge back is very difficult to realize because someone still has to carry the large capital expenses and depreciation. The ongoing conversion from CapEx/Depreciation of purchases to OpEx associated with usage is a very difficult accounting exercise. Its a big reason for the creation of the Traditional IT accounting model and Central IT accounting model. The OpEx heavy model of cloud cost accounting is almost required to efficiently deliver a Charge Back model.
 
-However, this is not a model that should be entered into lightly. The following are a few consequences that are unique to a charge back model:
+However, this model should be entered into lightly. The following are a few consequences that are unique to a charge back model:
 
 * Charge Back results in a massive reduction to IT's overall budget. For IT organizations that are inherently inefficient, or require a great deal of complex technical skills in operations or maintenance, this model can expose those expenses in an unhealthy way.
 * Loss of control is a common consequence. In highly political environments, Charge Back can result in loss of control and staff being reallocated to the business. This could create significant inefficiencies and reduce IT's ability to consistently meet SLAs or project requirements.
@@ -39,15 +39,15 @@ Cloud Transformations include solutions to these and other consequences associat
 
 ## Show Back or Awareness Back
 
-For larger enterprises, a show back or awareness back model is a safer first step in the transition from cost center to value center. This model doesn't impact financial accounting. In fact, the P&Ls of each organization would be unchanged. The biggest shift is in mindset and awareness. In Show Back or Awareness Back model, IT manages the centralized, consolidated buying power as an agent for the business. In reports back to the business, IT would attribute any direct costs to the relevant business unit, thereby reducing the perceived budget consumed by IT directly. IT would also plan budgets based on the needs of the associated business units, allowing IT to more accurately account for costs associated to purely IT initiatives.
+For larger enterprises, a show back or awareness back model is a safer first step in the transition from cost center to value center. This model doesn't affect financial accounting. In fact, the P&Ls of each organization would be unchanged. The biggest shift is in mindset and awareness. In Show Back or Awareness Back model, IT manages the centralized, consolidated buying power as an agent for the business. In reports back to the business, IT would attribute any direct costs to the relevant business unit, thereby reducing the perceived budget consumed by IT directly. IT would also plan budgets based on the needs of the associated business units, allowing IT to more accurately account for costs associated to purely IT initiatives.
 
 This model provides balance between a true Charge Back model and the more traditional models of IT accounting.
 
-## Impact of Cloud Accounting Models
+## Impact of cloud accounting models
 
-The choice of accounting models is very important in system design. The choice of accounting model can impact subscription strategies, naming standards, tagging standards, and Policy/BluePrint Designs.
+The choice of accounting models is very important in system design. The choice of accounting model can affect subscription strategies, naming standards, tagging standards, and Policy/BluePrint Designs.
 
-Once the Cloud Accounting Model and [Global Markets](global-markets.md) decisions have been made with the business, the team is ready to define [Technology Standards](../technical-standards/overview.md).
+Once the Cloud Accounting Model and [Global Markets](global-markets.md) decisions have been made with the business, enough information has been aggregated to [develop an Azure foundation](../ready/index.md).
 
 > [!div class="nextstepaction"]
-> [Define Technology Standards](../technical-standards/overview.md)
+> [Develop an Azure foundation](../ready/index.md)

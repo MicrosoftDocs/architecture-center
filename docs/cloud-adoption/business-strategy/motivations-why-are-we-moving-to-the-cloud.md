@@ -2,7 +2,7 @@
 title: "CAF: Why are we moving to the cloud?"
 description: Explanation of the concept of Cloud Accounting
 author: BrianBlanchard
-ms.date: 10/10/2018
+ms.date: 4/4/2019
 ---
 
 # CAF: Why are we moving to the cloud?
@@ -10,7 +10,7 @@ ms.date: 10/10/2018
 "Why are we moving to the cloud?" is an extremely common question for business and technical stakeholders alike.
 If the answer is "Our board (CIO, C-Suite) told us to move to the cloud", it is unlikely that the business will experience the desired outcomes.
 
-In this article, we will discuss a few motivations behind cloud migration that could produce more impactful business outcomes. These options are designed to help facilitate a conversation regarding motivations and ultimately business outcomes.
+In this article, we will discuss a few motivations behind cloud migration that could produce more significant business outcomes. These options are designed to help facilitate a conversation regarding motivations and ultimately business outcomes.
 
 ## Common Motivations for Cloud Transformation
 
@@ -18,10 +18,10 @@ The following is a list of common motivations for cloud adoption
 
 - Unclear direction from board or others at an executive level
 - Critical Business Event
-    - Data center exit
-    - Mergers, acquisition or divestiture
-    - Reductions in capital expenses
-    - End of support for mission critical technologies
+  - Data center exit
+  - Mergers, acquisition or divestiture
+  - Reductions in capital expenses
+  - End of support for mission-critical technologies
 - Cost Savings
 - Reduction in vendor or technical complexity
 - Optimization of internal operations
@@ -37,16 +37,16 @@ There are technical strategies to execute against each of these motivations. How
 
 ## Business outcome-driven adoption strategies
 
-**Migrate:** The motivations near the top of the list above are the most common (but not necessarily the most impactful) reasons for adopting the cloud. These are each important outcomes to achieve, but are most effectively used as a means of transitioning to other more effective worldviews in the future. This important first step to cloud adoption is often called a cloud migration, this framework refers to the strategy behind execution of such a migration by the verb [Migrate](../getting-started/migrate.md).
+**Migrate:** The motivations near the top of the list above are the most common (but not necessarily the most significant) reasons for adopting the cloud. These are each important outcomes to achieve, but are most effectively used as a means of transitioning to other more effective worldviews in the future. This important first step to cloud adoption is often called a cloud migration, this framework refers to the strategy behind execution of such a migration by the verb [Migrate](../getting-started/migrate.md).
 
 The motivations that align well with a migrate strategy are as follows. The motives at the top of the list are likely to have significantly less business impact than those which fall closer to the bottom of the list.
 
 - Unclear direction from board or others at an executive level
 - Critical Business Event
-    - Data center exit
-    - Mergers, acquisition or divestiture
-    - Reductions in capital expenses
-    - End of support for mission critical technologies
+  - Data center exit
+  - Mergers, acquisition or divestiture
+  - Reductions in capital expenses
+  - End of support for mission-critical technologies
 - Cost Savings
 - Reduction in vendor or technical complexity
 - Optimization of internal operations

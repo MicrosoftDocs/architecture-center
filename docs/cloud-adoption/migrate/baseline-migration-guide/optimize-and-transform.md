@@ -15,6 +15,7 @@ Now that you have migrated your services to Azure, the next phase includes revie
 
 This phase is also an opportunity to optimize your environment and perform possible transformations of the environment. For example, you may have performed a "rehost" migration, and now that your services are running on Azure you can revisit the solutions configuration or consumed services, and possibly perform some "refactoring" to modernize and increase the functionality of your solution.
 
+<<<<<<< HEAD
 # [Right Size Assets](#tab/optimize)
 
 All Azure services which provide a consumption based cost model can be resized through the Azure Portal, CLI, or PowerShell. The first step in correctly sizing a service is to review the usage metrics of the service. The Azure Monitor service provides access to these metrics. You may need to configure the collection of the metrics for the service you are analyzing, and allow an appropriate time to collect meaningful data based on your workload patterns.
@@ -42,6 +43,9 @@ The following are some common services which you can resize.
 ::: form action="OpenBlade[#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Compute%2FVirtualMachines]" submitText="Go to Virtual Machines" :::
 
 ::: zone-end
+=======
+![Infographic of the migration options](../../_images/migration/migration-options.png)
+>>>>>>> caf/migrate-v1
 
 ::: zone target="docs"
 

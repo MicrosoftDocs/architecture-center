@@ -20,7 +20,7 @@ This isolation also enables another concept, known as DevOps. DevOps includes th
 A *basic workload* is typically defined as a single web application or a virtual network (VNet) with virtual machine (VM).
 
 > [!NOTE]
-> This guide does not cover application development. For more information about developing applications on Azure, see the [Azure Application Architecture Guide](/azure/architecture/guide/).
+> This guide does not cover application development. For more information about developing applications on Azure, see the [Azure Application Architecture Guide](/azure/architecture/guide).
 
 Regardless of whether the workload is a web application or a VM, each of these deployments requires a *resource group*. A user with permission to create a resource group must do this before following the steps below.
 

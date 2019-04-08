@@ -15,11 +15,11 @@ This summer, the Cloud Adoption Framework will expand to include guidance regard
 
 ## Application Modernization and Innovation
 
-Cloud-native apps and data accelerate development and experimentation cycles. Older apps can leverage many of the same cloud-native benefits by modernizing the solution or components of the solution. Modern DevOps and SDLC approaches running on cloud technology shorten the time from idea to product change. Combined these tools invite the customer into the process, creating tighter feedback loops and better customer experiences.
+Cloud-native apps and data accelerate development and experimentation cycles. Older apps can take advantage of many of the same cloud-native benefits by modernizing the solution or components of the solution. Modern DevOps and SDLC approaches running on cloud technology shorten the time from idea to product change. Combined these tools invite the customer into the process, creating tighter feedback loops and better customer experiences.
 
 ## Data Platform Modernization and Innovation
 
-The cloud enables new forms of data within common platforms. Increasing velocity, veracity, variety, and volume of data allows data professionals to develop insights and predictions across broader data sets. Expanded ingression tools, like IoT and Azure Data Factory, allow broader teams to integrate data bi-directionally with physical and virtual products.
+The cloud enables new forms of data within common platforms. Increasing velocity, veracity, variety, and volume of data allows data professionals to develop insights and predictions across broader data sets. Expanded ingression tools, like IoT and Azure Data Factory, allow broader teams to integrate data bidirectionally with physical and virtual products.
 
 ## Infrastructure Modernization and Innovation
 

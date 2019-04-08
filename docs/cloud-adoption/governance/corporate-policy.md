@@ -34,7 +34,7 @@ Any change to business processes or technology platforms introduces risk to the 
                 <div class="card" style="padding-bottom:10px;">
                     <div class="cardText" style="padding-left:0px;">
 <img src="../_images/operational-transformation-govern-highres.png" alt="Diagram of the CAF governance model: Corporate policy and governance disciplines">
-<br>
+<br />
 <i>Figure 1. Visual of corporate policy and the Five Disciplines of Cloud Governance</i>
                     </div>
                 </div>

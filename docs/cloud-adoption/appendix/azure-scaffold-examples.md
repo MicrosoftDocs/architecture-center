@@ -18,12 +18,12 @@ Contoso is a worldwide company that provides supply chain solutions for customer
 
 The ISV portion of the company is divided into several independent business units that manage products in a significant business. Each business unit has its own developers, product managers, and architects.
 
-The Enterprise Technology Services (ETS) business unit provides centralized IT capability, and manages several data centers where business units host their applications. Along with managing the data centers, the ETS organization provides and manages centralized collaboration (such as email and websites) and network/telephony services. They also manage customer-facing workloads for smaller business units who don't have operational staff.
+The Enterprise Technology Services (ETS) business unit provides centralized IT capability, and manages several datacenters where business units host their applications. Along with managing the datacenters, the ETS organization provides and manages centralized collaboration (such as email and websites) and network/telephony services. They also manage customer-facing workloads for smaller business units who don't have operational staff.
 
 The following personas are used in this article:
 
-* Dave is the ETS Azure administrator.
-* Alice is Contoso's Director of Development in the supply chain business unit.
+- Dave is the ETS Azure administrator.
+- Alice is Contoso's Director of Development in the supply chain business unit.
 
 Contoso needs to build a line-of-business app and a customer-facing app. It has decided to run the apps on Azure. Dave reads the [prescriptive subscription governance](azure-scaffold.md) article, and  is now ready to implement the recommendations.
 
@@ -58,9 +58,9 @@ Dave assigns the following roles for the subscription:
 
 Dave has the following requirements for managing resources in the subscription:
 
-* Because the development tools support developers across the world, he doesn't want to block users from creating resources in any region. However, he needs to know where resources are created.
-* He is concerned with costs. Therefore, he wants to prevent application owners from creating unnecessarily expensive virtual machines.
-* Because this application serves developers in many business units, he wants to tag each resource with the business unit and application owner. By using these tags, ETS can bill the appropriate teams.
+- Because the development tools support developers across the world, he doesn't want to block users from creating resources in any region. However, he needs to know where resources are created.
+- He is concerned with costs. Therefore, he wants to prevent application owners from creating unnecessarily expensive virtual machines.
+- Because this application serves developers in many business units, he wants to tag each resource with the business unit and application owner. By using these tags, ETS can bill the appropriate teams.
 
 He creates the following [Azure policies](/azure/azure-policy/azure-policy-introduction):
 
@@ -145,7 +145,7 @@ For the **production subscription**, they create the following policies:
 
 | Field | Effect | Description |
 | --- | --- | --- |
-| location |deny |Deny the creation of any resources outside of the US data centers |
+| location |deny |Deny the creation of any resources outside of the US datacenters |
 | tags |deny |Require application owner tag |
 | tags |deny |Require department tag |
 | tags |append |Append tag to each resource group that indicates production environment |
@@ -203,4 +203,4 @@ To fulfill these requirements, Dave enables Azure Security Center. He ensures th
 
 ## Next steps
 
-* To learn about creating Resource Manager templates, see [Best practices for creating Azure Resource Manager templates](/azure/azure-resource-manager/resource-manager-template-best-practices).
+- To learn about creating Resource Manager templates, see [Best practices for creating Azure Resource Manager templates](/azure/azure-resource-manager/resource-manager-template-best-practices).

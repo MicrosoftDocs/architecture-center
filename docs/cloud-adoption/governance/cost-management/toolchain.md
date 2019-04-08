@@ -15,7 +15,7 @@ author: BrianBlanchard
 
 The following is a list of Azure native tools that can help mature the policies and processes that support this governance discipline.
 
-|  | [Azure portal](https://azure.microsoft.com/features/azure-portal/)  | [Azure Cost Management](/azure/cost-management/overview-cost-mgt)  | [Azure EA Content Pack](/power-bi/service-connect-to-azure-enterprise)  | [Azure Policy](/azure/governance/policy/overview) |
+|  | [Azure portal](https://azure.microsoft.com/features/azure-portal)  | [Azure Cost Management](/azure/cost-management/overview-cost-mgt)  | [Azure EA Content Pack](/power-bi/service-connect-to-azure-enterprise)  | [Azure Policy](/azure/governance/policy/overview) |
 |---------|---------|---------|---------|---------|
 |Enterprise agreement required?     | No         | Yes (not required with [Cloudyn](/azure/cost-management/overview))         | Yes         | No         |
 |Budget control     | No         | Yes         | No         | Yes         |

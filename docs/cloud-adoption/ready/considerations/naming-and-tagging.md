@@ -234,10 +234,16 @@ The following section provides examples of naming schemes for common Azure resou
 | Notification Hub                   | Resource group | anh-\<App Name\>-\<Environment\>   | <ul><li>evh-navigator-prod </li><li>evh-emissions-dev</li></ul>     |
 | Notification Hub Namespace         | Global         | anhns-\<App Name\>-\<Environment\> | <ul><li>anhns-navigator-prod </li><li>anhns-emissions-dev</li></ul> |
 
+<!-- update once primitives document is complete
+
 ## Next steps
 
-<!-- update once primitives document is complete-->
 Review the [Azure Primitives document](./xx-primitives.md) to understand core concepts relating to the Azure platform and the features, products, and services you will need to deploy workloads to the cloud.  
 
 > [!div class="nextstepaction"]
 > [Azure Primitives](./xx-primitives.md)
+-->
+
+## Next steps
+
+For next steps and the most recent status regarding the CAF Ready model, see the [overview page](../index.md).
