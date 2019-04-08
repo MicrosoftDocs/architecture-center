@@ -111,3 +111,9 @@ In a canary release, you roll out an updated version to a small number of client
 A canary release is more complex to manage than either blue-green or rolling update, because you must dynamically route requests to different versions of the service.
 
 **Example**. In Kubernetes, you can configure a Service to span two replica sets (one for each version) and adjust the replica counts manually. However, this approach is rather coarse-grained, because of the way Kubernetes load balances across pods. For example, if you have a total of 10 replicas, you can only shift traffic in 10% increments. If you are using a service mesh, you can use the service mesh routing rules to implement a more sophisticated canary release strategy.
+
+## Next steps
+
+Learn specific CI/CD practices for microservices running on Kubernetes.
+
+- [CI/CD for microservices on Kubernetes](./ci-cd-kubernetes.md)
