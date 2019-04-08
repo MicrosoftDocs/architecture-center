@@ -251,101 +251,14 @@ Automate image patching using ACR Tasks, a feature of Azure Container Registry. 
 
 ## Deployment (CI/CD) considerations
 
+Here are some goals of a robust CI/CD process for a microservices architecture:
 
-### Isolation of environments
+- Each team can build and deploy the services that it owns independently, without affecting or disrupting other teams.
+- Before a new version of a service is deployed to production, it gets deployed to dev/test/QA environments for validation. Quality gates are enforced at each stage.
+- A new version of a service can be deployed side by side with the previous version.
+- Sufficient access control policies are in place.
+- For containerized workloads, you can trust the container images that are deployed to production.
 
-You will have multiple environments where you deploy services, including environments for development, smoke testing, integration testing, load testing, and finally production. These environments need some level of isolation. In Kubernetes, you have a choice between physical isolation and logical isolation. Physical isolation means deploying to separate clusters. Logical isolation makes use of namespaces and policies, as described earlier.
+To learn more about the challenges, see [CI/CD for microservices architectures](../../microservices/ci-cd.md).
 
-Our recommendation is to create a dedicated production cluster along with a separate cluster for your dev/test environments. Use logical isolation to separate environments within the dev/test cluster. Services deployed to the dev/test cluster should never have access to data stores that hold business data. 
-
-### Helm
-
-Consider using Helm to manage building and deploying services. Some of the features of Helm that help with CI/CD include:
-
-- Organizing all of the Kubernetes objects for a particular microservice into a single Helm chart.
-- Deploying the chart as a single helm command, rather than a series of kubectl commands.
-- Tracking updates and revisions, using semantic versioning, along with the ability to roll back to a previous version.
-- The use of templates to avoid duplicating information, such as labels and selectors, across many files.
-- Managing dependencies between charts.
-- Publishing charts to a Helm repository, such as Azure Container Registry, and integrating them with the build pipeline.
-
-For more information about using Container Registry as a Helm repository, see [Use Azure Container Registry as a Helm repository for your application charts](/azure/container-registry/container-registry-helm-repos).
-
-### CI/CD workflow
-
-Before creating a CI/CD workflow, you must know how the code base will be structured and managed.
-
-- Do teams work in separate respositories or in a monorepo (single respository)?
-- What is your branching strategy?
-- Who can push code to production? Is there a release manager role?
-
-The monorepo approach has been gaining favor but there are advantages and disadvantages to both.
-
-| &nbsp; | Monorepo | Multiple repos |
-|--------|----------|----------------|
-| **Advantages** | Code sharing<br/>Easier to standardize code and tooling<br/>Easier to refactor code<br/>Discoverability - single view of the code<br/> | Clear ownership per team<br/>Potentially fewer merge conflicts<br/>Helps to enforce decoupling of microservices |
-| **Challenges** | Changes to shared code can affect multiple microservices<br/>Greater potential for merge conflicts<br/>Tooling must scale to a large code base<br/>Access control<br/>More complex deployment process | Harder to share code<br/>Harder to enforce coding standards<br/>Dependency management<br/>Diffuse code base, poor discoverability<br/>Lack of shared infrastructure
-
-In this section, we present a possible CI/CD workflow, based on the following assumptions:
-
-- The code repository is monorepo, with folders organized by microservice.
-- The team's branching strategy is based on [trunk-based development](https://trunkbaseddevelopment.com/).
-- The team uses [Azure Pipelines](/azure/devops/pipelines) to run the CI/CD process.
-- The team uses [namespaces](/azure/container-registry/container-registry-best-practices#repository-namespaces) in Azure Container Registry to isolate images that are approved for production from images that are still being tested.
-
-In this example, a developer is working on a microservice called Delivery Service. (The name comes from the reference implementation described [here](../../microservices/design/index.md#scenario).) While developing a new feature, the developer checks code into a feature branch.
-
-![CI/CD workflow](./_images/aks-cicd-1.png)
-
-Pushing commits to this branch tiggers a CI build for the microservice. By convention, feature branches are named `feature/*`. The [build definition file](/azure/devops/pipelines/yaml-schema) includes a trigger that filters by the branch name and the source path. Using this approach, each team can have its own build pipeline.
-
-```yaml
-trigger:
-  batch: true
-  branches:
-    include:
-    - master
-    - feature/*
-
-    exclude:
-    - feature/experimental/*
-
-  paths:
-     include:
-     - /src/shipping/delivery/
-```
-
-At this point in the workflow, the CI build runs some minimal code verification:
-
-1. Build code
-1. Run unit tests
-
-The idea here is to keep the build times short so the developer can get quick feedback. When the feature is ready to merge into master, the developer opens a PR. This triggers another CI build that performs some additional checks:
-
-1. Build code
-1. Run unit tests
-1. Build the runtime container image
-1. Run vulnerability scans on the image
-
-![CI/CD workflow](./_images/aks-cicd-2.png)
-
-> [!NOTE]
-> In Azure Repos, you can define [policies](/azure/devops/repos/git/branch-policies) to protect branches. For example, the policy could require a successful CI build plus a sign-off from an approver in order to merge into master.
-
-At some point, the team is ready to deploy a new version of the Delivery service. To do so, the release manager creates a branch from master with this naming pattern: `release/<microservice name>/<semver>`. For example, `release/delivery/v1.0.2`.
-This triggers a full CI build that runs all the previous steps plus:
-
-1. Push the Docker image to Azure Container Registry. The image is tagged with the version number taken from the branch name.
-2. Run `helm package` to package the Helm chart
-3. Push the Helm package to Container Registry by running `az acr helm push`.
-
-Assuming this build succeeds, it triggers a deployment process using an Azure Pipelines [release pipeline](/azure/devops/pipelines/release/what-is-release-management). This pipeline
-
-1. Run `helm upgrade` to deploy the Helm chart to a QA environment.
-1. An approver signs off before the package moves to production. See [Release deployment control using approvals](/azure/devops/pipelines/release/approvals/approvals).
-1. Re-tag the Docker image for the production namespace in Azure Container Registry. For example, if the current tag is `myrepo.azurecr.io/delivery:v1.0.2`, the production tag is `myrepo.azurecr.io/prod/delivery:v1.0.2`.
-1. Run `helm upgrade` to deploy the Helm chart to the production environment.
-
-![CI/CD workflow](./_images/aks-cicd-3.png)
-
-It's important to remember that even in a monorepo, these tasks can be scoped to individual microservices, so that teams can deploy with high velocity. There are some manual steps in the process: Approving PRs, creating release branches, and approving deployments into the production cluster. These steps are manual by policy &mdash; they could be completely automated if the organization prefers.
+For specific recommendations and best practices, see [CI/CD for microservices on Kubernetes](../../microservices/ci-cd-kubernetes.md).
