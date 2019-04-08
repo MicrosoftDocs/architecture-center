@@ -19,7 +19,7 @@ Cloud-native apps and data accelerate development and experimentation cycles. Ol
 
 ## Data Platform Modernization and Innovation
 
-The cloud enables new forms of data within common platforms. Increasing velocity, veracity, variety, and volume of data allows data professionals to develop insights and predictions across broader data sets. Expanded ingression tools, like IoT and Azure Data Factory, allow broader teams to integrate data bi-directionally with physical and virtual products.
+The cloud enables new forms of data within common platforms. Increasing velocity, veracity, variety, and volume of data allows data professionals to develop insights and predictions across broader data sets. Expanded ingression tools, like IoT and Azure Data Factory, allow broader teams to integrate data bidirectionally with physical and virtual products.
 
 ## Infrastructure Modernization and Innovation
 

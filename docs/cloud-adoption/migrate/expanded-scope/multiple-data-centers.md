@@ -30,7 +30,7 @@ The biggest change to the assess process, when expanding scope to address multip
 **Evaluate cross data center dependencies:** The [dependency visualization tools in Azure Migrate](/azure/migrate/concepts-dependency-visualization) can help pinpoint dependencies. Use of this tool set prior to migration is a good general best practice. However, when dealing with global complexity it becomes a necessary step to the assessment process. Through [dependency grouping](/azure/migrate/how-to-create-group-machine-dependencies), the visualization can help identify the IP addresses and ports of any assets required to support the workload.
 
 > [!IMPORTANT]
-> Two important notes: First, a subject matter expert with an understanding of asset placement and IP address schemas will be required to identify assets that reside in a secondary data center. Second, it is important to evaluate both downstream dependencies and Clients in the visual to understand bi-directional dependencies.
+> Two important notes: First, a subject matter expert with an understanding of asset placement and IP address schemas will be required to identify assets that reside in a secondary data center. Second, it is important to evaluate both downstream dependencies and clients in the visual to understand bidirectional dependencies.
 
 ## Migrate process changes
 

@@ -5,20 +5,22 @@ author: BrianBlanchard
 ms.date: 4/4/2019
 ---
 
+<!-- markdownlint-disable MD026 -->
+
 # How do retrospectives help build a growth mindset?
 
 "Culture eats strategy for breakfast." The best migration plan can easily be undone, if it doesn’t have executive support and encouragement from leadership. Learning, growing, and even failure are at the heart of a growth mindset. They are also at the heart of any transformation effort.
 
 Humility and curiosity have never been more important than they are during a business transformation. Embracing digital transformation requires both in ample supply. These traits are strengthened by regular introspection and an environment of encouragement. When employees are encouraged to take risks, they find better solutions. When employees are allowed to fail and learn, they succeed. Retrospectives are an opportunity for such investigation and growth.
 
-Retrospectives reinforce the principles of a growth mindset &mdash; experimentation, testing, learning, sharing, growing, and empowering. They provide a safe place for team members to share the challenges faced in the current sprint. And they allow the team to discuss and collaborate on ways to overcome those challenges. Retrospectives empower the team to create sustainable growth.
+Retrospectives reinforce the principles of a growth mindset: experimentation, testing, learning, sharing, growing, and empowering. They provide a safe place for team members to share the challenges faced in the current sprint. And they allow the team to discuss and collaborate on ways to overcome those challenges. Retrospectives empower the team to create sustainable growth.
 
 ## Retrospective structure
 
 A quick search on any search engine will offer many different approaches and tools for running a retrospective. Depending on the maturity of the culture and experience level of the team, these could prove very useful. However, the general structure of a retrospective remains roughly the same. During these meetings, each member of the team is expected to contribute a thought regarding three basic questions:
 
-- What went well? 
-- What could have gone better? 
+- What went well?
+- What could have been better?
 - What did we learn?
 
 Although these questions are simple in nature, they require employees to pause and reflect on their work over the last iteration. This small pause for introspection is the primary building block of a growth mindset. The humility and honesty produced when sharing the answers can become infectious beyond the time contract for the retrospective meeting.
@@ -28,7 +30,6 @@ Although these questions are simple in nature, they require employees to pause a
 The topic of leadership involvement in a retrospective is highly debated. Many technical teams suggest that leaders of any level should not be involved in the process, since it could discourage transparency and open dialogue. Others suggest that retrospectives are a good place for leaders to stay connected and to find ways to provide additional support. This decision is best left to the team and its leadership structure.
 
 If leaders are involved in the retrospective, one role is highly encouraged. The leader's primary duty in a retrospective is to make the team feel safe. Creating a growth mindset within a culture requires employees to be free to share their failures and successes without fear of rebuke. Leaders who applaud the courage and humility required to admit shortcomings are more likely to see a growth mindset established in their teams. When leaders take action on data points shared in a retrospective, they are likely to see this tool become an ineffective formality.
-
 
 ## Lessons learned
 

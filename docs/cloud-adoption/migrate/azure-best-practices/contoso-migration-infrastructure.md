@@ -20,14 +20,14 @@ This article shows how the fictional company Contoso prepares its on-premises in
 
 ## Overview
 
-Before Contoso can migrate to Azure, it's critical to prepare an Azure infrastructure. Generally, there are five broad areas Contoso needs to think about:
+Before Contoso can migrate to Azure, it's critical to prepare an Azure infrastructure. Generally, there are six broad areas Contoso needs to think about:
 
-**Step 1: Azure subscriptions**: How will Contoso purchase Azure, and interact with the Azure platform and services?
-**Step 2: Hybrid identity**: How will it manage and control access to on-premises and Azure resources after migration? How does Contoso extend or move identity management to the cloud?
-**Step 3: Disaster recovery and resilience**: How will Contoso ensure that its apps and infrastructure are resilient if outages and disasters occur?
-**Step 4: Networking**: How should Contoso design a networking infrastructure, and establish connectivity between its on-premises datacenter and Azure?
-**Step 5: Security**: How will its secure the hybrid/Azure deployment?
-**Step 6: Governance**: How will Contoso keep the deployment aligned with security and governance requirements?
+- **Step 1: Azure subscriptions.** How will Contoso purchase Azure, and interact with the Azure platform and services?
+- **Step 2: Hybrid identity.** How will it manage and control access to on-premises and Azure resources after migration? How does Contoso extend or move identity management to the cloud?
+- **Step 3: Disaster recovery and resilience.** How will Contoso ensure that its apps and infrastructure are resilient if outages and disasters occur?
+- **Step 4: Networking.** How should Contoso design a networking infrastructure, and establish connectivity between its on-premises datacenter and Azure?
+- **Step 5: Security.** How will its secure the hybrid/Azure deployment?
+- **Step 6: Governance.** How will Contoso keep the deployment aligned with security and governance requirements?
 
 ## Before you start
 

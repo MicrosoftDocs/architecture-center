@@ -62,29 +62,29 @@ A journey without a target destination is just wandering. It’s important to es
 
 ![Infographic of the migration options](../_images/migration/migration-options.png)
 
-## Incremental Migration Model
+## Incremental migration model
 
 This series of articles will outline two journeys, each with a similar end state: Migrate a large percentage of existing assets to Azure. However, the business outcomes and current state will heavily influence the processes required to get there. Those subtle deviations will result in two radically different approaches to reaching the a similar end state.
 
-![CAF Migration Model](../_images/operational-transformation-migrate.png)
+![CAF migration model](../_images/operational-transformation-migrate.png)
 
 To guide incremental execution during the transition to the end state, this model breaks migration into two areas of focus.
 
 **Migration Preparation**. Establish a rough migration backlog based largely on the current state and desired outcomes:
 
-- Business Outcomes: The key business objectives that necessitate this migration.
-- Digital Estate Estimate:  Establishes a rough idea of the number and condition of workloads to be migrated.
-- Roles and Responsibilities: An understanding of the team structure, separation of responsibilities, and access requirements.
-- Change Management Requirements: Defines the cadence, processes, and documentation required to approve change management.
+- **Business outcomes:** The key business objectives that necessitate this migration.
+- **Digital estate estimate:** Establishes a rough idea of the number and condition of workloads to be migrated.
+- **Roles and responsibilities:** An understanding of the team structure, separation of responsibilities, and access requirements.
+- **Change management requirements:** Defines the cadence, processes, and documentation required to approve change management.
 
-These initial inputs will shape the Migration Backlog. The output of the migration backlog will be a prioritized series of applications to be migrated to the cloud. That list of applications will shape the execution of the cloud migration process. Over time, it will also grow to include much of the documentation needed to manage change.
+These initial inputs will shape the migration backlog. The output of the migration backlog will be a prioritized series of applications to be migrated to the cloud. That list of applications will shape the execution of the cloud migration process. Over time, it will also grow to include much of the documentation needed to manage change.
 
-**Migration Process**. All activities related to cloud migration will fall into one of the following processes, as it relates to the Migration Backlog.
+**Migration process:**.All activities related to cloud migration will fall into one of the following processes, as it relates to the Migration Backlog.
 
-- Assess: Evaluate the existing asset and establish a plan for migration of the asset.
-- Migrate: Replicate the functionality of an asset in the cloud.
-- Optimize: Balance performance, cost, access, and operational capacity of the cloud asset.
-- Secure and Manage: Ensure the asset is ready for ongoing operations.
+- **Assess:** Evaluate the existing asset and establish a plan for migration of the asset.
+- **Migrate:** Replicate the functionality of an asset in the cloud.
+- **Optimize:** Balance performance, cost, access, and operational capacity of the cloud asset.
+- **Secure and manage:** Ensure the asset is ready for ongoing operations.
 
 The questions asked during the development of a migration backlog will determine the complexity and level of effort required within the Cloud Migration Process during each iteration and each release of functionality.
 
@@ -107,13 +107,13 @@ CAF's **incremental migration** approach empowers builds an incremental plan tha
 
 The following two journeys outline migration experiences aligned to the narrative of two fictional customers. Choose the journey that best aligns to your current objectives and constraints to establish a baseline for your own migration plan.
 
-**Simple Migration**: Rapid migration approach with little overhead.
+**Simple migration:** Rapid migration approach with little overhead.
 
 Narrative Summary: This approach consists of fewer than 1,000 VMs. Less than 10 of the applications supported are owned by an application owner who is not a part of IT. The remainder of the applications, VMs, and associated data are owned and supported by members of the Cloud Adoption Team. Members of the cloud adoption team have administrative access to the production environments in the existing data center.
 
 ![Example of Incremental migration evolutions](../../_images/migration/incremental-migration-example.png)
 
-**Complex Migration**: Longer term migration with greater rigor in areas of change management, and deeper process controls
+**Complex migration:** Longer term migration with greater rigor in areas of change management, and deeper process controls
 
 Narrative Summary: This approach consists of fewer than 10,000 VMs. Applications are supported by a number of business and IT Application Owners. Central IT has established governance best practices, but prioritizes innovation over control. Administrative access to production environments is dispersed across business units to create separation of responsibility.
 
