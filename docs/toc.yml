@@ -605,9 +605,8 @@
     - name: Best practices
       href: cloud-adoption/business-strategy/azure-best-practices/index.md
   - name: Ready
+    href: cloud-adoption/ready/index.md
     items:
-    - name: Overview
-      href: cloud-adoption/ready/index.md
     - name: Azure Readiness Guide
       items:
       - name: Set up your Azure environment
