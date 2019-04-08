@@ -7,8 +7,14 @@ ms.date: 4/4/2019
 
 # Azure Migration Best Practices
 
-Included in the Azure platform are a number of tools to aid in execution of a migration effort. This section of the Cloud Adoption Framework is designed to help readers implement those tools in alignment with best practices for migration. For each of readership, each best practice is aligned to one of the processes within the CAF Migration Model pictured below.
+Included in the Azure platform are a number of tools to aid in execution of a migration effort. This section of the Cloud Adoption Framework is designed to help readers implement those tools in alignment with best practices for migration. These best practices are aligned to one of the processes within the CAF Migration Model pictured below.
 
 Expand any process in the Table of Contents (TOC) to the left, to see best practices typically required during that process.
 
 ![CAF Migration Model](../../_images/operational-transformation-migrate.png)
+
+> [!Note]
+> Digital estate planning and asset assessment represent two different levels of migration planning and assessment: 
+>
+> - Digital estate planning: You Plan or Rationalize the digital estate during planning, to establish an overall migration backlog. However, this plan is based on a number of assumptions and vague details that need to be validated before a workload can be migrated.
+> - Asset assessment: You Assess a workload's individual assets prior to migration of the workload, to evaluate cloud compatibility and understand architecture/sizing constraints. This process validates initial assumptions and provides the details needed to migrate an individual asset.

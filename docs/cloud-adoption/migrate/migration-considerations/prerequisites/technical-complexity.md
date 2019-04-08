@@ -32,7 +32,7 @@ This acronym is not intended as a basis for rigid adherence but should help guid
 
 ## Migration backlog: Aligning business priorities and timing
 
-The migration backlog allows you to track your top-level portfolio of migratable workloads. Prior to migration, the Cloud Strategy Team and Cloud Adoption Team are encouraged to agree to a prioritized list of workloads to be migrated, which form the basis for the initial migration backlog.
+The migration backlog allows you to track your top-level portfolio of migratable workloads. Prior to migration, the Cloud Strategy Team and Cloud Adoption Team are encouraged to perform a review of the current [digital estate](../../../digital-estate/index.md), and agree to a prioritized list of workloads to be migrated. This list forms the basis of the initial migration backlog.
 
 Initially, workloads on the migration backlog are unlikely to meet the INVEST criteria outlined in the previous section. Instead, they serve as a logical grouping of assets from an initial inventory as a placeholder for future work. Those placeholders may not be technically accurate, but they serve as the basis for coordination with the business.
 
