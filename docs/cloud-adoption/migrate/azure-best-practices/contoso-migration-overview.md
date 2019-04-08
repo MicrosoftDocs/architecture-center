@@ -50,12 +50,18 @@ The articles in the series are summarized below.
 - Each migration scenario is driven by slightly different business goals that determine the migration strategy.
 - For each deployment scenario, we provide information about business drivers and goals, a proposed architecture, steps to perform the migration, and recommendation for cleanup and next steps after migration is complete.
 
-### Infrastructure and Assessment
+### Assessment
+
+**Article** | **Details**
+--- | ---
+[Assess on-premises resources for migration to Azure](contoso-migration-assessment.md) | This article shows how to run an assessment of an on-premises app running on VMware. In the example, an example organization assesses app VMs using the Azure Migrate service, and the app SQL Server database using Data Migration Assistant.
+
+### Infrastructure
 
 **Article** | **Details**
 --- | ---
 [Deploy Azure infrastructure](contoso-migration-infrastructure.md) | This article shows how an organization can prepare its on-premises infrastructure and its Azure infrastructure for migration. The infrastructure example established in this article is referenced in the other samples provided in this section.
-[Assess on-premises resources for migration to Azure](contoso-migration-assessment.md) | This article shows how to run an assessment of an on-premises app running on VMware. In the example, an organization assesses app VMs using the Azure Migrate service, and the app SQL Server database using Data Migration Assistant.
+
 
 ### Windows Server workloads
 

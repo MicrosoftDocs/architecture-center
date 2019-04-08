@@ -673,6 +673,3 @@ The Contoso security team reviews the Azure VMs WEBVM, SQLAOG1 and SQLAOG2 to de
 
 In this article, Contoso rehosted the SmartHotel360 app in Azure by migrating the app front-end VM to Azure using the Site Recovery service. Contoso migrated the app database to a SQL Server cluster provisioned in Azure, and protected it in a SQL Server AlwaysOn availability group.
 
-## Next steps
-
-In the next article in the series, we'll show how Contoso rehost their service desk osTicket app running on Linux, and deployed with a MySQL database.

@@ -72,19 +72,19 @@ To guide incremental execution during the transition to the end state, this mode
 
 **Migration Preparation**. Establish a rough migration backlog based largely on the current state and desired outcomes:
 
-- Business Outcomes: The key business objectives that necessitate this migration
-- Digital Estate Estimate: Establish a rough idea of the number and condition of assets to be migrated
-- Roles and Responsibilities: Understanding of the team structure, separation of responsibilities, and access requirements
-- Change Management Requirements: Define the cadence, processes, and documentation required to approve change management
+- Business Outcomes: The key business objectives that necessitate this migration.
+- Digital Estate Estimate:  Establishes a rough idea of the number and condition of workloads to be migrated.
+- Roles and Responsibilities: An understanding of the team structure, separation of responsibilities, and access requirements.
+- Change Management Requirements: Defines the cadence, processes, and documentation required to approve change management.
 
-These three initial inputs will shape the Migration Backlog. The output of the migration backlog will be a prioritized series of applications to be migrated to the cloud. That list of applications will shape the execution of the cloud migration process. Over time, it will also grow to include much of the documentation needed to manage change.
+These initial inputs will shape the Migration Backlog. The output of the migration backlog will be a prioritized series of applications to be migrated to the cloud. That list of applications will shape the execution of the cloud migration process. Over time, it will also grow to include much of the documentation needed to manage change.
 
 **Migration Process**. All activities related to cloud migration will fall into one of the following processes, as it relates to the Migration Backlog.
 
-- Assess: Evaluate the existing asset and establish a plan for migration of the asset
-- Migrate: Replicate the functionality of an asset in the cloud
-- Optimize: Balance performance, cost, access, and operational capacity of the cloud asset
-- Secure and Manage: Ensure the asset is ready for ongoing operations
+- Assess: Evaluate the existing asset and establish a plan for migration of the asset.
+- Migrate: Replicate the functionality of an asset in the cloud.
+- Optimize: Balance performance, cost, access, and operational capacity of the cloud asset.
+- Secure and Manage: Ensure the asset is ready for ongoing operations.
 
 The questions asked during the development of a migration backlog will determine the complexity and level of effort required within the Cloud Migration Process during each iteration and each release of functionality.
 

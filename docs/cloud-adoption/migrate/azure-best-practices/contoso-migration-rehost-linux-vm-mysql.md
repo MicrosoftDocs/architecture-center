@@ -456,8 +456,3 @@ For business continuity and disaster recovery, Contoso takes the following actio
 - There are no licensing issues for the Contoso Ubuntu servers.
 - Contoso will enable Azure Cost Management licensed by Cloudyn, a Microsoft subsidiary. It's a multi-cloud cost management solution that helps you to use and manage Azure and other cloud resources. [Learn more](/azure/cost-management/overview) about Azure Cost Management.
 
-## Next steps
-
-In this scenario we showed the final rehost scenario. Contoso migrated the front-end VM of the on-premises Linux osTicket app to an Azure VM, and migrated the app database to an Azure MySQL instance.
-
-In the next set of tutorials in the migration series, we're going to show you how Contoso performed a more complex set of migrations, involving app refactoring, rather than simple lift-and-shift migrations.
