@@ -47,7 +47,7 @@ The foundation of the scaffold is the hierarchy and relationship of the Azure En
 
 An Azure subscription is the basic unit where all resources are contained. It also defines several limits within Azure, such as number of cores, virtual networks and other resources. Azure Resource Groups are used to further refine the subscription model and enable a more natural grouping of resources.
 
-Every enterprise is different and the hierarchy in the above image allows for significant flexibility in how Azure is organized within your company. Modeling your hierarchy to reflect the needs of your company for billing, resource management, and resource access is the first &mdash; and most important &mdash; decision you make when starting in the public cloud.
+Every enterprise is different and the hierarchy in the above image allows for significant flexibility in how Azure is organized within your company. Modeling your hierarchy to reflect your company's billing, resource management, and resource access needs is the first and most important decision you make when starting in the public cloud.
 
 ### Departments and Accounts
 
@@ -64,12 +64,12 @@ Though each of these patterns has its place, the **business unit** pattern is in
 
 ### Azure management groups
 
-Microsoft has recently released a new way of modeling your hierarchy: [Azure management groups](/azure/azure-resource-manager/management-groups-overview). Management groups are much more flexible than departments and accounts and can be nested up to six levels. Management groups allow you to create a hierarchy that is separate from your billing hierarchy, solely for efficient management of resources. Management groups can mirror your billing hierarchy and often enterprises start that way. However, the power of management groups is when you use them to model your organization where related subscriptions &mdash; regardless where they are in the billing hierarchy &mdash; are grouped together and need common roles assigned as well as policies and initiatives. A few examples:
+Microsoft now provides another way to model your hierarchy: [Azure management groups](/azure/azure-resource-manager/management-groups-overview). Management groups are much more flexible than departments and accounts, and they can be nested up to six levels. Management groups let you create a hierarchy that is separate from your billing hierarchy, solely for efficient management of resources. Management groups can mirror your billing hierarchy and often enterprises start that way. However, the power of management groups is when you use them to model your organization where related subscriptions &mdash; regardless where they are in the billing hierarchy &mdash; are grouped together and need common roles assigned as well as policies and initiatives. A few examples:
 
-- **Production/Non-Production**. Some enterprises create management groups to identify their production and non-production subscriptions. Management groups allow these customers to more easily manage roles and policies, for example: non-production subscription may allow developers "contributor" access, but in production, they have only "reader" access.
-- **Internal Services/External Services**. Much like Production/Non-Production, enterprises often have different requirements, policies and roles for internal services versus external (customer facing) services.
+- **Production vs. nonproduction**. Some enterprises create management groups to identify their production and nonproduction subscriptions. Management groups allow these customers to more easily manage roles and policies, for example: non-production subscription may allow developers "contributor" access, but in production, they have only "reader" access.
+- **Internal services vs. external services:** Enterprises often have different requirements, policies ,and roles for internal services versus customer-facing services.
 
-Well thought out management groups are, along with Azure Policy and Initiatives the backbone of efficient governance of Azure.
+Well-designed management groups are, along with Azure Policy and Initiatives, the backbone of efficient governance of Azure.
 
 ### Subscriptions
 

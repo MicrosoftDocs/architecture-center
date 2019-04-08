@@ -5,9 +5,11 @@ author: BrianBlanchard
 ms.date: 4/4/2019
 ---
 
+<!-- markdownlint-disable MD026 -->
+
 # What role does replication play in the migration process?
 
-On-premises datacenters are generally filled with physical assets &mdash; servers, appliances, network devices, and more. However, each server is only a physical shell. The real value comes from the binary running on the server. The applications and data are the purpose for the datacenter. Those are the primary binaries to migrate. Powering these applications and data stores are other digital assets and binary sources, like operating systems, network routes, files, and security protocols.
+On-premises datacenters are generally filled with physical assets like servers, appliances, and network devices. However, each server is only a physical shell. The real value comes from the binary running on the server. The applications and data are the purpose for the datacenter. Those are the primary binaries to migrate. Powering these applications and data stores are other digital assets and binary sources, like operating systems, network routes, files, and security protocols.
 
 Replication is the workhorse of migration efforts. It is the process of copying a point-in-time version of various binaries. The binary snapshots are then copied to a new platform and deployed onto new hardware, in a process referred to as *seeding*. When executed properly, the seeded copy of the binary should behave identically to the original binary on the old hardware. However, that snapshot of the binary is immediately out of date and misaligned with the original source. To keep the new binary and the old binary aligned, a process referred to as *synchronization* continuously updates the copy stored in the new platform. Synchronization continues until the asset is promoted in alignment with the chosen promotion model. At that point, the synchronization is severed.
 
@@ -24,7 +26,7 @@ A *toolchain* that aligns with the new platform and source binaries must be impl
 When planning for the replication of any binary source to a new destination, there are a few fundamental laws to seriously consider during planning and execution.
 
 - **Speed of light.** When moving high volumes of data, fiber is still the fastest option. Unfortunately, those cables can only move data at two-thirds the speed of light. This means that there is no method for instantaneous or unlimited replication of data.
-- **Speed of WAN pipeline.** More consequential than the speed of data movement is the uplink bandwidth &mdash; the amount of data per second that can be carried over a company’s existing WAN to the target datacenter.
+- **Speed of WAN pipeline.** More consequential than the speed of data movement is the uplink bandwidth, which defines the volume of data per second that can be carried over a company’s existing WAN to the target datacenter.
 - **Speed of WAN expansion.** If budgets allow, additional bandwidth can be added to a company's WAN solution. However, it can take weeks or months to procure, provision, and integrate additional fiber connections.
 - **Speed of disks.** If data could move faster and there was no limit to the bandwidth between the source binary and the target destination, physics would still be a limiter. Data can only be replicated as quickly as it can be read from source disks. Reading every one or zero from every spinning disk in a datacenter takes time.
 - **Speed of human calculations.** Disks and light move faster than human decision processes. When a group of humans is required to collaborate and make decisions together, the results will come even more slowly. Replication can never overcome delays related to human intelligence.

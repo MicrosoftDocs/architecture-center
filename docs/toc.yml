@@ -611,16 +611,19 @@
       items:
       - name: Set up your Azure environment
         href: cloud-adoption/ready/azure-readiness-guide/index.md
-      - name: Manage access
-        href: cloud-adoption/ready/azure-readiness-guide/manage-access.md
       - name: Organize your resources
         href: cloud-adoption/ready/azure-readiness-guide/organize-resources.md
+      - name: Manage access
+        href: cloud-adoption/ready/azure-readiness-guide/manage-access.md
       - name: Manage costs and billing
         href: cloud-adoption/ready/azure-readiness-guide/manage-costs.md
       - name: Plan governance, security, and compliance
         href: cloud-adoption/ready/azure-readiness-guide/govern-org-compliance.md
       - name: Use monitoring and reporting
         href: cloud-adoption/ready/azure-readiness-guide/monitoring-reporting.md
+      - name: Staying current with Azure
+        href: cloud-adoption/ready/azure-readiness-guide/staying-current.md
+    - name: Readiness Considerations
     - name: Expanded Scope
       items:
       - name: Naming and tagging
@@ -651,7 +654,7 @@
         - name: Migrate assets that make up a workload
           href: cloud-adoption/migrate/baseline-migration-guide/migrate.md
         - name: Manage costs and billing to understand charges and usage from your Azure Resources
-          href: cloud-adoption/migrate/baseline-migration-guide/manage-costs
+          href: cloud-adoption/migrate/baseline-migration-guide/manage-costs.md
         - name: Organize your Azure resources
           href: cloud-adoption/migrate/baseline-migration-guide/organize-resources.md
         - name: Optimize and Transform

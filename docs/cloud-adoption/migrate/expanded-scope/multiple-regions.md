@@ -32,6 +32,8 @@ The following table can aid in documenting the findings from the steps above:
 |Europe     |Germany         |Yes         |Partners and customers         |No - Network only         |Yes         |
 |Asia Pacific     |South Korea         |Yes         |Partners         |Yes         |No         |
 
+<!-- markdownlint-disable MD026 -->
+
 ### Why is data sovereignty relevant?
 
 Around the world, government organizations have begun establishing data sovereignty requirements, like General Data Protection Regulation (GDPR). Compliance requirements of this nature often require localization within a specific region or even within a specific country to protect their citizens. In some cases, data pertaining to customers, employees, or partners must be stored on a cloud platform within the same region as the end user.
@@ -85,7 +87,7 @@ When dealing with global asset and user base complexities, there are a few key a
 **Evaluate cross data center dependencies:** The [dependency visualization tools in Azure Migrate](/azure/migrate/concepts-dependency-visualization) can help pinpoint dependencies. Use of this tool set prior to migration is a good general best practice. However, when dealing with global complexity it becomes a necessary step to the assessment process. Through [dependency grouping](/azure/migrate/how-to-create-group-machine-dependencies), the visualization can help identify the IP addresses and ports of any assets required to support the workload.
 
 > [!IMPORTANT]
-> Two important notes: First, a subject matter expert with an understanding of asset placement and IP address schemas will be required to identify assets that reside in a secondary data center. Second, it is important to evaluate both downstream dependencies and Clients in the visual to understand bi-directional dependencies.
+> Two important notes: First, a subject matter expert with an understanding of asset placement and IP address schemas will be required to identify assets that reside in a secondary data center. Second, it is important to evaluate both downstream dependencies and Clients in the visual to understand bidirectional dependencies.
 
 **Identify global user impact:** The outputs from the prerequisite user profile analysis should identify any workload affected by global user profiles. When a migration candidate is in the affected workload list, the architect preparing for migration should consult networking and operations subject matter experts to validate network routing and performance expectations. At minimum, the architecture should include an ExpressRoute connection between the closest network operations center (NOC) and Azure. The [reference architecture for ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute) connections can aid in configuration of the necessary connection.
 
