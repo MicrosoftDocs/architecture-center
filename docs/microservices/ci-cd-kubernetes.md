@@ -244,13 +244,15 @@ delivery-v0.1.0 1           Sun Apr  7 00:25:30 2019    DEPLOYED      delivery-v
 >[!TIP]
 > Use the `--history-max` flag when initializing Helm. This setting limits the number of revisions that Tiller saves in its history. Tiller stores revision history in configmaps. If you're releasing updates frequently, the configmaps can grow very large unless you limit the history size.
 
+Consider deploying Helm to its own namespace and using role-based access control (RBAC) to restrict which namespaces it can deploy to. For more information, see [Role-based Access Control](https://helm.sh/docs/using_helm/#helm-and-role-based-access-control) in the Helm documentation.
+
 ## Azure DevOps Pipeline
 
 In Azure Pipelines, pipelines are divided into *build pipelines* and *release pipelines*. The build pipeline runs the CI process and creates build artifacts. For a microservices architecture on Kubernetes, these artifacts are the container images and Helm charts that define each microservice. The release pipeline runs that CD process that deploys a microservice into a cluster.
 
-Tasks in the build pipeline:
+Based on the CI flow described earlier in this article, a build pipeline might consist of the following tasks:
 
-1. Build the test runner as a container.
+1. Build the test runner container.
 
     ```yaml
     - task: Docker@1
@@ -335,7 +337,7 @@ Tasks in the build pipeline:
 
 &#11162; See the [source file](https://github.com/mspnp/microservices-reference-implementation/blob/master/src/shipping/delivery/azure-pipelines-ci.yml).
 
-Tasks in the release pipeline:
+The output from the CI pipeline is a production-ready container image and an updated Helm chart for the microservice. At this point the release pipeline can take over. It performs the following steps:
 
 - Deploy to dev/QA/staging environments.
 - Wait for an approver to approve or reject the deployment.
@@ -351,4 +353,6 @@ The following diagram shows the end-to-end CI/CD process described in this artic
 
 ## Next steps
 
-This article was based on a reference implementation that you can find on [GitHub](https://github.com/mspnp/microservices-reference-implementation).
+This article was based on a reference implementation that you can find on [GitHub][ri].
+
+[ri]: https://github.com/mspnp/microservices-reference-implementation
