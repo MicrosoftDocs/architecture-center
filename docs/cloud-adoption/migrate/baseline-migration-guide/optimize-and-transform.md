@@ -42,7 +42,6 @@ The following are some common services which you can resize.
 ::: form action="OpenBlade[#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Compute%2FVirtualMachines]" submitText="Go to Virtual Machines" :::
 
 ::: zone-end
-![Infographic of the migration options](../../_images/migration/migration-options.png)
 
 ::: zone target="docs"
 
