@@ -107,10 +107,10 @@ Here's how Contoso will complete the migration:
 
 > [!div class="checklist"]
 >
-> - **Step 1: Prepare Azure for Site Recovery**: Contoso creates an Azure storage account to hold replicated data, and creates a Recovery Services vault.
-> - **Step 2: Prepare on-premises VMware for Site Recovery**: Contoso prepares accounts to be used for VM discovery and agent installation, and prepares to connect to Azure VMs after failover.
-> - **Step 3: Replicate VMs**: Contoso sets up the source and target migration environment, creates a replication policy, and starts replicating VMs to Azure storage.
-> - **Step 4: Migrate the VMs with Site Recovery**: Contoso runs a test failover to make sure everything's working, and then runs a full failover to migrate the VMs to Azure.
+> - **Step 1: Prepare Azure for Site Recovery.** Contoso creates an Azure storage account to hold replicated data, and creates a Recovery Services vault.
+> - **Step 2: Prepare on-premises VMware for Site Recovery.** Contoso prepares accounts to be used for VM discovery and agent installation, and prepares to connect to Azure VMs after failover.
+> - **Step 3: Replicate VMs.** Contoso sets up the source and target migration environment, creates a replication policy, and starts replicating VMs to Azure storage.
+> - **Step 4: Migrate the VMs with Site Recovery.** Contoso runs a test failover to make sure everything's working, and then runs a full failover to migrate the VMs to Azure.
 
 ## Step 1: Prepare Azure for the Site Recovery service
 

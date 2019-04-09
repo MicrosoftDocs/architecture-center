@@ -104,12 +104,12 @@ Here's how Contoso will complete the migration:
 
 > [!div class="checklist"]
 >
-> - **Step 1: Provision Azure App Services**: Contoso admins will provision Web Apps in the primary and secondary regions.
-> - **Step 2: Set up Traffic Manager**: They set up Traffic Manager in front of the Web Apps, for routing and load balancing traffic.
-> - **Step 3: Provision MySQL**: In Azure, they provision an instance of Azure MySQL database.
-> - **Step 4: Migrate the database**: They migrate the database using MySQL Workbench.
-> - **Step 5: Set up GitHub**: They set up a local GitHub repository for the app web sites/code.
-> - **Step 6: Deploy the web apps**: They deploy the web apps from GitHub.
+> - **Step 1: Provision Azure App Services.** Contoso admins will provision Web Apps in the primary and secondary regions.
+> - **Step 2: Set up Traffic Manager.** They set up Traffic Manager in front of the Web Apps, for routing and load balancing traffic.
+> - **Step 3: Provision MySQL.** In Azure, they provision an instance of Azure MySQL database.
+> - **Step 4: Migrate the database.** They migrate the database using MySQL Workbench.
+> - **Step 5: Set up GitHub.** They set up a local GitHub repository for the app web sites/code.
+> - **Step 6: Deploy the web apps.** They deploy the web apps from GitHub.
 
 ## Step 1: Provision Azure App Services
 

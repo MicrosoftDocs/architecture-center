@@ -132,13 +132,13 @@ Here's how Contoso plans to set up the deployment:
 
 > [!div class="checklist"]
 >
-> - **Step 1: Set up a SQL Database Managed Instance:** Contoso needs an existing managed instance to which the on-premises SQL Server database will migrate.
-> - **Step 2: Prepare the Azure Database Migration Service:** Contoso must register the database migration provider, create an instance, and then create an Azure Database Migration Service project. Contoso also must set up a shared access signature (SAS) uniform resource identifier (URI) for the Azure Database Migration Service. An SAS URI provides delegated access to resources in Contoso's storage account, so Contoso can grant limited permissions to storage objects. Contoso sets up an SAS URI, so the Azure Database Migration Service can access the storage account container to which the service uploads the SQL Server backup files.
-> - **Step 3: Prepare Azure for Site Recovery**: Contoso must create a storage account to hold replicated data for Site Recovery. It also must create an Azure Recovery Services vault.
-> - **Step 4: Prepare on-premises VMware for Site Recovery**: Contoso will prepare accounts for VM discovery and agent installation to connect to Azure VMs after failover.
-> - **Step 5: Replicate VMs**: To set up replication, Contoso configure the Site Recovery source and target environments, sets up a replication policy, and starts replicating VMs to Azure Storage.
-> - **Step 6: Migrate the database using the Azure Database Migration Service**: Contoso migrates the database.
-> - **Step 7: Migrate the VMs by using Site Recovery**: Contoso runs a test failover to make sure everything's working. Then, Contoso runs a full failover to migrate the VMs to Azure.
+> - **Step 1: Set up a SQL Database Managed Instance.** Contoso needs an existing managed instance to which the on-premises SQL Server database will migrate.
+> - **Step 2: Prepare the Azure Database Migration Service.** Contoso must register the database migration provider, create an instance, and then create an Azure Database Migration Service project. Contoso also must set up a shared access signature (SAS) uniform resource identifier (URI) for the Azure Database Migration Service. An SAS URI provides delegated access to resources in Contoso's storage account, so Contoso can grant limited permissions to storage objects. Contoso sets up an SAS URI, so the Azure Database Migration Service can access the storage account container to which the service uploads the SQL Server backup files.
+> - **Step 3: Prepare Azure for Site Recovery.** Contoso must create a storage account to hold replicated data for Site Recovery. It also must create an Azure Recovery Services vault.
+> - **Step 4: Prepare on-premises VMware for Site Recovery.** Contoso will prepare accounts for VM discovery and agent installation to connect to Azure VMs after failover.
+> - **Step 5: Replicate VMs.** To set up replication, Contoso configure the Site Recovery source and target environments, sets up a replication policy, and starts replicating VMs to Azure Storage.
+> - **Step 6: Migrate the database using the Azure Database Migration Service.** Contoso migrates the database.
+> - **Step 7: Migrate the VMs by using Site Recovery.** Contoso runs a test failover to make sure everything's working. Then, Contoso runs a full failover to migrate the VMs to Azure.
 
 ## Step 1: Prepare a SQL Database Managed Instance
 
@@ -149,7 +149,7 @@ To set up an Azure SQL Database Managed Instance, Contoso needs a subnet that me
 - The subnet can't have a network security group associated with it.
 - The subnet must have a user-defined routing (UDR) route table. The only route assigned should be 0.0.0.0/0 next hop internet.
 - Optional custom DNS: If custom DNS is specified on the Azure virtual network, Azure's recursive resolvers IP address (such as 168.63.129.16) must be added to the list. Learn how to [configure custom DNS for a Managed Instance](/azure/sql-database/sql-database-managed-instance-custom-dns).
-- The subnet mustn't have a service endpoint (storage or SQL) associated with it. Service endpoints should be disabled on the virtual network.
+- The subnet must not have a service endpoint (storage or SQL) associated with it. Service endpoints should be disabled on the virtual network.
 - The subnet must have a minimum of 16 IP addresses. Learn how to [size the Managed Instance subnet](/azure/sql-database/sql-database-managed-instance-vnet-configuration).
 - In Contoso's hybrid environment, custom DNS settings are required. Contoso configures DNS settings to use one or more of the company's Azure DNS servers. Learn more about [DNS customization](/azure/sql-database/sql-database-managed-instance-custom-dns).
 

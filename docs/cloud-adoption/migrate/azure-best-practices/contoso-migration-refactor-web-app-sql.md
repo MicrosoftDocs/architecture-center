@@ -115,12 +115,12 @@ Here's how Contoso will run the migration:
 
 > [!div class="checklist"]
 >
-> - **Step 1: Provision a SQL Database instance in Azure**: Contoso provisions a SQL instance in Azure. After the app website is migrate to Azure, the WCF service web app will point to this instance.
-> - **Step 2: Migrate the database with DMA**: Contoso migrates the app database with the Database Migration Assistant.
-> - **Step 3: Provision Web Apps**: Contoso provisions the two web apps.
-> - **Step 4: Set up Azure DevOps**: Contoso creates a new Azure DevOps project, and imports the Git repo.
-> - **Step 5: Configure connection strings**: Contoso configures connection strings so that the web tier web app, the WCF service web app, and the SQL instance can communicate.
-> - **Step 6: Set up build and release pipelines**: As a final step, Contoso sets up build and release pipelines to create the app, and deploys them to two separate Azure Web Apps.
+> - **Step 1: Provision a SQL Database instance in Azure.** Contoso provisions a SQL instance in Azure. After the app website is migrate to Azure, the WCF service web app will point to this instance.
+> - **Step 2: Migrate the database with DMA.** Contoso migrates the app database with the Database Migration Assistant.
+> - **Step 3: Provision Web Apps.** Contoso provisions the two web apps.
+> - **Step 4: Set up Azure DevOps.** Contoso creates a new Azure DevOps project, and imports the Git repo.
+> - **Step 5: Configure connection strings.** Contoso configures connection strings so that the web tier web app, the WCF service web app, and the SQL instance can communicate.
+> - **Step 6: Set up build and release pipelines.** As a final step, Contoso sets up build and release pipelines to create the app, and deploys them to two separate Azure Web Apps.
 
 ## Step 1: Provision an Azure SQL Database
 

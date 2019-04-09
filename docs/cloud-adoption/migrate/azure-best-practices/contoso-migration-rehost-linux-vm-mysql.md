@@ -98,12 +98,12 @@ Here's how Contoso admins will complete the migration:
 
 > [!div class="checklist"]
 >
-> - **Step 1: Prepare Azure for Site Recovery**: They create an Azure storage account to hold replicated data, and create a Recovery Services vault.
-> - **Step 2: Prepare on-premises VMware for Site Recovery**: They prepare accounts for VM discovery and agent installation, and prepare to connect to Azure VMs after failover.
-> - **Step 3: Provision the database]**: In Azure, they provision an instance of Azure MySQL database.
-> - **Step 4: Replicate VMs**: They configure the Site Recovery source and target environment, set up a replication policy, and start replicating VMs to Azure storage.
-> - **Step 5: Migrate the database**: They set up migration with MySQL tools.
-> - **Step 6: Migrate the VMs with Site Recovery**: Lastly, they run a test failover to make sure everything's working, and then run a full failover to migrate the VMs to Azure.
+> - **Step 1: Prepare Azure for Site Recovery.** They create an Azure storage account to hold replicated data, and create a Recovery Services vault.
+> - **Step 2: Prepare on-premises VMware for Site Recovery.** They prepare accounts for VM discovery and agent installation, and prepare to connect to Azure VMs after failover.
+> - **Step 3: Provision the database.** In Azure, they provision an instance of Azure MySQL database.
+> - **Step 4: Replicate VMs.** They configure the Site Recovery source and target environment, set up a replication policy, and start replicating VMs to Azure storage.
+> - **Step 5: Migrate the database.** They set up migration with MySQL tools.
+> - **Step 6: Migrate the VMs with Site Recovery.** Lastly, they run a test failover to make sure everything's working, and then run a full failover to migrate the VMs to Azure.
 
 ## Step 1: Prepare Azure for the Site Recovery service
 
