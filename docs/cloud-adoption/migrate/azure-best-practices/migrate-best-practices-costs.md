@@ -32,12 +32,12 @@ The best practices in this section help you to estimate costs, perform right-siz
 
 To forecast your monthly bill for migrated workloads, there are a number of tools you can use.
 
-- **Azure pricing calculator**: You select the products you want to estimate, for example VMs and storage. You input costs into the pricing calculator, to build an estimate.
+- **Azure pricing calculator:** You select the products you want to estimate, for example VMs and storage. You input costs into the pricing calculator, to build an estimate.
 
  ![Azure pricing calculator](./media/migrate-best-practices-costs/pricing.png)
     *Azure pricing calculator*
 
-- **Azure Migrate**: To estimate costs, you need to review and account for all the resources required to run your workloads in Azure. To acquire this data, you create inventory of your assets, including servers, VMs, databases, and storage. You can use Azure Migrate to collect this information.
+- **Azure Migrate:** To estimate costs, you need to review and account for all the resources required to run your workloads in Azure. To acquire this data, you create inventory of your assets, including servers, VMs, databases, and storage. You can use Azure Migrate to collect this information.
 
 - Azure Migrate discovers and assesses your on-premises environment to provide an inventory.
 - Azure Migrate can map and show you dependencies between VMs so that you have a complete picture.
@@ -217,7 +217,7 @@ Microsoft provides Azure Cost Management to help you track spending, as follows:
 
 In Cost Management, you can:
 
-- **Create a budget**: Create a budget for financial accountability.
+- **Create a budget:** Create a budget for financial accountability.
   - You can account for the services you consume or subscribe to for a specific period (monthly, quarterly, annually) and a scope (subscriptions/resource groups). For example, you can create an Azure subscription budget for a monthly, quarterly, or annual period.
     - After you create a budget, it's shown in cost analysis. Viewing your budget against current spending is one of the first steps needed when analyzing your costs and spending.
   - Email notifications can be sent when budget thresholds are reached.
@@ -226,14 +226,14 @@ In Cost Management, you can:
     ![Cost Management budget](./media/migrate-best-practices-costs/budget.png)
     *Azure Cost Management budget*
 
-- **Do a cost analysis**: Get a cost analysis to explore and analyze your organizational costs, to help you understand how costs are accrued, and identify spending trends.
+- **Do a cost analysis:** Get a cost analysis to explore and analyze your organizational costs, to help you understand how costs are accrued, and identify spending trends.
   - Cost analysis is available to EA users.
   - You can view cost analysis data for a number of scopes, including by department, account, subscription or resource group.
   - You can get a cost analysis that shows total costs for the current month, and accumulated daily costs.
 
     ![Cost Management analysis](./media/migrate-best-practices-costs/analysis.png)
     *Azure Cost Management analysis*
-- **Get recommendations**: Get Advisor recommendations that show you how you can optimize and improve efficiency.
+- **Get recommendations:** Get Advisor recommendations that show you how you can optimize and improve efficiency.
 
 **Learn more:**
 

@@ -155,7 +155,7 @@ Some of the factors to consider when evaluating the timeline of your migration w
 
 As you assess your environment this presents a perfect opportunity to include a cost analysis step within those activities. Using the data collected by the assessment activities you should be able to analyse and predict costs. This cost predication should factor both the consumption service costs in addition to any one time costs (such as increased data ingress).
 
-During migration, there are a number of factors that will impact decisions and execution activities:
+During migration, there are a number of factors that will affect decisions and execution activities:
 
 - **Digital estate size:** Understanding the size of your digital estate will directly affect decisions and the resources required to perform the migration.
 - **Accounting models:** Shifting from a structured capital expenditure (CapEx) to a fluid operating expense (OpEx) model.

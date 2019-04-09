@@ -48,9 +48,9 @@ Since the company supports employees, partners, and customers in Germany but the
 
 ### Why is the location of datacenters relevant?
 
-The location of existing datacenters can have a number of impacts on a migration strategy. THe following are a few of the most common impacts:
+The location of existing datacenters can affect a migration strategy. THe following are a few of the most common impacts:
 
-**Architecture decisions:** Target region/location is one of the first steps in migration strategy design. This is often influenced by the location of the existing assets. Additionally, the available of cloud services and the unit cost of those services can vary from one region to the next. As such, understanding the current and future location of assets affects the architecture decisions and can also impact budget estimates.
+**Architecture decisions:** Target region/location is one of the first steps in migration strategy design. This is often influenced by the location of the existing assets. Additionally, the available of cloud services and the unit cost of those services can vary from one region to the next. As such, understanding the current and future location of assets affects the architecture decisions and can also affect budget estimates.
 
 **Datacenter dependencies:** Based on the data in the table above, there is a high likelihood of dependencies existing between the various datacenters around the globe. In many organizations which operate on this type of scale, those dependencies may not be documented or well understood. The approaches used to evaluate user profiles will help identify some these dependencies. However, additional steps are suggested during the assess process to mitigate risks associated with this complexity.
 

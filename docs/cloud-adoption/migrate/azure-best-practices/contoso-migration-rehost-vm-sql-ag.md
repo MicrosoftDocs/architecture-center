@@ -21,10 +21,10 @@ The SmartHotel360 app used in this example is provided as open source. If you'd 
 
 The IT leadership team has worked closely with business partners to understand what they want to achieve with this migration:
 
-- **Address business growth**: Contoso is growing, and as a result there is pressure on on-premises systems and infrastructure.
-- **Increase efficiency**: Contoso needs to remove unnecessary procedures, and streamline processes for developers and users. The business needs IT to be fast and not waste time or money, thus delivering faster on customer requirements.
-- **Increase agility**:  Contoso IT needs to be more responsive to the needs of the business. It must be able to react faster than the changes in the marketplace, to enable the success in a global economy. IT mustn't get in the way, or become a business blocker.
-- **Scale**: As the business grows successfully, Contoso IT must provide systems that are able to grow at the same pace.
+- **Address business growth.** Contoso is growing, and as a result there is pressure on on-premises systems and infrastructure.
+- **Increase efficiency.** Contoso needs to remove unnecessary procedures, and streamline processes for developers and users. The business needs IT to be fast and not waste time or money, thus delivering faster on customer requirements.
+- **Increase agility.** Contoso IT needs to be more responsive to the needs of the business. It must be able to react faster than the changes in the marketplace, to enable the success in a global economy. IT mustn't get in the way, or become a business blocker.
+- **Scale.** As the business grows successfully, Contoso IT must provide systems that are able to grow at the same pace.
 
 ## Migration goals
 
@@ -651,7 +651,7 @@ With the migrated resources in Azure, Contoso needs to fully operationalize and 
 The Contoso security team reviews the Azure VMs WEBVM, SQLAOG1 and SQLAOG2 to determine any security issues.
 
 - The team reviews the network security groups (NSGs) for the VM to control access. NSGs are used to ensure that only traffic allowed to the application can pass.
-- The team considers securing the data on the disk using Azure Disk Encryption and KeyVault.
+- The team considers securing the data on the disk using Azure Disk Encryption and Key Vault.
 - The team should evaluate transparent data encryption (TDE), and then enable it on the SmartHotel360 database running on the new SQL AOG. [Learn more](/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017).
 
 [Read more](/azure/security/azure-security-best-practices-vms) about security practices for VMs.

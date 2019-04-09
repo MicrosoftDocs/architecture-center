@@ -22,9 +22,9 @@ osTicket, the service desk app used in this example is provided as open source. 
 
 The IT Leadership team has worked closely with business partners to understand what they want to achieve with this migration:
 
-- **Address business growth**: Contoso is growing, and as a result there's pressure on the on-premises systems and infrastructure.
-- **Limit risk**: The service desk app is critical for the Contoso business. Contoso wants to move it to Azure with zero risk.
-- **Extend**:  Contoso don't want to change the app right now. It simply wants to ensure that the app is stable.
+- **Address business growth.** Contoso is growing, and as a result there's pressure on the on-premises systems and infrastructure.
+- **Limit risk.** The service desk app is critical for the Contoso business. Contoso wants to move it to Azure with zero risk.
+- **Extend.** Contoso don't want to change the app right now. It simply wants to ensure that the app is stable.
 
 ## Migration goals
 
@@ -427,7 +427,7 @@ With the app now running, Contoso needs to fully operationalize and secure their
 The Contoso security team review the OSTICKETWEB and OSTICKETMYSQLVMs to determine any security issues.
 
 - The team reviews the network security groups (NSGs) for the VMs to control access. NSGs are used to ensure that only traffic allowed to the application can pass.
-- The team also considers securing the data on the VM disks using Disk encryption and Azure KeyVault.
+- The team also considers securing the data on the VM disks using Disk encryption and Azure Key Vault.
 
 [Read more](/azure/security/azure-security-best-practices-vms) about security practices for VMs.
 
@@ -435,12 +435,11 @@ The Contoso security team review the OSTICKETWEB and OSTICKETMYSQLVMs to determi
 
 For business continuity and disaster recovery, Contoso takes the following actions:
 
-- **Keep data safe**: Contoso backs up the data on the VMs using the Azure Backup service. [Learn more](/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-- **Keep apps up and running**: Contoso replicates the app VMs in Azure to a secondary region using Site Recovery. [Learn more](/azure/site-recovery/azure-to-azure-quickstart).
+- **Keep data safe.** Contoso backs up the data on the VMs using the Azure Backup service. [Learn more](/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+- **Keep apps up and running.** Contoso replicates the app VMs in Azure to a secondary region using Site Recovery. [Learn more](/azure/site-recovery/azure-to-azure-quickstart).
 
 ### Licensing and cost optimization
 
 - After deploying resources, Contoso assigns Azure tags as defined during the [Azure infrastructure deployment](contoso-migration-infrastructure.md#set-up-tagging).
 - Contoso has no licensing issues with the Ubuntu servers.
 - Contoso will enable Azure Cost Management licensed by Cloudyn, a Microsoft subsidiary. It's a multicloud cost management solution that helps you to use and manage Azure and other cloud resources. [Learn more](/azure/cost-management/overview) about Azure Cost Management.
-

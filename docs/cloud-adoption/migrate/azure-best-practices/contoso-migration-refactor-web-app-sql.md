@@ -20,11 +20,11 @@ The SmartHotel360 app used in this example is provided as open source. If you'd 
 
 The IT leadership team has worked closely with business partners to understand what they want to achieve with this migration:
 
-- **Address business growth**: Contoso is growing, and there is pressure on on-premises systems and infrastructure.
-- **Increase efficiency**: Contoso needs to remove unnecessary procedures, and streamline processes for developers and users. The business needs IT to be fast and not waste time or money, thus delivering faster on customer requirements.
-- **Increase agility**:  Contoso IT needs to be more responsive to the needs of the business. It must be able to react faster than the changes in the marketplace, to enable the success in a global economy. It mustn't get in the way, or become a business blocker.
-- **Scale**: As the business grows successfully, Contoso IT must provide systems that are able to grow at the same pace.
-- **Costs**: Contoso wants to minimize licensing costs.
+- **Address business growth.** Contoso is growing, and there is pressure on on-premises systems and infrastructure.
+- **Increase efficiency.** Contoso needs to remove unnecessary procedures, and streamline processes for developers and users. The business needs IT to be fast and not waste time or money, thus delivering faster on customer requirements.
+- **Increase agility.**  Contoso IT needs to be more responsive to the needs of the business. It must be able to react faster than the changes in the marketplace, to enable the success in a global economy. It mustn't get in the way, or become a business blocker.
+- **Scale.** As the business grows successfully, Contoso IT must provide systems that are able to grow at the same pace.
+- **Reduce costs.** Contoso wants to minimize licensing costs.
 
 ## Migration goals
 
@@ -91,7 +91,7 @@ Contoso evaluates their proposed design by putting together a pros and cons list
 
 **Service** | **Description** | **Cost**
 --- | --- | ---
-[Database Migration Assistant (DMA)](/sql/dma/dma-overview?view=ssdt-18vs2017) | Contoso will use DMA to assess and detect compatibility issues that might impact their database functionality in Azure. DMA assesses feature parity between SQL sources and targets, and recommends performance and reliability improvements. | It's a downloadable tool free of charge.
+[Database Migration Assistant (DMA)](/sql/dma/dma-overview?view=ssdt-18vs2017) | Contoso will use DMA to assess and detect compatibility issues that might affect their database functionality in Azure. DMA assesses feature parity between SQL sources and targets, and recommends performance and reliability improvements. | It's a downloadable tool free of charge.
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database) | An intelligent, fully managed relational cloud database service. | Cost based on features, throughput, and size. [Learn more](https://azure.microsoft.com/pricing/details/sql-database/managed).
 [Azure App Services - Web Apps](/azure/app-service/overview) | Create powerful cloud apps using a fully managed platform | Cost based on size, location, and usage duration. [Learn more](https://azure.microsoft.com/pricing/details/app-service/windows).
 [Azure DevOps](/azure/azure-portal/tutorial-azureportal-devops) | Provides a continuous integration and continuous deployment (CI/CD) pipeline for app development. The pipeline starts with a Git repository for managing app code, a build system for producing packages and other build artifacts, and a Release Management system to deploy changes in dev, test, and production environments.

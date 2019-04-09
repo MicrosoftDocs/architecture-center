@@ -21,10 +21,10 @@ The SmartHotel360 app used in this example is provided as open source. If you'd 
 
 The IT leadership team has worked closely with business partners to understand what they want to achieve with this migration:
 
-- **Address business growth**: Contoso is growing, and wants to provide differentiated experiences for customers on Contoso websites.
-- **Agility**: Contoso must be able to react faster than the changes in the marketplace, to enable the success in a global economy.
-- **Scale**: As the business grows successfully, the Contoso IT team must provide systems that are able to grow at the same pace.
-- **Costs**: Contoso wants to minimize licensing costs.
+- **Address business growth.** Contoso is growing, and wants to provide differentiated experiences for customers on Contoso websites.
+- **Be agile.** Contoso must be able to react faster than the changes in the marketplace, to enable the success in a global economy.
+- **Scale.** As the business grows successfully, the Contoso IT team must provide systems that are able to grow at the same pace.
+- **Reduce costs.** Contoso wants to minimize licensing costs.
 
 ## Migration goals
 
@@ -150,6 +150,7 @@ The Contoso admins provision as follows:
 6. They authenticate Azure CLI by running the **az login** command, and following the instructions to authenticate using their web browser. [Learn more](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) about logging in with Azure CLI.
     ![AKS](./media/contoso-migration-rebuild/aks5.png)
 7. They run the following command, passing the resource group name of ContosoRG, the name of the AKS cluster smarthotel-aks-eus2, and the new registry name.
+
     ```PowerShell
     .\gen-aks-env.ps1  -resourceGroupName ContosoRg -orchestratorName smarthotelakseus2 -registryName smarthotelacreus2
     ```
@@ -579,7 +580,7 @@ With the migrated resources in Azure, Contoso now needs to fully operationalize 
 
 - Contoso needs to ensure that the new databases are secure. [Learn more](/azure/sql-database/sql-database-security-overview).
 - The app needs to be updated to use SSL with certificates. The container instance should be redeployed to answer on 443.
-- Contoso should consider using KeyVault to protect secrets for their Service Fabric apps. [Learn more](/azure/service-fabric/service-fabric-application-secret-management).
+- Contoso should consider using Key Vault to protect secrets for their Service Fabric apps. [Learn more](/azure/service-fabric/service-fabric-application-secret-management).
 
 ### Backups and disaster recovery
 

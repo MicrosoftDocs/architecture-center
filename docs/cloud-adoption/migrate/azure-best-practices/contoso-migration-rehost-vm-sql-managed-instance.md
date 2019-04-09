@@ -24,10 +24,10 @@ The SmartHotel360 app used in this example is provided as open source. If you'd 
 
 Contoso's IT leadership team has worked closely with the company's business partners to understand what the business wants to achieve with this migration:
 
-- **Address business growth**: Contoso is growing. As a result, pressure has increased on the company's on-premises systems and infrastructure.
-- **Increase efficiency**: Contoso needs to remove unnecessary procedures, and to streamline processes for its developers and users. The business needs IT to be fast and to not waste time or money, so the company can deliver faster on customer requirements.
-- **Increase agility**:  Contoso IT needs to be more responsive to the needs of the business. It must be able to react faster than the changes that occur in the marketplace for the company to be successful in a global economy. IT at Contoso must not get in the way or become a business blocker.
-- **Scale**: As the company's business grows successfully, Contoso IT must provide systems that can grow at the same pace.
+- **Address business growth.** Contoso is growing. As a result, pressure has increased on the company's on-premises systems and infrastructure.
+- **Increase efficiency.** Contoso needs to remove unnecessary procedures, and to streamline processes for its developers and users. The business needs IT to be fast and to not waste time or money, so the company can deliver faster on customer requirements.
+- **Increase agility.** Contoso IT needs to be more responsive to the needs of the business. It must be able to react faster than the changes that occur in the marketplace for the company to be successful in a global economy. IT at Contoso must not get in the way or become a business blocker.
+- **Scale.** As the company's business grows successfully, Contoso IT must provide systems that can grow at the same pace.
 
 ## Migration goals
 
@@ -602,4 +602,3 @@ For business continuity and disaster recovery (BCDR), Contoso takes the followin
 ## Conclusion
 
 In this article, Contoso rehosts the SmartHotel360 app in Azure by migrating the app front-end VM to Azure by using the Site Recovery service. Contoso migrates the on-premises database to an Azure SQL Database Managed Instance by using the Azure Database Migration Service.
-

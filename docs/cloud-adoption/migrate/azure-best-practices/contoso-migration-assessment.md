@@ -50,10 +50,10 @@ This diagram shows the current Contoso on-premises infrastructure:
 
 Contoso's IT leadership team has worked closely with the company's business partners to understand what the business wants to achieve with this migration:
 
-- **Address business growth**: Contoso is growing. As a result, pressure has increased on the company's on-premises systems and infrastructure.
-- **Increase efficiency**: Contoso needs to remove unnecessary procedures and streamline processes for its developers and users. The business needs IT to be fast and to not waste time or money, so the company can deliver faster on customer requirements.
-- **Increase agility**: Contoso IT needs to be more responsive to the needs of the business. It must be able to react faster than the changes that occur in the marketplace for the company to be successful in a global economy. IT at Contoso must not get in the way or become a business blocker.
-- **Scale**: As the company's business grows successfully, Contoso IT must provide systems that can grow at the same pace.
+- **Address business growth.** Contoso is growing. As a result, pressure has increased on the company's on-premises systems and infrastructure.
+- **Increase efficiency.** Contoso needs to remove unnecessary procedures and streamline processes for its developers and users. The business needs IT to be fast and to not waste time or money, so the company can deliver faster on customer requirements.
+- **Increase agility.** Contoso IT needs to be more responsive to the needs of the business. It must be able to react faster than the changes that occur in the marketplace for the company to be successful in a global economy. IT at Contoso must not get in the way or become a business blocker.
+- **Scale.** As the company's business grows successfully, Contoso IT must provide systems that can grow at the same pace.
 
 ## Assessment goals
 
@@ -118,12 +118,12 @@ Here's how Contoso performs its assessment:
 
 > [!div class="checklist"]
 >
-> - **Step 1: Download and install Data Migration Assistant**: Contoso prepares Data Migration Assistant for assessment of the on-premises SQL Server database.
-> - **Step 2: Assess the database by using Data Migration Assistant**: Contoso runs and analyzes the database assessment.
-> - **Step 3: Prepare for VM assessment by using Azure Migrate**: Contoso sets up on-premises accounts and adjusts VMware settings.
-> - **Step 4: Discover on-premises VMs by using Azure Migrate**: Contoso creates an Azure Migrate collector VM. Then, Contoso runs the collector to discover VMs for assessment.
-> - **Step 5: Prepare for dependency analysis by using Azure Migrate**: Contoso installs Azure Migrate agents on the VMs, so the company can see dependency mapping between VMs.
-> - **Step 6: Assess the VMs by using Azure Migrate**: Contoso checks dependencies, groups the VMs, and runs the assessment. When the assessment is ready, Contoso analyzes the assessment in preparation for migration.
+> - **Step 1: Download and install Data Migration Assistant.** Contoso prepares Data Migration Assistant for assessment of the on-premises SQL Server database.
+> - **Step 2: Assess the database by using Data Migration Assistant.** Contoso runs and analyzes the database assessment.
+> - **Step 3: Prepare for VM assessment by using Azure Migrate.** Contoso sets up on-premises accounts and adjusts VMware settings.
+> - **Step 4: Discover on-premises VMs by using Azure Migrate.** Contoso creates an Azure Migrate collector VM. Then, Contoso runs the collector to discover VMs for assessment.
+> - **Step 5: Prepare for dependency analysis by using Azure Migrate.** Contoso installs Azure Migrate agents on the VMs, so the company can see dependency mapping between VMs.
+> - **Step 6: Assess the VMs by using Azure Migrate.** Contoso checks dependencies, groups the VMs, and runs the assessment. When the assessment is ready, Contoso analyzes the assessment in preparation for migration.
 
 ## Step 1: Download and install Data Migration Assistant
 
@@ -201,9 +201,9 @@ Contoso needs to create a VMware account that Azure Migrate can use to automatic
 
 VM discovery requires a read-only account in vCenter Server that has the following properties:
 
-- **User type**: At least a read-only user.
-- **Permissions**: For the datacenter object, select the **Propagate to Child Objects** checkbox. For **Role**, select **Read-only**.
-- **Details**: The user is assigned at the datacenter level, with access to all objects in the datacenter.
+- **User type:** At least a read-only user.
+- **Permissions:** For the datacenter object, select the **Propagate to Child Objects** checkbox. For **Role**, select **Read-only**.
+- **Details:** The user is assigned at the datacenter level, with access to all objects in the datacenter.
 - To restrict access, assign the **No access** role with the **Propagate to child** object to the child objects (vSphere hosts, datastores, VMs, and networks).
 
 ### Verify permissions to create a VM

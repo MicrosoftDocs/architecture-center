@@ -19,12 +19,12 @@ This article demonstrates how the fictional company Contoso performs a migration
 
 The IT leadership team has worked closely with business partners to understand what they want to achieve with this migration:
 
-- **Address business growth**: Contoso is growing, causing pressure on on-premises systems and infrastructure.
-- **Increase efficiency**: Contoso needs to remove unnecessary procedures, and streamline processes for developers and users. The business needs IT to be fast and not waste time or money, thus delivering faster on customer requirements.
-- **Increase agility**: Contoso IT needs to be more responsive to the needs of the business. It must be able to react faster than the changes in the marketplace, to enable the success in a global economy. It mustn't get in the way, or become a business blocker.
-- **Scale**: As the business grows successfully, the Contoso IT team must provide systems that are able to grow at the same pace.
-- **Improve cost models**: Contoso wants to lessen capital requirements in the IT budget. Contoso wants to use cloud abilities to scale and reduce the need for expensive hardware.
-- **Lower licensing costs**: Contoso wants to minimize cloud costs.
+- **Address business growth.** Contoso is growing, causing pressure on on-premises systems and infrastructure.
+- **Increase efficiency.** Contoso needs to remove unnecessary procedures, and streamline processes for developers and users. The business needs IT to be fast and not waste time or money, thus delivering faster on customer requirements.
+- **Increase agility.** Contoso IT needs to be more responsive to the needs of the business. It must be able to react faster than the changes in the marketplace, to enable the success in a global economy. It mustn't get in the way, or become a business blocker.
+- **Scale.** As the business grows successfully, the Contoso IT team must provide systems that are able to grow at the same pace.
+- **Improve cost models.** Contoso wants to lessen capital requirements in the IT budget. Contoso wants to use cloud abilities to scale and reduce the need for expensive hardware.
+- **Lower licensing costs.** Contoso wants to minimize cloud costs.
 
 ## Migration goals
 
@@ -57,10 +57,10 @@ After planning and setting up an [Azure infrastructure](contoso-migration-infras
 
 Now that Contoso have pinned down business drivers and migration goals, it determines a four-pronged approach for the migration process:
 
-- **Phase 1 - Assess**: Discover the current assets, and figure out whether they're suitable for migration to Azure.
-- **Phase 2 - Migrate**: Move the assets to Azure. How they move apps and objects to Azure will depend upon the app, and what they want to achieve.
-- **Phase 3 - Optimize**: After moving resources to Azure, Contoso needs to improve and streamline them for maximum performance and efficiency.
-- **Phase 4 - Secure and Manage**: With everything in place, Contoso now uses Azure security and management resources and services to govern, secure, and monitor its cloud apps in Azure.
+- **Phase 1: Assess.** Discover the current assets, and figure out whether they're suitable for migration to Azure.
+- **Phase 2: Migrate.** Move the assets to Azure. How they move apps and objects to Azure will depend upon the app, and what they want to achieve.
+- **Phase 3: Optimize.** After moving resources to Azure, Contoso needs to improve and streamline them for maximum performance and efficiency.
+- **Phase 4: Secure and manage.** With everything in place, Contoso now uses Azure security and management resources and services to govern, secure, and monitor its cloud apps in Azure.
 
 These phases aren't serial across the organization. Each piece of Contoso's migration project will be at a different stage of the assessment and migration process. Optimization, security, and management will be ongoing over time.
 
@@ -120,7 +120,7 @@ Firewall implications | Y/N | Does the app communicate with the Internet/outside
 Security issues | Y/N | Are there known security issues with the app?  Does the app use unencrypted data or out-of-date platforms?
 Migration strategy | Rehost/Refactor/Rearchitect/Rebuild | What kind of migration is needed for the app? How will the app be deployed in Azure? [Learn more](contoso-migration-overview.md#migration-patterns).
 Technical complexity | 1-5 | How complex is the migration? This value should be defined by Contoso DevOps and relevant partners.
-Business criticality | 1-5 | How important is the app for the business? For example, a small workgroup app might be assigned a score of one, while a critical app used across the org might be assigned a score of five. This score will impact the migration priority level.
+Business criticality | 1-5 | How important is the app for the business? For example, a small workgroup app might be assigned a score of one, while a critical app used across the org might be assigned a score of five. This score will affect the migration priority level.
 Migration priority | 1/2/3 | What the migration priority for the app?
 Migration risk | 1-5 | What's the risk level for migrating the app? This value should be agreed upon by Contoso DevOps and relevant partners.
 
@@ -142,7 +142,7 @@ The Azure Migrate service helps you to discover and assess on-premises VMware VM
 2. Assess readiness: Assess whether on-premises machines are suitable for running in Azure. Assessment includes:
     - Size recommendations: Get size recommendations for Azure VMs, based on the performance history of on-premises VMs.
     - Estimated monthly costs: Get estimated costs for running on-premises machines in Azure.
-3. Identify dependencies:  Visualize dependencies of on-premises machines, to create optimal machines groups for assessment and migration.
+3. Identify dependencies: Visualize dependencies of on-premises machines, to create optimal machines groups for assessment and migration.
 
 ![Azure Migrate](./media/contoso-migration-scale/azure-migrate.png)
 

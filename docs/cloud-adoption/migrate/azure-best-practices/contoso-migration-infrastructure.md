@@ -312,9 +312,9 @@ Contoso will implement Azure Site Recovery for all production VMs used in missio
 
 With the regional design in place, Contoso is ready to consider a networking strategy. It needs to think about how the on-premises datacenter and Azure connect and communicate with each other, and how to design the network infrastructure in Azure. Specifically Contoso needs to:
 
-- **Plan hybrid network connectivity**: Figure out how it's going to connect networks across on-premises and Azure.
-- **Design an Azure network infrastructure**: Decide how it will deploy networks over regions. How will networks communicate within the same region, and across regions?
-- **Design and set up Azure networks**: Set up Azure networks and subnets, and decide what will reside in them.
+- **Plan hybrid network connectivity.** Figure out how it's going to connect networks across on-premises and Azure.
+- **Design an Azure network infrastructure.** Decide how it will deploy networks over regions. How will networks communicate within the same region, and across regions?
+- **Design and set up Azure networks.** Set up Azure networks and subnets, and decide what will reside in them.
 
 ### Plan hybrid network connectivity
 
@@ -403,12 +403,12 @@ With a network and routing topology in place, Contoso is ready to set up Azure n
 
 East US 2 is the primary region that Contoso will use to deploy resources and services. Here's how Contoso will architect networks within it:
 
-- **Hub**: The hub VNet in East US 2 is the central point of primary connectivity to the on-premises datacenter.
-- **VNets**: Spoke VNets in East US 2 can be used to isolate workloads if required. In addition to the Hub VNet, Contoso will have two spoke VNets in East US 2:
+- **Hub:** The hub VNet in East US 2 is the central point of primary connectivity to the on-premises datacenter.
+- **VNets:** Spoke VNets in East US 2 can be used to isolate workloads if required. In addition to the Hub VNet, Contoso will have two spoke VNets in East US 2:
   - **VNET-DEV-EUS2**. This VNet will provide the development and test team with a fully functional network for dev projects. It will act as a production pilot area, and will rely on the production infrastructure to function.
-    - **VNET-PROD-EUS2**: Azure IaaS production components will be located in this network.
+    - **VNET-PROD-EUS2**. Azure IaaS production components will be located in this network.
   - Each VNet will have its own unique address space, with no overlap. Contoso intend to configure routing without requiring NAT.
-- **Subnets**:
+- **Subnets:**
   - There will be a subnet in each network for each app tier
   - Each subnet in the Production network will have a matching subnet in the Development VNet.
   - In addition, the Production network has a subnet for domain controllers.
@@ -460,12 +460,12 @@ Azure IaaS components are located in the Production network. Each app tier has i
 
 Central US is Contoso's secondary region. Here's how Contoso will architect networks within it:
 
-- **Hub**: The hub VNet in East US 2 is the central point of connectivity to the on-premises datacenter, and the spoke VNets in East US 2 can be used to isolate workloads if required, managed separately from other spokes.
-- **VNets**: Contoso will have two VNets in Central US:
+- **Hub:** The hub VNet in East US 2 is the central point of connectivity to the on-premises datacenter, and the spoke VNets in East US 2 can be used to isolate workloads if required, managed separately from other spokes.
+- **VNets:** Contoso will have two VNets in Central US:
   - VNET-PROD-CUS. This VNet is a production network, similar to VNET-PROD_EUS2.
   - VNET-ASR-CUS. This VNet will act as a location in which VMs are created after failover from on-premises, or as a location for Azure VMs that are failed over from the primary to the secondary region. This network is similar to the production networks, but without any domain controllers on it.
   - Each VNet in the region will have its own address space, with no overlap. Contoso will configure routing without NAT.
-- **Subnets**: The subnets will be architected in a similar way to those in East US 2. The exception is that Contoso doesn't need a subnet for domain controllers.
+- **Subnets:** The subnets will be architected in a similar way to those in East US 2. The exception is that Contoso doesn't need a subnet for domain controllers.
 
 The VNets in Central US are summarized in the following table.
 
@@ -635,9 +635,9 @@ Azure provides a range of governance controls across services and the Azure plat
 
 As they configure identity and access control, Contoso has already begun to put some aspects of governance and security in place. Broadly, there are three areas it needs to consider:
 
-- **Policy**: Policy in Azure applies and enforces rules and effects over your resources, so that resources stay compliant with corporate requirements and SLAs.
-- **Locks**: Azure allows you to lock subscriptions, resources groups, and other resources, so that they can only be modified by those with authority to do so.
-- **Tags**: Resources can be controlled, audited, and managed with tags. Tags attach metadata to resources, providing information about resources or owners.
+- **Policy:** Azure Policy applies and enforces rules and effects over your resources, so that resources stay compliant with corporate requirements and SLAs.
+- **Locks:** Azure allows you to lock subscriptions, resources groups, and other resources, so that they can only be modified by those with authority to do so.
+- **Tags:** Resources can be controlled, audited, and managed with tags. Tags attach metadata to resources, providing information about resources or owners.
 
 ### Set up policies
 
@@ -721,9 +721,9 @@ Security is crucial in the cloud, and Azure provides a wide array of security to
 
 There are a few aspects for Contoso to consider:
 
-- **Azure Security Center**: Azure Security Center provides unified security management and advanced threat protection across hybrid cloud workloads. With Security Center, you can apply security policies across your workloads, limit your exposure to threats, and detect and respond to attacks. [Learn more](/azure/security-center/security-center-intro).
-- **Network security groups (NSGs)**: An NSG is a filter (firewall) that contains a list of security rules which, when applied, allow or deny network traffic to resources connected to Azure VNets. [Learn more](/azure/virtual-network/security-overview).
-- **Data encryption**: Azure Disk Encryption is a capability that helps you encrypt your Windows and Linux IaaS virtual machine disks. [Learn more](/azure/security/azure-security-encryption-atrest).
+- **Azure Security Center:** Azure Security Center provides unified security management and advanced threat protection across hybrid cloud workloads. With Security Center, you can apply security policies across your workloads, limit your exposure to threats, and detect and respond to attacks. [Learn more](/azure/security-center/security-center-intro).
+- **Network security groups (NSGs):** An NSG is a filter (firewall) that contains a list of security rules which, when applied, allow or deny network traffic to resources connected to Azure VNets. [Learn more](/azure/virtual-network/security-overview).
+- **Data encryption:** Azure Disk Encryption is a capability that helps you encrypt your Windows and Linux IaaS virtual machine disks. [Learn more](/azure/security/azure-security-encryption-atrest).
 
 ### Work with the Azure Security Center
 
@@ -780,7 +780,7 @@ Deny | DenyAllInbound | Any | Any | Any
 
 ### Encrypt data
 
-Azure Disk Encryption integrates with Azure Key Vault to help control and manage the disk-encryption keys and secrets in a key vault subscription. It ensures that all data on VM disks are encrypted at rest in Azure storage.
+Azure Disk Encryption integrates with Azure Key Vault to help control and manage the disk-encryption keys and secrets in a Key Vault subscription. It ensures that all data on VM disks are encrypted at rest in Azure storage.
 
 - Contoso has determined that specific VMs require encryption.
 - Contoso will apply encryption to VMs with customer, confidential, or PPI data.

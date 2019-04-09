@@ -40,14 +40,14 @@ Microsoft works hard to ensure that Azure tenant admins have the information nee
 
 In addition to assessments and recommendations, the Security Center provides a number of other security features that can be enabled for specific resources.
 
-- **Just In Time (JIT) access**: Reduce your network attack surface with just in time, controlled access to management ports on Azure VMs.
+- **Just In Time (JIT) access.** Reduce your network attack surface with just in time, controlled access to management ports on Azure VMs.
   - Having VM RDP port 3389 open on the internet exposes VMs to continual bad actor activity. Azure IP addresses are well-known, and hackers continually probe them for attacks on open 3389 ports.
   - Just in time uses network security groups (NSGs) and incoming rules that limit the amount of time that a specific port is open.
   - With just in time enabled, Security Center checks that a user has role-based access control (RBAC) write access permissions for a VM. In addition, specify rules for how users can connect to VMs. If permissions are OK, an access request is approved and Security Center configures NSGs to allow inbound traffic to the selected ports for the amount of time you specify. NSGs are return to their previous state when the time expires.
-- **Adaptive application controls**: Keep software and malware off VMs by controlling which apps run on them using dynamic app whitelisting.
+- **Adaptive application controls.** Keep software and malware off VMs by controlling which apps run on them using dynamic app whitelisting.
   - Adaptive application controls allow you to white list apps, and prevent rogue users or administrators from installing unapproved or vetting software apps on your VMs.
     - You can block or alert attempts to run malicious apps, avoid unwanted or malicious apps, and ensure compliance with your organization's app security policy.
-- **File Integrity Monitoring**: Ensure the integrity of files running on VMs.
+- **File Integrity Monitoring.** Ensure the integrity of files running on VMs.
   - You don’t need to install software to cause VM issues. Changing a system file can also cause VM failure or performance degradation. File integrity Monitoring examines system files and registry settings for changes, and notifies you if something is updated.
   - Security Center recommends which files you should monitor.
 
@@ -64,12 +64,12 @@ Encryption is an important part of Azure security practices. Ensuring that encry
 
 ### Encryption for IaaS
 
-- **VMs**: For VMs you can use Azure Disk Encryption to encrypt your Windows and Linux IaaS VM disks.
+- **Virtual machines:** For VMs you can use Azure Disk Encryption to encrypt your Windows and Linux IaaS VM disks.
   - Disk encryption uses BitLocker for Windows, and DM-Crypt for Linux to provide volume encryption for the OS and data disks.
   - You can use an encryption key created by Azure, or you can supply your own encryption keys, safeguarded in Azure Key Vault.
   - With Disk Encryption, IaaS VM data is secured at rest (on the disk) and during VM boot.
     - Azure Security Center alerts you if you have VMs that aren't encrypted.
-- **Storage**: Protect at rest data stored in Azure storage.
+- **Storage:** Protect at rest data stored in Azure storage.
   - Data stored in Azure storage accounts can be encrypted using Microsoft-generated AES keys that are FIPS 140-2 compliant, or you can use your own keys.
   - Storage Service Encryption is enabled for all new and existing storage accounts and can't be disabled.
 
@@ -77,11 +77,11 @@ Encryption is an important part of Azure security practices. Ensuring that encry
 
 Unlike IaaS where you manage your own VMs and infrastructure, in a PaaS model platform and infrastructure is managed by the provider, leaving you to focus on core app logic and capabilities. With so many different types of PaaS services, each service will be evaluated individually for security purposes. As an example, let's see how we might enable encryption for Azure SQL Database.
 
-- **Always Encrypted**: Use the Always Encrypted Wizard in SQL Server Management Studio to protect data at rest.
+- **Always Encrypted:** Use the Always Encrypted Wizard in SQL Server Management Studio to protect data at rest.
   - You create Always Encrypted key to encrypt individual column data.
   - Always Encrypted keys can be stored as encrypted in database metadata, or stored in trusted key stores such as Azure Key Vault.
   - App changes will probably be needed to use this feature.
-- **Transparent data encryption (TDE)**: Protect the Azure SQL Database with real-time encryption and decryption of the database, associated backups, and transaction log files at rest.
+- **Transparent data encryption (TDE):** Protect the Azure SQL Database with real-time encryption and decryption of the database, associated backups, and transaction log files at rest.
   - TDE allows encryption activities to take place without changes at the app layer.
   - TDE can use encryption keys provided by Microsoft, or you can provide your own keys using Bring Your Own Key support.
 
@@ -118,14 +118,14 @@ Migrated web apps face a couple of issues:
 
 Azure provides a couple of solutions:
 
-- **Azure Key Vault**: Today web app developers are taking steps to ensure that sensitive information isn't leaked from these files. One method to secure information is to extract it from files and put it into an Azure Key Vault.
+- **Azure Key Vault:** Today web app developers are taking steps to ensure that sensitive information isn't leaked from these files. One method to secure information is to extract it from files and put it into an Azure Key Vault.
   - You can use Key Vault to centralize storage of app secrets, and control their distribution. It avoids the need to store security information in app files.
   - Apps can security access information in the vault using URIs, without needing custom code.
   - Azure Key Vault allows you to lock down access via Azure security controls and to seamlessly implement 'rolling keys'. Microsoft does not see or extract your data.
-- **App Service Environment**: If an app you migrate needs extra protection, you can consider adding an App Service Environment and Web Application Firewall to protect the app resources.
+- **App Service Environment:** If an app you migrate needs extra protection, you can consider adding an App Service Environment and Web Application Firewall to protect the app resources.
   - The Azure App Service Environment provides a fully isolated and dedicated environment in which to running App Service apps such as Windows and Linux web apps, Docker containers, mobile apps, and functions.
   - It's useful for apps that are very high scale, require isolation and secure network access or have high memory utilization
-- **Web Application Firewall**: A feature of Application Gateway that provides centralized protection for web apps.
+- **Web Application Firewall:** A feature of Application Gateway that provides centralized protection for web apps.
   - It protects web apps without requiring back-end code modifications.
   - It protects multiple web apps at the same time behind an application gateway.
   - Web application firewall can be monitored using Azure Monitor, and is integrated into Azure Security Center.
@@ -180,10 +180,10 @@ Azure Active Directory (AD) provides activity logs that appear in Azure Monitor.
 
 Azure provides a number of other security features that provide advanced security options. Some of these best practices require add-on licenses and premium options.
 
-- **Implement Azure AD administrative units (AU)**: Delegating administrative duties to support staff can be tricky with just basic Azure access control. Giving support staff access to administer all the groups in Azure AD might not be the ideal approach for organizational security. Using AU allows you to segregate Azure resources into containers in a similar way to on-premises organizational units (OU). To use AU the AU admin must have a premium Azure AD license. [Learn more](/azure/active-directory/users-groups-roles/directory-administrative-units).
-- **Use multi-factor authentication**: If you have a premium Azure AD license you can enable and enforce multi-factor authentication on your admin accounts. Phishing is the most common way that accounts credentials are compromised. Once a bad actor has admin account credentials, there's no stopping them from far-reaching actions, such as deleting all your resource groups. You can establish multi-factor authentication in several ways, including with email, an authenticator app, and phone text messages. As an administrator, you can select the least intrusive option. Multi-factor authentication integrates with threat analytics and conditional access policies to randomly require a multi-factor authentication challenge respond. Learn more about [security guidance](/azure/active-directory/authentication/multi-factor-authentication-security-best-practices), and [how to set up multi-factor authentication](/azure/active-directory/authentication/multi-factor-authentication-security-best-practices).
-- **Implement conditional access**: In most small and medium size organizations, Azure admins and the support team are probably located in a single geography. In this case, most logins will come from the same areas. If the IP addresses of these locations are fairly static, it makes sense that you shouldn't see administrator logins from outside these areas. Even in an event in which a remote bad actor compromises an admin's credentials, you can implement security features like conditional access combined with multi-factor authentication to prevent login from remote locations, or from spoofed locations from random IP addresses. [Learn more](/azure/active-directory/conditional-access/overview) about conditional access, and [review best practices](/azure/active-directory/conditional-access/best-practices) for conditional access in Azure AD.
-- **Review Enterprise Application permissions**: Over time, admins click Microsoft and third-party links without knowing their impact on the organization. Links can present consent screens that assign permissions to Azure apps, and might allow access to read Azure AD data, or even full access to manage your entire Azure subscription. You should regularly review the apps to which your admins and users have allowed access to Azure resources. You should ensure that these apps have only the permissions that are necessary. Additionally, quarterly or semi-annually you can email users with a link to app pages so that they're aware of the apps to which they've allowed access to their organizational data. [Learn more](/azure/active-directory/manage-apps/application-types) about application types, and [how to control](/azure/active-directory/manage-apps/remove-user-or-group-access-portal) app assignments in Azure AD.
+- **Implement Azure AD administrative units (AU).** Delegating administrative duties to support staff can be tricky with just basic Azure access control. Giving support staff access to administer all the groups in Azure AD might not be the ideal approach for organizational security. Using AU allows you to segregate Azure resources into containers in a similar way to on-premises organizational units (OU). To use AU the AU admin must have a premium Azure AD license. [Learn more](/azure/active-directory/users-groups-roles/directory-administrative-units).
+- **Use multi-factor authentication.** If you have a premium Azure AD license you can enable and enforce multi-factor authentication on your admin accounts. Phishing is the most common way that accounts credentials are compromised. Once a bad actor has admin account credentials, there's no stopping them from far-reaching actions, such as deleting all your resource groups. You can establish multi-factor authentication in several ways, including with email, an authenticator app, and phone text messages. As an administrator, you can select the least intrusive option. Multi-factor authentication integrates with threat analytics and conditional access policies to randomly require a multi-factor authentication challenge respond. Learn more about [security guidance](/azure/active-directory/authentication/multi-factor-authentication-security-best-practices), and [how to set up multi-factor authentication](/azure/active-directory/authentication/multi-factor-authentication-security-best-practices).
+- **Implement conditional access.** In most small and medium size organizations, Azure admins and the support team are probably located in a single geography. In this case, most logins will come from the same areas. If the IP addresses of these locations are fairly static, it makes sense that you shouldn't see administrator logins from outside these areas. Even in an event in which a remote bad actor compromises an admin's credentials, you can implement security features like conditional access combined with multi-factor authentication to prevent login from remote locations, or from spoofed locations from random IP addresses. [Learn more](/azure/active-directory/conditional-access/overview) about conditional access, and [review best practices](/azure/active-directory/conditional-access/best-practices) for conditional access in Azure AD.
+- **Review Enterprise Application permissions.** Over time, admins click Microsoft and third-party links without knowing their impact on the organization. Links can present consent screens that assign permissions to Azure apps, and might allow access to read Azure AD data, or even full access to manage your entire Azure subscription. You should regularly review the apps to which your admins and users have allowed access to Azure resources. You should ensure that these apps have only the permissions that are necessary. Additionally, quarterly or semi-annually you can email users with a link to app pages so that they're aware of the apps to which they've allowed access to their organizational data. [Learn more](/azure/active-directory/manage-apps/application-types) about application types, and [how to control](/azure/active-directory/manage-apps/remove-user-or-group-access-portal) app assignments in Azure AD.
 
 ## Managed migrated workloads
 
@@ -337,7 +337,7 @@ In most cases an on-premises workload is retired after migration, and your on-pr
 For workloads running on Azure IaaS VMs, consider these backup solutions:
 
 - **Azure Backup**: Provides application-consistent backups for Azure Windows and Linux VMs.
-- **Storage snapshots**: Takes snapshots of blob storage.
+- **Storage snapshots.** Takes snapshots of blob storage.
 
 #### Azure Backup
 
@@ -345,9 +345,9 @@ Azure Backup creates data recovery points that are stored in Azure storage. Azur
 
 You can use Azure Backup to back up VMs in a couple of ways.
 
-- **Direct backup from VM settings**: You can back up VMs with Azure Backup directly from the VM options in the Azure portal. You can back up the VM once and day, and restore the VM disk as needed. Azure Backup takes app-aware data snapshots (VSS), and no agent is installed on the VM.
-- **Direct backup in a Recovery Services vault**: You can back up your IaaS VMs by deploying an Azure Backup Recovery Services vault. This provides a single location to track and manage backups, and provides granular backup and restore options. Backup is up to three times a day, at the file/folder level. It isn't app-aware and Linux isn't supported. You need to install the Microsoft Azure Recovery Services (MARS) agent on each VM you want to back up using this method.
-- **Azure Backup Server: Protect the VM to Azure Backup Server**: Azure Backup Server is provided free with Azure Backup. The VM is backed up to local Azure Backup Server storage. You then back up the Azure Backup Server to Azure in a vault. Backup is app-aware, with full granularity over backup frequency and retention. You can back up at the app level, for example by backing up SQL Server or SharePoint.
+- **Direct backup from VM settings.** You can back up VMs with Azure Backup directly from the VM options in the Azure portal. You can back up the VM once and day, and restore the VM disk as needed. Azure Backup takes app-aware data snapshots (VSS), and no agent is installed on the VM.
+- **Direct backup in a Recovery Services vault.** You can back up your IaaS VMs by deploying an Azure Backup Recovery Services vault. This provides a single location to track and manage backups, and provides granular backup and restore options. Backup is up to three times a day, at the file/folder level. It isn't app-aware and Linux isn't supported. You need to install the Microsoft Azure Recovery Services (MARS) agent on each VM you want to back up using this method.
+- **Protect the VM to Azure Backup Server.** Azure Backup Server is provided free with Azure Backup. The VM is backed up to local Azure Backup Server storage. You then back up the Azure Backup Server to Azure in a vault. Backup is app-aware, with full granularity over backup frequency and retention. You can back up at the app level, for example by backing up SQL Server or SharePoint.
 
 For security, Azure Backup encrypts data in-flight using AES 256 and sends it over HTTPS to Azure. Backed-up data at-rest in Azure is encrypted using [Storage Service Encryption (SSE)](/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fqueues%2ftoc.json), and data for transmission and storage.
 

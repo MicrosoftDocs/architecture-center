@@ -21,9 +21,9 @@ osTicket, the service desk app used in this example is provided as open source. 
 
 The IT Leadership team has worked closely with business partners to understand what they want to achieve:
 
-- **Address business growth**: Contoso is growing and moving into new markets. It needs additional customer service agents.
-- **Scale**: The solution should be built so that Contoso can add more customer service agents as the business scales.
-- **Increase resiliency**:  In the past issues with the system affected internal users only. With the new business model, external users will be affected, and Contoso need the app up and running at all times.
+- **Address business growth.** Contoso is growing and moving into new markets. It needs additional customer service agents.
+- **Scale.** The solution should be built so that Contoso can add more customer service agents as the business scales.
+- **Improve resiliency.**  In the past issues with the system affected internal users only. With the new business model, external users will be affected, and Contoso need the app up and running at all times.
 
 ## Migration goals
 

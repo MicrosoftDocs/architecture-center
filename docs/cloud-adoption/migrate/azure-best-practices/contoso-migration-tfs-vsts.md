@@ -19,9 +19,9 @@ This article shows how the fictional company Contoso refactors their on-premises
 
 The IT Leadership team has worked closely with business partners to identify future goals. Partners aren't overly concerned with dev tools and technologies, but they have captured these points:
 
-- **Software**: Regardless of the core business, all companies are now software companies, including Contoso. Business leadership is interested in how IT can help lead the company with new working practices for users, and experiences for their customers.
-- **Efficiency**: Contoso needs to streamline process and remove unnecessary procedures for developers and users. This will allow the company to deliver on customer requirements more efficiently. The business needs IT to fast, without wasting time or money.
-- **Agility**:  Contoso IT needs to respond to business needs, and react more quickly than the marketplace to enable success in a global economy. IT mustn't be a blocker for the business.
+- **Software:** Regardless of the core business, all companies are now software companies, including Contoso. Business leadership is interested in how IT can help lead the company with new working practices for users, and experiences for their customers.
+- **Efficiency:** Contoso needs to streamline process and remove unnecessary procedures for developers and users. This will allow the company to deliver on customer requirements more efficiently. The business needs IT to fast, without wasting time or money.
+- **Agility:** Contoso IT needs to respond to business needs, and react more quickly than the marketplace to enable success in a global economy. IT mustn't be a blocker for the business.
 
 ## Migration goals
 
@@ -70,17 +70,16 @@ Here's what Contoso needs to run this scenario.
 **Azure infrastructure** | Contoso set up their Azure infrastructure as described in [Azure infrastructure for migration](contoso-migration-infrastructure.md).
 **On-premises TFS server** | On-premises need to either be running TFS 2018 Upgrade 2 or be upgraded to it as part of this process.
 
-
 ## Scenario steps
 
 Here's how Contoso will complete the migration:
 
 > [!div class="checklist"]
 >
-> - **Step 1: Create an Azure storage account**: This storage account will be used during the migration process.
-> - **Step 2: Upgrade TFS**: Contoso will upgrade their deployment to TFS 2018 Upgrade 2.
-> - **Step 3: Validate collection**: Contoso will validate the TFS collection in preparation for migration.
-> - **Step 4: Build preparation file**: Contoso will create the migration files using the TFS Migration Tool.
+> - **Step 1: Create an Azure storage account.** This storage account will be used during the migration process.
+> - **Step 2: Upgrade TFS.** Contoso will upgrade their deployment to TFS 2018 Upgrade 2.
+> - **Step 3: Validate collection.** Contoso will validate the TFS collection in preparation for migration.
+> - **Step 4: Build preparation file.** Contoso will create the migration files using the TFS Migration Tool.
 
 ## Step 1: Create a storage account
 

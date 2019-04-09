@@ -21,9 +21,9 @@ The SmartHotel360 app used in this example is provided as open source. If you'd 
 
 The IT Leadership team has worked closely with business partners to understand what they want to achieve with this migration:
 
-- **Address business growth**: Contoso is growing, and as a result there is pressure on their on-premises systems and infrastructure.
-- **Limit risk**: The SmartHotel360 app is critical for the Contoso business. It wants to move the app to Azure with zero risk.
-- **Extend**: Contoso doesn't want to modify the app, but does want to ensure that it's stable.
+- **Address business growth.** Contoso is growing, and as a result there is pressure on their on-premises systems and infrastructure.
+- **Limit risk.** The SmartHotel360 app is critical for the Contoso business. It wants to move the app to Azure with zero risk.
+- **Extend.** Contoso doesn't want to modify the app, but does want to ensure that it's stable.
 
 ## Migration goals
 
@@ -411,7 +411,7 @@ With the app now running, Contoso now needs to fully operationalize and secure i
 The Contoso security team reviews the Azure VMs, to determine any security issues.
 
 - To control access, the team reviews the network security groups (NSGs) for the VMs. NSGs are used to ensure that only traffic allowed to the app can reach it.
-- The team also consider securing the data on the disk using Azure Disk Encryption and KeyVault.
+- The team also consider securing the data on the disk using Azure Disk Encryption and Key Vault.
 
 [Read more](/azure/security/azure-security-best-practices-vms) about security practices for VMs.
 
@@ -430,4 +430,3 @@ For business continuity and disaster recovery (BCDR), Contoso takes the followin
 ## Conclusion
 
 In this article, Contoso rehosted the SmartHotel360 app in Azure by migrating the app VMs to Azure VMs using the Site Recovery service.
-
