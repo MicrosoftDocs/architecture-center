@@ -33,7 +33,7 @@ Azure Monitor maximizes the availability and performance of your applications by
 
 ## Read more
 
-- [Azure Monitor overview](https://docs.microsoft.com/en-us/azure/azure-monitor/overview).
+- [Azure Monitor overview](/azure/azure-monitor/overview).
 
 ::: zone-end
 
@@ -64,7 +64,7 @@ These experiences combined give you a comprehensive view of Azure health, at a l
 
 ## Read more
 
-[Overview](https://docs.microsoft.com/en-us/azure/service-health/).
+[Overview](/azure/service-health/).
 
 ::: zone-end
 
@@ -87,7 +87,7 @@ Azure Advisor is a personalized cloud consultant that helps you follow best prac
 
 ## Read more
 
-[Overview](https://docs.microsoft.com/en-us/azure/advisor/advisor-overview).
+[Overview](/azure/advisor/advisor-overview).
 
 ::: zone-end
 
@@ -110,7 +110,7 @@ Azure Security Center is a unified infrastructure security management system tha
 
 ## Read more
 
-[Overview](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro)
+[Overview](/azure/security-center/security-center-intro)
 
 ::: zone-end
 
@@ -136,7 +136,7 @@ Azure Backup is the Azure-based service you can use to back up (or protect) and 
 
 ::: zone target="docs"
 
-[Overview](https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup)
+[Overview](/azure/backup/backup-introduction-to-azure-backup)
 
 ::: zone-end
 
@@ -191,7 +191,7 @@ After the replication job has finished, you can check the replication status, mo
 
 ## Learn more
 
-- [Azure Site Recovery overview](https://docs.microsoft.com/en-gb/azure/site-recovery/site-recovery-overview)
-- [Replicate an Azure VM to another region](https://docs.microsoft.com/en-gb/azure/site-recovery/azure-to-azure-quickstart)
+- [Azure Site Recovery overview](/azure/site-recovery/site-recovery-overview)
+- [Replicate an Azure VM to another region](/azure/site-recovery/azure-to-azure-quickstart)
 
 ::: zone-end

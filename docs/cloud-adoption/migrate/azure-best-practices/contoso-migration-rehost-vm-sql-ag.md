@@ -129,16 +129,16 @@ Here's how Contoso will run the migration:
 
 > [!div class="checklist"]
 >
-> - **Step 1: Prepare a cluster**: Create a cluster for deploying two SQL Server VM nodes in Azure.
-> - **Step 2: Deploy and set up the cluster**: Prepare an Azure SQL Server cluster. Databases are migrated into this pre-created cluster.
+> - **Step 1: Prepare a cluster.** Create a cluster for deploying two SQL Server VM nodes in Azure.
+> - **Step 2: Deploy and set up the cluster.** Prepare an Azure SQL Server cluster. Databases are migrated into this existing cluster.
 > - **Step 3: Deploy the load balancer**: Deploy a load balancer to balance traffic to the SQL Server nodes.
-> - **Step 4: Prepare Azure for Site Recovery**: Create an Azure storage account to hold replicated data, and a Recovery Services vault.
-> - **Step 5: Prepare on-premises VMware for Site Recovery**: Prepare accounts for VM discovery and agent installation. Prepare on-premises VMs so that users can connect to Azure VMs after m;migration.
-> - **Step 6: Replicate VMs**: Enable VM replication to Azure.
-> - **Step 7: Install DMA**: Download and install the Database Migration Assistant.
-> - **Step 7: Migrate the database with DMA**: Migrate the database to Azure.
-> - **Step 9: Protect the database**: Create an Always On Availability Group for the cluster.
-> - **Step 10: Migrate the web app VM**: Run a test failover to make sure everything's working as expected. Then run a full failover to Azure.
+> - **Step 4: Prepare Azure for Site Recovery.** Create an Azure storage account to hold replicated data, and a Recovery Services vault.
+> - **Step 5: Prepare on-premises VMware for Site Recovery.** Prepare accounts for VM discovery and agent installation. Prepare on-premises VMs so that users can connect to Azure VMs after migration.
+> - **Step 6: Replicate VMs.** Enable VM replication to Azure.
+> - **Step 7: Install DMA.** Download and install the Database Migration Assistant.
+> - **Step 7: Migrate the database with DMA.** Migrate the database to Azure.
+> - **Step 9: Protect the database.** Create an Always On Availability Group for the cluster.
+> - **Step 10: Migrate the web app VM.** Run a test failover to make sure everything's working as expected. Then run a full failover to Azure.
 
 ## Step 1: Prepare a SQL Server AlwaysOn availability group cluster
 
@@ -672,4 +672,3 @@ The Contoso security team reviews the Azure VMs WEBVM, SQLAOG1 and SQLAOG2 to de
 ## Conclusion
 
 In this article, Contoso rehosted the SmartHotel360 app in Azure by migrating the app front-end VM to Azure using the Site Recovery service. Contoso migrated the app database to a SQL Server cluster provisioned in Azure, and protected it in a SQL Server AlwaysOn availability group.
-

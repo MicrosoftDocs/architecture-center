@@ -66,10 +66,10 @@ Need support engineer assistance for deep technical guidance?
 
 ## Online communities
 
-The following online communities can also be utilized to obtain community based support:
+The following online communities provide community-based support:
 
-* [MSDN forums](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureplatform%2Cazuremarketplace%2Cwindowsazureplatformctp)
-* [Stack Overflow](https://stackoverflow.com/questions/tagged/azure)
+- [MSDN forums](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazureplatform%2Cazuremarketplace%2Cwindowsazureplatformctp)
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/azure)
 
 ::: zone-end
 
@@ -81,5 +81,5 @@ Microsoft Certified Solution Providers specialize in providing up-to-date, Micro
 
 Get help from partners with ready-made or custom Azure solutions and partners who can help deploy and manage those solutions:
 
-* [Find a Cloud Solutions Partner](https://www.microsoft.com/en-au/solution-providers/home). A certified CSP can help take full advantage of the cloud by assessing business goals for cloud adoption, identifying the right cloud solution that meets business needs and helps the business become more agile and efficient.
-* [Find a Managed Service Partner](https://www.microsoft.com/en-au/solution-providers/search?cacheId=16a3b49b-fef2-449d-bdf0-628008114cca). An Azure Managed Service Partner (MSP) helps a business transition to Azure by guiding all aspects of the cloud journey. From consulting to migrations and operations management, cloud MSPs show customers all the benefits that come with cloud adoption. They also act as a one-stop shop for common support, provisioning and the billing experience—all with a flexible pay-as-you-go (PAYG) business model.
+- [Find a Cloud Solutions Partner](https://www.microsoft.com/solution-providers/home). A certified CSP can help take full advantage of the cloud by assessing business goals for cloud adoption, identifying the right cloud solution that meets business needs and helps the business become more agile and efficient.
+- [Find a Managed Service Partner](https://www.microsoft.com/solution-providers/search?cacheId=16a3b49b-fef2-449d-bdf0-628008114cca). An Azure Managed Service Partner (MSP) helps a business transition to Azure by guiding all aspects of the cloud journey. From consulting to migrations and operations management, cloud MSPs show customers all the benefits that come with cloud adoption. They also act as a one-stop shop for common support, provisioning and the billing experience&mdash;all with a flexible pay-as-you-go (PAYG) business model.

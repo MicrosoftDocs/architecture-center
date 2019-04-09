@@ -64,7 +64,7 @@ To use Azure Site Recovery to migrate resources:
 
 For more information, see:
 
-- [Migrate on-premises machines to Azure](https://docs.microsoft.com/en-gb/azure/site-recovery/migrate-tutorial-on-premises-azure)
+- [Migrate on-premises machines to Azure](/azure/site-recovery/migrate-tutorial-on-premises-azure)
 
 ::: zone-end
 
@@ -95,7 +95,7 @@ The service is now ready to migrate the supported source databases (for example,
 
 ::: zone target="chromeless"
 
-::: form action="OpenBlade[#create/Microsoft.AzureDMS]" submitText="Create a Database Migration Service" :::
+::: form action="OpenBlade[#create/Microsoft.AzureDMS]" submitText="Create an Azure Database Migration Service instance" :::
 
 ::: zone-end
 
@@ -103,7 +103,7 @@ The service is now ready to migrate the supported source databases (for example,
 
 For more information, see:
 
-- [Azure Database Migration Service overview](https://docs.microsoft.com/en-gb/azure/dms/dms-overview)
+- [Azure Database Migration Service overview](/azure/dms/dms-overview)
 - [Azure Migrate in the Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_ManagementGroups/HierarchyBlade)
 - [Azure Portal: Create a migration project](https://ms.portal.azure.com/#create/Microsoft.AzureMigrate)
 
@@ -138,8 +138,8 @@ Most organizations already have project management tools. Additionally, most pro
 There are many project management tools available. This list shows some tools that might assist you during your project. These tools can be combined to provide broader capabilities.
 
 - [Microsoft Planner](https://tasks.office.com/): A simple, visual way to organize teamwork.
-- [Microsoft Project](https://products.office.com/en-us/project/project-and-portfolio-management-software) - Project and Portfolio Management, Resource Capacity Management, Financial Management, Timesheeting and Schedule Management.
-- [Microsoft Teams](https://products.office.com/en-us/microsoft-teams) - Team collaboration and communication tool, as well as integration with Planner and other tools to improve collaboration.
+- [Microsoft Project](https://products.office.com/project/project-and-portfolio-management-software): Project and Portfolio Management, Resource Capacity Management, Financial Management, Timesheeting and Schedule Management.
+- [Microsoft Teams](https://products.office.com/microsoft-teams): Team collaboration and communication tool, as well as integration with Planner and other tools to improve collaboration.
 
 These are certainly not the only tools available. Many other third-party tools are widely used in the project management community.
 

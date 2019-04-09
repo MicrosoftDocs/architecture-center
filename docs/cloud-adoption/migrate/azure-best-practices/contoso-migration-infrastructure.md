@@ -156,7 +156,7 @@ Contoso admins set up Azure resource groups as summarized in the following table
 
 **Resource group** | **Details**
 --- | ---
-**ContosoCobRG** | This group contains all resources related to continuity of business (COB). It includes vaults that Contoso will use for the Azure Site Recovery service, and the Azure Backup service.<br/><br/> It will also include resources used for migration, including the Azure Migrate and Database Migration Services.
+**ContosoCobRG** | This group contains all resources related to continuity of business (COB). It includes vaults that Contoso will use for the Azure Site Recovery service, and the Azure Backup service.<br/><br/> It will also include resources used for migration, including Azure Migrate and Azure Database Migration Service.
 **ContosoDevRG** | This group contains development and test resources.
 **ContosoFailoverRG** | This group serves as a landing zone for failed over resources.
 **ContosoNetworkingRG** | This group contains all networking resources.

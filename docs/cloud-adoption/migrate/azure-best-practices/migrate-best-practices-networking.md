@@ -483,7 +483,7 @@ Azure Network Watcher provides tools to monitor resources and communications in 
 For more complex network topologies, you might use security products from Microsoft partners, in particular network virtual appliances (NVAs).
 
 - An NVA is a VM that performs a network function, such as a firewall, WAN optimization, or other network function.
-- NVAs bolster VNet security and network functions. They can be deployed for highly available firewalls, intrusion prevention, intrusion detection, web application firewalls (WAFs), WAN optimization, routing, load balancing, VPN, certificate management, Active Directory, and multifactor authentication.
+- NVAs bolster VNet security and network functions. They can be deployed for highly available firewalls, intrusion prevention, intrusion detection, web application firewalls (WAFs), WAN optimization, routing, load balancing, VPN, certificate management, Active Directory, and multi-factor authentication.
 - NVA is available from numerous vendors in the [Azure Marketplace](https://azuremarketplace.microsoft.com).
 
 ## Best practice: Implement firewalls and NVAs in hub networks
