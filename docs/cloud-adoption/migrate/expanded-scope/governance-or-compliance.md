@@ -23,6 +23,13 @@ Configuration of the base Azure environment could change significantly when inte
 
 **Virtual Data Center:** A more robust governance starting point may be required. In such cases, please consider the [Azure virtual datacenter (VDC)](../../../vdc/index.md). This approach is commonly suggested during enterprise-scale adoption efforts, and especially for efforts which exceed 10,000 assets. It is also the de facto choice for complex governance scenarios when any of the following are required: extensive third-party compliance requirements, deep domain expertise, or parity with mature IT governance policies and compliance requirements.
 
+**Microsoft Services:**
+Microsoft Services offers a number of solution offers which can align to the CAF Governance Model, Compliant blueprints, or Virtual Data Center options to ensure the most appropriate governance or compliance model. Leverage [Secure Cloud Insights (SCI)](http://aka.ms/SCIDatasheet) solution offer to establish a data-driven picture of a customer deployment in Azure and validate the customer´s Azure implementation maturity while identifying optimization of existing deployment architectures, remove governance security and availability risks. Based on customer insights lead with the following:
+
+- **Cloud Foundation:** Establish the customer’s core Azure designs, patterns and governance architecture with [Hybrid Cloud Foundation (HCF)](http://aka.ms/CloudFoundationDatasheet) solution offer. Map the customer’s requirements to the most appropriate reference architecture. Implement a minimum viable product consisting of Shared Services and IaaS Workload.
+- **Cloud Modernization:** Leverage [Cloud Modernization](http://aka.ms/CloudMoDatasheet) solution offer as a comprehensive approach to move applications, data and infrastructure to an enterprise-ready cloud, as well as to optimize and modernize once in the cloud.
+- **Innovate with Cloud:** Engage customer through an innovative and unique [Cloud Center of Excellence (CCoE)](http://aka.ms/CCoEDatasheet) solution approach which builds a modern IT organization to enable agility at scale with DevOps while staying in control. Implements an agile approach to capture business requirements, reuse deployment packages aligned with security, compliance and service management policies, and maintains the Azure platform aligned with operational procedures.
+
 ## Assess process changes
 
 During assessment, additional decisions will be required to align to the required governance approach. The Cloud Governance Team should provide all members of the Cloud Adoption Team with any policy statements, architectural guidance, or governance/compliance requirements prior to the assessment of a workload.

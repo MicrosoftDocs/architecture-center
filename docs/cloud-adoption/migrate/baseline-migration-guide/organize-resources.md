@@ -3,9 +3,10 @@ title: Organize your Azure resources effectively | Microsoft docs
 description: Best practices to effectively organize your Azure management environment 
 author: laraaleite 
 ms.author: laleite
-ms.date: 08/27/2018
+ms.date: 4/4/2019
 ms.topic: conceptual
 ms.service: azure-portal
+ms.custom: fasttrack, new
 ---
 # Organize your Azure resources
 
