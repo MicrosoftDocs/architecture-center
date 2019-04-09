@@ -11,50 +11,48 @@ ms.custom: "fasttrack-new"
 
 # Migrate assets
 
-This guide focuses on the **Rehost** ("lift and shift") migration methodology which moves the current state to the chosen cloud provider, with minimal change to overall architecture.
+This guide focuses on the **rehost** (also called **lift-and-shift****) migration methodology. It moves the current state to the chosen cloud provider with minimal changes to the overall architecture.
 
-In this phase of the journey you utilize the output of the assess phase to initiate the migration of the environment. This guide helps with identifying the appropriate tools to reach "done state", including Native tools, 3rd Party tools, and Project Management tools.
+In this phase of the journey, you use the output of the assess phase to initiate the migration of the environment. This guide help identify the appropriate tools to reach a "done state", such as native tools, third party tools, and project Management tools.
 
-# [Native Migration Tools](#tab/Tools)
+# [Native migration tools](#tab/Tools)
 
-Azure provides a number of native tools which can perform the migration, or assist with stages of the migration. The following sections outline the various tools available.
+The following sections describe the native Azure tools available to perform or assist with a migration.
 
 ## Azure Site Recovery
 
-Azure Site Recovery service can not only be used to manage and orchestrate disaster recovery of on-premises machines and Azure VMs for the purposes of business continuity and disaster recovery (BCDR). You can also use Site Recovery to manage migration of on-premises machines to Azure.
+The Azure Site Recovery service can manage the migration of on-premises resources to Azure. It can also manage and orchestrate disaster recovery of on-premises machines and Azure VMs for business continuity and disaster recovery (BCDR) purposes.
 
-### Migrate to Azure with Site Recovery service
+### Migrate using the Azure Site Recovery service
 
-The following steps outline the process to use Site Recovery service to migrate:
+To use Azure Site Recovery to migrate resources:
 
->
 > [!TIP]
-> Depending on your scenario, the exact steps may differ slightly.
->
+> Depending on your scenario, these steps may differ slightly.
 
-1. In the Azure Portal, click **Create a resource > Management Tools > Backup and Site Recovery**
-1. Complete the wizard to create a **Recovery Services vault** resource
-1. In the Resource Menu, click **Site Recovery > Prepare Infrastructure > Protection goal**
+1. In the Azure Portal, click **Create a resource > Management Tools > Backup and Site Recovery**.
+1. Complete the wizard to create a **Recovery Services vault** resource.
+1. In the Resource menu, click **Site Recovery > Prepare Infrastructure > Protection goal**.
 1. In **Protection goal**, select what you want to migrate.
     1. **VMware**: Select To Azure > Yes, with VMWare vSphere Hypervisor.
     1. **Physical machine**: Select To Azure > Not virtualized/Other.
     1. **Hyper-V**: Select To Azure > Yes, with Hyper-V. If Hyper-V VMs are managed by VMM, select Yes.
-1. Set up the source environment as appropriate
-1. Set up the target environment
+1. Set up the source environment as appropriate.
+1. Set up the target environment.
     1. Click **Prepare infrastructure > Target**, and select the Azure subscription you want to use.
     1. Specify the Resource Manager deployment model.
     1. Site Recovery checks that you have one or more compatible Azure storage accounts and networks.
-1. Set up a replication policy
-1. Enable replication
-1. Run a test migration (test failover)
-1. Migrate to Azure (failover)
+1. Set up a replication policy.
+1. Enable replication.
+1. Run a test migration (test failover).
+1. Migrate to Azure (failover).
     1. In **Settings > Replicated items** click the machine > **Failover**.
     1. In **Failover** select a **Recovery Point** to fail over to. Select the latest recovery point.
-    1. Configure any encryption key settings as required
+    1. Configure any encryption key settings as required.
     1. Select **Shut down machine before beginning failover**. Site Recovery will attempt to shutdown virtual machines before triggering the failover. Failover continues even if shutdown fails. You can follow the failover progress on the Jobs page.
     1. Check that the Azure VM appears in Azure as expected.
-    1. In **Replicated items**, right-click the VM > **Complete Migration**.
-1. Perform any post migration steps as required (see relevant information in this guide)
+    1. In **Replicated items**, right-click the VM and choose **Complete Migration**.
+1. Perform any post-migration steps as required (see relevant information in this guide).
 
 ::: zone target="chromeless"
 
@@ -64,23 +62,23 @@ The following steps outline the process to use Site Recovery service to migrate:
 
 ::: zone target="docs"
 
-Additional information can be found in the following resources:
+For more information, see:
 
-* [Migrate on-premises machines to Azure](https://docs.microsoft.com/en-gb/azure/site-recovery/migrate-tutorial-on-premises-azure)
+- [Migrate on-premises machines to Azure](https://docs.microsoft.com/en-gb/azure/site-recovery/migrate-tutorial-on-premises-azure)
 
 ::: zone-end
 
 ## Azure Database Migration Service
 
-The Azure Database Migration Service is a fully managed service designed to enable seamless migrations from multiple database sources to Azure data platforms with minimal downtime (online migrations). The Azure Database Migration Service performs all of the required steps. You can fire and forget your migration projects with peace of mind, knowing that the process takes advantage of best practices as determined by Microsoft.
+The Azure Database Migration Service is a fully managed service that enables seamless migrations from multiple database sources to Azure data platforms, with minimal downtime (online migrations). The Azure Database Migration Service performs all of the required steps. You can fire and forget your migration projects with peace of mind, knowing that the process takes advantage of best practices recommended by Microsoft.
 
-### Create a Database Migration Service
+### Create an Azure Database Migration Service instance
 
-If this is the first time using the Database Migration Service then you need to first Register the resource provider within your Azure subscription.
+If this is the first time using Azure Database Migration Service, you first need to register the resource provider within your Azure subscription:
 
-1. Select **All Services**, then **Subscriptions** and the target subscription
-1. Select **Resource providers**
-1. Search for `migration`, and then to the right of **Microsoft.DataMigration**, select **Register**
+1. Select **All Services**, then **Subscriptions**, and choose the target subscription.
+1. Select **Resource providers**.
+1. Search for `migration`, and then to the right of **Microsoft.DataMigration**, select **Register**.
 
 ::: zone target="chromeless"
 
@@ -88,12 +86,12 @@ If this is the first time using the Database Migration Service then you need to 
 
 ::: zone-end
 
-Once you have registered the resource provider, you can proceed to create an instance of the Database Migration Service
+Once you have registered the resource provider, you can proceed to create an instance of Azure Database Migration Service.
 
-1. Select **+Create a resource** and search the marketplace for **Azure Database Migration Service**
-1. Complete the **Create Migration Service** wizard, and select **Create**
+1. Select **+Create a resource** and search the marketplace for **Azure Database Migration Service**.
+1. Complete the **Create Migration Service** wizard, and select **Create**.
 
-The migration service is now ready to migrate the supported source databases (e.g. SQL Server, MySQL, PostgreSQL, MongoDb, etc).
+The service is now ready to migrate the supported source databases (for example, SQL Server, MySQL, PostgreSQL, or MongoDb).
 
 ::: zone target="chromeless"
 
@@ -103,21 +101,21 @@ The migration service is now ready to migrate the supported source databases (e.
 
 ::: zone target="docs"
 
-Additional information can be found in the following resources:
+For more information, see:
 
-* [Database Migration Service Overview](https://docs.microsoft.com/en-gb/azure/dms/dms-overview)
-* [Azure Migrate in the Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_ManagementGroups/HierarchyBlade)
-* [Create Migration project in the Azure Portal](https://ms.portal.azure.com/#create/Microsoft.AzureMigrate)
+- [Azure Database Migration Service overview](https://docs.microsoft.com/en-gb/azure/dms/dms-overview)
+- [Azure Migrate in the Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_ManagementGroups/HierarchyBlade)
+- [Azure Portal: Create a migration project](https://ms.portal.azure.com/#create/Microsoft.AzureMigrate)
 
 ::: zone-end
 
-# [3rd Party Migration Tools](#tab/3rd-party-tools)
+# [Third-party migration tools](#tab/third-party-tools)
 
-Several 3rd Party migration tools and ISV services exist to assist you with the migration process. Each offers different benefits and focus areas. The following are just a selection available:
+Several third-party migration tools and ISV services can assist you with the migration process. Each offers different benefits and strengths. These tools include:
 
-### Cloudamize
+## Cloudamize
 
-Cloudamize is an ISV service which covers all phases of the migration strategy.
+Cloudamize is an ISV service that covers all phases of the migration strategy.
 
 [Learn more](https://www.cloudamize.com/)
 
@@ -129,22 +127,22 @@ Zerto provides virtual replication handling both Microsoft Hyper-V and VMWare vS
 
 ### Carbonite
 
-Cabonite - Server and data migration solutions to migrate workloads to, from or between any physical, virtual or cloud-based environment.
+Carbonite provides server and data migration solutions to migrate workloads to, from, or between any physical, virtual, or cloud-based environment.
 
 [Learn More](https://www.carbonite.com/data-protection/data-migration-software)
 
-# [Project Management Tools](#tab/project-management-tools)
+# [Project management tools](#tab/project-management-tools)
 
-Most organizations already have project management tools within their business. In addition most Project Managers have personal favorites which may influence which tool your organization chooses should you not have an existing tool. The most important decision is that you choose to **use a project management tool**. Projects that do not use a sufficient tool to plan, track and manage the project are typically always more susceptible to delays, budget blow outs, failures, rejections, and other issues that prevent a successful outcome.
+Most organizations already have project management tools. Additionally, most project managers have their own favorite tools and might influence the tool your organization chooses if you don't already have. What really matters is that you **use a project management tool**. Projects that don't effectively plan, track, and manage the project are more susceptible to delays, budget overruns, failures, rejections, and other problems that prevent a successful outcome.
 
-There are many project management tools available but the following is a list which may assist you during your project. These tools do not need to be used in isolation, and may be used in combination for enhanced benefits:
+There are many project management tools available. This list shows some tools that might assist you during your project. These tools can be combined to provide broader capabilities.
 
-> * [Microsoft Planner](https://tasks.office.com/) - A simple, visual way to organize teamwork.
-> * [Microsoft Project](https://products.office.com/en-us/project/project-and-portfolio-management-software) - Project and Portfolio Management, Resource Capacity Management, Financial Management, Timesheeting and Schedule Management
-> * [Microsoft Teams](https://products.office.com/en-us/microsoft-teams) - Team collaboration and communication tool, as well as integration with Planner and other tools to improve collaboration
+- [Microsoft Planner](https://tasks.office.com/): A simple, visual way to organize teamwork.
+- [Microsoft Project](https://products.office.com/en-us/project/project-and-portfolio-management-software) - Project and Portfolio Management, Resource Capacity Management, Financial Management, Timesheeting and Schedule Management.
+- [Microsoft Teams](https://products.office.com/en-us/microsoft-teams) - Team collaboration and communication tool, as well as integration with Planner and other tools to improve collaboration.
 
-This list is certainly not the only tools available, as there are many 3rd party tools widely used within the community to perform Project Management.
+These are certainly not the only tools available. Many other third-party tools are widely used in the project management community.
 
-# [Cost Management](#tab/ManageCost)
+# [Cost management](#tab/ManageCost)
 
-As you migration your resources into your cloud environment it is important to perform regular cost analysis. This provides you with an opportunity to avoid an unexpected usage charges as a migration process can place additional usage requirements on your services. You also have the ability to resize resources as needed to balance cost and workload, which is covered in more detail within the **Optimize and Transform** section.
+As you migrate resources to your cloud environment, it is important to perform periodic cost analysis. This helps you avoid unexpected usage charges, since the migration process can place additional usage requirements on your services. You can also resize resources as needed to balance cost and workload (discussed in more detail in the **Optimize and Transform** section).

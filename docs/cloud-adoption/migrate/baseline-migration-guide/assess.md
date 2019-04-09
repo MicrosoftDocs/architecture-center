@@ -145,7 +145,7 @@ There are some common stakeholders which would apply to migration projects. Thes
 
 # [Timelines](#tab/Timelines)
 
-As a general statement, customer's find that for the scenario covered by this guide a migration can be completed between 1-6 months.
+As a general statement, customer's find that for the scenario covered by this guide a migration can be completed in one to six months.
 
 Some of the factors to consider when evaluating the timeline of your migration will be:
 
