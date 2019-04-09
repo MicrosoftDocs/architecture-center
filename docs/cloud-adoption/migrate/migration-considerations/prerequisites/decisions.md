@@ -17,7 +17,7 @@ The objective or goal of any adoption effort can have a significant impact on th
 - **Application Innovation.** Improving customer experience or growing market share are examples of incremental outcomes. The outcomes result from a collection of incremental changes focused on the needs and desires of current customers.
 - **Data Driven Innovation.** New products or services, especially those that come from the power of data, are examples of disruptive outcomes. These outcomes are the result of experimentation and predictions that use data to disrupt status quo in the market.
 
-No business would pursue just one of these outcomes. Without operations, there are no customers &mdash; and vice versa. Cloud adoption is no different. Companies commonly work to achieve each of these outcomes, but trying to focus on all of them simultaneously can spread your efforts too thin and slow progress on work that could most benefit your business needs.
+No business would pursue just one of these outcomes. Without operations, there are no customers, and vice versa. Cloud adoption is no different. Companies commonly work to achieve each of these outcomes, but trying to focus on all of them simultaneously can spread your efforts too thin and slow progress on work that could most benefit your business needs.
 
 This prerequisite isn't a demand for you to pick one of the these three goals, but instead to help your Cloud Strategy Team and Cloud Adoption Team establish a set of operational priorities that will guide execution for the next three to six months. These priorities are set by ranking each of the three itemized options from *most significant* to *least significant*, as they relate to the efforts this team can contribute to in the next one or two quarters.
 

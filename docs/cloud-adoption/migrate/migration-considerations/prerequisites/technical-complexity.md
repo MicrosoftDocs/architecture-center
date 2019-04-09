@@ -13,7 +13,7 @@ When shifting to an agile model where flexibility and iteration are emphasized, 
 
 ## Addressing technical complexity
 
-When changing any technical system, complexity and interdependency inject risk into project plans. Cloud migrations are no exception. When moving thousands &mdash; or tens of thousands &mdash; of assets to the cloud, these risks are amplified. Detecting and mapping all dependencies across a large digital estate could take years. Few businesses can tolerate such a long analysis cycle. To balance the need for architectural analysis and business acceleration, CAF focuses on an INVEST model for product backlog management. The following sections summarize this type of model.
+When changing any technical system, complexity and interdependency inject risk into project plans. Cloud migrations are no exception. When moving thousands&mdash;or tens of thousands&mdash;of assets to the cloud, these risks are amplified. Detecting and mapping all dependencies across a large digital estate could take years. Few businesses can tolerate such a long analysis cycle. To balance the need for architectural analysis and business acceleration, CAF focuses on an INVEST model for product backlog management. The following sections summarize this type of model.
 
 ## INVEST in workloads
 
@@ -39,7 +39,6 @@ Initially, workloads on the migration backlog are unlikely to meet the INVEST cr
 ![Relationship between the migration, release, and iteration backlogs used during the migration process](../../../_images/migration/migrate-release-iteration-backlog-relationship.png)
 
 *The migration, release, and iteration backlogs track different levels of activity during migration processes.*
-
 
 In any migration backlog, the change management team should strive to obtain the following information for any workload in the plan. At minimum, this data should be available for any workloads prioritized for migration in the next two or three releases.
 

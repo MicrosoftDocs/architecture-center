@@ -18,6 +18,7 @@ During plan, build, or migrate, a company generally has four execution partnersh
 - **Supported self-service.** Execution is completed by the existing technical staff with support from Microsoft.
 
 ## Guided self-service
+
 If an organization is planning an Azure migration on its own, Microsoft is always there to assist throughout the journey. To help fast-track migration to Azure, Microsoft and its partners have developed an extensive set of architectures, guides, tools, and services to reduce risk and to speed migration of virtual machines, applications, and databases. These tools and services support a broad selection of operating systems, programming languages, frameworks, and databases.
 
 - **Assessment and migration tools.** Azure provides a wide range of tools to be used in different phases for your cloud transformation, including assessing your existing infrastructure. For more details on the tool, refer to the "Assess" section in the "Migration" chapter that follows.
@@ -77,7 +78,7 @@ Microsoft Certified Solution Providers specialize in providing up-to-date, Micro
 Get help from partners with ready-made or custom Azure solutions and partners who can help deploy and manage those solutions:
 
 - **[Find a Cloud Solutions Partner](https://www.microsoft.com/solution-providers/home).** A certified CSP can help take full advantage of the cloud by assessing business goals for cloud adoption, identifying the right cloud solution that meets business needs and helps the business become more agile and efficient.
-- **[Find a Managed Service Partner](https://www.microsoft.com/solution-providers/search?cacheId=16a3b49b-fef2-449d-bdf0-628008114cca).** An Azure Managed Service Partner (MSP) helps a business transition to Azure by guiding all aspects of the cloud journey. From consulting to migrations and operations management, cloud MSPs show customers all the benefits that come with cloud adoption. They also act as a one-stop shop for common support, provisioning, and the billing experience &mdash; all with a flexible pay-as-you-go (PAYG) business model.
+- **[Find a Managed Service Partner](https://www.microsoft.com/solution-providers/search?cacheId=16a3b49b-fef2-449d-bdf0-628008114cca).** An Azure Managed Service Partner (MSP) helps a business transition to Azure by guiding all aspects of the cloud journey. From consulting to migrations and operations management, cloud MSPs show customers all the benefits that come with cloud adoption. They also act as a one-stop shop for common support, provisioning, and the billing experience, all with a flexible pay-as-you-go (PAYG) business model.
 
 ## Next steps
 

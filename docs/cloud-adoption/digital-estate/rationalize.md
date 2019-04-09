@@ -62,7 +62,7 @@ For example, if an organization is in the midst of an IaaS migration to the clou
 
 By reducing the number of potential outcomes, it’s easier to reach an initial decision about the future state of an asset. When the options are reduced, the number of questions asked of the business at this early stage is also reduced.
 
-Continuing with the example above, if the options are limited to rehost or retire, there is really only one question to ask the business during initial rationalization &mdash; namely, whether to retire.
+Continuing the example, if the options are limited to rehosting or retiring, there is really only one question to ask the business during initial rationalization&mdash;namely, whether to retire.
 
 "Analysis suggests that there are no users actively leveraging this asset. Is that accurate or have we overlooked something?" Such a binary question is generally much easier to run through a qualitative analysis.
 
