@@ -47,7 +47,7 @@ In [how does Azure work?](../../getting-started/what-is-azure.md) you learned th
 ![Diagram of Azure Resource Manager](../../_images/governance-1-12.png)
 *Figure 4. Azure Resource Manager.*
 
-The following figure shows three clients: [PowerShell](/powershell/azure/overview), the [Azure portal](https://portal.azure.com), and the [Azure command-line interface (CLI)](/cli/azure):
+The following figure shows three clients: [PowerShell](/powershell/azure/overview), the [Azure portal](https://portal.azure.com), and the [Azure CLI](/cli/azure):
 
 ![Diagram of Azure clients connecting to the Azure Resource Manager API](../../_images/governance-1-13.png)
 *Figure 5. Azure clients connect to the Azure Resource Manager RESTful API.*

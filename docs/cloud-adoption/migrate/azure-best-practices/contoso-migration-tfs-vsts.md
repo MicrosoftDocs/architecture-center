@@ -182,9 +182,9 @@ With the validation complete, Contoso admins can use the TFS Migration Tool to b
     Prepare does the following:
     - Scans the collection to find a list of all users and populates the identify map log (**IdentityMapLog.csv**).
     - Prepares the connection to Azure Active Directory to find a match for each identity.
-    - Contoso has already deployed Azure AD and synchronized it using AD Connect, so Prepare should be able to find the matching identities and mark them as Active.
+    - Contoso has already deployed Azure AD and synchronized it using Azure AD Connect, so Prepare should be able to find the matching identities and mark them as Active.
 
-2. An Azure AD Sign In screen appears, and they enter the credentials of a Global Admin.
+2. An Azure AD sign-in screen appears, and they enter the credentials of a Global Admin.
 
     ![Prepare](./media/contoso-migration-tfs-vsts/prep2.png)
 

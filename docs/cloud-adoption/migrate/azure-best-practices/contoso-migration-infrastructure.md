@@ -36,7 +36,7 @@ Before Contoso can migrate to Azure, it's critical to prepare an Azure infrastru
 Before we start looking at the infrastructure, you might want to read some background information about the Azure capabilities we discuss in this article:
 
 - There are a number of options available for purchasing Azure access, including Pay-As-You-Go, Enterprise Agreements (EA), Open Licensing from Microsoft resellers, or from Microsoft Partners known as Cloud Solution Providers (CSPs). Learn about [purchase options](https://azure.microsoft.com/pricing/purchase-options), and read about how [Azure subscriptions are organized](https://azure.microsoft.com/blog/organizing-subscriptions-and-resource-groups-within-the-enterprise).
-- Get an overview of Azure [identity and access management](https://www.microsoft.com/trustcenter/security/identity). In particular, learn about [Azure AD and extending on-premises AD to the cloud](/azure/active-directory/identity-fundamentals). There's a useful downloadable e-book about [identity and access management (IAM) in a hybrid environment](https://azure.microsoft.com/resources/hybrid-cloud-identity).
+- Get an overview of Azure [identity and access management](https://www.microsoft.com/trustcenter/security/identity). In particular, learn about [Azure AD and extending on-premises Active Directory to the cloud](/azure/active-directory/identity-fundamentals). There's a useful downloadable e-book about [identity and access management (IAM) in a hybrid environment](https://azure.microsoft.com/resources/hybrid-cloud-identity).
 - Azure provides a robust networking infrastructure with options for hybrid connectivity. Get an overview of [networking and network access control](/azure/security/security-network-overview).
 - Get an introduction to [Azure Security](/azure/security/azure-security), and read about creating a plan for [governance](/azure/security/governance-in-azure).
 
@@ -115,7 +115,7 @@ Giving and controlling user access to Azure resources with identity and access m
 
 ### Create an Azure AD
 
-Contoso is using the Azure AD Free edition that's included with an Azure subscription. Contoso admins set up an AD directory as follows:
+Contoso is using the Azure AD Free edition that's included with an Azure subscription. Contoso admins set up a directory as follows:
 
 1. In the [Azure portal](https://portal.azure.com), they navigate to **Create a resource** > **Identity** > **Azure Active Directory**.
 2. In **Create Directory**, they specify a name for the directory, an initial domain name, and region in which the Azure AD directory should be created.
@@ -143,7 +143,7 @@ To set up a custom domain name they add it to the directory, add a DNS entry, an
 
 ### Set up on-premises and Azure groups and users
 
-Now that the Azure AD is up and running, Contoso admins need to add employees to on-premises AD groups that will synchronize to Azure AD. They should use on-premises group names that match the names of resource groups in Azure. This makes it easier to identify matches for synchronization purposes.
+Now that the Azure AD is up and running, Contoso admins need to add employees to on-premises Active Directory groups that will synchronize to Azure Active Directory. They should use on-premises group names that match the names of resource groups in Azure. This makes it easier to identify matches for synchronization purposes.
 
 #### Create resource groups in Azure
 
@@ -182,7 +182,7 @@ In future, Contoso will add other resource groups based on needs. For example, t
 
 1. In the on-premises Active Directory, Contoso admins set up security groups with names that match the names of the Azure resource groups.
 
-    ![On-premises AD security groups](./media/contoso-migration-infrastructure/on-prem-ad.png)
+    ![On-premises Active Directory security groups](./media/contoso-migration-infrastructure/on-prem-ad.png)
 
 2. For management purposes, they create an additional group that will be added to all of the other groups. This group will have rights to all resource groups in Azure. A limited number of Global Admins will be added to this group.
 
@@ -199,7 +199,7 @@ To facilitate integration, Contoso uses the [Azure AD Connect tool](/azure/activ
 
 1. In the Azure portal, Contoso admins go to **Azure Active Directory** > **Azure AD Connect**, and download the latest version of the tool to the server they're using for synchronization.
 
-    ![Download AD Connect](./media/contoso-migration-infrastructure/download-ad-connect.png)
+    ![Download Azure AD Connect](./media/contoso-migration-infrastructure/download-ad-connect.png)
 
 2. They start the **AzureADConnect.msi** installation, with **Use express settings**. This is the most common installation, and can be used for a single-forest topology, with password hash synchronization for authentication.
 
@@ -217,28 +217,28 @@ To facilitate integration, Contoso uses the [Azure AD Connect tool](/azure/activ
 
 Note that:
 
-- Contoso has a direct connection to Azure. If your on-premises AD is behind a proxy, read this [article](/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-connectivity).
+- Contoso has a direct connection to Azure. If your on-premises Active Directory is behind a proxy, read this [article](/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-connectivity).
 
-- After the first synchronization, on-premises AD objects can be seen in the Azure AD.
+- After the first synchronization, on-premises Active Directory objects can be seen in the Azure AD directory.
 
-    ![On-premises AD in Azure](./media/contoso-migration-infrastructure/on-prem-ad-groups.png)
+    ![On-premises Active Directory in Azure](./media/contoso-migration-infrastructure/on-prem-ad-groups.png)
 
 - The Contoso IT team is represented in each group, based on its role.
 
-    ![On-premises AD members in Azure](./media/contoso-migration-infrastructure/on-prem-ad-group-members.png)
+    ![On-premises Active Directory members in Azure](./media/contoso-migration-infrastructure/on-prem-ad-group-members.png)
 
 ### Set up RBAC
 
 Azure [Role-Based Access Control (RBAC)](/azure/role-based-access-control/role-assignments-portal) enables fine-grained access management for Azure. Using RBAC, you can grant only the amount of access that users need to perform tasks. You assign the appropriate RBAC role to users, groups, and applications at a scope level. The scope of a role assignment can be a subscription, a resource group, or a single resource.
 
-Contoso admins now assigns roles to the AD groups that they synchronized from on-premises.
+Contoso admins now assigns roles to the Active Directory groups that they synchronized from on-premises.
 
 1. In the **ControlCobRG** resource group, they click **Access control (IAM)** > **Add role assignment**.
-2. In **Add role assignment** > **Role**, > **Contributor**, they select the **ContosoCobRG** AD group from the list. The group then appears in the **Selected members** list.
-3. They repeat this with the same permissions for the other resource groups (except for **ContosoAzureAdmins**), by adding the Contributor permissions to the AD account that matches the resource group.
-4. For the **ContosoAzureAdmins** AD group, they assign the **Owner** role.
+2. In **Add role assignment** > **Role**, > **Contributor**, they select the **ContosoCobRG** group from the list. The group then appears in the **Selected members** list.
+3. They repeat this with the same permissions for the other resource groups (except for **ContosoAzureAdmins**), by adding the Contributor permissions to the account that matches the resource group.
+4. For the **ContosoAzureAdmins**  group, they assign the **Owner** role.
 
-    ![On-premises AD members in Azure](./media/contoso-migration-infrastructure/on-prem-ad-groups.png)
+    ![On-premises Active Directory members in Azure](./media/contoso-migration-infrastructure/on-prem-ad-groups.png)
 
 ## Step 3: Design for resiliency
 
@@ -612,7 +612,7 @@ After updating network settings, Contoso admins are ready to build out the domai
 
 ### Set up Active Directory
 
-AD is a critical service in networking, and must be configured correctly. Contoso admins will build AD sites for the Contoso datacenter, and for the EUS2 and CUS regions.
+Active Directory is a critical service in networking, and must be configured correctly. Contoso admins will build Active Directory sites for the Contoso datacenter, and for the EUS2 and CUS regions.
 
 1. They create two new sites (AZURE-EUS2, and AZURE-CUS) along with the datacenter site (ContosoDatacenter).
 2. After creating the sites, they create subnets in the sites, to match the VNets and datacenter.

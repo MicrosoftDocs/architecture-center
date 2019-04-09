@@ -43,13 +43,13 @@ Dave creates a subscription to support developer tools that are common across al
 
 ### Role-based access control
 
-After creating his subscription, Dave wants to ensure that the appropriate teams and application owners can access their resources. Dave recognizes that each team has different requirements. He uses the groups that have been synched from Contoso's on-premises Active Directory (AD) to Azure Active Directory, and provides the right level of access to the teams.
+After creating his subscription, Dave wants to ensure that the appropriate teams and application owners can access their resources. Dave recognizes that each team has different requirements. He uses the groups that have been synched from Contoso's on-premises Active Directory to Azure Active Directory, and provides the right level of access to the teams.
 
 Dave assigns the following roles for the subscription:
 
 | Role | Assigned to | Description |
 | --- | --- | --- |
-| [Owner](/azure/role-based-access-control/built-in-roles#owner) |Managed ID from Contoso's AD |This ID is controlled with Just in Time (JIT) access through Contoso's Identity Management tool and ensures that subscription owner access is fully audited |
+| [Owner](/azure/role-based-access-control/built-in-roles#owner) |Managed ID from Contoso's on-premises Active Directory |This ID is controlled with Just in Time (JIT) access through Contoso's Identity Management tool and ensures that subscription owner access is fully audited |
 | [Security Reader](/azure/role-based-access-control/built-in-roles#security-reader) |Security and risk management department |This role allows users to look at the Azure Security Center and the status of the resources |
 | [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) |Network team |This role allows Contoso's network team to manage the Site to Site VPN and the Virtual Networks |
 | *Custom role* |Application owner |Dave creates a role that grants the ability to modify resources within the resource group. For more information, see [Custom Roles in Azure RBAC](/azure/role-based-access-control/custom-roles) |

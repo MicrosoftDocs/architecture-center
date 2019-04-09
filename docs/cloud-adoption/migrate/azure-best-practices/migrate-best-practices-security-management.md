@@ -204,7 +204,7 @@ In this section we'll recommend some best practices for Azure management, includ
 Ensuring that your resource groups have meaningful names that admins and support team members can easy recognize and navigate will drastically improve productivity and efficiency.
 
 - We recommend following Azure naming conventions.
-- If you're synchronizing your on-premises AD DS to Azure AD using AD Connect, consider matching the names of security groups on-premises to the names of resource groups in Azure.
+- If you're synchronizing your on-premises Active Directory to Azure AD using Azure AD Connect, consider matching the names of security groups on-premises to the names of resource groups in Azure.
 
 ![Naming](./media/migrate-best-practices-security-management/naming.png)
 *Resource group naming*
