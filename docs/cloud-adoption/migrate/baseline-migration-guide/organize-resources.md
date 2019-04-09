@@ -207,7 +207,7 @@ To apply a tag to a resource group,
 1. Go to [Resource Groups](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fsubscriptions%2FresourceGroups).
 1. Select on a resource group.
 1. Select **Tags**.
-1. Type in a new name and value or select a existing name and value.
+1. Type in a new name and value or select an existing name and value.
 
 ## Learn more
 
@@ -226,7 +226,7 @@ To apply a tag to a resource group,
 1. Go to **Resource Groups**.
 1. Select on a resource group.
 1. Select **Tags**.
-1. Type in a new name and value or select a existing name and value.
+1. Type in a new name and value or select an existing name and value.
  
 ::: form action="OpenBlade[#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fsubscriptions%2FresourceGroups]" submitText="Go to resource groups" :::
 

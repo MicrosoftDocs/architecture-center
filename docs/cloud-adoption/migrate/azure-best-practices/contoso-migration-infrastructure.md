@@ -320,7 +320,7 @@ With the regional design in place, Contoso is ready to consider a networking str
 
 Contoso considered a [number of architectures](/azure/architecture/reference-architectures/hybrid-networking) for hybrid networking between Azure and the on-premises datacenter. [Read more](/azure/architecture/reference-architectures/hybrid-networking/considerations) about comparing options.
 
-As a reminder, the Contoso on-premises network infrastructure currently consists of the datacenter in New York, and local branches in the eastern portion of the US. All locations have a business class connection to the internet. Each of the branches is then connected to the datacenter via a IPSec VPN tunnel over the internet.
+As a reminder, the Contoso on-premises network infrastructure currently consists of the datacenter in New York, and local branches in the eastern portion of the US. All locations have a business class connection to the internet. Each of the branches is then connected to the datacenter via an IPSec VPN tunnel over the internet.
 
 ![Contoso network](./media/contoso-migration-infrastructure/contoso-networking.png)
 
@@ -713,7 +713,7 @@ For example:
 
  ![Azure tags](./media/contoso-migration-infrastructure/azure-tag.png)
 
-After creating the tag, Contoso will go back and create new Azure policy definitions and assignments, to enforce the use of the required tags across the organization.
+After creating the tag, Contoso will go back and create new policy definitions and assignments, to enforce the use of the required tags across the organization.
 
 ## Step 6: Consider security
 

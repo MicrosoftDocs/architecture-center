@@ -26,7 +26,7 @@ Regular approval activities can help minimize or avoid surprises as a result of 
 
 ## Existing culture
 
-Your IT teams likely have pre-existing mechanisms for managing change involving your on-premises assets. Typically these mechanisms are governed by traditional Information Technology Infrastructure Library–based (ITIL-based) change management processes. In many enterprise migrations, these processes involve a Change Advisory Board (CAB) that is responsible for reviewing, documenting, and approving all IT-related requests for changes (RFC).
+Your IT teams likely have existing mechanisms for managing change involving your on-premises assets. Typically these mechanisms are governed by traditional Information Technology Infrastructure Library–based (ITIL-based) change management processes. In many enterprise migrations, these processes involve a Change Advisory Board (CAB) that is responsible for reviewing, documenting, and approving all IT-related requests for changes (RFC).
 
 The CAB generally includes experts from multiple IT and Business teams, offering a variety of perspectives and detailed review for all IT-related changes. Approvals by a CAB is a proven means of reducing risk and minimizing business impact of changes involving during stable-state workloads managed by IT operations.
 

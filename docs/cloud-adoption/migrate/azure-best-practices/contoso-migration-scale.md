@@ -301,7 +301,7 @@ After Contoso moves resources to Azure, they need to streamline them to improve 
 
 To make the most of their cloud investment, Contoso will take advantage of the free Azure Cost Management tool.
 
-- This licensed solution built by Cloudyn, a Microsoft subsidiary, lets Contoso manage cloud spending with transparency and accuracy. It provides tools to monitor, allocate, and trim cloud costs.
+- This licensed solution built by Cloudyn, a Microsoft subsidiary, allows Contoso to manage cloud spending with transparency and accuracy. It provides tools to monitor, allocate, and trim cloud costs.
 - Azure Cost Management provides simple dashboard reports to help with cost allocation, showbacks and chargebacks.
 - Cost Management can optimize cloud spending by identifying underutilized resources that Contoso can then manage and adjust.
 - [Learn more](/azure/cost-management/overview) about Azure Cost Management.

@@ -29,10 +29,10 @@ As a customer you may find you have several reasons for migrating to Azure. Thes
 
 - **Eliminate legacy hardware.** You may have applications hosted on infrastructure reaching its end of life or support, either on-premises or with a hosting provider. Migration to the cloud offers an attractive remediation to the challenge as the ability to migrate "as-is" allows the team to quickly resolve the current infrastructure life cycle challenge, while then turning attention to the long term planning of application life cycle and optimization to take advantage of the cloud.
 - **Reduce CapEx.** Hosting your own server infrastructure requires considerable investment in hardware, software, electricity, and personal. Migrating to a cloud solution can provide significant reductions in CapEx. To achieve the best CapEx reductions a redesign of the solution may be required, however an "as-is" migration is a great first step.
-- **Free up datacenter space.** You may become an Azure customer through the need to expand your datacenter capacity and one way to do this is to leverage the cloud as an extension of your on-premises services.
+- **Free up datacenter space.** You may become an Azure customer through the need to expand your datacenter capacity and one way to do this is to use the cloud as an extension of your on-premises services.
 - **Quick cloud return on investment.** Getting a return on investment (ROI) is much easier with cloud solutions as the overall infrastructure costs are shared across customers. The cloud payment model provides a great way to realize ROI.
 
-Each of the above scenarios may be entry points to then extend your cloud footprint utilizing another scenario.
+Each of the above scenarios may be entry points to then extend your cloud footprint using another scenario.
 
 ## Migration Characteristics
 
@@ -45,7 +45,7 @@ The focus of this migration journey is to realize:
 - Realization of return on investment.
 
 > [!NOTE]
-> An additional benefit realized through this migration journey, is the additional software support model for Windows 2008/2008 R2 and SQL Server 2008/2008 R2. For further information please see:
+> An additional benefit realized through this migration journey, is the additional software support model for Windows 2008/2008 R2 and SQL Server 2008/2008 R2. For more information, see:
 >
 > - [Windows Server 2008/2008 R2](/cloud-platform/windows-server-2008).
 > - [SQL Server 2008/2008 R2](/sql-server/sql-server-2008).

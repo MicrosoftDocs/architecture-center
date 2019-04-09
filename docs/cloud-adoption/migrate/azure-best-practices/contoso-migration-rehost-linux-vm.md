@@ -65,7 +65,7 @@ Contoso evaluates the proposed design by putting together a pros and cons list.
 
 **Consideration** | **Details**
 --- | ---
-**Pros** | Both the app VMs will be moved to Azure without changes, making the migration simple.<br/><br/> Since Contoso is using lift-and-shift for both app VMs, no special configuration or migration tools are needed for the app database.<br/><br/> Contoso will retain full control of the app VMs in Azure. <br/><br/> The app VMs are running Ubuntu 16.04-TLS, which is a endorsed Linux distribution. [Learn more](/azure/virtual-machines/linux/endorsed-distros).
+**Pros** | Both the app VMs will be moved to Azure without changes, making the migration simple.<br/><br/> Since Contoso is using lift-and-shift for both app VMs, no special configuration or migration tools are needed for the app database.<br/><br/> Contoso will retain full control of the app VMs in Azure. <br/><br/> The app VMs are running Ubuntu 16.04-TLS, which is an endorsed Linux distribution. [Learn more](/azure/virtual-machines/linux/endorsed-distros).
 **Cons** | The web and data tier of the app will remain a single point of failover. <br/><br/> Contoso will need to continue supporting the app as Azure VMs rather than moving to a managed service such as Azure App Service and Azure Database for MySQL.<br/><br/> Contoso is aware that by keeping things simple with a lift-and-shift VM migration, they're not taking full advantage of the features provided by [Azure Database for MySQL](/azure/mysql/overview) (built-in high availability, predictable performance, simple scaling, automatic backups and built-in security).
 
 <!-- markdownlint-enable MD033 -->
@@ -442,5 +442,5 @@ For business continuity and disaster recovery, Contoso takes the following actio
 
 - After deploying resources, Contoso assigns Azure tags as defined during the [Azure infrastructure deployment](contoso-migration-infrastructure.md#set-up-tagging).
 - Contoso has no licensing issues with the Ubuntu servers.
-- Contoso will enable Azure Cost Management licensed by Cloudyn, a Microsoft subsidiary. It's a multi-cloud cost management solution that helps you to use and manage Azure and other cloud resources. [Learn more](/azure/cost-management/overview) about Azure Cost Management.
+- Contoso will enable Azure Cost Management licensed by Cloudyn, a Microsoft subsidiary. It's a multicloud cost management solution that helps you to use and manage Azure and other cloud resources. [Learn more](/azure/cost-management/overview) about Azure Cost Management.
 

@@ -61,9 +61,9 @@ You can choose a number of options when you deploy Azure VMs to support workload
 
 **Type** | **Details** | **Use**
 --- | --- | ---
-**General purpose** | Balanced CPU-to-memory. | Good for testing and development, small to medium databases, low to medium traffic web servers.
-**Compute-optimized** | High CPU-to-memory. | Good for medium traffic web server, network appliances, batch processes, app servers.
-**Memory-optimized** | High memory-to-CPU. | Good for relational databases, medium to large cache, in-memory analytics.
+**General purpose** | Balanced CPU-to-memory. | Good for testing and development, small- to medium-size databases, low- to medium-volume traffic web servers.
+**Compute-optimized** | High CPU-to-memory. | Good for medium-volume traffic web server, network appliances, batch processes, app servers.
+**Memory-optimized** | High memory-to-CPU. | Good for relational databases, medium- to large-size cache, in-memory analytics.
 **Storage optimized** | High disk throughput and IO. | Good for big data, SQL and NoSQL databases.
 **GPU optimized** | Specialized VMs. Single or multiple GPUs. | Heavy graphics and video editing.
 **High performance** | Fastest and most powerful CPU. VMs with optional high-throughput network interfaces (RDMA) | Critical high-performance apps.
@@ -138,7 +138,7 @@ Storage accounts can use different types of redundancy for resilience and high a
 **Type** | **Details** | **Usage**
 --- | --- | ---
 **Locally Redundant Storage (LRS)** | Protects against a local outage by replicating within a single storage unit to a separate fault domain and update domain. Keeps multiple copies of your data in one datacenter. Provides at least 99.999999999 % (11 9\'s) durability of objects over a given year. | Consider if your app stores data that can be easily reconstructed.
-**Zone Redundant Storage (ZRS)** | Protects again a datacenter outage by replicating across three storage clusters in a single region. Each storage cluster is physically separated and located in its own availability zone. Provides at least 99.9999999999 % (12 9\'s) durability of objects over a given year by keeping multiple copies of your data across multiple data centers or regions. | Consider if you need consistency, durability, and high availability. Might not protect against a regional disaster when multiple zones are permanently affected.
+**Zone Redundant Storage (ZRS)** | Protects again a datacenter outage by replicating across three storage clusters in a single region. Each storage cluster is physically separated and located in its own availability zone. Provides at least 99.9999999999 % (12 9\'s) durability of objects over a given year by keeping multiple copies of your data across multiple datacenters or regions. | Consider if you need consistency, durability, and high availability. Might not protect against a regional disaster when multiple zones are permanently affected.
 **Geographically Redundant Storage (GRS)** | Protects against an entire region outage by replicating data to a secondary region hundreds of miles away from the primary. Provides at least 99.99999999999999 % (16 9\'s) durability of objects over a given year. | Replica data isn't available unless Microsoft initiates a failover to the secondary region. If failover occurs, read and write access is available.
 **Read-Access Geographically Redundant Storage (RA-GRS)** | Similar to GRS. Provides at least 99.99999999999999 % (16 9\'s) durability of objects over a given year | Provides and 99.99 % read availability by allowing read access from the second region used for GRS.
 
@@ -152,7 +152,7 @@ Storage accounts can use different types of redundancy for resilience and high a
 - Learn about [storage redundancy](/azure/storage/common/storage-redundancy), [LRS](/azure/storage/common/storage-redundancy-lrs?toc=%2fazure%2fstorage%2fqueues%2ftoc.json), [ZRS](/azure/storage/common/storage-redundancy-zrs?toc=%2fazure%2fstorage%2fqueues%2ftoc.json), [GRS](/azure/storage/common/storage-redundancy-grs?toc=%2fazure%2fstorage%2fqueues%2ftoc.json), and [Read-access GRS](/azure/storage/common/storage-redundancy-grs?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#read-access-geo-redundant-storage).
 - [Learn more](/azure/storage/files/storage-files-introduction) about Azure Files.
 
-## Best practice: Leverage Azure Hybrid benefits
+## Best practice: Take advantage of Azure Hybrid benefits
 
 Due to years of software investment in systems such as Windows Server and SQL Server, Microsoft is in a unique position to offer customers value in the cloud, with substantial discounts that other cloud providers can't necessarily provide.
 

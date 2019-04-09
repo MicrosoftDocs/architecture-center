@@ -454,5 +454,5 @@ For business continuity and disaster recovery, Contoso takes the following actio
 
 - After deploying resources, Contoso assigns Azure tags, in accordance with decisions they made during the [Azure infrastructure](contoso-migration-infrastructure.md#set-up-tagging) deployment.
 - There are no licensing issues for the Contoso Ubuntu servers.
-- Contoso will enable Azure Cost Management licensed by Cloudyn, a Microsoft subsidiary. It's a multi-cloud cost management solution that helps you to use and manage Azure and other cloud resources. [Learn more](/azure/cost-management/overview) about Azure Cost Management.
+- Contoso will enable Azure Cost Management licensed by Cloudyn, a Microsoft subsidiary. It's a multicloud cost management solution that helps you to use and manage Azure and other cloud resources. [Learn more](/azure/cost-management/overview) about Azure Cost Management.
 

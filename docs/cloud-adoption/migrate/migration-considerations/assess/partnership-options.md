@@ -1,6 +1,6 @@
 ---
 title: "Understanding partnership and support options" 
-description: Describes a options and approaches to support migration efforts
+description: Describes options and approaches to support migration efforts
 author: BrianBlanchard
 ms.date: 4/4/2019
 ---
@@ -61,15 +61,15 @@ The main phases of a typical FastTrack for Azure engagement are:
 
 - **Discovery.** Identify key stakeholders, understand the goal or vision for problems to be solved, and then assess architectural needs.
 - **Solution enablement.** Learn design principles for building applications, review architecture of applications and solutions, and receive guidance and tools to drive proof of concept (PoC) work through to production.
-- **Continuous partnership.** Azure engineers and/or program managers check in every so often to ensure that deployment is on track and to help remove blockers.
+- **Continuous partnership.** Azure engineers and program managers check in every so often to ensure that deployment is on track and to help remove blockers.
 
 ## Microsoft Services
 
-Microsoft Services offers a number of solution offers which align to the methodology within the Cloud Adoption Framework to help new customers successfully migrate to the cloud. Leverage Azure [Discovery and Roadmap](http://aka.ms/ca-dr) with [Azure Migration Pilot](https://microsoft.sharepoint.com/:p:/r/teams/CampusIPLibraries/MCS/_layouts/15/Doc.aspx?sourcedoc=%7BF463FF39-D2D9-4C81-AE8D-49351DF5CB22%7D&file=Azure%20Migration%20Pilot%20-%20Datasheet.pptx&action=edit&mobileredirect=true&DefaultItemOpen=1&cid=9ed580e2-5482-464a-accd-4ae8e0f8d892) solution offers to combine customers’ real-time data, analysis, and provide a roadmap to adopt cloud technologies in the most effective and cost efficient ways. With the Azure Migration Pilot , get started with a easy, short and cost effective proof of value migration to Microsoft Azure. 
+Microsoft Services offers a number of solution offers which align to the methodology within the Cloud Adoption Framework to help new customers successfully migrate to the cloud. Use the Azure [Discovery and Roadmap](https://aka.ms/ca-dr) with [Azure Migration Pilot](https://microsoft.sharepoint.com/:p:/r/teams/CampusIPLibraries/MCS/_layouts/15/Doc.aspx?sourcedoc=%7BF463FF39-D2D9-4C81-AE8D-49351DF5CB22%7D&file=Azure%20Migration%20Pilot%20-%20Datasheet.pptx&action=edit&mobileredirect=true&DefaultItemOpen=1&cid=9ed580e2-5482-464a-accd-4ae8e0f8d892) solution offerings to combine customers’ real-time data, analysis, and provide a roadmap to adopt cloud technologies in the most effective and cost efficient ways. With the Azure Migration Pilot, get started with an easy, short, and cost-effective proof of value migration to Microsoft Azure.
 
-- **Cloud Foundation:** Establish the customer’s core Azure designs, patterns and governance architecture with [Hybrid Cloud Foundation (HCF)](http://aka.ms/CloudFoundationDatasheet) solution offer. Map the customer’s requirements to the most appropriate reference architecture. Implement a minimum viable product consisting of Shared Services and IaaS Workload.
-- **Cloud Modernization:** Leverage [Cloud Modernization](http://aka.ms/CloudMoDatasheet) solution offer as a comprehensive approach to move applications, data and infrastructure to an enterprise-ready cloud, as well as to optimize and modernize once in the cloud.
-- **Innovate with Cloud:** Engage customer through an innovative and unique [Cloud Center of Excellence (CCoE)](http://aka.ms/CCoEDatasheet) solution approach which builds a modern IT organization to enable agility at scale with DevOps while staying in control. Implements an agile approach to capture business requirements, reuse deployment packages aligned with security, compliance and service management policies, and maintains the Azure platform aligned with operational procedures.
+- **Cloud Foundation:** Establish the customer’s core Azure designs, patterns, and governance architecture with the [Hybrid Cloud Foundation (HCF)](https://aka.ms/CloudFoundationDatasheet) solution offering. Map the customer’s requirements to the most appropriate reference architecture. Implement a minimum viable product consisting of Shared Services and IaaS Workload.
+- **Cloud Modernization:** Use the [Cloud Modernization](https://aka.ms/CloudMoDatasheet) solution offering as a comprehensive approach to move applications, data and infrastructure to an enterprise-ready cloud, as well as to optimize and modernize once in the cloud.
+- **Innovate with Cloud:** Engage customer through an innovative and unique [Cloud Center of Excellence (CCoE)](https://aka.ms/CCoEDatasheet) solution approach which builds a modern IT organization to enable agility at scale with DevOps while staying in control. Implements an agile approach to capture business requirements, reuse deployment packages aligned with security, compliance and service management policies, and maintains the Azure platform aligned with operational procedures.
 
 ## Azure Solutions Partner
 
@@ -83,5 +83,6 @@ Get help from partners with ready-made or custom Azure solutions and partners wh
 ## Next steps
 
 After a partner and support strategy is selected, the [release and iteration backlogs](./release-iteration-backlog.md) can be updated to reflect planned efforts and assignments.
+
 > [!div class="nextstepaction"]
 > [Manage change using release and iteration backlogs](./release-iteration-backlog.md)

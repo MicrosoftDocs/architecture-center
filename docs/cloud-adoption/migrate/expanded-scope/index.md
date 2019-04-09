@@ -24,9 +24,9 @@ The following checklist outlines the common areas of complexity which could requ
     - [Skills readiness](./skills-readiness.md)
     - Aligning support (Partner, services, and support) *(Coming Summer 2019)*
 - **Technical Strategy-driven scope changes**
-    - Existing data center constraints *(Coming Summer 2019)*
+    - Existing datacenter constraints *(Coming Summer 2019)*
     - Migrating at scale - High volume or velocity of migrations *(Coming Summer 2019)*
-    - [Multiple data centers](./multiple-data-centers.md)
+    - [Multiple datacenters](./multiple-data-centers.md)
     - Change management and solution documentation *(Coming Summer 2019)*
     - [Governance or compliance strategy](./governance-or-compliance.md)
 - **Workload-specific scope changes**
@@ -51,13 +51,13 @@ The following expand on the short checklist above to aid the reader's understand
 - **Change management and approval processes:** When the culture is complex, highly matrixed, or siloed the processes related to change management and approvals becomes challenging. Guidance on managing this complexity can be found in assess, migrate, and optimize processes.
 - **Executive readiness:** Proper levels of executive support and leadership are critical to the success of a migration effort. If the executive team is not ready to engage, then support is unlikely to follow. This complexity is addressed during the prerequisite and assess processes.
 - **Skills readiness:** When the Cloud Adoption Team or other supporting teams are not ready to execute, it can quickly inject complexity throughout the migration effort. This challenge is addressed during each of the migration processes in a specific page on skills readiness.
-- **Aligning support (Partner, service, and support options):** Within each of the the processes outlined, there are ways in which a partner, services from the cloud vendor, and/or support from the cloud vendor can aid in execution. In each of the processes sections a page on support alignment will discuss the options further.
+- **Aligning support (Partner, service, and support options):** Within each of the the processes outlined, there are ways in which a partner, services from the cloud vendor, and support from the cloud vendor can aid in execution. In each of the processes sections a page on support alignment will discuss the options further.
 
 ### Technical Strategy-driven scope changes
 
-- **Existing data center constraints:** Often times companies choose to migrate to the cloud because the capacity, speed, and stability of an existing data center is no longer satisfactory. Unfortunately, those same constraints add complexity to the migration process, requiring additional planning during the assessment and migration processes.
+- **Existing datacenter constraints:** Often times companies choose to migrate to the cloud because the capacity, speed, and stability of an existing datacenter is no longer satisfactory. Unfortunately, those same constraints add complexity to the migration process, requiring additional planning during the assessment and migration processes.
 - **Migrating at scale:** Migrations exceeding 2,000 assets are likely to run into constraints that require additional planning and a disciplined approach to execution. The Assess and Migrate processes are adjusted to account for scale complexity.
-- **Multiple data centers:** Migration of multiple data centers adds a great deal of complexity. During Assess, Migrate, Optimization, and Manage processes, additional considerations will be discussed.
+- **Multiple datacenters:** Migration of multiple datacenters adds a great deal of complexity. During Assess, Migrate, Optimization, and Manage processes, additional considerations will be discussed.
 - **Change management and solution documentation:** Large digital estate inventories, complex solution architectures, long standing technical debt, and interdependencies can create a complexity that should be addressed during assess, migrate, and optimize processes.
 - **Governance or compliance strategy:** When governance and compliance are vital to the success of a migration, additional alignment between IT Governance teams and the Cloud Adoption team is required.
 

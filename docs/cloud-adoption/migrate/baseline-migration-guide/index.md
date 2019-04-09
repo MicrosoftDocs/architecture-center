@@ -51,7 +51,7 @@ This guide helps address those questions. It suggests the tasks and features you
 > - **Migrate your services.** Perform the actual migration.
 > - **Manage costs and billing.** Look at the costs of your resources.
 > - **Organize your resources.** Lock resources critical to your system and tag resources to track them.
-> - **Optimize and transform.** Utilize the post-migration opportunity to review your resources.
+> - **Optimize and transform.** Use the post-migration opportunity to review your resources.
 > - **Secure and manage.** Ensure that your environment is secure and  monitored properly.
 > - **Get assistance.**: Get help and support during your migration or post-migration activities.
 

@@ -21,7 +21,7 @@ ms.custom: fasttrack, new
 
 ::: zone-end
 
-We know that getting the right support at the right time will accelerate your migration efforts. Please review the assistance avenues below to meet your needs.
+We know that getting the right support at the right time will accelerate your migration efforts. Review the assistance avenues below to meet your needs.
 
 # [Support Plans](#tab/SupportPlans)
 

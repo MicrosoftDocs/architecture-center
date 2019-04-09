@@ -597,7 +597,7 @@ For business continuity and disaster recovery (BCDR), Contoso takes the followin
 ### Licensing and cost optimization
 
 - Contoso has an existing licensing for WEBVM. To take advantage of pricing with Azure Hybrid Benefit, Contoso converts the existing Azure VM.
-- Contoso enables Azure Cost Management licensed by Cloudyn, a Microsoft subsidiary. Cost Management is a multi-cloud cost management solution that helps Contoso use and manage Azure and other cloud resources. Learn more about [Azure Cost Management](/azure/cost-management/overview).
+- Contoso enables Azure Cost Management licensed by Cloudyn, a Microsoft subsidiary. Cost Management is a multicloud cost management solution that helps Contoso use and manage Azure and other cloud resources. Learn more about [Azure Cost Management](/azure/cost-management/overview).
 
 ## Conclusion
 

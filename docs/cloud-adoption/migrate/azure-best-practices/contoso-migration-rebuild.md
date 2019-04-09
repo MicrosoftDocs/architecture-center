@@ -115,12 +115,12 @@ Here's how Contoso will run the migration:
 
 > [!div class="checklist"]
 >
-> - **Step 1: Provision AKS and ACR**: Contoso provisions the managed AKS cluster and Azure container registry using PowerShell
-> - **Step 2: Build Docker containers**: They set up CI for Docker containers using Azure DevOps, and push them to the ACR.
-> - **Step 3: Deploy back-end microservices**: They deploy the rest of the infrastructure that will be used by back-end microservices.
-> - **Step 4: Deploy front-end infrastructure**: They deploy the front-end infrastructure, including blob storage for the pet phones, the Cosmos DB, and Vision API.
-> - **Step 5: Migrate the back end**: They deploy microservices and run on AKS, to migrate the back end.
-> - **Step 6: Publish the front end**: They publish the SmartHotel360 app to the Azure App service, and the Function App that will be called by the pet service.
+> - **Step 1: Provision AKS and ACR.** Contoso provisions the managed AKS cluster and Azure container registry using PowerShell
+> - **Step 2: Build Docker containers.** They set up CI for Docker containers using Azure DevOps, and push them to the ACR.
+> - **Step 3: Deploy back-end microservices.** They deploy the rest of the infrastructure that will be used by back-end microservices.
+> - **Step 4: Deploy front-end infrastructure.** They deploy the front-end infrastructure, including blob storage for the pet phones, the Cosmos DB, and Vision API.
+> - **Step 5: Migrate the back end.** They deploy microservices and run on AKS, to migrate the back end.
+> - **Step 6: Publish the front end.** They publish the SmartHotel360 app to the Azure App service, and the Function App that will be called by the pet service.
 
 ## Step 1: Provision back-end resources
 
@@ -150,7 +150,6 @@ The Contoso admins provision as follows:
 6. They authenticate Azure CLI by running the **az login** command, and following the instructions to authenticate using their web browser. [Learn more](/cli/azure/authenticate-azure-cli?view=azure-cli-latest) about logging in with Azure CLI.
     ![AKS](./media/contoso-migration-rebuild/aks5.png)
 7. They run the following command, passing the resource group name of ContosoRG, the name of the AKS cluster smarthotel-aks-eus2, and the new registry name.
-
     ```PowerShell
     .\gen-aks-env.ps1  -resourceGroupName ContosoRg -orchestratorName smarthotelakseus2 -registryName smarthotelacreus2
     ```
@@ -564,7 +563,7 @@ Contoso admins deploy the app as follows.
 
     ![Deploy the function](./media/contoso-migration-rebuild/function6.png)
 
-15. They browse to the app to test that the Pet Checker app is working as expected, at [https://smarthotel360public.azurewebsites.net/Pets](http://smarthotel360public.azurewebsites.net/Pets).
+15. They browse to the app to test that the Pet Checker app is working as expected, at [http://smarthotel360public.azurewebsites.net/Pets](http://smarthotel360public.azurewebsites.net/Pets).
 16. They click on the avatar to upload a picture.
     ![Deploy the function](./media/contoso-migration-rebuild/function7.png)
 17. The first photo they want to check is of a small dog.
@@ -593,7 +592,7 @@ With the migrated resources in Azure, Contoso now needs to fully operationalize 
 
 - After all resources are deployed, Contoso should assign Azure tags based on their [infrastructure planning](contoso-migration-infrastructure.md#set-up-tagging).
 - All licensing is built into the cost of the PaaS services that Contoso is consuming. This will be deducted from the EA.
-- Contoso will enable Azure Cost Management licensed by Cloudyn, a Microsoft subsidiary. It's a multi-cloud cost management solution that helps you use and manage Azure and other cloud resources. [Learn more](/azure/cost-management/overview) about Azure Cost Management.
+- Contoso will enable Azure Cost Management licensed by Cloudyn, a Microsoft subsidiary. It's a multicloud cost management solution that helps you use and manage Azure and other cloud resources. [Learn more](/azure/cost-management/overview) about Azure Cost Management.
 
 ## Conclusion
 

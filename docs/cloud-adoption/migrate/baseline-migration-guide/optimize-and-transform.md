@@ -49,7 +49,7 @@ The following are some common services which you can resize.
 * [Resize a Windows VM](/azure/virtual-machines/windows/resize-vm)
 * [Resize a Linux virtual machine using Azure CLI](/azure/virtual-machines/linux/change-vm-size)
 
-Partners can utilize the Partner Center to review the usage
+Partners can use the Partner Center to review the usage.
 
 * [Microsoft Azure VM sizing for maximum reservation usage](/partner-center/azure-usage)
 
