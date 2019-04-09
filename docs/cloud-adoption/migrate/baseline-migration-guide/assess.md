@@ -3,10 +3,10 @@ title: "CAF: Assess the digital estate"
 description: Assess the digital estate
 author: matticusau
 ms.author: mlavery
-ms.date: 4/14/2019
+ms.date: 4/4/2019
 ms.topic: conceptual
 ms.service: azure-portal
-ms.custom: "fasttrack - new"
+ms.custom: fasttrack, new
 ---
 
 # Assess the digital estate

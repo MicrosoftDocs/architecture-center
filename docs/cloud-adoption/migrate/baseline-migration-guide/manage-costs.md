@@ -3,10 +3,10 @@ title: Manage costs and billing for your Azure Resources | Microsoft docs
 description: Learn how to set up budgets, payments, and understand invoices for your Azure resources.
 author: dchimes
 ms.author: dchimes
-ms.date    : 11/5/2018
+ms.date: 4/4/2019
 ms.topic: conceptual
 ms.service: azure-portal
-ms.custom: "fasttrack-edit"
+ms.custom: fasttrack, new
 ---
 # Manage costs and billing to understand charges and usage from your Azure Resources
 
