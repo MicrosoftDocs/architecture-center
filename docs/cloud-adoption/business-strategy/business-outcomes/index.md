@@ -9,7 +9,7 @@ ms.date: 4/4/2019
 
 The most successful Transformation Journeys start with a business outcome in mind. Cloud Adoption can be a costly, time consuming effort. Fostering the right level of support from IT and other areas of the business is crucial to success. Microsoft's [Business Outcome Framework](../overview.md) is designed to help customers identify business outcomes that are concise, defined, and drive observable results/change in business performance, supported by a specific measure.
 
-During any Cloud Transformation, the ability to speak in terms of Business Outcomes supports transparency and cross functional partnerships. The [Business Outcome Framework](../overview.md) starts with a simple template to help technically minded individuals document & gain consensus. This template can be used with several business stakeholders to collect a variety of business outcomes, which could each be influenced by a company’s Transformation Journey. Feel free to use this template electronically or better still, draw it on a whiteboard to engage business leaders and stakeholders in outcome focused discussions. 
+During any Cloud Transformation, the ability to speak in terms of Business Outcomes supports transparency and cross functional partnerships. The [Business Outcome Framework](../overview.md) starts with a simple template to help technically minded individuals document and gain consensus. This template can be used with several business stakeholders to collect a variety of business outcomes, which could each be influenced by a company’s Transformation Journey. Feel free to use this template electronically or better still, draw it on a whiteboard to engage business leaders and stakeholders in outcome focused discussions.
 
 To learn more about business outcomes and the business outcome template, check out the article on [documenting business outcomes](how-to-use-the-business-outcome-template.md) or download the [excel template](https://archcenter.blob.core.windows.net/cdn/business-outcome-template.xlsx).
 
@@ -35,7 +35,7 @@ View samples of [Fiscal Outcomes](fiscal-outcomes.md)
 
 ## Agility Outcomes
 
-Today’s fast-changing business environment, places a premium on time. Time to respond to & drive market change is the fundamental measure of business agility.
+Today’s fast-changing business environment, places a premium on time. Time to respond to and drive market change is the fundamental measure of business agility.
 View samples of [Agility Outcomes](agility-outcomes.md)
 
 ## Reach Outcomes
@@ -50,7 +50,7 @@ Read about [Customer Engagement Outcomes](engagement-outcomes.md)
 
 ## Performance Outcomes
 
-Performance & reliability are assumed. When either falters, reputation damage can be painful and lasting.
+Performance and reliability are assumed. When either falters, reputation damage can be painful and lasting.
 Read more about [Performance Outcomes](performance-outcomes.md)
 
 Each of the business outcomes listed in the categories above can help facilitate a business outcome conversation with business and technical team members. However, conversations should not be constrained to these generic samples. Understanding the unique needs of the business and building outcomes to match will maximize the value of an Cloud Transformation.---
@@ -64,7 +64,7 @@ ms.date: 4/4/2019
 
 The most successful Transformation Journeys start with a business outcome in mind. Cloud Adoption can be a costly, time consuming effort. Fostering the right level of support from IT and other areas of the business is crucial to success. Microsoft's [Business Outcome Framework](../overview.md) is designed to help customers identify business outcomes that are concise, defined, and drive observable results/change in business performance, supported by a specific measure.
 
-During any Cloud Transformation, the ability to speak in terms of Business Outcomes supports transparency and cross functional partnerships. The [Business Outcome Framework](../overview.md) starts with a simple template to help technically minded individuals document & gain consensus. This template can be used with several business stakeholders to collect a variety of business outcomes, which could each be influenced by a company’s Transformation Journey. Feel free to use this template electronically or better still, draw it on a whiteboard to engage business leaders and stakeholders in outcome focused discussions. 
+During any Cloud Transformation, the ability to speak in terms of Business Outcomes supports transparency and cross functional partnerships. The [Business Outcome Framework](../overview.md) starts with a simple template to help technically minded individuals document and gain consensus. This template can be used with several business stakeholders to collect a variety of business outcomes, which could each be influenced by a company’s Transformation Journey. Feel free to use this template electronically or better still, draw it on a whiteboard to engage business leaders and stakeholders in outcome focused discussions.
 
 To learn more about business outcomes and the business outcome template, check out the article on [documenting business outcomes](how-to-use-the-business-outcome-template.md) or download the [excel template](https://archcenter.blob.core.windows.net/cdn/business-outcome-template.xlsx).
 
@@ -90,7 +90,7 @@ View samples of [Fiscal Outcomes](fiscal-outcomes.md)
 
 ## Agility Outcomes
 
-Today’s fast-changing business environment, places a premium on time. Time to respond to & drive market change is the fundamental measure of business agility.
+Today’s fast-changing business environment, places a premium on time. Time to respond to and drive market change is the fundamental measure of business agility.
 View samples of [Agility Outcomes](agility-outcomes.md)
 
 ## Reach Outcomes
@@ -105,7 +105,7 @@ Read about [Customer Engagement Outcomes](engagement-outcomes.md)
 
 ## Performance Outcomes
 
-Performance & reliability are assumed. When either falters, reputation damage can be painful and lasting.
+Performance and reliability are assumed. When either falters, reputation damage can be painful and lasting.
 Read more about [Performance Outcomes](performance-outcomes.md)
 
 Each of the business outcomes listed in the categories above can help facilitate a business outcome conversation with business and technical team members. However, conversations should not be constrained to these generic samples. Understanding the unique needs of the business and building outcomes to match will maximize the value of an Cloud Transformation.

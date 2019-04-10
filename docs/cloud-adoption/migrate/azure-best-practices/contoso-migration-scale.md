@@ -316,7 +316,7 @@ Contoso will also use scripts to locate unused resources.
 - Contoso will take advantage of work done by Microsoft’s IT department, and consider implementing the Azure Resource Optimization (ARO) Toolkit.
 - Contoso can deploy an Azure Automation account with preconfigured runbooks and schedules to its subscription, and start saving money. Azure resource optimization happens automatically on a subscription after a schedule is enabled or created, including optimization on new resources.
 - This provides decentralized automation capabilities to reduce costs. Features include:
-  - Auto-snooze Azure VMs based on low CPU.
+  - Autosnooze Azure VMs based on low CPU.
   - Schedule Azure VMs to snooze and unsnooze.
   - Schedule Azure VMs to snooze or unsnooze in ascending and descending order using Azure tags.
   - Bulk deletion of resource groups on-demand.

@@ -9,16 +9,16 @@ ms.date: 4/4/2019
 
 The cloud presents a fundamental shift in the way enterprises procure and use technology resources, from full ownership and responsibility of all levels of technology to provisioning and consuming resources as needed. However, adoption of the cloud is a means, it is not the end goal. Businesses are motivated to adopt the cloud when they realize it can address any of these business events:
 
-* Optimizing operations, simplifying technology, increasing business agility, reducing costs, preparing for new technical capabilities, and scaling to market demands or geos, businesses would be motivated to **migrate** to the cloud
-* Improving customer experiences, increasing customer engagements, transforming products, preparing and building new technical capabilities, and scaling to market demands or geos, businesses would be motivated to **innovate** leveraging the cloud
+* Optimizing operations, simplifying technology, increasing business agility, reducing costs, preparing for new technical capabilities, and scaling to market demands or geos, businesses would be motivated to **migrate** to the cloud.
+* Improving customer experiences, increasing customer engagements, transforming products, preparing and building new technical capabilities, and scaling to market demands or geos, businesses would be motivated to **innovate** using the cloud.
 
 ## Vision and Objectives
 
 Removing key blockers and enabling change, requires more than implementation guidance. The Cloud Adoption Framework (CAF) is a set of documentation, implementation guidance, best practices and tools that aids in aligning strategies for business, culture, and technology to enable the desired business outcomes. It is structured in a modular way to simultaneously, follow and guide the customer in their cloud journey. CAF should be able to stand by itself and provide the structured guidance for customers in a self-service approach. CAF builds on existing guidance, where possible, to achieve the following objectives:
 
-* **Technical strategy objective:** establish scalable technical strategies, beyond the “minimally viable product”, enabling organizations to easily customize and adopt to meet their needs and address common constraints.
-* **Business strategy objective:** without defining business strategy in this guidance, we will help architects document, communicate, and understand the business strategy so the right decisions can be made.
-* **Culture strategy objective:** without creating deep guidance to facilitate culture or HR change, we will provide methodologies, scenarios, and questions which will trigger changes required to remove culture as a roadblock to the technical strategy.  
+* **Technical strategy objective:** Establish scalable technical strategies, beyond the "minimum viable product", enabling organizations to easily customize and adopt to meet their needs and address common constraints.
+* **Business strategy objective:** Without defining business strategy in this guidance, we will help architects document, communicate, and understand the business strategy so the right decisions can be made.
+* **Culture strategy objective:** Without creating deep guidance to facilitate culture or HR change, we will provide methodologies, scenarios, and questions which will trigger changes required to remove culture as a roadblock to the technical strategy.  
 
 ## Fulfilling the vision
 
@@ -58,7 +58,7 @@ Definition of Done: Each Early Testing Release should contain:
 * Tested and customer verified baseline
 * Integrate feedback from 1st release, customer, and partner testing
 
-### On-going Maturity
+### Ongoing maturity
 
 Continuous improvement and expansion of the content to meet emerging customer needs. New releases occur in a monthly cycle across the Cloud Adoption Framework. However, not every section of CAF with be updated in every months release.
 
@@ -81,21 +81,21 @@ The following outlines specific releases per quarter, to demonstrate maturity of
 ### Second quarter 2019 (FY19Q4)
 
 * First release: Migrate, Ready, and Plan will each launch as First Releases this quarter, with one section anticipated to release each month.
-* Early Testing release: Govern, Migrate and Ready are expected to complete Early Testing releases this quarter.
-* On-going Maturity release: Govern and Migrate are expected to have at least one release each, with a focus on going deeper into actionable next steps. Govern is expected to see additional investments in Best Practices and Expanded Scope.
-* Out of band release: Ready will have an Out of Band release during late April and throughout May. The content in the Ready section will be pulled directly from the Azure Readiness Playbook to support a coming integration with the Azure Portal. This content will be improved and aligned to CAF methodologies prior to the official First Release of the Ready section in late May.
+* Early testing release: Govern, Migrate and Ready are expected to complete Early Testing releases this quarter.
+* Ongoing maturity release: Govern and Migrate are expected to have at least one release each, with a focus on going deeper into actionable next steps. Govern is expected to see additional investments in Best Practices and Expanded Scope.
+* Out-of-band release: Ready will have an Out of Band release during late April and throughout May. The content in the Ready section will be pulled directly from the Azure Readiness Playbook to support a coming integration with the Azure Portal. This content will be improved and aligned to CAF methodologies prior to the official First Release of the Ready section in late May.
 
 ### Third quarter 2019 (FY20Q1)
 
 * First release: App Innovation and Data Innovation
-* Early Testing release: Plan and App Innovation
-* On-going Maturity release: Ready, Plan, Migrate, and Govern will each see investment in automation, best practices, and expanded scope in this quarter
+* Early testing release: Plan and App Innovation
+* Ongoing maturity release: Ready, Plan, Migrate, and Govern will each see investment in automation, best practices, and expanded scope in this quarter
 
 ## Looking back (Recent releases)
 
-**Cloud Adoption Framework created (10/1/2018):** What we have heard from customers is that they want us to help drive a structured approach to transform their business leveraging the cloud.
+**Cloud Adoption Framework created (10/1/2018):** What we have heard from customers is that they want us to help drive a structured approach to transform their business using the cloud.
 
-In early 2018, Microsoft released the Cloud Operating Model (COM). COM was a guide which helped customers understand the WHAT and the WHY of digital transformation. This helped customer get a sense of all the areas which needed to be addressed, business strategy, culture strategy and technology strategy. What was not included in the COM was the specific HOW TO’s, this left customer’s asking the question, “Where to from here”. With this gap many of our field teams began building their own models and engagement. Whilst directionally accurate, each team was saying something slightly different which ultimately led to broader customer confusion.  
+In early 2018, Microsoft released the Cloud Operating Model (COM). COM was a guide which helped customers understand the WHAT and the WHY of digital transformation. This helped customer get a sense of all the areas which needed to be addressed, business strategy, culture strategy and technology strategy. What was not included in the COM was the specific HOW TO’s, this left customers asking the question, "Where do we go from here?" With this gap many of our field teams began building their own models and engagement. Whilst directionally accurate, each team was saying something slightly different which ultimately led to broader customer confusion.  
 
 In October 2018, we began to take stock of all the models which had proliferated across our org, we found roughly 60 different cloud adoption models. At this time, a cross-Microsoft team was established to bring everything together. This culminated in the creation of a single model, Microsoft Cloud Adoption Framework for Azure (CAF), with the intention of helping customers understand the WHAT, WHY and provide unified guidance on the HOW from Microsoft to help them accelerate their cloud journey.  
 
@@ -103,10 +103,10 @@ In October 2018, we began to take stock of all the models which had proliferated
 
 This first release served as a test of CAF's ability to unify an important Microsoft message across customer, partner, and services conversations. Ensuring that we keep that unified message practical, we focused on delivering an actionable 4 step process as follows:
 
-1) Establish a customer end state based on a common methodology
-2) Provide an assessment to define gaps and areas of governance investment
-3) Define a minimal viable products (MVPs) to help the customer iterate rapidly
-4) Provide a means of evolving the MVP to mitigate risks and meet business requirements
+1) Establish a customer end state based on a common methodology.
+2) Provide an assessment to define gaps and areas of governance investment.
+3) Define a minimum viable product (MVPs) to help the customer iterate rapidly.
+4) Provide a means of evolving the MVP to mitigate risks and meet business requirements.
 
 **Spring Release (4/15/2019):** Cloud migration tooling can easily migrate tens of thousands of IT assets to the cloud. However, customer feedback suggested that cloud migrations are blocked by culture and technical readiness. The spring release addresses these blockers by defining an iterative approach to cloud migration. Within the core methodology is a streamlined azure migration guide for learning the tools and basic processes, with expanded scope and best practices sections for building on this baseline guidance.
 

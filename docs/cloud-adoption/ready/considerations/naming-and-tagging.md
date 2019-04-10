@@ -32,7 +32,7 @@ Naming and tagging strategy should include business and operational details as c
 
 A usable naming convention constructs resource names using important information about your resources as components of a resource's name. As an example, using the recommended naming conventions discussed [later in this article](#sample-naming-convention), a public IP resource used by a production SharePoint workload would have a name that looks like this:
 
-*pip-sharepoint-prod-westus-001*
+*pip-sharepoint-prod-westus-001.*
 
 The components of this name allows you to quickly determine the resource's type, the workload it's associated with, its deployment environment, and what Azure region it is deployed to.
 
@@ -122,7 +122,7 @@ What tags you apply to resources, and what tags are required versus optional, wi
 | Budget required/approved  | Money allocated for this application, service or workload.                                                                                                                                                     | *BudgetAmount*    | *{\$}*                                          |
 | Business Unit             | Top-level division of your company that owns the subscription or workload the resource belongs to. In smaller organizations, this may represent a single corporate or shared top-level organizational element. | *BusinessUnit*    | *FINANCE, MARKETING,{Product Name},CORP,SHARED* |
 | Cost Center               | Accounting cost center associated with this resource.                                                                                                                                                          | *CostCenter*      | *{number}*                                      |
-| Disaster Recovery         | Business criticality of this application, workload, or service.                                                                                                                                                | *DR*              | *Mission Critical, Critical, Essential*         |
+| Disaster Recovery         | Business criticality of this application, workload, or service.                                                                                                                                                | *DR*              | *Mission-critical, Critical, Essential*         |
 | End Date of the Project   | Date when this application, workload, or service is planned to be retired.                                                                                                                                     | *EndDate*         | *{date}*                                        |
 | Environment               | Deployment environment of this application, workload, or service.                                                                                                                                              | *Env*             | *Prod, Dev, QA, Stage, Test*                    |
 | Owner Name                | Owner of the application, workload, or service.                                                                                                                                                                | *Owner*           | *{email}*                                       |

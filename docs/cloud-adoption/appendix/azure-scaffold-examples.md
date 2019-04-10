@@ -29,7 +29,7 @@ Contoso needs to build a line-of-business app and a customer-facing app. It has 
 
 ## Scenario 1: line-of-business application
 
-Contoso is building a source code management system (BitBucket) to be used by developers across the world.  The application uses Infrastructure as a Service (IaaS) for hosting, and consists of web servers and a database server. Developers access servers in their development environments, but they don't need access to the servers in Azure. Contoso ETS wants to allow the application owner and team to manage the application. The application is only available while on Contoso's corporate network. Dave needs to set up the subscription for this application. The subscription will also host other developer-related software in the future.
+Contoso is building a source code management system (BitBucket) to be used by developers across the world.  The application uses infrastructure as a service (IaaS) for hosting, and consists of web servers and a database server. Developers access servers in their development environments, but they don't need access to the servers in Azure. Contoso ETS wants to allow the application owner and team to manage the application. The application is only available while on Contoso's corporate network. Dave needs to set up the subscription for this application. The subscription will also host other developer-related software in the future.
 
 ### Naming standards and resource groups
 

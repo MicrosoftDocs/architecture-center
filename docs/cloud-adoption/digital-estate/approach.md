@@ -34,7 +34,7 @@ The asset-driven approach provides a plan based on the assets that support an ap
 
 ## Incremental approach
 
-Like much of CAF, an incremental approach is highly suggested. In the case of digital estate planning, that equates to a multi-phase process, as follows:
+Like much of CAF, an incremental approach is highly suggested. In the case of digital estate planning, that equates to a multiphase process, as follows:
 
 - Initial cost analysis: If financial validation is required, start with an asset-driven approach, described above, to get an initial cost calculation for the entire digital estate, with no rationalization. This establishes a worst-case scenario benchmark.
 

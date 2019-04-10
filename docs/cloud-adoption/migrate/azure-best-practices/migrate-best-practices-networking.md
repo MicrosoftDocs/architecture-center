@@ -445,7 +445,7 @@ Azure Firewall is a managed, cloud-based network security service that protects 
 
 Web applications are increasingly targets of malicious attacks that exploit commonly known vulnerabilities. Exploits include SQL injection attacks and cross-site scripting attacks. Preventing such attacks in application code can be challenging, and can require rigorous maintenance, patching and monitoring at multiple layers of the application topology. A centralized web application firewall helps make security management much simpler and helps app administrators guard against threats or intrusions. A web app firewall can react to security threats faster, by patching known vulnerabilities at a central location, instead of securing individual web applications. Existing application gateways can be converted to a web application firewall enabled application gateway easily.
 
-Azure Web application firewall (WAF) is a feature of Azure application gateway.
+Azure Web application firewall (WAF) is a feature of Azure Application Gateway.
 
 - WAF provides centralized protection of your web applications, from common exploits and vulnerabilities.
 - WAF protects without modification to back-end code.

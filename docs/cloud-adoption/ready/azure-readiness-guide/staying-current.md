@@ -34,7 +34,7 @@ For the best experience within the Azure Portal we recommend opening the links p
 
 The following resources have been curated to assist with staying current with Azure.
 
-* [Azure Service Health](https://docs.microsoft.com/azure/service-health/service-health-overview)
+* [Azure Service Health](/azure/service-health/service-health-overview)
   * You can use this to get timely notifications for ongoing service issues, planned maintenance and health advisories including features being deprecated
 * [Azure Updates](https://azure.microsoft.com/updates/)
   * A single place where most updates are posted and that you can subscribe to
@@ -46,9 +46,9 @@ The following resources have been curated to assist with staying current with Az
 * Service specific blogs
   * Usually there are also specific blogs for individual Azure services as well that are good to follow if you heavily rely on them
   * There are of course too many to list here, but you can easily find them through a web search
-* [Azure Info Hub](http://aka.ms/azureinfohub)
+* [Azure Info Hub](https://aka.ms/azureinfohub)
   * This is an unofficial resource but contains an aggregation of most of the resources above and you can go into details for individual services (also making it a great way to discover those service-specific blogs for example)
-  * Subscribe via [RSS](http://azureinfohub.azurewebsites.net/Feed?serviceTitle=Azure)
+  * Subscribe via [RSS](https://azureinfohub.azurewebsites.net/Feed?serviceTitle=Azure)
 
 # [Additional Resources](#tab/AdditionalResources)
 
@@ -57,6 +57,6 @@ The following resources are provided for deeper content to enhance your ability 
 * [Azure Friday](https://channel9.msdn.com/Shows/Azure-Friday)
   * Weekly videos with the engineers who build Azure, demo it, answer questions, and share insights
   * Subscribe via [RSS](https://channel9.msdn.com/Shows/Azure-Friday/feed)
-* [Azure Weekly Newsletter](http://azureweekly.info/)
+* [Azure Weekly Newsletter](https://azureweekly.info/)
   * This is an unofficial resource provided by [endjin](https://endjin.com/) which is a summary of the week's top news in the Microsoft Azure ecosystem, as well as interesting historic content that's well worth reading
-  * Subscribe via [email](http://azureweekly.info/)
+  * Subscribe via [email](https://azureweekly.info/)

@@ -50,7 +50,7 @@ To apply a tag to a resource group:
 
 ## Learn more
 
-For more information, see [understand your bill for Microsoft Azure](https://docs.microsoft.com/en-us/azure/billing/billing-understand-your-invoice).
+For more information, see [understand your bill for Microsoft Azure](/azure/billing/billing-understand-your-invoice).
 
 ::: zone-end
 

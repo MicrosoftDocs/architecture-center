@@ -304,7 +304,7 @@ Identifying and moving stale data to cheaper storage areas can have a huge impac
 
 The ultimate goal of running a VM in the cloud is to maximize the CPU, memory, and disk that it uses. If you discover VMs that aren't optimized, or have frequent periods when VMs aren't used, it makes sense to either shut them down, or downscale them using VM scale sets.
 
-You can optimize a VM with Azure Automation, VM scale sets, auto-shutdown, and scripted or third-party solutions.
+You can optimize a VM with Azure Automation, VM scale sets, autoshutdown, and scripted or third-party solutions.
 
 **Learn more:**
 

@@ -35,7 +35,7 @@ An example can be found on the "Example Outcome" tab of the spreadsheet, as show
 
 Discovery is a fundamental tenet of enterprise architecture. If discovery is limited to technical discovery, the end solution is likely to miss many opportunities to improve the business. Enterprise architects, solution architects, and other technically minded leaders can master the discovery process using this template. In extremely effective discovery processes, we see these leaders consider five key aspects of the business outcome, before driving a transformation journey.
 
-![Five areas of focus in discovery: stakeholders, outcomes, drivers, KPIs, & Capabilities](../../_images/business-outcome-focus-areas.png)
+![Five areas of focus in discovery: stakeholders, outcomes, drivers, KPIs, and capabilities](../../_images/business-outcome-focus-areas.png)
 *Figure 3: Five areas of focus in discovery: stakeholders, outcomes, drivers, KPIs, and capabilities.*
 
 **Stakeholders:** Who in the organization is likely to see the greatest value in a specific business outcome? Who is most likely to support this transformation, especially when things get tough or time consuming? Who has the greatest stake in the success of this transformation? This person is a potential stakeholder.
