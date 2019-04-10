@@ -209,7 +209,7 @@ When you create a VPN gateway in Azure, you must use a special subnet named Gate
 
 For multiple VPN connections, Azure Virtual WAN is a networking service that provides optimized and automated branch-to-branch connectivity through Azure.
 
-- Virtual WAN lets you connect and configure branch devices to communicate with Azure. This can be done manually, or by using preferred provider devices through a Virtual WAN partner.
+- Virtual WAN allows you to connect and configure branch devices to communicate with Azure. This can be done manually, or by using preferred provider devices through a Virtual WAN partner.
 - Using preferred provider devices allows for simple use, connectivity, and configuration management.
 - The Azure WAN built-in dashboard provides instant troubleshooting insights that save time, and provide an easy way to track large-scale site-to-site connectivity.
 
@@ -218,7 +218,7 @@ For multiple VPN connections, Azure Virtual WAN is a networking service that pro
 
 ### Best practice: Implement ExpressRoute for mission-critical connections
 
-The Azure ExpressRoute service lets you extend your on-premises infrastructure into the Microsoft cloud by creating private connections between the virtual Azure datacenter and on-premises networks.
+The Azure ExpressRoute service extends your on-premises infrastructure into the Microsoft cloud by creating private connections between the virtual Azure datacenter and on-premises networks.
 
 - ExpressRoute connections can be over an any-to-any (IP VPN) network, a point-to-point Ethernet network, or through a connectivity provider. They don't go over the public internet.
 - ExpressRoute connections offer higher security, reliability, and higher speeds (up to 10 Gbps), along with consistent latency.
@@ -226,7 +226,7 @@ The Azure ExpressRoute service lets you extend your on-premises infrastructure i
 - With ExpressRoute Direct you can connect directly to Microsoft routers at 100Gbps, for larger bandwidth needs.
 - ExpressRoute uses BGP to exchange routes between on-premises networks, Azure instances, and Microsoft public addresses.
 
-Deploying ExpressRoute connections usually involves engaging with an ExpressRoute service provider. For a quick start, it's common to initially use a site-to-site VPN to establish connectivity between the virtual datacenter and on-premises resources, and then migrate to a ExpressRoute connection when a physical interconnection with your service provider is established.
+Deploying ExpressRoute connections usually involves engaging with an ExpressRoute service provider. For a quick start, it's common to initially use a site-to-site VPN to establish connectivity between the virtual datacenter and on-premises resources, and then migrate to an ExpressRoute connection when a physical interconnection with your service provider is established.
 
 **Learn more:**
 
@@ -417,7 +417,7 @@ Public IP addresses in Azure can be associated with VMs, load balancers, applica
 - [Learn about](/azure/virtual-network/virtual-network-ip-addresses-overview-arm#public-ip-addresses) public IP addresses in Azure.
 - [Read more](/azure/security-center/security-center-just-in-time) on just-in-time VM access in the Azure Security Center.
 
-## Leverage Azure security features for networking
+## Take advantage of Azure security features for networking
 
 Azure has platform security features that are easy to use, and provide rich countermeasures to common network attacks. These include Azure Firewall, Web Application Firewall, and Network Watcher.
 
@@ -483,7 +483,7 @@ Azure Network Watcher provides tools to monitor resources and communications in 
 For more complex network topologies, you might use security products from Microsoft partners, in particular network virtual appliances (NVAs).
 
 - An NVA is a VM that performs a network function, such as a firewall, WAN optimization, or other network function.
-- NVAs bolster VNet security and network functions. They can be deployed for highly available firewalls, intrusion prevention, intrusion detection, web application firewalls (WAFs), WAN optimization, routing, load balancing, VPN, certificate management, Active Directory, and multifactor authentication.
+- NVAs bolster VNet security and network functions. They can be deployed for highly available firewalls, intrusion prevention, intrusion detection, web application firewalls (WAFs), WAN optimization, routing, load balancing, VPN, certificate management, Active Directory, and multi-factor authentication.
 - NVA is available from numerous vendors in the [Azure Marketplace](https://azuremarketplace.microsoft.com).
 
 ## Best practice: Implement firewalls and NVAs in hub networks

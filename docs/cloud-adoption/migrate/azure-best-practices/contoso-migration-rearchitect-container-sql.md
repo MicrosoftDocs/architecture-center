@@ -20,11 +20,11 @@ The SmartHotel360 app used in this example is provided as open source. If you'd 
 
 The Contoso IT leadership team has worked closely with business partners to understand what they want to achieve with this migration:
 
-- **Address business growth**: Contoso is growing, and as a result there is pressure on its on-premises systems and infrastructure.
-- **Increase efficiency**: Contoso needs to remove unnecessary procedures, and streamline processes for developers and users. The business needs IT to be fast and not waste time or money, thus delivering faster on customer requirements.
-- **Increase agility**:  Contoso IT needs to be more responsive to the needs of the business. It must be able to react faster than the changes in the marketplace, to enable the success in a global economy. It mustn't get in the way, or become a business blocker.
-- **Scale**: As the business grows successfully, Contoso IT must provide systems that are able to grow at the same pace.
-- **Costs**: Contoso wants to minimize licensing costs.
+- **Address business growth.** Contoso is growing, and as a result there is pressure on its on-premises systems and infrastructure.
+- **Increase efficiency.** Contoso needs to remove unnecessary procedures, and streamline processes for developers and users. The business needs IT to be fast and not waste time or money, thus delivering faster on customer requirements.
+- **Increase agility.** Contoso IT needs to be more responsive to the needs of the business. It must be able to react faster than the changes in the marketplace, to enable the success in a global economy. It mustn't get in the way, or become a business blocker.
+- **Scale.** As the business grows successfully, Contoso IT must provide systems that are able to grow at the same pace.
+- **Reduce costs.** Contoso wants to minimize licensing costs.
 
 ## Migration goals
 
@@ -93,7 +93,7 @@ Contoso evaluates the proposed design by putting together a pros and cons list.
 
 **Service** | **Description** | **Cost**
 --- | --- | ---
-[Database Migration Assistant (DMA)](/sql/dma/dma-overview?view=ssdt-18vs2017) | Assesses and detect compatibility issues that might impact database functionality in Azure. DMA assesses feature parity between SQL sources and targets, and recommends performance and reliability improvements. | It's a downloadable tool free of charge.
+[Database Migration Assistant (DMA)](/sql/dma/dma-overview?view=ssdt-18vs2017) | Assesses and detect compatibility issues that might affect database functionality in Azure. DMA assesses feature parity between SQL sources and targets, and recommends performance and reliability improvements. | It's a downloadable tool free of charge.
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database) | Provides an intelligent, fully managed relational cloud database service. | Cost based on features, throughput and size. [Learn more](https://azure.microsoft.com/pricing/details/sql-database/managed).
 [Azure Container Registry](https://azure.microsoft.com/services/container-registry) | Stores images for all types of container deployments. | Cost based on features, storage, and usage duration. [Learn more](https://azure.microsoft.com/pricing/details/container-registry).
 [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric) | Builds and operate always-on, scalable and distributed apps | Cost based on size, location, and duration of the compute nodes. [Learn more](https://azure.microsoft.com/pricing/details/service-fabric).
@@ -191,7 +191,7 @@ The SmartHotel360 container will run in the Azure Service Fabric Cluster. Contos
 
     ![Service Fabric](./media/contoso-migration-rearchitect-container-sql/service-fabric3.png)
 
-4. In **Create key vault**, they create a new key vault in their infrastructure resource group, to house the certificate.
+4. In **Create Key Vault**, they create a new Key Vault in their infrastructure resource group, to house the certificate.
 
     ![Service Fabric](./media/contoso-migration-rearchitect-container-sql/service-fabric4.png)
 
@@ -233,13 +233,13 @@ The SmartHotel360 container will run in the Azure Service Fabric Cluster. Contos
 
 Contoso needs cluster certificates to allow Azure DevOps Services access to the cluster. Contoso admins set this up.
 
-1. They open the Azure portal and browse to the KeyVault.
+1. They open the Azure portal and browse to the Key Vault.
 2. They open the certificates, and copy the thumbprint of the certificate that was created during the provisioning process.
 
     ![Copy thumbprint](./media/contoso-migration-rearchitect-container-sql/cert1.png)
 
 3. They copy it to a text file for later reference.
-4. Now, they add a client certificate that will become an Admin client certificate on the cluster. This allows Azure DevOps Services to connect to the cluster for the app deployment in the release pipeline. To do they, they open KeyVault in the portal, and select **Certificates** > **Generate/Import**.
+4. Now, they add a client certificate that will become an Admin client certificate on the cluster. This allows Azure DevOps Services to connect to the cluster for the app deployment in the release pipeline. To do they, they open Key Vault in the portal, and select **Certificates** > **Generate/Import**.
 
     ![Generate client cert](./media/contoso-migration-rearchitect-container-sql/cert2.png)
 
@@ -251,7 +251,7 @@ Contoso needs cluster certificates to allow Azure DevOps Services access to the 
 
      ![Download cert](./media/contoso-migration-rearchitect-container-sql/cert4.png)
 
-7. Now, they go back to the certificates list in the KeyVault, and copy the thumbprint of the client certificate that's just been created. They save it in the text file.
+7. Now, they go back to the certificates list in the Key Vault, and copy the thumbprint of the client certificate that's just been created. They save it in the text file.
 
      ![Client cert thumbprint](./media/contoso-migration-rearchitect-container-sql/cert5.png)
 
@@ -578,7 +578,7 @@ With the migrated resources in Azure, Contoso needs to fully operationalize and 
 
 - Contoso admins need to ensure that their new **SmartHotel-Registration** database is secure. [Learn more](/azure/sql-database/sql-database-security-overview).
 - In particular, they should update the container to use SSL with certificates.
-- They should consider using KeyVault to protect secrets for their Service Fabric apps. [Learn more](/azure/service-fabric/service-fabric-application-secret-management).
+- They should consider using Key Vault to protect secrets for their Service Fabric apps. [Learn more](/azure/service-fabric/service-fabric-application-secret-management).
 
 ### Backups
 
@@ -592,7 +592,7 @@ With the migrated resources in Azure, Contoso needs to fully operationalize and 
 
 - After all resources are deployed, Contoso should assign Azure tags based on  [infrastructure planning](contoso-migration-infrastructure.md#set-up-tagging).
 - All licensing is built into the cost of the PaaS services that Contoso is consuming. This will be deducted from the EA.
-- Contoso will enable Azure Cost Management licensed by Cloudyn, a Microsoft subsidiary. It's a multi-cloud cost management solution that helps you to use and manage Azure and other cloud resources. [Learn more](/azure/cost-management/overview) about Azure Cost Management.
+- Contoso will enable Azure Cost Management licensed by Cloudyn, a Microsoft subsidiary. It's a multicloud cost management solution that helps you to use and manage Azure and other cloud resources. [Learn more](/azure/cost-management/overview) about Azure Cost Management.
 
 ## Conclusion
 

@@ -21,9 +21,9 @@ The SmartHotel360 app used in this example is provided as open source. If you'd 
 
 The IT Leadership team has worked closely with business partners to understand what they want to achieve with this migration:
 
-- **Address business growth**: Contoso is growing, and as a result there is pressure on their on-premises systems and infrastructure.
-- **Limit risk**: The SmartHotel360 app is critical for the Contoso business. It wants to move the app to Azure with zero risk.
-- **Extend**: Contoso doesn't want to modify the app, but does want to ensure that it's stable.
+- **Address business growth.** Contoso is growing, and as a result there is pressure on their on-premises systems and infrastructure.
+- **Limit risk.** The SmartHotel360 app is critical for the Contoso business. It wants to move the app to Azure with zero risk.
+- **Extend.** Contoso doesn't want to modify the app, but does want to ensure that it's stable.
 
 ## Migration goals
 
@@ -113,10 +113,10 @@ Here's how Contoso admins will run the migration:
 
 > [!div class="checklist"]
 >
-> - **Step 1: Prepare Azure for Site Recovery**: They create an Azure storage account to hold replicated data, and a Recovery Services vault.
+> - **Step 1: Prepare Azure for Site Recovery.** They create an Azure storage account to hold replicated data, and a Recovery Services vault.
 > - **Step 2: Prepare on-premises VMware for Site Recovery**: They prepare accounts for VM discovery and agent installation, and prepare to connect to Azure VMs after failover.
-> - **Step 3: Replicate VMs**: They set up replication, and start replicating VMs to Azure storage.
-> - **Step 4: Migrate the VMs with Site Recovery**: They run a test failover to make sure everything's working, and then run a full failover to migrate the VMs to Azure.
+> - **Step 3: Replicate VMs.** They set up replication, and start replicating VMs to Azure storage.
+> - **Step 4: Migrate the VMs with Site Recovery.** They run a test failover to make sure everything's working, and then run a full failover to migrate the VMs to Azure.
 
 ## Step 1: Prepare Azure for the Site Recovery service
 
@@ -411,7 +411,7 @@ With the app now running, Contoso now needs to fully operationalize and secure i
 The Contoso security team reviews the Azure VMs, to determine any security issues.
 
 - To control access, the team reviews the network security groups (NSGs) for the VMs. NSGs are used to ensure that only traffic allowed to the app can reach it.
-- The team also consider securing the data on the disk using Azure Disk Encryption and KeyVault.
+- The team also consider securing the data on the disk using Azure Disk Encryption and Key Vault.
 
 [Read more](/azure/security/azure-security-best-practices-vms) about security practices for VMs.
 
@@ -425,9 +425,8 @@ For business continuity and disaster recovery (BCDR), Contoso takes the followin
 ### Licensing and cost optimization
 
 1. Contoso has existing licensing for their VMs, and will take advantage of the Azure Hybrid Benefit. Contoso will convert the existing Azure VMs, to take advantage of this pricing.
-2. Contoso will enable Azure Cost Management licensed by Cloudyn, a Microsoft subsidiary. It's a multi-cloud cost management solution that helps to use and manage Azure and other cloud resources. [Learn more](/azure/cost-management/overview) about Azure Cost Management.
+2. Contoso will enable Azure Cost Management licensed by Cloudyn, a Microsoft subsidiary. It's a multicloud cost management solution that helps to use and manage Azure and other cloud resources. [Learn more](/azure/cost-management/overview) about Azure Cost Management.
 
 ## Conclusion
 
 In this article, Contoso rehosted the SmartHotel360 app in Azure by migrating the app VMs to Azure VMs using the Site Recovery service.
-

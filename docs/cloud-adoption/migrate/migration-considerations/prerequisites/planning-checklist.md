@@ -9,9 +9,9 @@ ms.date: 4/4/2019
 
 As an initial step in the migration process, you need to create the right environment in the cloud to receive, host, and support migrating assets. This article provides a list of things to validate in the current environment prior to migration.
 
-The following checklist aligns with the guidance found in the "[Ready](../../../ready/index.md)" section of the Cloud Adoption Framework, please review that section for guidance regarding execution of any of the following.
+The following checklist aligns with the guidance found in the [Ready section](../../../ready/index.md) of the Cloud Adoption Framework. Review that section for guidance regarding execution of any of the following.
 
-## Effort Type Assumption
+## Effort type assumption
 
 This article and checklist assume a *rehost* or *cloud transition* approach to cloud migration.
 
@@ -23,7 +23,7 @@ The first and most important decision regarding any migration-ready environment 
 
 Whether you choose to align with a broader cloud governance strategy or not for your initial migration, you will need to ensure your cloud deployment environment is configured to support your workloads.
 
-If you're planning to align your migration with a cloud governance strategy from the start, you'll need to use the [five disciplines of cloud governance](../../../governance/governance-disciplines.md) to help inform decisions on policies, toolchains, and enforcement mechanisms that will align your cloud environment with overall corporate requirements. Consult the CAF [actionable governance design guides](../../../governance/journeys/overview.md) for examples of how to implement this model using Azure services.
+If you're planning to align your migration with a cloud governance strategy from the start, you'll need to apply the [Five Disciplines of Cloud Governance](../../../governance/governance-disciplines.md) to help inform decisions on policies, toolchains, and enforcement mechanisms that will align your cloud environment with overall corporate requirements. Consult the CAF [actionable governance design guides](../../../governance/journeys/overview.md) for examples of how to implement this model using Azure services.
 
 In the event your initial migrations are not closely aligned with a broader cloud governance strategy, the general issues of organization, access, and infrastructure planning still need to be managed. Consult the [Azure readiness guide](../../../ready/azure-readiness-guide/overview.md) for help making these cloud readiness decisions.
 

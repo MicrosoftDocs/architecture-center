@@ -22,9 +22,9 @@ osTicket, the service desk app used in this example is provided as open source. 
 
 The IT Leadership team has worked closely with business partners to understand what they want to achieve with this migration:
 
-- **Address business growth**: Contoso is growing, and as a result there's pressure on the on-premises systems and infrastructure.
-- **Limit risk**: The service desk app is critical for the Contoso business. Contoso wants to move it to Azure with zero risk.
-- **Extend**:  Contoso don't want to change the app right now. It simply wants to ensure that the app is stable.
+- **Address business growth.** Contoso is growing, and as a result there's pressure on the on-premises systems and infrastructure.
+- **Limit risk.** The service desk app is critical for the Contoso business. Contoso wants to move it to Azure with zero risk.
+- **Extend.** Contoso don't want to change the app right now. It simply wants to ensure that the app is stable.
 
 ## Migration goals
 
@@ -65,7 +65,7 @@ Contoso evaluates the proposed design by putting together a pros and cons list.
 
 **Consideration** | **Details**
 --- | ---
-**Pros** | Both the app VMs will be moved to Azure without changes, making the migration simple.<br/><br/> Since Contoso is using lift-and-shift for both app VMs, no special configuration or migration tools are needed for the app database.<br/><br/> Contoso will retain full control of the app VMs in Azure. <br/><br/> The app VMs are running Ubuntu 16.04-TLS, which is a endorsed Linux distribution. [Learn more](/azure/virtual-machines/linux/endorsed-distros).
+**Pros** | Both the app VMs will be moved to Azure without changes, making the migration simple.<br/><br/> Since Contoso is using lift-and-shift for both app VMs, no special configuration or migration tools are needed for the app database.<br/><br/> Contoso will retain full control of the app VMs in Azure. <br/><br/> The app VMs are running Ubuntu 16.04-TLS, which is an endorsed Linux distribution. [Learn more](/azure/virtual-machines/linux/endorsed-distros).
 **Cons** | The web and data tier of the app will remain a single point of failover. <br/><br/> Contoso will need to continue supporting the app as Azure VMs rather than moving to a managed service such as Azure App Service and Azure Database for MySQL.<br/><br/> Contoso is aware that by keeping things simple with a lift-and-shift VM migration, they're not taking full advantage of the features provided by [Azure Database for MySQL](/azure/mysql/overview) (built-in high availability, predictable performance, simple scaling, automatic backups and built-in security).
 
 <!-- markdownlint-enable MD033 -->
@@ -107,10 +107,10 @@ Here's how Contoso will complete the migration:
 
 > [!div class="checklist"]
 >
-> - **Step 1: Prepare Azure for Site Recovery**: Contoso creates an Azure storage account to hold replicated data, and creates a Recovery Services vault.
-> - **Step 2: Prepare on-premises VMware for Site Recovery**: Contoso prepares accounts to be used for VM discovery and agent installation, and prepares to connect to Azure VMs after failover.
-> - **Step 3: Replicate VMs**: Contoso sets up the source and target migration environment, creates a replication policy, and starts replicating VMs to Azure storage.
-> - **Step 4: Migrate the VMs with Site Recovery**: Contoso runs a test failover to make sure everything's working, and then runs a full failover to migrate the VMs to Azure.
+> - **Step 1: Prepare Azure for Site Recovery.** Contoso creates an Azure storage account to hold replicated data, and creates a Recovery Services vault.
+> - **Step 2: Prepare on-premises VMware for Site Recovery.** Contoso prepares accounts to be used for VM discovery and agent installation, and prepares to connect to Azure VMs after failover.
+> - **Step 3: Replicate VMs.** Contoso sets up the source and target migration environment, creates a replication policy, and starts replicating VMs to Azure storage.
+> - **Step 4: Migrate the VMs with Site Recovery.** Contoso runs a test failover to make sure everything's working, and then runs a full failover to migrate the VMs to Azure.
 
 ## Step 1: Prepare Azure for the Site Recovery service
 
@@ -427,7 +427,7 @@ With the app now running, Contoso needs to fully operationalize and secure their
 The Contoso security team review the OSTICKETWEB and OSTICKETMYSQLVMs to determine any security issues.
 
 - The team reviews the network security groups (NSGs) for the VMs to control access. NSGs are used to ensure that only traffic allowed to the application can pass.
-- The team also considers securing the data on the VM disks using Disk encryption and Azure KeyVault.
+- The team also considers securing the data on the VM disks using Disk encryption and Azure Key Vault.
 
 [Read more](/azure/security/azure-security-best-practices-vms) about security practices for VMs.
 
@@ -435,12 +435,11 @@ The Contoso security team review the OSTICKETWEB and OSTICKETMYSQLVMs to determi
 
 For business continuity and disaster recovery, Contoso takes the following actions:
 
-- **Keep data safe**: Contoso backs up the data on the VMs using the Azure Backup service. [Learn more](/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-- **Keep apps up and running**: Contoso replicates the app VMs in Azure to a secondary region using Site Recovery. [Learn more](/azure/site-recovery/azure-to-azure-quickstart).
+- **Keep data safe.** Contoso backs up the data on the VMs using the Azure Backup service. [Learn more](/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+- **Keep apps up and running.** Contoso replicates the app VMs in Azure to a secondary region using Site Recovery. [Learn more](/azure/site-recovery/azure-to-azure-quickstart).
 
 ### Licensing and cost optimization
 
 - After deploying resources, Contoso assigns Azure tags as defined during the [Azure infrastructure deployment](contoso-migration-infrastructure.md#set-up-tagging).
 - Contoso has no licensing issues with the Ubuntu servers.
-- Contoso will enable Azure Cost Management licensed by Cloudyn, a Microsoft subsidiary. It's a multi-cloud cost management solution that helps you to use and manage Azure and other cloud resources. [Learn more](/azure/cost-management/overview) about Azure Cost Management.
-
+- Contoso will enable Azure Cost Management licensed by Cloudyn, a Microsoft subsidiary. It's a multicloud cost management solution that helps you to use and manage Azure and other cloud resources. [Learn more](/azure/cost-management/overview) about Azure Cost Management.

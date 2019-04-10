@@ -9,19 +9,19 @@ ms.service: azure-portal
 ms.custom: fasttrack, new
 ---
 
-# Secure and Manage
+# Secure and manage
 
-After migrating your environment to Azure, it is important to consider the security and methods used to manage the environment. Azure provides many features and capabilities to allow you to easily include this within your solution.
+After migrating your environment to Azure, it is important to consider the security and methods used to manage the environment. Azure provides many features and capabilities to meet these needs in your solution.
 
 # [Azure Monitor](#tab/monitor)
 
 Azure Monitor maximizes the availability and performance of your applications by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. It helps you understand how your applications are performing and proactively identifies issues affecting them and the resources they depend on.
 
-## Utilize and configure Azure Monitor
+## Use and configure Azure Monitor
 
-1. Go to **Monitor** in the Azure Portal
+1. Go to **Monitor** in the Azure Portal.
 2. Select **Metrics**, **Logs**, or **Service Health** for overviews.
-3. Select any of the relevant Insights.
+3. Select any of the relevant insights.
 
 ::: zone target="chromeless"
 
@@ -33,7 +33,7 @@ Azure Monitor maximizes the availability and performance of your applications by
 
 ## Read more
 
-- [Overview](https://docs.microsoft.com/en-us/azure/azure-monitor/overview).
+- [Azure Monitor overview](/azure/azure-monitor/overview).
 
 ::: zone-end
 
@@ -41,17 +41,18 @@ Azure Monitor maximizes the availability and performance of your applications by
 
 Azure Service Health is a suite of experiences that provide personalized guidance and support when issues in Azure services affect you. It can notify you, help you understand the impact of issues, and keep you updated as the issue resolves. It can also help you prepare for planned maintenance and changes that could affect the availability of your resources.
 
-Azure Service Health is composed of:
+Azure Service Health is comprised of:
 
-* Azure status - A global view of the health of Azure services
-* Service Health - A personalized view of the health of your Azure services
-* Resource Health - A deeper view of the health of the individual resources provisioned to you by your Azure services
-* Together, these experiences provide you with a comprehensive view into the health of Azure, at the granularity that is most relevant to you.
+- **Azure Status:** A global view of the health of Azure services.
+- **Service Health:** A personalized view of the health of your Azure services.
+- **Resource Health:** A deeper view of the health of the individual resources provisioned to you by your Azure services.
+
+These experiences combined give you a comprehensive view of Azure health, at a level of detail relevant to you.
 
 ## Access Service Health
 
-1. Go to **Monitor** in the Azure Portal
-2. Select **Service Health**
+1. Go to **Monitor** in the Azure Portal.
+2. Select **Service Health**.
 
 ::: zone target="chromeless"
 
@@ -63,7 +64,7 @@ Azure Service Health is composed of:
 
 ## Read more
 
-[Overview](https://docs.microsoft.com/en-us/azure/service-health/).
+[Overview](/azure/service-health/).
 
 ::: zone-end
 
@@ -86,13 +87,13 @@ Azure Advisor is a personalized cloud consultant that helps you follow best prac
 
 ## Read more
 
-[Overview](https://docs.microsoft.com/en-us/azure/advisor/advisor-overview).
+[Overview](/azure/advisor/advisor-overview).
 
 ::: zone-end
 
 # [Azure Security Center](#tab/security)
 
-Azure Security Center is a unified infrastructure security management system that strengthens the security posture of your data centers, and provides advanced threat protection across your hybrid workloads in the cloud - whether they're in Azure or not - as well as on premises.
+Azure Security Center is a unified infrastructure security management system that strengthens the security posture of your datacenters, and provides advanced threat protection across your hybrid workloads in the cloud - whether they're in Azure or not - as well as on premises.
 
 ## Access Azure Security Center
 
@@ -109,13 +110,13 @@ Azure Security Center is a unified infrastructure security management system tha
 
 ## Read more
 
-[Overview](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro)
+[Overview](/azure/security-center/security-center-intro)
 
 ::: zone-end
 
-
 # [Azure Backup](#tab/backup)
-Azure Backup is the Azure-based service you can use to back up (or protect) and restore your data in the Microsoft cloud. Azure Backup replaces your existing on-premises or off-site backup solution with a cloud-based solution that is reliable, secure, and cost-competitive.
+
+Azure Backup is the Azure-based service you can use to back up (or protect) and restore your data in the Microsoft cloud. Azure Backup replaces your existing on-premises or offsite backup solution with a cloud-based solution that is reliable, secure, and cost-competitive.
 
 ## Enable backup for an Azure VM
 
@@ -135,7 +136,7 @@ Azure Backup is the Azure-based service you can use to back up (or protect) and 
 
 ::: zone target="docs"
 
-[Overview](https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup)
+[Overview](/azure/backup/backup-introduction-to-azure-backup)
 
 ::: zone-end
 
@@ -190,7 +191,7 @@ After the replication job has finished, you can check the replication status, mo
 
 ## Learn more
 
-- [Azure Site Recovery overview](https://docs.microsoft.com/en-gb/azure/site-recovery/site-recovery-overview)
-- [Replicate an Azure VM to another region](https://docs.microsoft.com/en-gb/azure/site-recovery/azure-to-azure-quickstart)
+- [Azure Site Recovery overview](/azure/site-recovery/site-recovery-overview)
+- [Replicate an Azure VM to another region](/azure/site-recovery/azure-to-azure-quickstart)
 
 ::: zone-end

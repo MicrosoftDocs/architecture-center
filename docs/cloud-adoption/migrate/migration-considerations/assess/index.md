@@ -22,7 +22,7 @@ Assess a migration candidate, evaluating the workload, associated assets, and de
 This process is complete when the following are known about a single migration candidate:
 
 - The path from on-premises to cloud, including production promotion approach decision, has been defined.
-- Any required approvals, changes, cost estimates, and/or validation processes have been completed to allow the Cloud Adoption Team to execute the migration.
+- Any required approvals, changes, cost estimates, or validation processes have been completed to allow the Cloud Adoption Team to execute the migration.
 
 ## Accountability during assessment
 
@@ -36,7 +36,7 @@ In addition to the high-level accountability, there are a number of actions that
   - A member of the Cloud Strategy Team should carry final responsibility for this activity, under the direction of the Cloud Adoption Team.
 - **Stakeholder alignment.** The team aligns expectations and priorities with internal stakeholders, identifying success criteria for the migration. What does success look like post-migration?
 - **Cost.** The cost of the target architecture has been estimated, and the overall budget has been adjusted.
-- **Migration support.** The team has decided how the technical work of the migration will be completed, including decisions regarding partner and/or Microsoft support.
+- **Migration support.** The team has decided how the technical work of the migration will be completed, including decisions regarding partner or Microsoft support.
 - **Evaluation.** The workload is evaluated for compatibility and dependencies.
   - This activity should be assigned to a subject matter expert who is familiar with the architecture and operations of the candidate workload.
 - **Architect.** The team has agreed upon the final state architecture for the migrated workload.

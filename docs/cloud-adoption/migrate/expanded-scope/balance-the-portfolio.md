@@ -21,15 +21,15 @@ The following table can help document and share desired business outcomes. It's 
 
 |Outcome  |Measured by  |Goal  |Time frame  |Priority for this effort  |
 |---------|---------|---------|---------|---------|
-|Reduce IT Costs     |Data Center Budget         |Reduce by $2M         |12 months         |#1         |
-|Data Center (DC) Exit     |Exit from DCs         |2 DCs         |6 months         |#2         |
+|Reduce IT Costs     |Datacenter Budget         |Reduce by $2M         |12 months         |#1         |
+|Datacenter Exit     |Exit from Datacenters         |2 Datacenters         |6 months         |#2         |
 |Increase business agility     |Improve time to market  |Reduce deployment time by six months         |2 years         |#3        |
 |Improve Customer Experience     |Customer Satisfaction (CSAT)         |10% improvement         |12 months         |#4         |
 
 > [!IMPORTANT]
 > The above table is a fictional example and should not used to set priorities. In many cases, this table could be seen as an anti-pattern by placing cost savings above customer experiences.
 
-The above table could accurately represent the priorities of the cloud strategy team and cloud adoption team overseeing a cloud migration. Due to short term constraints, this team is placing a higher emphasis on IT cost reduction and prioritizing a data center exit as a means to achieve the desired IT cost reductions. However, by documenting the competing priorities in this table, the Cloud Adoption Team is empowered to help the Cloud Strategy Team identify opportunities to better align implementation of the overarching portfolio strategy.
+The above table could accurately represent the priorities of the cloud strategy team and cloud adoption team overseeing a cloud migration. Due to short term constraints, this team is placing a higher emphasis on IT cost reduction and prioritizing a datacenter exit as a means to achieve the desired IT cost reductions. However, by documenting the competing priorities in this table, the Cloud Adoption Team is empowered to help the Cloud Strategy Team identify opportunities to better align implementation of the overarching portfolio strategy.
 
 ### Move fast while maintaining balance
 
@@ -48,11 +48,11 @@ To balance the portfolio, better reflecting sunset and retire decisions, the clo
 If the answer to any of these questions is "No", then the workload could be a candidate for retirement. If retirement potential is confirmed with the app owner, then it may not make sense to migrate the workload. This prompts for a few qualification questions:
 
 - Can a retirement/sunset plan be established for this workload?
-- Can this workload be retired prior to the data center exit?
+- Can this workload be retired prior to the datacenter exit?
 
-If the answer to both of these questions is "Yes", then it would be wise to consider NOT migrating the workload. Such an approach would aid in accomplishing the objectives of reducing costs AND exiting the data center.
+If the answer to both of these questions is "Yes", then it would be wise to consider NOT migrating the workload. Such an approach would aid in accomplishing the objectives of reducing costs AND exiting the datacenter.
 
-If the answer to either question is "No", then it may be wise to establish a plan for hosting the workload until it can be retired. Such a plan could include moving the assets to a lower cost data center or alternative data center, which would also accomplish the objectives of reducing costs AND exiting *a* data center.
+If the answer to either question is "No", then it may be wise to establish a plan for hosting the workload until it can be retired. Such a plan could include moving the assets to a lower cost datacenter or alternative datacenter, which would also accomplish the objectives of reducing costs AND exiting *a* datacenter.
 
 ## Suggested prerequisites
 
@@ -97,9 +97,9 @@ Portfolio rationalization requires diversity of technical effort. It is tempting
 
 It is advised that these diverse efforts are segmented across two or more cloud adoption teams. Using a two team model as an example mode of execution, Team 1 would be the Migration Team and Team 2 would be the Innovation Team. For larger efforts, these team could be further segmented to address other approaches like Replace/PaaS efforts or Minor Refactoring. The following outlines the skills and roles needed to Rehost, Refactor, or Minor Refactoring:
 
-**Rehost:** Rehost requires team members to implement infrastructure focused changes. Generally using a tool like Azure Site Recovery to migrate VMs or other assets to Azure. This work aligns well to data center admins or IT implementors. The Cloud Migration team is well structured to deliver this work at high scale. This is the fastest approach to migrate existing assets in most scenarios.
+**Rehost:** Rehost requires team members to implement infrastructure focused changes. Generally using a tool like Azure Site Recovery to migrate VMs or other assets to Azure. This work aligns well to datacenter admins or IT implementors. The Cloud Migration team is well structured to deliver this work at high scale. This is the fastest approach to migrate existing assets in most scenarios.
 
-**Refactor:** Refactor requires team members to modify source code, change the architecture of an application, or adopt new cloud services. Generally this effort would use development tools like Visual Studio and/or deployment pipeline tools, like Azure DevOps, to redeploy modernized applications to Azure. This work aligns well to application development roles or devops pipeline development roles. Cloud Innovation Team is best structured to deliver this work. It can take longer to replace existing assets with cloud assets in this approach, but the apps can take advantage of cloud-native features.
+**Refactor:** Refactor requires team members to modify source code, change the architecture of an application, or adopt new cloud services. Generally this effort would use development tools like Visual Studio and deployment pipeline tools like Azure DevOps to redeploy modernized applications to Azure. This work aligns well to application development roles or DevOps pipeline development roles. Cloud Innovation Team is best structured to deliver this work. It can take longer to replace existing assets with cloud assets in this approach, but the apps can take advantage of cloud-native features.
 
 **Minor Refactoring:** Some applications can be modernized with minor refactoring at the data or application level. This work requires team members to deploy data to cloud-based data platforms OR to make minor configuration changes to the application. This may require limited support for data or app dev subject matter experts. However, this work is very similar to the work conducted by IT implementors when deploying third-party apps. This work could easily align with the cloud migration team or the cloud strategy team. While this effort is not nearly as fast a rehost migration, it does take less time to execute than refactor efforts.
 

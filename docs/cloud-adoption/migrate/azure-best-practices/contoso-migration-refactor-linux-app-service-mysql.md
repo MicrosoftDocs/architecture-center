@@ -21,9 +21,9 @@ osTicket, the service desk app used in this example is provided as open source. 
 
 The IT Leadership team has worked closely with business partners to understand what they want to achieve:
 
-- **Address business growth**: Contoso is growing and moving into new markets. It needs additional customer service agents.
-- **Scale**: The solution should be built so that Contoso can add more customer service agents as the business scales.
-- **Increase resiliency**:  In the past issues with the system affected internal users only. With the new business model, external users will be affected, and Contoso need the app up and running at all times.
+- **Address business growth.** Contoso is growing and moving into new markets. It needs additional customer service agents.
+- **Scale.** The solution should be built so that Contoso can add more customer service agents as the business scales.
+- **Improve resiliency.**  In the past issues with the system affected internal users only. With the new business model, external users will be affected, and Contoso need the app up and running at all times.
 
 ## Migration goals
 
@@ -104,12 +104,12 @@ Here's how Contoso will complete the migration:
 
 > [!div class="checklist"]
 >
-> - **Step 1: Provision Azure App Services**: Contoso admins will provision Web Apps in the primary and secondary regions.
-> - **Step 2: Set up Traffic Manager**: They set up Traffic Manager in front of the Web Apps, for routing and load balancing traffic.
-> - **Step 3: Provision MySQL**: In Azure, they provision an instance of Azure MySQL database.
-> - **Step 4: Migrate the database**: They migrate the database using MySQL Workbench.
-> - **Step 5: Set up GitHub**: They set up a local GitHub repository for the app web sites/code.
-> - **Step 6: Deploy the web apps**: They deploy the web apps from GitHub.
+> - **Step 1: Provision Azure App Services.** Contoso admins will provision Web Apps in the primary and secondary regions.
+> - **Step 2: Set up Traffic Manager.** They set up Traffic Manager in front of the Web Apps, for routing and load balancing traffic.
+> - **Step 3: Provision MySQL.** In Azure, they provision an instance of Azure MySQL database.
+> - **Step 4: Migrate the database.** They migrate the database using MySQL Workbench.
+> - **Step 5: Set up GitHub.** They set up a local GitHub repository for the app web sites/code.
+> - **Step 6: Deploy the web apps.** They deploy the web apps from GitHub.
 
 ## Step 1: Provision Azure App Services
 
@@ -333,4 +333,4 @@ The Contoso security team reviewed the app to determine any security issues. The
 ### Licensing and cost optimization
 
 - There are no licensing issues for the PaaS deployment.
-- Contoso will enable Azure Cost Management licensed by Cloudyn, a Microsoft subsidiary. It's a multi-cloud cost management solution that helps you use and manage Azure and other cloud resources. [Learn more](/azure/cost-management/overview) about Azure Cost Management.
+- Contoso will enable Azure Cost Management licensed by Cloudyn, a Microsoft subsidiary. It's a multicloud cost management solution that helps you use and manage Azure and other cloud resources. [Learn more](/azure/cost-management/overview) about Azure Cost Management.

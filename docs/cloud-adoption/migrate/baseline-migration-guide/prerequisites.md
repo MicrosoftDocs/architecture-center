@@ -27,12 +27,12 @@ Before starting any migration, the environment must be prepared for the coming c
 
 As a customer you may find you have several reasons for migrating to Azure. These may range from removing risks associated with legacy hardware, reducing CapEx, freeing up datacenter space, looking for a quick cloud return on investment (ROI).
 
-* **Eliminate legacy hardware.** You may have applications hosted on infrastructure reaching its end of life or support, either on-premises or with a hosting provider. Migration to the cloud offers an attractive remediation to the challenge as the ability to migrate "as-is" allows the team to quickly resolve the current infrastructure life cycle challenge, while then turning attention to the long term planning of application life cycle and optimization to take advantage of the cloud.
-* **Reduce CapEx.** Hosting your own server infrastructure requires considerable investment in hardware, software, electricity, and personal. Migrating to a cloud solution can provide significant reductions in CapEx. To achieve the best CapEx reductions a redesign of the solution may be required, however an "as-is" migration is a great first step.
-* **Free up datacenter space.** You may become an Azure customer through the need to expand your datacenter capacity and one way to do this is to leverage the cloud as an extension of your on-premises services.
-* **Quick cloud ROI.** - Getting a return on investment (ROI) is much easier with cloud solutions as the overall infrastructure costs are shared across customers. The cloud payment model provides a great way to realise ROI.
+- **Eliminate legacy hardware.** You may have applications hosted on infrastructure reaching its end of life or support, either on-premises or with a hosting provider. Migration to the cloud offers an attractive remediation to the challenge as the ability to migrate "as-is" allows the team to quickly resolve the current infrastructure lifecycle challenge, while then turning attention to the long term planning of application lifecycle and optimization to take advantage of the cloud.
+- **Reduce CapEx.** Hosting your own server infrastructure requires considerable investment in hardware, software, electricity, and personal. Migrating to a cloud solution can provide significant reductions in CapEx. To achieve the best CapEx reductions a redesign of the solution may be required, however an "as-is" migration is a great first step.
+- **Free up datacenter space.** You may become an Azure customer through the need to expand your datacenter capacity and one way to do this is to use the cloud as an extension of your on-premises services.
+- **Quick cloud return on investment.** Getting a return on investment (ROI) is much easier with cloud solutions as the overall infrastructure costs are shared across customers. The cloud payment model provides a great way to realize ROI.
 
-Each of the above scenarios may be entry points to then extend your cloud footprint utilizing another scenario.
+Each of the above scenarios may be entry points to then extend your cloud footprint using another scenario.
 
 ## Migration Characteristics
 
@@ -40,15 +40,15 @@ Prior to this migration the digital estate will consist of mostly on-premises ho
 
 The focus of this migration journey is to realize:
 
-* Remediation of legacy hardware end-of-life
-* Reduction CapEx
-* Realization of ROI
+- Remediation of legacy hardware end-of-life.
+- Reduction CapEx.
+- Realization of return on investment.
 
 > [!NOTE]
-> An additional benefit realized through this migration journey, is the additional software support model for Windows 2008/2008 R2 and SQL Server 2008/2008 R2. For further information please see:
+> An additional benefit realized through this migration journey, is the additional software support model for Windows 2008/2008 R2 and SQL Server 2008/2008 R2. For more information, see:
 >
-> * [Windows Server 2008/2008 R2](https://www.microsoft.com/en-us/cloud-platform/windows-server-2008).
-> * [SQL Server 2008/2008 R2](https://www.microsoft.com/en-us/sql-server/sql-server-2008).
+> - [Windows Server 2008/2008 R2](/cloud-platform/windows-server-2008).
+> - [SQL Server 2008/2008 R2](/sql-server/sql-server-2008).
 
 # [When to use this approach](#tab/Approach)
 
@@ -60,8 +60,8 @@ But, keep in mind that correctly configuring, securing, and maintaining VMs requ
 
 ## Learn More
 
-* [CAF: Migration Theory](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/migrate/theory/pre-requisites/?branch=caf%2Fmigrate-v1)
-* [CAF: 5 Rs of Rationalization](https://docs.microsoft.com/en-gb/azure/architecture/cloud-adoption/digital-estate/5-rs-of-rationalization)
+- [CAF: Migration Theory](/azure/architecture/cloud-adoption/migrate/theory/prerequisites)
+- [CAF: 5 Rs of Rationalization](/azure/architecture/cloud-adoption/digital-estate/5-rs-of-rationalization)
 
 # [Planning Checklist](#tab/Checklist)
 
@@ -69,26 +69,26 @@ Before starting a migration there are a number of activities you will need to co
 
 > [!div class="checklist"]
 >
-> * **Identify stakeholders**: Identify the key people who will have a role to play or stake in the outcome of the migration
-> * **Identify key milestones**: To effectively plan the migration timelines identify the key milestones to be met.
-> * **Identify the migration strategy**: Determine which of the 5 Rs of rationalization you will use.
-> * **Assess your technical fit**: Validate the technical readiness and suitability for migration.
-> * **Migrate your services**: Perform the actual migration.
-> * **Post Migration**: Understand what is required after you migrate your environment to Azure.
+> - **Identify stakeholders**: Identify the key people who will have a role to play or stake in the outcome of the migration
+> - **Identify key milestones**: To effectively plan the migration timelines identify the key milestones to be met.
+> - **Identify the migration strategy**: Determine which of the 5 Rs of rationalization you will use.
+> - **Assess your technical fit:** Validate the technical readiness and suitability for migration.
+> - **Migrate your services:** Perform the actual migration.
+> - **Post-migration:** Understand what is required after you migrate your environment to Azure.
 
 Assuming you choose a rehost approach to migration, the following child activities will be relevant:
 
 > [!div class="checklist"]
 >
-> * **Governance alignment**: Has a consensus been achieved regarding alignment of governance with the migration foundation.
-> * **Network**: A network approach should be selected and aligned to IT security requirement.
-> * **Identity**: A hybrid identity approach should be aligned to fit the identity management and cloud adoption plan.
+> - **Governance alignment:** Has a consensus been achieved regarding alignment of governance with the migration foundation.
+> - **Network:** A network approach should be selected and aligned to IT security requirement.
+> - **Identity:** A hybrid identity approach should be aligned to fit the identity management and cloud adoption plan.
 
 ::: zone target="docs"
 
 ## Learn More
 
-* [The 5 Rs of Rationalization](https://docs.microsoft.com/en-gb/azure/architecture/cloud-adoption/digital-estate/5-rs-of-rationalization)
-* [CAF Planning Checklist](https://review.docs.microsoft.com/en-us/azure/architecture/cloud-adoption/migrate/theory/pre-requisites/planning-checklist?branch=caf%2Fmigrate-v1)
+- [The 5 Rs of Rationalization](/azure/architecture/cloud-adoption/digital-estate/5-rs-of-rationalization)
+- [CAF Planning Checklist](azure/architecture/cloud-adoption/migrate/theory/prerequisites/planning-checklist)
 
 ::: zone-end

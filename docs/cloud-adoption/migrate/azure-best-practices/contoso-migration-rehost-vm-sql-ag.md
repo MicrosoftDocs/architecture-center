@@ -21,10 +21,10 @@ The SmartHotel360 app used in this example is provided as open source. If you'd 
 
 The IT leadership team has worked closely with business partners to understand what they want to achieve with this migration:
 
-- **Address business growth**: Contoso is growing, and as a result there is pressure on on-premises systems and infrastructure.
-- **Increase efficiency**: Contoso needs to remove unnecessary procedures, and streamline processes for developers and users. The business needs IT to be fast and not waste time or money, thus delivering faster on customer requirements.
-- **Increase agility**:  Contoso IT needs to be more responsive to the needs of the business. It must be able to react faster than the changes in the marketplace, to enable the success in a global economy. IT mustn't get in the way, or become a business blocker.
-- **Scale**: As the business grows successfully, Contoso IT must provide systems that are able to grow at the same pace.
+- **Address business growth.** Contoso is growing, and as a result there is pressure on on-premises systems and infrastructure.
+- **Increase efficiency.** Contoso needs to remove unnecessary procedures, and streamline processes for developers and users. The business needs IT to be fast and not waste time or money, thus delivering faster on customer requirements.
+- **Increase agility.** Contoso IT needs to be more responsive to the needs of the business. It must be able to react faster than the changes in the marketplace, to enable the success in a global economy. IT mustn't get in the way, or become a business blocker.
+- **Scale.** As the business grows successfully, Contoso IT must provide systems that are able to grow at the same pace.
 
 ## Migration goals
 
@@ -129,16 +129,16 @@ Here's how Contoso will run the migration:
 
 > [!div class="checklist"]
 >
-> - **Step 1: Prepare a cluster**: Create a cluster for deploying two SQL Server VM nodes in Azure.
-> - **Step 2: Deploy and set up the cluster**: Prepare an Azure SQL Server cluster. Databases are migrated into this pre-created cluster.
+> - **Step 1: Prepare a cluster.** Create a cluster for deploying two SQL Server VM nodes in Azure.
+> - **Step 2: Deploy and set up the cluster.** Prepare an Azure SQL Server cluster. Databases are migrated into this existing cluster.
 > - **Step 3: Deploy the load balancer**: Deploy a load balancer to balance traffic to the SQL Server nodes.
-> - **Step 4: Prepare Azure for Site Recovery**: Create an Azure storage account to hold replicated data, and a Recovery Services vault.
-> - **Step 5: Prepare on-premises VMware for Site Recovery**: Prepare accounts for VM discovery and agent installation. Prepare on-premises VMs so that users can connect to Azure VMs after m;migration.
-> - **Step 6: Replicate VMs**: Enable VM replication to Azure.
-> - **Step 7: Install DMA**: Download and install the Database Migration Assistant.
-> - **Step 7: Migrate the database with DMA**: Migrate the database to Azure.
-> - **Step 9: Protect the database**: Create an Always On Availability Group for the cluster.
-> - **Step 10: Migrate the web app VM**: Run a test failover to make sure everything's working as expected. Then run a full failover to Azure.
+> - **Step 4: Prepare Azure for Site Recovery.** Create an Azure storage account to hold replicated data, and a Recovery Services vault.
+> - **Step 5: Prepare on-premises VMware for Site Recovery.** Prepare accounts for VM discovery and agent installation. Prepare on-premises VMs so that users can connect to Azure VMs after migration.
+> - **Step 6: Replicate VMs.** Enable VM replication to Azure.
+> - **Step 7: Install DMA.** Download and install the Database Migration Assistant.
+> - **Step 7: Migrate the database with DMA.** Migrate the database to Azure.
+> - **Step 9: Protect the database.** Create an Always On Availability Group for the cluster.
+> - **Step 10: Migrate the web app VM.** Run a test failover to make sure everything's working as expected. Then run a full failover to Azure.
 
 ## Step 1: Prepare a SQL Server AlwaysOn availability group cluster
 
@@ -651,7 +651,7 @@ With the migrated resources in Azure, Contoso needs to fully operationalize and 
 The Contoso security team reviews the Azure VMs WEBVM, SQLAOG1 and SQLAOG2 to determine any security issues.
 
 - The team reviews the network security groups (NSGs) for the VM to control access. NSGs are used to ensure that only traffic allowed to the application can pass.
-- The team considers securing the data on the disk using Azure Disk Encryption and KeyVault.
+- The team considers securing the data on the disk using Azure Disk Encryption and Key Vault.
 - The team should evaluate transparent data encryption (TDE), and then enable it on the SmartHotel360 database running on the new SQL AOG. [Learn more](/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017).
 
 [Read more](/azure/security/azure-security-best-practices-vms) about security practices for VMs.
@@ -667,9 +667,8 @@ The Contoso security team reviews the Azure VMs WEBVM, SQLAOG1 and SQLAOG2 to de
 ### Licensing and cost optimization
 
 1. Contoso has existing licensing for their WEBVM and will take advantage of the Azure Hybrid Benefit. Contoso will convert the existing Azure VMs to take advantage of this pricing.
-2. Contoso will enable Azure Cost Management licensed by Cloudyn, a Microsoft subsidiary. It's a multi-cloud cost management solution that helps you to use and manage Azure and other cloud resources. [Learn more](/azure/cost-management/overview) about Azure Cost Management.
+2. Contoso will enable Azure Cost Management licensed by Cloudyn, a Microsoft subsidiary. It's a multicloud cost management solution that helps you to use and manage Azure and other cloud resources. [Learn more](/azure/cost-management/overview) about Azure Cost Management.
 
 ## Conclusion
 
 In this article, Contoso rehosted the SmartHotel360 app in Azure by migrating the app front-end VM to Azure using the Site Recovery service. Contoso migrated the app database to a SQL Server cluster provisioned in Azure, and protected it in a SQL Server AlwaysOn availability group.
-

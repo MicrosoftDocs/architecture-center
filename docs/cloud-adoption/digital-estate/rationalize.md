@@ -30,7 +30,7 @@ It's easy to understand rationalization, when visualizing the traditional proces
 
 ## Rationalization at enterprise scale
 
-If this effort is time consuming and daunting for a 50-VM digital estate, imagine the effort required to drive business transformation in an environment with thousands of VMs and hundreds of applications. The human effort required can easily exceed 1,500 FTE hours and 9 months of planning.
+If this effort is time consuming and daunting for a 50-VM digital estate, imagine the effort required to drive business transformation in an environment with thousands of VMs and hundreds of applications. The human effort required can easily exceed 1,500 FTE hours and nine months of planning.
 
 While full rationalization is the end state and a great direction to move towards, it seldom produces a high ROI relative to the time and energy required.
 

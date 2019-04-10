@@ -13,8 +13,8 @@ Cloud migration is the process of moving existing digital assets into a cloud pl
 
 The guidance in this section of CAF is designed for two purposes:
 
-* Provide actionable migration guides which represent common experiences that customers often encounter. Each of these encapsulate the process and tools needed to be successful in a cloud migration effort. By necessity, the design guidance is specific to Azure. All other guidance in these journeys could be applied as part of a cloud-agnostic or multi-cloud approach.
-* Help readers create personalized migration plans that can meet a variety of business needs, including migration to multiple public clouds, through detailed guidance on the development of processes, role and responsibilities, and change management controls.
+- Provide actionable migration guides which represent common experiences that customers often encounter. Each of these encapsulate the process and tools needed to be successful in a cloud migration effort. By necessity, the design guidance is specific to Azure. All other guidance in these journeys could be applied as part of a cloud-agnostic or multicloud approach.
+- Help readers create personalized migration plans that can meet a variety of business needs, including migration to multiple public clouds, through detailed guidance on the development of processes, role and responsibilities, and change management controls.
 
 This content is intended for the Cloud Adoption team. It is also relevant to cloud architects that need to develop a strong foundation in cloud migration.
 

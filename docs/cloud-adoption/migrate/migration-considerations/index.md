@@ -37,7 +37,7 @@ Cloud-native strategies and platform as a service (PaaS) strategies *rebuild* on
 
 The CAF Migration Model is based around an incremental cloud transformation process. It assumes that your organization will begin with an initial, limited-scope, cloud migration effort, which we refer to commonly as the first workload. This effort will expand iteratively to include more workloads as you operations teams refine and improve your migration processes.
 
-Cloud migrations tools like [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) can migrate entire data centers consisting of tens of thousands of VMs. However, the business and existing IT operations can seldom handle such a high pace of change. As such many organizations break up a migration effort into multiple iterations, moving one workload (or a collection of workloads) per iteration.
+Cloud migrations tools like [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) can migrate entire datacenters consisting of tens of thousands of VMs. However, the business and existing IT operations can seldom handle such a high pace of change. As such many organizations break up a migration effort into multiple iterations, moving one workload (or a collection of workloads) per iteration.
 
 The principles behind this incremental model are based on the execution of processes and prerequisites referenced in the following infographic.
 

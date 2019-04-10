@@ -12,17 +12,17 @@ ms.author: raynew
 
 # Rehost an on-premises Linux app to Azure VMs and Azure MySQL
 
-This article shows how the fictional company Contoso rehosts a two-tier Linux-based Apache MySQL PHP (LAMP) app, migrating it from on-premises to Azure using Azure VMs and Azure MySQL.
+This article shows how the fictional company Contoso rehosts a two-tier Linux-based Apache/MySQL/PHP (LAMP) app, migrating it from on-premises to Azure using Azure VMs and Azure MySQL.
 
-osTicket, the service desk app used in this example is provided as open source. If you'd like to use it for your own testing purposes, you can download it from [GitHub](https://github.com/osTicket/osTicket).
+osTicket, the service desk app used in this example, is provided as open source. If you'd like to use it for your own testing, you can download it from [GitHub](https://github.com/osTicket/osTicket).
 
 ## Business drivers
 
 The IT Leadership team has worked closely with business partners to understand what they want to achieve:
 
-- **Address business growth**: Contoso is growing, and as a result there's pressure on the on-premises systems and infrastructure.
-- **Limit risk**: The service desk app is critical for the business. Contoso wants to move it to Azure with zero risk.
-- **Extend**:  Contoso doesn't want to change the app right now. It simply wants to keep the app stable.
+- **Address business growth.** Contoso is growing, and as a result there's pressure on the on-premises systems and infrastructure.
+- **Limit risk.** The service desk app is critical for the business. Contoso wants to move it to Azure with zero risk.
+- **Extend.** Contoso doesn't want to change the app right now. It simply wants to keep the app stable.
 
 ## Migration goals
 
@@ -37,16 +37,16 @@ The Contoso cloud team has pinned down goals for this migration, in order to det
 
 In this scenario:
 
-- The app is tiered across two VMs (OSTICKETWEB and OSTICKETMYSQL).
-- The VMs are located on VMware ESXi host **contosohost1.contoso.com** (version 6.5).
-- The VMware environment is managed by vCenter Server 6.5 (**vcenter.contoso.com**), running on a VM.
-- Contoso has an on-premises datacenter (contoso-datacenter), with an on-premises domain controller (**contosodc1**).
-- The web tier app on OSTICKETWEB will be migrated to an Azure IaaS VM.
+- The app is tiered across two VMs (`OSTICKETWEB` and `OSTICKETMYSQL`).
+- The VMs are located on VMware ESXi host `contosohost1.contoso.com` (version 6.5).
+- The VMware environment is managed by vCenter Server 6.5 (`vcenter.contoso.com`), running on a VM.
+- Contoso has an on-premises datacenter (`contoso-datacenter`), with an on-premises domain controller (`contosodc1`).
+- The web tier app on `OSTICKETWEB` will be migrated to an Azure IaaS VM.
 - The app database will be migrated to the Azure Database for MySQL PaaS service.
-- Since Contoso is migrating a production workload, the resources will reside in the production resource group **ContosoRG**.
-- The resources will be replicated to the primary region (East US 2), and placed in the production network (VNET-PROD-EUS2):
-  - The web VM will reside in the front-end subnet (PROD-FE-EUS2).
-  - The database instance will reside in the database subnet (PROD-DB-EUS2).
+- Since Contoso is migrating a production workload, the resources will reside in the production resource group `ContosoRG`.
+- The resources will be replicated to the primary region (East US 2), and placed in the production network (`VNET-PROD-EUS2`):
+  - The web VM will reside in the front-end subnet (`PROD-FE-EUS2`).
+  - The database instance will reside in the database subnet (`PROD-DB-EUS2`).
 - The app database will be migrated to Azure MySQL using MySQL tools.
 - The on-premises VMs in the Contoso datacenter will be decommissioned after the migration is done.
 
@@ -98,12 +98,12 @@ Here's how Contoso admins will complete the migration:
 
 > [!div class="checklist"]
 >
-> - **Step 1: Prepare Azure for Site Recovery**: They create an Azure storage account to hold replicated data, and create a Recovery Services vault.
-> - **Step 2: Prepare on-premises VMware for Site Recovery**: They prepare accounts for VM discovery and agent installation, and prepare to connect to Azure VMs after failover.
-> - **Step 3: Provision the database]**: In Azure, they provision an instance of Azure MySQL database.
-> - **Step 4: Replicate VMs**: They configure the Site Recovery source and target environment, set up a replication policy, and start replicating VMs to Azure storage.
-> - **Step 5: Migrate the database**: They set up migration with MySQL tools.
-> - **Step 6: Migrate the VMs with Site Recovery**: Lastly, they run a test failover to make sure everything's working, and then run a full failover to migrate the VMs to Azure.
+> - **Step 1: Prepare Azure for Site Recovery.** They create an Azure storage account to hold replicated data, and create a Recovery Services vault.
+> - **Step 2: Prepare on-premises VMware for Site Recovery.** They prepare accounts for VM discovery and agent installation, and prepare to connect to Azure VMs after failover.
+> - **Step 3: Provision the database.** In Azure, they provision an instance of Azure MySQL database.
+> - **Step 4: Replicate VMs.** They configure the Site Recovery source and target environment, set up a replication policy, and start replicating VMs to Azure storage.
+> - **Step 5: Migrate the database.** They set up migration with MySQL tools.
+> - **Step 6: Migrate the VMs with Site Recovery.** Lastly, they run a test failover to make sure everything's working, and then run a full failover to migrate the VMs to Azure.
 
 ## Step 1: Prepare Azure for the Site Recovery service
 
@@ -438,7 +438,7 @@ With the app now running, Contoso need to fully operationalize and secure their 
 The Contoso security team review the VM and database to determine any security issues.
 
 - They review the network security groups (NSGs) for the VM, to control access. NSGs are used to ensure that only traffic allowed to the application can pass.
-- They consider securing the data on the VM disks using Disk encryption and Azure KeyVault.
+- They consider securing the data on the VM disks using Disk encryption and Azure Key Vault.
 - Communication between the VM and database instance isn't configured for SSL. They will need to do this to ensure that database traffic can't be hacked.
 
 [Read more](/azure/security/azure-security-best-practices-vms) about security practices for VMs.
@@ -447,12 +447,11 @@ The Contoso security team review the VM and database to determine any security i
 
 For business continuity and disaster recovery, Contoso takes the following actions:
 
-- **Keep data safe**: Contoso backs up the data on the app VM using the Azure Backup service. [Learn more](/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). They don't need to configure backup for the database. Azure Database for MySQL automatically creates and stores server backups. They selected to use geo-redundancy for the database, so it's resilient and production-ready.
-- **Keep apps up and running**: Contoso replicates the app VMs in Azure to a secondary region using Site Recovery. [Learn more](/azure/site-recovery/azure-to-azure-quickstart).
+- **Keep data safe.** Contoso backs up the data on the app VM using the Azure Backup service. [Learn more](/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). They don't need to configure backup for the database. Azure Database for MySQL automatically creates and stores server backups. They selected to use geo-redundancy for the database, so it's resilient and production-ready.
+- **Keep apps up and running.** Contoso replicates the app VMs in Azure to a secondary region using Site Recovery. [Learn more](/azure/site-recovery/azure-to-azure-quickstart).
 
 ### Licensing and cost optimization
 
 - After deploying resources, Contoso assigns Azure tags, in accordance with decisions they made during the [Azure infrastructure](contoso-migration-infrastructure.md#set-up-tagging) deployment.
 - There are no licensing issues for the Contoso Ubuntu servers.
-- Contoso will enable Azure Cost Management licensed by Cloudyn, a Microsoft subsidiary. It's a multi-cloud cost management solution that helps you to use and manage Azure and other cloud resources. [Learn more](/azure/cost-management/overview) about Azure Cost Management.
-
+- Contoso will enable Azure Cost Management licensed by Cloudyn, a Microsoft subsidiary. It's a multicloud cost management solution that helps you to use and manage Azure and other cloud resources. [Learn more](/azure/cost-management/overview) about Azure Cost Management.

@@ -21,12 +21,12 @@ The term *workload* appears throughout the CAF. A workload is a unit of applicat
 
 INVEST is a common acronym in many agile methodologies for writing user stories or product backlog items, both of which are units of output in agile project management tools. The measurable unit of output in a migration is a migrated workload. The CAF modifies the INVEST acronym a bit to create a construct for defining workloads, as follows:
 
-- **Independent.** A workload should not have any inaccessible dependencies. For a workload to be considered migrated, all dependencies should be accessible and/or included in the migration effort.
-- **Negotiable.** As additional discovery is performed, the definition of a workload changes. The architects planning the migration could negotiate a number of factors regarding dependencies. Examples of negotiation points could include prerelease of features, making features accessible over a hybrid network, or packaging all dependencies in a single release.
-- **Valuable.** Value in a workload is measured by the ability to provide users with access to a production workload.
-- **Estimable.** Dependencies, assets, migration time, performance, and cloud costs should all be estimable and should be estimated prior to migration.
-- **Small.** The goal is to package workloads in a single sprint. However, this may not always be feasible. Instead, teams are encouraged to plan sprints and releases to minimize the time required to move a workload to production.
-- **Testable.** There should always be a defined means of testing or validating completion of the migration of a workload.
+- **Independent:** A workload should not have any inaccessible dependencies. For a workload to be considered migrated, all dependencies should be accessible and included in the migration effort.
+- **Negotiable:** As additional discovery is performed, the definition of a workload changes. The architects planning the migration could negotiate a number of factors regarding dependencies. Examples of negotiation points could include prerelease of features, making features accessible over a hybrid network, or packaging all dependencies in a single release.
+- **Valuable:** Value in a workload is measured by the ability to provide users with access to a production workload.
+- **Estimable:** Dependencies, assets, migration time, performance, and cloud costs should all be estimable and should be estimated prior to migration.
+- **Small:** The goal is to package workloads in a single sprint. However, this may not always be feasible. Instead, teams are encouraged to plan sprints and releases to minimize the time required to move a workload to production.
+- **Testable:** There should always be a defined means of testing or validating completion of the migration of a workload.
 
 This acronym is not intended as a basis for rigid adherence but should help guide the definition of the term workload.
 
@@ -104,7 +104,7 @@ The outcome of a sprint captures and documents the changes made to a workload, t
 - **Configuration.** Chosen configuration of any assets deployed, including any references to configuration scripts
 - **Deployment model.** Approach used to deploy the asset to the cloud, including references to any deployment scripts or tools.
 - **Architecture.** Documentation of the architecture deployed to the cloud
-- **Performance metrics.** Output of an automated and/or business testing performed to validate performance at the time of deployment
+- **Performance metrics.** Output of automated testing or business testing performed to validate performance at the time of deployment
 - **Unique requirements or configuration.** Any unique aspects of the deployment, configuration, or technical requirements necessary to operate the workload
 - **Operational approval.** Sign-off of validating operational readiness from the application owner and the IT operations staff responsible for managing the workload post deployment
 - **Architecture approval.** Sign-off from the workload owner and Cloud Adoption team to validate any architecture changes required to host each asset
