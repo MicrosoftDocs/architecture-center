@@ -45,7 +45,7 @@ If these questions don't produce favorable answers, a few alternative approaches
 
 - **Containerization.** Some assets can be hosted in a containerized environment without remediation. This could produce less-than-favorable performance and doesn't resolve security or compliance issues.
 - **Automation.** Depending on the workload and remediation requirements, it may be more profitable to script the deployment to new assets using a DevOps approach.
-- **Rebuild.** When remediation costs are very high and business value is equally high, a workload may be a good fit as a candidate for rebuilding or re-architecting.
+- **Rebuild.** When remediation costs are very high and business value is equally high, a workload may be a good fit as a candidate for rebuilding or rearchitecting.
 
 ## Next steps
 

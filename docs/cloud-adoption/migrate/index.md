@@ -90,7 +90,7 @@ The questions asked during the development of a migration backlog will determine
 
 ## Transition to the end state
 
-The desired goal is a smooth, semi-automated migration to the cloud. In such a scenario, the migration process uses the tools provided by a cloud vendor to rapidly replicate and stage assets in the cloud. Once verified a simple network change would re-route users to the cloud solution. For many use cases, the technology to reach this desired goal is largely available. There are tested cases that demonstrate the speed at which 10,000 VMs can be replicated into Azure.
+The desired goal is a smooth, semi-automated migration to the cloud. In such a scenario, the migration process uses the tools provided by a cloud vendor to rapidly replicate and stage assets in the cloud. Once verified a simple network change would reroute users to the cloud solution. For many use cases, the technology to reach this desired goal is largely available. There are tested cases that demonstrate the speed at which 10,000 VMs can be replicated into Azure.
 
 Unfortunately, an **incremental migration** approach is still required. In most environments, the long list of VMs to be migrated has to be decomposed into smaller units of work for a migration to be successful. There are many factors that create limits to the number of VMs that can be migrated in a given period of time. Outbound Network speed is one of the few limiters that are technical in nature. Most of the limiters are based on the businesses ability to validate and consume change.
 

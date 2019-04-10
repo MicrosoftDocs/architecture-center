@@ -72,7 +72,7 @@ Definition of Done: Each subsequent release should contain:
 
 ### Out of band releases
 
-One of the goals of CAF is to consolidate various points of guidance across Microsoft. On occasion, new content may be consumed by CAF outside of the maturation cycles above, to meet time sensitive guidance needs. These releases are considered "out of band", as the content will be consumed and re-published for a brief period of time prior to the official First Release of a given section. This is rare, but will occasionally show up on the roadmap.
+One of the goals of CAF is to consolidate various points of guidance across Microsoft. On occasion, new content may be consumed by CAF outside of the maturation cycles above, to meet time sensitive guidance needs. These releases are considered "out of band", as the content will be consumed and republished for a brief period of time prior to the official First Release of a given section. This is rare, but will occasionally show up on the roadmap.
 
 ## Quarterly Roadmap
 

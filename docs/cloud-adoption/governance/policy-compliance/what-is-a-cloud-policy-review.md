@@ -32,7 +32,7 @@ For each of these disciplines, the review process follows these steps:
 
 1. Review existing on-premises policies related to the specific discipline, looking for two key data points: legacy dependencies and identified business risks.
 2. Evaluate each business risk by asking a simple question: "Does the business risk still exist in a cloud model?"
-3. If the risk still exists, re-write the policy by documenting the necessary mitigation, not the technical solution.
+3. If the risk still exists, rewrite the policy by documenting the necessary mitigation, not the technical solution.
 4. Review the updated policy with the cloud adoption teams to understand potential solutions to the required mitigation.
 
 ## Example of a policy review for a legacy policy

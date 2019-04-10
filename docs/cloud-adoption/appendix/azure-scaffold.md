@@ -291,7 +291,7 @@ There are a number of tools that are available as you build out this capability,
 
 Automation is a full-time job and it will rapidly become one of the most important operational tasks within your cloud team. Organizations that take the approach of "automate first" have greater success in using Azure:
 
-- Managing costs: actively seeking opportunities and creating automation to re-size resources, scale-up/down and turn off unused resources.
+- Managing costs: actively seeking opportunities and creating automation to resize resources, scale-up/down and turn off unused resources.
 - Operational flexibility: through the use of automation (along with Templates and DevOps) you gain a level of repeatability that increases availability, increases security and enables your team to focus on solving business problems.
 
 ## Templates and DevOps

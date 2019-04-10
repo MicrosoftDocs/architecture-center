@@ -7,7 +7,7 @@ ms.date: 4/4/2019
 
 # Expanded scope for cloud migration
 
-The [baseline migration guide](../baseline-migration-guide/overview.md) in the Cloud Adoption Framework is the suggested starting point for readers who are interested in a re-host migration to Azure, also known as a Lift and Shift migration. That guide will walk the reader through a series of prerequisites, tools, and approaches to migrating virtual machines to the cloud.
+The [baseline migration guide](../baseline-migration-guide/overview.md) in the Cloud Adoption Framework is the suggested starting point for readers who are interested in a rehost migration to Azure, also known as a Lift and Shift migration. That guide will walk the reader through a series of prerequisites, tools, and approaches to migrating virtual machines to the cloud.
 
 While the [baseline migration guide](../baseline-migration-guide/overview.md) is effective at getting the reader familiar with this style of migration, it is based on a number of assumptions. Those assumptions ensure that the guide aligns to a large percentage of the readers of the Cloud Adoption Framework, by providing a simplified approach to migrations. This section of the Cloud Adoption Framework addresses a number of scope changes, which could help guide efforts when those assumptions do not apply.
 
@@ -16,22 +16,22 @@ While the [baseline migration guide](../baseline-migration-guide/overview.md) is
 The following checklist outlines the common areas of complexity which could require the scope of the migration to be expanded beyond the [baseline migration guide](../baseline-migration-guide/overview.md).
 
 - **Business-driven scope changes**
-    - [Balancing the portfolio](./balance-the-portfolio.md)
-    - [Support global markets](./multiple-regions.md)
+  - [Balancing the portfolio](./balance-the-portfolio.md)
+  - [Support global markets](./multiple-regions.md)
 - **Culture-driven scope changes**
-    - Change management and approval processes *(Coming Summer 2019)*
-    - Executive readiness *(Coming Summer 2019)*
-    - [Skills readiness](./skills-readiness.md)
-    - Aligning support (Partner, services, and support) *(Coming Summer 2019)*
+  - Change management and approval processes *(Coming Summer 2019)*
+  - Executive readiness *(Coming Summer 2019)*
+  - [Skills readiness](./skills-readiness.md)
+  - Aligning support (Partner, services, and support) *(Coming Summer 2019)*
 - **Technical Strategy-driven scope changes**
-    - Existing datacenter constraints *(Coming Summer 2019)*
-    - Migrating at scale - High volume or velocity of migrations *(Coming Summer 2019)*
-    - [Multiple datacenters](./multiple-data-centers.md)
-    - Change management and solution documentation *(Coming Summer 2019)*
-    - [Governance or compliance strategy](./governance-or-compliance.md)
+  - Existing datacenter constraints *(Coming Summer 2019)*
+  - Migrating at scale - High volume or velocity of migrations *(Coming Summer 2019)*
+  - [Multiple datacenters](./multiple-data-centers.md)
+  - Change management and solution documentation *(Coming Summer 2019)*
+  - [Governance or compliance strategy](./governance-or-compliance.md)
 - **Workload-specific scope changes**
-    - Architect workloads for resiliency *(Coming Summer 2019)*
-    - Align migration to application patterns *(Coming Summer 2019)*
+  - Architect workloads for resiliency *(Coming Summer 2019)*
+  - Align migration to application patterns *(Coming Summer 2019)*
 
 If any of these complexities align with the reader's scenario, then this section of the Cloud Adoption Framework will likely provide the type of guidance needed properly align scope in the migration processes.
 
