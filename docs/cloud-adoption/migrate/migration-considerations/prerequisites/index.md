@@ -40,7 +40,7 @@ Two teams are accountable for readiness during the prerequisites phase:
 - **Cloud Strategy Team.** This team is responsible for identifying and prioritizing the first two or three workloads to serve as migration candidates.
 - **Cloud Adoption Team.** This team is responsible for validating readiness of the technical environment and the feasibility of migrating the proposed workloads.
 
-A single member of each team should be identified as accountable for each of the three definitions of done statements in the prior section.
+A single member of each team should be identified as accountable for each of the three "definition of done" statements in the prior section.
 
 ## Responsibilities during prerequisites
 
