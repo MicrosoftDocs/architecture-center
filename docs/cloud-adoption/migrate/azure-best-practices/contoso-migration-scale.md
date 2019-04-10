@@ -90,7 +90,7 @@ Contoso identifies some common categories to classify assets in the inventory. T
 Business group | List of business group names | Which group is responsible for the inventory item?
 POC candidate | Y/N | Can the app be used as a POC or early adopter for cloud migration?
 Technical debt | None/Some/Severe | Is the inventory item running or using an out-of-support product, platform or operating system?
-Firewall implications | Y/N | Does the app communicate with the Internet/outside traffic?  Does it integrate with a firewall?
+Firewall implications | Y/N | Does the app communicate with the internet or outside traffic?  Does it integrate with a firewall?
 Security issues | Y/N | Are there known security issues with the app?  Does the app use unencrypted data or out-of-date platforms?
 
 ### Discover app dependencies
@@ -116,7 +116,7 @@ To capture this evaluation process, they add a couple of additional classificati
 Business group | List of business group names | Which group is responsible for the inventory item?
 POC candidate | Y/N | Can the app be used as a POC or early adopter for cloud migration?
 Technical debt | None/Some/Severe | Is the inventory item running or using an out-of-support product, platform or operating system?
-Firewall implications | Y/N | Does the app communicate with the Internet/outside traffic?  Does it integrate with a firewall?
+Firewall implications | Y/N | Does the app communicate with the internet or outside traffic?  Does it integrate with a firewall?
 Security issues | Y/N | Are there known security issues with the app?  Does the app use unencrypted data or out-of-date platforms?
 Migration strategy | Rehost/Refactor/Rearchitect/Rebuild | What kind of migration is needed for the app? How will the app be deployed in Azure? [Learn more](contoso-migration-overview.md#migration-patterns).
 Technical complexity | 1-5 | How complex is the migration? This value should be defined by Contoso DevOps and relevant partners.

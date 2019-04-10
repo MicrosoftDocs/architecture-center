@@ -108,7 +108,7 @@ This first release served as a test of CAF's ability to unify an important Micro
 3) Define a minimum viable product (MVPs) to help the customer iterate rapidly.
 4) Provide a means of evolving the MVP to mitigate risks and meet business requirements.
 
-**Spring Release (4/15/2019):** Cloud migration tooling can easily migrate tens of thousands of IT assets to the cloud. However, customer feedback suggested that cloud migrations are blocked by culture and technical readiness. The spring release addresses these blockers by defining an iterative approach to cloud migration. Within the core methodology is a streamlined azure migration guide for learning the tools and basic processes, with expanded scope and best practices sections for building on this baseline guidance.
+**Spring Release (4/15/2019):** Cloud migration tooling can easily migrate tens of thousands of IT assets to the cloud. However, customer feedback suggested that cloud migrations are blocked by culture and technical readiness. The spring release addresses these blockers by defining an iterative approach to cloud migration. Within the core methodology is a streamlined Azure migration guide for learning the tools and basic processes, with expanded scope and best practices sections for building on this baseline guidance.
 
 This release also includes expansions to the Plan section of CAF which focuses on business planning. It also incorporates the existing Azure Readiness Guide within the new Ready section of CAF.
 
