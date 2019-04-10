@@ -88,7 +88,7 @@ This example scenario though talks more about configuration, the APIs hosted on 
 
 ### Prereqs and assumptions
 1. Custom Domain Name purchased.
-2. An SSL certificates (we used a wild card one from Azure Certificates Service) to use one for all our custom domains.
+2. An SSL certificates (we used a wild card one from Azure Certificates Service) to use one for all our custom domains. You could also procure an self signed certificate for Dev Test scenarios.
 3. This specific deployment uses the domain name contoso.org and a wild card SSL certificate for the domain.
 4. The deployment is using the resource names and address spaces mentioned in the deployment section which can be configured. 
 
