@@ -27,7 +27,7 @@ Respond to a critical event or a need to move specific assets. Asset migrations 
 - Reductions in capital expenses
 - End of support for mission-critical technologies
 
-**Aligned Methodology:** Asset migrations can be successfully executed within the limited scope of the [Azure Migration Guide](../migrate/baseline-migration-guide/index.md). Note the pre-requites which outlines some environment readiness.
+**Aligned Methodology:** Asset migration is a technical process for migrating digital assets to the cloud using migration automation tooling. This approach can be successfully executed within the limited scope of the [Azure Migration Guide](../migrate/baseline-migration-guide/index.md). Note the pre-requites which outlines some environment readiness.
 
 ![Methodology supporting asset migration](../_images/migration/asset-migration.png)
 
@@ -39,7 +39,7 @@ More often cloud migrations are part of a focused effort to streamline IT operat
 - Reduction in vendor or technical complexity
 - Optimize internal operations
 
-**Aligned Methodology:** Successful workload migrations build on the [Azure Migration Guide](../migrate/baseline-migration-guide/index.md) and [Azure Readiness Guide](../ready/azure-readiness-guide/index.md). However, additional considerations should be given to the expanded scope checklists associated with each of those guides.
+**Aligned Methodology:** Workload migration build on asset migrations, but adds a focus on the migration of a workload, which adds deeper planning and testing requirements. Successful workload migrations build on the [Azure Migration Guide](../migrate/baseline-migration-guide/index.md) and [Azure Readiness Guide](../ready/azure-readiness-guide/index.md). However, additional considerations should be given to the expanded scope checklists associated with each of those guides.
 
 ![Methodology supporting workload migration](../_images/operational-transformation-migrate.png)
 
@@ -53,7 +53,7 @@ C-level conversations regarding cloud migration tend to focus on the benefits as
 - Scale to meet market demands
 - Scale to meet geographic demands
 
-**Aligned methodology:** Portfolio migrations require a deeper alignment between the business and IT. The technical implementation is a slight extension of the workload or asset migration methodologies. The methodology differs most when it comes to the rigor of business planning, rich readiness, improved migration change management, and a more disciplined approach to cloud governance. The following section outlines this methodology in more detail.
+**Aligned methodology:** Portfolio migrations look across the entire IT portfolio to guide decisions regarding investments, impact on business processes, potential of innovation outcomes, and the future state of workload collections. This model requires a much deeper alignment between the business and IT. The technical implementation is a slight extension of the workload or asset migration methodologies. The methodology differs most when it comes to the rigor of business planning, richer readiness investments, improved change management, and a more disciplined approach to cloud governance. The following section outlines this methodology in more detail.
 
 ## Portfolio Migration Methodology
 
