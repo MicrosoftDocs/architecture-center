@@ -1,10 +1,23 @@
-# CI/CD for microservices on Kubernetes
+---
+title: Building a CI/CD pipeline for microservices on Kubernetes
+description: Describes an example CI/CD pipeline for deploying microservices to Azure Kubernetes Service (AKS).
+author: MikeWasson
+ms.date: 04/11/2019
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: reference-architecture
+ms.custom: microservices
+---
+
+<!-- markdownlint-disable MD040 -->
+
+# Building a CI/CD pipeline for microservices on Kubernetes
 
 It can be challenging to create a reliable CI/CD process for a microservices architecture. Individual teams must be able to release services quickly and reliably, without disrupting other teams or destabilizing the application as a whole.
 
 This article describes an example CI/CD pipeline for deploying microservices to Azure Kubernetes Service (AKS). Every team and project is different, so don't take this article as a set of hard-and-fast rules. Instead, it's meant to be a starting point for designing your own CI/CD process.
 
-The example pipeline described here was created for a microservices reference implementation called the Drone Delivery application, which you can find on [GitHub][ri]. The application scenario is described [here](./model/domain-analysis.md).
+The example pipeline described here was created for a microservices reference implementation called the Drone Delivery application, which you can find on [GitHub][ri]. The application scenario is described [here](./design/index.md#reference-implementation).
 
 The goals of the pipeline can be summarized as follows:
 
@@ -22,15 +35,17 @@ For purposes of this example, here are some assumptions about the development te
 - The code repository is a monorepo, with folders organized by microservice.
 - The team's branching strategy is based on [trunk-based development](https://trunkbaseddevelopment.com/).
 - The team uses [release branches](/azure/devops/repos/git/git-branching-guidance?view=azure-devops#manage-releases) to manage releases. Separate releases are created for each microservice.
-- The CI/CD pipeline is built using [Azure Pipelines](/azure/devops/pipelines/?view=azure-devops) to build, test, and deploy the microservices to AKS.
+- The CI/CD process uses [Azure Pipelines](/azure/devops/pipelines/?view=azure-devops) to build, test, and deploy the microservices to AKS.
 - The container images for each microservice are stored in [Azure Container Registry](/azure/container-registry/).
 - The team uses Helm charts to package each microservice.
 
-These assumptions drive many of the specific details of the CI/CD pipeline. However, the basic approach described here can work with other tools and services such as Jenkins and Docker Hub.
+These assumptions drive many of the specific details of the CI/CD pipeline. However, the basic approach described here be adapted for other processes, tools, and services, such as Jenkins or Docker Hub.
 
 ## Validation builds
 
-Suppose that a developer is working on a microservice called the Delivery Service. This service manages deliveries in a drone delivery service. While developing a new feature, the developer checks code into a feature branch. By convention, feature branches are named `feature/*`.
+Suppose that a developer is working on a microservice called the Delivery Service. While developing a new feature, the developer checks code into a feature branch. By convention, feature branches are named `feature/*`.
+
+![CI/CD workflow](./images/aks-cicd-1.png)
 
 The build definition file includes a trigger that filters by the branch name and the source path:
 
@@ -56,19 +71,15 @@ trigger:
 
 Using this approach, each team can have its own build pipeline. Only code that is checked into the `/src/shipping/delivery` folder triggers a build of the Delivery Service. Pushing commits to a branch that matches the filter triggers a CI build. At this point in the workflow, the CI build runs some minimal code verification:
 
-1. Build the code
-1. Run unit tests
+1. Build the code.
+1. Run unit tests.
 
-The goal is to keep build times short, so the developer can get quick feedback.
+The goal is to keep build times short, so the developer can get quick feedback. Once the feature is ready to merge into master, the developer opens a PR. This triggers another CI build that performs some additional checks:
 
-![CI/CD workflow](./images/aks-cicd-1.png)
-
-Once the feature is ready to merge into master, the developer opens a PR. This triggers another CI build that performs some additional checks:
-
-1. Build the code
-1. Run unit tests
-1. Build the runtime container image
-1. Run vulnerability scans on the image
+1. Build the code.
+1. Run unit tests.
+1. Build the runtime container image.
+1. Run vulnerability scans on the image.
 
 ![CI/CD workflow](./images/aks-cicd-2.png)
 
@@ -79,10 +90,12 @@ Once the feature is ready to merge into master, the developer opens a PR. This t
 
 At some point, the team is ready to deploy a new version of the Delivery service. The release manager creates a branch from master with this naming pattern: `release/<microservice name>/<semver>`. For example, `release/delivery/v1.0.2`.
 
+![CI/CD workflow](./images/aks-cicd-3.png)
+
 Creation of this branch triggers a full CI build that runs all of the previous steps plus:
 
 1. Push the container image to Azure Container Registry. The image is tagged with the version number taken from the branch name.
-2. Run `helm package` to package the Helm chart for the service.
+2. Run `helm package` to package the Helm chart for the service. The chart is also tagged with a version number.
 3. Push the Helm package to Container Registry.
 
 Assuming this build succeeds, it triggers a deployment (CD) process using an Azure Pipelines [release pipeline](/azure/devops/pipelines/release/what-is-release-management). This pipeline has the following steps:
@@ -91,8 +104,6 @@ Assuming this build succeeds, it triggers a deployment (CD) process using an Azu
 1. An approver signs off before the package moves to production. See [Release deployment control using approvals](/azure/devops/pipelines/release/approvals/approvals).
 1. Retag the Docker image for the production namespace in Azure Container Registry. For example, if the current tag is `myrepo.azurecr.io/delivery:v1.0.2`, the production tag is `myrepo.azurecr.io/prod/delivery:v1.0.2`.
 1. Deploy the Helm chart to the production environment.
-
-![CI/CD workflow](./images/aks-cicd-3.png)
 
 Even in a monorepo, these tasks can be scoped to individual microservices, so that teams can deploy with high velocity. The process has some manual steps: Approving PRs, creating release branches, and approving deployments into the production cluster. These steps are manual by policy &mdash; they could be automated if the organization prefers.
 
@@ -104,7 +115,7 @@ Our recommendation is to create a dedicated production cluster along with a sepa
 
 ## Build process
 
-When possible, package your build process into a container. That allows you to build your code artifacts using Docker, without needing to configure the build environment on each build machine. A containerized build process makes it easy to scale out the CI pipeline by adding new build agents. Also, any developer on the team can build the code simply by running the build container.
+When possible, package your build process into a Docker container. That allows you to build your code artifacts using Docker, without needing to configure the build environment on each build machine. A containerized build process makes it easy to scale out the CI pipeline by adding new build agents. Also, any developer on the team can build the code simply by running the build container.
 
 By using multi-stage builds in Docker, you can define the build environment and the runtime image in a single Dockerfile. For example, here's a Dockerfile that builds an ASP.NET Core application:
 
@@ -132,7 +143,7 @@ ENTRYPOINT ["dotnet", "Fabrikam.Workflow.Service.dll"]
 
 &#11162; See the [source file](https://github.com/mspnp/microservices-reference-implementation/blob/master/src/shipping/workflow/Dockerfile).
 
-This Dockerfile defines several build stages. Notice that the stage named `base` uses the ASP.NET Core runtime, while the stage named `build` uses the full ASP.NET Core SDK. The `build` stage is used to build the ASP.NET Core project. But the final runtime container is built from `base`, contains just the runtime and is significantly smaller than the full SDK image.
+This Dockerfile defines several build stages. Notice that the stage named `base` uses the ASP.NET Core runtime, while the stage named `build` uses the full ASP.NET Core SDK. The `build` stage is used to build the ASP.NET Core project. But the final runtime container is built from `base`, which contains just the runtime and is significantly smaller than the full SDK image.
 
 ### Building a test runner
 
@@ -305,7 +316,7 @@ Based on the CI flow described earlier in this article, a build pipeline might c
     ```yaml
     - task: PublishTestResults@2
       inputs:
-        testResultsFormat: 'VSTest' # Options: JUnit, NUnit, VSTest, xUnit
+        testResultsFormat: 'VSTest'
         testResultsFiles: 'TestResults/*.trx'
         searchFolder: '$(System.DefaultWorkingDirectory)'
         publishRunAttachments: true
