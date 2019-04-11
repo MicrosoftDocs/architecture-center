@@ -89,7 +89,7 @@ Assuming you choose a rehost approach to migration, the following child activiti
 
 ## Learn More
 
-- [The 5 Rs of Rationalization](/azure/architecture/cloud-adoption/digital-estate/5-rs-of-rationalization)
-- [Cloud Adoption Framework Planning Checklist](azure/architecture/cloud-adoption/migrate/theory/prerequisites/planning-checklist)
+- [The 5 Rs of Rationalization](../../digital-estate/5-rs-of-rationalization.md)
+- [Cloud Adoption Framework Planning Checklist](../../migrate/migration-considerations/prerequisites/planning-checklist.md)
 
 ::: zone-end

@@ -73,13 +73,13 @@ This guide is designed for migration scopes with minimal complexity. This migrat
 - The dependency mapping of the components to be migrated is simple to define.
 - Your industry has minimal regulatory requirements relevant to this migration.
 
-If any of these cases does not apply to your situation, you should instead consider the information provided in the [Expanded Scope Guide](../expanded-scope). We also recommend you request assistance from one of our Microsoft teams or partners to perform migrations requiring the expanded scope guide. we have found that customers who engage with Microsoft or certified partners are more successful in these scenarios. More information about requesting assistance can be found in the relevant section of this guide.
+If any of these cases does not apply to your situation, you should instead consider the information provided in the [Expanded Scope Guide](../expanded-scope/index.md). We also recommend you request assistance from one of our Microsoft teams or partners to perform migrations requiring the expanded scope guide. we have found that customers who engage with Microsoft or certified partners are more successful in these scenarios. More information about requesting assistance can be found in the relevant section of this guide.
 
 ::: zone target="docs"
 
 For more information, see:
 
-- [Migration Expanded Scope](../expanded-scope)
+- [Migration Expanded Scope](../expanded-scope/index.md)
 
 ::: zone-end
 
