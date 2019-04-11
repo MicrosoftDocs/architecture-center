@@ -16,7 +16,7 @@ Most of this effort required in this scope expansion, will fall in the prerequis
 
 ## Suggested prerequisites
 
-Prior to beginning the migration, it is advised that the reader create Epics within the project management tool to represent each datacenter to be migrated. It is then important to understand the business outcomes and motivations, which are justifying this migration. Those motivations can be used to prioritize the list of Epics (or datacenters). For instance, if migration is driven by a desire to exit datacenters before leases must be renewed, then each epic would be prioritized based on lease renewal date.
+Prior to beginning the migration, you should create *epics* within your project management tool to represent each datacenter to be migrated. It is then important to understand the business outcomes and motivations, which are justifying this migration. Those motivations can be used to prioritize the list of epics (or datacenters). For instance, if migration is driven by a desire to exit datacenters before leases must be renewed, then each epic would be prioritized based on lease renewal date.
 
 Within each epic, the workloads to be assessed and migrated would be managed as features. Each asset within that workload would be managed as a user story. The work required to assess, migrate, optimize, promote, secure, and manage each asset would be represented as tasks for each asset.
 
@@ -42,7 +42,7 @@ Migrating multiple datacenters, is very similar to consolidating datacenters. Af
 The following are activities that heavily affect the success of a cloud migration:
 
 - Evaluate network conflicts: When consolidating datacenters into a single cloud provider, there is a likelihood of creating network, DNS, or other conflicts. During migration it is important to test for conflicts to avoid interruptions to production systems hosted in the cloud.
-- Update Routing table: Often times, modifications to routing tables are required when consolidating networks or datacenters.
+- Update routing tables: Often times, modifications to routing tables are required when consolidating networks or datacenters.
 
 ## Optimize and promote process changes
 

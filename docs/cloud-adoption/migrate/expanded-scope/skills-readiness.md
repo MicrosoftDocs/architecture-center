@@ -22,7 +22,7 @@ Before beginning migration efforts, there are a number of fundamental readiness 
 - [Azure portal](/learn/modules/tour-azure-portal): Tour the Azure portal features and services, and customize the portal.
 - [Introduction to Azure](/learn/modules/welcome-to-azure): Get started with Azure by creating and configuring your first virtual machine in the cloud.
 - [Introduction to security in Azure](/learn/modules/intro-to-security-in-azure): Discuss the basic concepts for protecting your infrastructure and data when you work in the cloud. Understand what responsibilities are yours and what Azure takes care of for you.
-- [Manage resources in Azure](/learn/paths/manage-resources-in-azure): Learn how to work with the Azure command line and web portal to create, manage, and control cloud based resources.
+- [Manage resources in Azure](/learn/paths/manage-resources-in-azure): Learn how to work with the Azure command line tools and web portal to create, manage, and control cloud based resources.
 - [Create a VM](/learn/modules/create-windows-virtual-machine-in-azure): Create a virtual machine using the Azure portal
 - [Azure Networking](/learn/modules/intro-to-azure-networking): Learn some of the Azure networking basics and how Azure networking helps improve resiliency and reduce latency.
 - [Azure Compute Options](/learn/modules/intro-to-azure-compute): Review the Azure compute services
@@ -36,7 +36,7 @@ The following tools can aid the team in execution of assess activities:
 - [Balance the portfolio](./balance-the-portfolio.md): Ensure balance and proper investment allocations across an application portfolio.
 - [Build a business justification](../../business-strategy/cloud-migration-business-case.md): Create and understand the business justification driving the cloud migration effort.
 - [Rationalize the digital estate](../../digital-estate/rationalize.md): Rationalize assets in the digital estate.
-- [Application portfolio assessment](/learn/modules/app-and-infra-migration-and-modernization): Criteria for making decisions regarding migration or innovation options within the application portfolio.
+- [Application portfolio assessment](/learn/modules/app-and-infra-migration-and-modernization): Understand the criteria for making decisions regarding migration or innovation options within the application portfolio.
 
 ## Migrate skilling resources
 
