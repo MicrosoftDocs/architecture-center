@@ -1,22 +1,6 @@
 {
   "docsets_to_publish": [
     {
-      "docset_name": "azure-architecture-center",
-      "build_source_folder": "docs",
-      "build_output_subfolder": "azure-architecture-center",
-      "locale": "en-us",
-      "monikers": [],
-      "open_to_public_contributors": true,
-      "type_mapping": {
-        "Conceptual": "Content",
-        "ManagedReference": "Content",
-        "ContextObject": "Toc"
-      },
-      "build_entry_point": "docs",
-      "template_folder": "_themes",
-      "version": 0
-    },
-    {
       "docset_name": "e2e-azure-architecture-center",
       "build_source_folder": "docs",
       "build_output_subfolder": "e2e-azure-architecture-center",
