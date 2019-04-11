@@ -180,7 +180,7 @@ Azure Backup is the Azure-based service you can use to back up (or protect) and 
 
 ::: zone-end
 
-# [Azure Site Recovery](#tab/siterecovery)
+# [Azure Site Recovery](#tab/siterecovery2)
 
 Earlier in this guide we discussed how Azure Site Recovery service can be used as part of the migration execution, however it also forms a critical component in your disaster recovery strategy.
 
