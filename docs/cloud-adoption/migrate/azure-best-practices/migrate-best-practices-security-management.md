@@ -320,8 +320,8 @@ Planning for business continuity and disaster recovery (BCDR), is a critical exe
 
 Broadly, your BCDR strategy must consider:
 
-- **Data backup**: How to keep your data safe so that you can recover it easily if outages occur.
-- **Disaster recovery**: How to keep your apps resilient and available if outages occur.
+- **Data backup:** How to keep your data safe so that you can recover it easily if outages occur.
+- **Disaster recovery:** How to keep your apps resilient and available if outages occur.
 
 ### Set up BCDR
 
@@ -336,8 +336,8 @@ In most cases an on-premises workload is retired after migration, and your on-pr
 
 For workloads running on Azure IaaS VMs, consider these backup solutions:
 
-- **Azure Backup**: Provides application-consistent backups for Azure Windows and Linux VMs.
-- **Storage snapshots.** Takes snapshots of blob storage.
+- **Azure Backup:** Provides application-consistent backups for Azure Windows and Linux VMs.
+- **Storage snapshots:** Takes snapshots of Blob storage.
 
 #### Azure Backup
 

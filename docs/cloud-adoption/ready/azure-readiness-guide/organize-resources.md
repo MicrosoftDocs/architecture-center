@@ -18,10 +18,10 @@ The organizing structure for resources in Azure has four levels: management grou
 
    ![Diagram that shows relationship of management hierarchy](./media/organize-resources/scope-levels.png)
 
-- **Management groups**: These are containers that help you manage access, policy, and compliance for multiple subscriptions. All subscriptions in a management group automatically inherit the conditions applied to the management group.
-- **Subscriptions**: A subscription groups together user accounts and the resources that have been created by those user accounts. For each subscription, there are limits or quotas on the amount of resources you can create and use. Organizations can use subscriptions to manage costs and the resources that are created by users, teams, or projects.
-- **Resource groups**: A resource group is a logical container into which Azure resources like web apps, databases, and storage accounts are deployed and managed.
-- **Resources**: Resources are instances of services that you create, like virtual machines, storage, or SQL databases.
+- **Management groups:** These are containers that help you manage access, policy, and compliance for multiple subscriptions. All subscriptions in a management group automatically inherit the conditions applied to the management group.
+- **Subscriptions:** A subscription groups together user accounts and the resources that have been created by those user accounts. For each subscription, there are limits or quotas on the amount of resources you can create and use. Organizations can use subscriptions to manage costs and the resources that are created by users, teams, or projects.
+- **Resource groups:** A resource group is a logical container into which Azure resources like web apps, databases, and storage accounts are deployed and managed.
+- **Resources:** Resources are instances of services that you create, like virtual machines, storage, or SQL databases.
 
 ## Scope of management settings
 
@@ -108,7 +108,7 @@ Create a resource group to hold resources like web apps, databases, and storage 
 
 # [Naming standards](#tab/NamingStandards)
 
-A good naming standard lets you identify resources in the portal, on a bill, and in scripts. You may already have naming standards for your on-premises infrastructure. When adding Azure to your environment, you should extend those naming standards to your Azure resources. Naming standards help you  manage your environment more efficiently at all levels. You can use Azure Policy as a tool to enforce naming standards across your entire Azure environment.
+A good naming standard helps you identify resources in the portal, on a bill, and in scripts. You may already have naming standards for your on-premises infrastructure. When adding Azure to your environment, you should extend those naming standards to your Azure resources. Naming standards help you  manage your environment more efficiently at all levels. You can use Azure Policy as a tool to enforce naming standards across your entire Azure environment.
 
 ::: zone target="docs"
 
@@ -136,9 +136,9 @@ After you apply tags, you can retrieve all the resources in your subscription wi
 
 You can also use tags for many other things. Common uses include:
 
-- **Metadata / documentation**: Administrators can easily see detail about the resources they are working on by applying a tag like "ProjectOwner".
-- **Automation**: You may have regularly running scripts that can take an action based on a tag value like "ShutdownTime" or "DeprovisionDate".
-- **Billing**: Tags can appear on your invoice. You can use them to help segment your bill by using tags like "CostCenter" or "BillTo".
+- **Metadata and documentation:** Administrators can easily see detail about the resources they are working on by applying a tag like "ProjectOwner".
+- **Automation:** You may have regularly running scripts that can take an action based on a tag value like "ShutdownTime" or "DeprovisionDate".
+- **Billing:** Tags can appear on your invoice. You can use them to help segment your bill by using tags like "CostCenter" or "BillTo".
 
 Each resource or resource group can have a maximum of 15 tag name/value pairs. However, this limitation only applies to tags directly applied to the resource group or resource.
 
@@ -149,7 +149,7 @@ Each resource or resource group can have a maximum of 15 tag name/value pairs. H
 To apply a tag to a resource group:
 
 1. Go to [Resource groups](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fsubscriptions%2FresourceGroups).
-1. Select a tresource group.
+1. Select a resource group.
 1. Select **Assign tags**.
 1. Enter a new name and value or use the drop-down to select an existing name and value.
 

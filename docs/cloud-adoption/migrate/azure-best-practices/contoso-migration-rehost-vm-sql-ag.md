@@ -233,7 +233,7 @@ Contoso admins can now enable Always On:
 
 1. In SQL Server Configuration Manager, they enable **Always On availability groups** for the **SQL Server (MSSQLSERVER)** service.
 
-    ![Enable AlwaysOn](media/contoso-migration-rehost-vm-sql-ag/enable-alwayson.png)
+    ![Enable Always On](media/contoso-migration-rehost-vm-sql-ag/enable-alwayson.png)
 
 2. They restart the service for changes to take effect.
 
@@ -458,9 +458,9 @@ Now, Contoso admins can create a replication policy.
 
 1. In  **Prepare infrastructure** > **Replication Settings** > **Replication Policy** >  **Create and Associate**, they create a policy **ContosoMigrationPolicy**.
 2. They use the default settings:
-    - **RPO threshold**: Default of 60 minutes. This value defines how often recovery points are created. An alert is generated if continuous replication exceeds this limit.
-    - **Recovery point retention**. Default of 24 hours. This value specifies how long the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window.
-    - **App-consistent snapshot frequency**. Default of one hour. This value specifies the frequency at which application-consistent snapshots are created.
+    - **RPO threshold:** Default of 60 minutes. This value defines how often recovery points are created. An alert is generated if continuous replication exceeds this limit.
+    - **Recovery point retention.** Default of 24 hours. This value specifies how long the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window.
+    - **App-consistent snapshot frequency.** Default of one hour. This value specifies the frequency at which application-consistent snapshots are created.
 
         ![Create replication policy](./media/contoso-migration-rehost-vm-sql-ag/replication-policy.png)
 

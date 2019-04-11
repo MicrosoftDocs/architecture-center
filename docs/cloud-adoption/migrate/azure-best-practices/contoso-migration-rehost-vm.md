@@ -114,7 +114,7 @@ Here's how Contoso admins will run the migration:
 > [!div class="checklist"]
 >
 > - **Step 1: Prepare Azure for Site Recovery.** They create an Azure storage account to hold replicated data, and a Recovery Services vault.
-> - **Step 2: Prepare on-premises VMware for Site Recovery**: They prepare accounts for VM discovery and agent installation, and prepare to connect to Azure VMs after failover.
+> - **Step 2: Prepare on-premises VMware for Site Recovery.** They prepare accounts for VM discovery and agent installation, and prepare to connect to Azure VMs after failover.
 > - **Step 3: Replicate VMs.** They set up replication, and start replicating VMs to Azure storage.
 > - **Step 4: Migrate the VMs with Site Recovery.** They run a test failover to make sure everything's working, and then run a full failover to migrate the VMs to Azure.
 
@@ -274,9 +274,9 @@ Now Contoso admins can create a replication policy.
 
 1. In **Prepare infrastructure** > **Replication Settings** > **Replication Policy** >  **Create and Associate**, they create a policy **ContosoMigrationPolicy**.
 2. They use the default settings:
-    - **RPO threshold**: Default of 60 minutes. This value defines how often recovery points are created. An alert is generated if continuous replication exceeds this limit.
-    - **Recovery point retention**. Default of 24 hours. This value specifies how long the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window.
-    - **App-consistent snapshot frequency**. Default of one hour. This value specifies the frequency at which application-consistent snapshots are created.
+    - **RPO threshold:** Default of 60 minutes. This value defines how often recovery points are created. An alert is generated if continuous replication exceeds this limit.
+    - **Recovery point retention:** Default of 24 hours. This value specifies how long the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window.
+    - **App-consistent snapshot frequency:** Default of one hour. This value specifies the frequency at which application-consistent snapshots are created.
 
         ![Create replication policy](./media/contoso-migration-rehost-vm/replication-policy.png)
 

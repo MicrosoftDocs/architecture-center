@@ -53,11 +53,11 @@ This guide helps address those questions. It suggests the tasks and features you
 > - **Organize your resources.** Lock resources critical to your system and tag resources to track them.
 > - **Optimize and transform.** Use the post-migration opportunity to review your resources.
 > - **Secure and manage.** Ensure that your environment is secure and  monitored properly.
-> - **Get assistance.**: Get help and support during your migration or post-migration activities.
+> - **Get assistance.** Get help and support during your migration or post-migration activities.
 
 ::: zone target="docs"
 
-To learn more, see [Governance in Azure](/azure/security/governance-in-azure/).
+To learn more, see [Governance in Azure](/azure/security/governance-in-azure).
 
 ::: zone-end
 
@@ -78,7 +78,7 @@ If any of these cases does not apply to your situation, you should instead consi
 
 For more information, see:
 
-- [Migration Expanded Scope](../expanded-scope/)
+- [Migration Expanded Scope](../expanded-scope)
 
 ::: zone-end
 

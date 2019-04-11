@@ -94,12 +94,12 @@ To apply a tag to a resource group:
 
 Microsoft Azure Enterprise Enrollments feature five distinct administrative roles:
 
- **Enterprise Administrator**: has highest level of access, can manage Account Owners, Enterprise Administrators, Department Administrators, and Notification Contacts, and view usage across all accounts
-  * **Department Administrator**: can create and manage departments and create new Account Owners
-  * **Account Owner**: can create and manage subscriptions and manage Service Administrators
-  * **Service Administrator**: can access and manage subscriptions and development projects on the developer portal
-  * **Notification Contact**: can receive usage notifications related to the enrollment
-  * **Resource tags**: you can manage billing by combining your resources and group them to one cost center
+- **Enterprise Administrator:** Has the highest level of access, can manage Account Owners, Enterprise Administrators, Department Administrators, and Notification Contacts, and view usage across all accounts.
+- **Department Administrator:** Can create and manage departments and create new Account Owners.
+- **Account Owner:** Can create and manage subscriptions and manage Service Administrators.
+- **Service Administrator:** Can access and manage subscriptions and development projects on the developer portal.
+- **Notification contact:** Can receive usage notifications related to the enrollment.
+- **Resource tags:** You can manage billing by combining your resources and group them to one cost center.
 
 Assign these roles to help manage your organization's usage and spending. Use the Azure EA portal to assign and view these roles.
 
@@ -107,9 +107,9 @@ Assign these roles to help manage your organization's usage and spending. Use th
 
 You can manage budgets on a subscription level or resource level
 
-1. Go to **Cost Management + Billing**
-1. Under **Cost Management**, select budget
-1. Click **Add**
+1. Go to **Cost Management + Billing**.
+1. Under **Cost Management**, select budget.
+1. Click **Add**.
 
 **Download and understand your usage**
 
@@ -117,10 +117,11 @@ Microsoft bills annually at the enrollment effective date for any commitment pur
 
 **Manage your costs with Azure Cost Management**
 
- Azure provides a number of ways to help you predict and manage costs:
-* Using **Budgets**, you can create a budget and configure alerts to warn teams about impending budget overages. 
-* Using **Recommendations**, Azure Cost Management helps you optimize and improve efficiency by identifying idle and underused resources. 
-* Using **Cost analysis** allows you to explore and analyze your organizational costs. You can then view aggregated costs by organization and view accumulated costs over time.
+Azure provides a number of ways to help you predict and manage costs:
+
+- Using **Budgets**, you can create a budget and configure alerts to warn teams about impending budget overages. 
+- Using **Recommendations**, Azure Cost Management helps you optimize and improve efficiency by identifying idle and underused resources. 
+- Using **Cost analysis** allows you to explore and analyze your organizational costs. You can then view aggregated costs by organization and view accumulated costs over time.
 
 ::: zone target="chromeless"
 
@@ -130,9 +131,9 @@ Microsoft bills annually at the enrollment effective date for any commitment pur
 
 You can manage budgets on a subscription level or resource level
 
-1. Go to **Cost Management + Billing**
-1. Under **Cost Management**, select budget
-1. Click **Add**
+1. Go to **Cost Management + Billing**.
+1. Under **Cost Management**, select budget.
+1. Click **Add**.
 
 ::: form action="OpenBlade[#blade/Microsoft_Azure_CostManagement/Menu/budgets]" submitText="Go to Cost Management + Billing" ::: form-end
 
@@ -147,7 +148,7 @@ You can manage budgets on a subscription level or resource level
 
 **Explore Azure Cost Management**
 
-To explore cost analysis, create a budget, or view advisor recommendations: 
+To explore cost analysis, create a budget, or view advisor recommendations:
 
 ::: form action="OpenBlade[#blade/Microsoft_Azure_CostManagement/Menu/costanalysis]" submitText="Go to Azure Cost Management" ::: form-end
 
@@ -155,10 +156,10 @@ To explore cost analysis, create a budget, or view advisor recommendations:
 
 To apply a tag to a resource group:
 
-1. Go to **Resource Groups**
-1. Select on a resource group
-1. Select **Tags**
-1. Type in a new name and value or select an existing name and value
+1. Go to **Resource Groups**.
+1. Select on a resource group.
+1. Select **Tags**.
+1. Type in a new name and value or select an existing name and value.
 
 ::: form action="OpenBlade[#blade/HubsExtension/Resources/resourceType/Microsoft.Resources/subscriptions/resourceGroups]" submitText="Go to Resource Groups" ::: form-end
 
@@ -197,8 +198,8 @@ To set budgets, go to the [Azure portal](https://ms.portal.azure.com/#blade/Micr
 
 ## Learn more
 
-* [Understanding your invoice](https://ea.azure.com/helpdocs/understandingYourInvoice).
-* [Roles in the Enterprise portal](https://ea.azure.com/helpdocs/rolesInTheEnterprisePortal).
+- [Understanding your invoice](https://ea.azure.com/helpdocs/understandingYourInvoice).
+- [Roles in the Enterprise portal](https://ea.azure.com/helpdocs/rolesInTheEnterprisePortal).
 
 ::: zone-end
 
@@ -208,21 +209,20 @@ Use your billing account for Microsoft Customer Agreement to organize billing an
 
 Your billing account for the Microsoft Customer Agreement contains one or more billing profiles. Each billing profile has its own invoice and payment methods to pay the invoice. The billing profile contains one or more invoice sections that let you group charges on its invoice. 
 
-The following diagram shows the relationship between a billing account, the billing profiles, and invoice sections. 
+The following diagram shows the relationship between a billing account, the billing profiles, and invoice sections.
 
 ![Diagram showing billing relationships](./media/manage-costs/billing-relationships.png)
 
 **Give permissions to manage billing**
 
-Use Access Control (IAM) on Cost Management + Billing page to give others permission to view and manage billing for your account. Control who can view charges, organize billing, create Azure subscriptions and make purchases like Azure reservations and Marketplace products. 
+Use Access Control (IAM) on Cost Management + Billing page to give others permission to view and manage billing for your account. Control who can view charges, organize billing, create Azure subscriptions and make purchases like Azure reservations and Marketplace products.
 
 **Manage your costs with Azure Cost Management** 
 
-Azure provides several ways to help you predict and manage costs: 
+Azure provides several ways to help you predict and manage costs:
 
-* Using **Budgets**, you can create a budget and configure alerts to warn others about impending budget overages.
-
-* Using **Cost Analysis** allows you to explore and analyze costs for your billing account. 
+- Using **Budgets**, you can create a budget and configure alerts to warn others about impending budget overages.
+- Using **Cost Analysis**, you can explore and analyze costs for your billing account.
 
 ::: zone target="chromeless"
 
@@ -231,7 +231,7 @@ Azure provides several ways to help you predict and manage costs:
 **Give permissions to manage billing**
 
 1. Search on **Cost Management + Billing**.
-1. Go to the billing profile. Depending on your access, you may need to select a billing account. From the billing account, select **Billing profiles** and then a billing profile. 
+1. Go to the billing profile. Depending on your access, you may need to select a billing account. From the billing account, select **Billing profiles** and then a billing profile.
 1. Select **Access Management (IAM)** from the left-hand pane.
 1. From the top of the page, select **Add**.
 1. Select a role and enter the email address of the user.
@@ -239,7 +239,7 @@ Azure provides several ways to help you predict and manage costs:
 
 ::: form action="OpenBlade[#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview]" submitText="Go to Cost Management + Billing"::: form-end
 
-**Give permissions to create Azure subscriptions** 
+**Give permissions to create Azure subscriptions**
 
 1. Search on **Cost Management + Billing**.
 1. Go to the invoice section. Depending on your access, you may need to select a billing account or a billing profile. From the billing account or profile, select **Invoice sections** and then an invoice section.
@@ -250,7 +250,7 @@ Azure provides several ways to help you predict and manage costs:
 
 ::: form action="OpenBlade[#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview]" submitText="Go to Cost Management + Billing" ::: form-end
 
-**Explore cost management** 
+**Explore cost management**
 
 To explore cost analysis or create a budget"
 ::: form action="OpenBlade[#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/costAnalysis]" submitText="Go to Azure Cost Management" ::: form-end
@@ -261,14 +261,14 @@ To explore cost analysis or create a budget"
 
 ## Give permissions to manage billing
 
-* To give permissions to manage billing, go to the [Azure portal](https://go.microsoft.com/fwlink/?linkid=2067850&clcid=0x409)
+- To give permissions to manage billing, go to the [Azure portal](https://go.microsoft.com/fwlink/?linkid=2067850&clcid=0x409)
 
 ## Give permissions to create Azure subscriptions
 
-* To give permissions to create Azure subscriptions, go to the [Azure portal](https://go.microsoft.com/fwlink/?linkid=2067855&clcid=0x409)
+- To give permissions to create Azure subscriptions, go to the [Azure portal](https://go.microsoft.com/fwlink/?linkid=2067855&clcid=0x409)
 
 ## Explore cost management
 
-* To explore cost analysis or create a budget, go to the [Azure portal](https://go.microsoft.com/fwlink/?linkid=2067857&clcid=0x409).
+- To explore cost analysis or create a budget, go to the [Azure portal](https://go.microsoft.com/fwlink/?linkid=2067857&clcid=0x409).
 
 ::: zone-end

@@ -1,3 +1,3 @@
 ---
-redirect_url: ./governance/resource-consistency/what-is-governance.md
+redirect_url: ./governance/resource-consistency/what-is-governance
 ---

@@ -18,11 +18,10 @@ Azure Policy is a service that you use to create, assign, and manage policies. T
 
 Commonly used policies you may want to consider:
 
-* Enforce tagging for resources and resource groups
-* Restrict regions for deployed resources
-* Restrict expensive SKUs for specific resources
-* Audit use of important optional features like Managed Disks
-
+- Enforce tagging for resources and resource groups
+- Restrict regions for deployed resources
+- Restrict expensive SKUs for specific resources
+- Audit use of important optional features like Managed Disks
 
 ::: zone target="chromeless"
 
@@ -35,6 +34,7 @@ Get started by assigning a built-in policy to a management group, subscription, 
 ::: zone-end
 
 ::: zone target="docs"
+
 ## Apply a Policy
 
 To apply a policy to a resource group:
@@ -44,8 +44,8 @@ To apply a policy to a resource group:
 
 ## Learn more
 
-To learn more, see [Azure Policy documentation](https://docs.microsoft.com/en-us/azure/azure-policy/).
- 
+To learn more, see [Azure Policy documentation](/azure/azure-policy).
+
 ::: zone-end
 
 # [Azure Security Center](#tab/AzureSecurityCenter)
@@ -62,7 +62,6 @@ Many of the security features, like security policy and recommendations, are ava
 > [!TIP]
 > Azure Security Center is enabled by default in each subscription. We recommend you enable data collection from virtual machines to allow Azure Security Center to install its agent and begin gathering data.
 
-
 ::: zone target="docs"
 
 To explore Azure Security Center, go to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/SecurityMenuBlade/0).  
@@ -71,9 +70,9 @@ To explore Azure Security Center, go to the [Azure portal](https://portal.azure.
 
 To learn more, see:
 
-- [Azure Security Center](/azure/security-center/)
+- [Azure Security Center](/azure/security-center)
 - [Just-in-time VM access](/azure/security-center/security-center-just-in-time#how-does-just-in-time-access-work)
-- [Standard vs. free pricing tier](https://azure.microsoft.com/pricing/details/security-center/) 
+- [Standard vs. free pricing tier](https://azure.microsoft.com/pricing/details/security-center)
 
 ::: zone-end
 
