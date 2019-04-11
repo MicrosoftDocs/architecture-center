@@ -12,11 +12,16 @@ Cloud adoption is a portfolio management effort, cleverly disguised as technical
 
 ## General scope expansion
 
-This topic is strategic in nature. As such, the approach taken in this article is equally strategic. To ground the strategy in data-driven decisions, this article assumes have evaluated your existing [digital estate](../../digital-estate/overview.md) (or is in the process of doing so), and have identified the list of workloads that represent your cloud adoption portfolio. The portfolio balancing effort aims to evaluate which of these workloads are best moved to the cloud using a rehosting migration strategy primarily involving the use of IaaS resources, or an innovation-based approach that involves refactoring or rebuilding parts or all of a workload to take advantage of modern cloud-ready technologies.
+This topic is strategic in nature. As such, the approach taken in this article is equally strategic. To ground the strategy in data-driven decisions, this article assumes have evaluated your existing [digital estate](../../digital-estate/overview.md) (or is in the process of doing so), and have identified the list of workloads that represent your cloud adoption portfolio.
+
+The portfolio balancing effort evaluates which of the following two approaches is best suited to each migrating workload:
+
+- A rehosting migration strategy involves migrating the workload to IaaS resources with a minimum of modification or custom development.
+ - An innovation-based approach involves refactoring or rebuilding parts or all of a workload to take advantage of modern cloud-ready technologies.
 
 ### Documenting business outcomes
 
-Before balancing the portfolio, it is important to document and share the business outcomes driving your cloud migration effort. For a few examples of general business outcomes related to cloud migrations, see the [getting started article on cloud migration](../../getting-started/migrate.md#common-business-outcomes).
+Before balancing the portfolio, it is important to document and share the business outcomes driving your cloud migration effort. For a few examples of general business outcomes related to cloud migrations, see the [getting started article on cloud migration](../../getting-started/migrate.md#motivations-and-methodology).
 
 The following table can help document and share desired business outcomes. It's important to note that most businesses are pursuing several outcomes at a time. The importance of this exercise is to clarify the outcomes that are most directly related to the cloud migration effort:
 
