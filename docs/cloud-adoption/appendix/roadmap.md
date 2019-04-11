@@ -14,7 +14,7 @@ The cloud presents a fundamental shift in the way enterprises procure and use te
 
 ## Vision and Objectives
 
-Removing key blockers and enabling change, requires more than implementation guidance. The Cloud Adoption Framework (CAF) is a set of documentation, implementation guidance, best practices and tools that aids in aligning strategies for business, culture, and technology to enable the desired business outcomes. It is structured in a modular way to simultaneously, follow and guide the customer in their cloud journey. CAF should be able to stand by itself and provide the structured guidance for customers in a self-service approach. CAF builds on existing guidance, where possible, to achieve the following objectives:
+Removing key blockers and enabling change, requires more than implementation guidance. The Cloud Adoption Framework is a set of documentation, implementation guidance, best practices and tools that aids in aligning strategies for business, culture, and technology to enable the desired business outcomes. It is structured in a modular way to simultaneously, follow and guide the customer in their cloud journey. The Cloud Adoption Framework should be able to stand by itself and provide the structured guidance for customers in a self-service approach. The Cloud Adoption Framework builds on existing guidance, where possible, to achieve the following objectives:
 
 * **Technical strategy objective:** Establish scalable technical strategies, beyond the "minimum viable product", enabling organizations to easily customize and adopt to meet their needs and address common constraints.
 * **Business strategy objective:** Without defining business strategy in this guidance, we will help architects document, communicate, and understand the business strategy so the right decisions can be made.
@@ -22,11 +22,11 @@ Removing key blockers and enabling change, requires more than implementation gui
 
 ## Fulfilling the vision
 
-CAF is an overarching framework which covers Plan, Ready and Adopt across the Migration and Innovation motivations for cloud adoption, supported by Governance and Operations guidance.  
+The Cloud Adoption Framework is an overarching framework which covers Plan, Ready and Adopt across the Migration and Innovation motivations for cloud adoption, supported by Governance and Operations guidance.  
 
 Microsoft is actively building out this aspirational framework with customers, partners, and others in the market. To encourage partnership, content will be released in public preview as it becomes available. These public preview releases serve as a means of testing, validating, and incrementally refining the guidance. The framework will reach general availability (GA), when the aspirational objectives above have been realized.
 
-To be successful in adopting the cloud, organizations must prepare its people, technology and processes to be ready for this digital transformation. CAF includes a section outlining the overall adoption journeys, Migration and Innovation, as an overview for the customers, and it’s broken down into the adoption journey phases:
+To be successful in adopting the cloud, organizations must prepare its people, technology and processes to be ready for this digital transformation. The Cloud Adoption Framework includes a section outlining the overall adoption journeys, Migration and Innovation, as an overview for the customers, and it’s broken down into the adoption journey phases:
 
 * **Plan:** Align business outcomes to actionable technology backlogs. Planning consists of three areas of early stage planning activities: 1) Defining business justification and business outcomes, 2) Prioritizing workloads based on impacts to the business outcomes, 3) Creating a cloud adoption plan based on current digital estate and prioritized workloads.
 * **Ready:** Prepare the people, culture and environment for change. There are 3 key components in Ready: 1) Create a Cloud Strategy Team and other organizational alignment, 2) Create a skills readiness plan across roles and functions, 3) Set up an Azure Foundation by preparing the cloud environment.
@@ -36,7 +36,7 @@ In reality, these phases are not linear and most likely would turn into a cycle,
 
 ## Content maturation
 
-Each new section of CAF will adhere to a similar maturation cycle, as follows:
+Each new section of the Cloud Adoption Framework will adhere to a similar maturation cycle, as follows:
 
 ### First Release (AKA Content MVP)
 
@@ -60,7 +60,7 @@ Definition of Done: Each Early Testing Release should contain:
 
 ### Ongoing maturity
 
-Continuous improvement and expansion of the content to meet emerging customer needs. New releases occur in a monthly cycle across the Cloud Adoption Framework. However, not every section of CAF with be updated in every months release.
+Continuous improvement and expansion of the content to meet emerging customer needs. New releases occur in a monthly cycle across the Cloud Adoption Framework. However, not every section of the Cloud Adoption Framework with be updated in every months release.
 
 Definition of Done: Each subsequent release should contain:
 
@@ -72,7 +72,7 @@ Definition of Done: Each subsequent release should contain:
 
 ### Out of band releases
 
-One of the goals of CAF is to consolidate various points of guidance across Microsoft. On occasion, new content may be consumed by CAF outside of the maturation cycles above, to meet time sensitive guidance needs. These releases are considered "out of band", as the content will be consumed and republished for a brief period of time prior to the official First Release of a given section. This is rare, but will occasionally show up on the roadmap.
+One of the goals of the Cloud Adoption Framework is to consolidate various points of guidance across Microsoft. On occasion, new content may be consumed by the Cloud Adoption Framework outside of the maturation cycles above, to meet time sensitive guidance needs. These releases are considered "out of band", as the content will be consumed and republished for a brief period of time prior to the official First Release of a given section. This is rare, but will occasionally show up on the roadmap.
 
 ## Quarterly Roadmap
 
@@ -83,7 +83,7 @@ The following outlines specific releases per quarter, to demonstrate maturity of
 * First release: Migrate, Ready, and Plan will each launch as First Releases this quarter, with one section anticipated to release each month.
 * Early testing release: Govern, Migrate and Ready are expected to complete Early Testing releases this quarter.
 * Ongoing maturity release: Govern and Migrate are expected to have at least one release each, with a focus on going deeper into actionable next steps. Govern is expected to see additional investments in Best Practices and Expanded Scope.
-* Out-of-band release: Ready will have an Out of Band release during late April and throughout May. The content in the Ready section will be pulled directly from the Azure Readiness Playbook to support a coming integration with the Azure Portal. This content will be improved and aligned to CAF methodologies prior to the official First Release of the Ready section in late May.
+* Out-of-band release: Ready will have an Out of Band release during late April and throughout May. The content in the Ready section will be pulled directly from the Azure Readiness Playbook to support a coming integration with the Azure Portal. This content will be improved and aligned to Cloud Adoption Framework methodologies prior to the official First Release of the Ready section in late May.
 
 ### Third quarter 2019 (FY20Q1)
 
@@ -110,10 +110,10 @@ This first release served as a test of CAF's ability to unify an important Micro
 
 **Spring Release (4/15/2019):** Cloud migration tooling can easily migrate tens of thousands of IT assets to the cloud. However, customer feedback suggested that cloud migrations are blocked by culture and technical readiness. The spring release addresses these blockers by defining an iterative approach to cloud migration. Within the core methodology is a streamlined Azure migration guide for learning the tools and basic processes, with expanded scope and best practices sections for building on this baseline guidance.
 
-This release also includes expansions to the Plan section of CAF which focuses on business planning. It also incorporates the existing Azure Readiness Guide within the new Ready section of CAF.
+This release also includes expansions to the Plan section of the Cloud Adoption Framework which focuses on business planning. It also incorporates the existing Azure Readiness Guide within the new Ready section of CAF.
 
 *Table of Contents (Left Navigation) changes:* The left navigation has been streamlined to follow the Plan, Ready, Adopt approach. The Getting Started section has been realigned to start the reader with an executive summary of the three journeys supported in the vision for CAF.
 
 ## Next steps
 
-Bookmark this page and come back monthly for updates to the roadmap and notes on any recent changes to CAF guidance.
+Bookmark this page and come back monthly for updates to the roadmap and notes on any recent changes to the Cloud Adoption Framework guidance.

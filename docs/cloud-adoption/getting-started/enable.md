@@ -36,7 +36,7 @@ In addition to the Cloud Adoption Framework, Microsoft provides a number of addi
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage bgdAccent1">
-                            <img alt="CAF Governance Model" src="../_images/operational-transformation-govern-highres.png" data-linktype="external" />
+                            <img alt="Cloud Adoption Framework governance model" src="../_images/operational-transformation-govern-highres.png" data-linktype="external" />
                         </div>
                     </div>
                     <div class="cardText">

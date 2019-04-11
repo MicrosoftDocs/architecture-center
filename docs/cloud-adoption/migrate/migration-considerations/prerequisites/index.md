@@ -15,7 +15,7 @@ Ensure business, culture, and technical readiness prior to beginning an iterativ
 
 ## Review business drivers
 
-Before beginning any cloud migration, review the CAF [Plan](../../../business-strategy/overview.md) and [Ready](../../../ready/overview.md) guidance to ensure your organization is prepared for cloud adoption and migration processes. In particular, review the business requirements and expected outcomes driving the migration:
+Before beginning any cloud migration, review the Cloud Adoption Framework [Plan](../../../business-strategy/overview.md) and [Ready](../../../ready/overview.md) guidance to ensure your organization is prepared for cloud adoption and migration processes. In particular, review the business requirements and expected outcomes driving the migration:
 
 - [Getting started: Migrate](../../../getting-started/migrate.md)
 - [Why are we moving to the cloud?](../../../business-strategy/motivations-why-are-we-moving-to-the-cloud.md)
@@ -46,10 +46,10 @@ A single member of each team should be identified as accountable for each of the
 
 In addition to the high-level accountability, there are a number of actions that an individual or group needs to be directly responsible for. The following are a few such responsibilities that affect these activities:
 
-- **Business prioritization.** Make business decisions regarding the workloads to be migrated and general timing constraints. See the CAF discussion on [cloud migration business motivations](../../../business-strategy/motivations-why-are-we-moving-to-the-cloud.md) for more information.
+- **Business prioritization.** Make business decisions regarding the workloads to be migrated and general timing constraints. See the Cloud Adoption Framework discussion on [cloud migration business motivations](../../../business-strategy/motivations-why-are-we-moving-to-the-cloud.md) for more information.
 - **Change management readiness.** Establish and communicate the plan for tracking technical change during migration. More information on this topic will be available Summer 2019.
 - **Business user alignment.** Establish a plan for readying the business user community for migration execution. More information on this topic will be available Summer 2019.
-- **Digital estate inventory and analysis.** Execution of the tools required to inventory and analyze the digital estate. See the CAF discussion of the [digital estate](../../../digital-estate/index.md) for more information.
+- **Digital estate inventory and analysis.** Execution of the tools required to inventory and analyze the digital estate. See the Cloud Adoption Framework discussion of the [digital estate](../../../digital-estate/index.md) for more information.
 - **Cloud readiness.** Evaluate the target deployment environment to ensure that it complies with requirements of the first few workload candidates. See the [Azure readiness guide](../../../ready/azure-readiness-guide/index.md) for more information.
 
 The remaining articles in this series help with the execution of each.

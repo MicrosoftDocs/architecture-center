@@ -9,7 +9,7 @@ description: Large Enterprise – Additional technical details regarding governa
 author: BrianBlanchard
 ---
 
-# CAF - Ready: Recommended naming and tagging conventions
+# Ready: Recommended naming and tagging conventions
 
 Organizing cloud-based assets in ways that both aid operational management and support accounting requirements is a common challenge facing large cloud adoption efforts. Applying well-defined naming and metadata tagging conventions to cloud-hosted resources allows IT staff to quickly find and manage resources, while also helping to align cloud usage costs with business teams using chargeback and showback accounting mechanisms.
 
@@ -246,4 +246,4 @@ Review the [Azure Primitives document](./xx-primitives.md) to understand core co
 
 ## Next steps
 
-For next steps and the most recent status regarding the CAF Ready model, see the [overview page](../index.md).
+For next steps and the most recent status of the Cloud Adoption Framework Ready model, see the [Ready overview](../index.md).

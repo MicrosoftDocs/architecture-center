@@ -514,4 +514,4 @@ In this scenario, Contoso assesses its SmartHotel360 app database by using the D
 
 ## Next steps
 
-After Contoso assesses this workload as a potential migration candidate, it can begin preparing its on-premises infrastructure and its Azure infrastructure for migration. See the [deploy Azure infrastructure](contoso-migration-infrastructure.md) article in the CAF migrate best practices section for an example of how Contoso performs these processes.
+After Contoso assesses this workload as a potential migration candidate, it can begin preparing its on-premises infrastructure and its Azure infrastructure for migration. See the [deploy Azure infrastructure](contoso-migration-infrastructure.md) article in the Cloud Adoption Framework migrate best practices section for an example of how Contoso performs these processes.

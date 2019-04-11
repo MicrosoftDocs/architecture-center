@@ -13,7 +13,7 @@ ms.topic: landing-page
 
 # Cost Management discipline overview
 
-Cost Management is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md) within the [CAF Governance Model](../overview.md). For many customers, governing cost is a major concern when adopting cloud technologies. Balancing performance demands, adoption pacing, and cloud services costs can be challenging. This is especially relevant during major business transformations that implement cloud technologies. This section outlines the approach to developing a Cost Management discipline as part of a cloud governance strategy.  
+Cost Management is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md) within the [Cloud Adoption Framework governance model](../overview.md). For many customers, governing cost is a major concern when adopting cloud technologies. Balancing performance demands, adoption pacing, and cloud services costs can be challenging. This is especially relevant during major business transformations that implement cloud technologies. This section outlines the approach to developing a Cost Management discipline as part of a cloud governance strategy.  
 
 > [!NOTE]
 > Cost Management governance does not replace the existing business teams, accounting practices, and procedures that are involved in your organization's financial management of IT-related costs. The primary purpose of this discipline is to identify potential cloud-related risks related to IT spending, and provide risk-mitigation guidance to the business and IT teams responsible deploying and managing cloud deployments. As you develop governance policies and processes make sure to involve relevant business and IT staff in your planning and review processes.

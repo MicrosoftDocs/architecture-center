@@ -5,7 +5,7 @@ author: BrianBlanchard
 ms.date: 4/4/2019
 ---
 
-# Innovation through cloud adoption in the Microsoft CAF for Azure
+# Innovation through cloud adoption in the Cloud Adoption Framework
 
 Coming soon: The following are a few high level points to be advanced prior to the Spring release
 

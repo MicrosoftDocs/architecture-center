@@ -7,7 +7,7 @@ ms.date: 4/4/2019
 
 # Decisions that affect migrations
 
-During migration, there are a number of factors that affect decisions and execution activities. This article explains the central theme to those decisions and explores a few questions that carry through the discussions of migration principles in this section of the CAF guidance.
+During migration, there are a number of factors that affect decisions and execution activities. This article explains the central theme to those decisions and explores a few questions that carry through the discussions of migration principles in this section of the Cloud Adoption Framework guidance.
 
 ## Business outcomes
 
@@ -35,7 +35,7 @@ If data, experimentation, research and development (R&D), or new products are yo
 
 ## Balancing the portfolio
 
-This section of CAF establishes the theory to help readers understand different approaches to addressing change within a balanced portfolio. The article on [Balancing the Portfolio](../../expanded-scope/balance-the-portfolio.md) is one example of an expanded scope, designed to help act on this theory.
+This section of the Cloud Adoption Framework establishes the theory to help readers understand different approaches to addressing change within a balanced portfolio. The article on [Balancing the Portfolio](../../expanded-scope/balance-the-portfolio.md) is one example of an expanded scope, designed to help act on this theory.
 
 > [!CAUTION]
 > Only adopt the guidance in this section of the Cloud Adoption Framework if operational transformation or operational outcomes are the primary focus of the Cloud Adoption Team for the next three to six months. In some cases, a desire to *urgently drive change* could justify a company using an operational transformation approach, in spite of a desire to modernize or create new products. This is especially true for large application or data portfolios.
@@ -62,7 +62,7 @@ Scale of the migration is the next important prerequisite decision. The processe
 
 - **How many assets support the migrating workloads today?** Assets would include data structures, applications, VMs, and necessary IT appliances. It's recommended that you choose a relatively small workload for you first migration candidate.
 - **Of those assets, how many are slated for migration?** It is common for a percentage of assets to be terminated during a migration process, due to lack of sustained end-user dependency.
-- **What are the top-down estimates of the migratable assets scale?** For the workloads slated for migration, estimate the number of supporting assets such as applications, virtual machines, data sources , and IT appliances. See the CAF [digital estate](../../../digital-estate/overview.md) section for guidance on identifying relevant assets.
+- **What are the top-down estimates of the migratable assets scale?** For the workloads slated for migration, estimate the number of supporting assets such as applications, virtual machines, data sources , and IT appliances. See the Cloud Adoption Framework [digital estate](../../../digital-estate/overview.md) section for guidance on identifying relevant assets.
 
 ### Effort Timing
 
