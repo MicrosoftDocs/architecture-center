@@ -1,31 +1,36 @@
 # CI/CD for microservices on Kubernetes
 
-This article describes a proven CI/CD process for deploying microservices to Azure Kubernetes Service (AKS).
+It can be challenging to create a reliable CI/CD process for a microservices architecture. Individual teams must be able to release services quickly and reliably, without disrupting other teams or destabilizing the application as a whole.
 
-Before reading this article, consider reading [CI/CD for microservices architectures](./ci-cd.md) to understand the goals and challenges that this pipeline attempts to meet. These goals can be summarized as follows:
+This article describes an example CI/CD pipeline for deploying microservices to Azure Kubernetes Service (AKS). Every team and project is different, so don't take this article as a set of hard-and-fast rules.  
+
+The example pipeline described here was created for a microservices reference implementation called the Drone Delivery application, which you can find on [GitHub][ri]. The application scenario is described [here](./model/domain-analysis.md).
+
+The goals of the pipeline can be summarized as follows:
 
 - Teams can build and deploy their services independently.
 - Code changes that pass the CI process are automatically deployed to a production-like environment.
 - Quality gates are enforced at each stage of the pipeline.
 - A new version of a service can be deployed side by side with the previous version.
 
-Let's start by looking at the overall flow of the pipeline.
+For more background, see [CI/CD for microservices architectures](./ci-cd.md).
 
-## Overview of the CI/CD process
+## Assumptions
 
-This workflow is based on the following assumptions:
+For purposes of this example, here are some assumptions about the development team and the code base:
 
 - The code repository is a monorepo, with folders organized by microservice.
 - The team's branching strategy is based on [trunk-based development](https://trunkbaseddevelopment.com/).
-- The workflow uses [Azure Pipelines](/azure/devops/pipelines/?view=azure-devops) to build, test, and deploy microservices to AKS.
+- The team uses [release branches](/azure/devops/repos/git/git-branching-guidance?view=azure-devops#manage-releases) to manage releases. Separate releases are created for each microservice, .
+- The CI/CD pipeline is built using [Azure Pipelines](/azure/devops/pipelines/?view=azure-devops) to build, test, and deploy the microservices to AKS.
 - The container images for each microservice are stored in [Azure Container Registry](/azure/container-registry/).
 - The team uses Helm charts to package each microservice.
 
-The basic approach described here can work with other tools and services such as Jenkins and Docker Hub.
+These assumptions drive many of the specific details of the CI/CD pipeline. However, the basic approach described here can work with other tools and services such as Jenkins and Docker Hub.
 
-### Validation builds
+## Validation builds
 
-Suppose that a developer is working on a microservice called the Delivery Service. This service manages deliveries in a drone delivery service. (The complete scenario is described [here](./model/domain-analysis.md).) While developing a new feature, the developer checks code into a feature branch. By convention, feature branches are named `feature/*`.
+Suppose that a developer is working on a microservice called the Delivery Service. This service manages deliveries in a drone delivery service. While developing a new feature, the developer checks code into a feature branch. By convention, feature branches are named `feature/*`.
 
 The build definition file includes a trigger that filters by the branch name and the source path:
 
@@ -70,7 +75,7 @@ Once the feature is ready to merge into master, the developer opens a PR. This t
 > [!NOTE]
 > In Azure DevOps Repos, you can define [policies](/azure/devops/repos/git/branch-policies) to protect branches. For example, the policy could require a successful CI build plus a sign-off from an approver in order to merge into master.
 
-### Full CI/CD build
+## Full CI/CD build
 
 At some point, the team is ready to deploy a new version of the Delivery service. The release manager creates a branch from master with this naming pattern: `release/<microservice name>/<semver>`. For example, `release/delivery/v1.0.2`.
 
@@ -97,7 +102,7 @@ You will have multiple environments where you deploy services, including environ
 
 Our recommendation is to create a dedicated production cluster along with a separate cluster for your dev/test environments. Use logical isolation to separate environments within the dev/test cluster. Services deployed to the dev/test cluster should never have access to data stores that hold business data.
 
-## Docker recommendations
+## Build process
 
 When possible, package your build process into a container. That allows you to build your code artifacts using Docker, without needing to configure the build environment on each build machine. A containerized build process makes it easy to scale out the CI pipeline by adding new build agents. Also, any developer on the team can build the code simply by running the build container.
 
@@ -129,7 +134,9 @@ ENTRYPOINT ["dotnet", "Fabrikam.Workflow.Service.dll"]
 
 This Dockerfile defines several build stages. Notice that the stage named `base` uses the ASP.NET Core runtime, while the stage named `build` uses the full ASP.NET Core SDK. The `build` stage is used to build the ASP.NET Core project. But the final runtime container is built from `base`, contains just the runtime and is significantly smaller than the full SDK image.
 
-Another good practice is to run unit tests in the container. For example, here is part of a Dockerfile that builds a test runner. A developer can run the test runner locally, and the automated CI process can run the same tests.
+### Building a test runner
+
+Another good practice is to run unit tests in the container. For example, here is part of a Docker file that builds a test runner:
 
 ```
 FROM build AS testrunner
@@ -142,18 +149,28 @@ COPY Fabrikam.Workflow.Service.Tests/. .
 ENTRYPOINT ["dotnet", "test", "--logger:trx"]
 ```
 
-A developer can use this Dockerfile to run the tests locally:
+A developer can use this Docker file to run the tests locally:
 
 ```bash
 docker build . -t delivery-test:1 --target=testrunner
 docker run -p 8080:8080 delivery-test:1
 ```
 
+The CI pipeline should also run the tests as part of the build verification step.
+
+Note that this file uses the Docker `ENTRYPOINT` command to run the tests, not the Docker `RUN` command.
+
+- If you use the `RUN` command, the tests run every time you build the image. By using `ENTRYPOINT`, the tests are opt-in. They run only when you explicitly target the `testrunner` stage.
+- A failing test does not cause the Docker `build` command to fail. That way you can distinguish container build failures from test failures.
+- Test results can be saved to a mounted volume.
+
+### Container best practices
+
 Here are some other best practices to consider for containers:
 
 - Define organization-wide conventions for container tags, versioning, and naming conventions for resources deployed to the cluster (pods, services, and so on). That can make it easier to diagnose deployment issues.
 
-- During the development and test cycle, the CI/CD process will build many container images. Only some of those are candidates for release, and then only some of those release candidates will get pushed into production. Have a clear versioning strategy, so that you know which images are currently deployed to production, and can roll back to a previous version if necessary.
+- During the development and test cycle, the CI/CD process will build many container images. Only some of those are candidates for release, and then only some of those release candidates will get promoted to production. Have a clear versioning strategy, so that you know which images are currently deployed to production, and can roll back to a previous version if necessary.
 
 - Always deploy specific container version tags, not `latest`.
 
@@ -214,8 +231,7 @@ helm install $HELM_CHARTS/package/ \
      --name package-v0.1.0
 ```
 
-Although your CI/CD pipeline could install a chart directly to Kubernetes, we recommend creating a chart archive (.tgz file) and pushing the chart to a Helm repository such as Azure Container Registry.
-For more information, see [Package Docker-based apps in Helm charts in Azure Pipelines](/azure/devops/pipelines/languages/helm?view=azure-devops).
+Although your CI/CD pipeline could install a chart directly to Kubernetes, we recommend creating a chart archive (.tgz file) and pushing the chart to a Helm repository such as Azure Container Registry. For more information, see [Package Docker-based apps in Helm charts in Azure Pipelines](/azure/devops/pipelines/languages/helm?view=azure-devops).
 
 Another good practice is to provide a change-cause annotation in the deployment template:
 
