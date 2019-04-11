@@ -101,7 +101,7 @@ The new best practices fall into two categories: Corporate IT (Hub) and Cloud Ad
 2. Hub-Spoke template.
     1. The guidance in the [Hub-Spoke with Shared Services Reference Architecture][shared-services] can be used to generate Resource Manager templates for the assets required in a corporate IT hub.
     2. Using those templates, this structure can be made repeatable, as part of a central governance strategy.
-    3. In addition to the current reference architecture, it is advised that a Network Security Group (NSG) template should be created capturing any port blocking or whitelisting requirements for the VNet to host the firewall. This NSG will differ from prior NSGs, because it will be the first NSG to allow public traffic into a VNet.
+    3. In addition to the current reference architecture, it is advised that a network security group (NSG) template should be created capturing any port blocking or whitelisting requirements for the VNet to host the firewall. This NSG will differ from prior NSGs, because it will be the first NSG to allow public traffic into a VNet.
 3. Create Azure policies. Create a policy named `Hub NSG Enforcement` to enforce the configuration of the NSG assigned to any VNet created in this subscription. Apply the built-in Policies for guest configuration as follows:
     1. Audit that Windows web servers are using secure communication protocols.
     2. Audit that password security settings are set correctly inside Linux and Windows machines.

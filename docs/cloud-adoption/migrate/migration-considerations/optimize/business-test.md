@@ -7,7 +7,7 @@ ms.date: 4/4/2019
 
 # Guidance for business testing (UAT) during migration
 
-Traditionally seen as an IT function, user acceptance testing during a business transformation can be orchestrated solely by IT. However, this function is often most impactfully executed as a business function. IT then supports this business activity by facilitating the testing, developing testing plans, and automating tests when possible. Although IT can often serve as a surrogate for testing, there is no replacement for firsthand observation of real users attempting to leverage a new solution in the context of a real or replicated business process.
+Traditionally seen as an IT function, user acceptance testing during a business transformation can be orchestrated solely by IT. However, this function is often most effectively executed as a business function. IT then supports this business activity by facilitating the testing, developing testing plans, and automating tests when possible. Although IT can often serve as a surrogate for testing, there is no replacement for firsthand observation of real users attempting to take advantage of a new solution in the context of a real or replicated business process.
 
 > [!NOTE]
 > When available, automated testing is a much more effective and efficient means of testing any system. However, cloud migrations often focus most heavily on legacy systems or at least stable production systems. Often, those systems aren't managed by thorough and well-maintained automated tests. This article assumes that no such tests are available at the time of migration.
@@ -20,7 +20,7 @@ The goal of business testing is to solicit validation from power users to certif
 
 During business testing, the first evolution is manually driven directly with customers. This is the purest but most time-consuming form of feedback loop.
 
-- **Identify power users.** The business generally has a better understanding of the power users who are most impacted by a technical change.
+- **Identify power users.** The business generally has a better understanding of the power users who are most affected by a technical change.
 - **Align and prepare power users.** Ensure that power users understand the business objectives, desired outcomes, and expected changes to business processes. Prepare them and their management structure for the testing process.
 - **Engage in feedback loop interpretation.** Help the IT staff understand the impact of various points of feedback from power users.
 - **Clarify process change.** When transformation could trigger a change to business processes, communicate the change and any downstream impacts.

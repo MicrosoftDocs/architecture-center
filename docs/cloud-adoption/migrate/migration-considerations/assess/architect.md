@@ -7,7 +7,7 @@ ms.date: 4/4/2019
 
 # Architect workloads prior to migration
 
-This article expands on the assessment process by reviewing activities associated with defining the architecture of a workload within a given iteration. As discussed in the article on [incremental rationalization](../../digital-estate/rationalize-incremental.md), a number of architectural assumptions are made during any business transformation that requires a migration. This article clarifies those assumptions, shares a few roadblocks that can be avoided, and identifies opportunities to accelerate business value by challenging those assumptions. This incremental model for architecture allows teams to move faster and to obtain business outcomes sooner.
+This article expands on the assessment process by reviewing activities associated with defining the architecture of a workload within a given iteration. As discussed in the article on [incremental rationalization](../../../digital-estate/rationalize.md), a number of architectural assumptions are made during any business transformation that requires a migration. This article clarifies those assumptions, shares a few roadblocks that can be avoided, and identifies opportunities to accelerate business value by challenging those assumptions. This incremental model for architecture allows teams to move faster and to obtain business outcomes sooner.
 
 ## Architecture assumptions prior to migration
 
@@ -18,7 +18,7 @@ The following assumptions are generally made with any migration effort:
 - **Retirement test.** Migrations and the hosting of assets consume operational and potential capital expenses. It is assumed that any workloads being migrated have been reviewed to validate ongoing usage. The choice to retire unused assets produces immediate cost savings.
 - **Resize assets.** It is assumed that few on-premises assets actually use the allocated resources. Prior to migration, it is assumed that assets will be resized to best fit actual usage requirements.
 - **Business continuity/disaster recovery (BC/DR) requirements.** It is assumed that an agreed-upon SLA for the workload has been negotiated with the business prior to release planning. These requirements are likely to produce minor architecture changes.
-- **Migration downtime.** Likewise, downtime to promote the workload to production can have an adverse impact on the business. Sometimes, the solutions which are required to transition with minimum downtime need architecture changes. It is assumed that a general understanding of downtime requirements has been established prior to release planning.
+- **Migration downtime.** Likewise, downtime to promote the workload to production can have an adverse effect on the business. Sometimes, the solutions which are required to transition with minimum downtime need architecture changes. It is assumed that a general understanding of downtime requirements has been established prior to release planning.
 
 ## Roadblocks that can be avoided
 

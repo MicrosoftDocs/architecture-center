@@ -23,7 +23,7 @@ The Cloud Adoption Team is accountable for the entire optimization process. Howe
 
 In addition to the high-level accountability, there are a number of actions that an individual or group needs to be directly responsible for. The following are a few activities that require assignments to responsible parties:
 
-- **Business testing.** Resolve any compatibility issues that prevent the workload from completing its migration to the cloud. 
+- **Business testing.** Resolve any compatibility issues that prevent the workload from completing its migration to the cloud.
   - Power users from within the business should participate heavily in testing of the migrated workload. Depending on the degree of optimization attempted, multiple testing cycles may be required.
 - **Business change plan.** Development of a plan for user adoption, changes to business processes, and modification to business KPIs or learning metrics as a result of the migration effort.
 - **Benchmark and optimize.** Study of the business testing and automated testing to benchmark performance. Based on usage, the Cloud Adoption Team refines sizing of the deployed assets to balance cost and performance against expected production requirements.

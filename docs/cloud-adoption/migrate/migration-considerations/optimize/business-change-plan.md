@@ -26,24 +26,24 @@ A business change plan looks beyond the technical change and assumes that every 
 
 **Upstream questions.** Upstream questions look at impacts or changes that come before user adoption happens:
 
-•	Has an expected [business outcome](../../business-strategy/business-outcomes/overview.md) been quantified?
-•	Does the business impact map to defined [learning metrics](../../business-strategy/learning-metrics.md)?
-•	Which business processes and teams leverage this technical solution?
-•	Who in the business can best align power users for testing and feedback?
-•	Have the impacted business leaders been involved in the prioritization and migration planning?
-•	Are there any critical events/dates for the business that could be impacted by this change?
-•	Does the business change plan maximize impact but minimize business disruption?
-•	Is downtime expected? Has a downtime window been communicated to end users?
+- Has an expected [business outcome](../../../business-strategy/business-outcomes/overview.md) been quantified?
+- Does the business impact map to defined [learning metrics](../../../business-strategy/learning-metrics.md)?
+- Which business processes and teams take advantage of this technical solution?
+- Who in the business can best align power users for testing and feedback?
+- Have the affected business leaders been involved in the prioritization and migration planning?
+- Are there any critical events or dates for the business that could be affected by this change?
+- Does the business change plan maximize impact but minimize business disruption?
+- Is downtime expected? Has a downtime window been communicated to end users?
 
 **Downstream questions.** After the adoption is complete, the business change can begin. Unfortunately, this is where many user adoption plans end. Downstream questions help the Cloud Strategy Team maintain a focus on transformation after technical change is completed:
 
-•	Are business users responding well to the changes?
-•	Has performance anticipation been maintained, now that the technical change has been adopted?
-•	Are business processes or customer experiences changing in the anticipated ways?
-•	Are additional changes required to realize learning metrics?
-•	Did the changes align to the targeted business outcomes? If not, why not?
-•	Are additional changes required to contribute to business outcomes?
-•	Have any negative impacts been observed as a result of this change?
+- Are business users responding well to the changes?
+- Has performance anticipation been maintained, now that the technical change has been adopted?
+- Are business processes or customer experiences changing in the anticipated ways?
+- Are additional changes required to realize learning metrics?
+- Did the changes align to the targeted business outcomes? If not, why not?
+- Are additional changes required to contribute to business outcomes?
+- Have any negative effects been observed as a result of this change?
 
 The business change plan varies from company to company. The goal of these questions is to help better integrate the business into the change associated with each release. By looking at each release not as a technology change to be adopted but instead as a business change plan, business outcomes can become more obtainable.
 

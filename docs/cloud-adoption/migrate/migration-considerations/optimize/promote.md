@@ -5,22 +5,25 @@ author: BrianBlanchard
 ms.date: 4/4/2019
 ---
 
+<!-- markdownlint-disable MD026 -->
+
 # What is required to promote a migrated resource to production?
 
 Promotion to production marks the completion of a workload’s migration to the cloud. After the asset and all of its dependencies are promoted, production traffic is rerouted. The rerouting of traffic makes the on-premises assets obsolete, allowing them to be decommissioned.
 
-The process of promotion varies according to the workload's architecture. However, there are a number of consistent prerequisites and a few common tasks. This article describes each and serves as a kind of pre-promotion checklist.
+The process of promotion varies according to the workload's architecture. However, there are a number of consistent prerequisites and a few common tasks. This article describes each and serves as a kind of prepromotion checklist.
 
 ## Prerequisite processes
+
 Each of the following processes should be executed, documented, and validated prior to production deployment:
 
-- **[Assess](assess.md).** The workload has been assessed for cloud compatibility.
-- **[Architect](architect.md).** The structure of the workload has been properly architected to align with the chosen cloud provider.
-- **[Replicate](replicate.md).** The assets have been replicated to the cloud environment.
-- **[Stage](stage.md).** The replicated assets have been restored in a staged instance of the cloud environment.
-- **[Business testing](business-test.md).** The workload has been fully tested and validated by business users.
-- **[Business change plan](business-change-plan.md).** The business has shared a plan for the changes that will be made in accordance with the production promotion; this should include a user adoption plan, changes to business processes, users that require training, and timelines for various activities.
-- **[Ready](ready.md).** Generally, a series of technical changes need to be made in advance of promotion.
+- **[Assess](../assess/overview.md):** The workload has been assessed for cloud compatibility.
+- **[Architect](../assess/architect.md):** The structure of the workload has been properly architected to align with the chosen cloud provider.
+- **[Replicate](../migrate/replicate.md):** The assets have been replicated to the cloud environment.
+- **[Stage](../migrate/stage.md):** The replicated assets have been restored in a staged instance of the cloud environment.
+- **[Business testing](./business-test.md):** The workload has been fully tested and validated by business users.
+- **[Business change plan](./business-change-plan.md):** The business has shared a plan for the changes that will be made in accordance with the production promotion; this should include a user adoption plan, changes to business processes, users that require training, and timelines for various activities.
+- **[Ready](./ready.md):** Generally, a series of technical changes need to be made in advance of promotion.
 
 ## Best practices to execute prior to promotion
 
@@ -36,7 +39,7 @@ The following technical changes will likely need to be completed and documented 
 
 ## Final step: Promote
 
-Workloads will require varying levels of detailed review and promotion processes. However, network realignment serves as the common final step for all promotion releases. When everything else is ready, update DNS records and/or IP addresses to route traffic to the migrated workload.
+Workloads will require varying levels of detailed review and promotion processes. However, network realignment serves as the common final step for all promotion releases. When everything else is ready, update DNS records or IP addresses to route traffic to the migrated workload.
 
 ## Next steps
 
@@ -44,4 +47,3 @@ Promotion of an workload signals the completion of a release. However, in parall
 
 > [!div class="nextstepaction"]
 > [Decomission retired assets](./decomission.md)
-

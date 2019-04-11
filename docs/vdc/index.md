@@ -11,8 +11,11 @@ ms.subservice: enterprise-cloud-adoption
 # Azure Virtual Datacenter and the Enterprise Control Plane
 
 Azure Virtual Datacenter is an approach to making the most of the Azure cloud platform's capabilities while respecting your existing security and networking policies. When deploying enterprise workloads to the cloud, IT organizations and business units must balance governance with developer agility. Azure Virtual Datacenter provides models to achieve this balance with an emphasis on governance.
- 
+
+<!-- markdownlint-disable MD033 -->
+
 ## Resources
+
 <table>
 <tr>
     <td style="width: 64px; vertical-align: middle;"><a href="https://aka.ms/VDC/Concepts"><img src="../_images/virtual-datacenter.svg" alt="Virtual Datacenter eBook" /></a></td>
@@ -44,15 +47,22 @@ Azure Virtual Datacenter is an approach to making the most of the Azure cloud pl
 </tr>
 </table>
 
+<!-- markdownlint-enable MD033 -->
+
+<!-- markdownlint-disable MD026 -->
+
 ## What is the Azure Virtual Datacenter?
 
 Deploying workloads to the cloud introduces the need to develop and maintain trust in the cloud to the same degree you trust your existing datacenters. The first model of the Azure Virtual Datacenter guidance is designed to bridge that need through a locked-down approach to virtual infrastructures. This approach isn’t for everyone. It’s specifically designed to guide enterprise IT groups in extending their on-premises infrastructure to the Azure public cloud. We call this approach the trusted datacenter extension model. Over time, several other models will be offered, including those that allow secure Internet access directly from a virtual datacenter.
 
+<!-- markdownlint-disable MD033 -->
+
 <img src="./images/vdc-components.svg" alt="Virtual Datacenter components" style="max-width:700px;"/>
+
+<!-- markdownlint-enable MD033 -->
 
 These four components make the Azure Virtual Datacenter possible: identity, encryption, software-defined networking, and compliance (including logs and reporting).
 
 In the Azure Virtual Datacenter model, you can apply isolation policies, make the cloud more like the physical datacenters you know, and achieve the levels of security and trust you need. Four components any enterprise IT team would recognize make it possible: software-defined networking, encryption, identity management, and the Azure platform's underlying compliance standards and certifications. These four are key to making a virtual datacenter a trusted extension of your existing infrastructure investment.
 
-
-Continue reading the <a href="https://aka.ms/VDC/eBook">Azure Virtual Datacenter Concepts</a> eBook.
+Continue reading the [Azure Virtual Datacenter Concepts eBook](https://aka.ms/VDC/eBook).

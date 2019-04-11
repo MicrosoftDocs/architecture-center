@@ -11,7 +11,7 @@ After a workload is promoted, production user traffic is routed to the migrated 
 
 ## Validate the business change plan
 
-Transformation happens when business users (or customers) leverage a technical solution to execute processes that drive the business. Readiness is a good opportunity to validate the [business change plan](business-change-plan.md) and to ensure proper training for the business and technical teams involved. In particular, ensure that the following technology-related aspects of the change plan are properly communicated:
+Transformation happens when business users or customers take advantage of a technical solution to execute processes that drive the business. Readiness is a good opportunity to validate the [business change plan](business-change-plan.md) and to ensure proper training for the business and technical teams involved. In particular, ensure that the following technology-related aspects of the change plan are properly communicated:
 
 - End-user training is completed (or at least planned).
 - Any outage windows have been communicated and approved.

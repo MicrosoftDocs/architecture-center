@@ -3,9 +3,10 @@ title: Organize your Azure resources effectively | Microsoft docs
 description: Best practices to effectively organize your Azure management environment 
 author: laraaleite 
 ms.author: laleite
-ms.date: 08/27/2018
+ms.date: 4/4/2019
 ms.topic: conceptual
 ms.service: azure-portal
+ms.custom: fasttrack, new
 ---
 # Organize your Azure resources
 
@@ -17,10 +18,10 @@ Azure provides four levels of management: management groups, subscriptions, reso
 
 ![Diagram that shows relationship of management hierarchy](./media/organize-resources/scope-levels.png)
 
-- **Management groups**: These are containers that help you manage access, policy, and compliance across multiple subscriptions. All subscriptions within a management group automatically inherit the conditions applied to the management group.
-- **Subscriptions**: A subscription groups together user accounts and the resources that have been created by those user accounts. For each subscription, there are limits or quotas on the amount of resources you can create and use. Organizations can use subscriptions to manage costs and the resources that are created by users, teams, or projects.
-- **Resource groups**: A resource group is a logical container into which Azure resources like web apps, databases, and storage accounts are deployed and managed.
-- **Resources**: Resources are instances of services that you create like virtual machines, storage, or SQL databases.
+- **Management groups:** These are containers that help you manage access, policy, and compliance across multiple subscriptions. All subscriptions within a management group automatically inherit the conditions applied to the management group.
+- **Subscriptions:** A subscription groups together user accounts and the resources that have been created by those user accounts. For each subscription, there are limits or quotas on the amount of resources you can create and use. Organizations can use subscriptions to manage costs and the resources that are created by users, teams, or projects.
+- **Resource groups:** A resource group is a logical container into which Azure resources like web apps, databases, and storage accounts are deployed and managed.
+- **Resources:** Resources are instances of services that you create like virtual machines, storage, or SQL databases.
 
 ## Scope of management settings
 
@@ -189,9 +190,9 @@ After you apply tags, you can retrieve all the resources in your subscription wi
 
 You can also use tags for many other things. Common uses include:
 
-- **Metadata / documentation**: Administrators can easily see detail about the resources they are working on like "ProjectOwner".
-- **Automation**: You may have regularly running scripts that can take an action based on a tag value like "ShutdownTime" or "DeprovisionDate".
-- **Billing**: Tags can appear on your invoice. So you can use them to help segment your bill like "CostCenter"  or "BillTo".
+- **Metadata and documentation:** Administrators can easily see detail about the resources they are working on like "ProjectOwner".
+- **Automation:** You may have regularly running scripts that can take an action based on a tag value like "ShutdownTime" or "DeprovisionDate".
+- **Billing:** Tags can appear on your invoice. So you can use them to help segment your bill like "CostCenter"  or "BillTo".
 
 Each resource or resource group can only have a maximum of 15 tag name/value pairs. But this limitation only applies to tags directly applied to the resource group or resource.
 
@@ -206,7 +207,7 @@ To apply a tag to a resource group,
 1. Go to [Resource Groups](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fsubscriptions%2FresourceGroups).
 1. Select on a resource group.
 1. Select **Tags**.
-1. Type in a new name and value or select a existing name and value.
+1. Type in a new name and value or select an existing name and value.
 
 ## Learn more
 
@@ -225,7 +226,7 @@ To apply a tag to a resource group,
 1. Go to **Resource Groups**.
 1. Select on a resource group.
 1. Select **Tags**.
-1. Type in a new name and value or select a existing name and value.
+1. Type in a new name and value or select an existing name and value.
  
 ::: form action="OpenBlade[#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fsubscriptions%2FresourceGroups]" submitText="Go to resource groups" :::
 

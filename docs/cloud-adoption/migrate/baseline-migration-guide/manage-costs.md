@@ -3,10 +3,10 @@ title: Manage costs and billing for your Azure Resources | Microsoft docs
 description: Learn how to set up budgets, payments, and understand invoices for your Azure resources.
 author: dchimes
 ms.author: dchimes
-ms.date    : 11/5/2018
+ms.date: 4/4/2019
 ms.topic: conceptual
 ms.service: azure-portal
-ms.custom: "fasttrack-edit"
+ms.custom: fasttrack, new
 ---
 # Manage costs and billing to understand charges and usage from your Azure Resources
 
@@ -16,22 +16,22 @@ Cost control is a critical component to maximize the value of your investment in
 
 Pay-as-you-go customers have access to all Azure portal cost management and billing services. Use the following features to understand and prepare for your future costs:
 
-* **Understand your bill**: Your invoice is the actual monthly cost of your services.
-* **Manage payment methods**: You can pay for an Azure subscription with a credit or debit card. Make sure you have the card you want your subscription billed to in the payment methods on your account.
-* **Resource tags**: Tags can also be used for billing management. You can combine your resources by tag and group them to one cost center.
+- **Understand your bill:** Your invoice is the actual monthly cost of your services.
+- **Manage payment methods:** You can pay for an Azure subscription with a credit or debit card. Make sure you have the card you want your subscription billed to in the payment methods on your account.
+- **Resource tags:** Tags can also be used for billing management. You can combine your resources by tag and group them to one cost center.
 
 ::: zone target="docs"
 
 ## Understand your bill
 
-1. Go to **Cost Management + Billing**
+1. Go to **Cost Management + Billing**.
 2. Select the subscription.
 3. Select **Invoices**.
 4. Select the invoice.
 
 To see your invoices, go to the [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview)
 
-## Manage Payments
+## Manage payments
 
 To manage payments:
 
@@ -50,7 +50,7 @@ To apply a tag to a resource group:
 
 ## Learn more
 
-For more information, see [understand your bill for Microsoft Azure](https://docs.microsoft.com/en-us/azure/billing/billing-understand-your-invoice).
+For more information, see [understand your bill for Microsoft Azure](/azure/billing/billing-understand-your-invoice).
 
 ::: zone-end
 
@@ -92,9 +92,9 @@ To apply a tag to a resource group:
 
 # [For Enterprise Agreement Customers](#tab/ForEnterpriseAgreementCustomers)
 
- Microsoft Azure Enterprise Enrollments feature five distinct administrative roles:
+Microsoft Azure Enterprise Enrollments feature five distinct administrative roles:
 
-  * **Enterprise Administrator**: has highest level of access, can manage Account Owners, Enterprise Administrators, Department Administrators, and Notification Contacts, and view usage across all accounts 
+ **Enterprise Administrator**: has highest level of access, can manage Account Owners, Enterprise Administrators, Department Administrators, and Notification Contacts, and view usage across all accounts
   * **Department Administrator**: can create and manage departments and create new Account Owners
   * **Account Owner**: can create and manage subscriptions and manage Service Administrators
   * **Service Administrator**: can access and manage subscriptions and development projects on the developer portal

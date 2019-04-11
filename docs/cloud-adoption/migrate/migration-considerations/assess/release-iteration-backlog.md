@@ -11,7 +11,7 @@ This article assumes that migration processes are incremental in nature, running
 
 ## Release backlog
 
-A *release backlog* consists of a series of assets (VMs, databases, files, and applications, among others) that must be migrated before a workload can be released for production usage in the cloud. During each iteration, the Cloud Adoption Team documents and estimates the efforts required to move each asset to the cloud. See the “Iteration backlog” section that follows.
+A *release backlog* consists of a series of assets (VMs, databases, files, and applications, among others) that must be migrated before a workload can be released for production usage in the cloud. During each iteration, the Cloud Adoption Team documents and estimates the efforts required to move each asset to the cloud. See the "Iteration backlog" section that follows.
 
 ## Iteration backlog
 

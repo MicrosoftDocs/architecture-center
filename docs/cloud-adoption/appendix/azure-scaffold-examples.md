@@ -18,18 +18,18 @@ Contoso is a worldwide company that provides supply chain solutions for customer
 
 The ISV portion of the company is divided into several independent business units that manage products in a significant business. Each business unit has its own developers, product managers, and architects.
 
-The Enterprise Technology Services (ETS) business unit provides centralized IT capability, and manages several data centers where business units host their applications. Along with managing the data centers, the ETS organization provides and manages centralized collaboration (such as email and websites) and network/telephony services. They also manage customer-facing workloads for smaller business units who don't have operational staff.
+The Enterprise Technology Services (ETS) business unit provides centralized IT capability, and manages several datacenters where business units host their applications. Along with managing the datacenters, the ETS organization provides and manages centralized collaboration (such as email and websites) and network/telephony services. They also manage customer-facing workloads for smaller business units who don't have operational staff.
 
 The following personas are used in this article:
 
-* Dave is the ETS Azure administrator.
-* Alice is Contoso's Director of Development in the supply chain business unit.
+- Dave is the ETS Azure administrator.
+- Alice is Contoso's Director of Development in the supply chain business unit.
 
 Contoso needs to build a line-of-business app and a customer-facing app. It has decided to run the apps on Azure. Dave reads the [prescriptive subscription governance](azure-scaffold.md) article, and  is now ready to implement the recommendations.
 
 ## Scenario 1: line-of-business application
 
-Contoso is building a source code management system (BitBucket) to be used by developers across the world.  The application uses Infrastructure as a Service (IaaS) for hosting, and consists of web servers and a database server. Developers access servers in their development environments, but they don't need access to the servers in Azure. Contoso ETS wants to allow the application owner and team to manage the application. The application is only available while on Contoso's corporate network. Dave needs to set up the subscription for this application. The subscription will also host other developer-related software in the future.
+Contoso is building a source code management system (BitBucket) to be used by developers across the world.  The application uses infrastructure as a service (IaaS) for hosting, and consists of web servers and a database server. Developers access servers in their development environments, but they don't need access to the servers in Azure. Contoso ETS wants to allow the application owner and team to manage the application. The application is only available while on Contoso's corporate network. Dave needs to set up the subscription for this application. The subscription will also host other developer-related software in the future.
 
 ### Naming standards and resource groups
 
@@ -43,13 +43,13 @@ Dave creates a subscription to support developer tools that are common across al
 
 ### Role-based access control
 
-After creating his subscription, Dave wants to ensure that the appropriate teams and application owners can access their resources. Dave recognizes that each team has different requirements. He uses the groups that have been synched from Contoso's on-premises Active Directory (AD) to Azure Active Directory, and provides the right level of access to the teams.
+After creating his subscription, Dave wants to ensure that the appropriate teams and application owners can access their resources. Dave recognizes that each team has different requirements. He uses the groups that have been synched from Contoso's on-premises Active Directory to Azure Active Directory, and provides the right level of access to the teams.
 
 Dave assigns the following roles for the subscription:
 
 | Role | Assigned to | Description |
 | --- | --- | --- |
-| [Owner](/azure/role-based-access-control/built-in-roles#owner) |Managed ID from Contoso's AD |This ID is controlled with Just in Time (JIT) access through Contoso's Identity Management tool and ensures that subscription owner access is fully audited |
+| [Owner](/azure/role-based-access-control/built-in-roles#owner) |Managed ID from Contoso's on-premises Active Directory |This ID is controlled with Just in Time (JIT) access through Contoso's Identity Management tool and ensures that subscription owner access is fully audited |
 | [Security Reader](/azure/role-based-access-control/built-in-roles#security-reader) |Security and risk management department |This role allows users to look at the Azure Security Center and the status of the resources |
 | [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) |Network team |This role allows Contoso's network team to manage the Site to Site VPN and the Virtual Networks |
 | *Custom role* |Application owner |Dave creates a role that grants the ability to modify resources within the resource group. For more information, see [Custom Roles in Azure RBAC](/azure/role-based-access-control/custom-roles) |
@@ -58,9 +58,9 @@ Dave assigns the following roles for the subscription:
 
 Dave has the following requirements for managing resources in the subscription:
 
-* Because the development tools support developers across the world, he doesn't want to block users from creating resources in any region. However, he needs to know where resources are created.
-* He is concerned with costs. Therefore, he wants to prevent application owners from creating unnecessarily expensive virtual machines.
-* Because this application serves developers in many business units, he wants to tag each resource with the business unit and application owner. By using these tags, ETS can bill the appropriate teams.
+- Because the development tools support developers across the world, he doesn't want to block users from creating resources in any region. However, he needs to know where resources are created.
+- He is concerned with costs. Therefore, he wants to prevent application owners from creating unnecessarily expensive virtual machines.
+- Because this application serves developers in many business units, he wants to tag each resource with the business unit and application owner. By using these tags, ETS can bill the appropriate teams.
 
 He creates the following [Azure policies](/azure/azure-policy/azure-policy-introduction):
 
@@ -145,7 +145,7 @@ For the **production subscription**, they create the following policies:
 
 | Field | Effect | Description |
 | --- | --- | --- |
-| location |deny |Deny the creation of any resources outside of the US data centers |
+| location |deny |Deny the creation of any resources outside of the US datacenters |
 | tags |deny |Require application owner tag |
 | tags |deny |Require department tag |
 | tags |append |Append tag to each resource group that indicates production environment |
@@ -203,4 +203,4 @@ To fulfill these requirements, Dave enables Azure Security Center. He ensures th
 
 ## Next steps
 
-* To learn about creating Resource Manager templates, see [Best practices for creating Azure Resource Manager templates](/azure/azure-resource-manager/resource-manager-template-best-practices).
+- To learn about creating Resource Manager templates, see [Best practices for creating Azure Resource Manager templates](/azure/azure-resource-manager/resource-manager-template-best-practices).

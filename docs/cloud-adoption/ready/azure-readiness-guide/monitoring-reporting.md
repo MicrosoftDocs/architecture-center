@@ -15,19 +15,20 @@ Azure provides a suite of services that together provide a comprehensive solutio
 
 Azure Monitor provides a single unified hub for all monitoring and diagnostics data in Azure. Use it to get visibility across your resources, find and fix problems, optimize performance, and understand customer behavior.
 
-* **Monitor and visualize metrics**: Metrics are numerical values available from Azure Resources that help you understand the health of your systems. Customize charts for your dashboards and use workbooks for reporting.
+- **Monitor and visualize metrics.** Metrics are numerical values available from Azure Resources that help you understand the health of your systems. Customize charts for your dashboards and use workbooks for reporting.
 
-* **Query and analyze logs**: Logs include activity logs and diagnostic logs from Azure. Collect additional logs from other monitoring and management solutions for your cloud or on-premises resources. Use Log Analytics as the central repository to aggregate all this data. From there, you can run queries to help troubleshoot issues or to visualize data.
+- **Query and analyze logs.** Logs include activity logs and diagnostic logs from Azure. Collect additional logs from other monitoring and management solutions for your cloud or on-premises resources. Use Log Analytics as the central repository to aggregate all this data. From there, you can run queries to help troubleshoot issues or to visualize data.
 
-* **Setup alerts and actions**: Alerts proactively notify you of critical conditions. Corrective actions can be taken based on triggers from metrics, logs, or service health issues. You can setup different notifications and actions, and send data to your IT service management tools.
+- **Set up alerts and actions.** Alerts proactively notify you of critical conditions. Corrective actions can be taken based on triggers from metrics, logs, or service health issues. You can setup different notifications and actions, and send data to your IT service management tools.
 
 ::: zone target="docs"
 
  Start monitoring your:
-* [Applications](/azure/application-insights/app-insights-overview)
-* [Containers](/azure/monitoring/monitoring-container-overview)
-* [Virtual machines](/azure/monitoring/monitoring-service-map)
-* [Networks](/azure/networking/network-monitoring-overview)
+
+- [Applications](/azure/application-insights/app-insights-overview)
+- [Containers](/azure/monitoring/monitoring-container-overview)
+- [Virtual machines](/azure/monitoring/monitoring-service-map)
+- [Networks](/azure/networking/network-monitoring-overview)
 
 To monitor other resources, find additional solutions in the Azure Marketplace.
 
@@ -40,26 +41,28 @@ To learn more, see [Azure Monitor documentation](/azure/monitoring-and-diagnosti
 ::: zone-end
 
 ::: zone target="chromeless"
-## Action
 
+## Action
 
 ::: form action="OpenBlade[#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/overview]" submitText="Explore Azure Monitor" :::
 
 ::: zone-end
 
 # [Azure Service Health](#tab/AzureServiceHealth)
+
 Azure Service Health provides personalized alerts and guidance when Azure service incidents affect you. It can notify you, help you understand the impact to your resources, and keep you updated as the issue is resolved. It can also help you prepare for planned maintenance and changes that could affect the availability of your resources.
 
 Azure Service Health includes:
 
-* **Azure status**: A global view of the health of Azure services
-* **Service health**: A personalized view of the health of your Azure services
-* **Resource health**: A deeper view of the health of each of your individual resources
+- **Azure status:** A global view of the health of Azure services.
+- **Service health:** A personalized view of the health of your Azure services.
+- **Resource health:** A deeper view of the health of each of your individual resources.
 
 ::: zone target="chromeless"
+
 ## Action
 
-To set up a Service Health alert,
+To set up a Service Health alert:
 
 1. Go to **Service Health**.
 2. Select **Health alerts**.
@@ -73,7 +76,6 @@ To set up a Service Health alert,
 
 To set up a Service Health alert, go to the [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/healthalerts).
 
-
 ## Learn more
 
 To learn more, see [Azure Service Health documentation](/azure/service-health/).
@@ -81,17 +83,20 @@ To learn more, see [Azure Service Health documentation](/azure/service-health/).
 ::: zone-end
 
 # [Azure Advisor](#tab/AzureAdvisor)
+
 Azure Advisor is a free, personalized cloud consultant that helps you follow and implement Azure best practices. It analyzes your resource configuration and usage telemetry and then recommends how you can optimize your environment. The recommendations are divided into four categories:
 
-* **High availability**: To improve the continuity of your business-critical applications. Recommendations may include adding virtual machines to an availability set or adding geo-redundant endpoints.
-* **Security**: To detect threats and vulnerabilities that might lead to security breaches. Recommendations may include applying disk encryption or enabling network security groups.
-* **Performance**: To improve the speed of your applications. Recommendations may include boosting SQL query performance by creating indexes or re-configuring your traffic manager settings.
-* **Cost**: To optimize and reduce your overall Azure spending. Recommendations may include resizing or shutting down under used virtual machines or switching to Azure Reservations for consistent workloads.
+- **High availability:** To improve the continuity of your business-critical applications. Recommendations may include adding virtual machines to an availability set or adding geo-redundant endpoints.
+- **Security:** To detect threats and vulnerabilities that might lead to security breaches. Recommendations may include applying disk encryption or enabling network security groups.
+- **Performance:** To improve the speed of your applications. Recommendations may include boosting SQL query performance by creating indexes or reconfiguring your traffic manager settings.
+- **Cost:** To optimize and reduce your overall Azure spending. Recommendations may include resizing or shutting down under used virtual machines or switching to Azure Reservations for consistent workloads.
 
 Recommendations in Advisor are based on the resources you deploy and the actions you take in Azure. Check Advisor regularly for the latest recommendations.
 
 ::: zone target="chromeless"
+
 ## Action
+
 ::: form action="OpenBlade[#blade/Microsoft_Azure_Expert/AdvisorBlade]" submitText="Explore Azure Advisor" :::
 
 ::: zone-end
@@ -100,14 +105,11 @@ Recommendations in Advisor are based on the resources you deploy and the actions
 
 To explore Azure Advisor, go to the [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Expert/AdvisorBlade).
 
-
 ## Learn more
 
 To learn more, see [Azure Advisor documentation](/azure/advisor/).
 
 ::: zone-end
-
-
 
 # [Azure Security Center](#tab/AzureSecurityCenter)
 
@@ -120,8 +122,9 @@ Azure Security Center is offered in two tiers: Free and Standard. Features like 
 ::: zone target="chromeless"
 
 ## Action
+
 **Try Standard tier for free for your first 60 days.**
- 
+
 After you enable and configure security policies for your subscription’s resources, you can view the security state of your resources and any issues in the Prevention section. You can also view a list of those issues on the Recommendations tile.
 
 ::: form action="OpenBlade[#blade/Microsoft_Azure_Security/SecurityMenuBlade/SecurityMenuBlade/0]" submitText="Explore Azure Security Center" :::
@@ -132,9 +135,8 @@ After you enable and configure security policies for your subscription’s resou
 
 To explore Azure Security Center, go to the [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/SecurityMenuBlade/0).
 
-
 ## Learn more
 
-To learn more, see [Azure Security Center documentation](/azure/security-center/).
+To learn more, see the [Azure Security Center documentation](/azure/security-center/).
 
 ::: zone-end
