@@ -6,7 +6,7 @@ ms.author: dchimes
 ms.date: 4/4/2019
 ms.topic: conceptual
 ms.service: azure-portal
-ms.custom: fasttrack, new
+ms.custom: "fasttrack-new"
 ---
 # Manage costs and billing to understand charges and usage from your Azure Resources
 
@@ -94,7 +94,7 @@ To apply a tag to a resource group:
 
 Microsoft Azure Enterprise Enrollments feature five distinct administrative roles:
 
- **Enterprise Administrator**: has highest level of access, can manage Account Owners, Enterprise Administrators, Department Administrators, and Notification Contacts, and view usage across all accounts 
+ **Enterprise Administrator**: has highest level of access, can manage Account Owners, Enterprise Administrators, Department Administrators, and Notification Contacts, and view usage across all accounts
   * **Department Administrator**: can create and manage departments and create new Account Owners
   * **Account Owner**: can create and manage subscriptions and manage Service Administrators
   * **Service Administrator**: can access and manage subscriptions and development projects on the developer portal
