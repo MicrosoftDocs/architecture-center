@@ -2,7 +2,7 @@
 
 It can be challenging to create a reliable CI/CD process for a microservices architecture. Individual teams must be able to release services quickly and reliably, without disrupting other teams or destabilizing the application as a whole.
 
-This article describes an example CI/CD pipeline for deploying microservices to Azure Kubernetes Service (AKS). Every team and project is different, so don't take this article as a set of hard-and-fast rules.  
+This article describes an example CI/CD pipeline for deploying microservices to Azure Kubernetes Service (AKS). Every team and project is different, so don't take this article as a set of hard-and-fast rules. Instead, it's meant to be a starting point for designing your own CI/CD process.
 
 The example pipeline described here was created for a microservices reference implementation called the Drone Delivery application, which you can find on [GitHub][ri]. The application scenario is described [here](./model/domain-analysis.md).
 
@@ -21,7 +21,7 @@ For purposes of this example, here are some assumptions about the development te
 
 - The code repository is a monorepo, with folders organized by microservice.
 - The team's branching strategy is based on [trunk-based development](https://trunkbaseddevelopment.com/).
-- The team uses [release branches](/azure/devops/repos/git/git-branching-guidance?view=azure-devops#manage-releases) to manage releases. Separate releases are created for each microservice, .
+- The team uses [release branches](/azure/devops/repos/git/git-branching-guidance?view=azure-devops#manage-releases) to manage releases. Separate releases are created for each microservice.
 - The CI/CD pipeline is built using [Azure Pipelines](/azure/devops/pipelines/?view=azure-devops) to build, test, and deploy the microservices to AKS.
 - The container images for each microservice are stored in [Azure Container Registry](/azure/container-registry/).
 - The team uses Helm charts to package each microservice.
@@ -89,7 +89,7 @@ Assuming this build succeeds, it triggers a deployment (CD) process using an Azu
 
 1. Deploy the Helm chart to a QA environment.
 1. An approver signs off before the package moves to production. See [Release deployment control using approvals](/azure/devops/pipelines/release/approvals/approvals).
-1. Re-tag the Docker image for the production namespace in Azure Container Registry. For example, if the current tag is `myrepo.azurecr.io/delivery:v1.0.2`, the production tag is `myrepo.azurecr.io/prod/delivery:v1.0.2`.
+1. Retag the Docker image for the production namespace in Azure Container Registry. For example, if the current tag is `myrepo.azurecr.io/delivery:v1.0.2`, the production tag is `myrepo.azurecr.io/prod/delivery:v1.0.2`.
 1. Deploy the Helm chart to the production environment.
 
 ![CI/CD workflow](./images/aks-cicd-3.png)
@@ -161,7 +161,7 @@ The CI pipeline should also run the tests as part of the build verification step
 Note that this file uses the Docker `ENTRYPOINT` command to run the tests, not the Docker `RUN` command.
 
 - If you use the `RUN` command, the tests run every time you build the image. By using `ENTRYPOINT`, the tests are opt-in. They run only when you explicitly target the `testrunner` stage.
-- A failing test does not cause the Docker `build` command to fail. That way you can distinguish container build failures from test failures.
+- A failing test doesn't cause the Docker `build` command to fail. That way you can distinguish container build failures from test failures.
 - Test results can be saved to a mounted volume.
 
 ### Container best practices
@@ -170,7 +170,7 @@ Here are some other best practices to consider for containers:
 
 - Define organization-wide conventions for container tags, versioning, and naming conventions for resources deployed to the cluster (pods, services, and so on). That can make it easier to diagnose deployment issues.
 
-- During the development and test cycle, the CI/CD process will build many container images. Only some of those are candidates for release, and then only some of those release candidates will get promoted to production. Have a clear versioning strategy, so that you know which images are currently deployed to production, and can roll back to a previous version if necessary.
+- During the development and test cycle, the CI/CD process will build many container images. Only some of those images are candidates for release, and then only some of those release candidates will get promoted to production. Have a clear versioning strategy, so that you know which images are currently deployed to production, and can roll back to a previous version if necessary.
 
 - Always deploy specific container version tags, not `latest`.
 
