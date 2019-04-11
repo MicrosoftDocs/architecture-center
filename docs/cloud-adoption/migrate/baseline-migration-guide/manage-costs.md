@@ -6,7 +6,7 @@ ms.author: dchimes
 ms.date: 4/4/2019
 ms.topic: conceptual
 ms.service: azure-portal
-ms.custom: fasttrack, new
+ms.custom: "fasttrack - new"
 ---
 # Manage costs and billing to understand charges and usage from your Azure Resources
 
