@@ -6,7 +6,7 @@ ms.author: mlavery
 ms.date: 4/4/2019
 ms.topic: conceptual
 ms.service: azure-portal
-ms.custom: "fasttrack - new"
+ms.custom: "fasttrack-new"
 ---
 
 # Optimize and Transform
