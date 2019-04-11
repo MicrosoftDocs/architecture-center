@@ -17,7 +17,7 @@ This topic is strategic in nature. As such, the approach taken in this article i
 The portfolio balancing effort evaluates which of the following two approaches is best suited to each migrating workload:
 
 - A rehosting migration strategy involves migrating the workload to IaaS resources with a minimum of modification or custom development.
- -An innovation-based approach involves refactoring or rebuilding parts or all of a workload to take advantage of modern cloud-ready technologies.
+ - An innovation-based approach involves refactoring or rebuilding parts or all of a workload to take advantage of modern cloud-ready technologies.
 
 ### Documenting business outcomes
 
