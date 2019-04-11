@@ -111,7 +111,7 @@ To create a resource group,
 
 Well-designed naming standards allow you to identify resources in the portal, on a bill, and within scripts. Most likely, you already have naming standards for your on-premises infrastructure. When adding Azure to your environment, you should extend those naming standards to your Azure resources. Naming standard facilitate more efficient management of the environment at all levels. You can use Azure Policy as a tool to enforce naming standards across your entire Azure environment.
 
-The [](/azure/architecture/best-practices/naming-conventions) guidance provides general recommendations on naming conventions as well as discussions of naming limitations and platform rules. The discussion extends beyond the generic guidance with more detailed recommendations aimed specifically at supporting enterprise cloud adoption efforts in the [CAF: Recommended naming and tagging conventions](../ready/considerations/naming-and-tagging.md).
+The [](/azure/architecture/best-practices/naming-conventions) guidance provides general recommendations on naming conventions as well as discussions of naming limitations and platform rules. The discussion extends beyond the generic guidance with more detailed recommendations aimed specifically at supporting enterprise cloud adoption efforts in the [CAF: Recommended naming and tagging conventions](../../ready/considerations/naming-and-tagging.md).
 
 When constructing your naming convention, you need to identify the key pieces of information that you want to reflect in a resource name. Different information will be relevant for different resource types, but the following list provides examples of information that are useful when constructing resource names.
 
