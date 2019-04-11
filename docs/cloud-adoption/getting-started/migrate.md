@@ -1,6 +1,7 @@
 ---
 title: "CAF: Migrate"
-description: Introduction to Cloud migration
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+description: Introduction to cloud migration
 author: BrianBlanchard
 ms.date: 4/4/2019
 ---
@@ -14,11 +15,11 @@ This framework is designed to speak most directly to Cloud Architects and the Cl
 > [!NOTE]
 > This guidance is currently in a public preview state. Terms, approaches, and guidance are being thoroughly tested with customers, partners, and Microsoft teams during this preview. As such the TOC and guidance my change slightly.
 
-## Motivations and Methodology
+## Motivations and methodology
 
 The motivation or business outcome driving a cloud migration can heavily influence the best approach to migration. Cloud migrations can align to a number of business outcomes. Clearly communicating business drivers and the metrics used to measure success is an important first step in cloud migration efforts. The following are a few examples of common migration motivations, grouped by the methodology (or type of migration).
 
-### Asset Migration
+### Asset migration
 
 Respond to a critical event or a need to move specific assets. Asset migrations are usually motivated by the following short term critical business events.
 
@@ -31,7 +32,7 @@ Respond to a critical event or a need to move specific assets. Asset migrations 
 
 ![Methodology supporting asset migration](../_images/migration/asset-migration.png)
 
-### Workload Migration
+### Workload migration
 
 More often cloud migrations are part of a focused effort to streamline IT operations, costs, or complexity. The following are a few longer term motivations associated with a workload migration.
 
@@ -43,7 +44,7 @@ More often cloud migrations are part of a focused effort to streamline IT operat
 
 ![Methodology supporting workload migration](../_images/operational-transformation-migrate.png)
 
-### Portfolio Migration
+### Portfolio migration
 
 C-level conversations regarding cloud migration tend to focus on the benefits associated with portfolio migrations. These migrations are more likely to produce tangible business outcomes like the following:
 
@@ -55,7 +56,7 @@ C-level conversations regarding cloud migration tend to focus on the benefits as
 
 **Aligned methodology:** Portfolio migrations look across the entire IT portfolio to guide decisions regarding investments, impact on business processes, potential of innovation outcomes, and the future state of workload collections. This model requires a much deeper alignment between the business and IT. The technical implementation is a slight extension of the workload or asset migration methodologies. The methodology differs most when it comes to the rigor of business planning, richer readiness investments, improved change management, and a more disciplined approach to cloud governance. The following section outlines this methodology in more detail.
 
-## Portfolio Migration Methodology
+## Portfolio migration methodology
 
 This methodology is based on an incremental approach to cloud adoption that aligns to Agile technology strategies, Growth Mindset based cultural growth, and Business Outcome-driven strategies. This methodology consists of the following high level components which guide the implementation of each strategy.
 
