@@ -8,7 +8,6 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: raynew
-
 ---
 
 # Scale a migration to Azure

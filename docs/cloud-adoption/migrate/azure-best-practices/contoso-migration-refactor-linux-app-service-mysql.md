@@ -8,7 +8,6 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-
 ---
 
 # Refactor a Linux app to multiple regions using Azure App Service, Traffic Manager, and Azure MySQL
