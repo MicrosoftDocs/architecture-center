@@ -23,7 +23,14 @@ This example demonstrates how to configure an API Management Service deployed in
 
 ![Architecture diagram][architecture]
 
-The Web APIs will be hosted as a platform as a service (PaaS) applications on Azure with Hybrid Connectivity to an on-premises network. These APIs will be available to both external and internal developers and can make use of streamlined API connections and documentation.
+The above scenario covers a complete lifecycle of Internal APIs getting consumed by the External Users. Here's how the data flows: 
+1. Developers checks in there code in Github repository connected to CI/ CD pipeline Agent installed on Azure VM in its subnet
+2. Agent pushes the builds to API Apps hosted on ILB ASE
+3. API Management consumes the above APIs via HOST Headers specified in API Management policy
+4. API Management uses App Service Environment's DNS name for all the APIs
+5. Application Gateway exposes API Management's developer and API portal
+6. Azure Private DNS is used to route the traffic internally between ASE, API Management and Application Gateway
+7. External Users uses exposed Dev Portal to consume the APIs via Application Gateway's Public IP
 
 ### Components
 
