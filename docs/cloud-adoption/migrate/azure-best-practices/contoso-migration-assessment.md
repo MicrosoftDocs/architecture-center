@@ -9,8 +9,6 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: raynew
-
-
 ---
 
 # Assess on-premises workloads for migration to Azure
@@ -125,7 +123,7 @@ Here's how Contoso performs its assessment:
 > - **Step 5: Prepare for dependency analysis by using Azure Migrate.** Contoso installs Azure Migrate agents on the VMs, so the company can see dependency mapping between VMs.
 > - **Step 6: Assess the VMs by using Azure Migrate.** Contoso checks dependencies, groups the VMs, and runs the assessment. When the assessment is ready, Contoso analyzes the assessment in preparation for migration.
 
-## Step 1: Download and install Data Migration Assistant
+### Step 1: Download and install Data Migration Assistant
 
 1. Contoso downloads Data Migration Assistant from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53595).
     - Data Migration Assistant can be installed on any machine that can connect to the SQL Server instance. Contoso doesn't need to run it on the SQL Server machine.
@@ -133,7 +131,7 @@ Here's how Contoso performs its assessment:
 2. Contoso runs the downloaded setup file (DownloadMigrationAssistant.msi) to begin the installation.
 3. On the **Finish** page, Contoso selects **Launch Microsoft Data Migration Assistant** before finishing the wizard.
 
-## Step 2: Run and analyze the database assessment for SmartHotel360
+### Step 2: Run and analyze the database assessment for SmartHotel360
 
 Now, Contoso can run an assessment to analyze its on-premises SQL Server database for the SmartHotel360 app.
 
@@ -163,7 +161,7 @@ Now, Contoso can run an assessment to analyze its on-premises SQL Server databas
 
 8. In **Review Results**, Contoso views the assessment results.
 
-### Analyze the database assessment
+#### Analyze the database assessment
 
 Results are displayed as soon as they're available. If Contoso fixes issues, it must select **Restart Assessment** to rerun the assessment.
 
@@ -193,11 +191,11 @@ Results are displayed as soon as they're available. If Contoso fixes issues, it 
 > - Consolidate assessments into a [SQL Server database](/sql/dma/dma-consolidatereports?view=ssdt-18vs2017).
 > - Consolidate assessments into a [Power BI report](/sql/dma/dma-powerbiassesreport?view=ssdt-18vs2017).
 
-## Step 3: Prepare for VM assessment by using Azure Migrate
+### Step 3: Prepare for VM assessment by using Azure Migrate
 
 Contoso needs to create a VMware account that Azure Migrate can use to automatically discover VMs for assessment, verify rights to create a VM, note the ports that need to be opened, and set the statistics settings level.
 
-### Set up a VMware account
+#### Set up a VMware account
 
 VM discovery requires a read-only account in vCenter Server that has the following properties:
 
@@ -206,15 +204,15 @@ VM discovery requires a read-only account in vCenter Server that has the followi
 - **Details:** The user is assigned at the datacenter level, with access to all objects in the datacenter.
 - To restrict access, assign the **No access** role with the **Propagate to child** object to the child objects (vSphere hosts, datastores, VMs, and networks).
 
-### Verify permissions to create a VM
+#### Verify permissions to create a VM
 
 Contoso verifies that it has permissions to create a VM by importing a file in .ova format. Learn how to [create and assign a role with privileges](https://kb.vmware.com/s/article/1023189?other.KM_Utility.getArticleLanguage=1&r=2&other.KM_Utility.getArticleData=1&other.KM_Utility.getArticle=1&ui-comm-runtime-components-aura-components-siteforce-qb.Quarterback.validateRoute=1&other.KM_Utility.getGUser=1).
 
-### Verify ports
+#### Verify ports
 
 The Contoso assessment uses dependency mapping. Dependency mapping requires an agent to be installed on VMs that will be assessed. The agent must be able to connect to Azure from TCP port 443 on each VM. Learn about [connection requirements](/azure/log-analytics/log-analytics-concept-hybrid).
 
-### Set statistics settings
+#### Set statistics settings
 
 Before Contoso begins the deployment, it must set the statistics settings for the vCenter Server to level 3.
 
@@ -236,11 +234,11 @@ To set the level:
 
     ![vCenter Server statistics level](./media/contoso-migration-assessment/vcenter-statistics-level.png)
 
-## Step 4: Discover VMs
+### Step 4: Discover VMs
 
 To discover VMs, Contoso creates an Azure Migrate project. Contoso downloads and sets up the collector VM. Then, Contoso runs the collector to discover its on-premises VMs.
 
-### Create a project
+#### Create a project
 
 1. In the [Azure portal](https://portal.azure.com), Contoso searches for **Azure Migrate**. Then, Contoso creates a project.
 2. Contoso specifies a project name (**ContosoMigration**) and the Azure subscription. It creates a new Azure resource group (**ContosoFailoverRG**).
@@ -251,7 +249,7 @@ To discover VMs, Contoso creates an Azure Migrate project. Contoso downloads and
 
     ![Azure Migrate - Create migration project](./media/contoso-migration-assessment/project-1.png)
 
-### Download the collector appliance
+#### Download the collector appliance
 
 Azure Migrate creates an on-premises VM known as the *collector appliance*. The VM discovers on-premises VMware VMs and sends metadata about the VMs to the Azure Migrate service. To set up the collector appliance, Contoso downloads an OVA template, and then imports it to the on-premises vCenter Server instance to create the VM.
 
@@ -260,7 +258,7 @@ Azure Migrate creates an on-premises VM known as the *collector appliance*. The 
 
     ![Azure Migrate - Download the OVA file](./media/contoso-migration-assessment/download-ova.png)
 
-### Verify the collector appliance
+#### Verify the collector appliance
 
 Before deploying the VM, Contoso checks that the OVA file is secure:
 
@@ -274,7 +272,7 @@ Before deploying the VM, Contoso checks that the OVA file is secure:
     ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
 3. The generated hash should match the hash values listed [here](/azure/migrate/tutorial-assessment-vmware#continuous-discovery).
 
-### Create the collector appliance
+#### Create the collector appliance
 
 Now, Contoso can import the downloaded file to the vCenter Server instance and provision the collector appliance VM:
 
@@ -288,7 +286,7 @@ Now, Contoso can import the downloaded file to the vCenter Server instance and p
 5. In **Network Mapping**, Contoso specifies the network in which to connect the collector VM. The network needs internet connectivity to send metadata to Azure.
 6. Contoso reviews the settings, and then selects **Power on after deployment** > **Finish**. A message that confirms successful completion appears when the appliance is created.
 
-### Run the collector to discover VMs
+#### Run the collector to discover VMs
 
 Now, Contoso runs the collector to discover VMs. Currently, the collector currently supports only **English (United States)** as the operating system language and collector interface language.
 
@@ -318,7 +316,7 @@ Now, Contoso runs the collector to discover VMs. Currently, the collector curren
 
     ![View collection progress](./media/contoso-migration-assessment/collector-collection-process.png)
 
-### Verify VMs in the portal
+#### Verify VMs in the portal
 
 When collection is finished, Contoso checks that the VMs appear in the portal:
 
@@ -330,17 +328,17 @@ When collection is finished, Contoso checks that the VMs appear in the portal:
 
     ![Azure Migrate - Agent installation is required](./media/contoso-migration-assessment/machines-no-agent.png)
 
-## Step 5: Prepare for dependency analysis
+### Step 5: Prepare for dependency analysis
 
 To view dependencies between VMs that it wants to assess, Contoso downloads and installs agents on the app VMs. Contoso installs agents on all VMs for its apps, both for Windows and Linux.
 
-### Take a snapshot
+#### Take a snapshot
 
 To keep a copy of the VMs before modifying them, Contoso takes a snapshot before the agents are installed.
 
 ![Machine snapshot](./media/contoso-migration-assessment/snapshot-vm.png)
 
-### Download and install the VM agents
+#### Download and install the VM agents
 
 1. In **Machines**, Contoso selects the machine. In the **Dependencies** column, Contoso selects **Requires installation**.
 2. In the **Discover Machines** pane, Contoso:
@@ -350,7 +348,7 @@ To keep a copy of the VMs before modifying them, Contoso takes a snapshot before
 
     ![Agent download](./media/contoso-migration-assessment/download-agents.png)
 
-### Install the agents on Windows VMs
+#### Install the agents on Windows VMs
 
 Contoso runs the installation on each VM.
 
@@ -368,25 +366,27 @@ Contoso runs the installation on each VM.
 
 5. In **Ready to Install**, Contoso installs the MMA.
 
-#### Install the Dependency agent on Windows VMs
+##### Install the Dependency agent on Windows VMs
 
 1. Contoso double-clicks the downloaded Dependency Agent.
 2. Contoso accepts the license terms and waits for the installation to finish.
 
     ![Dependency Agent Setup - Installing](./media/contoso-migration-assessment/dependency-agent.png)
 
-### Install the agents on Linux VMs
+#### Install the agents on Linux VMs
 
 Contoso runs the installation on each VM.
 
-#### Install the MMA on Linux VMs
+##### Install the MMA on Linux VMs
 
 1. Contoso installs the Python ctypes library on each VM by using the following command:
 
     `sudo apt-get install python-ctypeslib`
+
 2. Contoso must run the command to install the MMA agent as root. To become root, Contoso runs the following command, and then enters the root password:
 
     `sudo -i`
+
 3. Contoso installs the MMA:
     - Contoso enters the workspace ID and key in the command.
     - Commands are for 64-bit.
@@ -397,7 +397,7 @@ Contoso runs the installation on each VM.
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w 6b7fcaff-7efb-4356-ae06-516cacf5e25d -s k7gAMAw5Bk8pFVUTZKmk2lG4eUciswzWfYLDTxGcD8pcyc4oT8c6ZRgsMy3MmsQSHuSOcmBUsCjoRiG2x9A8Mg==
     ```
 
-#### Install the Dependency Agent on Linux VMs
+##### Install the Dependency Agent on Linux VMs
 
 After the MMA is installed, Contoso installs the Dependency Agent on the Linux VMs:
 
@@ -409,11 +409,11 @@ After the MMA is installed, Contoso installs the Dependency Agent on the Linux V
     wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDependencyAgent-Linux64.bin && sudo sh InstallDependencyAgent-Linux64.bin -s
     ```
 
-## Step 6: Run and analyze the VM assessment
+### Step 6: Run and analyze the VM assessment
 
 Contoso can now verify machine dependencies and create a group. Then, it runs the assessment for the group.
 
-### Verify dependencies and create a group
+#### Verify dependencies and create a group
 
 1. To determine which machines to analyze, Contoso selects **View Dependencies**.
 
@@ -436,7 +436,7 @@ Contoso can now verify machine dependencies and create a group. Then, it runs th
     > [!NOTE]
     > To view more granular dependencies, you can expand the time range. You can select a specific duration or select start and end dates.
 
-### Run an assessment
+#### Run an assessment
 
 1. In **Groups**, Contoso opens the group (**smarthotelapp**), and then selects **Create assessment**.
 
@@ -446,13 +446,13 @@ Contoso can now verify machine dependencies and create a group. Then, it runs th
 
 Contoso uses the default assessment settings, but you can [customize settings](/azure/migrate/how-to-modify-assessment.md).
 
-### Analyze the VM assessment
+#### Analyze the VM assessment
 
 An Azure Migrate assessment includes information about the compatibility of on-premises with Azure, suggested right-sizing for Azure VM, and estimated monthly Azure costs.
 
 ![Azure Migrate - Assessment report](./media/contoso-migration-assessment/assessment-overview.png)
 
-#### Review confidence rating
+##### Review confidence rating
 
 ![Azure Migrate - Assessment display](./media/contoso-migration-assessment/assessment-display.png)
 
@@ -471,7 +471,7 @@ An assessment has a confidence rating of from 1 star to 5 stars (1 star is the l
    61%-80% | 4 stars
    81%-100% | 5 stars
 
-#### Verify Azure readiness
+##### Verify Azure readiness
 
 ![Azure Migrate - Assessment readiness](./media/contoso-migration-assessment/azure-readiness.png)
 
@@ -492,7 +492,7 @@ Setting | Indication | Details
 
 <!-- markdownlint-enable MD033 -->
 
-#### Review monthly cost estimates
+##### Review monthly cost estimates
 
 This view shows the total compute and storage cost of running the VMs in Azure. It also shows details for each machine.
 
