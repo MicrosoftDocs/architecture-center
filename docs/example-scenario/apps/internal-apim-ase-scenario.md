@@ -13,7 +13,7 @@ social_image_url: ./media/architecture-internal-apim-ase-scenario.jpg
 
 # Publishing internal APIs to external consumers
 
-In this scenario an organization has hosted multiple APIs using an [App Service Environments][ase] and would like to consolidate these APIs internally using [Azure API Management (APIM)][apim] deployed into a Virtual Network. The internal API Management instance could also be exposed to external users to allow for utilization of the full potential of the APIs. This external exposure could be achieved using an [Application Gateways][appgtwy] forwarding requests to the internal API Management service which in turn consumes the apis deployed in the ASE. The most interesting part is that since both the App Service Env and APIM services are integrated in a VNET, having them working together presented new challenges. This required leveraging policies within APIM to add a HOST header to the request as it passed through the APIM service to ensure that the ASE's load balancer would properly forward the request.
+In this scenario an organization has hosted multiple APIs using an [App Service Environments][ase] and would like to consolidate these APIs internally using [Azure API Management (APIM)][apim] deployed into a Virtual Network. The internal API Management instance could also be exposed to external users to allow for utilization of the full potential of the APIs. This external exposure could be achieved using an [Application Gateways][appgtwy] forwarding requests to the internal API Management service which in turn consumes the apis deployed in the ASE.
 
 This example demonstrates how to configure an API Management Service deployed into a vnet which consumes APIs hosted in an App Service Environments on a secured private VNET and assumes
 - The development team will modernize the APIs back end, which is hosted on WebApps in App Service Environments internally
@@ -46,22 +46,21 @@ The Web APIs will be hosted as a platform as a service (PaaS) applications on Az
 
 ## Considerations
 
-1. The web apis are hosted over secured HTTPs protocol and will be using an [SSL Certificate][ssl].
-2. The Application Gateway also is configured over port 443 for secured and reliable outbound calls.
-3. The API Management service is configured to use custom domains using SSL certificates.
-4. Consider the [Network configuration][ntwkcons] for App Service Environments
-5. There needs to be a explicit mention about [port 3443 allowing API Management][apim-port-nsg] to manage via Portal or PowerShell.
-6. The API Management accepts ASE's DNS entry for all the apps hosted under App Service Environments. Add an [APIM policy][apim-policy] to explicitly set the HOST Header to allow the ASE load balancer to differentiate between Apps under the App Service Environment.
-7. Consider [Integrating with Azure Application Insights][azure-apim-ai], which also surfaces metrics through [Azure Monitor][azure-mon] for monitoring.
-8. If using CI/CD pipelines for deploying Internal APIs, consider [build your own Hosted Agent on a VM][hosted-agent] in the VNET
+- The web apis are hosted over secured HTTPs protocol and will be using an [SSL Certificate][ssl].
+- The Application Gateway also is configured over port 443 for secured and reliable outbound calls.
+- The API Management service is configured to use custom domains using SSL certificates.
+- Consider the [Network configuration][ntwkcons] for App Service Environments
+- There needs to be a explicit mention about [port 3443 allowing API Management][apim-port-nsg] to manage via Portal or PowerShell.
+- Leverage policies within APIM to add a HOST header for the API hosted on ASE to ensure that the ASE's load balancer would properly forward the request.
+- The API Management accepts ASE's DNS entry for all the apps hosted under App Service Environments. Add an [APIM policy][apim-policy] to explicitly set the HOST Header to allow the ASE load balancer to differentiate between Apps under the App Service Environment.
+- Consider [Integrating with Azure Application Insights][azure-apim-ai], which also surfaces metrics through [Azure Monitor][azure-mon] for monitoring.
+- If using CI/CD pipelines for deploying Internal APIs, consider [build your own Hosted Agent on a VM][hosted-agent] in the VNET
 
 ### Availability
 
 Azure API Management service could be deployed as a [Multi-Region deployment][apim-multiregion] for higher availability and also to reduce latencies. This feature is only available in Premium Mode though. Please note that, the API Management service in this specific scenario consumes APIs from App Service Environments. One could also use APIM for APIs hosted on the internal on-premises infrastructure.
 
 App Service Environments could make use of [Traffic Manager][ase-trafficmanager] profiles to distribute the traffic hosted on App Service Environments for higher scale and availability.
-
-- For considerations concerning availability, see the [availability checklist][availability] in the Azure Architecture Center.
 
 ### Scalability
 
@@ -71,12 +70,9 @@ App Service Environments are designed for scale with limits based on the pricing
 
 Azure Application Gateway auto scaling is available as a part of the Zone redundant SKU in all public Azure regions. See the [public preview feature][appgtwy-scale] regarding App gateway Auto scaling.
 
-- For scalability topics, see the [scalability checklist][scalability] available in the Azure Architecture Center.
-
 ### Security
 
 Since the above example scenario is hosted completely on an internal network, API Management and ASE are already deployed on [secured infrastructure (Azure VNET)][vnet-security]. Application Gateways can be [integrated with Azure Security Center][appgtwy-asc] to provide a seamless way to prevent, detect, and respond to threats to the environment.
-
 - For general guidance on designing secure solutions, see the [Azure Security Documentation][security]
 
 ### Resiliency
@@ -96,7 +92,7 @@ This example scenario though talks more about configuration, the APIs hosted on 
 
 [![Deploy to Azure](https://azuredeploy.net/deploybutton.svg)](https://deploy.azure.com/?repository=https://github.com/ssarwa/API-Management-ASE-AppGateway)
 
-The components deployed using the above ARM template
+The components deployed using the above ARM template needs to be further configured as below
 
 1. VNET with the following configurations: 
    * Name: ase-internal-vnet
@@ -154,6 +150,7 @@ Check out the related scenario on [Migrating legacy web APIs to API Management][
 <!-- links -->
 
 [architecture]: ./media/architecture-internal-apim-ase-scenario.jpg
+[dns]: https://docs.microsoft.com/en-us/azure/dns/private-dns-overview
 [ase]: https://docs.microsoft.com/en-us/azure/app-service/environment/intro
 [apim]: https://docs.microsoft.com/en-us/azure/api-management/api-management-key-concepts
 [appgtwy]: https://docs.microsoft.com/en-us/azure/application-gateway/overview
