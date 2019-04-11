@@ -1,5 +1,6 @@
 ---
 title: "CAF: Balancing the portfolio"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Balancing the portfolio
 author: BrianBlanchard
 ms.date: 4/4/2019

@@ -1,5 +1,6 @@
 ---
-title: Organize your Azure resources effectively | Microsoft docs
+title: Organize your Azure resources effectively
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Best practices to effectively organize your Azure management environment 
 author: laraaleite 
 ms.author: laleite

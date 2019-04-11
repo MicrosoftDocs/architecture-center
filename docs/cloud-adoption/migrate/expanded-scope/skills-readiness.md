@@ -1,5 +1,6 @@
 ---
 title: "CAF: Skills readiness"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Skills readiness
 author: BrianBlanchard
 ms.date: 4/4/2019

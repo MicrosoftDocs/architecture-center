@@ -9,7 +9,6 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/4/2019
 ms.author: raynew
-
 ---
 
 # Rehost an on-premises Linux app to Azure VMs

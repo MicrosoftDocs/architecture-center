@@ -1,5 +1,6 @@
 ---
 title: "CAF: Addressing the complexity of migrating multiple geographical regions"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Addressing the complexity of migrating multiple geographical regions
 author: BrianBlanchard
 ms.date: 4/4/2019

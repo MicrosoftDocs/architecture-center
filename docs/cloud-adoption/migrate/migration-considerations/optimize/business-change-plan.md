@@ -1,5 +1,6 @@
 ---
 title: "Guidance to developing a business change plan"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: A process within Cloud Migration that focuses on the tasks of migrating workloads to the cloud
 author: BrianBlanchard
 ms.date: 4/4/2019
@@ -10,13 +11,14 @@ ms.date: 4/4/2019
 Traditionally, IT has overseen the release of new workloads. During a major transformation, like a datacenter migration or a cloud migration, a similar pattern of IT lead adoption could be applied. However, the traditional approach might miss opportunities to realize additional business value. For this reason, before a migrated workload is promoted to production, implementing a broader approach to user adoption is suggested. This article outlines the ways in which a business change plan adds to a standard user adoption plan.
 
 ## Traditional user adoption approach
+
 User adoption plans focus on how users will adopt a new technology or change to a given technology. This approach is time tested for introducing users to new tools. In a typical user adoption plan, IT focuses on the installation, configuration, maintenance, and training associated with the technical changes being introduced to the business environment.
 
 Although approaches may vary, general themes are present in most user adoption plans. These themes are usually based on a risk control and facilitation approach that aligns to evolutionary change. The Eason Matrix, illustrated in the figure below, represents the drivers behind those themes across a spectrum of adoption types.
 
-![Eason Matrix of user adoption concerns](../../../_images/eason-matrix.gif)
+![Eason matrix of user adoption concerns](../../../_images/eason-matrix.gif)
 
-*Eason Matrix of user adoption types*
+*Eason matrix of user adoption types.*
 
 These themes are often based on the assumption that introduction of new solutions to users should focus largely on risk control and facilitation of change. Additionally, IT has focused mostly on risk from the technology change and facilitation of that change.
 
@@ -56,4 +58,4 @@ After business change is documented and planned, [business testing](./business-t
 
 ## References
 
-* Eason, K. (1988) Information technology and organizational change, New York: Taylor and Francis
+- Eason, K. (1988) Information technology and organizational change, New York: Taylor and Francis.

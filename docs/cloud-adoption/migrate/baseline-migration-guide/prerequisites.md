@@ -1,5 +1,6 @@
 ---
 title: "CAF: Prerequisites for the Simple Migration Journey"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Prerequisites for the Simple Migration Journey
 author: matticusau
 ms.author: mlavery

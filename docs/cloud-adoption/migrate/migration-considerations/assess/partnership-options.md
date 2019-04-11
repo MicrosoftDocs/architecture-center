@@ -1,9 +1,11 @@
 ---
 title: "Understanding partnership and support options" 
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Describes options and approaches to support migration efforts
 author: BrianBlanchard
 ms.date: 4/4/2019
 ---
+
 # Understanding partnership options
 
 During migration, the Cloud Adoption Team performs the actual migration of workloads to the cloud. Unlike the collaborative and problem-solving tasks when defining the [digital estate](../../../digital-estate/overview.md) or building the [core cloud infrastructure](../../../infrastructure/index.md), migration tends to be a series of repetitive execution tasks. Beyond the repetitive aspects, there are likely testing and tuning efforts that require deep knowledge of the chosen cloud provider. The repetitive nature of this process can sometimes be best addressed by a partner, reducing strain on full-time staff. Additionally, partners may be able to better align deep technical expertise when the repetitive processes encounter execution anomalies.

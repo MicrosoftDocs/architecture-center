@@ -1,5 +1,6 @@
 ---
 title: "CAF: Governance or compliance strategy"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Governance or compliance strategy
 author: BrianBlanchard
 ms.date: 4/4/2019

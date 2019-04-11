@@ -1,5 +1,6 @@
 ---
 title: "CAF: Assess the digital estate"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Assess the digital estate
 author: matticusau
 ms.author: mlavery

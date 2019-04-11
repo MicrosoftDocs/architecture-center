@@ -1,5 +1,6 @@
 ---
 title: "CAF: Simple Migration Journey"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how to migrate your services to Azure effectively for your organization, with step-by-step guidance.
 author: matticusau
 ms.author: mlavery

@@ -1,5 +1,6 @@
 ---
 title: "Benchmark and resize cloud assets"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Benchmark and resize cloud assets
 author: BrianBlanchard
 ms.date: 10/11/2018

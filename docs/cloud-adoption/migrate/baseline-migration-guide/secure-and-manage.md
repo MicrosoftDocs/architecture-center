@@ -1,6 +1,7 @@
 ---
-title: "CAF: Secure and Manage"
-description: Secure and Manage
+title: "CAF: Secure and manage"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+description: Secure and manage
 author: matticusau
 ms.author: mlavery
 ms.date: 4/4/2019

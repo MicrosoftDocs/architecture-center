@@ -1,5 +1,6 @@
 ---
 title: "CAF: Multiple datacenters"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Multiple datacenters
 author: BrianBlanchard
 ms.date: 4/4/2019
