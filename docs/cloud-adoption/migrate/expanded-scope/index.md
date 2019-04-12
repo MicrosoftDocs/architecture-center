@@ -24,11 +24,12 @@ The following checklist outlines the common areas of complexity which could requ
   - [Skills readiness](./skills-readiness.md)
   - Aligning support (Partner, services, and support) *(Coming Summer 2019)*
 - **Technical Strategy-driven scope changes**
-  - Existing datacenter constraints *(Coming Summer 2019)*
-  - Migrating at scale - High volume or velocity of migrations *(Coming Summer 2019)*
-  - [Multiple datacenters](./multiple-data-centers.md)
-  - Change management and solution documentation *(Coming Summer 2019)*
-  - [Governance or compliance strategy](./governance-or-compliance.md)
+    - Existing datacenter constraints *(Coming Summer 2019)*
+    - Migrating at scale - High volume or velocity of migrations *(Coming Summer 2019)*
+    - [Multiple datacenters](./multiple-data-centers.md)
+    - [Data requirements exceed network capacity](./network-capacity-exceeded.md)
+    - Change management and solution documentation *(Coming Summer 2019)*
+    - [Governance or compliance strategy](./governance-or-compliance.md)
 - **Workload-specific scope changes**
   - Architect workloads for resiliency *(Coming Summer 2019)*
   - Align migration to application patterns *(Coming Summer 2019)*

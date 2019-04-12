@@ -161,7 +161,7 @@ As you migrate your workloads and run them in Azure, staff with workload access 
 
 ## Best practice: Review audit and security logs
 
-Azure Active Directory (Azure AD) provides activity logs that appear in Azure Monitor. The logs capture the operations performed in Azure tenancy, when they occurred, and who performed them.
+Azure Active Directory (AD) provides activity logs that appear in Azure Monitor. The logs capture the operations performed in Azure tenancy, when they occurred, and who performed them.
 
 - Audit logs show the history of tasks in the tenant. Sign-in activity logs show who carried out the tasks.
 - Access to security reports depends on your Azure AD license. In Free and Basic you get a list of risky users and sign-ins. In Premium 1 and Premium 2 editions you get underlying event information.
@@ -320,8 +320,8 @@ Planning for business continuity and disaster recovery (BCDR), is a critical exe
 
 Broadly, your BCDR strategy must consider:
 
-- **Data backup:** How to keep your data safe so that you can recover it easily if outages occur.
-- **Disaster recovery:** How to keep your apps resilient and available if outages occur.
+- **Data backup**: How to keep your data safe so that you can recover it easily if outages occur.
+- **Disaster recovery**: How to keep your apps resilient and available if outages occur.
 
 ### Set up BCDR
 
@@ -336,8 +336,8 @@ In most cases an on-premises workload is retired after migration, and your on-pr
 
 For workloads running on Azure IaaS VMs, consider these backup solutions:
 
-- **Azure Backup:** Provides application-consistent backups for Azure Windows and Linux VMs.
-- **Storage snapshots:** Takes snapshots of Blob storage.
+- **Azure Backup**: Provides application-consistent backups for Azure Windows and Linux VMs.
+- **Storage snapshots.** Takes snapshots of blob storage.
 
 #### Azure Backup
 

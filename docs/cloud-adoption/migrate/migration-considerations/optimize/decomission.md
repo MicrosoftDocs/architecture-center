@@ -1,6 +1,5 @@
 ---
 title: "Decomission Retired Assets"
-titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Decomission Retired Assets
 author: BrianBlanchard
 ms.date: 4/4/2019
@@ -32,3 +31,5 @@ After retired asssets are decomissioned, the migration is completed. This create
 
 > [!div class="nextstepaction"]
 > [Retrospective](./retrospective.md)
+
+ 

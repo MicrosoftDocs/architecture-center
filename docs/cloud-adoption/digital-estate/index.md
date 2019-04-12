@@ -21,11 +21,11 @@ The importance of a digital estate is most obvious during planning and execution
 
 The measurement of a digital estate changes depending on the desired business outcomes.
 
-- **Infrastructure migrations:** When an organization is inward facing and seeks to optimize cost, operational processes, agility, or other aspects of optimizing operations, the digital estate focuses on VMs, servers, and supporting workloads.
+- **Infrastructure migrations**. When an organization is inward facing and seeks to optimize cost, operational processes, agility, or other aspects of optimizing operations, the digital estate focuses on VMs, servers, and supporting workloads.
 
-- **Application innovation:** For customer-obsessed transformations, the lens is a bit different. The focus should be placed in the applications, APIs, and transactional data that support the customers. VMs and network appliances are often of less focus.
+- **Application innovation**. For customer-obsessed transformations, the lens is a bit different. The focus should be placed in the applications, APIs, and transactional data that support the customers. VMs and network appliances are often of less focus.
 
-- **Data-driven innovation:** In today's digitally driven market, it's difficult to launch a new product or service without a strong foundation in data. During disruptive transformation, the focus is more on the silos of data across the organization.
+- **Data-driven innovation**. In today's digitally driven market, it's difficult to launch a new product or service without a strong foundation in data. During disruptive transformation, the focus is more on the silos of data across the organization.
 
 Once an organization understands the most important form of transformation, digital estate planning becomes much easier to manage.
 

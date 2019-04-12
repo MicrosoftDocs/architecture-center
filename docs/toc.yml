@@ -681,6 +681,8 @@
           items:
           - name: Multiple datacenters
             href: cloud-adoption/migrate/expanded-scope/multiple-data-centers.md
+          - name: Data requirements exceed network capacity
+            href: cloud-adoption/migrate/expanded-scope/network-capacity-exceeded.md
           - name: Governance and compliance
             href: cloud-adoption/migrate/expanded-scope/governance-or-compliance.md
       - name: Best practices

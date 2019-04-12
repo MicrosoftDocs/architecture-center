@@ -1,6 +1,5 @@
 ---
 title: "CAF: Addressing the complexity of migrating multiple geographical regions"
-titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Addressing the complexity of migrating multiple geographical regions
 author: BrianBlanchard
 ms.date: 4/4/2019
@@ -24,7 +23,7 @@ Align changes across the migration process to address the initial inventory.
 
 ### Documenting complexity
 
-When working through the above steps, use a table like the following example to document you findings.
+The following table can aid in documenting the findings from the steps above:
 
 |Region  |Country  |Local Employees  |Local External Users  |Local Datacenters or Assets |Data Sovereignty Requirements  |
 |---------|---------|---------|---------|---------|---------|
@@ -37,9 +36,9 @@ When working through the above steps, use a table like the following example to 
 
 ### Why is data sovereignty relevant?
 
-Around the world, government organizations have begun establishing data sovereignty requirements, like the European Union's [General Data Protection Regulation (GDPR)](https://eugdpr.org/). Compliance requirements of this nature often require localization within a specific region or even within a specific country to protect their citizens. In some cases, data pertaining to customers, employees, or partners must be stored on a cloud platform within the same region as the end user.
+Around the world, government organizations have begun establishing data sovereignty requirements, like General Data Protection Regulation (GDPR). Compliance requirements of this nature often require localization within a specific region or even within a specific country to protect their citizens. In some cases, data pertaining to customers, employees, or partners must be stored on a cloud platform within the same region as the end user.
 
-Addressing this challenge has been a significant motivation for cloud migrations for organizations that operate on a global scale. To maintain compliance requirements, some companies have chosen to deploy duplicate IT assets to cloud providers within specific regions. In the above example table, Germany would be a good illustration of this scenario, where there are customers, partners, and employees in Germany—but no existing IT assets. This company may choose to deploy some assets to a datacenter within the GDPR area to ensure compliance, potentially even using the German Azure datacenters. An understanding of the data impacted by GDPR would help the Cloud Adoption Team determine the best migration approach in this case.
+Addressing this challenge has been a significant motivation for cloud migrations for companies that operate on a global scale. To maintain compliance requirements, some companies have chosen to deploy duplicate IT assets to cloud providers within the region. In the example table above, Germany would be a good example of this scenario. In this example, there are customer, partners, and employees in Germany, but no existing IT assets. This company may choose to deploy some assets to a datacenter within the GDPR area, potentially even using the German Azure datacenters. An understanding of the data affected by GDPR would help the Cloud Adoption Team understand the best migration approach in this case.
 
 ### Why is the location of end users relevant?
 
@@ -51,13 +50,13 @@ Since the company supports employees, partners, and customers in Germany but the
 
 The location of existing datacenters can affect a migration strategy. THe following are a few of the most common impacts:
 
-**Architecture decisions:** Selecting a target region/location is one of the first steps in migration strategy design. This is often influenced by the location of the existing assets. Additionally, the available of cloud services and the unit cost of those services can vary from one region to the next. As such, understanding the current and future location of assets affects the architecture decisions and can also affect budget estimates.
+**Architecture decisions:** Target region/location is one of the first steps in migration strategy design. This is often influenced by the location of the existing assets. Additionally, the available of cloud services and the unit cost of those services can vary from one region to the next. As such, understanding the current and future location of assets affects the architecture decisions and can also affect budget estimates.
 
-**Datacenter dependencies:** Based on the data in the example table above, there is a high likelihood of dependencies existing between the various datacenters around the globe. In many organizations which operate on this type of scale, those dependencies may not be documented or well understood. The approaches used to evaluate user profiles will help identify some these dependencies. However, additional steps are suggested during the assess process to mitigate risks associated with this complexity.
+**Datacenter dependencies:** Based on the data in the table above, there is a high likelihood of dependencies existing between the various datacenters around the globe. In many organizations which operate on this type of scale, those dependencies may not be documented or well understood. The approaches used to evaluate user profiles will help identify some these dependencies. However, additional steps are suggested during the assess process to mitigate risks associated with this complexity.
 
 ## Implementing the general approach
 
-This approach is driven by quantifiable information. As such, the following recommendations follow a data-driven model for addressing the global migration complexities.
+This approach is driven by quantifiable information. As such, the following approach will follow a data-driven model for addressing the global migration complexities.
 
 ## Suggested prerequisites
 
@@ -66,18 +65,18 @@ It is suggested that the Cloud Adoption Team begin with the migration of a simpl
 When scope for a migration includes multiple regions, the following readiness considerations should be evaluated by the Cloud Adoption Team:
 
 - Data sovereignty might require localization of some assets, but there are a many assets that may not be governed by those compliance constraints. Things like logging, reporting, network routing, identity, and other central IT services may be eligible to be hosted as a shared services across multiple subscriptions or even multiple regions. It is advised that the cloud adoption team evaluate a share service model to those services, as outlined in the [reference architecture for a hub-spoke model with shared services](/azure/architecture/reference-architectures/hybrid-networking/shared-services)
-- When deploying multiple instances of similar environments, an environment factory could create consistency, improve governance, and accelerate deployment. The [large enterprise governance journey](../../governance/journeys/large-enterprise/overview.md) establishes an approach to creating an environment factory which scales across multiple regions.
+- When deploying multiple instances of similar environments, an environment factory could create consistency, improve governance, and accelerate deployment. The [large enterprise governance journey](../../governance/journeys/large-enterprise/overview.md) establishes an approach that creates an environment factory which scales across multiple regions.
 
 Once the team is comfortable with the baseline approach and readiness is aligned, there are a few data-driven prerequisites to consider:
 
 - General discovery: Complete the [Documenting complexity](#documenting-complexity) table above.
-- Perform a user profile analysis on each affected country: It is important to understand general end user routing early in the migration process. Changing global lease lines and adding connections like ExpressRoute to a cloud datacenter can require months of networking delays. Address this as early in the process as possible. <!--**TODO: Can any tools in Azure create a network routing profile from on-premises users to on-premises workloads?**-->
+- Perform a user profile analysis on each affected country: It is important to understand general end user routing early in the migration process. Changing global lease lines and adding connections like ExpressRoute to a cloud datacenter can require months of networking delays. Address this as early in the process as possible. **TODO: Can any tools in Azure create a network routing profile from on-premises users to on-premises workloads?**
 - Initial Digital Estate rationalization: Any time complexity is introduced into a migration strategy, an initial digital estate rationalization should be completed. See the guidance on [Digital Estate rationalization](../../digital-estate/overview.md) for assistance.
   - Additional digital estate requirements: Establish tagging policies to identify any workload affected by data sovereignty requirements. Required tags should begin in the digital estate rationalization and carry through to the migrated assets.
 - Evaluate a hub-spoke model: Distribute systems often share a number of common dependencies. Those dependencies can often be addressed through the implementation of a hub-spoke model. While such a model is out of scope for the migration process, it should be flagged for consideration during future iterations of the [Ready processes](../../ready/overview.md).
-- Prioritization of the migration backlog: When network changes are required to support the production deployment of a workload that supports multiple regions, it is important for the Cloud Strategy Team to track and manage escalations regarding those network changes. The higher level of executive support will aid in accelerating the change. However, the more important impact is that it gives the strategy team an ability to reprioritize the backlog to ensure that global workloads aren't roadblocked by network changes. Such workloads should only be prioritized, after the network changes are complete.
+- Prioritization of the migration backlog: When network changes are required to support the production deployment of a workload that supports multiple regions, it is important for the Cloud Strategy Team to track and manage escalations regarding those network changes. The higher level of executive support will aid in accelerating the change. However, the more important impact is that it gives the strategy team an ability to re-prioritize the backlog to ensure that global workloads aren't roadblocked by network changes. Such workloads should only be prioritized, after the network changes are complete.
 
-Ensuring these prerequisites are met will help you establish processes that can address complexity during the execution of your migration strategy.
+These prerequisites will help establish processes that can address this complexity during execution of the migration strategy.
 
 ## Assess process changes
 
@@ -90,12 +89,12 @@ When dealing with global asset and user base complexities, there are a few key a
 > [!IMPORTANT]
 > Two important notes: First, a subject matter expert with an understanding of asset placement and IP address schemas will be required to identify assets that reside in a secondary datacenter. Second, it is important to evaluate both downstream dependencies and Clients in the visual to understand bidirectional dependencies.
 
-**Identify global user impact:** The outputs from the prerequisite user profile analysis should identify any workload affected by global user profiles. When a migration candidate is in the affected workload list, the architect preparing for migration should consult networking and operations subject matter experts to validate network routing and performance expectations. At minimum, the architecture should include an ExpressRoute connection between the closest network operations center (NOC) and Azure. The [reference architecture for ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute) connections can aid in the configuration of any necessary connections.
+**Identify global user impact:** The outputs from the prerequisite user profile analysis should identify any workload affected by global user profiles. When a migration candidate is in the affected workload list, the architect preparing for migration should consult networking and operations subject matter experts to validate network routing and performance expectations. At minimum, the architecture should include an ExpressRoute connection between the closest network operations center (NOC) and Azure. The [reference architecture for ExpressRoute](/azure/architecture/reference-architectures/hybrid-networking/expressroute) connections can aid in configuration of the necessary connection.
 
 **Design for compliance:** The outputs from the prerequisite user profile analysis should identify any workload affected by data sovereignty requirements. During the architecture activities of the Assess process, the assigned architect should consult compliance subject matter experts to understand any requirements for migration/deployment across multiple regions. Those requirements will significantly affect design strategies. The reference architectures for [multiregion web applications](/azure/architecture/reference-architectures/app-service-web-app/multi-region) and [multiregion n-tier applications](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server) can aid in design.
 
 > [!WARNING]
-> When using either of these reference architectures, it may be necessary to exclude specific data elements from replication processes to adhere to data sovereignty requirements. This will add an additional step to the promotion process.
+> When using either of the reference architectures above, it may be necessary to exclude specific data elements from replication processes to adhere to data sovereignty requirements. This will add an additional step to the promotion process.
 
 ## Migrate process changes
 
@@ -122,13 +121,13 @@ Addressing global complexity during optimization and promotion could require dup
 
 ### Suggested action during the optimize and promote process
 
-**Pretest optimization:** Initial automated testing can identify potential optimization opportunities, as with any migration effort. In the case of global workloads, it is important to test the workload in each region independently, as minor configuration changes in the network or the target Azure datacenter could affect performance.
+**Pretest optimization:** Initial automation testing can identify potential optimization opportunities, as with any migration effort. In the case of global workloads, it is important to test the workload in each region independently, as minor configuration changes in the network or the target Azure datacenter could affect performance.
 
 **Business Change Plans:** For any complex migration scenario, it is advised that a business change plan be created to ensure clear communication regarding any changes to business processes, user experiences, and timing of the efforts required to integration the changes. In the case of global migration efforts, the plan should include considerations for end users in each affected geography.
 
 **Business testing:** In conjunction with the business change plan, business testing may be required in each region to ensure adequate performance and adherence to the modified networking routing patterns.
 
-**Promotion flights:** Often times, promotion happens as a single activity, rerouting production traffic to the migrated workloads. In the case of global release efforts it is advised that promotion be delivered in flights (or predefined collections of users). This allows the Cloud Strategy team and Cloud Adoption team to better observe performance and improve support of users in each region. Promotion flights are often controlled at the networking level by changing the routing of specific IP ranges from the source workload assets to the newly migrated assets. After a specified collection of end users have been migrated, the next group can be rerouted.
+**Promotion flights:** Often times, promotion happens as a single activity, rerouting production traffic to the migrated workloads. In the case of global release efforts it is advised that promotion be delivered in flights (or predefined collections of users). This allows the Cloud Strategy team and Cloud Adoption team to better observe performance and improve support of users in each region. Promotion flights are often controlled at the networking level by changing the routing of specific IP ranges from the source workload assets to the newly migrated assets. After a specified collection of end users have been migrated, the next group can be re-routed.
 
 **Flight optimization:** One of the benefits of promotion flights, is that it allows for deeper observations and additional optimization of the deployed assets. After a brief period of production usage by the first flight, additional refinement of the migrated assets is suggested, when allowed by IT operation procedures.
 

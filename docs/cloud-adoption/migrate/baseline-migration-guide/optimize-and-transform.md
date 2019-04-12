@@ -1,13 +1,12 @@
 ---
-title: "CAF: Optimize and transform"
-titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: Optimize and transform
+title: "CAF: Optimize and Transform"
+description: Optimize and Transform
 author: matticusau
 ms.author: mlavery
 ms.date: 4/4/2019
 ms.topic: conceptual
 ms.service: azure-portal
-ms.custom: "fasttrack-new"
+ms.custom: fasttrack, new
 ---
 
 # Optimize and Transform

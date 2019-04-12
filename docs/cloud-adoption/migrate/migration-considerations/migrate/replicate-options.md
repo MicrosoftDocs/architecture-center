@@ -32,6 +32,8 @@ After you have assessed on-premises and cloud infrastructure for migration, Azur
 - Test failover to make sure everything's working.
 - Run a one-time failover to Azure.
 
+
+
 ## Azure Database Migration Service
 
 This service helps reduce the complexity of your cloud migration by using a single comprehensive service instead of multiple tools. [Azure Database Migration Service](/azure/dms/dms-overview) is designed as a seamless, end-to-end solution for moving on-premises SQL Server databases to the cloud. It is a fully managed service designed to enable seamless migrations from multiple database sources to Azure data platforms with minimal downtime. It integrates some of the functionality of existing tools and services, providing customers with a comprehensive, highly available solution.

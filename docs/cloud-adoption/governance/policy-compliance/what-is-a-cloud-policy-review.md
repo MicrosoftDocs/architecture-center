@@ -23,8 +23,8 @@ As companies mature corporate IT policies, dependencies on past technical decisi
 
 Cloud Transformations create a natural inflection point to reconsider the legacy policy decisions of the past. Technical capabilities and default processes change considerably in the cloud, as do the inherit risks. Using the prior example, the tape backup policy stemmed from the risk of a single point of failure by keeping data in one location and the business need to minimize the risk profile by mitigating this risk. In a cloud deployment, there are several options that deliver the same risk mitigation, with much lower recovery time objectives (RTO). For instance:
 
-- A cloud-native solution could enable georeplication of the SQL Azure database.
-- A hybrid solution could use Azure Site Recovery (ASR) to replicate an IaaS workload to multiple datacenters.
+- A cloud-native solution could enable geo-replication of the SQL Azure database
+- A hybrid solution could leverage Azure Site Recovery (ASR) to replicate an IaaS workload to multiple datacenters
 
 When executing a cloud transformation, policies often govern many of the tools, services, and processes available to the cloud adoption teams. If those policies are based on legacy technologies, they may hinder the team's efforts to drive change. In the worst case, important policies are entirely ignored by the migration team to enable workarounds. Neither is an acceptable outcome.
 
@@ -36,7 +36,7 @@ For each of these disciplines, the review process follows these steps:
 
 1. Review existing on-premises policies related to the specific discipline, looking for two key data points: legacy dependencies and identified business risks.
 2. Evaluate each business risk by asking a simple question: "Does the business risk still exist in a cloud model?"
-3. If the risk still exists, rewrite the policy by documenting the necessary mitigation, not the technical solution.
+3. If the risk still exists, re-write the policy by documenting the necessary mitigation, not the technical solution.
 4. Review the updated policy with the cloud adoption teams to understand potential solutions to the required mitigation.
 
 ## Example of a policy review for a legacy policy

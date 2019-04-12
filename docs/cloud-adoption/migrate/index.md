@@ -1,14 +1,13 @@
 ---
 title: "CAF: Cloud Migration"
-titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: Cloud migration in the Cloud Adoption Framework
+description: Explanation of Cloud Migration Overview
 author: BrianBlanchard
 ms.date: 4/4/2019
 layout: LandingPage
 ms.topic: landing-page
 ---
 
-# Cloud migration in the Cloud Adoption Framework
+# Cloud migration in the Microsoft CAF for Azure
 
 Cloud migration is the process of moving existing digital assets into a cloud platform. In this approach, existing assets are replicated to the cloud with minimal modifications. When an application or workload is operational in the cloud, users are transitioned from the existing solution to the cloud solution. Cloud migration is one means of effectively balancing a cloud portfolio. Often times, this is the fastest and most agile approach, short term. Conversely, some of the benefits of the cloud may not be realized through this approach without additional future modification. Enterprises and mid-market customers use this approach to accelerate the pace of change, avoid planned capital expenditures, and reduce ongoing operational costs.
 
@@ -20,7 +19,7 @@ The cloud provides various adoption mechanisms, each with similar degrees of inv
 
 ## Cloud migration guides
 
-To start down an adoption path, choose one of the following guides. Each guide outlines a series of best practices, based on a specific reference experience based on customer feedback. For readers who are new to the incremental approach of the Cloud Adoption Framework migration model, it is advised that you review the high level migration theory introduction below, before adopting either guide.
+To start down an adoption path, choose one of the following guides. Each guide outlines a series of best practices, based on a specific reference experience based on customer feedback. For readers who are new to the incremental approach of the CAF migration model, it is advised that you review the high level migration theory introduction below, before adopting either guide.
 
 <!-- markdownlint-disable MD033 -->
 
@@ -67,31 +66,31 @@ A journey without a target destination is just wandering. It’s important to es
 
 This series of articles will outline two journeys, each with a similar end state: Migrate a large percentage of existing assets to Azure. However, the business outcomes and current state will heavily influence the processes required to get there. Those subtle deviations will result in two radically different approaches to reaching the a similar end state.
 
-![Cloud Adoption Framework migration model](../_images/operational-transformation-migrate.png)
+![CAF migration model](../_images/operational-transformation-migrate.png)
 
 To guide incremental execution during the transition to the end state, this model breaks migration into two areas of focus.
 
-- **Migration Preparation:** Establish a rough migration backlog based largely on the current state and desired outcomes:
+**Migration Preparation**. Establish a rough migration backlog based largely on the current state and desired outcomes:
 
-  - **Business outcomes:** The key business objectives that necessitate this migration.
-  - **Digital estate estimate:** Establishes a rough idea of the number and condition of workloads to be migrated.
-  - **Roles and responsibilities:** An understanding of the team structure, separation of responsibilities, and access requirements.
-  - **Change management requirements:** Defines the cadence, processes, and documentation required to approve change management.
+- **Business outcomes:** The key business objectives that necessitate this migration.
+- **Digital estate estimate:** Establishes a rough idea of the number and condition of workloads to be migrated.
+- **Roles and responsibilities:** An understanding of the team structure, separation of responsibilities, and access requirements.
+- **Change management requirements:** Defines the cadence, processes, and documentation required to approve change management.
 
-  These initial inputs will shape the migration backlog. The output of the migration backlog will be a prioritized series of applications to be migrated to the cloud. That list of applications will shape the execution of the cloud migration process. Over time, it will also grow to include much of the documentation needed to manage change.
+These initial inputs will shape the migration backlog. The output of the migration backlog will be a prioritized series of applications to be migrated to the cloud. That list of applications will shape the execution of the cloud migration process. Over time, it will also grow to include much of the documentation needed to manage change.
 
-- **Migration process:** All activities related to cloud migration will fall into one of the following processes, as it relates to the Migration Backlog.
+**Migration process:**.All activities related to cloud migration will fall into one of the following processes, as it relates to the Migration Backlog.
 
-  - **Assess:** Evaluate the existing asset and establish a plan for migration of the asset.
-  - **Migrate:** Replicate the functionality of an asset in the cloud.
-  - **Optimize:** Balance performance, cost, access, and operational capacity of the cloud asset.
-  - **Secure and manage:** Ensure the asset is ready for ongoing operations.
+- **Assess:** Evaluate the existing asset and establish a plan for migration of the asset.
+- **Migrate:** Replicate the functionality of an asset in the cloud.
+- **Optimize:** Balance performance, cost, access, and operational capacity of the cloud asset.
+- **Secure and manage:** Ensure the asset is ready for ongoing operations.
 
-  The questions asked during the development of a migration backlog will determine the complexity and level of effort required within the Cloud Migration Process during each iteration and each release of functionality.
+The questions asked during the development of a migration backlog will determine the complexity and level of effort required within the Cloud Migration Process during each iteration and each release of functionality.
 
 ## Transition to the end state
 
-The desired goal is a smooth, semi-automated migration to the cloud. In such a scenario, the migration process uses the tools provided by a cloud vendor to rapidly replicate and stage assets in the cloud. Once verified a simple network change would reroute users to the cloud solution. For many use cases, the technology to reach this desired goal is largely available. There are tested cases that demonstrate the speed at which 10,000 VMs can be replicated into Azure.
+The desired goal is a smooth, semi-automated migration to the cloud. In such a scenario, the migration process uses the tools provided by a cloud vendor to rapidly replicate and stage assets in the cloud. Once verified a simple network change would re-route users to the cloud solution. For many use cases, the technology to reach this desired goal is largely available. There are tested cases that demonstrate the speed at which 10,000 VMs can be replicated into Azure.
 
 Unfortunately, an **incremental migration** approach is still required. In most environments, the long list of VMs to be migrated has to be decomposed into smaller units of work for a migration to be successful. There are many factors that create limits to the number of VMs that can be migrated in a given period of time. Outbound Network speed is one of the few limiters that are technical in nature. Most of the limiters are based on the businesses ability to validate and consume change.
 
@@ -157,7 +156,7 @@ Narrative Summary: This approach consists of fewer than 10,000 VMs. Applications
 
 <!-- markdownlint-enable MD033 -->
 
-These two journeys represent two extremes of experience for customers who invest in cloud migration. Most companies reflect a combination of the two scenarios above. After reviewing the journey, use the Cloud Adoption Framework migration model to start the migration conversation and modify the baseline journeys to more closely meet your needs.
+These two journeys represent two extremes of experience for customers who invest in cloud migration. Most companies reflect a combination of the two scenarios above. After reviewing the journey, use the CAF migration model to start the migration conversation and modify the baseline journeys to more closely meet your needs.
 
 ## Next steps
 

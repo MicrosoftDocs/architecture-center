@@ -1,3 +1,3 @@
 ---
-redirect_url: virtual-machines/basic-workload
+redirect_url: virtual-machines/basic-workload.md
 ---

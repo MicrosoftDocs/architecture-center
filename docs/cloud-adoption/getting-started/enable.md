@@ -16,12 +16,13 @@ The Microsoft Cloud Adoption Framework for Azure is provided as a free self-serv
 
 Throughout this framework, enablement is a core theme. The following checklist contains a series of topics that should be embedded in any cloud adoption effort to ensure the journey is a success in the eyes of both IT and the business:
 
-* Plan: Establishing clear [business outcomes](../business-strategy/business-outcomes/overview.md), a defined [digital estate plan](../digital-estate/index.md), and well understood [adoption backlogs](../migrate/migration-considerations/prerequisites/migration-backlog-review.md)
+* Plan: Establishing clear [business outcomes](../business-strategy/business-outcomes/overview.md), a defined [digital estate plan](../digital-estate/index.md), and well understood [adoption backlogs](../migrate/migration-considerations/pre-requisites/migration-backlog-review.md)
 * Ready: Ensure the readiness of staff through [skills and learning plans](../ready/technical-skills.md)
-* Govern: Align proper [governance disciplines](../governance/index.md)
-* Operate: Ongoing [operations](../operations/index.md) of the IT portfolio to minimize interruptions to business processes and ensure stability of the IT portfolio
-* Support: Align proper [partnership and support options](../migrate/migration-considerations/assess/partnership-options.md)
-
+* Adopt: Ensure proper implementation of desired changes, across IT and business processes, to achieve business outcomes
+    * Govern: Align proper [governance disciplines](../governance/index.md) to consistently apply cost management, risk mitigation, compliance, and security baselines across all cloud adoption
+    * Operate: On-going [operations](../operations/index.md) of the IT portfolio to minimize interruptions to business processes and ensure stability of the IT portfolio
+    * Support: Align proper [partnership and support options](../migrate/migration-considerations/assess/partnership-options.md)
+    
 ## Additional Tools
 
 In addition to the Cloud Adoption Framework, Microsoft provides a number of additional topics that can enable success. This article highlights a few common tools that can significantly improve success beyond the scope of the Cloud Adoption Framework. Establishing cloud governance, resilient architectures, technical skills, and a DevOps approach are each important to the success of any cloud adoption effort. The reader is advised to bookmark this page as a resource to revisit throughout any cloud adoption journey.
@@ -36,12 +37,12 @@ In addition to the Cloud Adoption Framework, Microsoft provides a number of addi
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage bgdAccent1">
-                            <img alt="Cloud Adoption Framework governance model" src="../_images/operational-transformation-govern-highres.png" data-linktype="external" />
+                            <img alt="CAF Governance Model" src="../_images/operational-transformation-govern-highres.png" data-linktype="external" />
                         </div>
                     </div>
                     <div class="cardText">
                         <h3>Cloud Governance</h3>
-                        <p>Understand business risk, map those risks to proper policies and processes. Leveraging cloud governance tools and the Five Disciplines of Cloud Governance minimizes risks and improves the likelihood of success. Cloud governance helps control costs, create consistency, improve security, and accelerate deployment.</p>
+                        <p>Understand business risk, map those risks to proper policies and processes. Leveraging cloud governance tools and the five disciplines of cloud governance minimizes risks and improves the likelihood of success. Cloud governance helps control costs, create consistency, improve security, and accelerate deployment.</p>
                     </div>
                 </div>
             </div>
@@ -98,7 +99,45 @@ In addition to the Cloud Adoption Framework, Microsoft provides a number of addi
                     </div>
                     <div class="cardText">
                         <h3>DevOps Approach</h3>
-                        <p>Microsoft's historic transformation is rooted firmly in a Growth Mindset approach to culture and a DevOps approach to technical execution. The Cloud Adoption Framework embeds both throughout the framework. To accelerate DevOps adoption in your organization, review the learning DevOps content</p>
+                        <p>Microsoft's historic transformation is rooted firmly in a Growth Mindset approach to culture and a DevOps approach to technical execution. The Cloud Adoption Framework embeds both throughout the framework. To accelerate DevOps adoption, review the learning DevOps content</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<li style="display: flex; flex-direction: column;">
+    <a href="https://docs.microsoft.com/azure/architecture/" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage bgdAccent1">
+                            <img alt="Azure Architecture Center" src="https://docs.microsoft.com/azure/architecture/example-scenario/data/media/architecture-data-warehouse.png" data-linktype="external" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Azure Architecture Center</h3>
+                        <p>Architecture solutions, reference architectures, example scenarios, best practices, and cloud design patterns to aid in the architecture of solutions running on Azure.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<li style="display: flex; flex-direction: column;">
+    <a href="https://azure.microsoft.com/pricing/calculator/" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage bgdAccent1">
+                            <img alt="Azure Pricing Calculator" src="https://azurecomcdn.azureedge.net/cvt-82d7b203a3bbe5c2d99b50de6834123a862601a9363ddfe5eda0f39867817dda/less/images/section/calculator-preview.png" data-linktype="external" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Azure Pricing Calculator</h3>
+                        <p>Calculate the cost of various Azure components required to create or migration a chosen solution.</p>
                     </div>
                 </div>
             </div>

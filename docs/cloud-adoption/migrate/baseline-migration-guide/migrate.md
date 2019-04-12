@@ -1,13 +1,12 @@
 ---
 title: "CAF: Migrate assets"
-titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Migrate assets
 author: matticusau
 ms.author: mlavery
 ms.date: 4/4/2019
 ms.topic: conceptual
 ms.service: azure-portal
-ms.custom: "fasttrack-new"
+ms.custom: fasttrack, new
 ---
 
 # Migrate assets
@@ -35,9 +34,9 @@ To use Azure Site Recovery to migrate resources:
 1. Complete the wizard to create a **Recovery Services vault** resource.
 1. In the Resource menu, click **Site Recovery > Prepare Infrastructure > Protection goal**.
 1. In **Protection goal**, select what you want to migrate.
-    1. **VMware:** Select To Azure > Yes, with VMWare vSphere Hypervisor.
-    1. **Physical machine:** Select To Azure > Not virtualized/Other.
-    1. **Hyper-V:** Select To Azure > Yes, with Hyper-V. If Hyper-V VMs are managed by VMM, select Yes.
+    1. **VMware**: Select To Azure > Yes, with VMWare vSphere Hypervisor.
+    1. **Physical machine**: Select To Azure > Not virtualized/Other.
+    1. **Hyper-V**: Select To Azure > Yes, with Hyper-V. If Hyper-V VMs are managed by VMM, select Yes.
 1. Set up the source environment as appropriate.
 1. Set up the target environment.
     1. Click **Prepare infrastructure > Target**, and select the Azure subscription you want to use.
@@ -118,13 +117,13 @@ Several third-party migration tools and ISV services can assist you with the mig
 
 Cloudamize is an ISV service that covers all phases of the migration strategy.
 
-[Learn more](https://www.cloudamize.com)
+[Learn more](https://www.cloudamize.com/)
 
 ### Zerto
 
 Zerto provides virtual replication handling both Microsoft Hyper-V and VMWare vSphere environments.
 
-[Learn more](https://www.zerto.com/solutions/use-cases/data-center-migration-software)
+[Learn more](https://www.zerto.com/solutions/use-cases/data-center-migration-software/)
 
 ### Carbonite
 
@@ -138,7 +137,7 @@ Most organizations already have project management tools. Additionally, most pro
 
 There are many project management tools available. This list shows some tools that might assist you during your project. These tools can be combined to provide broader capabilities.
 
-- [Microsoft Planner](https://tasks.office.com): A simple, visual way to organize teamwork.
+- [Microsoft Planner](https://tasks.office.com/): A simple, visual way to organize teamwork.
 - [Microsoft Project](https://products.office.com/project/project-and-portfolio-management-software): Project and Portfolio Management, Resource Capacity Management, Financial Management, Timesheeting and Schedule Management.
 - [Microsoft Teams](https://products.office.com/microsoft-teams): Team collaboration and communication tool, as well as integration with Planner and other tools to improve collaboration.
 

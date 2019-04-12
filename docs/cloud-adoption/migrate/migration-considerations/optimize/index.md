@@ -1,6 +1,5 @@
 ---
 title: "Optimize migrated workloads"
-titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Optimize migrated workloads
 author: BrianBlanchard
 ms.date: 4/4/2019
@@ -10,7 +9,7 @@ ms.date: 4/4/2019
 
 After a workload and it's supporting assets have been migrated to the cloud, it must be prepared before it can be promoted to production. In this process, activities ready the workload, size dependent assets, and prepare the business for when the migrated cloud-based workload enters production usage.
 
-The objective of optimization is to prepare a migrated workload for promotion to production usage.
+## The objective of optimization is to prepare a migrated workload for promotion to production usage.
 
 ## Definition of *done*
 

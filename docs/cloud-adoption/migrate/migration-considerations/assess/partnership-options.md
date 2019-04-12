@@ -1,11 +1,9 @@
 ---
 title: "Understanding partnership and support options" 
-titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Describes options and approaches to support migration efforts
 author: BrianBlanchard
 ms.date: 4/4/2019
 ---
-
 # Understanding partnership options
 
 During migration, the Cloud Adoption Team performs the actual migration of workloads to the cloud. Unlike the collaborative and problem-solving tasks when defining the [digital estate](../../../digital-estate/overview.md) or building the [core cloud infrastructure](../../../infrastructure/index.md), migration tends to be a series of repetitive execution tasks. Beyond the repetitive aspects, there are likely testing and tuning efforts that require deep knowledge of the chosen cloud provider. The repetitive nature of this process can sometimes be best addressed by a partner, reducing strain on full-time staff. Additionally, partners may be able to better align deep technical expertise when the repetitive processes encounter execution anomalies.
@@ -72,6 +70,10 @@ Microsoft Services offers a number of solution offers which align to the methodo
 - **Cloud Foundation:** Establish the customer’s core Azure designs, patterns, and governance architecture with the [Hybrid Cloud Foundation (HCF)](https://aka.ms/CloudFoundationDatasheet) solution offering. Map the customer’s requirements to the most appropriate reference architecture. Implement a minimum viable product consisting of Shared Services and IaaS Workload.
 - **Cloud Modernization:** Use the [Cloud Modernization](https://aka.ms/CloudMoDatasheet) solution offering as a comprehensive approach to move applications, data and infrastructure to an enterprise-ready cloud, as well as to optimize and modernize once in the cloud.
 - **Innovate with Cloud:** Engage customer through an innovative and unique [Cloud Center of Excellence (CCoE)](https://aka.ms/CCoEDatasheet) solution approach which builds a modern IT organization to enable agility at scale with DevOps while staying in control. Implements an agile approach to capture business requirements, reuse deployment packages aligned with security, compliance and service management policies, and maintains the Azure platform aligned with operational procedures.
+
+## Azure Support
+
+If you have questions or need help, [create a support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). If your support request requires deep technical guidance,  please visit [Azure Support Plans](https://azure.microsoft.com/en-us/support/plans/) to align the best plan for your needs.
 
 ## Azure Solutions Partner
 

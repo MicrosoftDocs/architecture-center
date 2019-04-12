@@ -1,6 +1,5 @@
 ---
 title: "Architect workloads prior to migration"
-titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Architect workloads prior to migration
 author: BrianBlanchard
 ms.date: 4/4/2019

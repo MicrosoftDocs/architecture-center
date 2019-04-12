@@ -5,22 +5,40 @@ author: BrianBlanchard
 ms.date: 4/4/2019
 ---
 
-# Innovation through cloud adoption in the Cloud Adoption Framework
+# Innovation through cloud adoption in the Microsoft CAF for Azure
 
-Coming soon: The following are a few high level points to be advanced prior to the Spring release
+Innovation is closely linked to migration. When workloads create market differentiation opportunities, it is very common for those workloads to be migrated to the cloud, then undergo modernization efforts. Once in the cloud modernization can be accelerated by modern cloud based approaches, which also enable the development of new innovations.
 
 > [!NOTE]
-> This guidance is slated for development over the next few months. The taxonomy and approach below is likely to change. The following is intended to surface the general north star for Innovation guidance.
+> This guidance is slated for development in preparation for the Summer release of CAF. The taxonomy and approach below is likely to change. The following is intended to surface the general north star for Innovation guidance.
 
-![innovate](../_images/innovate.png)
+## Motivations behind innovation
 
-Modernize existing assets & build new apps
-Material coding required
-growth mindset and DevOps execution suggested
+Innovation should not be the chosen adoption path for all workloads. This path to cloud adoption often requires a larger investment in custom code and/or data management. Innovation also takes inherently longer than migration, or even many forms of modernization. However, this path is suggested when customers are targeting the following types of business outcomes:
 
-examples:
-Custom-built app dev and app modernization
+* Prepare for new technical capabilities
+* Scale to meet market demands
+* Scale to meet geographic demands
+* Build new technical capabilities
+* Improve customer experiences / engagements
+* Transform products or services
+* Disrupt the market with new products or services
 
-technologies:
-Containers, serverless, mobile
-Operational database, AI, Machine Learning, Big Data, Data Warehouse
+## Innovation guidance
+
+As the innovation content within CAF is developed, it will provide guidance related to the following topics:
+
+* Modernize existing assets
+* Build new apps
+* Practices that encourage a growth mindset
+* Integration of DevOps strategies
+
+![Innovate](../_images/innovate.png)
+
+## Common workload examples associated with a cloud innovation
+
+* Custom-built applications
+* Technology based experiences
+* IoT: Integration of physical products and technology
+* Ambient intelligence: Integration of non-intrusive technology into an environment
+* Cognitive services: Big Data, AI, Machine Learning, and predictive solutions

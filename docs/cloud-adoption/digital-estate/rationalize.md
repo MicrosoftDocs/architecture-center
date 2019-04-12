@@ -20,13 +20,13 @@ Cloud rationalization is the process of evaluating assets to determine the best 
 
 It's easy to understand rationalization, when visualizing the traditional process of rationalization like a complex decision tree. Each asset in the digital estate is fed through a process that results in one of five answers (the 5 Rs). For small estates, this process works well. For larger estates, it's not very efficient and can lead to significant delays. Let's examine the process to see why. Then we'll present a more efficient model.
 
-**Inventory:** A thorough inventory of assets, including applications, software, hardware, operating systems, and system performance metrics is required to complete a full rationalization using traditional models.
+**Inventory**. A thorough inventory of assets, including applications, software, hardware, operating systems, and system performance metrics is required to complete a full rationalization using traditional models.
 
-**Quantitative analysis:** In the decision tree, quantitative questions drive the first layer of decisions. Common questions: Is the asset in use today? If so, is it optimized and sized properly? What dependencies exist between assets? These questions are vital to classification of the inventory.
+**Quantitative analysis**. In the decision tree, quantitative questions drive the first layer of decisions. Common questions: Is the asset in use today? If so, is it optimized and sized properly? What dependencies exist between assets? These questions are vital to classification of the inventory.
 
-**Qualitative analysis:** The next set of decisions require human intelligence in the form of qualitative analysis. Often, these questions are unique to the solution and can only be answered by business stakeholders and power users. These decisions are where the process is generally delayed, slowing things down considerably. This analysis generally consumes 40&ndash;80 FTE hours per application. For guidance on building a list of qualitative analysis questions, see [Approaches to digital estate planning](approach.md).
+**Qualitative analysis**. The next set of decisions require human intelligence in the form of qualitative analysis. Often, these questions are unique to the solution and can only be answered by business stakeholders and power users. These decisions are where the process is generally delayed, slowing things down considerably. This analysis generally consumes 40&ndash;80 FTE hours per application. For guidance on building a list of qualitative analysis questions, see [Approaches to digital estate planning](approach.md).
 
-**Rationalization decision:** In the hands of an experienced rationalization team, the qualitative and quantitative data creates clear decisions. Unfortunately, teams with a high degree of rationalization experience are expensive to hire or take months to train.
+**Rationalization decision**. In the hands of an experienced rationalization team, the qualitative and quantitative data creates clear decisions. Unfortunately, teams with a high degree of rationalization experience are expensive to hire or take months to train.
 
 ## Rationalization at enterprise scale
 
@@ -64,7 +64,7 @@ By reducing the number of potential outcomes, it’s easier to reach an initial 
 
 Continuing the example, if the options are limited to rehosting or retiring, there is really only one question to ask the business during initial rationalization&mdash;namely, whether to retire.
 
-"Analysis suggests that there are no users actively using this asset. Is that accurate or have we overlooked something?" Such a binary question is generally much easier to run through a qualitative analysis.
+"Analysis suggests that there are no users actively leveraging this asset. Is that accurate or have we overlooked something?" Such a binary question is generally much easier to run through a qualitative analysis.
 
 This streamlined approach produces baselines, financial plans, strategy, and direction. In later activities, each asset would go through further rationalization and qualitative analysis to evaluate other options. All assumptions made in this initial rationalization would be tested prior to implementation.
 
@@ -140,7 +140,7 @@ Once the two teams agree on the qualitative analysis criteria, assessment can be
 
 Once the assessment is moved into the incremental execution processes of migration, the Cloud Adoption team can iterate on assessment and architecture faster. At this stage, the Cloud Strategy team is also abstracted, reducing the drain on their time. This also allows the Cloud Strategy team to focus on prioritizing the applications that are not yet in a specific release, thus ensuring tight alignment with changing market conditions.
 
-Not all of the prioritized applications will be ready for migration. Sequencing is likely to change, as the team performs deeper qualitative analysis and discovers business events and dependencies that would prompt for reprioritization of the backlog. Some releases may group together a small number of workloads. Others may just contain a single workload.
+Not all of the prioritized applications will be ready for migration. Sequencing is likely to change, as the team performs deeper qualitative analysis and discovers business events and dependencies that would prompt for re-prioritization of the backlog. Some releases may group together a small number of workloads. Others may just contain a single workload.
 
 The Cloud Adoption team is likely to run iterations that don’t produce a complete workload migration. The smaller the workload, and the fewer dependencies, the more likely a workload is to fit into a single sprint or iteration. For this reason, it's suggested that the first few applications in the release backlog be small and contain few external dependencies.
 

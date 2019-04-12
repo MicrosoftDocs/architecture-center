@@ -5,8 +5,6 @@ author: BrianBlanchard
 ms.date: 4/4/2019
 ---
 
-<!-- markdownlint-disable MD026 -->
-
 # CAF: Why are we moving to the cloud?
 
 "Why are we moving to the cloud?" is an extremely common question for business and technical stakeholders alike.
@@ -16,15 +14,15 @@ In this article, we will discuss a few motivations behind cloud migration that c
 
 ## Common Motivations for Cloud Transformation
 
-The following is a list of common motivations for cloud adoption:
+The following is a list of common motivations for cloud adoption
 
 - Unclear direction from board or others at an executive level
 - Critical Business Event
-  - Datacenter exit
+  - Data center exit
   - Mergers, acquisition or divestiture
   - Reductions in capital expenses
   - End of support for mission-critical technologies
-- Cost savings
+- Cost Savings
 - Reduction in vendor or technical complexity
 - Optimization of internal operations
 - Increase business agility
@@ -32,7 +30,7 @@ The following is a list of common motivations for cloud adoption:
 - Build new technical capabilities
 - Scale to meet market demands
 - Scale to meet geographic demands
-- Improve customer experiences and engagements
+- Improve customer experiences / engagements
 - Transform products or services
 
 There are technical strategies to execute against each of these motivations. However, the further down the list a specific motivation is, the more likely the business is to experience positive business outcomes as a result of the transformation efforts. This is expanded on in the next section on evolving the IT worldview.
@@ -44,12 +42,12 @@ There are technical strategies to execute against each of these motivations. How
 The motivations that align well with a migrate strategy are as follows. The motives at the top of the list are likely to have significantly less business impact than those which fall closer to the bottom of the list.
 
 - Unclear direction from board or others at an executive level
-- Critical business event
-  - Datacenter exit
+- Critical Business Event
+  - Data center exit
   - Mergers, acquisition or divestiture
   - Reductions in capital expenses
   - End of support for mission-critical technologies
-- Cost savings
+- Cost Savings
 - Reduction in vendor or technical complexity
 - Optimization of internal operations
 - Increase business agility
@@ -64,9 +62,9 @@ The following are a list of the motivations that would make an IT organization f
 - Build new technical capabilities
 - Scale to meet market demands
 - Scale to meet geographic demands
-- Improve customer experiences and engagements
+- Improve customer experiences / engagements
 - Transform products or services
 
-## Guiding transformation conversations
+## Guiding Transformation conversations
 
 To guide transformation conversations, see [Business Outcomes](business-outcomes/overview.md) which serve as a model for facilitating the business conversations needed to drive document motives and the supporting metrics, in alignment with the business strategy.

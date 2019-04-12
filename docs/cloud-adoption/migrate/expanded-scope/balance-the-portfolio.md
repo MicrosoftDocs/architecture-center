@@ -1,6 +1,5 @@
 ---
 title: "CAF: Balancing the portfolio"
-titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Balancing the portfolio
 author: BrianBlanchard
 ms.date: 4/4/2019
@@ -8,20 +7,15 @@ ms.date: 4/4/2019
 
 # Balancing the portfolio
 
-Cloud adoption is a portfolio management effort, cleverly disguised as technical implementation. Like any portfolio management exercise, balance of the cloud adoption portfolio is a critical element to success. At a strategic level, this means balancing migration, innovation, and experimentation to get the most out of the cloud. When the cloud adoption effort leans too far in one direction or another, complexity finds its way into the migration effort.
+Cloud adoption is a portfolio management effort, cleverly disguised as technical implementation. Like any portfolio management exercise, balance of the portfolio is a critical element to success. At a strategic level, this means balancing migration, innovation, and experimentation to get the most out of the cloud. When the cloud adoption effort leans too far in one direction or another, complexity finds its way into the migration effort. This article will guide the reader through approaches to achieve balance in the portfolio.
 
 ## General scope expansion
 
-This topic is strategic in nature. As such, the approach taken in this article is equally strategic. To ground the strategy in data-driven decisions, this article assumes have evaluated your existing [digital estate](../../digital-estate/overview.md) (or is in the process of doing so), and have identified the list of workloads that represent your cloud adoption portfolio.
-
-The portfolio balancing effort evaluates which of the following two approaches is best suited to each migrating workload:
-
-- A rehosting migration strategy involves migrating the workload to IaaS resources with a minimum of modification or custom development.
- - An innovation-based approach involves refactoring or rebuilding parts or all of a workload to take advantage of modern cloud-ready technologies.
+This topic is strategic in nature. As such, the approach taken in this article is equally strategic. To ground the strategy in data-driven decisions, this article assumes the reader has evaluated the existing [digital estate](../../digital-estate/overview.md) (or is in the process of doing so). The objective of this approach is to aid in evaluating workloads to ensure proper balance across the portfolio through qualitative questions and portfolio refinement.
 
 ### Documenting business outcomes
 
-Before balancing the portfolio, it is important to document and share the business outcomes driving your cloud migration effort. For a few examples of general business outcomes related to cloud migrations, see the [getting started article on cloud migration](../../getting-started/migrate.md#motivations-and-methodology).
+Before balancing the portfolio, it is important to document and share the business outcomes driving the cloud migration effort. For a few examples of general business outcomes related to cloud migrations, see the [getting started article on cloud migration](../../getting-started/migrate.md?#common-business-outcomes).
 
 The following table can help document and share desired business outcomes. It's important to note that most businesses are pursuing several outcomes at a time. The importance of this exercise is to clarify the outcomes that are most directly related to the cloud migration effort:
 
@@ -33,19 +27,19 @@ The following table can help document and share desired business outcomes. It's 
 |Improve Customer Experience     |Customer Satisfaction (CSAT)         |10% improvement         |12 months         |#4         |
 
 > [!IMPORTANT]
-> The above table is a fictional example and should not be used to set priorities, as every company will have a unique set of desired business outcomes and priorities. In many cases, this table could be seen as an anti-pattern, since it places cost savings above customer experiences.
+> The above table is a fictional example and should not used to set priorities. In many cases, this table could be seen as an anti-pattern by placing cost savings above customer experiences.
 
 The above table could accurately represent the priorities of the cloud strategy team and cloud adoption team overseeing a cloud migration. Due to short term constraints, this team is placing a higher emphasis on IT cost reduction and prioritizing a datacenter exit as a means to achieve the desired IT cost reductions. However, by documenting the competing priorities in this table, the Cloud Adoption Team is empowered to help the Cloud Strategy Team identify opportunities to better align implementation of the overarching portfolio strategy.
 
 ### Move fast while maintaining balance
 
-The guidance regarding [incremental rationalization of the digital estate](../../digital-estate/overview.md) suggests an approach in which the rationalization starts with an unbalanced position. In that article, it is suggested that the Cloud Strategy Team evaluate every workload for compatibility with a rehost approach. Such an approach is suggested because it allows for the rapid evaluation of a complex digital estate based on quantitative data. Making such an initial assumption allows the Cloud Adoption Team to engage quickly, reducing time to business outcomes. However, as stated in that article, qualitative questions provide the justification for balance in the portfolio. You can use the processes discussed in this article for creating that balance.
+The guidance regarding [incremental rationalization of the digital estate](../../digital-estate/overview.md) suggests an approach in which the rationalization starts with an unbalanced position. In that article, it is suggested that the Cloud Strategy Team evaluate every workload for compatibility with a re-host approach. Such an approach is suggested because it allows for the rapid evaluation of a complex digital estate based on quantitative data. Making such an initial assumption allows the Cloud Adoption Team to engage quickly, reducing time to business outcomes. However, as stated in that article, qualitative questions will provide the necessary balance in the portfolio. This article documents the process for creating the promised balance.
 
 ### Importance of sunset and retire decisions
 
 The table in the [documenting business outcomes](#documenting-business-outcomes) section above misses a key outcome that would support the number one objective of reducing IT costs. When IT costs reductions rank anywhere in the list of business outcomes, it is important to consider the potential to sunset or retire workloads. In some scenarios, cost savings can come from NOT migrating workloads that don't warrant a short term investment. Some customers have reported cost savings in excess of 20% total cost reductions by retiring underutilized workloads.
 
-To ensure the portfolio better reflects sunset and retire decisions, the cloud strategy team and cloud adoption team are encouraged to ask the following questions of each workload within assess and migrate processes:
+To balance the portfolio, better reflecting sunset and retire decisions, the cloud strategy team and cloud adoption team are encouraged to ask the following questions of each workload within assess and migrate processes:
 
 - Has the workload been used by end users in the past six months?
 - Is end user traffic consistent or growing?
@@ -72,7 +66,7 @@ Balancing the portfolio requires additional qualitative analysis during the asse
 
 Based on the data from the table in the [documenting business outcomes](#documenting-business-outcomes) section above, there is a likely risk of the portfolio leaning very far into a migration focused execution model. If Customer Experience was the number one priority on the table, an innovation heavy portfolio would be more likely. Neither is right or wrong, but leaning too far in one direction commonly results in diminishing returns, adds unnecessary complexity, and increases execution time related to cloud adoption efforts.
 
-To reduce complexity, it is advised that you follow a traditional approach to portfolio rationalization, but using an iterative model. The following steps outline a qualitative model for such an approach:
+To reduce complexity, it is advise that the reader follow a traditional approach to portfolio rationalization, but in an iterative model. The following steps outline a qualitative model to such an approach:
 
 - The cloud strategy team maintains a prioritized backlog of workloads to be migrated.
 - The cloud strategy team and cloud adoption team host a release planning meeting prior to the completion of each release.
@@ -107,7 +101,7 @@ It is advised that these diverse efforts are segmented across two or more cloud 
 
 **Refactor:** Refactor requires team members to modify source code, change the architecture of an application, or adopt new cloud services. Generally this effort would use development tools like Visual Studio and deployment pipeline tools like Azure DevOps to redeploy modernized applications to Azure. This work aligns well to application development roles or DevOps pipeline development roles. Cloud Innovation Team is best structured to deliver this work. It can take longer to replace existing assets with cloud assets in this approach, but the apps can take advantage of cloud-native features.
 
-**Minor Refactoring:** Some applications can be modernized with minor refactoring at the data or application level. This work requires team members to deploy data to cloud-based data platforms OR to make minor configuration changes to the application. This may require limited support for data or app dev subject matter experts. However, this work is very similar to the work conducted by IT implementors when deploying third-party apps. This work could easily align with the cloud migration team or the cloud innovation team. While this effort is not nearly as fast a rehost migration, it does take less time to execute than full refactoring efforts.
+**Minor Refactoring:** Some applications can be modernized with minor refactoring at the data or application level. This work requires team members to deploy data to cloud-based data platforms OR to make minor configuration changes to the application. This may require limited support for data or app dev subject matter experts. However, this work is very similar to the work conducted by IT implementors when deploying third-party apps. This work could easily align with the cloud migration team or the cloud strategy team. While this effort is not nearly as fast a rehost migration, it does take less time to execute than refactor efforts.
 
 During migration, it is suggested that migration efforts be segmented in the 3 ways listed above. That those efforts be executed by the appropriate team in the appropriate iteration. While it is advised that the portfolio be diversified, it is also advised that efforts stay very focused and segregated.
 

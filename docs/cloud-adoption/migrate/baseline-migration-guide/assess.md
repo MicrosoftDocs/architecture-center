@@ -1,13 +1,12 @@
 ---
 title: "CAF: Assess the digital estate"
-titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Assess the digital estate
 author: matticusau
 ms.author: mlavery
 ms.date: 4/4/2019
 ms.topic: conceptual
 ms.service: azure-portal
-ms.custom: "fasttrack-new"
+ms.custom: fasttrack, new
 ---
 
 # Assess the digital estate
@@ -165,6 +164,6 @@ During migration, there are a number of factors that will affect decisions and e
 
 The following resources provide related information:
 
-- [CAF: Estimate cloud costs](../migration-considerations/assess/estimate.md)
+- [CAF: Estimate cloud costs](../migration-considerations/assess/estimate)
 
 ::: zone-end

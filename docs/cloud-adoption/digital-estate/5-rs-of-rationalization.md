@@ -43,7 +43,7 @@ Qualitative analysis factors:
 
 ## Refactor
 
-Platform as a service (PaaS) options can reduce operational costs associated with many applications. It can be prudent to slightly refactor an application to fit a PaaS based model.
+Platform as a Service (PaaS) options can reduce operational costs associated with many applications. It can be prudent to slightly refactor an application to fit a PaaS based model.
 
 Refactor also refers to the application development process of refactoring code to allow an application to deliver on new business opportunities.
 
@@ -116,7 +116,7 @@ Qualitative analysis Factors:
 
 ## Replace
 
-Solutions are generally implemented using the best technology and approach available at the time. In some cases, software as a service (SaaS) applications can meet all of the functionality required of the hosted application. In these scenarios, a workload could be slated for future replacement, effectively removing it from the transformation effort.
+Solutions are generally implemented using the best technology and approach available at the time. In some cases, Software as a Service (SaaS) applications can meet all of the functionality required of the hosted application. In these scenarios, a workload could be slated for future replacement, effectively removing it from the transformation effort.
 
 Common drivers could include:
 

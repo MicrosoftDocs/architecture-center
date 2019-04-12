@@ -19,8 +19,6 @@ Azure is Microsoft's public cloud platform. Azure offers a large collection of s
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2ixGo]
 
-<!-- markdownlint-enable MD034 -->
-
 Azure, like other cloud platforms, relies on a technology known as **virtualization**. Most computer hardware can be emulated in software, because most computer hardware is simply a set of instructions permanently or semi-permanently encoded in silicon. Using an emulation layer that maps software instructions to hardware instructions, virtualized hardware can execute in software as if it were the actual hardware itself.
 
 Essentially, the cloud is a set of physical servers in one or more datacenters that execute virtualized hardware on behalf of customers. So how does the cloud create, start, stop, and delete millions of instances of virtualized hardware for millions of customers simultaneously?
@@ -44,4 +42,5 @@ Now that you understand Azure internals, learn about cloud resource governance.
 
 <!-- Links -->
 
+[cosmosdb]: /azure/cosmos-db/introduction
 [docs-add-users-to-aad]: /azure/active-directory/add-users-azure-active-directory?toc=/azure/architecture/cloud-adoption-guide/toc.json

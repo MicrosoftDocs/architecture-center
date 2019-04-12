@@ -1,13 +1,12 @@
 ---
-title: "CAF: Secure and manage"
-titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: Secure and manage
+title: "CAF: Secure and Manage"
+description: Secure and Manage
 author: matticusau
 ms.author: mlavery
 ms.date: 4/4/2019
 ms.topic: conceptual
 ms.service: azure-portal
-ms.custom: "fasttrack-new"
+ms.custom: fasttrack, new
 ---
 
 # Secure and manage
@@ -65,7 +64,7 @@ These experiences combined give you a comprehensive view of Azure health, at a l
 
 ## Read more
 
-[Overview](/azure/service-health).
+[Overview](/azure/service-health/).
 
 ::: zone-end
 
@@ -142,45 +141,6 @@ Azure Backup is the Azure-based service you can use to back up (or protect) and 
 ::: zone-end
 
 # [Azure Site Recovery](#tab/siterecovery)
-
-Earlier in this guide we discussed how Azure Site Recovery service can be used as part of the migration execution, however it also forms a critical component in your disaster recovery strategy.
-
-The Azure Site Recovery service helps ensure business continuity by keeping business apps and workloads running during outages. Site Recovery replicates workloads running on physical and virtual machines (VMs) from a primary site to a secondary location. When an outage occurs at your primary site, you fail over to secondary location, and access apps from there. After the primary location is running again, you can fail back to it.
-
-Site Recovery can manage replication for:
-
-- Azure VMs replicating between Azure regions.
-- On-premises VMs, Azure Stack VMs and physical servers.
-
-## Replicate an Azure VM to another region with Site Recovery service
-
-The following steps outline the process to use Site Recovery service to replicate an Azure VM to another region (azure-to-azure):
-
-Azure Backup is the Azure-based service you can use to back up (or protect) and restore your data in the Microsoft cloud. Azure Backup replaces your existing on-premises or offsite backup solution with a cloud-based solution that is reliable, secure, and cost-competitive.
-
-## Enable backup for an Azure VM
-
-1. In the Azure portal, click **Virtual machines**, and select the VM you want to replicate.
-1. In **Operations**, click **Backup**.
-1. Create or select an existing Recovery Services Vault
-1. Click **Create (or edit) a new policy**.
-1. Configure the schedule and retention period
-1. Click OK
-1. Click Enable Backup
-
-::: zone target="chromeless"
-
-::: form action="OpenBlade[#blade/HubsExtension/Resources/resourceType/Microsoft.Compute%2FVirtualMachines]" submitText="Go to Virtual Machines" :::
-
-::: zone-end
-
-::: zone target="docs"
-
-[Overview](/azure/backup/backup-introduction-to-azure-backup)
-
-::: zone-end
-
-# [Azure Site Recovery](#tab/siterecovery2)
 
 Earlier in this guide we discussed how Azure Site Recovery service can be used as part of the migration execution, however it also forms a critical component in your disaster recovery strategy.
 

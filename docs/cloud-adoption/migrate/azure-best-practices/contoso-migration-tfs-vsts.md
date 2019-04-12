@@ -8,6 +8,7 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
+
 ---
 
 # Refactor a Team Foundation Server deployment to Azure DevOps Services
@@ -216,12 +217,12 @@ With preparation in place, Contoso admins can now focus on the migration. After 
 
 Before they start, the admins schedule downtime with the dev team, to take the collection offline for migration. These are the steps for the migration process:
 
-1. **Detach the collection.** Identity data for the collection resides in the TFS server configuration database while the collection is attached and online. When a collection is detached from the TFS server, it takes a copy of that identity data, and packages it with the collection for transport. Without this data, the identity portion of the import cannot be executed. It's recommended that the collection stay detached until the import has been completed, as there's no way to import the changes which occurred during the import.
-2. **Generate a backup.** The next step of the migration process is to generate a backup that can be imported into Azure DevOps Services. Data-tier Application Component Packages (DACPAC), is a SQL Server feature that allows database changes to be packaged into a single file, and deployed to other instances of SQL. It can also be restored directly to Azure DevOps Services, and is therefore used as the packaging method for getting collection data into the cloud. Contoso will use the SqlPackage.exe tool to generate the DACPAC. This tool is included in SQL Server Data Tools.
-3. **Upload to storage.** After the DACPAC is created, they upload it to Azure Storage. After it's uploaded, they get a shared access signature (SAS), to allow the TFS Migration Tool access to the storage.
-4. **Fill out the import.** Contoso can then fill out missing fields in the import file, including the DACPAC setting. To start with they'll specify that they want to do a **DryRun** import, to check that everything's working properly before the full migration.
-5. **Perform a dry run.** Dry run imports help test collection migration. Dry runs have limited life, and are deleted before a production migration runs. They're deleted automatically after a set period of time. A note about when the dry run will be deleted is included in the success email received after the import finishes. Take note and plan accordingly.
-6. **Complete the production migration.** With the dry run migration completed, Contoso admins do the final migration by updating the import.json, and running import again.
+1. **Detach the collection**: Identity data for the collection resides in the TFS server configuration database while the collection is attached and online. When a collection is detached from the TFS server, it takes a copy of that identity data, and packages it with the collection for transport. Without this data, the identity portion of the import cannot be executed. It's recommended that the collection stay detached until the import has been completed, as there's no way to import the changes which occurred during the import.
+2. **Generate a backup**: The next step of the migration process is to generate a backup that can be imported into Azure DevOps Services. Data-tier Application Component Packages (DACPAC), is a SQL Server feature that allows database changes to be packaged into a single file, and deployed to other instances of SQL. It can also be restored directly to Azure DevOps Services, and is therefore used as the packaging method for getting collection data into the cloud. Contoso will use the SqlPackage.exe tool to generate the DACPAC. This tool is included in SQL Server Data Tools.
+3. **Upload to storage**: After the DACPAC is created, they upload it to Azure Storage. After it's uploaded, they get a shared access signature (SAS), to allow the TFS Migration Tool access to the storage.
+4. **Fill out the import**: Contoso can then fill out missing fields in the import file, including the DACPAC setting. To start with they'll specify that they want to do a **DryRun** import, to check that everything's working properly before the full migration.
+5. **Do a dry run**: Dry run imports help test collection migration. Dry runs have limited life, and are deleted before a production migration runs. They're deleted automatically after a set period of time. A note about when the dry run will be deleted is included in the success email received after the import finishes. Take note and plan accordingly.
+6. **Complete the production migration**: With the Dry Run migration completed, Contoso admins do the final migration by updating the import.json, and running import again.
 
 ### Detach the collection
 

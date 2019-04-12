@@ -1,14 +1,13 @@
 ---
-title: "Cloud readiness in the Cloud Adoption Framework"
-titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: Overview of cloud readiness content for the Cloud Adoption Framework
+title: "Cloud readiness in the Microsoft CAF for Azure"
+description: Overview of readiness content for Microsoft Cloud Adoption Framework for Azure
 author: BrianBlanchard
 ms.date: 4/4/2019
 layout: LandingPage
 ms.topic: landing-page
 ---
 
-# Cloud readiness in the Cloud Adoption Framework
+# Cloud readiness in the Microsoft CAF for Azure
 
 Coming soon: Getting ready for cloud adoption is more than just building out an Azure Foundation. This section of the Cloud Adoption Framework will help readers design a Center of Excellence, develop skills readiness for IT Staff and partner/support alignment, and establish environment readiness.
 
@@ -16,7 +15,7 @@ Coming soon: Getting ready for cloud adoption is more than just building out an 
 
 ## Establish an Azure Foundation
 
-Innovate, Migrate, or Enable motions all require a similar foundation in cloud skills and a basic cloud environment. The following image outlines the components of a minimum viable product (MVP) Azure foundation. Environment readiness in this section will be based on the MVP defined in the following image.
+Innovate, Migrate, or Enable motions all require a similar foundation in cloud skills and a basic cloud environment. The following image outlines the components of a minimally viable product (MVP) Azure foundation. Environment readiness in this section will be based on the MVP defined in the following image.
 
 ![Azure foundation](../_images/ready/AzureFoundation.png)
 

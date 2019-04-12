@@ -230,7 +230,7 @@ Follow these steps:
 
 1. Create an [Azure account](/azure/active-directory/sign-up-organization) if your organization doesn't already have one. The person who signs up for the Azure account becomes the Azure account administrator, and your organization's leadership must select an individual to assume this role. This individual will be responsible for:
     - Creating subscriptions, and
-    - Creating and administering [Azure Active Directory (Azure AD)](/azure/active-directory/active-directory-whatis) tenants that store user identity for those subscriptions.
+    - Creating and administering [Azure Active Directory (AD)](/azure/active-directory/active-directory-whatis) tenants that store user identity for those subscriptions.
 2. Your organization's leadership team decides which people are responsible for:
     - Management of user identity; an [Azure AD tenant](/azure/active-directory/develop/active-directory-howto-tenant) is created by default when your organization's Azure Account is created, and the account administrator is added as the [Azure AD global administrator](/azure/active-directory/active-directory-assign-admin-roles-azure-portal#details-about-the-global-administrator-role) by default. Your organization can choose another user to manage user identity by [assigning the Azure AD global administrator role to that user](/azure/active-directory/active-directory-users-assign-role-azure-portal).
     - Subscriptions, which means these users:

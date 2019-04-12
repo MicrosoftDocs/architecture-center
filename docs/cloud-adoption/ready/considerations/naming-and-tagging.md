@@ -9,7 +9,7 @@ description: Large Enterprise – Additional technical details regarding governa
 author: BrianBlanchard
 ---
 
-# Ready: Recommended naming and tagging conventions
+# CAF - Ready: Recommended naming and tagging conventions
 
 Organizing cloud-based assets in ways that both aid operational management and support accounting requirements is a common challenge facing large cloud adoption efforts. Applying well-defined naming and metadata tagging conventions to cloud-hosted resources allows IT staff to quickly find and manage resources, while also helping to align cloud usage costs with business teams using chargeback and showback accounting mechanisms.
 
@@ -32,7 +32,7 @@ Naming and tagging strategy should include business and operational details as c
 
 A usable naming convention constructs resource names using important information about your resources as components of a resource's name. As an example, using the recommended naming conventions discussed [later in this article](#sample-naming-convention), a public IP resource used by a production SharePoint workload would have a name that looks like this:
 
-*pip-sharepoint-prod-westus-001.*
+*pip-sharepoint-prod-westus-001*
 
 The components of this name allows you to quickly determine the resource's type, the workload it's associated with, its deployment environment, and what Azure region it is deployed to.
 
@@ -122,7 +122,7 @@ What tags you apply to resources, and what tags are required versus optional, wi
 | Budget required/approved  | Money allocated for this application, service or workload.                                                                                                                                                     | *BudgetAmount*    | *{\$}*                                          |
 | Business Unit             | Top-level division of your company that owns the subscription or workload the resource belongs to. In smaller organizations, this may represent a single corporate or shared top-level organizational element. | *BusinessUnit*    | *FINANCE, MARKETING,{Product Name},CORP,SHARED* |
 | Cost Center               | Accounting cost center associated with this resource.                                                                                                                                                          | *CostCenter*      | *{number}*                                      |
-| Disaster Recovery         | Business criticality of this application, workload, or service.                                                                                                                                                | *DR*              | *Mission-critical, Critical, Essential*         |
+| Disaster Recovery         | Business criticality of this application, workload, or service.                                                                                                                                                | *DR*              | *Mission Critical, Critical, Essential*         |
 | End Date of the Project   | Date when this application, workload, or service is planned to be retired.                                                                                                                                     | *EndDate*         | *{date}*                                        |
 | Environment               | Deployment environment of this application, workload, or service.                                                                                                                                              | *Env*             | *Prod, Dev, QA, Stage, Test*                    |
 | Owner Name                | Owner of the application, workload, or service.                                                                                                                                                                | *Owner*           | *{email}*                                       |
@@ -246,4 +246,4 @@ Review the [Azure Primitives document](./xx-primitives.md) to understand core co
 
 ## Next steps
 
-For next steps and the most recent status of the Cloud Adoption Framework Ready model, see the [Ready overview](../index.md).
+For next steps and the most recent status regarding the CAF Ready model, see the [overview page](../index.md).

@@ -1,13 +1,12 @@
 ---
 title: "CAF: Simple Migration Journey"
-titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how to migrate your services to Azure effectively for your organization, with step-by-step guidance.
 author: matticusau
 ms.author: mlavery
 ms.date: 4/4/2019
 ms.topic: conceptual
 ms.service: azure-portal
-ms.custom: "fasttrack-new"
+ms.custom: fasttrack, new
 ---
 
 ::: zone target="chromeless"
@@ -54,11 +53,11 @@ This guide helps address those questions. It suggests the tasks and features you
 > - **Organize your resources.** Lock resources critical to your system and tag resources to track them.
 > - **Optimize and transform.** Use the post-migration opportunity to review your resources.
 > - **Secure and manage.** Ensure that your environment is secure and  monitored properly.
-> - **Get assistance.** Get help and support during your migration or post-migration activities.
+> - **Get assistance.**: Get help and support during your migration or post-migration activities.
 
 ::: zone target="docs"
 
-To learn more, see [Governance in Azure](/azure/security/governance-in-azure).
+To learn more, see [Governance in Azure](/azure/security/governance-in-azure/).
 
 ::: zone-end
 
@@ -73,13 +72,13 @@ This guide is designed for migration scopes with minimal complexity. This migrat
 - The dependency mapping of the components to be migrated is simple to define.
 - Your industry has minimal regulatory requirements relevant to this migration.
 
-If any of these cases does not apply to your situation, you should instead consider the information provided in the [Expanded Scope Guide](../expanded-scope/index.md). We also recommend you request assistance from one of our Microsoft teams or partners to perform migrations requiring the expanded scope guide. we have found that customers who engage with Microsoft or certified partners are more successful in these scenarios. More information about requesting assistance can be found in the relevant section of this guide.
+If any of these cases does not apply to your situation, you should instead consider the information provided in the [Expanded Scope Guide](../expanded-scope). We also recommend you request assistance from one of our Microsoft teams or partners to perform migrations requiring the expanded scope guide. we have found that customers who engage with Microsoft or certified partners are more successful in these scenarios. More information about requesting assistance can be found in the relevant section of this guide.
 
 ::: zone target="docs"
 
 For more information, see:
 
-- [Migration Expanded Scope](../expanded-scope/index.md)
+- [Migration Expanded Scope](../expanded-scope/)
 
 ::: zone-end
 

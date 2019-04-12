@@ -23,7 +23,7 @@ Cloud-based software as a service (SaaS) identity solutions provide a base level
 
 ## Determine identity integration requirements
 
-| Question | Cloud baseline | Directory synchronization | Cloud-hosted Domain Services | AD Federation Services |
+| Question | Cloud baseline | Directory synchronization | Cloud-hosted domain services | Active Directory Federation Services |
 |------|------|------|------|------|
 | Do you currently lack an on-premises directory service? | Yes | No | No | No |
 | Do your workloads need to authenticate against on-premises identity services? | No | Yes | No | No |
