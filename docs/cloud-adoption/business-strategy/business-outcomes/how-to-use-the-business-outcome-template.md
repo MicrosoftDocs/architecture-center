@@ -11,6 +11,8 @@ As discussed in Business Outcomes, it can be difficult to bridge the gap between
 
 Download the [Business Outcome Template Spreadsheet](https://archcenter.blob.core.windows.net/cdn/business-outcome-template.xlsx) to begin brainstorming and tracking business outcomes. Continue reading to learn how to use the template. Check out Business Outcomes for ideas on potential business outcomes that could come up in executive conversations.
 
+<!-- markdownlint-disable MD026 -->
+
 ## How do you use the Business Outcome Template?
 
 Introduced by Kate Johnson at Microsoft’s Digital Transformation Academy, Business Outcomes focus on three topics referenced in the house diagram below:
@@ -33,8 +35,8 @@ An example can be found on the "Example Outcome" tab of the spreadsheet, as show
 
 Discovery is a fundamental tenet to Enterprise Architecture. If discovery is limited to technical discovery, the end solution is likely to miss many opportunities to improve the business. Enterprise Architects, Solution Architects, and other technically minded leaders, can master the discovery process using this template. In extremely effective discovery processes, we see these leaders consider five key aspects of the business outcome, before driving a Transformation Journey.
 
-![Five areas of focus in discovery: stakeholders, outcomes, drivers, KPIs, & Capabilities](../../_images/business-outcome-focus-areas.png)
-Figure 3: Five areas of focus in discovery: stakeholders, outcomes, drivers, KPIs, & Capabilities
+![Five areas of focus in discovery: stakeholders, outcomes, drivers, KPIs, and capabilities](../../_images/business-outcome-focus-areas.png)
+Figure 3: Five areas of focus in discovery: stakeholders, outcomes, drivers, KPIs, and capabilities
 
 **Stakeholders:** Who in the organization is likely to see the greatest value in a specific business outcome? Who is most likely to support this transformation, especially when things get tough or time consuming? Who has the greatest stake in the success of this transformation? This person is a potential stakeholder.
 

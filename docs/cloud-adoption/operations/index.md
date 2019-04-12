@@ -9,7 +9,7 @@ ms.topic: landing-page
 
 # Cloud operations in the Microsoft CAF for Azure
 
-Coming summer 2019: Guidance and examples for aligning operations across cloud and on-prem environments to minimize interruptions to business processes and ensure stability of the IT portfolio.
+Coming summer 2019: Guidance and examples for aligning operations across cloud and on-premises environments to minimize interruptions to business processes and ensure stability of the IT portfolio.
 
 > [!div class="nextstepaction"]
 > [Establish an operational fitness review](operational-fitness-review.md)

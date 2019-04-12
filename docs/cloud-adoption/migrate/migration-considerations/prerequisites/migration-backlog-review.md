@@ -20,6 +20,7 @@ Tracking migration progress is equally important to the motivation of the team a
 At times, prioritization of one workload over another may seem illogical to the Cloud Adoption Team. Understanding the business priorities that drove those decisions can go a long way to maintain motivation within the Cloud Adoption Team. It also allows the Cloud Adoption Team to participate as a stronger partner in the prioritization process.
 
 ## Core assumptions
+
 The article on [Digital Estate Rationalization](../../../digital-estate/rationalize.md) discusses the agility and time-saving impact of basic assumptions when evaluating a digital estate. To fully realize those values, the Cloud Adoption Team needs to understand the assumptions and the reasons that they were established. That knowledge better equips the Cloud Adoption Team to challenge those assumptions.
 
 ## Next steps

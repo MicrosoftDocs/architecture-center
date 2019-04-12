@@ -75,7 +75,7 @@ Use:
 
 - VMs with large memory capacity to allow caching of data and application work areas.
 
-- VMs with higher density vCPUs to take advantage of multi-threaded processing if the application supports multiple threads.
+- VMs with higher density vCPUs to take advantage of multithreaded processing if the application supports multiple threads.
 
 - Parallel processing, as Azure easily scales out for parallel processing, delivering more compute power for a batch run.
 

@@ -15,13 +15,13 @@ Most of this effort required in this scope expansion, will fall in the prerequis
 
 ## Suggested prerequisites
 
-**Validate network capacity risks:** [Digital estate rationalization](../../digital-estate/rationalize.md) is highly encouraged pre-requisite, especially if there are concerns of overburdening the available network capacity. During digital estate rationalization, an [inventory of digital assets](../../digital-estate/inventory.md) is collected. That inventory should include existing storage requirements across the digital estate. As outlined in [replication risks: Physics of replication](../migration-considerations/migrate/replicate?#replication-risks---physics-of-replication), that inventory can be used to estimate **total migration storage**, which can be compared to total **available migration bandwidth**. If that comparison doesn't align with the required **time to business change**, then this article can help accelerate migration velocity reducing the time required to migrate the data center.
+**Validate network capacity risks:** [Digital estate rationalization](../../digital-estate/rationalize.md) is a highly recommended prerequisite, especially if there are concerns of overburdening the available network capacity. During digital estate rationalization, an [inventory of digital assets](../../digital-estate/inventory.md) is collected. That inventory should include existing storage requirements across the digital estate. As outlined in [replication risks: Physics of replication](../migration-considerations/migrate/replicate?#replication-risks---physics-of-replication), that inventory can be used to estimate **total migration storage**, which can be compared to total **available migration bandwidth**. If that comparison doesn't align with the required **time to business change**, then this article can help accelerate migration velocity reducing the time required to migrate the data center.
 
 **Offline transfer of independent data stores:** Pictured in the diagram below are a examples of both online and offline data transfers with Azure Data Box. These approaches could be used to ship large volumes of data to the cloud prior to workload migration. In an offline data transfer, source data is copied to Azure Data Box, which is then physically shipped to Microsoft for transfer into an Azure storage account as a file or a blob. This process can be used to ship data that isn't directly tied to a specific workload, prior to other migration efforts. Doing so reduces the amount of data that needs to be shipped over the network, in an effort to complete a migration within network constraints.
 
-This approach could be used to transfer data from [an HDFS store](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster) or from disks using [SMB](https://docs.microsoft.com/en-us/azure/databox/data-box-deploy-copy-data), [NFS](https://docs.microsoft.com/en-us/azure/databox/data-box-deploy-copy-data-via-nfs), [REST](https://docs.microsoft.com/en-us/azure/databox/data-box-deploy-copy-data-via-rest), or [data copy service](https://docs.microsoft.com/en-us/azure/databox/data-box-deploy-copy-data-via-copy-service).
+This approach could be used to transfer data from [an HDFS store](/azure/storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster) or from disks using [SMB](/azure/databox/data-box-deploy-copy-data), [NFS](/azure/databox/data-box-deploy-copy-data-via-nfs), [REST](/azure/databox/data-box-deploy-copy-data-via-rest), or [data copy service](/azure/databox/data-box-deploy-copy-data-via-copy-service).
 
-There are also a number of [third party partner solutions](https://azuremarketplace.microsoft.com/en-us/campaigns/databox/azure-data-box) which leverage Azure Data Box for a "Seed and Sync" migration, where a large volume of data is moved via an offline transfer but is later synchronized at a lower scale over the network.
+There are also a number of [third-party partner solutions](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box) which leverage Azure Data Box for a "Seed and Sync" migration, where a large volume of data is moved via an offline transfer but is later synchronized at a lower scale over the network.
 
 ![Offline and online data transfer with Azure Data Box](../../_images/migration/databox.png)
 
@@ -44,23 +44,23 @@ When leveraging offline transfer mechanisms, [replication processes](../migratio
 
 ### Suggested action during the migrate process
 
-**Copy storage:** This approach could be used to transfer data from [an HDFS store](https://docs.microsoft.com/en-us/azure/storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster) or from disks using [SMB](https://docs.microsoft.com/en-us/azure/databox/data-box-deploy-copy-data), [NFS](https://docs.microsoft.com/en-us/azure/databox/data-box-deploy-copy-data-via-nfs), [REST](https://docs.microsoft.com/en-us/azure/databox/data-box-deploy-copy-data-via-rest), or [data copy service](https://docs.microsoft.com/en-us/azure/databox/data-box-deploy-copy-data-via-copy-service).
+**Copy storage:** This approach could be used to transfer data from [an HDFS store](/azure/storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster) or from disks using [SMB](/azure/databox/data-box-deploy-copy-data), [NFS](/azure/databox/data-box-deploy-copy-data-via-nfs), [REST](/azure/databox/data-box-deploy-copy-data-via-rest), or [data copy service](/azure/databox/data-box-deploy-copy-data-via-copy-service).
 
-There are also a number of [third party partner solutions](https://azuremarketplace.microsoft.com/en-us/campaigns/databox/azure-data-box) which leverage Azure Data Box for a "Seed and Sync" migration, where a large volume of data is moved via an offline transfer but is later synchronized at a lower scale over the network.
+There are also a number of [third-party partner solutions](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box) which leverage Azure Data Box for a "Seed and Sync" migration, where a large volume of data is moved via an offline transfer but is later synchronized at a lower scale over the network.
 
-**Ship the device:** Once the data is copied, the device can be [shipped to Microsoft](https://docs.microsoft.com/en-us/azure/databox/data-box-deploy-picked-up). Once received and imported the data will be available as an Azure storage account.
+**Ship the device:** Once the data is copied, the device can be [shipped to Microsoft](/azure/databox/data-box-deploy-picked-up). Once received and imported the data will be available as an Azure storage account.
 
-**Restore the asset:** [Verify the data](https://docs.microsoft.com/en-us/azure/databox/data-box-deploy-picked-up#verify-data-upload-to-azure) is available in the storage account. Once verified, the data can be used as a blob or in Azure Files. If the data is a VHD/VHDX file, the file can be converted managed disks. Those managed disks can then be used to instantiate a virtual machine, which creates a replica of the original on-prem asset.
+**Restore the asset:** [Verify the data](/azure/databox/data-box-deploy-picked-up#verify-data-upload-to-azure) is available in the storage account. Once verified, the data can be used as a blob or in Azure Files. If the data is a VHD/VHDX file, the file can be converted managed disks. Those managed disks can then be used to instantiate a virtual machine, which creates a replica of the original on-premises asset.
 
-**Synchronization:** If synchronization of drift is a requirement for a migrated asset, one of the [third party partner solutions](https://azuremarketplace.microsoft.com/en-us/campaigns/databox/azure-data-box) could be used to synchronize the files until the asset is restored.
+**Synchronization:** If synchronization of drift is a requirement for a migrated asset, one of the [third-party partner solutions](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box) could be used to synchronize the files until the asset is restored.
 
 ## Optimize and promote process changes
 
-Optimize activities are not likely impacted by this change in scope.
+Optimize activities are not likely affected by this change in scope.
 
 ## Secure and manage process changes
 
-Secure and manage activities are not likely impacted by this change in scope.
+Secure and manage activities are not likely affected by this change in scope.
 
 ## Next steps
 

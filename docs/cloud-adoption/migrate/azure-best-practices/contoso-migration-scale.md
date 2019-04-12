@@ -347,7 +347,7 @@ Contoso needs visibility into the health and performance of the newly migrated a
 - Contoso will use these cloud monitoring tools to take action and integrate with service solutions.
 - [Learn more](/azure/monitoring-and-diagnostics/monitoring-overview) about Azure monitoring.
 
-### BCDR
+### Business continuity and disaster recovery
 
 Contoso will need a business continuity and disaster recovery (BCDR) strategy for their Azure resources.
 

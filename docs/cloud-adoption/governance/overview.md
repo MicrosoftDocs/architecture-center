@@ -11,7 +11,7 @@ author: BrianBlanchard
 
 # Cloud governance in the Microsoft Cloud Adoption Framework for Azure
 
-The cloud creates new paradigms regarding the technologies that support the business. These new paradigms also cause shifts in how those technologies are adopted, managed, and governed. When entire datacenters can be destroyed and recreated with one line of code executed from an unattended process, we have to rethink traditional approaches. This is equally true when it comes to governance.
+The cloud creates new paradigms regarding the technologies that support the business. These new paradigms also cause shifts in how those technologies are adopted, managed, and governed. When entire datacenters can be destroyed and re-created with one line of code executed from an unattended process, we have to rethink traditional approaches. This is equally true when it comes to governance.
 
 For organizations with existing policies governing on-premises IT environments, cloud governance should complement those policies. However, the level of corporate policy integration between on-premises and the cloud will vary depending on cloud governance maturity and digital estate in the cloud. As the cloud estate evolves over time, so will cloud governance processes and policies.
 

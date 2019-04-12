@@ -29,8 +29,15 @@ Microsoft is actively building out this aspirational framework with customers, p
 To be successful in adopting the cloud, customers must prepare its people, technology and processes to be ready for this digital transformation. CAF includes a section outlining the overall adoption journeys, Migration and Innovation, as an overview for the customers, and it’s broken down into the adoption journey phases:
 
 - **Plan:** Align business outcomes to actionable technology backlogs. Planning consists of three areas of early stage planning activities: 1) Defining business justification and business outcomes, 2) Prioritizing workloads based on impacts to the business outcomes, 3) Creating a cloud adoption plan based on current digital estate and prioritized workloads.
-- **Ready:** Prepare the people, culture and environment for change. There are 3 key components in Ready: 1) Create a Cloud Strategy Team and other organizational alignment, 2) Create a skills readiness plan across roles and functions, 3) Set up an Azure Foundation by preparing the cloud environment.
-- **Adopt:** Implement the desired changes across IT and business process helping customers realize their business, technology and people strategies. Adopt includes several areas of work that will depend on what the organization is actually implementing. This includes 4 main areas: 1) workloads and assets migration, 2) apps and data modernization, 3) cloud governance, 4) assets and workloads management and operation in the cloud.
+- **Ready:** Prepare the people, culture and environment for change. There are three key components in Ready:
+  1. Create a Cloud Strategy team and other organizational alignment.
+  2. Create a skills readiness plan across roles and functions.
+  3. Set up an Azure foundation by preparing the cloud environment.
+- **Adopt:** Implement the desired changes across IT and business process helping customers realize their business, technology and people strategies. Adopt includes several areas of work that will depend on what the organization is actually implementing. This includes four main areas:
+  - Workloads and assets migration.
+  - Apps and data modernization.
+  - Cloud governance.
+  - Assets and workloads management and operation in the cloud.
 
 In reality, these phases are not linear and most likely would turn into a cycle, where customers are revisiting and expanding adoption plans, as their people becomes more cloud proficient, their apps and workloads are properly managed and operated, aligned with corporate policies, delivering on their business outcomes.
 
@@ -63,10 +70,10 @@ In October 2018, we began to take stock of all the models which had proliferated
 
 This first release served as a test of the Cloud Adoption Framework's ability to unify an important Microsoft message across customer, partner, and services conversations. Ensuring that we keep that unified message practical, we focused on delivering an actionable 4 step process as follows:
 
-1) Establish a customer end state based on a common methodology
-2) Provide an assessment to define gaps and areas of governance investment
-3) Define a minimal viable products (MVPs) to help the customer iterate rapidly
-4) Provide a means of evolving the MVP to mitigate risks and meet business requirements
+1. Establish a customer end state based on a common methodology.
+2. Provide an assessment to define gaps and areas of governance investment.
+3. Define a minimum viable product (MVPs) to help the customer iterate rapidly.
+4. Provide a means of evolving the MVP to mitigate risks and meet business requirements.
 
 **Spring Release (4/15/2019):** Cloud migration tooling can easily migrate tens of thousands of IT assets to the cloud. However, customer feedback suggested that cloud migrations are blocked by culture and technical readiness. The spring release addresses these blockers by defining an iterative approach to cloud migration. Within the core methodology is a streamlined azure migration guide for learning the tools and basic processes, with expanded scope and best practices sections for building on this baseline guidance.
 

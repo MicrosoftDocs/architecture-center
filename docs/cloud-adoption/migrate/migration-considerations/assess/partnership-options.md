@@ -73,7 +73,7 @@ Microsoft Services offers a number of solution offers which align to the methodo
 
 ## Azure Support
 
-If you have questions or need help, [create a support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). If your support request requires deep technical guidance,  please visit [Azure Support Plans](https://azure.microsoft.com/en-us/support/plans/) to align the best plan for your needs.
+If you have questions or need help, [create a support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). If your support request requires deep technical guidance, visit [Azure Support Plans](https://azure.microsoft.com/support/plans/) to align the best plan for your needs.
 
 ## Azure Solutions Partner
 
