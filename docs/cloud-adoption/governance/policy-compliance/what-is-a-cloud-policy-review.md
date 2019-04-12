@@ -1,8 +1,12 @@
 ---
 title: "CAF: What is a Cloud Policy Review?"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 description: What is Cloud Policy Review?
 author: BrianBlanchard
-ms.date: 2/8/2019
 ---
 
 <!-- markdownlint-disable MD026 -->
@@ -17,7 +21,7 @@ Most businesses manage IT through the execution of processes which alignment wit
 
 As companies mature corporate IT policies, dependencies on past technical decisions have a tendency to seep into governing policies. For instance, its common to see disaster recovery processes include policy that mandates offsite tape backups. This inclusion assumes a dependency on one type of technology (tape backups), that may no longer be the most relevant solution.
 
-Cloud Transformations create a natural inflection point to reconsider the legacy policy decisions of the past. Technical capabilities and default processes change considerably in the cloud, as do the inherit risks. Leveraging the prior example, the tape backup policy stemmed from the risk of a single point of failure by keeping data in one location and the business need to minimize the risk profile by mitigating this risk. In a cloud deployment, there are several options that deliver the same risk mitigation, with much lower recovery time objectives (RTO). For instance:
+Cloud Transformations create a natural inflection point to reconsider the legacy policy decisions of the past. Technical capabilities and default processes change considerably in the cloud, as do the inherit risks. Using the prior example, the tape backup policy stemmed from the risk of a single point of failure by keeping data in one location and the business need to minimize the risk profile by mitigating this risk. In a cloud deployment, there are several options that deliver the same risk mitigation, with much lower recovery time objectives (RTO). For instance:
 
 - A cloud-native solution could enable georeplication of the SQL Azure database.
 - A hybrid solution could use Azure Site Recovery (ASR) to replicate an IaaS workload to multiple datacenters.
@@ -52,6 +56,6 @@ To help accelerate the creation of modern policies, a set of sample policies is 
 
 - **Cloud Native**: The solution being deployed is cloud native and can capitalize on default solutions found in Azure, with minimal configuration.
 - **Enterprise**: The solution being deployed is complex and requires a hybrid cloud deployment model. This necessitates more complex implementations of certain governance disciplines.
-- **Cloud design principle (CDP) compliant**: The solution being deployed must adhere to the architecture axes defined in CDP, requiring a much higher degree of governance.  
+- **Cloud design principle (CDP) compliant**: The solution being deployed must adhere to the architecture axes defined in CDP, requiring a much higher degree of governance.
 
 For each discipline, a sample policy needs to be created at each of these levels. Each sample is meant to trigger thoughts and conversations inside the corporate environment. Note that these samples are not intended to be used as an alternative to a properly constructed corporate IT policy.

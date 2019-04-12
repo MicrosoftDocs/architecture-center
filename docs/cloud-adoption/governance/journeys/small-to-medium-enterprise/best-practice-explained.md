@@ -1,11 +1,11 @@
 ---
-title: "CAF: Small-to-Medium Enterprise – Additional technical details regarding the governance MVP"
+title: "CAF: Small-to-medium enterprise – Best practice explained"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 ms.date: 02/11/2019
-description: Explanation Small-to-Medium Enterprise – Additional technical details regarding the governance MVP
+description: Small-to-medium enterprise – Best practice explained
 author: BrianBlanchard
 ---
 
@@ -17,7 +17,7 @@ In this article, we discuss the high-level strategies that are required to creat
 
 ## Governance MVP (Cloud Adoption Foundation)
 
-Rapid adoption of governance and corporate policy is achievable, thanks to a few simple principles and cloud-based governance tooling. These are the first of the three Cloud Governance Disciplines to approach in any governance process. Each will be expanded upon in this article.
+Rapid adoption of governance and corporate policy is achievable, thanks to a few simple principles and cloud-based governance tooling. These are the first three disciplines to approach in any governance process. Each will be expanded upon in this article.
 
 To establish the starting point, this article will discuss the high-level strategies behind Identity Baseline, Security Baseline, and Deployment Acceleration that are required to create a governance MVP, which will serve as the foundation for all adoption.
 

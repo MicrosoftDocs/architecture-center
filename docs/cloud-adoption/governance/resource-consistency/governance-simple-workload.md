@@ -6,7 +6,7 @@ ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 description: Guidance for configuring Azure governance controls to enable a user to deploy a simple workload
 author: petertaylor9999
-ms.date: 2/11/2019
+ms.date: 02/11/2019
 ---
 
 # Governance design for a simple workload
@@ -20,7 +20,7 @@ In the foundational adoption stage, our goal is to deploy a simple workload to A
 
 ## Licensing Azure
 
-Before you begin designing our governance model, it's important to understand how Azure is licensed. This is because the administrative accounts associated with your Azure license have the highest level of access to all of your Azure resources. These administrative accounts form the basis of your governance model.  
+Before you begin designing our governance model, it's important to understand how Azure is licensed. This is because the administrative accounts associated with your Azure license have the highest level of access to all of your Azure resources. These administrative accounts form the basis of your governance model.
 
 > [!NOTE]
 > If your organization has an existing [Microsoft Enterprise Agreement](https://www.microsoft.com/licensing/licensing-programs/enterprise.aspx) that does not include Azure, Azure can be added by making an upfront monetary commitment. See [licensing Azure for the enterprise](https://azure.microsoft.com/pricing/enterprise-agreement) for more information.

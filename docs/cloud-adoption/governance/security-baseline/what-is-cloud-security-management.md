@@ -14,7 +14,7 @@ ms.date: 4/4/2019
 
 # What is the Cloud Security Baseline?
 
-This is an introductory article on the general topic of Cloud Security Baseline which builds on the [Five Disciplines of Cloud Governance](../governance-disciplines.md) to establish a governance framework. More detailed information about Cloud Security is available from [Azure's Trusted Cloud](https://azure.microsoft.com/overview/trusted-cloud). Approaches to improving your organizations security posture can be found in the [Cloud Security Service Catalog](https://www.microsoft.com/security/information-protection)
+This is an introductory article on the general topic of Cloud Security Baseline which builds on the [Five Disciplines of Cloud Governance](../governance-disciplines.md) to establish a governance framework. More detailed information about Cloud Security is available from [Azure's trusted cloud](https://azure.microsoft.com/overview/trusted-cloud). Approaches to improving your organizations security posture can be found in the [Cloud Security Service Catalog](https://www.microsoft.com/security/information-protection)
 
 > [!NOTE]
 > This article is not expected to provide enough context to allow the reader to implement a security strategy. It is for general awareness only.

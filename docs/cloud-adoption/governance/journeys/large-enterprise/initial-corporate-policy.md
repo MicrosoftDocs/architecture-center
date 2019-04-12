@@ -1,13 +1,12 @@
 ---
-title: "CAF: Large Enterprise - Initial corporate policy behind the governance strategy"
+title: "CAF: Large enterprise - Initial corporate policy behind the governance strategy"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 ms.date: 02/11/2019
-description: Large Enterprise - Initial corporate policy behind the governance strategy.
+description: Large enterprise - Initial corporate policy behind the governance strategy.
 author: BrianBlanchard
-ms.date: 2/11/2019
 ---
 
 # Large enterprise: Initial corporate policy behind the governance strategy
@@ -21,7 +20,7 @@ The following corporate policy defines the initial governance position, which is
 
 The CIO recently held a meeting with the IT Governance team to understand the history of the PII and mission-critical policies and review the impact of changing those policies. She also discussed the overall potential of the cloud for IT and the company.
 
-After the meeting, two members of the IT Governance team requested permission to research and support the cloud planning efforts. Recognizing the need for governance and an opportunity to limit shadow IT, the Director of IT Governance supported this idea. With that, the Cloud Governance team was born. Over the next several months, they will inherit the cleanup of many mistakes made during exploration in the cloud from a governance perspective. This will earn them the moniker of Cloud Custodians. In later evolutions, this journey will show how their roles change over time.
+After the meeting, two members of the IT Governance team requested permission to research and support the cloud planning efforts. Recognizing the need for governance and an opportunity to limit shadow IT, the Director of IT Governance supported this idea. With that, the Cloud Governance team was born. Over the next several months, they will inherit the cleanup of many mistakes made during exploration in the cloud from a governance perspective. This will earn them the title of Cloud Custodians. In later evolutions, this journey will show how their roles change over time.
 
 [!INCLUDE [business-risk](../../../../../includes/cloud-adoption/governance/business-risks.md)]
 

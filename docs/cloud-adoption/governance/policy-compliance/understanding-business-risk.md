@@ -1,5 +1,6 @@
 ---
 title: "CAF: How does business risk change in the cloud?"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Understanding business risk during migration
 author: BrianBlanchard
 ms.date: 4/4/2019

@@ -238,7 +238,7 @@ The following section provides examples of naming schemes for common Azure resou
 
 ## Next steps
 
-Review the [Azure Primitives document](./xx-primitives.md) to understand core concepts relating to the Azure platform and the features, products, and services you will need to deploy workloads to the cloud.  
+Review the [Azure Primitives document](./xx-primitives.md) to understand core concepts relating to the Azure platform and the features, products, and services you will need to deploy workloads to the cloud.
 
 > [!div class="nextstepaction"]
 > [Azure Primitives](./xx-primitives.md)

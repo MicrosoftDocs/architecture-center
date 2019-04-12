@@ -7,7 +7,7 @@ ms.custom: governance
 ms.date: 02/11/2019
 description: Cost Management sample policy statements
 author: BrianBlanchard
-ms.date: 1/4/2019
+ms.date: 01/04/2019
 ---
 
 # Cost Management sample policy statements
@@ -18,7 +18,7 @@ Individual cloud policy statements are guidelines for addressing specific risks 
 - Policy statement - A clear summary explanation of the policy requirements.
 - Design options - Actionable recommendations, specifications, or other guidance that IT teams and developers can use when implementing the policy.
 
-The following sample policy statements address a number of common cost-related business risks, and are provided as examples for you to reference when drafting actual policy statements addressing your own organization's needs. These examples are not meant to be proscriptive, and there are potentially several policy options for dealing with any single identified risk. Work closely with business and IT teams to identify the best policy solutions for your particular cost-related risks.  
+The following sample policy statements address a number of common cost-related business risks, and are provided as examples for you to reference when drafting actual policy statements addressing your own organization's needs. These examples are not meant to be proscriptive, and there are potentially several policy options for dealing with any single identified risk. Work closely with business and IT teams to identify the best policy solutions for your particular cost-related risks.
 
 ## Future-proofing
 
@@ -75,7 +75,7 @@ Use the samples mentioned in this article as a starting point to develop policie
 
 To begin developing your own custom policy statements related to Cost Management, download the [Cost Management template](template.md).
 
-To accelerate adoption of this discipline, choose the [Actionable Governance Journey](../journeys/overview.md) that most closely aligns with your environment. Then modify the design to incorporate your specific corporate policy decisions.
+To accelerate adoption of this discipline, choose the [actionable governance journey](../journeys/overview.md) that most closely aligns with your environment. Then modify the design to incorporate your specific corporate policy decisions.
 
 > [!div class="nextstepaction"]
 > [Actionable Governance Journeys](../journeys/overview.md)

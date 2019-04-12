@@ -1,8 +1,12 @@
 ---
 title: "CAF: Introduction to regulatory compliance"
-description: What is regulatory compliance
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Introduction to regulatory compliance
 author: BrianBlanchard
-ms.date: 2/8/2019
 ---
 
 # Introduction to regulatory compliance
@@ -31,7 +35,7 @@ Personally identifiable information (PII) is any datapoint that could be used to
 
 ## GDPR
 
-One of the most important developments in this area is the recent enactment by the European Commission of the General Data Protection Regulation (GDPR), designed to strengthen data protection for individuals within the European Union. GDPR requires that data about individuals, such as "a name, a home address, a photo, an email address, bank details, posts on social networking websites, medical information, or a computer’s IP address," be maintained on servers within the EU and not transferred out of it. It also requires that companies notify individuals of any data breaches, and mandates that companies have a Data Protection Officer. Other countries have, or are developing, similar types of regulations.
+One of the most important developments in this area is the recent enactment by the European Commission of the General Data Protection Regulation (GDPR), designed to strengthen data protection for individuals within the European Union. GDPR requires that data about individuals, such as "a name, a home address, a photo, an email address, bank details, posts on social networking websites, medical information, or a computer's IP address," be maintained on servers within the EU and not transferred out of it. It also requires that companies notify individuals of any data breaches, and mandates that companies have a Data Protection Officer. Other countries have, or are developing, similar types of regulations.
 
 ## Compliant foundation in Azure
 

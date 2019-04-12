@@ -11,7 +11,7 @@ author: BrianBlanchard
 
 # CAF: Identity Baseline template
 
-The first step to implementing change is communicating the desired change. The same is true when changing governance practices. The template below serves as a starting point for documenting and communicating policy statements that govern Identity Baseline in the cloud.  
+The first step to implementing change is communicating the desired change. The same is true when changing governance practices. The template below serves as a starting point for documenting and communicating policy statements that govern Identity Baseline in the cloud.
 
 Although it contains example content related to the Cost Management discipline, this template can be used as the basis for capturing the business risks, risk tolerances, compliance processes, and tooling used to define policy statements for the Identity Baseline discipline.
 

@@ -27,9 +27,9 @@ The content in the Cloud Adoption Framework affects the business, technology, an
 
 ### Enter the Cloud Architect
 
-The Cloud Architect serves as the thought leader and facilitator to bring these audiences together. The content in this collection of guides is designed to help the Cloud Architect facilitate the right conversations with the right audiences to drive required decisions. Business transformation empowered by the cloud is dependent upon the Cloud Architect role to help guide decisions throughout the business and IT.
+The Cloud Architect serves as the thought leader and facilitator to bring these audiences together. This collection of guides is designed to help the Cloud Architect facilitate the right conversations with the right audiences to drive required decisions. Business transformation empowered by the cloud depends on the Cloud Architect role to help guide decisions throughout the business and IT.
 
-Each section of the Cloud Adoption Framework represents a different specialization or variant of the Cloud Architect role. These sections also create opportunities to share the cloud architecture responsibilities across a team of cloud architects. For example, the governance section of the Cloud Adoption Framework is designed for cloud architects with a passion for mitigating technical risks. Some cloud providers refer to these specialists as Cloud Custodians; we prefer the term Cloud Guardian or, collectively, the Cloud Governance team.
+Each section of the Cloud Adoption Framework represents a different specialization or variant of the Cloud Architect role. These sections also create opportunities to share the cloud architecture responsibilities across a team of cloud architects. For example, the governance section of the Cloud Adoption Framework is designed for cloud architects passionate about mitigating technical risks. Some cloud providers refer to these specialists as Cloud Custodians; we prefer the term Cloud Guardian or, collectively, the Cloud Governance team.
 
 ## How to use the Microsoft Cloud Adoption Framework for Azure
 

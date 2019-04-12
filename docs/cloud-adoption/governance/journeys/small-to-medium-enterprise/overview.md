@@ -30,7 +30,7 @@ The following diagram shows the governance MVP hierarchy for organizing resource
 
 ![Resource Organization diagram](../../../_images/governance/resource-organization.png)
 
-Every application should be deployed in the proper area of the management group, subscription, and resource group hierarchy. During deployment planning, the Cloud Governance team will create the necessary nodes in the hierarchy to empower the cloud adoption teams.  
+Every application should be deployed in the proper area of the management group, subscription, and resource group hierarchy. During deployment planning, the Cloud Governance team will create the necessary nodes in the hierarchy to empower the cloud adoption team.
 
 1. A management group for each type of environment (such as Production, Development, and Test).
 2. A subscription for each "application categorization".
@@ -64,7 +64,7 @@ In the MVP, practices and tools from the [Deployment Acceleration](../../deploym
 
 ## Evolving the best practice
 
-Over time, this governance MVP will be used to evolve the governance practices. As adoption advances, business risk grows. Various disciplines within the CAF governance model will evolve to mitigate those risks. Later articles in this series discuss the evolution of corporate policy affecting the fictional company. These evolutions happen across three disciplines:
+Over time, this governance MVP will be used to evolve the governance practices. As adoption advances, business risk grows. Various disciplines within the Cloud Adoption Framework governance model will evolve to mitigate those risks. Later articles in this series discuss the evolution of corporate policy affecting the fictional company. These evolutions happen across three disciplines:
 
 - Cost Management, as adoption scales.
 - Security Baseline, as protected data is deployed.

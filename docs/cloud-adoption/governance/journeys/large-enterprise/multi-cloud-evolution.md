@@ -1,11 +1,11 @@
 ---
-title: "CAF: Large Enterprise – Multi-Cloud Evolution"
+title: "CAF: Large enterprise – Multicloud evolution"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 ms.date: 02/11/2019
-description: Large Enterprise – Multi-Cloud Evolution
+description: Large enterprise – Multicloud evolution
 author: BrianBlanchard
 ---
 
@@ -77,7 +77,7 @@ As multi-cloud adoption grows, the design evolution above will continue to matur
 
 ## Next steps
 
-In many large enterprises, the disciplines of cloud governance can be blockers to adoption. The next article has some closing thoughts about making governance a team sport, to help ensure long-term success in the cloud.
+In many large enterprises, the Five Dsciplines of Cloud Governance can be blockers to adoption. The next article has some additional thoughts on making governance a team sport to help ensure long-term success in the cloud.
 
 > [!div class="nextstepaction"]
 > [Multiple layers of governance](./multiple-layers-of-governance.md)

@@ -64,7 +64,7 @@ Many of the security features, like security policy and recommendations, are ava
 
 ::: zone target="docs"
 
-To explore Azure Security Center, go to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/SecurityMenuBlade/0).  
+To explore Azure Security Center, go to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/SecurityMenuBlade/0).
 
 ## Learn more
 
@@ -77,6 +77,7 @@ To learn more, see:
 ::: zone-end
 
 ::: zone target="chromeless"
+
 ## Action
 
 ::: form action="OpenBlade[#blade/Microsoft_Azure_Security/SecurityMenuBlade/SecurityMenuBlade/0]" submitText="Explore Azure Security Center" :::

@@ -124,5 +124,5 @@ Now that you understand the concept of cloud resource governance, move on to lea
 
 > [!div class="nextstepaction"]
 > [Learn about resource access in Azure](azure-resource-access.md)
-> [Learn about SLAs for Azure](https://azure.microsoft.com/support/legal/sla)
+> [Learn about service-level agreements for Azure](https://azure.microsoft.com/support/legal/sla)
 > [Learn about logging, reporting, and monitoring](../../decision-guides/log-and-report/overview.md)

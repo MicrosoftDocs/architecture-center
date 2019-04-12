@@ -1,13 +1,12 @@
 ---
-title: "CAF: Small-to-Medium Enterprise - Initial Corporate Policy behind the governance strategy"
+title: "CAF: Small-to-medium enterprise - Initial corporate policy behind the governance strategy"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 ms.date: 02/11/2019
-description: Small-to-Medium Enterprise - Initial Corporate Policy behind the governance strategy
+description: Small-to-medium enterprise - Initial corporate policy behind the governance strateg
 author: BrianBlanchard
-ms.date: 2/11/2019
 ---
 
 # Small-to-medium enterprise: Initial corporate policy behind the governance strategy

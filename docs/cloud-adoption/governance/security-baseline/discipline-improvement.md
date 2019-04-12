@@ -84,7 +84,7 @@ Migration is an incremental process that focuses on the movement, testing, and a
 - Review the latest Security Baseline and threat information to identify any new business risks.
 - Gauge your organization's tolerance to handle new security risks that may arise.
 - Identify deviations from policy, and enforce corrections.
-- Adjust security and access control automation to ensure maximum policy compliance.  
+- Adjust security and access control automation to ensure maximum policy compliance.
 - Validate that the best practices defined during the Build / Pre-deployment phases are properly executed.
 - Review your least privilege access policies and adjust access controls to maximize security.
 - Test your Security Baseline toolchain against your workloads to identify and resolve any vulnerabilities.
