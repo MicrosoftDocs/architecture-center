@@ -460,8 +460,10 @@
     items:
     - name: Logging and monitoring
       href: microservices/logging-monitoring.md
-    - name: CI/CD
+    - name: CI/CD for microservices
       href: microservices/ci-cd.md
+    - name: CI/CD for microservices on Kubernetes
+      href: microservices/ci-cd-kubernetes.md
 
 - name: Design guides
   items:
