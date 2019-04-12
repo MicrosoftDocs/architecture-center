@@ -23,8 +23,8 @@ The following are examples of useful metrics that you should gather to help eval
 - **Overall size of directory services infrastructure**. Number of directory forests, domains, and tenants used by your organization.
 - **Dependency on legacy or on-premises authentication mechanisms**. Number of workloads dependent on legacy authentication mechanisms or third party multi-factor authentication (MFA) services.
 - **Extent of cloud-deployed directory services**. Number of directory forests, domains, and tenants you've deployed to the cloud.
-- **Cloud deployed Active Directories**. Number of Active Directory servers deployed to the cloud.
-- **Cloud deployed organizational units**. Number of Active Directory Organizational Units deployed to cloud.
+- **Cloud-deployed Active Directories**. Number of Active Directory servers deployed to the cloud.
+- **Cloud-deployed organizational units**. Number of Active Directory Organizational Units deployed to cloud.
 - **Extent of federation**. Number of Identity Baseline systems federated with your organization's systems.
 - **Elevated users**. Number of user accounts with elevated access to resources or management tools.
 - **Use of RBAC**. Number of subscriptions, resource groups, or individual resources not managed through role-based access control (RBAC).

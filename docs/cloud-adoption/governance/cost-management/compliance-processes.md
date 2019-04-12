@@ -29,7 +29,7 @@ This is the time to make a precommitment or prepurchase to maximize discounting.
 
 This quarterly planning process is also a good time to evaluate the current membership of your Cloud Governance team for knowledge gaps related to current or future business plans. Invite relevant staff and workload owners to participate in reviews and planning as either temporary advisors or permanent members of your team.
 
-**Education and Training**: On a bi-monthly basis, offer training sessions to make sure business and IT staff are up-to-date on the latest Cost Management policy requirements. As part of this process review and update any documentation, guidance, or other training assets to ensure they are in sync with the latest corporate policy statements.
+**Education and Training**: On a bimonthly basis, offer training sessions to make sure business and IT staff are up-to-date on the latest Cost Management policy requirements. As part of this process review and update any documentation, guidance, or other training assets to ensure they are in sync with the latest corporate policy statements.
 
 **Monthly reporting:** On a monthly basis, report actual spending against forecast. Notify billing leaders of any unexpected deviations.
 

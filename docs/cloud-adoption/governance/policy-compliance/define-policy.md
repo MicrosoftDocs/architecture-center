@@ -24,7 +24,7 @@ In traditional governance and incremental governance, corporate policy creates t
 
 *Figure 1. Corporate governance and governance disciplines.*
 
-The image above demonstrates the interactions between business risk, policy and compliance, and monitor and enforce to create a Governance Strategy. Followed by the five disciplines of Cloud Governance to realize your strategy.
+The image above demonstrates the interactions between business risk, policy and compliance, and monitor and enforce to create a governance strategy, followed by the Five Disciplines of Cloud Governance to realize your strategy.
 
 Cloud governance is the product of an ongoing adoption effort over time, as a true lasting transformation doesn't happen overnight. Attempting to deliver complete cloud governance before addressing key corporate policy changes using a fast aggressive method seldom produces the desired results. Instead we recommend an incremental approach.
 

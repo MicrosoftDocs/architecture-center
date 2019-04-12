@@ -30,7 +30,7 @@ When executing a cloud transformation, policies often govern many of the tools, 
 
 ## The cloud policy review process
 
-Cloud policy reviews align existing IT governance and IT security policies with the [five disciplines of Cloud Governance](../overview.md): [Cost Management](../cost-management/overview.md), [Security Baseline](../security-baseline/overview.md), [Identity Baseline](../identity-baseline/overview.md), [Resource Consistency](../resource-consistency/overview.md), and [Deployment Acceleration](../deployment-acceleration/overview.md).
+Cloud policy reviews align existing IT governance and IT security policies with the [Five Disciplines of Cloud Governance](../overview.md): [Cost Management](../cost-management/overview.md), [Security Baseline](../security-baseline/overview.md), [Identity Baseline](../identity-baseline/overview.md), [Resource Consistency](../resource-consistency/overview.md), and [Deployment Acceleration](../deployment-acceleration/overview.md).
 
 For each of these disciplines, the review process follows these steps:
 
@@ -52,7 +52,7 @@ To provide an example of the process, let's again use the tape backup policy in 
 
 ## Tools to help create modern policies
 
-To help accelerate the creation of modern policies, a set of sample policies is available in each of the five disciplines of Cloud Governance. Those sample policies will each start with one of three design assumptions:
+To help accelerate the creation of modern policies, a set of sample policies is available in each of the Five Disciplines of Cloud Governance. Those sample policies will each start with one of three design assumptions:
 
 - **Cloud Native**: The solution being deployed is cloud native and can capitalize on default solutions found in Azure, with minimal configuration.
 - **Enterprise**: The solution being deployed is complex and requires a hybrid cloud deployment model. This necessitates more complex implementations of certain governance disciplines.
