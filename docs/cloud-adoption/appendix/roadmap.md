@@ -16,7 +16,7 @@ The cloud presents a fundamental shift in the way enterprises procure and use te
 
 Removing key blockers and enabling change, requires more than implementation guidance. The Cloud Adoption Framework (CAF) is a set of documentation, implementation guidance, best practices and tools that aids in aligning strategies for business, culture, and technology to enable the desired business outcomes. It is structured in a modular way to simultaneously, follow and guide the customer in their cloud journey. CAF should be able to stand by itself and provide the structured guidance for customers in a self-service approach. CAF builds on existing guidance, where possible, to achieve the following objectives:
 
-* **Technical strategy objective:** establish scalable technical strategies, beyond the “minimally viable product”, enabling organizations to easily customize and adopt to meet their needs and address common constraints.
+* **Technical strategy objective:** establish scalable technical strategies, beyond the “minimally viable product”, enabling customers to easily customize and adopt to meet their needs and address common constraints.
 * **Business strategy objective:** without defining business strategy in this guidance, we will help architects document, communicate, and understand the business strategy so the right decisions can be made.
 * **Culture strategy objective:** without creating deep guidance to facilitate culture or HR change, we will provide methodologies, scenarios, and questions which will trigger changes required to remove culture as a roadblock to the technical strategy.  
 
@@ -24,55 +24,15 @@ Removing key blockers and enabling change, requires more than implementation gui
 
 CAF is an overarching framework which covers Plan, Ready and Adopt across the Migration and Innovation motivations for cloud adoption, supported by Governance and Operations guidance.  
 
-Microsoft is actively building out this aspirational framework with customers, partners, and others in the market. To encourage partnership, content will be released in public preview as it becomes available. These public preview releases serve as a means of testing, validating, and incrementally refining the guidance. The framework will reach general availability (GA), when the aspirational objectives above have been realized.
+Microsoft is actively building out this aspirational framework with customers, partners, and internal teams. To encourage partnership, content will be released in public preview as it becomes available. These public preview releases serve as a means of testing, validating, and incrementally refining the guidance. The framework will reach general availability (GA), when the aspirational objectives above have been realized.
 
-To be successful in adopting the cloud, organizations must prepare its people, technology and processes to be ready for this digital transformation. CAF includes a section outlining the overall adoption journeys, Migration and Innovation, as an overview for the customers, and it’s broken down into the adoption journey phases:
+To be successful in adopting the cloud, customers must prepare its people, technology and processes to be ready for this digital transformation. CAF includes a section outlining the overall adoption journeys, Migration and Innovation, as an overview for the customers, and it’s broken down into the adoption journey phases:
 
 * **Plan:** Align business outcomes to actionable technology backlogs. Planning consists of three areas of early stage planning activities: 1) Defining business justification and business outcomes, 2) Prioritizing workloads based on impacts to the business outcomes, 3) Creating a cloud adoption plan based on current digital estate and prioritized workloads.
 * **Ready:** Prepare the people, culture and environment for change. There are 3 key components in Ready: 1) Create a Cloud Strategy Team and other organizational alignment, 2) Create a skills readiness plan across roles and functions, 3) Set up an Azure Foundation by preparing the cloud environment.
 * **Adopt:** Implement the desired changes across IT and business process helping customers realize their business, technology and people strategies. Adopt includes several areas of work that will depend on what the organization is actually implementing. This includes 4 main areas: 1) workloads and assets migration, 2) apps and data modernization, 3) cloud governance, 4) assets and workloads management and operation in the cloud.  
 
 In reality, these phases are not linear and most likely would turn into a cycle, where customers are revisiting and expanding adoption plans, as their people becomes more cloud proficient, their apps and workloads are properly managed and operated, aligned with corporate policies, delivering on their business outcomes.
-
-## Content maturation
-
-Each new section of CAF will adhere to a similar maturation cycle, as follows:
-
-### First Release (AKA Content MVP)
-
-Create an opportunity to partner with customers, Microsoft partners, and the many roles across Microsoft through a well defined public preview of the methodology and models within that section of guidance. The goal of a first release is to demonstrate a growth mindset by quickly getting to a defined testing point.
-
-Definition of Done: Each First Release should contain:
-
-* Functional theory/considerations based on the lessons learned alongside existing customers
-* An actionable baseline (or MVP) which demonstrates basic usage of the tools required
-* A small number of best practices and expanded scope scenarios
-
-### Early Testing (Feedback integration)
-
-Quick iterations to integrate what we learn when testing/validating the guidance alongside customers, partners, and Microsoft employees executing in the field. Quickly fix any technical inaccuracies or confusing messaging.
-
-Definition of Done: Each Early Testing Release should contain:
-
-* Refined theory/considerations
-* Tested and customer verified baseline
-* Integrate feedback from 1st release, customer, and partner testing
-
-### On-going Maturity
-
-Continuous improvement and expansion of the content to meet emerging customer needs. New releases occur in a monthly cycle across the Cloud Adoption Framework. However, not every section of CAF with be updated in every months release.
-
-Definition of Done: Each subsequent release should contain:
-
-* Invest in additional Best Practices
-* Invest in additional Expanded Scope
-* Invest in deeper, more actionable next steps
-* Invest in automation and templates for proven, repeatable guidance
-* Ensure theory, considerations, and actionable baselines stay aligned to new investments
-
-### Out of band releases
-
-One of the goals of CAF is to consolidate various points of guidance across Microsoft. On occasion, new content may be consumed by CAF outside of the maturation cycles above, to meet time sensitive guidance needs. These releases are considered "out of band", as the content will be consumed and re-published for a brief period of time prior to the official First Release of a given section. This is rare, but will occasionally show up on the roadmap.
 
 ## Quarterly Roadmap
 

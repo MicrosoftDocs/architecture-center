@@ -7,7 +7,7 @@ ms.date: 4/4/2019
 
 # Cloud migration executive summary
 
-Microsoft has defined a cloud adoption framework, to help organizations with a simplified cloud adoption journey. The Cloud Adoption Framework is designed to provide comprehensive guidance for transitioning legacy application workloads using modern, innovative, cloud-based technologies. This framework contains detailed information to cover an end-to-end cloud adoption journey, which starts with targeted business outcomes, aligning cloud readiness and assessments to clearly defined business objectives. Those outcomes are then realized through a define path for cloud adoption. In the case of migration based adoption, that defined path focuses largely on the completion of a migration from on-premises to the cloud. At times this journey includes modernization of workloads to increase returns from the migration effort.
+Microsoft has defined a cloud adoption framework, to help customers with a simplified cloud adoption journey. The Cloud Adoption Framework is designed to provide comprehensive guidance for transitioning legacy application workloads using modern, innovative, cloud-based technologies. This framework contains detailed information to cover an end-to-end cloud adoption journey, which starts with targeted business outcomes, aligning cloud readiness and assessments to clearly defined business objectives. Those outcomes are then realized through a define path for cloud adoption. In the case of migration based adoption, that defined path focuses largely on the completion of a migration from on-premises to the cloud. At times this journey includes modernization of workloads to increase returns from the migration effort.
 
 This framework is designed to speak most directly to Cloud Architects and the Cloud Strategy Team who lead cloud adoption efforts. However, many of the topics in this framework will be relevant to additional roles across the business and IT. It is assumed that Cloud Architects will serve as facilitators engaging each of the relevant roles. This executive summary is designed to prepare those various roles prior to those facilitated conversations.
 
@@ -27,7 +27,7 @@ Respond to a critical event or a need to move specific assets. Asset migrations 
 - Reductions in capital expenses
 - End of support for mission-critical technologies
 
-**Aligned Methodology:** Asset migration is a technical process for migrating digital assets to the cloud using migration automation tooling. This approach can be successfully executed within the limited scope of the [Azure Migration Guide](../migrate/baseline-migration-guide/index.md). Note the pre-requites which outlines some environment readiness.
+**Aligned Methodology:** Asset migration is a technical process for migrating digital assets to the cloud using migration automation tooling. The term asset refers to servers, data, or applications that exist in on-premises environment. This approach can be successfully executed within the limited scope of the [Azure Migration Guide](../migrate/baseline-migration-guide/index.md). Note the pre-requites which outlines some environment readiness.
 
 ![Methodology supporting asset migration](../_images/migration/asset-migration.png)
 
@@ -39,13 +39,13 @@ More often cloud migrations are part of a focused effort to streamline IT operat
 - Reduction in vendor or technical complexity
 - Optimize internal operations
 
-**Aligned Methodology:** Workload migration build on asset migrations, but adds a focus on the migration of a workload, which adds deeper planning and testing requirements. Successful workload migrations build on the [Azure Migration Guide](../migrate/baseline-migration-guide/index.md) and [Azure Readiness Guide](../ready/azure-readiness-guide/index.md). However, additional considerations should be given to the expanded scope checklists associated with each of those guides.
+**Aligned Methodology:** Workload migration build on asset migrations, but adds a focus on the migration of a workload, which adds deeper planning and testing requirements. Examples of workloads could include things like an HR payroll solution, a CRM solution, a document approval workflow in Finance, or a business intelligence solution. Workloads could also include shared technical resources like a data warehouse that supports several other solutions. Successful workload migrations build on the [Azure Migration Guide](../migrate/baseline-migration-guide/index.md) and [Azure Readiness Guide](../ready/azure-readiness-guide/index.md). However, additional considerations should be given to the expanded scope checklists associated with each of those guides.
 
 ![Methodology supporting workload migration](../_images/operational-transformation-migrate.png)
 
 ### Portfolio Migration
 
-C-level conversations regarding cloud migration tend to focus on the benefits associated with portfolio migrations. These migrations are more likely to produce tangible business outcomes like the following:
+C-level conversations regarding cloud migration tend to focus on the benefits associated with portfolio migrations. Portfolio in this case describes the entire collection of workloads owned and managed by IT. These migrations are more likely to produce tangible business outcomes like the following:
 
 - Decrease business interruptions
 - Increase business agility
@@ -72,7 +72,7 @@ As depicted in the image above, this framework aligns strategic decisions to a s
 
 Throughout this migration experience this framework will be used to address ambiguity, manage change, and guide cross-functional teams through the realization of business outcomes.
 
-## Common cultural change
+## Common cultural changes associated with a portfolio migration
 
 The effort to realize the desired business outcomes may trigger slight changes to the culture of IT, and to some degree the culture of the business. The following are a few common cultural changes seen in this process:
 
@@ -85,13 +85,13 @@ The effort to realize the desired business outcomes may trigger slight changes t
 Cultural change is not a goal of cloud migration or the Cloud Adoption Framework, but it is a commonly experienced outcome.
 Cultural changes are not directly guided, instead subtle changes to the culture are embedded in the suggested process improvements and approaches throughout the guidance.
 
-## Common technical efforts
+## Common technical efforts associated with a portfolio migration
 
-During a cloud migration, the IT team will focus largely on the migration of existing digital assets to the cloud. During this effort, minimal code changes as expected, but can often be limited to configuration changes. In many cases, a strong business justification can be made for minor modernization as part of the technical execution.
+During a portfolio migration, the IT team will focus largely on the migration of existing digital assets to the cloud. During this effort, minimal code changes as expected, but can often be limited to configuration changes. In many cases, a strong business justification can be made for minor modernization as part of the technical execution.
 
-## Common workload examples
+## Common workload examples associated with a portfolio migration
 
-Cloud migrations often target a broad portfolio of workloads and applications. Within those portfolios, a number of common application or workload types can be seen within the migrated assets. The following are a few examples:
+Portfolio migrations often target a broad collection of workloads and applications. Within the portfolio, a number of common application or workload types are commonly migrated. The following are a few examples:
 
 - Line of business applications
 - Customer facing applications
