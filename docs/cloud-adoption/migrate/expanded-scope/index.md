@@ -27,6 +27,7 @@ The following checklist outlines the common areas of complexity which could requ
     - Existing datacenter constraints *(Coming Summer 2019)*
     - Migrating at scale - High volume or velocity of migrations *(Coming Summer 2019)*
     - [Multiple datacenters](./multiple-data-centers.md)
+    - [Data requirements exceed network capacity](./network-capacity-exceeded.md) *(Coming Summer 2019)*
     - Change management and solution documentation *(Coming Summer 2019)*
     - [Governance or compliance strategy](./governance-or-compliance.md)
 - **Workload-specific scope changes**
