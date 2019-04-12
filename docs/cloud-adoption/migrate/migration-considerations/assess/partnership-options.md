@@ -71,6 +71,10 @@ Microsoft Services offers a number of solution offers which align to the methodo
 - **Cloud Modernization:** Use the [Cloud Modernization](https://aka.ms/CloudMoDatasheet) solution offering as a comprehensive approach to move applications, data and infrastructure to an enterprise-ready cloud, as well as to optimize and modernize once in the cloud.
 - **Innovate with Cloud:** Engage customer through an innovative and unique [Cloud Center of Excellence (CCoE)](https://aka.ms/CCoEDatasheet) solution approach which builds a modern IT organization to enable agility at scale with DevOps while staying in control. Implements an agile approach to capture business requirements, reuse deployment packages aligned with security, compliance and service management policies, and maintains the Azure platform aligned with operational procedures.
 
+## Azure Support
+
+If you have questions or need help, [create a support request](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). If your support request requires deep technical guidance,  please visit [Azure Support Plans](https://azure.microsoft.com/en-us/support/plans/) to align the best plan for your needs.
+
 ## Azure Solutions Partner
 
 Microsoft Certified Solution Providers specialize in providing up-to-date, Microsoft technology–based customer solutions all over the world. Optimize your business in the cloud with help from an experienced partner.

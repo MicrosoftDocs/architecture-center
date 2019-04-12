@@ -19,11 +19,11 @@ Jump to: [Determine Identity Integration Requirements](#determine-identity-integ
 
 There are several ways to manage identity in a cloud environment, which vary in cost and complexity. A key factor in structuring your cloud-based identity services is the level of integration required with your existing on-premises identity infrastructure.
 
-Cloud-based software as a service (SaaS) identity solutions provide a base level of access control and identity management for cloud resources. However, if your organization's Active Directory (AD) infrastructure has a complex forest structure or customized organizational units (OUs), your cloud-based workloads may require directory replication to the cloud for a consistent set of identities, groups, and roles between your on-premises and cloud environments. If directory replication is required for a global solution, complexity can increase significantly. Additionally, support for applications dependent on legacy authentication mechanisms may require the deployment of domain services in the cloud.
+Cloud-based software as a service (SaaS) identity solutions provide a base level of access control and identity management for cloud resources. However, if your organization's on-premises Active Directory infrastructure has a complex forest structure or customized organizational units (OUs), your cloud-based workloads may require directory replication to the cloud for a consistent set of identities, groups, and roles between your on-premises and cloud environments. If directory replication is required for a global solution, complexity can increase significantly. Additionally, support for applications dependent on legacy authentication mechanisms may require the deployment of domain services in the cloud.
 
 ## Determine identity integration requirements
 
-| Question | Cloud baseline | Directory synchronization | Cloud-hosted Domain Services | AD Federation Services |
+| Question | Cloud baseline | Directory synchronization | Cloud-hosted domain services | Active Directory Federation Services |
 |------|------|------|------|------|
 | Do you currently lack an on-premises directory service? | Yes | No | No | No |
 | Do your workloads need to authenticate against on-premises identity services? | No | Yes | No | No |

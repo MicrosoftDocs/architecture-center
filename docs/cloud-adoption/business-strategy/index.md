@@ -1,11 +1,9 @@
 ---
 title: "CAF: How can the cloud advance my business strategy?"
-description: Explain how the cloud can be used to advance a business strategy
+description: Explanation of the cloud can be leveraged to advance a business strategy
 author: BrianBlanchard
 ms.date: 4/4/2019
 ---
-
-<!-- markdownlint-disable MD026 -->
 
 # CAF: How can the cloud advance my business strategy?
 

@@ -13,13 +13,9 @@ ms.date: 4/4/2019
 
 # How does Azure work?
 
-Azure is Microsoft's public cloud platform. Azure offers a large collection of services including platform as a service (PaaS), infrastructure as a service (IaaS), managed database services, and many others. But what exactly is Azure, and how does it work?
-
-<!-- markdownlint-disable MD034 -->
+Azure is Microsoft's public cloud platform. Azure offers a large collection of services including platform as a service (PaaS), infrastructure as a service (IaaS), database as a service (DBaaS), and many others. But what exactly is Azure, and how does it work?
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2ixGo]
-
-<!-- markdownlint-enable MD034 -->
 
 Azure, like other cloud platforms, relies on a technology known as **virtualization**. Most computer hardware can be emulated in software, because most computer hardware is simply a set of instructions permanently or semi-permanently encoded in silicon. Using an emulation layer that maps software instructions to hardware instructions, virtualized hardware can execute in software as if it were the actual hardware itself.
 
@@ -31,7 +27,7 @@ Within each rack or cluster, most of the servers are designated to run these vir
 
 Each instance of the fabric controller is connected to another set of servers running cloud orchestration software, typically known as a **front end**. The front end hosts the web services, RESTful APIs, and internal Azure databases used for all functions the cloud performs.
 
-For example, the front end hosts the services that handle customer requests to allocate Azure resources such as [virtual networks][vnet], [virtual machines][vms], and services like [Cosmos DB](/azure/cosmos-db/introduction). First, the front end validates the user and verifies the user is authorized to allocate the requested resources. If so, the front end consults a database to locate a server rack with sufficient capacity, and then instructs the fabric controller on the rack to allocate the resource.
+For example, the front end hosts the services that handle customer requests to allocate Azure resources such as [virtual networks][vnet], [virtual machines][vms], and services like [Cosmos DB][cosmosdb]. First, the front end validates the user and verifies the user is authorized to allocate the requested resources. If so, the front end consults a database to locate a server rack with sufficient capacity, and then instructs the fabric controller on the rack to allocate the resource.
 
 So, very simply, Azure is a huge collection of servers and networking hardware, along with a complex set of distributed applications that orchestrate the configuration and operation of the virtualized hardware and software on those servers. And it is this orchestration that makes Azure so powerful - users are no longer responsible for maintaining and upgrading hardware, Azure does all this behind the scenes.
 
@@ -44,6 +40,7 @@ Now that you understand the internal functioning of Azure, learn about cloud res
 
 <!-- Links -->
 
+[cosmosdb]: /azure/cosmos-db/introduction
 [docs-add-users-to-aad]: /azure/active-directory/add-users-azure-active-directory?toc=/azure/architecture/cloud-adoption-guide/toc.json
 [vms]: /azure/virtual-machines/
 [vnet]: /azure/virtual-network/virtual-networks-overview

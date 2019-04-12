@@ -60,7 +60,7 @@ Consider the following:
 - Implementing a hub and spoke topology in Azure centralizes common services such as connections to on-premises networks, firewalls, and isolation between VNets. The hub VNet provides a central point of connectivity to on-premises networks, and a place to host services use by workloads hosted in spoke VNets.
 - A hub and spoke configuration is typically used by larger enterprises. Smaller networks might consider a simpler design to save on costs and complexity.
 - Spoke VNets can be used to isolate workloads, with each spoke managed separately from other spokes. Each workload can include multiple tiers, and multiple subnets that are connected with Azure load balancers.
-- Hub and spoke VNets can be implemented in different resource groups, and even in different subscriptions. When you peer virtual networks in different subscriptions, the subscriptions can be associated to the same, or different, Azure Active Directory (Azure AD) tenants. This allows for decentralized management of each workload, while sharing services maintained in the hub network.
+- Hub and spoke VNets can be implemented in different resource groups, and even in different subscriptions. When you peer virtual networks in different subscriptions, the subscriptions can be associated to the same, or different, Azure Active Directory (AD) tenants. This allows for decentralized management of each workload, while sharing services maintained in the hub network.
 
 ![Change management](./media/migrate-best-practices-networking/hub-spoke.png)
 *Hub and spoke topology*
@@ -158,7 +158,7 @@ For a successful migration, it's critical to connect on-premises corporate netwo
 
 To implement a site-to-site VPN, you set up a VPN gateway in Azure.
 
-- A VPN gateway is a specific type of VNet gateway that's used to send encrypted traffic between an Azure VNet and an on-premises location over the public internet.
+- A VPN gateway is a specific type of VNet gateway that's used to send encrypted traffic between an Azure VNet and an on-premises location over the public Internet.
 - You can also use a VPN gateway to send encrypted traffic between Azure VNets over the Microsoft network.
 - Each VNet can have only one VPN gateway.
 - You can create multiple connections to the same VPN gateway. When you create multiple connections, all VPN tunnels share the available gateway bandwidth.
@@ -445,7 +445,7 @@ Azure Firewall is a managed, cloud-based network security service that protects 
 
 Web applications are increasingly targets of malicious attacks that exploit commonly known vulnerabilities. Exploits include SQL injection attacks and cross-site scripting attacks. Preventing such attacks in application code can be challenging, and can require rigorous maintenance, patching and monitoring at multiple layers of the application topology. A centralized web application firewall helps make security management much simpler and helps app administrators guard against threats or intrusions. A web app firewall can react to security threats faster, by patching known vulnerabilities at a central location, instead of securing individual web applications. Existing application gateways can be converted to a web application firewall enabled application gateway easily.
 
-Azure Web application firewall (WAF) is a feature of Azure Application Gateway.
+Azure Web application firewall (WAF) is a feature of Azure application gateway.
 
 - WAF provides centralized protection of your web applications, from common exploits and vulnerabilities.
 - WAF protects without modification to back-end code.

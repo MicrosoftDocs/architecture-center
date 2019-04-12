@@ -5,11 +5,9 @@ author: BrianBlanchard
 ms.date: 4/4/2019
 ---
 
-<!-- markdownlint-disable MD026 -->
-
 # CAF: How will global market decisions affect the transformation journey?
 
-The Cloud opens new opportunities to perform on a global scale. Barriers to global operations are significantly reduced, by empowering companies to deploy assets in market, without the need to invest heavily in new datacenters. Unfortunately, this also adds a great deal of complexity from technical and legal perspectives.
+The Cloud opens new opportunities to perform on a global scale. Barriers to global operations are significantly reduced, by empowering companies to deploy assets in market, without the need to invest heavily in new data centers. Unfortunately, this also adds a great deal of complexity from technical and legal perspectives.
 
 ## Data sovereignty
 

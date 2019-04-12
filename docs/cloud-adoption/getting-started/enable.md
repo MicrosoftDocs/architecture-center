@@ -16,10 +16,10 @@ The Microsoft Cloud Adoption Framework for Azure is provided as a free self-serv
 
 Throughout this framework, enablement is a core theme. The following checklist contains a series of topics that should be embedded in any cloud adoption effort to ensure the journey is a success in the eyes of both IT and the business:
 
-* Plan: Establishing clear [business outcomes](../business-strategy/business-outcomes/overview.md), a defined [digital estate plan](../digital-estate/index.md), and well understood [adoption backlogs](../migrate/migration-considerations/prerequisites/migration-backlog-review.md)
+* Plan: Establishing clear [business outcomes](../business-strategy/business-outcomes/overview.md), a defined [digital estate plan](../digital-estate/index.md), and well understood [adoption backlogs](../migrate/migration-considerations/pre-requisites/migration-backlog-review.md)
 * Ready: Ensure the readiness of staff through [skills and learning plans](../ready/technical-skills.md)
 * Govern: Align proper [governance disciplines](../governance/index.md)
-* Operate: Ongoing [operations](../operations/index.md) of the IT portfolio to minimize interruptions to business processes and ensure stability of the IT portfolio
+* Operate: On-going [operations](../operations/index.md) of the IT portfolio to minimize interruptions to business processes and ensure stability of the IT portfolio
 * Support: Align proper [partnership and support options](../migrate/migration-considerations/assess/partnership-options.md)
 
 ## Additional Tools
@@ -41,7 +41,7 @@ In addition to the Cloud Adoption Framework, Microsoft provides a number of addi
                     </div>
                     <div class="cardText">
                         <h3>Cloud Governance</h3>
-                        <p>Understand business risk, map those risks to proper policies and processes. Leveraging cloud governance tools and the Five Disciplines of Cloud Governance minimizes risks and improves the likelihood of success. Cloud governance helps control costs, create consistency, improve security, and accelerate deployment.</p>
+                        <p>Understand business risk, map those risks to proper policies and processes. Leveraging cloud governance tools and the five disciplines of cloud governance minimizes risks and improves the likelihood of success. Cloud governance helps control costs, create consistency, improve security, and accelerate deployment.</p>
                     </div>
                 </div>
             </div>

@@ -48,7 +48,8 @@ To view all of your support requests and their status:
 2. Select **All support requests**.
 
 ## Learn more
-To learn more, see [Azure billing and cost management documentation](/azure/billing/)
+
+For more information, see [understand your bill for Microsoft Azure](https://docs.microsoft.com/en-us/azure/billing/billing-understand-your-invoice).
 
 ::: zone-end
 

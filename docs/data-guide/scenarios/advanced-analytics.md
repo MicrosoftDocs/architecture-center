@@ -33,7 +33,7 @@ Most advanced analytics architectures include some or all of the following compo
 
 - **Analysis and reporting**. As the name suggests, advanced analytics solutions usually produce some sort of report or analytical feed that includes predicted data values. Often, predicted label values are used to populate real-time dashboards.
 
-- **Orchestration**. Although the initial data exploration and modeling is performed interactively by data scientists, many advanced analytics solutions periodically retrain models with new data &mdash; continually refining the accuracy of the models. This retraining can be automated using an orchestrated workflow.
+- **Orchestration**. Although the initial data exploration and modeling is performed interactively by data scientists, many advanced analytics solutions periodically re-train models with new data &mdash; continually refining the accuracy of the models. This retraining can be automated using an orchestrated workflow.
 
 ## Machine learning
 

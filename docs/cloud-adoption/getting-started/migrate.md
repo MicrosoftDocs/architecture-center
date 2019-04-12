@@ -22,12 +22,12 @@ The motivation or business outcome driving a cloud migration can heavily influen
 
 Respond to a critical event or a need to move specific assets. Asset migrations are usually motivated by the following short term critical business events.
 
-- Datacenter exit
+- Data center exit
 - Mergers, acquisition or divestiture
 - Reductions in capital expenses
 - End of support for mission-critical technologies
 
-**Aligned Methodology:** Asset migration is a technical process for migrating digital assets to the cloud using migration automation tooling. This approach can be successfully executed within the limited scope of the [Azure Migration Guide](../migrate/baseline-migration-guide/index.md). Note the prerequisites which outlines some environment readiness.
+**Aligned Methodology:** Asset migration is a technical process for migrating digital assets to the cloud using migration automation tooling. This approach can be successfully executed within the limited scope of the [Azure Migration Guide](../migrate/baseline-migration-guide/index.md). Note the pre-requites which outlines some environment readiness.
 
 ![Methodology supporting asset migration](../_images/migration/asset-migration.png)
 

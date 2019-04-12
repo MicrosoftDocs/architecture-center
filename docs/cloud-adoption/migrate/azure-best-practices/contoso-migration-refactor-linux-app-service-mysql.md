@@ -128,7 +128,7 @@ Contoso admins provision two Web apps (one in each region) using Azure App Servi
 
     ![Azure App](./media/contoso-migration-refactor-linux-app-service-mysql/azure-app3.png)
 
-5. They create a second web app (**osticket-cus**), and Azure App Service plan for the Central US region.
+5. They create a second web app (**osticket-cus**), and App service plan for the Central US region.
 
     ![Azure App](./media/contoso-migration-refactor-linux-app-service-mysql/azure-app4.png)
 
