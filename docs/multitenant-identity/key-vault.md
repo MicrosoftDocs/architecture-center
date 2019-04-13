@@ -98,6 +98,7 @@ Now assign this user as the subscription owner.
     ```powershell
     .\Setup-KeyVault.ps1 -Subject <<subject>>
     ```
+
     For the `Subject` parameter, enter any name, such as "surveysapp". The script generates a self-signed certificate and stores it in the "Current User/Personal" certificate store. The output from the script is a JSON fragment. Copy this value.
 
 2. In the [Azure portal][azure-portal], switch to the directory where the Surveys application is registered, by selecting your account in the top right corner of the portal.
@@ -137,19 +138,28 @@ Now assign this user as the subscription owner.
 1. Run the PowerShell script [/Scripts/Setup-KeyVault.ps1][Setup-KeyVault] as follows:
 
     ```powershell
-    .\Setup-KeyVault.ps1 -KeyVaultName <<key vault name>> -ResourceGroupName <<resource group name>> -Location <<location>>
+    .\Setup-KeyVault.ps1 -SubscriptionId <<subscription id>> -ResourceGroupName <<resource group name>> -KeyVaultName <<key vault name>> -Location <<location>>
     ```
+
+    Set the following parameter values:
+
+       * subscription id = The ID of the Azure Subscription you're using to run this.
+       * resource group = The name of the Resource Group you're using to group all the resources of this sample.
+       * key vault name = The name for the Key Vault being created.
+       * location = The azure Location you want the Key Vault to be deployed to. E.g., `eastus`
 
     When prompted for credentials, sign in as the Azure AD user that you created earlier. The script creates a new resource group, and a new key vault within that resource group.
 
 2. Run Setup-KeyVault.ps1 again as follows:
 
     ```powershell
-    .\Setup-KeyVault.ps1 -KeyVaultName <<key vault name>> -ApplicationIds @("<<Surveys app id>>", "<<Surveys.WebAPI app ID>>")
+    .\Setup-KeyVault.ps1 -SubscriptionId <<subscription id>> -ResourceGroupName <<resource group>> -KeyVaultName <<key vault name>> -ApplicationIds @("<<Surveys app id>>", "<<Surveys.WebAPI app ID>>")
     ```
 
     Set the following parameter values:
 
+       * subscription id = The ID of the Azure Subscription you're using to run this.
+       * resource group = The name of the Resource Group you're using to group all the resources of this sample.
        * key vault name = The name that you gave the key vault in the previous step.
        * Surveys app ID = The application ID for the Surveys web application.
        * Surveys.WebApi app ID = The application ID for the Surveys.WebAPI application.
@@ -157,7 +167,7 @@ Now assign this user as the subscription owner.
     Example:
 
     ```powershell
-     .\Setup-KeyVault.ps1 -KeyVaultName tailspinkv -ApplicationIds @("f84df9d1-91cc-4603-b662-302db51f1031", "8871a4c2-2a23-4650-8b46-0625ff3928a6")
+     .\Setup-KeyVault.ps1 -SubscriptionId 4ca1987c-377f-4089-b38f-c8d88e96e108 -ResourceGroupName tailspinrg -KeyVaultName tailspinkv -ApplicationIds @("f84df9d1-91cc-4603-b662-302db51f1031", "8871a4c2-2a23-4650-8b46-0625ff3928a6")
     ```
 
     This script authorizes the web app and web API to retrieve secrets from your key vault. See [Get started with Azure Key Vault](/azure/key-vault/key-vault-get-started/) for more information.
@@ -167,10 +177,13 @@ Now assign this user as the subscription owner.
 1. Run Setup-KeyVault.ps1 as follows:
 
     ```powershell
-    .\Setup-KeyVault.ps1 -KeyVaultName <<key vault name> -KeyName Redis--Configuration -KeyValue "<<Redis DNS name>>.redis.cache.windows.net,password=<<Redis access key>>,ssl=true"
+    .\Setup-KeyVault.ps1 -SubscriptionId <<subscription id>> -ResourceGroupName <<resource group>> -KeyVaultName <<key vault name> -KeyName Redis--Configuration -KeyValue "<<Redis DNS name>>.redis.cache.windows.net,password=<<Redis access key>>,ssl=true"
     ```
+
     where
 
+   * subscription id = The ID of the Azure Subscription you're using to run this.
+   * resource group = The name of the Resource Group you're using to group all the resources of this sample.
    * key vault name = The name that you gave the key vault in the previous step.
    * Redis DNS name = The DNS name of your Redis cache instance.
    * Redis access key = The access key for your Redis cache instance.
@@ -184,7 +197,7 @@ Now assign this user as the subscription owner.
 3. Run Setup-KeyVault.ps1 again to add the database connection string:
 
     ```powershell
-    .\Setup-KeyVault.ps1 -KeyVaultName <<key vault name> -KeyName Data--SurveysConnectionString -KeyValue <<DB connection string>> -ConfigName "Data:SurveysConnectionString"
+    .\Setup-KeyVault.ps1 -SubscriptionId <<subscription id>> -ResourceGroupName <<resource group>> -KeyVaultName <<key vault name> -KeyName Data--SurveysConnectionString -KeyValue <<DB connection string>> -ConfigName "Data:SurveysConnectionString"
     ```
 
     where `<<DB connection string>>` is the value of the database connection string.
