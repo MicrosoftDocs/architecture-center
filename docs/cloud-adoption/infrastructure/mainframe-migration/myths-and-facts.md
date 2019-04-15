@@ -36,4 +36,4 @@ By comparison, Azure offers  an alternative platform that is capable of deliveri
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Make the Switch from Mainframes to Azure](migration-strategies.md)
+> [Make the switch from mainframes to Azure](migration-strategies.md)

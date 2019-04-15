@@ -113,5 +113,5 @@ Now that you understand the concept of cloud security governance, move on to lea
 
 > [!div class="nextstepaction"]
 > [Learn about security guidance for Azure](azure-security-guidance.md)
-> [Introduction to Azure Security](/azure/security/azure-security)
+> [Introduction to Azure security](/azure/security/azure-security)
 > [Learn about logging, reporting, and monitoring](../../decision-guides/log-and-report/overview.md)

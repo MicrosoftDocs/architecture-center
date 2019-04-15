@@ -14,7 +14,7 @@ The cloud fundamentally changes how enterprises procure and use technology resou
 
 ## Vision and Objectives
 
-Removing key obstacles and enabling change requires more than implementation guidance. The Cloud Adoption Framework (CAF) is a set of documentation, implementation guidance, best practices, and tools that help align strategies for business, culture, and technology to enable the desired business outcomes. Its modular structure follows and guides the customer through their cloud journey. The Cloud Adoption Framework can stand by itself and provide self-service structured guidance for customers. CAF builds on existing guidance whenever possible to meet the following objectives:
+Removing key obstacles and enabling change requires more than implementation guidance. The Cloud Adoption Framework is a set of documentation, implementation guidance, best practices, and tools that help align strategies for business, culture, and technology to enable the desired business outcomes. Its modular structure follows and guides the customer through their cloud journey. The Cloud Adoption Framework can stand by itself and provide self-service structured guidance for customers. The Cloud Adoption Framework builds on existing guidance whenever possible to meet the following objectives:
 
 - **Technical strategy objective:** Establish scalable technical strategies, beyond a minimum viable product, so customers can easily customize and adapt to meet their needs and address common constraints.
 - **Business strategy objective:** Without defining business strategy in this guidance, we will help architects understand, document, and communicate the business strategy so the right decisions can be made.
@@ -53,7 +53,7 @@ The following outlines specific releases per quarter, to demonstrate maturity of
 - **First release:** Migrate, Ready, and Plan will each launch as First Releases this quarter, with one section anticipated to release each month.
 - **Early testing release:** Govern, Migrate and Ready are expected to complete early testing releases this quarter.
 - **Ongoing maturity release:** Govern and Migrate are expected to have at least one release each, with a focus on going deeper into actionable next steps. Govern is expected to see additional investments in Best Practices and Expanded Scope.
-- **Out-of-band release:** Ready will have an out-of-band release during late April and throughout May. The content in the Ready section will be pulled directly from the Azure Readiness Playbook to support a coming integration with the Azure Portal. This content will be improved and aligned to CAF methodologies prior to the official first release of the Ready section in late May.
+- **Out-of-band release:** Ready will have an out-of-band release during late April and throughout May. The content in the Ready section will be pulled directly from the Azure Readiness Playbook to support a coming integration with the Azure Portal. This content will be improved and aligned to Cloud Adoption Framework methodologies prior to the official first release of the Ready section in late May.
 
 ### Third quarter 2019 (FY20Q1)
 

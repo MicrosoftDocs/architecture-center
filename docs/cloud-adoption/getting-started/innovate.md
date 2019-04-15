@@ -5,12 +5,12 @@ author: BrianBlanchard
 ms.date: 4/4/2019
 ---
 
-# Innovation through cloud adoption in the Microsoft CAF for Azure
+# Innovation through cloud adoption in the Microsoft Cloud Adoption Framework for Azure
 
 Innovation is closely linked to migration. When workloads create market differentiation opportunities, it is very common for those workloads to be migrated to the cloud, then undergo modernization efforts. Once in the cloud modernization can be accelerated by modern cloud based approaches, which also enable the development of new innovations.
 
 > [!NOTE]
-> This guidance is slated for development in preparation for the Summer release of CAF. The taxonomy and approach below is likely to change. The following is intended to surface the general north star for Innovation guidance.
+> This guidance is slated for development in preparation for the summer release of the Cloud Adoption Framework. The taxonomy and approach below is likely to change. The following is intended to surface the general north star for Innovation guidance.
 
 ## Motivations behind innovation
 
@@ -26,7 +26,7 @@ Innovation should not be the chosen adoption path for all workloads. This path t
 
 ## Innovation guidance
 
-As the innovation content within CAF is developed, it will provide guidance related to the following topics:
+As the innovation content within the Cloud Adoption Framework is developed, it will provide guidance related to the following topics:
 
 * Modernize existing assets
 * Build new apps

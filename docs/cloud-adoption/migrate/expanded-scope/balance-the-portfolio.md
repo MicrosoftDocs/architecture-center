@@ -29,11 +29,11 @@ The following table can help document and share desired business outcomes. It's 
 > [!IMPORTANT]
 > The above table is a fictional example and should not used to set priorities. In many cases, this table could be seen as an anti-pattern by placing cost savings above customer experiences.
 
-The above table could accurately represent the priorities of the cloud strategy team and cloud adoption team overseeing a cloud migration. Due to short term constraints, this team is placing a higher emphasis on IT cost reduction and prioritizing a datacenter exit as a means to achieve the desired IT cost reductions. However, by documenting the competing priorities in this table, the Cloud Adoption Team is empowered to help the Cloud Strategy Team identify opportunities to better align implementation of the overarching portfolio strategy.
+The above table could accurately represent the priorities of the cloud strategy team and cloud adoption team overseeing a cloud migration. Due to short term constraints, this team is placing a higher emphasis on IT cost reduction and prioritizing a datacenter exit as a means to achieve the desired IT cost reductions. However, by documenting the competing priorities in this table, the Cloud Adoption team is empowered to help the Cloud Strategy team identify opportunities to better align implementation of the overarching portfolio strategy.
 
 ### Move fast while maintaining balance
 
-The guidance regarding [incremental rationalization of the digital estate](../../digital-estate/overview.md) suggests an approach in which the rationalization starts with an unbalanced position. In that article, it is suggested that the Cloud Strategy Team evaluate every workload for compatibility with a re-host approach. Such an approach is suggested because it allows for the rapid evaluation of a complex digital estate based on quantitative data. Making such an initial assumption allows the Cloud Adoption Team to engage quickly, reducing time to business outcomes. However, as stated in that article, qualitative questions will provide the necessary balance in the portfolio. This article documents the process for creating the promised balance.
+The guidance regarding [incremental rationalization of the digital estate](../../digital-estate/overview.md) suggests an approach in which the rationalization starts with an unbalanced position. In that article, it is suggested that the Cloud Strategy Team evaluate every workload for compatibility with a rehost approach. Such an approach is suggested because it allows for the rapid evaluation of a complex digital estate based on quantitative data. Making such an initial assumption allows the Cloud Adoption team to engage quickly, reducing time to business outcomes. However, as stated in that article, qualitative questions will provide the necessary balance in the portfolio. This article documents the process for creating the promised balance.
 
 ### Importance of sunset and retire decisions
 
@@ -115,7 +115,7 @@ No additional changes are required during Secure and manage processes within the
 
 ## Next steps
 
-Return to the [Expanded Scope Checklist](./index.md) to ensure your migration methodology is fully aligned.
+Return to the [expanded scope checklist](./index.md) to ensure your migration methodology is fully aligned.
 
 > [!div class="nextstepaction"]
-> [Expanded Scope Checklist](./index.md)
+> [Expanded scope checklist](./index.md)

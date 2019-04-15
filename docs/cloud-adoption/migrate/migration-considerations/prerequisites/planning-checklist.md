@@ -23,7 +23,7 @@ The first and most important decision regarding any migration-ready environment 
 
 Whether you choose to align with a broader cloud governance strategy or not for your initial migration, you will need to ensure your cloud deployment environment is configured to support your workloads.
 
-If you're planning to align your migration with a cloud governance strategy from the start, you'll need to apply the [Five Disciplines of Cloud Governance](../../../governance/governance-disciplines.md) to help inform decisions on policies, toolchains, and enforcement mechanisms that will align your cloud environment with overall corporate requirements. Consult the CAF [actionable governance design guides](../../../governance/journeys/overview.md) for examples of how to implement this model using Azure services.
+If you're planning to align your migration with a cloud governance strategy from the start, you'll need to apply the [Five Disciplines of Cloud Governance](../../../governance/governance-disciplines.md) to help inform decisions on policies, toolchains, and enforcement mechanisms that will align your cloud environment with overall corporate requirements. Consult the Cloud Adoption Framework [actionable governance design guides](../../../governance/journeys/overview.md) for examples of how to implement this model using Azure services.
 
 In the event your initial migrations are not closely aligned with a broader cloud governance strategy, the general issues of organization, access, and infrastructure planning still need to be managed. Consult the [Azure readiness guide](../../../ready/azure-readiness-guide/overview.md) for help making these cloud readiness decisions.
 

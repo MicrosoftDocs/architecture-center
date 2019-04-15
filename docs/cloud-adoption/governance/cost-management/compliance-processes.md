@@ -47,8 +47,8 @@ When violations are detected, you should take enforcement actions to realign wit
 
 The following are examples of triggers:
 
-* Monthly budget deviations: Discuss any deviations in monthly spending that exceed 20% forecast-versus-actual ratio with the billing unit leader. Record resolutions and changes in forecast.
-* Pace of adoption: Any deviation at a subscription level exceeding 20% will trigger a review with billing unit leader. Record resolutions and changes in forecast.
+- **Monthly budget deviations**: Discuss any deviations in monthly spending that exceed 20% forecast-versus-actual ratio with the billing unit leader. Record resolutions and changes in forecast.
+- **Pace of adoption:** Any deviation at a subscription level exceeding 20% will trigger a review by a billing unit leader. Record resolutions and changes in forecast.
 
 ## Next steps
 

@@ -66,4 +66,4 @@ See the following for more information about software defined networking in the 
 Learn how logs, monitoring, and reporting are used by operations teams to manage the health and policy compliance of cloud workloads.
 
 > [!div class="nextstepaction"]
-> [Logs and Reporting](../log-and-report/overview.md)
+> [Logs and reporting](../log-and-report/overview.md)

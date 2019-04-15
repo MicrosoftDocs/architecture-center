@@ -15,14 +15,14 @@ Download the [Business Outcome Template Spreadsheet](https://archcenter.blob.cor
 
 ## How do you use the Business Outcome Template?
 
-Introduced by Kate Johnson at Microsoft’s Digital Transformation Academy, Business Outcomes focus on three topics referenced in the house diagram below:
+Introduced by Kate Johnson at Microsoft’s Digital Transformation Academy, business outcomes focus on three topics referenced in the house diagram below:
 
-* Aligning to Stakeholders or Business Decision Makers.
-* Understanding business drivers and objectives.
-* Mapping outcomes to specific solutions and technical capability.
+- Aligning to stakeholders or business decision makers.
+- Understanding business drivers and objectives.
+- Mapping outcomes to specific solutions and technical capability.
 
-![Business Outcomes visualized as a house with Stakeholders, over business outcomes, over technical capabilities](../../_images/business-outcome-house.png)
-*Figure 1: Business Outcomes visualized as a house with Stakeholders, over business outcomes, over technical capabilities*
+![Business outcomes visualized as a house with stakeholders, over business outcomes, over technical capabilities](../../_images/business-outcome-house.png)
+*Figure 1: Business outcomes visualized as a house with stakeholders, over business outcomes, over technical capabilities*
 
 The Business Outcome Template used in this process, focuses on simplified conversations that can quickly engage executes without getting too deep into the technical solution. Rapidly understanding and aligning the KPIs and Business Drivers that are important to stakeholders, allows the team think about high level approaches and transformations before diving into the implementation details.
 
@@ -36,7 +36,7 @@ An example can be found on the "Example Outcome" tab of the spreadsheet, as show
 Discovery is a fundamental tenet to Enterprise Architecture. If discovery is limited to technical discovery, the end solution is likely to miss many opportunities to improve the business. Enterprise Architects, Solution Architects, and other technically minded leaders, can master the discovery process using this template. In extremely effective discovery processes, we see these leaders consider five key aspects of the business outcome, before driving a Transformation Journey.
 
 ![Five areas of focus in discovery: stakeholders, outcomes, drivers, KPIs, and capabilities](../../_images/business-outcome-focus-areas.png)
-Figure 3: Five areas of focus in discovery: stakeholders, outcomes, drivers, KPIs, and capabilities
+*Figure 3: Five areas of focus in discovery: stakeholders, outcomes, drivers, KPIs, and capabilities*
 
 **Stakeholders:** Who in the organization is likely to see the greatest value in a specific business outcome? Who is most likely to support this transformation, especially when things get tough or time consuming? Who has the greatest stake in the success of this transformation? This person is a potential stakeholder.
 

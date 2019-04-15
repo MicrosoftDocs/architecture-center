@@ -31,7 +31,7 @@ The resources listed below can all help you stay current with Azure.
   * There are many Azure service blogs available. We recommend that you find the ones you're interested in through a web search.
 * [Azure Info Hub](https://azureinfohub.azurewebsites.net/)
   * This is an unofficial resource that pulls together most of the resources listed above. Follow links to individual services to get detailed information and find service-specific blogs.
-  * Subscribe via [RSS](http://azureinfohub.azurewebsites.net/Feed?serviceTitle=Azure)
+  * Subscribe via [RSS](https://azureinfohub.azurewebsites.net/Feed?serviceTitle=Azure)
 
 # [Additional Resources](#tab/AdditionalResources)
 
@@ -40,6 +40,6 @@ For deeper content that helps you stay current with Azure, take a look at the re
 * [Azure Friday](https://channel9.msdn.com/Shows/Azure-Friday)
   * Weekly videos with the engineers who build Azure, demo it, answer questions, and share insights.
   * Subscribe via [RSS](https://channel9.msdn.com/Shows/Azure-Friday/feed)
-* [Azure Weekly Newsletter](http://azureweekly.info/)
+* [Azure Weekly Newsletter](https://azureweekly.info/)
   * This is an unofficial resource provided by [endjin](https://endjin.com/) and includes a summary of the week's top news in the Microsoft Azure ecosystem, as well as interesting historic content that's well worth reading.
-  * Subscribe via [email](http://azureweekly.info/)
+  * Subscribe via [email](https://azureweekly.info/)

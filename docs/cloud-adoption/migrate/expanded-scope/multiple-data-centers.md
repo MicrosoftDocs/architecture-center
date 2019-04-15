@@ -7,7 +7,7 @@ ms.date: 4/4/2019
 
 # Multiple datacenters
 
-Often times the scope of a migration involves the transition of multiple datacenters. The following guidance will expand the scope of the [baseline migration guide](../azure-migration-guide/overview.md) to address multiple datacenters.
+Often times the scope of a migration involves the transition of multiple datacenters. The following guidance will expand the scope of the [Azure migration guide](../azure-migration-guide/overview.md) to address multiple datacenters.
 
 ## General scope expansion
 
@@ -60,4 +60,4 @@ Secure an manage processes should be unchanged by this scope expansion
 Return to the [Expanded Scope Checklist](./index.md) to ensure your migration methodology is fully aligned.
 
 > [!div class="nextstepaction"]
-> [Expanded Scope Checklist](./index.md)
+> [Expanded scope checklist](./index.md)

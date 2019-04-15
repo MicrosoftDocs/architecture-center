@@ -41,7 +41,7 @@ When the market changes, the Cloud Strategy Team works with the business to unde
 
 ## Next steps
 
-With properly aligned business priorities, the Cloud Adoption Team can confidently begin to [Evaluate Workloads](./evaluate.md) to develop architecture and migration plans.
+With properly aligned business priorities, the Cloud Adoption Team can confidently begin to [evaluate workloads](./evaluate.md) to develop architecture and migration plans.
 
 > [!div class="nextstepaction"]
-> [Evaluate Workloads](./evaluate.md)
+> [Evaluate workloads](./evaluate.md)

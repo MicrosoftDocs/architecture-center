@@ -52,7 +52,7 @@ Dave assigns the following roles for the subscription:
 | [Owner](/azure/role-based-access-control/built-in-roles#owner) |Managed ID from Contoso's on-premises Active Directory |This ID is controlled with Just in Time (JIT) access through Contoso's Identity Management tool and ensures that subscription owner access is fully audited |
 | [Security Reader](/azure/role-based-access-control/built-in-roles#security-reader) |Security and risk management department |This role allows users to look at the Azure Security Center and the status of the resources |
 | [Network Contributor](/azure/role-based-access-control/built-in-roles#network-contributor) |Network team |This role allows Contoso's network team to manage the Site to Site VPN and the Virtual Networks |
-| *Custom role* |Application owner |Dave creates a role that grants the ability to modify resources within the resource group. For more information, see [Custom Roles in Azure RBAC](/azure/role-based-access-control/custom-roles) |
+| *Custom role* |Application owner |Dave creates a role that grants the ability to modify resources within the resource group. For more information, see [Custom roles in Azure RBAC](/azure/role-based-access-control/custom-roles) |
 
 ### Policies
 
@@ -122,7 +122,7 @@ The business leadership in the supply chain business unit has identified various
 
 ### Azure subscriptions
 
-Dave logs in to the Azure Enterprise Portal and sees that the supply chain department already exists. However, as this project is the first development project for the supply chain team in Azure, Dave recognizes the need for a new account for Alice’s development team. He creates the "R&D" account for her team and assigns access to Alice. Alice logs in via the Azure portal and creates two subscriptions: one to hold the development servers and one to hold the production servers. She follows the previously established naming standards when creating the following subscriptions:
+Dave logs in to the Azure Enterprise Portal and sees that the supply chain department already exists. However, as this project is the first development project for the supply chain team in Azure, Dave recognizes the need for a new account for Alice's development team. He creates the "R&D" account for her team and assigns access to Alice. Alice logs in via the Azure portal and creates two subscriptions: one to hold the development servers and one to hold the production servers. She follows the previously established naming standards when creating the following subscriptions:
 
 | Subscription use | Name |
 | --- | --- |

@@ -7,13 +7,13 @@ ms.date: 4/4/2019
 
 # Expanded scope for cloud migration
 
-The [baseline migration guide](../azure-migration-guide/overview.md) in the Cloud Adoption Framework is the suggested starting point for readers who are interested in a rehost migration to Azure, also known as a Lift and Shift migration. That guide walks you through a series of prerequisites, tools, and approaches to migrating virtual machines to the cloud.
+The [Azure migration guide](../azure-migration-guide/overview.md) in the Cloud Adoption Framework is the suggested starting point for readers who are interested in a rehost migration to Azure, also known as a Lift and Shift migration. That guide walks you through a series of prerequisites, tools, and approaches to migrating virtual machines to the cloud.
 
-While the [baseline migration guide](../azure-migration-guide/overview.md) is effective at getting you familiar with this style of migration, it is based on a number of assumptions. Those assumptions ensure that the guide aligns to a large percentage of the Cloud Adoption Framework's readers, by providing a simplified approach to migrations. This section of the Cloud Adoption Framework addresses a number of expanded scope migration scenarios, which could help guide efforts when those assumptions do not apply.
+While this guide is an effective baseline to familiarize you with this type of migration, it makes several assumptions. Those assumptions align the guide with a large percentage of the Cloud Adoption Framework's readers by providing a simplified approach to migrations. This section of the Cloud Adoption Framework addresses some expanded scope migration scenarios, which help guide efforts when those assumptions don't apply.
 
 ## Cloud migration expanded scope checklist
 
-The following checklist outlines the common areas of complexity which could require the scope of the migration to be expanded beyond the [baseline migration guide](../azure-migration-guide/overview.md).
+The following checklist outlines the common areas of complexity which could require the scope of the migration to be expanded beyond the [Azure migration guide](../azure-migration-guide/overview.md).
 
 - **Business-driven scope changes**
   - [Balancing the portfolio](./balance-the-portfolio.md)
@@ -69,7 +69,7 @@ To help you understand each scope expansion scenario, the following list will br
 
 ## Next steps
 
-Browse the TOC to the left to address specific needs or scope changes. Alternatively, the first scope enhancement on the list, [Balancing the Portfolio](./balance-the-portfolio.md) could be a good starting place when reviewing these scenarios.
+Browse the table of contents on the left to address specific needs or scope changes. Alternatively, the first scope enhancement on the list, [balancing the portfolio](./balance-the-portfolio.md) is a good starting place when reviewing these scenarios.
 
 > [!div class="nextstepaction"]
-> [Balancing the Portfolio](./balance-the-portfolio.md)
+> [Balancing the portfolio](./balance-the-portfolio.md)

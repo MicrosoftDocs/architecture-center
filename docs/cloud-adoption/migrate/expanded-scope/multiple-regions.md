@@ -60,7 +60,7 @@ This approach is driven by quantifiable information. As such, the following appr
 
 ## Suggested prerequisites
 
-It is suggested that the Cloud Adoption Team begin with the migration of a simple workload using the [Baseline migration guide](../azure-migration-guide/overview.md), before attempting to address global scale. This will ensure the team is familiar with the general process of cloud migration prior to attempting a more complex migration scenario.
+It is suggested that the Cloud Adoption Team begin with the migration of a simple workload using the [Azure migration guide](../azure-migration-guide/overview.md), before attempting to address global scale. This will ensure the team is familiar with the general process of cloud migration prior to attempting a more complex migration scenario.
 
 When scope for a migration includes multiple regions, the following readiness considerations should be evaluated by the Cloud Adoption Team:
 

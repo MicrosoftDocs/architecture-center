@@ -7,7 +7,7 @@ ms.date: 4/4/2019
 
 # Skills readiness
 
-During a cloud migration, it is very likely that employees, and even some incumbent systems integration partners or managed services partners, will need to develop new skills to be effective during migration efforts. This is amongst the most common scope expansions beyond the [baseline migration guide](../azure-migration-guide/overview.md).
+During a cloud migration, it is very likely that employees, and even some incumbent systems integration partners or managed services partners, will need to develop new skills to be effective during migration efforts. This is amongst the most common scope expansions beyond the [Azure migration guide](../azure-migration-guide/overview.md).
 
 ## General scope expansion
 
@@ -58,7 +58,7 @@ The following tools can help the team find ways to secure and manage migrated as
 
 ## Next steps
 
-Return to the [Expanded Scope Checklist](./index.md) to ensure your migration methodology is fully aligned.
+Return to the [expanded scope checklist](./index.md) to ensure your migration methodology is fully aligned.
 
 > [!div class="nextstepaction"]
-> [Expanded Scope Checklist](./index.md)
+> [Expanded scope checklist](./index.md)

@@ -30,7 +30,8 @@ In contrast, the _non-functional_ requirements relate to properties such as the 
 
 Some non-functional requirements can be specified in terms of a service level agreement (SLA). For example, with regard to service continuity, an availability requirement for the service can be expressed as a percentage such as **available 99.99% of the time**. Other non-functional requirements may be more difficult to define and may change as production needs evolve. For example, a consumer-facing service might start facing unanticipated throughput requirements after a surge of popularity.
 
-![NOTE] Defining the requirements for resiliency, including explanations of RPO, RTO, SLA, and related concepts, are explored in more depth in [Designing resilient applications for Azure](../../resiliency/index.md#define-your-availability-requirements).
+> [!NOTE]
+> Requirements for resiliency, including explanations of RPO, RTO, SLA, and related concepts, are explored in more depth in [Designing resilient applications for Azure](../../resiliency/index.md#define-your-availability-requirements).
 
 ## Operational fitness review process
 
@@ -106,5 +107,5 @@ The details of the process and meeting should be adapted to fit your specific ne
     This section of the Azure Application Architecture guide discusses a set of design principles to make your application more scalable, resilient, and manageable.
 - [Designing resilient applications for Azure](../../resiliency/index.md).
     This guide starts with a definition of the term resiliency and related concepts. Then it describes a process for achieving resiliency, using a structured approach over the lifetime of an application, from design and implementation to deployment and operations.
-- [Cloud Design Patterns](../../patterns/index.md).
+- [Cloud design patterns](../../patterns/index.md).
     These design patterns are useful for engineering teams when building applications on the pillars of software quality.

@@ -25,7 +25,7 @@ Deploying a PaaS-only networking architecture assumes the following:
 - Your IT operations teams can update their tools, training, and processes to support management, configuration, and deployment of standalone PaaS applications.
 - The PaaS application is not part of a broader cloud migration effort that will include IaaS resources.
 
-These assumptions are minimum qualifiers aligned to deploying a PaaS-only network. While this approach may align with the requirements of a single application deployment, your Cloud Adoption Team should examine these long-term questions:
+These assumptions are minimum qualifiers aligned to deploying a PaaS-only network. While this approach may align with the requirements of a single application deployment, your Cloud Adoption team should examine these long-term questions:
 
 - Will this deployment expand in scope or scale to require access to other non-PaaS resources?
 - Are other PaaS deployments planned beyond the current solution?

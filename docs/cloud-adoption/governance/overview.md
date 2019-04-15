@@ -17,8 +17,8 @@ For organizations with existing policies governing on-premises IT environments, 
 
 The guidance in this section of the Cloud Adoption Framework is designed for two purposes:
 
-* Provide actionable customer journeys that represent common experiences that customers often encounter. Each of these encapsulate business risks, corporate policies for risk mitigation, and design guidance to implement technical solutions. By necessity, the design guidance is specific to Azure. All other guidance in these journeys could be applied as part of a cloud-agnostic or multi-cloud approach.
-* Help readers create personalized governance solutions that can meet a variety of business needs, including the governance of multiple public clouds, through detailed guidance on the development of corporate policies, processes, and tooling.
+- Provide actionable customer journeys that represent common experiences that customers often encounter. Each of these encapsulate business risks, corporate policies for risk mitigation, and design guidance to implement technical solutions. By necessity, the design guidance is specific to Azure. All other guidance in these journeys could be applied as part of a cloud-agnostic or multi-cloud approach.
+- Help readers create personalized governance solutions that can meet a variety of business needs, including the governance of multiple public clouds, through detailed guidance on the development of corporate policies, processes, and tooling.
 
 This content is intended for the Cloud Governance team. It is also relevant to cloud architects that need to develop a strong foundation in cloud governance.
 
@@ -41,4 +41,4 @@ For a crash course on the theory and quick access to Azure implementation, get s
 Review the actionable governance journeys.
 
 > [!div class="nextstepaction"]
-> [Actionable Governance Journeys](./journeys/overview.md)
+> [Actionable governance journeys](./journeys/overview.md)

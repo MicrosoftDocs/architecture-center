@@ -13,13 +13,13 @@ When shifting to an agile model where flexibility and iteration are emphasized, 
 
 ## Addressing technical complexity
 
-When changing any technical system, complexity and interdependency inject risk into project plans. Cloud migrations are no exception. When moving thousands&mdash;or tens of thousands&mdash;of assets to the cloud, these risks are amplified. Detecting and mapping all dependencies across a large digital estate could take years. Few businesses can tolerate such a long analysis cycle. To balance the need for architectural analysis and business acceleration, CAF focuses on an INVEST model for product backlog management. The following sections summarize this type of model.
+When changing any technical system, complexity and interdependency inject risk into project plans. Cloud migrations are no exception. When moving thousands&mdash;or tens of thousands&mdash;of assets to the cloud, these risks are amplified. Detecting and mapping all dependencies across a large digital estate could take years. Few businesses can tolerate such a long analysis cycle. To balance the need for architectural analysis and business acceleration, the Cloud Adoption Framework focuses on an INVEST model for product backlog management. The following sections summarize this type of model.
 
 ## INVEST in workloads
 
-The term *workload* appears throughout the CAF. A workload is a unit of application functionality that can be migrated to the cloud. It could be a single application, a layer of an application, or a collection of an application. The definition is flexible and may change at various phrases of migration. The CAF uses the term *INVEST* to define a workload.
+The term *workload* appears throughout the Cloud Adoption Framework. A workload is a unit of application functionality that can be migrated to the cloud. It could be a single application, a layer of an application, or a collection of an application. The definition is flexible and may change at various phrases of migration. The Cloud Adoption Framework uses the term *INVEST* to define a workload.
 
-INVEST is a common acronym in many agile methodologies for writing user stories or product backlog items, both of which are units of output in agile project management tools. The measurable unit of output in a migration is a migrated workload. The CAF modifies the INVEST acronym a bit to create a construct for defining workloads, as follows:
+INVEST is a common acronym in many agile methodologies for writing user stories or product backlog items, both of which are units of output in agile project management tools. The measurable unit of output in a migration is a migrated workload. The Cloud Adoption Framework modifies the INVEST acronym a bit to create a construct for defining workloads, as follows:
 
 - **Independent:** A workload should not have any inaccessible dependencies. For a workload to be considered migrated, all dependencies should be accessible and included in the migration effort.
 - **Negotiable:** As additional discovery is performed, the definition of a workload changes. The architects planning the migration could negotiate a number of factors regarding dependencies. Examples of negotiation points could include prerelease of features, making features accessible over a hybrid network, or packaging all dependencies in a single release.
@@ -111,7 +111,7 @@ The outcome of a sprint captures and documents the changes made to a workload, t
 
 ## Next steps
 
-After change management approaches have been established, its time to address the final prerequisite, [Migration Backlog Review](./migration-backlog-review.md)
+After change management approaches have been established, its time to address the final prerequisite, [Migration backlog review](./migration-backlog-review.md)
 
 > [!div class="nextstepaction"]
-> [Migration Backlog Review](./migration-backlog-review.md)
+> [Migration backlog review](./migration-backlog-review.md)

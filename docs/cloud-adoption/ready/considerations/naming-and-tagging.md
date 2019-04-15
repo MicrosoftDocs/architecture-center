@@ -9,7 +9,7 @@ description: Large Enterprise – Additional technical details regarding governa
 author: BrianBlanchard
 ---
 
-# CAF - Ready: Recommended naming and tagging conventions
+# Ready: Recommended naming and tagging conventions
 
 Organizing cloud-based assets in ways that both aid operational management and support accounting requirements is a common challenge facing large cloud adoption efforts. Applying well-defined naming and metadata tagging conventions to cloud-hosted resources allows IT staff to quickly find and manage resources, while also helping to align cloud usage costs with business teams using chargeback and showback accounting mechanisms.
 
@@ -42,7 +42,7 @@ For example, a virtual network has a resource group scope, meaning that there ca
 
 Some resources names, such as PaaS services with public endpoints or virtual machine DNS labels, have global scopes, meaning that they must be unique across the entire Azure platform.
 
-Resource names have length limits, so balancing the context embedded in a name with its scope and length is important when developing your naming conventions. For more information about naming rules regarding allowed characters, scopes, and name lengths for resource types, see the general patterns and practices article [Naming conventions for Azure resources](/azure/architecture/best-practices/naming-conventions).
+Resource names have length limits, so balancing the context embedded in a name with its scope and length is important when developing your naming conventions. For more information about naming rules regarding allowed characters, scopes, and name lengths for resource types, see [Naming conventions for Azure resources](/azure/architecture/best-practices/naming-conventions).
 
 #### Recommended naming components
 
@@ -236,12 +236,12 @@ The following section provides examples of naming schemes for common Azure resou
 
 ## Next steps
 
-Review the [Azure Primitives document](./xx-primitives.md) to understand core concepts relating to the Azure platform and the features, products, and services you will need to deploy workloads to the cloud.
+Review the [Azure primitives document](./xx-primitives.md) to understand core concepts relating to the Azure platform and the features, products, and services you will need to deploy workloads to the cloud.
 
 > [!div class="nextstepaction"]
-> [Azure Primitives](./xx-primitives.md)
+> [Azure primitives](./xx-primitives.md)
 -->
 
 ## Next steps
 
-For next steps and the most recent status regarding the CAF Ready model, see the [overview page](../index.md).
+For next steps and the most recent status regarding the Ready model in the Cloud Adoption Framework, see the [overview page](../index.md).

@@ -7,7 +7,7 @@ ms.date: 4/4/2019
 
 # Storage requirements exceed network capacity during a migration effort
 
-In a cloud migration, assets are replicated and synchronized over the network between the existing datacenter and the cloud. It is not uncommon for the existing disk or storage requirements of various workloads to exceed network capacity. In such a scenario, the process of migration can be radically slowed, or in some cases, stopped entirely. The following guidance will expand the scope of the [baseline migration guide](../azure-migration-guide/overview.md) to provide a solution that works around network limitations.
+In a cloud migration, assets are replicated and synchronized over the network between the existing datacenter and the cloud. It is not uncommon for the existing disk or storage requirements of various workloads to exceed network capacity. In such a scenario, the process of migration can be radically slowed, or in some cases, stopped entirely. The following guidance will expand the scope of the [Azure migration guide](../azure-migration-guide/overview.md) to provide a solution that works around network limitations.
 
 ## General scope expansion
 
@@ -64,7 +64,7 @@ Secure and manage activities are not likely affected by this change in scope.
 
 ## Next steps
 
-Return to the [Expanded Scope Checklist](./index.md) to ensure your migration methodology is fully aligned.
+Return to the [expanded scope checklist](./index.md) to ensure your migration methodology is fully aligned.
 
 > [!div class="nextstepaction"]
-> [Expanded Scope Checklist](./index.md)
+> [Expanded scope checklist](./index.md)
