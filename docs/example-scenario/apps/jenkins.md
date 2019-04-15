@@ -4,10 +4,11 @@ titleSuffix: Azure Reference Architectures
 description:  Recommended architecture that shows how to deploy and operate a scalable, enterprise-grade Jenkins server on Azure secured with single sign-on (SSO).
 author: njray
 ms.date: 04/30/2018
-ms.topic: reference-architecture
+ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: reference-architecture
+ms.subservice: example-scenario
 ms.custom: seodec18
+social_image_url: /azure/architecture/example-scenario/apps/media/architecture-jenkins.png
 ---
 
 # Run a Jenkins server on Azure
@@ -265,4 +266,4 @@ You may wish to review the following [Azure example scenario](/azure/architectur
 [subnet]: /azure/virtual-network/virtual-network-manage-subnet
 [vm-agent]: https://wiki.jenkins.io/display/JENKINS/Azure+VM+Agents+plugin
 [vnet]: /azure/virtual-network/virtual-networks-overview
-[0]: ./images/jenkins-server.png
+[0]: ./media/architecture-jenkins.png
