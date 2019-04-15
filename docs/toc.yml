@@ -247,7 +247,7 @@
     - name: E-commerce product search
       href: example-scenario/apps/ecommerce-search.md
     - name: Jenkins server
-      href: reference-architectures/jenkins/index.md
+      href: example-scenario/apps/jenkins.md
   - name: Data and analytics
     items:
     - name: Hybrid ETL with Data Factory
