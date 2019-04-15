@@ -1,23 +1,24 @@
 ---
 title: Manage access to your Azure environment | Microsoft docs
-description: Learn how to set up access controls for your Azure environment with role-based access controls (RBAC).
-author: LijuKodicheraJayadevan   
-ms.author: likj
-ms.date: 08/27/2018
+description: Learn how to set up access control for your Azure environment with role-based access control (RBAC).
+author: LijuKodicheraJayadevan
+ms.author: kfollis
+ms.date: 04/09/2019
 ms.topic: conceptual
 ms.service: azure-portal
+ms.custom: "fasttrack-edit"
 ---
 # Manage access to your Azure environment with role-based access controls
 
-Managing access to your Azure resources and subscriptions, who can access what, forms an important part of your Azure governance strategy. Role-based access control (RBAC) is the primary method of managing access in Azure.
+Managing who can access your Azure resources and subscriptions is an important part of your Azure governance strategy. Role-based access control (RBAC) is the primary method of managing access in Azure.
 
-RBAC provides fine-grained access management of resources in Azure. It helps you manage who has access to Azure resources, what they can do with those resources, and what scopes they can access.
+RBAC provides detailed access management of resources in Azure. It helps you manage who has access to Azure resources, what they can do with those resources, and what scopes they can access.
 
 When planning your access control strategy, grant users the least privilege to get their work done. The following image shows a suggested pattern for assigning RBAC.
 
 ![Diagram that shows RBAC roles](./media/manage-access/role-examples.png)
 
-When you plan your access and control methodology, we recommend you work with people in your organizations with the following roles: security and compliance, IT administration, and enterprise architect.
+When you plan your access control methodology, we recommend you work with people in your organizations with the following roles: security and compliance, IT administration, and enterprise architect.
 
 ::: zone target="chromeless"
 
@@ -25,23 +26,25 @@ When you plan your access and control methodology, we recommend you work with pe
 
 **Grant resource group access**
 
-To add a user to a resource group,
+To grant a user access to a resource group:
 
-1. Go to **Resource Groups**.
+1. Go to **Resource groups**.
 2. Select a resource group.
 3. Select **Access control (IAM)**.
-4. Add a user.
+4. Select **+ Add** > **Add role assignment**.
+1. Select a role, then assign access to a user, group, or service principal.
 
 ::: form action="OpenBlade[#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fsubscriptions%2FresourceGroups]" submitText="Go to resource groups" ::: form-end
 
 **Grant subscription access**
 
-To add a user to a subscription,
+To grant a user access to a subscription:
 
 1. Go to **Subscriptions**.
 1. Select a subscription.
 1. Select **Access control (IAM)**.
-1. Add a user.
+1. Select **+Add** > **Add role assignment**.
+1. Select a role, then assign access to a user, group, or service principal.
 
 ::: form action="OpenBlade[#blade/Microsoft_Azure_Billing/SubscriptionsBlade]" submitText="Go to subscriptions" ::: form-end
 
@@ -51,21 +54,23 @@ To add a user to a subscription,
 
 ## Grant resource group access
 
-To add a user to a resource group,
+To grant a user access to a resource group:
 
-1. Go to [Resource Group](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fsubscriptions%2FresourceGroups).
+1. Go to [Resource groups](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fsubscriptions%2FresourceGroups).
 1. Select a resource group.
 1. Select **Access control (IAM)**.
-1. Add a user.
+1. Select **+Add** > **Add role assignment**.
+1. Select a role, then assign access to a user, group, or service principal.
 
 ## Grant subscription access
 
-To add a user to a subscription,
+To grant a user access to a subscription:
 
 1. Go to [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)
 1. Select a subscription.
 1. Select **Access control (IAM)**.
-1. Add a user.
+1. Select **+Add** > **Add role assignment**.
+1. Select a role, then assign access to a user, group, or service principal.
 
 ## Learn more
 
