@@ -98,6 +98,7 @@ Now assign this user as the subscription owner.
     ```powershell
     .\Setup-KeyVault.ps1 -Subject <<subject>>
     ```
+
     For the `Subject` parameter, enter any name, such as "surveysapp". The script generates a self-signed certificate and stores it in the "Current User/Personal" certificate store. The output from the script is a JSON fragment. Copy this value.
 
 2. In the [Azure portal][azure-portal], switch to the directory where the Surveys application is registered, by selecting your account in the top right corner of the portal.
@@ -169,6 +170,7 @@ Now assign this user as the subscription owner.
     ```powershell
     .\Setup-KeyVault.ps1 -KeyVaultName <<key vault name> -KeyName Redis--Configuration -KeyValue "<<Redis DNS name>>.redis.cache.windows.net,password=<<Redis access key>>,ssl=true"
     ```
+
     where
 
    * key vault name = The name that you gave the key vault in the previous step.
@@ -209,6 +211,7 @@ Now assign this user as the subscription owner.
     //    config["AzureAd:ClientId"],
     //    config["AzureAd:ClientSecret"]);
     ```
+
 3. In Tailspin.Surveys.Web/Startup.cs, locate the code that registers the `ICredentialService`. Uncomment the line that uses `CertificateCredentialService`, and comment out the line that uses `ClientCredentialService`:
 
     ```csharp
