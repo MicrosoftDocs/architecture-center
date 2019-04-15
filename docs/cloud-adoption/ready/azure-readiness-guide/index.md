@@ -13,7 +13,7 @@ ms.custom: "fasttrack-edit"
 
 ::: zone target="docs"
 > [!NOTE]
-> This guide represents an initial starting point for readiness guidance in CAF, and is also available in the Azure Quickstart Center (See tip below). Future iterations of CAF will provide additional guidance, best practices, and considerations related to cloud readiness.
+> This guide represents an initial starting point for readiness guidance in CAF, and is also available in the Azure Quickstart Center (see tip below). Future iterations of CAF will provide additional guidance, best practices, and considerations related to cloud readiness.
 >
 ::: zone-end
 
