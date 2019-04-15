@@ -1,6 +1,7 @@
 # Contributing to Checklists
 
 ## Recommend structure
+
 An item in a checklist should include these elements:
 1. A concise actionable statement.
 2. An explanation of why the statement is relevant to the domain of the checklist.

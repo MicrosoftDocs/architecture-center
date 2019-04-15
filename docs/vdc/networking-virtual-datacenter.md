@@ -16,7 +16,7 @@ ms.author: jonor
 
 ## Overview
 
-Migrating on-premises applications to Azure provides organizations the benefits of a secured and cost-efficient infrastructure, even if the applications are migrated with minimal changes. However, to make the most of the agility possible with cloud computing, enterprises must evolve their architectures to take advantage of Azure capabilities. 
+Migrating on-premises applications to Azure provides organizations the benefits of a secured and cost-efficient infrastructure, even if the applications are migrated with minimal changes. However, to make the most of the agility possible with cloud computing, enterprises must evolve their architectures to take advantage of Azure capabilities.
 
 Microsoft Azure delivers hyper-scale services and infrastructure with enterprise-grade capabilities and reliability. These services and infrastructure offer many choices in hybrid connectivity so customers can choose to access them over the public internet or over a private Azure ExpressRoute connection. Microsoft partners also provide enhanced capabilities by offering security services and virtual appliances that are optimized to run in Azure.
 
@@ -27,6 +27,7 @@ Customers can choose to access these cloud services either via the internet or w
 At its inception, the cloud was essentially a platform for hosting public-facing applications. Enterprises began to understand the value of the cloud and began to move internal line-of-business applications to the cloud. These types of applications brought additional security, reliability, performance, and cost considerations that required additional flexibility in the way cloud services were delivered. This paved the way for new infrastructure and networking services designed to provide this flexibility but also new features for scale, disaster recovery, and other considerations.
 
 ## What is a virtual datacenter?
+
 Cloud solutions were first designed to host single, relatively isolated applications in the public spectrum. This approach worked well for a few years. Then the benefits of cloud solutions became apparent, and multiple large-scale workloads were hosted on the cloud. Addressing security, reliability, performance, and cost concerns of deployments in one or more regions became vital throughout the life cycle of the cloud service.
 
 The following cloud deployment diagram shows an example of a security gap in the **red box**. The **yellow box** shows room for optimization network virtual appliances across workloads.
@@ -113,7 +114,7 @@ Deploying ExpressRoute connections usually involves engaging with an ExpressRout
 
 ### Topology
 
-_Hub and spoke_ is a model for designing the network topology for a virtual datacenter implementation. 
+_Hub and spoke_ is a model for designing the network topology for a virtual datacenter implementation.
 
 [![1]][1]
 
@@ -257,7 +258,7 @@ Azure Load Balancer can probe the health of the various server instances as well
 [**Azure Front Door**][AFD] (AFD) is Microsoft's highly available and scalable Web Application Acceleration Platform, Global HTTP Load Balancer, Application Protection, and Content Delivery Network. Running in more than 100 locations at the Edge of Microsoft's Global Network, AFD enables you to build, operate, and scale out your dynamic web application and static content. AFD provides your application with world-class end-user performance, unified regional/stamp maintenance automation, BCDR automation, unified client/user information, caching, and service insights. The platform offers performance, reliability and support SLAs, compliance certifications and auditable security practices developed, operated, and supported natively by Azure.
 
 [**Application Gateway**][AppGW]
-Microsoft Azure Application Gateway is a dedicated virtual appliance providing application delivery controller (ADC) as a service, offering various layer 7 load-balancing capabilities for your application. It allows you to optimize web farm productivity by offloading CPU intensive SSL termination to the application gateway. It also provides other layer 7 routing capabilities including round robin distribution of incoming traffic, cookie-based session affinity, URL path-based routing, and the ability to host multiple websites behind a single Application Gateway. A web application firewall (WAF) is also provided as part of the application gateway WAF SKU. This SKU provides protection to web applications from common web vulnerabilities and exploits. Application Gateway can be configured as internet facing gateway, internal only gateway, or a combination of both. 
+Microsoft Azure Application Gateway is a dedicated virtual appliance providing application delivery controller (ADC) as a service, offering various layer 7 load-balancing capabilities for your application. It allows you to optimize web farm productivity by offloading CPU intensive SSL termination to the application gateway. It also provides other layer 7 routing capabilities including round robin distribution of incoming traffic, cookie-based session affinity, URL path-based routing, and the ability to host multiple websites behind a single Application Gateway. A web application firewall (WAF) is also provided as part of the application gateway WAF SKU. This SKU provides protection to web applications from common web vulnerabilities and exploits. Application Gateway can be configured as internet facing gateway, internal only gateway, or a combination of both.
 
 [**Public IPs**][PIP]. With some Azure features, you can associate service endpoints to a public IP address, so that your resource can be accessed from the internet. This endpoint uses network address translation (NAT) to route traffic to the internal address and port on the Azure virtual network. This path is the primary way for external traffic to pass into the virtual network. You can configure public IP addresses to determine which traffic is passed in and how and where it's translated onto the virtual network.
 
@@ -284,9 +285,9 @@ It is important to track the NSGs logs, particularly this information:
 -   [Event logs][NSGLog] provide information on what NSG rules are applied to VMs and instance roles based on MAC address.
 -   [Counter logs][NSGLog] track how many times each NSG rule was run to deny or allow traffic.
 
-All logs can be stored in Azure storage accounts for audit, static analysis, or backup purposes. When you store the logs in an Azure storage account, customers can use different types of frameworks to retrieve, prep, analyze, and visualize this data to report the status and health of cloud resources. 
+All logs can be stored in Azure storage accounts for audit, static analysis, or backup purposes. When you store the logs in an Azure storage account, customers can use different types of frameworks to retrieve, prep, analyze, and visualize this data to report the status and health of cloud resources.
 
-Large enterprises should already have acquired a standard framework for monitoring on-premises systems. They can extend that framework to integrate logs generated by cloud deployments. By using [Azure Log Analytics](/azure/log-analytics/log-analytics-queries), organizations can keep all the logging in the cloud. Log Analytics is implemented as a cloud-based service. So you have it up and running quickly with minimal investment in infrastructure services. Log Analytics also integrate with System Center components like System Center Operations Manager to extend your existing management investments into the cloud. 
+Large enterprises should already have acquired a standard framework for monitoring on-premises systems. They can extend that framework to integrate logs generated by cloud deployments. By using [Azure Log Analytics](/azure/log-analytics/log-analytics-queries), organizations can keep all the logging in the cloud. Log Analytics is implemented as a cloud-based service. So you have it up and running quickly with minimal investment in infrastructure services. Log Analytics also integrate with System Center components like System Center Operations Manager to extend your existing management investments into the cloud.
 
 Log Analytics is a service in Azure that helps collect, correlate, search, and act on log and performance data generated by operating systems, applications, and infrastructure cloud components. It gives customers real-time operational insights using integrated search and custom dashboards to analyze all the records across all your workloads in your VDC implementation.
 
@@ -363,7 +364,7 @@ We recommend that customers run network qualification tests to verify the latenc
 
 #### Disaster recovery: diverting traffic from one region to another
 
-[Azure Traffic Manager][TM] periodically checks the service health of public endpoints in different VDC implementations and, if those endpoints fail, it routes automatically to the secondary VDC using the Domain Name System (DNS). 
+[Azure Traffic Manager][TM] periodically checks the service health of public endpoints in different VDC implementations and, if those endpoints fail, it routes automatically to the secondary VDC using the Domain Name System (DNS).
 
 Because it uses DNS, Traffic Manager is only for use with Azure public endpoints.  The service is typically used to control or divert traffic to Azure VMs and Web Apps in the healthy instance of a VDC implementation. Traffic Manager is resilient even in the face of an entire Azure region failing and can control the distribution of user traffic for service endpoints in different VDCs based on several criteria. For example, failure of a service in a specific VDC implementation, or selecting the VDC implementation with the lowest network latency.
 
@@ -391,7 +392,7 @@ The following features were discussed in this document. Follow the links to lear
  - Develop a Subscription and Resource management model and RBAC model to meet the structure, requirements, and policies of your organization. The most important activity is planning. As much as practical, plan for reorganizations, mergers, new product lines, etc.
 
 <!--Image References-->
-[0]: ./images/networking-redundant-equipment.png "Examples of component overlap" 
+[0]: ./images/networking-redundant-equipment.png "Examples of component overlap"
 [1]: ./images/networking-vdc-high-level.png "High-level example of hub and spoke VDC"
 [2]: ./images/networking-hub-spokes-cluster.png "Cluster of hubs and spokes"
 [3]: ./images/networking-spoke-to-spoke.png "Spoke-to-spoke"
@@ -410,18 +411,18 @@ The following features were discussed in this document. Follow the links to lear
 [NSG]: /azure/virtual-network/virtual-networks-nsg
 [DNS]: /azure/dns/dns-overview
 [PrivateDNS]: /azure/dns/private-dns-overview
-[VNetPeering]: /azure/virtual-network/virtual-network-peering-overview 
-[UDR]: /azure/virtual-network/virtual-networks-udr-overview 
+[VNetPeering]: /azure/virtual-network/virtual-network-peering-overview
+[UDR]: /azure/virtual-network/virtual-networks-udr-overview
 [RBAC]: /azure/role-based-access-control/overview
 [MFA]: /azure/multi-factor-authentication/multi-factor-authentication
 [AAD]: /azure/active-directory/active-directory-whatis
-[VPN]: /azure/vpn-gateway/vpn-gateway-about-vpngateways 
+[VPN]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
 [ExR]: /azure/expressroute/expressroute-introduction
 [ExRD]: /azure/expressroute/expressroute-erdirect-about
 [vWAN]: /azure/virtual-wan/virtual-wan-about
 [NVA]: /azure/architecture/reference-architectures/dmz/nva-ha
 [AzFW]: /azure/firewall/overview
-[SubMgmt]: /azure/architecture/cloud-adoption/appendix/azure-scaffold 
+[SubMgmt]: /azure/architecture/cloud-adoption/appendix/azure-scaffold
 [RGMgmt]: /azure/azure-resource-manager/resource-group-overview
 [DMZ]: /azure/best-practices-network-security
 [ALB]: /azure/load-balancer/load-balancer-overview
@@ -431,7 +432,7 @@ The following features were discussed in this document. Follow the links to lear
 [AppGW]: /azure/application-gateway/application-gateway-introduction
 [WAF]: /azure/application-gateway/application-gateway-web-application-firewall-overview
 [Monitor]: /azure/monitoring-and-diagnostics/
-[ActLog]: /azure/monitoring-and-diagnostics/monitoring-overview-activity-logs 
+[ActLog]: /azure/monitoring-and-diagnostics/monitoring-overview-activity-logs
 [DiagLog]: /azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs
 [NSGLog]: /azure/virtual-network/virtual-network-nsg-manage-log
 [OMS]: /azure/operations-management-suite/operations-management-suite-overview
@@ -439,6 +440,6 @@ The following features were discussed in this document. Follow the links to lear
 [NetWatch]: /azure/network-watcher/network-watcher-monitoring-overview
 [WebApps]: /azure/app-service/
 [HDI]: /azure/hdinsight/hdinsight-hadoop-introduction
-[EventHubs]: /azure/event-hubs/event-hubs-what-is-event-hubs 
+[EventHubs]: /azure/event-hubs/event-hubs-what-is-event-hubs
 [ServiceBus]: /azure/service-bus-messaging/service-bus-messaging-overview
 [TM]: /azure/traffic-manager/traffic-manager-overview
