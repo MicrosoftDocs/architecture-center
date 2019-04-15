@@ -7,7 +7,7 @@ ms.date: 4/4/2019
 
 # Governance or compliance strategy
 
-When governance or compliance are required throughout a migration effort, additional scope is required. The following guidance will expand the scope of the [baseline migration guide](../baseline-migration-guide/overview.md) to address different approaches to addressing governance or compliance requirements.
+When governance or compliance are required throughout a migration effort, additional scope is required. The following guidance will expand the scope of the [baseline migration guide](../azure-migration-guide/overview.md) to address different approaches to addressing governance or compliance requirements.
 
 ## General scope expansion
 

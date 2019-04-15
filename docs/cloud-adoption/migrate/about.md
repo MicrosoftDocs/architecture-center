@@ -34,7 +34,7 @@ The Cloud Architect serves as the thought leader and facilitator to bring these 
 
 For readers who wish to follow this guide from beginning to end, this content will aid in developing a robust cloud migration strategy. The guidance walks the reader through the theory and implementation of such a strategy.
 
-As a first step, it is advised that readers work through the [baseline migration guide](./baseline-migration-guide/overview.md) to understand the standard set of tools and approaches needed to migration in a common use case. Afterwards, the baseline guidance can be expanded to fit the readers needs through the [complex migration scenarios](./expanded-scope/overview.md), [migration best practices](./azure-best-practices/overview.md), and [migration considerations](./migration-considerations/overview.md).
+As a first step, it is advised that readers work through the [baseline migration guide](./azure-migration-guide/overview.md) to understand the standard set of tools and approaches needed to migration in a common use case. Afterwards, the baseline guidance can be expanded to fit the readers needs through the [complex migration scenarios](./expanded-scope/overview.md), [migration best practices](./azure-best-practices/overview.md), and [migration considerations](./migration-considerations/overview.md).
 
 > [!div class="nextstepaction"]
-> [Baseline migration guide](./baseline-migration-guide/overview.md)
+> [Baseline migration guide](./azure-migration-guide/overview.md)

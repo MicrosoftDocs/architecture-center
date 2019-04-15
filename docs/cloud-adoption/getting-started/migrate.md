@@ -27,7 +27,7 @@ Respond to a critical event or a need to move specific assets. Asset migrations 
 - Reductions in capital expenses
 - End of support for mission-critical technologies
 
-**Aligned Methodology:** Asset migration is a technical process for migrating digital assets to the cloud using migration automation tooling. The term asset refers to servers, data, or applications that exist in on-premises environment. This approach can be successfully executed within the limited scope of the [Azure Migration Guide](../migrate/baseline-migration-guide/index.md). Note the prerequisites which outlines some environment readiness.
+**Aligned Methodology:** Asset migration is a technical process for migrating digital assets to the cloud using migration automation tooling. The term asset refers to servers, data, or applications that exist in on-premises environment. This approach can be successfully executed within the limited scope of the [Azure Migration Guide](../migrate/azure-migration-guide/index.md). Note the prerequisites which outlines some environment readiness.
 
 ![Methodology supporting asset migration](../_images/migration/asset-migration.png)
 
@@ -39,7 +39,7 @@ More often cloud migrations are part of a focused effort to streamline IT operat
 - Reduction in vendor or technical complexity
 - Optimize internal operations
 
-**Aligned Methodology:** Workload migration build on asset migrations, but adds a focus on the migration of a workload, which adds deeper planning and testing requirements. Examples of workloads could include things like an HR payroll solution, a CRM solution, a document approval workflow in Finance, or a business intelligence solution. Workloads could also include shared technical resources like a data warehouse that supports several other solutions. Successful workload migrations build on the [Azure Migration Guide](../migrate/baseline-migration-guide/index.md) and [Azure Readiness Guide](../ready/azure-readiness-guide/index.md). However, additional considerations should be given to the expanded scope checklists associated with each of those guides.
+**Aligned Methodology:** Workload migration build on asset migrations, but adds a focus on the migration of a workload, which adds deeper planning and testing requirements. Examples of workloads could include things like an HR payroll solution, a CRM solution, a document approval workflow in Finance, or a business intelligence solution. Workloads could also include shared technical resources like a data warehouse that supports several other solutions. Successful workload migrations build on the [Azure Migration Guide](../migrate/azure-migration-guide/index.md) and [Azure Readiness Guide](../ready/azure-readiness-guide/index.md). However, additional considerations should be given to the expanded scope checklists associated with each of those guides.
 
 ![Methodology supporting workload migration](../_images/operational-transformation-migrate.png)
 

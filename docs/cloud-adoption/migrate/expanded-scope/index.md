@@ -7,13 +7,13 @@ ms.date: 4/4/2019
 
 # Expanded scope for cloud migration
 
-The [baseline migration guide](../baseline-migration-guide/overview.md) in the Cloud Adoption Framework is the suggested starting point for readers who are interested in a rehost migration to Azure, also known as a Lift and Shift migration. That guide walks you through a series of prerequisites, tools, and approaches to migrating virtual machines to the cloud.
+The [baseline migration guide](../azure-migration-guide/overview.md) in the Cloud Adoption Framework is the suggested starting point for readers who are interested in a rehost migration to Azure, also known as a Lift and Shift migration. That guide walks you through a series of prerequisites, tools, and approaches to migrating virtual machines to the cloud.
 
-While the [baseline migration guide](../baseline-migration-guide/overview.md) is effective at getting you familiar with this style of migration, it is based on a number of assumptions. Those assumptions ensure that the guide aligns to a large percentage of the Cloud Adoption Framework's readers, by providing a simplified approach to migrations. This section of the Cloud Adoption Framework addresses a number of expanded scope migration scenarios, which could help guide efforts when those assumptions do not apply.
+While the [baseline migration guide](../azure-migration-guide/overview.md) is effective at getting you familiar with this style of migration, it is based on a number of assumptions. Those assumptions ensure that the guide aligns to a large percentage of the Cloud Adoption Framework's readers, by providing a simplified approach to migrations. This section of the Cloud Adoption Framework addresses a number of expanded scope migration scenarios, which could help guide efforts when those assumptions do not apply.
 
 ## Cloud migration expanded scope checklist
 
-The following checklist outlines the common areas of complexity which could require the scope of the migration to be expanded beyond the [baseline migration guide](../baseline-migration-guide/overview.md).
+The following checklist outlines the common areas of complexity which could require the scope of the migration to be expanded beyond the [baseline migration guide](../azure-migration-guide/overview.md).
 
 - **Business-driven scope changes**
   - [Balancing the portfolio](./balance-the-portfolio.md)
@@ -24,12 +24,12 @@ The following checklist outlines the common areas of complexity which could requ
   - [Skills readiness](./skills-readiness.md)
   - Aligning support (Partner, services, and support) *(Coming Summer 2019)*
 - **Technical Strategy-driven scope changes**
-    - Existing datacenter constraints *(Coming Summer 2019)*
-    - Migrating at scale - High volume or velocity of migrations *(Coming Summer 2019)*
-    - [Multiple datacenters](./multiple-data-centers.md)
-    - [Data requirements exceed network capacity](./network-capacity-exceeded.md)
-    - Change management and solution documentation *(Coming Summer 2019)*
-    - [Governance or compliance strategy](./governance-or-compliance.md)
+  - Existing datacenter constraints *(Coming Summer 2019)*
+  - Migrating at scale - High volume or velocity of migrations *(Coming Summer 2019)*
+  - [Multiple datacenters](./multiple-data-centers.md)
+  - [Data requirements exceed network capacity](./network-capacity-exceeded.md)
+  - Change management and solution documentation *(Coming Summer 2019)*
+  - [Governance or compliance strategy](./governance-or-compliance.md)
 - **Workload-specific scope changes**
   - Architect workloads for resiliency *(Coming Summer 2019)*
   - Align migration to application patterns *(Coming Summer 2019)*
