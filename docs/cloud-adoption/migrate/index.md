@@ -25,7 +25,7 @@ To start down an adoption path, choose one of the following guides. Each guide o
 
 <ul class="panelContent cardsZ">
 <li style="display: flex; flex-direction: column;">
-    <a href="./baseline-migration-guide/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./azure-migration-guide/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -125,7 +125,7 @@ Narrative Summary: This approach consists of fewer than 10,000 VMs. Applications
 
 <ul class="panelContent cardsZ">
 <li style="display: flex; flex-direction: column;">
-    <a href="./baseline-migration-guide/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./azure-migration-guide/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -163,6 +163,6 @@ These two journeys represent two extremes of experience for customers who invest
 Choose one of these journeys:
 
 > [!div class="nextstepaction"]
-> [Baseline Migration Guide](./baseline-migration-guide/overview.md)
+> [Baseline Migration Guide](./azure-migration-guide/overview.md)
 >
 > [Complex Scenarios Guide](./expanded-scope/overview.md)
