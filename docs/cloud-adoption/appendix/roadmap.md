@@ -7,41 +7,44 @@ ms.date: 4/4/2019
 
 # Microsoft Cloud Adoption Framework for Azure
 
-The cloud presents a fundamental shift in the way enterprises procure and use technology resources, from full ownership and responsibility of all levels of technology to provisioning and consuming resources as needed. However, adoption of the cloud is a means, it is not the end goal. Businesses are motivated to adopt the cloud when they realize it can address any of these business events:
+The cloud fundamentally changes how enterprises procure and use technology resources. Traditionally, enterprises assumed ownership and responsibility of all aspects of technology from infrastructure to software. The cloud allows enterprises provisioning and consuming resources only when needed. However, cloud adoption is a means to an end. Businesses adopt the cloud when they realize it can address any of these business opportunities:
 
-- Optimizing operations, simplifying technology, increasing business agility, reducing costs, preparing for new technical capabilities, and scaling to market demands or geos, businesses would be motivated to **migrate** to the cloud
-- Improving customer experiences, increasing customer engagements, transforming products, preparing and building new technical capabilities, and scaling to market demands or geos, businesses would be motivated to **innovate** leveraging the cloud
+- Optimizing operations, simplifying technology, increasing business agility, reducing costs, preparing for new technical capabilities, and scaling to market demands or geos, businesses are motivated to **migrate** to the cloud.
+- Improving customer experiences, increasing customer engagements, transforming products, preparing and building new technical capabilities, and scaling to market demands or geos, businesses are motivated to **innovate** using the cloud.
 
 ## Vision and Objectives
 
-Removing key blockers and enabling change, requires more than implementation guidance. The Cloud Adoption Framework (CAF) is a set of documentation, implementation guidance, best practices and tools that aids in aligning strategies for business, culture, and technology to enable the desired business outcomes. It is structured in a modular way to simultaneously, follow and guide the customer in their cloud journey. CAF should be able to stand by itself and provide the structured guidance for customers in a self-service approach. CAF builds on existing guidance, where possible, to achieve the following objectives:
+Removing key obstacles and enabling change requires more than implementation guidance. The Cloud Adoption Framework (CAF) is a set of documentation, implementation guidance, best practices, and tools that help align strategies for business, culture, and technology to enable the desired business outcomes. Its modular structure follows and guides the customer through their cloud journey. The Cloud Adoption Framework can stand by itself and provide self-service structured guidance for customers. CAF builds on existing guidance whenever possible to meet the following objectives:
 
-- **Technical strategy objective:** establish scalable technical strategies, beyond the “minimally viable product”, enabling customers to easily customize and adopt to meet their needs and address common constraints.
-- **Business strategy objective:** without defining business strategy in this guidance, we will help architects document, communicate, and understand the business strategy so the right decisions can be made.
-- **Culture strategy objective:** without creating deep guidance to facilitate culture or HR change, we will provide methodologies, scenarios, and questions which will trigger changes required to remove culture as a roadblock to the technical strategy.  
+- **Technical strategy objective:** Establish scalable technical strategies, beyond a minimum viable product, so customers can easily customize and adapt to meet their needs and address common constraints.
+- **Business strategy objective:** Without defining business strategy in this guidance, we will help architects understand, document, and communicate the business strategy so the right decisions can be made.
+- **Culture strategy objective:** While not providing deep guidance on facilitating culture or HR change, we will provide methodologies, scenarios, and questions that will identify and help remove cultural roadblocks to the technical strategy.
 
 ## Fulfilling the vision
 
-CAF is an overarching framework which covers Plan, Ready and Adopt across the Migration and Innovation motivations for cloud adoption, supported by Governance and Operations guidance.  
+The Cloud Adoption Framework is an overarching framework which covers Plan, Ready and Adopt phases across the Migration and Innovation motivations for cloud adoption, supported by Governance and Operations guidance.  
 
-Microsoft is actively building out this aspirational framework with customers, partners, and internal teams. To encourage partnership, content will be released in public preview as it becomes available. These public preview releases serve as a means of testing, validating, and incrementally refining the guidance. The framework will reach general availability (GA), when the aspirational objectives above have been realized.
+Microsoft is actively building this aspirational framework in collaboration with customers, partners, and internal teams. To encourage partnership, content will be released in public preview as it becomes available. These public preview releases enable testing, validating, and incrementally refining the guidance. The framework will reach general availability (GA) when the aspirational goals are met.
 
-To be successful in adopting the cloud, customers must prepare its people, technology and processes to be ready for this digital transformation. CAF includes a section outlining the overall adoption journeys, Migration and Innovation, as an overview for the customers, and it’s broken down into the adoption journey phases:
+To successfully adopting the cloud, a customer must prepare its people, technologies, and processes for this digital transformation. The Cloud Adoption Framework includes a section outlining the overall adoption journeys, Migration and Innovation, as an overview for the customers. This section is comprised of the following adoption journey phases:
 
-- **Plan:** Align business outcomes to actionable technology backlogs. Planning consists of three areas of early stage planning activities: 1) Defining business justification and business outcomes, 2) Prioritizing workloads based on impacts to the business outcomes, 3) Creating a cloud adoption plan based on current digital estate and prioritized workloads.
-- **Ready:** Prepare the people, culture and environment for change. There are three key components in Ready:
-  1. Create a Cloud Strategy team and other organizational alignment.
-  2. Create a skills readiness plan across roles and functions.
-  3. Set up an Azure foundation by preparing the cloud environment.
-- **Adopt:** Implement the desired changes across IT and business process helping customers realize their business, technology and people strategies. Adopt includes several areas of work that will depend on what the organization is actually implementing. This includes four main areas:
+- **Plan:** Align business outcomes to actionable technology backlogs. This phase consists of three areas of early stage planning activities:
+  - Define the business justification and business outcomes.
+  - Prioritize workloads based on impacts to the business outcomes.
+  - Create a cloud adoption plan based on the current digital estate and prioritized workloads.
+- **Ready:** Prepare the people, culture and environment for change. There are three key components in this phase:
+  - Create a Cloud Strategy team and other organizational alignment.
+  - Create a skills readiness plan across roles and functions.
+  - Establish an Azure foundation by preparing the cloud environment.
+- **Adopt:** Implement the desired changes across IT and business processes to help customers realize their business, technology, and people strategies. This phase includes several areas that will vary depending on what the organization is actually implementing:
   - Workloads and assets migration.
   - Apps and data modernization.
   - Cloud governance.
   - Assets and workloads management and operation in the cloud.
 
-In reality, these phases are not linear and most likely would turn into a cycle, where customers are revisiting and expanding adoption plans, as their people becomes more cloud proficient, their apps and workloads are properly managed and operated, aligned with corporate policies, delivering on their business outcomes.
+These phases are not linear and most likely will turn into a cycle, where customers are revisiting and expanding adoption plans, as their people become more cloud proficient, their apps and workloads are properly managed and operated, aligned with corporate policies, delivering on their business outcomes.
 
-## Quarterly Roadmap
+## Quarterly roadmap
 
 The following outlines specific releases per quarter, to demonstrate maturity of each section of content on a quarterly basis.
 
