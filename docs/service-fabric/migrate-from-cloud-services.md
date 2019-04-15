@@ -29,8 +29,8 @@ Surveys is a multitenant application that allows customers to create surveys. Af
 
 Now Tailspin wants to move the Surveys application to a microservices architecture, using Service Fabric running on Azure. Because the application is already deployed as a Cloud Services application, Tailspin adopts a multi-phase approach:
 
-1.	Port the cloud services to Service Fabric, while minimizing changes to the application.
-2.	Optimize the application for Service Fabric, by moving to a microservices architecture.
+1. Port the cloud services to Service Fabric, while minimizing changes to the application.
+2. Optimize the application for Service Fabric, by moving to a microservices architecture.
 
 This article describes the first phase. A later article will describe the second phase. In a real-world project, it's likely that both stages would overlap. While porting to Service Fabric, you would also start to re-architect the application into micro-services. Later you might refine the architecture further, perhaps dividing coarse-grained services into smaller services.  
 
@@ -259,8 +259,8 @@ The following diagram shows a cluster that separates front-end and back-end serv
 
 To implement this approach:
 
-1.	When you create the cluster, define two or more node types. 
-2.	For each service, use [placement constraints][sf-placement-constraints] to assign the service to a node type.
+1. When you create the cluster, define two or more node types. 
+2. For each service, use [placement constraints][sf-placement-constraints] to assign the service to a node type.
 
 When you deploy to Azure, each node type is deployed to a separate VM scale set. The 
 Service Fabric cluster spans all node types. For more information, see [The relationship between Service Fabric node types and Virtual Machine Scale Sets][sf-node-types].
