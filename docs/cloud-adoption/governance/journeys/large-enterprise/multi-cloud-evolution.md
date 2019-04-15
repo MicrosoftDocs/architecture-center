@@ -77,7 +77,7 @@ As multi-cloud adoption grows, the design evolution above will continue to matur
 
 ## Next steps
 
-In many large enterprises, the Five Dsciplines of Cloud Governance can be blockers to adoption. The next article has some additional thoughts on making governance a team sport to help ensure long-term success in the cloud.
+In many large enterprises, the Five Disciplines of Cloud Governance can be blockers to adoption. The next article has some additional thoughts on making governance a team sport to help ensure long-term success in the cloud.
 
 > [!div class="nextstepaction"]
 > [Multiple layers of governance](./multiple-layers-of-governance.md)
