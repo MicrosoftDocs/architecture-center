@@ -30,17 +30,17 @@ Naming and tagging strategy should include business and operational details as c
 
 ### Resource naming
 
-A usable naming convention constructs resource names using important information about your resources as components of a resource's name. As an example, using the recommended naming conventions discussed [later in this article](#sample-naming-convention), a public IP resource used by a production SharePoint workload would have a name that looks like this:
+An effective naming convention assembles resource names using important resource information as parts of a resource's name. For example, using the recommended naming conventions discussed [later in this article](#sample-naming-convention), a public IP resource for a production SharePoint workload would be named like this:
 
-*pip-sharepoint-prod-westus-001*
+    `pip-sharepoint-prod-westus-001`
 
-The components of this name allows you to quickly determine the resource's type, the workload it's associated with, its deployment environment, and what Azure region it is deployed to.
+From the name, you can quickly identify the resource's type, its associated workload, its deployment environment, and which Azure region hosts it.
 
 #### Naming scope
 
-All Azure resources types have a scope defining how these assets can be managed in relation to other resource types. In terms of naming conventions, this means that a resource must have a unique name within its scope.
+All Azure resource types have a scope defining how these assets can be managed relative to other resource types. In terms of naming conventions, this means that a resource must have a unique name within its scope.
 
-For example, a virtual network has a resource group scope, meaning that there can only be one network named *vnet-prod-westus-001* in a given resource group. However, other resource groups can have their own virtual network named *vnet-prod-westus-001*. Subnets, to give another example, are scoped to virtual networks, meaning each subnet within a virtual network must be uniquely named.
+For example, a virtual network has a resource group scope, meaning that there can only be one network named `vnet-prod-westus-001` in a given resource group. However, other resource groups can have their own virtual network named `vnet-prod-westus-001`. Subnets, to give another example, are scoped to virtual networks, meaning each subnet within a virtual network must be uniquely named.
 
 Some resources names, such as PaaS services with public endpoints or virtual machine DNS labels, have global scopes, meaning that they must be unique across the entire Azure platform.
 
