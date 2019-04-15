@@ -92,7 +92,7 @@ To deploy this architecture, follow the **Azure Databricks** instructions in the
 
 1. Create an [Azure Databricks workspace][workspace].
 
-2. Create a new cluster with the following configuration in Azure Databricks:
+1. Create a new cluster with the following configuration in Azure Databricks:
 
     - Cluster mode: Standard
     - Databricks Runtime Version: 4.3 (includes Apache Spark 2.3.1, Scala 2.11)
@@ -103,27 +103,27 @@ To deploy this architecture, follow the **Azure Databricks** instructions in the
     - Spark Config: (as required)
     - Environment Variables: (as required)
 
-3. Create a personal access token within the [Azure Databricks workspace][workspace]. See the Azure Databricks authentication [documentation][adbauthentication] for details.
+1. Create a personal access token within the [Azure Databricks workspace][workspace]. See the Azure Databricks authentication [documentation][adbauthentication] for details.
 
-3. Clone the [Microsoft Recommenders][github] repository into an environment where you can execute scripts (e.g. your local computer).
+1. Clone the [Microsoft Recommenders][github] repository into an environment where you can execute scripts (e.g. your local computer).
 
-4. Follow the **Quick install** setup instructions to [install the relevant libraries][setup] on Azure Databricks.
+1. Follow the **Quick install** setup instructions to [install the relevant libraries][setup] on Azure Databricks.
 
-5. Follow the **Quick install** setup instructions to [prepare Azure Databricks for operationalization][setupo16n].
+1. Follow the **Quick install** setup instructions to [prepare Azure Databricks for operationalization][setupo16n].
 
-6. Import the [ALS Movie Operationalization notebook][als-example] into your workspace. After logging into your Azure Databricks Workspace, do the following:
+1. Import the [ALS Movie Operationalization notebook][als-example] into your workspace. After logging into your Azure Databricks Workspace, do the following:
 
     a. Click **Home** on the left side of the workspace.
 
     b. Right-click on white space in your home directory. Select **Import**.
-    
+
     c. Select **URL**, and paste the following into the text field: `https://github.com/Microsoft/Recommenders/blob/master/notebooks/05_operationalize/als_movie_o16n.ipynb`
-    
+
     d. Click **Import**.
 
-7. Open the notebook within Azure Databricks and attach the configured cluster.
+1. Open the notebook within Azure Databricks and attach the configured cluster.
 
-8. Run the notebook to create the Azure resources required to create a recommendation API that provides the top-10 movie recommendations for a given user.
+1. Run the notebook to create the Azure resources required to create a recommendation API that provides the top-10 movie recommendations for a given user.
 
 ## Related architectures
 
