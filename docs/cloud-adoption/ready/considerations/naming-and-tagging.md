@@ -30,9 +30,7 @@ Naming and tagging strategy should include business and operational details as c
 
 ### Resource naming
 
-An effective naming convention assembles resource names using important resource information as parts of a resource's name. For example, using the recommended naming conventions discussed [later in this article](#sample-naming-convention), a public IP resource for a production SharePoint workload would be named like this:
-
-    `pip-sharepoint-prod-westus-001`
+An effective naming convention assembles resource names using important resource information as parts of a resource's name. For example, using the recommended naming conventions discussed [later in this article](#sample-naming-convention), a public IP resource for a production SharePoint workload would be named like this: `pip-sharepoint-prod-westus-001`
 
 From the name, you can quickly identify the resource's type, its associated workload, its deployment environment, and which Azure region hosts it.
 
