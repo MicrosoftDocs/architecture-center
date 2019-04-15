@@ -96,7 +96,7 @@ Other examples of costs that may be reduced by a cloud migration:
 
 ## When ROI results are surprising
 
-If the ROI for a cloud migration doesn't match expectations, it may be valuable to revisit the common myths listed at the begining of this article.
+If the ROI for a cloud migration doesn't match expectations, it may be valuable to revisit the common myths listed at the beginning of this article.
 
 However, it's important to understand that a cost savings outcome is not always possible. There are applications that cost more to operate in the cloud than on-premises. These applications can significantly skew results in an analysis.
 
