@@ -18,6 +18,7 @@ The following checklist outlines the common areas of complexity which could requ
 - **Business-driven scope changes**
   - [Balancing the portfolio](./balance-the-portfolio.md)
   - [Support global markets](./multiple-regions.md)
+  - Cost consciousness during a migration *(Coming Summer 2019)*
 - **Culture-driven scope changes**
   - Change management and approval processes *(Coming Summer 2019)*
   - Executive readiness *(Coming Summer 2019)*

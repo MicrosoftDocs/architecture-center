@@ -7,7 +7,7 @@ ms.date: 4/4/2019
 
 # Cloud migration executive summary
 
-Microsoft has defined a cloud adoption framework, to help customers with a simplified cloud adoption journey. The Cloud Adoption Framework is designed to provide comprehensive guidance for transitioning legacy application workloads using modern, innovative, cloud-based technologies. This framework contains detailed information to cover an end-to-end cloud adoption journey, which starts with targeted business outcomes, aligning cloud readiness and assessments to clearly defined business objectives. Those outcomes are then realized through a define path for cloud adoption. In the case of migration based adoption, that defined path focuses largely on the completion of a migration from on-premises to the cloud. At times this journey includes modernization of workloads to increase returns from the migration effort.
+Microsoft has defined a cloud adoption framework, to help customers with a simplified cloud adoption journey. The Cloud Adoption Framework is designed to provide comprehensive guidance for transitioning legacy application workloads using modern, innovative, cloud-based technologies. This framework contains detailed information to cover an end-to-end cloud adoption journey, which starts with targeted business outcomes, aligning cloud readiness and assessments to clearly defined business objectives. Those outcomes are then realized through a defined path for cloud adoption. In the case of migration based adoption, that defined path focuses largely on the completion of a migration from on-premises to the cloud. At times this journey includes modernization of workloads to increase returns from the migration effort.
 
 This framework is designed to speak most directly to Cloud Architects and the Cloud Strategy Team who lead cloud adoption efforts. However, many of the topics in this framework will be relevant to additional roles across the business and IT. It is assumed that Cloud Architects will serve as facilitators engaging each of the relevant roles. This executive summary is designed to prepare those various roles prior to those facilitated conversations.
 
@@ -20,26 +20,26 @@ The motivation or business outcome driving a cloud migration can heavily influen
 
 ### Asset Migration
 
-Respond to a critical event or a need to move specific assets. Asset migrations are usually motivated by the following short term critical business events.
+During any cloud migration, assets consisting of virtual machines, data sources, and/or applications are migrated from an existing on-premises environment to the cloud. Asset migrations provide a streamlined way to respond to a critical event or a need to move specific assets. Asset migrations are usually motivated by the following short term critical business events.
 
 - Data center exit
 - Mergers, acquisition or divestiture
 - Reductions in capital expenses
 - End of support for mission-critical technologies
 
-**Aligned Methodology:** Asset migration is a technical process for migrating digital assets to the cloud using migration automation tooling. The term asset refers to servers, data, or applications that exist in on-premises environment. This approach can be successfully executed within the limited scope of the [Azure Migration Guide](../migrate/azure-migration-guide/index.md). Note the prerequisites which outlines some environment readiness.
+**Summary of the asset migration methodology:** Asset migration is a technical process for migrating digital assets to the cloud using migration automation tooling. This approach can be successfully executed within the limited scope of the [Azure Migration Guide](../migrate/baseline-migration-guide/index.md).
 
 ![Methodology supporting asset migration](../_images/migration/asset-migration.png)
 
 ### Workload Migration
 
-More often cloud migrations are part of a focused effort to streamline IT operations, costs, or complexity. The following are a few longer term motivations associated with a workload migration.
+More often cloud migrations are part of a focused effort to streamline IT operations, costs, or complexity. Workload migration build on asset migrations, but adds a focus on the migration of a workload, which adds deeper planning and testing requirements. Examples of workloads could include things like an HR payroll solution, a CRM solution, a document approval workflow in Finance, or a business intelligence solution. Workloads could also include shared technical resources like a data warehouse that supports several other solutions. The following are a few longer term motivations associated with a workload migration.
 
 - Cost savings
 - Reduction in vendor or technical complexity
 - Optimize internal operations
 
-**Aligned Methodology:** Workload migration build on asset migrations, but adds a focus on the migration of a workload, which adds deeper planning and testing requirements. Examples of workloads could include things like an HR payroll solution, a CRM solution, a document approval workflow in Finance, or a business intelligence solution. Workloads could also include shared technical resources like a data warehouse that supports several other solutions. Successful workload migrations build on the [Azure Migration Guide](../migrate/azure-migration-guide/index.md) and [Azure Readiness Guide](../ready/azure-readiness-guide/index.md). However, additional considerations should be given to the expanded scope checklists associated with each of those guides.
+**Summary of the workload migration methodology:** Successful workload migrations build on the [Azure Migration Guide](../migrate/baseline-migration-guide/index.md) and [Azure Readiness Guide](../ready/azure-readiness-guide/index.md). However, to successfully complete a workload migration, additional considerations should be given to the [expanded scope checklist](../migrate/expanded-scope/index.md) which expands upon the scope of the Azure Migration Guide.
 
 ![Methodology supporting workload migration](../_images/operational-transformation-migrate.png)
 
@@ -53,7 +53,7 @@ C-level conversations regarding cloud migration tend to focus on the benefits as
 - Scale to meet market demands
 - Scale to meet geographic demands
 
-**Aligned methodology:** Portfolio migrations look across the entire IT portfolio to guide decisions regarding investments, impact on business processes, potential of innovation outcomes, and the future state of workload collections. This model requires a much deeper alignment between the business and IT. The technical implementation is a slight extension of the workload or asset migration methodologies. The methodology differs most when it comes to the rigor of business planning, richer readiness investments, improved change management, and a more disciplined approach to cloud governance. The following section outlines this methodology in more detail.
+**Summary of the portfolio migration methodology:** Portfolio migrations look across the entire IT portfolio to guide decisions regarding investments, impact on business processes, potential of innovation outcomes, and the future state of workload collections. This model requires a much deeper alignment between the business and IT. The technical implementation is a slight extension of the workload or asset migration methodologies. The methodology differs most when it comes to the rigor of business planning, richer readiness investments, improved change management, and a more disciplined approach to cloud governance. The following section outlines this methodology in more detail.
 
 ## Portfolio Migration Methodology
 
@@ -63,12 +63,13 @@ This methodology is based on an incremental approach to cloud adoption that alig
 
 As depicted in the image above, this framework aligns strategic decisions to a small number of contained processes, which operate within an iterative model:
 
-- Change management and oversight: Iterative approaches to implementation will be seen throughout this framework, which provides business and IT teams with a growth mindset approach to addressing ambiguity, learning, and succeeding in the fast paced environments demanded in today's marketplaces.
 - [Plan](../business-strategy/overview.md): When technical implementation is aligned with clear business objectives, it's much easier to measure and align success across multiple cloud adoption efforts.
 - [Ready](../ready/overview.md): Preparing the business, culture, people, and environment for coming changes leads to success in each effort and accelerates implementation and change projects.
-- [Migrate](../migrate/overview.md): Iterative execution of the cloud migration adhering to the tested process of Assess, Migrate, Optimize, and Secure & Manage to create a repeatable process for migrating collections of IT assets.
-- [Operate](../operations/overview.md): Expand IT operations to ensure cloud-based solutions can be operated through secure, cost effective processes using modern, cloud-first operations tools
-- [Govern](../governance/overview.md): Align corporate policy to tangible risks, mitigated through policy, process, and cloud-based governance tooling.
+- Adopt: Ensure proper implementation of desired changes, across IT and business processes, to achieve business outcomes
+    - [Migrate](../migrate/overview.md): Iterative execution of the cloud migration adhering to the tested process of Assess, Migrate, Optimize, and Secure & Manage to create a repeatable process for migrating collections of IT assets.
+    - [Operate](../operations/overview.md): Expand IT operations to ensure cloud-based solutions can be operated through secure, cost effective processes using modern, cloud-first operations tools
+    - [Govern](../governance/overview.md): Align corporate policy to tangible risks, mitigated through policy, process, and cloud-based governance tooling.
+    - Change management and oversight: Iterative approaches to implementation will be seen throughout this framework, which provides business and IT teams with a growth mindset approach to addressing ambiguity, learning, and succeeding in the fast paced environments demanded in today's marketplaces.
 
 Throughout this migration experience this framework will be used to address ambiguity, manage change, and guide cross-functional teams through the realization of business outcomes.
 
