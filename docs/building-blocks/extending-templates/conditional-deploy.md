@@ -1,6 +1,6 @@
 ---
 title: Conditionally deploy a resource in an Azure Resource Manager template
-description: Describes how to extend the functionality of Azure Resource Manager templates to conditionally deploy a resource dependending on the value of a parameter.
+description: Describes how to extend the functionality of Azure Resource Manager templates to conditionally deploy a resource depending on the value of a parameter.
 author: petertay
 ms.date: 10/30/2018
 ms.topic: article
