@@ -1,7 +1,7 @@
 ---
-title: "CAF: Rehost an app by migrating it to Azure VMs and SQL Server AlwaysOn availability group"
+title: "CAF: Rehost an app by migrating it to Azure VMs and SQL Server Always On availability group"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: Learn how Contoso rehosts an on-premises app by migrating it to Azure VMs and SQL Server AlwaysOn availability group
+description: Learn how Contoso rehosts an on-premises app by migrating it to Azure VMs and SQL Server Always On availability group
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
@@ -11,9 +11,9 @@ ms.date: 10/11/2018
 ms.author: raynew
 ---
 
-# Rehost an on-premises app on Azure VMs and SQL Server AlwaysOn Availability Group
+# Rehost an on-premises app on Azure VMs and SQL Server Always On availability group
 
-This article demonstrates how the fictional company Contoso rehosts a two-tier Windows .NET app running on VMware VMs as part of a migration to Azure. Contoso migrates the app front-end VM to an Azure VM, and the app database to an Azure SQL Server VM, running in a Windows Server failover cluster with SQL Server AlwaysOn Availability Groups.
+This article demonstrates how the fictional company Contoso rehosts a two-tier Windows .NET app running on VMware VMs as part of a migration to Azure. Contoso migrates the app front-end VM to an Azure VM, and the app database to an Azure SQL Server VM, running in a Windows Server failover cluster with SQL Server Always On availability groups.
 
 The SmartHotel360 app used in this example is provided as open source. If you'd like to use it for your own testing purposes, you can download it from [GitHub](https://github.com/Microsoft/SmartHotel360).
 
@@ -56,7 +56,7 @@ In this scenario:
   - It will be located in the Azure production network (VNET-PROD-EUS2) in the primary East US2 region.
 - The app database will be migrated to an Azure SQL Server VM.
   - It will be located in Contoso's Azure database network (PROD-DB-EUS2) in the primary East US2 region.
-  - It will be placed in a Windows Server failover cluster with two nodes, that uses SQL Server Always On Availability Groups.
+  - It will be placed in a Windows Server failover cluster with two nodes, that uses SQL Server Always On availability groups.
   - In Azure the two SQL Server VM nodes in the cluster will be deployed in the ContosoRG resource group.
   - The VM nodes will be located in the Azure production network (VNET-PROD-EUS2) in the primary East US2 region.
   - VMs will run Windows Server 2016 with SQL Server 2017 Enterprise Edition. Contoso doesn't have licenses for this operating system, so it will use an image in the Azure Marketplace that provides the license as a charge to their Azure EA commitment.
@@ -103,9 +103,9 @@ Contoso admins will migrate the app VMs to Azure.
   - With everything prepared, they can start replicating the VM.
   - After replication is enabled and working, they migrate the VM by failing it over to Azure.
 - They'll migrate the database to a SQL Server cluster in Azure, using the Data Migration Assistant (DMA).
-  - As a first step they'll need to provision SQL Server VMs in Azure, set up the cluster and an internal load balancer, and configure AlwaysOn availability groups.
+  - As a first step they'll need to provision SQL Server VMs in Azure, set up the cluster and an internal load balancer, and configure Always On availability groups.
   - With this in place, they can migrate the database
-- After the migration, they'll enable AlwaysOn protection for the database.
+- After the migration, they'll enable Always On protection for the database.
 
 ![Migration process](media/contoso-migration-rehost-vm-sql-ag/migration-process.png)
 
@@ -137,10 +137,10 @@ Here's how Contoso will run the migration:
 > - **Step 6: Replicate VMs.** Enable VM replication to Azure.
 > - **Step 7: Install DMA.** Download and install the Database Migration Assistant.
 > - **Step 7: Migrate the database with DMA.** Migrate the database to Azure.
-> - **Step 9: Protect the database.** Create an Always On Availability Group for the cluster.
+> - **Step 9: Protect the database.** Create an Always On availability group for the cluster.
 > - **Step 10: Migrate the web app VM.** Run a test failover to make sure everything's working as expected. Then run a full failover to Azure.
 
-## Step 1: Prepare a SQL Server AlwaysOn availability group cluster
+## Step 1: Prepare a SQL Server Always On availability group cluster
 
 Contoso admins set up the cluster as follows:
 
@@ -231,13 +231,13 @@ Before setting up the cluster, Contoso admins take a snapshot of the OS disk on 
 
 Contoso admins can now enable Always On:
 
-1. In SQL Server Configuration Manager, they enable **AlwaysOn Availability Groups** for the **SQL Server (MSSQLSERVER)** service.
+1. In SQL Server Configuration Manager, they enable **Always On availability groups** for the **SQL Server (MSSQLSERVER)** service.
 
-    ![Enable AlwaysOn](media/contoso-migration-rehost-vm-sql-ag/enable-alwayson.png)
+    ![Enable Always On](media/contoso-migration-rehost-vm-sql-ag/enable-alwayson.png)
 
 2. They restart the service for changes to take effect.
 
-With AlwaysOn enable, Contoso can set up the AlwaysOn availability group that will protect the SmartHotel360 database.
+With Always On enable, Contoso can set up the Always On availability group that will protect the SmartHotel360 database.
 
 **Need more help?**
 
@@ -294,7 +294,7 @@ They create the rule as follows:
 1. In the load balancer settings in the portal, they add a new load balancing rule: **SQLAlwaysOnEndPointListener**.
 2. They set a front-end listener to receive incoming SQL client traffic on TCP 1433.
 3. They specify the back-end pool to which traffic will be routed, and the port on which VMs listen for traffic.
-4. They enable floating IP (direct server return). This is always required for SQL AlwaysOn.
+4. They enable floating IP (direct server return). This is always required for SQL Always On.
 
     ![Probe](media/contoso-migration-rehost-vm-sql-ag/nlb-probe.png)
 
@@ -529,32 +529,32 @@ Contoso admins will migrate the SmartHotel360 database to Azure VM **SQLAOG1** u
 
 DMS connects to the on-premises SQL Server VM across a site-to-site VPN connection between the Contoso datacenter and Azure, and then migrates the database.
 
-## Step 7: Protect the database with AlwaysOn
+## Step 7: Protect the database with Always On
 
-With the app database running on **SQLAOG1**, Contoso admins can now protect it using AlwaysOn availability groups. They configure AlwaysOn using SQL Management Studio, and then assign a listener using Windows clustering.
+With the app database running on **SQLAOG1**, Contoso admins can now protect it using Always On availability groups. They configure Always On using SQL Management Studio, and then assign a listener using Windows clustering.
 
-### Create an AlwaysOn availability group
+### Create an Always On availability group
 
 1. In SQL Management Studio, they right-click on **Always on High Availability** to start the **New Availability Group Wizard**.
 2. In **Specify Options**, they name the availability group **SHAOG**. In **Select Databases**, they select the SmartHotel360 database.
 
-    ![AlwaysOn availability group](media/contoso-migration-rehost-vm-sql-ag/aog-1.png)
+    ![Always On availability group](media/contoso-migration-rehost-vm-sql-ag/aog-1.png)
 
 3. In **Specify Replicas**, they add the two SQL nodes as availability replicas, and configure them to provide automatic failover with synchronous commit.
 
-     ![AlwaysOn availability group](media/contoso-migration-rehost-vm-sql-ag/aog-2.png)
+     ![Always On availability group](media/contoso-migration-rehost-vm-sql-ag/aog-2.png)
 
 4. They configure a listener for the group (**SHAOG**) and port. The IP address of the internal load balancer is added as a static IP address (10.245.40.100).
 
-    ![AlwaysOn availability group](media/contoso-migration-rehost-vm-sql-ag/aog-3.png)
+    ![Always On availability group](media/contoso-migration-rehost-vm-sql-ag/aog-3.png)
 
 5. In **Select Data Synchronization**, they enable automatic seeding. With this option, SQL Server automatically creates the secondary replicas for every database in the group, so Contoso don't have to manually back up and restore these. After validation, the availability group is created.
 
-    ![AlwaysOn availability group](media/contoso-migration-rehost-vm-sql-ag/aog-4.png)
+    ![Always On availability group](media/contoso-migration-rehost-vm-sql-ag/aog-4.png)
 
 6. Contoso ran into an issue when creating the group. They aren't using Active Directory Windows Integrated security, and thus need to grant permissions to the SQL login to create the Windows Failover Cluster roles.
 
-    ![AlwaysOn availability group](media/contoso-migration-rehost-vm-sql-ag/aog-5.png)
+    ![Always On availability group](media/contoso-migration-rehost-vm-sql-ag/aog-5.png)
 
 7. After the group is created, Contoso can see it in SQL Management Studio.
 
@@ -671,4 +671,4 @@ The Contoso security team reviews the Azure VMs WEBVM, SQLAOG1 and SQLAOG2 to de
 
 ## Conclusion
 
-In this article, Contoso rehosted the SmartHotel360 app in Azure by migrating the app front-end VM to Azure using the Site Recovery service. Contoso migrated the app database to a SQL Server cluster provisioned in Azure, and protected it in a SQL Server AlwaysOn availability group.
+In this article, Contoso rehosted the SmartHotel360 app in Azure by migrating the app front-end VM to Azure using the Site Recovery service. Contoso migrated the app database to a SQL Server cluster provisioned in Azure, and protected it in a SQL Server Always On availability group.
