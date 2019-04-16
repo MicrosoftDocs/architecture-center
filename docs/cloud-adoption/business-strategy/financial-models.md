@@ -8,17 +8,15 @@ description: How to create a financial model for cloud transformation.
 author: BrianBlanchard
 ms.date: 12/10/2018
 ms.topic: guide
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
 ---
 
 # Create a financial model for cloud transformation
 
-Creating a financial model that accurately represents the full business value of any cloud transformation can be complicated. Financial models and business justifications tend to be different from one organization to the next. This article establishes some formulas and points out a few things that are commonly missed when creating a financial model.
+Creating a financial model that accurately represents the full business value of any cloud transformation can be complicated. Financial models and business justifications tend to vary between different organizations. This article establishes some formulas and points out a few things that are commonly missed when creating a financial model.
 
 ## Return on investment (ROI)
 
-Return on investment (ROI) is often an important criteria with the C-Suite or the board. ROI is used to compare different ways to invest limited capital resources. The formula for ROI is fairly simple. The details required to create each input to the formula may not be as simple. Essentially, ROI is the amount of return produced from an initial investment. Usually it is represented as a percentage:
+Return on investment (ROI) is often an important criteria for the C-suite or the board. ROI is used to compare different ways to invest limited capital resources. The formula for ROI is fairly simple. The details required to create each input to the formula may not be as simple. Essentially, ROI is the amount of return produced from an initial investment. Usually it is represented as a percentage:
 
 ![Return on Investment (ROI) equals (Gain from Investment – Cost of Investment) / Cost of Investment](../_images/formula-roi.png)
 
@@ -84,9 +82,9 @@ An exception is when operational capacity is provided by a third party or manage
 
 ### Capital expense reductions or avoidance
 
-Capital expenses (CapEx) are slightly different that operational expenses. Generally, this category is driven by refresh cycles or datacenter expansion. An example of a datacenter expansion would be a new high-performance cluster to host a Big Data solution or data warehouse, and would generally fit into a CapEx category. More common are the basic refresh cycles. Some companies have rigid hardware refresh cycles, meaning assets are retired and replaced on a regular cycle (usually every 3, 5, or 8 years). These cycles often coincide with asset lease cycles or forecasted lifespan of equipment. When a refresh cycle hits, IT draws CapEx to acquire new equipment.
+Capital expenses (CapEx) are slightly different that operational expenses. Generally, this category is driven by refresh cycles or datacenter expansion. An example of a datacenter expansion would be a new high-performance cluster to host a Big Data solution or data warehouse, and would generally fit into a CapEx category. More common are the basic refresh cycles. Some companies have rigid hardware refresh cycles, meaning assets are retired and replaced on a regular cycle (usually every three, five, or eight years). These cycles often coincide with asset lease cycles or forecasted lifespan of equipment. When a refresh cycle hits, IT draws CapEx to acquire new equipment.
 
-If a refresh cycle is approved and budgeted, the Cloud Transformation could help eliminate that cost. If a refresh cycle is planned but not yet approved, the Cloud Transformation could create a CapEx cost avoidance. Both scenarios would be added to the cost delta.
+If a refresh cycle is approved and budgeted, the cloud transformation could help eliminate that cost. If a refresh cycle is planned but not yet approved, the cloud transformation could create a CapEx cost avoidance. Both scenarios would be added to the cost delta.
 
 ## Next steps
 
