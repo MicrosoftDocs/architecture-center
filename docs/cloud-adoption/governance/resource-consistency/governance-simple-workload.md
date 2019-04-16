@@ -74,7 +74,7 @@ Notice that in this example, the **account owner** has assigned the [built-in **
 The built-in **owner** role grants all permissions to the **workload owner** at the subscription scope.
 
 > [!IMPORTANT]
-> The Azure **acount owner** is responsible for the financial committment associated with the subscription, but the **workload owner** has the same permissions. The **account owner** must trust the **workload owner** to deploy resources that are within the subscription budget.
+> The Azure **account owner** is responsible for the financial commitment associated with the subscription, but the **workload owner** has the same permissions. The **account owner** must trust the **workload owner** to deploy resources that are within the subscription budget.
 
 The next level of management scope is the **resource group** level. A resource group is a logical container for resources. Operations applied at the resource group level apply to all resources in a group. Also, it's important to note that permissions for each user are inherited from the next level up unless they are explicitly changed at that scope.
 
