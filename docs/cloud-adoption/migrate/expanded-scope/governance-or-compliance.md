@@ -15,7 +15,7 @@ Prerequisite activities are affected the most when governance or compliance are 
 
 ## Suggested prerequisites
 
-Configuration of the base Azure environment could change significantly when integrating governance or compliance requirements. To understand how prerequisites change it's important to understand the nature of the requirements. Prior to beginning any migration which requires governance or compliance, an approach should be chosen and implemented in the cloud environment. The following are a few high level approaches commonly seen during migrations:
+Configuration of the base Azure environment could change significantly when integrating governance or compliance requirements. To understand how prerequisites change it's important to understand the nature of the requirements. Prior to beginning any migration which requires governance or compliance, an approach should be chosen and implemented in the cloud environment. The following are a few high-level approaches commonly seen during migrations:
 
 **Common governance approach:** For most organizations, the [Cloud Adoption Framework governance model](../../governance/journeys/overview.md) is a sufficient approach which consists of a minimum viable product (MVP) implementation, followed by targeted iterations of governance maturity to address tangible risks identified in the adoption plan. This approach provides the minimum tooling needed to establish consistent governance, so the team can understand the tools. It then expands on those tools to address common governance concerns.
 

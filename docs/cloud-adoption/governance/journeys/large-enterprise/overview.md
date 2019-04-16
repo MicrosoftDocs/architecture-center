@@ -50,7 +50,7 @@ Once this MVP has been deployed, additional layers of governance can be quickly 
 - [Security Baseline for protected data](./security-baseline-evolution.md)
 - [Resource configurations for mission-critical applications](./resource-consistency-evolution.md)
 - [Controls for Cost Management](./cost-management-evolution.md)
-- [Controls for multi-cloud evolution](./multi-cloud-evolution.md)
+- [Controls for multicloud evolution](./multi-cloud-evolution.md)
 
 <!-- markdownlint-disable MD026 -->
 

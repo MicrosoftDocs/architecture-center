@@ -11,7 +11,7 @@ author: BrianBlanchard
 
 # Small-to-medium enterprise: Multicloud evolution
 
-This article evolves the narrative by adding controls for multi-cloud adoption.
+This article evolves the narrative by adding controls for multicloud adoption.
 
 ## Evolution of the narrative
 
@@ -62,10 +62,10 @@ This section of the article will evolve the governance MVP design to include new
     1. For applications that authenticate using OAuth 2, users from Active Directory in the secondary cloud can simply be replicated to the existing Azure AD tenant. This ensures all users can be authenticated in the tenant.
     2. At the other extreme, federation allows OUs to flow into Active Directory on-premises, then into the Azure AD instance.
 3. Add assets to Azure Site Recovery.
-    1. Azure Site Recovery was designed from the beginning as a hybrid/multi-cloud tool.
+    1. Azure Site Recovery was designed from the beginning as a hybrid or multicloud tool.
     2. VMs in the secondary cloud might be able to be protected by the same Azure Site Recovery processes used to protect on-premises assets.
 4. Add assets to Azure Cost Management
-    1. Azure Cost Management was designed from the beginning as a multi-cloud tool.
+    1. Azure Cost Management was designed from the beginning as a multicloud tool.
     2. Virtual machines in the secondary cloud may be compatible with Azure Cost Management for some cloud providers. Additional costs may apply.
 5. Add assets to Azure Monitor.
     1. Azure Monitor was designed as a hybrid cloud tool from inception.
@@ -74,7 +74,7 @@ This section of the article will evolve the governance MVP design to include new
     1. Governance enforcement is cloud-specific.
     2. The corporate policies established in the governance journey are not cloud-specific. While the implementation may vary from cloud to cloud, the policies can be applied to the secondary provider.
 
-As multi-cloud adoption grows, the design evolution above will continue to mature.
+As multicloud adoption grows, the design evolution above will continue to mature.
 
 ## Conclusion
 

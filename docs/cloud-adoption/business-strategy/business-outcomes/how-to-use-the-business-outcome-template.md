@@ -24,7 +24,7 @@ Introduced by Kate Johnson at Microsoft’s Digital Transformation Academy, busi
 ![Business outcomes visualized as a house with stakeholders, over business outcomes, over technical capabilities](../../_images/business-outcome-house.png)
 *Figure 1: Business outcomes visualized as a house with stakeholders, over business outcomes, over technical capabilities*
 
-The Business Outcome Template used in this process, focuses on simplified conversations that can quickly engage executes without getting too deep into the technical solution. Rapidly understanding and aligning the KPIs and Business Drivers that are important to stakeholders, allows the team think about high level approaches and transformations before diving into the implementation details.
+The Business Outcome Template used in this process, focuses on simplified conversations that can quickly engage executes without getting too deep into the technical solution. Rapidly understanding and aligning the KPIs and Business Drivers that are important to stakeholders, allows the team think about high-level approaches and transformations before diving into the implementation details.
 
 An example can be found on the "Example Outcome" tab of the spreadsheet, as shown below. To track multiple outcomes, add them to the "Collective Outcomes" tab.
 

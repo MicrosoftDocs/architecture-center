@@ -33,7 +33,7 @@ This model illustrates the growth of a partnership between the Cloud Governance 
 
 ## Requirements to supporting such a team sport
 
-The first requirement of a multi-layer governance model is to understand of the governance hierarchy. Answering the follownig questions will help you to understand the general governance hierarchy:
+The first requirement of a multilayer governance model is to understand of the governance hierarchy. Answering the follownig questions will help you to understand the general governance hierarchy:
 
 - How is cloud accounting (billing for cloud services) allocated across business units?
 - How are governance responsibilities allocated across corporate IT and each business unit?

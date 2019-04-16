@@ -78,4 +78,4 @@ To begin developing your own custom policy statements related to Cost Management
 To accelerate adoption of this discipline, choose the [actionable governance journey](../journeys/overview.md) that most closely aligns with your environment. Then modify the design to incorporate your specific corporate policy decisions.
 
 > [!div class="nextstepaction"]
-> [Actionable Governance Journeys](../journeys/overview.md)
+> [Actionable governance journeys](../journeys/overview.md)

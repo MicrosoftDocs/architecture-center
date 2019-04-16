@@ -60,7 +60,7 @@ This section of the article will evolve the governance MVP design to include new
 
 1. Changes in the Azure Enterprise Portal to bill the Department administrator for the Canadian deployment.
 2. Implement Azure Cost Management.
-    1. Establish the right level of access scope to align with the subscription pattern and resource grouping pattern. Assuming alignment with the governance MVP defined in prior articles, this would require **Enrollment Account Scope** access for the Cloud Governance team executing on high level reporting. Additional teams outside of governance, like the Canadian procurement team, will require **Resource Group Scope** access.
+    1. Establish the right level of access scope to align with the subscription pattern and resource grouping pattern. Assuming alignment with the governance MVP defined in prior articles, this would require **Enrollment Account Scope** access for the Cloud Governance team executing on high-level reporting. Additional teams outside of governance, like the Canadian procurement team, will require **Resource Group Scope** access.
     2. Establish a budget in Azure Cost Management.
     3. Review and act on initial recommendations. It's recommended to have a recurring process to support the reporting process.
     4. Configure and execute Azure Cost Management Reporting, both initial and recurring.
