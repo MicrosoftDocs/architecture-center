@@ -90,7 +90,7 @@ The details of the process and meeting should be adapted to fit your specific ne
 
 2. The engineering and service owners map the **current state** of business operations to the corresponding on-premises and cloud services. The mapping is composed of a list of the components in each service, oriented as a dependency tree. Once the list and dependency tree are generated, the **critical paths** through the tree are determined.
 
-3. The engineering and service owners review the current state of operational logging and monitoring for the services listed in the previous step. Robust logging and monitoring are critical, in order to identify service components that contribute to failuring to meet non-functional requirements. If sufficient logging and monitoring are not in place, a plan must be created and implemented to put them in place.
+3. The engineering and service owners review the current state of operational logging and monitoring for the services listed in the previous step. Robust logging and monitoring are critical, in order to identify service components that contribute to failing to meet non-functional requirements. If sufficient logging and monitoring are not in place, a plan must be created and implemented to put them in place.
 
 4. Scorecard metrics are created for new business operation. The scorecard is composed of the list of constituent components for each service identified in step 2, aligned with the non-functional requirements and a metric representing how well the component meets the requirement.
 
