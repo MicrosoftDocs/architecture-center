@@ -141,7 +141,7 @@ Across each cloud provider, there are common governance disciplines that can ser
                     </div>
                     <div class="cardText">
                         <h3>Deployment Acceleration</h3>
-                        <p>Centralization, standardization, and consistency in deployment and configuration approaches improve governance practices. When made available through cloud-based governance tooling, they create a cloud factor which can accelerate deployment activities.</p>
+                        <p>Centralization, standardization, and consistency in deployment and configuration approaches improve governance practices. When made available through cloud-based governance tooling, they create a cloud factor that can accelerate deployment activities.</p>
                     </div>
                 </div>
             </div>

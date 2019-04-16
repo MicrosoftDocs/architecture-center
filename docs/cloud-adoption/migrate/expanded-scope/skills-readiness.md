@@ -1,11 +1,11 @@
 ---
-title: "CAF: Skills readiness"
-description: Skills readiness
+title: "CAF: Skills readiness for cloud migration"
+description: Skills readiness for cloud migration
 author: BrianBlanchard
 ms.date: 4/4/2019
 ---
 
-# Skills readiness
+# Skills readiness for cloud migration
 
 During a cloud migration, it is very likely that employees, and even some incumbent systems integration partners or managed services partners, will need to develop new skills to be effective during migration efforts. This is amongst the most common scope expansions beyond the [Azure migration guide](../azure-migration-guide/overview.md).
 

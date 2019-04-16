@@ -1,13 +1,13 @@
 ---
-title: "Maintain business priorities during a long term transformation process"
-description: Maintain business priorities during a long term transformation process
+title: "Maintain business priorities during a long-term transformation process"
+description: Maintain business priorities during a long-term transformation process
 author: BrianBlanchard
 ms.date: 4/4/2019
 ---
 
 # Business Priorities - Maintaining alignment
 
-*Transformation* is often defined as a dramatic or spontaneous change. At the board level, change can look like a dramatic transformation. However, for those who work through the process of change in an organization, transformation is a bit misleading. Under the surface, transformation is really better described as a series of properly executed transitions from one state to another.
+*Transformation* is often defined as a dramatic or spontaneous change. At the board level, change can look like a dramatic transformation. However, for those who work through the process of change in an organization, transformation is a bit misleading. Under the surface, transformation is better described as a series of properly executed transitions from one state to another.
 
 The amount of time required to rationalize or transition a workload will vary, depending on the technical complexity involved. However, even when this process can be applied to a single workload or group of applications quickly, it takes time to produce substantial changes among a user base. It takes longer for changes to propagate through various layers of existing business processes. If transformation is expected to shape behavior patterns in consumers, the results can take longer to produce significant results.
 

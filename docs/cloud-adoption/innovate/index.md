@@ -11,11 +11,11 @@ The cloud creates new opportunities for customers to innovate.
 
 ## Coming Soon
 
-In Summer 2019, the Cloud Adoption Framework will expand to include guidance regarding modernization and cloud-native approaches to driving innovation across the digital estate and application portfolio.
+In Q2 2019, the Cloud Adoption Framework will expand to include guidance regarding modernization and cloud-native approaches to driving innovation across the digital estate and application portfolio.
 
 ## Application Modernization and Innovation
 
-Cloud-native apps and data accelerate development and experimentation cycles. Older apps can take advantage of many of the same cloud-native benefits by modernizing the solution or components of the solution. Modern DevOps and SDLC approaches running on cloud technology shorten the time from idea to product change. Combined these tools invite the customer into the process, creating tighter feedback loops and better customer experiences.
+Cloud-native apps and data accelerate development and experimentation cycles. Older apps can take advantage of many of the same cloud-native benefits by modernizing the solution or components of the solution. Modern DevOps and SDLC approaches that use cloud technology shorten the time from idea to product change. Combined, these tools invite the customer into the process to create shorter feedback loops and better customer experiences.
 
 ## Data Platform Modernization and Innovation
 

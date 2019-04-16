@@ -113,7 +113,7 @@ The governance MVP design will evolve to include new Azure policies and an imple
     1. Create a new blueprint named `protected-data`.
     2. Add the firewall and Azure Security Center templates to the blueprint.
     3. Add the new policies for protected data subscriptions.
-    4. Publish the blueprint to any management group which current plans on hosting protected data.
+    4. Publish the blueprint to any management group that currently plans on hosting protected data.
     5. Apply the new blueprint to each affected subscription, in addition to existing blueprints.
 
 ## Conclusion

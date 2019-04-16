@@ -28,7 +28,7 @@ The following are a few business outcomes that tend to trigger conversations wit
 
 Speaking in business outcomes can feel like a foreign language to many technically minded individuals. To help ease translation, Microsoft curates a number of business outcome examples in the [Business Outcome Framework](../overview.md). Use these samples  to help inspire and demonstrate business outcomes based on actual Transformation Journeys.
 
-To more quickly find the right business outcomes, they are divided into the following business outcome categories which tend to drive consensus building conversations across business units:
+To more quickly find the right business outcomes, they are divided into the following business outcome categories, which tend to drive consensus building conversations across business units:
 
 ## Fiscal outcomes
 

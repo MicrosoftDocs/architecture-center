@@ -46,7 +46,7 @@ Since then, some things have changed that will affect governance:
 
 ## Evolution of tangible risks
 
-**Data Breach**: There is an inherent increase in liabilities related to data breaches when adopting any new data platform. Technicians adopting cloud technologies have increased responsibilities to implement solutions which can decrease this risk. A robust security and governance strategy must be implemented to ensure those technicians fulfill those responsibilities.
+**Data Breach**: There is an inherent increase in liabilities related to data breaches when adopting any new data platform. Technicians adopting cloud technologies have increased responsibilities to implement solutions that can decrease this risk. A robust security and governance strategy must be implemented to ensure those technicians fulfill those responsibilities.
 
 This business risk can be expanded into a few technical risks:
 

@@ -7,7 +7,7 @@ ms.date: 4/4/2019
 
 # Multiple geographic regions
 
-When businesses operate in multiple geographic regions, additional complexity can be introduced into cloud migration efforts. These complexities manifest in three primary forms: asset distribution, user access profiles, and compliance requirements. Before addressing complexities related to multiple regions its important to understand the extent of the potential complexity.
+When businesses operate in multiple geographic regions, additional complexity can be introduced into cloud migration efforts. These complexities manifest in three primary forms: asset distribution, user access profiles, and compliance requirements. Before addressing complexities related to multiple regions, it's important to understand the extent of the potential complexity.
 
 ## General scope expansion
 
@@ -15,7 +15,7 @@ The following approach can help assess the potential challenges and establish a 
 
 - Consider a more robust readiness and governance implementation
 - Inventory the affected geographies: Compile a list of the regions and countries that will be affected by the cloud migration.
-- Document data sovereignty requirements: Do the countries identified have compliance requirements which govern data sovereignty?
+- Document data sovereignty requirements: Do the countries identified have compliance requirements that govern data sovereignty?
 - Document the user base: Will employees, partners, or customers in the identified country be affected by the cloud migration?
 - Document datacenters and assets: Are there assets in the identified country that might be included in the migration effort?
 

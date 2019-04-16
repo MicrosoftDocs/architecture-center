@@ -10,11 +10,11 @@ ms.date: 4/4/2019
 Innovation is closely linked to migration. When workloads create market differentiation opportunities, it is very common for those workloads to be migrated to the cloud, then undergo modernization efforts. Once in the cloud modernization can be accelerated by modern cloud-based approaches, which also enable the development of new innovations.
 
 > [!NOTE]
-> This guidance is slated for development in preparation for the Summer 2019 release of the Cloud Adoption Framework. The taxonomy and approach below is likely to change. The following is intended to surface the general north star for Innovation guidance.
+> This guidance is slated for development in preparation for the Q2 2019 release of the Cloud Adoption Framework. The taxonomy and approach below is likely to change. The following is intended to surface the general north star for innovation guidance.
 
 ## Motivations behind innovation
 
-Innovation should not be the chosen adoption path for all workloads. This path to cloud adoption often requires a larger investment in custom code and/or data management. Innovation also takes inherently longer than migration, or even many forms of modernization. However, this path is suggested when customers are targeting the following types of business outcomes:
+Innovation should not be the chosen adoption path for all workloads. This path to cloud adoption often requires a larger investment in custom code and data management. Innovation also takes inherently longer than migration, or even many forms of modernization. However, this path is suggested when customers are targeting the following types of business outcomes:
 
 * Prepare for new technical capabilities
 * Scale to meet market demands

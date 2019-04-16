@@ -18,22 +18,22 @@ The following checklist outlines the common areas of complexity which could requ
 - **Business-driven scope changes**
   - [Balancing the portfolio](./balance-the-portfolio.md)
   - [Support global markets](./multiple-regions.md)
-  - Cost consciousness during a migration *(Coming Summer 2019)*
+  - Cost consciousness during a migration *(Coming Q2 2019)*
 - **Culture-driven scope changes**
-  - Change management and approval processes *(Coming Summer 2019)*
-  - Executive readiness *(Coming Summer 2019)*
+  - Change management and approval processes *(Coming Q2 2019)*
+  - Executive readiness *(Coming Q2 2019)*
   - [Skills readiness](./skills-readiness.md)
-  - Aligning support (Partner, services, and support) *(Coming Summer 2019)*
+  - Aligning support (Partner, services, and support) *(Coming Q2 2019)*
 - **Technical Strategy-driven scope changes**
-  - Existing datacenter constraints *(Coming Summer 2019)*
-  - Migrating at scale - High volume or velocity of migrations *(Coming Summer 2019)*
+  - Existing datacenter constraints *(Coming Q2 2019)*
+  - Migrating at scale - High volume or velocity of migrations *(Coming Q2 2019)*
   - [Multiple datacenters](./multiple-data-centers.md)
   - [Data requirements exceed network capacity](./network-capacity-exceeded.md)
-  - Change management and solution documentation *(Coming Summer 2019)*
+  - Change management and solution documentation *(Coming Q2 2019)*
   - [Governance or compliance strategy](./governance-or-compliance.md)
 - **Workload-specific scope changes**
-  - Architect workloads for resiliency *(Coming Summer 2019)*
-  - Align migration to application patterns *(Coming Summer 2019)*
+  - Architect workloads for resiliency *(Coming Q2 2019)*
+  - Align migration to application patterns *(Coming Q2 2019)*
 
 If any of these complexities align with your scenario, then this section of the Cloud Adoption Framework will likely provide the type of guidance needed properly align scope in the migration processes.
 

@@ -22,7 +22,7 @@ Removing key obstacles and enabling change requires more than implementation gui
 
 ## Fulfilling the vision
 
-The Cloud Adoption Framework is an overarching framework which covers Plan, Ready and Adopt phases across the Migration and Innovation motivations for cloud adoption, supported by Governance and Operations guidance.  
+The Cloud Adoption Framework is an overarching framework that covers Plan, Ready and Adopt phases across the Migration and Innovation motivations for cloud adoption, supported by Governance and Operations guidance.  
 
 Microsoft is actively building this aspirational framework in collaboration with customers, partners, and internal teams. To encourage partnership, content will be released in public preview as it becomes available. These public preview releases enable testing, validating, and incrementally refining the guidance. The framework will reach general availability (GA) when the aspirational goals are met.
 
@@ -65,9 +65,9 @@ The following outlines specific releases per quarter, to demonstrate maturity of
 
 **Cloud Adoption Framework created (10/1/2018):** What we have heard from customers is that they want us to help drive a structured approach to transform their business leveraging the cloud.
 
-In early 2018, Microsoft released the Cloud Operating Model (COM). COM was a guide which helped customers understand the WHAT and the WHY of digital transformation. This helped customer get a sense of all the areas which needed to be addressed, business strategy, culture strategy and technology strategy. What was not included in the COM was the specific HOW TO’s, this left customers asking the question, "Where do we go from here?" With this gap many of our field teams began building their own models and engagement. Whilst directionally accurate, each team was saying something slightly different which ultimately led to broader customer confusion.
+In early 2018, Microsoft released the Cloud Operating Model (COM). COM was a guide that helped customers understand the WHAT and the WHY of digital transformation. This helped customer get a sense of all the areas that needed to be addressed, business strategy, culture strategy and technology strategy. What was not included in the COM was the specific HOW TO’s, this left customers asking the question, "Where do we go from here?" With this gap many of our field teams began building their own models and engagement. Whilst directionally accurate, each team was saying something slightly different, which ultimately led to broader customer confusion.
 
-In October 2018, we began to take stock of all the models which had proliferated across our org, we found roughly 60 different cloud adoption models. At this time, a cross-Microsoft team was established to bring everything together. This culminated in the creation of a single model, Microsoft Cloud Adoption Framework for Azure, with the intention of helping customers understand the **what** and **why** and provide unified guidance on the **how** from Microsoft to help them accelerate their cloud journey.
+In October 2018, we began to take stock of all the models that had proliferated across our organization, we found roughly 60 different cloud adoption models. At this time, a cross-Microsoft team was established to bring everything together. This culminated in the creation of a single model, Microsoft Cloud Adoption Framework for Azure, with the intention of helping customers understand the **what** and **why** and provide unified guidance on the **how** from Microsoft to help them accelerate their cloud journey.
 
 **Winter Release (2/11/2019):** Based on customer feedback, we started building out the Govern pillar. Customers indicated that this was a blocker to accelerating their migration efforts and further adoption of cloud services. The trust and protection that comes from having a strong governance model in place builds the confidence businesses need to confidently pursue cloud adoption goals.
 
@@ -80,7 +80,7 @@ This first release served as a test of the Cloud Adoption Framework's ability to
 
 **Spring Release (4/15/2019):** Cloud migration tooling can easily migrate tens of thousands of IT assets to the cloud. However, customer feedback suggested that cloud migrations are blocked by culture and technical readiness. The spring release addresses these blockers by defining an iterative approach to cloud migration. Within the core methodology is a streamlined azure migration guide for learning the tools and basic processes, with expanded scope and best practices sections for building on this baseline guidance.
 
-This release also includes expansions to the Plan section of the Cloud Adoption Framework which focuses on business planning. It also incorporates the existing Azure Readiness Guide within the new Ready section of the Cloud Adoption Framework.
+This release also includes expansions to the Plan section of the Cloud Adoption Framework that focus on business planning. It also incorporates the existing Azure Readiness Guide within the new Ready section of the Cloud Adoption Framework.
 
 *Table of Contents (Left Navigation) changes:* The left navigation has been streamlined to follow the Plan, Ready, Adopt approach. The Getting Started section has been realigned to start the reader with an executive summary of the three journeys supported in the vision for the Cloud Adoption Framework.
 

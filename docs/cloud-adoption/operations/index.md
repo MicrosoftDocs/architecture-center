@@ -10,7 +10,7 @@ ms.topic: landing-page
 
 # Cloud operations in the Cloud Adoption Framework
 
-Coming in Summer 2019: Guidance and examples for aligning operations across cloud and on-premises environments to minimize interruptions to business processes and ensure stability of the IT portfolio.
+Coming in Q2 2019: Guidance and examples for aligning operations across cloud and on-premises environments to minimize interruptions to business processes and ensure stability of the IT portfolio.
 
 > [!div class="nextstepaction"]
 > [Establish an operational fitness review](operational-fitness-review.md)

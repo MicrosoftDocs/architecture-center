@@ -27,7 +27,7 @@ During cloud migrations, assets (consisting of virtual machines, data sources, a
 - Reductions in capital expenses
 - End of support for mission-critical technologies
 
-**Summary of the asset migration methodology:** Asset migration is a technical process for migrating digital assets to the cloud using migration automation tooling. This approach can be successfully executed within the limited scope of the [Azure Migration Guide](../migrate/baseline-migration-guide/index.md).
+**Summary of the asset migration methodology:** Asset migration is a technical process for migrating digital assets to the cloud using migration automation tooling. This approach can be successfully executed within the limited scope of the [Azure Migration Guide](../migrate/azure-migration-guide/index.md).
 
 ![Methodology supporting asset migration](../_images/migration/asset-migration.png)
 
@@ -39,7 +39,7 @@ More often cloud migrations are part of a focused effort to streamline IT operat
 - Reduction in vendor or technical complexity
 - Optimize internal operations
 
-**Summary of the workload migration methodology:** Successful workload migrations build on the [Azure Migration Guide](../migrate/baseline-migration-guide/index.md) and [Azure Readiness Guide](../ready/azure-readiness-guide/index.md). However, to successfully complete a workload migration, additional considerations should be given to the [expanded scope checklist](../migrate/expanded-scope/index.md), which expands upon the scope of the Azure Migration Guide.
+**Summary of the workload migration methodology:** Successful workload migrations build on the [Azure Migration Guide](../migrate/azure-migration-guide/index.md) and [Azure Readiness Guide](../ready/azure-readiness-guide/index.md). However, to successfully complete a workload migration, additional considerations should be given to the [expanded scope checklist](../migrate/expanded-scope/index.md), which expands upon the scope of the Azure Migration Guide.
 
 ![Methodology supporting workload migration](../_images/operational-transformation-migrate.png)
 
@@ -57,7 +57,7 @@ C-level conversations regarding cloud migration tend to focus on the benefits as
 
 ## Portfolio Migration Methodology
 
-This methodology is based on an incremental approach to cloud adoption that aligns to Agile technology strategies, Growth Mindset based cultural growth, and Business Outcome-driven strategies. This methodology consists of the following high-level components which guide the implementation of each strategy.
+This methodology is based on an incremental approach to cloud adoption that aligns to Agile technology strategies, Growth Mindset based cultural growth, and Business Outcome-driven strategies. This methodology consists of the following high-level components that guide the implementation of each strategy.
 
 ![Cloud Adoption Framework's approach to cloud migration](../_images/migrate.png)
 

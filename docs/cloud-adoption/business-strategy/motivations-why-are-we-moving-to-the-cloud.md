@@ -41,7 +41,7 @@ There are technical strategies to execute against each of these motivations. How
 
 **Migrate:** The motivations near the top of the list above are the most common (but not necessarily the most significant) reasons for adopting the cloud. These are each important outcomes to achieve, but are most effectively used as a means of transitioning to other more effective worldviews in the future. This important first step to cloud adoption is often called a cloud migration, this framework refers to the strategy behind execution of such a migration by the verb [Migrate](../getting-started/migrate.md).
 
-The motivations that align well with a migrate strategy are as follows. The motives at the top of the list are likely to have significantly less business impact than those which fall closer to the bottom of the list.
+The motivations that align well with a migrate strategy are as follows. The motives at the top of the list are likely to have significantly less business impact than those that fall closer to the bottom of the list.
 
 - Unclear direction from board or others at an executive level
 - Critical business event
@@ -55,7 +55,7 @@ The motivations that align well with a migrate strategy are as follows. The moti
 - Increase business agility
 - Prepare for new technical capabilities
 
-**Innovate:** Data is the new commodity... Modern apps are the supply chain which drives that data into various experiences... In today's business market, its hard to find a transformative product or service that isn't built on top of data, insights, and customer experiences. The motivations that fall later in the list align to a technology strategy that this framework refers to simply as [Innovate](../getting-started/innovate.md).
+**Innovate:** Data is the new commodity... Modern apps are the supply chain that drives that data into various experiences... In today's business market, its hard to find a transformative product or service that isn't built on top of data, insights, and customer experiences. The motivations that fall later in the list align to a technology strategy that this framework refers to simply as [Innovate](../getting-started/innovate.md).
 
 The following are a list of the motivations that would make an IT organization focus more on an innovate strategy than a migrate strategy.
 

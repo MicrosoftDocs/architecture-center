@@ -1,6 +1,6 @@
 ---
 title: "CAF: Network capacity exceeded"
-description: Network capacity exceeded
+description: Storage requirements exceed network capacity during a migration effort
 author: BrianBlanchard
 ms.date: 4/4/2019
 ---
@@ -11,27 +11,27 @@ In a cloud migration, assets are replicated and synchronized over the network be
 
 ## General scope expansion
 
-Most of this effort required in this scope expansion, will fall in the prerequisites, assess and migrate processes of a migration.
+Most of this effort required in this scope expansion will occur during the prerequisites, assess, and migrate processes of a migration.
 
 ## Suggested prerequisites
 
 **Validate network capacity risks:** [Digital estate rationalization](../../digital-estate/rationalize.md) is a highly recommended prerequisite, especially if there are concerns of overburdening the available network capacity. During digital estate rationalization, an [inventory of digital assets](../../digital-estate/inventory.md) is collected. That inventory should include existing storage requirements across the digital estate. As outlined in [replication risks: Physics of replication](../migration-considerations/migrate/replicate?#replication-risks---physics-of-replication), that inventory can be used to estimate **total migration storage**, which can be compared to total **available migration bandwidth**. If that comparison doesn't align with the required **time to business change**, then this article can help accelerate migration velocity reducing the time required to migrate the data center.
 
-**Offline transfer of independent data stores:** Pictured in the diagram below are a examples of both online and offline data transfers with Azure Data Box. These approaches could be used to ship large volumes of data to the cloud prior to workload migration. In an offline data transfer, source data is copied to Azure Data Box, which is then physically shipped to Microsoft for transfer into an Azure storage account as a file or a blob. This process can be used to ship data that isn't directly tied to a specific workload, prior to other migration efforts. Doing so reduces the amount of data that needs to be shipped over the network, in an effort to complete a migration within network constraints.
+**Offline transfer of independent data stores:** Pictured in the diagram below are examples of both online and offline data transfers with Azure Data Box. These approaches could be used to ship large volumes of data to the cloud prior to workload migration. In an offline data transfer, source data is copied to Azure Data Box, which is then physically shipped to Microsoft for transfer into an Azure storage account as a file or a blob. This process can be used to ship data that isn't directly tied to a specific workload, prior to other migration efforts. Doing so reduces the amount of data that needs to be shipped over the network, in an effort to complete a migration within network constraints.
 
 This approach could be used to transfer data from [an HDFS store](/azure/storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster) or from disks using [SMB](/azure/databox/data-box-deploy-copy-data), [NFS](/azure/databox/data-box-deploy-copy-data-via-nfs), [REST](/azure/databox/data-box-deploy-copy-data-via-rest), or [data copy service](/azure/databox/data-box-deploy-copy-data-via-copy-service).
 
-There are also a number of [third-party partner solutions](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box) which leverage Azure Data Box for a "Seed and Sync" migration, where a large volume of data is moved via an offline transfer but is later synchronized at a lower scale over the network.
+There are also a number of [third-party partner solutions](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box) that use Azure Data Box for a "Seed and Sync" migration, where a large volume of data is moved via an offline transfer but is later synchronized at a lower scale over the network.
 
 ![Offline and online data transfer with Azure Data Box](../../_images/migration/databox.png)
 
 ## Assess process changes
 
-If the storage requirements of a workload (or workloads) exceed network capacity, then Azure Data Box can still be used in an offline data transfer. However, transferring data over the network is generally faster than physically shipping the same amount of data. Because of the impact to timelines, it is often advised that this option be used sparingly.
+If the storage requirements of a workload (or workloads) exceed network capacity, then Azure Data Box can still be used in an offline data transfer. However, transferring data over the network is typically faster than physically shipping the same amount of data. Because of the impact to timelines, it is advisable to use this option sparingly.
 
 ### Suggested action during the assess process
 
-**Network Capacity Analysis:** When workload related storage requirements are at risk of exceeding network capacity, the cloud adoption team would add an additional analysis task to the assess process, called network capacity analysis. During this analysis, a member of the team with subject matter expertise regarding the local network would estimate the amount of available network capacity during the current release. That available capacity would be compared to the storage requirements of all assets to be migrated during the current release. If the storage requirements exceed the available bandwidth, then assets from the current release would be selected for offline transfer.
+**Network Capacity Analysis:** When workload-related storage requirements are at risk of exceeding network capacity, the cloud adoption team would add an additional analysis task to the assess process, called network capacity analysis. During this analysis, a member of the team with subject matter expertise regarding the local network would estimate the amount of available network capacity during the current release. That available capacity would be compared to the storage requirements of all assets to be migrated during the current release. If the storage requirements exceed the available bandwidth, then assets from the current release would be selected for offline transfer.
 
 > [!IMPORTANT]
 > At the conclusion of the analysis, the release plan may need to be updated to reflect the time required to ship, restore, and synchronize the assets to be transferred offline.

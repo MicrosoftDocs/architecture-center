@@ -702,23 +702,23 @@
       - name: Azure Migration Guide
         items:
         - name: Intro to the Migration Guide
-          href: cloud-adoption/migrate/baseline-migration-guide/index.md
+          href: cloud-adoption/migrate/azure-migration-guide/index.md
         - name: Prerequisites before migrating to Azure 
-          href: cloud-adoption/migrate/baseline-migration-guide/prerequisites.md
+          href: cloud-adoption/migrate/azure-migration-guide/prerequisites.md
         - name: Assess individual workloads prior to migration
-          href: cloud-adoption/migrate/baseline-migration-guide/assess.md
+          href: cloud-adoption/migrate/azure-migration-guide/assess.md
         - name: Migrate assets that make up a workload
-          href: cloud-adoption/migrate/baseline-migration-guide/migrate.md
+          href: cloud-adoption/migrate/azure-migration-guide/migrate.md
         - name: Manage costs and billing to understand charges and usage from your Azure Resources
-          href: cloud-adoption/migrate/baseline-migration-guide/manage-costs.md
+          href: cloud-adoption/migrate/azure-migration-guide/manage-costs.md
         - name: Organize your Azure resources
-          href: cloud-adoption/migrate/baseline-migration-guide/organize-resources.md
+          href: cloud-adoption/migrate/azure-migration-guide/organize-resources.md
         - name: Optimize and Transform
-          href: cloud-adoption/migrate/baseline-migration-guide/optimize-and-transform.md
+          href: cloud-adoption/migrate/azure-migration-guide/optimize-and-transform.md
         - name: Secure and Manage
-          href: cloud-adoption/migrate/baseline-migration-guide/secure-and-manage.md
+          href: cloud-adoption/migrate/azure-migration-guide/secure-and-manage.md
         - name: Obtain assistance during your migration to Azure
-          href: cloud-adoption/migrate/baseline-migration-guide/assistance.md
+          href: cloud-adoption/migrate/azure-migration-guide/assistance.md
       - name: Expanded scope
         items:
         - name: Expanded scope checklist

@@ -26,7 +26,7 @@ This process is complete when the following are known about a single migration c
 
 ## Accountability during assessment
 
-The Cloud Adoption Tteam is accountable for the entire assessment process. However, members of the Cloud Strategy Team has a few responsibilities, as listed in the following section.
+The Cloud Adoption team is accountable for the entire assessment process. However, members of the Cloud Strategy Team has a few responsibilities, as listed in the following section.
 
 ## Responsibilities during assessment
 
@@ -41,7 +41,7 @@ In addition to the high-level accountability, there are a number of actions that
   - This activity should be assigned to a subject matter expert who is familiar with the architecture and operations of the candidate workload.
 - **Architect.** The team has agreed upon the final state architecture for the migrated workload.
 - **Backlog alignment.** The Cloud Adoption team reviews requirements and commits to the migration of the candidate workload. After commitment, the release backlog and iteration backlog are to be updated accordingly.
-- **Work breakdown structure / workback schedule.** The team establishes a schedule of major milestones identifying goals for when planning, implementation, and review processes are completed.
+- **Work breakdown structure or work-back schedule.** The team establishes a schedule of major milestones identifying goals for when planning, implementation, and review processes are completed.
 - **Final approval.** Any necessary approvers have reviewed the plan and have signed off on the approach to migrate the asset.
   - To avoid surprises later in the process, at least one representative of the business should be involved in the approval process.
 
