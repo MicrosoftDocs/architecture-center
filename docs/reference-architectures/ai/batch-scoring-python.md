@@ -20,6 +20,7 @@ A reference implementation for this architecture is available on [GitHub][github
 **Scenario**: This solution monitors the operation of a large number of devices in an IoT setting where each device sends sensor readings continuously. Each device is assumed to be associated with pretrained anomaly detection models that need to be used to predict whether a series of measurements, that are aggregated over a predefined time interval, correspond to an anomaly or not. In real-world scenarios, this could be a stream of sensor readings that need to be filtered and aggregated before being used in training or real-time scoring. For simplicity, this solution uses the same data file when executing scoring jobs.
 
 This reference architecture is designed for workloads that are triggered on a schedule. Processing involves the following steps:
+
 1. Send sensor readings for ingestion to Azure Event Hubs.
 2. Perform stream processing and store the raw data.
 3. Send the data to a Machine Learning cluster that is ready to start taking work. Each node in the cluster runs a scoring job for a specific sensor. 
