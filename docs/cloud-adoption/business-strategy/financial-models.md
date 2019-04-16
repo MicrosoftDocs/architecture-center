@@ -62,7 +62,7 @@ In some cases, retired assets can be sold as a source of revenue. Often, this re
 
 Recurring expenses required to operate the business are often referred to as operational expenses (OpEx). OpEx is a very broad category. In most accounting models, it would include software licensing, hosting expenses, electric bills, real estate rentals, cooling expenses, temporary staff required for operations, equipment rentals, replacement parts, maintenance contracts, repair services, Business Continuity/Disaster Recovery (BC/DR) services, and a number of other expenses that don't require capital expense approvals.
 
-This category is one of the largest earnings areas when considering an Operational Transformation Journey. Time invested in making this list exhaustive is seldom wasted. Ask questions of the CIO and finance team to ensure all operational costs are accounted for.
+This category is one of the largest earnings areas when considering an operational transformation journey. Time invested in making this list exhaustive is seldom wasted. Ask questions of the CIO and finance team to ensure all operational costs are accounted for.
 
 ### Cost avoidance
 

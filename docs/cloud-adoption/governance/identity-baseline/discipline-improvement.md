@@ -43,14 +43,14 @@ This phase of governance maturity bridges the divide between business outcomes a
 * Evaluate hybrid compatibility of existing identity providers.
 * For identity providers that are not hybrid compatible, evaluate consolidation or replacement options.
 
-## Build and pre-deployment
+## Build and predeployment
 
 A number of technical and nontechnical prerequisites are required to successfully migrate an environment. This process focuses on the decisions, readiness, and core infrastructure that proceeds a migration.
 
 **Minimum suggested activities:**
 
 * Consider a pilot test before implementing your [Identity toolchain](toolchain.md), making sure it simplifies the user experience as much as possible.
-* Apply feedback from pilot tests into the pre-deployment. Repeat until results are acceptable.
+* Apply feedback from pilot tests into the predeployment. Repeat until results are acceptable.
 * Update the Architecture Guidelines document to include deployment and user adoption plans, and distribute to key stakeholders.
 * Consider establishing an early adopter program and rolling out to a limited number of users.
 * Continue to educate the people and teams most affected by the architecture guidelines.
@@ -87,8 +87,8 @@ Migration is an incremental process that focuses on the movement, testing, and a
 
 **Potential activities:**
 
-* Validate that the best practices defined during the Build / Pre-deployment phases are properly executed.
-* Validate and/or refine your [Hybrid Identity Strategy](../../decision-guides/identity/overview.md).
+* Validate that the best practices defined during the build predeployment phases are properly executed.
+* Validate and refine your [Hybrid Identity Strategy](../../decision-guides/identity/overview.md).
 * Ensure that each application or workload continues to align with the identity strategy before release.
 * Validate that single sign-on (SSO) and seamless SSO is working as expected for your applications.
 * Reduce or eliminate the number of alternative identity stores, when possible.

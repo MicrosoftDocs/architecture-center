@@ -48,13 +48,13 @@ This phase of governance maturity bridges the divide between business outcomes a
 
 <!-- "en-us" location is required for the URL above. -->
 
-## Build and pre-deployment
+## Build and predeployment
 
 A number of technical and nontechnical prerequisites are required to successful migrate an environment. This process focuses on the decisions, readiness, and core infrastructure that proceeds a migration.
 
 **Minimum suggested activities:**
 
-- Implement your [Security Baseline toolchain](toolchain.md) by rolling out in a pre-deployment phase.
+- Implement your [Security Baseline toolchain](toolchain.md) by rolling out in a predeployment phase.
 - Update the Architecture Guidelines document and distribute to key stakeholders.
 - Implement security tasks on your prioritized migration backlog.
 - Develop educational materials and documentation, awareness communications, incentives, and other programs to help drive user adoption.
@@ -75,7 +75,7 @@ Migration is an incremental process that focuses on the movement, testing, and a
 
 **Minimum suggested activities:**
 
-- Migrate your [Security Baseline toolchain](toolchain.md) from pre-deployment to production.
+- Migrate your [Security Baseline toolchain](toolchain.md) from predeployment to production.
 - Update the Architecture Guidelines document and distribute to key stakeholders.
 - Develop educational materials and documentation, awareness communications, incentives, and other programs to help drive user adoption
 
@@ -85,7 +85,7 @@ Migration is an incremental process that focuses on the movement, testing, and a
 - Gauge your organization's tolerance to handle new security risks that may arise.
 - Identify deviations from policy, and enforce corrections.
 - Adjust security and access control automation to ensure maximum policy compliance.
-- Validate that the best practices defined during the Build / Pre-deployment phases are properly executed.
+- Validate that the best practices defined during the build and predeployment phases are properly executed.
 - Review your least privilege access policies and adjust access controls to maximize security.
 - Test your Security Baseline toolchain against your workloads to identify and resolve any vulnerabilities.
 

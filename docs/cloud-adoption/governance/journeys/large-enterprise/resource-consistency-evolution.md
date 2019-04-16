@@ -84,7 +84,7 @@ Following the experience of this fictional example, it is assumed that the Prote
     1. Define and deploy Azure Vault for backup and recovery processes
     2. Create an Azure Resource Management template for creation of a vault in each subscription
 3. Azure Monitor implementation
-    1. Once a mission-critical subscription is identified, a log analytics workspace can be created using PowerShell. This is a pre-deployment process.
+    1. Once a mission-critical subscription is identified, a log analytics workspace can be created using PowerShell. This is a predeployment process.
 
 **Individual cloud adoption subscription**: The following will ensure that each subscription is discoverable by the monitoring solution and ready to be included in BCDR practices.
 

@@ -13,9 +13,9 @@ As described in [Financial Models](financial-models.md), the cloud changes how I
 
 ## Traditional IT Accounting (Cost Center Model)
 
-The view of IT as a Cost Center is often times a very accurate view. In the traditional IT accounting model, IT consolidates buying power for all IT assets. as discussed in the [financial models article](financial-models.md), that buying power consolidation could include software licenses, recurring charges for CRM licensing, purchase of employee desktops, etc...
+Considering IT a cost center is often an accurate viewpoint. In the traditional IT accounting model, IT consolidates purchasing power for all IT assets. As discussed in [financial models](financial-models.md), that purchasing power consolidation may include software licenses, recurring charges for CRM licensing, purchase of employee desktops, and other large costs.
 
-When IT serves as a cost center, the perceived value of IT is largely viewed through a procurement management lense. This makes it very difficult for the board or other executives to understand the true value IT provides. Procurement costs tends to taint the view of IT by outweighing any other value added by the organization. This view is why IT is often lumped into the CFO's or COO's responsibilities. This view of IT is very limited and can at times be very short sighted.
+When IT serves as a cost center, the perceived value of IT is largely viewed through a procurement management lens. This makes it very difficult for the board or other executives to understand the true value IT provides. Procurement costs tends to taint the view of IT by outweighing any other value added by the organization. This view is why IT is often lumped into the CFO's or COO's responsibilities. This view of IT is very limited and can at times be very short sighted.
 
 ## Central IT Accounting (Profit Center Model)
 
@@ -39,7 +39,7 @@ However, this model should be entered into lightly. The following are a few cons
 
 Cloud transformations include solutions to these and other consequences associated with a chargeback model. However, each of those solutions includes implementation and operational expenses. The CIO and CFO should carefully weigh the pros and cons of a chargeback model before considering this model.
 
-## Show Back or Awareness Back
+## Showback or Awareness-back
 
 For larger enterprises, a showback or awareness-back model is a safer first step in the transition from cost center to value center. This model doesn't affect financial accounting. In fact, the P&Ls of each organization would be unchanged. The biggest shift is in mindset and awareness. In Show Back or Awareness Back model, IT manages the centralized, consolidated buying power as an agent for the business. In reports back to the business, IT would attribute any direct costs to the relevant business unit, thereby reducing the perceived budget consumed by IT directly. IT would also plan budgets based on the needs of the associated business units, allowing IT to more accurately account for costs associated to purely IT initiatives.
 

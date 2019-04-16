@@ -48,7 +48,7 @@ The following tutorial can prepare the team for migration activities:
 The following tools can help the team optimize resources and promote to production:
 
 - [Cost and sizing](../azure-best-practices/migrate-best-practices-costs.md): Adjust sizing to align costs and budgets.
-- [Promote a workload](../azure-best-practices/migrate-best-practices-networking.md): Change network configuration to re-route production users to migrated workloads
+- [Promote a workload](../azure-best-practices/migrate-best-practices-networking.md): Change network configuration to reroute production users to migrated workloads
 
 ## Secure and manage process changes
 

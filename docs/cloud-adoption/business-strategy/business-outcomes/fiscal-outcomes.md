@@ -70,7 +70,7 @@ Terminating data centers can also provide Cost Avoidance, by preventing future r
 
 Before discussing Cost Outcomes, it is important to understand the two primary cost options: Capital Expenses (CapEx) and Operational Expenses (OpEx).
 
-The following terms are intended to create an understanding of the differences between CapEx and OpEx when speaking with the business about your Transformation Journey.
+The following terms are intended to create an understanding of the differences between CapEx and OpEx when speaking with the business about your transformation journey.
 
 - **Capital** is the money or assets owned by a business to contribute to a particular purpose, such as, increase server capacity or building an application.
 - **Capital Expense (CapEx)** is an expense that that generates benefits over a long period. Such an expense is generally non-recurring and results in the acquisition of permanent assets. Building an application could qualify as a capital expense.
@@ -81,7 +81,7 @@ The following terms are intended to create an understanding of the differences b
 
 It is often a safe bet that various executives, including the CIO, debate the best use of capital to grow the company in the desired direction. Giving the CIO a means of converting highly competitive CapEx conversations into clear OpEx accountability could be an attractive outcome by itself. In many industries, chief financial officers (CFOs) are actively seeking ways of better associating fiscal accountability to the cost of goods being sold.
 
-However, before associating any Transformation Journey with this type of CapEx to OpEx conversion, it is wise to meet with members of the CFO or CIO teams to see if the business prefers CapEx or OpEx cost structures. In some organizations, the though of reducing CapEx in favor of OpEx, is actually a highly undesirable outcome. As mentioned above, this is sometimes seen in retail, holding, and private equity companies that place higher value on traditional asset accounting models, which place little value on IP. It can also be seen in organizations that had negative experiences when outsourcing IT staff or other functions in the past.
+However, before associating any transformation journey with this type of CapEx to OpEx conversion, it is wise to meet with members of the CFO or CIO teams to see if the business prefers CapEx or OpEx cost structures. In some organizations, the though of reducing CapEx in favor of OpEx, is actually a highly undesirable outcome. As mentioned above, this is sometimes seen in retail, holding, and private equity companies that place higher value on traditional asset accounting models, which place little value on IP. It can also be seen in organizations that had negative experiences when outsourcing IT staff or other functions in the past.
 
 If OpEx is desirable, the following example could be a viable business outcome:
 

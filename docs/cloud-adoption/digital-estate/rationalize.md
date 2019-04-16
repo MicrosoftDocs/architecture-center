@@ -82,9 +82,9 @@ It is not uncommon for organizations to retire 20% or more of their digital esta
 
 ### Program adjustments
 
-A company seldom embarks on just one transformation journey. The choice between cost reduction, market growth, and new revenue streams is rarely a binary decision. As such, it's suggested that the Cloud Strategy team work with IT to identify assets on parallel transformation efforts that are outside of the scope of the primary Transformation Journey.
+A company seldom embarks on just one transformation journey. The choice between cost reduction, market growth, and new revenue streams is rarely a binary decision. As such, it's suggested that the Cloud Strategy team work with IT to identify assets on parallel transformation efforts that are outside of the scope of the primary transformation journey.
 
-In the IaaS Migration example used in this article:
+In the IaaS migration example used in this article:
 
 - Ask the DevOps team to identify assets that are already part of a deployment automation and remove those from the core migration plan.
 
@@ -140,13 +140,13 @@ Once the two teams agree on the qualitative analysis criteria, assessment can be
 
 Once the assessment is moved into the incremental execution processes of migration, the Cloud Adoption team can iterate on assessment and architecture faster. At this stage, the Cloud Strategy team is also abstracted, reducing the drain on their time. This also allows the Cloud Strategy team to focus on prioritizing the applications that are not yet in a specific release, thus ensuring tight alignment with changing market conditions.
 
-Not all of the prioritized applications will be ready for migration. Sequencing is likely to change, as the team performs deeper qualitative analysis and discovers business events and dependencies that would prompt for re-prioritization of the backlog. Some releases may group together a small number of workloads. Others may just contain a single workload.
+Not all of the prioritized applications will be ready for migration. Sequencing is likely to change, as the team performs deeper qualitative analysis and discovers business events and dependencies that would prompt for reprioritization of the backlog. Some releases may group together a small number of workloads. Others may just contain a single workload.
 
 The Cloud Adoption team is likely to run iterations that don’t produce a complete workload migration. The smaller the workload, and the fewer dependencies, the more likely a workload is to fit into a single sprint or iteration. For this reason, it's suggested that the first few applications in the release backlog be small and contain few external dependencies.
 
 ## End state
 
-Over time, the combination of the Cloud Adoption and the Cloud Strategy teams will complete a full rationalization of the inventory. However, this incremental approach allows the teams to get continually faster at the rationalization process. It also allows the Transformation Journey to yield tangible business results sooner, without as large of an upfront analysis effort.
+Over time, the combination of the Cloud Adoption team and the Cloud Strategy team will complete a full rationalization of the inventory. However, this incremental approach allows the teams to get continually faster at the rationalization process. It also allows the transformation journey to yield tangible business results sooner, without as large of an upfront analysis effort.
 
 In some cases, the financial model may be too tight to make a decision to act, without additional rationalization. In such cases, a more traditional approach to rationalization may be required.
 

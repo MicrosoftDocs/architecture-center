@@ -66,7 +66,7 @@ Though each of these patterns has its place, the **business unit** pattern is in
 
 Microsoft now provides another way to model your hierarchy: [Azure management groups](/azure/azure-resource-manager/management-groups-overview). Management groups are much more flexible than departments and accounts, and they can be nested up to six levels. Management groups let you create a hierarchy that is separate from your billing hierarchy, solely for efficient management of resources. Management groups can mirror your billing hierarchy and often enterprises start that way. However, the power of management groups is when you use them to model your organization where related subscriptions &mdash; regardless where they are in the billing hierarchy &mdash; are grouped together and need common roles assigned as well as policies and initiatives. A few examples:
 
-- **Production vs. nonproduction**. Some enterprises create management groups to identify their production and nonproduction subscriptions. Management groups allow these customers to more easily manage roles and policies, for example: non-production subscription may allow developers "contributor" access, but in production, they have only "reader" access.
+- **Production vs. nonproduction**. Some enterprises create management groups to identify their production and nonproduction subscriptions. Management groups allow these customers to more easily manage roles and policies. For example, non-production subscription may allow developers "contributor" access, but in production, they have only "reader" access.
 - **Internal services vs. external services:** Enterprises often have different requirements, policies,and roles for internal services versus customer-facing services.
 
 Well-designed management groups are, along with Azure Policy and Initiatives, the backbone of efficient governance of Azure.
@@ -291,7 +291,7 @@ There are a number of tools that are available as you build out this capability,
 
 Automation is a full-time job and it will rapidly become one of the most important operational tasks within your cloud team. Organizations that take the approach of "automate first" have greater success in using Azure:
 
-- Managing costs: actively seeking opportunities and creating automation to re-size resources, scale-up/down and turn off unused resources.
+- Managing costs: actively seeking opportunities and creating automation to resize resources, scale-up/down and turn off unused resources.
 - Operational flexibility: through the use of automation (along with Templates and DevOps) you gain a level of repeatability that increases availability, increases security and enables your team to focus on solving business problems.
 
 ## Templates and DevOps
@@ -300,12 +300,12 @@ As highlighted in the Automate section, your goal as an organization should be t
 
 Article such as [this one](https://blogs.msdn.microsoft.com/mvpawardprogram/2018/05/01/azure-resource-manager) provide an excellent discussion on best practices and lessons learned in applying a DevOps approach to Azure Resource Manager templates with the [Azure DevOps](/azure/devops/user-guide/?view=vsts) toolchain. Take the time and effort to develop a core set of templates specific to your organization's requirements, and to develop continuous delivery pipelines with DevOps toolchains (such as Azure DevOps, Jenkins, Bamboo, Teamcity, Concourse), especially for your production and QA environments. There is a large library of [Azure Quick Start templates](https://github.com/Azure/azure-quickstart-templates) on GitHub that you can use as a starting point for templates, and you can quickly create cloud-based delivery pipelines with Azure DevOps.
 
-As a best practice for production subscriptions or resource groups, your goal should be utilizing RBAC security to disallow interactive users by default and utilizing automated continuous delivery pipelines based on service principals to provision all resources and deliver all application code. No admin or developer should touch the Azure Portal to interactively configure resources. This level of DevOps takes a concerted effort and uses all the concepts of the Azure scaffold and provides a consistent and more secure environment that will meet your organizations to grow scale.
+As a best practice for production subscriptions or resource groups, your goal should be using RBAC security to disallow interactive users by default and using automated continuous delivery pipelines based on service principals to provision all resources and deliver all application code. No admin or developer should touch the Azure Portal to interactively configure resources. This level of DevOps takes a concerted effort and uses all the concepts of the Azure scaffold and provides a consistent and more secure environment that will meet your organizations to grow scale.
 
 > [!TIP]
 > When designing and developing complex Azure Resource Manager templates, use [linked templates](/azure/azure-resource-manager/resource-group-linked-templates) to organize and refactor complex resource relationships from monolithic JSON files. This will enable you to manage resources individually and make your templates more readable, testable and reusable.
 
-Azure is a hyperscale cloud provider and as you move your organization from the world of on-premises servers to the cloud, utilizing the same concepts that cloud providers and SaaS applications use will provide your organization to react to the needs of the business in vastly more efficient way.
+Azure is a hyperscale cloud provider and as you move your organization from the world of on-premises servers to the cloud, using the same concepts that cloud providers and SaaS applications use will provide your organization to react to the needs of the business in vastly more efficient way.
 
 ## Core network
 

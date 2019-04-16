@@ -14,11 +14,11 @@ This framework is designed to speak most directly to cloud architects and the Cl
 > [!NOTE]
 > This guidance is currently in a public preview state. Terms, approaches, and guidance are being thoroughly tested with customers, partners, and Microsoft teams during this preview. As such the TOC and guidance my change slightly.
 
-## Motivations and Methodology
+## Motivations and methodology
 
 The motivation or business outcome driving a cloud migration can heavily influence the best approach to migration. Cloud migrations can align to a number of business outcomes. Clearly communicating business drivers and the metrics used to measure success is an important first step in cloud migration efforts. The following are a few examples of common migration motivations, grouped by the methodology (or type of migration).
 
-### Asset Migration
+### Asset migration
 
 During cloud migrations, assets (consisting of virtual machines, data sources, and/or applications) are migrated from an existing on-premises environment to the cloud. Asset migrations provide a streamlined way to respond to a critical event or a need to move specific assets. Asset migrations are typically motivated by the following short-term critical business events.
 
@@ -31,7 +31,7 @@ During cloud migrations, assets (consisting of virtual machines, data sources, a
 
 ![Methodology supporting asset migration](../_images/migration/asset-migration.png)
 
-### Workload Migration
+### Workload migration
 
 More often cloud migrations are part of a focused effort to streamline IT operations, costs, or complexity. Workload migration builds on asset migrations, but adds a focus on the migration of a workload, which adds deeper planning and testing requirements. Examples of workloads could include things like an HR payroll solution, a CRM solution, a document approval workflow in Finance, or a business intelligence solution. Workloads could also include shared technical resources like a data warehouse that supports several other solutions. The following are a few longer term motivations associated with a workload migration.
 
@@ -43,7 +43,7 @@ More often cloud migrations are part of a focused effort to streamline IT operat
 
 ![Methodology supporting workload migration](../_images/operational-transformation-migrate.png)
 
-### Portfolio Migration
+### Portfolio migration
 
 C-level conversations regarding cloud migration tend to focus on the benefits associated with portfolio migrations. Portfolio in this case describes the entire collection of workloads owned and managed by IT. These migrations are more likely to produce tangible business outcomes like the following:
 
@@ -55,7 +55,7 @@ C-level conversations regarding cloud migration tend to focus on the benefits as
 
 **Summary of the portfolio migration methodology:** Portfolio migrations look across the entire IT portfolio to guide decisions regarding investments, impact on business processes, potential of innovation outcomes, and the future state of workload collections. This model requires a much deeper alignment between the business and IT. The technical implementation is a slight extension of the workload or asset migration methodologies. The methodology differs most when it comes to the rigor of business planning, richer readiness investments, improved change management, and a more disciplined approach to cloud governance. The following section outlines this methodology in more detail.
 
-## Portfolio Migration Methodology
+## Portfolio migration methodology
 
 This methodology is based on an incremental approach to cloud adoption that aligns to Agile technology strategies, Growth Mindset based cultural growth, and Business Outcome-driven strategies. This methodology consists of the following high-level components that guide the implementation of each strategy.
 
@@ -65,7 +65,7 @@ As depicted in the image above, this framework aligns strategic decisions to a s
 
 - [Plan](../business-strategy/overview.md): When technical implementation is aligned with clear business objectives, it's much easier to measure and align success across multiple cloud adoption efforts.
 - [Ready](../ready/overview.md): Preparing the business, culture, people, and environment for coming changes leads to success in each effort and accelerates implementation and change projects.
-- Adopt: Ensure proper implementation of desired changes, across IT and business processes, to achieve business outcomes
+- Adopt: Ensure proper implementation of desired changes, across IT and business processes, to achieve business outcomes.
   - [Migrate](../migrate/overview.md): Iterative execution of the cloud migration adhering to the tested process of Assess, Migrate, Optimize, and Secure & Manage to create a repeatable process for migrating collections of IT assets.
   - [Operate](../operations/overview.md): Expand IT operations to ensure cloud-based solutions can be operated through secure, cost effective processes using modern, cloud-first operations tools
   - [Govern](../governance/overview.md): Align corporate policy to tangible risks, mitigated through policy, process, and cloud-based governance tooling.

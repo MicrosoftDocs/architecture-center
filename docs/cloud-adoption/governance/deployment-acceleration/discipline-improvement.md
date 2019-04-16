@@ -39,13 +39,13 @@ This phase of governance maturity bridges the divide between business outcomes a
 
 - Define roles and assignments that will govern Deployment Acceleration in the cloud.
 
-## Build and pre-deployment
+## Build and predeployment
 
 **Minimum suggested activities:**
 
 - For new cloud-based applications, introduce fully automated deployments early in the development process. This investment will improve the reliability of your testing processes and ensure consistency across your development, QA, and production environments.
 - Store all deployment artifacts such as deployment templates or configuration scripts using a source-control platform such as GitHub or Azure DevOps.
-- Consider a pilot test before implementing your [Deployment Acceleration toolchain](toolchain.md), making sure it streamlines your deployments as much as possible. Apply feedback from pilot tests during the pre-deployment phase, repeating as needed.
+- Consider a pilot test before implementing your [Deployment Acceleration toolchain](toolchain.md), making sure it streamlines your deployments as much as possible. Apply feedback from pilot tests during the predeployment phase, repeating as needed.
 - Evaluate the logical and physical architecture of your applications, and identify opportunities to automate the deployment of application resources or improve portions of the architecture using other cloud-based resources.
 - Update the Architecture Guidelines document to include deployment and user adoption plans, and distribute to key stakeholders.
 - Continue to educate the people and teams most affected by the architecture guidelines.
@@ -66,7 +66,7 @@ Migration is an incremental process that focuses on the movement, testing, and a
 
 **Potential activities:**
 
-- Validate that the best practices defined during the build and pre-deployment phases are properly executed.
+- Validate that the best practices defined during the build and predeployment phases are properly executed.
 - Ensure that each application or workload aligns with the Deployment Acceleration strategy before release.
 
 ## Operate and post-implementation

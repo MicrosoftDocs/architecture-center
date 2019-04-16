@@ -51,7 +51,7 @@ A number of technical and nontechnical prerequisites are required to successful 
 
 **Minimum suggested activities:**
 
-- Implement your [Resource Consistency toolchain](toolchain.md) by rolling out in a pre-deployment phase.
+- Implement your [Resource Consistency toolchain](toolchain.md) by rolling out in a predeployment phase.
 - Update the Architecture Guidelines document and distribute to key stakeholders.
 - Implement resource deployment tasks on your prioritized migration backlog.
 - Develop educational materials and documentation, awareness communications, incentives, and other programs to help drive user adoption.

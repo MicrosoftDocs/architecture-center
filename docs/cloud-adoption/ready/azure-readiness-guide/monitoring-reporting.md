@@ -87,8 +87,8 @@ Azure Advisor is a free, personalized cloud consultant that helps you follow and
 
 * **High availability**: To improve the continuity of your business-critical applications. Recommendations may include adding virtual machines to an availability set or adding geo-redundant endpoints.
 * **Security**: To detect threats and vulnerabilities that might lead to security breaches. Recommendations may include applying disk encryption or enabling network security groups.
-* **Performance**: To improve the speed of your applications. Recommendations may include boosting SQL query performance by creating indexes or re-configuring your traffic manager settings.
-* **Cost**: To optimize and reduce your overall Azure spending. Recommendations may include resizing or shutting down under-used virtual machines or switching to Azure reservations to lower total cost of ownership.
+* **Performance**: To improve the speed of your applications. Recommendations may include boosting SQL query performance by creating indexes or reconfiguring your traffic manager settings.
+* **Cost**: To optimize and reduce your overall Azure spending. Recommendations may include resizing or shutting down underused virtual machines or switching to Azure reservations to lower total cost of ownership.
 
 Recommendations in Advisor are based on the resources you deploy and the actions you take in Azure. Check Advisor regularly for the latest recommendations.
 
