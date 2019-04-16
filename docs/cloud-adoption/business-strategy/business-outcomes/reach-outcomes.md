@@ -9,9 +9,9 @@ ms.date: 4/4/2019
 
 As discussed in [business outcomes](overview.md), there are several potential business outcomes that can serve as the foundation for any transformation journey conversation with the business. In this article we will focus on a common business measure: Reach. Understanding the company’s globalization strategy will help to better articulate the business outcomes that are the target of a business's transformation journey.
 
-Across the Fortune 500 and smaller enterprises globalization of services and customer base has been a focus for over three decades. As the world shrinks it is increasingly likely for any business to engage in global commerce. Supporting global operations is challenging and costly. Hosting data centers around the world can consume more than 80% of IT’s annual budget. By themselves, Wide Area Networks (WAN) of private lines to connect those data centers can cost Millions per year.
+Across the Fortune 500 and smaller enterprises globalization of services and customer base has been a focus for over three decades. As the world shrinks it is increasingly likely for any business to engage in global commerce. Supporting global operations is challenging and costly. Hosting datacenters around the world can consume more than 80% of IT’s annual budget. By themselves, Wide Area Networks (WAN) of private lines to connect those datacenters can cost Millions per year.
 
-Cloud solutions move the cost of globalization to the cloud provider. In Azure, customers can quickly deploy resources in the same region as customers or operations, without buying and provisioning a datacenter. Microsoft owns one of the largest WANs in the world, connecting data centers around the globe. Connectivity and global operating capacity are available to global customers on demand.
+Cloud solutions move the cost of globalization to the cloud provider. In Azure, customers can quickly deploy resources in the same region as customers or operations, without buying and provisioning a datacenter. Microsoft owns one of the largest WANs in the world, connecting datacenters around the globe. Connectivity and global operating capacity are available to global customers on demand.
 
 ## Global access
 

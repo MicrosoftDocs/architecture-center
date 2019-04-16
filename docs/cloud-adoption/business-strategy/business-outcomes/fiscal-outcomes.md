@@ -47,10 +47,10 @@ Seldom does a single effort simultaneously increase revenue and decrease costs. 
 
 ### Cost reduction
 
-Cloud computing can reduce capital expenses (CapEx) related to buying hardware and software, setting up data centers, running on-site datacenters, etc.… The racks of servers, round-the-clock electricity for power and cooling, and IT experts for managing the infrastructure adds up fast. Shutting down a data center can reduce CapEx commitments. This is commonly referred to as "getting out of the datacenter business". Cost reduction is generally measured in dollars in the current budget, which could span one to five years depending on how the CFO manages finances.
+Cloud computing can reduce capital expenses (CapEx) related to buying hardware and software, setting up datacenters, running on-site datacenters, and other expenses. The racks of servers, round-the-clock electricity for power and cooling, and IT experts for managing the infrastructure adds up fast. Shutting down a datacenter can reduce CapEx commitments. This is commonly referred to as "getting out of the datacenter business". Cost reduction is generally measured in dollars in the current budget, which could span one to five years depending on how the CFO manages finances.
 
-- Example 1: A company's data center burns through a large percentage of the annual IT budget. IT chooses to execute an operational transformation and migrates the assets in that datacenter to infrastructure-as-a-service (IaaS) solutions, creating a three-year cost reduction.
-- Example 2: A holding company recently acquired a new company. In the acquisition, the terms dictate that the new entity be removed from the current data centers within six months. Failure to do so will result in a $1M/month fine to the holding company. Moving the digital assets to the cloud in an operational transformation could allow for a quick decommission of the old assets.
+- Example 1: A company's datacenter burns through a large percentage of the annual IT budget. IT chooses to execute an operational transformation and migrates the assets in that datacenter to infrastructure-as-a-service (IaaS) solutions, creating a three-year cost reduction.
+- Example 2: A holding company recently acquired a new company. In the acquisition, the terms dictate that the new entity be removed from the current datacenters within six months. Failure to do so will result in a $1M/month fine to the holding company. Moving the digital assets to the cloud in an operational transformation could allow for a quick decommission of the old assets.
 - Example 3: An income tax company that caters to consumers experiences 70% of annual revenue during the first three months of the year. The remainder of the year, their large IT investment sits relatively dormant. An operational transformation would allow IT to deploy the compute/hosting capacity required for those three months. During the remaining nine months, the IaaS costs could be significantly reduced by shrinking the compute footprint.
 
 ### Coverdell
@@ -62,13 +62,13 @@ Coverdell
 
 ### Cost avoidance
 
-Terminating data centers can also provide Cost Avoidance, by preventing future refresh cycles. A refresh cycle is the process of buying new hardware and software to replace aging on-premises systems. In Azure, hardware and OS are routinely maintained, patched, and refreshed at no additional cost to customers. This allows a CFO to remove planned future spend from long term financial forecasts. Cost is avoidance is measured in dollars. It differs from Cost Reduction, in that it generally focuses on a future budget that has not been fully approved yet.
+Terminating datacenters can also provide cost avoidance, by preventing future refresh cycles. A refresh cycle is the process of buying new hardware and software to replace aging on-premises systems. In Azure, hardware and OS are routinely maintained, patched, and refreshed at no additional cost to customers. This allows a CFO to remove planned future spend from long term financial forecasts. Cost is avoidance is measured in dollars. It differs from Cost Reduction, in that it generally focuses on a future budget that has not been fully approved yet.
 
-- Example: A company’s datacenter is up for a lease renewal in six months. That data center has been in service for eight years. Four years ago, all of the servers were refreshed and virtualized costing the company $ millions. Next year, the company plans on refreshing the hardware and software again. Migrating the assets in that data center, as part of an operational transformation, would create cost avoidance, by removing the planned refresh from next year’s forecasted budget. It could also produce cost reduction by decreasing or eliminating the real estate lease costs.
+- Example: A company’s datacenter is up for a lease renewal in six months. That datacenter has been in service for eight years. Four years ago, all of the servers were refreshed and virtualized costing the company $ millions. Next year, the company plans on refreshing the hardware and software again. Migrating the assets in that datacenter, as part of an operational transformation, would create cost avoidance, by removing the planned refresh from next year’s forecasted budget. It could also produce cost reduction by decreasing or eliminating the real estate lease costs.
 
 ### CapEx versus OpEx
 
-Before discussing Cost Outcomes, it is important to understand the two primary cost options: Capital Expenses (CapEx) and Operational Expenses (OpEx).
+Before discussing cost outcomes, it is important to understand the two primary cost options: capital expenses (CapEx) and operational expenses (OpEx).
 
 The following terms are intended to create an understanding of the differences between CapEx and OpEx when speaking with the business about your transformation journey.
 

@@ -22,7 +22,7 @@ The guidance in this section of the Cloud Adoption Framework is designed for two
 
 This content is intended for the Cloud Governance team. It is also relevant to cloud architects that need to develop a strong foundation in cloud governance.
 
-## Audience
+## Intended Audience
 
 The content in the Cloud Adoption Framework affects the business, technology, and culture of enterprises. This section of the Cloud Adoption Framework will interact heavily with IT Security, IT Governance, Finance, line-of-business leaders, Networking, Identity, and cloud adoption teams. There are various co-dependencies on these personas which will require a facilitative approach by the Cloud Architects using this guidance. Facilitation with these teams may be a one-time effort, but in some cases, it will result in recurring interactions with these other personas.
 

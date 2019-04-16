@@ -18,7 +18,7 @@ The guidance in this section of the Cloud Adoption Framework is designed for two
 
 This content is intended for the Cloud Adoption team. It is also relevant to cloud architects that need to develop a strong foundation in cloud migration.
 
-## Audience
+## Intended Audience
 
 The guidance in the Cloud Adoption Framework affects the business, technology, and culture of enterprises. This section significantly affects application owners, change management personnel (such as PMO and agile management personnel) finance and line-of-business leaders, and the Cloud Adoption team. There are various dependencies on these personas that will require facilitation by the Cloud Architects using this guidance. Facilitation with these teams may be a one-time effort, but in some cases, it will result in recurring interactions with these other personas.
 

@@ -20,7 +20,7 @@ The following is a list of common motivations for cloud adoption
 
 - Unclear direction from board or others at an executive level
 - Critical Business Event
-  - Data center exit
+  - Datacenter exit
   - Mergers, acquisition or divestiture
   - Reductions in capital expenses
   - End of support for mission-critical technologies
@@ -45,7 +45,7 @@ The motivations that align well with a migrate strategy are as follows. The moti
 
 - Unclear direction from board or others at an executive level
 - Critical business event
-  - Data center exit
+  - Datacenter exit
   - Mergers, acquisition or divestiture
   - Reductions in capital expenses
   - End of support for mission-critical technologies

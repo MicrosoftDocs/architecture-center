@@ -35,7 +35,7 @@ Get started by assigning a built-in policy to a management group, subscription, 
 ::: zone-end
 
 ::: zone target="docs"
-## Apply a policy
+## Apply a Policy
 
 To apply a policy to a resource group:
 

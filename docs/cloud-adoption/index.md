@@ -21,7 +21,7 @@ The Cloud Adoption Framework provides technical guidance for Microsoft Azure. Be
 
 The Microsoft Cloud Adoption Framework for Azure is currently offered as a Public Preview. The framework will reach general availability (GA) when the aspirational goals above are met. In this preview release, the primary area of focus is [Cloud Governance](./governance/journeys/overview.md). The Cloud Adoption Framework will be expanded frequently as it moves closer to general availability. For more information, see the [Cloud Adoption Framework roadmap](./appendix/roadmap.md).
 
-## Audience
+## Intended Audience
 
 This guidance affects the business, technology, and culture of enterprises. The roles affected include line-of-business leaders, business decision makers, IT decision makers, finance, enterprise administrators, IT operations, IT security and compliance, IT governance, workload development owners, and workload operations owners. Each role uses different jargon. They each have different objectives and key performance indicators. A single set of content cannot address each of these audiences effectively.
 

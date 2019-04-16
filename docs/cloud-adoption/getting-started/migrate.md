@@ -22,7 +22,7 @@ The motivation or business outcome driving a cloud migration can heavily influen
 
 During cloud migrations, assets (consisting of virtual machines, data sources, and/or applications) are migrated from an existing on-premises environment to the cloud. Asset migrations provide a streamlined way to respond to a critical event or a need to move specific assets. Asset migrations are typically motivated by the following short-term critical business events.
 
-- Data center exit
+- Datacenter exit
 - Mergers, acquisition, or divestiture
 - Reductions in capital expenses
 - End of support for mission-critical technologies
