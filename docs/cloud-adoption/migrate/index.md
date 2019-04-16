@@ -95,7 +95,7 @@ The desired goal is a smooth, semi-automated migration to the cloud. In such a s
 
 Unfortunately, an **incremental migration** approach is still required. In most environments, the long list of VMs to be migrated has to be decomposed into smaller units of work for a migration to be successful. There are many factors that create limits to the number of VMs that can be migrated in a given period of time. Outbound Network speed is one of the few limiters that are technical in nature. Most of the limiters are based on the businesses ability to validate and consume change.
 
-CAF's **incremental migration** approach empowers builds an incremental plan that documents and works within technical and cultural limiters. The goal of this model is to minimize overhead (from IT or the business), while maximizing migration velocity. Below are two examples of an incremental migration execution based on the migration backlog.
+The **incremental migration** approach of the Cloud Adoption Framework helps build an incremental plan that documents and works within technical and cultural limitations. The goal of this model is to minimize overhead (from IT or the business), while maximizing migration velocity. Below are two examples of an incremental migration execution based on the migration backlog.
 
 <!-- TODO: 
     Describe the paths, focusing on key differences

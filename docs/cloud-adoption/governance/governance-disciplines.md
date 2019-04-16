@@ -5,7 +5,7 @@ ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 ms.date: 02/11/2019
-description: Overview of governance content within CAF
+description: Overview of governance content within the Cloud Adoption Framework
 author: BrianBlanchard
 layout: LandingPage
 ms.topic: landing-page
