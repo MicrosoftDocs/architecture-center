@@ -9,7 +9,7 @@ ms.date: 4/4/2019
 
 # CAF: How can the cloud advance my business strategy?
 
-It depends... The cloud delivers a number of fundamental technology benefits that can aid in executing a number of business strategies. Leveraging cloud based approaches can improve basic business agility, reduce costs, accelerate time to market, and even allow businesses to quickly expand into new markets.
+It depends... The cloud delivers a number of fundamental technology benefits that can aid in executing a number of business strategies. Using cloud-based approaches can improve basic business agility, reduce costs, accelerate time to market, and even allow businesses to quickly expand into new markets.
 
 The cloud is a very fluid concept that can fill countless needs in many different ways. This expansive capability offers great potential, but also makes it very difficult to answer the question above. To take advance of the cloud's potential, it is important to start with by documenting the business strategy in a way that is understandable to cloud technicians and also palatable to business stakeholders.
 

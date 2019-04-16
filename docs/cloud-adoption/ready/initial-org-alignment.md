@@ -34,9 +34,9 @@ The first step in your enterprise's digital transformation is engaging business 
 
 For instance, a Cloud Strategy Team could be driven by the CTO and consist of members of the enterprise architecture team, IT finance, senior technologists from various IT applications groups (HR, finance, and so on), and leaders from the infrastructure, security, and networking teams.
 
-It's also important to form two other high-level teams: a governance team, and a security team. These teams are responsible for designing, implementing, and the ongoing audit of the enterprise's governance and security policies. The governance team requires members that have worked with asset protection, cost management, group policy and related topics. The security team requires members that are well versed in current industry security standards as well as the enterprise's security requirements.
+It's also important to form two other high-level teams: a governance team and a security team. These teams are responsible for designing, implementing, and the ongoing audit of the enterprise's governance and security policies. The governance team requires members that have worked with asset protection, cost management, group policy, and related topics. The security team requires members that are well versed in current industry security standards as well as the enterprise's security requirements.
 
-![Cloud strategy team, with governance and security teams](../_images/getting-started-overview-1.png)
+![Cloud Strategy team, with governance and security teams](../_images/getting-started-overview-1.png)
 
 The governance team is responsible for designing and implementing the enterprise's governance model in the cloud, as well as deploying and maintaining the shared infrastructure assets that are part of the digital transformation. These assets include hardware, software, and cloud resources necessary to connect the on-premises network to virtual networking in the cloud.
 
@@ -72,7 +72,7 @@ The following table illustrates several examples:
 
 |Business strategy gap|Category &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;|Solution &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|
 |-----|-----|-----|
-| Services currently hosted on-premises experience issues with availability, resiliency, and scalability during time of peak demand, which is approximately ten percent of usage. Servers in on-premises datacenter are end-of-life. Enterprise IT recommends purchasing new on-premises hardware for datacenter with specifications to handle peak demand.| Cost management | Migrate affected existing on-premises workloads to scalable resources in the cloud, paying for usage only. |
+| Services currently hosted on-premises experience issues with availability, resiliency, and scalability during time of peak demand, which is approximately 10 percent of usage. Servers in on-premises datacenter are end-of-life. Enterprise IT recommends purchasing new on-premises hardware for datacenter with specifications to handle peak demand.| Cost management | Migrate affected existing on-premises workloads to scalable resources in the cloud, paying for usage only. |
 | External data management laws and regulations require the enterprise to adhere to set of standard controls that require encryption of data at rest, requiring new hardware and software. | Data governance | Move data to Azure storage service encryption for data at rest. |
 | Services hosted in on-premises datacenter been experiencing distributed denial of service (DDoS) attacks on public-facing services. The attacks are difficult to mitigate and require new hardware, software, and security personnel to deal with effectively. | Security | Migrate services to Azure, and take advantage of Azure DDoS protection.|
 
@@ -84,7 +84,7 @@ The output of this process is a stack-ranked list of high-level solutions aligne
 
 Now that the goals of the digital transformation have been enumerated, prioritized, and high-level solutions proposed, the next step is for the cloud strategy team to align each of the high-level solutions with design and implementation teams in each of the business groups.
 
-The teams take the prioritized lists and work through each high-level solution to design each solution. The design process will involve the specification of new infrastructure and new workloads. There may also be changes to the roles of the people and the processes they follow. It's also extremely important at this stage for each of the design teams to include both the governance and security teams for review of each design. Each design must fall within with the policies and procedures defined by the governance and security teams, and these teams must be included in the final sign off of each design.
+The teams take the prioritized lists and work through each high-level solution to design each solution. The design process will involve the specification of new infrastructure and new workloads. There may also be changes to the roles of the people and the processes they follow. It's also important at this stage for each of the design teams to include both the governance and security teams for review of each design. Each design must fall within with the policies and procedures defined by the governance and security teams, and these teams must be included in the final signoff of each design.
 
 ![Cloud strategy team hands off high-level solutions to design and implementation teams.](../_images/getting-started-overview-3.png)
 

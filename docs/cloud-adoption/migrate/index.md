@@ -20,7 +20,7 @@ The cloud provides various adoption mechanisms, each with similar degrees of inv
 
 ## Cloud migration guides
 
-To start down an adoption path, choose one of the following guides. Each guide outlines a series of best practices, based on a specific reference experience based on customer feedback. For readers who are new to the incremental approach of the Cloud Adoption Framework migration model, it is advised that you review the high level migration theory introduction below, before adopting either guide.
+To start down an adoption path, choose one of the following guides. Each guide outlines a series of best practices, based on a specific reference experience based on customer feedback. For readers who are new to the incremental approach of the Cloud Adoption Framework migration model, it is advised that you review the high-level migration theory introduction below, before adopting either guide.
 
 <!-- markdownlint-disable MD033 -->
 

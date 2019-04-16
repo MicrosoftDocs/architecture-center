@@ -266,7 +266,7 @@ These are tools to provide you instant information on cost as well as the abilit
 
 ### External cost management tools
 
-- **PowerBI Azure Consumption Insights**. Do you want to create your own visualizations for your organization? If so, then the Azure Consumption Insights content pack for PowerBI is your tool of choice. Using this content pack and PowerBI you can create custom visualizations to represent your organization, do deeper analysis on costs and add in other data sources for further enrichment.
+- **Power BI Azure Consumption Insights**. Do you want to create your own visualizations for your organization? If so, then the Azure Consumption Insights content pack for Power BI is your tool of choice. Using this content pack and Power BI you can create custom visualizations to represent your organization, do deeper analysis on costs and add in other data sources for further enrichment.
 
 - **Consumption API**. The [consumption APIs](/rest/api/consumption) give you programmatic access to cost and usage data in addition to information on budgets, reserved instances and marketplace charges. These APIs are accessible only for Enterprise Enrollments and some Web Direct subscriptions however they give you the ability to integrate your cost data into your own tools and data warehouses. You can also [access these APIs via the Azure CLI](/cli/azure/consumption?view=azure-cli-latest).
 

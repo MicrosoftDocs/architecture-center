@@ -21,7 +21,7 @@ Before beginning migration efforts, there are a number of fundamental readiness 
 - [Azure portal](/learn/modules/tour-azure-portal): Tour the Azure portal features and services, and customize the portal.
 - [Introduction to Azure](/learn/modules/welcome-to-azure): Get started with Azure by creating and configuring your first virtual machine in the cloud.
 - [Introduction to security in Azure](/learn/modules/intro-to-security-in-azure): Discuss the basic concepts for protecting your infrastructure and data when you work in the cloud. Understand what responsibilities are yours and what Azure takes care of for you.
-- [Manage resources in Azure](/learn/paths/manage-resources-in-azure): Learn how to work with the Azure command line and web portal to create, manage, and control cloud based resources.
+- [Manage resources in Azure](/learn/paths/manage-resources-in-azure): Learn how to work with the Azure command line and web portal to create, manage, and control cloud-based resources.
 - [Create a VM](/learn/modules/create-windows-virtual-machine-in-azure): Create a virtual machine using the Azure portal
 - [Azure Networking](/learn/modules/intro-to-azure-networking): Learn some of the Azure networking basics and how Azure networking helps improve resiliency and reduce latency.
 - [Azure Compute Options](/learn/modules/intro-to-azure-compute): Review the Azure compute services

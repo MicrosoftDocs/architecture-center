@@ -7,7 +7,7 @@ ms.date: 4/4/2019
 
 # Innovation through cloud adoption in the Microsoft Cloud Adoption Framework for Azure
 
-Innovation is closely linked to migration. When workloads create market differentiation opportunities, it is very common for those workloads to be migrated to the cloud, then undergo modernization efforts. Once in the cloud modernization can be accelerated by modern cloud based approaches, which also enable the development of new innovations.
+Innovation is closely linked to migration. When workloads create market differentiation opportunities, it is very common for those workloads to be migrated to the cloud, then undergo modernization efforts. Once in the cloud modernization can be accelerated by modern cloud-based approaches, which also enable the development of new innovations.
 
 > [!NOTE]
 > This guidance is slated for development in preparation for the summer release of the Cloud Adoption Framework. The taxonomy and approach below is likely to change. The following is intended to surface the general north star for Innovation guidance.

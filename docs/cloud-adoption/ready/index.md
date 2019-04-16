@@ -16,10 +16,10 @@ Coming soon: Getting ready for cloud adoption is more than just building out an 
 
 ## Establish an Azure Foundation
 
-Innovate, Migrate, or Enable motions all require a similar foundation in cloud skills and a basic cloud environment. The following image outlines the components of a minimally viable product (MVP) Azure foundation. Environment readiness in this section will be based on the MVP defined in the following image.
+Innovate, Migrate, or Enable motions all require a similar foundation in cloud skills and a basic cloud environment. The following image outlines the components of a minimum viable product (MVP) Azure foundation. Environment readiness in this section will be based on the MVP defined in the following image.
 
 ![Azure foundation](../_images/ready/AzureFoundation.png)
 
 ## Azure Readiness Guide
 
-As a first step towards the completion of this section, the existing [Azure readiness guide](./azure-readiness-guide/index.md) has been pulled into the Cloud Adoption Framework. Over the next 30-60 days, this guide will be updated to align with the Azure Foundation taxonomy and other guidance within the Cloud Adoption Framework.
+As a first step towards the completion of this section, the existing [Azure readiness guide](./azure-readiness-guide/index.md) has been pulled into the Cloud Adoption Framework. Over the next 30 to 60 days, this guide will be updated to align with the Azure Foundation taxonomy and other guidance within the Cloud Adoption Framework.
