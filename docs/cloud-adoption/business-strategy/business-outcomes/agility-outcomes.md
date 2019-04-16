@@ -5,7 +5,7 @@ author: BrianBlanchard
 ms.date: 4/4/2019
 ---
 
-# CAF: Examples of Agility Outcomes
+# CAF: Examples of agility outcomes
 
 As discussed in the [business outcomes overview](.\index.md), there are several potential business outcomes that can serve as the foundation for any Transformation Journey conversation with the business. In this article we will focus on the timeliest business measures: business agility. Understanding the company's market position and competitive landscape will help to better articulate the business outcomes that are the target of a business's transformation journey.
 
@@ -19,7 +19,7 @@ Markets change at a faster pace than ever before. As of 2015, only 57 companies 
 
 For incumbents and upstarts alike, business agility can be the difference between success or failure of a business initiative. Quickly adapting to market changes can help ring fence existing customers or claim market share from competitors. The following are agility related outcomes that can help communicate the value of the cloud during a transformation.
 
-## Time to market Outcome
+## Time-to-market outcome
 
 During incremental or disruptive transformations, time-to-market is a key measure of IT's ability to address market change. In many cases, a business leader may have existing budget for the creation of an application or the launch of a new product. Clearly communicating a time-to-market benefit can motivate that leader to redirect budget to IT’s transformation journey.
 
@@ -36,4 +36,4 @@ Aurora Health Care
 
 When business demands new IT services or scale to existing services, acquisition and provision of new hardware or virtual resources can take weeks. In a mature Operational Transformation, IT can enable self-service provisioning, allowing the business to scale in hours.
 
-- Example: A Consumer Packaged Goods (CPG) customer requires the creation and tear down of hundreds of database clusters per year to fulfill operational demands of the business. The on-premises virtual hosts can provision quickly, but the processes of recovering virtual assets is slow and requires significant time from the team. As such, the legacy on-premises environment suffers from bloat and can seldom keep up with demand. Through a mature Operational Transformation, the IT can learn to provide scripted self-provisioning of resources, with a chargeback approach to billing. Together, this allows the business to move as quickly as they need, but still be accountable for the cost of the resources they demand. Doing so in the cloud, limits deployments only to the business’s budget.
+- Example: A consumer packaged goods company requires the creation and tear-down of hundreds of database clusters per year to fulfill operational demands of the business. The on-premises virtual hosts can provision quickly, but the processes of recovering virtual assets is slow and requires significant time from the team. As such, the legacy on-premises environment suffers from bloat and can seldom keep up with demand. Through a mature operational transformation, the IT can learn to provide scripted self-provisioning of resources, with a chargeback approach to billing. Together, this allows the business to move as quickly as they need, but still be accountable for the cost of the resources they demand. Doing so in the cloud, limits deployments only to the busines's budget.
