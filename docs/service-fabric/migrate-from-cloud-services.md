@@ -20,7 +20,6 @@ Before reading this article, it will be useful to understand the basics of Servi
 - [Overview of Azure Service Fabric][sf-overview]
 - [Why a microservices approach to building applications?][sf-why-microservices]
 
-
 ## About the Surveys application
 
 In 2012, the patterns & practices group created an application called Surveys, for a book called [Developing Multi-tenant Applications for the Cloud][tailspin-book]. The book describes a fictitious company named Tailspin that designs and implements the Surveys application.
@@ -81,7 +80,6 @@ The following table summarizes some of the important differences between Cloud S
 | Auto-scaling | [Built-in service][cloud-service-autoscale] | VM Scale Sets for auto scale out |
 | Debugging | Local emulator | Local cluster |
 
-
 \* Stateful services use [reliable collections][sf-reliable-collections] to store state across replicas, so that all reads are local to the nodes in the cluster. Writes are replicated across nodes for reliability. Stateless services can have external state, using a database or other external storage.
 
 ** Worker roles can also self-host ASP.NET Web API using OWIN.
@@ -117,7 +115,6 @@ As mentioned, the goal of this phase was migrating to Service Fabric with the mi
 ![](./images/tailspin02.png)
 
 Intentionally, this architecture is very similar to the original application. However, the diagram hides some important differences. In the rest of this article, we'll explore those differences. 
-
 
 ## Converting the cloud service roles to services
 
@@ -210,7 +207,6 @@ To support different configuration settings for multiple environments, use the f
 2. In the application manifest, define an override for the setting.
 3. Put environment-specific settings into application parameter files.
 
-
 ## Deploying the application
 
 Whereas Azure Cloud Services is a managed service, Service Fabric is a runtime. You can create Service Fabric clusters in many environments, including Azure and on premises. In this article, we focus on deploying to Azure. 
@@ -276,7 +272,6 @@ To configure a public HTTPS endpoint, see [Specify resources in a service manife
 You can scale out the application by adding VMs to the cluster. VM scale sets support auto-scaling using auto-scale rules based on performance counters. For more information, see [Scale a Service Fabric cluster in or out using auto-scale rules][sf-auto-scale].
 
 While the cluster is running, you should collect logs from all the nodes in a central location. For more information, see [Collect logs by using Azure Diagnostics][sf-logs].   
-
 
 ## Conclusion
 

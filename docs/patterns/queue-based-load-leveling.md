@@ -63,8 +63,6 @@ To resolve this, you can use a queue to level the load between the application i
 
 ![Figure 3 - Using a queue and a function app to level the load](./_images/queue-based-load-leveling-function.png)
 
-
-
 ## Related patterns and guidance
 
 The following patterns and guidance might also be relevant when implementing this pattern:

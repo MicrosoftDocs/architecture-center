@@ -100,7 +100,6 @@ Azure Batch and doAzureParallel support the use of low-priority VMs. These VMs c
 
 To deploy this reference architecture, follow the steps described in the [GitHub][github] repo.
 
-
 [0]: ./_images/batch-scoring-r-models.png
 [1]: ./_images/sales-forecasts.png
 [aci]: /azure/container-instances/container-instances-overview

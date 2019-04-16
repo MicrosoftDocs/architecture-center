@@ -195,7 +195,6 @@ Database.  It is currently in
 [limited preview](https://docs.microsoft.com/sql/advanced-analytics/what-s-new-in-sql-server-machine-learning-services?view=sql-server-2017#azure-sql-database-roadmap)
 but will continue to evolve.
 
-
 ### Next steps
 
 * [Running your R code on Azure with mrsdeploy](https://blog.revolutionanalytics.com/2017/03/running-your-r-code-azure.html)

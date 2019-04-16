@@ -37,7 +37,6 @@ Relevant Azure services:
 - [Azure Database for PostgreSQL][postgres]
 - [Azure Database for MariaDB][mariadb]
 
-
 ## Key/value stores
 
 A key/value store is essentially a large hash table. You associate each data value with a unique key, and the key/value store uses this key to store the data by using an appropriate hashing function. The hashing function is selected to provide an even distribution of hashed keys across the data storage.

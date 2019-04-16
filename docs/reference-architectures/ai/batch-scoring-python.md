@@ -71,7 +71,6 @@ For work that doesn't require immediate processing, configure the automatic scal
 
 Automatic scaling may not be appropriate for batch jobs that happen too close to each other. The time that it takes for a cluster to spin up and spin down also incurs a cost, so if a batch workload begins only a few minutes after the previous job ends, it might be more cost effective to keep the cluster running between jobs. That depends on whether scoring processes are scheduled to run at a high frequency (every hour, for example), or less frequently (once a month, for example).
 
-
 ## Deployment
 
 To deploy this reference architecture, follow the steps described in the [GitHub repo][github].
