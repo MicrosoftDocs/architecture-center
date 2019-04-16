@@ -21,7 +21,7 @@ This is an introductory article on the general topic of Cloud Security Baseline 
 
 ## Cloud security
 
-Cloud security is an extension of traditional information security practices. Traditional IT security would include policies and controls governing computer security, network security, data protection, information usage, and so forth. These same policies and controls are needed in the cloud. During any Cloud Transformation, it is imperative that the CISO be actively involved and understand the cloud landscape, to ensure legacy IT policies map to proper levels of control in the cloud.
+Cloud security is an extension of traditional information security practices. Traditional IT security would include policies and controls governing computer security, network security, data protection, information usage, and so forth. These same policies and controls are needed in the cloud. During any Ccloud transformation, it is imperative that the CISO be actively involved and understand the cloud landscape, to ensure legacy IT policies map to proper levels of control in the cloud.
 
 At minimum, any cloud security strategy should consider the following topics:
 
@@ -42,8 +42,8 @@ Security is an essential component of strong data safeguards in all online compu
 
 The two greatest risks in any datacenter can be grouped into two sources: Aging systems and Human error. Protecting against these two risks is a minimum when defining an IT security strategy. The same is true in the cloud. The following are a few examples of controls that can be put in place to mitigate risks and strengthen your Cloud Security strategy.
 
-* Legacy Systems: Many components in on-premises datacenter solutions consist of software, hardware, and processes that predate current security risks. When possible, remediate, replace, or retire these systems during a Cloud Transformation. Of course, that's not always feasible. If any legacy systems will remain in production in a hybrid solution, it is important that those systems have been inventoried and understood during virtual datacenter design. Doing so allows the design team to eliminate or control access to those systems from the cloud.
-* IT Security processes and controls: At minimum, Cloud design teams should be refreshed on existing IT security processes and controls to carry those forward into the cloud. In an ideal scenario, a member of the IT security team would be trained in cybersecurity and dedicated as a member of the design and implementation teams.
+* Legacy Systems: Many components in on-premises datacenter solutions consist of software, hardware, and processes that predate current security risks. When possible, remediate, replace, or retire these systems during a cloud transformation. Of course, that's not always feasible. If any legacy systems will remain in production in a hybrid solution, it is important that those systems have been inventoried and understood during virtual datacenter design. Doing so allows the design team to eliminate or control access to those systems from the cloud.
+* IT Security processes and controls: At minimum, cloud design teams should be refreshed on existing IT security processes and controls to carry those forward into the cloud. In an ideal scenario, a member of the IT security team would be trained in cybersecurity and dedicated as a member of the design and implementation teams.
 * Monitoring and Auditing: When designing governance processes and tooling, ensure that monitoring and auditing solutions include security risks or violations.
 
 > [!NOTE]

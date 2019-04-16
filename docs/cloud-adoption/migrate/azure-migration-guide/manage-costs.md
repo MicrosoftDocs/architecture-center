@@ -167,7 +167,7 @@ To apply a tag to a resource group:
 
 ::: zone target="docs"
 
-## Manage EA Roles
+## Manage EA roles
 
 1. Go to **EA portal**.
 1. Go to **Manage**.

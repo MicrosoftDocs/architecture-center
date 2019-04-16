@@ -9,11 +9,11 @@ ms.date: 4/4/2019
 
 As discussed in Business Outcomes, it can be difficult to bridge the gap between business and technical conversations. This simple template is designed to help team uniformly capture business outcomes to be used later in the development of customer transformation journey strategies.
 
-Download the [Business Outcome Template Spreadsheet](https://archcenter.blob.core.windows.net/cdn/business-outcome-template.xlsx) to begin brainstorming and tracking business outcomes. Continue reading to learn how to use the template. Check out Business Outcomes for ideas on potential business outcomes that could come up in executive conversations.
+Download the [business outcome template spreadsheet](https://archcenter.blob.core.windows.net/cdn/business-outcome-template.xlsx) to begin brainstorming and tracking business outcomes. Continue reading to learn how to use the template. Check out Business Outcomes for ideas on potential business outcomes that could come up in executive conversations.
 
 <!-- markdownlint-disable MD026 -->
 
-## How do you use the Business Outcome Template?
+## Using the business outcome template
 
 Introduced by Kate Johnson at Microsoft’s Digital Transformation Academy, business outcomes focus on three topics referenced in the house diagram below:
 

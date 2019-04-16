@@ -46,7 +46,7 @@ Migration effort can vary widely depending on the size and complexities of the w
 
 Before making any decisions that could have a long-term impact on the current migration program, it is vital that you create consensus on the following decisions.
 
-### Effort Type
+### Effort type
 
 In any migration of significant scale (>250 VMs), assets are migrated using a variety of transition options, discussed in the five Rs of rationalization: *Rehost*, *Refactor*, *Rearchitect*, *Rebuild*, and *Replace*.
 
@@ -56,7 +56,7 @@ In the majority of scenarios, some business event creates a forcing function tha
 
 During the process of [rationalizing the digital estate](../../../digital-estate/calculate.md), these types of decisions are applied to each asset to migrate. However, the prerequisite needed at this time is to make a baseline assumption. Of the five migration strategies, which best aligns with the business objectives or business outcomes driving this migration effort? This decision serves as a guiding assumption throughout the migration effort.
 
-### Effort Scale
+### Effort scale
 
 Scale of the migration is the next important prerequisite decision. The processes required to migrate 1,000 assets is different from the process required to move 10,000 assets. Before beginning any migration effort, it is important to answer the following questions:
 
@@ -64,7 +64,7 @@ Scale of the migration is the next important prerequisite decision. The processe
 - **Of those assets, how many are slated for migration?** It is common for a percentage of assets to be terminated during a migration process, due to lack of sustained end-user dependency.
 - **What are the top-down estimates of the migratable assets scale?** For the workloads slated for migration, estimate the number of supporting assets such as applications, virtual machines, data sources, and IT appliances. See the [digital estate](../../../digital-estate/overview.md) section of the Cloud Adoption Framework for guidance on identifying relevant assets.
 
-### Effort Timing
+### Effort timing
 
 Often, migrations are driven by a compelling business event that is time sensitive. For instance, one common driver is the termination or renewal of a third-party hosting contract. Although there are many potential business events necessitating a migration, they are share one commonality: an end date. It is important to understand the timing of any approaching business events, so activities and velocity can be planned and validated properly.
 

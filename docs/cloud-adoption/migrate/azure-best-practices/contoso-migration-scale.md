@@ -308,7 +308,7 @@ To make the most of their cloud investment, Contoso will take advantage of the f
 
 ![Cost management](./media/contoso-migration-scale/cost-management.png)
 
-### Native Tools
+### Native tools
 
 Contoso will also use scripts to locate unused resources.
 
@@ -322,7 +322,7 @@ Contoso will also use scripts to locate unused resources.
   - Bulk deletion of resource groups on-demand.
 - Get started with the ARO toolkit in this [GitHub repo](https://github.com/Azure/azure-quickstart-templates/tree/master/azure-resource-optimization-toolkit).
 
-### Partner Tools
+### Partner tools
 
 Partner tools such as [Hanu](https://hanu.com/insight) and [Scalr]( https://www.scalr.com/cost-optimization) can be used.
 

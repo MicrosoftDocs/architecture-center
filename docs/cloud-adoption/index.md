@@ -17,9 +17,9 @@ However, cloud adoption is a means to an end. Successful cloud adoption starts w
 
 The Cloud Adoption Framework provides technical guidance for Microsoft Azure. Because customers may still be in the process of choosing a cloud vendor, this framework provides cloud-agnostic guidance for higher-level decisions whenever possible.
 
-## Product Truths
+## Product roadmap
 
-The Microsoft Cloud Adoption Framework for Azure is currently offered as a Public Preview. The framework will reach general availability (GA) when the aspirational goals above are met. In this preview release, the primary area of focus is [Cloud Governance](./governance/journeys/overview.md). The Cloud Adoption Framework will be expanded frequently as it moves closer to GA release.
+The Microsoft Cloud Adoption Framework for Azure is currently offered as a Public Preview. The framework will reach general availability (GA) when the aspirational goals above are met. In this preview release, the primary area of focus is [Cloud Governance](./governance/journeys/overview.md). The Cloud Adoption Framework will be expanded frequently as it moves closer to GA release. For more information, see the [Cloud Adoption Framework roadmap](./appendix/roadmap.md).
 
 ## Audience
 

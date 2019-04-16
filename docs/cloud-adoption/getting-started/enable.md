@@ -23,7 +23,7 @@ Throughout this framework, enablement is a core theme. The following checklist c
   - Operate: Ongoing [operations](../operations/index.md) of the IT portfolio to minimize interruptions to business processes and ensure stability of the IT portfolio
   - Support: Align proper [partnership and support options](../migrate/migration-considerations/assess/partnership-options.md)
 
-## Additional Tools
+## Additional tools
 
 In addition to the Cloud Adoption Framework, Microsoft provides a number of additional topics that can enable success. This article highlights a few common tools that can significantly improve success beyond the scope of the Cloud Adoption Framework. Establishing cloud governance, resilient architectures, technical skills, and a DevOps approach are each important to the success of any cloud adoption effort. The reader is advised to bookmark this page as a resource to revisit throughout any cloud adoption journey.
 

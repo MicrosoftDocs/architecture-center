@@ -29,7 +29,7 @@ The complexity of subscription designs varies. Decisions regarding a design stra
 
 Deployment structure, automation, and new approaches to grouping resources can affect your structure subscription design. Before finalizing a subscription design, consider how [resource consistency](../resource-consistency/overview.md) decisions might influence your design choices. For example, a large multinational organization might initially consider a complex pattern for subscription management. However, that same company might realize greater benefits with a simpler business unit pattern by adding a management group hierarchy.
 
-## Subscriptions design and Azure Enterprise agreements
+## Subscriptions design and Azure Enterprise Agreements
 
 All Azure subscriptions are associated with one account, which is connected to billing and top-level access control for each subscription. A single account can own multiple subscriptions and can provide a base level of subscriptions organization.
 

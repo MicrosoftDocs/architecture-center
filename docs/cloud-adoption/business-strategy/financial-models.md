@@ -14,7 +14,7 @@ ms.topic: guide
 
 Creating a financial model that accurately represents the full business value of any cloud transformation can be complicated. Financial models and business justifications tend to vary between different organizations. This article establishes some formulas and points out a few things that are commonly missed when creating a financial model.
 
-## Return on investment (ROI)
+## Return on investment
 
 Return on investment (ROI) is often an important criteria for the C-suite or the board. ROI is used to compare different ways to invest limited capital resources. The formula for ROI is fairly simple. The details required to create each input to the formula may not be as simple. Essentially, ROI is the amount of return produced from an initial investment. Usually it is represented as a percentage:
 

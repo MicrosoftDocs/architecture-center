@@ -15,7 +15,7 @@ ms.subservice: enterprise-cloud-adoption
 
 Every modern company has some form of digital estate. Much like a physical estate, a digital estate is an abstract reference to a number of tangible, owned assets. In a digital estate, those assets are comprised of virtual machines (VMs), servers, applications, data, and so on. Essentially, a digital estate is the collection of IT assets that power business processes and supporting operations.
 
-The importance of a digital estate is most obvious during planning and execution of Digital Transformation efforts. During transformation journeys, the digital estate is how Cloud Strategy teams map the business outcomes to release plans and technical efforts. That all starts with an inventory and measurement of the digital assets the organization owns today.
+The importance of a digital estate is most obvious during planning and execution of digital transformation efforts. During transformation journeys, the digital estate is how Cloud Strategy teams map the business outcomes to release plans and technical efforts. That all starts with an inventory and measurement of the digital assets the organization owns today.
 
 ## How can a digital estate be measured?
 

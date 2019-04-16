@@ -157,7 +157,7 @@ The following section provides examples of naming schemes for common Azure resou
 | NSG                      | Subnet or NIC   | nsg-\<policy name or appname\>-\<\#\#\#\>                             | <ul><li>nsg-weballow-001 </li><li>nsg-rdpallow-001 </li><li>nsg-sqlallow-001 </li><li>nsg-dnsbloked-001</li></ul>                                  |
 | Public IP                | Resource group  | pip-\<vm name or app name\>-\<Environment\>-\<subregion\>-\<\#\#\#\> | <ul><li>pip-dc1-shared-eastus2-001 </li><li>pip-hadoop-prod-westus-001</li></ul>                                                 |
 
-### Virtual Machines
+### Azure Virtual Machines
 
 | Asset type         | Scope          | Format                                                              | Examples                                                                             |
 |--------------------|----------------|---------------------------------------------------------------------|--------------------------------------------------------------------------------------|
@@ -175,7 +175,7 @@ The following section provides examples of naming schemes for common Azure resou
 | Function App   | Global | azfun-\<App Name\>-\<Environment\>-\<\#\#\#\>.[{azurewebsites.net}] | <ul><li>azfun-navigator-prod-001.azurewebsites.net </li><li>azfun-accountlookup-dev-001.azurewebsites.net</li></ul> |
 | Cloud Services | Global | azcs-\<App Name\>-\<Environment\>-\<\#\#\#\>.[{cloudapp.net}]       | <ul><li>azcs-navigator-prod-001.azurewebsites.net </li><li>azcs-accountlookup-dev-001.azurewebsites.net</li></ul>   |
 
-### Service Bus
+### Azure Service Bus
 
 | Asset type         | Scope       | Format                                                     | Examples                           |
 |--------------------|-------------|------------------------------------------------------------|------------------------------------|

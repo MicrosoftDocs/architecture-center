@@ -9,7 +9,7 @@ ms.date: 4/4/2019
 
 Cloud migration is the process of moving existing digital assets into a cloud platform. In this approach, existing assets are replicated to the cloud with minimal modifications. When an application or workload is operational in the cloud, users are transitioned from the existing solution to the cloud solution. Cloud migration is one means of effectively balancing a cloud portfolio. Often times, this is the fastest and most agile approach, short term. Conversely, some of the benefits of the cloud may not be realized through this approach without additional future modification. Enterprises and mid-market customers use this approach to accelerate the pace of change, avoid planned capital expenditures, and reduce ongoing operational costs.
 
-## Cloud Migration Guidance
+## Cloud migration guidance
 
 The guidance in this section of the Cloud Adoption Framework is designed for two purposes:
 

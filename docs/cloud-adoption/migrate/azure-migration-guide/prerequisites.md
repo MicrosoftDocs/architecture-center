@@ -34,7 +34,7 @@ As a customer you may find you have several reasons for migrating to Azure. Thes
 
 Each of the above scenarios may be entry points to then extend your cloud footprint using another scenario.
 
-## Migration Characteristics
+## Migration characteristics
 
 Prior to this migration the digital estate will consist of mostly on-premises hosted infrastructure, possibly with hosting business critical applications. After a successful migration your data estate may look very much how it did on-premises but with the infrastructure hosted in cloud resources. Alternatively the ideal data estate will be a variation of your current data estate as it will have aspects of your on-premises infrastructure with components which have been refactored to optimize and take advantage of the cloud platform.
 
@@ -58,7 +58,7 @@ If your goal is simply to move existing applications to the cloud, first, identi
 
 But, keep in mind that correctly configuring, securing, and maintaining VMs requires much more time and IT expertise compared to using PaaS services in Azure. If you are considering Azure Virtual Machines, make sure that you take into account the ongoing maintenance effort required to patch, update, and manage your VM environment. Azure Virtual Machines is IaaS.
 
-## Learn More
+## Learn more
 
 - [Cloud Adoption Framework migration considerations](../migration-considerations/prerequisites/index.md)
 - [The Five Rs of Rationalization](../../digital-estate/5-rs-of-rationalization.md)
@@ -86,7 +86,7 @@ Assuming you choose a rehost approach to migration, the following child activiti
 
 ::: zone target="docs"
 
-## Learn More
+## Learn more
 
 - [The 5 Rs of rationalization](../../digital-estate/5-rs-of-rationalization.md)
 - [Cloud Adoption Framework planning checklist](../migration-considerations/prerequisites/planning-checklist.md)

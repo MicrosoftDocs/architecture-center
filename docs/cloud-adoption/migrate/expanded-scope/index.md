@@ -55,7 +55,7 @@ To help you understand each scope expansion scenario, the following list will br
 - **Skills readiness:** When the Cloud Adoption team or other supporting teams are not ready to execute, it can quickly inject complexity throughout the migration effort. This challenge is addressed during each of the migration processes in a specific page on skills readiness.
 - **Aligning support (Partner, service, and support options):** Within each of the the processes outlined, there are ways in which a partner, services from the cloud vendor, and support from the cloud vendor can aid in execution. In each of the processes sections a page on support alignment will discuss the options further.
 
-### Technical Strategy-driven scope changes
+### Technical strategy-driven scope changes
 
 - **Existing datacenter constraints:** Often times companies choose to migrate to the cloud because the capacity, speed, and stability of an existing datacenter is no longer satisfactory. Unfortunately, those same constraints add complexity to the migration process, requiring additional planning during the assessment and migration processes.
 - **Migrating at scale:** Migrations exceeding 2,000 assets are likely to run into constraints that require additional planning and a disciplined approach to execution. The Assess and Migrate processes are adjusted to account for scale complexity.

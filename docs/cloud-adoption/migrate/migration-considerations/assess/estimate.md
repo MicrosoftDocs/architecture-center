@@ -9,7 +9,7 @@ ms.date: 4/4/2019
 
 During migration, there are a number of factors that can affect decisions and execution activities. To help understand which of those options are best for different situations, this article discusses various options for estimating cloud costs.
 
-## Digital Estate Size
+## Digital estate size
 
 The size of your digital estate directly affects migration decisions. Migrations that involve fewer than 250 VMs can be estimated much more easily than a migration involving 10,000+ VMs. It's highly recommended that you select a smaller workload as your first migration. This gives your team a chance to learn how to estimate the costs of a simple migration effort before attempting to estimate larger and more complicated workload migrations.
 
@@ -17,7 +17,7 @@ However, note that smaller, single-workload, migrations can still involve a wide
 
 For 1,000+ unit digital estates, it’s still possible to break down an estimate into four or five actionable iterations, making the estimation process manageable. For larger estates or when a higher degree of forecast accuracy is required, a more comprehensive approach, like that outlined in the "[Digital estate](../../../digital-estate/overview.md)" section of the Cloud Adoption Framework, will likely be required.
 
-## Accounting Models
+## Accounting models
 
 Accounting models
 

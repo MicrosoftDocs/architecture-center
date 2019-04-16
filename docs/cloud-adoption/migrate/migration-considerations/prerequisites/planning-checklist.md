@@ -32,7 +32,7 @@ If your initial migrations are not closely aligned with a broader cloud governan
 
 Regardless of your level of governance alignment, you will need to make decisions related to the following topics.
 
-### Resource Organization
+### Resource organization
 
 Based on the governance alignment decision, an approach to the organization and deployment of resources should be established prior to migration.
 
@@ -40,7 +40,7 @@ Based on the governance alignment decision, an approach to the organization and 
 
 A consistent approach for naming resources, along with consistent naming schemas, should be established prior to migration.
 
-### Resource Governance
+### Resource governance
 
 A decision regarding the tools to govern resources should be made prior to migration. The tools do not need to be fully implemented, but a direction should be selected and tested. It is advised that the Cloud Governance team define and require the implementation of a minimum viable product (MVP) for governance tooling prior to migration.
 

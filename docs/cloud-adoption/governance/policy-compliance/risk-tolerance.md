@@ -1,27 +1,27 @@
 ---
-title: "CAF: What business risks are associated with a Cloud Transformation?"
-description: Explanation of the business risks associated with a Cloud Transformation?
+title: "CAF: What business risks are associated with a cloud transformation?"
+description: Explanation of the business risks associated with a cloud transformation?
 author: BrianBlanchard
 ms.date: 4/4/2019
 ---
 
 # Evaluating risk tolerance
 
-Every business decision creates new risks. Making an investment in anything creates risk of losses. New products or services create risks of market failure. Changes to current products or services could reduce market share. Cloud Transformation does not provide a magical solution to everyday business risk. To the contrary, connected solutions (cloud or on-premises) introduce new risks. Deploying assets to any network connected facility also expands the potential threat profile by exposing security weaknesses to a much broader, global community. Fortunately, Cloud Providers are aware of the changes, increases, and addition of risks. They invest heavily to mitigate those risks on the behalf of their customers.
+Every business decision creates new risks. Making an investment in anything creates risk of losses. New products or services create risks of market failure. Changes to current products or services could reduce market share. Cloud transformation does not provide a magical solution to everyday business risk. To the contrary, connected solutions (cloud or on-premises) introduce new risks. Deploying assets to any network connected facility also expands the potential threat profile by exposing security weaknesses to a much broader, global community. Fortunately, Cloud Providers are aware of the changes, increases, and addition of risks. They invest heavily to mitigate those risks on the behalf of their customers.
 
-This article is not focused on cloud risks. Instead it discusses the business risks associated with various forms of Cloud Transformation. Later in the article, the discussion shifts focus to discuss ways of understanding the business' tolerance for risk.
+This article is not focused on cloud risks. Instead it discusses the business risks associated with various forms of cloud transformation. Later in the article, the discussion shifts focus to discuss ways of understanding the business' tolerance for risk.
 
 <!-- markdownlint-disable MD026 -->
 
-## What business risks are associated with a Cloud Transformation?
+## What business risks are associated with a cloud transformation?
 
 True business risks will be based on the what and how behind specific transformations. Fortunately, there are a number of very common risks that can be used as a conversation started to understand specific, personalized risks.
 
 ** Before reading the following, be aware that each of these risks can be remediated. The goal of this article is to inform and prepare readers, so that risk management discussions can be more effective.**
 
-- **Data breach**: The greatest risk associated with any transformation is the protection of data. Data leaks can cause significant damage to your company, leading to loss of customers, decrease in business, or even legal liability. Any changes to the way data is stored, processed, or used creates risk. Cloud Transformations create a high degree of change regarding data management, so the risk should not be taken lightly. [Security Baseline](../security-baseline/overview.md), [Data Classification](./what-is-data-classification.md), and [Incremental Rationalization](../../digital-estate/rationalize.md#incremental-rationalization) can each help mitigate this risk.
+- **Data breach**: The greatest risk associated with any transformation is the protection of data. Data leaks can cause significant damage to your company, leading to loss of customers, decrease in business, or even legal liability. Any changes to the way data is stored, processed, or used creates risk. Cloud transformations create a high degree of change regarding data management, so the risk should not be taken lightly. [Security Baseline](../security-baseline/overview.md), [Data Classification](./what-is-data-classification.md), and [Incremental Rationalization](../../digital-estate/rationalize.md#incremental-rationalization) can each help mitigate this risk.
 
-- **Service disruption**: Business operations and customer experiences rely heavily on technical operations. Cloud Transformations will create change in technical operations (TechOps). In some organizations, that change is small and easily adjusted. In other organizations, changes to TechOps could require retooling, reskilling, or new approaches to support. The bigger the change, the bigger the potential impact on Business Operations and Customer Experience. Managing this risk requires the involvement of the business in transformation planning. Release planning and First workload selection in the [Incremental Rationalization](../../digital-estate/rationalize.md#incremental-rationalization) article discuss ways to choose workloads for transformation projects. The business's role in that activity is to communicate the Business Operations risk of changing prioritized workloads. Helping IT choose workloads that have a lower impact on operations will reduce the overall risk.
+- **Service disruption**: Business operations and customer experiences rely heavily on technical operations. Cloud transformations will create change in technical operations (TechOps). In some organizations, that change is small and easily adjusted. In other organizations, changes to TechOps could require retooling, reskilling, or new approaches to support. The bigger the change, the bigger the potential impact on Business Operations and Customer Experience. Managing this risk requires the involvement of the business in transformation planning. Release planning and First workload selection in the [Incremental Rationalization](../../digital-estate/rationalize.md#incremental-rationalization) article discuss ways to choose workloads for transformation projects. The business's role in that activity is to communicate the Business Operations risk of changing prioritized workloads. Helping IT choose workloads that have a lower impact on operations will reduce the overall risk.
 
 - **Budget control**: Cost models change in the Cloud. This change can create risks associated with cost overruns or increases in Cost of Goods Sold (COGS), especially directly attributed operational expenses. When business works closely with IT, it is feasible to create transparency regarding costs and services consumed by various business units, programs, projects, etc... [Cost Management](../cost-management/overview.md) provides examples of ways Business and IT can partner on this topic.
 

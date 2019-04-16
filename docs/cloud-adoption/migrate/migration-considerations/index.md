@@ -33,7 +33,7 @@ Cloud-native strategies and platform as a service (PaaS) strategies *rebuild* on
 >
 > Other sections and future evolutions of this content will expand on other approaches. For a high-level discussion on expanding the scope of your migration to include more complicated migration strategies, see the article balancing the portfolio.
 
-## Incremental Migration
+## Incremental migration
 
 The Cloud Adoption Framework migration model is based on an incremental cloud transformation process. It assumes that your organization will begin with an initial, limited-scope, cloud migration effort, which we refer to commonly as the first workload. This effort will expand iteratively to include more workloads as your Operations teams refine and improve your migration processes.
 

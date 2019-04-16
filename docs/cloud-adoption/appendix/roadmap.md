@@ -12,7 +12,7 @@ The cloud fundamentally changes how enterprises procure and use technology resou
 - Optimizing operations, simplifying technology, increasing business agility, reducing costs, preparing for new technical capabilities, and scaling to market demands or geos, businesses are motivated to **migrate** to the cloud.
 - Improving customer experiences, increasing customer engagements, transforming products, preparing and building new technical capabilities, and scaling to market demands or geos, businesses are motivated to **innovate** using the cloud.
 
-## Vision and Objectives
+## Vision and objectives
 
 Removing key obstacles and enabling change requires more than implementation guidance. The Cloud Adoption Framework is a set of documentation, implementation guidance, best practices, and tools that help align strategies for business, culture, and technology to enable the desired business outcomes. Its modular structure follows and guides the customer through their cloud journey. The Cloud Adoption Framework can stand by itself and provide self-service structured guidance for customers. The Cloud Adoption Framework builds on existing guidance whenever possible to meet the following objectives:
 
@@ -48,14 +48,14 @@ These phases are not linear and most likely will turn into a cycle, where custom
 
 The following outlines specific releases per quarter, to demonstrate maturity of each section of content on a quarterly basis.
 
-### Second quarter 2019 (FY19Q4)
+### Q2 2019
 
 - **First release:** Migrate, Ready, and Plan will each launch as First Releases this quarter, with one section anticipated to release each month.
 - **Early testing release:** Govern, Migrate and Ready are expected to complete early testing releases this quarter.
 - **Ongoing maturity release:** Govern and Migrate are expected to have at least one release each, with a focus on going deeper into actionable next steps. Govern is expected to see additional investments in Best Practices and Expanded Scope.
 - **Out-of-band release:** Ready will have an out-of-band release during late April and throughout May. The content in the Ready section will be pulled directly from the Azure Readiness Playbook to support a coming integration with the Azure Portal. This content will be improved and aligned to Cloud Adoption Framework methodologies prior to the official first release of the Ready section in late May.
 
-### Third quarter 2019 (FY20Q1)
+### Q3 2019
 
 - **First release:** App Innovation and Data Innovation.
 - **Early testing release:** Plan and App Innovation.
