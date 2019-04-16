@@ -20,7 +20,7 @@ The following table summarizes the retry features for the Azure services describ
 
 | **Service** | **Retry capabilities** | **Policy configuration** | **Scope** | **Telemetry features** |
 | --- | --- | --- | --- | --- |
-| **[Azure Active Directory](#azure-active-directory)** |Native in ADAL library |Embeded into ADAL library |Internal |None |
+| **[Azure Active Directory](#azure-active-directory)** |Native in ADAL library |Embedded into ADAL library |Internal |None |
 | **[Cosmos DB](#cosmos-db)** |Native in service |Non-configurable |Global |TraceSource |
 | **Data Lake Store** |Native in client |Non-configurable |Individual operations |None |
 | **[Event Hubs](#event-hubs)** |Native in client |Programmatic |Client |None |
