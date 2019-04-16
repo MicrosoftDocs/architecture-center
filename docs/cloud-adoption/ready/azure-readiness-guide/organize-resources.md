@@ -65,7 +65,7 @@ Create a resource group to hold resources like web apps, databases, and storage 
 
 To learn more, see:
 
-- [Understanding resource access management in Azure](/azure/architecture/cloud-adoption-guide/adoption-intro/azure-resource-access)
+- [Understanding resource access management in Azure](../../getting-started/azure-resource-access.md)
 - [Organize your resources with Azure Management Groups](/azure/azure-resource-manager/management-groups-overview)
 - [Subscription service limits](/azure/azure-subscription-service-limits)
 
