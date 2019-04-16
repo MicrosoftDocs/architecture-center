@@ -2,7 +2,8 @@
 title: "CAF: Best practices for costing and sizing workloads migrated to Azure"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Get best practices for costing and sizing workloads migrated to Azure.
-author: BrianBlanchardms.service: azure-migrate
+author: BrianBlanchard
+ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: brblanch
@@ -22,7 +23,7 @@ This article describes best practices for costing and sizing before and after mi
 
 ## Before migration
 
-Before you move your workloads to the cloud, estimate the monthly cost of running them in Azure. Proactively managing cloud costs helps you adhere to your operating expenses (OpEx) budget. If budget is limited, take this into account before migration. Consider converting workloads to Azure serverless technologies, where appropriate, to reduce costs.
+Before you move your workloads to the cloud, estimate the monthly cost of running them in Azure. Proactively managing cloud costs helps you adhere to your operating expense budget. If budget is limited, take this into account before migration. Consider converting workloads to Azure serverless technologies, where appropriate, to reduce costs.
 
 The best practices in this section help you to estimate costs, perform right-sizing for VMs and storage, use Azure Hybrid benefits, use reserved VMs, and estimate cloud spending across subscriptions.
 

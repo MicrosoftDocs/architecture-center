@@ -115,7 +115,7 @@ To begin a governance journey, choose one of the two options below. The options 
 | Geography (country or geopolitical region) | Customers or staff reside largely in one geography                                                      | Customers or staff reside in multiple geographies                                                              |
 | Business units affected                    | Single business unit                                                                                    | Multiple business units                                                                                        |
 | IT budget                                  | Single IT budget                                                                                        | Budget allocated across business units                                                                         |
-| IT investments                             | Capital expense (CapEx)-driven investments are planned yearly and usually cover only basic maintenance. | CapEx-driven investments are planned yearly and often include maintenance and a refresh cycle of three to five years. |
+| IT investments                             | Capital expense-driven investments are planned yearly and usually cover only basic maintenance. | Capital expense-driven investments are planned yearly and often include maintenance and a refresh cycle of three to five years. |
 
 ### Current state before adopting cloud governance
 

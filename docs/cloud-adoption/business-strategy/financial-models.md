@@ -24,7 +24,7 @@ In the next sections, we will walk through the data needed to calculate the init
 
 ## Calculating initial investment
 
-Initial investment is the capital expenditure (CapEx) and operating expenditure (OpEx) required to complete a transformation. The classification of costs can vary depending on accounting models and CFO preference. However, this category would include things like: Professional services to transform, software licenses that are used solely during the transformation, cost of cloud services during the transformation, and potentially the cost of the salaried employees during the transformation.
+Initial investment is the capital expense and operating expense required to complete a transformation. The classification of costs can vary depending on accounting models and CFO preference. However, this category would include items such as professional services to transform, software licenses used solely during the transformation, cost of cloud services during the transformation, and potentially the cost of the salaried employees during the transformation.
 
 Add these costs together to create an estimate of the initial investment.
 
@@ -82,9 +82,9 @@ An exception is when operational capacity is provided by a third party or manage
 
 ### Capital expense reductions or avoidance
 
-Capital expenses are slightly different than operating expenses. Generally, this category is driven by refresh cycles or datacenter expansion. An example of a datacenter expansion would be a new high-performance cluster to host a Big Data solution or data warehouse, and would generally fit into a CapEx category. More common are the basic refresh cycles. Some companies have rigid hardware refresh cycles, meaning assets are retired and replaced on a regular cycle (usually every three, five, or eight years). These cycles often coincide with asset lease cycles or forecasted lifespan of equipment. When a refresh cycle hits, IT draws CapEx to acquire new equipment.
+Capital expenses are slightly different than operating expenses. Generally, this category is driven by refresh cycles or datacenter expansion. An example of a datacenter expansion would be a new high-performance cluster to host a Big Data solution or data warehouse, and would generally fit into a captial expense category. More common are the basic refresh cycles. Some companies have rigid hardware refresh cycles, meaning assets are retired and replaced on a regular cycle (usually every three, five, or eight years). These cycles often coincide with asset lease cycles or forecasted lifespan of equipment. When a refresh cycle hits, IT draws capital expense to acquire new equipment.
 
-If a refresh cycle is approved and budgeted, the cloud transformation could help eliminate that cost. If a refresh cycle is planned but not yet approved, the cloud transformation could create a CapEx cost avoidance. Both scenarios would be added to the cost delta.
+If a refresh cycle is approved and budgeted, the cloud transformation could help eliminate that cost. If a refresh cycle is planned but not yet approved, the cloud transformation could create a capital expense avoidance. Both scenarios would be added to the cost delta.
 
 ## Next steps
 

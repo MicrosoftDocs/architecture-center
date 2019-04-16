@@ -36,7 +36,7 @@ Here is the current state of the company’s IT and cloud operations:
 - The application development teams are working in a dev/test capacity to learn about cloud native capabilities.
 - The business intelligence (BI) team is experimenting with big data in the cloud and curation of data on new platforms.
 - The company has a loosely defined policy stating that customer personally identifiable information (PII) and financial data cannot be hosted in the cloud, which limits mission-critical applications in the current deployments.
-- IT investments are controlled largely by capital expense (CapEx). Those investments are planned yearly. In the past several years, investments have included little more than basic maintenance requirements.
+- IT investments are controlled largely by capital expense. Those investments are planned yearly. In the past several years, investments have included little more than basic maintenance requirements.
 
 ## Future state
 

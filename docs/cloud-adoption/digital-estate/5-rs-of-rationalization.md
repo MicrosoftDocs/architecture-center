@@ -24,7 +24,7 @@ Also known as "lift and shift," a rehost effort moves the current state asset to
 
 Common drivers could include:
 
-* Reduce CapEx
+* Reduce capital expense
 * Free up datacenter space
 * Quick cloud ROI
 

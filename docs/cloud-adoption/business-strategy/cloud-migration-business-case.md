@@ -30,15 +30,15 @@ Cloud migrations can generate early return on investment (ROI) from cloud transf
 - Business losses due to outages can quickly exceed hardware or software costs. If the current datacenter is unstable, work with the business to quantify the impact of outages in terms of opportunity costs or actual business costs.
 - Environmental costs can also have an impact. For the average American family, their home is the biggest investment and highest cost in their budget. The same is often true for datacenters. Real estate, facilities, and utility costs represent a fair portion of on-premises costs. When datacenters are retired, those facilities can be repurposed by the business, or potentially the business could be released from the costs entirely.
 
-**Myth: Operating expense (OpEx) is better than capital expense (CapEx).** As explained in the [fiscal outcomes](business-outcomes/fiscal-outcomes.md) article, OpEx can be a good thing. However, there are a number of industries that can see OpEx as a negative. The following are a few examples that would trigger tighter integration with the accounting and business units regarding the OpEx conversation:
+**Myth: An operating expense model is better than a capital expense model.** As explained in the [fiscal outcomes](business-outcomes/fiscal-outcomes.md) article, an operating expense model can be a good thing. However, there are a number of industries that view operating expenditures negatively. The following are a few examples that would trigger tighter integration with the accounting and business units regarding the operating expense conversation:
 
-- When the business sees capital assets as a driver for business valuation, CapEx reductions could be a negative outcome. While not a universal standard, this sentiment is most commonly seen in retail, manufacturing, and construction industries.
-- OpEx increases can also be seen as a negative outcome in businesses owned by a private equity firm or seeking capital influx.
-- If the business is focused heavily on improving sales margins or reducing Cost of Goods Sold (COGS), the OpEx could be a negative outcome.
+- When the business sees capital assets as a driver for business valuation, captial expense reductions could be a negative outcome. While not a universal standard, this sentiment is most commonly seen in retail, manufacturing, and construction industries.
+- Operating expense increases can also be seen as a negative outcome in businesses owned by a private equity firm or seeking capital influx.
+- If the business is focused heavily on improving sales margins or reducing cost of goods sold (COGS), the operating expense could be a negative outcome.
 
-OpEx is not always a bad thing. Businesses are more likely to see OpEx as more favorable than CapEx. For instance, this approach can be well received by businesses that are attempting to improve cash flow, reduce capital investments, or decrease asset holdings.
+Operating expense is not always a bad thing. Businesses are more likely to see operating expense as more favorable than capital expense. For instance, this approach can be well received by businesses that are attempting to improve cash flow, reduce capital investments, or decrease asset holdings.
 
-Before providing a business justification that focuses on a conversion from CapEx to OpEx, understand which is better for the business. Accounting and procurement can often help best align the message to financial objectives.
+Before providing a business justification that focuses on a conversion from capital expense to operating expense, understand which is better for the business. Accounting and procurement can often help best align the message to financial objectives.
 
 **Myth: Moving to the cloud is like flipping a switch.** Migrations are a manually intense technical transformation. When developing a business justification, especially justifications that are time sensitive, consider the following aspects that could increase the time it takes to migrate assets:
 
