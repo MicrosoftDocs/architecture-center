@@ -86,7 +86,7 @@ Consider the following options to further improve security in this scenario:
 
 ## Pricing
 
-The cost of running this scenario can vary greatly depending on on multiple factors.  The number and size of VMs, how much storage is required, and the amount of time to complete a job will determine your cost.
+The cost of running this scenario can vary greatly depending on multiple factors.  The number and size of VMs, how much storage is required, and the amount of time to complete a job will determine your cost.
 
 The following sample cost profile in the [Azure pricing calculator](https://azure.com/e/42362ddfd2e245a28a8e78bc609c80f3) is based on a typical configuration for Avere vFXT and PhotoScan:
 
