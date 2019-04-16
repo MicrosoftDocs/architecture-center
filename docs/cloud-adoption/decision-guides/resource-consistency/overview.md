@@ -21,7 +21,6 @@ Decisions regarding the level of your cloud estate's resource consistency requir
 
 As these factors increase in importance, the benefits of ensuring consistent deployment, grouping, and management of cloud-based resources becomes more important. Achieving more advanced levels of resource consistency to meet increasing requirements requires more effort spent in automation, tooling, and consistency enforcement, and this results in an more time spent on change management and tracking.
 
-
 ## Basic grouping
 
 In Azure, [resource groups](/azure/azure-resource-manager/resource-group-overview#resource-groups) are a core resource organization mechanism to logically group resources within a subscription.

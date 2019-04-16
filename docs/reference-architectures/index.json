@@ -221,12 +221,6 @@
                     "summary": "Virtual machines configured for an N-tier application using Apache Cassandra on Linux."
                 },
                 {
-                    "url": "./jenkins/index.md",
-                    "image": "../_images/icons/jenkins.svg",
-                    "title": "Jenkins build server",
-                    "summary": "Scalable, enterprise-grade Jenkins server on Azure."
-                },
-                {
                     "url": "./sharepoint/index.md",
                     "image": "../_images/icons/sharepoint.svg",
                     "title": "SharePoint Server 2016 farm",

@@ -246,6 +246,8 @@
       href: example-scenario/apps/apim-api-scenario.md
     - name: E-commerce product search
       href: example-scenario/apps/ecommerce-search.md
+    - name: Jenkins server
+      href: example-scenario/apps/jenkins.md
   - name: Data and analytics
     items:
     - name: Hybrid ETL with Data Factory
@@ -404,8 +406,6 @@
         href: reference-architectures/n-tier/linux-vm.md
       - name: Single Windows VM
         href: reference-architectures/n-tier/windows-vm.md
-      - name: Jenkins server
-        href: reference-architectures/jenkins/index.md
       - name: N-tier application with SQL Server
         href: reference-architectures/n-tier/n-tier-sql-server.md
       - name: Multi-region N-tier application

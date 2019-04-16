@@ -130,7 +130,7 @@ In general, avoid having any special characters (`-` or `_`) as the first or las
 
 | Entity | Scope | Length | Casing | Valid Characters | Suggested Pattern | Example |
 | --- | --- | --- | --- | --- | --- | --- |
-|Service Bus Namespace | Global |6-50 |Case insensitive | Alphanumeric, hyphen, must start with leter; see [here](/rest/api/servicebus/create-namespace) for details. |`<service short name>-bus` |`app1-bus` |
+|Service Bus Namespace | Global |6-50 |Case insensitive | Alphanumeric, hyphen, must start with a letter; see [here](/rest/api/servicebus/create-namespace) for details. |`<service short name>-bus` |`app1-bus` |
 
 ## Organize resources with tags
 
@@ -199,4 +199,3 @@ It is not possible to modify the name of a storage account or container after it
 > [!TIP]
 > We recommend that you establish a naming convention for all storage accounts and types
 > before embarking on the development of a new service or application.
-

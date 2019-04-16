@@ -17,7 +17,7 @@ Failure mode analysis (FMA) is a process for building resiliency into a system, 
 
 Here is the general process to conduct an FMA:
 
-1. Identify all of the components in the system. Include external dependencies, such as as identity providers, third-party services, and so on.
+1. Identify all of the components in the system. Include external dependencies, such as identity providers, third-party services, and so on.
 2. For each component, identify potential failures that could occur. A single component may have more than one failure mode. For example, you should consider read failures and write failures separately, because the impact and possible mitigations will be different.
 3. Rate each failure mode according to its overall risk. Consider these factors:
 

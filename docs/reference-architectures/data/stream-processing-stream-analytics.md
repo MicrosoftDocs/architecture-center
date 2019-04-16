@@ -229,4 +229,3 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 <!-- links -->
 
 [github]: https://github.com/mspnp/azure-stream-analytics-data-pipeline
-

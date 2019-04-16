@@ -20,11 +20,12 @@ A reference implementation for this architecture is available on [GitHub][github
 **Scenario**: This solution monitors the operation of a large number of devices in an IoT setting where each device sends sensor readings continuously. Each device is assumed to be associated with pretrained anomaly detection models that need to be used to predict whether a series of measurements, that are aggregated over a predefined time interval, correspond to an anomaly or not. In real-world scenarios, this could be a stream of sensor readings that need to be filtered and aggregated before being used in training or real-time scoring. For simplicity, this solution uses the same data file when executing scoring jobs.
 
 This reference architecture is designed for workloads that are triggered on a schedule. Processing involves the following steps:
-1.	Send sensor readings for ingestion to Azure Event Hubs.
-2.	Perform stream processing and store the raw data.
-3.	Send the data to a Machine Learning cluster that is ready to start taking work. Each node in the cluster runs a scoring job for a specific sensor. 
-4.	Execute the scoring pipeline, which runs the scoring jobs in parallel using Machine Learning Python scripts. The pipeline is created, published, and scheduled to run on a predefined interval of time.
-5.	Generate predictions and store them in Blob storage for later consumption.
+
+1. Send sensor readings for ingestion to Azure Event Hubs.
+2. Perform stream processing and store the raw data.
+3. Send the data to a Machine Learning cluster that is ready to start taking work. Each node in the cluster runs a scoring job for a specific sensor. 
+4. Execute the scoring pipeline, which runs the scoring jobs in parallel using Machine Learning Python scripts. The pipeline is created, published, and scheduled to run on a predefined interval of time.
+5. Generate predictions and store them in Blob storage for later consumption.
 
 ## Architecture
 
@@ -70,7 +71,6 @@ The most expensive components used in this reference architecture are the comput
 For work that doesn't require immediate processing, configure the automatic scaling formula so the default state (minimum) is a cluster of zero nodes. With this configuration, the cluster starts with zero nodes and only scales up when it detects jobs in the queue. If the batch scoring process happens only a few times a day or less, this setting enables significant cost savings.
 
 Automatic scaling may not be appropriate for batch jobs that happen too close to each other. The time that it takes for a cluster to spin up and spin down also incurs a cost, so if a batch workload begins only a few minutes after the previous job ends, it might be more cost effective to keep the cluster running between jobs. That depends on whether scoring processes are scheduled to run at a high frequency (every hour, for example), or less frequently (once a month, for example).
-
 
 ## Deployment
 

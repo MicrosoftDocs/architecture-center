@@ -703,7 +703,7 @@ Watch out for unexpected response status codes in the 5xx range. These messages 
 
 - Test query strings. If an operation can take optional parameters (such as pagination requests), test the different combinations and order of parameters.
 
-- Verify that asynchronous operations complete successfully. If the web API supports streaming for requests that return large binary objects (such as video or audio), ensure that client requests are not blocked while the data is streamed. If the web API implements polling for long-running data modification operations, verify that that the operations report their status correctly as they proceed.
+- Verify that asynchronous operations complete successfully. If the web API supports streaming for requests that return large binary objects (such as video or audio), ensure that client requests are not blocked while the data is streamed. If the web API implements polling for long-running data modification operations, verify that the operations report their status correctly as they proceed.
 
 You should also create and run performance tests to check that the web API operates satisfactorily under duress. You can build a web performance and load test project by using Visual Studio Ultimate. For more information, see [Run performance tests on an application before a release](https://msdn.microsoft.com/library/dn250793.aspx).
 

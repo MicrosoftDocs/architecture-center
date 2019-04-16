@@ -90,13 +90,13 @@ A deployment for a reference architecture that implements these recommendations 
 
 1. Navigate to the `/dmz/secure-vnet-dmz` folder of the reference architectures GitHub repository.
 
-2. Run the following command:
+1. Run the following command:
 
     ```bash
     azbb -s <subscription_id> -g <resource_group_name> -l <region> -p onprem.json --deploy
     ```
 
-4. Run the following command:
+1. Run the following command:
 
     ```bash
     azbb -s <subscription_id> -g <resource_group_name> -l <region> -p secure-vnet-dmz.json --deploy
