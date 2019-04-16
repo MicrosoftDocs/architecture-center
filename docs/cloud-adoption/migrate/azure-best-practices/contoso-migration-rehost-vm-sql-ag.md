@@ -3,12 +3,10 @@ title: "CAF: Rehost an app by migrating it to Azure VMs and SQL Server Always On
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how Contoso rehosts an on-premises app by migrating it to Azure VMs and SQL Server Always On availability group
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
+author: BrianBlanchardms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
-ms.author: raynew
+ms.author: brblanch
 ---
 
 # Rehost an on-premises app on Azure VMs and SQL Server Always On availability group

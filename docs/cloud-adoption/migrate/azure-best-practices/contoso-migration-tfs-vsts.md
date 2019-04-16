@@ -3,11 +3,11 @@ title: "CAF: Refactor a Team Foundation Server deployment to Azure DevOps Servic
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how Contoso refactors its on-premises TFS deployment by migrating it to Azure DevOps Services in Azure.
 services: site-recovery
-author: rayne-wiselman
+author: BrianBlanchard
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
-ms.author: raynew
+ms.author: brblanch
 
 ---
 

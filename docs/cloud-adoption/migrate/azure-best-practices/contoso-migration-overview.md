@@ -2,12 +2,10 @@
 title: "CAF: Overview of application migration examples for Azure"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Provides an overview of the application migration examples included as part of the Cloud Adoption Framework Migrate section.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
+author: BrianBlanchardms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/11/2018
-ms.author: raynew
+ms.author: brblanch
 
 ---
 # Application migration patterns and examples: Overview

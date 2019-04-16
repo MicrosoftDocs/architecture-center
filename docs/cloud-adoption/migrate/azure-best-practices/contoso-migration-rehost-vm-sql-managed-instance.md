@@ -3,12 +3,10 @@ title: "CAF: Rehost an on-premises app by migrating to Azure VMs and Azure SQL D
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how Contoso rehosts an on-premises app on Azure VMs and by using Azure SQL Database Managed Instance.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
+author: BrianBlanchardms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
-ms.author: raynew
+ms.author: brblanch
 ---
 
 # Rehost an on-premises app on an Azure VM and SQL Database Managed Instance

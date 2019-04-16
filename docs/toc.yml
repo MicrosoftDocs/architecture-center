@@ -856,7 +856,7 @@
           items:
           - name: Business Change Plan
             href: cloud-adoption/migrate/migration-considerations/optimize/business-change-plan.md
-          - name: Business Testing
+          - name: Business testing
             href: cloud-adoption/migrate/migration-considerations/optimize/business-test.md
           - name: Benchmark and optimize assets
             href: cloud-adoption/migrate/migration-considerations/optimize/optimize.md
@@ -881,10 +881,10 @@
     - name: Govern
       href: cloud-adoption/governance/overview.md
       items:
-      - name: Governance Guides
+      - name: Governance guides
         href: cloud-adoption/governance/journeys/overview.md
         items:
-        - name: Azure Governance Guide
+        - name: Small-to-medium enterprise guide
           items:
           - name: Best practices for getting started with cloud governance
             href: cloud-adoption/governance/journeys/small-to-medium-enterprise/overview.md
@@ -902,7 +902,7 @@
             href: cloud-adoption/governance/journeys/small-to-medium-enterprise/cost-management-evolution.md
           - name: Apply this guidance to multicloud scenarios
             href: cloud-adoption/governance/journeys/small-to-medium-enterprise/multi-cloud-evolution.md
-        - name: Expanded scope to address geography and billing complexity
+        - name: Large enterprise guide
           items:
           - name: Best practices for getting started with cloud governance
             href: cloud-adoption/governance/journeys/large-enterprise/overview.md

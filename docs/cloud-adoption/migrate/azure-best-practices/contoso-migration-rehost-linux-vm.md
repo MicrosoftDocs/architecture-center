@@ -3,12 +3,10 @@ title: "CAF: Rehost - Migrate and rehost an on-premises Linux app to Azure VMs"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how Contoso rehosts an on-premises Linux app by migrating to Azure VMs.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
+author: BrianBlanchardms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/4/2019
-ms.author: raynew
+ms.author: brblanch
 
 ---
 

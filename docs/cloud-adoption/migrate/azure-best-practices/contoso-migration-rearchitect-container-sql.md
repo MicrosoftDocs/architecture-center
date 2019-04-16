@@ -3,11 +3,11 @@ title: "CAF: Rearchitect an app in an Azure container and Azure SQL Database"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how Contoso rearchitects an app in Azure Windows containers and Azure SQL Database.
 services: site-recovery
-author: rayne-wiselman
+author: BrianBlanchard
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
-ms.author: raynew
+ms.author: brblanch
 ---
 
 # Rearchitect an on-premises app to an Azure container and Azure SQL Database
