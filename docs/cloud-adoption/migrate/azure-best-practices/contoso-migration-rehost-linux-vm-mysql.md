@@ -2,12 +2,10 @@
 title: "CAF: Rehost a Linux service desk app to Azure and Azure MySQL"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how Contoso rehosts an on-premises Linux app by migrating it to Azure VMs and Azure MySQL.
-author: rayne-wiselman
-manager: carmonm
-ms.service: site-recovery
+author: BrianBlanchardms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/4/2019
-ms.author: raynew
+ms.author: brblanch
 ---
 
 # Rehost an on-premises Linux app to Azure VMs and Azure MySQL

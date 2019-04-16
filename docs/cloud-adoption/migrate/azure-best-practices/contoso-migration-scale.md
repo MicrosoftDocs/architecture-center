@@ -3,11 +3,11 @@ title: "CAF: Contoso - Scale a migration to Azure"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how Contoso handles a scaled migration to Azure.
 services: azure-migrate
-author: rayne-wiselman
+author: BrianBlanchard
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/08/2018
-ms.author: raynew
+ms.author: brblanch
 
 ---
 

@@ -2,12 +2,10 @@
 title: "CAF: Best practices for costing and sizing workloads migrated to Azure"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Get best practices for costing and sizing workloads migrated to Azure.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
+author: BrianBlanchardms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
-ms.author: raynew
+ms.author: brblanch
 ---
 
 # Best practices for costing and sizing workloads migrated to Azure

@@ -2,12 +2,10 @@
 title: "CAF: Best practices for securing and managing workloads migrated to Azure"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: After migrating to Azure, get best practices for operating, managing, and securing your migrated workloads.
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
+author: BrianBlanchardms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
-ms.author: raynew
+ms.author: brblanch
 ---
 
 # Best practices for securing and managing workloads migrated to Azure
