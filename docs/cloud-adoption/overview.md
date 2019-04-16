@@ -19,7 +19,7 @@ CAF provides technical guidance for Microsoft Azure. Recognizing that customers 
 
 ## Product Truths
 
-CAF is currently offered as a Public Preview. The framework will reach general availability (GA) when the aspirational goals above are met. In this preview release of CAF, the primary area of focus is [Cloud Governance](./governance/journeys/overview.md). CAF will be expanded frequently as it moves closer to GA release.
+CAF is currently offered as a Public Preview. The framework will reach general availability (GA) when the aspirational goals above are met. In this preview release of CAF, the primary area of focus is [Cloud Governance](./governance/journeys/overview.md). CAF will be expanded frequently as it moves closer to general availability.
 
 ## Audience
 
