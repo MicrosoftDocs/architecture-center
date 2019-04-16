@@ -110,7 +110,7 @@ The following two journeys outline migration experiences aligned to the narrativ
 
 **Simple migration:** Rapid migration approach with little overhead.
 
-Narrative Summary: This approach consists of fewer than 1,000 VMs. Less than 10 of the applications supported are owned by an application owner who is not a part of IT. The remainder of the applications, VMs, and associated data are owned and supported by members of the Cloud Adoption Team. Members of the cloud adoption team have administrative access to the production environments in the existing datacenter.
+Narrative Summary: This approach consists of fewer than 1,000 VMs. Less than 10 of the applications supported are owned by an application owner who is not a part of IT. The remainder of the applications, VMs, and associated data are owned and supported by members of the Cloud Adoption team. Members of the Cloud Adoption team have administrative access to the production environments in the existing datacenter.
 
 ![Example of Incremental migration evolutions](../../_images/migration/incremental-migration-example.png)
 
@@ -132,7 +132,7 @@ Narrative Summary: This approach consists of fewer than 10,000 VMs. Applications
                 <div class="card">
                     <div class="cardText">
                         <h3>Azure migration guide</h3>
-                        <p>Narrative Summary: This customer's migration consists of fewer than 1,000 VMs. Less than 10 of the applications supported are owned by an application owner who is not a part of IT. The remainder of the applications, VMs, and associated data are owned and supported by members of the Cloud Adoption Team. Members of the cloud adoption team have administrative access to the production environments in the existing datacenter.</p>
+                        <p>Narrative Summary: This customer's migration consists of fewer than 1,000 VMs. Less than 10 of the applications supported are owned by an application owner who is not a part of IT. The remainder of the applications, VMs, and associated data are owned and supported by members of the Cloud Adoption team. Members of the cloud adoption team have administrative access to the production environments in the existing datacenter.</p>
                     </div>
                 </div>
             </div>

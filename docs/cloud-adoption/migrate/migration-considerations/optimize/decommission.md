@@ -1,11 +1,11 @@
 ---
-title: "Decomission Retired Assets"
-description: Decomission Retired Assets
+title: "Decommission retired assets"
+description: Decommission retired assets
 author: BrianBlanchard
 ms.date: 4/4/2019
 ---
 
-# Decomission Retired Assets
+# Decommission retired sssets
 
 After a workload is promoted to production, the assets that previously hosted the production workload are no longer required to support business operations. At that point, the older assets are considered retired. Retired assets can then be decommissioned, reducing operational costs. Decommissioning a resource can be as simple as turning off the power to the asset and disposing of the asset responsibly. Unfortunately, decommissioning resources can sometimes have undesired consequences. The following guidance can aid in properly decommissioning retired resources, with minimal business interruptions.
 
@@ -27,9 +27,7 @@ It's not uncommon for migrations to miss data during replication processes. This
 
 ## Next steps
 
-After retired asssets are decomissioned, the migration is completed. This creates a good opportunity to improve the migration process, and a [retrospective](./retrospective.md) engages the Cloud Adoption Team in a review of the release in an effort to learn and improve.
+After retired assets are decommissioned, the migration is completed. This creates a good opportunity to improve the migration process, and a [retrospective](./retrospective.md) engages the Cloud Adoption team in a review of the release in an effort to learn and improve.
 
 > [!div class="nextstepaction"]
 > [Retrospective](./retrospective.md)
-
- 

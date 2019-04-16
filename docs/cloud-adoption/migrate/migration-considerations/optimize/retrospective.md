@@ -17,7 +17,7 @@ Retrospectives reinforce the principles of a growth mindset: experimentation, te
 
 ## Retrospective structure
 
-A quick search on any search engine will offer many different approaches and tools for running a retrospective. Depending on the maturity of the culture and experience level of the team, these could prove very useful. However, the general structure of a retrospective remains roughly the same. During these meetings, each member of the team is expected to contribute a thought regarding three basic questions:
+A quick search on any search engine will offer many different approaches and tools for running a retrospective. Depending on the maturity of the culture and experience level of the team, these could prove useful. However, the general structure of a retrospective remains roughly the same. During these meetings, each member of the team is expected to contribute a thought regarding three basic questions:
 
 - What went well?
 - What could have been better?

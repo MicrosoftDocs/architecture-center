@@ -17,7 +17,7 @@ This article and checklist assume a *rehost* or *cloud transition* approach to c
 
 ## Governance alignment
 
-The first and most important decision regarding any migration-ready environment is the choice of governance alignment. Has a consensus been achieved regarding alignment of governance with the migration foundation? At minimum, the Cloud Adoption Team should understand whether this migration is landing in a single environment with limited governance, a fully governed environment factory, or some variant in between. For more options and guidance on governance alignment, see the article on [Governance and compliance alignment](../../expanded-scope/governance-or-compliance.md).
+The first and most important decision regarding any migration-ready environment is the choice of governance alignment. Has a consensus been achieved regarding alignment of governance with the migration foundation? At minimum, the Cloud Adoption team should understand whether this migration is landing in a single environment with limited governance, a fully governed environment factory, or some variant in between. For more options and guidance on governance alignment, see the article on [Governance and compliance alignment](../../expanded-scope/governance-or-compliance.md).
 
 ## Cloud readiness implementation
 
@@ -25,10 +25,10 @@ Whether you choose to align with a broader cloud governance strategy or not for 
 
 If you're planning to align your migration with a cloud governance strategy from the start, you'll need to apply the [Five Disciplines of Cloud Governance](../../../governance/governance-disciplines.md) to help inform decisions on policies, toolchains, and enforcement mechanisms that will align your cloud environment with overall corporate requirements. Consult the Cloud Adoption Framework [actionable governance design guides](../../../governance/journeys/overview.md) for examples of how to implement this model using Azure services.
 
-In the event your initial migrations are not closely aligned with a broader cloud governance strategy, the general issues of organization, access, and infrastructure planning still need to be managed. Consult the [Azure readiness guide](../../../ready/azure-readiness-guide/overview.md) for help making these cloud readiness decisions.
+If your initial migrations are not closely aligned with a broader cloud governance strategy, the general issues of organization, access, and infrastructure planning still need to be managed. Consult the [Azure readiness guide](../../../ready/azure-readiness-guide/overview.md) for help with these cloud readiness decisions.
 
 > [!CAUTION]
-> It's highly advised that you develop a governance strategy for anything beyond your initial workload migration.
+> We highly recommend that you develop a governance strategy for anything beyond your initial workload migration.
 
 Regardless of your level of governance alignment, you will need to make decisions related to the following topics.
 

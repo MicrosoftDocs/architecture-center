@@ -38,7 +38,7 @@ The following table can aid in documenting the findings from the steps above:
 
 Around the world, government organizations have begun establishing data sovereignty requirements, like General Data Protection Regulation (GDPR). Compliance requirements of this nature often require localization within a specific region or even within a specific country to protect their citizens. In some cases, data pertaining to customers, employees, or partners must be stored on a cloud platform within the same region as the end user.
 
-Addressing this challenge has been a significant motivation for cloud migrations for companies that operate on a global scale. To maintain compliance requirements, some companies have chosen to deploy duplicate IT assets to cloud providers within the region. In the example table above, Germany would be a good example of this scenario. In this example, there are customer, partners, and employees in Germany, but no existing IT assets. This company may choose to deploy some assets to a datacenter within the GDPR area, potentially even using the German Azure datacenters. An understanding of the data affected by GDPR would help the Cloud Adoption Team understand the best migration approach in this case.
+Addressing this challenge has been a significant motivation for cloud migrations for companies that operate on a global scale. To maintain compliance requirements, some companies have chosen to deploy duplicate IT assets to cloud providers within the region. In the example table above, Germany would be a good example of this scenario. In this example, there are customer, partners, and employees in Germany, but no existing IT assets. This company may choose to deploy some assets to a datacenter within the GDPR area, potentially even using the German Azure datacenters. An understanding of the data affected by GDPR would help the Cloud Adoption team understand the best migration approach in this case.
 
 ### Why is the location of end users relevant?
 
@@ -60,9 +60,9 @@ This approach is driven by quantifiable information. As such, the following appr
 
 ## Suggested prerequisites
 
-It is suggested that the Cloud Adoption Team begin with the migration of a simple workload using the [Azure migration guide](../azure-migration-guide/overview.md), before attempting to address global scale. This will ensure the team is familiar with the general process of cloud migration prior to attempting a more complex migration scenario.
+It is suggested that the Cloud Adoption team begin with the migration of a simple workload using the [Azure migration guide](../azure-migration-guide/overview.md), before attempting to address global scale. This will ensure the team is familiar with the general process of cloud migration prior to attempting a more complex migration scenario.
 
-When scope for a migration includes multiple regions, the following readiness considerations should be evaluated by the Cloud Adoption Team:
+When scope for a migration includes multiple regions, the following readiness considerations should be evaluated by the Cloud Adoption team:
 
 - Data sovereignty might require localization of some assets, but there are a many assets that may not be governed by those compliance constraints. Things like logging, reporting, network routing, identity, and other central IT services may be eligible to be hosted as a shared services across multiple subscriptions or even multiple regions. It is advised that the cloud adoption team evaluate a share service model to those services, as outlined in the [reference architecture for a hub-spoke model with shared services](/azure/architecture/reference-architectures/hybrid-networking/shared-services)
 - When deploying multiple instances of similar environments, an environment factory could create consistency, improve governance, and accelerate deployment. The [large enterprise governance journey](../../governance/journeys/large-enterprise/overview.md) establishes an approach that creates an environment factory which scales across multiple regions.
@@ -98,7 +98,7 @@ When dealing with global asset and user base complexities, there are a few key a
 
 ## Migrate process changes
 
-When migrating an application that must be deployed to multiple regions, there are a few considerations the Cloud Adoption Team must take into account. These considerations consist of Azure Site Recovery (ASR) Vault design, configuration/process server design, network bandwidth designs, and data synchronization.
+When migrating an application that must be deployed to multiple regions, there are a few considerations the Cloud Adoption team must take into account. These considerations consist of Azure Site Recovery (ASR) Vault design, configuration/process server design, network bandwidth designs, and data synchronization.
 
 ### Suggested action during the migrate process
 

@@ -11,7 +11,7 @@ The cloud creates new opportunities for customers to innovate.
 
 ## Coming Soon
 
-This summer, the Cloud Adoption Framework will expand to include guidance regarding modernization and cloud-native approaches to driving innovation across the digital estate and application portfolio.
+In Summer 2019, the Cloud Adoption Framework will expand to include guidance regarding modernization and cloud-native approaches to driving innovation across the digital estate and application portfolio.
 
 ## Application Modernization and Innovation
 

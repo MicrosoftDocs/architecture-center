@@ -13,20 +13,20 @@ Cloud migration is the process of moving existing digital assets into a cloud pl
 
 The guidance in this section of the Cloud Adoption Framework is designed for two purposes:
 
-- Provide actionable migration guides which represent common experiences that customers often encounter. Each of these encapsulate the process and tools needed to be successful in a cloud migration effort. By necessity, the design guidance is specific to Azure. All other guidance in these journeys could be applied as part of a cloud-agnostic or multicloud approach.
+- Provide actionable migration guides that represent common experiences that customers often encounter. Each guide encapsulates the process and tools needed to be successful in a cloud migration effort. By necessity, the design guidance is specific to Azure. All other guidance in these journeys could be applied as part of a cloud-agnostic or multicloud approach.
 - Help readers create personalized migration plans that can meet a variety of business needs, including migration to multiple public clouds, through detailed guidance on the development of processes, role and responsibilities, and change management controls.
 
 This content is intended for the Cloud Adoption team. It is also relevant to cloud architects that need to develop a strong foundation in cloud migration.
 
 ## Audience
 
-The guidance in the Cloud Adoption Framework affects the business, technology, and culture of enterprises. This section significantly affects application owners, change management personnel (such as PMO and agile management personnel) finance and line-of-business leaders, and the Cloud Adoption team. There are various co-dependencies on these personas which will require a facilitative approach by the Cloud Architects using this guidance. Facilitation with these teams may be a one-time effort, but in some cases, it will result in recurring interactions with these other personas.
+The guidance in the Cloud Adoption Framework affects the business, technology, and culture of enterprises. This section significantly affects application owners, change management personnel (such as PMO and agile management personnel) finance and line-of-business leaders, and the Cloud Adoption team. There are various dependencies on these personas that will require facilitation by the Cloud Architects using this guidance. Facilitation with these teams may be a one-time effort, but in some cases, it will result in recurring interactions with these other personas.
 
 The Cloud Architect serves as the thought leader and facilitator to bring these audiences together. The content in this collection of guides is designed to help the Cloud Architect facilitate the right conversation, with the right audience, to drive necessary decisions. Business transformation that is empowered by the cloud is dependent upon the Cloud Architect role to help guide decisions throughout the business and IT.
 
 **Cloud Architect specialization in this section:** Each section of the Cloud Adoption Framework represents a different specialization or variant of the Cloud Architect role. This section is designed for cloud architects with subject matter expertise regarding the existing on-premises environment and how that affects migration options.
 
-**Separation of Duties:** In many enterprises, separation of duties exist to limit access to production systems or segments of the corporate environment. In such a case, the process of migration becomes more complex. In some cases, those roles and responsibilities may require multiple cloud architects to span the entire migration process.
+**Separation of Duties:** In many enterprises, separation of duties exists to limit access to production systems or segments of the corporate environment. In such a case, the process of migration becomes more complex. In some cases, those roles and responsibilities may require multiple cloud architects to span the entire migration process.
 
 **Partnership options** Across each of these processes, teams will be learning new skills and approaches to technical execution. Expanding technical skills amongst the existing team members is one option during execution. Hiring additional staff another. Often times, partnering with third parties can provide significant acceleration and risk reductions. [Partnership options](./migration-considerations/assess/partnership-options.md) can help guide decisions to choose the best partnership option.
 

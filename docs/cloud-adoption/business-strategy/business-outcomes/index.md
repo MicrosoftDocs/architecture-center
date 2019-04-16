@@ -55,4 +55,4 @@ Read more about [customer engagement outcomes](engagement-outcomes.md)
 Performance and reliability are assumed. When either falters, reputation damage can be painful and lasting.
 Read more about [performance outcomes](performance-outcomes.md)
 
-Each of the business outcomes listed in the categories above can help facilitate a business outcome conversation with business and technical team members. However, conversations should not be constrained to these generic samples. Understanding the unique needs of the business and building outcomes to match will maximize the value of an cloud transformation.
+Each of the business outcomes listed in the categories above can help facilitate a business outcome conversation with business and technical team members. However, conversations should not be constrained to these generic samples. Understanding the unique needs of the business and building outcomes to match will maximize the value of a cloud transformation.

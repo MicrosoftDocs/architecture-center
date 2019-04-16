@@ -52,7 +52,7 @@ To help you understand each scope expansion scenario, the following list will br
 
 - **Change management and approval processes:** When your organization's culture is complex, highly matrixed, or siloed the processes related to change management and approvals becomes challenging. Guidance on managing this complexity can be found in assess, migrate, and optimize processes.
 - **Executive readiness:** Proper levels of executive support and leadership are critical to the success of a migration effort. If the executive team is not ready to engage, then support is unlikely to follow. This complexity is addressed during the prerequisite and assess processes.
-- **Skills readiness:** When the Cloud Adoption Team or other supporting teams are not ready to execute, it can quickly inject complexity throughout the migration effort. This challenge is addressed during each of the migration processes in a specific page on skills readiness.
+- **Skills readiness:** When the Cloud Adoption team or other supporting teams are not ready to execute, it can quickly inject complexity throughout the migration effort. This challenge is addressed during each of the migration processes in a specific page on skills readiness.
 - **Aligning support (Partner, service, and support options):** Within each of the the processes outlined, there are ways in which a partner, services from the cloud vendor, and support from the cloud vendor can aid in execution. In each of the processes sections a page on support alignment will discuss the options further.
 
 ### Technical Strategy-driven scope changes

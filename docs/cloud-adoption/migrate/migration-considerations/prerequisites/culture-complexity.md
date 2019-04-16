@@ -7,7 +7,7 @@ ms.date: 4/4/2019
 
 # Preparing for cultural complexity - aligning roles and responsibilities
 
-An understanding of the culture required to operate the existing datacenters is important to the success of any migration. In some organizations, datacenter management is contained within centralized IT operations teams. In these centralized teams, roles and responsibilities tend to be well defined and understood throughout the team. For larger enterprises, especially those bound by third-party compliance requirements, the culture tends to be more nuanced and complex. Cultural complexity can lead to roadblocks that are difficult to understand and time consuming to overcome.
+An understanding of the culture required to operate the existing datacenters is important to the success of any migration. In some organizations, datacenter management is contained within centralized IT operations teams. In these centralized teams, roles and responsibilities tend to be well defined and well understood throughout the team. For larger enterprises, especially those bound by third-party compliance requirements, the culture tends to be more nuanced and complex. Cultural complexity can lead to roadblocks that are difficult to understand and time consuming to overcome.
 
 In either scenario, it’s wise to invest in the documentation of roles and responsibilities required to complete a migration. This article outlines some of the roles and responsibilities seen in a datacenter migration, to serve as a template for documentation that can drive clarity throughout execution.
 
@@ -20,12 +20,12 @@ In any migration, there are a few key functions that are best executed by the bu
 | Assess | Business goals | Define the desired business outcomes of the migration effort. |
 | Assess | Priorities | Ensure alignment with changing business priorities and market conditions. |
 | Assess | Justification | Validate assumptions that drive evolving business justifications. |
-| Assess | Risk | Help the Cloud Adoption Team understand the impact of tangible business risks. |
+| Assess | Risk | Help the Cloud Adoption team understand the impact of tangible business risks. |
 | Assess | Approve | Review and approve the business impact of proposed architecture changes. |
 | Optimize | Change plan | Define a plan for consumption of change within the business, including periods of low activities and change freezes. |
 | Optimize | Testing | Align power users capable of validating performance and functionality. |
-| Secure and manage | Interruption impact | Aid the Cloud Adoption Team in quantifying the impact of a business process interruption. |
-| Secure and manage | Service-level agreement (SLA) validation | Aid the Cloud Adoption Team in defining service level agreements and acceptable tolerances for business outages. |
+| Secure and manage | Interruption impact | Aid the Cloud Adoption team in quantifying the impact of a business process interruption. |
+| Secure and manage | Service-level agreement (SLA) validation | Aid the Cloud Adoption team in defining service level agreements and acceptable tolerances for business outages. |
 
 Ultimately, the Cloud Adoption Team is accountable for each of these activities. However, establishing responsibilities and a regular cadence with the business for the completion of these activities on an established rhythm can improve stakeholder alignment and cohesiveness with the business.
 
@@ -52,7 +52,7 @@ Each process within the discussion of the Cloud Adoption Framework migration pri
 
 ## Next steps
 
-When the team has a general understanding of roles and responsibilities, it’s time to begin preparing the technical details of the migration. Understanding [technical complexity and change management](./technical-complexity.md) can help prepare the Cloud Adoption Team for the technical complexity of migration by aligning to an incremental change management process.
+When the team has a general understanding of roles and responsibilities, it’s time to begin preparing the technical details of the migration. Understanding [technical complexity and change management](./technical-complexity.md) can help prepare the Cloud Adoption team for the technical complexity of migration by aligning to an incremental change management process.
 
 > [!div class="nextstepaction"]
 > [Technical complexity and change management](./technical-complexity.md)

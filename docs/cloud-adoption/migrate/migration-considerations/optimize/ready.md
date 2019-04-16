@@ -29,11 +29,11 @@ Transformation happens when business users or customers take advantage of a tech
 - **Final performance check.** Ensure that performance testing has been completed and approved by end users. Execute any automated performance testing.
 
 ## Final business validation
+
 After the business change plan and technical readiness have been validated, the following final steps can complete the business validation:
 
 - **Cost validation (plan versus actual).** Testing is likely to produce changes in sizing and architecture. Ensure that actual deployment pricing still aligns with the original plan.
 - **Communicate and execute cutover plan.** Prior to cutover, communicate the cutover and execute accordingly.
-
 
 ## Next steps
 

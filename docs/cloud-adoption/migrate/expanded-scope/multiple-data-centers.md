@@ -19,7 +19,7 @@ Prior to beginning the migration, it is advised that the reader create Epics wit
 
 Within each epic, the workloads to be assessed and migrated would be managed as features. Each asset within that workload would be managed as a user story. The work required to assess, migrate, optimize, promote, secure, and manage each asset would be represented as tasks for each asset.
 
-Sprints or iterations would be then consist of a series of tasks required to migrate the assets/user stories committed to by the Cloud Adoption Team. Releases would then consist of one or more workloads/features to be promoted to production.
+Sprints or iterations would be then consist of a series of tasks required to migrate the assets/user stories committed to by the Cloud Adoption team. Releases would then consist of one or more workloads/features to be promoted to production.
 
 ## Assess process changes
 
@@ -53,7 +53,7 @@ Prior to promotion, it is important to provide additional levels of testing duri
 
 ## Secure and manage process changes
 
-Secure an manage processes should be unchanged by this scope expansion
+Secure and manage processes should be unchanged by this scope expansion.
 
 ## Next steps
 

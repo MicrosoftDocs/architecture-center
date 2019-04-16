@@ -23,7 +23,7 @@ Each of the following processes should be executed, documented, and validated pr
 - **[Stage](../migrate/stage.md):** The replicated assets have been restored in a staged instance of the cloud environment.
 - **[Business testing](./business-test.md):** The workload has been fully tested and validated by business users.
 - **[Business change plan](./business-change-plan.md):** The business has shared a plan for the changes that will be made in accordance with the production promotion; this should include a user adoption plan, changes to business processes, users that require training, and timelines for various activities.
-- **[Ready](./ready.md):** Generally, a series of technical changes need to be made in advance of promotion.
+- **[Ready](./ready.md):** Generally, a series of technical changes must be made before promotion.
 
 ## Best practices to execute prior to promotion
 
@@ -43,7 +43,7 @@ Workloads will require varying levels of detailed review and promotion processes
 
 ## Next steps
 
-Promotion of an workload signals the completion of a release. However, in parallel to migration, retired assets need to be [decomissioned](./decomission.md) taking them out of service.
+Promotion of a workload signals the completion of a release. However, in parallel to migration, retired assets need to be [decommissioned](./decommission.md) taking them out of service.
 
 > [!div class="nextstepaction"]
-> [Decomission retired assets](./decomission.md)
+> [Decommission retired assets](./decommission.md)
