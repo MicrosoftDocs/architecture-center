@@ -80,7 +80,6 @@
 </li>
 </ul>
 
-
 ## Application Scenarios
 
 <ul  class="panelContent cardsC">
@@ -257,7 +256,6 @@
 </li>
 </ul>
 
-
 ## Data Scenarios
 
 <ul  class="panelContent cardsC">
@@ -376,7 +374,6 @@
     </a>
 </li>
 </ul>
-
 
 ## Infrastructure Scenarios
 
@@ -534,4 +531,3 @@
     </a>
 </li>
 </ul>
-

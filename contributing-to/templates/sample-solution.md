@@ -71,7 +71,6 @@ Use this section to talk about alternative Azure services or architectures that 
 
 ## Deploy this scenario
 
-
 > (Optional if it doesn't make sense)
 >
 > Is there an example deployment that can show me this in action?  What would I need to change to run this in production?
@@ -97,7 +96,6 @@ Use this section to talk about alternative Azure services or architectures that 
 > Are there any relevant case studies or customers doing something similar?
 > Is there any other documentation that might be useful?  
 > Are there product documents that go into more detail on specific technologies not already linked
-
 
 <!-- links -->
 [calculator]: https://azure.com/e/

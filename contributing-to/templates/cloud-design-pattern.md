@@ -25,16 +25,13 @@ _This section provides guidance on completing the metadata section at the top of
 - _**pnp.series.title:** Cloud Design Patterns is always the correct patterns and practices series title for this template. Do not change._
 - _**pnp.pattern.categories:** Review the bracketed list that follows and delete all categories that don't apply to your article: [availability, data-management, design-implementation, messaging, management-monitoring, performance-scalability, resiliency, security]. Copy and paste the final bracketed list into the metadata section._
 
-
 ## Context and problem
 
 _Provide a brief background on the specific pattern and the problem that the pattern addresses._
 
-
 ## Solution
 
 _Describe the solution for the problem identified in the **Context and problem** section. If there are multiple solutions, put them in order of complexity and provide instructions on how the reader can choose the best solution for their given problem. Best practices are to provide a step-by-step approach to implement the solution, and to include screenshots to help guide the reader._
-
 
 ## Issues and considerations
 
@@ -45,7 +42,6 @@ Consider the following points when deciding how to implement this pattern:
 - Item 1
 - Item 2
 - Item 3
-
 
 ## When to use this pattern
 
@@ -62,7 +58,6 @@ This pattern might not be suitable:
 - Item 1
 - Item 2
 - Item 3
-
 
 ## Example
 

@@ -199,4 +199,3 @@ It is not possible to modify the name of a storage account or container after it
 > [!TIP]
 > We recommend that you establish a naming convention for all storage accounts and types
 > before embarking on the development of a new service or application.
-
