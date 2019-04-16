@@ -1,6 +1,6 @@
 ---
 title: "CAF: Why are we moving to the cloud?"
-description: Explanation of the concept of Cloud Accounting
+description: Cloud accounting and moving to the cloud
 author: BrianBlanchard
 ms.date: 4/4/2019
 ---
@@ -14,7 +14,7 @@ If the answer is "Our board (or CIO, or C-suite) told us to move to the cloud", 
 
 In this article, we will discuss a few motivations behind cloud migration that could produce more significant business outcomes. These options are designed to help facilitate a conversation regarding motivations and ultimately business outcomes.
 
-## Common Motivations for Cloud Transformation
+## Common motivations for cloud transformation
 
 The following is a list of common motivations for cloud adoption
 

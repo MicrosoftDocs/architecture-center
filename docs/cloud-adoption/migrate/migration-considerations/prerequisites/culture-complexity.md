@@ -27,7 +27,7 @@ In any migration, there are a few key functions that are best executed by the bu
 | Secure and manage | Interruption impact | Aid the Cloud Adoption team in quantifying the impact of a business process interruption. |
 | Secure and manage | Service-level agreement (SLA) validation | Aid the Cloud Adoption team in defining service level agreements and acceptable tolerances for business outages. |
 
-Ultimately, the Cloud Adoption Team is accountable for each of these activities. However, establishing responsibilities and a regular cadence with the business for the completion of these activities on an established rhythm can improve stakeholder alignment and cohesiveness with the business.
+Ultimately, the Cloud Adoption team is accountable for each of these activities. However, establishing responsibilities and a regular cadence with the business for the completion of these activities on an established rhythm can improve stakeholder alignment and cohesiveness with the business.
 
 ## Common roles and responsibilities
 

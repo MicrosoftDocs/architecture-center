@@ -9,7 +9,7 @@ ms.date: 4/4/2019
 
 # CAF: What is cloud accounting?
 
-As described in [Financial Models](financial-models.md), the cloud changes how IT accounts for costs. Various IT accounting models are much easier to support based on the way the Cloud allocates costs. As a result, it is important to understand how cloud costs should be accounted for prior to embarking on a cloud transformation journey. This article will outline the most common Cloud Accounting models for IT.
+As described in [Financial Models](financial-models.md), the cloud changes how IT accounts for costs. Various IT accounting models are much easier to support based on the way the Cloud allocates costs. As a result, it is important to understand how cloud costs should be accounted for prior to embarking on a cloud transformation journey. This article will outline the most common cloud accounting models for IT.
 
 ## Traditional IT Accounting (Cost Center Model)
 
@@ -37,7 +37,7 @@ However, this model should be entered into lightly. The following are a few cons
 - Loss of control is a common consequence. In highly political environments, chargeback can result in loss of control and staff being reallocated to the business. This could create significant inefficiencies and reduce IT's ability to consistently meet SLAs or project requirements.
 - Difficulty accounting for shared services is another common consequence. If the organization has grown through acquisition and is carrying technical debt as a result, there is likely a high percentage of shared services that have to be maintained to keep all of the systems working together effectively.
 
-Cloud Transformations include solutions to these and other consequences associated with a chargeback model. However, each of those solutions includes implementation and operational expenses. The CIO and CFO should carefully weigh the pros and cons of a chargeback model before considering this model.
+Cloud transformations include solutions to these and other consequences associated with a chargeback model. However, each of those solutions includes implementation and operational expenses. The CIO and CFO should carefully weigh the pros and cons of a chargeback model before considering this model.
 
 ## Show Back or Awareness Back
 

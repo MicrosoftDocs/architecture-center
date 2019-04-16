@@ -9,7 +9,7 @@ ms.date: 4/4/2019
 
 Microsoft has defined a cloud adoption framework, to help customers with a simplified cloud adoption journey. The Cloud Adoption Framework is designed to provide comprehensive guidance for transitioning legacy application workloads using modern, innovative, cloud-based technologies. This framework contains detailed information to cover an end-to-end cloud adoption journey, which starts with targeted business outcomes, aligning cloud readiness and assessments to clearly defined business objectives. Those outcomes are then realized through a defined path for cloud adoption. With migration-based adoption, that defined path focuses largely on the completion of a migration from on-premises to the cloud. Sometimes this journey includes modernization of workloads to increase returns from the migration effort.
 
-This framework is designed to speak most directly to Cloud Architects and the Cloud Strategy Team who lead cloud adoption efforts. However, many of the topics in this framework will be relevant to additional roles across the business and IT. It is assumed that Cloud Architects will serve as facilitators engaging each of the relevant roles. This executive summary is designed to prepare those various roles prior to those facilitated conversations.
+This framework is designed to speak most directly to cloud architects and the Cloud Strategy team who lead cloud adoption efforts. However, many of the topics in this framework will be relevant to additional roles across the business and IT. It is assumed that cloud architects will serve as facilitators engaging each of the relevant roles. This executive summary is designed to prepare those various roles prior to those facilitated conversations.
 
 > [!NOTE]
 > This guidance is currently in a public preview state. Terms, approaches, and guidance are being thoroughly tested with customers, partners, and Microsoft teams during this preview. As such the TOC and guidance my change slightly.
@@ -80,7 +80,7 @@ The effort to realize the desired business outcomes may trigger slight changes t
 - The IT team is likely to adopt new skills to support workloads in the cloud
 - Execution of a cloud migration encourages iterative or agile approaches
 - Inclusion of cloud governance also tends to inspire DevOps approaches
-- Creation of a Cloud Strategy Team can lead to tighter integration between business and IT leaders
+- Creation of a Cloud Strategy team can lead to tighter integration between business and IT leaders
 - Collectively, these changes tend to lead to business and IT agility
 
 Cultural change is not a goal of cloud migration or the Cloud Adoption Framework, but it is a commonly experienced outcome.

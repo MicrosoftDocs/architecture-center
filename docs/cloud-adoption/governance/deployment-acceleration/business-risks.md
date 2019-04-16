@@ -33,7 +33,7 @@ The Deployment Acceleration discipline attempts to address the following busines
 
 ## Next steps
 
-Using the [Cloud Management Template](./template.md), document business risks that are likely to be introduced by the current cloud adoption plan.
+Using the [Cloud Management template](./template.md), document business risks that are likely to be introduced by the current cloud adoption plan.
 
 Once an understanding of realistic business risks is established, the next step is to document the business's tolerance for risk and the indicators and key metrics to monitor that tolerance.
 

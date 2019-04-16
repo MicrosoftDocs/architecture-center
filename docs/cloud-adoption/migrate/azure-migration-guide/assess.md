@@ -164,6 +164,6 @@ During migration, there are a number of factors that will affect decisions and e
 
 The following resources provide related information:
 
-- [CAF: Estimate cloud costs](../migration-considerations/assess/estimate)
+- [CAF: Estimate cloud costs](../migration-considerations/assess/estimate.md)
 
 ::: zone-end

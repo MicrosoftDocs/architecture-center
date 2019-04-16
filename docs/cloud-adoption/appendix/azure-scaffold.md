@@ -191,9 +191,9 @@ The "Secure DevOps Kit for Azure" (AzSK) is a collection of scripts, tools, exte
 - Secure the subscription
 - Enable secure development
 - Integrate security into CICD
-- Continuous Assurance
-- Alerting and Monitoring
-- Cloud Risk Governance
+- Continuous assurance
+- Alerting and monitoring
+- Cloud risk governance
 
 ![Azure DevOps Toolkit](_images/Secure_DevOps_Kit_Azure.png)
 

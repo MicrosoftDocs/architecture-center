@@ -36,7 +36,7 @@ Organizational readiness for the approval of technical change is among the most 
 
 ### ITIL Change Advisory Board challenges
 
-Every change management approach has its own set of controls and approval processes. Migration is a series of continuous changes that start with a high degree of ambiguity and develop additional clarity through the course of execution. As such, migration is best governed by agile-based change management approaches, with the Cloud Strategy Team serving as a product owner.
+Every change management approach has its own set of controls and approval processes. Migration is a series of continuous changes that start with a high degree of ambiguity and develop additional clarity through the course of execution. As such, migration is best governed by agile-based change management approaches, with the Cloud Strategy team serving as a product owner.
 
 However, the scale and frequency of change during a cloud migration doesn't fit well with the nature of ITIL processes. The requirements of a CAB approval can actually risk the success of a migration, slowing or stopping the effort. Further, in the early stages of migration, ambiguity is high and subject matter expertise tends to be low. For the first several workload migrations or releases, the Cloud Adoption team is often in a learning mode. As such, it could be difficult for the team to provide the types of data needed to pass a CAB approval.
 
@@ -50,7 +50,7 @@ The article on [digital estate rationalization](../../../digital-estate/rational
 
 ### Clarify expectations and roles of approvers
 
-Before the first workload is assessed, the Cloud Strategy Team should document and communicate the expectations of anyone involved in the approval of change. This simple activity can avoid costly delays when the Cloud Adoption team is fully engaged.
+Before the first workload is assessed, the Cloud Strategy team should document and communicate the expectations of anyone involved in the approval of change. This simple activity can avoid costly delays when the Cloud Adoption team is fully engaged.
 
 ### Seek approval early
 

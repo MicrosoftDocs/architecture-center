@@ -53,7 +53,8 @@ To create an additional subscriptions,
 
 ### Create resource group
 
-To create a resource group, 
+To create a resource group:
+
 1. Go to [Resource Groups](https://portal.azure.com/#create/Microsoft.ResourceGroup).
 1. Select **Add**.
 1. Type **resource group name**.
@@ -64,7 +65,7 @@ To create a resource group,
 
 To learn more, see:
 
-- [Understanding resource access management in Azure](/azure/architecture/cloud-adoption-guide/adoption-intro/azure-resource-access)
+- [Understanding resource access management in Azure](../../governance/resource-consistency/azure-resource-access.md)
 - [Organize your resources with Azure Management Groups](/azure/azure-resource-manager/management-groups-overview)
 - [Subscription service limits](/azure/azure-subscription-service-limits)
 
@@ -110,7 +111,7 @@ To create a resource group,
 
 Well-designed naming standards allow you to identify resources in the portal, on a bill, and within scripts. Most likely, you already have naming standards for your on-premises infrastructure. When adding Azure to your environment, you should extend those naming standards to your Azure resources. Naming standard facilitate more efficient management of the environment at all levels. You can use Azure Policy as a tool to enforce naming standards across your entire Azure environment.
 
-The [](/azure/architecture/best-practices/naming-conventions) guidance provides general recommendations on naming conventions as well as discussions of naming limitations and platform rules. The discussion extends beyond the generic guidance with more detailed recommendations aimed specifically at supporting enterprise cloud adoption efforts in the [CAF: Recommended naming and tagging conventions](../ready/considerations/naming-and-tagging).
+The [](/azure/architecture/best-practices/naming-conventions) guidance provides general recommendations on naming conventions as well as discussions of naming limitations and platform rules. The discussion extends beyond the generic guidance with more detailed recommendations aimed specifically at supporting enterprise cloud adoption efforts in the [CAF: Recommended naming and tagging conventions](../../ready/considerations/naming-and-tagging.md).
 
 When constructing your naming convention, you need to identify the key pieces of information that you want to reflect in a resource name. Different information will be relevant for different resource types, but the following list provides examples of information that are useful when constructing resource names.
 
@@ -172,7 +173,7 @@ The following section provides examples of naming schemes for common Azure resou
 | Function App   | Global | azfun-\<App Name\>-\<Environment\>-\<\#\#\#\>.[{azurewebsites.net}] | <ul><li>azfun-navigator-prod-001.azurewebsites.net </li><li>azfun-accountlookup-dev-001.azurewebsites.net</li></ul> |
 | Cloud Services | Global | azcs-\<App Name\>-\<Environment\>-\<\#\#\#\>.[{cloudapp.net}]       | <ul><li>azcs-navigator-prod-001.azurewebsites.net </li><li>azcs-accountlookup-dev-001.azurewebsites.net</li></ul>   |
 
-Additional sample naming conventions can be found in [Azure Architecture Center's naming conventions for Azure resources](/azure/architecture/cloud-adoption/ready/considerations/naming-and-tagging#sample-naming-convention)
+Additional sample naming conventions can be found in [Azure Architecture Center's naming conventions for Azure resources](../../ready/considerations/naming-and-tagging.md#sample-naming-convention)
 
 In general, avoid having any special characters (`-` or `_`) as the first or last character in any name. These characters cause most validation rules to fail.
 
@@ -196,7 +197,7 @@ You can also use tags for many other things. Common uses include:
 
 Each resource or resource group can only have a maximum of 15 tag name/value pairs. But this limitation only applies to tags directly applied to the resource group or resource.
 
-For further information on tagging refer to [Azure Architecture Center's naming conventions for Azure resources](/azure/architecture/cloud-adoption/ready/considerations/naming-and-tagging#metadata-tags)
+For further information on tagging refer to [Azure Architecture Center's naming conventions for Azure resources](../../ready/considerations/naming-and-tagging.md#metadata-tags)
 
 ::: zone target="docs"
 

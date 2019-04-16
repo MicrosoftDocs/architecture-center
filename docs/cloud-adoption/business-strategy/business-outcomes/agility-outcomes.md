@@ -7,7 +7,7 @@ ms.date: 4/4/2019
 
 # CAF: Examples of agility outcomes
 
-As discussed in the [business outcomes overview](.\index.md), there are several potential business outcomes that can serve as the foundation for any Transformation Journey conversation with the business. In this article we will focus on the timeliest business measures: business agility. Understanding the company's market position and competitive landscape will help to better articulate the business outcomes that are the target of a business's transformation journey.
+As discussed in the [business outcomes overview](./index.md), there are several potential business outcomes that can serve as the foundation for any Transformation Journey conversation with the business. In this article we will focus on the timeliest business measures: business agility. Understanding the company's market position and competitive landscape will help to better articulate the business outcomes that are the target of a business's transformation journey.
 
 Traditionally, CIOs and IT teams have been seen as a source of stability in core mission-critical processes. This is still the case. Few businesses can function well when their IT platform is unstable. However, in today's business world much more is expected. IT can expand beyond a simple cost center by partnering with the business to provide market advantages. Many CIOs and executives assume that stability is simply a baseline for IT. For these leaders Business Agility is the measure of IT's contribution to the business.
 

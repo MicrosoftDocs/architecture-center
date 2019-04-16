@@ -24,7 +24,7 @@ Before beginning any cloud migration, review the [Plan](../../../business-strate
 
 Prerequisites are completed when the following are true:
 
-- **Business readiness.** The Cloud Strategy Team has defined and prioritized a high-level migration backlog representing the portion of the digital estate to be migrated in the next two or three releases. The Cloud Strategy team and Cloud Adoption team have agreed to an initial strategy for managing change.
+- **Business readiness.** The Cloud Strategy team has defined and prioritized a high-level migration backlog representing the portion of the digital estate to be migrated in the next two or three releases. The Cloud Strategy team and Cloud Adoption team have agreed to an initial strategy for managing change.
 - **Culture readiness.** The roles, responsibilities, and expectations of the Cloud Adoption team, Cloud Strategy team, and affected users have been agreed upon regarding the workloads to be migrated in the next two or three releases.
 - **Technical readiness.** The landing zone (or allocated hosting space in the cloud) that will receive the migrated assets meets minimum requirements to host the first migrated workload.
 

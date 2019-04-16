@@ -60,8 +60,8 @@ But, keep in mind that correctly configuring, securing, and maintaining VMs requ
 
 ## Learn More
 
-- [CAF: Migration Theory](/azure/architecture/cloud-adoption/migrate/theory/prerequisites)
-- [CAF: 5 Rs of Rationalization](/azure/architecture/cloud-adoption/digital-estate/5-rs-of-rationalization)
+- [Cloud Adoption Framework migration considerations](../migration-considerations/prerequisites/index.md)
+- [The Five Rs of Rationalization](../../digital-estate/5-rs-of-rationalization)
 
 # [Planning Checklist](#tab/Checklist)
 

@@ -45,7 +45,7 @@ To help you understand each scope expansion scenario, the following list will br
 
 ### Business-driven scope changes
 
-- **Balancing the cloud adoption portfolio:** The Cloud Strategy Team is interested in investing more heavily in migration (rehosting existing workloads and applications with a minimum of modifications) or innovation (refactoring or rebuilding those workloads and applications using modern cloud technology). Often, a balance between the two priorities is the key to success. In this guide, the topic of balancing the cloud adoption portfolio is a common one, addressed in each of the migrate processes.
+- **Balancing the cloud adoption portfolio:** The Cloud Strategy team is interested in investing more heavily in migration (rehosting existing workloads and applications with a minimum of modifications) or innovation (refactoring or rebuilding those workloads and applications using modern cloud technology). Often, a balance between the two priorities is the key to success. In this guide, the topic of balancing the cloud adoption portfolio is a common one, addressed in each of the migrate processes.
 - **Support global markets:** The business operates in multiple geographic regions with disparate data sovereignty requirements. To meet those requirements, additional considerations should be factored into the prerequisite review and distribution of assets during migration.
 
 ### Culture-driven scope changes

@@ -46,7 +46,7 @@ The complete rationalization of a large digital estate is prone to risk and can 
 
 Very few organizations invest the time, energy, and expense to maintain an accurate, real-time inventory of the full digital estate. Loss, theft, refresh cycles, and employee on-boarding often justify detailed asset tracking of end-user devices. However, the return on investment (ROI) of maintaining an accurate server and application inventory in a traditional, on-premises datacenter is often low. Most IT organizations have other more pressing issues to address than tracking the usage of fixed assets in a datacenter.
 
-In a Cloud Transformation, inventory directly correlates to operating costs. Accurate inventory data is required for proper planning. Unfortunately, current environmental scanning options can delay decisions by weeks or months, to scan and catalog the full inventory. Fortunately, there are a few tricks to accelerating data collection.
+In a cloud transformation, inventory directly correlates to operating costs. Accurate inventory data is required for proper planning. Unfortunately, current environmental scanning options can delay decisions by weeks or months, to scan and catalog the full inventory. Fortunately, there are a few tricks to accelerating data collection.
 
 Agent-based scanning is the most frequently cited delay. The robust data required for a traditional rationalization often depends on data that can only be collected with an agent running on each asset. This dependency on agents often slows progress, as it can require feedback from security, operations, and administration functions.
 

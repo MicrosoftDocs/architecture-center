@@ -7,7 +7,7 @@ ms.date: 4/4/2019
 
 # Assess assets prior to migration
 
-Many of your existing workloads will be ideal candidates for cloud migration, but not every asset is compatible with cloud platforms, and not all workloads will benefit from hosting in the cloud. [Digital estate planning](../../../digital-estate/index.md) allows you to generate an overall [migration backlog](../prerequisites/technical-complexity.md#migration-backlog-aligning-business-priorities-and-timing) of potential workloads to migrate. However, this planning effort is high-level. It relies on assumptions made by the Cloud Strategy Team and does not dig deeply into technical considerations.
+Many of your existing workloads will be ideal candidates for cloud migration, but not every asset is compatible with cloud platforms, and not all workloads will benefit from hosting in the cloud. [Digital estate planning](../../../digital-estate/index.md) allows you to generate an overall [migration backlog](../prerequisites/technical-complexity.md#migration-backlog-aligning-business-priorities-and-timing) of potential workloads to migrate. However, this planning effort is high-level. It relies on assumptions made by the Cloud Strategy team and does not dig deeply into technical considerations.
 
 As a result, before migrating a workload to the cloud it's critical to assess the individual assets associated with that workload for their migration suitability. During this assessment, your Cloud Adoption team should evaluate technical compatibility, required architecture, performance/sizing expectations, and dependencies to ensure that the migrated workload can be deployed to the cloud effectively.
 
@@ -26,14 +26,14 @@ This process is complete when the following are known about a single migration c
 
 ## Accountability during assessment
 
-The Cloud Adoption team is accountable for the entire assessment process. However, members of the Cloud Strategy Team has a few responsibilities, as listed in the following section.
+The Cloud Adoption team is accountable for the entire assessment process. However, members of the Cloud Strategy team has a few responsibilities, as listed in the following section.
 
 ## Responsibilities during assessment
 
 In addition to the high-level accountability, there are a number of actions that an individual or group needs to be directly responsible for. The following are a few activities that require assignments to responsible parties:
 
 - **Business priority.** The team understands the purpose for migrating this workload, including any intended impact to the business
-  - A member of the Cloud Strategy Team should carry final responsibility for this activity, under the direction of the Cloud Adoption team.
+  - A member of the Cloud Strategy team should carry final responsibility for this activity, under the direction of the Cloud Adoption team.
 - **Stakeholder alignment.** The team aligns expectations and priorities with internal stakeholders, identifying success criteria for the migration. What does success look like post-migration?
 - **Cost.** The cost of the target architecture has been estimated, and the overall budget has been adjusted.
 - **Migration support.** The team has decided how the technical work of the migration will be completed, including decisions regarding partner or Microsoft support.

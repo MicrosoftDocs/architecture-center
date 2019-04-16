@@ -85,14 +85,14 @@ After considering the opportunities unlocked by the cloud, work with the busines
 
 Calculate any changes to costs that will come from the proposed migration. See [Financial Models](financial-models.md) for details of the different types of cost deltas. Cloud providers often provide tools for cost delta calculations. An example of a cost delta calculator is the [Azure Total Cost of Ownership (TCO) Calculator](https://azure.com/tco).
 
-Other examples of costs that may be reduced by a Cloud Migration:
+Other examples of costs that may be reduced by a cloud migration:
 
-- Data Center termination or reduction (Environmental costs)
+- Datacenter termination or reduction (environmental costs)
 - Reduction in power consumed (Environmental costs)
-- Rack Termination (Physical asset recovery)
-- Prevent a hardware refresh (Cost Avoidance)
-- Avoid a software renewal (Operational Cost Reduction or Cost Avoidance)
-- Vendor consolidation (Operational Cost Reduction and potential Soft Cost Reduction)
+- Rack termination (physical asset recovery)
+- Prevent a hardware refresh (cost avoidance)
+- Avoid a software renewal (operational cost reduction or cost avoidance)
+- Vendor consolidation (operational cost reduction and potential soft cost reduction)
 
 ## When ROI results are surprising
 
@@ -100,7 +100,7 @@ If the ROI for a cloud migration isn't in line with expectations, it may be valu
 
 However, it's important to understand that a cost savings outcome is not always possible. There are applications that cost more to operate in the cloud than on-premises. These applications can significantly skew results in an analysis.
 
-When the ROI is below 20%, consider a [Digital Estate Planning](../digital-estate/overview.md) exercise, with specific attention to [rationalization](../digital-estate/rationalize.md). During quantitative analysis, perform a review of each application to find workloads that skew the results. It could be wise to remove those workloads from the plan. If usage data is available, consider reducing the size of VMs to match usage.
+When the ROI is below 20%, consider a [digital estate planning](../digital-estate/overview.md) exercise, with specific attention to [rationalization](../digital-estate/rationalize.md). During quantitative analysis, perform a review of each application to find workloads that skew the results. It could be wise to remove those workloads from the plan. If usage data is available, consider reducing the size of VMs to match usage.
 
 If the ROI is still misaligned, seek help from your Microsoft sales representative or [engage an experienced partner](https://azure.microsoft.com/migration/support).
 
