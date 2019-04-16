@@ -48,7 +48,7 @@ The changes to current and future state expose new risks that require new policy
 
 This business risk can be expanded into a few technical risks:
 
-- Mission-critical applicationss or protected data might be deployed unintentionally.
+- Mission-critical applications or protected data might be deployed unintentionally.
 - Protected data might be exposed during storage due to poor encryption decisions.
 - Unauthorized users might access protected data.
 - External intrusion might result in access to protected data.
