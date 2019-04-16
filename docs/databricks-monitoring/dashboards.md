@@ -36,7 +36,7 @@ To deploy the Azure Log Analytics workspace, follow these steps:
     az group deployment create --resource-group <resource-group-name> --template-file logAnalyticsDeploy.json --parameters location='East US' serviceTier='Standalone'
     ```
 
-This template creates the workspace and also creates a set of predefined queries that are used by by dashboard.
+This template creates the workspace and also creates a set of predefined queries that are used by dashboard.
 
 ## Deploy Grafana in a virtual machine
 
