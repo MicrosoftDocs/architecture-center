@@ -15,7 +15,7 @@ This topic is strategic in nature. As such, the approach taken in this article i
 
 ### Documenting business outcomes
 
-Before balancing the portfolio, it is important to document and share the business outcomes driving the cloud migration effort. For a few examples of general business outcomes related to cloud migrations, see the [getting started article on cloud migration](../../getting-started/migrate.md?#common-business-outcomes).
+Before balancing the portfolio, it is important to document and share the business outcomes driving the cloud migration effort. For a few examples of general business outcomes related to cloud migrations, see the [getting started article on cloud migration](../../getting-started/migrate.md#common-business-outcomes).
 
 The following table can help document and share desired business outcomes. It's important to note that most businesses are pursuing several outcomes at a time. The importance of this exercise is to clarify the outcomes that are most directly related to the cloud migration effort:
 
