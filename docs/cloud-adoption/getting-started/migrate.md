@@ -12,34 +12,34 @@ Microsoft has defined a cloud adoption framework, to help customers with a simpl
 This framework is designed to speak most directly to cloud architects and the Cloud Strategy team who lead cloud adoption efforts. However, many of the topics in this framework will be relevant to additional roles across the business and IT. It is assumed that cloud architects will serve as facilitators engaging each of the relevant roles. This executive summary is designed to prepare those various roles prior to those facilitated conversations.
 
 > [!NOTE]
-> This guidance is currently in a public preview state. Terms, approaches, and guidance are being thoroughly tested with customers, partners, and Microsoft teams during this preview. As such the TOC and guidance my change slightly.
+> This guidance is currently available as a public preview. Terminology, approaches, and guidance are being thoroughly tested with customers, partners, and Microsoft teams during this preview. As such, the TOC and guidance may change slightly over time.
 
 ## Motivations and methodology
 
-The motivation or business outcome driving a cloud migration can heavily influence the best approach to migration. Cloud migrations can align to a number of business outcomes. Clearly communicating business drivers and the metrics used to measure success is an important first step in cloud migration efforts. The following are a few examples of common migration motivations, grouped by the methodology (or type of migration).
+The motivation or business outcome driving a cloud migration can heavily influence the best approach to migration. Cloud migrations can align to a number of business outcomes. Clear communication of business drivers and the measures of  success is an important first step in cloud migration efforts. The following are a few examples of common migration motivations, grouped by the methodology (or type of migration).
 
 ### Asset migration
 
-During cloud migrations, assets (consisting of virtual machines, data sources, and/or applications) are migrated from an existing on-premises environment to the cloud. Asset migrations provide a streamlined way to respond to a critical event or a need to move specific assets. Asset migrations are typically motivated by the following short-term critical business events.
+During cloud migrations, assets such as virtual machines, data sources, and applications are migrated from an existing on-premises environment to the cloud. Asset migrations provide a streamlined approach to respond to a critical event or a need to move specific assets. Asset migrations are typically motivated by the following short-term critical business events.
 
 - Datacenter exit
 - Mergers, acquisition, or divestiture
 - Reductions in capital expenses
 - End of support for mission-critical technologies
 
-**Summary of the asset migration methodology:** Asset migration is a technical process for migrating digital assets to the cloud using migration automation tooling. This approach can be successfully executed within the limited scope of the [Azure Migration Guide](../migrate/azure-migration-guide/index.md).
+**Summary of the asset migration methodology:** Asset migration is a technical process for migrating digital assets to the cloud using migration automation tooling. This approach can be successfully executed within the limited scope of the [Azure migration guide](../migrate/azure-migration-guide/index.md).
 
 ![Methodology supporting asset migration](../_images/migration/asset-migration.png)
 
 ### Workload migration
 
-More often cloud migrations are part of a focused effort to streamline IT operations, costs, or complexity. Workload migration builds on asset migrations, but adds a focus on the migration of a workload, which adds deeper planning and testing requirements. Examples of workloads could include things like an HR payroll solution, a CRM solution, a document approval workflow in Finance, or a business intelligence solution. Workloads could also include shared technical resources like a data warehouse that supports several other solutions. The following are a few longer term motivations associated with a workload migration.
+More often, cloud migrations are part of a focused effort to streamline IT operations, costs, or complexity. Workload migration builds on asset migrations, but adds a focus on the migration of a workload, which adds deeper planning and testing requirements. Examples of workloads could include things like an HR payroll solution, a CRM solution, a document approval workflow in Finance, or a business intelligence solution. Workloads could also include shared technical resources like a data warehouse that supports several other solutions. The following are a few longer term motivations associated with a workload migration.
 
 - Cost savings
 - Reduction in vendor or technical complexity
 - Optimize internal operations
 
-**Summary of the workload migration methodology:** Successful workload migrations build on the [Azure Migration Guide](../migrate/azure-migration-guide/index.md) and [Azure Readiness Guide](../ready/azure-readiness-guide/index.md). However, to successfully complete a workload migration, additional considerations should be given to the [expanded scope checklist](../migrate/expanded-scope/index.md), which expands upon the scope of the Azure Migration Guide.
+**Summary of the workload migration methodology:** Successful workload migrations build on the [Azure migration guide](../migrate/azure-migration-guide/index.md) and [Azure Readiness Guide](../ready/azure-readiness-guide/index.md). However, to successfully complete a workload migration, additional considerations should be given to the [expanded scope checklist](../migrate/expanded-scope/index.md), which expands upon the scope of the Azure migration guide.
 
 ![Methodology supporting workload migration](../_images/operational-transformation-migrate.png)
 

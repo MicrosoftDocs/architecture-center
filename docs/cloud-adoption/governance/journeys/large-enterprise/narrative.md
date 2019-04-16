@@ -50,7 +50,7 @@ The following changes are anticipated over the next several years:
 - If the early experiments in App Dev and BI show leading indicators of success, they would each like to release small-scale production solutions to the cloud in the next 24 months.
 - The CIO and CFO have assigned an architect and the Vice President of Infrastructure to create a cost analysis and feasibility study. These efforts will determine if the company can and should move 5,000 assets to the cloud over the next 36 months. A successful migration would allow the CIO to eliminate two datacenters, reducing costs by over $100M USD during the five-year plan. If three to four datacenters can experience similar results, the budget will be back in the black, giving the CIO budget to support more innovative initiatives.
     ![On-premises costs versus Azure costs demonstrating a return of $100M USD over the next five years](../../../_images/governance/calculator-enterprise.png)
-- Along with this cost savings, the company plans to change the management of some IT investments by repositioning the committed CapEx as an operational expense (OpEx) within IT. This change will provide greater cost control, which IT can use to accelerate other planned efforts.
+- Along with this cost savings, the company plans to change the management of some IT investments by repositioning the committed capital expense as an operating expense within IT. This change will provide greater cost control, which IT can use to accelerate other planned efforts.
 
 ## Next steps
 

@@ -27,17 +27,17 @@ In a Central IT accounting model, the IT team marks up the services provided to 
 
 ## Chargeback
 
-One of the common first steps towards breaking the cost center reputation is a chargeback model of accounting. This is especially common in smaller enterprises or highly efficient IT organizations. In the chargeback model, any IT costs that are associated with a specific business unit are treated like an operational expense in that business units budget. This reduces can reduce the accumulative costs effects on IT, allowing business values to show more clearly.
+One of the common first steps towards breaking the cost center reputation is a chargeback model of accounting. This is especially common in smaller enterprises or highly efficient IT organizations. In the chargeback model, any IT costs that are associated with a specific business unit are treated like an operating expense in that business unit's budget. This reduces the cumulative costs effects on IT, allowing business values to show more clearly.
 
-In a legacy on-premises model, chargeback is very difficult to realize because someone still has to carry the large capital expenses and depreciation. The ongoing conversion from CapEx/Depreciation of purchases to OpEx associated with usage is a very difficult accounting exercise. Its a big reason for the creation of the Traditional IT accounting model and Central IT accounting model. The OpEx heavy model of cloud cost accounting is almost required to efficiently deliver a chargeback model.
+In a legacy on-premises model, chargeback is very difficult to realize because someone still has to carry the large capital expenses and depreciation. The ongoing conversion from capital expeditures to operating expenses associated with usage is a very difficult accounting exercise. It's a major reason for the creation of the traditional IT accounting model and central IT accounting model. The operating expenses model of cloud cost accounting is almost required to efficiently deliver a chargeback model.
 
-However, this model should be entered into lightly. The following are a few consequences that are unique to a chargeback model:
+However, this model should not be entered into lightly. The following are a few consequences that are unique to a chargeback model:
 
 - Chargeback results in a massive reduction to the overall IT budget. For IT organizations that are inherently inefficient, or require a great deal of complex technical skills in operations or maintenance, this model can expose those expenses in an unhealthy way.
 - Loss of control is a common consequence. In highly political environments, chargeback can result in loss of control and staff being reallocated to the business. This could create significant inefficiencies and reduce IT's ability to consistently meet SLAs or project requirements.
 - Difficulty accounting for shared services is another common consequence. If the organization has grown through acquisition and is carrying technical debt as a result, there is likely a high percentage of shared services that have to be maintained to keep all of the systems working together effectively.
 
-Cloud transformations include solutions to these and other consequences associated with a chargeback model. However, each of those solutions includes implementation and operational expenses. The CIO and CFO should carefully weigh the pros and cons of a chargeback model before considering this model.
+Cloud transformations include solutions to these and other consequences associated with a chargeback model. However, each of those solutions includes implementation and operating expenses. The CIO and CFO should carefully weigh the pros and cons of a chargeback model before considering this model.
 
 ## Showback or awareness-back
 
