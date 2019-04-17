@@ -17,7 +17,7 @@ ms.subservice: enterprise-cloud-adoption
 At the top level, fiscal conversations consist of three basic concepts:
 
 - **Revenue:** Will more money come into the business as a result of the sales of goods or services.
-- **Cost:**) Will less money be spent in the creation, marketing, sales, or delivery of goods or services.
+- **Cost:** Will less money be spent in the creation, marketing, sales, or delivery of goods or services.
 - **Profit:** While rare, some transformations can both increase revenue and decrease costs. This is a profit outcome.
 
 The remainder of this article will explain these fiscal outcomes in the context of a cloud transformation.
