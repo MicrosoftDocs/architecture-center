@@ -21,7 +21,7 @@ This reference architectures shows a microservices application deployed to Azure
 
 The architecture consists of the following components.
 
-**Azure Kubernetes Service** (AKS). AKS is an Azure service that deploys a managed Kubernetes cluster. 
+**Azure Kubernetes Service** (AKS). AKS is an Azure service that deploys a managed Kubernetes cluster.
 
 **Kubernetes cluster**. AKS is responsible for deploying the Kubernetes cluster and for managing the Kubernetes masters. You only manage the agent nodes.
 
@@ -35,7 +35,7 @@ The architecture consists of the following components.
 
 **Azure Container Registry**. Use Container Registry to store private Docker images, which are deployed to the cluster. AKS can authenticate with Container Registry using its Azure AD identity. Note that AKS does not require Azure Container Registry. You can use other container registries, such as Docker Hub.
 
-**Azure Pipelines**. Pipelines is part of Azure DevOps Services and runs automated builds, tests, and deployments. You can also use third-party CI/CD solutions such as Jenkins. 
+**Azure Pipelines**. Pipelines is part of Azure DevOps Services and runs automated builds, tests, and deployments. You can also use third-party CI/CD solutions such as Jenkins.
 
 **Helm**. Helm is as a package manager for Kubernetes &mdash; a way to bundle Kubernetes objects into a single unit that you can publish, deploy, version, and update.
 
@@ -51,7 +51,7 @@ The Kubernetes Service object is a natural way to model microservices in Kuberne
 
 - IP address. The Service object provides a static internal IP address for a group of pods (ReplicaSet). As pods are created or moved around, the service is always reachable at this internal IP address.
 
-- Load balancing. Traffic sent to the service's IP address is load balanced to the pods. 
+- Load balancing. Traffic sent to the service's IP address is load balanced to the pods.
 
 - Service discovery. Services are assigned internal DNS entries by the Kubernetes DNS service. That means the API gateway can call a backend service using the DNS name. The same mechanism can be used for service-to-service communication. The DNS entries are organized by namespace, so if your namespaces correspond to bounded contexts, then the DNS name for a service will map naturally to the application domain.
 
@@ -61,7 +61,7 @@ The following diagram show the conceptual relation between services and pods. Th
 
 ### API Gateway
 
-An *API gateway* is a gateway that sits between external clients and the microservices. It acts as a reverse proxy, routing requests from clients to microservices. It may also perform various cross-cutting tasks such as authentication, SSL termination, and rate limiting. 
+An *API gateway* is a gateway that sits between external clients and the microservices. It acts as a reverse proxy, routing requests from clients to microservices. It may also perform various cross-cutting tasks such as authentication, SSL termination, and rate limiting.
 
 Functionality provided by a gateway can be grouped as follows:
 
@@ -71,7 +71,7 @@ Functionality provided by a gateway can be grouped as follows:
 
 - [Gateway Offloading](../../patterns/gateway-offloading.md). A gateway can offload functionality from the backend services, such as SSL termination, authentication, IP whitelisting, or client rate limiting (throttling).
 
-API gateways are a general [microservices design pattern](https://microservices.io/patterns/apigateway.html). They can be implemented using a number of different technologies. Probably the most common implementation is to deploy an edge router or reverse proxy, such as Nginx, HAProxy, or Traefik, inside the cluster. 
+API gateways are a general [microservices design pattern](https://microservices.io/patterns/apigateway.html). They can be implemented using a number of different technologies. Probably the most common implementation is to deploy an edge router or reverse proxy, such as Nginx, HAProxy, or Traefik, inside the cluster.
 
 Other options include:
 
@@ -83,7 +83,7 @@ The Kubernetes **Ingress** resource type abstracts the configuration settings fo
 
 The ingress controller handles configuring the proxy server. Often these require complex configuration files, which can be hard to tune if you aren't an expert, so the ingress controller is a nice abstraction. In addition, the Ingress Controller has access to the Kubernetes API, so it can make intelligent decisions about routing and load balancing. For example, the Nginx ingress controller bypasses the kube-proxy network proxy.
 
-On the other hand, if you need complete control over the settings, you may want to bypass this abstraction and configure the proxy server manually. 
+On the other hand, if you need complete control over the settings, you may want to bypass this abstraction and configure the proxy server manually.
 
 A reverse proxy server is a potential bottleneck or single point of failure, so always deploy at least two replicas for high availability.
 
@@ -91,7 +91,7 @@ A reverse proxy server is a potential bottleneck or single point of failure, so 
 
 In a microservices architecture, services should not share data storage. Each service should own its own private data in a separate logical storage, to avoid hidden dependencies among services. The reason is to avoid unintentional coupling between services, which can happen when services share the same underlying data schemas. Also, when services manage their own data stores, they can use the right data store for their particular requirements. For more information, see [Designing microservices: Data considerations](/azure/architecture/microservices/data-considerations).
 
-Avoid storing persistent data in local cluster storage, because that ties the data to the node. Instead, 
+Avoid storing persistent data in local cluster storage, because that ties the data to the node. Instead,
 
 - Use an external service such as Azure SQL Database or Cosmos DB, *or*
 
@@ -118,7 +118,7 @@ Kubernetes supports scale-out at two levels:
 - Scale the number of pods allocated to a deployment.
 - Scale the nodes in the cluster, to increase the total compute resources available to the cluster.
 
-Although you can scale out pods and nodes manually, we recommend using autoscaling, to minimize the chance that services will become resource starved under high load. An autoscaling strategy must take both pods and nodes into account. If you just scale out the pods, eventually you will reach the resource limits of the nodes. 
+Although you can scale out pods and nodes manually, we recommend using autoscaling, to minimize the chance that services will become resource starved under high load. An autoscaling strategy must take both pods and nodes into account. If you just scale out the pods, eventually you will reach the resource limits of the nodes.
 
 ### Pod autoscaling
 
@@ -135,7 +135,7 @@ The cluster autoscaler scales the number of nodes. If pods can't be scheduled be
 
 Whereas HPA looks at actual resources consumed or other metrics from running pods, the cluster autoscaler is provisioning nodes for pods that aren't scheduled yet. Therefore, it looks at the requested resources, as specified in the Kubernetes pod spec for a deployment. Use load testing to fine-tune these values.
 
-You can't change the VM size after you create the cluster, so you should do some initial capacity planning to choose an appropriate VM size for the agent nodes when you create the cluster. 
+You can't change the VM size after you create the cluster, so you should do some initial capacity planning to choose an appropriate VM size for the agent nodes when you create the cluster.
 
 ## Availability considerations
 
@@ -149,7 +149,7 @@ Kubernetes defines two types of health probe that a pod can expose:
 
 When thinking about probes, it's useful to recall how a service works in Kubernetes. A service has a label selector that matches a set of (zero or more) pods. Kubernetes load balances traffic to the pods that match the selector. Only pods that started successfully and are healthy receive traffic. If a container crashes, Kubernetes kills the pod and schedules a replacement.
 
-Sometimes, a pod may not be ready to receive traffic, even though the pod started successfully. For example, there may be initialization tasks, where the application running in the container loads things into memory or reads configuration data. To indicate that a pod is healthy but not ready to receive traffic, define a readiness probe. 
+Sometimes, a pod may not be ready to receive traffic, even though the pod started successfully. For example, there may be initialization tasks, where the application running in the container loads things into memory or reads configuration data. To indicate that a pod is healthy but not ready to receive traffic, define a readiness probe.
 
 Liveness probes handle the case where a pod is still running, but is unhealthy and should be recycled. For example, suppose that a container is serving HTTP requests but hangs for some reason. The container doesn't crash, but it has stopped serving any requests. If you define an HTTP liveness probe, the probe will stop responding and that informs Kubernetes to restart the pod.
 
@@ -209,7 +209,7 @@ Finally, there is the question of what permissions the AKS cluster has to create
 
 ### Secrets management and application credentials
 
-Applications and services often need credentials that allow them to connect to external services such as Azure Storage or SQL Database. The challenge is to keep these credentials safe and not leak them. 
+Applications and services often need credentials that allow them to connect to external services such as Azure Storage or SQL Database. The challenge is to keep these credentials safe and not leak them.
 
 For Azure resources, one option is to use managed identities. The idea of a managed identity is that an application or service has an identity stored in Azure AD, and uses this identity to authenticate with an Azure service. The application or service has a Service Principal created for it in Azure AD, and authenticates using OAuth 2.0 tokens. The executing process calls a localhost address to get the token. That way, you don't need to store any passwords or connection strings. You can use managed identities in AKS by assigning identities to individual pods, using the [aad-pod-identity](https://github.com/Azure/aad-pod-identity) project.
 
@@ -219,9 +219,9 @@ Even with managed identities, you'll probably need to store some credentials or 
 
 - Azure Key Vault. In AKS, you can mount one or more secrets from Key Vault as a volume. The volume reads the secrets from Key Vault. The pod can then read the secrets just like a regular volume. For more information, see the [Kubernetes-KeyVault-FlexVolume](https://github.com/Azure/kubernetes-keyvault-flexvol) project on GitHub.
 
-    The pod authenticates itself by using either a pod identity (described above) or by using an Azure AD Service Principal along with a client secret. Using pod identities is recommended because the client secret isn't needed in that case. 
+    The pod authenticates itself by using either a pod identity (described above) or by using an Azure AD Service Principal along with a client secret. Using pod identities is recommended because the client secret isn't needed in that case.
 
-- HashiCorp Vault. Kubernetes applications can authenticate with HashiCorp Vault using Azure AD managed identities. See [HashiCorp Vault speaks Azure Active Directory](https://open.microsoft.com/2018/04/10/scaling-tips-hashicorp-vault-azure-active-directory/). You can deploy Vault itself to Kubernetes, but it's recommend to run it in a separate dedicated cluster from your application cluster. 
+- HashiCorp Vault. Kubernetes applications can authenticate with HashiCorp Vault using Azure AD managed identities. See [HashiCorp Vault speaks Azure Active Directory](https://open.microsoft.com/2018/04/10/scaling-tips-hashicorp-vault-azure-active-directory/). You can deploy Vault itself to Kubernetes, but it's recommend to run it in a separate dedicated cluster from your application cluster.
 
 - Kubernetes secrets. Another option is simply to use Kubernetes secrets. This option is the easiest to configure but has some challenges. Secrets are stored in etcd, which is a distributed key-value store. AKS [encrypts etcd at rest](https://github.com/Azure/kubernetes-kms#azure-kubernetes-service-aks). Microsoft manages the encryption keys.
 
@@ -235,11 +235,11 @@ Using a system like HashiCorp Vault or Azure Key Vault provides several advantag
 
 ### Pod and container security
 
-This list is certainly not exhaustive, but here are some recommended practices for securing your pods and containers: 
+This list is certainly not exhaustive, but here are some recommended practices for securing your pods and containers:
 
-Don't run containers in privileged mode. Privileged mode gives a container access to all devices on the host. You can set Pod Security Policy to disallow containers from running in privileged mode. 
+Don't run containers in privileged mode. Privileged mode gives a container access to all devices on the host. You can set Pod Security Policy to disallow containers from running in privileged mode.
 
-When possible, avoid running processes as root inside containers. Containers do not provide complete isolation from a security standpoint, so it's better to run a container process as a non-privileged user. 
+When possible, avoid running processes as root inside containers. Containers do not provide complete isolation from a security standpoint, so it's better to run a container process as a non-privileged user.
 
 Store images in a trusted private registry, such as Azure Container Registry or Docker Trusted Registry. Use a validating admission webhook in Kubernetes to ensure that pods can only pull images from the trusted registry.
 

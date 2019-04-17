@@ -42,7 +42,7 @@ This architecture consists of several Azure cloud services that scale resources 
 
 [Azure Container Registry][acr] stores images for all types of Docker container deployments. These containers are created on each node and used to run the training Python script. The image used in the Machine Learning Compute cluster is created by the Machine Learning service in the local run and hyperparameter tuning notebooks, and then is pushed to Container Registry.
 
-[Azure Blob][blob] storage receives the training and test data sets from the Machine Learning service that are used by the training Python script. Storage is mounted as a virtual drive onto each node of a Machine Learning Compute cluster. 
+[Azure Blob][blob] storage receives the training and test data sets from the Machine Learning service that are used by the training Python script. Storage is mounted as a virtual drive onto each node of a Machine Learning Compute cluster.
 
 ## Performance considerations
 

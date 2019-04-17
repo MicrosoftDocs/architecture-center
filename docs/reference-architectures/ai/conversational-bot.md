@@ -15,7 +15,7 @@ This reference architecture describes how to build an enterprise-grade conversat
 
 [![Diagram of the architecture][0]][0]
 
-The best practice utility samples used in this architecture are fully open-sourced and available on [GitHub][git-repo-base]. 
+The best practice utility samples used in this architecture are fully open-sourced and available on [GitHub][git-repo-base].
 
 ## Architecture
 
