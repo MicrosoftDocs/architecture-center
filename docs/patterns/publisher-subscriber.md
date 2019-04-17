@@ -11,7 +11,7 @@ ms.subservice: cloud-fundamentals
 
 # Publisher-Subscriber pattern
 
-Enable an application to announce events to multiple interested consumers aynchronously, without coupling the senders to the receivers.
+Enable an application to announce events to multiple interested consumers asynchronously, without coupling the senders to the receivers.
 
 **Also called**: Pub/sub messaging
 
