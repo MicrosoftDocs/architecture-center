@@ -64,7 +64,7 @@ A number of technical and nontechnical prerequisites are required to successfull
 * Consider using the following access models:
   * [Least Privilege Access](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) model
   * [Privileged Identity Baseline](/azure/active-directory/privileged-identity-management/pim-configure) access model
-* Finalize all pre-integration details and review [Identity Best Practices](/azure/security/azure-security-identity-management-best-practices).
+* Finalize all preintegration details and review [Identity Best Practices](/azure/security/azure-security-identity-management-best-practices).
   * Enable single identity, single sign-on (SSO), or seamless SSO
   * Configure multi-factor authentication (MFA) for administrators
   * Consolidate or integrate identity providers, where necessary
