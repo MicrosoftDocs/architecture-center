@@ -2,7 +2,8 @@
 title: "CAF: Best practices for securing and managing workloads migrated to Azure"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: After migrating to Azure, get best practices for operating, managing, and securing your migrated workloads.
-author: BrianBlanchardms.service: azure-migrate
+author: BrianBlanchard
+ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
 ms.author: brblanch
@@ -318,8 +319,8 @@ Planning for business continuity and disaster recovery (BCDR), is a critical exe
 
 Broadly, your BCDR strategy must consider:
 
-- **Data backup**: How to keep your data safe so that you can recover it easily if outages occur.
-- **Disaster recovery**: How to keep your apps resilient and available if outages occur.
+- **Data backup:** How to keep your data safe so that you can recover it easily if outages occur.
+- **Disaster recovery:** How to keep your apps resilient and available if outages occur.
 
 ### Set up BCDR
 
@@ -334,8 +335,8 @@ In most cases an on-premises workload is retired after migration, and your on-pr
 
 For workloads running on Azure IaaS VMs, consider these backup solutions:
 
-- **Azure Backup**: Provides application-consistent backups for Azure Windows and Linux VMs.
-- **Storage snapshots.** Takes snapshots of blob storage.
+- **Azure Backup:** Provides application-consistent backups for Azure Windows and Linux VMs.
+- **Storage snapshots:** Takes snapshots of blob storage.
 
 #### Azure Backup
 

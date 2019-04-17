@@ -71,7 +71,7 @@ This series of articles will outline two journeys, each with a similar end state
 
 To guide incremental execution during the transition to the end state, this model breaks migration into two areas of focus.
 
-**Migration Preparation**. Establish a rough migration backlog based largely on the current state and desired outcomes:
+**Migration preparation:** Establish a rough migration backlog based largely on the current state and desired outcomes:
 
 - **Business outcomes:** The key business objectives that necessitate this migration.
 - **Digital estate estimate:** Establishes a rough idea of the number and condition of workloads to be migrated.
@@ -80,7 +80,7 @@ To guide incremental execution during the transition to the end state, this mode
 
 These initial inputs will shape the migration backlog. The output of the migration backlog will be a prioritized series of applications to be migrated to the cloud. That list of applications will shape the execution of the cloud migration process. Over time, it will also grow to include much of the documentation needed to manage change.
 
-**Migration process:**.All activities related to cloud migration will fall into one of the following processes, as it relates to the Migration Backlog.
+**Migration process:** All activities related to cloud migration will fall into one of the following processes, as it relates to the Migration Backlog.
 
 - **Assess:** Evaluate the existing asset and establish a plan for migration of the asset.
 - **Migrate:** Replicate the functionality of an asset in the cloud.

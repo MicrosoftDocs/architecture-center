@@ -2,7 +2,8 @@
 title: "CAF: Application migration examples - Set up a migration infrastructure"
 description: Learn how Contoso sets up an Azure infrastructure for migration to Azure.
 services: azure-migrate
-author: BrianBlanchardms.service: azure-migrate
+author: BrianBlanchard
+ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/1/2018
 ms.author: brblanch
@@ -643,7 +644,7 @@ As they configure identity and access control, Contoso has already begun to put 
 
 The Azure Policy service evaluates your resources, scanning for those not compliant with the policy definitions you have in place. For example, you might have a policy that only allows certain types of VMs, or requires resources to have a specific tag.
 
-Azure policies specify a policy definition, and a policy assignment specifies the scope in which a policy should be applied. The scope can range from a management group to a resource group. [Learn](/azure/governance/policy/tutorials/create-and-manage.md) about creating and managing policies.
+Policies specify a policy definition, and a policy assignment specifies the scope in which a policy should be applied. The scope can range from a management group to a resource group. [Learn](/azure/governance/policy/tutorials/create-and-manage.md) about creating and managing policies.
 
 Contoso wants to get started with a couple of policies:
 
