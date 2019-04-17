@@ -2,12 +2,11 @@
 title: "CAF: Refactor an app by migrating it to Azure Web App and Azure SQL Database"
 description: Learn how Contoso rehosts an on-premises app by migrating it to an Azure Web App and Azure SQL Server database.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
+author: BrianBlanchard
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
-ms.author: raynew
+ms.author: brblanch
 ---
 
 # Refactor an on-premises app to an Azure Web App and Azure SQL database
@@ -34,7 +33,7 @@ The Contoso cloud team has pinned down goals for this migration. These goals wer
 
 **Requirements** | **Details**
 --- | ---
-**App** | The app in Azure will remain as critical as it is today.<br/><br/> It should have the same performance capabilities as it currently does in VMWare.<br/><br/> The team doesn't want to invest in the app. For now, admins will simply move the app safely to the cloud.<br/><br/> The team want to stop supporting Windows Server 2008 R2, on which the app currently runs.<br/><br/> The team also wants to move away from SQL Server 2008 R2 to a modern PaaS Database platform, which will minimize the need for management.<br/><br/> Contoso want to take advantage of its investment in SQL Server licensing and Software Assurance where possible.<br/><br/> In addition, Contoso wants to mitigate the single point of failure on the web tier.
+**App** | The app in Azure will remain as critical as it is today.<br/><br/> It should have the same performance capabilities as it currently does in VMware.<br/><br/> The team doesn't want to invest in the app. For now, admins will simply move the app safely to the cloud.<br/><br/> The team want to stop supporting Windows Server 2008 R2, on which the app currently runs.<br/><br/> The team also wants to move away from SQL Server 2008 R2 to a modern PaaS Database platform, which will minimize the need for management.<br/><br/> Contoso want to take advantage of its investment in SQL Server licensing and Software Assurance where possible.<br/><br/> In addition, Contoso wants to mitigate the single point of failure on the web tier.
 **Limitations** | The app consists of an ASP.NET app and a WCF service running on the same VM. They want to split this across two web apps using the Azure App Service.
 **Azure** | Contoso wants to move the app to Azure, but doesn't want to run it on VMs. Contoso wants to use Azure PaaS services for both the web and data tiers.
 **DevOps** | Contoso wants to move to a DevOps model, using Azure DevOps for their builds and release pipelines.
@@ -72,7 +71,7 @@ Contoso evaluates their proposed design by putting together a pros and cons list
 **Consideration** | **Details**
 --- | ---
 **Pros** | The SmartHotel360 app code won't need to be altered for migration to Azure.<br/><br/> Contoso can take advantage of their investment in Software Assurance using the Azure Hybrid Benefit for both SQL Server and Windows Server.<br/><br/> After the migration Windows Server 2008 R2 won't need to be supported. [Learn more](https://support.microsoft.com/lifecycle).<br/><br/> Contoso can configure the web tier of the app with multiple instances, so that it's no longer a single point of failure.<br/><br/> The database will no longer be dependent on the aging SQL Server 2008 R2.<br/><br/> SQL Database supports the technical requirements. Contoso assessed the on-premises database using the Database Migration Assistant and found that it's compatible.<br/><br/> SQL Database has built-in fault tolerance that Contoso don't need to set up. This ensures that the data tier is no longer a single point of failover.
-**Cons** | Azure App Services only supports one app deployment for each Web App. This means that two Web Apps must be provisioned (one for the website and one for the WCF service).<br/><br/> If Contoso uses the Data Migration Assistant instead of Data Migration Service to migrate their database, it won’t have the infrastructure ready for migrating databases at scale. Contoso will need to build another region to ensure failover if the primary region is unavailable.
+**Cons** | Azure App Service only supports one app deployment for each web app. This means that two Web Apps must be provisioned (one for the website and one for the WCF service).<br/><br/> If Contoso uses the Data Migration Assistant instead of Data Migration Service to migrate their database, it won’t have the infrastructure ready for migrating databases at scale. Contoso will need to build another region to ensure failover if the primary region is unavailable.
 
 <!-- markdownlint-enable MD033 -->
 
@@ -93,7 +92,7 @@ Contoso evaluates their proposed design by putting together a pros and cons list
 --- | --- | ---
 [Database Migration Assistant (DMA)](/sql/dma/dma-overview?view=ssdt-18vs2017) | Contoso will use DMA to assess and detect compatibility issues that might affect their database functionality in Azure. DMA assesses feature parity between SQL sources and targets, and recommends performance and reliability improvements. | It's a downloadable tool free of charge.
 [Azure SQL Database](https://azure.microsoft.com/services/sql-database) | An intelligent, fully managed relational cloud database service. | Cost based on features, throughput, and size. [Learn more](https://azure.microsoft.com/pricing/details/sql-database/managed).
-[Azure App Services - Web Apps](/azure/app-service/overview) | Create powerful cloud apps using a fully managed platform | Cost based on size, location, and usage duration. [Learn more](https://azure.microsoft.com/pricing/details/app-service/windows).
+[Azure App Service](/azure/app-service/overview) | Create powerful cloud apps using a fully managed platform | Cost based on size, location, and usage duration. [Learn more](https://azure.microsoft.com/pricing/details/app-service/windows).
 [Azure DevOps](/azure/azure-portal/tutorial-azureportal-devops) | Provides a continuous integration and continuous deployment (CI/CD) pipeline for app development. The pipeline starts with a Git repository for managing app code, a build system for producing packages and other build artifacts, and a Release Management system to deploy changes in dev, test, and production environments.
 
 ## Prerequisites
@@ -287,7 +286,7 @@ Contoso admins now configure Azure DevOps to perform build and release process.
 6. The folder **Drop** contains the build results.
 
     - The two zip files are the packages that contain the apps.
-    - These files are used in the release pipeline for deployment to Azure Web Apps
+    - These files are used in the release pipeline for deployment to Azure App Service.
 
      ![Artifact](./media/contoso-migration-refactor-web-app-sql/pipeline6.png)
 
@@ -384,7 +383,7 @@ With the migrated resources in Azure, Contoso needs to fully operationalize and 
 - Contoso needs to review backup requirements for the Azure SQL Database. [Learn more](/azure/sql-database/sql-database-automated-backups).
 - Contoso also needs to learn about managing SQL Database backups and restores. [Learn more](/azure/sql-database/sql-database-automated-backups) about automatic backups.
 - Contoso should consider implementing failover groups to provide regional failover for the database. [Learn more](/azure/sql-database/sql-database-geo-replication-overview).
-- Contoso needs to consider deploying the Web App in the main East US 2 and Central US region for resilience. Contoso could configure Traffic Manager to ensure failover in case of regional outages.
+- Contoso needs to consider deploying the web app in the main East US 2 and Central US region for resilience. Contoso could configure Traffic Manager to ensure failover in case of regional outages.
 
 ### Licensing and cost optimization
 
@@ -394,4 +393,4 @@ With the migrated resources in Azure, Contoso needs to fully operationalize and 
 
 ## Conclusion
 
-In this article, Contoso refactored the SmartHotel360 app in Azure by migrating the app front-end VM to two Azure Web Apps. The app database was migrated to an Azure SQL database.
+In this article, Contoso refactored the SmartHotel360 app in Azure by migrating the app front-end VM to two Azure App Service web apps. The app database was migrated to an Azure SQL database.

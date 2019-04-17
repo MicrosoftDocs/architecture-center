@@ -2,12 +2,11 @@
 title: "CAF: Best practices for costing and sizing workloads migrated to Azure"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Get best practices for costing and sizing workloads migrated to Azure.
-author: rayne-wiselman
-manager: carmonm
+author: BrianBlanchard
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
-ms.author: raynew
+ms.author: brblanch
 ---
 
 # Best practices for costing and sizing workloads migrated to Azure
@@ -24,7 +23,7 @@ This article describes best practices for costing and sizing before and after mi
 
 ## Before migration
 
-Before you move your workloads to the cloud, estimate the monthly cost of running them in Azure. Proactively managing cloud costs helps you adhere to your operating expenses (OpEx) budget. If budget is limited, take this into account before migration. Consider converting workloads to Azure serverless technologies, where appropriate, to reduce costs.
+Before you move your workloads to the cloud, estimate the monthly cost of running them in Azure. Proactively managing cloud costs helps you adhere to your operating expense budget. If budget is limited, take this into account before migration. Consider converting workloads to Azure serverless technologies, where appropriate, to reduce costs.
 
 The best practices in this section help you to estimate costs, perform right-sizing for VMs and storage, use Azure Hybrid benefits, use reserved VMs, and estimate cloud spending across subscriptions.
 
@@ -258,7 +257,7 @@ In Azure you pay for what you use, when resources are consumed, and you don't pa
 - Get an overview of [Azure Monitor](/azure/azure-monitor/overview) and [Azure Advisor](/azure/advisor/advisor-overview).
 - [Get](/azure/advisor/advisor-cost-recommendations) Advisor cost recommendations.
 - [Learn how to [optimize costs from recommendations](/azure/cost-management/tutorial-acm-opt-recommendations?toc=/azure/billing/TOC.json), and [prevent unexpected charges](/azure/billing/billing-getting-started).
-- [Learn about](https://github.com/Azure/azure-quickstart-templates/tree/master/azure-resource-optimization-toolkit) the Azure Resource Optimization (ARO) Toolkit
+- Learn about the [Azure Resource Optimization (ARO) Toolkit](https://github.com/Azure/azure-quickstart-templates/tree/master/azure-resource-optimization-toolkit).
 
 ## Best practice: Implement resource group budgets
 
@@ -336,8 +335,8 @@ After migration, after a thorough review of these types of tasks you might consi
 
 **Learn more:**
 
-- [Learn about](https://azure.microsoft.com/services/functions) Azure Functions
-- [Learn more about](https://azure.microsoft.com/services/batch) Azure Batch
+- Learn about [Azure Functions](https://azure.microsoft.com/services/functions).
+- Learn about [Azure Batch](https://azure.microsoft.com/services/batch).
 
 ## Next steps
 

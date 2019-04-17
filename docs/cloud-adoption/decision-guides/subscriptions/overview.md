@@ -19,7 +19,7 @@ Jump to: [Subscriptions design and Azure Enterprise Agreements](#subscriptions-d
 
 Subscription design is one of the most common strategies that companies use to establish a structure or organize assets during cloud adoption.
 
-**Subscription hierarchy**: A *subscription* is a logical collection of Azure services (such as virtual machines, SQL DB, App Services, or containers). Each asset in Azure is deployed to a single subscription. Each subscription is then owned by one *account*. This account is a user account (or preferably a service account) that provides billing and administrative access across a subscription. For customers who have made a commitment to use a specific amount of Azure through an Enterprise Agreement (EA), another level of control called a *department* is added. In the EA portal, subscription, accounts, and departments can be used to create a hierarchy for billing and management purposes.
+**Subscription hierarchy**: A *subscription* is a logical collection of Azure resources (such as virtual machines, web apps, or containers). Each resource in Azure is deployed to a single subscription. Each subscription is then owned by one *account*. This account is a user account (or preferably a service account) that provides billing and administrative access across a subscription. For customers who have made a commitment to use a specific amount of Azure through an Enterprise Agreement (EA), another level of control called a *department* is added. In the EA portal, subscription, accounts, and departments can be used to create a hierarchy for billing and management purposes.
 
 The complexity of subscription designs varies. Decisions regarding a design strategy have unique inflection points, as they typically involve both business and IT constraints. Before making technical decisions, IT architects and decision makers should work with the business stakeholders and the cloud strategy team to understand the desired cloud accounting approach, cost accounting practices within your business units, and global market needs for your organization.
 
@@ -29,7 +29,7 @@ The complexity of subscription designs varies. Decisions regarding a design stra
 
 Deployment structure, automation, and new approaches to grouping resources can affect your structure subscription design. Before finalizing a subscription design, consider how [resource consistency](../resource-consistency/overview.md) decisions might influence your design choices. For example, a large multinational organization might initially consider a complex pattern for subscription management. However, that same company might realize greater benefits with a simpler business unit pattern by adding a management group hierarchy.
 
-## Subscriptions design and Azure Enterprise agreements
+## Subscriptions design and Azure Enterprise Agreements
 
 All Azure subscriptions are associated with one account, which is connected to billing and top-level access control for each subscription. A single account can own multiple subscriptions and can provide a base level of subscriptions organization.
 
@@ -57,14 +57,14 @@ As the size of an organization's cloud footprint grows, the use of multiple subs
 
 Each organization will choose to categorize applications differently, often separating subscriptions based on specific applications or services or along the lines of application archetypes. Workloads that might justify a separate subscription under this pattern include:
 
-- Experimental or low-risk applications
-- Applications with protected data
-- Mission-critical workloads
-- Applications subject to regulatory requirements (such as HIPAA or FedRAMP)
-- Batch workloads
-- Big data workloads such as Hadoop
-- Containerized workloads using deployment orchestrators such as Kubernetes
-- Analytics workloads
+- Experimental or low-risk applications.
+- Applications with protected data.
+- Mission-critical workloads.
+- Applications subject to regulatory requirements (such as HIPAA or FedRAMP).
+- Batch workloads.
+- Big data workloads such as Hadoop.
+- Containerized workloads using deployment orchestrators such as Kubernetes.
+- Analytics workloads.
 
 This pattern supports multiple accounts owners responsible for specific workloads. As it lacks a more complex structure at the department level of the enterprise agreement hierarchy, this pattern does not require an Azure Enterprise Agreement to implement.
 
@@ -104,12 +104,12 @@ Management groups can mirror your billing hierarchy, and often enterprises start
 
 Examples include:
 
-- Production/non-production: Some enterprises create management groups to identify their production and non-production subscriptions. Management groups allow these customers to more easily manage roles and policies, for example: non-production subscription may allow developers "contributor" access, but in production, they have only "reader" access.
+- Production/non-production: Some enterprises create management groups to identify their production and non-production subscriptions. Management groups allow these customers to more easily manage roles and policies. For example, non-production subscription may allow developers "contributor" access, but in production, they have only "reader" access.
 - Internal services/external services: Much like production/non-production, enterprises often have different requirements, policies, and roles for internal services versus external customer-facing services.
 
 ## Organization at the subscription level
 
-When determining your departments and accounts (or management groups), you will primarily need to decide how you're going to divide your Azure environment to match your organization. However, subscriptions are where the real work happens, and these decisions will impact security, scalability, and billing.
+When determining your departments and accounts (or management groups), you will primarily need to decide how you're going to divide your Azure environment to match your organization. However, subscriptions are where the real work happens, and these decisions will affect security, scalability, and billing.
 
 Consider the following patterns as guides:
 

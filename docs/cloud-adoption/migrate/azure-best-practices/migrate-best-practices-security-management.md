@@ -2,12 +2,11 @@
 title: "CAF: Best practices for securing and managing workloads migrated to Azure"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: After migrating to Azure, get best practices for operating, managing, and securing your migrated workloads.
-author: rayne-wiselman
-manager: carmonm
+author: BrianBlanchard
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/08/2018
-ms.author: raynew
+ms.author: brblanch
 ---
 
 # Best practices for securing and managing workloads migrated to Azure
@@ -21,7 +20,7 @@ As you plan and design for migration, in addition to thinking about the migratio
 
 After migration, the most critical task is to secure migrated workloads from internal and external threats. These best practices help you to do that:
 
-- [Work with Azure Security Center](#best-practice-follow-azure-security-center-recommendations): Learn how to work with the monitoring, assessments, and recommendations provided by Azure Security Center
+- [Work with Azure Security Center](#best-practice-follow-azure-security-center-recommendations): Learn how to work with the monitoring, assessments, and recommendations provided by Azure Security Center.
 - [Encrypt your data](#best-practice-encrypt-data): Get best practices for encrypting your data in Azure.
 - [Set up antimalware](#best-practice-protect-vms-with-antimalware): Protect your VMs from malware and malicious attacks.
 - [Secure web apps](#best-practice-secure-web-apps): Keep sensitive information secure in migrated web apps.
@@ -122,13 +121,13 @@ Azure provides a couple of solutions:
   - You can use Key Vault to centralize storage of app secrets, and control their distribution. It avoids the need to store security information in app files.
   - Apps can security access information in the vault using URIs, without needing custom code.
   - Azure Key Vault allows you to lock down access via Azure security controls and to seamlessly implement 'rolling keys'. Microsoft does not see or extract your data.
-- **App Service Environment:** If an app you migrate needs extra protection, you can consider adding an App Service Environment and Web Application Firewall to protect the app resources.
+- **App Service Environment:** If an app you migrate needs extra protection, you can consider adding an App Service Environment and web application firewall to protect the app resources.
   - The Azure App Service Environment provides a fully isolated and dedicated environment in which to running App Service apps such as Windows and Linux web apps, Docker containers, mobile apps, and functions.
   - It's useful for apps that are very high scale, require isolation and secure network access or have high memory utilization
-- **Web Application Firewall:** A feature of Application Gateway that provides centralized protection for web apps.
+- **Web application firewall:** A feature of Azure Application Gateway that provides centralized protection for web apps.
   - It protects web apps without requiring back-end code modifications.
   - It protects multiple web apps at the same time behind an application gateway.
-  - Web application firewall can be monitored using Azure Monitor, and is integrated into Azure Security Center.
+  - A web application firewall can be monitored using Azure Monitor, and is integrated into Azure Security Center.
 
 ![Secure web apps](./media/migrate-best-practices-security-management/web-apps.png)
 *Azure Key Vault*
@@ -136,10 +135,10 @@ Azure provides a couple of solutions:
 **Learn more:**
 
 - [Get an overview](/azure/key-vault/key-vault-overview) of Azure Key Vault.
-- [Learn about](/azure/application-gateway/waf-overview) Web application firewall.
+- [Learn about](/azure/application-gateway/waf-overview) web application firewall.
 - [Get an introduction](/azure/app-service/environment/intro) to App Service Environments.
 - [Learn how to](/azure/key-vault/tutorial-web-application-keyvault) configure a web app to read secrets from Key Vault.
-- [Learn about](/azure/application-gateway/waf-overview) Web Application Firewall
+- [Learn about](/azure/application-gateway/waf-overview) web application firewall.
 
 ## Best practice: Review subscriptions and resource permissions
 
@@ -147,7 +146,7 @@ As you migrate your workloads and run them in Azure, staff with workload access 
 
 - RBAC assigns access permissions for security principals. Security principals represent users, groups (a set of users), service principals (identity used by apps and services), and managed identities (an Azure Active Directory identity automatically managed by Azure).
 - RBAC can assign roles to security principles, such as owner, contributor and reader, and role definitions (a collection of permissions) that define the operations that can be performed by the roles.
-- RBAC can also set scopes that set the boundary for a role. Scope can be set at a number of levels, including a management group, subscription, resource group, or resource
+- RBAC can also set scopes that set the boundary for a role. Scope can be set at a number of levels, including a management group, subscription, resource group, or resource.
 - Ensure that admins with Azure access are only able to access resources that you want to allow. If the predefined roles in Azure aren't granular enough, you can create custom roles to separate and limit access permissions.
 
 ![Access control](./media/migrate-best-practices-security-management/subscription.png)
@@ -211,7 +210,7 @@ Ensuring that your resource groups have meaningful names that admins and support
 
 **Learn more:**
 
-- [Learn about](/azure/architecture/best-practices/naming-conventions) naming conventions
+- [Learn about](/azure/architecture/best-practices/naming-conventions) naming conventions.
 
 ## Best practice: Implement delete locks for resource groups
 
@@ -320,8 +319,8 @@ Planning for business continuity and disaster recovery (BCDR), is a critical exe
 
 Broadly, your BCDR strategy must consider:
 
-- **Data backup**: How to keep your data safe so that you can recover it easily if outages occur.
-- **Disaster recovery**: How to keep your apps resilient and available if outages occur.
+- **Data backup:** How to keep your data safe so that you can recover it easily if outages occur.
+- **Disaster recovery:** How to keep your apps resilient and available if outages occur.
 
 ### Set up BCDR
 
@@ -336,8 +335,8 @@ In most cases an on-premises workload is retired after migration, and your on-pr
 
 For workloads running on Azure IaaS VMs, consider these backup solutions:
 
-- **Azure Backup**: Provides application-consistent backups for Azure Windows and Linux VMs.
-- **Storage snapshots.** Takes snapshots of blob storage.
+- **Azure Backup:** Provides application-consistent backups for Azure Windows and Linux VMs.
+- **Storage snapshots:** Takes snapshots of blob storage.
 
 #### Azure Backup
 

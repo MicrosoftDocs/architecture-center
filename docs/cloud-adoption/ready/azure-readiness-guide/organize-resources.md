@@ -65,7 +65,7 @@ Create a resource group to hold resources like web apps, databases, and storage 
 
 To learn more, see:
 
-- [Understanding resource access management in Azure](/azure/architecture/cloud-adoption-guide/adoption-intro/azure-resource-access)
+- [Understanding resource access management in Azure](../../getting-started/azure-resource-access.md)
 - [Organize your resources with Azure Management Groups](/azure/azure-resource-manager/management-groups-overview)
 - [Subscription service limits](/azure/azure-subscription-service-limits)
 
@@ -112,7 +112,7 @@ A good naming standard lets you identify resources in the portal, on a bill, and
 
 ::: zone target="docs"
 
-We recommmend you review and adopt the [Patterns and Practices guidance](/azure/architecture/best-practices/naming-conventions).
+We recommend you review and adopt the [Patterns and Practices guidance](/azure/architecture/best-practices/naming-conventions).
 
 
 >[!TIP]
@@ -148,10 +148,10 @@ Each resource or resource group can have a maximum of 15 tag name/value pairs. H
 
 To apply a tag to a resource group:
 
-1. Go to [Resource Groups](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fsubscriptions%2FresourceGroups).
-1. Select on a resource group.
-1. Select **Tags**.
-1. Type in a new name and value or select a existing name and value.
+1. Go to [Resource groups](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fsubscriptions%2FresourceGroups).
+1. Select a resource group.
+1. Select **Assign tags**.
+1. Enter a new name and value or use the drop-down to select an existing name and value.
 
 ## Learn more
 
@@ -170,7 +170,7 @@ To apply a tag to a resource group:
 1. Go to **Resource groups**.
 1. Select a resource group.
 1. Select **Tags**.
-1. Type in a new name and value or select a existing name and value.
+1. Enter a new name and value or select an existing name and value.
  
 ::: form action="OpenBlade[#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fsubscriptions%2FresourceGroups]" submitText="Go to resource groups" :::
 

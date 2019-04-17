@@ -23,7 +23,7 @@ Each of the following processes should be executed, documented, and validated pr
 - **[Stage](../migrate/stage.md):** The replicated assets have been restored in a staged instance of the cloud environment.
 - **[Business testing](./business-test.md):** The workload has been fully tested and validated by business users.
 - **[Business change plan](./business-change-plan.md):** The business has shared a plan for the changes that will be made in accordance with the production promotion; this should include a user adoption plan, changes to business processes, users that require training, and timelines for various activities.
-- **[Ready](./ready.md):** Generally, a series of technical changes need to be made in advance of promotion.
+- **[Ready](./ready.md):** Generally, a series of technical changes must be made before promotion.
 
 ## Best practices to execute prior to promotion
 
@@ -33,7 +33,7 @@ The following technical changes will likely need to be completed and documented 
 - **User routing.** Validate that users are accessing the workload through proper network routes; verify consistent performance expectations.
 - **Identity alignment.** Validate that the users being rerouted to the application have proper permissions within the domain to host the application.
 - **Performance.** Perform a final validation of workload performance to minimize surprises.
-- **BC/DR validation.** Validate that proper backup and recovery processes are functioning as expected.
+- **Validation of business continuity and disaster recovery.** Validate that proper backup and recovery processes are functioning as expected.
 - **Data classification.** Validate data classification to ensure that proper protections and policies have been implemented.
 - **Chief information security officer (CISO) verification.** Validate that the information security officer has reviewed the workload, business risks, risk tolerance, and mitigation strategies.
 
@@ -43,7 +43,7 @@ Workloads will require varying levels of detailed review and promotion processes
 
 ## Next steps
 
-Promotion of an workload signals the completion of a release. However, in parallel to migration, retired assets need to be [decomissioned](./decomission.md) taking them out of service.
+Promotion of a workload signals the completion of a release. However, in parallel to migration, retired assets need to be [decommissioned](./decommission.md) taking them out of service.
 
 > [!div class="nextstepaction"]
-> [Decomission retired assets](./decomission.md)
+> [Decommission retired assets](./decommission.md)

@@ -12,13 +12,13 @@ ms.subservice: enterprise-cloud-adoption
 
 As your enterprise begins to operate workloads in Azure, the next step is to establish an **operational fitness review** process to enumerate, implement, and iteratively review the **non-functional** requirements for these workloads. _Non-functional_ requirements are related to the expected operational behavior of the service. There are five essential categories of non-functional requirements referred to as the [pillars of software quality](../../guide/pillars.md): scalability, availability, resiliency (including business continuity and disaster recovery), management, and security. The purpose of an operational fitness review process is ensuring that your mission-critical workloads meet the expectations of your business with respect to the quality pillars.
 
-For this reason,  your enterprise should undertake an operational fitness review process to fully understand the issues that result from running the workload in a production environment, determine how to remediate the issues, then resolve them. This article outlines a high-level operational fitness review process that your enterprise can use to achieve this goal.
+For this reason, your enterprise should undertake an operational fitness review process to fully understand the issues that result from running the workload in a production environment, determine how to remediate the issues, then resolve them. This article outlines a high-level operational fitness review process that your enterprise can use to achieve this goal.
 
 ## Operational fitness at Microsoft
 
-From the outset, the development of the Azure platform has been a continuous development and integration project undertaken by many teams across Microsoft. It would be very difficult to ensure quality and consistency for a project of Azure's size and complexity without a robust process for enumerating and implementing the fundamental non-functional requirements on a regular basis.
+From the outset, the development of the Azure platform has been a continuous development and integration project undertaken by many teams across Microsoft. It would be difficult to ensure quality and consistency for a project of Azure's size and complexity without a robust process for enumerating and implementing the fundamental non-functional requirements on a regular basis.
 
-These processes followed by Microsoft form the basis for those outlined in this document.
+These processes followed by Microsoft form the basis for the processes outlined in this document.
 
 ## Understanding the problem
 
@@ -30,7 +30,8 @@ In contrast, the _non-functional_ requirements relate to properties such as the 
 
 Some non-functional requirements can be specified in terms of a service level agreement (SLA). For example, with regard to service continuity, an availability requirement for the service can be expressed as a percentage such as **available 99.99% of the time**. Other non-functional requirements may be more difficult to define and may change as production needs evolve. For example, a consumer-facing service might start facing unanticipated throughput requirements after a surge of popularity.
 
-![NOTE] Defining the requirements for resiliency, including explanations of RPO, RTO, SLA, and related concepts, are explored in more depth in [Designing resilient applications for Azure](../../resiliency/index.md#define-your-availability-requirements).
+> [!NOTE]
+> Requirements for resiliency, including explanations of RPO, RTO, SLA, and related concepts, are explored in more depth in [Designing resilient applications for Azure](../../resiliency/index.md#define-your-availability-requirements).
 
 ## Operational fitness review process
 
@@ -38,7 +39,7 @@ The key to maintaining the performance and continuity of an enterprise's service
 
 ![An overview of the operational fitness review process](_images/ofr-flow.png)
 
-At a high level, the process has two phases. In the prerequisites phase, the requirements are established and mapped to supporting services. This occurs less frequently; perhaps annually or when new operations are introduced. The output of the prerequisites phase is used in the flow phase. The flow phase occurs more frequently; we recommend monthly.
+At a high level, the process has two phases. In the prerequisites phase, the requirements are established and mapped to supporting services. This phase occurs infrequently, perhaps annually or when new operations are introduced. The output of the prerequisites phase is used in the flow phase. The flow phase occurs more frequently; we recommend monthly.
 
 ### Prerequisites phase
 
@@ -48,7 +49,7 @@ The steps in this phase are intended to capture the necessary requirements for c
 
 - **Map operations to services**. Map these business operations to the services that support them. In the above shopping cart example, several services may be involved: an inventory stock management service, a shopping cart service, and others. In the credit card payment example above, an on-premises payment service may interact with a third-party payment processing service.
 
-- **Analyze service dependencies**. Most business operations require orchestration between multiple supporting services. It is important to understand the dependences between the services and the flow of mission-critical transactions through these services. You should also consider the dependencies between on-premises services and Azure services. In the shopping cart example, the inventory stock management service may be hosted on-premises and ingest data input by employees from a physical warehouse, but it may store data in an Azure service such as [Azure storage](/azure/storage/common/storage-introduction) or a database such as [Azure Cosmos DB](/azure/cosmos-db/introduction).
+- **Analyze service dependencies**. Most business operations require orchestration between multiple supporting services. It is important to understand the dependences between the services and the flow of mission-critical transactions through these services. Also consider the dependencies between on-premises services and Azure services. In the shopping cart example, the inventory stock management service may be hosted on-premises and ingest data input by employees from a physical warehouse, but it may store data in an Azure service such as [Azure storage](/azure/storage/common/storage-introduction) or a database such as [Azure Cosmos DB](/azure/cosmos-db/introduction).
 
 An output from these activities is a set of **scorecard metrics** for service operations. The metrics are categorized in terms of non-functional criteria such as availability, scalability, and disaster recovery. Scorecard metrics express the criteria that the service is expected to meet operationally. These metrics can be expressed at any level of granularity that is appropriate for the service operation.
 
@@ -60,7 +61,7 @@ It is important to emphasize that these metrics should directly reflect business
 
 The service review phase is core of the operational fitness review process.
 
-- **Measure service metrics**. Using the scorecard metrics, the services should be monitored to ensure that they meet the business expectations. This means that service monitoring is essential. If you are not able to monitor a set of services with respect to the non-functional requirements, then the corresponding scorecard metrics should be considered red. In this case, the first step for remediation is to implement the appropriate service monitoring. For example, if the business expects a service to operate with 99.99% availability, but there is no production telemetry in place to measure the availability, you should assume that you're not meeting the requirement.
+- **Measure service metrics**. Using the scorecard metrics, the services should be monitored to ensure that they meet the business expectations. In other words, service monitoring is essential. If you are not able to monitor a set of services with respect to the non-functional requirements, then the corresponding scorecard metrics should be considered red. In this case, the first step for remediation is to implement the appropriate service monitoring. For example, if the business expects a service to operate with 99.99% availability, but there is no production telemetry in place to measure the availability, you should assume that you're not meeting the requirement.
 
 - **Plan remediation**. For each service operation with metrics that fall below an acceptable threshold, determine the cost of remediating the service to bring operation to an acceptable metric. If the cost of remediating the service is greater than the expected revenue generation of the service, move on to consider the non-tangible costs such as customer experience. For example, if customers have difficulty placing a successful order using the service, they may choose a competitor instead.
 
@@ -76,13 +77,13 @@ The operational fitness review team is composed of the following roles:
 
 2. **Business advocate**. This role is responsible for breaking down business operations into discreet parts and mapping those parts to on-premises and cloud services and infrastructure. The role requires deep knowledge of the technology associated with each business operation.
 
-3. **Engineering owner**. This role is responsible for implementating the services associated with the business operation. These individuals may participate in the design, implementation, and deployment of any solutions for solving non-functional requirement issues uncovered by the operational fitness review team.
+3. **Engineering owner**. This role is responsible for implementing the services associated with the business operation. These individuals may participate in the design, implementation, and deployment of any solutions for solving non-functional requirement issues uncovered by the operational fitness review team.
 
 4. **Service owner**. This role is responsible for operating the business's applications and services. These individuals collect logging and usage data for these applications and services. This data is used both to identify issues and verify fixes once deployed.
 
 ## Operational fitness review meeting
 
-We recommend that your operational fitness review team meet on a regular basis. For example, the could team meet on a monthly cadence and report status and metrics to senior leadership on a quarterly basis.
+We recommend that your operational fitness review team meets on a regular basis. For example, the team could meet on a monthly cadence and report status and metrics to senior leadership on a quarterly basis.
 
 The details of the process and meeting should be adapted to fit your specific needs. We recommend the following tasks as a starting point:
 
@@ -90,9 +91,9 @@ The details of the process and meeting should be adapted to fit your specific ne
 
 2. The engineering and service owners map the **current state** of business operations to the corresponding on-premises and cloud services. The mapping is composed of a list of the components in each service, oriented as a dependency tree. Once the list and dependency tree are generated, the **critical paths** through the tree are determined.
 
-3. The engineering and service owners review the current state of operational logging and monitoring for the services listed in the previous step. Robust logging and monitoring are critical, in order to identify service components that contribute to failuring to meet non-functional requirements. If sufficient logging and monitoring are not in place, a plan must be created and implemented to put them in place.
+3. The engineering and service owners review the current state of operational logging and monitoring for the services listed in the previous step. Robust logging and monitoring are critical, in order to identify service components that contribute to a failure to meet non-functional requirements. If sufficient logging and monitoring are not in place, a plan must be created and implemented to put them in place.
 
-4. Scorecard metrics are created for new business operation. The scorecard is composed of the list of constituent components for each service identified in step 2, aligned with the non-functional requirements and a metric representing how well the component meets the requirement.
+4. Scorecard metrics are created for new business operation. The scorecard is composed of the list of constituent components for each service identified in step 2. It is aligned with the non-functional requirements and a measure of how well the component meets the requirement.
 
 5. For those constituent components that fail to meet non-functional requirements, a high-level solution is designed and an engineering owner is assigned. At this point, the business owner and business advocate should establish a budget for the remediation work, based on the expected revenue of the business operation.
 
@@ -102,9 +103,9 @@ The details of the process and meeting should be adapted to fit your specific ne
 
 - [Pillars of software quality](../../guide/pillars.md).
     This section of the Azure Application Architecture guide describes the five pillars of software quality: Scalability, availability, resiliency, management, and security.
-- [Ten design principles for Azure applications](../../guide/design-principles/index.md).
+- [10 design principles for Azure applications](../../guide/design-principles/index.md).
     This section of the Azure Application Architecture guide discusses a set of design principles to make your application more scalable, resilient, and manageable.
 - [Designing resilient applications for Azure](../../resiliency/index.md).
     This guide starts with a definition of the term resiliency and related concepts. Then it describes a process for achieving resiliency, using a structured approach over the lifetime of an application, from design and implementation to deployment and operations.
-- [Cloud Design Patterns](../../patterns/index.md).
+- [Cloud design patterns](../../patterns/index.md).
     These design patterns are useful for engineering teams when building applications on the pillars of software quality.

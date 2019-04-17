@@ -2,12 +2,11 @@
 title: "CAF: Best practices to set up networking for workloads migrated to Azure"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: After migrating to Azure, get best practices for setting up networking for your migrated workloads.
-author: rayne-wiselman
-manager: carmonm
+author: BrianBlanchard
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/04/2018
-ms.author: raynew
+ms.author: brblanch
 ---
 
 # Best practices to set up networking for workloads migrated to Azure
@@ -239,7 +238,7 @@ When you have multiple ExpressRoute circuits, you have more than one path to con
 
 #### Example
 
-Let's take an example.
+Let's review an example:
 
 - You have two offices in the US, one in Los Angeles and one in New York.
 - Your offices are connected on a WAN, which can be either your own backbone network or your service provider's IP VPN.
@@ -273,7 +272,7 @@ To optimize routing for both office users, you need to know which prefix is from
 
 **Learn more:**
 
-- [Learn about](/azure/expressroute/expressroute-optimize-routing) optimizing routing
+- [Learn about](/azure/expressroute/expressroute-optimize-routing) optimizing routing.
 
 ## Securing VNets
 
@@ -419,11 +418,11 @@ Public IP addresses in Azure can be associated with VMs, load balancers, applica
 
 ## Take advantage of Azure security features for networking
 
-Azure has platform security features that are easy to use, and provide rich countermeasures to common network attacks. These include Azure Firewall, Web Application Firewall, and Network Watcher.
+Azure has platform security features that are easy to use, and provide rich countermeasures to common network attacks. These include Azure Firewall, web application firewall, and Network Watcher.
 
 ## Best Practice: Deploy Azure Firewall
 
-Azure Firewall is a managed, cloud-based network security service that protects your VNet resources. It is a fully stateful firewall as a service with built-in high availability, and unrestricted cloud scalability.
+Azure Firewall is a managed cloud-based network security service that protects your VNet resources. It is a fully stateful managed firewall with built-in high availability and unrestricted cloud scalability.
 
 ![Service endpoints](./media/migrate-best-practices-networking/firewall.png)
 *Azure Firewall*
@@ -441,11 +440,11 @@ Azure Firewall is a managed, cloud-based network security service that protects 
 - [Get an overview](/azure/firewall/overview) of Azure Firewall.
 - [Learn about](/azure/firewall/fqdn-tags) FQDN tags.
 
-## Best practice: Deploy Azure Web Application Firewall (WAF)
+## Best practice: Deploy a web application firewall (WAF)
 
 Web applications are increasingly targets of malicious attacks that exploit commonly known vulnerabilities. Exploits include SQL injection attacks and cross-site scripting attacks. Preventing such attacks in application code can be challenging, and can require rigorous maintenance, patching and monitoring at multiple layers of the application topology. A centralized web application firewall helps make security management much simpler and helps app administrators guard against threats or intrusions. A web app firewall can react to security threats faster, by patching known vulnerabilities at a central location, instead of securing individual web applications. Existing application gateways can be converted to a web application firewall enabled application gateway easily.
 
-Azure Web application firewall (WAF) is a feature of Azure application gateway.
+The web application firewall (WAF) is a feature of Azure Application Gateway.
 
 - WAF provides centralized protection of your web applications, from common exploits and vulnerabilities.
 - WAF protects without modification to back-end code.
@@ -488,13 +487,13 @@ For more complex network topologies, you might use security products from Micros
 
 ## Best practice: Implement firewalls and NVAs in hub networks
 
-In the hub, the perimeter network (with access to the internet) is normally managed through an Azure Firewall, a firewall farm, or with Web Application Firewalls (WAFs). Consider the following comparisons.
+In the hub, the perimeter network (with access to the internet) is normally managed through an Azure firewall, a firewall farm, or a web application firewalls (WAF). Consider the following comparisons.
 
 <!--markdownlint-disable MD033 -->
 
 **Firewall type** | **Details**
 --- | ---
-WAFs | Web apps are common, and tend to suffer from vulnerabilities and potential exploits.<br/><br/> WAFs are designed to detect attacks against web applications (HTTP/HTTPS), more specifically than a generic firewall.<br/><br/> Compared with tradition firewall technology, WAFs have a set of specific features that protect internal web servers from threats.
+WAFs | Web applications are common, and tend to suffer from vulnerabilities and potential exploits.<br/><br/> WAFs are designed to detect attacks against web applications (HTTP/HTTPS), more specifically than a generic firewall.<br/><br/> Compared with tradition firewall technology, WAFs have a set of specific features that protect internal web servers from threats.
 Azure Firewall | LiKE NVA firewall farms, Azure Firewall uses a common administration mechanism, and a set of security rules to protect workloads hosted in spoke networks, and to control access to on-premises networks.<br/><br/> The Azure Firewall has scalability built in.
 NVA firewalls | Like Azure Firewall NVA firewall farms have common administration mechanism, and a set of security rules to protect workloads hosted in spoke networks, and to control access to on-premises networks.<br/><br/> NVA firewalls can be manually scaled behind a load balancer.<br/><br/> Though an NVA firewall has less specialized software than a WAF, it has broader application scope to filter and inspect any type of traffic in egress and ingress.<br/><br/> If you want to use NVA you can find them in the Azure Marketplace.
 

@@ -7,4 +7,4 @@ ms.date: 4/4/2019
 
 # Azure governance best practices
 
-Coming summer 2019: Best practices showing how to use Azure-based tools, features, and services to support corporate policy and cloud governance efforts.
+Coming in Summer 2019: Best practices showing how to use Azure-based tools, features, and services to support corporate policy and cloud governance efforts.

@@ -3,12 +3,11 @@ title: "CAF: Rehost - Migrate and rehost an on-premises Linux app to Azure VMs"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how Contoso rehosts an on-premises Linux app by migrating to Azure VMs.
 services: site-recovery
-author: rayne-wiselman
-manager: carmonm
+author: BrianBlanchard
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/4/2019
-ms.author: raynew
+ms.author: brblanch
 
 ---
 
@@ -30,7 +29,7 @@ The IT Leadership team has worked closely with business partners to understand w
 
 The Contoso cloud team has pinned down goals for this migration, to determine the best migration method:
 
-- After migration, the app in Azure should have the same performance capabilities as it does today in their on-premises VMWare environment. The app will remain as critical in the cloud as it is on-premises.
+- After migration, the app in Azure should have the same performance capabilities as it does today in their on-premises VMware environment. The app will remain as critical in the cloud as it is on-premises.
 - Contoso doesn’t want to invest in this app. It is important to the business, but in its current form Contoso simply wants to move it safely to the cloud.
 - Contoso doesn't want to change the ops model for this app. It wants to interact with the app in the cloud in the same way that they do now.
 - Contoso doesn't want to change app functionality. Only the app location will change.
@@ -225,7 +224,7 @@ Contoso admins perform these steps as follows:
 
     ![vault](./media/contoso-migration-rehost-linux-vm/cswiz1.png)
 
-11. They then download and install MySQL Server, and VMWare PowerCLI.
+11. They then download and install MySQL Server, and VMware PowerCLI.
 12. After validation, they specify the FQDN or IP address of the vCenter server or vSphere host. They leave the default port, and specify a friendly name for the vCenter server.
 13. They specify the account that they created for automatic discovery, and the credentials that should be used to automatically install the Mobility Service.
 

@@ -1,11 +1,11 @@
 ---
-title: "CAF: Large Enterprise – Multi-Cloud Evolution"
+title: "CAF: Large enterprise – Multicloud evolution"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 ms.date: 02/11/2019
-description: Large Enterprise – Multi-Cloud Evolution
+description: Large enterprise – Multicloud evolution
 author: BrianBlanchard
 ---
 
@@ -19,7 +19,7 @@ This article describes how things change when integrating the new organization. 
 
 ### Evolution of the current state
 
-In the previous phase of this narrative, the company had begun to implement cost controls and cost monitoring, as cloud spending becomes part of the company's regular operational expenses.
+In the previous phase of this narrative, the company had begun to implement cost controls and cost monitoring, as cloud spending becomes part of the company's regular operating expenses.
 
 Since then, some things have changed that will affect governance:
 
@@ -55,16 +55,16 @@ The following changes to policy will help mitigate the new risks and guide imple
 
 This section of the article will evolve the governance MVP design to include new Azure policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
 
-1. Connect the networks - Executed by Networking and IT Security, supported by governance
+1. Connect the networks - Executed by Networking and IT Security, supported by governance.
     1. Adding a connection from the MPLS/Leased line provider to the new cloud will integrate networks. Adding routing tables and firewall configurations will control access and traffic between the environments.
 2. Consolidate Identity Providers. Depending on the workloads being hosted in the secondary cloud, there are a variety of options to identity provider consolidation. The following are a few examples:
     1. For applications that authenticate using OAuth 2, users in the Active Directory in the secondary cloud could simply be replicated to the existing Azure AD tenant.
     2. On the other extreme, federation between the two on-premises identity providers, would allow users from the new Active Directory domains to be replicated to Azure.
 3. Add assets to Azure Site Recovery
-    1. Azure Site Recovery was built as a hybrid/multi-cloud tool from the beginning.
+    1. Azure Site Recovery was built as a hybrid or multicloud tool from the beginning.
     2. Virtual machines in the secondary cloud might be able to be protected by the same Azure Site Recovery processes used to protect on-premises assets.
 4. Add assets to Azure Cost Management
-    1. Azure Cost Management was built as a multi-cloud tool from the beginning.
+    1. Azure Cost Management was built as a multicloud tool from the beginning.
     2. Virtual machines in the secondary cloud might be compatible with Azure Cost Management for some cloud providers. Additional costs may apply.
 5. Add assets to Azure Monitor
     1. Azure Monitor was built as a hybrid cloud tool from the beginning.
@@ -73,11 +73,11 @@ This section of the article will evolve the governance MVP design to include new
     1. Governance enforcement is cloud-specific.
     2. The corporate policies established in the governance journey are not. While the implementation may vary from cloud to cloud, the policy statements can be applied to the secondary provider.
 
-As multi-cloud adoption grows, the design evolution above will continue to mature.
+As multicloud adoption grows, the design evolution above will continue to mature.
 
 ## Next steps
 
-In many large enterprises, the disciplines of cloud governance can be blockers to adoption. The next article has some closing thoughts about making governance a team sport, to help ensure long-term success in the cloud.
+In many large enterprises, the Five Dsciplines of Cloud Governance can be blockers to adoption. The next article has some additional thoughts on making governance a team sport to help ensure long-term success in the cloud.
 
 > [!div class="nextstepaction"]
 > [Multiple layers of governance](./multiple-layers-of-governance.md)

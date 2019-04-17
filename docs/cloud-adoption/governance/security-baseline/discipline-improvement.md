@@ -11,7 +11,7 @@ author: BrianBlanchard
 
 # Security Baseline discipline improvement
 
-The Security Baseline discipline focuses on ways of establishing policies that protect the network, assets, and most importantly the data that will reside on a Cloud Provider's solution. Within the five disciplines of Cloud Governance, Security Baseline includes classification of the digital estate and data. It also includes documentation of risks, business tolerance, and mitigation strategies associated with the security of the data, assets, and network. From a technical perspective, this also includes involvement in decisions regarding [encryption](../../decision-guides/encryption/overview.md), [network requirements](../../decision-guides/software-defined-network/overview.md), [hybrid identity strategies](../../decision-guides/identity/overview.md), and the [processes](compliance-processes.md) used to develop cloud Security Baseline policies.
+The Security Baseline discipline focuses on ways of establishing policies that protect the network, assets, and most importantly the data that will reside on a Cloud Provider's solution. Within the Five Disciplines of Cloud Governance, the Security Baseline discipline includes classification of the digital estate and data. It also includes documentation of risks, business tolerance, and mitigation strategies associated with the security of the data, assets, and network. From a technical perspective, this also includes involvement in decisions regarding [encryption](../../decision-guides/encryption/overview.md), [network requirements](../../decision-guides/software-defined-network/overview.md), [hybrid identity strategies](../../decision-guides/identity/overview.md), and the [processes](compliance-processes.md) used to develop cloud Security Baseline policies.
 
 This article outlines some potential tasks your company can engage in to better develop and mature the Security Baseline discipline. These tasks can be broken down into planning, building, adopting, and operating phases of implementing a cloud solution, which are then iterated on allowing the development of an [incremental approach to cloud governance](../journeys/overview.md#an-incremental-approach-to-cloud-governance).
 
@@ -22,7 +22,7 @@ This article outlines some potential tasks your company can engage in to better 
 It's impossible for any one document to account for the requirements of all businesses. As such, this article outlines suggested minimum and potential example activities for each phase of the governance maturation process. The initial objective of these activities is to help you build a [Policy MVP](../journeys/overview.md#an-incremental-approach-to-cloud-governance) and establish a framework for incremental policy evolution. Your Cloud Governance team will need to decide how much to invest in these activities to improve your Security Baseline governance capabilities.
 
 > [!CAUTION]
-> Neither the minimum or potential activities outlined in this article are aligned to specific corporate policies or third party compliance requirements. This guidance is designed to help facilitate the conversations that will lead to alignment of both requirements with a cloud governance model.
+> Neither the minimum or potential activities outlined in this article are aligned to specific corporate policies or third-party compliance requirements. This guidance is designed to help facilitate the conversations that will lead to alignment of both requirements with a cloud governance model.
 
 ## Planning and readiness
 
@@ -48,13 +48,13 @@ This phase of governance maturity bridges the divide between business outcomes a
 
 <!-- "en-us" location is required for the URL above. -->
 
-## Build and pre-deployment
+## Build and predeployment
 
 A number of technical and nontechnical prerequisites are required to successful migrate an environment. This process focuses on the decisions, readiness, and core infrastructure that proceeds a migration.
 
 **Minimum suggested activities:**
 
-- Implement your [Security Baseline toolchain](toolchain.md) by rolling out in a pre-deployment phase.
+- Implement your [Security Baseline toolchain](toolchain.md) by rolling out in a predeployment phase.
 - Update the Architecture Guidelines document and distribute to key stakeholders.
 - Implement security tasks on your prioritized migration backlog.
 - Develop educational materials and documentation, awareness communications, incentives, and other programs to help drive user adoption.
@@ -75,17 +75,17 @@ Migration is an incremental process that focuses on the movement, testing, and a
 
 **Minimum suggested activities:**
 
-- Migrate your [Security Baseline toolchain](toolchain.md) from pre-deployment to production.
+- Migrate your [Security Baseline toolchain](toolchain.md) from predeployment to production.
 - Update the Architecture Guidelines document and distribute to key stakeholders.
-- Develop educational materials and documentation, awareness communications, incentives, and other programs to help drive user adoption
+- Develop educational materials and documentation, awareness communications, incentives, and other programs to help drive user adoption.
 
 **Potential activities:**
 
 - Review the latest Security Baseline and threat information to identify any new business risks.
 - Gauge your organization's tolerance to handle new security risks that may arise.
 - Identify deviations from policy, and enforce corrections.
-- Adjust security and access control automation to ensure maximum policy compliance.  
-- Validate that the best practices defined during the Build / Pre-deployment phases are properly executed.
+- Adjust security and access control automation to ensure maximum policy compliance.
+- Validate that the best practices defined during the build and predeployment phases are properly executed.
 - Review your least privilege access policies and adjust access controls to maximize security.
 - Test your Security Baseline toolchain against your workloads to identify and resolve any vulnerabilities.
 
@@ -113,5 +113,5 @@ Now that you understand the concept of cloud security governance, move on to lea
 
 > [!div class="nextstepaction"]
 > [Learn about security guidance for Azure](azure-security-guidance.md)
-> [Introduction to Azure Security](/azure/security/azure-security)
+> [Introduction to Azure security](/azure/security/azure-security)
 > [Learn about logging, reporting, and monitoring](../../decision-guides/log-and-report/overview.md)

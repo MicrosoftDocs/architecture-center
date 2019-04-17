@@ -25,7 +25,7 @@ Deploying a cloud native virtual network assumes the following:
 
 Cloud native virtual networks have no external dependencies. This makes them simple to deploy and configure, and as a result this architecture is often the best choice for experiments or other smaller self-contained or rapidly iterating deployments.
 
-Additional issues your Cloud Adoption Team should consider when discussing a cloud native virtual networking architecture include:
+Additional issues your Cloud Adoption team should consider when discussing a cloud native virtual networking architecture include:
 
 - Existing workloads designed to run in an on-premises datacenter may need extensive modification to take advantage of cloud-based functionality, such as storage or authentication services.
 - Cloud native networks are managed solely through the cloud platform management tools, and therefore may lead to management and policy divergence from your existing IT standards as time goes on.

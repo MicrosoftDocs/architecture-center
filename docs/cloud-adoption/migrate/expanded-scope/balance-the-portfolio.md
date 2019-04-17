@@ -15,7 +15,7 @@ This topic is strategic in nature. As such, the approach taken in this article i
 
 ### Documenting business outcomes
 
-Before balancing the portfolio, it is important to document and share the business outcomes driving the cloud migration effort. For a few examples of general business outcomes related to cloud migrations, see the [getting started article on cloud migration](../../getting-started/migrate.md?#common-business-outcomes).
+Before balancing the portfolio, it is important to document and share the business outcomes driving the cloud migration effort. For a few examples of general business outcomes related to cloud migrations, see the [Cloud migration executive summary](../../getting-started/migrate.md).
 
 The following table can help document and share desired business outcomes. It's important to note that most businesses are pursuing several outcomes at a time. The importance of this exercise is to clarify the outcomes that are most directly related to the cloud migration effort:
 
@@ -29,11 +29,11 @@ The following table can help document and share desired business outcomes. It's 
 > [!IMPORTANT]
 > The above table is a fictional example and should not used to set priorities. In many cases, this table could be seen as an anti-pattern by placing cost savings above customer experiences.
 
-The above table could accurately represent the priorities of the cloud strategy team and cloud adoption team overseeing a cloud migration. Due to short term constraints, this team is placing a higher emphasis on IT cost reduction and prioritizing a datacenter exit as a means to achieve the desired IT cost reductions. However, by documenting the competing priorities in this table, the Cloud Adoption Team is empowered to help the Cloud Strategy Team identify opportunities to better align implementation of the overarching portfolio strategy.
+The above table could accurately represent the priorities of the cloud strategy team and cloud adoption team overseeing a cloud migration. Due to short term constraints, this team is placing a higher emphasis on IT cost reduction and prioritizing a datacenter exit as a means to achieve the desired IT cost reductions. However, by documenting the competing priorities in this table, the Cloud Adoption team is empowered to help the Cloud Strategy team identify opportunities to better align implementation of the overarching portfolio strategy.
 
 ### Move fast while maintaining balance
 
-The guidance regarding [incremental rationalization of the digital estate](../../digital-estate/overview.md) suggests an approach in which the rationalization starts with an unbalanced position. In that article, it is suggested that the Cloud Strategy Team evaluate every workload for compatibility with a re-host approach. Such an approach is suggested because it allows for the rapid evaluation of a complex digital estate based on quantitative data. Making such an initial assumption allows the Cloud Adoption Team to engage quickly, reducing time to business outcomes. However, as stated in that article, qualitative questions will provide the necessary balance in the portfolio. This article documents the process for creating the promised balance.
+The guidance regarding [incremental rationalization of the digital estate](../../digital-estate/overview.md) suggests an approach in which the rationalization starts with an unbalanced position. In that article, it is suggested that the Cloud Strategy team evaluate every workload for compatibility with a rehost approach. Such an approach is suggested because it allows for the rapid evaluation of a complex digital estate based on quantitative data. Making such an initial assumption allows the Cloud Adoption team to engage quickly, reducing time to business outcomes. However, as stated in that article, qualitative questions will provide the necessary balance in the portfolio. This article documents the process for creating the promised balance.
 
 ### Importance of sunset and retire decisions
 
@@ -45,7 +45,7 @@ To balance the portfolio, better reflecting sunset and retire decisions, the clo
 - Is end user traffic consistent or growing?
 - Will this workload be required by the business 12 months from now?
 
-If the answer to any of these questions is "No", then the workload could be a candidate for retirement. If retirement potential is confirmed with the app owner, then it may not make sense to migrate the workload. This prompts for a few qualification questions:
+If the answer to any of these questions is "No" then the workload could be a candidate for retirement. If retirement potential is confirmed with the app owner, then it may not make sense to migrate the workload. This prompts for a few qualification questions:
 
 - Can a retirement/sunset plan be established for this workload?
 - Can this workload be retired prior to the datacenter exit?
@@ -76,9 +76,9 @@ To reduce complexity, it is advise that the reader follow a traditional approach
   - Is this application a third-party application?
   - Has budget been approved to invest in ongoing development of the application in the next 12 months?
   - Would additional development of this application improve the customer experience? Create a competitive differentiator? Drive additional revenue for the business?
-  - Will the data within this workload contribute to a downstream innovation related to BI, Machine Learning, IoT, etc...?
-  - Is the workload compatible with modern application platforms, like Azure Web Apps?
-- The results of the above questions and any other required qualitative analysis would then influence adjustments to the prioritized backlog. For instance:
+  - Will the data within this workload contribute to a downstream innovation related to BI, Machine Learning, IoT, or related technologies?
+  - Is the workload compatible with modern application platforms like Azure App Service?
+- The answers to the above questions and any other required qualitative analysis would then influence adjustments to the prioritized backlog. For example:
   - If a workload could be replaced with a PaaS solution, it ay be removed from the migration backlog entirely. At minimum, additional due dilligence to decide between rehost and replace would be added as a task, temporarily reducing that workloads priority from the migration backlog.
   - If a workload is undergoing development advancement (or should be), then it may best fit into a refactor/rearchitect/rebuild model. Since innovation and migration require very different technical skills, it is often advised that applications which align to a refactor/rearchitect/rebuild approach be managed through an innovation backlog, as opposed to a migration backlog.
   - If a workload is part of a downstream innovation, then it may make sense to refactor the data platform, but leave the application layers as a rehost candidate. Minor refactoring of a workloads data platform can often be addressed in a migration or an innovation backlog. This rationalization outcome may result in more detailed work items in the backlog, but otherwise no change to priorities.
@@ -115,7 +115,7 @@ No additional changes are required during Secure and manage processes within the
 
 ## Next steps
 
-Return to the [Expanded Scope Checklist](./index.md) to ensure your migration methodology is fully aligned.
+Return to the [expanded scope checklist](./index.md) to ensure your migration methodology is fully aligned.
 
 > [!div class="nextstepaction"]
-> [Expanded Scope Checklist](./index.md)
+> [Expanded scope checklist](./index.md)

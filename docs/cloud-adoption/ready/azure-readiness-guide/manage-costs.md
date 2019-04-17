@@ -30,26 +30,29 @@ Azure provides a few ways to help you predict and manage costs:
 2. Explore the features that help to analyze and optimize cloud costs.
 
 ### Manage invoices and payment methods
+
 1. Go to [Cost Management + Billing](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview).
 2. Select **Invoices** or **Payment methods** from the **Billing** section in the left pane.
 
 ## Billing and subscription support
 
-We offer 24 x7 access for billing and subscription support to Azure customers. If you need assistance to understand Azure usage, please create a support request.
+We offer 24x7 access for billing and subscription support to Azure customers. If you need assistance to understand Azure usage, please create a support request.
 
 ### Create a support request
+
 To submit a new support request:
 1. Go to [Help + Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 2. Select **New support request**.
 
 ### View a support request
+
 To view all of your support requests and their status:
 1. Go to [Help + Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 2. Select **All support requests**.
 
 ## Learn more
 
-For more information, see [understand your bill for Microsoft Azure](https://docs.microsoft.com/en-us/azure/billing/billing-understand-your-invoice).
+To learn more, see [Azure billing and cost management documentation](/azure/billing/)
 
 ::: zone-end
 

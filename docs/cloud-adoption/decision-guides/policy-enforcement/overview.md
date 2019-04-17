@@ -23,9 +23,7 @@ The key inflection point when choosing the complexity of your policy enforcement
 
 ## Baseline recommended practices
 
-For single subscription and simple cloud deployments, many corporate policies can be enforced using features that are native to most cloud platforms. Even at this relatively low level of deployment complexity, the consistent use of the patterns discussed throughout the CAF [decision guides](../overview.md) can help establish a baseline level of policy compliance.
-
-For example:
+For single subscription and simple cloud deployments, many corporate policies can be enforced using features that are native to most cloud platforms. Even at this relatively low level of deployment complexity, the consistent use of the patterns discussed throughout the Cloud Adoption Framework [decision guides](../overview.md) can help establish a baseline level of policy compliance. For example:
 
 - [Deployment templates](../resource-consistency/overview.md) can provision resources with standardized structure and configuration.
 - [Tagging and naming standards](../resource-tagging/overview.md) can help organize operations and support accounting and business requirements.

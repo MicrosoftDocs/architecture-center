@@ -1,8 +1,12 @@
 ---
 title: "CAF: Monitor and enforce policy adherence"
 description: How do you ensure compliance with established policies? 
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
 author: BrianBlanchard
-ms.date: 1/4/2019
+ms.date: 02/11/2019
 ---
 
 <!-- markdownlint-disable MD026 -->
@@ -15,7 +19,7 @@ I've defined policies, I've provided an architecture guide. Now how do I monitor
 
 After establishing your cloud policy statements and drafting a design guide, you'll need to create a strategy for ensuring your cloud deployment stays in compliance with your policy requirements. This strategy will need to encompass your Cloud Governance team's ongoing review and communication processes, establish criteria for when policy violations require action, and defining the requirements for automated monitoring and compliance systems that will detect violations and trigger remediation actions.
 
-See the corporate policy sections of the [Actionable Governance Journeys](../journeys/overview.md) for examples of how policy adherence process fit into a cloud governance plan.
+See the corporate policy sections of the [actionable governance journeys](../journeys/overview.md) for examples of how policy adherence process fit into a cloud governance plan.
 
 ## Prioritize policy adherence processes
 
@@ -47,7 +51,7 @@ As your overall deployment grows, evaluate new potential risks regularly and upd
 
 Policy compliance requires IT staff and developers to understand the policy requirements that affect their areas of responsibility. Plan to devote resources to document decisions and requirements, and educate all relevant teams on the design guides that support your policy requirements.
 
-As policy changes, regularly update documentation and training materials, and ensure education efforts communicate updated requirements and guidance to relevant IT staff.  
+As policy changes, regularly update documentation and training materials, and ensure education efforts communicate updated requirements and guidance to relevant IT staff.
 
 ### Establish escalation paths
 
@@ -66,7 +70,7 @@ For each of your policy statements, review requirements to determine what consti
 
 ### Define actions
 
-Each violation trigger should have a corresponding action. Triggered actions should always notify an appropriate IT staff or Cloud Governance team member when a violation occurs. This notification can lead to a manual review of the compliance issue or kickoff a pre-established remediation process depending on the type and severity of the detected violation.
+Each violation trigger should have a corresponding action. Triggered actions should always notify an appropriate IT staff or Cloud Governance team member when a violation occurs. This notification can lead to a manual review of the compliance issue or kickoff a predefined remediation process depending on the type and severity of the detected violation.
 
 Some examples of violation triggers and actions:
 
@@ -80,4 +84,4 @@ Some examples of violation triggers and actions:
 
 After you've defined your compliance violation triggers and actions, you can start planning how best to use the logging and reporting tools and other features of the cloud platform to help automate your monitoring and policy compliance strategy.
 
-Consult the CAF [logging and reporting decision guide](../../decision-guides/log-and-report/overview.md) topic for guidance on choosing the best monitoring pattern for your deployment.
+Consult the Cloud Adoption Framework [logging and reporting decision guide](../../decision-guides/log-and-report/overview.md) topic for guidance on choosing the best monitoring pattern for your deployment.

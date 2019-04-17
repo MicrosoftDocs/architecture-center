@@ -7,11 +7,11 @@ ms.date: 4/4/2019
 
 # Evaluate workload readiness
 
-This activity focuses on evaluating readiness of a workload to migrate to the cloud. During this activity, the Cloud Adoption Team validates that all assets and associated dependencies are compatible with the chosen deployment model and cloud provider. During the process, the team documents any efforts required to [remediate](../migrate/remediate.md) compatibility issues.
+This activity focuses on evaluating readiness of a workload to migrate to the cloud. During this activity, the Cloud Adoption team validates that all assets and associated dependencies are compatible with the chosen deployment model and cloud provider. During the process, the team documents any efforts required to [remediate](../migrate/remediate.md) compatibility issues.
 
 ## Evaluation assumptions
 
-Most of the content discussing principles in the Cloud Adoption Framework strives to be cloud agnostic. However, the readiness evaluation process must be largely specific to each specific cloud platform. The following guidance assumes an intention to migrate to Azure. It also assumes use of Azure Migrate (also known as Azure Site Recovery) for [replication activities](../migrate/replicate.md). For alternative tools, see [replication options](../migrate/replicate-options.md).
+Most of the content discussing principles in the Cloud Adoption Framework is intended to be cloud agnostic. However, the readiness evaluation process must be largely specific to each specific cloud platform. The following guidance assumes an intention to migrate to Azure. It also assumes use of Azure Migrate (also known as Azure Site Recovery) for [replication activities](../migrate/replicate.md). For alternative tools, see [replication options](../migrate/replicate-options.md).
 
 This article is not intended to capture all possible evaluation activities. It is assumed that each environment and business outcome will dictate specific requirements. To help accelerate the creation of those requirements, the remainder of this article shares a few common evaluation activities related to [infrastructure](#common-infrastructure-evaluation-activities), [database](#common-database-evaluation-activities), and [network](#common-network-evaluation-activities) evaluation.
 

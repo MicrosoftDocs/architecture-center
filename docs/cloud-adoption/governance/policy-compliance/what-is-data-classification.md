@@ -1,8 +1,12 @@
 ---
-title: "CAF: What is Data Classification"
-description: What is Data Classification?
+title: "CAF: What is data classification?"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: What is data classification?
 author: BrianBlanchard
-ms.date: 2/11/2019
 ---
 
 <!-- markdownlint-disable MD026 -->
@@ -15,11 +19,11 @@ This is an introductory article on the general topic of Data Classification. Dat
 
 In most organizations, the primary reasons for investing in governance can be reduced to three business risks:
 
-* Liability associated with data breaches
-* Interruption to the business from outages
-* Unplanned or unexpected spending
+* Liability associated with data breaches.
+* Interruption to the business from outages.
+* Unplanned or unexpected spending.
 
-There are many variants of these three business risks. However, the tend to be the most common.
+There are many variants of these three business risks. However, these tend to be the most common.
 
 ## Understand then mitigate
 
@@ -29,13 +33,13 @@ Microsoft suggests that any asset which has been identified as a potential candi
 
 ## Microsoft's data classification
 
-The following is a list of classifications Microsoft uses. Depending on your industry or existing security requirements, data classifications standards may already exist within your organization. If no standard exists, we welcome you to use this sample classification, to help you better understand your digital estate and risk profile.  
+The following is a list of classifications Microsoft uses. Depending on your industry or existing security requirements, data classifications standards may already exist within your organization. If no standard exists, we welcome you to use this sample classification, to help you better understand your digital estate and risk profile.
 
-* **Non-Business:** Data from your personal life that does not belong to Microsoft
-* **Public:** Business data that is freely available and approved for public consumption
-* **General:** Business data that is not meant for a public audience
-* **Confidential:** Business data that could cause harm to Microsoft if over-shared
-* **Highly Confidential:** Business data that would cause extensive harm to Microsoft if over-shared
+* **Non-Business:** Data from your personal life that does not belong to Microsoft.
+* **Public:** Business data that is freely available and approved for public consumption.
+* **General:** Business data that is not meant for a public audience.
+* **Confidential:** Business data that could cause harm to Microsoft if overshared.
+* **Highly Confidential:** Business data that would cause extensive harm to Microsoft if overshared.
 
 ## Tagging data classification in Azure
 
@@ -46,4 +50,4 @@ Every cloud provider should offer a mechanism for recording metadata about any a
 Apply data classifications during one of the actionable governance journeys.
 
 > [!div class="nextstepaction"]
-> [Begin an Actionable Governance Journeys](../journeys/overview.md)
+> [Begin an actionable governance gourney](../journeys/overview.md)

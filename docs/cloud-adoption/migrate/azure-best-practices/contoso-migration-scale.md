@@ -3,11 +3,11 @@ title: "CAF: Contoso - Scale a migration to Azure"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how Contoso handles a scaled migration to Azure.
 services: azure-migrate
-author: rayne-wiselman
+author: BrianBlanchard
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/08/2018
-ms.author: raynew
+ms.author: brblanch
 
 ---
 
@@ -192,7 +192,7 @@ There are four broad migration strategies that Contoso can consider.
 **Strategy** | **Details** | **Usage**
 --- | --- | ---
 **Rehost** | Often referred to as "lift-and-shift" migration, this is a no-code option for migrating existing apps to Azure quickly.<br/><br/> An app is migrated as-is, with the benefits of the cloud, without the risks or costs associated with code changes. | Contoso can rehost less-strategic apps, requiring no code changes.
-**Refactor** | Also referred to as "repackaging", this strategy requires minimal app code or configuration changes need to connect the app to Azure PaaS, and take better advantage of cloud capabilities. | Contoso can refactor strategic apps to retain the same basic functionality, but move them to run on an Azure platform such as Azure App Services.<br/><br/> This requires minimum code changes.<br/><br/> On the other hand, Contoso will have to maintain a VM platform since this won't be managed by Microsoft.
+**Refactor** | Also referred to as "repackaging", this strategy requires minimal app code or configuration changes need to connect the app to Azure PaaS, and take better advantage of cloud capabilities. | Contoso can refactor strategic apps to retain the same basic functionality, but move them to run on an Azure platform such as Azure App Service.<br/><br/> This requires minimum code changes.<br/><br/> On the other hand, Contoso will have to maintain a VM platform since this won't be managed by Microsoft.
 **Rearchitect** | This strategy modifies or extends an app code base to optimize the app architecture for cloud capabilities and scale.<br/><br/> It modernizes an app into a resilient, highly scalable, independently deployable architecture.<br/><br/> Azure services can accelerate the process, scale applications with confidence, and manage apps with ease.
 **Rebuild** | This strategy rebuilds an app from scratch using cloud-native technologies.<br/><br/> Azure platform as a service (PaaS) provides a complete development and deployment environment in the cloud. It eliminates some expense and complexity of software licenses, and removes the need for an underlying app infrastructure, middleware, and other resources. | Contoso can rewrite critical apps from the ground up, to take advantage of cloud technologies such as serverless computer, or microservices.<br/><br/> Contoso will manage the app and services it develops, and Azure manages everything else.
 
@@ -308,7 +308,7 @@ To make the most of their cloud investment, Contoso will take advantage of the f
 
 ![Cost management](./media/contoso-migration-scale/cost-management.png)
 
-### Native Tools
+### Native tools
 
 Contoso will also use scripts to locate unused resources.
 
@@ -322,7 +322,7 @@ Contoso will also use scripts to locate unused resources.
   - Bulk deletion of resource groups on-demand.
 - Get started with the ARO toolkit in this [GitHub repo](https://github.com/Azure/azure-quickstart-templates/tree/master/azure-resource-optimization-toolkit).
 
-### Partner Tools
+### Partner tools
 
 Partner tools such as [Hanu](https://hanu.com/insight) and [Scalr]( https://www.scalr.com/cost-optimization) can be used.
 
@@ -347,12 +347,12 @@ Contoso needs visibility into the health and performance of the newly migrated a
 - Contoso will use these cloud monitoring tools to take action and integrate with service solutions.
 - [Learn more](/azure/monitoring-and-diagnostics/monitoring-overview) about Azure monitoring.
 
-### BCDR
+### Business continuity and disaster recovery
 
 Contoso will need a business continuity and disaster recovery (BCDR) strategy for their Azure resources.
 
 - Azure provides [built-in BCDR features](/azure/architecture/resiliency/disaster-recovery-azure-applications) to keep data safe and apps/services up and running.
-- In addition to built-in features, Contoso wants to ensure that it can recover from failures, avoid costly business disruptions, meet compliance goals, and protect data against ransomware and human errors. To do this
+- In addition to built-in features, Contoso wants to ensure that it can recover from failures, avoid costly business disruptions, meet compliance goals, and protect data against ransomware and human errors. To do this:
   - Contoso will deploy Azure Backup as a cost-efficient solution for backup of Azure resources. Because it’s built-in, Contoso can set up cloud backups in a few simple steps.
   - Contoso will set up disaster recovery for Azure VMs using Azure Site Recovery for replication, failover, and failback between Azure regions that it specifies. This ensures that apps running on Azure VMs will remain available in a secondary region of Contoso's choosing if an outage occurs in the primary region. [Learn more](/azure/site-recovery/azure-to-azure-quickstart).
 

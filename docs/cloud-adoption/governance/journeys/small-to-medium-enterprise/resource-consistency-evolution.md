@@ -1,11 +1,11 @@
 ---
-title: "CAF: Small-to-Medium Enterprise – Resource Consistency evolution "
+title: "CAF: Small-to-medium enterprise – Resource Consistency evolution"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 ms.date: 02/11/2019
-description: Explanation Small-to-Medium Enterprise – Resource Consistency evolution
+description: Small-to-medium enterprise – Resource Consistency evolution
 author: BrianBlanchard
 ---
 
@@ -39,16 +39,16 @@ The changes to current and future state expose new risks that will require new p
 
 This business risk can be expanded into a number of technical risks:
 
-- External intrusion or denial of service attacks might cause a business interruption
-- Mission-critical assets may not be properly discovered, and therefore might not be properly operated
+- External intrusion or denial of service attacks might cause a business interruption.
+- Mission-critical assets may not be properly discovered, and therefore might not be properly operated.
 - Undiscovered or mislabeled assets might not be supported by existing operational management processes.
-- The configuration of deployed assets may not meet performance expectations
+- The configuration of deployed assets may not meet performance expectations.
 - Logging might not be properly recorded and centralized to allow for remediation of performance issues.
 - Recovery policies may fail or take longer than expected.
 - Inconsistent deployment processes might result in security gaps that could lead to data leaks or interruptions.
 - Configuration drift or missed patches might result in unintended security gaps that could lead to data leaks or interruptions.
 - Configuration might not enforce the requirements of defined SLAs or committed recovery requirements.
-- Deployed operating systems or applications might fail to meet hardening requirements
+- Deployed operating systems or applications might fail to meet hardening requirements.
 - With so many teams working in the cloud, there is a risk of inconsistency.
 
 ## Evolution of the policy statements
@@ -85,7 +85,7 @@ This section of the article will evolve the governance MVP design to include new
     1. Audit and enforce criticality and data classification across all subscriptions to identify any subscriptions with mission-critical assets.
     2. Audit and enforce the use of approved images only.
 5. Azure Monitor implementation:
-    1. Once a mission-critical subscription is identified, create an Azure Monitor workspace using PowerShell. This is a pre-deployment process.
+    1. Once a mission-critical subscription is identified, create an Azure Monitor workspace using PowerShell. This is a predeployment process.
     2. During deployment testing, the Cloud Operations team deploys the necessary agents and tests discovery.
 6. Update Azure Policy for all subscriptions that contain mission-critical applications.
     1. Audit and enforce the application of an NSG to all NICs and subnets. Networking and IT Security define the NSG.

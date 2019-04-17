@@ -2,12 +2,11 @@
 title: "CAF: Rehost a Linux service desk app to Azure and Azure MySQL"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how Contoso rehosts an on-premises Linux app by migrating it to Azure VMs and Azure MySQL.
-author: rayne-wiselman
-manager: carmonm
+author: BrianBlanchard
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/4/2019
-ms.author: raynew
+ms.author: brblanch
 ---
 
 # Rehost an on-premises Linux app to Azure VMs and Azure MySQL
@@ -247,7 +246,7 @@ Contoso admins do this as follows:
 
     ![vault](./media/contoso-migration-rehost-linux-vm-mysql/cswiz1.png)
 
-12. Now, they download and install MySQL Server, and VMWare PowerCLI.
+12. Now, they download and install MySQL Server, and VMware PowerCLI.
 13. After validation, they specify the FQDN or IP address of the vCenter server or vSphere host. They leave the default port, and specify a friendly name for the vCenter server.
 14. They input the account that they created for automatic discovery, and the credentials that Site Recovery will use to automatically install the Mobility Service.
 

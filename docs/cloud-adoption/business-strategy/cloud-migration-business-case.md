@@ -1,5 +1,5 @@
 ---
-title:  "CAF: Build a cloud migration business case"
+title: "CAF: Build a cloud migration business case"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
@@ -28,17 +28,17 @@ Cloud migrations can generate early return on investment (ROI) from cloud transf
 
 - Software costs of virtualization, servers, and middleware can be extensive. Cloud providers eliminate some of these costs. Two examples of a cloud provider reducing virtualization costs are the [Azure Hybrid Benefits](https://azure.microsoft.com/pricing/hybrid-benefit/#services) and [Reservations](https://azure.microsoft.com/reservations) programs.
 - Business losses due to outages can quickly exceed hardware or software costs. If the current datacenter is unstable, work with the business to quantify the impact of outages in terms of opportunity costs or actual business costs.
-- Environmental costs can also have an impact. For the average American family, their home is the biggest investment and highest cost in their budget. The same is often true for data centers. Real estate, facilities, and utility costs represent a fair portion of on-premises costs. When data centers are retired, those facilities can be repurposed by the business, or potentially the business could be released from the costs entirely.
+- Environmental costs can also have an impact. For the average American family, their home is the biggest investment and highest cost in their budget. The same is often true for datacenters. Real estate, facilities, and utility costs represent a fair portion of on-premises costs. When datacenters are retired, those facilities can be repurposed by the business, or potentially the business could be released from the costs entirely.
 
-**Myth: Operating Expense (OpEx) is better than Capital Expense (CapEx).** As explained in the [fiscal outcomes](business-outcomes/fiscal-outcomes.md) article, OpEx can be a good thing. However, there are a number of industries that can see OpEx as a negative. The following are a few examples that would trigger tighter integration with the accounting and business units regarding the OpEx conversation:
+**Myth: An operating expense model is better than a capital expense model.** As explained in the [fiscal outcomes](business-outcomes/fiscal-outcomes.md) article, an operating expense model can be a good thing. However, there are a number of industries that view operating expenditures negatively. The following are a few examples that would trigger tighter integration with the accounting and business units regarding the operating expense conversation:
 
-- When the business sees capital assets as a driver for business valuation, CapEx reductions could be a negative outcome. While not a universal standard, this sentiment is most commonly seen in retail, manufacturing, and construction industries.
-- OpEx increases can also be seen as a negative outcome in businesses owned by a private equity firm or seeking capital influx.
-- If the business is focused heavily on improving sales margins or reducing Cost of Goods Sold (COGS), the OpEx could be a negative outcome.
+- When the business sees capital assets as a driver for business valuation, captial expense reductions could be a negative outcome. While not a universal standard, this sentiment is most commonly seen in retail, manufacturing, and construction industries.
+- Operating expense increases can also be seen as a negative outcome in businesses owned by a private equity firm or seeking capital influx.
+- If the business is focused heavily on improving sales margins or reducing cost of goods sold (COGS), the operating expense could be a negative outcome.
 
-OpEx is not always a bad thing. Businesses are more likely to see OpEx as more favorable than CapEx. For instance, this approach can be well received by businesses that are attempting to improve cash flow, reduce capital investments, or decrease asset holdings.
+Operating expense is not always a bad thing. Businesses are more likely to see operating expense as more favorable than capital expense. For instance, this approach can be well received by businesses that are attempting to improve cash flow, reduce capital investments, or decrease asset holdings.
 
-Before providing a business justification that focuses on a conversion from CapEx to OpEx, understand which is better for the business. Accounting and procurement can often help best align the message to financial objectives.
+Before providing a business justification that focuses on a conversion from capital expense to operating expense, understand which is better for the business. Accounting and procurement can often help best align the message to financial objectives.
 
 **Myth: Moving to the cloud is like flipping a switch.** Migrations are a manually intense technical transformation. When developing a business justification, especially justifications that are time sensitive, consider the following aspects that could increase the time it takes to migrate assets:
 
@@ -46,7 +46,7 @@ Before providing a business justification that focuses on a conversion from CapE
 - Business testing timelines: Testing applications with the business to certify readiness and performance can be time consuming. Aligning power users and testing processes is critical.
 - Migration execution timelines: The amount of time and human effort required to execute the migration can increase costs and delay timelines. Allocating employees or contracting partners can also delay the process and should be accounted for in the plan.
 
-Technical and cultural impediments can slow cloud adoption. When time is an important aspect of the business justification, the best mitigation is proper planning. There are two suggested approaches during planning which can help mitigate timeline risks.
+Technical and cultural impediments can slow cloud adoption. When time is an important aspect of the business justification, the best mitigation is proper planning. There are two suggested approaches during planning that can help mitigate timeline risks.
 
 - First, invest the time and energy in understanding technical adoption constraints. While pressure to move quickly may be high, it is important to account for realistic execution timelines.
 - Second, if culture or people impediments arise, they will have more serious effects than the technical constraints. Cloud adoption creates change, which produces the desired transformation. Unfortunately, people sometimes fear change and may need additional support to align with the plan. Identify key people on the team that are opposed to change and engage them early.
@@ -85,14 +85,14 @@ After considering the opportunities unlocked by the cloud, work with the busines
 
 Calculate any changes to costs that will come from the proposed migration. See [Financial Models](financial-models.md) for details of the different types of cost deltas. Cloud providers often provide tools for cost delta calculations. An example of a cost delta calculator is the [Azure Total Cost of Ownership (TCO) Calculator](https://azure.com/tco).
 
-Other examples of costs that may be reduced by a Cloud Migration:
+Other examples of costs that may be reduced by a cloud migration:
 
-- Data Center termination or reduction (Environmental costs)
+- Datacenter termination or reduction (environmental costs)
 - Reduction in power consumed (Environmental costs)
-- Rack Termination (Physical asset recovery)
-- Prevent a hardware refresh (Cost Avoidance)
-- Avoid a software renewal (Operational Cost Reduction or Cost Avoidance)
-- Vendor consolidation (Operational Cost Reduction and potential Soft Cost Reduction)
+- Rack termination (physical asset recovery)
+- Prevent a hardware refresh (cost avoidance)
+- Avoid a software renewal (operational cost reduction or cost avoidance)
+- Vendor consolidation (operational cost reduction and potential soft cost reduction)
 
 ## When ROI results are surprising
 
@@ -100,7 +100,7 @@ If the ROI for a cloud migration isn't in line with expectations, it may be valu
 
 However, it's important to understand that a cost savings outcome is not always possible. There are applications that cost more to operate in the cloud than on-premises. These applications can significantly skew results in an analysis.
 
-When the ROI is below 20%, consider a [Digital Estate Planning](../digital-estate/overview.md) exercise, with specific attention to [rationalization](../digital-estate/rationalize.md). During quantitative analysis, perform a review of each application to find workloads that skew the results. It could be wise to remove those workloads from the plan. If usage data is available, consider reducing the size of VMs to match usage.
+When the ROI is below 20%, consider a [digital estate planning](../digital-estate/overview.md) exercise, with specific attention to [rationalization](../digital-estate/rationalize.md). During quantitative analysis, perform a review of each application to find workloads that skew the results. It could be wise to remove those workloads from the plan. If usage data is available, consider reducing the size of VMs to match usage.
 
 If the ROI is still misaligned, seek help from your Microsoft sales representative or [engage an experienced partner](https://azure.microsoft.com/migration/support).
 

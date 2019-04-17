@@ -7,11 +7,11 @@ ms.date: 4/4/2019
 
 # Multiple datacenters
 
-Often times the scope of a migration involves the transition of multiple datacenters. The following guidance will expand the scope of the [baseline migration guide](../baseline-migration-guide/overview.md) to address multiple datacenters.
+Often times the scope of a migration involves the transition of multiple datacenters. The following guidance will expand the scope of the [Azure migration guide](../azure-migration-guide/overview.md) to address multiple datacenters.
 
 ## General scope expansion
 
-Most of this effort required in this scope expansion, will fall in the prerequisites, assess and optimization processes of a migration.
+Most of this effort required in this scope expansion will occur during in the prerequisites, assess and optimization processes of a migration.
 
 ## Suggested prerequisites
 
@@ -19,7 +19,7 @@ Prior to beginning the migration, it is advised that the reader create Epics wit
 
 Within each epic, the workloads to be assessed and migrated would be managed as features. Each asset within that workload would be managed as a user story. The work required to assess, migrate, optimize, promote, secure, and manage each asset would be represented as tasks for each asset.
 
-Sprints or iterations would be then consist of a series of tasks required to migrate the assets/user stories committed to by the Cloud Adoption Team. Releases would then consist of one or more workloads/features to be promoted to production.
+Sprints or iterations would be then consist of a series of tasks required to migrate the assets/user stories committed to by the Cloud Adoption team. Releases would then consist of one or more workloads/features to be promoted to production.
 
 ## Assess process changes
 
@@ -49,15 +49,15 @@ During optimization, additional testing may be required.
 
 ### Suggested action during the optimize and promote process
 
-Prior to promotion, it is important to provide additional levels of testing during this scope expansion. During testing, it is important to test for routing or other network conflicts. Further, it is important to isolate the deployed application and re-test to validate that all dependencies have been migrated to the cloud. In this case, isolation means separating the deployed environment from production networks. Doing so can catch overlooked assets which are still running on-premises.
+Prior to promotion, it is important to provide additional levels of testing during this scope expansion. During testing, it is important to test for routing or other network conflicts. Further, it is important to isolate the deployed application and retest to validate that all dependencies have been migrated to the cloud. In this case, isolation means separating the deployed environment from production networks. Doing so can catch overlooked assets which are still running on-premises.
 
 ## Secure and manage process changes
 
-Secure an manage processes should be unchanged by this scope expansion
+Secure and manage processes should be unchanged by this scope expansion.
 
 ## Next steps
 
 Return to the [Expanded Scope Checklist](./index.md) to ensure your migration methodology is fully aligned.
 
 > [!div class="nextstepaction"]
-> [Expanded Scope Checklist](./index.md)
+> [Expanded scope checklist](./index.md)

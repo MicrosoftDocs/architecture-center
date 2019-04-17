@@ -63,7 +63,6 @@ Many of the security features, like security policy and recommendations, are ava
 > Azure Security Center is enabled by default in each subscription. We recommend you enable data collection from virtual machines to allow Azure Security Center to install its agent and begin gathering data.
 
 
-
 ::: zone target="docs"
 
 To explore Azure Security Center, go to the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/SecurityMenuBlade/0).  
@@ -73,7 +72,7 @@ To explore Azure Security Center, go to the [Azure portal](https://portal.azure.
 To learn more, see:
 
 - [Azure Security Center](/azure/security-center/)
-- [Just in time VM access](/azure/security-center/security-center-just-in-time#how-does-just-in-time-access-work)
+- [Just-in-time VM access](/azure/security-center/security-center-just-in-time#how-does-just-in-time-access-work)
 - [Standard vs. free pricing tier](https://azure.microsoft.com/pricing/details/security-center/) 
 
 ::: zone-end

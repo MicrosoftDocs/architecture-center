@@ -27,7 +27,7 @@
     - name: Cloud Design Patterns
       tocHref: /azure/architecture/patterns/
       topicHref: /azure/architecture/patterns
-    - name: Cloud Adoption Framework (CAF)
+    - name: Cloud Adoption Framework
       tocHref: /azure/architecture/cloud-adoption/
       topicHref: /azure/architecture/cloud-adoption
       items:

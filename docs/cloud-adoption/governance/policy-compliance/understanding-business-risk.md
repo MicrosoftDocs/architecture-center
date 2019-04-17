@@ -1,5 +1,6 @@
 ---
 title: "CAF: How does business risk change in the cloud?"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Understanding business risk during migration
 author: BrianBlanchard
 ms.date: 4/4/2019
@@ -28,7 +29,7 @@ During a transformation, the same relative risks can be seen.
 * As more workloads come online, risks change at each release. New apps go live, risks change.
 * When a company brings the first 10-20 applications online, the risk profile is much different that it is when the 1000th applications go into production in the cloud.
 
-The assets that accumulated in the traditional, on-premises estate likely accumulated overtime. The maturity of the business and IT teams was likely growing in a similar fashion. That parallel growth can tend to create some unnecessary policy baggage.
+The assets that accumulated in the traditional, on-premises estate likely accumulated over time. The maturity of the business and IT teams was likely growing in a similar fashion. That parallel growth can tend to create some unnecessary policy baggage.
 
 During a cloud transformation, both the business and IT teams have an opportunity to reset those policies and build new with a matured mindset.
 
@@ -43,10 +44,10 @@ The Cloud Governance team could build for the worst-case scenario and map every 
 Conversely, the team could take an MVP approach and define a starting point and set of assumptions that would be true for most/all assets.
 The following are a few extremely basic examples:
 
-* All assets are at risk of being terminated (through error, mistake or maintenance)
-* All assets are at risk of generating too much spending
-* All assets could be compromised by weak passwords
-* Any asset with all open ports exposed to the internet are at risk of compromise
+* All assets are at risk of being terminated (through error, mistake or maintenance).
+* All assets are at risk of generating too much spending.
+* All assets could be compromised by weak passwords.
+* Any asset with all open ports exposed to the internet are at risk of compromise.
 
 The above examples are meant to establish MVP business risks as a theory. The actual list will be unique to every environment.
 Once the Business Risk MVP is established, they can be converted to [Policies](overview.md) to mitigate each risk.
@@ -57,7 +58,7 @@ Once the Business Risk MVP is established, they can be converted to [Policies](o
 
 Assuming a business risk MVP is the starting point, governance can mature in parallel to planned deployment (as opposed to growing in parallel to business growth). This is a much more stable model for governance maturity. At each iteration, new assets are replicated and staged. At each release, workloads are readied for production promotion. Of course, the relative risk could grow with each cycle.
 
-When the Cloud Governance team operates in parallel to the cloud adoption teams, the growth of business risks can likewise be addressed. Each asset staged can easily be classified according to risk. Data classification documents can be built or created in parallel to staging. Risk profile and exposure points can likewise be documented. Overtime an extremely clear view of business risk wil come into focus across the organization.
+When the Cloud Governance team operates in parallel to the cloud adoption teams, the growth of business risks can likewise be addressed. Each asset staged can easily be classified according to risk. Data classification documents can be built or created in parallel to staging. Risk profile and exposure points can likewise be documented. Over time, an extremely clear view of business risk wil come into focus across the organization.
 
 With each iteration, the Cloud Governance team can work with Cloud Strategy team to quickly communicate new risks, mitigation strategies, tradeoffs, and potential costs. This empowers business participants and IT leaders to partner in mature, well-informed decisions. Those decisions then inform policy maturity. When required, the policy changes produce new work items for the maturity of core infrastructure systems. When changes to staged systems are required, the cloud adoption teams have ample time to make changes, while the business tests the staged systems and develops a user adoption plan.
 

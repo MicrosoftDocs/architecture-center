@@ -1,11 +1,11 @@
 ---
-title: "CAF: Small-to-Medium Enterprise – Additional technical details regarding the governance MVP"
+title: "CAF: Small-to-medium enterprise – Best practice explained"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 ms.date: 02/11/2019
-description: Explanation Small-to-Medium Enterprise – Additional technical details regarding the governance MVP
+description: Small-to-medium enterprise – Best practice explained
 author: BrianBlanchard
 ---
 
@@ -17,7 +17,7 @@ In this article, we discuss the high-level strategies that are required to creat
 
 ## Governance MVP (Cloud Adoption Foundation)
 
-Rapid adoption of governance and corporate policy is achievable, thanks to a few simple principles and cloud-based governance tooling. These are the first of the three Cloud Governance Disciplines to approach in any governance process. Each will be expanded upon in this article.
+Rapid adoption of governance and corporate policy is achievable, thanks to a few simple principles and cloud-based governance tooling. These are the first three disciplines to approach in any governance process. Each will be expanded upon in this article.
 
 To establish the starting point, this article will discuss the high-level strategies behind Identity Baseline, Security Baseline, and Deployment Acceleration that are required to create a governance MVP, which will serve as the foundation for all adoption.
 
@@ -47,8 +47,8 @@ The Cloud Governance team is responsible for the following decisions and impleme
 The **Application Category** pattern has been chosen for Azure subscriptions.
 
 - An application archetype is a way to group applications with similar needs. Common examples include: Applications with protected data, governed applications (such as HIPAA or FedRAMP), low- risk applications, applications with on-premises dependencies, SAP or other mainframes in Azure, or applications that extend on-premises SAP or mainframes. These archetypes are unique per organization, based on data classifications and the types of applications that power the business. Dependency mapping of the digital estate can aid in defining the application archetypes in an organization.
-- Departments are not likely to be required given the current focus. Deployments are expected to be constrained within a single billing unit. At the stage of adoption, there may not even be an enterprise agreement to centralize billing. It's likely that this level of adoption is being managed by a single pay-as-you-go Azure subscription.
-- Regardless of the use of the EA Portal or the existence of an enterprise agreement, a subscription model should still be defined and agreed upon to minimize administrative overheard beyond just billing.
+- Departments are not likely to be required given the current focus. Deployments are expected to be constrained within a single billing unit. At the stage of adoption, there may not even be an Enterprise Agreement to centralize billing. It's likely that this level of adoption is being managed by a single pay-as-you-go Azure subscription.
+- Regardless of the use of the EA Portal or the existence of an Enterprise Agreement, a subscription model should still be defined and agreed upon to minimize administrative overheard beyond just billing.
 - In the **Application Category** pattern, subscriptions are created for each application archetype. Each subscription belongs to an account per environment (Development, Test, and Production).
 - A common naming convention should be agreed on as part of the subscription design, based on the previous two points.
 
@@ -83,7 +83,7 @@ As governance evolves, some policy statements can’t or shouldn’t be controll
 
 **Adoption acceleration**: The Cloud Governance team has been reviewing deployment scripts across multiple teams. They maintain a set of scripts that serve as deployment templates. Those templates are used by the cloud adoption and DevOps teams to define deployments more quickly. Each of those scripts contains the necessary requirements to enforce a number of governance policies, with no additional effort from cloud adoption engineers. As the curators of these scripts, the Cloud Governance team can more quickly implement policy changes. As a result of script curation, the Cloud Governance team is seen as a source of adoption acceleration. This creates consistency among deployments, without strictly forcing adherence.
 
-**Engineer training**: The Cloud Governance team offers bi-monthly training sessions and has created two videos for engineers. These materials help engineers quickly learn the governance culture and how things are done during deployments. The team is adding training assets that show the difference between production and non-production deployments, so that engineers will understand how the new policies will affect adoption. This creates consistency among deployments, without strictly forcing adherence.
+**Engineer training**: The Cloud Governance team offers bimonthly training sessions and has created two videos for engineers. These materials help engineers quickly learn the governance culture and how things are done during deployments. The team is adding training assets that show the difference between production and non-production deployments, so that engineers will understand how the new policies will affect adoption. This creates consistency among deployments, without strictly forcing adherence.
 
 **Deployment planning**: Before deploying any asset containing protected data, the Cloud Governance team will review deployment scripts to validate governance alignment. Existing teams with previously approved deployments will be audited using programmatic tooling.
 

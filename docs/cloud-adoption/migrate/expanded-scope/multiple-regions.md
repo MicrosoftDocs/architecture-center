@@ -7,15 +7,15 @@ ms.date: 4/4/2019
 
 # Multiple geographic regions
 
-When businesses operate in multiple geographic regions, additional complexity can be introduced into cloud migration efforts. These complexities manifest in three primary forms: asset distribution, user access profiles, and compliance requirements. Before addressing complexities related to multiple regions its important to understand the extent of the potential complexity.
+When businesses operate in multiple geographic regions, additional complexity can be introduced into cloud migration efforts. These complexities manifest in three primary forms: asset distribution, user access profiles, and compliance requirements. Before addressing complexities related to multiple regions, it's important to understand the extent of the potential complexity.
 
 ## General scope expansion
 
 The following approach can help assess the potential challenges and establish a general course of action:
 
-- Consider a more robust readiness and governance implementation
+- Consider a more robust readiness and governance implementation.
 - Inventory the affected geographies: Compile a list of the regions and countries that will be affected by the cloud migration.
-- Document data sovereignty requirements: Do the countries identified have compliance requirements which govern data sovereignty?
+- Document data sovereignty requirements: Do the countries identified have compliance requirements that govern data sovereignty?
 - Document the user base: Will employees, partners, or customers in the identified country be affected by the cloud migration?
 - Document datacenters and assets: Are there assets in the identified country that might be included in the migration effort?
 
@@ -38,7 +38,7 @@ The following table can aid in documenting the findings from the steps above:
 
 Around the world, government organizations have begun establishing data sovereignty requirements, like General Data Protection Regulation (GDPR). Compliance requirements of this nature often require localization within a specific region or even within a specific country to protect their citizens. In some cases, data pertaining to customers, employees, or partners must be stored on a cloud platform within the same region as the end user.
 
-Addressing this challenge has been a significant motivation for cloud migrations for companies that operate on a global scale. To maintain compliance requirements, some companies have chosen to deploy duplicate IT assets to cloud providers within the region. In the example table above, Germany would be a good example of this scenario. In this example, there are customer, partners, and employees in Germany, but no existing IT assets. This company may choose to deploy some assets to a datacenter within the GDPR area, potentially even using the German Azure datacenters. An understanding of the data affected by GDPR would help the Cloud Adoption Team understand the best migration approach in this case.
+Addressing this challenge has been a significant motivation for cloud migrations for companies that operate on a global scale. To maintain compliance requirements, some companies have chosen to deploy duplicate IT assets to cloud providers within the region. In the example table above, Germany would be a good example of this scenario. In this example, there are customer, partners, and employees in Germany, but no existing IT assets. This company may choose to deploy some assets to a datacenter within the GDPR area, potentially even using the German Azure datacenters. An understanding of the data affected by GDPR would help the Cloud Adoption team understand the best migration approach in this case.
 
 ### Why is the location of end users relevant?
 
@@ -60,9 +60,9 @@ This approach is driven by quantifiable information. As such, the following appr
 
 ## Suggested prerequisites
 
-It is suggested that the Cloud Adoption Team begin with the migration of a simple workload using the [Baseline migration guide](../baseline-migration-guide/overview.md), before attempting to address global scale. This will ensure the team is familiar with the general process of cloud migration prior to attempting a more complex migration scenario.
+It is suggested that the Cloud Adoption team begin with the migration of a simple workload using the [Azure migration guide](../azure-migration-guide/overview.md), before attempting to address global scale. This will ensure the team is familiar with the general process of cloud migration prior to attempting a more complex migration scenario.
 
-When scope for a migration includes multiple regions, the following readiness considerations should be evaluated by the Cloud Adoption Team:
+When scope for a migration includes multiple regions, the following readiness considerations should be evaluated by the Cloud Adoption team:
 
 - Data sovereignty might require localization of some assets, but there are a many assets that may not be governed by those compliance constraints. Things like logging, reporting, network routing, identity, and other central IT services may be eligible to be hosted as a shared services across multiple subscriptions or even multiple regions. It is advised that the cloud adoption team evaluate a share service model to those services, as outlined in the [reference architecture for a hub-spoke model with shared services](/azure/architecture/reference-architectures/hybrid-networking/shared-services)
 - When deploying multiple instances of similar environments, an environment factory could create consistency, improve governance, and accelerate deployment. The [large enterprise governance journey](../../governance/journeys/large-enterprise/overview.md) establishes an approach that creates an environment factory which scales across multiple regions.
@@ -74,7 +74,7 @@ Once the team is comfortable with the baseline approach and readiness is aligned
 - Initial Digital Estate rationalization: Any time complexity is introduced into a migration strategy, an initial digital estate rationalization should be completed. See the guidance on [Digital Estate rationalization](../../digital-estate/overview.md) for assistance.
   - Additional digital estate requirements: Establish tagging policies to identify any workload affected by data sovereignty requirements. Required tags should begin in the digital estate rationalization and carry through to the migrated assets.
 - Evaluate a hub-spoke model: Distribute systems often share a number of common dependencies. Those dependencies can often be addressed through the implementation of a hub-spoke model. While such a model is out of scope for the migration process, it should be flagged for consideration during future iterations of the [Ready processes](../../ready/overview.md).
-- Prioritization of the migration backlog: When network changes are required to support the production deployment of a workload that supports multiple regions, it is important for the Cloud Strategy Team to track and manage escalations regarding those network changes. The higher level of executive support will aid in accelerating the change. However, the more important impact is that it gives the strategy team an ability to re-prioritize the backlog to ensure that global workloads aren't roadblocked by network changes. Such workloads should only be prioritized, after the network changes are complete.
+- Prioritization of the migration backlog: When network changes are required to support the production deployment of a workload that supports multiple regions, it is important for the Cloud Strategy team to track and manage escalations regarding those network changes. The higher level of executive support will aid in accelerating the change. However, the more important impact is that it gives the strategy team an ability to reprioritize the backlog to ensure that global workloads aren't roadblocked by network changes. Such workloads should only be prioritized, after the network changes are complete.
 
 These prerequisites will help establish processes that can address this complexity during execution of the migration strategy.
 
@@ -98,7 +98,7 @@ When dealing with global asset and user base complexities, there are a few key a
 
 ## Migrate process changes
 
-When migrating an application that must be deployed to multiple regions, there are a few considerations the Cloud Adoption Team must take into account. These considerations consist of Azure Site Recovery (ASR) Vault design, configuration/process server design, network bandwidth designs, and data synchronization.
+When migrating an application that must be deployed to multiple regions, there are a few considerations the Cloud Adoption team must take into account. These considerations consist of Azure Site Recovery (ASR) Vault design, configuration/process server design, network bandwidth designs, and data synchronization.
 
 ### Suggested action during the migrate process
 
@@ -127,13 +127,13 @@ Addressing global complexity during optimization and promotion could require dup
 
 **Business testing:** In conjunction with the business change plan, business testing may be required in each region to ensure adequate performance and adherence to the modified networking routing patterns.
 
-**Promotion flights:** Often times, promotion happens as a single activity, rerouting production traffic to the migrated workloads. In the case of global release efforts it is advised that promotion be delivered in flights (or predefined collections of users). This allows the Cloud Strategy team and Cloud Adoption team to better observe performance and improve support of users in each region. Promotion flights are often controlled at the networking level by changing the routing of specific IP ranges from the source workload assets to the newly migrated assets. After a specified collection of end users have been migrated, the next group can be re-routed.
+**Promotion flights:** Often times, promotion happens as a single activity, rerouting production traffic to the migrated workloads. In the case of global release efforts it is advised that promotion be delivered in flights (or predefined collections of users). This allows the Cloud Strategy team and Cloud Adoption team to better observe performance and improve support of users in each region. Promotion flights are often controlled at the networking level by changing the routing of specific IP ranges from the source workload assets to the newly migrated assets. After a specified collection of end users have been migrated, the next group can be rerouted.
 
 **Flight optimization:** One of the benefits of promotion flights, is that it allows for deeper observations and additional optimization of the deployed assets. After a brief period of production usage by the first flight, additional refinement of the migrated assets is suggested, when allowed by IT operation procedures.
 
 ## Next steps
 
-A separate point of complexity, often related to multiple regions, is the need to prepare for the migration of [multiple datacenters](./multiple-data-centers.md). While very similar in nature, this complexity deals with the volume of assets to be migrated when moving multiple datacenters to the cloud.
+A separate point of complexity, often related to multiple regions, is the need to prepare for the migration of [multiple datacenters](./multiple-datacenters.md). While very similar in nature, this complexity deals with the volume of assets to be migrated when moving multiple datacenters to the cloud.
 
 > [!div class="nextstepaction"]
-> [Migrating multiple datacenters](./multiple-data-centers.md)
+> [Migrating multiple datacenters](./multiple-datacenters.md)

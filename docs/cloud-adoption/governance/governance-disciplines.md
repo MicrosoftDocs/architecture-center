@@ -5,7 +5,7 @@ ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 ms.date: 02/11/2019
-description: Overview of governance content within CAF
+description: Overview of governance content within the Cloud Adoption Framework
 author: BrianBlanchard
 layout: LandingPage
 ms.topic: landing-page
@@ -21,7 +21,7 @@ ms.topic: landing-page
         <div class="cardPadding" style="padding-bottom:10px;">
             <div class="card" style="padding-bottom:10px;">
                 <div class="cardText" style="padding-left:0px;">
-Any change to business processes or technology platforms introduces risk. Cloud Governance teams, whose members are sometimes known as cloud custodians, are tasked with mitigating these risks, with minimal interruption to adoption or innovation efforts.<br/><br/>The CAF governance model guides these decisions (regardless of the chosen cloud platform) by focusing on [development of corporate policy](./policy-compliance/overview.md) and <a href="#disciplines-of-cloud-governance">Disciplines of Cloud Governance</a>. [Actionable design guides](./journeys/overview.md) demonstrate this model using Azure services. This article serves as a landing page for the five disciplines of the CAF governance model.
+Any change to business processes or technology platforms introduces risk. Cloud Governance teams, whose members are sometimes known as cloud custodians, are tasked with mitigating these risks, with minimal interruption to adoption or innovation efforts.<br/><br/>The Cloud Adoption Framework governance model guides these decisions (regardless of the chosen cloud platform) by focusing on [development of corporate policy](./policy-compliance/overview.md) and <a href="#disciplines-of-cloud-governance">Five Disciplines of Cloud Governance</a>. [Actionable design guides](./journeys/overview.md) demonstrate this model using Azure services. This article serves as a landing page for the disciplines in the Cloud Adoption Framework governance model.
                 </div>
             </div>
         </div>
@@ -33,9 +33,9 @@ Any change to business processes or technology platforms introduces risk. Cloud 
             <div class="cardPadding" style="padding-bottom:10px;">
                 <div class="card" style="padding-bottom:10px;">
                     <div class="cardText" style="padding-left:0px;">
-<img src="../_images/operational-transformation-govern-highres.png" alt="Diagram of the CAF governance model: Corporate policy and governance disciplines">
-<br />
-<i>Figure 1. Visual of Corporate Policy and Five Cloud Governance Disciplines</i>
+<img src="../_images/operational-transformation-govern-highres.png" alt="Diagram of the Cloud Adoption Framework governance model: Corporate policy and governance disciplines">
+<br>
+<i>Figure 1. Diagram of corporate policy and the Five Disciplines of Cloud Governance</i>
                     </div>
                 </div>
             </div>
@@ -48,7 +48,7 @@ Any change to business processes or technology platforms introduces risk. Cloud 
 
 ## Disciplines of Cloud Governance
 
-Across each cloud provider, there are common cloud governance disciplines that can serve as a guide to help inform policies and align toolchains. These disciplines guide decisions regarding the proper level of automation and enforcement of corporate policy across cloud providers.
+Across each cloud provider, there are common governance disciplines that can serve as a guide to help inform policies and align toolchains. These disciplines guide decisions regarding the proper level of automation and enforcement of corporate policy across cloud providers.
 
 <!-- markdownlint-disable MD033 -->
 
@@ -141,7 +141,7 @@ Across each cloud provider, there are common cloud governance disciplines that c
                     </div>
                     <div class="cardText">
                         <h3>Deployment Acceleration</h3>
-                        <p>Centralization, standardization, and consistency in deployment and configuration approaches improve governance practices. When made available through cloud-based governance tooling, they create a cloud factor which can accelerate deployment activities.</p>
+                        <p>Centralization, standardization, and consistency in deployment and configuration approaches improve governance practices. When made available through cloud-based governance tooling, they create a cloud factor that can accelerate deployment activities.</p>
                     </div>
                 </div>
             </div>

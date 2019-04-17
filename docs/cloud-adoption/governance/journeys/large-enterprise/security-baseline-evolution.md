@@ -1,11 +1,11 @@
 ---
-title: "CAF: Large Enterprise – Security Baseline evolution "
+title: "CAF: Large enterprise – Security Baseline evolution "
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 ms.date: 02/11/2019
-description: Large Enterprise – Security Baseline evolution 
+description: Large enterprise – Security Baseline evolution 
 author: BrianBlanchard
 ---
 
@@ -23,7 +23,7 @@ For the past 12 months, the cloud adoption teams have cleared most of the 5,000 
 
 The Cloud Governance team continues to evolve along with the narrative. The two founding members of the team are now among the most respected cloud architects in the company. The collection of configuration scripts has grown as new teams tackle innovative new deployments. The Cloud Governance team has also grown. Most recently, members of the IT Operations team have joined Cloud Governance team activities to prepare for cloud operations. The cloud architects who helped foster this community are seen both as cloud guardians and cloud accelerators.
 
-While the difference is subtle, it is an important distinction when building a governance-focused IT culture. A cloud custodian cleans up the messes made by innovative cloud architects, and the two roles have natural friction and opposing objectives. A cloud guardian helps keep the cloud safe, so other cloud architects can move more quickly with fewer messes. A cloud accelerator performs both functions but is also involved in the creation of templates to accelerate deployment and adoption, becoming an innovation accelerator as well as a defender of the five cloud disciplines.
+While the difference is subtle, it is an important distinction when building a governance-focused IT culture. A cloud custodian cleans up the messes made by innovative cloud architects, and the two roles have natural friction and opposing objectives. A cloud guardian helps keep the cloud safe, so other cloud architects can move more quickly with fewer messes. A cloud accelerator performs both functions but is also involved in the creation of templates to accelerate deployment and adoption, becoming an innovation accelerator as well as a defender of the Five Disciplines of Cloud Governance.
 
 ### Evolution of the current state
 
@@ -41,12 +41,12 @@ Since then, some things have changed that will affect governance:
 
 - Early experiments from the application development and BI teams have shown potential improvements in customer experiences and data-driven decisions. Both teams would like to expand adoption of the cloud over the next 18 months by deploying those solutions to production.
 - IT has developed a business justification to migrate five more datacenters to Azure, which will further decrease IT costs and provide greater business agility. While smaller in scale, the retirement of those datacenters is expected to double the total cost savings.
-- Capital expense and operational expense budgets have approved to implement the required security and governance policies, tools, and processes. The expected cost savings from the datacenter retirement are more than enough to pay for this new initiative. IT and business leadership are confident this investment will accelerate the realization of returns in other areas. The grassroots Cloud Governance team became a recognized team with dedicated leadership and staffing.
+- Capital expense and operating expense budgets have approved to implement the required security and governance policies, tools, and processes. The expected cost savings from the datacenter retirement are more than enough to pay for this new initiative. IT and business leadership are confident this investment will accelerate the realization of returns in other areas. The grassroots Cloud Governance team became a recognized team with dedicated leadership and staffing.
 - Collectively, the cloud adoption teams, Cloud Governance team, IT Security team, and IT Governance team will implement security and governance requirements to allow cloud adoption teams to migrate protected data into the cloud.
 
 ## Evolution of tangible risks
 
-**Data Breach**: There is an inherent increase in liabilities related to data breaches when adopting any new data platform. Technicians adopting cloud technologies have increased responsibilities to implement solutions which can decrease this risk. A robust security and governance strategy must be implemented to ensure those technicians fulfill those responsibilities.
+**Data Breach**: There is an inherent increase in liabilities related to data breaches when adopting any new data platform. Technicians adopting cloud technologies have increased responsibilities to implement solutions that can decrease this risk. A robust security and governance strategy must be implemented to ensure those technicians fulfill those responsibilities.
 
 This business risk can be expanded into a few technical risks:
 

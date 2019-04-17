@@ -11,7 +11,7 @@ author: BrianBlanchard
 
 # Identity Baseline discipline improvement
 
-The Identity Baseline discipline focuses on ways of establishing policies that ensure consistency and continuity of user identities regardless of the cloud provider that hosts the application or workload. Within the Five Disciplines of Cloud Governance, Identity Baseline includes decisions regarding the [Hybrid Identity Strategy](../../decision-guides/identity/overview.md), evaluation and extension of identity repositories, implementation of single sign-on (same sign-on), auditing and monitoring for unauthorized use or malicious actors. In some cases, it may also involve decisions to modernize, consolidate, or integrate multiple identity providers.
+The Identity Baseline discipline focuses on ways of establishing policies that ensure consistency and continuity of user identities regardless of the cloud provider that hosts the application or workload. Within the Five Disciplines of Cloud Governance, the Identity Baseline discipline includes decisions regarding the [Hybrid Identity Strategy](../../decision-guides/identity/overview.md), evaluation and extension of identity repositories, implementation of single sign-on (same sign-on), auditing and monitoring for unauthorized use or malicious actors. In some cases, it may also involve decisions to modernize, consolidate, or integrate multiple identity providers.
 
 This article outlines some potential tasks your company can engage in to better develop and mature the Identity Baseline discipline. These tasks can be broken down into planning, building, adopting, and operating phases of implementing a cloud solution, which are then iterated on allowing the development of an [incremental approach to cloud governance](../journeys/overview.md#an-incremental-approach-to-cloud-governance).
 
@@ -22,7 +22,7 @@ This article outlines some potential tasks your company can engage in to better 
 It's impossible for any one document to account for the requirements of all businesses. As such, this article outlines suggested minimum and potential example activities for each phase of the governance maturation process. The initial objective of these activities is to help you build a [Policy MVP](../journeys/overview.md#an-incremental-approach-to-cloud-governance) and establish a framework for incremental policy evolution. Your Cloud Governance team will need to decide how much to invest in these activities to improve your Identity Baseline governance capabilities.
 
 > [!CAUTION]
-> Neither the minimum or potential activities outlined in this article are aligned to specific corporate policies or third party compliance requirements. This guidance is designed to help facilitate the conversations that will lead to alignment of both requirements with a cloud governance model.
+> Neither the minimum or potential activities outlined in this article are aligned to specific corporate policies or third-party compliance requirements. This guidance is designed to help facilitate the conversations that will lead to alignment of both requirements with a cloud governance model.
 
 ## Planning and readiness
 
@@ -43,14 +43,14 @@ This phase of governance maturity bridges the divide between business outcomes a
 * Evaluate hybrid compatibility of existing identity providers.
 * For identity providers that are not hybrid compatible, evaluate consolidation or replacement options.
 
-## Build and pre-deployment
+## Build and predeployment
 
 A number of technical and nontechnical prerequisites are required to successfully migrate an environment. This process focuses on the decisions, readiness, and core infrastructure that proceeds a migration.
 
 **Minimum suggested activities:**
 
 * Consider a pilot test before implementing your [Identity toolchain](toolchain.md), making sure it simplifies the user experience as much as possible.
-* Apply feedback from pilot tests into the pre-deployment. Repeat until results are acceptable.
+* Apply feedback from pilot tests into the predeployment. Repeat until results are acceptable.
 * Update the Architecture Guidelines document to include deployment and user adoption plans, and distribute to key stakeholders.
 * Consider establishing an early adopter program and rolling out to a limited number of users.
 * Continue to educate the people and teams most affected by the architecture guidelines.
@@ -64,9 +64,9 @@ A number of technical and nontechnical prerequisites are required to successfull
 * Consider using the following access models:
   * [Least Privilege Access](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) model
   * [Privileged Identity Baseline](/azure/active-directory/privileged-identity-management/pim-configure) access model
-* Finalize all pre-integration details and review [Identity Best Practices](/azure/security/azure-security-identity-management-best-practices).
+* Finalize all preintegration details and review [Identity Best Practices](/azure/security/azure-security-identity-management-best-practices).
   * Enable single identity, single sign-on (SSO), or seamless SSO
-  * Configure multi-factor authentication (MFA) for administrators
+  * Configure multi-factor authentication for administrators
   * Consolidate or integrate identity providers, where necessary
   * Implement tooling necessary to centralize management of identities
   * Enable just-in-time (JIT) access and role change alerting
@@ -87,8 +87,8 @@ Migration is an incremental process that focuses on the movement, testing, and a
 
 **Potential activities:**
 
-* Validate that the best practices defined during the Build / Pre-deployment phases are properly executed.
-* Validate and/or refine your [Hybrid Identity Strategy](../../decision-guides/identity/overview.md).
+* Validate that the best practices defined during the build predeployment phases are properly executed.
+* Validate and refine your [Hybrid Identity Strategy](../../decision-guides/identity/overview.md).
 * Ensure that each application or workload continues to align with the identity strategy before release.
 * Validate that single sign-on (SSO) and seamless SSO is working as expected for your applications.
 * Reduce or eliminate the number of alternative identity stores, when possible.

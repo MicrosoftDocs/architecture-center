@@ -1,3 +1,3 @@
 ---
-redirect_url: ./governance/resource-consistency/azure-resource-access.md
+redirect_url: ./governance/resource-consistency/azure-resource-access
 ---

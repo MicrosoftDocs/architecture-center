@@ -3,11 +3,11 @@ title: "CAF: Rearchitect an app in an Azure container and Azure SQL Database"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how Contoso rearchitects an app in Azure Windows containers and Azure SQL Database.
 services: site-recovery
-author: rayne-wiselman
+author: BrianBlanchard
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
-ms.author: raynew
+ms.author: brblanch
 ---
 
 # Rearchitect an on-premises app to an Azure container and Azure SQL Database
@@ -34,7 +34,7 @@ The Contoso cloud team has pinned down goals for this migration. These goals wer
 
 **Goals** | **Details**
 --- | ---
-**App reqs** | The app in Azure will remain as critical as it is today.<br/><br/> It should have the same performance capabilities as it currently does in VMWare.<br/><br/> Contoso wants to stop supporting Windows Server 2008 R2, on which the app currently runs, and are willing to invest in the app.<br/><br/> Contoso wants to move away from SQL Server 2008 R2 to a modern PaaS Database platform, which will minimize the need for management.<br/><br/> Contoso want to take advantage of its investment in SQL Server licensing and Software Assurance where possible.<br/><br/> Contoso wants to be able to scale up the app web tier.
+**App reqs** | The app in Azure will remain as critical as it is today.<br/><br/> It should have the same performance capabilities as it currently does in VMware.<br/><br/> Contoso wants to stop supporting Windows Server 2008 R2, on which the app currently runs, and are willing to invest in the app.<br/><br/> Contoso wants to move away from SQL Server 2008 R2 to a modern PaaS Database platform, which will minimize the need for management.<br/><br/> Contoso want to take advantage of its investment in SQL Server licensing and Software Assurance where possible.<br/><br/> Contoso wants to be able to scale up the app web tier.
 **Limitations** | The app consists of an ASP.NET app and a WCF service running on the same VM. Contoso wants to split this across two web apps using the Azure App Service.
 **Azure reqs** | Contoso wants to move the app to Azure, and run it in a container to extend app life. It doesn't want to start completely from scratch to implement the app in Azure.
 **DevOps** | Contoso wants to move to a DevOps model using Azure DevOps Services for code builds and release pipeline.
@@ -585,7 +585,7 @@ With the migrated resources in Azure, Contoso needs to fully operationalize and 
 - Contoso needs to review backup requirements for the Azure SQL Database. [Learn more](/azure/sql-database/sql-database-automated-backups).
 - Contoso admins should consider implementing failover groups to provide regional failover for the database. [Learn more](/azure/sql-database/sql-database-geo-replication-overview).
 - They can take advantage of geo-replication for the ACR premium SKU. [Learn more](/azure/container-registry/container-registry-geo-replication).
-- Contoso need to consider deploying the Web App in the main East US 2 and Central US region when Web App for Containers becomes available. Contoso admins could configure Traffic Manager to ensure failover in case of regional outages.
+- Contoso needs to consider deploying the web app in the main East US 2 and Central US region when Web App for Containers becomes available. Contoso admins could configure Traffic Manager to ensure failover in case of regional outages.
 - Cosmos DB backs up automatically. Contoso [read about](/azure/cosmos-db/online-backup-and-restore) this process to learn more.
 
 ### Licensing and cost optimization

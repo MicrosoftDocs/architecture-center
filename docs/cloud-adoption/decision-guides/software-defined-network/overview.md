@@ -50,7 +50,7 @@ Learn more about the primary software defined networking architectures:
 
 - [**PaaS Only**](paas-only.md): Platform as a service (PaaS) products support a limited set of built-in networking features and may not require an explicitly defined software defined network to support workload requirements.
 - [**Cloud Native**](cloud-native.md): A cloud native virtual network is the default software defined networking architecture when deploying resources to a cloud platform.
-- [**Cloud DMZ**](cloud-dmz.md): Provides limited connectivity between your on-premises and cloud network which is secured through the implementation of a demilitarized zone on the cloud environment.
+- [**Cloud DMZ**](cloud-dmz.md): Provides limited connectivity between your on-premises and cloud network, secured through the implementation of a demilitarized zone on the cloud environment.
 - [**Hybrid**](hybrid.md): The hybrid cloud network architecture allows virtual networks to access your on-premises resources and vice versa.
 - [**Hub and Spoke**](hub-spoke.md): The hub and spoke architecture allows you to centrally manage external connectivity and shared services, isolate individual workloads, and overcome potential subscription limits.
 
@@ -66,4 +66,4 @@ See the following for more information about software defined networking in the 
 Learn how logs, monitoring, and reporting are used by operations teams to manage the health and policy compliance of cloud workloads.
 
 > [!div class="nextstepaction"]
-> [Logs and Reporting](../log-and-report/overview.md)
+> [Logs and reporting](../log-and-report/overview.md)

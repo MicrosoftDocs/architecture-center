@@ -2,12 +2,11 @@
 title: "CAF: Application migration examples - Set up a migration infrastructure"
 description: Learn how Contoso sets up an Azure infrastructure for migration to Azure.
 services: azure-migrate
-author: rayne-wiselman
-manager: carmonm
+author: BrianBlanchard
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/1/2018
-ms.author: raynew
+ms.author: brblanch
 
 ---
 
@@ -110,7 +109,7 @@ Giving and controlling user access to Azure resources with identity and access m
 - Contoso decides to extend its on-premises Active Directory into the cloud, rather than build a new separate system in Azure.
 - It creates an Azure-based Active Directory to do this.
 - Contoso doesn't have Office 365 in place, so it needs to provision a new Azure AD.
-- Office 365 uses Azure AD for user management. If Contoso was using Office 365, it would already have an Azure AD tenant, and can use that as the primary AD.
+- Office 365 uses Azure AD for user management. If Contoso was using Office 365, it would already have an Azure AD tenant, and can use that as the primary directory.
 - [Learn more](https://support.office.com/article/understanding-office-365-identity-and-azure-active-directory-06a189e7-5ec6-4af2-94bf-a22ea225a7a9) about Azure AD for Office 365, and learn [how to add a subscription](/azure/active-directory/active-directory-how-subscriptions-associated-directory) to an existing Azure AD tenant.
 
 ### Create an Azure AD
@@ -203,13 +202,13 @@ To facilitate integration, Contoso uses the [Azure AD Connect tool](/azure/activ
 
 2. They start the **AzureADConnect.msi** installation, with **Use express settings**. This is the most common installation, and can be used for a single-forest topology, with password hash synchronization for authentication.
 
-    ![AD Connect Wizard](./media/contoso-migration-infrastructure/ad-connect-wiz1.png)
+    ![Azure AD Connect Wizard](./media/contoso-migration-infrastructure/ad-connect-wiz1.png)
 
 3. In **Connect to Azure AD**, they specify the credentials for connecting to the Azure AD (in the form CONTOSO\admin or contoso.com\admin).
 
-    ![AD Connect Wizard](./media/contoso-migration-infrastructure/ad-connect-wiz2.png)
+    ![Azure AD Connect Wizard](./media/contoso-migration-infrastructure/ad-connect-wiz2.png)
 
-4. In **Connect to AD DS**, they specify credentials for the on-premises AD.
+4. In **Connect to AD DS**, they specify credentials for the on-premises Active Directory.
 
      ![AD Connect Wizard](./media/contoso-migration-infrastructure/ad-connect-wiz3.png)
 
@@ -629,7 +628,7 @@ Active Directory is a critical service in networking, and must be configured cor
 
 5. With everything complete, a list of the domain controllers and sites are shown in the on-premises Active Directory Administrative Center.
 
-    ![AD admin center](./media/contoso-migration-infrastructure/ad-center.png)
+    ![Active Directory Administrative Center](./media/contoso-migration-infrastructure/ad-center.png)
 
 ## Step 5: Plan for governance
 
@@ -645,7 +644,7 @@ As they configure identity and access control, Contoso has already begun to put 
 
 The Azure Policy service evaluates your resources, scanning for those not compliant with the policy definitions you have in place. For example, you might have a policy that only allows certain types of VMs, or requires resources to have a specific tag.
 
-Azure policies specify a policy definition, and a policy assignment specifies the scope in which a policy should be applied. The scope can range from a management group to a resource group. [Learn](/azure/governance/policy/tutorials/create-and-manage.md) about creating and managing policies.
+Policies specify a policy definition, and a policy assignment specifies the scope in which a policy should be applied. The scope can range from a management group to a resource group. [Learn](/azure/governance/policy/tutorials/create-and-manage.md) about creating and managing policies.
 
 Contoso wants to get started with a couple of policies:
 

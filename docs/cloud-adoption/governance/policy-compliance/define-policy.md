@@ -7,7 +7,7 @@ ms.date: 01/02/2019
 
 <!---
 I understand risk and tolerance, now what do I do?
-Define the policy... [aspirational statement to move towards 2/1] If you need help defining policies, each discipline includes references to common business risks and policies to mitigate the risks...
+Define the policy. [aspirational statement to move towards 2/1] If you need help defining policies, each discipline includes references to common business risks and policies to mitigate the risks.
 --->
 
 # Defining corporate policy for cloud governance
@@ -24,11 +24,11 @@ In traditional governance and incremental governance, corporate policy creates t
 
 *Figure 1. Corporate governance and governance disciplines.*
 
-The image above demonstrates the interactions between business risk, policy and compliance, and monitor and enforce to create a Governance Strategy. Followed by the five disciplines of Cloud Governance to realize your strategy.
+The image above demonstrates the interactions between business risk, policy and compliance, and monitor and enforce to create a governance strategy, followed by the Five Disciplines of Cloud Governance to realize your strategy.
 
 Cloud governance is the product of an ongoing adoption effort over time, as a true lasting transformation doesn't happen overnight. Attempting to deliver complete cloud governance before addressing key corporate policy changes using a fast aggressive method seldom produces the desired results. Instead we recommend an incremental approach.
 
-What is different about a cloud adoption framework is the buying cycle and the impact of how that cycle can enable authentic transformation. Since there is not a big Capital Expenditure (CapEx) acquisition requirement, engineers can begin experimentation and adoption sooner. In most corporate cultures, elimination of the CapEx barrier to adoption can lead to tighter feedback loops, organic growth, and incremental execution.
+What is different about a cloud adoption framework is the purchasing cycle and it can enable authentic transformation. Since there is not a big capital expenditure acquisition requirement, engineers can begin experimentation and adoption sooner. In most corporate cultures, elimination of the capital expense barrier to adoption can lead to tighter feedback loops, organic growth, and incremental execution.
 
 The shift to cloud adoption requires a shift in governance. In many organizations, corporate policy transformation allows for improved governance and higher rates of adherence through incremental policy changes and automated enforcement of those changes, powered by newly defined capabilities that you configure with your cloud service provider.
 
@@ -45,7 +45,7 @@ As your cloud deployment matures and the amount of your IT estate moving to the 
 
 Cloud-based IT policies establish the requirements, standards, and goals that your IT staff and automated systems will need to support. Policy decisions are a primary factor in your [cloud architecture design](align-governance-journeys.md) and how you will implement your [policy adherence processes](processes.md).
 
-Individual cloud policy statements are guidelines for addressing specific risks identified during your risk assessment process. While these policies can be integrated into your wider corporate policy documentation, cloud policy statements discussed throughout the CAF guidance tends to be a more concise summary of the risks and plans to deal with them. Each definition should include these pieces of information:
+Individual cloud policy statements are guidelines for addressing specific risks identified during your risk assessment process. While these policies can be integrated into your wider corporate policy documentation, cloud policy statements discussed throughout the Cloud Adoption Framework guidance tends to be a more concise summary of the risks and plans to deal with them. Each definition should include these pieces of information:
 
 - **Business risk**. A summary of the risk this policy will address.
 - **Policy statement**. A concise explanation of the policy requirements and goals.

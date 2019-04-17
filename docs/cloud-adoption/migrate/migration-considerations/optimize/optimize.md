@@ -11,15 +11,15 @@ Monitoring usage and spending is critically important for cloud infrastructures.
 
 In the traditional on-premises models of IT, requisition of IT systems is costly and time consuming. The processes often require lengthy capital expenditure review cycles and may even require an annual planning process. As such, it is common practice to buy more than is needed. It is equally common for IT administrators to then overprovision assets in preparation for anticipated future demands.
 
-In the cloud, the accounting and provisioning models eliminate the time delays that lead to overbuying. When an asset needs additional resources, it can simply be scaled up or out nearly instantly. This means that assets can safely be reduced in size to minimize resources and costs consumed. During benchmarking and optimization, the Cloud Adoption Team seeks to find the balance between performance and costs, provisioning assets to be no larger and no smaller than necessary to meet production demands.
+In the cloud, the accounting and provisioning models eliminate the time delays that lead to overbuying. When an asset needs additional resources, it can be scaled up or out almost instantly. This means that assets can safely be reduced in size to minimize resources and costs consumed. During benchmarking and optimization, the Cloud Adoption team seeks to find the balance between performance and costs, provisioning assets to be no larger and no smaller than necessary to meet production demands.
 
 <!-- markdownlint-disable MD026 -->
 
 ## Should assets be optimized during or after the migration?
 
-When should an asset be optimized&mdash;during or after the migration? The easy answer is *both*. However, that's not entirely accurate. To explain, take a look at two basic scenarios for optimizing resource sizing:
+When should an asset be optimized&mdash;during or after the migration? The simple answer is *both*. However, that's not entirely accurate. To explain, take a look at two basic scenarios for optimizing resource sizing:
 
-- **Planned resizing.** Often, an asset is obviously oversized and underutilized and should be resized during deployment. Determining if an asset has been successfully resized in this case requires user acceptance testing after migration. If a power user does not experience performance or functionality losses during testing, you can conclude the asset has been successfully sized.
+- **Planned resizing.** Often, an asset is clearly oversized and underutilized and should be resized during deployment. Determining if an asset has been successfully resized in this case requires user acceptance testing after migration. If a power user does not experience performance or functionality losses during testing, you can conclude the asset has been successfully sized.
 - **Optimization.** In cases where the need for optimization is unclear, IT teams should use a data-driven approach to resource size management. Using benchmarks of the asset’s performance, an IT team can make educated decisions regarding the most appropriate size, services, scale, and architecture of a solution. They can then resize and test performance theories post-migration.
 
 During the migration, use educated guesses and experiment with sizing. However, true optimization of resources requires data based on actual performance in a cloud environment. For true optimization to occur, the IT team must first implement approaches to monitoring performance and resource utilization.

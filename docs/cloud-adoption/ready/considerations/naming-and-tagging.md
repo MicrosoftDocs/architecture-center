@@ -9,7 +9,7 @@ description: Large Enterprise – Additional technical details regarding governa
 author: BrianBlanchard
 ---
 
-# CAF - Ready: Recommended naming and tagging conventions
+# Ready: Recommended naming and tagging conventions
 
 Organizing cloud-based assets in ways that both aid operational management and support accounting requirements is a common challenge facing large cloud adoption efforts. Applying well-defined naming and metadata tagging conventions to cloud-hosted resources allows IT staff to quickly find and manage resources, while also helping to align cloud usage costs with business teams using chargeback and showback accounting mechanisms.
 
@@ -30,21 +30,19 @@ Naming and tagging strategy should include business and operational details as c
 
 ### Resource naming
 
-A usable naming convention constructs resource names using important information about your resources as components of a resource's name. As an example, using the recommended naming conventions discussed [later in this article](#sample-naming-convention), a public IP resource used by a production SharePoint workload would have a name that looks like this:
+An effective naming convention assembles resource names using important resource information as parts of a resource's name. For example, using the recommended naming conventions discussed [later in this article](#sample-naming-convention), a public IP resource for a production SharePoint workload would be named like this: `pip-sharepoint-prod-westus-001`.
 
-*pip-sharepoint-prod-westus-001*
-
-The components of this name allows you to quickly determine the resource's type, the workload it's associated with, its deployment environment, and what Azure region it is deployed to.
+From the name, you can quickly identify the resource's type, its associated workload, its deployment environment, and which Azure region hosts it.
 
 #### Naming scope
 
-All Azure resources types have a scope defining how these assets can be managed in relation to other resource types. In terms of naming conventions, this means that a resource must have a unique name within its scope.
+All Azure resource types have a scope defining how these assets can be managed relative to other resource types. In terms of naming conventions, this means that a resource must have a unique name within its scope.
 
-For example, a virtual network has a resource group scope, meaning that there can only be one network named *vnet-prod-westus-001* in a given resource group. However, other resource groups can have their own virtual network named *vnet-prod-westus-001*. Subnets, to give another example, are scoped to virtual networks, meaning each subnet within a virtual network must be uniquely named.
+For example, a virtual network has a resource group scope, meaning that there can only be one network named `vnet-prod-westus-001` in a given resource group. However, other resource groups can have their own virtual network named `vnet-prod-westus-001`. Subnets, to give another example, are scoped to virtual networks, meaning each subnet within a virtual network must be uniquely named.
 
 Some resources names, such as PaaS services with public endpoints or virtual machine DNS labels, have global scopes, meaning that they must be unique across the entire Azure platform.
 
-Resource names have length limits, so balancing the context embedded in a name with its scope and length is important when developing your naming conventions. For more information about naming rules regarding allowed characters, scopes, and name lengths for resource types, see the general patterns and practices article [Naming conventions for Azure resources](/azure/architecture/best-practices/naming-conventions).
+Resource names have length limits, so balancing the context embedded in a name with its scope and length is important when developing your naming conventions. For more information about naming rules regarding allowed characters, scopes, and name lengths for resource types, see [Naming conventions for Azure resources](/azure/architecture/best-practices/naming-conventions).
 
 #### Recommended naming components
 
@@ -81,7 +79,7 @@ The following list provides recommended Azure resource type prefixes to use when
 | NIC                                 | nic-                 |
 | Service Bus                         | sb-                  |
 | Service Bus queues                  | sbq-                 |
-| App services                        | azapp-               |
+| App Service apps                    | azapp-               |
 | Function apps                       | azfun-               |
 | Cloud Services                      | azcs-                |
 | Azure SQL Database                  | sqldb-               |
@@ -119,11 +117,11 @@ What tags you apply to resources, and what tags are required versus optional, wi
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------|-------------------------------------------------|
 | Application Name          | Name of the application, service, or workload the resource is associated with.                                                                                                                                 | *ApplicationName* | *{app name}*                                    |
 | Approver Name             | Person responsible for approving costs related to this resource.                                                                                                                                               | *Approver*        | *{email}*                                       |
-| Budget required/approved  | Money allocated for this application, service or workload.                                                                                                                                                     | *BudgetAmount*    | *{\$}*                                          |
-| Business Unit             | Top-level division of your company that owns the subscription or workload the resource belongs to. In smaller organizations, this may represent a single corporate or shared top-level organizational element. | *BusinessUnit*    | *FINANCE, MARKETING,{Product Name},CORP,SHARED* |
+| Budget required/approved  | Money allocated for this application, service, or workload.                                                                                                                                                     | *BudgetAmount*    | *{\$}*                                          |
+| Business Unit             | Top-level division of your company that owns the subscription or workload the resource belongs to. In smaller organizations, this may represent a single corporate or shared top-level organizational element. | *BusinessUnit*    | *FINANCE, MARKETING,{Product Name},CORP, SHARED* |
 | Cost Center               | Accounting cost center associated with this resource.                                                                                                                                                          | *CostCenter*      | *{number}*                                      |
-| Disaster Recovery         | Business criticality of this application, workload, or service.                                                                                                                                                | *DR*              | *Mission Critical, Critical, Essential*         |
-| End Date of the Project   | Date when this application, workload, or service is planned to be retired.                                                                                                                                     | *EndDate*         | *{date}*                                        |
+| Disaster Recovery         | Business criticality of this application, workload, or service.                                                                                                                                                | *DR*              | *Mission-critical, Critical, Essential*         |
+| End Date of the Project   | Date when this application, workload, or service is scheduled for retirement.                                                                                                                                     | *EndDate*         | *{date}*                                        |
 | Environment               | Deployment environment of this application, workload, or service.                                                                                                                                              | *Env*             | *Prod, Dev, QA, Stage, Test*                    |
 | Owner Name                | Owner of the application, workload, or service.                                                                                                                                                                | *Owner*           | *{email}*                                       |
 | Requester Name            | User that requested the creation of this application.                                                                                                                                                          | *Requestor*       | *{email}*                                       |
@@ -140,7 +138,7 @@ The following section provides examples of naming schemes for common Azure resou
 |--------------|------------------------------|----------------------------------------------------|----------------------------------------------|
 | Subscription | Account/Enterprise Agreement | \<Business Unit\>-\<Subscription type\>-\<\#\#\#\> | <ul><li>mktg-prod-001 </li><li>corp-shared-001 </li><li>fin-client-001</li></ul> |
 
-### Resource groups 
+### Resource groups
 
 | Asset type     | Scope        | Format                                                     | Examples                                                                            |
 |----------------|--------------|------------------------------------------------------------|-------------------------------------------------------------------------------------|
@@ -155,11 +153,11 @@ The following section provides examples of naming schemes for common Azure resou
 | Vnet local gateway       | Virtual gateway | vnet-gw-l-\<Subscription type\>-\<Region\>-\<\#\#\#\>                 | <ul><li>vnet-gw-l-shared-eastus2-001 </li><li>vnet-gw-l-prod-westus-001 </li><li>vnet-gw-l-client-eastus2-001</li></ul>                   |
 | Site to site connections | Resource group  | cn-\<local gateway name\>-to-\<virtual gateway name\>                 | <ul><li>cn-l-gw-shared-eastus2-001-to-v-gw-shared-eastus2-001 </li><li>cn-l-gw-shared-eastus2-001-to-shared-westus-001</li></ul> |
 | VNet Connections         | Resource group  | cn-\<subscription1\>\<region1\>-to-\<subscription2\>\<region2\>-      | <ul><li>cn-shared-eastus2-to-shared-westus </li><li>cn-prod-eastus2-to-prod-westus</li></ul>                                     |
-| Subnet                   | Virtual network | snet-\<subscription\>-\<sub-region\>-\<\#\#\#\>                       | <ul><li>snet-shared-eastus2-001 </li><li>snet-prod-westus-001 </li><li>snet-client-eastus2-001</li></ul>                                  |
+| Subnet                   | Virtual network | snet-\<subscription\>-\<subregion\>-\<\#\#\#\>                       | <ul><li>snet-shared-eastus2-001 </li><li>snet-prod-westus-001 </li><li>snet-client-eastus2-001</li></ul>                                  |
 | NSG                      | Subnet or NIC   | nsg-\<policy name or appname\>-\<\#\#\#\>                             | <ul><li>nsg-weballow-001 </li><li>nsg-rdpallow-001 </li><li>nsg-sqlallow-001 </li><li>nsg-dnsbloked-001</li></ul>                                  |
-| Public IP                | Resource group  | pip-\<vm name or app name\>-\<Environment\>-\<sub-region\>-\<\#\#\#\> | <ul><li>pip-dc1-shared-eastus2-001 </li><li>pip-hadoop-prod-westus-001</li></ul>                                                 |
+| Public IP                | Resource group  | pip-\<vm name or app name\>-\<Environment\>-\<subregion\>-\<\#\#\#\> | <ul><li>pip-dc1-shared-eastus2-001 </li><li>pip-hadoop-prod-westus-001</li></ul>                                                 |
 
-### Virtual Machines
+### Azure Virtual Machines
 
 | Asset type         | Scope          | Format                                                              | Examples                                                                             |
 |--------------------|----------------|---------------------------------------------------------------------|--------------------------------------------------------------------------------------|
@@ -177,7 +175,7 @@ The following section provides examples of naming schemes for common Azure resou
 | Function App   | Global | azfun-\<App Name\>-\<Environment\>-\<\#\#\#\>.[{azurewebsites.net}] | <ul><li>azfun-navigator-prod-001.azurewebsites.net </li><li>azfun-accountlookup-dev-001.azurewebsites.net</li></ul> |
 | Cloud Services | Global | azcs-\<App Name\>-\<Environment\>-\<\#\#\#\>.[{cloudapp.net}]       | <ul><li>azcs-navigator-prod-001.azurewebsites.net </li><li>azcs-accountlookup-dev-001.azurewebsites.net</li></ul>   |
 
-### Service Bus
+### Azure Service Bus
 
 | Asset type         | Scope       | Format                                                     | Examples                           |
 |--------------------|-------------|------------------------------------------------------------|------------------------------------|
@@ -224,7 +222,7 @@ The following section provides examples of naming schemes for common Azure resou
 | HDInsight - HBase         | Global | hdihb-\<App Name\>-\<Environment\> | <ul><li>hdihb-navigator-prod </li><li>hdihb-emissions-dev</li></ul> |
 | Power BI Embedded         | Global | pbiemb\<App Name\>\<Environment\>  | <ul><li>pbiem-navigator-prod </li><li>pbiem-emissions-dev</li></ul> |
 
-### Internet of Things
+### Internet of Things (IoT)
 
 | Asset type                         | Scope          | Format                             | Examples                                 |
 |------------------------------------|----------------|------------------------------------|------------------------------------------|
@@ -238,12 +236,12 @@ The following section provides examples of naming schemes for common Azure resou
 
 ## Next steps
 
-Review the [Azure Primitives document](./xx-primitives.md) to understand core concepts relating to the Azure platform and the features, products, and services you will need to deploy workloads to the cloud.  
+Review the [Azure primitives document](./xx-primitives.md) to understand core concepts relating to the Azure platform and the features, products, and services you will need to deploy workloads to the cloud.
 
 > [!div class="nextstepaction"]
-> [Azure Primitives](./xx-primitives.md)
+> [Azure primitives](./xx-primitives.md)
 -->
 
 ## Next steps
 
-For next steps and the most recent status regarding the CAF Ready model, see the [overview page](../index.md).
+For next steps and the most recent status regarding the Ready model in the Cloud Adoption Framework, see the [overview page](../index.md).

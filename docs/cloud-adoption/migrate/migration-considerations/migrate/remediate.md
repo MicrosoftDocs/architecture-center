@@ -25,7 +25,7 @@ In any corporate environment, technical debt exists. Some of this is healthy and
 
 ## Large-scale remediation tasks
 
-When a datacenter is properly maintained, patched, and updated, there is likely to be little need for remediation. Remediation-rich environments tend to be common among large enterprises, organizations that have been through large IT downsizing, some legacy managed service environments, and acquisition-rich environments. In each of these types of environments, remediation may consume a large portion of the migration effort. When the following remediation tasks frequently appear and are negatively affecting migration speed or consistency, it may be wise to break remediation out into a parallel effort and team (similar to how cloud adoption and cloud governance run in parallel).
+When a datacenter is properly maintained, patched, and updated, there is likely to be little need for remediation. Remediation-rich environments tend to be common among large enterprises, organizations that have been through large IT downsizing, some legacy managed service environments, and acquisition-rich environments. In each of these types of environments, remediation may consume a large portion of the migration effort. When the following remediation tasks frequently appear and are negatively affecting migration speed or consistency, it may be wise to break out remediation into a parallel effort and team (similar to how cloud adoption and cloud governance run in parallel).
 
 - **Frequent host upgrades.** When large numbers of hosts must be upgraded to complete the migration of a workload, the migration team is likely to suffer from delays. It may be wise to break out affected applications and address the remediations prior to including affected applications in any planned releases.
 - **Frequent guest OS upgrade.** Large enterprises commonly have a number of servers running on outdated versions of Linux or Windows. Aside from the apparent security risks of operating an outdated OS, there are also incompatibility issues that prevent affected workloads from being migrated. When a large number of VMs require OS remediation, it may be wise to break out these efforts into a parallel iteration.
@@ -45,7 +45,7 @@ If these questions don't produce favorable answers, a few alternative approaches
 
 - **Containerization.** Some assets can be hosted in a containerized environment without remediation. This could produce less-than-favorable performance and doesn't resolve security or compliance issues.
 - **Automation.** Depending on the workload and remediation requirements, it may be more profitable to script the deployment to new assets using a DevOps approach.
-- **Rebuild.** When remediation costs are very high and business value is equally high, a workload may be a good fit as a candidate for rebuilding or re-architecting.
+- **Rebuild.** When remediation costs are very high and business value is equally high, a workload may be a good fit as a candidate for rebuilding or rearchitecting.
 
 ## Next steps
 

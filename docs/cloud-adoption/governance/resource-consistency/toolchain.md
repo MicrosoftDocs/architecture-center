@@ -11,7 +11,7 @@ author: BrianBlanchard
 
 # Resource Consistency tools in Azure
 
-[Resource Consistency](overview.md) is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md). This discipline focuses on ways of establishing policies related to the operational management of an environment, application, or workload. Within the five disciplines of Cloud Governance, Resource Consistency includes monitoring of application, workload, and asset performance. It also includes the tasks required to meet scale demands, remediate performance SLA violations, and proactively avoid performance SLA violations through automated remediation.
+[Resource Consistency](overview.md) is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md). This discipline focuses on ways of establishing policies related to the operational management of an environment, application, or workload. Within the Five Disciplines of Cloud Governance, the Resource Consistency discipline includes monitoring of application, workload, and asset performance. It also includes the tasks required to meet scale demands, remediate performance SLA violations, and proactively avoid performance SLA violations through automated remediation.
 
 The following is a list of Azure tools that can help mature the policies and processes that support this governance discipline.
 
@@ -51,7 +51,7 @@ Along with these Resource Consistency tools and features, you will need to monit
 When planning your deployment, you will need to consider where logging data is stored and how you integrate cloud-based [reporting and monitoring services](../../decision-guides/log-and-report/overview.md) with your existing processes and tools.
 
 > [!NOTE]
-> Organizations also use third-party DevOps tools to monitor workloads and resources. For more information, see [DevOps Tool Integrations](https://azure.microsoft.com/products/devops-tool-integrations).
+> Organizations also use third-party DevOps tools to monitor workloads and resources. For more information, see [DevOps tool integrations](https://azure.microsoft.com/products/devops-tool-integrations).
 
 # Next steps
 

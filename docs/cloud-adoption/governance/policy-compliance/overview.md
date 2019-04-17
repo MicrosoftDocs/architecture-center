@@ -1,8 +1,12 @@
 ---
 title: "CAF: How can corporate IT policy become cloud-ready?"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
 description: Explanation of the concept of corporate policy in relation to cloud governance
 author: BrianBlanchard
-ms.date: 2/8/2019
+ms.date: 2/11/2019
 ---
 
 <!-- markdownlint-disable MD026 -->
@@ -11,7 +15,7 @@ ms.date: 2/8/2019
 
 Cloud governance is the product of an ongoing adoption effort over time, as a true lasting transformation doesn't happen overnight. Attempting to deliver complete cloud governance before addressing key corporate policy changes using a fast aggressive method seldom produces the desired results. Instead we recommend an incremental approach.
 
-What is different about our cloud adoption framework is the buying cycle and the impact of that how that cycle can enable authentic transformation. Since there is not a big Capital Expenditure (CapEx) acquisition requirement, engineers can begin experimentation and adoption sooner. In most corporate cultures, elimination of the CapEx barrier to adoption can lead to tighter feedback loops, organic growth, and incremental execution.
+What is different about our cloud adoption framework is the purchasing cycle and how it can enable authentic transformation. Since there is not a big capital expenditure acquisition requirement, engineers can begin experimentation and adoption sooner. In most corporate cultures, elimination of the capital expense barrier to adoption can lead to tighter feedback loops, organic growth, and incremental execution.
 
 The shift to cloud adoption requires a shift in governance. In many organizations, corporate policy transformation allows for improved governance and higher rates of adherence through incremental policy changes and automated enforcement of those changes, powered by newly defined capabilities that you configure with your cloud service provider.
 
@@ -25,7 +29,7 @@ In traditional governance and incremental governance, corporate policy creates t
 
 *Figure 1. Corporate governance and governance disciplines.*
 
-The image above demonstrates the interactions between business risk, policy and compliance, and monitor and enforce to create a governance strategy. Followed by the five disciplines of Cloud Governance to realize your strategy.
+The image above demonstrates the interactions between business risk, policy and compliance, and monitor and enforce to create a governance strategy. Followed by the Five Disciplines of Cloud Governance to realize your strategy.
 
 ## Review existing policies
 
@@ -44,13 +48,13 @@ With an incremental approach to cloud governance, there is sometimes a natural f
 
 The first step in an emerging partnership between your cloud governance and adoption teams is an agreement regarding the policy MVP. Your MVP for cloud governance should acknowledge that business risks are small in the beginning, but will likely grow as your organization adopts more cloud services over time.
 
-For example: For a business that deploys 5 VMs that don't contain any High Business Impact (HBI) data, the business risk is small. And several increments later, when the number reaches 1,000 VMs and the business is starting to move HBI data, the business risk grows.
+For example, the business risk is smail for a business deploying five VMs not containing any high business impact (HBI) data. Several increments later, when the number reaches 1,000 VMs and the business is starting to migrate HBI data, the business risk grows.
 
 Policy MVP is an attempt to define a required foundation for policies required to deploy the first "x" VMs or the first x number of applications. Where x is a small yet significant quantity of the units being adopted. This policy set requires few constraints, but would contain the foundational aspects needed to quickly grow from one increment of work to the next. Through incremental policy development, this governance strategy would grow over time. Through slow subtle shifts, the policy MVP would grow into feature parity with the outputs of the policy review exercise.
 
 ## Incremental policy growth
 
-Incremental policy growth is the key mechanism to growing policy and cloud governance overtime. It is also the key requirement to adopting an incremental model to governance. For this model to work well, the governance team must be committed to an ongoing allocation of time at each sprint, in order to evaluate and implement changing governance disciplines.
+Incremental policy growth is the key mechanism to growing policy and cloud governance ove time. It is also the key requirement to adopting an incremental model to governance. For this model to work well, the governance team must be committed to an ongoing allocation of time at each sprint, in order to evaluate and implement changing governance disciplines.
 
 **Sprint time requirements:** At the beginning of each iteration, each cloud adoption team creates a list of assets to be migrated or adopted in the current increment. The Cloud Governance team is expected to allow sufficient time to review the list, validate data classifications for assets, evaluate any new risks associated with each asset, update architecture guidelines, and educate the team on the changes. These commitments commonly require 10-30 hours per sprint. It's also expected for this level of involvement to require at least one dedicated employee to manage governance in a large cloud adoption effort.
 

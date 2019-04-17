@@ -1,19 +1,23 @@
 ---
-title: "CAF: Governance Customer Journeys Overview"
-description: Explanation of Governance Customer Journeys Overview
+title: "CAF: Actionable governance journeys"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
+description: Actionable governance journeys
 author: BrianBlanchard
-ms.date: 2/11/2019
 layout: LandingPage
 ms.topic: landing-page
 ---
 
 # Actionable governance journeys
 
-The governance journeys in this section illustrate the incremental approach of the CAF governance model. You can establish an agile governance platform that will evolve to meet the needs of any cloud governance scenario.
+The governance journeys in this section illustrate the incremental approach of the Cloud Adoption Framework governance model. You can establish an agile governance platform that will evolve to meet the needs of any cloud governance scenario.
 
 ## Review and adopt cloud governance best practices
 
-To start down an adoption path, choose one of the following journeys. Each journey outlines a series of best practices, based on a set of fictional customer experiences. For readers who are new to the incremental approach of the CAF governance model, it is advised that you review the high level governance theory introduction below, before adopting either best practice.
+To start down an adoption path, choose one of the following journeys. Each journey outlines a series of best practices, based on a set of fictional customer experiences. For readers who are new to the incremental approach of the Cloud Adoption Framework governance model, it is advised that you review the high-evel governance theory introduction below, before adopting either best practice.
 
 <!-- markdownlint-disable MD033 -->
 
@@ -60,9 +64,9 @@ These governance journeys describe the experiences of fictional companies, based
 
 A journey without a target destination is just wandering. It’s important to establish a rough vision of the end state before taking the first step. The following infographic provides a frame of reference for the end state. It’s not your starting point, but it shows your potential destination.
 
-![Infographic of the CAF governance model](../../_images/operational-transformation-govern-highres.png)
+![Infographic of the Cloud Adoption Framework governance model](../../_images/operational-transformation-govern-highres.png)
 
-The CAF governance model identifies key areas of importance during the journey. Each area relates to different types of risks the company must address as it adopts more cloud services. Within this framework, the governance journey identifies required actions for the Cloud Governance team. Along the way, each principle of the CAF governance model is described further. Broadly, these include:
+The Cloud Adoption Framework governance model identifies key areas of importance during the journey. Each area relates to different types of risks the company must address as it adopts more cloud services. Within this framework, the governance journey identifies required actions for the Cloud Governance team. Along the way, each principle of the Cloud Adoption Framework governance model is described further. Broadly, these include:
 
 **Corporate policies**. Corporate policies drive cloud governance. The governance journey focuses on specific aspects of corporate policy:
 
@@ -70,7 +74,7 @@ The CAF governance model identifies key areas of importance during the journey. 
 - Policy and Compliance: Converting risks into policy statements that support any compliance requirements.
 - Processes: Ensuring adherence to the stated policies.
 
-**Five disciplines of cloud governance**. These disciplines support the corporate policies. Each discipline protects the company from potential pitfalls:
+**Five Disciplines of Cloud Governance**. These disciplines support the corporate policies. Each discipline protects the company from potential pitfalls:
 
 - Cost Management
 - Security Baseline
@@ -97,7 +101,7 @@ The following diagram shows a simple governance MVP and three governance evoluti
 
 ## Choosing a governance journey
 
-The journeys demonstrate how to implement a governance MVP. From there, each journey shows how the Cloud Governance team can work ahead of the cloud adoption teams as a partner to accelerate adoption efforts. The CAF governance model guides the application of governance from foundation through subsequent evolutions.
+The journeys demonstrate how to implement a governance MVP. From there, each journey shows how the Cloud Governance team can work ahead of the cloud adoption teams as a partner to accelerate adoption efforts. The Cloud Adoption Framework governance model guides the application of governance from foundation through subsequent evolutions.
 
 To begin a governance journey, choose one of the two options below. The options are based on synthesized customer experiences. The titles are based on the size of the enterprise for ease of navigation. However, the reader's decision may be more complex. The following tables outline the differences between the two options.
 
@@ -111,7 +115,7 @@ To begin a governance journey, choose one of the two options below. The options 
 | Geography (country or geopolitical region) | Customers or staff reside largely in one geography                                                      | Customers or staff reside in multiple geographies                                                              |
 | Business units affected                    | Single business unit                                                                                    | Multiple business units                                                                                        |
 | IT budget                                  | Single IT budget                                                                                        | Budget allocated across business units                                                                         |
-| IT investments                             | Capital expense (CapEx)-driven investments are planned yearly and usually cover only basic maintenance. | CapEx-driven investments are planned yearly and often include maintenance and a refresh cycle of 3 to 5 years. |
+| IT investments                             | Capital expense-driven investments are planned yearly and usually cover only basic maintenance. | Capital expense-driven investments are planned yearly and often include maintenance and a refresh cycle of three to five years. |
 
 ### Current state before adopting cloud governance
 
@@ -119,7 +123,7 @@ To begin a governance journey, choose one of the two options below. The options 
 |---------------------------------------------|----------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
 | Datacenter or third-party hosting providers | Fewer than five datacenters                                                                                  | More than five datacenters                                                                                                   |
 | Networking                                  | No WAN, or 1 &ndash; 2 WAN providers                                                                             | Complex network or global WAN                                                                                             |
-| Identity                                    | Single forest, single domain. No requirement for claims-based authentication or third-party MFA devices. | Complex, multiple forests, multiple domains. Applications require claims-based authentication or third-party MFA devices. |
+| Identity                                    | Single forest, single domain. No requirement for claims-based authentication or third-party multi-factor authentication devices. | Complex, multiple forests, multiple domains. Applications require claims-based authentication or third-party multi-factor authentication devices. |
 
 ### Desired future state after evolving cloud governance
 
@@ -129,7 +133,7 @@ To begin a governance journey, choose one of the two options below. The options 
 | Security Baseline – protected data           | Company financial data and IP. Limited customer data. No third-party compliance requirements.     | Multiple collections of customers’ financial and PII data. May need to consider third-party compliance. |
 | Resource Consistency – mission-critical applications | Outages are painful but not financially damaging. Existing IT Operations are relatively immature. | Outages have defined and monitored financial impacts. IT operations are established and mature.         |
 
-These two journeys represent two extremes of experience for customers who invest in cloud governance. Most companies reflect a combination of the two scenarios above. After reviewing the journey, use the CAF governance model to start the governance conversation and modify the baseline journeys to more closely meet your needs.
+These two journeys represent two extremes of experience for customers who invest in cloud governance. Most companies reflect a combination of the two scenarios above. After reviewing the journey, use the Cloud Adoption Framework governance model to start the governance conversation and modify the baseline journeys to more closely meet your needs.
 
 ## Next steps
 

@@ -17,9 +17,9 @@ Developing an inventory is the first step in [Digital Estate Planning](overview.
 
 The inventory supporting a digital estate changes depending on the desired digital transformation and corresponding transformation journey.
 
-- **Operational transformation**. During an operational transformation, it is often advised that the inventory be collected from scanning tools which can create a centralized list of all VMs and servers. Some tools can also create network mappings and dependencies, which will help define workload alignment.
+- **Operational transformation:** During an operational transformation, it is often advised that the inventory be collected from scanning tools that can create a centralized list of all VMs and servers. Some tools can also create network mappings and dependencies, which will help define workload alignment.
 
-- **Incremental transformation.** Inventory for an incremental transformation begins with the customer. Mapping the customer experience from start to finish is a good place to begin. Aligning that map to applications, APIs, data, and other assets will create a detailed inventory for analysis.
+- **Incremental transformation:** Inventory for an incremental transformation begins with the customer. Mapping the customer experience from start to finish is a good place to begin. Aligning that map to applications, APIs, data, and other assets will create a detailed inventory for analysis.
 
 - **Disruptive transformation.** Disruptive transformation focuses on the product or service. From there an inventory would include a mapping of the opportunities to disrupt the market and the capabilities needed.
 
@@ -29,7 +29,7 @@ An inventory is seldom fully complete in its first iteration. It is highly advis
 
 ## Next steps
 
-Once an inventory is compiled and validated, it can rationalized. Inventory Rationalization is the next step to digital estate planning.
+Once an inventory is compiled and validated, it can rationalized. Inventory rationalization is the next step to digital estate planning.
 
 > [!div class="nextstepaction"]
 > [Rationalize the digital estate](rationalize.md)

@@ -1,7 +1,7 @@
 - name: Azure Architecture Center
   href: index.md
 
-- name: Cloud Fundamentals
+- name: Cloud fundamentals
   items:
   - name: Application architecture guide
     items:
@@ -66,83 +66,6 @@
     - name: Pillars of software quality
       href: guide/pillars.md
 
-  - name: Data architecture guide
-    items:
-    - name: Introduction
-      href: data-guide/index.md
-    - name: Traditional RDBMS workloads
-      items:
-      - name: Overview
-        href: data-guide/relational-data/index.md 
-      - name: Online transaction processing (OLTP)
-        href: data-guide/relational-data/online-transaction-processing.md 
-      - name: Data warehousing
-        href: data-guide/relational-data/data-warehousing.md
-      - name: Online analytical processing (OLAP)
-        href: data-guide/relational-data/online-analytical-processing.md
-      - name: Extract, transform, and load (ETL)
-        href: data-guide/relational-data/etl.md 
-    - name: Big data architectures
-      items:
-        - name: Overview
-          href: data-guide/big-data/index.md
-        - name: Batch processing
-          href: data-guide/big-data/batch-processing.md
-        - name: Real time processing
-          href: data-guide/big-data/real-time-processing.md
-        - name: Machine learning at scale
-          href: data-guide/big-data/machine-learning-at-scale.md
-        - name: Non-relational data stores
-          href: data-guide/big-data/non-relational-data.md
-        - name: Scenarios
-          items:
-          - name: Advanced analytics
-            href: data-guide/scenarios/advanced-analytics.md 
-          - name: Data lakes
-            href: data-guide/scenarios/data-lake.md
-          - name: Free-form text search
-            href: data-guide/scenarios/search.md
-          - name: Interactive data exploration
-            href: data-guide/scenarios/interactive-data-exploration.md
-          - name: Natural language processing
-            href: data-guide/scenarios/natural-language-processing.md
-          - name: Time series solutions 
-            href: data-guide/scenarios/time-series.md
-          - name: Working with CSV and JSON files
-            href: data-guide/scenarios/csv-and-json.md
-        - name: Technology choices
-          items:
-          - name: Analytical data stores
-            href: data-guide/technology-choices/analytical-data-stores.md 
-          - name: Analytics and reporting
-            href: data-guide/technology-choices/analysis-visualizations-reporting.md 
-          - name: Batch processing
-            href: data-guide/technology-choices/batch-processing.md 
-          - name: Cognitive services
-            href: data-guide/technology-choices/cognitive-services.md 
-          - name: Data storage
-            href: data-guide/technology-choices/data-storage.md
-          - name: Machine learning
-            href: data-guide/technology-choices/data-science-and-machine-learning.md 
-          - name: Natural language processing
-            href: data-guide/technology-choices/natural-language-processing.md 
-          - name: Pipeline orchestration
-            href: data-guide/technology-choices/pipeline-orchestration-data-movement.md 
-          - name: Real-time message ingestion
-            href: data-guide/technology-choices/real-time-ingestion.md
-          - name: Search data stores
-            href: data-guide/technology-choices/search-options.md
-          - name: Stream processing
-            href: data-guide/technology-choices/stream-processing.md
-    - name: Cross-cutting concerns
-      items:
-      - name: Data transfer
-        href: data-guide/scenarios/data-transfer.md 
-      - name: Extending on-premises data solutions to the cloud
-        href: data-guide/scenarios/hybrid-on-premises-and-cloud.md 
-      - name: Securing data solutions
-        href: data-guide/scenarios/securing-data-solutions.md 
-
   - name: Cloud design patterns
     items:
     - name: Overview
@@ -177,6 +100,8 @@
       href: patterns/cache-aside.md
     - name: Circuit Breaker
       href: patterns/circuit-breaker.md
+    - name: Claim Check
+      href: patterns/claim-check.md
     - name: Command and Query Responsibility Segregation (CQRS)
       href: patterns/cqrs.md
     - name: Compensating Transaction
@@ -287,7 +212,7 @@
     - name: Services comparison
       href: aws-professional/services.md
 
-- name: Example Scenarios
+- name: Example scenarios
   items:
   - name: Overview
     href: example-scenario/index.md
@@ -299,6 +224,8 @@
       href: example-scenario/ai/intelligent-apps-image-processing.md
     - name: Movie recommendation
       href: example-scenario/ai/movie-recommendations.md
+    - name: Newsfeed ingestion
+      href: example-scenario/ai/newsfeed-ingestion.md
   - name: Apps
     items:
     - name: Computer-aided engineering
@@ -319,7 +246,7 @@
       href: example-scenario/apps/apim-api-scenario.md
     - name: E-commerce product search
       href: example-scenario/apps/ecommerce-search.md
-  - name: Data and Analytics
+  - name: Data and analytics
     items:
     - name: Hybrid ETL with Data Factory
       href: example-scenario/data/hybrid-etl-with-adf.md
@@ -352,28 +279,39 @@
     - name: Image Modeling
       href: example-scenario/infrastructure/image-modeling.md
    
-- name: Reference Architectures
+- name: Reference architectures
   items:
     - name: Overview
       href: reference-architectures/index.md
 
     - name: AI
       items:
-      - name: Distributed training of deep learning models
-        href: reference-architectures/ai/training-deep-learning.md
-      - name: Batch scoring of deep learning models
-        href: reference-architectures/ai/batch-scoring-deep-learning.md
-      - name: Batch scoring of Python models
-        href: reference-architectures/ai/batch-scoring-python.md
+      - name: Training and scoring Python models
+        items:
+        - name: Distributed training of deep learning models
+          href: reference-architectures/ai/training-deep-learning.md
+        - name: Batch scoring of deep learning models
+          href: reference-architectures/ai/batch-scoring-deep-learning.md
+        - name: Training of Python scikit-learn models
+          href: reference-architectures/ai/training-python-models.md
+        - name: Batch scoring of Python models
+          href: reference-architectures/ai/batch-scoring-python.md
+        - name: Real-time scoring of Python and deep learning models
+          href: reference-architectures/ai/realtime-scoring-python.md
+
+      - name: Scoring R models
+        items:
+        - name: Batch scoring of R models
+          href: reference-architectures/ai/batch-scoring-R-models.md
+        - name: Real-time scoring of R models
+          href: reference-architectures/ai/realtime-scoring-r.md
+
       - name: Batch scoring of Spark models on Azure Databricks
         href: reference-architectures/ai/batch-scoring-databricks.md
-      - name: Real-time scoring of Python and deep learning models
-        href: reference-architectures/ai/realtime-scoring-python.md
-      - name: Real-time scoring of R machine learning models
-        href: reference-architectures/ai/realtime-scoring-r.md
+
       - name: Conversational bot
         href: reference-architectures/ai/conversational-bot.md
-      - name: Real-time Recommendation API
+      - name: Real-time recommendation API
         href: reference-architectures/ai/real-time-recommendation.md
 
     - name: Big data
@@ -431,6 +369,9 @@
       items:
       - name: Azure Kubernetes Service (AKS)
         href: reference-architectures/microservices/aks.md
+      - name: Azure Service Fabric
+        href: reference-architectures/microservices/service-fabric.md
+
 
     - name: Network DMZ
       items:
@@ -485,31 +426,135 @@
       - name: Web application monitoring
         href: reference-architectures/app-service-web-app/app-monitoring.md
 
-- name: Design Guides
+- name: Build microservices on Azure
   items:
-  - name: Build microservices on Azure
+  - name: Overview
+    href: microservices/index.md
+  - name: Introduction to microservices
+    href: microservices/introduction.md
+  - name: Model microservices
+    items:
+    - name: Domain analysis
+      href: microservices/model/domain-analysis.md
+    - name: Tactical DDD
+      href: microservices/model/tactical-ddd.md
+    - name: Identify microservice boundaries
+      href: microservices/model/microservice-boundaries.md
+  - name: Design a microservices architecture
     items:
     - name: Introduction
-      href: microservices/index.md
-    - name: Domain analysis
-      href: microservices/domain-analysis.md
-    - name: Identifying microservice boundaries
-      href: microservices/microservice-boundaries.md
-    - name: Data considerations
-      href: microservices/data-considerations.md
+      href: microservices/design/index.md
+    - name: Choose a compute option
+      href: microservices/design/compute-options.md
     - name: Interservice communication
-      href: microservices/interservice-communication.md
+      href: microservices/design/interservice-communication.md
     - name: API design
-      href: microservices/api-design.md
-    - name: Ingestion and workflow
-      href: microservices/ingestion-workflow.md
+      href: microservices/design/api-design.md
     - name: API gateways
-      href: microservices/gateway.md
+      href: microservices/design/gateway.md
+    - name: Data considerations
+      href: microservices/design/data-considerations.md
+    - name: Design patterns for microservices
+      href: microservices/design/patterns.md
+  - name: Operate microservices in production
+    items:
     - name: Logging and monitoring
       href: microservices/logging-monitoring.md
     - name: CI/CD
       href: microservices/ci-cd.md
 
+- name: Design guides
+  items:
+  - name: Data architecture guide
+    items:
+    - name: Introduction
+      href: data-guide/index.md
+    - name: Traditional RDBMS workloads
+      items:
+      - name: Overview
+        href: data-guide/relational-data/index.md 
+      - name: Online transaction processing (OLTP)
+        href: data-guide/relational-data/online-transaction-processing.md 
+      - name: Data warehousing
+        href: data-guide/relational-data/data-warehousing.md
+      - name: Online analytical processing (OLAP)
+        href: data-guide/relational-data/online-analytical-processing.md
+      - name: Extract, transform, and load (ETL)
+        href: data-guide/relational-data/etl.md 
+    - name: Big data architectures
+      items:
+        - name: Overview
+          href: data-guide/big-data/index.md
+        - name: Batch processing
+          href: data-guide/big-data/batch-processing.md
+        - name: Real time processing
+          href: data-guide/big-data/real-time-processing.md
+        - name: Machine learning at scale
+          href: data-guide/big-data/machine-learning-at-scale.md
+        - name: Non-relational data stores
+          href: data-guide/big-data/non-relational-data.md
+        - name: Scenarios
+          items:
+          - name: Advanced analytics
+            href: data-guide/scenarios/advanced-analytics.md 
+          - name: Data lakes
+            href: data-guide/scenarios/data-lake.md
+          - name: Free-form text search
+            href: data-guide/scenarios/search.md
+          - name: Interactive data exploration
+            href: data-guide/scenarios/interactive-data-exploration.md
+          - name: Natural language processing
+            href: data-guide/scenarios/natural-language-processing.md
+          - name: Time series solutions 
+            href: data-guide/scenarios/time-series.md
+          - name: Working with CSV and JSON files
+            href: data-guide/scenarios/csv-and-json.md
+        - name: Technology choices
+          items:
+          - name: Analytical data stores
+            href: data-guide/technology-choices/analytical-data-stores.md 
+          - name: Analytics and reporting
+            href: data-guide/technology-choices/analysis-visualizations-reporting.md 
+          - name: Batch processing
+            href: data-guide/technology-choices/batch-processing.md 
+          - name: Cognitive services
+            href: data-guide/technology-choices/cognitive-services.md 
+          - name: Data storage
+            href: data-guide/technology-choices/data-storage.md
+          - name: Machine learning
+            href: data-guide/technology-choices/data-science-and-machine-learning.md 
+          - name: Natural language processing
+            href: data-guide/technology-choices/natural-language-processing.md 
+          - name: Pipeline orchestration
+            href: data-guide/technology-choices/pipeline-orchestration-data-movement.md 
+          - name: R developer's guide to Azure
+            href: data-guide/technology-choices/r-developers-guide.md
+          - name: Real-time message ingestion
+            href: data-guide/technology-choices/real-time-ingestion.md
+          - name: Search data stores
+            href: data-guide/technology-choices/search-options.md
+          - name: Stream processing
+            href: data-guide/technology-choices/stream-processing.md
+    - name: Cross-cutting concerns
+      items:
+      - name: Data transfer
+        href: data-guide/scenarios/data-transfer.md 
+      - name: Extending on-premises data solutions to the cloud
+        href: data-guide/scenarios/hybrid-on-premises-and-cloud.md 
+      - name: Securing data solutions
+        href: data-guide/scenarios/securing-data-solutions.md 
+  - name: Extend Azure Resource Manager templates
+    items:
+    - name: Introduction
+      href: building-blocks/extending-templates/index.md
+    - name: Update a resource
+      href: building-blocks/extending-templates/update-resource.md
+    - name: Conditionally deploy a resource
+      href: building-blocks/extending-templates/conditional-deploy.md
+    - name: Use an object as a parameter
+      href: building-blocks/extending-templates/objects-as-parameters.md
+    - name: Property transformer and collector
+      href: building-blocks/extending-templates/collector.md
   - name: Manage multitenant identity
     items:
     - name: Introduction
@@ -538,13 +583,24 @@
       href: multitenant-identity/adfs.md
     - name: Run the Surveys application
       href: multitenant-identity/run-the-app.md
-      
   - name: Migrate from Cloud Services to Service Fabric
     items:
     - name: Migrate a Cloud Services application to Service Fabric
       href: service-fabric/migrate-from-cloud-services.md
     - name: Refactor a Service Fabric application
       href: service-fabric/refactor-migrated-app.md
+  - name: Monitor Azure Databricks
+    items:
+    - name: Overview
+      href: databricks-monitoring/index.md
+    - name: Configure Databricks to send metrics to Azure Monitor
+      href: databricks-monitoring/configure-cluster.md
+    - name: Send Databricks application logs to Azure Monitor
+      href: databricks-monitoring/application-logs.md
+    - name: Use dashboards to visualize Databricks metrics
+      href: databricks-monitoring/dashboards.md
+    - name: Troubleshoot performance bottlenecks
+      href: databricks-monitoring/performance-troubleshooting.md
 
 - name: Design Review Framework
   items:
@@ -569,16 +625,16 @@
     href: cloud-adoption/index.md
   - name: Getting started
     items:
-    - name: Understand the Migration Journey
+    - name: Understand the migration journey
       href: cloud-adoption/getting-started/migrate.md
-    - name: Understand the Innovation Journey
+    - name: Understand the innovation journey
       href: cloud-adoption/getting-started/innovate.md
     - name: Enable success during either journey
       href: cloud-adoption/getting-started/enable.md
   - name: Plan
     href: cloud-adoption/business-strategy/index.md
     items:
-    - name: Motivations (Why are we moving to the cloud)
+    - name: Motivations (why are we moving to the cloud?)
       href: cloud-adoption/business-strategy/motivations-why-are-we-moving-to-the-cloud.md
     - name: Business justification
       items:
@@ -634,35 +690,35 @@
       href: cloud-adoption/ready/azure-best-practices/index.md
     - name: Organizational Readiness
       items:
-      - name: Initial Org Alignment
+      - name: Initial organization alignment
         href: cloud-adoption/ready/initial-org-alignment.md
-      - name: Building Technical Skills
+      - name: Building technical skills
         href: cloud-adoption/ready/technical-skills.md
   - name: Adopt
     items:
     - name: Migrate
       href: cloud-adoption/migrate/index.md
       items:
-      - name: Azure Migration Guide
+      - name: Azure migration guide
         items:
-        - name: Intro to the Migration Guide
-          href: cloud-adoption/migrate/baseline-migration-guide/index.md
+        - name: Introduction to the Azure migration guide
+          href: cloud-adoption/migrate/azure-migration-guide/index.md
         - name: Prerequisites before migrating to Azure 
-          href: cloud-adoption/migrate/baseline-migration-guide/prerequisites.md
+          href: cloud-adoption/migrate/azure-migration-guide/prerequisites.md
         - name: Assess individual workloads prior to migration
-          href: cloud-adoption/migrate/baseline-migration-guide/assess.md
+          href: cloud-adoption/migrate/azure-migration-guide/assess.md
         - name: Migrate assets that make up a workload
-          href: cloud-adoption/migrate/baseline-migration-guide/migrate.md
+          href: cloud-adoption/migrate/azure-migration-guide/migrate.md
         - name: Manage costs and billing to understand charges and usage from your Azure Resources
-          href: cloud-adoption/migrate/baseline-migration-guide/manage-costs.md
+          href: cloud-adoption/migrate/azure-migration-guide/manage-costs.md
         - name: Organize your Azure resources
-          href: cloud-adoption/migrate/baseline-migration-guide/organize-resources.md
-        - name: Optimize and Transform
-          href: cloud-adoption/migrate/baseline-migration-guide/optimize-and-transform.md
-        - name: Secure and Manage
-          href: cloud-adoption/migrate/baseline-migration-guide/secure-and-manage.md
+          href: cloud-adoption/migrate/azure-migration-guide/organize-resources.md
+        - name: Optimize and transform
+          href: cloud-adoption/migrate/azure-migration-guide/optimize-and-transform.md
+        - name: Secure and manage
+          href: cloud-adoption/migrate/azure-migration-guide/secure-and-manage.md
         - name: Obtain assistance during your migration to Azure
-          href: cloud-adoption/migrate/baseline-migration-guide/assistance.md
+          href: cloud-adoption/migrate/azure-migration-guide/assistance.md
       - name: Expanded scope
         items:
         - name: Expanded scope checklist
@@ -688,7 +744,7 @@
       - name: Best practices
         href: cloud-adoption/migrate/azure-best-practices/index.md
         items:
-        - name: Best Practices for assessing workloads
+        - name: Best practices for assessing workloads
           items:
           - name: Assess on-premises resources for migration
             href: cloud-adoption/migrate/azure-best-practices/contoso-migration-assessment.md
@@ -731,7 +787,7 @@
                 href: cloud-adoption/migrate/azure-best-practices/contoso-migration-tfs-vsts.md
             - name: Scale a migration
               href: cloud-adoption/migrate/azure-best-practices/contoso-migration-scale.md
-          - name: Mainframe Migration
+          - name: Mainframe migration
             href: cloud-adoption/infrastructure/mainframe-migration/overview.md
             items:
               - name: Myths and facts
@@ -742,13 +798,13 @@
                 href: cloud-adoption/infrastructure/mainframe-migration/application-strategies.md
         - name: Best practices for optimizing workloads
           items:
-          - name: Costing and Sizing Workloads
+          - name: Costing and sizing workloads
             href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-costs.md
         - name: Best practices for securing and managing workloads
           items:
-          - name: Securing and managing workloads post migration
+          - name: Securing and managing workloads after migration
             href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-security-management.md
-      - name: Migration Considerations
+      - name: Migration considerations
         href: cloud-adoption/migrate/migration-considerations/index.md
         items:
         - name: Prerequisites
@@ -756,13 +812,13 @@
           items:
           - name: Decisions that affect migration activities
             href: cloud-adoption/migrate/migration-considerations/prerequisites/decisions.md
-          - name: Environment Planning Checklist
+          - name: Environment planning checklist
             href: cloud-adoption/migrate/migration-considerations/prerequisites/planning-checklist.md
           - name: Align roles and responsibilities
             href: cloud-adoption/migrate/migration-considerations/prerequisites/culture-complexity.md
           - name: Structure backlogs to manage change
             href: cloud-adoption/migrate/migration-considerations/prerequisites/technical-complexity.md
-          - name: Migration Backlog Review
+          - name: Migration backlog review
             href: cloud-adoption/migrate/migration-considerations/prerequisites/migration-backlog-review.md
         - name: Assess assets and workloads
           items:
@@ -791,16 +847,16 @@
             href: cloud-adoption/migrate/migration-considerations/migrate/remediate.md
           - name: Replicate assets to the cloud
             href: cloud-adoption/migrate/migration-considerations/migrate/replicate.md
-          - name: Replicate Options
+          - name: Replicate options
             href: cloud-adoption/migrate/migration-considerations/migrate/replicate-options.md
           - name: Stage workloads for testing and promotion
             href: cloud-adoption/migrate/migration-considerations/migrate/stage.md
         - name: Optimize and promote workloads
           href: cloud-adoption/migrate/migration-considerations/optimize/index.md
           items:
-          - name: Business Change Plan
+          - name: Business change plan
             href: cloud-adoption/migrate/migration-considerations/optimize/business-change-plan.md
-          - name: Business Testing
+          - name: Business testing
             href: cloud-adoption/migrate/migration-considerations/optimize/business-test.md
           - name: Benchmark and optimize assets
             href: cloud-adoption/migrate/migration-considerations/optimize/optimize.md
@@ -808,8 +864,8 @@
             href: cloud-adoption/migrate/migration-considerations/optimize/ready.md
           - name: Promote workloads to production
             href: cloud-adoption/migrate/migration-considerations/optimize/promote.md
-          - name: Decomission retired assets
-            href: cloud-adoption/migrate/migration-considerations/optimize/decomission.md
+          - name: Decommission retired assets
+            href: cloud-adoption/migrate/migration-considerations/optimize/decommission.md
           - name: Retrospective
             href: cloud-adoption/migrate/migration-considerations/optimize/retrospective.md
         - name: Secure and manage workloads in production
@@ -825,14 +881,14 @@
     - name: Govern
       href: cloud-adoption/governance/overview.md
       items:
-      - name: Governance Guides
+      - name: Governance guides
         href: cloud-adoption/governance/journeys/overview.md
         items:
-        - name: Azure Governance Guide
+        - name: Small-to-medium enterprise guide
           items:
           - name: Best practices for getting started with cloud governance
             href: cloud-adoption/governance/journeys/small-to-medium-enterprise/overview.md
-          - name: Example Scenario
+          - name: Example scenario
             href: cloud-adoption/governance/journeys/small-to-medium-enterprise/narrative.md
           - name: Initial corporate policy
             href: cloud-adoption/governance/journeys/small-to-medium-enterprise/initial-corporate-policy.md
@@ -846,11 +902,11 @@
             href: cloud-adoption/governance/journeys/small-to-medium-enterprise/cost-management-evolution.md
           - name: Apply this guidance to multicloud scenarios
             href: cloud-adoption/governance/journeys/small-to-medium-enterprise/multi-cloud-evolution.md
-        - name: Expanded scope to address geography and billing complexity
+        - name: Large enterprise guide
           items:
           - name: Best practices for getting started with cloud governance
             href: cloud-adoption/governance/journeys/large-enterprise/overview.md
-          - name: Example Scenario
+          - name: Example scenario
             href: cloud-adoption/governance/journeys/large-enterprise/narrative.md
           - name: Initial corporate policy
             href: cloud-adoption/governance/journeys/large-enterprise/initial-corporate-policy.md
@@ -870,7 +926,7 @@
             href: cloud-adoption/governance/journeys/large-enterprise/multiple-layers-of-governance.md
       - name: Best practices
         href: cloud-adoption/governance/azure-best-practices/overview.md
-      - name: Governance Considerations
+      - name: Governance considerations
         items:
         - name: Implement a cloud governance strategy
           href: cloud-adoption/governance/corporate-policy.md
@@ -1012,19 +1068,19 @@
     items:
     - name: Infrastructure
       items:
-      - name: Virtual Machines
+      - name: Virtual machines
         items:
           - name: Deploy a basic workload
             href: cloud-adoption/infrastructure/virtual-machines/basic-workload.md
     - name: How does Azure work?
       href: cloud-adoption/getting-started/what-is-azure.md
-    - name: Virtual Data Center (VDC)
+    - name: Virtual Datacenter (VDC)
       href: vdc/index.md
     - name: Azure enterprise scaffold
       href: cloud-adoption/appendix/azure-scaffold.md
     - name: Implementing Azure enterprise scaffold
       href: cloud-adoption/appendix/azure-scaffold-examples.md
-    - name: Decision Guides
+    - name: Decision guides
       href: cloud-adoption/decision-guides/overview.md
       items:
       - name: Subscriptions
@@ -1039,13 +1095,13 @@
         href: cloud-adoption/decision-guides/resource-tagging/overview.md
       - name: Encryption
         href: cloud-adoption/decision-guides/encryption/overview.md
-      - name: Software defined networks
+      - name: Software-defined networks
         items:
         - name: Overview
           href: cloud-adoption/decision-guides/software-defined-network/overview.md
-        - name: PaaS Only
+        - name: PaaS-only
           href: cloud-adoption/decision-guides/software-defined-network/paas-only.md
-        - name: Cloud Native
+        - name: Cloud native
           href: cloud-adoption/decision-guides/software-defined-network/cloud-native.md
         - name: Cloud DMZ
           href: cloud-adoption/decision-guides/software-defined-network/cloud-dmz.md

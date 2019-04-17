@@ -10,20 +10,20 @@ ms.topic: landing-page
 # Enable success across any cloud adoption journey
 
 > [!NOTE]
-> The Enable name on this page is a placeholder to help show alignment with FY20 priorities during development and staging only. It will be changed prior to public preview release. Names being considered: Additional tools, Additional resources, foundations, etc... further testing on this page name is required.
+> The "Enable" name on this page is a placeholder to help show alignment with FY20 priorities during development and staging only. It will be changed prior to public preview release. Names being considered: additional tools, additional resources, foundations. Further testing on this page name is required.
 
 The Microsoft Cloud Adoption Framework for Azure is provided as a free self-service tool to guide readers through various cloud adoption efforts. The focus of this content is to help customers succeed at realizing business goals that can be enabled by Azure. However, this content also respects that the reader may be addressing business, culture, or technical challenges that can be very broad in nature and may at times require a cloud-neutral position. As such, each section of this guidance starts with an Azure first approach, but follows with cloud neutral theory that can scale across business and technical decisions.
 
 Throughout this framework, enablement is a core theme. The following checklist contains a series of topics that should be embedded in any cloud adoption effort to ensure the journey is a success in the eyes of both IT and the business:
 
-* Plan: Establishing clear [business outcomes](../business-strategy/business-outcomes/overview.md), a defined [digital estate plan](../digital-estate/index.md), and well understood [adoption backlogs](../migrate/migration-considerations/pre-requisites/migration-backlog-review.md)
-* Ready: Ensure the readiness of staff through [skills and learning plans](../ready/technical-skills.md)
-* Adopt: Ensure proper implementation of desired changes, across IT and business processes, to achieve business outcomes
-    * Govern: Align proper [governance disciplines](../governance/index.md) to consistently apply cost management, risk mitigation, compliance, and security baselines across all cloud adoption
-    * Operate: On-going [operations](../operations/index.md) of the IT portfolio to minimize interruptions to business processes and ensure stability of the IT portfolio
-    * Support: Align proper [partnership and support options](../migrate/migration-considerations/assess/partnership-options.md)
-    
-## Additional Tools
+- Plan: Establishing clear [business outcomes](../business-strategy/business-outcomes/overview.md), a defined [digital estate plan](../digital-estate/index.md), and well understood [adoption backlogs](../migrate/migration-considerations/prerequisites/migration-backlog-review.md)
+- Ready: Ensure the readiness of staff through [skills and learning plans](../ready/technical-skills.md)
+- Adopt: Ensure proper implementation of desired changes, across IT and business processes, to achieve business outcomes.
+  - Govern: Align proper [governance disciplines](../governance/index.md) to consistently apply cost management, risk mitigation, compliance, and security baselines across all cloud adoption
+  - Operate: Ongoing [operations](../operations/index.md) of the IT portfolio to minimize interruptions to business processes and ensure stability of the IT portfolio
+  - Support: Align proper [partnership and support options](../migrate/migration-considerations/assess/partnership-options.md)
+
+## Additional tools
 
 In addition to the Cloud Adoption Framework, Microsoft provides a number of additional topics that can enable success. This article highlights a few common tools that can significantly improve success beyond the scope of the Cloud Adoption Framework. Establishing cloud governance, resilient architectures, technical skills, and a DevOps approach are each important to the success of any cloud adoption effort. The reader is advised to bookmark this page as a resource to revisit throughout any cloud adoption journey.
 
@@ -37,12 +37,12 @@ In addition to the Cloud Adoption Framework, Microsoft provides a number of addi
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage bgdAccent1">
-                            <img alt="CAF Governance Model" src="../_images/operational-transformation-govern-highres.png" data-linktype="external" />
+                            <img alt="Cloud Adoption Framework governance model" src="../_images/operational-transformation-govern-highres.png" data-linktype="external" />
                         </div>
                     </div>
                     <div class="cardText">
                         <h3>Cloud Governance</h3>
-                        <p>Understand business risk, map those risks to proper policies and processes. Leveraging cloud governance tools and the five disciplines of cloud governance minimizes risks and improves the likelihood of success. Cloud governance helps control costs, create consistency, improve security, and accelerate deployment.</p>
+                        <p>Understand business risk, map those risks to proper policies and processes. Leveraging cloud governance tools and the Five Disciplines of Cloud Governance minimizes risks and improves the likelihood of success. Cloud governance helps control costs, create consistency, improve security, and accelerate deployment.</p>
                     </div>
                 </div>
             </div>

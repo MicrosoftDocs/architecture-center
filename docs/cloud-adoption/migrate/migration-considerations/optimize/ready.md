@@ -24,16 +24,16 @@ Transformation happens when business users or customers take advantage of a tech
 
 - **Network isolation testing.** Test and monitor network traffic to ensure proper isolation and no unexpected network vulnerabilities. Also validate that any network routing that will be severed during cutover is not experiencing unexpected traffic.
 - **Dependency testing.** Ensure that all workload application dependencies have been migrated and are accessible from the migrated assets.
-- **Business continuity/disaster recovery testing.** Validate that any backup and recovery SLAs are established. If possible, perform a full recovery of the assets from the BC/DR solution.
+- **Business continuity and disaster recovery (BCDR) testing.** Validate that any backup and recovery SLAs are established. If possible, perform a full recovery of the assets from the BCDR solution.
 - **End-user route testing.** Validate traffic patterns and routing for end-user traffic. Ensure that network performance aligns with expectations.
 - **Final performance check.** Ensure that performance testing has been completed and approved by end users. Execute any automated performance testing.
 
 ## Final business validation
+
 After the business change plan and technical readiness have been validated, the following final steps can complete the business validation:
 
 - **Cost validation (plan versus actual).** Testing is likely to produce changes in sizing and architecture. Ensure that actual deployment pricing still aligns with the original plan.
 - **Communicate and execute cutover plan.** Prior to cutover, communicate the cutover and execute accordingly.
-
 
 ## Next steps
 

@@ -118,9 +118,10 @@ Microsoft bills annually at the enrollment effective date for any commitment pur
 **Manage your costs with Azure Cost Management**
 
  Azure provides a number of ways to help you predict and manage costs:
-* Using **Budgets**, you can create a budget and configure alerts to warn teams about impending budget overages. 
-* Using **Recommendations**, Azure Cost Management helps you optimize and improve efficiency by identifying idle and underused resources. 
-* Using **Cost analysis** allows you to explore and analyze your organizational costs. You can then view aggregated costs by organization and view accumulated costs over time.
+
+- Using **Budgets**, you can create a budget and configure alerts to warn teams about impending budget overages. 
+- Using **Recommendations**, Azure Cost Management helps you optimize and improve efficiency by identifying idle and underused resources. 
+- Using **Cost analysis** allows you to explore and analyze your organizational costs. You can then view aggregated costs by organization and view accumulated costs over time.
 
 ::: zone target="chromeless"
 
@@ -166,7 +167,7 @@ To apply a tag to a resource group:
 
 ::: zone target="docs"
 
-## Manage EA Roles
+## Manage EA roles
 
 1. Go to **EA portal**.
 1. Go to **Manage**.

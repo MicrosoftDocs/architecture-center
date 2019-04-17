@@ -2,12 +2,11 @@
 title: "CAF: Refactor a Linux service desk app to the Azure App Service and Azure MySQL"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how Contoso refactors on-premises Linux app by migrating it to Azure App Service using GitHub for Web Tier and Azure SQL Database.
-author: rayne-wiselman
-manager: carmonm
+author: BrianBlanchard
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
-ms.author: raynew
+ms.author: brblanch
 
 ---
 
@@ -52,7 +51,7 @@ After pinning down their goals and requirements, Contoso designs and reviews a d
 Here's the proposed architecture:
 
 - The web tier app on OSTICKETWEB will be migrated by building an Azure App Service in two Azure regions. Azure App Service for Linux will be implemented using the PHP 7.0 Docker container.
-- The app code will be moved to GitHub, and Azure Web App will be configured for continuous delivery with GitHub.
+- The app code will be moved to GitHub, and the Azure App Service web app will be configured for continuous delivery with GitHub.
 - Azure App Servers will be deployed in both the primary (East US 2) and secondary (Central US) region.
 - Traffic Manager will be set up in front of the two Azure Web Apps in both regions.
 - Traffic Manager will be configured in priority mode to force the traffic through East US 2.
@@ -69,7 +68,7 @@ Here's the proposed architecture:
 
 Contoso will complete the migration process as follows:
 
-1. As a first step, Contoso admins set up the Azure infrastructure, including provisioning Azure App Services, setting up Traffic Manager, and provisioning an Azure MySQL instance.
+1. As a first step, Contoso admins set up the Azure infrastructure, including provisioning Azure App Service, setting up Traffic Manager, and provisioning an Azure MySQL instance.
 2. After preparing the Azure, they migrate the database using MySQL Workbench.
 3. After the database is running in Azure, they up a GitHub private repository for the Azure App Service with continuous delivery, and load it with the osTicket app.
 4. In the Azure portal, they load the app from GitHub to the Docker container running Azure App Service.
@@ -104,18 +103,18 @@ Here's how Contoso will complete the migration:
 
 > [!div class="checklist"]
 >
-> - **Step 1: Provision Azure App Services.** Contoso admins will provision Web Apps in the primary and secondary regions.
+> - **Step 1: Provision Azure App Service.** Contoso admins will provision Web Apps in the primary and secondary regions.
 > - **Step 2: Set up Traffic Manager.** They set up Traffic Manager in front of the Web Apps, for routing and load balancing traffic.
 > - **Step 3: Provision MySQL.** In Azure, they provision an instance of Azure MySQL database.
 > - **Step 4: Migrate the database.** They migrate the database using MySQL Workbench.
 > - **Step 5: Set up GitHub.** They set up a local GitHub repository for the app web sites/code.
 > - **Step 6: Deploy the web apps.** They deploy the web apps from GitHub.
 
-## Step 1: Provision Azure App Services
+## Step 1: Provision Azure App Service
 
-Contoso admins provision two Web apps (one in each region) using Azure App Services.
+Contoso admins provision two web apps (one in each region) using Azure App Service.
 
-1. They create a Web App resource in the primary East US 2 region (**osticket-eus2**) from the Azure Marketplace.
+1. They create a web App resource in the primary East US 2 region (**osticket-eus2**) from the Azure Marketplace.
 2. They put the resource in the production resource group **ContosoRG**.
 
     ![Azure App](./media/contoso-migration-refactor-linux-app-service-mysql/azure-app1.png)
@@ -134,7 +133,7 @@ Contoso admins provision two Web apps (one in each region) using Azure App Servi
 
 **Need more help?**
 
-- Learn about [Azure App Service Web apps](/azure/app-service/overview).
+- Learn about [Azure App Service web apps](/azure/app-service/overview).
 - Learn about [Azure App Service on Linux](/azure/app-service/containers/app-service-linux-intro).
 
 ## Step 2: Set up Traffic Manager
@@ -145,7 +144,7 @@ Contoso admins set up Traffic Manager to direct inbound web requests to Web Apps
 
     ![Traffic Manager](./media/contoso-migration-refactor-linux-app-service-mysql/traffic-manager1.png)
 
-2. Now, they configure Traffic Manager with endpoints. They add East US 2 Web app as the primary site (**osticket-eus2**), and the Central US app as secondary (**osticket-cus**).
+2. Now, they configure Traffic Manager with endpoints. They add the East US 2 web app as the primary site (**osticket-eus2**), and the Central US app as secondary (**osticket-cus**).
 
     ![Traffic Manager](./media/contoso-migration-refactor-linux-app-service-mysql/traffic-manager2.png)
 
@@ -177,7 +176,7 @@ Contoso admins provision a MySQL database instance in the primary East US 2 regi
 
 5. They set up connection security. In the database > **Connection Security**, they set up Firewall rules to allow the database to access Azure services.
 
-6. They add the local workstation client IP address to the start and end IP addresses. This allows the Web apps to access the MySQL database, along with the database client that's performing the migration.
+6. They add the local workstation client IP address to the start and end IP addresses. This allows the web apps to access the MySQL database, along with the database client that's performing the migration.
 
     ![MySQL](./media/contoso-migration-refactor-linux-app-service-mysql/mysql-3.png)
 
@@ -229,7 +228,7 @@ Contoso admins migrate the database using backup and restore, with MySQL tools. 
 
 ## Step 5: Set up GitHub
 
-Contoso admins create a new private GitHub repo, and sets up a connection to the osTicket database in Azure MySQL. Then, they load the Azure Web App with the app.
+Contoso admins create a new private GitHub repo, and sets up a connection to the osTicket database in Azure MySQL. Then, they load the Azure App Service with the web app.
 
 1. They browse to the OsTicket software public GitHub repo, and fork it to the Contoso GitHub account.
 
@@ -259,7 +258,7 @@ Contoso admins create a new private GitHub repo, and sets up a connection to the
 
     ![GitHub](./media/contoso-migration-refactor-linux-app-service-mysql/github7.png)
 
-## Step 6: Configure the Web Apps
+## Step 6: Configure the web apps
 
 As the final step in the migration process, Contoso admins configure the web apps with the osTicket web sites.
 
@@ -307,7 +306,7 @@ Finally, they set up automatic scaling for the app. This ensures that as agents 
 
 ## Clean up after migration
 
-With migration complete, the osTicket app is refactored to running in an Azure Web app with continuous delivery using a private GitHub repo. The app's running in two regions for increased resilience. The osTicket database is running in Azure database for MySQL after migration to the PaaS platform.
+With migration complete, the osTicket app is refactored to running in an Azure App Service web app with continuous delivery using a private GitHub repo. The app's running in two regions for increased resilience. The osTicket database is running in Azure database for MySQL after migration to the PaaS platform.
 
 For clean up, Contoso needs to do the following:
 

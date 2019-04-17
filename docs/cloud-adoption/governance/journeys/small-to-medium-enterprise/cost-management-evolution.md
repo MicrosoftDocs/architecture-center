@@ -1,13 +1,12 @@
 ---
-title: "CAF: Small-to-Medium Enterprise – Cost Management evolution  "
+title: "CAF: Small-to-medium enterprise – Cost Management evolution"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 ms.date: 02/11/2019
-description: Explanation Small-to-Medium Enterprise – Cost Management evolution 
+description: Small-to-medium enterprise – Cost Management evolution 
 author: BrianBlanchard
-ms.date: 2/11/2019
 ---
 
 # Small-to-medium enterprise: Cost Management evolution
@@ -31,7 +30,7 @@ Since then, some things have changed that will affect governance:
 
 ### Evolution of the future state
 
-Cost monitoring and reporting is to be added to the cloud solution. IT is still serving as a cost clearing house. This means that payment for cloud services continues to come from IT procurement. However, reporting should tie direct operational expenses to the functions that are consuming the cloud costs. This model is referred to as "Show Back" model to cloud accounting.
+Cost monitoring and reporting is to be added to the cloud solution. IT is still serving as a cost clearing house. This means that payment for cloud services continues to come from IT procurement. However, reporting should tie direct operating expenses to the functions that are consuming the cloud costs. This model is referred to as a **showback** model to cloud accounting.
 
 The changes to current and future state expose new risks that will require new policy statements.
 
