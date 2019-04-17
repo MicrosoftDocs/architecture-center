@@ -77,7 +77,7 @@ Next, change the Grafana administrator password by following these steps:
 
 1. In the Azure portal, select the VM and click **Overview**.
 1. Copy the public IP address.
-1. Open a web browser and navigate to the following URL: `http://<IP addresss>:3000`.
+1. Open a web browser and navigate to the following URL: `http://<IP address>:3000`.
 1. At the Grafana log in screen, enter **admin** for the user name, and use the Grafana password from the previous steps.
 1. Once logged in, select **Configuration** (the gear icon).
 1. Select **Server Admin**.
