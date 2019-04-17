@@ -211,6 +211,9 @@ Do not use client certificates to access Service Fabric Explorer. Instead, use A
 
 Do not use self-signed certificates for production.
 
+### Data at rest protection
+If you have attached data disks to the virtual machine scale sets of the Service Fabric cluster and your services save data on those disks, you must encrypt the disks. For more information, [Encrypt OS and attached data disks in a virtual machine scale set with Azure PowerShell (Preview)](https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps).
+
 For more information about securing Service Fabric, see:
 
 - [Azure Service Fabric security overview](/azure/security/azure-service-fabric-security-overview)
