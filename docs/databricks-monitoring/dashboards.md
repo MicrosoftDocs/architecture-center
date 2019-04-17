@@ -149,7 +149,7 @@ The visualizations are as follows:
 
 ### Job latency
 
-This visualization shows execution latency for a job, which is a coarse view on the overall peformance of a job. Displays the job execution duration from start to completion. Note that the job start time is not the same as the job submission time. Latency is represented as percentiles (10%, 30%, 50%, 90%) of job execution indexed by cluster ID and application ID.
+This visualization shows execution latency for a job, which is a coarse view on the overall performance of a job. Displays the job execution duration from start to completion. Note that the job start time is not the same as the job submission time. Latency is represented as percentiles (10%, 30%, 50%, 90%) of job execution indexed by cluster ID and application ID.
 
 ### Stage latency
 
