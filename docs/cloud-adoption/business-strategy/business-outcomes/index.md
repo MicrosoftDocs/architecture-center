@@ -19,10 +19,10 @@ To learn more about business outcomes and the business outcome template, check o
 
 The following are a few business outcomes that tend to trigger conversations with various personas, use these to start a conversation:
 
-- **Finance Leadership:** Increase profitability while driving compliance
-- **Marketing:** Acquire and retain customers, build reputation
-- **Sales:** Accelerate sales, improve customer lifetime value
-- **HR:** Retain, recruit, and empower employees
+- **Finance Leadership:** Increase profitability while driving compliance.
+- **Marketing:** Acquire and retain customers, build reputation.
+- **Sales:** Accelerate sales, improve customer lifetime value.
+- **HR:** Retain, recruit, and empower employees.
 
 # Sample outcomes by category
 
@@ -43,12 +43,14 @@ View samples of [agility outcomes](agility-outcomes.md)
 ## Reach outcomes
 
 In a constantly shrinking market, global reach (ability to support global customers and users) can be measured by compliance in geographies that are relevant to the business.
+
 View outcomes related to [global reach](reach-outcomes.md)
 
 ## Customer engagement outcomes
 
-Social marketplaces are redefining winners and losers at an unheard-of pace. Responding to user needs is a key measure of customer engagement
-Read more about [customer engagement outcomes](engagement-outcomes.md)
+Social marketplaces are redefining winners and losers at an unheard-of pace. Responding to user needs is a key measure of customer engagement.
+
+Read more about [customer engagement outcomes](engagement-outcomes.md).
 
 ## Performance outcomes
 

@@ -114,5 +114,5 @@ Multi-cloud logging support often requires the use of gateway services to proces
 
 - A unified platform for collecting app telemetry, host telemetry (such as VMs), container metrics, Azure platform metrics, and event logs.
 - Visualization, queries, alerts, and analytical tools. It can provide insights into virtual machines, guest operating systems, virtual networks, and workload application events.
-- [REST APIs](/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough) for integration with external services and automation of monitoring and alerting services
+- [REST APIs](/azure/monitoring-and-diagnostics/monitoring-rest-api-walkthrough) for integration with external services and automation of monitoring and alerting services.
 - [Integration](/azure/monitoring-and-diagnostics/monitoring-partners) with many popular third-party vendors.

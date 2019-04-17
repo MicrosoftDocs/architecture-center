@@ -99,15 +99,15 @@ For a small migration with a self-contained migration team, a single sprint coul
 
 The outcome of a sprint captures and documents the changes made to a workload, thus closing the change-management loop. When completed, at minimum, the following should be documented. Throughout the execution of a sprint, this documentation should be completed in tandem with the technical work items.
 
-- **Assets deployed.** Any assets deployed to the cloud to host the workload
-- **Remediation.** Any changes to the assets to prepare for cloud migration
-- **Configuration.** Chosen configuration of any assets deployed, including any references to configuration scripts
+- **Assets deployed.** Any assets deployed to the cloud to host the workload.
+- **Remediation.** Any changes to the assets to prepare for cloud migration.
+- **Configuration.** Chosen configuration of any assets deployed, including any references to configuration scripts.
 - **Deployment model.** Approach used to deploy the asset to the cloud, including references to any deployment scripts or tools.
-- **Architecture.** Documentation of the architecture deployed to the cloud
-- **Performance metrics.** Output of automated testing or business testing performed to validate performance at the time of deployment
-- **Unique requirements or configuration.** Any unique aspects of the deployment, configuration, or technical requirements necessary to operate the workload
-- **Operational approval.** Sign-off of validating operational readiness from the application owner and the IT operations staff responsible for managing the workload post deployment
-- **Architecture approval.** Sign-off from the workload owner and Cloud Adoption team to validate any architecture changes required to host each asset
+- **Architecture.** Documentation of the architecture deployed to the cloud.
+- **Performance metrics.** Output of automated testing or business testing performed to validate performance at the time of deployment.
+- **Unique requirements or configuration.** Any unique aspects of the deployment, configuration, or technical requirements necessary to operate the workload.
+- **Operational approval.** Sign-off of validating operational readiness from the application owner and the IT operations staff responsible for managing the workload post deployment.
+- **Architecture approval.** Sign-off from the workload owner and Cloud Adoption team to validate any architecture changes required to host each asset.
 
 ## Next steps
 

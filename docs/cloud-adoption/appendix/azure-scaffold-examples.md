@@ -176,8 +176,8 @@ For the **production subscription**, they create:
 
 | Resource type | Name | Description |
 | --- | --- | --- |
-| Virtual Network |external-vnet |Hosts the Loyalty Card application and is not connected directly to Contoso's ExpressRoute. Code is pushed via their Source Code system directly to the PaaS services |
-| Network Security Group |loyaltycard-nsg |Ensures that the attack surface of this workload is minimized by only allowing in-bound communication on TCP 443. Contoso is also investigating using a Web Application Firewall for additional protection |
+| Virtual Network |external-vnet |Hosts the Loyalty Card application and is not connected directly to Contoso's ExpressRoute. Code is pushed via their Source Code system directly to the PaaS services. |
+| Network Security Group |loyaltycard-nsg |Ensures that the attack surface of this workload is minimized by only allowing in-bound communication on TCP 443. Contoso is also investigating using a web application firewall for additional protection. |
 
 ### Resource locks
 

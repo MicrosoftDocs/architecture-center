@@ -36,7 +36,7 @@ The changes to current and future state expose new risks that will require new p
 This business risk can be expanded into several technical risks:
 
 - Misaligned operational processes might lead to outages that can’t be detected or remediated quickly.
-- External intrusion or denial of service attacks might cause a business interruption
+- External intrusion or denial of service attacks might cause a business interruption.
 - Mission-critical assets might not be properly discovered and therefore not properly operated.
 - Undiscovered or mislabeled assets might not be supported by existing operational management processes.
 - Configuration of deployed assets might not meet performance expectations.
@@ -77,7 +77,7 @@ Following the experience of this fictional example, it is assumed that the Prote
 
 **Corporate IT Subscription**: Add the following to the Corporate IT subscription, which acts as a hub.
 
-1. As an external dependency, the Cloud Operations team will need to define operational monitoring tooling, Business Continuity/Disaster Recovery (BCDR) tooling and automated remediation tooling. The Cloud Governance team can then support necessary discovery processes.
+1. As an external dependency, the Cloud Operations team will need to define operational monitoring tooling, business continuity and disaster recovery (BCDR) tooling, and automated remediation tooling. The Cloud Governance team can then support necessary discovery processes.
     1. In this use case, the Cloud Operations team chose Azure Monitor as the primary tool for monitoring mission-critical applications.
     2. The team also chose Azure Site Recovery as the primary BCDR tooling.
 2. Azure Site Recovery implementation

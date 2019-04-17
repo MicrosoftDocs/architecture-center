@@ -64,7 +64,7 @@ In the MVP, practices and tools from the [Deployment Acceleration](../../deploym
 
 Over time, this governance MVP will be used to evolve the governance practices. As adoption advances, business risk grows. Various disciplines within the Cloud Adoption Framework governance model will evolve to mitigate those risks. Later articles in this series discuss the evolution of corporate policy affecting the fictional company. These evolutions happen across three disciplines:
 
-- Identity Baseline, as migration dependencies evolve in the narrative
+- Identity Baseline, as migration dependencies evolve in the narrative.
 - Cost Management, as adoption scales.
 - Security Baseline, as protected data is deployed.
 - Resource Consistency, as IT Operations begins supporting mission-critical workloads.

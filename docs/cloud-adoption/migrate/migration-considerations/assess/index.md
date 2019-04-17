@@ -32,7 +32,7 @@ The Cloud Adoption team is accountable for the entire assessment process. Howeve
 
 In addition to the high-level accountability, there are a number of actions that an individual or group needs to be directly responsible for. The following are a few activities that require assignments to responsible parties:
 
-- **Business priority.** The team understands the purpose for migrating this workload, including any intended impact to the business
+- **Business priority.** The team understands the purpose for migrating this workload, including any intended impact to the business.
   - A member of the Cloud Strategy team should carry final responsibility for this activity, under the direction of the Cloud Adoption team.
 - **Stakeholder alignment.** The team aligns expectations and priorities with internal stakeholders, identifying success criteria for the migration. What does success look like post-migration?
 - **Cost.** The cost of the target architecture has been estimated, and the overall budget has been adjusted.

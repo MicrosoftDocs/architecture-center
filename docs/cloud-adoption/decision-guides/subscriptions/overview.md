@@ -57,14 +57,14 @@ As the size of an organization's cloud footprint grows, the use of multiple subs
 
 Each organization will choose to categorize applications differently, often separating subscriptions based on specific applications or services or along the lines of application archetypes. Workloads that might justify a separate subscription under this pattern include:
 
-- Experimental or low-risk applications
-- Applications with protected data
-- Mission-critical workloads
-- Applications subject to regulatory requirements (such as HIPAA or FedRAMP)
-- Batch workloads
-- Big data workloads such as Hadoop
-- Containerized workloads using deployment orchestrators such as Kubernetes
-- Analytics workloads
+- Experimental or low-risk applications.
+- Applications with protected data.
+- Mission-critical workloads.
+- Applications subject to regulatory requirements (such as HIPAA or FedRAMP).
+- Batch workloads.
+- Big data workloads such as Hadoop.
+- Containerized workloads using deployment orchestrators such as Kubernetes.
+- Analytics workloads.
 
 This pattern supports multiple accounts owners responsible for specific workloads. As it lacks a more complex structure at the department level of the enterprise agreement hierarchy, this pattern does not require an Azure Enterprise Agreement to implement.
 

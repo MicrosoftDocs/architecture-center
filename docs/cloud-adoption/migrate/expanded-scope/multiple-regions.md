@@ -13,7 +13,7 @@ When businesses operate in multiple geographic regions, additional complexity ca
 
 The following approach can help assess the potential challenges and establish a general course of action:
 
-- Consider a more robust readiness and governance implementation
+- Consider a more robust readiness and governance implementation.
 - Inventory the affected geographies: Compile a list of the regions and countries that will be affected by the cloud migration.
 - Document data sovereignty requirements: Do the countries identified have compliance requirements that govern data sovereignty?
 - Document the user base: Will employees, partners, or customers in the identified country be affected by the cloud migration?

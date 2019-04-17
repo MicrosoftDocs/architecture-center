@@ -61,17 +61,17 @@ But, keep in mind that correctly configuring, securing, and maintaining VMs requ
 ## Learn more
 
 - [Cloud Adoption Framework migration considerations](../migration-considerations/prerequisites/index.md)
-- [The Five Rs of Rationalization](../../digital-estate/5-rs-of-rationalization.md)
+- [The Five Rs of rationalization](../../digital-estate/5-rs-of-rationalization.md)
 
-# [Planning Checklist](#tab/Checklist)
+# [Planning checklist](#tab/Checklist)
 
 Before starting a migration there are a number of activities you will need to complete. The exact details of these activities will vary depending on the environment you are migrating, however as a general rule the following checklist may apply:
 
 > [!div class="checklist"]
 >
-> - **Identify stakeholders**: Identify the key people who will have a role to play or stake in the outcome of the migration
-> - **Identify key milestones**: To effectively plan the migration timelines identify the key milestones to be met.
-> - **Identify the migration strategy**: Determine which of the 5 Rs of rationalization you will use.
+> - **Identify stakeholders:** Identify the key people who will have a role to play or stake in the outcome of the migration
+> - **Identify key milestones:** To effectively plan the migration timelines identify the key milestones to be met.
+> - **Identify the migration strategy:**: Determine which of the 5 Rs of rationalization you will use.
 > - **Assess your technical fit:** Validate the technical readiness and suitability for migration.
 > - **Migrate your services:** Perform the actual migration.
 > - **Post-migration:** Understand what is required after you migrate your environment to Azure.

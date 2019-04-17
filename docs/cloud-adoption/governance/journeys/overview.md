@@ -123,7 +123,7 @@ To begin a governance journey, choose one of the two options below. The options 
 |---------------------------------------------|----------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
 | Datacenter or third-party hosting providers | Fewer than five datacenters                                                                                  | More than five datacenters                                                                                                   |
 | Networking                                  | No WAN, or 1 &ndash; 2 WAN providers                                                                             | Complex network or global WAN                                                                                             |
-| Identity                                    | Single forest, single domain. No requirement for claims-based authentication or third-party MFA devices. | Complex, multiple forests, multiple domains. Applications require claims-based authentication or third-party MFA devices. |
+| Identity                                    | Single forest, single domain. No requirement for claims-based authentication or third-party multi-factor authentication devices. | Complex, multiple forests, multiple domains. Applications require claims-based authentication or third-party multi-factor authentication devices. |
 
 ### Desired future state after evolving cloud governance
 

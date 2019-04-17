@@ -44,10 +44,10 @@ The Cloud Governance team could build for the worst-case scenario and map every 
 Conversely, the team could take an MVP approach and define a starting point and set of assumptions that would be true for most/all assets.
 The following are a few extremely basic examples:
 
-* All assets are at risk of being terminated (through error, mistake or maintenance)
-* All assets are at risk of generating too much spending
-* All assets could be compromised by weak passwords
-* Any asset with all open ports exposed to the internet are at risk of compromise
+* All assets are at risk of being terminated (through error, mistake or maintenance).
+* All assets are at risk of generating too much spending.
+* All assets could be compromised by weak passwords.
+* Any asset with all open ports exposed to the internet are at risk of compromise.
 
 The above examples are meant to establish MVP business risks as a theory. The actual list will be unique to every environment.
 Once the Business Risk MVP is established, they can be converted to [Policies](overview.md) to mitigate each risk.

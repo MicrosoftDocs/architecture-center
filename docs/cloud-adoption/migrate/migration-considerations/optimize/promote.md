@@ -33,7 +33,7 @@ The following technical changes will likely need to be completed and documented 
 - **User routing.** Validate that users are accessing the workload through proper network routes; verify consistent performance expectations.
 - **Identity alignment.** Validate that the users being rerouted to the application have proper permissions within the domain to host the application.
 - **Performance.** Perform a final validation of workload performance to minimize surprises.
-- **BC/DR validation.** Validate that proper backup and recovery processes are functioning as expected.
+- **Validation of business continuity and disaster recovery.** Validate that proper backup and recovery processes are functioning as expected.
 - **Data classification.** Validate data classification to ensure that proper protections and policies have been implemented.
 - **Chief information security officer (CISO) verification.** Validate that the information security officer has reviewed the workload, business risks, risk tolerance, and mitigation strategies.
 

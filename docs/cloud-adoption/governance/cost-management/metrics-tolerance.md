@@ -19,12 +19,12 @@ Cost Management generally focuses on metrics related to costs. As part of your r
 
 The following are examples of useful metrics that you should gather to help evaluate risk tolerance within the Security Baseline discipline:
 
-- Annual spending: The total annual cost for services provided by a cloud provider
-- Monthly spending: The total monthly cost for services provided by a cloud provider
-- Forecasted versus actual ratio: The ratio comparing forecasted and actual spending (monthly or annual)
-- Pace of adoption (MOM) ratio: The percentage of the delta in cloud costs from month to month
-- Accumulated cost: Total accrued daily spending, starting from the beginning of the month
-- Spending trends: Spending trend against the budget
+- Annual spending: The total annual cost for services provided by a cloud provider.
+- Monthly spending: The total monthly cost for services provided by a cloud provider.
+- Forecasted versus actual ratio: The ratio comparing forecasted and actual spending (monthly or annual).
+- Pace of adoption (MOM) ratio: The percentage of the delta in cloud costs from month to month.
+- Accumulated cost: Total accrued daily spending, starting from the beginning of the month.
+- Spending trends: Spending trend against the budget.
 
 ## Risk tolerance indicators
 

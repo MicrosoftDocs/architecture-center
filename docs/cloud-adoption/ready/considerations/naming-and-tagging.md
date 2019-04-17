@@ -222,7 +222,7 @@ The following section provides examples of naming schemes for common Azure resou
 | HDInsight - HBase         | Global | hdihb-\<App Name\>-\<Environment\> | <ul><li>hdihb-navigator-prod </li><li>hdihb-emissions-dev</li></ul> |
 | Power BI Embedded         | Global | pbiemb\<App Name\>\<Environment\>  | <ul><li>pbiem-navigator-prod </li><li>pbiem-emissions-dev</li></ul> |
 
-### Internet of Things
+### Internet of Things (IoT)
 
 | Asset type                         | Scope          | Format                             | Examples                                 |
 |------------------------------------|----------------|------------------------------------|------------------------------------------|

@@ -33,21 +33,21 @@ If an organization is planning an Azure migration on its own, Microsoft is alway
 
 [FastTrack for Azure](https://azure.microsoft.com/roadmap/fasttrack-for-azure) provides direct assistance from Azure engineers, working hand in hand with partners, to help customers build Azure solutions quickly and confidently. FastTrack brings best practices and tools from real customer experiences to guide customers from setup, configuration, and development to production of Azure solutions, including:
 
-- DC Migration
+- Datacenter migration
 - Windows Server on Azure
 - Linux on Azure
 - SAP on Azure
-- Business Continuity, Disaster recovery
-- High-performance Computing*
-- Cloud Native Apps
+- Business continuity and disaster recovery (BCDR)
+- High-performance computing*
+- Cloud-native apps
 - DevOps
-- App Modernization
-- Cloud Scale Analytics**
-- Intelligent Apps
-- Intelligent Agents**
-- Data Modernization to Azure
-- Security and Management
-- Globally Distributed Data
+- App modernization
+- Cloud-scale analytics**
+- Intelligent apps
+- Intelligent agents**
+- Data modernization to Azure
+- Security and management
+- Globally distributed data
 - IoT***
 
 *Limited preview in United States, Canada, United Kingdom, and Western Europe

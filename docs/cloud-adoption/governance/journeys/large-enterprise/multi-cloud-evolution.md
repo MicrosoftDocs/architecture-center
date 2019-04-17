@@ -55,7 +55,7 @@ The following changes to policy will help mitigate the new risks and guide imple
 
 This section of the article will evolve the governance MVP design to include new Azure policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
 
-1. Connect the networks - Executed by Networking and IT Security, supported by governance
+1. Connect the networks - Executed by Networking and IT Security, supported by governance.
     1. Adding a connection from the MPLS/Leased line provider to the new cloud will integrate networks. Adding routing tables and firewall configurations will control access and traffic between the environments.
 2. Consolidate Identity Providers. Depending on the workloads being hosted in the secondary cloud, there are a variety of options to identity provider consolidation. The following are a few examples:
     1. For applications that authenticate using OAuth 2, users in the Active Directory in the secondary cloud could simply be replicated to the existing Azure AD tenant.

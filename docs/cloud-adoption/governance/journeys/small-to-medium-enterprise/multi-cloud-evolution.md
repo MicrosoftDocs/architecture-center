@@ -42,7 +42,7 @@ The goal is to integrate the acquisition company into existing operations wherev
 
 This business risk can be expanded into a few technical risks:
 
-- Cloud migration might produce additional acquisition costs
+- Cloud migration might produce additional acquisition costs.
 - The new environment might not be properly governed, which could result in policy violations.
 
 ## Evolution of the policy statements

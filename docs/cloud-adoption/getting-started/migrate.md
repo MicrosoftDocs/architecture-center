@@ -20,12 +20,12 @@ The motivation or business outcome driving a cloud migration can heavily influen
 
 ### Asset migration
 
-During cloud migrations, assets such as virtual machines, data sources, and applications are migrated from an existing on-premises environment to the cloud. Asset migrations provide a streamlined approach to respond to a critical event or a need to move specific assets. Asset migrations are typically motivated by the following short-term critical business events.
+During cloud migrations, assets such as virtual machines, data sources, and applications are migrated from an existing on-premises environment to the cloud. Asset migrations provide a streamlined approach to respond to a critical event or a need to move specific assets. Asset migrations are typically motivated by the following short-term critical business events:
 
-- Datacenter exit
-- Mergers, acquisition, or divestiture
-- Reductions in capital expenses
-- End of support for mission-critical technologies
+- Datacenter exit.
+- Mergers, acquisition, or divestiture.
+- Reductions in capital expenses.
+- End of support for mission-critical technologies.
 
 **Summary of the asset migration methodology:** Asset migration is a technical process for migrating digital assets to the cloud using migration automation tooling. This approach can be successfully executed within the limited scope of the [Azure migration guide](../migrate/azure-migration-guide/index.md).
 
@@ -35,9 +35,9 @@ During cloud migrations, assets such as virtual machines, data sources, and appl
 
 More often, cloud migrations are part of a focused effort to streamline IT operations, costs, or complexity. Workload migration builds on asset migrations, but adds a focus on the migration of a workload, which adds deeper planning and testing requirements. Examples of workloads could include things like an HR payroll solution, a CRM solution, a document approval workflow in Finance, or a business intelligence solution. Workloads could also include shared technical resources like a data warehouse that supports several other solutions. The following are a few longer term motivations associated with a workload migration.
 
-- Cost savings
-- Reduction in vendor or technical complexity
-- Optimize internal operations
+- Cost savings.
+- Reduction in vendor or technical complexity.
+- Optimize internal operations.
 
 **Summary of the workload migration methodology:** Successful workload migrations build on the [Azure migration guide](../migrate/azure-migration-guide/index.md) and [Azure Readiness Guide](../ready/azure-readiness-guide/index.md). However, to successfully complete a workload migration, additional considerations should be given to the [expanded scope checklist](../migrate/expanded-scope/index.md), which expands upon the scope of the Azure migration guide.
 
@@ -45,13 +45,13 @@ More often, cloud migrations are part of a focused effort to streamline IT opera
 
 ### Portfolio migration
 
-C-level conversations regarding cloud migration tend to focus on the benefits associated with portfolio migrations. Portfolio in this case describes the entire collection of workloads owned and managed by IT. These migrations are more likely to produce tangible business outcomes like the following:
+C-level conversations regarding cloud migration tend to focus on the benefits associated with portfolio migrations. Portfolio in this case describes the entire collection of workloads owned and managed by IT. These migrations are more likely to produce tangible business outcomes such as:
 
-- Decrease business interruptions
-- Increase business agility
-- Prepare for new technical capabilities
-- Scale to meet market demands
-- Scale to meet geographic demands
+- Decreasing business interruptions.
+- Increasing business agility.
+- Preparing for new technical capabilities.
+- Scaling to meet market demands.
+- Scaling to meet geographic demands.
 
 **Summary of the portfolio migration methodology:** Portfolio migrations look across the entire IT portfolio to guide decisions regarding investments, impact on business processes, potential of innovation outcomes, and the future state of workload collections. This model requires a much deeper alignment between the business and IT. The technical implementation is a slight extension of the workload or asset migration methodologies. The methodology differs most when it comes to the rigor of business planning, richer readiness investments, improved change management, and a more disciplined approach to cloud governance. The following section outlines this methodology in more detail.
 
@@ -77,11 +77,11 @@ Throughout this migration experience this framework will be used to address ambi
 
 The effort to realize the desired business outcomes may trigger slight changes to the culture of IT, and to some degree the culture of the business. The following are a few common cultural changes seen in this process:
 
-- The IT team is likely to adopt new skills to support workloads in the cloud
-- Execution of a cloud migration encourages iterative or agile approaches
-- Inclusion of cloud governance also tends to inspire DevOps approaches
-- Creation of a Cloud Strategy team can lead to tighter integration between business and IT leaders
-- Collectively, these changes tend to lead to business and IT agility
+- The IT team is likely to adopt new skills to support workloads in the cloud.
+- Execution of a cloud migration encourages iterative or agile approaches.
+- Inclusion of cloud governance also tends to inspire DevOps approaches.
+- Creation of a Cloud Strategy team can lead to tighter integration between business and IT leaders.
+- Collectively, these changes tend to lead to business and IT agility.
 
 Cultural change is not a goal of cloud migration or the Cloud Adoption Framework, but it is a commonly experienced outcome.
 Cultural changes are not directly guided, instead subtle changes to the culture are embedded in the suggested process improvements and approaches throughout the guidance.
@@ -95,7 +95,7 @@ During a portfolio migration, the IT team will focus largely on the migration of
 Portfolio migrations often target a broad collection of workloads and applications. Within the portfolio, a number of common application or workload types are commonly migrated. The following are a few examples:
 
 - Line of business applications
-- Customer facing applications
+- Customer-facing applications
 - Third-party applications
 - Data analytics platforms
 - Globally distributed solutions

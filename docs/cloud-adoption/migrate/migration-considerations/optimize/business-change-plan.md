@@ -57,4 +57,4 @@ After business change is documented and planned, [business testing](./business-t
 
 ## References
 
-- Eason, K. (1988) Information technology and organizational change, New York: Taylor and Francis
+- Eason, K. (1988) _Information technology and organizational change_, New York: Taylor and Francis.

@@ -352,7 +352,7 @@ Contoso needs visibility into the health and performance of the newly migrated a
 Contoso will need a business continuity and disaster recovery (BCDR) strategy for their Azure resources.
 
 - Azure provides [built-in BCDR features](/azure/architecture/resiliency/disaster-recovery-azure-applications) to keep data safe and apps/services up and running.
-- In addition to built-in features, Contoso wants to ensure that it can recover from failures, avoid costly business disruptions, meet compliance goals, and protect data against ransomware and human errors. To do this
+- In addition to built-in features, Contoso wants to ensure that it can recover from failures, avoid costly business disruptions, meet compliance goals, and protect data against ransomware and human errors. To do this:
   - Contoso will deploy Azure Backup as a cost-efficient solution for backup of Azure resources. Because it’s built-in, Contoso can set up cloud backups in a few simple steps.
   - Contoso will set up disaster recovery for Azure VMs using Azure Site Recovery for replication, failover, and failback between Azure regions that it specifies. This ensures that apps running on Azure VMs will remain available in a secondary region of Contoso's choosing if an outage occurs in the primary region. [Learn more](/azure/site-recovery/azure-to-azure-quickstart).
 

@@ -34,10 +34,10 @@ Identity is becoming the new boundary control plane for security, taking over th
 
 A sample cloud native policy for identity across cloud and on-premises directories, could include requirements like the following:
 
-* Authorized access to resources with role-based access control (RBAC), multi-factor authentication (MFA), and single sign-on (SSO)
-* Quick mitigation of user identities suspected of compromise
-* Just-in-time (JIT), just-enough access granted on a task-by-task basis to limit exposure of over-privileged admin credentials
-* Extended user identity and access to policies across multiple environments through Azure Active Directory
+* Authorized access to resources with role-based access control (RBAC), multi-factor authentication, and single sign-on (SSO).
+* Quick mitigation of user identities suspected of compromise.
+* Just-in-time (JIT), just-enough access granted on a task-by-task basis to limit exposure of over-privileged admin credentials.
+* Extended user identity and access to policies across multiple environments through Azure Active Directory.
 
 While it is important to understand [Identity Baseline](../identity-baseline/overview.md) in the context of Security Baseline, the [Five Disciplines of Cloud Governance](../overview.md) calls out [Identity Baseline](../identity-baseline/overview.md) as its own discipline, separate from Security Baseline.
 
@@ -50,7 +50,7 @@ A cloud native policy for network controls may include requirements like the fol
 * Hybrid connections to on-premises resources (While technically possible in Azure), might not be allowed in a Cloud Native policy. Should a hybrid connection prove necessary, a more robust Enterprise Security Policy sample would be a more relevant reference.
 * Users can establish secure connections to and within Azure using virtual networks and network security groups.
 * Native Windows Azure Firewall protects hosts from malicious network traffic by limited port access. A good example of this policy would be the requirement to block (or not enable) traffic directly to a VM over RDP - TCP/UDP port 3389.
-* Services like Web Application Firewall and Azure DDoS Protection safeguard applications and ensure availability for virtual machines running in Azure. These features should not be disabled or misused.
+* Services like web application firewalls and Azure DDoS Protection safeguard applications and ensure availability for virtual machines running in Azure. These features should not be disabled or misused.
 
 ### Data protection
 
@@ -67,10 +67,10 @@ While these features are built into Azure, each of the above requires configurat
 
 Security monitoring is a proactive strategy that audits your resources to identify systems that do not meet organizational standards or best practices. Azure Security Center provides unified Security Baseline and advanced threat protection across hybrid cloud workloads. With Security Center, you can apply security policies across your workloads, limit your exposure to threats, and detect and respond to attacks, including:
 
-* Unified view of security across all on-premises and cloud workloads with Azure Security Center
-* Continuous monitoring and security assessments to ensure compliance and remediate any vulnerabilities
-* Interactive tools and contextual threat intelligence for streamlined investigation
-* Extensive logging and integration with existing security information
+* Unified view of security across all on-premises and cloud workloads with Azure Security Center.
+* Continuous monitoring and security assessments to ensure compliance and remediate any vulnerabilities.
+* Interactive tools and contextual threat intelligence for streamlined investigation.
+* Extensive logging and integration with existing security information.
 
 ### Extending Cloud Native policies
 

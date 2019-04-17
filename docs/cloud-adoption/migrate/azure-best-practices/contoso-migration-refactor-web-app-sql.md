@@ -286,7 +286,7 @@ Contoso admins now configure Azure DevOps to perform build and release process.
 6. The folder **Drop** contains the build results.
 
     - The two zip files are the packages that contain the apps.
-    - These files are used in the release pipeline for deployment to Azure Web Apps
+    - These files are used in the release pipeline for deployment to Azure App Service.
 
      ![Artifact](./media/contoso-migration-refactor-web-app-sql/pipeline6.png)
 
@@ -383,7 +383,7 @@ With the migrated resources in Azure, Contoso needs to fully operationalize and 
 - Contoso needs to review backup requirements for the Azure SQL Database. [Learn more](/azure/sql-database/sql-database-automated-backups).
 - Contoso also needs to learn about managing SQL Database backups and restores. [Learn more](/azure/sql-database/sql-database-automated-backups) about automatic backups.
 - Contoso should consider implementing failover groups to provide regional failover for the database. [Learn more](/azure/sql-database/sql-database-geo-replication-overview).
-- Contoso needs to consider deploying the Web App in the main East US 2 and Central US region for resilience. Contoso could configure Traffic Manager to ensure failover in case of regional outages.
+- Contoso needs to consider deploying the web app in the main East US 2 and Central US region for resilience. Contoso could configure Traffic Manager to ensure failover in case of regional outages.
 
 ### Licensing and cost optimization
 
@@ -393,4 +393,4 @@ With the migrated resources in Azure, Contoso needs to fully operationalize and 
 
 ## Conclusion
 
-In this article, Contoso refactored the SmartHotel360 app in Azure by migrating the app front-end VM to two Azure Web Apps. The app database was migrated to an Azure SQL database.
+In this article, Contoso refactored the SmartHotel360 app in Azure by migrating the app front-end VM to two Azure App Service web apps. The app database was migrated to an Azure SQL database.

@@ -20,7 +20,7 @@ As you plan and design for migration, in addition to thinking about the migratio
 
 After migration, the most critical task is to secure migrated workloads from internal and external threats. These best practices help you to do that:
 
-- [Work with Azure Security Center](#best-practice-follow-azure-security-center-recommendations): Learn how to work with the monitoring, assessments, and recommendations provided by Azure Security Center
+- [Work with Azure Security Center](#best-practice-follow-azure-security-center-recommendations): Learn how to work with the monitoring, assessments, and recommendations provided by Azure Security Center.
 - [Encrypt your data](#best-practice-encrypt-data): Get best practices for encrypting your data in Azure.
 - [Set up antimalware](#best-practice-protect-vms-with-antimalware): Protect your VMs from malware and malicious attacks.
 - [Secure web apps](#best-practice-secure-web-apps): Keep sensitive information secure in migrated web apps.
@@ -121,7 +121,7 @@ Azure provides a couple of solutions:
   - You can use Key Vault to centralize storage of app secrets, and control their distribution. It avoids the need to store security information in app files.
   - Apps can security access information in the vault using URIs, without needing custom code.
   - Azure Key Vault allows you to lock down access via Azure security controls and to seamlessly implement 'rolling keys'. Microsoft does not see or extract your data.
-- **App Service Environment:** If an app you migrate needs extra protection, you can consider adding an App Service Environment and Web Application Firewall to protect the app resources.
+- **App Service Environment:** If an app you migrate needs extra protection, you can consider adding an App Service Environment and web application firewall to protect the app resources.
   - The Azure App Service Environment provides a fully isolated and dedicated environment in which to running App Service apps such as Windows and Linux web apps, Docker containers, mobile apps, and functions.
   - It's useful for apps that are very high scale, require isolation and secure network access or have high memory utilization
 - **Web application firewall:** A feature of Azure Application Gateway that provides centralized protection for web apps.
@@ -138,7 +138,7 @@ Azure provides a couple of solutions:
 - [Learn about](/azure/application-gateway/waf-overview) web application firewall.
 - [Get an introduction](/azure/app-service/environment/intro) to App Service Environments.
 - [Learn how to](/azure/key-vault/tutorial-web-application-keyvault) configure a web app to read secrets from Key Vault.
-- [Learn about](/azure/application-gateway/waf-overview) Web Application Firewall
+- [Learn about](/azure/application-gateway/waf-overview) web application firewall.
 
 ## Best practice: Review subscriptions and resource permissions
 
@@ -146,7 +146,7 @@ As you migrate your workloads and run them in Azure, staff with workload access 
 
 - RBAC assigns access permissions for security principals. Security principals represent users, groups (a set of users), service principals (identity used by apps and services), and managed identities (an Azure Active Directory identity automatically managed by Azure).
 - RBAC can assign roles to security principles, such as owner, contributor and reader, and role definitions (a collection of permissions) that define the operations that can be performed by the roles.
-- RBAC can also set scopes that set the boundary for a role. Scope can be set at a number of levels, including a management group, subscription, resource group, or resource
+- RBAC can also set scopes that set the boundary for a role. Scope can be set at a number of levels, including a management group, subscription, resource group, or resource.
 - Ensure that admins with Azure access are only able to access resources that you want to allow. If the predefined roles in Azure aren't granular enough, you can create custom roles to separate and limit access permissions.
 
 ![Access control](./media/migrate-best-practices-security-management/subscription.png)
@@ -210,7 +210,7 @@ Ensuring that your resource groups have meaningful names that admins and support
 
 **Learn more:**
 
-- [Learn about](/azure/architecture/best-practices/naming-conventions) naming conventions
+- [Learn about](/azure/architecture/best-practices/naming-conventions) naming conventions.
 
 ## Best practice: Implement delete locks for resource groups
 

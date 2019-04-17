@@ -77,7 +77,7 @@ To reduce complexity, it is advise that the reader follow a traditional approach
   - Has budget been approved to invest in ongoing development of the application in the next 12 months?
   - Would additional development of this application improve the customer experience? Create a competitive differentiator? Drive additional revenue for the business?
   - Will the data within this workload contribute to a downstream innovation related to BI, Machine Learning, IoT, or related technologies?
-  - Is the workload compatible with modern application platforms, like Azure Web Apps?
+  - Is the workload compatible with modern application platforms like Azure App Service?
 - The answers to the above questions and any other required qualitative analysis would then influence adjustments to the prioritized backlog. For example:
   - If a workload could be replaced with a PaaS solution, it ay be removed from the migration backlog entirely. At minimum, additional due dilligence to decide between rehost and replace would be added as a task, temporarily reducing that workloads priority from the migration backlog.
   - If a workload is undergoing development advancement (or should be), then it may best fit into a refactor/rearchitect/rebuild model. Since innovation and migration require very different technical skills, it is often advised that applications which align to a refactor/rearchitect/rebuild approach be managed through an innovation backlog, as opposed to a migration backlog.

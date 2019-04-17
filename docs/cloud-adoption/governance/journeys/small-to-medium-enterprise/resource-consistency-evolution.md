@@ -39,16 +39,16 @@ The changes to current and future state expose new risks that will require new p
 
 This business risk can be expanded into a number of technical risks:
 
-- External intrusion or denial of service attacks might cause a business interruption
-- Mission-critical assets may not be properly discovered, and therefore might not be properly operated
+- External intrusion or denial of service attacks might cause a business interruption.
+- Mission-critical assets may not be properly discovered, and therefore might not be properly operated.
 - Undiscovered or mislabeled assets might not be supported by existing operational management processes.
-- The configuration of deployed assets may not meet performance expectations
+- The configuration of deployed assets may not meet performance expectations.
 - Logging might not be properly recorded and centralized to allow for remediation of performance issues.
 - Recovery policies may fail or take longer than expected.
 - Inconsistent deployment processes might result in security gaps that could lead to data leaks or interruptions.
 - Configuration drift or missed patches might result in unintended security gaps that could lead to data leaks or interruptions.
 - Configuration might not enforce the requirements of defined SLAs or committed recovery requirements.
-- Deployed operating systems or applications might fail to meet hardening requirements
+- Deployed operating systems or applications might fail to meet hardening requirements.
 - With so many teams working in the cloud, there is a risk of inconsistency.
 
 ## Evolution of the policy statements

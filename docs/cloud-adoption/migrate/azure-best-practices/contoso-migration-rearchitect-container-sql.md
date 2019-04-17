@@ -585,7 +585,7 @@ With the migrated resources in Azure, Contoso needs to fully operationalize and 
 - Contoso needs to review backup requirements for the Azure SQL Database. [Learn more](/azure/sql-database/sql-database-automated-backups).
 - Contoso admins should consider implementing failover groups to provide regional failover for the database. [Learn more](/azure/sql-database/sql-database-geo-replication-overview).
 - They can take advantage of geo-replication for the ACR premium SKU. [Learn more](/azure/container-registry/container-registry-geo-replication).
-- Contoso need to consider deploying the Web App in the main East US 2 and Central US region when Web App for Containers becomes available. Contoso admins could configure Traffic Manager to ensure failover in case of regional outages.
+- Contoso needs to consider deploying the web app in the main East US 2 and Central US region when Web App for Containers becomes available. Contoso admins could configure Traffic Manager to ensure failover in case of regional outages.
 - Cosmos DB backs up automatically. Contoso [read about](/azure/cosmos-db/online-backup-and-restore) this process to learn more.
 
 ### Licensing and cost optimization
