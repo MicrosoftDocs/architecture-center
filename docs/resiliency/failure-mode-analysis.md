@@ -1,6 +1,6 @@
 ---
 title: Failure mode analysis
-description: Guidelines for performing failure mode analysis for cloud solutions based on Azure.
+description: Guidelines for performing a failure mode analysis for cloud solutions based on Azure.
 author: MikeWasson
 ms.date: 05/07/2018
 ms.topic: article
@@ -9,9 +9,7 @@ ms.subservice: cloud-design-principles
 ms.custom: resiliency
 ---
 
-# Failure mode analysis
-
-[!INCLUDE [header](../_includes/header.md)]
+# Failure mode analysis for Azure applications
 
 Failure mode analysis (FMA) is a process for building resiliency into a system, by identifying possible failure points in the system. The FMA should be part of the architecture and design phases, so that you can build failure recovery into the system from the beginning.
 

@@ -58,7 +58,7 @@ The following development platforms and tools are available for machine learning
 
 Use Azure Machine Learning service to train, deploy, and manage machine learning models using Python and CLI at cloud scale.
 
-Try the [free or paid version of Azure Machine Learning service](http://aka.ms/AMLFree).
+Try the [free or paid version of Azure Machine Learning service](https://aka.ms/AMLFree).
 
 |||
 |-|-|
@@ -185,5 +185,5 @@ Use Windows ML when you want to use trained machine learning models within your 
 
 ## Next steps
 
-- To learn about all the Articifical Intelligence (AI) development products available from Microsoft, see [Microsoft AI platform](https://www.microsoft.com/ai)
+- To learn about all the Artificial Intelligence (AI) development products available from Microsoft, see [Microsoft AI platform](https://www.microsoft.com/ai)
 - For training in how to develop AI solutions, see [Microsoft AI School](https://aischool.microsoft.com/learning-paths)

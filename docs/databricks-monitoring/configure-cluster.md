@@ -9,7 +9,7 @@ ms.date: 03/26/2019
 
 # Configure Azure Databricks to send metrics to Azure Monitor
 
-This article shows how to configure an Azure Databricks cluster to send metrics to a [Log Analytics workspace](/azure/azure-monitor/platform/manage-access). It uses the [Azure Databricks Monitoring Library](https://github.com/mspnp/spark-monitoring), which is available on GitHub. Understanding of Java, Scala, and Maven are recommended as prerequisistes.
+This article shows how to configure an Azure Databricks cluster to send metrics to a [Log Analytics workspace](/azure/azure-monitor/platform/manage-access). It uses the [Azure Databricks Monitoring Library](https://github.com/mspnp/spark-monitoring), which is available on GitHub. Understanding of Java, Scala, and Maven are recommended as prerequisites.
 
 ## About the Azure Databricks Monitoring Library
 

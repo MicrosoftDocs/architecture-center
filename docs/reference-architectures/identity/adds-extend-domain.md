@@ -10,7 +10,7 @@ ms.subservice: reference-architecture
 ms.custom: seodec18, identity
 ---
 
-#  Extend your on-premises Active Directory domain to Azure
+# Extend your on-premises Active Directory domain to Azure
 
 This architecture shows how to extend an on-premises Active Directory domain to Azure to provide distributed authentication services. [**Deploy this solution**](#deploy-the-solution).
 

@@ -115,7 +115,7 @@ Monitoring can be further enriched by connecting logs to Application Insights or
 
 ### Logging with Azure Machine Learning
 
-Azure Machine Learing will automatically log all stdout/stderr to the associate blob storage account. Unless otherwise specified, your Azure Machine Learning Workspace will automatically provision a storage account and dump your logs into it. You can also use a storage navigation tool such as Storage Explorer which will provide a much easier experience for navigating log files.
+Azure Machine Learning will automatically log all stdout/stderr to the associate blob storage account. Unless otherwise specified, your Azure Machine Learning Workspace will automatically provision a storage account and dump your logs into it. You can also use a storage navigation tool such as Storage Explorer which will provide a much easier experience for navigating log files.
 
 ## Cost considerations
 

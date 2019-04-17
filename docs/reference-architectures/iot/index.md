@@ -137,7 +137,7 @@ Though plain-text logging is lower impact on upfront development costs, it is mo
 
 ## Next steps
 
-- For a more detailed discussion of the recommended architecture and implementation choices, see [Microsoft Azure IoT Reference Architecture](http://aka.ms/iotrefarchitecture) (PDF).
+- For a more detailed discussion of the recommended architecture and implementation choices, see [Microsoft Azure IoT Reference Architecture](https://aka.ms/iotrefarchitecture) (PDF).
 
 - For detailed documentation of the various Azure IoT services, see [Azure IoT Fundamentals](/azure/iot-fundamentals/).
 

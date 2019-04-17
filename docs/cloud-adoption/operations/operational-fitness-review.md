@@ -26,11 +26,11 @@ As you learned in [Getting started](../../cloud-adoption/getting-started/overvie
 
 During this process, the focus is often on the _features_ of the service. That is, there are a set of desired _functional_ requirements for the service to perform. For example, a product delivery service requires features for determining the source and destination locations of the product, tracking the product during delivery, customer notifications, and others.
 
-In contrast, the _non-functional_ requirements relate to properties such as the service's [availability](../../checklist/availability.md), [resiliency](../../resiliency/index.md), and [scalability](../../checklist/scalability.md). These properties differ from the functional requirements because they do not directly affect the final function of any particular feature in the service. However, these non-functional requirements are related to the _performance_ and _continuity_ of the service.
+In contrast, the _non-functional_ requirements relate to properties such as the service's [reliability](../../reliability/index.md) and [scalability](../../checklist/scalability.md). These properties differ from the functional requirements because they do not directly affect the final function of any particular feature in the service. However, these non-functional requirements are related to the _performance_ and _continuity_ of the service.
 
 Some non-functional requirements can be specified in terms of a service level agreement (SLA). For example, with regard to service continuity, an availability requirement for the service can be expressed as a percentage such as **available 99.99% of the time**. Other non-functional requirements may be more difficult to define and may change as production needs evolve. For example, a consumer-facing service might start facing unanticipated throughput requirements after a surge of popularity.
 
-![NOTE] Defining the requirements for resiliency, including explanations of RPO, RTO, SLA, and related concepts, are explored in more depth in [Designing resilient applications for Azure](../../resiliency/index.md#define-your-availability-requirements).
+![NOTE] Defining the requirements for resiliency, including explanations of RPO, RTO, SLA, and related concepts, are explored in more depth in [Developing requirements for resilient Azure applications](../../reliability/requirements.md).
 
 ## Operational fitness review process
 
@@ -48,7 +48,7 @@ The steps in this phase are intended to capture the necessary requirements for c
 
 - **Map operations to services**. Map these business operations to the services that support them. In the above shopping cart example, several services may be involved: an inventory stock management service, a shopping cart service, and others. In the credit card payment example above, an on-premises payment service may interact with a third-party payment processing service.
 
-- **Analyze service dependencies**. Most business operations require orchestration between multiple supporting services. It is important to understand the dependences between the services and the flow of mission-critical transactions through these services. You should also consider the dependencies between on-premises services and Azure services. In the shopping cart example, the inventory stock management service may be hosted on-premises and ingest data input by employees from a physical warehouse, but it may store data in an Azure service such as [Azure storage](/azure/storage/common/storage-introduction) or a database such as [Azure Cosmos DB](/azure/cosmos-db/introduction).
+- **Analyze service dependencies**. Most business operations require orchestration between multiple supporting services. It is important to understand the dependencies between the services and the flow of mission-critical transactions through these services. You should also consider the dependencies between on-premises services and Azure services. In the shopping cart example, the inventory stock management service may be hosted on-premises and ingest data input by employees from a physical warehouse, but it may store data in an Azure service such as [Azure storage](/azure/storage/common/storage-introduction) or a database such as [Azure Cosmos DB](/azure/cosmos-db/introduction).
 
 An output from these activities is a set of **scorecard metrics** for service operations. The metrics are categorized in terms of non-functional criteria such as availability, scalability, and disaster recovery. Scorecard metrics express the criteria that the service is expected to meet operationally. These metrics can be expressed at any level of granularity that is appropriate for the service operation.
 
@@ -104,7 +104,7 @@ The details of the process and meeting should be adapted to fit your specific ne
     This section of the Azure Application Architecture guide describes the five pillars of software quality: Scalability, availability, resiliency, management, and security.
 - [Ten design principles for Azure applications](../../guide/design-principles/index.md).
     This section of the Azure Application Architecture guide discusses a set of design principles to make your application more scalable, resilient, and manageable.
-- [Designing resilient applications for Azure](../../resiliency/index.md).
+- [Designing reliable Azure applications](../../reliability/index.md).
     This guide starts with a definition of the term resiliency and related concepts. Then it describes a process for achieving resiliency, using a structured approach over the lifetime of an application, from design and implementation to deployment and operations.
 - [Cloud Design Patterns](../../patterns/index.md).
     These design patterns are useful for engineering teams when building applications on the pillars of software quality.

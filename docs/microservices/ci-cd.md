@@ -59,7 +59,7 @@ To achieve a high release velocity, your release pipeline must be automated and 
 
 - **Release management**. Every team should be able to deploy an update to production. That doesn't mean that every team member has permissions to do so. But having a centralized Release Manager role can reduce the velocity of deployments.
 
-    **Migitation**: The more that your CI/CD process is automated and reliable, the less there should be a need for a central authority. That said, you might have different policies for releasing major feature updates versus minor bug fixes. Being decentralized doesn't mean zero governance.
+    **Mitigation**: The more that your CI/CD process is automated and reliable, the less there should be a need for a central authority. That said, you might have different policies for releasing major feature updates versus minor bug fixes. Being decentralized doesn't mean zero governance.
 
 - **Service updates**. When you update a service to a new version, it shouldn't break other services that depend on it.
 
@@ -69,7 +69,7 @@ To achieve a high release velocity, your release pipeline must be automated and 
 
 Before creating a CI/CD workflow, you must know how the code base will be structured and managed.
 
-- Do teams work in separate respositories or in a monorepo (single respository)?
+- Do teams work in separate repositories or in a monorepo (single repository)?
 - What is your branching strategy?
 - Who can push code to production? Is there a release manager role?
 
