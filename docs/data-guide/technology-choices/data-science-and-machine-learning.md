@@ -185,5 +185,5 @@ Use Windows ML when you want to use trained machine learning models within your 
 
 ## Next steps
 
-- To learn about all the Articifical Intelligence (AI) development products available from Microsoft, see [Microsoft AI platform](https://www.microsoft.com/ai)
+- To learn about all the Artificial Intelligence (AI) development products available from Microsoft, see [Microsoft AI platform](https://www.microsoft.com/ai)
 - For training in how to develop AI solutions, see [Microsoft AI School](https://aischool.microsoft.com/learning-paths)
