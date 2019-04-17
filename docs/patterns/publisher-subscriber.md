@@ -126,4 +126,4 @@ The following patterns and guidance might be relevant when implementing this pat
 
 - [Observer Pattern](https://en.wikipedia.org/wiki/Observer_pattern). The Publish-Subscribe pattern builds on the Observer pattern by decoupling subjects from observers via asynchronous messaging.
 
-- [Message Broker Pattern](https://en.wikipedia.org/wiki/Message_broker). Many messaging subsystems that support a publish-subscribe modek are implemented via a message broker.
+- [Message Broker Pattern](https://en.wikipedia.org/wiki/Message_broker). Many messaging subsystems that support a publish-subscribe model are implemented via a message broker.
