@@ -57,7 +57,7 @@ When an anonymous user visits the Surveys application, the user is shown two but
 
 These buttons invoke actions in the `AccountController` class.
 
-The `SignIn` action returns a **ChallegeResult**, which causes the OpenID Connect middleware to redirect to the authentication endpoint. This is the default way to trigger authentication in ASP.NET Core.
+The `SignIn` action returns a **ChallengeResult**, which causes the OpenID Connect middleware to redirect to the authentication endpoint. This is the default way to trigger authentication in ASP.NET Core.
 
 ```csharp
 [AllowAnonymous]
@@ -253,7 +253,7 @@ private async Task<Tenant> SignUpTenantAsync(BaseControlContext context, TenantM
 Here is a summary of the entire sign-up flow in the Surveys application:
 
 1. The user clicks the **Sign Up** button.
-2. The `AccountController.SignUp` action returns a challege result.  The authentication state includes "signup" value.
+2. The `AccountController.SignUp` action returns a challenge result.  The authentication state includes "signup" value.
 3. In the `RedirectToAuthenticationEndpoint` event, add the `admin_consent` prompt.
 4. The OpenID Connect middleware redirects to Azure AD and the user authenticates.
 5. In the `AuthenticationValidated` event, look for the "signup" state.
