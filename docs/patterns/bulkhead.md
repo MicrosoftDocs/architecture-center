@@ -93,7 +93,7 @@ spec:
 
 ## Related guidance
 
-- [Designing resilient applications for Azure](../resiliency/index.md)
+- [Designing reliable Azure applications](../reliability/index.md)
 - [Circuit Breaker pattern](./circuit-breaker.md)
 - [Retry pattern](./retry.md)
 - [Throttling pattern](./throttling.md)

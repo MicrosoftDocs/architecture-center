@@ -464,7 +464,6 @@
       href: microservices/ci-cd.md
     - name: CI/CD for microservices on Kubernetes
       href: microservices/ci-cd-kubernetes.md
-
 - name: Design guides
   items:
   - name: Data architecture guide
@@ -606,18 +605,33 @@
 
 - name: Design Review Framework
   items:
-  - name: Design for resiliency
-    href: resiliency/index.md
-  - name: Failure mode analysis
-    href: resiliency/failure-mode-analysis.md
-  - name: Availability checklist
-    href: checklist/availability.md
+  - name: Design reliable Azure applications
+    items:
+    - name: Overview
+      href: reliability/index.md
+    - name: Define requirements
+      href: reliability/requirements.md
+    - name: Architect for reliability
+      href: reliability/architect.md
+    - name: Test for reliability
+      href: reliability/testing.md
+    - name: Deploy for reliability
+      href: reliability/deploy.md
+    - name: Monitor application health
+      href: reliability/monitoring.md
+    - name: Respond to failures and disasters
+      href: reliability/disaster-recovery.md
+    - name: Resiliency checklist for Azure services
+      href: checklist/resiliency-per-service.md
+    - name: Failure mode analysis
+      href: resiliency/failure-mode-analysis.md
+    - name: Recover from a region-wide service disruption
+      href: resiliency/recovery-loss-azure-region.md
+    - name: Recover from data corruption or accidental deletion
+      href: resiliency/recovery-data-corruption.md
+
   - name: DevOps checklist
     href: checklist/dev-ops.md
-  - name: Resiliency checklist (general)
-    href: checklist/resiliency.md
-  - name: Resiliency checklist (Azure services)
-    href: checklist/resiliency-per-service.md
   - name: Scalability checklist
     href: checklist/scalability.md
 

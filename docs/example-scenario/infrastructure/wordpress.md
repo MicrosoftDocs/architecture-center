@@ -67,8 +67,6 @@ The second workflow is how authors contribute new content:
 
 The VM instances in this scenario are deployed across multiple regions, with the data replicated between the two via RSYNC for the WordPress content and master slave replication for the MariaDB clusters.
 
-For other availability topics, see the [availability checklist][availability] in the Azure Architecture Center.
-
 ### Scalability
 
 This scenario uses virtual machine scale sets for the two front-end web server clusters in each region. With scale sets, the number of VM instances that run the front-end application tier can automatically scale in response to customer demand, or based on a defined schedule. For more information, see [Overview of autoscale with virtual machine scale sets][docs-vmss-autoscale].
@@ -87,7 +85,7 @@ For general guidance on designing secure scenarios, see the [Azure Security Docu
 
 In combination with the use of multiple regions, data replication and virtual machine scale sets, this scenario uses Azure load balancers. These networking components distribute traffic to the connected VM instances, and include health probes that ensure traffic is only distributed to healthy VMs. All of these networking components are fronted via a CDN. This makes the networking resources and application resilient to issues that would otherwise disrupt traffic and impact end-user access.
 
-For general guidance on designing resilient scenarios, see [Designing resilient applications for Azure][resiliency].
+For general guidance on designing resilient scenarios, see [Designing reliable Azure applications](../../reliability/index.md).
 
 ## Pricing
 
@@ -107,6 +105,4 @@ We have provided a pre-configured [cost profile][pricing] based on the architect
 [docs-nsg]: /azure/virtual-network/security-overview
 [security]: /azure/security/
 [availability]: ../../checklist/availability.md
-[resiliency]: /azure/architecture/resiliency/
-[scalability]: /azure/architecture/checklist/scalability
 [pricing]: https://azure.com/e/a8c4809dab444c1ca4870c489fbb196b

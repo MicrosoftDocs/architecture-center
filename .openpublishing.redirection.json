@@ -271,6 +271,44 @@
          "source_path": "docs/reference-architectures/jenkins/index.md",
          "redirect_url": "/azure/architecture/example-scenario/apps/jenkins",
          "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/checklist/resiliency.md",
+         "redirect_url": "/azure/architecture/reliability"
+      },
+      {
+         "source_path": "docs/checklist/availability.md",
+         "redirect_url": "/azure/architecture/reliability"
+      },
+      {
+         "source_path": "docs/resiliency/index.md",
+         "redirect_url": "/azure/architecture/reliability",
+         "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/resiliency/disaster-recovery-azure-applications.md",
+         "redirect_url": "/azure/architecture/reliability/disaster-recovery",
+         "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/resiliency/recovery-local-failures.md",
+         "redirect_url": "/azure/architecture/reliability/disaster-recovery"
+      },
+      {
+         "source_path": "docs/resiliency/recovery-on-premises-azure.md",
+         "redirect_url": "/azure/architecture/reliability/disaster-recovery"
+      },
+      {
+         "source_path": "docs/resiliency/high-availability-azure-applications.md",
+         "redirect_url": "/azure/architecture/reliability"
+      },
+      {
+         "source_path": "docs/resiliency/high-availability-checklist.md",
+         "redirect_url": "/azure/architecture/reliability"
+      },
+      {
+         "source_path": "docs/resiliency/disaster-recovery-high-availability-azure-applications.md",
+         "redirect_url": "/azure/architecture/reliability/disaster-recovery"
       }
   ] 
   } 
