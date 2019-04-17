@@ -69,7 +69,7 @@ To achieve a high release velocity, your release pipeline must be automated and 
 
 Before creating a CI/CD workflow, you must know how the code base will be structured and managed.
 
-- Do teams work in separate respositories or in a monorepo (single respository)?
+- Do teams work in separate repositories or in a monorepo (single respository)?
 - What is your branching strategy?
 - Who can push code to production? Is there a release manager role?
 
