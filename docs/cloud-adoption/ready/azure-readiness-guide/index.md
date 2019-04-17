@@ -44,7 +44,7 @@ You’ll learn how to:
 > * **Stay current with Azure**: Track product updates so you can take a proactive approach to change management.
 
 > [!TIP]
-> For an interactive experience, view this guide in the Azure portal. Go to the [Azure Quickstart Center](https://ms.portal.azure.com/?feature.quickstart=true#blade/Microsoft_Azure_Resources/QuickstartCenterBlade) in the Azure portal and select **Introduction to Azure Setup**, then follow step-by-step instructions.
+> For an interactive experience, view this guide in the Azure portal. Go to the [Azure Quickstart Center](https://portal.azure.com/?feature.quickstart=true#blade/Microsoft_Azure_Resources/QuickstartCenterBlade) in the Azure portal and select **Introduction to Azure Setup**, then follow step-by-step instructions.
 >
 >
 
