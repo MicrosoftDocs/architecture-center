@@ -173,7 +173,7 @@ This visualization is a high level view of work items indexed by cluster and app
 
 ### Streaming Throughput/Latency
 
-This visualzation is related to the metrics associated with a structured streaming query. The graphs shows the number of input rows per second and the number of rows processed per second. The streaming metrics are also represented per application. These metrics are sent when the OnQueryProgress event is generated as the structured streaming query is processed and the visualization represents streaming latency as the amount of time, in milliseconds, taken to execute a query batch.
+This visualization is related to the metrics associated with a structured streaming query. The graphs shows the number of input rows per second and the number of rows processed per second. The streaming metrics are also represented per application. These metrics are sent when the OnQueryProgress event is generated as the structured streaming query is processed and the visualization represents streaming latency as the amount of time, in milliseconds, taken to execute a query batch.
 
 ### Resource consumption per executor
 
