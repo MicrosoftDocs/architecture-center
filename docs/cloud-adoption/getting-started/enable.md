@@ -10,7 +10,7 @@ ms.topic: landing-page
 # Enable success across any cloud adoption journey
 
 > [!NOTE]
-> The Enable name on this page is a placeholder to help show alignment with FY20 priorities during development and staging only. It will be changed prior to public preview release. Names being considered: Additional tools, Additional resources, foundations, etc... further testing on this page name is required.
+> The "Enable" name on this page is a placeholder to help show alignment with FY20 priorities during development and staging only. It will be changed prior to public preview release. Names being considered: additional tools, additional resources, foundations. Further testing on this page name is required.
 
 The Microsoft Cloud Adoption Framework for Azure is provided as a free self-service tool to guide readers through various cloud adoption efforts. The focus of this content is to help customers succeed at realizing business goals that can be enabled by Azure. However, this content also respects that the reader may be addressing business, culture, or technical challenges that can be very broad in nature and may at times require a cloud-neutral position. As such, each section of this guidance starts with an Azure first approach, but follows with cloud neutral theory that can scale across business and technical decisions.
 

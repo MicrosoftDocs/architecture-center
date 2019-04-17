@@ -3,7 +3,8 @@ title: "CAF: Assess on-premises workloads for migration to Azure"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how Contoso assesses its on-premises machines for migration to Azure by using Azure Migrate and Data Migration Assistant.
 services: site-recovery
-author: BrianBlanchardms.service: site-recovery
+author: BrianBlanchard
+ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: brblanch
@@ -57,7 +58,7 @@ Contoso's IT leadership team has worked closely with the company's business part
 
 The Contoso cloud team has identified goals for its migration assessments:
 
-- After migration, apps in Azure should have the same performance capabilities that apps have today in Contoso's on-premises VMWare environment. Moving to the cloud doesn't mean that app performance is less critical.
+- After migration, apps in Azure should have the same performance capabilities that apps have today in Contoso's on-premises VMware environment. Moving to the cloud doesn't mean that app performance is less critical.
 - Contoso needs to understand the compatibility of its applications and databases with Azure requirements. Contoso also needs to understand its hosting options in Azure.
 - Contoso's database administration should be minimized after apps move to the cloud.
 - Contoso wants to understand not only its migration options, but also the costs associated with the infrastructure after it moves to the cloud.

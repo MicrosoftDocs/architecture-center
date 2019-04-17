@@ -87,4 +87,4 @@ Even with this investment in Cloud Native Security Baseline, it is suggested tha
 Now that you've reviewed the sample Security Baseline policy for Cloud Native solutions, return to the [policy review guide](../policy-compliance/what-is-a-cloud-policy-review.md) to start building on this sample to create your own policies for cloud adoption.
 
 > [!div class="nextstepaction"]
-> [Build your own policies using the Policy Review Guide](../policy-compliance/what-is-a-cloud-policy-review.md)
+> [Build your own policies using the policy review guide](../policy-compliance/what-is-a-cloud-policy-review.md)

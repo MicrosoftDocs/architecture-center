@@ -3,7 +3,8 @@ title: "CAF: Rehost an on-premises app by migrating to Azure VMs and Azure SQL D
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how Contoso rehosts an on-premises app on Azure VMs and by using Azure SQL Database Managed Instance.
 services: site-recovery
-author: BrianBlanchardms.service: site-recovery
+author: BrianBlanchard
+ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: brblanch
@@ -31,7 +32,7 @@ Contoso's IT leadership team has worked closely with the company's business part
 
 The Contoso cloud team has identified goals for this migration. The company uses migration goals to determine the best migration method.
 
-- After migration, the app in Azure should have the same performance capabilities that the app has today in Contoso's on-premises VMWare environment. Moving to the cloud doesn't mean that app performance is less critical.
+- After migration, the app in Azure should have the same performance capabilities that the app has today in Contoso's on-premises VMware environment. Moving to the cloud doesn't mean that app performance is less critical.
 - Contoso doesn’t want to invest in the app. The app is critical and important to the business, but Contoso simply wants to move the app in its current form to the cloud.
 - Database administration tasks should be minimized after the app is migrated.
 - Contoso doesn't want to use an Azure SQL Database for this app. It's looking for alternatives.
@@ -390,7 +391,7 @@ To set up the source environment Contoso admins do the following:
 
     ![Select Recovery Services vault](./media/contoso-migration-rehost-vm-sql-managed-instance/cswiz1.png)
 
-10. They download and installs MySQL Server and VMWare PowerCLI. Then, they validates the server settings.
+10. They download and install MySQL Server and VMmare PowerCLI. Then, they validates the server settings.
 11. After validation, they enter the FQDN or IP address of the vCenter Server instance or vSphere host. They leave the default port, and enter a display name for the vCenter Server instance in Azure.
 12. They specify the account created earlier so that Site Recovery can automatically discover VMware VMs that are available for replication.
 13. They enter credentials, so the Mobility Service is automatically installed when replication is enabled. For Windows machines, the account needs local administrator permissions on the VMs.

@@ -85,7 +85,7 @@ After answering these questions along with questions as determined by the Cloud 
 - Low Risk: Current research suggests the risk is not likely to be realized.
 - Future risk: The current probability is Low Risk. However, continued adoption would trigger a fresh analysis.
 - Medium Risk: It's likely that the risk will affect the business.
-- High Risk: Overtime, it is increasing less likely that the business will avoid impact from this risk.
+- High Risk: Over time, it is increasing less likely that the business will avoid impact from this risk.
 - Declining Risk: The risk is Medium to High. However, actions in IT or business are reducing the likelihood of an impact.
 
 **Determining Tolerance:**

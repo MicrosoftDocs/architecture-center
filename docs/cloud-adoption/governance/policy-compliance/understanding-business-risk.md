@@ -29,7 +29,7 @@ During a transformation, the same relative risks can be seen.
 * As more workloads come online, risks change at each release. New apps go live, risks change.
 * When a company brings the first 10-20 applications online, the risk profile is much different that it is when the 1000th applications go into production in the cloud.
 
-The assets that accumulated in the traditional, on-premises estate likely accumulated overtime. The maturity of the business and IT teams was likely growing in a similar fashion. That parallel growth can tend to create some unnecessary policy baggage.
+The assets that accumulated in the traditional, on-premises estate likely accumulated over time. The maturity of the business and IT teams was likely growing in a similar fashion. That parallel growth can tend to create some unnecessary policy baggage.
 
 During a cloud transformation, both the business and IT teams have an opportunity to reset those policies and build new with a matured mindset.
 
@@ -58,7 +58,7 @@ Once the Business Risk MVP is established, they can be converted to [Policies](o
 
 Assuming a business risk MVP is the starting point, governance can mature in parallel to planned deployment (as opposed to growing in parallel to business growth). This is a much more stable model for governance maturity. At each iteration, new assets are replicated and staged. At each release, workloads are readied for production promotion. Of course, the relative risk could grow with each cycle.
 
-When the Cloud Governance team operates in parallel to the cloud adoption teams, the growth of business risks can likewise be addressed. Each asset staged can easily be classified according to risk. Data classification documents can be built or created in parallel to staging. Risk profile and exposure points can likewise be documented. Overtime an extremely clear view of business risk wil come into focus across the organization.
+When the Cloud Governance team operates in parallel to the cloud adoption teams, the growth of business risks can likewise be addressed. Each asset staged can easily be classified according to risk. Data classification documents can be built or created in parallel to staging. Risk profile and exposure points can likewise be documented. Over time, an extremely clear view of business risk wil come into focus across the organization.
 
 With each iteration, the Cloud Governance team can work with Cloud Strategy team to quickly communicate new risks, mitigation strategies, tradeoffs, and potential costs. This empowers business participants and IT leaders to partner in mature, well-informed decisions. Those decisions then inform policy maturity. When required, the policy changes produce new work items for the maturity of core infrastructure systems. When changes to staged systems are required, the cloud adoption teams have ample time to make changes, while the business tests the staged systems and develops a user adoption plan.
 

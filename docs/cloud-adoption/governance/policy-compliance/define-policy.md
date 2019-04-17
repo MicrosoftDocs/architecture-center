@@ -7,7 +7,7 @@ ms.date: 01/02/2019
 
 <!---
 I understand risk and tolerance, now what do I do?
-Define the policy... [aspirational statement to move towards 2/1] If you need help defining policies, each discipline includes references to common business risks and policies to mitigate the risks...
+Define the policy. [aspirational statement to move towards 2/1] If you need help defining policies, each discipline includes references to common business risks and policies to mitigate the risks.
 --->
 
 # Defining corporate policy for cloud governance

@@ -1,5 +1,5 @@
 ---
-title:  "CAF: Build a cloud migration business case"
+title: "CAF: Build a cloud migration business case"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption

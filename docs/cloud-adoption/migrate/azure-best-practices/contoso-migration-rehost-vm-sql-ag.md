@@ -3,7 +3,8 @@ title: "CAF: Rehost an app by migrating it to Azure VMs and SQL Server Always On
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how Contoso rehosts an on-premises app by migrating it to Azure VMs and SQL Server Always On availability group
 services: site-recovery
-author: BrianBlanchardms.service: site-recovery
+author: BrianBlanchard
+ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: brblanch
@@ -28,7 +29,7 @@ The IT leadership team has worked closely with business partners to understand w
 
 The Contoso cloud team has pinned down goals for this migration. These goals were used to determine the best migration method:
 
-- After migration, the app in Azure should have the same performance capabilities as it does today in VMWare. The app will remain as critical in the cloud as it is on-premises.
+- After migration, the app in Azure should have the same performance capabilities as it does today in VMware. The app will remain as critical in the cloud as it is on-premises.
 - Contoso doesn’t want to invest in this app. It is important to the business, but in its current form Contoso simply want to move it safely to the cloud.
 - The on-premises database for the app has had availability issues. Contoso would like to deploy it in Azure as a high-availability cluster, with failover capabilities.
 - Contoso wants to upgrade from their current SQL Server 2008 R2 platform, to SQL Server 2017.
@@ -434,7 +435,7 @@ Contoso admins perform these steps as follows:
 10. They select the subscription, resource group, and vault in which to register the configuration server.
         ![vault](./media/contoso-migration-rehost-vm-sql-ag/cswiz1.png)
 
-11. They then download and install MySQL Server, and VMWare PowerCLI.
+11. They then download and install MySQL Server, and VMware PowerCLI.
 12. After validation, they specify the FQDN or IP address of the vCenter server or vSphere host. They leave the default port, and specify a friendly name for the vCenter server.
 13. They specify the account that they created for automatic discovery, and the credentials that are used to automatically install the Mobility Service. For Windows machines, the account needs local administrator privileges on the VMs.
 

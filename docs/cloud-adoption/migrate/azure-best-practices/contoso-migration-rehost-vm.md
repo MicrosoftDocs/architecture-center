@@ -3,7 +3,8 @@ title: "CAF: Rehost an app with migration to Azure VMs with Azure Site Recovery"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how Contoso rehosts an on-premises app with a lift-and-shift migration of on-premises machines to Azure, using the Azure Site Recovery service.
 services: site-recovery
-author: BrianBlanchardms.service: site-recovery
+author: BrianBlanchard
+ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: brblanch
@@ -250,7 +251,7 @@ Contoso admins perform these steps as follows:
 10. They select the subscription, resource group, and the vault in which to register the configuration server.
         ![vault](./media/contoso-migration-rehost-vm/cswiz1.png)
 
-11. They download and install MySQL Server, and VMWare PowerCLI.
+11. They download and install MySQL Server, and VMware PowerCLI.
 12. After validation, they specify the FQDN or IP address of the vCenter server or vSphere host. They leave the default port, and specify a friendly name for the server in Azure.
 13. They specify the account that they created for automatic discovery, and the credentials that are used to automatically install the Mobility Service. For Windows machines, the account needs local administrator privileges on the VMs.
 
