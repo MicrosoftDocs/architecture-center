@@ -16,7 +16,7 @@ This library enables logging of Azure Databricks service metrics as well as Apac
 
 ![Screenshot of dashboard](./_images/dashboard-screenshot.png)
 
-## Prequisites
+## Prerequisites
 
 Clone the [Github repository](https://github.com/mspnp/spark-monitoring) and [follow the deployment instructions](./configure-cluster.md) to build and configure the Azure Monitor logging for Azure Databricks library to send logs to your Azure Log Analytics workspace.
 
