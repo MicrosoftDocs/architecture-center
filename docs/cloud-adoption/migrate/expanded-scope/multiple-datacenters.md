@@ -11,7 +11,7 @@ Often times the scope of a migration involves the transition of multiple datacen
 
 ## General scope expansion
 
-Most of this effort required in this scope expansion, will fall in the prerequisites, assess and optimization processes of a migration.
+Most of this effort required in this scope expansion will occur during in the prerequisites, assess and optimization processes of a migration.
 
 ## Suggested prerequisites
 
