@@ -27,7 +27,7 @@ The following checklist outlines the common areas of complexity which could requ
 - **Technical Strategy-driven scope changes**
   - Existing datacenter constraints *(Coming Q2 2019)*
   - Migrating at scale - High volume or velocity of migrations *(Coming Q2 2019)*
-  - [Multiple datacenters](./multiple-data-centers.md)
+  - [Multiple datacenters](./multiple-datacenters.md)
   - [Data requirements exceed network capacity](./network-capacity-exceeded.md)
   - Change management and solution documentation *(Coming Q2 2019)*
   - [Governance or compliance strategy](./governance-or-compliance.md)

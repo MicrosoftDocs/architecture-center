@@ -124,10 +124,10 @@ Azure provides a couple of solutions:
 - **App Service Environment:** If an app you migrate needs extra protection, you can consider adding an App Service Environment and Web Application Firewall to protect the app resources.
   - The Azure App Service Environment provides a fully isolated and dedicated environment in which to running App Service apps such as Windows and Linux web apps, Docker containers, mobile apps, and functions.
   - It's useful for apps that are very high scale, require isolation and secure network access or have high memory utilization
-- **Web Application Firewall:** A feature of Application Gateway that provides centralized protection for web apps.
+- **Web application firewall:** A feature of Azure Application Gateway that provides centralized protection for web apps.
   - It protects web apps without requiring back-end code modifications.
   - It protects multiple web apps at the same time behind an application gateway.
-  - Web application firewall can be monitored using Azure Monitor, and is integrated into Azure Security Center.
+  - A web application firewall can be monitored using Azure Monitor, and is integrated into Azure Security Center.
 
 ![Secure web apps](./media/migrate-best-practices-security-management/web-apps.png)
 *Azure Key Vault*
@@ -135,7 +135,7 @@ Azure provides a couple of solutions:
 **Learn more:**
 
 - [Get an overview](/azure/key-vault/key-vault-overview) of Azure Key Vault.
-- [Learn about](/azure/application-gateway/waf-overview) Web application firewall.
+- [Learn about](/azure/application-gateway/waf-overview) web application firewall.
 - [Get an introduction](/azure/app-service/environment/intro) to App Service Environments.
 - [Learn how to](/azure/key-vault/tutorial-web-application-keyvault) configure a web app to read secrets from Key Vault.
 - [Learn about](/azure/application-gateway/waf-overview) Web Application Firewall

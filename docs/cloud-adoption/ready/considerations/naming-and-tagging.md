@@ -79,7 +79,7 @@ The following list provides recommended Azure resource type prefixes to use when
 | NIC                                 | nic-                 |
 | Service Bus                         | sb-                  |
 | Service Bus queues                  | sbq-                 |
-| App services                        | azapp-               |
+| App Service apps                    | azapp-               |
 | Function apps                       | azfun-               |
 | Cloud Services                      | azcs-                |
 | Azure SQL Database                  | sqldb-               |
@@ -138,7 +138,7 @@ The following section provides examples of naming schemes for common Azure resou
 |--------------|------------------------------|----------------------------------------------------|----------------------------------------------|
 | Subscription | Account/Enterprise Agreement | \<Business Unit\>-\<Subscription type\>-\<\#\#\#\> | <ul><li>mktg-prod-001 </li><li>corp-shared-001 </li><li>fin-client-001</li></ul> |
 
-### Resource groups 
+### Resource groups
 
 | Asset type     | Scope        | Format                                                     | Examples                                                                            |
 |----------------|--------------|------------------------------------------------------------|-------------------------------------------------------------------------------------|

@@ -1,9 +1,10 @@
 ---
 title: "CAF: Rebuild an on-premises app to Azure"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: Learn how Contoso rebuilds an app to Azure using Azure App Services, the Kubernetes service, CosmosDB, Azure Functions, and Cognitive services.
+description: Learn how Contoso rebuilds an app to Azure using Azure App Service, the Kubernetes service, CosmosDB, Azure Functions, and Cognitive services.
 services: site-recovery
-author: BrianBlanchardms.service: site-recovery
+author: BrianBlanchard
+ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: brblanch
@@ -11,7 +12,7 @@ ms.author: brblanch
 
 # Rebuild an on-premises app on Azure
 
-This article demonstrates how the fictional company Contoso rebuilds a two-tier Windows .NET app running on VMware VMs as part of a migration to Azure. Contoso migrates the app's front-end VM to Azure App Services Web apps. The app back end is built using microservices deployed to containers managed by Azure Kubernetes Service (AKS). The site interacts with Azure Functions to provide pet photo functionality.
+This article demonstrates how the fictional company Contoso rebuilds a two-tier Windows .NET app running on VMware VMs as part of a migration to Azure. Contoso migrates the app's front-end VM to an Azure App Service web app. The app back end is built using microservices deployed to containers managed by Azure Kubernetes Service (AKS). The site interacts with Azure Functions to provide pet photo functionality.
 
 The SmartHotel360 app used in this example is provided as open source. If you'd like to use it for your own testing purposes, you can download it from [GitHub](https://github.com/Microsoft/SmartHotel360).
 
@@ -51,12 +52,12 @@ After pinning down goals and requirements, Contoso designs and review a deployme
 
 ### Proposed architecture
 
-- The front-end of the app is deployed as an Azure App Services Web app, in the primary Azure region.
+- The front-end of the app is deployed as an Azure App Service web app in the primary Azure region.
 - An Azure function provides uploads of pet photos, and the site interacts with this functionality.
-- The pet photo function uses Cognitive Services Vision API and CosmosDB.
+- The pet photo function uses Cognitive Services Vision API and Cosmos DB.
 - The back end of the site is built using microservices. These will be deployed to containers managed on the Azure Kubernetes service (AKS).
 - Containers will be built using Azure DevOps, and pushed to the Azure Container Registry (ACR).
-- For now, Contoso will manually deploy the Web app and function code using Visual Studio
+- For now, Contoso will manually deploy the web app and function code using Visual Studio.
 - Microservices will be deployed using a PowerShell script that calls Kubernetes command-line tools.
 
     ![Scenario architecture](./media/contoso-migration-rebuild/architecture.png)
@@ -70,7 +71,7 @@ Contoso evaluates the proposed design by putting together a pros and cons list.
 **Consideration** | **Details**
 --- | ---
 **Pros** | Using PaaS and serverless solutions for the end-to-end deployment significantly reduces management time that Contoso must provide.<br/><br/> Moving to a microservice architecture allows Contoso to easily extend the solution over time.<br/><br/> New functionality can be brought online without disrupting any of the existing solutions code bases.<br/><br/> The Web App will be configured with multiple instances with no single point of failure.<br/><br/> Autoscaling will be enabled so that the app can handle differing traffic volumes.<br/><br/> With the move to PaaS services Contoso can retire out-of-date solutions running on Windows Server 2008 R2 operating system.<br/><br/> CosmosDB has built-in fault tolerance, which requires no configuration by Contoso. This means that the data tier is no longer a single point of failover.
-**Cons** | Containers are more complex than other migration options. The learning curve could be an issue for Contoso. They introduce a new level of complexity that provides a lot of value in spite of the curve.<br/><br/> The operations team at Contoso needs to ramp up to understand and support Azure, containers and microservices for the app.<br/><br/> Contoso hasn't fully implemented DevOps for the entire solution. Contoso needs to think about that for the deployment of services to AKS, functions, and App Services.
+**Cons** | Containers are more complex than other migration options. The learning curve could be an issue for Contoso. They introduce a new level of complexity that provides a lot of value in spite of the curve.<br/><br/> The operations team at Contoso needs to ramp up to understand and support Azure, containers and microservices for the app.<br/><br/> Contoso hasn't fully implemented DevOps for the entire solution. Contoso needs to consider that for the deployment of services to AKS, Azure Functions, and Azure App Service.
 
 <!-- markdownlint-enable MD033 -->
 
@@ -595,4 +596,4 @@ With the migrated resources in Azure, Contoso now needs to fully operationalize 
 
 ## Conclusion
 
-In this article, Contoso rebuilds the SmartHotel360 app in Azure. The on-premises app front-end VM is rebuilt to Azure App Services Web Apps. The app back end is built using microservices deployed to containers managed by Azure Kubernetes Service (AKS). Contoso enhanced app functionality with a pet photo app.
+In this article, Contoso rebuilds the SmartHotel360 app in Azure. The on-premises app front-end VM is rebuilt to Azure App Service web apps. The application back end is built using microservices deployed to containers managed by Azure Kubernetes Service (AKS). Contoso enhanced app functionality with a pet photo app.

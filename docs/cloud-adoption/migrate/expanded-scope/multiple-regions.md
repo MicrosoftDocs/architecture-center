@@ -133,7 +133,7 @@ Addressing global complexity during optimization and promotion could require dup
 
 ## Next steps
 
-A separate point of complexity, often related to multiple regions, is the need to prepare for the migration of [multiple datacenters](./multiple-data-centers.md). While very similar in nature, this complexity deals with the volume of assets to be migrated when moving multiple datacenters to the cloud.
+A separate point of complexity, often related to multiple regions, is the need to prepare for the migration of [multiple datacenters](./multiple-datacenters.md). While very similar in nature, this complexity deals with the volume of assets to be migrated when moving multiple datacenters to the cloud.
 
 > [!div class="nextstepaction"]
-> [Migrating multiple datacenters](./multiple-data-centers.md)
+> [Migrating multiple datacenters](./multiple-datacenters.md)
