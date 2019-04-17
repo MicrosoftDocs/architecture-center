@@ -98,7 +98,7 @@ Other options for the data tier include:
 - Consider leveraging the [circuit breaker pattern][circuit-breaker] to provide graceful error handling should one part of the application not be available.
 - Review the [typical design patterns for resiliency][design-patterns-resiliency] and consider implementing these where appropriate.
 - You can find a number of [recommended practices for App Service][resiliency-app-service] in the Azure Architecture Center.
-- Consider using active [geo-replication][sql-geo-replication] for the data tier and [geo-redundant][storage-geo-redudancy] storage for images and queues.
+- Consider using active [geo-replication][sql-geo-replication] for the data tier and [geo-redundant][storage-geo-redundancy] storage for images and queues.
 - For a deeper discussion on [resiliency][resiliency], see the relevant article in the Azure Architecture Center.
 
 ## Deploy the scenario
@@ -157,4 +157,4 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [secure-development]: https://www.microsoft.com/SDL/process/design.aspx
 [service-bus]: /azure/service-bus-messaging/
 [sql-geo-replication]: /azure/sql-database/sql-database-geo-replication-overview
-[storage-geo-redudancy]: /azure/storage/common/storage-redundancy-grs
+[storage-geo-redundancy]: /azure/storage/common/storage-redundancy-grs
