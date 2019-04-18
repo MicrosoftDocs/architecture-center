@@ -149,7 +149,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 ### Test connectivity with the Azure VNet
 
-After deployment completes, you can test conectivity from the simulated on-premises environment to the Azure VNet.
+After deployment completes, you can test connectivity from the simulated on-premises environment to the Azure VNet.
 
 1. Use the Azure portal, navigate to the resource group that you created.
 
