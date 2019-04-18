@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot a hybrid VPN connection
 titleSuffix: Azure Reference Architectures
-description: Troubleshoot a VPN gateway connection betweeen an on-premises network and Azure.
+description: Troubleshoot a VPN gateway connection between an on-premises network and Azure.
 author: telmosampaio
 ms.date: 10/08/2018
 ms.topic: article
