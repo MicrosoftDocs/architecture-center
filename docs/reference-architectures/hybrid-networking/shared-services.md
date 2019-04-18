@@ -211,7 +211,7 @@ This step deploys an NVA in the `dmz` subnet.
 
 ### Test connectivity
 
-Test conectivity from the simulated on-premises environment to the hub VNet.
+Test connectivity from the simulated on-premises environment to the hub VNet.
 
 1. Use the Azure portal to find the VM named `jb-vm1` in the `onprem-jb-rg` resource group.
 

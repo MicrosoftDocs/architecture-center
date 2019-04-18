@@ -170,7 +170,7 @@ To deploy the hub VNet, perform the following steps.
 
 ### Test connectivity to the hub VNet &mdash; Windows deployment
 
-To test conectivity from the simulated on-premises environment to the hub VNet using Windows VMs, follow these steps:
+To test connectivity from the simulated on-premises environment to the hub VNet using Windows VMs, follow these steps:
 
 1. Use the Azure portal to find the VM named `jb-vm1` in the `onprem-jb-rg` resource group.
 
@@ -198,7 +198,7 @@ TcpTestSucceeded : True
 
 ### Test connectivity to the hub VNet &mdash; Linux deployment
 
-To test conectivity from the simulated on-premises environment to the hub VNet using Linux VMs, follow these steps:
+To test connectivity from the simulated on-premises environment to the hub VNet using Linux VMs, follow these steps:
 
 1. Use the Azure portal to find the VM named `jb-vm1` in the `onprem-jb-rg` resource group.
 
@@ -247,7 +247,7 @@ To deploy the spoke VNets, perform the following steps.
 
 ### Test connectivity to the spoke VNets &mdash; Windows deployment
 
-To test conectivity from the simulated on-premises environment to the spoke VNets using Windows VMs, perform the following steps:
+To test connectivity from the simulated on-premises environment to the spoke VNets using Windows VMs, perform the following steps:
 
 1. Use the Azure portal to find the VM named `jb-vm1` in the `onprem-jb-rg` resource group.
 
@@ -262,7 +262,7 @@ To test conectivity from the simulated on-premises environment to the spoke VNet
 
 ### Test connectivity to the spoke VNets &mdash; Linux deployment
 
-To test conectivity from the simulated on-premises environment to the spoke VNets using Linux VMs, perform the following steps:
+To test connectivity from the simulated on-premises environment to the spoke VNets using Linux VMs, perform the following steps:
 
 1. Use the Azure portal to find the VM named `jb-vm1` in the `onprem-jb-rg` resource group.
 
