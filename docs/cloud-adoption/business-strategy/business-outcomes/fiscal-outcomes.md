@@ -73,7 +73,7 @@ Before discussing Cost Outcomes, it is important to understand the two primary c
 The following terms are intended to create an understanding of the differences between CapEx and OpEx when speaking with the business about your Transformation Journey.
 
 * **Capital** is the money or assets owned by a business to contribute to a particular purpose, such as, increase server capacity or building an application.
-* **Capital Expense (CapEx)** is an expense that that generates benefits over a long period. Such an expense is generally non-recurring and results in the acquisition of permanent assets. Building an application could qualify as a capital expense.
+* **Capital Expense (CapEx)** is an expense that generates benefits over a long period. Such an expense is generally non-recurring and results in the acquisition of permanent assets. Building an application could qualify as a capital expense.
 * **Operating Expense (OpEx)** is an expense that is an ongoing cost of doing business. Consuming cloud services in a pay as you go model could qualify as an operating expense.
 * Asset is an economic resource that can be owned or controlled to produce value. Servers, Data Lakes, and Applications could all be considered assets.
 * **Depreciation** is how the value of an asset decreases over time. More relevant to CapEx/OpEx conversation, it is how the costs of an asset are allocated across the periods in which they are used. For instance, if you build an application this year but it is expected to have an average shelf-life of five years (like most commercial applications), then the cost of the dev team and necessary tools required to create and deploy the code base would be depreciated evenly over five years.

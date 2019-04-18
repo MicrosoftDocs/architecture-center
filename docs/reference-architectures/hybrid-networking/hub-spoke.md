@@ -18,7 +18,7 @@ This reference architecture shows how to implement a hub-spoke topology in Azure
 
 *Download a [Visio file][visio-download] of this architecture*
 
-The benefits of this toplogy include:
+The benefits of this topology include:
 
 - **Cost savings** by centralizing services that can be shared by multiple workloads, such as network virtual appliances (NVAs) and DNS servers, in a single location.
 - **Overcome subscriptions limits** by peering VNets from different subscriptions to the central hub.
@@ -170,7 +170,7 @@ To deploy the hub VNet, perform the following steps.
 
 ### Test connectivity to the hub VNet &mdash; Windows deployment
 
-To test conectivity from the simulated on-premises environment to the hub VNet using Windows VMs, follow these steps:
+To test connectivity from the simulated on-premises environment to the hub VNet using Windows VMs, follow these steps:
 
 1. Use the Azure portal to find the VM named `jb-vm1` in the `onprem-jb-rg` resource group.
 
@@ -198,7 +198,7 @@ TcpTestSucceeded : True
 
 ### Test connectivity to the hub VNet &mdash; Linux deployment
 
-To test conectivity from the simulated on-premises environment to the hub VNet using Linux VMs, follow these steps:
+To test connectivity from the simulated on-premises environment to the hub VNet using Linux VMs, follow these steps:
 
 1. Use the Azure portal to find the VM named `jb-vm1` in the `onprem-jb-rg` resource group.
 
@@ -247,7 +247,7 @@ To deploy the spoke VNets, perform the following steps.
 
 ### Test connectivity to the spoke VNets &mdash; Windows deployment
 
-To test conectivity from the simulated on-premises environment to the spoke VNets using Windows VMs, perform the following steps:
+To test connectivity from the simulated on-premises environment to the spoke VNets using Windows VMs, perform the following steps:
 
 1. Use the Azure portal to find the VM named `jb-vm1` in the `onprem-jb-rg` resource group.
 
@@ -262,7 +262,7 @@ To test conectivity from the simulated on-premises environment to the spoke VNet
 
 ### Test connectivity to the spoke VNets &mdash; Linux deployment
 
-To test conectivity from the simulated on-premises environment to the spoke VNets using Linux VMs, perform the following steps:
+To test connectivity from the simulated on-premises environment to the spoke VNets using Linux VMs, perform the following steps:
 
 1. Use the Azure portal to find the VM named `jb-vm1` in the `onprem-jb-rg` resource group.
 
@@ -299,7 +299,6 @@ This step is optional. If you want to allow spokes to connect to each other, you
 [azure-cli-2]: /azure/install-azure-cli
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
 [azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
-[best-practices-security]: /azure/best-practices-network-securit
 [connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
 [guidance-expressroute]: ./expressroute.md
 [guidance-vpn]: ./vpn.md

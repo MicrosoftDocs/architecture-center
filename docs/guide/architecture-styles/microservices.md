@@ -66,7 +66,7 @@ Consider this architecture style for:
 
 - **Small, focused teams**. Teams can focus on one service. The smaller scope of each service makes the code base easier to understand, and it's easier for new team members to ramp up.
 
-- **Fault isolation**. If a service goes down, it won't take out the entire application. However, that doesn't mean you get resiliency for free. You still need to follow resiliency best practices and design patterns. See [Designing resilient applications for Azure][resiliency-overview].
+- **Fault isolation**. If a service goes down, it won't take out the entire application. However, that doesn't mean you get resiliency for free. You still need to follow resiliency best practices and design patterns. See [Designing reliable Azure applications][resiliency-overview].
 
 - **Mixed technology stacks**. Teams can pick the technology that best fits their service.
 
@@ -108,7 +108,7 @@ Consider this architecture style for:
 
 - Services should have loose coupling and high functional cohesion. Functions that are likely to change together should be packaged and deployed together. If they reside in separate services, those services end up being tightly coupled, because a change in one service will require updating the other service. Overly chatty communication between two services may be a symptom of tight coupling and low cohesion.
 
-- Isolate failures. Use resiliency strategies to prevent failures within a service from cascading. See [Resiliency patterns][resiliency-patterns] and [Designing resilient applications][resiliency-overview].
+- Isolate failures. Use resiliency strategies to prevent failures within a service from cascading. See [Resiliency patterns][resiliency-patterns] and [Designing reliable applications][resiliency-overview].
 
 ## Next steps
 
@@ -116,5 +116,5 @@ For detailed guidance about building a microservices architecture on Azure, see 
 
 <!-- links -->
 
-[resiliency-overview]: ../../resiliency/index.md
+[resiliency-overview]: ../../reliability/index.md
 [resiliency-patterns]: ../../patterns/category/resiliency.md

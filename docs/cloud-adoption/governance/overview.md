@@ -27,7 +27,7 @@ The content in the CAF affects the business, technology, and culture of enterpri
 
 The Cloud Architect serves as the thought leader and facilitator to bring these audiences together. The content in this collection of guides is designed to help the Cloud Architect facilitate the right conversation, with the right audience, to drive necessary decisions. Business transformation that is empowered by the cloud is dependent upon the Cloud Architect role to help guide decisions throughout the business and IT.
 
-**Cloud Architect specialization in this section:** Each section of the CAF represents a different specialization or variant of the Cloud Architect role. This section of the CAF is designed for cloud architects with a passion for mitigating or cleaning up technical risks. Many cloud providers refer to these specialists as cloud custodians, we prefer cloud guardians or, collectively, the Cloud Governance team. In each actionable customer journey, the articles show how the composition and role of the Cloud Governance team may change over time.
+**Cloud Architect specialization in this section:** Each section of the CAF represents a different specialization or variant of the Cloud Architect role. This section of the CAF is designed for cloud architects with a passion for mitigating or reducing technical risks. Many cloud providers refer to these specialists as cloud custodians, we prefer cloud guardians or, collectively, the Cloud Governance team. In each actionable customer journey, the articles show how the composition and role of the Cloud Governance team may change over time.
 
 ## Using this guide
 

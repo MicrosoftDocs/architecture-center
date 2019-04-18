@@ -4,15 +4,16 @@ titleSuffix: Azure Reference Architectures
 description:  Recommended architecture that shows how to deploy and operate a scalable, enterprise-grade Jenkins server on Azure secured with single sign-on (SSO).
 author: njray
 ms.date: 04/30/2018
-ms.topic: reference-architecture
+ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: reference-architecture
+ms.subservice: example-scenario
 ms.custom: seodec18
+social_image_url: /azure/architecture/example-scenario/apps/media/architecture-jenkins.png
 ---
 
 # Run a Jenkins server on Azure
 
-This reference architecture shows how to deploy and operate a scalable, enterprise-grade Jenkins server on Azure secured with single sign-on (SSO). The architecture also uses Azure Monitor to monitor the state of the Jenkins server. [**Deploy this solution**](#deploy-the-solution).
+This scenario shows how to deploy and operate a scalable, enterprise-grade Jenkins server on Azure secured with single sign-on (SSO). The architecture also uses Azure Monitor to monitor the state of the Jenkins server. [**Deploy this solution**](#deploy-the-solution).
 
 ![Jenkins server running on Azure][0]
 
@@ -28,7 +29,7 @@ The architecture consists of the following components:
 
 - **Resource group**. A [resource group][rg] is used to group Azure assets so they can be managed by lifetime, owner, and other criteria. Use resource groups to deploy and monitor Azure assets as a group and track billing costs by resource group. You can also delete resources as a set, which is very useful for test deployments.
 
-- **Jenkins server**. A virtual machine is deployed to run [Jenkins][azure-market] as an automation server and serve as Jenkins Master. This reference architecture uses the [solution template for Jenkins on Azure][solution], installed on a Linux (Ubuntu 16.04 LTS) virtual machine on Azure. Other Jenkins offerings are available in the Azure Marketplace.
+- **Jenkins server**. A virtual machine is deployed to run [Jenkins][azure-market] as an automation server and serves as Jenkins Master. To deploy this VM, use the [solution template for Jenkins on Azure][solution]. Other Jenkins offerings are available in the Azure Marketplace.
 
   > [!NOTE]
   > Nginx is installed on the VM to act as a reverse proxy to Jenkins. You can configure Nginx to enable SSL for the Jenkins server.
@@ -265,4 +266,4 @@ You may wish to review the following [Azure example scenario](/azure/architectur
 [subnet]: /azure/virtual-network/virtual-network-manage-subnet
 [vm-agent]: https://wiki.jenkins.io/display/JENKINS/Azure+VM+Agents+plugin
 [vnet]: /azure/virtual-network/virtual-networks-overview
-[0]: ./images/jenkins-server.png
+[0]: ./media/architecture-jenkins.png

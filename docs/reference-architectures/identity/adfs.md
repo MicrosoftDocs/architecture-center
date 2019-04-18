@@ -39,7 +39,7 @@ For additional considerations, see [Choose a solution for integrating on-premise
 
 ## Architecture
 
-This architecture extends the implementation described in [Extending AD DS to Azure][extending-ad-to-azure]. It contains the followign components.
+This architecture extends the implementation described in [Extending AD DS to Azure][extending-ad-to-azure]. It contains the following components.
 
 - **AD DS subnet**. The AD DS servers are contained in their own subnet with network security group (NSG) rules acting as a firewall.
 
@@ -121,7 +121,7 @@ Publish your organization's web applications and make them available to external
 
 AD FS supports token transformation and augmentation. Azure Active Directory does not provide this feature. With AD FS, when you set up the trust relationships, you can:
 
-- Configure claim transformations for authorization rules. For example, you can map group security from a representation used by a non-Microsoft partner organization to something that that Active Directory DS can authorize in your organization.
+- Configure claim transformations for authorization rules. For example, you can map group security from a representation used by a non-Microsoft partner organization to something that Active Directory DS can authorize in your organization.
 - Transform claims from one format to another. For example, you can map from SAML 2.0 to SAML 1.1 if your application only supports SAML 1.1 claims.
 
 ### AD FS monitoring
@@ -354,7 +354,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 1. From the jumpbox, open a remote desktop session to the VM named `ra-adfs-adfs-vm1`. The private IP address is 10.0.5.4.
 
-1. Follow the steps in [Enable the Idp-Intiated Sign on page](/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-initiatedsignon#enable-the-idp-intiated-sign-on-page) to enable the sign-on page.
+1. Follow the steps in [Enable the Idp-Initiated Sign on page](/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-initiatedsignon#enable-the-idp-intiated-sign-on-page) to enable the sign-on page.
 
 1. From the jump box, browse to `https://adfs.contoso.com/adfs/ls/idpinitiatedsignon.htm`. You may receive a certificate warning that you can ignore for this test.
 

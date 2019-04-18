@@ -9,7 +9,7 @@ ms.subservice: reference-architecture
 ms.custom: azcat-ai, AI
 ---
 
-# Batch scoring of Python models on Azure
+# Batch scoring of Python machine learning models on Azure
 
 This reference architecture shows how to build a scalable solution for batch scoring many models on a schedule in parallel using Azure Machine Learning Service. The solution can be used as a template and can generalize to different problems.
 
@@ -20,11 +20,12 @@ A reference implementation for this architecture is available on [GitHub][github
 **Scenario**: This solution monitors the operation of a large number of devices in an IoT setting where each device sends sensor readings continuously. Each device is assumed to be associated with pretrained anomaly detection models that need to be used to predict whether a series of measurements, that are aggregated over a predefined time interval, correspond to an anomaly or not. In real-world scenarios, this could be a stream of sensor readings that need to be filtered and aggregated before being used in training or real-time scoring. For simplicity, this solution uses the same data file when executing scoring jobs.
 
 This reference architecture is designed for workloads that are triggered on a schedule. Processing involves the following steps:
-1.	Send sensor readings for ingestion to Azure Event Hubs.
-2.	Perform stream processing and store the raw data.
-3.	Send the data to a Machine Learning cluster that is ready to start taking work. Each node in the cluster runs a scoring job for a specific sensor. 
-4.	Execute the scoring pipeline, which runs the scoring jobs in parallel using Machine Learning Python scripts. The pipeline is created, published, and scheduled to run on a predefined interval of time.
-5.	Generate predictions and store them in Blob storage for later consumption.
+
+1. Send sensor readings for ingestion to Azure Event Hubs.
+2. Perform stream processing and store the raw data.
+3. Send the data to a Machine Learning cluster that is ready to start taking work. Each node in the cluster runs a scoring job for a specific sensor. 
+4. Execute the scoring pipeline, which runs the scoring jobs in parallel using Machine Learning Python scripts. The pipeline is created, published, and scheduled to run on a predefined interval of time.
+5. Generate predictions and store them in Blob storage for later consumption.
 
 ## Architecture
 
@@ -61,7 +62,7 @@ For convenience in this scenario, one scoring task is submitted within a single 
 ## Management considerations
 
 - **Monitor jobs**. It's important to monitor the progress of running jobs, but it can be a challenge to monitor across a cluster of active nodes. To inspect the state of the nodes in the cluster, use the [Azure Portal][portal] to manage the [machine learning workspace][ml-workspace]. If a node is inactive or a job has failed, the error logs are saved to blob storage, and are also accessible in the Pipelines section. For richer monitoring, connect logs to [Application Insights][app-insights], or run separate processes to poll for the state of the cluster and its jobs.
--   **Logging**. Machine Learning Service logs all stdout/stderr to the associated Azure Storage account. To easily view the log files, use a storage navigation tool such as [Azure Storage Explorer][explorer].
+- **Logging**. Machine Learning Service logs all stdout/stderr to the associated Azure Storage account. To easily view the log files, use a storage navigation tool such as [Azure Storage Explorer][explorer].
 
 ## Cost considerations
 
@@ -70,7 +71,6 @@ The most expensive components used in this reference architecture are the comput
 For work that doesn't require immediate processing, configure the automatic scaling formula so the default state (minimum) is a cluster of zero nodes. With this configuration, the cluster starts with zero nodes and only scales up when it detects jobs in the queue. If the batch scoring process happens only a few times a day or less, this setting enables significant cost savings.
 
 Automatic scaling may not be appropriate for batch jobs that happen too close to each other. The time that it takes for a cluster to spin up and spin down also incurs a cost, so if a batch workload begins only a few minutes after the previous job ends, it might be more cost effective to keep the cluster running between jobs. That depends on whether scoring processes are scheduled to run at a high frequency (every hour, for example), or less frequently (once a month, for example).
-
 
 ## Deployment
 

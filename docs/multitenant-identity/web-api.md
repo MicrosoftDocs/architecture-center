@@ -225,7 +225,7 @@ As this example shows, you can also use the **TokenValidated** event to modify t
 
 For a general discussion of authorization, see [Role-based and resource-based authorization][Authorization].
 
-The JwtBearer middleware handles the authorization responses. For example, to restrict a controller action to authenticated users, use the **[Authorize]** atrribute and specify **JwtBearerDefaults.AuthenticationScheme** as the authentication scheme:
+The JwtBearer middleware handles the authorization responses. For example, to restrict a controller action to authenticated users, use the **[Authorize]** attribute and specify **JwtBearerDefaults.AuthenticationScheme** as the authentication scheme:
 
 ```csharp
 [Authorize(ActiveAuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]

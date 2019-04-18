@@ -131,7 +131,7 @@ To complete the end-to-end scenario, you'll need a second Azure AD directory to 
 
 20. In the search box, search for `Surveys.WebAPI`.
 
-    ![Permssions](./images/running-the-app/permissions.png)
+    ![Permissions](./images/running-the-app/permissions.png)
 
 21. Select `Surveys.WebAPI` and click **Select**.
 

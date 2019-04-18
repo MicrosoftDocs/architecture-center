@@ -211,7 +211,7 @@ This step deploys an NVA in the `dmz` subnet.
 
 ### Test connectivity
 
-Test conectivity from the simulated on-premises environment to the hub VNet.
+Test connectivity from the simulated on-premises environment to the hub VNet.
 
 1. Use the Azure portal to find the VM named `jb-vm1` in the `onprem-jb-rg` resource group.
 
@@ -250,7 +250,6 @@ Test-NetConnection 10.2.0.68 -CommonTCPPort RDP
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
 [guidance-hub-spoke]: ./hub-spoke.md
 [azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
-[best-practices-security]: /azure/best-practices-network-securit
 [connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
 [guidance-expressroute]: ./expressroute.md
 [guidance-vpn]: ./vpn.md

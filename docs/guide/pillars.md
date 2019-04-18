@@ -71,8 +71,6 @@ In Azure, the Service Level Agreement (SLA) describes Microsoft's commitments fo
 
 Applications often depend on multiple services. In general, the probability of either service having downtime is independent. For example, suppose your application depends on two services, each with a 99.9% SLA. The composite SLA for both services is 99.9% &times; 99.9% &asymp; 99.8%, or slightly less than each service by itself.
 
-Use the [Availability checklist][availability-checklist] to review your design from an availability standpoint.
-
 ### Availability guidance
 
 - [Design patterns for availability][availability-patterns]
@@ -99,11 +97,9 @@ That said, you still need to build resiliency into your application. Resiliency 
 
 When designing an application to be resilient, you must understand your availability requirements. How much downtime is acceptable? This is partly a function of cost. How much will potential downtime cost your business? How much should you invest in making the application highly available?
 
-Use the [Resiliency checklist][resiliency-checklist] to review your design from a resiliency standpoint.
-
 ### Resiliency guidance
 
-- [Designing resilient applications for Azure][resiliency]
+- [Designing reliable Azure applications][resiliency]
 - [Design patterns for resiliency][resiliency-patterns]
 - Best practices: [Transient fault handling][transient-fault-handling], [Retry guidance for specific services][retry-service-specific]
 
@@ -168,7 +164,7 @@ Use Key Vault to safeguard cryptographic keys and secrets. By using Key Vault, y
 
 [dr-guidance]: ../resiliency/disaster-recovery-azure-applications.md
 [identity-ref-arch]: ../reference-architectures/identity/index.md
-[resiliency]: ../resiliency/index.md
+[resiliency]: ../reliability/index.md
 
 [ad-subscriptions]: /azure/active-directory/active-directory-how-subscriptions-associated-directory
 [data-warehouse-encryption]: /azure/data-lake-store/data-lake-store-security-overview#data-protection
@@ -200,7 +196,5 @@ Use Key Vault to safeguard cryptographic keys and secrets. By using Key Vault, y
 [transient-fault-handling]: ../best-practices/transient-faults.md
 
 <!-- checklist -->
-[availability-checklist]: ../checklist/availability.md
 [devops-checklist]: ../checklist/dev-ops.md
-[resiliency-checklist]: ../checklist/resiliency.md
 [scalability-checklist]: ../checklist/scalability.md

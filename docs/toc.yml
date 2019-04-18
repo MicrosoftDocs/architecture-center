@@ -246,6 +246,8 @@
       href: example-scenario/apps/apim-api-scenario.md
     - name: E-commerce product search
       href: example-scenario/apps/ecommerce-search.md
+    - name: Jenkins server
+      href: example-scenario/apps/jenkins.md
   - name: Data and analytics
     items:
     - name: Hybrid ETL with Data Factory
@@ -286,23 +288,32 @@
 
     - name: AI
       items:
-      - name: Distributed training of deep learning models
-        href: reference-architectures/ai/training-deep-learning.md
-      - name: Training of Python scikit-learn models
-        href: reference-architectures/ai/training-python-models.md
-      - name: Batch scoring of deep learning models
-        href: reference-architectures/ai/batch-scoring-deep-learning.md
-      - name: Batch scoring of Python models
-        href: reference-architectures/ai/batch-scoring-python.md
+      - name: Training and scoring Python models
+        items:
+        - name: Distributed training of deep learning models
+          href: reference-architectures/ai/training-deep-learning.md
+        - name: Batch scoring of deep learning models
+          href: reference-architectures/ai/batch-scoring-deep-learning.md
+        - name: Training of Python scikit-learn models
+          href: reference-architectures/ai/training-python-models.md
+        - name: Batch scoring of Python models
+          href: reference-architectures/ai/batch-scoring-python.md
+        - name: Real-time scoring of Python and deep learning models
+          href: reference-architectures/ai/realtime-scoring-python.md
+
+      - name: Scoring R models
+        items:
+        - name: Batch scoring of R models
+          href: reference-architectures/ai/batch-scoring-R-models.md
+        - name: Real-time scoring of R models
+          href: reference-architectures/ai/realtime-scoring-r.md
+
       - name: Batch scoring of Spark models on Azure Databricks
         href: reference-architectures/ai/batch-scoring-databricks.md
-      - name: Real-time scoring of Python and deep learning models
-        href: reference-architectures/ai/realtime-scoring-python.md
-      - name: Real-time scoring of R machine learning models
-        href: reference-architectures/ai/realtime-scoring-r.md
+
       - name: Conversational bot
         href: reference-architectures/ai/conversational-bot.md
-      - name: Real-time Recommendation API
+      - name: Real-time recommendation API
         href: reference-architectures/ai/real-time-recommendation.md
 
     - name: Big data
@@ -395,8 +406,6 @@
         href: reference-architectures/n-tier/linux-vm.md
       - name: Single Windows VM
         href: reference-architectures/n-tier/windows-vm.md
-      - name: Jenkins server
-        href: reference-architectures/jenkins/index.md
       - name: N-tier application with SQL Server
         href: reference-architectures/n-tier/n-tier-sql-server.md
       - name: Multi-region N-tier application
@@ -453,9 +462,10 @@
     items:
     - name: Logging and monitoring
       href: microservices/logging-monitoring.md
-    - name: CI/CD
+    - name: CI/CD for microservices
       href: microservices/ci-cd.md
-
+    - name: CI/CD for microservices on Kubernetes
+      href: microservices/ci-cd-kubernetes.md
 - name: Design guides
   items:
   - name: Data architecture guide
@@ -520,6 +530,8 @@
             href: data-guide/technology-choices/natural-language-processing.md 
           - name: Pipeline orchestration
             href: data-guide/technology-choices/pipeline-orchestration-data-movement.md 
+          - name: R developer's guide to Azure
+            href: data-guide/technology-choices/r-developers-guide.md
           - name: Real-time message ingestion
             href: data-guide/technology-choices/real-time-ingestion.md
           - name: Search data stores
@@ -590,21 +602,38 @@
       href: databricks-monitoring/application-logs.md
     - name: Use dashboards to visualize Databricks metrics
       href: databricks-monitoring/dashboards.md
+    - name: Troubleshoot performance bottlenecks
+      href: databricks-monitoring/performance-troubleshooting.md
 
 - name: Design Review Framework
   items:
-  - name: Design for resiliency
-    href: resiliency/index.md
-  - name: Failure mode analysis
-    href: resiliency/failure-mode-analysis.md
-  - name: Availability checklist
-    href: checklist/availability.md
+  - name: Design reliable Azure applications
+    items:
+    - name: Overview
+      href: reliability/index.md
+    - name: Define requirements
+      href: reliability/requirements.md
+    - name: Architect for reliability
+      href: reliability/architect.md
+    - name: Test for reliability
+      href: reliability/testing.md
+    - name: Deploy for reliability
+      href: reliability/deploy.md
+    - name: Monitor application health
+      href: reliability/monitoring.md
+    - name: Respond to failures and disasters
+      href: reliability/disaster-recovery.md
+    - name: Resiliency checklist for Azure services
+      href: checklist/resiliency-per-service.md
+    - name: Failure mode analysis
+      href: resiliency/failure-mode-analysis.md
+    - name: Recover from a region-wide service disruption
+      href: resiliency/recovery-loss-azure-region.md
+    - name: Recover from data corruption or accidental deletion
+      href: resiliency/recovery-data-corruption.md
+
   - name: DevOps checklist
     href: checklist/dev-ops.md
-  - name: Resiliency checklist (general)
-    href: checklist/resiliency.md
-  - name: Resiliency checklist (Azure services)
-    href: checklist/resiliency-per-service.md
   - name: Scalability checklist
     href: checklist/scalability.md
 

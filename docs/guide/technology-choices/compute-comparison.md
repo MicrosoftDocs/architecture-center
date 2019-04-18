@@ -26,7 +26,7 @@ The term *compute* refers to the hosting model for the computing resources that 
 | State management | Stateless or Stateful | Stateless | Stateless or stateful | Stateless | Stateless or Stateful | Stateless | Stateless |
 | Web hosting | Agnostic | Built in | Agnostic | Not applicable | Agnostic | Agnostic | No |
 | Can be deployed to dedicated VNet? | Supported | Supported<a href="#note5"><sup>5</sup></a> | Supported | Supported <a href="#note5"><sup>5</sup></a> | [Supported](/azure/aks/networking-overview) | Not supported | Supported |
-| Hybrid connectivity | Supported | Supported <a href="#note6"><sup>6</sup></a>  | Supported | Supported <a href="#node7"><sup>7</sup></a> | Supported | Not supported | Supported |
+| Hybrid connectivity | Supported | Supported <a href="#note6"><sup>6</sup></a>  | Supported | Supported <a href="#note7"><sup>7</sup></a> | Supported | Not supported | Supported |
 
 Notes
 

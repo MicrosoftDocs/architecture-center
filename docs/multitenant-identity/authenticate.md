@@ -34,7 +34,7 @@ To register the application, follow the steps in [Integrating Applications with 
 
 See [Run the Surveys application](./run-the-app.md) for the specific steps for the Surveys application. Note the following:
 
-- For a multitenant application, you must configure the multi-tenanted option explicitly. This enables other organizations to to access the application.
+- For a multitenant application, you must configure the multi-tenanted option explicitly. This enables other organizations to access the application.
 
 - The reply URL is the URL where Azure AD will send OAuth 2.0 responses. When using the ASP.NET Core, this needs to match the path that you configure in the authentication middleware (see next section).
 

@@ -10,7 +10,7 @@ ms.subservice: reference-architecture
 ms.custom: azcat-ai
 ---
 
-# Batch scoring on Azure for deep learning models
+# Batch scoring of deep learning models on Azure
 
 This reference architecture shows how to apply neural style transfer to a video, using Azure Machine Learning. *Style transfer* is a deep learning technique that composes an existing image in the style of another image. This architecture can be generalized for any scenario that uses batch scoring with deep learning. [**Deploy this solution**](#deploy-the-solution).
 
@@ -115,7 +115,7 @@ Monitoring can be further enriched by connecting logs to Application Insights or
 
 ### Logging with Azure Machine Learning
 
-Azure Machine Learing will automatically log all stdout/stderr to the associate blob storage account. Unless otherwise specified, your Azure Machine Learning Workspace will automatically provision a storage account and dump your logs into it. You can also use a storage navigation tool such as Storage Explorer which will provide a much easier experience for navigating log files.
+Azure Machine Learning will automatically log all stdout/stderr to the associate blob storage account. Unless otherwise specified, your Azure Machine Learning Workspace will automatically provision a storage account and dump your logs into it. You can also use a storage navigation tool such as Storage Explorer which will provide a much easier experience for navigating log files.
 
 ## Cost considerations
 

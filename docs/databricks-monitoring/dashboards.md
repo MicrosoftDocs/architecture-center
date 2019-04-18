@@ -8,13 +8,15 @@ ms.date: 03/26/2019
 
 # Use dashboards to visualize Azure Databricks metrics
 
+This article shows how to set up a Grafana dashboard to monitor Azure Databricks jobs for performance issues.
+
 [Azure Databricks](/azure/azure-databricks/) is a fast, powerful, and collaborative [Apache Spark](https://spark.apache.org/)–based analytics service that makes it easy to rapidly develop and deploy big data analytics and artificial intelligence (AI) solutions. Monitoring is a critical component of operating Azure Databricks workloads in production. The first step is to gather metrics into a workspace for analysis. In Azure, the best solution for managing log data is [Azure Monitor](/azure/azure-monitor/). Azure Databricks does not natively support sending log data to Azure monitor, but a [library for this functionality](https://github.com/mspnp/spark-monitoring) is available in [Github](https://github.com).
 
-This library enables logging of Azure Databricks service metrics as well as Apache Spark structure streaming query event metrics. Once you've successfully deployed this library to an Azure Databricks cluster, you can further deploy a set of [Azure Monitor](/azure/azure-monitor/) or [Grafana](https://granfana.com) dashboards that you can deploy as part of your production environment. This document includes a discussion of the common types of performance issues and how to identify them using these dashboards.
+This library enables logging of Azure Databricks service metrics as well as Apache Spark structure streaming query event metrics. Once you've successfully deployed this library to an Azure Databricks cluster, you can further deploy a set of [Grafana](https://granfana.com) dashboards that you can deploy as part of your production environment.
 
 ![Screenshot of dashboard](./_images/dashboard-screenshot.png)
 
-## Prequisites
+## Prerequisites
 
 Clone the [Github repository](https://github.com/mspnp/spark-monitoring) and [follow the deployment instructions](./configure-cluster.md) to build and configure the Azure Monitor logging for Azure Databricks library to send logs to your Azure Log Analytics workspace.
 
@@ -34,7 +36,7 @@ To deploy the Azure Log Analytics workspace, follow these steps:
     az group deployment create --resource-group <resource-group-name> --template-file logAnalyticsDeploy.json --parameters location='East US' serviceTier='Standalone'
     ```
 
-This template creates the workspace and also creates a set of predefined queries that are used by by dashboard.
+This template creates the workspace and also creates a set of predefined queries that are used by dashboard.
 
 ## Deploy Grafana in a virtual machine
 
@@ -75,7 +77,7 @@ Next, change the Grafana administrator password by following these steps:
 
 1. In the Azure portal, select the VM and click **Overview**.
 1. Copy the public IP address.
-1. Open a web browser and navigate to the following URL: `http://<IP addresss>:3000`.
+1. Open a web browser and navigate to the following URL: `http://<IP address>:3000`.
 1. At the Grafana log in screen, enter **admin** for the user name, and use the Grafana password from the previous steps.
 1. Once logged in, select **Configuration** (the gear icon).
 1. Select **Server Admin**.
@@ -147,7 +149,7 @@ The visualizations are as follows:
 
 ### Job latency
 
-This visualization shows execution latency for a job, which is a coarse view on the overall peformance of a job. Displays the job execution duration from start to completion. Note that the job start time is not the same as the job submission time. Latency is represented as percentiles (10%, 30%, 50%, 90%) of job execution indexed by cluster ID and application ID.
+This visualization shows execution latency for a job, which is a coarse view on the overall performance of a job. Displays the job execution duration from start to completion. Note that the job start time is not the same as the job submission time. Latency is represented as percentiles (10%, 30%, 50%, 90%) of job execution indexed by cluster ID and application ID.
 
 ### Stage latency
 
@@ -171,7 +173,7 @@ This visualization is a high level view of work items indexed by cluster and app
 
 ### Streaming Throughput/Latency
 
-This visualzation is related to the metrics associated with a structured streaming query. The graphs shows the number of input rows per second and the number of rows processed per second. The streaming metrics are also represented per application. These metrics are sent when the OnQueryProgress event is generated as the structured streaming query is processed and the visualization represents streaming latency as the amount of time, in milliseconds, taken to execute a query batch.
+This visualization is related to the metrics associated with a structured streaming query. The graphs shows the number of input rows per second and the number of rows processed per second. The streaming metrics are also represented per application. These metrics are sent when the OnQueryProgress event is generated as the structured streaming query is processed and the visualization represents streaming latency as the amount of time, in milliseconds, taken to execute a query batch.
 
 ### Resource consumption per executor
 
@@ -184,6 +186,11 @@ Next is a set of visualizations for the dashboard that show the ratio of executo
 ### Shuffle metrics
 
 The final set of visualizations show the data shuffle metrics associated with a structured streaming query across all executors. These include shuffle bytes read, shuffle bytes written, shuffle memory, and disk usage in queries where the file system is used.
+
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Troubleshoot performance bottlenecks](./performance-troubleshooting.md)
 
 <!-- links -->
 

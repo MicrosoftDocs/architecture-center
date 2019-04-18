@@ -160,8 +160,8 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
                             </div>
                         </div>
                         <div class="cardText">
-                            <h3>Design for Resiliency</h3>
-                            <p>Learn how to design resilient applications for Azure.</p>
+                            <h3>Designing reliable Azure applications</h3>
+                            <p>Learn how to build fault tolerance and high availability into your applications for Azure.</p>
                         </div>
                     </div>
                 </div>
@@ -202,26 +202,6 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
                         <div class="cardText">
                             <h3>Cloud Design Patterns</h3>
                             <p>Design patterns for developers and solution architects. Each pattern describes a problem, a pattern that addresses the problem, and an example based on Azure.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-    </li>
-    <!-- Checklists -->
-    <li>
-        <a href="/azure/architecture/checklist/">
-            <div class="cardSize">
-                <div class="cardPadding">
-                    <div class="card">
-                        <div class="cardImageOuter">
-                            <div class="cardImage">
-                                <img src="_images/checklist.svg" alt="" />
-                            </div>
-                        </div>
-                        <div class="cardText">
-                            <h3>Design Review Checklists</h3>
-                            <p>Checklists to assist developers and solution architects during the design process.</p>
                         </div>
                     </div>
                 </div>

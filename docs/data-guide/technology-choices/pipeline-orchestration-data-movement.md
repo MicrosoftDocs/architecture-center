@@ -70,4 +70,3 @@ The following tables summarize the key differences in capabilities.
 | Scale up | Yes | No | No |
 | Scale out | Yes | No | Yes (by adding worker nodes to cluster) |
 | Optimized for big data | Yes | No | Yes |
-

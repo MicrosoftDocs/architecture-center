@@ -16,7 +16,7 @@ This reference architecture implements an [extract, load, and transform (ELT)](.
 
 A reference implementation for this architecture is available on [GitHub][github-folder].
 
-![Architecture diagram for Enteprise BI in Azure with SQL Data Warehouse](./images/enterprise-bi-sqldw.png)
+![Architecture diagram for Enterprise BI in Azure with SQL Data Warehouse](./images/enterprise-bi-sqldw.png)
 
 **Scenario**: An organization has a large OLTP data set stored in a SQL Server database on premises. The organization wants to use SQL Data Warehouse to perform analysis using Power BI.
 

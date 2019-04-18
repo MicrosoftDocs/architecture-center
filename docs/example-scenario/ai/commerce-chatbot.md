@@ -60,8 +60,6 @@ This scenario covers a conversational bot that functions as a concierge for a ho
 
 This scenario uses Azure SQL Database for storing customer reservations. SQL Database includes zone redundant databases, failover groups, and geo-replication. For more information, see [Azure SQL Database availability capabilities][sqlavailability-docs].
 
-For other availability topics, see the [availability checklist][availability] in the Azure Architecture Center.
-
 ### Scalability
 
 This scenario uses Azure App Service. With App Service, you can automatically scale the number of instances that run your bot. This functionality lets you keep up with customer demand for your web application and chatbot. For more information on autoscale, see [Autoscaling best practices][autoscaling] in the Azure Architecture Center.
@@ -82,13 +80,13 @@ This scenario uses Azure SQL Database for storing customer reservations. SQL Dat
 
 To monitor the health of your application, this scenario uses Application Insights. With Application Insights, you can generate alerts and respond to performance issues that would impact the customer experience and availability of the chatbot. For more information, see [What is Application Insights?][appinsights-docs]
 
-For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][resiliency].
+For other resiliency topics, see [Designing reliable Azure applications](../../reliability/index.md).
 
 ## Deploy the scenario
 
 This scenario is divided into three components for you to explore areas that you are most focused on:
 
-- [Infrastructure components](#deploy-infrastructure-components). Use an Azure Resource Manger template to deploy the core infrastructure components of an App Service, Web App, Application Insights, Storage account, and SQL Server and database.
+- [Infrastructure components](#walk-through). Use an Azure Resource Manger template to deploy the core infrastructure components of an App Service, Web App, Application Insights, Storage account, and SQL Server and database.
 - [Web App Chatbot](#deploy-web-app-chatbot). Use the Azure CLI to deploy a bot with the Bot Service and Language Understanding and Intelligent Services (LUIS) app.
 - [Sample C# chatbot application](#deploy-chatbot-c-application-code). Use Visual Studio to review the sample hotel reservation C# application code and deploy to a bot in Azure.
 
@@ -165,7 +163,6 @@ For a set of guided tutorials for the Azure Bot Service, see the [tutorial secti
 [appservice-docs]: /azure/app-service/
 [architecture]: ./media/architecture-commerce-chatbot.png
 [autoscaling]: ../../best-practices/auto-scaling.md
-[availability]: ../../checklist/availability.md
 [botservice-docs]: /azure/bot-service/
 [cognitive-docs]: /azure/cognitive-services/
 [resiliency]: ../../resiliency/index.md

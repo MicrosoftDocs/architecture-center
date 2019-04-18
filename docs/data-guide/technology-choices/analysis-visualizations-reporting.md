@@ -68,7 +68,7 @@ To narrow the choices, start by answering these questions:
 
 - Do you need to connect to numerous data sources, providing a centralized place to create reports for data spread throughout your domain? If so, choose an option that allows you to connect to 100s of data sources.
 
-- Do you want to to embed dynamic visualizations in an external website or application? If so, choose an option that provides embedding capabilities.
+- Do you want to embed dynamic visualizations in an external website or application? If so, choose an option that provides embedding capabilities.
 
 - Do you want to design your visualizations and reports while offline? If yes, choose an option with offline capabilities.
 

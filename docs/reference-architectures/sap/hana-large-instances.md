@@ -25,7 +25,7 @@ This reference architecture shows a set of proven practices for running SAP HANA
 
 This architecture consists of the following infrastructure components.
 
-- **Virtual network**. The [Azure Virtual Network][vnet] service securely connects Azure resources to each other and is subdivided into separate [subnets][subnet] for each layer. SAP application layers are deployed on Azure virual machines (VMs) to connect to the HANA database layer residing on large instances.
+- **Virtual network**. The [Azure Virtual Network][vnet] service securely connects Azure resources to each other and is subdivided into separate [subnets][subnet] for each layer. SAP application layers are deployed on Azure virtual machines (VMs) to connect to the HANA database layer residing on large instances.
 
 - **Virtual machines**. Virtual machines are used in the SAP application layer and shared services layer. The latter includes a jumpbox used by administrators to set up HANA Large Instances and to provide access to other virtual machines.
 

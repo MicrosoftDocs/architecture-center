@@ -62,8 +62,6 @@ The VM instances in this scenario are deployed across [Availability Zones](/azur
 
 The database tier can be configured to use Always On availability groups. With this SQL Server configuration, one primary database within a cluster is configured with up to eight secondary databases. If an issue occurs with the primary database, the cluster fails over to one of the secondary databases, which allows the application to continue to be available. For more information, see [Overview of Always On availability groups for SQL Server][sqlalwayson-docs].
 
-For more availability guidance, see the [availability checklist][availability] in the Azure Architecture Center.
-
 ### Scalability
 
 This scenario uses virtual machine scale sets for the front-end and back-end components. With scale sets, the number of VM instances that run the front-end application tier can automatically scale in response to customer demand, or based on a defined schedule. For more information, see [Overview of autoscale with virtual machine scale sets][vmssautoscale-docs].
@@ -80,7 +78,7 @@ To view guidance on deploying Payment Card Industry Data Security Standards (PCI
 
 In combination with the use of Availability Zones and virtual machine scale sets, this scenario uses Azure Application Gateway and load balancer. These two networking components distribute traffic to the connected VM instances, and include health probes that ensure traffic is only distributed to healthy VMs. Two Application Gateway instances are configured in an active-passive configuration, and a zone-redundant load balancer is used. This configuration makes the networking resources and application resilient to issues that would otherwise disrupt traffic and impact end-user access.
 
-For general guidance on designing resilient scenarios, see [Designing resilient applications for Azure][resiliency].
+For general guidance on designing resilient solutions, see [Designing reliable Azure applications](../../reliability/index.md).
 
 ## Deploy the scenario
 
@@ -128,12 +126,10 @@ For more detailed implementation guides, review the [reference architecture for 
 [appgateway-docs]: /azure/application-gateway/overview
 [architecture]: ./media/architecture-regulated-multitier-app.png
 [autoscaling]: /azure/architecture/best-practices/auto-scaling
-[availability]: ../../checklist/availability.md
 [cloudwitness-docs]: /windows-server/failover-clustering/deploy-cloud-witness
 [loadbalancer-docs]: /azure/load-balancer/load-balancer-overview
 [nsg-docs]: /azure/virtual-network/security-overview
 [ntiersql-ra]: /azure/architecture/reference-architectures/n-tier/n-tier-sql-server
-[resiliency]: /azure/architecture/resiliency/
 [security]: /azure/security/
 [scalability]: /azure/architecture/checklist/scalability
 [scaleset-docs]: /azure/virtual-machine-scale-sets/overview

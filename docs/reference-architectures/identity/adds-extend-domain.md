@@ -1,7 +1,7 @@
 ---
-title: Extend Active Directory Domain Services (AD DS) to Azure
+title: Extend your on-premises Active Directory domain to Azure
 titleSuffix: Azure Reference Architectures
-description: Extend your on-premises Active Directory domain to Azure.
+description: Deploy Active Directory Domain Services (AD DS) in an Azure virtual network.
 author: telmosampaio
 ms.date: 05/02/2018
 ms.topic: reference-architecture
@@ -10,15 +10,15 @@ ms.subservice: reference-architecture
 ms.custom: seodec18, identity
 ---
 
-# Extend Active Directory Domain Services (AD DS) to Azure
+# Extend your on-premises Active Directory domain to Azure
 
-This reference architecture shows how to extend your Active Directory environment to Azure to provide distributed authentication services using Active Directory Domain Services (AD DS). [**Deploy this solution**](#deploy-the-solution).
+This architecture shows how to extend an on-premises Active Directory domain to Azure to provide distributed authentication services. [**Deploy this solution**](#deploy-the-solution).
 
 ![Secure hybrid network architecture with Active Directory](./images/adds-extend-domain.png)
 
 *Download a [Visio file][visio-download] of this architecture.*
 
-AD DS is used to authenticate user, computer, application, or other identities that are included in a security domain. It can be hosted on-premises, but if your application is hosted partly on-premises and partly in Azure, it may be more efficient to replicate this functionality in Azure. This can reduce the latency caused by sending authentication and local authorization requests from the cloud back to AD DS running on-premises.
+If your application is hosted partly on-premises and partly in Azure, it may be more efficient to replicate Active Directory Domain Services (AD DS) in Azure. This can reduce the latency caused by sending authentication requests from the cloud back to AD DS running on-premises.
 
 This architecture is commonly used when the on-premises network and the Azure virtual network are connected by a VPN or ExpressRoute connection. This architecture also supports bidirectional replication, meaning changes can be made either on-premises or in the cloud, and both sources will be kept consistent. Typical uses for this architecture include hybrid applications in which functionality is distributed between on-premises and Azure, and applications and services that perform authentication using Active Directory.
 
@@ -59,7 +59,7 @@ The Active Directory subnet NSG requires rules to permit incoming traffic from o
 
 ### Active Directory site
 
-In AD DS, a site represents a physical location, network, or collection of devices. AD DS sites are used to manage AD DS database replication by grouping together AD DS objects that are located close to one another and are connected by a high speed network. AD DS includes logic to select the best strategy for replacating the AD DS database between sites.
+In AD DS, a site represents a physical location, network, or collection of devices. AD DS sites are used to manage AD DS database replication by grouping together AD DS objects that are located close to one another and are connected by a high speed network. AD DS includes logic to select the best strategy for replicating the AD DS database between sites.
 
 We recommend that you create an AD DS site including the subnets defined for your application in Azure. Then, configure a site link between your on-premises AD DS sites, and AD DS will automatically perform the most efficient database replication possible. Note that this database replication requires little beyond the initial configuration.
 
@@ -149,7 +149,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 ### Test connectivity with the Azure VNet
 
-After deployment completes, you can test conectivity from the simulated on-premises environment to the Azure VNet.
+After deployment completes, you can test connectivity from the simulated on-premises environment to the Azure VNet.
 
 1. Use the Azure portal, navigate to the resource group that you created.
 

@@ -188,7 +188,7 @@ CPU and network utilization also show the improved performance. The CPU utilizat
 
 ![AppDynamics metrics showing the CPU and network utilization for the WorkInBackground controller][AppDynamics-Metrics-Background-Requests]
 
-The following graph shows the results of a load test. The overall volume of requests serviced is greatly improved compared to the the earlier tests.
+The following graph shows the results of a load test. The overall volume of requests serviced is greatly improved compared to the earlier tests.
 
 ![Load-test results for the BackgroundImageProcessing controller][Load-Test-Results-Background]
 

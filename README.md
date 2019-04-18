@@ -2,7 +2,7 @@
 
 Microsoft patterns & practices
 
-<http://aka.ms/architecture>
+<https://aka.ms/architecture>
 
 ## Understanding the local build process
 

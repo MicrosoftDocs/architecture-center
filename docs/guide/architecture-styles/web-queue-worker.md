@@ -3,7 +3,7 @@ title: Web-Queue-Worker architecture style
 titleSuffix: Azure Application Architecture Guide
 description: Describes benefits, challenges, and best practices for Web-Queue-Worker architectures on Azure.
 author: MikeWasson
-ms.date: 08/30/2018
+ms.date: 04/10/2019
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -66,15 +66,15 @@ This section describes a recommended Web-Queue-Worker architecture that uses Azu
 
 ![Physical diagram of Web-Queue-Worker architecture style](./images/web-queue-worker-physical.png)
 
-The front end is implemented as an Azure App Service web app, and the worker is implemented as a WebJob. The web app and the WebJob are both associated with an App Service plan that provides the VM instances.
+- The front end is implemented as an Azure App Service web app, and the worker is implemented as an Azure Functions app. The web app and the function app are both associated with an App Service plan that provides the VM instances.
 
-You can use either Azure Service Bus or Azure Storage queues for the message queue. (The diagram shows an Azure Storage queue.)
+- You can use either Azure Service Bus or Azure Storage queues for the message queue. (The diagram shows an Azure Storage queue.)
 
-Azure Redis Cache stores session state and other data that needs low latency access.
+- Azure Redis Cache stores session state and other data that needs low latency access.
 
-Azure CDN is used to cache static content such as images, CSS, or HTML.
+- Azure CDN is used to cache static content such as images, CSS, or HTML.
 
-For storage, choose the storage technologies that best fit the needs of the application. You might use multiple storage technologies (polyglot persistence). To illustrate this idea, the diagram shows Azure SQL Database and Azure Cosmos DB.
+- For storage, choose the storage technologies that best fit the needs of the application. You might use multiple storage technologies (polyglot persistence). To illustrate this idea, the diagram shows Azure SQL Database and Azure Cosmos DB.
 
 For more details, see [App Service web application reference architecture][scalable-web-app].
 
@@ -84,7 +84,7 @@ For more details, see [App Service web application reference architecture][scala
 
 - Use the built-in autoscale feature of App Service to scale out the number of VM instances. If the load on the application follows predictable patterns, use schedule-based autoscale. If the load is unpredictable, use metrics-based autoscaling rules.
 
-- Consider putting the web app and the WebJob into separate App Service plans. That way, they are hosted on separate VM instances and can be scaled independently.
+- Consider putting the web app and the function app into separate App Service plans. That way, they can be scaled independently.
 
 - Use separate App Service plans for production and testing. Otherwise, if you use the same plan for production and testing, it means your tests are running on your production VMs.
 

@@ -73,7 +73,7 @@ This scenario focuses on PaaS solutions for monitoring in large part because the
 
 Application Insights has [limits][app-insights-limits] on how many requests can be processed per second. If you exceed the request limit, you may experience message throttling. To prevent throttling, implement [filtering][message-filtering] or [sampling][message-sampling] to reduce the data rate
 
-High availability considerations for the app you run, however, are the developer's responsibility. For information about scale, for example, see the [Scalability considerations](#scalability-considerations) section in the basic web application reference architecture. After an app is deployed, you can set up tests to [monitor its availability][monitor its availability] using Application Insights.
+High availability considerations for the app you run, however, are the developer's responsibility. For information about scale, for example, see the [Scalability considerations](./basic-web-app.md#scalability-considerations) section in the basic web application reference architecture. After an app is deployed, you can set up tests to [monitor its availability][monitor its availability] using Application Insights.
 
 ### Security
 

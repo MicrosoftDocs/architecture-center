@@ -11,16 +11,16 @@
                     "summary": "Run distributed training of deep learning models across clusters of GPU-enabled VMs."
                 },
                 {
-                    "url": "./ai/training-python-models.md",
-                    "image": "../_images/icons/python-powered-h.svg",
-                    "title": "Training of Python scikit-learn models",
-                    "summary": "Recommended practices for tuning the hyperparameters of a scikit-learn Python model."
-                },
-                {
                     "url": "./ai/batch-scoring-deep-learning.md",
                     "image": "../_images/icons/batch-ai.svg",
                     "title": "Batch scoring for deep learning models",
                     "summary": "Automate running batch jobs that apply neural style transfer to a video."
+                },
+                {
+                    "url": "./ai/training-python-models.md",
+                    "image": "../_images/icons/python-powered-h.svg",
+                    "title": "Training of Python scikit-learn models",
+                    "summary": "Recommended practices for tuning the hyperparameters of a scikit-learn Python model."
                 },
                 {
                     "url": "./ai/batch-scoring-python.md",
@@ -29,22 +29,28 @@
                     "summary": "Batch score many Python models in parallel on a schedule using Azure Machine Learning."
                 },
                 {
-                    "url": "./ai/batch-scoring-databricks.md",
-                    "image": "../_images/icons/databricks.png",
-                    "title": "Batch scoring of Spark models on Azure Databricks",
-                    "summary": "Build a scalable solution for batch scoring an Apache Spark classification model using Azure Databricks."
-                },
-                {
                     "url": "./ai/realtime-scoring-python.md",
                     "image": "../_images/icons/python-powered-h.svg",
                     "title": "Real-time scoring of Python and deep learning models",
                     "summary": "Deploy Python models as web services to make real-time predictions, using regular Python models or deep learning models."
                 },
                 {
+                    "url": "./ai/batch-scoring-R-models.md",
+                    "image": "../_images/icons/logo-r.svg",
+                    "title": "Batch scoring of R machine learning models",
+                    "summary": "Perform batch scoring of R models using Azure Batch."
+                },
+                {
                     "url": "./ai/realtime-scoring-r.md",
                     "image": "../_images/icons/logo-r.svg",
                     "title": "Real-time scoring of R machine learning models",
                     "summary": "Implement a real-time prediction service in R using Microsoft Machine Learning Server running in Azure Kubernetes Service (AKS)."
+                },
+                {
+                    "url": "./ai/batch-scoring-databricks.md",
+                    "image": "../_images/icons/databricks.png",
+                    "title": "Batch scoring of Spark models on Azure Databricks",
+                    "summary": "Build a scalable solution for batch scoring an Apache Spark classification model using Azure Databricks."
                 },
                 {
                     "url": "./ai/real-time-recommendation.md",
@@ -213,12 +219,6 @@
                     "image": "../_images/icons/linux-penguin.svg",
                     "title": "N-tier application with Cassandra",
                     "summary": "Virtual machines configured for an N-tier application using Apache Cassandra on Linux."
-                },
-                {
-                    "url": "./jenkins/index.md",
-                    "image": "../_images/icons/jenkins.svg",
-                    "title": "Jenkins build server",
-                    "summary": "Scalable, enterprise-grade Jenkins server on Azure."
                 },
                 {
                     "url": "./sharepoint/index.md",

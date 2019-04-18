@@ -1,6 +1,6 @@
 ---
 title: Failure mode analysis
-description: Guidelines for performing failure mode analysis for cloud solutions based on Azure.
+description: Guidelines for performing a failure mode analysis for cloud solutions based on Azure.
 author: MikeWasson
 ms.date: 05/07/2018
 ms.topic: article
@@ -9,19 +9,17 @@ ms.subservice: cloud-design-principles
 ms.custom: resiliency
 ---
 
-# Failure mode analysis
-
-[!INCLUDE [header](../_includes/header.md)]
+# Failure mode analysis for Azure applications
 
 Failure mode analysis (FMA) is a process for building resiliency into a system, by identifying possible failure points in the system. The FMA should be part of the architecture and design phases, so that you can build failure recovery into the system from the beginning.
 
 Here is the general process to conduct an FMA:
 
-1. Identify all of the components in the system. Include external dependencies, such as as identity providers, third-party services, and so on.
+1. Identify all of the components in the system. Include external dependencies, such as identity providers, third-party services, and so on.
 2. For each component, identify potential failures that could occur. A single component may have more than one failure mode. For example, you should consider read failures and write failures separately, because the impact and possible mitigations will be different.
 3. Rate each failure mode according to its overall risk. Consider these factors:
 
-   - What is the likelihood of the failure. Is it relatively common? Extrememly rare? You don't need exact numbers; the purpose is to help rank the priority.
+   - What is the likelihood of the failure. Is it relatively common? Extremely rare? You don't need exact numbers; the purpose is to help rank the priority.
    - What is the impact on the application, in terms of availability, data loss, monetary cost, and business disruption?
 
 4. For each failure mode, determine how the application will respond and recover. Consider tradeoffs in cost and application complexity.
