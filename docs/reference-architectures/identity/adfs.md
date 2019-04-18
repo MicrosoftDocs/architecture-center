@@ -39,7 +39,7 @@ For additional considerations, see [Choose a solution for integrating on-premise
 
 ## Architecture
 
-This architecture extends the implementation described in [Extending AD DS to Azure][extending-ad-to-azure]. It contains the followign components.
+This architecture extends the implementation described in [Extending AD DS to Azure][extending-ad-to-azure]. It contains the following components.
 
 - **AD DS subnet**. The AD DS servers are contained in their own subnet with network security group (NSG) rules acting as a firewall.
 
