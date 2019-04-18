@@ -59,7 +59,7 @@ The Active Directory subnet NSG requires rules to permit incoming traffic from o
 
 ### Active Directory site
 
-In AD DS, a site represents a physical location, network, or collection of devices. AD DS sites are used to manage AD DS database replication by grouping together AD DS objects that are located close to one another and are connected by a high speed network. AD DS includes logic to select the best strategy for replacating the AD DS database between sites.
+In AD DS, a site represents a physical location, network, or collection of devices. AD DS sites are used to manage AD DS database replication by grouping together AD DS objects that are located close to one another and are connected by a high speed network. AD DS includes logic to select the best strategy for replicating the AD DS database between sites.
 
 We recommend that you create an AD DS site including the subnets defined for your application in Azure. Then, configure a site link between your on-premises AD DS sites, and AD DS will automatically perform the most efficient database replication possible. Note that this database replication requires little beyond the initial configuration.
 
@@ -149,7 +149,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 ### Test connectivity with the Azure VNet
 
-After deployment completes, you can test conectivity from the simulated on-premises environment to the Azure VNet.
+After deployment completes, you can test connectivity from the simulated on-premises environment to the Azure VNet.
 
 1. Use the Azure portal, navigate to the resource group that you created.
 
