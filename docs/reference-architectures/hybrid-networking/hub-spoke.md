@@ -299,7 +299,7 @@ This step is optional. If you want to allow spokes to connect to each other, you
 [azure-cli-2]: /azure/install-azure-cli
 [azbb]: https://github.com/mspnp/template-building-blocks/wiki/Install-Azure-Building-Blocks
 [azure-vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
-[best-practices-security]: /azure/best-practices-network-securit
+[best-practices-security]: /azure/best-practices-network-security
 [connect-to-an-Azure-vnet]: https://technet.microsoft.com/library/dn786406.aspx
 [guidance-expressroute]: ./expressroute.md
 [guidance-vpn]: ./vpn.md
