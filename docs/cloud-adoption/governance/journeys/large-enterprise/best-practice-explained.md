@@ -101,7 +101,7 @@ If any of the patterns chosen in this governance journey don't align with the re
 - [Policy Enforcement patterns](../../../decision-guides/policy-enforcement/overview.md)
 - [Resource Consistency patterns](../../../decision-guides/resource-consistency/overview.md)
 - [Resource Tagging patterns](../../../decision-guides/resource-tagging/overview.md)
-- [Software Defined Network patterns](../../../decision-guides/software-defined-network/overview.md)
+- [Software Defined Networking patterns](../../../decision-guides/software-defined-network/overview.md)
 - [Subscription Design patterns](../../../decision-guides/subscriptions/overview.md)
 
 ## Next steps

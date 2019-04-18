@@ -62,7 +62,7 @@ In some cases, retired assets can be sold as a source of revenue. Often, this re
 
 Recurring expenses required to operate the business are often called operating expenses. This is a very broad category. In most accounting models, it would include software licensing, hosting expenses, electric bills, real estate rentals, cooling expenses, temporary staff required for operations, equipment rentals, replacement parts, maintenance contracts, repair services, business continuity and disaster recovery (BCDR) services, and a number of other expenses that don't require capital expense approvals.
 
-This category is one of the largest earnings areas when considering an operational transformation journey. Time invested in making this list exhaustive is seldom wasted. Ask questions of the CIO and finance team to ensure all operational costs are accounted for.
+This category is one of the largest earnings areas when considering an operational transformation. Time invested in making this list exhaustive is seldom wasted. Ask questions of the CIO and finance team to ensure all operational costs are accounted for.
 
 ### Cost avoidance
 
@@ -82,9 +82,9 @@ An exception is when operational capacity is provided by a third party or manage
 
 ### Capital expense reductions or avoidance
 
-Capital expenses are slightly different than operating expenses. Generally, this category is driven by refresh cycles or datacenter expansion. An example of a datacenter expansion would be a new high-performance cluster to host a Big Data solution or data warehouse, and would generally fit into a captial expense category. More common are the basic refresh cycles. Some companies have rigid hardware refresh cycles, meaning assets are retired and replaced on a regular cycle (usually every three, five, or eight years). These cycles often coincide with asset lease cycles or forecasted lifespan of equipment. When a refresh cycle hits, IT draws capital expense to acquire new equipment.
+Capital expenses are slightly different than operating expenses. Generally, this category is driven by refresh cycles or datacenter expansion. An example of a datacenter expansion would be a new high-performance cluster to host a Big Data solution or data warehouse, and would generally fit into a capital expense category. More common are the basic refresh cycles. Some companies have rigid hardware refresh cycles, meaning assets are retired and replaced on a regular cycle (usually every three, five, or eight years). These cycles often coincide with asset lease cycles or forecasted lifespan of equipment. When a refresh cycle hits, IT draws capital expense to acquire new equipment.
 
-If a refresh cycle is approved and budgeted, the cloud transformation could help eliminate that cost. If a refresh cycle is planned but not yet approved, the cloud transformation could create a capital expense avoidance. Both scenarios would be added to the cost delta.
+If a refresh cycle is approved and budgeted, the cloud transformation could help eliminate that cost. If a refresh cycle is planned but not yet approved, the cloud transformation could avoid a capital expenditure. Both scenarios would be added to the cost delta.
 
 ## Next steps
 

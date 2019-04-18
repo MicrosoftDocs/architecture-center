@@ -1,15 +1,15 @@
 ---
-title: "CAF: Software Defined Networks" 
+title: "CAF: Software Defined Networking" 
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 ms.date: 02/11/2019
-description: Discussion of Software Defined Networks as a core service in Azure migrations
+description: Discussion of Software Defined Networking as a core service in Azure migrations
 author: rotycenh
 ---
 
-# CAF: Software Defined Network decision guide
+# CAF: Software Defined Networking decision guide
 
 Software Defined Networking (SDN) is a network architecture designed to allow virtualized networking functionality that can be centrally managed, configured, and modified through software. SDN provides an abstraction layer over the physical networking infrastructure, and enables the virtualized equivalent to physical routers, firewalls, and other networking hardware you would find in an on-premises network.
 
@@ -46,17 +46,17 @@ When planning which virtual networking architecture or combination of architectu
 
 ## Virtual networking architectures
 
-Learn more about the primary software defined networking architectures:
+Learn more about the primary SDN architectures:
 
-- [**PaaS Only**](paas-only.md): Platform as a service (PaaS) products support a limited set of built-in networking features and may not require an explicitly defined software defined network to support workload requirements.
-- [**Cloud Native**](cloud-native.md): A cloud native virtual network is the default software defined networking architecture when deploying resources to a cloud platform.
+- [**PaaS Only**](paas-only.md): Platform as a service (PaaS) products support a limited set of built-in networking features and may not require an explicitly defined SDN to support workload requirements.
+- [**Cloud Native**](cloud-native.md): A cloud native virtual network is the default SDN architecture when deploying resources to a cloud platform.
 - [**Cloud DMZ**](cloud-dmz.md): Provides limited connectivity between your on-premises and cloud network, secured through the implementation of a demilitarized zone on the cloud environment.
 - [**Hybrid**](hybrid.md): The hybrid cloud network architecture allows virtual networks to access your on-premises resources and vice versa.
 - [**Hub and Spoke**](hub-spoke.md): The hub and spoke architecture allows you to centrally manage external connectivity and shared services, isolate individual workloads, and overcome potential subscription limits.
 
 ## Learn more
 
-See the following for more information about software defined networking in the Azure platform.
+See the following for more information about SDN in the Azure platform.
 
 - [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview). On Azure, the core SDN capability is provided by Azure Virtual Network, which acts as a cloud analog to physical on-premises networks. Virtual networks also act as a default isolation boundary between resources on the platform.
 - [Azure Network Security Best Practices](/azure/security/azure-security-network-security-best-practices). Recommendations from the Azure Security team on how to configure your virtual networks to minimize security vulnerabilities.

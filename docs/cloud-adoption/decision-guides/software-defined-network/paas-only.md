@@ -1,5 +1,5 @@
 ---
-title: "CAF: Software Defined Networks - PaaS only" 
+title: "CAF: Software Defined Networking - PaaS only" 
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
@@ -9,11 +9,11 @@ description: Discussion of the PaaS only model for cloud-based networking functi
 author: rotycenh
 ---
 
-# Software Defined Networks: PaaS-only
+# Software Defined Networking: PaaS-only
 
 When you implement a platform as a service (PaaS) resource, the deployment process automatically creates an assumed underlying network with a limited number of controls over that network, including load balancing, port blocking, and connections to other PaaS services.
 
-In Azure, several PaaS resource types can be [deployed into](/azure/virtual-network/virtual-network-for-azure-services) or [connected to](/azure/virtual-network/virtual-network-service-endpoints-overview) a virtual network, allowing these resources to integrate with your existing virtual networking infrastructure. However, in many cases a PaaS only networking architecture, relying only on these default networking capabilities natively provided by PaaS resources, is sufficient to meet workload requirements.
+In Azure, several PaaS resource types can be [deployed into](/azure/virtual-network/virtual-network-for-azure-services) or [connected to](/azure/virtual-network/virtual-network-service-endpoints-overview) a virtual network, allowing these resources to integrate with your existing virtual networking infrastructure. Other services, such as [App Service Environments](/azure/app-service/environment/intro), [Azure Kubernetes Services](/azure/aks/intro-kubernetes), and [Service Fabric](/azure/service-fabric/service-fabric-overview) must be deployed within virtual network. However, in many cases a PaaS only networking architecture, relying only on the default native networking capabilities provided by PaaS resources, is sufficient to meet a workload's connectivity and traffic management requirements.
 
 If you are considering a PaaS only networking architecture, be sure you validate that the required assumptions align with your requirements.
 

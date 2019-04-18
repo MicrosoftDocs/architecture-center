@@ -1,5 +1,5 @@
 ---
-title: "CAF: Software Defined Networks - Cloud native" 
+title: "CAF: Software Defined Networking - Hub and spoke" 
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
@@ -9,7 +9,7 @@ description: Discussion of cloud native virtual networking services
 author: rotycenh
 ---
 
-# Software Defined Networks: Hub and Spoke
+# Software Defined Networking: Hub and spoke
 
 The hub and spoke networking model organizes your Azure-based cloud network infrastructure into multiple connected virtual networks. This model allows you to more efficiently manage common communication or security requirements and deal with potential subscription limitations.
 
@@ -17,19 +17,19 @@ In the hub and spoke model, the *hub* is a virtual network that acts as a centra
 
 All traffic passing in or out of the workload spoke networks is routed through the hub network where it can be routed, inspected, or otherwise managed by centrally managed IT rules or processes.
 
-This model aims to address the following issues:
+This model addresses the following considerations:
 
-- Cost savings and management efficiency. Centralizing services that can be shared by multiple workloads, such as network virtual appliances (NVAs) and DNS servers, in a single location allows IT to minimize redundant resources and management effort across multiple workloads.
+- **Cost savings and management efficiency.** Centralizing services that can be shared by multiple workloads, such as network virtual appliances (NVAs) and DNS servers, in a single location allows IT to minimize redundant resources and management effort across multiple workloads.
 - Overcoming subscriptions limits. Large cloud-based workloads may require the use of more resources than are allowed within a single Azure subscription (see [subscription limits](/azure/azure-subscription-service-limits)). Peering workload virtual networks from different subscriptions to a central hub can overcome these limits.
-- Separation of concerns. The ability to deploy individual workloads between central IT teams and workloads teams.
+- **Separation of concerns.** The ability to deploy individual workloads between central IT teams and workloads teams.
 
 The following diagram shows an example hub and spoke architecture including centrally managed hybrid connectivity.
 
-![Hub-spoke network architecture](../../../reference-architectures/hybrid-networking/images/hub-spoke.png)
+![Hub and spoke network architecture](../../../reference-architectures/hybrid-networking/images/hub-spoke.png)
 
 The hub and spoke architecture is often used alongside the hybrid networking architecture, providing a centrally managed connection to your on-premises environment shared between multiple workloads. In this scenario, all traffic traveling between the workloads and on-premises passes through the hub where it can be managed and secured.
 
-## Hub and spoke assumptions
+## Assumptions of a hub and spoke architecture
 
 Implementing a hub and spoke virtual networking architecture assumes the following:
 

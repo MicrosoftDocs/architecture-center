@@ -27,7 +27,7 @@ For single subscription and simple cloud deployments, many corporate policies ca
 
 - [Deployment templates](../resource-consistency/overview.md) can provision resources with standardized structure and configuration.
 - [Tagging and naming standards](../resource-tagging/overview.md) can help organize operations and support accounting and business requirements.
-- Traffic management and networking restrictions can be implemented through [software defined networking](../software-defined-network/overview.md).
+- Traffic management and networking restrictions can be implemented through [Software Defined Networking](../software-defined-network/overview.md).
 - [Role-based access control](../identity/overview.md) can secure and isolate your cloud resources.
 
 Start your cloud policy enforcement planning by examining how the application of the standard patterns discussed throughout these guides can help meet your organizational requirements.
