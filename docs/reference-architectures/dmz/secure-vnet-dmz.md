@@ -134,7 +134,7 @@ In this step, you will connect the two local network gateways.
 
 2. Find the resource named `pub-dmz-lb`, which is the load balancer in front of the public DMZ.
 
-3. Copy the public IP addess from the **Overview** blade and open this address in a web browser. You should see the default Apache2 server home page.
+3. Copy the public IP address from the **Overview** blade and open this address in a web browser. You should see the default Apache2 server home page.
 
 4. Find the resource named `int-dmz-lb`, which is the load balancer in front of the private DMZ. Copy the private IP address from the **Overview** blade.
 
