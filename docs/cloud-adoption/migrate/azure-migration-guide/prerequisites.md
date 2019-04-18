@@ -91,6 +91,8 @@ Assuming you choose a rehost approach to migration, the following child activiti
 - [The 5 Rs of rationalization](../../digital-estate/5-rs-of-rationalization.md)
 - [Cloud Adoption Framework planning checklist](../migration-considerations/prerequisites/planning-checklist.md)
 
+::: zone-end
+
 # [Create a landing zone](#tab/Landingzone)
 
 As you prepare to migrate, an important step is to create the landing zone by setting up Azure infrastructure in preparation for migration. During this time your business will run in a hybrid environment. Generally there are 6 broad areas which you should think about when preparing your landing zone:
@@ -171,4 +173,3 @@ Azure provides a range of governance controls across services and the Azure plat
 
 - [Deploy a migration infrastructure](../azure-best-practices/contoso-migration-infrastructure.md)
 
-::: zone-end
