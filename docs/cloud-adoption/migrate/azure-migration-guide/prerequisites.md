@@ -91,4 +91,84 @@ Assuming you choose a rehost approach to migration, the following child activiti
 - [The 5 Rs of rationalization](../../digital-estate/5-rs-of-rationalization.md)
 - [Cloud Adoption Framework planning checklist](../migration-considerations/prerequisites/planning-checklist.md)
 
+# [Create a landing zone](#tab/Landingzone)
+
+As you prepare to migrate, an important step is to create the landing zone by setting up Azure infrastructure in preparation for migration. During this time your business will run in a hybrid environment. Generally there are 6 broad areas which you should think about when preparing your landing zone:
+
+> [!div class="checklist"]
+>
+> - **Step 1: Azure subscriptions.** How will you purchase Azure, and interact with the Azure platform and services?
+> - **Step 2: Hybrid identity.** How will you manage and control access to on-premises and Azure resources after migration? How do you extend or move identity management to the cloud?
+> - **Step 3: Design for resilience.** How will you ensure that its apps and infrastructure are resilient if outages and disasters occur?
+> - **Step 4: Design a network infrastructure.** How should you design a networking infrastructure, and establish connectivity between its on-premises data center and Azure?
+> - **Step 5: Consider security.** How will you secure the hybrid/Azure deployment?
+> - **Step 6: Plan for governance.** How will you keep the deployment aligned with security and governance requirements?
+
+The key elements for each of the above steps are described in the following sections. For more details on setting up a landing zone please see [Deploy a migration infrastructure](../azure-best-practices/contoso-migration-infrastructure.md) which shows how the fictional company Contoso prepares for a migration.
+
+## Step 1: Buy and subscribe to Azure
+
+This steps includes the following considerations:
+
+> [!div class="checklist"]
+>
+> - **Buy Azure** which subscription model will best suit your needs, Pay-as-you-go or  Enterprise Agreement.
+> - **Manage subscriptions** Will you be using multiple subscriptions or a single subscription.
+> - **Examine licensing** Which methodology best suits your needs Azure Hybrid Benefit, Licenses Mobility, Reserved VM instances.
+
+## Step 2: Hybrid identity
+
+Using identity and access management (IAM) is important in giving and controlling user access to Azure resources. Some considerations are:
+
+> [!div class="checklist"]
+>
+> - **Extend identity** Using your on-premises Activity Directory and extending this to Azure Activity Directory.
+> - **New identity** Creating a new identity within Azure Active Directory which is separate to on-premises identity services and dedicated to securing your Azure resources.
+> - **Office 365 identity** Do you already have Office 365 as this includes Azure Activity Directory and may be enhanced to include your Azure identity needs.
+
+## Step 3: Design for resilience
+
+Designing your environment to be resilient in the event of disasters or outages is essential and consists of:
+
+> [!div class="checklist"]
+>
+> - **Regions** The choice of region is important. Regions are organized into geographies, with geographical boundaries providing data residency, sovereignty, and compliance. Each Azure region is paired with a different region for resiliency. Not all products are available in each region.
+> - **Availability** Availability Sets helps you protect apps and data from local outages within a data center. Availability Zones helps you protect apps and data from failures affecting an entire data center within a region.
+> - **Backups** Much like on-premises backups are essential to ensure you protect data. Azure Backup supports both locally redundant storage (LRS) and geo-redundant storage (GRS) to provide the level of protection you require.
+> - **Disaster Recovery** Azure Site Recovery helps ensure business continuity by keeping business apps and workloads running during regional outages.
+
+## Step 4: Design a network infrastructure
+
+With a regional design in place you are then ready to consider designing a network strategy.
+
+> [!div class="checklist"]
+>
+> - **Plan hybrid network connectivity** When working with a hybrid solution the network design must bridge between on-premises and cloud services while maintaining a high level of security and compliance. There are many options for bridging the networks such as VPN and VPN with ExpressRoute.
+> - **Design the Azure network infrastructure** This is important to ensure the hybrid solution is secure and scalable. This includes considering network peering, hub-to-hub for cross region access, and hub-to-spoke within a region.
+> - **Set up DNS** Domain Name Resolution can be configured to use either Azure DNS, custom VM with DNS, or your on-premises DNS in a hybrid solution.
+
+## Step 5: Consider security
+
+Security is crucial in the cloud, and Azure provides a wide array of security tools and capabilities. These help you to create secure solutions, on the secure Azure platform. There are a few aspects to consider:
+
+> [!div class="checklist"]
+>
+> - **Azure Security Center** Azure Security Center provides unified security management and advanced threat protection across hybrid cloud workloads. With Security Center, you can apply security policies across your workloads, limit your exposure to threats, and detect and respond to attacks.
+> - **Network security groups (NSGs)** An NSG is a filter (firewall) that contains a list of security rules which, when applied, allow or deny network traffic to resources connected to Azure VNets.
+> - **Data encryption** Azure Disk Encryption is a capability that helps you encrypt your Windows and Linux IaaS virtual machine disks.
+
+## Step 6: Plan for governance
+
+Azure provides a range of governance controls across services and the Azure platform. As you configure identity and access control, you will start to include governance and security in place. Broadly, there are three areas you will need to consider:
+
+> [!div class="checklist"]
+>
+> - **Policy**: Azure Policy applies and enforces rules and effects over your resources, so that resources stay compliant with corporate requirements and SLAs.
+> - **Locks**: Azure allows you to lock subscriptions, resources groups, and other resources, so that they can only be modified by those with authority to do so.
+> - **Tags**: Resources can be controlled, audited, and managed with tags. Tags attach metadata to resources, providing information about resources or owners.
+
+## Learn more
+
+- [Deploy a migration infrastructure](../azure-best-practices/contoso-migration-infrastructure.md)
+
 ::: zone-end
