@@ -32,7 +32,7 @@ Tailspin is the fictitious company that hosts the Surveys application. Tailspin 
 
 In this step, you'll create an Azure AD directory for Tailspin.
 
-1. Sign into the [Azure portal][portal] and head to [App registrations][appregistrations]
+1. Sign into the [Azure portal][portal] and head to [App registrations][appregistrations].
 
 2. Click **+ New Registration**.
 
