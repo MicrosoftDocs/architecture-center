@@ -30,14 +30,12 @@ These tools are designed to help organizations meet complex compliance obligatio
 - **Audit reports**: Audit reports allow you to stay current on the latest privacy, security, and compliance-related information for Microsoft Cloud services. This includes ISO, SOC, FedRAMP and other audit reports, bridge letters, and materials related to independent third-party audits of Microsoft Cloud services such as Azure, Office 365, Dynamics 365, and others.
 - **Data protection guides**: Data protection guides provide information about how Microsoft Cloud services protect your data, and how you can manage cloud data security and compliance for your organization. This includes deep-dive white papers that provide details on how Microsoft designs and operates cloud services, FAQs, reports of end-of-year security assessments, penetration test results, and guidance to help you conduct risk assessment and improve your data protection capabilities.
 - **Azure security and compliance blueprint**: Blueprints provide resources to assist you in building and launching cloud-powered applications that help you comply with stringent regulations and standards. With more certifications than any other cloud provider, you can have confidence deploying your critical workloads to Azure, with blueprints that include:
-
-- Industry-specific overview and guidance.
-- Customer responsibilities matrix.
-- Reference architectures with threat models.
-- Control implementation matrices.
-- Automation to deploy reference architectures.
-- Privacy resources: Documentation for Data Protection Impact Assessments, Data Subject Requests (DSRs), and Data Breach Notification is provided to incorporate into your own accountability program in support of the General Data Protection Regulation (GDPR).
-
+  - Industry-specific overview and guidance.
+  - Customer responsibilities matrix.
+  - Reference architectures with threat models.
+  - Control implementation matrices.
+  - Automation to deploy reference architectures.
+  - Privacy resources: Documentation for Data Protection Impact Assessments, Data Subject Requests (DSRs), and Data Breach Notification is provided to incorporate into your own accountability program in support of the General Data Protection Regulation (GDPR).
 - **Get started with GDPR**: Microsoft products and services help organizations meet GDPR requirements while collecting or processing personal data. STP is designed to give you information about the capabilities in Microsoft services that you can use to address specific requirements of the GDPR. The documentation can help your GDPR accountability and your understanding of technical and organizational measures. Documentation for Data Protection Impact Assessments, Data Subject Requests (DSRs), and Data Breach Notification is provided to incorporate into your own accountability program in support of the GDPR.
   - **Data subject requests**: The GDPR grants individuals (or data subjects) certain rights in connection with the processing of their personal data. This includes the right to correct inaccurate data, erase data, or restrict its processing, as well as receive their data and fulfill a request to transmit their data to another controller.
   - **Data breach**: The GDPR mandates notification requirements for data controllers and processors in the event of a breach of personal data. STP provides you with information about how Microsoft tries to prevent breaches in the first place, how Microsoft detects a breach, and how Microsoft will respond in the event of a breach and notify you as a data controller.

@@ -13,7 +13,7 @@ ms.topic: landing-page
 
 # CAF: Security Baseline discipline overview
 
-Security Baseline is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md) within the [Cloud Adoption Framework Governance Model](../overview.md). Security is a component of any IT deployment, and the cloud introduces unique security concerns. Many businesses are subject to regulatory requirements that make protecting sensitive data a major organizational priority when considering a cloud transformation. Identifying potential security threats to your cloud environment and establishing processes and procedures for addressing these threats should be a priority for any IT Security or Cybersecurity team. The Security Baseline discipline ensures  technical requirements and security constraints are consistently applied to cloud environments, as those requirements mature.
+Security Baseline is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md) within the [Cloud Adoption Framework governance model](../index.md). Security is a component of any IT deployment, and the cloud introduces unique security concerns. Many businesses are subject to regulatory requirements that make protecting sensitive data a major organizational priority when considering a cloud transformation. Identifying potential security threats to your cloud environment and establishing processes and procedures for addressing these threats should be a priority for any IT Security or Cybersecurity team. The Security Baseline discipline ensures technical requirements and security constraints are consistently applied to cloud environments, as those requirements mature.
 
 > [!NOTE]
 > Security Baseline governance does not replace the existing IT teams, processes, and procedures that your organization uses to secure cloud-deployed resources. The primary purpose of this discipline is to identify security-related business risks and provide risk-mitigation guidance to the IT staff responsible for security infrastructure. As you develop governance policies and processes make sure to involve relevant IT teams in your planning and review processes.
@@ -31,7 +31,7 @@ Actionable policy statements and the resulting architecture requirements serve a
 
 ## Developing Security Baseline governance policy statements
 
-The following six steps offer examples and potential options to consider when developing Security Baseline governance. Use each step as a starting point for discussions within your Cloud Governance team and with affected business, IT, and security teams across your organization to establish the policies and processes needed to mitigate security-related risks.
+The following six steps offer examples and potential options to consider when developing Security Baseline governance. Use each step as a starting point for discussions within your Cloud Governance team and with affected business, IT, and security teams across your organization to establish the policies and processes needed to manage security-related risks.
 
 <!-- markdownlint-disable MD033 -->
 
