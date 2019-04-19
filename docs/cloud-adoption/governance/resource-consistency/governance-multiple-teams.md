@@ -189,7 +189,7 @@ This means **app2 workload owner** had permission to deploy their own subnet wit
 
 Next, let's look at a single subscription with multiple resources groups for different environments and workloads. Note that in the previous example, the resources for each environment were easily identifiable because they were in the same resource group. Now that you no longer have that grouping, you will have to rely on a resource group naming convention to provide that functionality.
 
-1. The **shared infrastructure** resources will still have a separate resource group in this model, so that remains the same. Each workload requires two resource groups - one for each of the **development** and **production** environments. For the first workload, the **subscription owner** creates two resource groups. The first is named **app1-prod-rg** and the second is named **app1-dev-rg**. As discussed earlier, this naming convention identifies the resources as being associated with the first workload, **app1**, and either the **dev** or **prod** environment. Again, the *subscription* owner adds **app1 workload owner** to the resource group with the **contributor** role.
+1. The **shared infrastructure** resources will still have a separate resource group in this model, so that remains the same. Each workload requires two resource groups - one for each of the **development** and **production** environments. For the first workload, the **subscription owner** creates two resource groups. The first is named **app1-prod-rg** and the second is named **app1-dev-rg**. As discussed earlier, this naming convention identifies the resources as being associated with the first workload, **app1**, and either the **dev** or **prod** environment. Again, the *subscription* owner adds the **app1 workload owner** to the resource group with the **contributor** role.
     ![](../../_images/governance-3-12.png)
 2. Similar to the first example, **app1 workload owner** deploys a virtual network named **app1-prod-vnet** to the **production** environment, and another named **app1-dev-vnet** to the **development** environment. Again, **app1 workload owner** sends a request to the **network operations** user to create a peering connection. Note that **app1 workload owner** adds the same tags as in the first example, and the limit counter has been decremented to 997 virtual networks remaining in the subscription.
     ![](../../_images/governance-3-13.png)
@@ -229,16 +229,16 @@ You've learned about several different models for governing access to Azure reso
 Follow these steps:
 
 1. Create an [Azure account](/azure/active-directory/sign-up-organization) if your organization doesn't already have one. The person who signs up for the Azure account becomes the Azure account administrator, and your organization's leadership must select an individual to assume this role. This individual will be responsible for:
-    - Creating subscriptions, and
+    - Creating subscriptions.
     - Creating and administering [Azure Active Directory (Azure AD)](/azure/active-directory/active-directory-whatis) tenants that store user identity for those subscriptions.
 2. Your organization's leadership team decides which people are responsible for:
     - Management of user identity; an [Azure AD tenant](/azure/active-directory/develop/active-directory-howto-tenant) is created by default when your organization's Azure Account is created, and the account administrator is added as the [Azure AD global administrator](/azure/active-directory/active-directory-assign-admin-roles-azure-portal#details-about-the-global-administrator-role) by default. Your organization can choose another user to manage user identity by [assigning the Azure AD global administrator role to that user](/azure/active-directory/active-directory-users-assign-role-azure-portal).
     - Subscriptions, which means these users:
-        - Manage costs associated with resource usage in that subscription,
-        - Implement and maintain least permission model for resource access, and
+        - Manage costs associated with resource usage in that subscription.
+        - Implement and maintain least permission model for resource access.
         - Keep track of service limits.
     - Shared infrastructure services (if your organization decides to use this model), which means this user is responsible for:
-        - On-premises to Azure network connectivity, and
+        - On-premises to Azure network connectivity.
         - Ownership of network connectivity within Azure through virtual network peering.
     - Workload owners.
 3. The Azure AD global administrator [creates the new user accounts](/azure/active-directory/add-users-azure-active-directory) for:
