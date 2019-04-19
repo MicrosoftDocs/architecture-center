@@ -1,15 +1,14 @@
 ---
-title: "CAF: Governance in the Cloud Adoption Framework"
-titleSuffix: Microsoft Cloud Adoption Framework for Azure
+title: "CAF: Governance in the Microsoft Cloud Adoption Framework for Azure"
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 ms.date: 02/11/2019
-description: Governance in the Cloud Adoption Framework
+description: Governance in the Microsoft CAF for Azure
 author: BrianBlanchard
 ---
 
-# Cloud governance in the Microsoft Cloud Adoption Framework for Azure
+# Governance in the Microsoft Cloud Adoption Framework for Azure
 
 The cloud creates new paradigms regarding the technologies that support the business. These new paradigms also cause shifts in how those technologies are adopted, managed, and governed. When entire datacenters can be destroyed and re-created with one line of code executed from an unattended process, we have to rethink traditional approaches. This is equally true when it comes to governance.
 
@@ -28,18 +27,18 @@ The content in the Cloud Adoption Framework affects the business, technology, an
 
 The Cloud Architect serves as the thought leader and facilitator to bring these audiences together. The content in this collection of guides is designed to help the Cloud Architect facilitate the right conversation, with the right audience, to drive necessary decisions. Business transformation that is empowered by the cloud is dependent upon the Cloud Architect role to help guide decisions throughout the business and IT.
 
-**Cloud Architect specialization in this section:** Each section of the Cloud Adoption Framework represents a different specialization or variant of the Cloud Architect role. This section of the Cloud Adoption Framework is designed for cloud architects with a passion for mitigating or reducing technical risks. Some cloud providers refer to these specialists as Cloud Custodians; we prefer the term Cloud Guardian or, collectively, the Cloud Governance team. In each actionable customer journey, the articles show how the composition and role of the Cloud Governance team may change over time.
+**Cloud Architect specialization in this section:** Each section of the Cloud Adoption Framework represents a different specialization or variant of the Cloud Architect role. This section of the Cloud Adoption Framework is designed for cloud architects with a passion for mitigating or reducing technical risks. Some cloud providers refer to these specialists as *cloud custodians*, but we prefer *cloud guardians* or, collectively, the *Cloud Governance team*. In each actionable customer journey, the articles show how the composition and role of the Cloud Governance team may change over time.
 
 ## Using this guide
 
 For readers who wish to follow this guide from beginning to end, this content will aid in developing a robust cloud governance strategy in parallel to cloud implementation. The guidance walks the reader through the theory and implementation of such a strategy.
 
-For a crash course on the theory and quick access to Azure implementation, get started with the [Overview of actionable governance journeys](./journeys/overview.md). Through this guidance, the reader can start small and evolve their governance needs in parallel with cloud adoption efforts.
+For a crash course on the theory and quick access to Azure implementation, get started with the [Overview of actionable governance journeys](./journeys/index.md). Through this guidance, the reader can start small and evolve their governance needs in parallel with cloud adoption efforts.
 
 ## Next steps
 
 Review the actionable governance journeys.
 
 > [!div class="nextstepaction"]
-> [Actionable governance journeys](./journeys/overview.md)
+> [Actionable governance journeys](./journeys/index.md)
 
