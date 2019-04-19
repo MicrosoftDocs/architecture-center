@@ -42,4 +42,3 @@ Review the actionable governance journeys.
 
 > [!div class="nextstepaction"]
 > [Actionable governance journeys](./journeys/overview.md)
-
