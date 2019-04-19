@@ -66,7 +66,7 @@ The main phases of a typical FastTrack for Azure engagement are:
 
 ## Microsoft Services
 
-![Microsoft Services CAF Approach](../../_images/mcs-program-approach.jpg)
+![Microsoft Services CAF Approach](../../../_images/mcs-program-approach.jpg)
 
 Microsoft Services offers a number of solution offers which align to the methodology within the Cloud Adoption Framework to help customers successfully migrate to the cloud. Use the Azure [Discovery and Roadmap](https://aka.ms/ca-dr) with [Azure Migration Pilot](https://microsoft.sharepoint.com/:p:/r/teams/CampusIPLibraries/MCS/_layouts/15/Doc.aspx?sourcedoc=%7BF463FF39-D2D9-4C81-AE8D-49351DF5CB22%7D&file=Azure%20Migration%20Pilot%20-%20Datasheet.pptx&action=edit&mobileredirect=true&DefaultItemOpen=1&cid=9ed580e2-5482-464a-accd-4ae8e0f8d892) solution offerings to combine customers’ real-time data, analysis, and provide a roadmap to adopt cloud technologies in the most effective and cost efficient ways. With the Azure Migration Pilot, get started with an easy, short, and cost-effective proof of value migration to Microsoft Azure.
 
