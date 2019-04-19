@@ -1,5 +1,5 @@
 ---
-title: Migrate an Azure Cloud Services application to Azure Service Fabric 
+title: Migrate an Azure Cloud Services application to Azure Service Fabric
 description: How to migrate an application from Azure Cloud Services to Azure Service Fabric.
 author: MikeWasson
 ms.date: 04/11/2018
@@ -7,11 +7,11 @@ ms.topic: guide
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ---
-# Migrate an Azure Cloud Services application to Azure Service Fabric 
+# Migrate an Azure Cloud Services application to Azure Service Fabric
 
 [![GitHub](../_images/github.png) Sample code][sample-code]
 
-This article describes migrating an application from Azure Cloud Services to Azure Service Fabric. It focuses on architectural decisions and recommended practices. 
+This article describes migrating an application from Azure Cloud Services to Azure Service Fabric. It focuses on architectural decisions and recommended practices.
 
 For this project, we started with a Cloud Services application called Surveys and ported it to Service Fabric. The goal was to migrate the application with as few changes as possible. In a later article, we will optimize the application for Service Fabric by adopting a microservices architecture.
 
@@ -31,9 +31,9 @@ Now Tailspin wants to move the Surveys application to a microservices architectu
 1. Port the cloud services to Service Fabric, while minimizing changes to the application.
 2. Optimize the application for Service Fabric, by moving to a microservices architecture.
 
-This article describes the first phase. A later article will describe the second phase. In a real-world project, it's likely that both stages would overlap. While porting to Service Fabric, you would also start to re-architect the application into micro-services. Later you might refine the architecture further, perhaps dividing coarse-grained services into smaller services.  
+This article describes the first phase. A later article will describe the second phase. In a real-world project, it's likely that both stages would overlap. While porting to Service Fabric, you would also start to re-architect the application into micro-services. Later you might refine the architecture further, perhaps dividing coarse-grained services into smaller services.
 
-The application code is available on [GitHub][sample-code]. This repo contains both the Cloud Services application and the Service Fabric version. 
+The application code is available on [GitHub][sample-code]. This repo contains both the Cloud Services application and the Service Fabric version.
 
 > The cloud service is an updated version of the original application from the *Developing Multi-tenant Applications* book.
 
@@ -49,7 +49,7 @@ An in-depth discussion of microservices is beyond scope of this article, but her
 - **Small, focused teams**. Because the application is broken down into many small services, each service can be built by a small focused team.
 
 ## Why Service Fabric?
-      
+
 Service Fabric is a good fit for a microservices architecture, because most of the features needed in a distributed system are built into Service Fabric, including:
 
 - **Cluster management**. Service Fabric automatically handles node failover, health monitoring, and other cluster management functions.
@@ -60,7 +60,7 @@ Service Fabric is a good fit for a microservices architecture, because most of t
 - **Service orchestration** across a cluster of machines.
 - **Higher density** for optimizing resource consumption. A single node can host multiple services.
 
-Service Fabric is used by various Microsoft services, including Azure SQL Database, Cosmos DB, Azure Event Hubs, and others, making it a proven platform for building distributed cloud applications. 
+Service Fabric is used by various Microsoft services, including Azure SQL Database, Cosmos DB, Azure Event Hubs, and others, making it a proven platform for building distributed cloud applications.
 
 ## Comparing Cloud Services with Service Fabric
 
@@ -86,15 +86,15 @@ The following table summarizes some of the important differences between Cloud S
 
 ## The Surveys application on Cloud Services
 
-The following diagram shows the architecture of the Surveys application running on Cloud Services. 
+The following diagram shows the architecture of the Surveys application running on Cloud Services.
 
 ![](./images/tailspin01.png)
 
 The application consists of two web roles and a worker role.
 
-- The **Tailspin.Web** web role hosts an ASP.NET website that Tailspin customers use to create and manage surveys. Customers also use this website to sign up for the application and manage their subscriptions. Finally, Tailspin administrators can use it to see the list of tenants and manage tenant data. 
+- The **Tailspin.Web** web role hosts an ASP.NET website that Tailspin customers use to create and manage surveys. Customers also use this website to sign up for the application and manage their subscriptions. Finally, Tailspin administrators can use it to see the list of tenants and manage tenant data.
 
-- The **Tailspin.Web.Survey.Public** web role hosts an ASP.NET website where people can take the surveys that Tailspin customers publish. 
+- The **Tailspin.Web.Survey.Public** web role hosts an ASP.NET website where people can take the surveys that Tailspin customers publish.
 
 - The **Tailspin.Workers.Survey** worker role does background processing. The web roles put work items onto a queue, and the worker role processes the items. Two background tasks are defined: Exporting survey answers to Azure SQL Database, and calculating statistics for survey answers.
 
@@ -102,11 +102,11 @@ In addition to Cloud Services, the Surveys application uses some other Azure ser
 
 - **Azure Storage** to store surveys, surveys answers, and tenant information.
 
-- **Azure Redis Cache** to cache some of the data that is stored in Azure Storage, for faster read access. 
+- **Azure Redis Cache** to cache some of the data that is stored in Azure Storage, for faster read access.
 
 - **Azure Active Directory** (Azure AD) to authenticate customers and Tailspin administrators.
 
-- **Azure SQL Database** to store the survey answers for analysis. 
+- **Azure SQL Database** to store the survey answers for analysis.
 
 ## Moving to Service Fabric
 
@@ -114,21 +114,21 @@ As mentioned, the goal of this phase was migrating to Service Fabric with the mi
 
 ![](./images/tailspin02.png)
 
-Intentionally, this architecture is very similar to the original application. However, the diagram hides some important differences. In the rest of this article, we'll explore those differences. 
+Intentionally, this architecture is very similar to the original application. However, the diagram hides some important differences. In the rest of this article, we'll explore those differences.
 
 ## Converting the cloud service roles to services
 
-As mentioned, we migrated each cloud service role to a Service Fabric service. Because cloud service roles are stateless, for this phase it made sense to create stateless services in Service Fabric. 
+As mentioned, we migrated each cloud service role to a Service Fabric service. Because cloud service roles are stateless, for this phase it made sense to create stateless services in Service Fabric.
 
-For the migration, we followed the steps outlined in [Guide to converting Web and Worker Roles to Service Fabric stateless services][sf-migration]. 
+For the migration, we followed the steps outlined in [Guide to converting Web and Worker Roles to Service Fabric stateless services][sf-migration].
 
 ### Creating the web front-end services
 
-In Service Fabric, a service runs inside a process created by the Service Fabric runtime. For a web front end, that means the service is not running inside IIS. Instead, the service must host a web server. This approach is called *self-hosting*, because the code that runs inside the process acts as the web server host. 
+In Service Fabric, a service runs inside a process created by the Service Fabric runtime. For a web front end, that means the service is not running inside IIS. Instead, the service must host a web server. This approach is called *self-hosting*, because the code that runs inside the process acts as the web server host.
 
 The requirement to self-host means that a Service Fabric service can't use ASP.NET MVC or ASP.NET Web Forms, because those frameworks require IIS and do not support self-hosting. Options for self-hosting include:
 
-- [ASP.NET Core][aspnet-core], self-hosted using the [Kestrel][kestrel] web server. 
+- [ASP.NET Core][aspnet-core], self-hosted using the [Kestrel][kestrel] web server.
 - [ASP.NET Web API][aspnet-webapi], self-hosted using [OWIN][owin].
 - Third-party frameworks such as [Nancy](http://nancyfx.org/).
 
@@ -136,9 +136,9 @@ The original Surveys application uses ASP.NET MVC. Because ASP.NET MVC cannot be
 
 - Port the web roles to ASP.NET Core, which can be self-hosted.
 - Convert the web site into a single-page application (SPA) that calls a web API implemented using ASP.NET Web API. This would have required a complete redesign of the web front end.
-- Keep the existing ASP.NET MVC code and deploy IIS in a Windows Server container to Service Fabric. This approach would require little or no code change. 
+- Keep the existing ASP.NET MVC code and deploy IIS in a Windows Server container to Service Fabric. This approach would require little or no code change.
 
-The first option, porting to ASP.NET Core, allowed us to take advantage of the latest features in ASP.NET Core. To do the conversion, we followed the steps described in [Migrating From ASP.NET MVC to ASP.NET Core MVC][aspnet-migration]. 
+The first option, porting to ASP.NET Core, allowed us to take advantage of the latest features in ASP.NET Core. To do the conversion, we followed the steps described in [Migrating From ASP.NET MVC to ASP.NET Core MVC][aspnet-migration].
 
 > [!NOTE]
 > When using ASP.NET Core with Kestrel, you should place a reverse proxy in front of Kestrel to handle traffic from the Internet, for security reasons. For more information, see [Kestrel web server implementation in ASP.NET Core][kestrel]. The section [Deploying the application](#deploying-the-application) describes a recommended Azure deployment.
@@ -154,7 +154,7 @@ In Cloud Services, a web or worker role exposes an HTTP endpoint by declaring it
 </Endpoints>
 ```
 
-Similarly, Service Fabric endpoints are declared in a service manifest: 
+Similarly, Service Fabric endpoints are declared in a service manifest:
 
 ```xml
 <!-- Service Fabric endpoint -->
@@ -174,7 +174,7 @@ A service must explicitly create listeners for each endpoint. The reason is that
 | File | Description |
 |------|-------------|
 | Service definition (.csdef) | Settings used by Azure to configure the cloud service. Defines the roles, endpoints, startup tasks, and the names of configuration settings. |
-| Service configuration (.cscfg) | Per-deployment settings, including the number of role instances, endpoint port numbers, and the values of configuration settings. 
+| Service configuration (.cscfg) | Per-deployment settings, including the number of role instances, endpoint port numbers, and the values of configuration settings.
 | Service package (.cspkg) | Contains the application code and configurations, and the service definition file.  |
 
 There is one .csdef file for the entire application. You can have multiple .cscfg files for different environments, such as local, test, or production. When the service is running, you can update the .cscfg but not the .csdef. For more information, see [What is the Cloud Service model and how do I package it?][cloud-service-config]
@@ -209,29 +209,29 @@ To support different configuration settings for multiple environments, use the f
 
 ## Deploying the application
 
-Whereas Azure Cloud Services is a managed service, Service Fabric is a runtime. You can create Service Fabric clusters in many environments, including Azure and on premises. In this article, we focus on deploying to Azure. 
+Whereas Azure Cloud Services is a managed service, Service Fabric is a runtime. You can create Service Fabric clusters in many environments, including Azure and on premises. In this article, we focus on deploying to Azure.
 
 The following diagram shows a recommended deployment:
 
 ![](./images/tailspin-cluster.png)
 
-The Service Fabric cluster is deployed to a [VM scale set][vm-scale-sets]. Scale sets are an Azure Compute resource that can be used to deploy and manage a set of identical VMs. 
+The Service Fabric cluster is deployed to a [VM scale set][vm-scale-sets]. Scale sets are an Azure Compute resource that can be used to deploy and manage a set of identical VMs.
 
-As mentioned, the Kestrel web server requires a reverse proxy for security reasons. This diagram shows [Azure Application Gateway][application-gateway], which is an Azure service that offers various layer 7 load balancing capabilities. It acts as a reverse-proxy service, terminating the client connection and forwarding requests to back-end endpoints. You might use a different reverse proxy solution, such as nginx.  
+As mentioned, the Kestrel web server requires a reverse proxy for security reasons. This diagram shows [Azure Application Gateway][application-gateway], which is an Azure service that offers various layer 7 load balancing capabilities. It acts as a reverse-proxy service, terminating the client connection and forwarding requests to back-end endpoints. You might use a different reverse proxy solution, such as nginx.
 
 ### Layer 7 routing
 
-In the [original Surveys application](https://msdn.microsoft.com/library/hh534477.aspx#sec21), one web role listened on port 80, and the other web role listened on port 443. 
+In the [original Surveys application](https://msdn.microsoft.com/library/hh534477.aspx#sec21), one web role listened on port 80, and the other web role listened on port 443.
 
 | Public site | Survey management site |
 |-------------|------------------------|
 | `http://tailspin.cloudapp.net` | `https://tailspin.cloudapp.net` |
 
-Another option is to use layer 7 routing. In this approach, different URL paths get routed to different port numbers on the back end. For example, the public site might use URL paths starting with `/public/`. 
+Another option is to use layer 7 routing. In this approach, different URL paths get routed to different port numbers on the back end. For example, the public site might use URL paths starting with `/public/`.
 
 Options for layer 7 routing include:
 
-- Use Application Gateway. 
+- Use Application Gateway.
 
 - Use a network virtual appliance (NVA), such as nginx.
 
@@ -255,10 +255,10 @@ The following diagram shows a cluster that separates front-end and back-end serv
 
 To implement this approach:
 
-1. When you create the cluster, define two or more node types. 
+1. When you create the cluster, define two or more node types.
 2. For each service, use [placement constraints][sf-placement-constraints] to assign the service to a node type.
 
-When you deploy to Azure, each node type is deployed to a separate VM scale set. The 
+When you deploy to Azure, each node type is deployed to a separate VM scale set. The
 Service Fabric cluster spans all node types. For more information, see [The relationship between Service Fabric node types and Virtual Machine Scale Sets][sf-node-types].
 
 > If a cluster has multiple node types, one node type is designated as the *primary* node type. Service Fabric runtime services, such as the Cluster Management Service, run on the primary node type. Provision at least 5 nodes for the primary node type in a production environment. The other node type should have at least 2 nodes.
@@ -271,7 +271,7 @@ To configure a public HTTPS endpoint, see [Specify resources in a service manife
 
 You can scale out the application by adding VMs to the cluster. VM scale sets support auto-scaling using auto-scale rules based on performance counters. For more information, see [Scale a Service Fabric cluster in or out using auto-scale rules][sf-auto-scale].
 
-While the cluster is running, you should collect logs from all the nodes in a central location. For more information, see [Collect logs by using Azure Diagnostics][sf-logs].   
+While the cluster is running, you should collect logs from all the nodes in a central location. For more information, see [Collect logs by using Azure Diagnostics][sf-logs].
 
 ## Conclusion
 

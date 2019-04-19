@@ -144,7 +144,7 @@ All the code for this scenario is available in the [GitHub][github] repository. 
 [redlock]: https://redis.io/topics/distlock
 [russian]: http://government.ru/all/rss/
 [service-bus]: /azure/service-bus-messaging/
-[storage]: /azure/storage/common/storage-account-overview 
+[storage]: /azure/storage/common/storage-account-overview
 [throughput]: /azure/cosmos-db/scaling-throughput
 [topics]: /azure/service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions
 [text-analytics]: /azure/cognitive-services/text-analytics/

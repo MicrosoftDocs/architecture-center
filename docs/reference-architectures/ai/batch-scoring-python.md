@@ -23,7 +23,7 @@ This reference architecture is designed for workloads that are triggered on a sc
 
 1. Send sensor readings for ingestion to Azure Event Hubs.
 2. Perform stream processing and store the raw data.
-3. Send the data to a Machine Learning cluster that is ready to start taking work. Each node in the cluster runs a scoring job for a specific sensor. 
+3. Send the data to a Machine Learning cluster that is ready to start taking work. Each node in the cluster runs a scoring job for a specific sensor.
 4. Execute the scoring pipeline, which runs the scoring jobs in parallel using Machine Learning Python scripts. The pipeline is created, published, and scheduled to run on a predefined interval of time.
 5. Generate predictions and store them in Blob storage for later consumption.
 
