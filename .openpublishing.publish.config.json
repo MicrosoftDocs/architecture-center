@@ -1,6 +1,4 @@
 {
-  "need_generate_pdf": false,
-  "need_generate_intellisense": false,
   "docsets_to_publish": [
     {
       "docset_name": "azure-architecture-center",
@@ -8,6 +6,7 @@
       "build_output_subfolder": "azure-architecture-center",
       "locale": "en-us",
       "monikers": [],
+      "moniker_ranges": [],
       "open_to_public_contributors": true,
       "type_mapping": {
         "Conceptual": "Content",
@@ -41,12 +40,17 @@
     }
   ],
   "branch_target_mapping": {
-    "live": [ "Publish", "PDF" ]
+    "live": [
+      "Publish",
+      "PDF"
+    ]
   },
   "need_generate_pdf_url_template": true,
-  "Targets": {
+  "targets": {
     "Pdf": {
       "template_folder": "_themes.pdf"
     }
-  }
+  },
+  "need_generate_pdf": false,
+  "need_generate_intellisense": false
 }
