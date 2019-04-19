@@ -17,7 +17,8 @@ This article is not focused on cloud risks. Instead it discusses the business ri
 
 True business risks will be based on the what and how behind specific transformations. Fortunately, there are a number of very common risks that can be used as a conversation started to understand specific, personalized risks.
 
-**Before reading the following, beware that each of these risks can be managed. The goal of this article is to inform and prepare readers, so that risk management discussion can be more effective. **
+> [!IMPORTANT]
+> Before reading the following, beware that each of these risks can be managed. The goal of this article is to inform and prepare readers, so that risk management discussion can be more effective.
 
 - **Data breach**: The number one risk associated with any transformation, is the protection of data. Data leaks can cause significant damage to your company, leading to loss of customers, decrease in business, or even legal liability. Any changes to the way data is stored, processed, or used creates risk. Cloud Transformations create a high degree of change regarding data management, so the risk should not be taken lightly. [Security Baseline](../security-baseline/overview.md), [Data Classification](./what-is-data-classification.md), and [Incremental Rationalization](../../digital-estate/rationalize.md#incremental-rationalization) can each help manage this risk.
 
