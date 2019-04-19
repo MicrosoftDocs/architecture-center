@@ -47,7 +47,7 @@ When violations are detected, you should take actions to realign with policy as 
 
 The following triggers and enforcement actions provide examples you can use when discussing how to use monitoring data to resolve policy violations:
 
-- **Unexpected changes in configuration detected**. If the configuration of a resource changes unexpectedly, work with IT staff and workload owners to identify root cause and develop a remediation plan.
+- **Unexpected changes in configuration detected.** If the configuration of a resource changes unexpectedly, work with IT staff and workload owners to identify root cause and develop a remediation plan.
 - **Configuration of new resources does not adhere to policy.** Work with DevOps teams and workload owners to review Deployment Acceleration policies during project startup so everyone involved understands the relevant policy requirements.
 - **Deployment failures or configuration issues cause delays in project schedules.** Work with development teams and workload owners to ensure the team understands how to automate the deployment of cloud-based resources for consistency and repeatability. Fully automated deployments should be required early in the development cycle &mdash; trying to accomplish this late in the development cycle usually leads to unexpected issues and delays.
 

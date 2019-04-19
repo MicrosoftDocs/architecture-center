@@ -11,7 +11,7 @@ author: BrianBlanchard
 
 # Cost Management tools in Azure
 
-[Cost Management](overview.md) is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md). This discipline focuses on ways of establishing cloud spending plans, allocating cloud budgets, monitoring and enforcement of cloud budgets, detecting costly anomalies, and adjusting the cloud governance plan when actual spending is misaligned.
+[Cost Management](./index.md) is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md). This discipline focuses on ways of establishing cloud spending plans, allocating cloud budgets, monitoring and enforcement of cloud budgets, detecting costly anomalies, and adjusting the cloud governance plan when actual spending is misaligned.
 
 The following is a list of Azure native tools that can help mature the policies and processes that support this governance discipline.
 
@@ -23,6 +23,7 @@ The following is a list of Azure native tools that can help mature the policies 
 |Monitor spending across multiple resources    | No         | Yes        | Yes         | No         |
 |Control spending on single resource     | Yes - manual sizing         | Yes         | No         | Yes         |
 |Enforce spending across multiple resources    | No         | Yes         | No         | Yes         |
+|Enforce accounting metadata on resources    | No         | No         | No         | Yes         |
 |Monitor and detect trends     | Yes - limited         | Yes        | Yes         | No         |
 |Detect spending anomalies     | No         | Yes        | Yes         | No        |
 |Socialize deviations     | No        | Yes        | Yes        | No        |
