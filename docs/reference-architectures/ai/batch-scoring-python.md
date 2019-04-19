@@ -51,9 +51,9 @@ For standard Python models, it's generally accepted that CPUs are sufficient to 
 
 When running scoring processes of many models in batch mode, the jobs need to be parallelized across VMs. Two approaches are possible:
 
-* Create a larger cluster using low-cost VMs.
+- Create a larger cluster using low-cost VMs.
 
-* Create a smaller cluster using high performing VMs with more cores available on each.
+- Create a smaller cluster using high performing VMs with more cores available on each.
 
 In general, scoring of standard Python models is not as demanding as scoring of deep learning models, and a small cluster should be able to handle a large number of queued models efficiently. You can increase the number of cluster nodes as the dataset sizes increase.
 

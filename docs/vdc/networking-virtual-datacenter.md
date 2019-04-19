@@ -52,11 +52,11 @@ A VDC implementation can help enterprises get workloads and applications into Az
 
 The key to unlock the advantages of VDC is a centralized hub and spoke network topology with a mix of Azure services and features:
 
-* [Azure Virtual Network][VNet],
-* [Network security groups][NSG],
-* [Virtual network peering][VNetPeering],
-* [User-Defined Routes (UDR)][UDR], and
-* Azure Identity with [Role-Based Access Control (RBAC)][RBAC] and optionally [Azure Firewall][AzFW], [Azure DNS][DNS], [Azure Front Door][AFD], and [Azure Virtual WAN][vWAN].
+- [Azure Virtual Network][VNet],
+- [Network security groups][NSG],
+- [Virtual network peering][VNetPeering],
+- [User-Defined Routes (UDR)][UDR], and
+- Azure Identity with [Role-Based Access Control (RBAC)][RBAC] and optionally [Azure Firewall][AzFW], [Azure DNS][DNS], [Azure Front Door][AFD], and [Azure Virtual WAN][vWAN].
 
 ## Who should implement a Virtual datacenter?
 
