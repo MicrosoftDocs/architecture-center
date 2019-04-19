@@ -5,7 +5,7 @@ ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 ms.date: 02/11/2019
-description: Discussion of the PaaS only model for cloud-based networking functionality
+description: Discussion of the PaaS only model for cloud based networking functionality
 author: rotycenh
 ---
 
@@ -21,11 +21,11 @@ If you are considering a PaaS only networking architecture, be sure you validate
 
 Deploying a PaaS-only networking architecture assumes the following:
 
-- The application being deployed is a standalone application OR is dependent on only other PaaS resources.
+- The application being deployed is a standalone application OR is dependent only on other PaaS resources that do not require a virtual network.
 - Your IT operations teams can update their tools, training, and processes to support management, configuration, and deployment of standalone PaaS applications.
 - The PaaS application is not part of a broader cloud migration effort that will include IaaS resources.
 
-These assumptions are minimum qualifiers aligned to deploying a PaaS-only network. While this approach may align with the requirements of a single application deployment, your Cloud Adoption team should examine these long-term questions:
+These assumptions are minimum qualifiers aligned to deploying a PaaS-only network. While this approach may align with the requirements of a single application deployment, each cloud adoption team should consider these long-term questions:
 
 - Will this deployment expand in scope or scale to require access to other non-PaaS resources?
 - Are other PaaS deployments planned beyond the current solution?

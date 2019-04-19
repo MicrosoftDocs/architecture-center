@@ -5,15 +5,13 @@ ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 ms.date: 02/11/2019
-description: Discussion of Software Defined Networking as a core service in Azure migrations
+description: Discussion of Software Defined Networks as a core service in Azure migrations
 author: rotycenh
 ---
 
-# CAF: Software Defined Networking decision guide
+# Software Defined Networking decision guide
 
-Software Defined Networking (SDN) is a network architecture designed to allow virtualized networking functionality that can be centrally managed, configured, and modified through software. SDN provides an abstraction layer over the physical networking infrastructure, and enables the virtualized equivalent to physical routers, firewalls, and other networking hardware you would find in an on-premises network.
-
-SDN allows IT staff to configure and deploy network structures and capabilities that support workload needs using virtualized resources. The flexibility of software-based deployment management enables rapid modification of networking resources and allows the ability to support both agile and traditional deployment models. Virtualized networks created with SDN technology are critical to creating secure networks on a public cloud platform.
+Software Defined Networking (SDN) is a network architecture designed to allow virtualized networking functionality that can be centrally managed, configured, and modified through software. SDN enables the creation of cloud-based networks using the virtualized equivalents to physical routers, firewalls, and other networking devices used in on-premises networks. SDN is critical to creating secure virtual networks on public cloud platforms such as Azure.
 
 ## Networking decision guide
 
@@ -23,7 +21,7 @@ Jump to: [PaaS Only](paas-only.md) | [Cloud native](cloud-native.md) | | [Cloud 
 
 SDN provides several options with varying degrees of pricing and complexity. The above discovery guide provides a reference to quickly personalize these options to best align with specific business and technology strategies.
 
-The inflection point in this guide depends on several key decisions that your Cloud Strategy team have made before making decisions about networking architecture. Most important among these are decisions involving your [Digital Estate definition](../../digital-estate/overview.md) and [Subscription Design](../subscriptions/overview.md) (which may also require inputs from decisions made related to your cloud accounting and global markets strategies).
+The inflection point in this guide depends on several key decisions that your Cloud Strategy team have made before making decisions about networking architecture. Most important among these are decisions involving your [Digital Estate definition](../../digital-estate/index.md) and [Subscription Design](../subscriptions/index.md) (which may also require inputs from decisions made related to your cloud accounting and global markets strategies).
 
 Small, single region deployments of less than 1,000 VMs are less likely to be significantly affected by this inflection point. Conversely, large adoption efforts with more than 1,000 VMs, multiple business units, or multiple geo-politic markets, could be substantially affected by your SDN decision and this key inflection point.
 
@@ -46,24 +44,24 @@ When planning which virtual networking architecture or combination of architectu
 
 ## Virtual networking architectures
 
-Learn more about the primary SDN architectures:
+Learn more about the primary software defined networking architectures:
 
-- [**PaaS Only**](paas-only.md): Platform as a service (PaaS) products support a limited set of built-in networking features and may not require an explicitly defined SDN to support workload requirements.
-- [**Cloud Native**](cloud-native.md): A cloud native virtual network is the default SDN architecture when deploying resources to a cloud platform.
-- [**Cloud DMZ**](cloud-dmz.md): Provides limited connectivity between your on-premises and cloud network, secured through the implementation of a demilitarized zone on the cloud environment.
-- [**Hybrid**](hybrid.md): The hybrid cloud network architecture allows virtual networks to access your on-premises resources and vice versa.
-- [**Hub and Spoke**](hub-spoke.md): The hub and spoke architecture allows you to centrally manage external connectivity and shared services, isolate individual workloads, and overcome potential subscription limits.
+- [**PaaS Only**](paas-only.md) : Most platform as a service (PaaS) products support a limited set of built-in networking features and may not require an explicitly defined software defined network to support workload requirements.
+- [**Cloud Native**](cloud-native.md) : A cloud native architecture supports cloud-based workloads using virtual networks built on the cloud platform's default software defined networking capabilities, without reliance on on-premises or other external resources.
+- [**Cloud DMZ**](cloud-dmz.md) : Supports limited connectivity between your on-premises and cloud networks, secured through the implementation of a demilitarized zone tightly controlling traffic between the two environments.
+- [**Hybrid**](hybrid.md) : The hybrid cloud network architecture allows virtual networks in trusted cloud environments to access your on-premises resources and vice versa.
+- [**Hub and Spoke**](hub-spoke.md) : The hub and spoke architecture allows you to centrally manage external connectivity and shared services, isolate individual workloads, and overcome potential subscription limits.
 
 ## Learn more
 
-See the following for more information about SDN in the Azure platform.
+See the following for more information about software defined networking in the Azure platform.
 
 - [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview). On Azure, the core SDN capability is provided by Azure Virtual Network, which acts as a cloud analog to physical on-premises networks. Virtual networks also act as a default isolation boundary between resources on the platform.
 - [Azure Network Security Best Practices](/azure/security/azure-security-network-security-best-practices). Recommendations from the Azure Security team on how to configure your virtual networks to minimize security vulnerabilities.
 
 ## Next steps
 
-Learn how logs, monitoring, and reporting are used by operations teams to manage the health and policy compliance of cloud workloads.
+Software defined networking is just one of the core infrastructure components requiring architectural decisions during a cloud adoption process. Visit the [decision guides overview](../index.md) to learn about alternative patterns or models used when making design decisions for other types of infrastructure.
 
 > [!div class="nextstepaction"]
-> [Logs and reporting](../log-and-report/overview.md)
+> [Architectural decision guides](../index.md)
