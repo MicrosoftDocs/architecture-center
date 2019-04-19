@@ -13,7 +13,7 @@ ms.topic: landing-page
 
 # CAF: Identity Baseline discipline overview
 
-Identity Baseline is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md) within the [Cloud Adoption Framework governance model](../overview.md). Identity is increasingly considered the primary security perimeter in the cloud, which is a shift from the traditional focus on network security. Identity services provide the core mechanisms supporting access control and organization within IT environments, and the Identity Baseline discipline complements the [Security Baseline discipline](../security-baseline/overview.md) by consistently applying authentication and authorization requirements across cloud adoption efforts.
+Identity Baseline is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md) within the [Cloud Adoption Framework governance model](../index.md). Identity is increasingly considered the primary security perimeter in the cloud, which is a shift from the traditional focus on network security. Identity services provide the core mechanisms supporting access control and organization within IT environments, and the Identity Baseline discipline complements the [Security Baseline discipline](../security-baseline/index.md) by consistently applying authentication and authorization requirements across cloud adoption efforts.
 
 > [!NOTE]
 > Identity Baseline governance does not replace the existing IT teams, processes, and procedures that allow your organization to manage and secure identity services. The primary purpose of this discipline is to identify potential identity-related business risks and provide risk-mitigation guidance to IT staff that are responsible for implementing, maintaining, and operating your identity management infrastructure. As you develop governance policies and processes make sure to involve relevant IT teams in your planning and review processes.
@@ -31,7 +31,7 @@ Actionable policy statements and the resulting architecture requirements serve a
 
 ## Developing Identity Baseline governance policy statements
 
-The following six steps offer examples and potential options to consider when developing Identity Baseline governance. Use each step as a starting point for discussions within your Cloud Governance team and with affected business, and IT teams across your organization to establish the policies and processes needed to mitigate identity-related risks.
+The following six steps offer examples and potential options to consider when developing Identity Baseline governance. Use each step as a starting point for discussions within your Cloud Governance team and with affected business, and IT teams across your organization to establish the policies and processes needed to manage identity-related risks.
 
 <!-- markdownlint-disable MD033 -->
 

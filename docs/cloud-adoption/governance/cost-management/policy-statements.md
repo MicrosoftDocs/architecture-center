@@ -14,9 +14,9 @@ ms.date: 01/04/2019
 
 Individual cloud policy statements are guidelines for addressing specific risks identified during your risk assessment process. These statements should provide a concise summary of risks and plans to deal with them. Each statement definition should include these pieces of information:
 
-- **Business risk.** - A summary of the risk this policy will address.
-- **Policy statement.** - A clear summary explanation of the policy requirements.
-- **Design options.** - Actionable recommendations, specifications, or other guidance that IT teams and developers can use when implementing the policy.
+- **Business risk.** A summary of the risk this policy will address.
+- **Policy statement.** A clear summary explanation of the policy requirements.
+- **Design options.** Actionable recommendations, specifications, or other guidance that IT teams and developers can use when implementing the policy.
 
 The following sample policy statements address a number of common cost-related business risks, and are provided as examples for you to reference when drafting actual policy statements addressing your own organization's needs. These examples are not meant to be proscriptive, and there are potentially several policy options for dealing with any single identified risk. Work closely with business and IT teams to identify the best policy solutions for your particular cost-related risks.  
 
