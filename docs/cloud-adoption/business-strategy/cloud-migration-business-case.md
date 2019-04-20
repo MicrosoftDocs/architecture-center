@@ -69,7 +69,7 @@ Unpacking this formula creates a migration-specific view of the formulas that dr
 
 - Cloud providers such as Azure offer calculators to estimate cloud investments. An example of such a calculator is the [Azure Pricing calculator](https://azure.microsoft.com/pricing).
 - Some cloud providers also support cost delta calculators. An example of a cost delta calculator is the [Azure Total Cost of Ownership (TCO) Calculator](https://azure.com/tco).
-- For more refined cost structures, consider a [Digital Estate Planning](../digital-estate/overview.md) exercise.
+- For more refined cost structures, consider a [Digital Estate Planning](../digital-estate/index.md) exercise.
 - Estimate the cost of migration.
 - Estimate the cost of any expected training opportunities. [Microsoft Learn](/learn) may be able to help mitigate those costs.
 - In some companies, the time invested by existing staff members may need to be included in the initial costs. Consult the finance office for guidance.
@@ -100,7 +100,7 @@ If the ROI for a cloud migration doesn't match expectations, it may be valuable 
 
 However, it's important to understand that a cost savings outcome is not always possible. There are applications that cost more to operate in the cloud than on-premises. These applications can significantly skew results in an analysis.
 
-When the ROI is below 20%, consider a [digital estate planning](../digital-estate/overview.md) exercise, with specific attention to [rationalization](../digital-estate/rationalize.md). During quantitative analysis, perform a review of each application to find workloads that skew the results. It could be wise to remove those workloads from the plan. If usage data is available, consider reducing the size of VMs to match usage.
+When the ROI is below 20%, consider a [digital estate planning](../digital-estate/index.md) exercise, with specific attention to [rationalization](../digital-estate/rationalize.md). During quantitative analysis, perform a review of each application to find workloads that skew the results. It could be wise to remove those workloads from the plan. If usage data is available, consider reducing the size of VMs to match usage.
 
 If the ROI is still misaligned, seek help from your Microsoft sales representative or [engage an experienced partner](https://azure.microsoft.com/migration/support).
 

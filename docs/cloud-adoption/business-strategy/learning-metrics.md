@@ -9,11 +9,11 @@ ms.date: 4/4/2019
 
 # CAF: How can we align efforts to meaningful learning metrics?
 
-The [business outcomes overview](business-outcomes/overview.md) discussed ways to measure and communicate the impact a transformation will have on the business. Unfortunately, it can take years for some of those outcomes to produce measurable results. The board and C-suite are generally unhappy with reports showing a 0% delta for long periods of time.
+The [business outcomes overview](business-outcomes/index.md) discussed ways to measure and communicate the impact a transformation will have on the business. Unfortunately, it can take years for some of those outcomes to produce measurable results. The board and C-suite are generally unhappy with reports showing a 0% delta for long periods of time.
 
 The concept of learning metrics creates interim shorter term metrics that can be tied back to longer term business outcomes. These metrics align very well with a growth mindset and help position the culture to become more resilient. Rather than focus on the anticipated lack of progress towards a long term business goal, learning metrics focus on early indicators of success. The also focus on early indicators of failure, as those early failures are likely to produce the greatest opportunity to learn and adjust the plan.
 
-As with much of the material in this framework, it is assumed that the reader is familiar with the [transformation journey](../governance/journeys/overview.md) that best aligns with the desired business outcomes. This article will outline a few learning metrics for each transformation journey to illustrate the concept.
+As with much of the material in this framework, it is assumed that the reader is familiar with the [transformation journey](../governance/journeys/index.md) that best aligns with the desired business outcomes. This article will outline a few learning metrics for each transformation journey to illustrate the concept.
 
 **Cloud migration:** This transformation focuses on cost, complexity, and efficiency with an emphasis on IT operations. The most easily measured data behind this transformation is the movement of assets to the cloud. In this kind of transformation, the digital estate is measured by virtual machines (VMs), racks or clusters hosting those VMs, datacenter operational costs, required capital expenses to maintain systems, and depreciation of those assets over time.
 
@@ -31,8 +31,8 @@ Conversely, there are positive indicators that are often associated with data dr
 
 ## Next steps
 
-Once learning metrics are aligned, the team is ready to begin [assessing the digital estate](../digital-estate/overview.md) against those metrics.
+Once learning metrics are aligned, the team is ready to begin [assessing the digital estate](../digital-estate/index.md) against those metrics.
 The result will be a [transformation backlog or migration backlog](../migrate/migration-considerations/prerequisites/technical-complexity.md).
 
 > [!div class="nextstepaction"]
-> [Assess the digital estate](../digital-estate/overview.md)
+> [Assess the digital estate](../digital-estate/index.md)

@@ -25,7 +25,7 @@ The article on [digital estate rationalization](../../../digital-estate/rational
 
 ## Next steps
 
-With a general understanding of the digital estate and migration backlog, the team is ready to move beyond prerequisites and to begin [assessing workloads](../assess/overview.md).
+With a general understanding of the digital estate and migration backlog, the team is ready to move beyond prerequisites and to begin [assessing workloads](../assess/index.md).
 
 > [!div class="nextstepaction"]
-> [Assess workloads](../assess/overview.md)
+> [Assess workloads](../assess/index.md)

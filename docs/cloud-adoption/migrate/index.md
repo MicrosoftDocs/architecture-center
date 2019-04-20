@@ -26,7 +26,7 @@ To start down an adoption path, choose one of the following guides. Each guide o
 
 <ul class="panelContent cardsZ">
 <li style="display: flex; flex-direction: column;">
-    <a href="./azure-migration-guide/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./azure-migration-guide/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -40,7 +40,7 @@ To start down an adoption path, choose one of the following guides. Each guide o
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./expanded-scope/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./expanded-scope/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -126,7 +126,7 @@ Narrative Summary: This approach consists of fewer than 10,000 VMs. Applications
 
 <ul class="panelContent cardsZ">
 <li style="display: flex; flex-direction: column;">
-    <a href="./azure-migration-guide/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./azure-migration-guide/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -140,7 +140,7 @@ Narrative Summary: This approach consists of fewer than 10,000 VMs. Applications
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./expanded-scope/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./expanded-scope/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">

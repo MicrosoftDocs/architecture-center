@@ -13,7 +13,7 @@ This section of the Cloud Adoption Framework explains the principles behind its 
 
 Cloud Migration is a portfolio management effort, cleverly disguised as a technical implementation. During the migration process, you will decide to move some assets, invest in others, and retire obsolete or unused assets. Some assets will be optimized, refactored, replaced entirely as part of this process. Each of these decisions should align with the motivations behind your cloud migration. The most successful migrations also go a step further and align these decisions with desired business outcomes.
 
-The Cloud Adoption Framework migration model depends on your organization having completed a process of business readiness for cloud adoption. Make sure you have reviewed [Plan](../../business-strategy/overview.md) and [Ready](../../ready/overview.md) guidance in the Cloud Adoption Framework to determine the business drivers or other justification for a cloud migration, as well as any required organizational planning or training required before executing a migration process at scale.
+The Cloud Adoption Framework migration model depends on your organization having completed a process of business readiness for cloud adoption. Make sure you have reviewed [Plan](../../business-strategy/index.md) and [Ready](../../ready/index.md) guidance in the Cloud Adoption Framework to determine the business drivers or other justification for a cloud migration, as well as any required organizational planning or training required before executing a migration process at scale.
 
 > [!NOTE]
 > While business planning is important, a growth mindset is equally important. In parallel to broader business planning efforts by the Cloud Strategy team, it's suggested that the Cloud Adoption team begin migrating a first workload as a precursor to wider scale migration efforts. This initial migration will allow the team to gain practical experience with the business and technical issues involved in a migration.
@@ -47,7 +47,7 @@ The consistent application of these principles represents an end goal for your c
 
 ## Next steps
 
-Begin learning about this model by [investigating the prerequisites to migration](./prerequisites/overview.md).
+Begin learning about this model by [investigating the prerequisites to migration](./prerequisites/index.md).
 
 > [!div class="nextstepaction"]
-> [Prerequisites to migration](./prerequisites/overview.md)
+> [Prerequisites to migration](./prerequisites/index.md)

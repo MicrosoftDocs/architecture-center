@@ -7,13 +7,13 @@ ms.date: 4/4/2019
 
 # Expanded scope for cloud migration
 
-The [Azure migration guide](../azure-migration-guide/overview.md) in the Cloud Adoption Framework is the suggested starting point for readers who are interested in a rehost migration to Azure, also known as a Lift and Shift migration. That guide walks you through a series of prerequisites, tools, and approaches to migrating virtual machines to the cloud.
+The [Azure migration guide](../azure-migration-guide/index.md) in the Cloud Adoption Framework is the suggested starting point for readers who are interested in a rehost migration to Azure, also known as a Lift and Shift migration. That guide walks you through a series of prerequisites, tools, and approaches to migrating virtual machines to the cloud.
 
 While this guide is an effective baseline to familiarize you with this type of migration, it makes several assumptions. Those assumptions align the guide with a large percentage of the Cloud Adoption Framework's readers by providing a simplified approach to migrations. This section of the Cloud Adoption Framework addresses some expanded scope migration scenarios, which help guide efforts when those assumptions don't apply.
 
 ## Cloud migration expanded scope checklist
 
-The following checklist outlines the common areas of complexity which could require the scope of the migration to be expanded beyond the [Azure migration guide](../azure-migration-guide/overview.md).
+The following checklist outlines the common areas of complexity which could require the scope of the migration to be expanded beyond the [Azure migration guide](../azure-migration-guide/index.md).
 
 - **Business-driven scope changes**
   - [Balancing the portfolio](./balance-the-portfolio.md)

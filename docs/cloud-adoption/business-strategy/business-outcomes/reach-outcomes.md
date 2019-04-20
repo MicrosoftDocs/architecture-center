@@ -7,7 +7,7 @@ ms.date: 4/4/2019
 
 # CAF: Examples of Global Reach Outcomes
 
-As discussed in [business outcomes](overview.md), there are several potential business outcomes that can serve as the foundation for any transformation journey conversation with the business. In this article we will focus on a common business measure: Reach. Understanding the company’s globalization strategy will help to better articulate the business outcomes that are the target of a business's transformation journey.
+As discussed in [business outcomes](index.md), there are several potential business outcomes that can serve as the foundation for any transformation journey conversation with the business. In this article we will focus on a common business measure: Reach. Understanding the company’s globalization strategy will help to better articulate the business outcomes that are the target of a business's transformation journey.
 
 Across the Fortune 500 and smaller enterprises globalization of services and customer base has been a focus for over three decades. As the world shrinks it is increasingly likely for any business to engage in global commerce. Supporting global operations is challenging and costly. Hosting datacenters around the world can consume more than 80% of IT’s annual budget. By themselves, Wide Area Networks (WAN) of private lines to connect those datacenters can cost Millions per year.
 

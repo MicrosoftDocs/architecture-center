@@ -58,7 +58,7 @@ When possible, technical change should be detected and documented during the ass
 
 ## Next steps
 
-With the help of these best practices, it should be easier to integrate proper, low-risk approval into migration efforts. After workload changes are approved, the Cloud Adoption team is ready to [migrate workloads](../migrate/overview.md).
+With the help of these best practices, it should be easier to integrate proper, low-risk approval into migration efforts. After workload changes are approved, the Cloud Adoption team is ready to [migrate workloads](../migrate/index.md).
 
 > [!div class="nextstepaction"]
-> [Migrate workloads](../migrate/overview.md)
+> [Migrate workloads](../migrate/index.md)

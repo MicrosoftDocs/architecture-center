@@ -15,7 +15,7 @@ The size of your digital estate directly affects migration decisions. Migrations
 
 However, note that smaller, single-workload, migrations can still involve a widely varying amount of supporting assets. If your migration involves under 1,000 VMs, a tool like [Azure Migrate](/azure/migrate/migrate-overview) is likely sufficient to gather data on the inventory and forecast costs. Additional cost-estimate tooling options are described in the article on [digital estate cost calculations](../../../digital-estate/calculate.md).
 
-For 1,000+ unit digital estates, it’s still possible to break down an estimate into four or five actionable iterations, making the estimation process manageable. For larger estates or when a higher degree of forecast accuracy is required, a more comprehensive approach, like that outlined in the "[Digital estate](../../../digital-estate/overview.md)" section of the Cloud Adoption Framework, will likely be required.
+For 1,000+ unit digital estates, it’s still possible to break down an estimate into four or five actionable iterations, making the estimation process manageable. For larger estates or when a higher degree of forecast accuracy is required, a more comprehensive approach, like that outlined in the "[Digital estate](../../../digital-estate/index.md)" section of the Cloud Adoption Framework, will likely be required.
 
 ## Accounting models
 

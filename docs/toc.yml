@@ -736,7 +736,7 @@
         - name: Technical strategy-driven scope changes
           items:
           - name: Multiple datacenters
-            href: cloud-adoption/migrate/expanded-scope/multiple-data-centers.md
+            href: cloud-adoption/migrate/expanded-scope/multiple-datacenters.md
           - name: Data requirements exceed network capacity
             href: cloud-adoption/migrate/expanded-scope/network-capacity-exceeded.md
           - name: Governance and compliance

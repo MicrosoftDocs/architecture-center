@@ -16,7 +16,7 @@ The Microsoft Cloud Adoption Framework for Azure is provided as a free self-serv
 
 Throughout this framework, enablement is a core theme. The following checklist contains a series of topics that should be embedded in any cloud adoption effort to ensure the journey is a success in the eyes of both IT and the business:
 
-- Plan: Establishing clear [business outcomes](../business-strategy/business-outcomes/overview.md), a defined [digital estate plan](../digital-estate/index.md), and well understood [adoption backlogs](../migrate/migration-considerations/prerequisites/migration-backlog-review.md)
+- Plan: Establishing clear [business outcomes](../business-strategy/business-outcomes/index.md), a defined [digital estate plan](../digital-estate/index.md), and well understood [adoption backlogs](../migrate/migration-considerations/prerequisites/migration-backlog-review.md)
 - Ready: Ensure the readiness of staff through [skills and learning plans](../ready/technical-skills.md)
 - Adopt: Ensure proper implementation of desired changes, across IT and business processes, to achieve business outcomes.
   - Govern: Align proper [governance disciplines](../governance/index.md) to consistently apply cost management, risk mitigation, compliance, and security baselines across all cloud adoption
@@ -31,7 +31,7 @@ In addition to the Cloud Adoption Framework, Microsoft provides a number of addi
 
 <ul class="panelContent cardsH">
 <li style="display: flex; flex-direction: column;">
-    <a href="../governance/journeys/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="../governance/journeys/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">

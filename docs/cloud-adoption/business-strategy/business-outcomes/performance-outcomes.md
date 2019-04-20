@@ -7,7 +7,7 @@ ms.date: 4/4/2019
 
 # CAF: Examples of Performance Outcomes
 
-As discussed in [business outcomes](overview.md), there are several potential business outcomes that can serve as the foundation for any transformation journey conversation with the business. In this article we will focus on a common business measure: performance.
+As discussed in [business outcomes](index.md), there are several potential business outcomes that can serve as the foundation for any transformation journey conversation with the business. In this article we will focus on a common business measure: performance.
 
 In today's technology laden society, customers assume that applications will perform and always be available. When this expectation isn't met, it causes reputation damage that can be very costly and long lasting.
 

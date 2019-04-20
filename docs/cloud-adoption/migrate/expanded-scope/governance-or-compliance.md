@@ -7,7 +7,7 @@ ms.date: 4/4/2019
 
 # Governance or compliance strategy
 
-When governance or compliance are required throughout a migration effort, additional scope is required. The following guidance will expand the scope of the [Azure migration guide](../azure-migration-guide/overview.md) to address different approaches to addressing governance or compliance requirements.
+When governance or compliance are required throughout a migration effort, additional scope is required. The following guidance will expand the scope of the [Azure migration guide](../azure-migration-guide/index.md) to address different approaches to addressing governance or compliance requirements.
 
 ## General scope expansion
 
@@ -17,7 +17,7 @@ Prerequisite activities are affected the most when governance or compliance are 
 
 Configuration of the base Azure environment could change significantly when integrating governance or compliance requirements. To understand how prerequisites change it's important to understand the nature of the requirements. Prior to beginning any migration which requires governance or compliance, an approach should be chosen and implemented in the cloud environment. The following are a few high-level approaches commonly seen during migrations:
 
-**Common governance approach:** For most organizations, the [Cloud Adoption Framework governance model](../../governance/journeys/overview.md) is a sufficient approach which consists of a minimum viable product (MVP) implementation, followed by targeted iterations of governance maturity to address tangible risks identified in the adoption plan. This approach provides the minimum tooling needed to establish consistent governance, so the team can understand the tools. It then expands on those tools to address common governance concerns.
+**Common governance approach:** For most organizations, the [Cloud Adoption Framework governance model](../../governance/journeys/index.md) is a sufficient approach which consists of a minimum viable product (MVP) implementation, followed by targeted iterations of governance maturity to address tangible risks identified in the adoption plan. This approach provides the minimum tooling needed to establish consistent governance, so the team can understand the tools. It then expands on those tools to address common governance concerns.
 
 **ISO 27001 Compliance blueprints:** For customer who are required to adhere to ISO compliance standards, the [ISO 27001 Shared Services blueprint samples](/azure/governance/blueprints/samples/iso27001-shared/index) can serve as a more effective MVP to produce richer governance constraints earlier in the iterative process. The [ISO 27001 App Service Environment/SQL Database Sample](/azure/governance/blueprints/samples/iso27001-ase-sql-workload) expands on the blueprint to map controls and deploy a common architecture for an application environment. As additional compliance blueprints are released, they will be referenced here as well.
 
@@ -52,7 +52,7 @@ For guidance on developing governance guidance based on the Cloud Adoption Frame
 
 ## Optimize and promote process changes
 
-During the optimization and promotion processes, it is advised that the Cloud Governance Team invest time to test and validate adherence to governance and compliance standards. Additionally, this is a good time to inject processes for the Cloud Governance Team to curate templates which could provide additional [deployment acceleration](/azure/architecture/cloud-adoption/governance/deployment-acceleration/overview.md) for future projects.
+During the optimization and promotion processes, it is advised that the Cloud Governance Team invest time to test and validate adherence to governance and compliance standards. Additionally, this is a good time to inject processes for the Cloud Governance Team to curate templates which could provide additional [deployment acceleration](/azure/architecture/cloud-adoption/governance/deployment-acceleration/index.md) for future projects.
 
 ### Suggested action during the optimize and promote process
 
@@ -60,7 +60,7 @@ During this process, it is advised that the project plan include time allocation
 
 ## Next steps
 
-As the final item on the [expanded scope checklist](./overview.md), the reader is advised to return to the checklist and reevaluate any additional scope requirements for the migration effort.
+As the final item on the [expanded scope checklist](./index.md), the reader is advised to return to the checklist and reevaluate any additional scope requirements for the migration effort.
 
 > [!div class="nextstepaction"]
-> [Expanded scope checklist](./overview.md)
+> [Expanded scope checklist](./index.md)
