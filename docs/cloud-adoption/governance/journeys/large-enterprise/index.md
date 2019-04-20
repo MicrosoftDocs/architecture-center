@@ -9,7 +9,7 @@ description: Large enterprise governance journey
 author: BrianBlanchard
 ---
 
-# CAF: Large enterprise governance journey
+# Large enterprise governance journey
 
 ## Best practice overview
 

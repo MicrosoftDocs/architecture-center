@@ -9,7 +9,7 @@ description: Resource Consistency template
 author: BrianBlanchard
 ---
 
-# CAF: Resource Consistency template
+# Resource Consistency template
 
 The first step to implementing change is communicating the desired change. The same is true when changing governance practices. The template below serves as a starting point for documenting and communicating policy statements that govern IT operations and management in the cloud. 
 

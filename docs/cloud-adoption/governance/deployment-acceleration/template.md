@@ -9,7 +9,7 @@ ms.date: 02/11/2019
 author: alexbuckgit
 ---
 
-# CAF: Deployment Acceleration template
+# Deployment Acceleration template
 
 The first step to implementing change is communicating the desired change. The same is true when changing governance practices. The template below serves as a starting point for documenting and communicating policy statements that govern configuration and deployment issues in the cloud. The template also outlines the business criteria that may have led you to create the documented policy statements.
 

@@ -4,7 +4,7 @@ ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 ms.date: 02/11/2019
-description: Governance in the Microsoft CAF for Azure
+description: Governance in the Microsoft Cloud Adoption Framework for Azure
 author: BrianBlanchard
 ---
 

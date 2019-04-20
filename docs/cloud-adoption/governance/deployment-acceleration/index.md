@@ -11,7 +11,7 @@ layout: LandingPage
 ms.topic: landing-page
 ---
 
-# CAF: Deployment Acceleration discipline overview
+# Deployment Acceleration discipline overview
 
 Deployment Acceleration is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md) within the [Cloud Adoption Framework governance model](../index.md). This discipline focuses on ways of establishing policies to govern asset configuration or deployment. Within the Five Disciplines of Cloud Governance, Deployment Acceleration includes deployment, configuration alignment, and script reusability. This could be through manual activities or fully automated DevOps activities. In either case, the policies would remain largely the same. As this discipline matures, the Cloud Governance team can serve as a partner in DevOps and deployment strategies by accelerating deployments and removing barriers to cloud adoption, through the application of reusable assets.
 

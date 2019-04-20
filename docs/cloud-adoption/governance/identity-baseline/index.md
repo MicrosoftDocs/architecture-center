@@ -11,7 +11,7 @@ layout: LandingPage
 ms.topic: landing-page
 ---
 
-# CAF: Identity Baseline discipline overview
+# Identity Baseline discipline overview
 
 Identity Baseline is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md) within the [Cloud Adoption Framework governance model](../index.md). Identity is increasingly considered the primary security perimeter in the cloud, which is a shift from the traditional focus on network security. Identity services provide the core mechanisms supporting access control and organization within IT environments, and the Identity Baseline discipline complements the [Security Baseline discipline](../security-baseline/index.md) by consistently applying authentication and authorization requirements across cloud adoption efforts.
 

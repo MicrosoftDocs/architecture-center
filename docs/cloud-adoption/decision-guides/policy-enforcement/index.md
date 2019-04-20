@@ -25,7 +25,7 @@ The primary factors in determining the scope of your policy enforcement processe
 
 ## Baseline recommended practices
 
-For single subscription and simple cloud deployments, many corporate policies can be enforced using features that are native to resources and subscriptions in the Azure platform. The consistent use of the patterns discussed throughout the CAF [decision guides](../index.md) can help establish a baseline level of policy compliance without specific investment in policy enforcement.
+For single subscription and simple cloud deployments, many corporate policies can be enforced using features that are native to resources and subscriptions in the Azure platform. The consistent use of the patterns discussed throughout the Cloud Adoption Framework [decision guides](../index.md) can help establish a baseline level of policy compliance without specific investment in policy enforcement.
 
 For example:
 

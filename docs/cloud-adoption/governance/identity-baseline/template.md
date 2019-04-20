@@ -9,7 +9,7 @@ description: Identity Baseline template
 author: BrianBlanchard
 ---
 
-# CAF: Identity Baseline template
+# Identity Baseline template
 
 The first step to implementing change is communicating the desired change. The same is true when changing governance practices. The template below serves as a starting point for documenting and communicating policy statements that govern identity services in the cloud.  
 
