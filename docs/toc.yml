@@ -1123,11 +1123,11 @@
             href: cloud-adoption/infrastructure/virtual-machines/basic-workload.md
     - name: Cloud Operating Model
       href: cloud-adoption/appendix/cloud-operating-model.md
-    - name: Virtual Datacenter (VDC)
-      href: vdc/index.md
     - name: Azure enterprise scaffold
       href: cloud-adoption/appendix/azure-scaffold.md
     - name: Implementing Azure enterprise scaffold
       href: cloud-adoption/appendix/azure-scaffold-examples.md
+    - name: Virtual Datacenter (VDC)
+      href: vdc/index.md
     - name: How does Azure work?
       href: cloud-adoption/getting-started/what-is-azure.md
