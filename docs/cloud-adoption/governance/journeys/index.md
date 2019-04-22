@@ -17,7 +17,7 @@ The governance journeys in this section illustrate the incremental approach of t
 
 ## Review and adopt cloud governance best practices
 
-To start down an adoption path, choose one of the following journeys. Each journey outlines a series of best practices, based on a set of fictional customer experiences. For readers who are new to the incremental approach of the Cloud Adoption Framework governance model, it is advised that you review the high level governance theory introduction below, before adopting either best practice.
+To start down an adoption path, choose one of the following journeys. Each journey outlines a series of best practices, based on a set of fictional customer experiences. For readers who are new to the incremental approach of the Cloud Adoption Framework governance model, it is advised that you review the high-level governance theory introduction below, before adopting either best practice.
 
 <!-- markdownlint-disable MD033 -->
 

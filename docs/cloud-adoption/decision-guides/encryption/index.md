@@ -25,10 +25,9 @@ Corporate policy and third-party compliance are the biggest drivers when plannin
 
 Encryption of data in the cloud depends on the secure storage, management, and operational use of encryption keys. A key management system is critical to your organization's ability to create, store, and manage cryptographic keys, as well important passwords, connection strings, and other IT confidential information.
 
-Modern key management systems such as Azure Key Vault support storage and management of software protected keys for dev and test usage and hardware security module (HSM) protected keys for maximum protection of production workloads or sensitive data. 
+Modern key management systems such as Azure Key Vault support storage and management of software protected keys for dev and test usage and hardware security module (HSM) protected keys for maximum protection of production workloads or sensitive data.
 
 When planning a cloud migration, the following table can help you decide how to store and manage encryption keys, certificates, and secrets, which are critical for creating secure and manageable cloud deployments:
-
 
 | Question | Cloud Native | Bring your own key | Hold your own key |
 |---------------------------------------------------------------------------------------------------------------------------------------|--------------|--------|-------------|
@@ -47,7 +46,7 @@ Using a cloud native key management system assumes the following:
 
 ### Bring your own key
 
-With a bring your own key approach, you generate keys on dedicated HSM hardware within your on-premises environment, then securely transferring these keys to a cloud based management system such as Azure Key Vault for use with your cloud-hosted resources.
+With a bring your own key approach, you generate keys on dedicated HSM hardware within your on-premises environment, then securely transferring these keys to a cloud-based management system such as Azure Key Vault for use with your cloud-hosted resources.
 
 Bring your own key assumptions: Generating keys on-premises and using them with a cloud-based key management system assumes the following:
 

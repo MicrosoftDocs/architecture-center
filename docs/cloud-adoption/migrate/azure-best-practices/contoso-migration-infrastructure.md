@@ -210,7 +210,7 @@ To facilitate integration, Contoso uses the [Azure AD Connect tool](/azure/activ
 
 4. In **Connect to AD DS**, they specify credentials for the on-premises Active Directory.
 
-     ![AD Connect Wizard](./media/contoso-migration-infrastructure/ad-connect-wiz3.png)
+     ![Azure AD Connect Wizard](./media/contoso-migration-infrastructure/ad-connect-wiz3.png)
 
 5. In **Ready to configure**, they click **Start the synchronization process when configuration completes** to start the sync immediately. Then they install.
 

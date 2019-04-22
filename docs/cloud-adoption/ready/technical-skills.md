@@ -17,10 +17,10 @@ During cloud migration efforts, all members of the Cloud Adoption team and Cloud
 
 [Solution architects](/learn/browse/?roles=solution-architect) can access hundreds of modules and learning paths. The available topics range from core infrastructure services to advanced data transformation.
 
-[Administrators](https://docs.microsoft.com/learn/browse/?roles=administrator) have access to modules that focus on Azure fundamentals, configuring containers, or even advanced administration in the cloud.
+[Administrators](/learn/browse/?roles=administrator) have access to modules that focus on Azure fundamentals, configuring containers, or even advanced administration in the cloud.
 
-[Developers](https://docs.microsoft.com/learn/browse/?roles=developer&term=infrastructure) developers play an important role in the migration of assets to the cloud. Learn about ways to help during architecture, governance, modernization activities.
+[Developers](/learn/browse/?roles=developer&term=infrastructure) developers play an important role in the migration of assets to the cloud. Learn about ways to help during architecture, governance, modernization activities.
 
 In various sections of the Cloud Adoption Framework, specific learning paths and modules will be identified to aid the team in making decisions and solving complex adoption problems.
 
-For more information, visit [Microsoft Learn](https://docs.microsoft.com/learn/).
+For more information, visit [Microsoft Learn](/learn).

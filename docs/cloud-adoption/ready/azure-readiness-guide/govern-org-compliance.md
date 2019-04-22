@@ -44,8 +44,8 @@ To apply a policy to a resource group:
 
 ## Learn more
 
-To learn more, see [Azure Policy documentation](https://docs.microsoft.com/en-us/azure/azure-policy/).
- 
+To learn more, see [Azure Policy](/azure/azure-policy/).
+
 ::: zone-end
 
 # [Azure Security Center](#tab/AzureSecurityCenter)

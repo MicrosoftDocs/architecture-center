@@ -70,7 +70,7 @@ Also, a gateway can be used to aggregate and preprocess telemetry data bound for
 
 Gateway aggregation assumptions:
 
-- You expect very high levels of telemetry data from your cloud-based applications or services.
+- You expect large volumes of telemetry data from your cloud-based applications or services.
 - You need to format or otherwise optimize telemetry data before submitting it to your monitoring systems.
 - Your monitoring systems have APIs or other mechanisms available to ingest log data after processing by the gateway.
 

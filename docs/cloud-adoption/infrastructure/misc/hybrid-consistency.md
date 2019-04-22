@@ -50,7 +50,7 @@ Azure Stack is offered via two deployment options:
 
 ## Azure Stack One Cloud Ecosystem
 
-You can speed up Azure Stack initiatives by leveraging the complete Azure ecosystem:
+You can speed up Azure Stack initiatives by using the complete Azure ecosystem:
 
 - Azure ensures that most applications and services certified for Azure will work on Azure Stack. Several ISVs including Bitnami, Docker, Kemp Technologies, Pivotal Cloud Foundry, Red Hat Enterprise Linux, and SUSE Linux are extending their solutions to Azure Stack.
 - You can opt to have Azure Stack delivered and operated as a fully managed service. Several partners including Tieto, Yourhosting, Revera, Pulsant, and NTT will have managed service offerings across Azure and Azure Stack shortly. These partners have been delivering managed services for Azure via the Cloud Solution Provider (Cloud Providers) program and are now extending their offerings to include hybrid solutions.

@@ -19,7 +19,7 @@ This article describes how things change when integrating the new organization. 
 
 ### Evolution of the current state
 
-In the previous phase of this narrative, the company had begun to implement cost controls and cost monitoring, as cloud spending becomes part of the company's regular operational expenses.
+In the previous phase of this narrative, the company had begun to implement cost controls and cost monitoring, as cloud spending becomes part of the company's regular operating expenses.
 
 Since then, some things have changed that will affect governance:
 

@@ -113,7 +113,7 @@ To learn more, see [Azure Advisor documentation](/azure/advisor/).
 
 # [Azure Security Center](#tab/AzureSecurityCenter)
 
-Azure Security Center also plays an important part in your monitoring strategy. It lets you monitor the security of your machines, networks, storage, data services, and applications. It provides advanced threat detection by using machine learning and behavioral analytics to help identify active threats targeting your Azure resources. It also provides threat protection that blocks malware or other unwanted code, and reduces the surface area exposed to brute force and other network attacks.
+Azure Security Center also plays an important part in your monitoring strategy. It helps you monitor the security of your machines, networks, storage, data services, and applications. It provides advanced threat detection by using machine learning and behavioral analytics to help identify active threats targeting your Azure resources. It also provides threat protection that blocks malware or other unwanted code, and reduces the surface area exposed to brute force and other network attacks.
 
 When Security Center identifies a threat, it triggers a security alert with steps you need to take to respond to an attack and provides a report with information about the threat that was detected.
 

@@ -42,7 +42,7 @@ Discovery is a fundamental tenet to Enterprise Architecture. If discovery is lim
 
 **Business Outcomes:** A business outcome is a concise, defined, and observable result/change in business performance, supported by a specific measure. How does the stakeholder want to change the business? How will the business be affected? What is the value of this transformation?
 
-**Business Drivers:** Business drivers capture the current challenge that is preventing the company from achieving desired outcomes. They can also capture new opportunities that the business can capitalize on with the right solution. How would you describe the current challenges &/or future state of the business? What business functions would be changing to meet the desired outcomes?
+**Business Drivers:** Business drivers capture the current challenge that is preventing the company from achieving desired outcomes. They can also capture new opportunities that the business can capitalize on with the right solution. How would you describe the current challenges or future state of the business? What business functions would be changing to meet the desired outcomes?
 
 **KPIs:** How will this change be measured? How does the business know if they are successful? How frequently will this KPI be observed? Understanding the KPI will help enable incremental change and experimentation.
 

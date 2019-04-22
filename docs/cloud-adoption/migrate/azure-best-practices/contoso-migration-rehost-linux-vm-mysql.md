@@ -1,7 +1,7 @@
 ---
-title: "CAF: Rehost a Linux service desk app to Azure and Azure MySQL"
+title: "CAF: Rehost a Linux service desk app to Azure and Azure Database for MySQL"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: Learn how Contoso rehosts an on-premises Linux app by migrating it to Azure VMs and Azure MySQL.
+description: Learn how Contoso rehosts an on-premises Linux app by migrating it to Azure VMs and Azure Database for MySQL.
 author: BrianBlanchard
 ms.service: site-recovery
 ms.topic: conceptual
@@ -9,9 +9,9 @@ ms.date: 4/4/2019
 ms.author: brblanch
 ---
 
-# Rehost an on-premises Linux app to Azure VMs and Azure MySQL
+# Rehost an on-premises Linux app to Azure VMs and Azure Database for MySQL
 
-This article shows how the fictional company Contoso rehosts a two-tier Linux-based Apache/MySQL/PHP (LAMP) app, migrating it from on-premises to Azure using Azure VMs and Azure MySQL.
+This article shows how the fictional company Contoso rehosts a two-tier Linux-based Apache/MySQL/PHP (LAMP) app, migrating it from on-premises to Azure using Azure VMs and Azure Database for MySQL.
 
 osTicket, the service desk app used in this example, is provided as open source. If you'd like to use it for your own testing, you can download it from [GitHub](https://github.com/osTicket/osTicket).
 
@@ -46,7 +46,7 @@ In this scenario:
 - The resources will be replicated to the primary region (East US 2), and placed in the production network (`VNET-PROD-EUS2`):
   - The web VM will reside in the front-end subnet (`PROD-FE-EUS2`).
   - The database instance will reside in the database subnet (`PROD-DB-EUS2`).
-- The app database will be migrated to Azure MySQL using MySQL tools.
+- The app database will be migrated to Azure Database for MySQL using MySQL tools.
 - The on-premises VMs in the Contoso datacenter will be decommissioned after the migration is done.
 
 ![Scenario architecture](./media/contoso-migration-rehost-linux-vm-mysql/architecture.png)
@@ -99,7 +99,7 @@ Here's how Contoso admins will complete the migration:
 >
 > - **Step 1: Prepare Azure for Site Recovery.** They create an Azure storage account to hold replicated data, and create a Recovery Services vault.
 > - **Step 2: Prepare on-premises VMware for Site Recovery.** They prepare accounts for VM discovery and agent installation, and prepare to connect to Azure VMs after failover.
-> - **Step 3: Provision the database.** In Azure, they provision an instance of Azure MySQL database.
+> - **Step 3: Provision the database.** In Azure, they provision an instance of Azure Database for MySQL.
 > - **Step 4: Replicate VMs.** They configure the Site Recovery source and target environment, set up a replication policy, and start replicating VMs to Azure storage.
 > - **Step 5: Migrate the database.** They set up migration with MySQL tools.
 > - **Step 6: Migrate the VMs with Site Recovery.** Lastly, they run a test failover to make sure everything's working, and then run a full failover to migrate the VMs to Azure.
@@ -333,7 +333,7 @@ Contoso admins migrate the database using backup and restore, with MySQL tools. 
 
     ![MySQL Workbench](./media/contoso-migration-rehost-linux-vm-mysql/workbench3.png)
 
-6. Now, they can import (restore) the database in the Azure MySQL instance, from the self-contained file. A new schema (osticket) is created for the instance.
+6. Now, they can import (restore) the database in the Azure Database for MySQL instance, from the self-contained file. A new schema (osticket) is created for the instance.
 
     ![MySQL Workbench](./media/contoso-migration-rehost-linux-vm-mysql/workbench4.png)
 

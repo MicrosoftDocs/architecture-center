@@ -62,7 +62,7 @@ A number of technical and nontechnical prerequisites are required to successful 
 - Use a [resource consistency](../../decision-guides/resource-consistency/index.md) strategy to enforce architecture guidelines over time.
 - Implement [resource naming, and tagging standards](../../decision-guides/resource-tagging/index.md) for your resources to match your organizational and accounting requirements.
 - To create proactive point-in-time governance, use deployment templates and automation to enforce common configurations and a consistent grouping structure when deploying resources and resource groups.
-- Establish a least privilege permissions model, where users have no permissions by default.
+- Establish a least-privilege permissions model, where users have no permissions by default.
 - Determine who in your organization owns each workload and account, and who will need to access to maintain or modify these resources. Define cloud roles and responsibilities that match these needs and use these roles as the basis for access control.
 - Define dependencies between resources.
 - Implement automated resource scaling to match requirements defined in the Plan stage.

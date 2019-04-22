@@ -14,7 +14,7 @@ Managing who can access your Azure resources and subscriptions is an important p
 
 RBAC provides detailed access management of resources in Azure. It helps you manage who has access to Azure resources, what they can do with those resources, and what scopes they can access.
 
-When planning your access control strategy, grant users the least privilege to get their work done. The following image shows a suggested pattern for assigning RBAC.
+When planning your access control strategy, grant users the least privilege required to get their work done. The following image shows a suggested pattern for assigning RBAC.
 
 ![Diagram that shows RBAC roles](./media/manage-access/role-examples.png)
 

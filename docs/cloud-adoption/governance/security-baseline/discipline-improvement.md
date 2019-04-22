@@ -64,7 +64,7 @@ A number of technical and nontechnical prerequisites are required to successful 
 - Determine your organization's [encryption](../../decision-guides/encryption/index.md) strategy for cloud-hosted data.
 - Evaluate your cloud deployment's [identity](../../decision-guides/identity/index.md) strategy. Determine how your cloud-based identity solution will coexist or integrate with on-premises identity providers.
 - Determine network boundary policies for your [Software Defined Networking (SDN)](../../decision-guides/software-defined-network/index.md) design to ensure secure virtualized networking capabilities.
-- Evaluate your organization's [least privilege access](/azure/active-directory/users-groups-roles/roles-delegate-by-task) policies, and use task-based roles to provide access to specific resources.
+- Evaluate your organization's [least-privilege access](/azure/active-directory/users-groups-roles/roles-delegate-by-task) policies, and use task-based roles to provide access to specific resources.
 - Apply security and monitoring mechanisms to for all cloud services and virtual machines.
 - Automate [security policies](../../decision-guides/policy-enforcement/index.md) where possible.
 - Review your Security Baseline policy and determine if you need to modify your plans according to best practices guidance such as those outlined in the [Security Development Lifecycle](https://www.microsoft.com/securityengineering/sdl).
@@ -86,7 +86,7 @@ Migration is an incremental process that focuses on the movement, testing, and a
 - Identify deviations from policy, and enforce corrections.
 - Adjust security and access control automation to ensure maximum policy compliance.  
 - Validate that the best practices defined during the build and predeployment phases are properly executed.
-- Review your least privilege access policies and adjust access controls to maximize security.
+- Review your least-privilege access policies and adjust access controls to maximize security.
 - Test your Security Baseline toolchain against your workloads to identify and resolve any vulnerabilities.
 
 ## Operate and post-implementation

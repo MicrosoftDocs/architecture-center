@@ -69,7 +69,7 @@ There's another requirement stating the resources associated with each workload 
 
 Each RBAC role is applied at one of three scopes in Azure: **subscription**, **resource group**, then an individual **resource**. Roles are inherited at lower scopes. For example, if a user is assigned the [built-in owner role][rbac-built-in-owner] at the subscription level, that role is also assigned to that user at the resource group and individual resource level unless it's overridden.
 
-Therefore, to create a model of least privilege access you have to decide the actions a particular type of user is allowed to take at each of these three scopes. For example, the requirement is for a workload owner to have permission to manage access to only the resources associated with their workload and no others. If you were to assign the [built-in owner role][rbac-built-in-owner] at the subscription scope, each workload owner would have management access to all workloads.
+Therefore, to create a model of least-privilege access you have to decide the actions a particular type of user is allowed to take at each of these three scopes. For example, the requirement is for a workload owner to have permission to manage access to only the resources associated with their workload and no others. If you were to assign the [built-in owner role][rbac-built-in-owner] at the subscription scope, each workload owner would have management access to all workloads.
 
 Let's take a look at two example permission models to understand this concept a little better. In the first example, the model trusts only the service administrator to create resource groups. In the second example, the model assigns the built-in owner role to each workload owner at the subscription scope.
 
@@ -99,7 +99,7 @@ At this point, each of the workload owners is isolated in their own resource gro
 ![subscription with resource groups A and B](../../_images/governance-2-10.png)
 *Figure 4. A subscription with two workload owners isolated with their own resource group.*
 
-This model is a least privilege model - each user is assigned the correct permission at the correct resource management scope.
+This model is a least-privilege model&mdash;each user is assigned the correct permission at the correct resource management scope.
 
 However, consider that every task in this example was performed by the **service administrator**. While this is a simple example and may not appear to be an issue because there were only two workload owners, it's easy to imagine the types of issues that would result for a large organization. For example, the **service administrator** can become a bottleneck with a large backlog of requests that result in delays.
 

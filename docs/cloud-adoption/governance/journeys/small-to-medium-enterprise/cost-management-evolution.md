@@ -30,7 +30,7 @@ Since then, some things have changed that will affect governance:
 
 ### Evolution of the future state
 
-Cost monitoring and reporting is to be added to the cloud solution. IT is still serving as a cost clearing house. This means that payment for cloud services continues to come from IT procurement. However, reporting should tie direct operational expenses to the functions that are consuming the cloud costs. This model is referred to as a "Show Back" cloud accounting model.
+Cost monitoring and reporting is to be added to the cloud solution. IT is still serving as a cost clearing house. This means that payment for cloud services continues to come from IT procurement. However, reporting should tie direct operating expenses to the functions that are consuming the cloud costs. This model is referred to as a "Show Back" cloud accounting model.
 
 The changes to current and future state expose new risks that will require new policy statements.
 

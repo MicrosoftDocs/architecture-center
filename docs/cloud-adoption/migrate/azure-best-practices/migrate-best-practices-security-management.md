@@ -160,7 +160,7 @@ As you migrate your workloads and run them in Azure, staff with workload access 
 
 ## Best practice: Review audit and security logs
 
-Azure Active Directory (AD) provides activity logs that appear in Azure Monitor. The logs capture the operations performed in Azure tenancy, when they occurred, and who performed them.
+Azure Active Directory (Azure AD) provides activity logs that appear in Azure Monitor. The logs capture the operations performed in Azure tenancy, when they occurred, and who performed them.
 
 - Audit logs show the history of tasks in the tenant. Sign-in activity logs show who carried out the tasks.
 - Access to security reports depends on your Azure AD license. In Free and Basic you get a list of risky users and sign-ins. In Premium 1 and Premium 2 editions you get underlying event information.
@@ -270,18 +270,19 @@ Just as blueprint allows engineers and architects to sketch a project's design p
 
 Building secure, scalable, and manageable workloads in Azure can be daunting. With continual changes, it can be difficult to keep up with different features for an optimal environment. Having a reference to learn from can be helpful when designing and migrating your workloads. Azure and Azure partners have built several sample reference architectures for various types of environments. These samples are designed to provide ideas that you can learn from and build on.
 
-Reference architectures are arranged by scenario. They contain recommend practices, and advice on management, availability, scalability, and security.
+Reference architectures are arranged by scenario. They contain recommended practices and advice on management, availability, scalability, and security.
 The Azure App Service Environment provides a fully isolated and dedicated environment in which to run App Service apps, including Windows and Linux web apps, Docker containers, mobile apps, and functions. App Service adds the power of Azure to your application, with security, load balancing, autoscaling, and automated management. You can also take advantage of its DevOps capabilities, such as continuous deployment from Azure DevOps and GitHub, package management, staging environments, custom domain, and SSL certificates. App Service is useful for apps that need isolation and secure network access, and those that use high amounts of memory and other resources that need to scale.
+
 **Learn more:**
 
 - [Learn about](/azure/architecture/reference-architectures) Azure reference architectures.
 - [Review](/azure/architecture/example-scenario) Azure example scenarios.
 
-## Best practice: Manage resources with Management Groups
+## Best practice: Manage resources with Azure management groups
 
 If your organization has multiple subscriptions, you need to manage access, policies, and compliance for them. Azure management groups provide a level of scope above subscriptions.
 
-- You organize subscriptions into containers called management groups, and apply governance conditions to them.
+- You organize subscriptions into containers called management groups and apply governance conditions to them.
 - All subscriptions in a management group automatically inherit the management group conditions.
 - Management groups provide enterprise-grade management at a large scale, no matter what type of subscriptions you have.
 - For example, you can apply a management group policy that limits the regions in which VMs can be created. This policy is then applied to all management groups, subscriptions, and resources under that management group.

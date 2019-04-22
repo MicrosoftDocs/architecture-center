@@ -5,7 +5,7 @@ ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 ms.date: 02/11/2019
-description: Discussion of the PaaS only model for cloud based networking functionality
+description: Discussion of the PaaS-only model for Software Defined Networking in the cloud
 author: rotycenh
 ---
 

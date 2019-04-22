@@ -23,7 +23,7 @@ Configuration of the base Azure environment could change significantly when inte
 
 **Virtual Datacenter:** A more robust governance starting point may be required. In such cases, consider the [Azure Virtual Datacenter (VDC)](../../../vdc/index.md). This approach is commonly suggested during enterprise-scale adoption efforts, and especially for efforts which exceed 10,000 assets. It is also the de facto choice for complex governance scenarios when any of the following are required: extensive third-party compliance requirements, deep domain expertise, or parity with mature IT governance policies and compliance requirements.
 
-### Partnership option to complete pre-requisites
+### Partnership option to complete prerequisites
 
 **Microsoft Services:**
 Microsoft Services offers a number of solution offers which can align to the Cloud Adoption Framework governance model, compliance blueprints, or Virtual Datacenter options to ensure the most appropriate governance or compliance model. use the [Secure Cloud Insights (SCI)](http://download.microsoft.com/download/C/7/C/C7CEA89D-7BDB-4E08-B998-737C13107361/Secure_Cloud_Insights_Datasheet_EN_US.pdf) solution offering to establish a data-driven picture of a customer deployment in Azure and validate the customer´s Azure implementation maturity while identifying optimization of existing deployment architectures, remove governance security and availability risks. Based on customer insights lead with the following:

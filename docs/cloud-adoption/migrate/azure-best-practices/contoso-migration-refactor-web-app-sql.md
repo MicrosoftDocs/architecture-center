@@ -210,7 +210,7 @@ With the database migrated, Contoso admins can now provision the two web apps.
 
     ![Web app](media/contoso-migration-refactor-web-app-sql/web-app1.png)
 
-2. They provide an app name (**SHWEB-EUS2**), run it on Windows, and place it un the production resources group **ContosoRG**. They create a new app service and plan.
+2. They provide an app name (**SHWEB-EUS2**), run it on Windows, and place it un the production resources group **ContosoRG**. They create a new web app and Azure App Service plan.
 
     ![Web app](media/contoso-migration-refactor-web-app-sql/web-app2.png)
 
@@ -294,9 +294,9 @@ Contoso admins now configure Azure DevOps to perform build and release process.
 
     ![New pipeline](./media/contoso-migration-refactor-web-app-sql/pipeline7.png)
 
-8. They select the Azure App Service deployment template.
+8. They select the deployment template for Azure App Service.
 
-    ![Azure App Service template](./media/contoso-migration-refactor-web-app-sql/pipeline8.png)
+    ![Azure App Service deployment template](./media/contoso-migration-refactor-web-app-sql/pipeline8.png)
 
 9. They name the release pipeline **ContosoSmartHotel360Refactor**, and specify the name of the WCF web app (SHWCF-EUS2) for the **Stage** name.
 
@@ -308,7 +308,7 @@ Contoso admins now configure Azure DevOps to perform build and release process.
 
 11. They verify the subscription is selected and authorized, and select the **App service name**.
 
-     ![Select app service](./media/contoso-migration-refactor-web-app-sql/pipeline11.png)
+     ![Select the app service name](./media/contoso-migration-refactor-web-app-sql/pipeline11.png)
 
 12. On the pipeline > **Artifacts**, they select **+Add an artifact**, and select to build with the **ContosoSmarthotel360Refactor** pipeline.
 
@@ -324,7 +324,7 @@ Contoso admins now configure Azure DevOps to perform build and release process.
 
 15. Now, they move back to the Stage 1 job, I tasks, and click **Deploy Azure App Service**.
 
-    ![Deploy app service](./media/contoso-migration-refactor-web-app-sql/pipeline15.png)
+    ![Deploy Azure App Service](./media/contoso-migration-refactor-web-app-sql/pipeline15.png)
 
 16. In **Select a file or folder**, they locate the **SmartHotel.Registration.Wcf.zip** file that was creating during the build, and click **Save**.
 

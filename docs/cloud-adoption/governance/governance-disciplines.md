@@ -21,7 +21,7 @@ ms.topic: landing-page
         <div class="cardPadding" style="padding-bottom:10px;">
             <div class="card" style="padding-bottom:10px;">
                 <div class="cardText" style="padding-left:0px;">
-Any change to business processes or technology platforms introduces risk. Cloud Governance teams, whose members are sometimes known as cloud custodians, are tasked with mitigating these risks, with minimal interruption to adoption or innovation efforts.<br/><br/>The Cloud Adoption Framework governance model guides these decisions (regardless of the chosen cloud platform) by focusing on [development of corporate policy](./corporate-policy.md) and the [Five Disciplines of Cloud Governance](#disciplines-of-cloud-governance). [Actionable design guides](./actionable-journeys/index.md) demonstrate this model using Azure services. This article serves as a landing page for the five disciplines of the Cloud Adoption Framework governance model.
+Any change to business processes or technology platforms introduces risk. Cloud Governance teams, whose members are sometimes known as cloud custodians, are tasked with mitigating these risks, with minimal interruption to adoption or innovation efforts.<br/><br/>The Cloud Adoption Framework governance model guides these decisions (regardless of the chosen cloud platform) by focusing on [development of corporate policy](./corporate-policy.md) and the [Five Disciplines of Cloud Governance](#disciplines-of-cloud-governance). [Actionable design guides](./actionable-journeys/index.md) demonstrate this model using Azure services. This landing page lists the disciplines of the Cloud Adoption Framework governance model.
                 </div>
             </div>
         </div>

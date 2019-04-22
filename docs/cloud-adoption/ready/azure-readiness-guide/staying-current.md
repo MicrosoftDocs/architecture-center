@@ -18,7 +18,7 @@ Cloud services like Azure evolve at a faster pace than most organizations are us
 
 The resources listed below can all help you stay current with Azure.
 
-* [Azure Service Health](https://docs.microsoft.com/azure/service-health/service-health-overview)
+* [Azure Service Health](/azure/service-health/service-health-overview)
   * Use Service Health and alerts to get timely notifications about ongoing service issues, planned maintenance, and health advisories, including features being removed from Azure.
 * [Azure Updates](https://azure.microsoft.com/updates/)
   * Subscribe to Azure Updates to receive announcements about product updates. Brief summaries link to further details, making updates easy to follow.

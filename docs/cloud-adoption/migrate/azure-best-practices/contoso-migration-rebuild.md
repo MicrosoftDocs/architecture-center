@@ -33,7 +33,7 @@ The Contoso cloud team has pinned down app requirements for this migration. Thes
 - The app shouldn't use IaaS components. Everything should be built to use PaaS or serverless services.
 - The app builds should run in cloud services, and containers should reside in a private Enterprise-wide container registry in the cloud.
 - The API service used for pet photos should be accurate and reliable in the real world, since decisions made by the app must be honored in their hotels. Any pet granted access is allowed to stay at the hotels.
-- To meet requirements for a DevOps pipeline, Contoso will use Azure DevOps for source code management (SCM), with Git Repos. Automated builds and releases will be used to build code and deploy to the Azure App Service, Azure Functions, and AKS.
+- To meet requirements for a DevOps pipeline, Contoso will use Azure DevOps for source code management (SCM), with Git Repos. Automated builds and releases will be used to build code and deploy to Azure App Service, Azure Functions, and AKS.
 - Different CI/CD pipelines are needed for microservices on the back end, and for the web site on the front end.
 - The back-end services have a different release cycle from the front-end web app. To meet this requirement, they will deploy two different DevOps pipelines.
 - Contoso needs management approval for all front-end website deployment, and the CI/CD pipeline must provide this.
@@ -78,7 +78,7 @@ Contoso evaluates the proposed design by putting together a pros and cons list.
 ### Migration process
 
 1. Contoso provision the ACR, AKS, and CosmosDB.
-2. They provision the infrastructure for the deployment, including the Azure App Service web app, storage account, function, and API.
+2. They provision the infrastructure for the deployment, including Azure App Service web app, storage account, function, and API.
 3. After the infrastructure is in place, they'll build their microservices container images using Azure DevOps, which pushes them to the ACR.
 4. Contoso will deploy these microservices to AKS using a PowerShell script.
 5. Finally, they'll deploy the function and web app.
@@ -119,7 +119,7 @@ Here's how Contoso will run the migration:
 > - **Step 3: Deploy back-end microservices.** They deploy the rest of the infrastructure that will be used by back-end microservices.
 > - **Step 4: Deploy front-end infrastructure.** They deploy the front-end infrastructure, including blob storage for the pet phones, the Cosmos DB, and Vision API.
 > - **Step 5: Migrate the back end.** They deploy microservices and run on AKS, to migrate the back end.
-> - **Step 6: Publish the front end.** They publish the SmartHotel360 app to the Azure App service, and the Function App that will be called by the pet service.
+> - **Step 6: Publish the front end.** They publish the SmartHotel360 app to the App Service, and the function app that will be called by the pet service.
 
 ## Step 1: Provision back-end resources
 
@@ -461,7 +461,7 @@ Now Contoso admins configure the web app to use Contoso resources.
 
     ![Update URL](./media/contoso-migration-rebuild/configure-webapp5.png)
 
-### Deploy the website to the Azure App Service
+### Deploy the website to Azure App Service
 
 Contoso admins can now publish the website.
 
@@ -477,7 +477,7 @@ Contoso admins can now publish the website.
     ![Continuous integration](./media/contoso-migration-rebuild/vsts-publishfront3.png)
 
 6. They click **Save & Queue** to start a build.
-7. After the build completes, they configure a release pipeline using the **Azure App Service Deployment**.
+7. After the build completes, they configure a release pipeline using **Azure App Service Deployment**.
 8. They provide a Stage name **Staging**.
 
     ![Environment name](./media/contoso-migration-rebuild/vsts-publishfront4.png)
@@ -548,7 +548,7 @@ Contoso admins deploy the app as follows.
 6. They select the **ASP.NET Core (.NET Framework)** template.
 7. They accept the defaults for the template.
 8. In **Triggers**, then select to **Enable continuous integration**, and click **Save & Queue** to start a build.
-9. After the build succeeds, they build a Release pipeline, adding the **Azure App Service deployment with slot**.
+9. After the build succeeds, they build a Release pipeline, adding **Azure App Service deployment with slot**.
 10. They name the environment **Prod**, and select the subscription. They set the **App type** to **Function App**, and the app service name as **smarthotelpetchecker**.
 
     ![Function app](./media/contoso-migration-rebuild/petchecker2.png)
