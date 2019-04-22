@@ -31,7 +31,7 @@ Healthcare system transforms online services into a friendly digital experience.
 
 “As a team, we’re focused on high-quality solutions and speed. Choosing Azure was a very transformative decision for us.”
 Jamey Shiels
-Vice President Digital Experience
+Vice President of Digital Experience
 Aurora Health Care
 
 ## Provision time

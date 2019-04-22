@@ -57,9 +57,13 @@ Cloud computing can reduce capital expenses for purchasing hardware and software
 
 Coverdell modernizes their infrastructure to drive record cost savings with Azure. Coverdell’s decision to invest in Azure, and to unite their network of websites, applications, data, and infrastructure within this environment, led to more cost savings than the company could have ever expected. The migration to an Azure-only environment eliminated 54,000 USD in monthly costs for colocation services. With the company’s new, united infrastructure alone, Coverdell expects to save an estimated $1M USD over the next two to three years.
 
-“Having access to the Azure technology stack opens the door for some scalable, easy-to-implement, and highly available solutions that are cost effective. This allows our architects to be much more creative with the solutions they provide.”
-Ryan Sorensen, Director of Application Development and Enterprise Architecture
-Coverdell
+> “Having access to the Azure technology stack opens the door for some scalable, easy-to-implement, and highly available solutions that are cost effective. This allows our architects to be much more creative with the solutions they provide.”
+>
+> Ryan Sorensen
+>
+> Director of Application Development and Enterprise Architecture
+>
+> Coverdell
 
 ### Cost avoidance
 
