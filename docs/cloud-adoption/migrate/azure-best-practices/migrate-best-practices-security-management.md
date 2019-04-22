@@ -191,7 +191,7 @@ In this section we'll recommend some best practices for Azure management, includ
 - [Manage resources](#best-practice-name-resource-groups): Best practices for Azure resource groups and resources, including smart naming, preventing accidental deletion, managing resource permissions, and effective resource tagging.
 - [Use blueprints](#best-practice-implement-blueprints): Get a quick overview on using blueprints for building and managing your deployment environments.
 - [Review architectures](#best-practice-review-azure-reference-architectures): Review sample Azure architectures to learn from as you build your post-migration deployments.
-- [Set up management groups](#best-practice-manage-resources-with-management-groups): If you have multiple subscriptions, you can gather them into management groups, and apply governance settings to those groups.
+- [Set up management groups](#best-practice-manage-resources-with-azure-management-groups): If you have multiple subscriptions, you can gather them into management groups, and apply governance settings to those groups.
 - [Set up access policies](#best-practice-deploy-azure-policy): Apply compliance policies to your Azure resources.
 - [Implement a BCDR strategy](#best-practice-implement-a-bcdr-strategy): Put together a business continuity and disaster recovery (BCDR) strategy to keep data safe, your environment resilient, and resources up and running when outages occur.
 - [Manage VMs](#best-practice-use-managed-disks-and-availability-sets): Group VMs into availability groups for resilience and high availability. Use managed disks for ease of VM disk and storage management.
