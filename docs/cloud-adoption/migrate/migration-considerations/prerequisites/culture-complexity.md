@@ -38,14 +38,14 @@ Each process within the discussion of the Cloud Adoption Framework migration pri
 
 |Process  |Activity  |Description  |Accountable party  |
 |---------|---------|---------|---------|
-| Prerequisite | Digital estate | Align the existing inventory to basic assumptions, based on business outcomes. | Cloud Strategy Team |
-| Prerequisite | Migration backlog | Prioritize the sequence of workloads to be migrated. | Cloud Strategy Team |
-| Assess | Architecture | Challenge initial assumptions to define the target architecture based on usage metrics. | Cloud Adoption Team |
-| Assess | Approval | Approve the proposed architecture. | Cloud Strategy Team |
-| Migrate | Replication access | Access to existing on-premises hosts and assets to establish replication processes. | Cloud Adoption Team |
-| Optimize | Ready | Validate that the system meets performance and cost requirements prior to promotion. | Cloud Adoption Team |
-| Optimize | Promote | Permissions to promote a workload to production and redirect production traffic. | Cloud Adoption Team |
-| Secure and manage | Ops transition | Document production systems prior to production operations. | Cloud Adoption Team |
+| Prerequisite | Digital estate | Align the existing inventory to basic assumptions, based on business outcomes. | Cloud Strategy team |
+| Prerequisite | Migration backlog | Prioritize the sequence of workloads to be migrated. | Cloud Strategy team |
+| Assess | Architecture | Challenge initial assumptions to define the target architecture based on usage metrics. | Cloud Adoption team |
+| Assess | Approval | Approve the proposed architecture. | Cloud Strategy team |
+| Migrate | Replication access | Access to existing on-premises hosts and assets to establish replication processes. | Cloud Adoption team |
+| Optimize | Ready | Validate that the system meets performance and cost requirements prior to promotion. | Cloud Adoption team |
+| Optimize | Promote | Permissions to promote a workload to production and redirect production traffic. | Cloud Adoption team |
+| Secure and manage | Ops transition | Document production systems prior to production operations. | Cloud Adoption team |
 
 > [!CAUTION]
 > For these activities, permissions and authorization heavily influence the accountable party, who must have direct access to production systems in the existing environment or must have means of securing access through other responsible actors. Determining this accountable party directly affects the promotion strategy during the migrate and optimize processes.

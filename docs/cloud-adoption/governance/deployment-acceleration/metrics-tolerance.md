@@ -17,9 +17,9 @@ This article is intended to help you quantify business risk tolerance as it rela
 
 The Deployment Acceleration discipline focuses on risks related to how cloud resources are configured, deployed, updated, and maintained. The following information is useful when adopting this discipline of cloud governance:
 
-- **Deployment failures**. Percentage of deployments that fail or result in misconfigured resources.
-- **Time to deployment**. The amount of time needed to deploy updates to an existing system.
-- **Assets out-of-compliance**. The number or percentage of resources that are out of compliance with defined policies.
+- **Deployment failures:** Percentage of deployments that fail or result in misconfigured resources.
+- **Time to deployment:** The amount of time needed to deploy updates to an existing system.
+- **Assets out-of-compliance:** The number or percentage of resources that are out of compliance with defined policies.
 
 ## Risk tolerance indicators
 
@@ -33,9 +33,9 @@ Work with your DevSecOps team and business stakeholders to identify [business ri
 
 Once you have a baseline, establish minimum benchmarks representing an unacceptable increase in your identified risks. These benchmarks act as triggers for when you need to take action to remediate these risks. The following are a few examples of how configuration-related metrics, such as those discussed above, can justify an increased investment in the Deployment Acceleration discipline.
 
-- **Configuration drift triggers**. A company that is experiencing unexpected changes in the configuration of key system components, or failures in the deployment of or updates to its systems, should invest in the Deployment Acceleration discipline to identify root causes and steps for remediation.  
-- **Out of compliance triggers**. If the number of out-of-compliance resources exceeds a defined threshold (either as a total number of resources or a percentage of total resources), a company should invest in Deployment Acceleration discipline improvements to ensure each resource's configuration remains in compliance throughout that resource's lifecycle.
-- **Project schedule triggers**. If the time to deploy a company's resources and applications often exceed a define threshold, a company should invest in its Deployment Acceleration processes to introduce or improve automated deployments for consistency and predictability. Deployment times measured in days or even weeks usually indicate a suboptimal Deployment Acceleration strategy.
+- **Configuration drift triggers:** A company that is experiencing unexpected changes in the configuration of key system components, or failures in the deployment of or updates to its systems, should invest in the Deployment Acceleration discipline to identify root causes and steps for remediation.
+- **Out of compliance triggers:** If the number of out-of-compliance resources exceeds a defined threshold (either as a total number of resources or a percentage of total resources), a company should invest in Deployment Acceleration discipline improvements to ensure each resource's configuration remains in compliance throughout that resource's lifecycle.
+- **Project schedule triggers:** If the time to deploy a company's resources and applications often exceed a define threshold, a company should invest in its Deployment Acceleration processes to introduce or improve automated deployments for consistency and predictability. Deployment times measured in days or even weeks usually indicate a suboptimal Deployment Acceleration strategy.
 
 ## Next steps
 

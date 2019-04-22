@@ -26,11 +26,11 @@ Configuration of the base Azure environment could change significantly when inte
 ### Partnership option to complete prerequisites
 
 **Microsoft Services:**
-Microsoft Services offers a number of solution offers which can align to the Cloud Adoption Framework governance model, compliance blueprints, or Virtual Datacenter options to ensure the most appropriate governance or compliance model. use the [Secure Cloud Insights (SCI)](http://download.microsoft.com/download/C/7/C/C7CEA89D-7BDB-4E08-B998-737C13107361/Secure_Cloud_Insights_Datasheet_EN_US.pdf) solution offering to establish a data-driven picture of a customer deployment in Azure and validate the customer´s Azure implementation maturity while identifying optimization of existing deployment architectures, remove governance security and availability risks. Based on customer insights lead with the following:
+Microsoft Services offers a number of solution offers which can align to the Cloud Adoption Framework governance model, compliance blueprints, or Virtual Datacenter options to ensure the most appropriate governance or compliance model. use the [Secure Cloud Insights (SCI)](https://download.microsoft.com/download/C/7/C/C7CEA89D-7BDB-4E08-B998-737C13107361/Secure_Cloud_Insights_Datasheet_EN_US.pdf) solution offering to establish a data-driven picture of a customer deployment in Azure and validate the customer´s Azure implementation maturity while identifying optimization of existing deployment architectures, remove governance security and availability risks. Based on customer insights lead with the following:
 
-- **Cloud Foundation:** Establish the customer’s core Azure designs, patterns and governance architecture with the [Hybrid Cloud Foundation (HCF)](http://download.microsoft.com/download/D/8/7/D872DFD0-1C46-4145-95E4-B5EAB2958B96/Hybrid_Cloud_Foundation_Datasheet_EN_US.pdf) solution offering. Map the customer’s requirements to the most appropriate reference architecture. Implement a minimum viable product consisting of Shared Services and IaaS Workload.
-- **Cloud Modernization:** Use the [Cloud Modernization](http://download.microsoft.com/download/3/7/3/373F90E3-8568-44F3-B096-CD9C1CD28AB7/Cloud_Modernization_Datasheet_EN_US.pdf) solution offering as a comprehensive approach to move applications, data and infrastructure to an enterprise-ready cloud, as well as to optimize and modernize once in the cloud.
-- **Innovate with Cloud:** Engage customer through an innovative and unique [Cloud Center of Excellence (CCoE)](http://download.microsoft.com/download/F/8/B/F8BBE4BD-E5F8-4DFB-82F7-C0A4E17051BB/Cloud_Center_of_Excellence_Datasheet_EN_US.pdf) solution approach which builds a modern IT organization to enable agility at scale with DevOps while staying in control. Implements an agile approach to capture business requirements, reuse deployment packages aligned with security, compliance and service management policies, and maintains the Azure platform aligned with operational procedures.
+- **Cloud Foundation:** Establish the customer’s core Azure designs, patterns and governance architecture with the [Hybrid Cloud Foundation (HCF)](https://download.microsoft.com/download/D/8/7/D872DFD0-1C46-4145-95E4-B5EAB2958B96/Hybrid_Cloud_Foundation_Datasheet_EN_US.pdf) solution offering. Map the customer’s requirements to the most appropriate reference architecture. Implement a minimum viable product consisting of Shared Services and IaaS Workload.
+- **Cloud Modernization:** Use the [Cloud Modernization](https://download.microsoft.com/download/3/7/3/373F90E3-8568-44F3-B096-CD9C1CD28AB7/Cloud_Modernization_Datasheet_EN_US.pdf) solution offering as a comprehensive approach to move applications, data and infrastructure to an enterprise-ready cloud, as well as to optimize and modernize once in the cloud.
+- **Innovate with Cloud:** Engage customer through an innovative and unique [Cloud Center of Excellence (CCoE)](https://download.microsoft.com/download/F/8/B/F8BBE4BD-E5F8-4DFB-82F7-C0A4E17051BB/Cloud_Center_of_Excellence_Datasheet_EN_US.pdf) solution approach which builds a modern IT organization to enable agility at scale with DevOps while staying in control. Implements an agile approach to capture business requirements, reuse deployment packages aligned with security, compliance and service management policies, and maintains the Azure platform aligned with operational procedures.
 
 ## Assess process changes
 
@@ -52,11 +52,11 @@ For guidance on developing governance guidance based on the Cloud Adoption Frame
 
 ## Optimize and promote process changes
 
-During the optimization and promotion processes, it is advised that the Cloud Governance Team invest time to test and validate adherence to governance and compliance standards. Additionally, this is a good time to inject processes for the Cloud Governance Team to curate templates which could provide additional [deployment acceleration](/azure/architecture/cloud-adoption/governance/deployment-acceleration/index.md) for future projects.
+During the optimization and promotion processes, it is advised that the Cloud Governance team invest time to test and validate adherence to governance and compliance standards. Additionally, this is a good time to inject processes for the Cloud Governance team to curate templates which could provide additional [deployment acceleration](/azure/architecture/cloud-adoption/governance/deployment-acceleration/index.md) for future projects.
 
 ### Suggested action during the optimize and promote process
 
-During this process, it is advised that the project plan include time allocations for the Cloud Governance Team to execute a compliance review for each workload planned for production promotion.
+During this process, it is advised that the project plan include time allocations for the Cloud Governance team to execute a compliance review for each workload planned for production promotion.
 
 ## Next steps
 

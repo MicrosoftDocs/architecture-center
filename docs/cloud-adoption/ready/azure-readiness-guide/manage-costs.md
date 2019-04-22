@@ -26,13 +26,13 @@ Azure provides a few ways to help you predict and manage costs:
 ### Predict and manage costs
 
 1. Go to [Cost Management + Billing](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview).
-2. Select **Cost Management**.
-2. Explore the features that help to analyze and optimize cloud costs.
+1. Select **Cost Management**.
+1. Explore the features that help to analyze and optimize cloud costs.
 
 ### Manage invoices and payment methods
 
 1. Go to [Cost Management + Billing](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview).
-2. Select **Invoices** or **Payment methods** from the **Billing** section in the left pane.
+1. Select **Invoices** or **Payment methods** from the **Billing** section in the left pane.
 
 ## Billing and subscription support
 
@@ -41,14 +41,16 @@ We offer 24x7 access for billing and subscription support to Azure customers. If
 ### Create a support request
 
 To submit a new support request:
+
 1. Go to [Help + Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
-2. Select **New support request**.
+1. Select **New support request**.
 
 ### View a support request
 
 To view all of your support requests and their status:
+
 1. Go to [Help + Support](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
-2. Select **All support requests**.
+1. Select **All support requests**.
 
 ## Learn more
 
@@ -60,27 +62,32 @@ To learn more, see [Azure billing and cost management documentation](/azure/bill
 
 ## Actions
 
-**Predict and manage costs**
-1. Go to **Cost Management + Billing**.
-2. Select **Cost Management**.
+**Predict and manage costs:**
 
-**Manage invoices and payment methods**
 1. Go to **Cost Management + Billing**.
-2. Select **Invoices** or **Payment methods** from the **Billing** section in the left pane.
+1. Select **Cost Management**.
+
+**Manage invoices and payment methods:**
+
+1. Go to **Cost Management + Billing**.
+1. Select **Invoices** or **Payment methods** from the **Billing** section in the left pane.
 
 ::: form action="OpenBlade[#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/Overview]" submitText="Go to Cost Management + Billing" ::: form-end
 
-**Billing and subscription support**
+**Billing and subscription support:**
 
 We offer 24x7 access for billing and subscription support to Azure customers. If you need assistance to understand Azure usage, create a support request.
 
-**Create a support request**
+**Create a support request:**
+
 To submit a new support request:
+
 1. Go to **Help + Support**.
 2. Select **New support request**.
 
-**View a support request**
+**View a support request:**
 To view all of your support requests and their status:
+
 1. Go to **Help + Support**.
 2. Select **All support requests**.
 

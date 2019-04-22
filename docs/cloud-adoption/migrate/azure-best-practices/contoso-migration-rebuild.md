@@ -1,7 +1,7 @@
 ---
 title: "CAF: Rebuild an on-premises app to Azure"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: Learn how Contoso rebuilds an app to Azure using Azure App Service, the Kubernetes service, CosmosDB, Azure Functions, and Cognitive services.
+description: Learn how Contoso rebuilds an app to Azure using Azure App Service, Azure Kubernetes Service, Cosmos DB, Azure Functions, and Azure Cognitive Services.
 services: site-recovery
 author: BrianBlanchard
 ms.service: site-recovery
@@ -54,7 +54,7 @@ After pinning down goals and requirements, Contoso designs and review a deployme
 
 - The front-end of the app is deployed as an Azure App Service web app in the primary Azure region.
 - An Azure function provides uploads of pet photos, and the site interacts with this functionality.
-- The pet photo function uses Cognitive Services Vision API and Cosmos DB.
+- The pet photo function uses the Azure Cognitive Services Vision API and Cosmos DB.
 - The back end of the site is built using microservices. These will be deployed to containers managed on the Azure Kubernetes service (AKS).
 - Containers will be built using Azure DevOps, and pushed to the Azure Container Registry (ACR).
 - For now, Contoso will manually deploy the web app and function code using Visual Studio.
@@ -70,14 +70,14 @@ Contoso evaluates the proposed design by putting together a pros and cons list.
 
 **Consideration** | **Details**
 --- | ---
-**Pros** | Using PaaS and serverless solutions for the end-to-end deployment significantly reduces management time that Contoso must provide.<br/><br/> Moving to a microservice architecture allows Contoso to easily extend the solution over time.<br/><br/> New functionality can be brought online without disrupting any of the existing solutions code bases.<br/><br/> The web app will be configured with multiple instances with no single point of failure.<br/><br/> Autoscaling will be enabled so that the app can handle differing traffic volumes.<br/><br/> With the move to PaaS services, Contoso can retire out-of-date solutions running on Windows Server 2008 R2 operating system.<br/><br/> CosmosDB has built-in fault tolerance, which requires no configuration by Contoso. This means that the data tier is no longer a single point of failover.
+**Pros** | Using PaaS and serverless solutions for the end-to-end deployment significantly reduces management time that Contoso must provide.<br/><br/> Moving to a microservice architecture allows Contoso to easily extend the solution over time.<br/><br/> New functionality can be brought online without disrupting any of the existing solutions code bases.<br/><br/> The web app will be configured with multiple instances with no single point of failure.<br/><br/> Autoscaling will be enabled so that the app can handle differing traffic volumes.<br/><br/> With the move to PaaS services, Contoso can retire out-of-date solutions running on Windows Server 2008 R2 operating system.<br/><br/> Cosmos DB has built-in fault tolerance, which requires no configuration by Contoso. This means that the data tier is no longer a single point of failover.
 **Cons** | Containers are more complex than other migration options. The learning curve could be an issue for Contoso. They introduce a new level of complexity that provides a lot of value in spite of the curve.<br/><br/> The operations team at Contoso needs to ramp up to understand and support Azure, containers and microservices for the app.<br/><br/> Contoso hasn't fully implemented DevOps for the entire solution. Contoso needs to consider that for the deployment of services to AKS, Azure Functions, and Azure App Service.
 
 <!-- markdownlint-enable MD033 -->
 
 ### Migration process
 
-1. Contoso provision the ACR, AKS, and CosmosDB.
+1. Contoso provision the ACR, AKS, and Cosmos DB.
 2. They provision the infrastructure for the deployment, including Azure App Service web app, storage account, function, and API.
 3. After the infrastructure is in place, they'll build their microservices container images using Azure DevOps, which pushes them to the ACR.
 4. Contoso will deploy these microservices to AKS using a PowerShell script.
@@ -162,7 +162,9 @@ The Contoso admins provision as follows:
 
 9. After the deployment is finished, they install the **kubectl** command-line tool. The tool is already installed on the Azure CloudShell.
 
-    **az aks install-cli**
+    ```console
+    az aks install-cli
+    ```
 
 10. They verify the connection to the cluster by running the **kubectl get nodes** command. The node is the same name as the VM in the automatically created resource group.
 
@@ -216,7 +218,7 @@ Contoso creates an Azure DevOps project, and configures a CI Build to create the
 
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts8.png)
 
-10. They specify the path of the **docker-compose.yaml** file, in the **src** folder of the repo. They select to build service images and include the latest tag. When the action changes to **Build service images**, the name of the Azure DevOps task changes to **Build services automatically**
+10. They specify the path of the **docker-compose.yaml** file, in the **src** folder of the repo. They select to build service images and include the latest tag. When the action changes to **Build service images**, the name of the Azure DevOps task changes to **Build services automatically**.
 
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts9.png)
 

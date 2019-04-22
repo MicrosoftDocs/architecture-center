@@ -32,7 +32,7 @@ The following diagram shows the governance MVP hierarchy for organizing resource
 
 Every application should be deployed in the proper area of the management group, subscription, and resource group hierarchy. During deployment planning, the Cloud Governance team will create the necessary nodes in the hierarchy to empower the cloud adoption teams.
 
-1. A management group for each business unit with a detailed hierarchy that reflects geography then environment type (Production, Non-Production).
+1. A management group for each business unit with a detailed hierarchy that reflects geography then environment type (for example, Production or Nonproduction).
 2. A subscription for each unique combination of business unit, geography, environment, and "Application Categorization."
 3. A separate resource group for each application.
 4. Consistent nomenclature should be applied at each level of this grouping hierarchy.

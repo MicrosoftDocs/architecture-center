@@ -1,5 +1,5 @@
 ---
-title: "CAF: Software Defined Networking - PaaS only" 
+title: "CAF: Software Defined Networking - PaaS-only"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption

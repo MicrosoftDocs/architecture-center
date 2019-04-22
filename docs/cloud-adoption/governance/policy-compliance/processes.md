@@ -1,6 +1,6 @@
 ---
 title: "CAF: Monitor and enforce policy adherence"
-description: How do you ensure compliance with established policies? 
+description: How do you ensure compliance with established policies?
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
@@ -49,7 +49,7 @@ Plan to evaluate new potential risks and update policy statements and design gui
 
 Policy compliance requires IT staff and developers to understand the policy requirements that affect their areas of responsibility. Plan to devote resources to document decisions and requirements, and educate all relevant teams on the design guides that support your policy requirements.
 
-As policy changes, regularly update documentation and training materials, and ensure education efforts communicate updated requirements and guidance to relevant IT staff.  
+As policy changes, regularly update documentation and training materials, and ensure education efforts communicate updated requirements and guidance to relevant IT staff.
 
 ### Establish escalation paths
 

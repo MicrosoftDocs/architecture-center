@@ -50,7 +50,7 @@ A cloud native policy for network controls may include requirements like the fol
 - Hybrid connections to on-premises resources (While technically possible in Azure), might not be allowed in a Cloud Native policy. Should a hybrid connection prove necessary, a more robust Enterprise Security Policy sample would be a more relevant reference.
 - Users can establish secure connections to and within Azure using virtual networks and network security groups.
 - Native Windows Azure Firewall protects hosts from malicious network traffic by limited port access. A good example of this policy would be the requirement to block (or not enable) traffic directly to a VM over RDP - TCP/UDP port 3389.
-- Services like Web Application Firewall and Azure DDoS Protection safeguard applications and ensure availability for virtual machines running in Azure. These features should not be disabled or misused.
+- Services like the Azure Application Gateway web application firewall (WAF) and Azure DDoS Protection safeguard applications and ensure availability for virtual machines running in Azure. These features should not be disabled or misused.
 
 ### Data protection
 
@@ -78,9 +78,9 @@ Using the cloud can reduce some of the security burden. Microsoft provides physi
 
 Even with this investment in Cloud Native Security Baseline, it is suggested that any Security Baseline policy extend the default Cloud Native policies. The following are examples of extended policies that should be considered, even in a Cloud Native environment:
 
-- **Secure VMs**. Security should be every organization's top priority, and doing it effectively requires several things. You must assess your security state, protect against security threats, and then detect and respond rapidly to threats that occur.
-- **Protect VM contents**. Setting up regular automated backups is essential to protect against user errors. This isn’t enough, though; you must also make sure that your backups are safe from cyberattacks and are available when you need them.
-- **Monitor VMs and applications**. This pattern encompasses several tasks, including getting insight into the health of your VMs, understanding interactions among them, and establishing ways to monitor the applications these VMs run. All of these tasks are essential in keeping your applications running around the clock.
+- **Secure VMs.** Security should be every organization's top priority, and doing it effectively requires several things. You must assess your security state, protect against security threats, and then detect and respond rapidly to threats that occur.
+- **Protect VM contents.** Setting up regular automated backups is essential to protect against user errors. This isn’t enough, though; you must also make sure that your backups are safe from cyberattacks and are available when you need them.
+- **Monitor VMs and applications.** This pattern encompasses several tasks, including getting insight into the health of your VMs, understanding interactions among them, and establishing ways to monitor the applications these VMs run. All of these tasks are essential in keeping your applications running around the clock.
 
 ## Next steps
 

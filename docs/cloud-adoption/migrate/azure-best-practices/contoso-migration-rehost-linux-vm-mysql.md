@@ -398,11 +398,11 @@ As the final step in the migration process, Contoso admins update the connection
 
 2. They update settings so that the **OSTICKETWEB** VM can communicate with the **OSTICKETMYSQL** database. Currently the configuration is hardcoded with the on-premises IP address 172.16.0.43.
 
-    **Before the update**
+    **Before the update:**
 
     ![Update IP](./media/contoso-migration-rehost-linux-vm-mysql/update-ip1.png)
 
-    **After the update**
+    **After the update:**
 
     ![Update IP](./media/contoso-migration-rehost-linux-vm-mysql/update-ip2.png)
 

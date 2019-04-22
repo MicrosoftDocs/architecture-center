@@ -15,23 +15,23 @@ While this guide is an effective baseline to familiarize you with this type of m
 
 The following checklist outlines the common areas of complexity which could require the scope of the migration to be expanded beyond the [Azure migration guide](../azure-migration-guide/index.md).
 
-- **Business-driven scope changes**
+- **Business-driven scope changes:**
   - [Balancing the portfolio](./balance-the-portfolio.md)
   - [Support global markets](./multiple-regions.md)
   - Cost consciousness during a migration *(Coming Q2 2019)*
-- **Culture-driven scope changes**
+- **Culture-driven scope changes:**
   - Change management and approval processes *(Coming Q2 2019)*
   - Executive readiness *(Coming Q2 2019)*
   - [Skills readiness](./skills-readiness.md)
   - Aligning support (Partner, services, and support) *(Coming Q2 2019)*
-- **Technical Strategy-driven scope changes**
+- **Technical strategy-driven scope changes:**
   - Existing datacenter constraints *(Coming Q2 2019)*
   - Migrating at scale - High volume or velocity of migrations *(Coming Q2 2019)*
   - [Multiple datacenters](./multiple-datacenters.md)
   - [Data requirements exceed network capacity](./network-capacity-exceeded.md)
   - Change management and solution documentation *(Coming Q2 2019)*
   - [Governance or compliance strategy](./governance-or-compliance.md)
-- **Workload-specific scope changes**
+- **Workload-specific scope changes:**
   - Architect workloads for resiliency *(Coming Q2 2019)*
   - Align migration to application patterns *(Coming Q2 2019)*
 

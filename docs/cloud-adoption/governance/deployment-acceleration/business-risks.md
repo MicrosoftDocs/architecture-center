@@ -29,9 +29,9 @@ A robust Deployment Acceleration plan ensures that your cloud resources are depl
 
 The Deployment Acceleration discipline attempts to address the following business risks. During cloud adoption, monitor each of the following for relevance:
 
-- **Service disruption**. Lack of predictable repeatable deployment processes or unmanaged changes to system configurations can disrupt normal operations and can result in lost productivity or lost business.
-- **Cost overruns**. Unexpected changes in configuration of system resources can make identifying root cause of issues more difficult, raising the costs of development, operations, and maintenance.
-- **Organizational inefficiencies**. Barriers between development, operations, and security teams can cause numerous challenges to effective adoption of cloud technologies and the development of a unified cloud governance model.
+- **Service disruption:** Lack of predictable repeatable deployment processes or unmanaged changes to system configurations can disrupt normal operations and can result in lost productivity or lost business.
+- **Cost overruns:** Unexpected changes in configuration of system resources can make identifying root cause of issues more difficult, raising the costs of development, operations, and maintenance.
+- **Organizational inefficiencies:** Barriers between development, operations, and security teams can cause numerous challenges to effective adoption of cloud technologies and the development of a unified cloud governance model.
 
 ## Next steps
 

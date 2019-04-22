@@ -37,7 +37,7 @@ The cloud allows for opportunities to deliver new products to customers or deliv
 
 With global scale and digital reach, the cloud allows businesses to increase revenue of existing revenue streams. Often times, this type of outcome would come from an alignment with sales or marketing leadership.
 
-- Example: A company that sells widgets could sell more widgets, if the sales people had the ability to securely access the company’s digital catalog and stock levels. Unfortunately, that data is only in the company’s ERP system, which can only be accessed via a network connected device. Creating a service façade to interface with the ERP, exposing the catalog list and non-sensitive stock levels to an application in the cloud would allow the sales people to access the data they need while onsite with a customer. Extending on-premises Active Directory using Azure Active Directory (Azure AD) and integrating role-based access into the application would allow the company to ensure the data stays safe. This simple project could affect revenue from an existing product line by X%.
+- Example: A company that sells widgets could sell more widgets, if the sales people had the ability to securely access the company’s digital catalog and stock levels. Unfortunately, that data is only in the company’s ERP system, which can only be accessed via a network connected device. Creating a service façade to interface with the ERP, exposing the catalog list and nonsensitive stock levels to an application in the cloud would allow the sales people to access the data they need while onsite with a customer. Extending on-premises Active Directory using Azure Active Directory (Azure AD) and integrating role-based access into the application would allow the company to ensure the data stays safe. This simple project could affect revenue from an existing product line by X%.
 
 ### Profit increases
 
@@ -56,6 +56,7 @@ Cloud computing can reduce capital expenses for purchasing hardware and software
 ### Coverdell
 
 Coverdell modernizes their infrastructure to drive record cost savings with Azure. Coverdell’s decision to invest in Azure, and to unite their network of websites, applications, data, and infrastructure within this environment, led to more cost savings than the company could have ever expected. The migration to an Azure-only environment eliminated 54,000 USD in monthly costs for colocation services. With the company’s new, united infrastructure alone, Coverdell expects to save an estimated $1M USD over the next two to three years.
+
 “Having access to the Azure technology stack opens the door for some scalable, easy-to-implement, and highly available solutions that are cost effective. This allows our architects to be much more creative with the solutions they provide.”
 Ryan Sorensen, Director of Application Development and Enterprise Architecture
 Coverdell
@@ -73,7 +74,7 @@ Before discussing cost outcomes, it is important to understand the two primary c
 The following terms will help you understand differences between capital expenses and operating expenses when discussing a transformation journey with the business.
 
 - **Capital** is the money or assets owned by a business to contribute to a particular purpose, such as, increase server capacity or building an application.
-- **Capital expenditures** generate benefits over a long period. These are generally non-recurring and results in the acquisition of permanent assets. Building an application could qualify as a capital expenditure.
+- **Capital expenditures** generate benefits over a long period. These are generally nonrecurring and results in the acquisition of permanent assets. Building an application could qualify as a capital expenditure.
 - **Operating expenditures** is are ongoing costs of doing business. Consuming cloud services in a pay-as-you-go model could qualify as an operating expenditure.
 - An **asset** is an economic resource that can be owned or controlled to produce value. Servers, data lakes, and applications can all be considered assets.
 - **Depreciation** is how the value of an asset decreases over time. More relevant to the capital expense versus operating expense conversation, it is how the costs of an asset are allocated across the periods in which they are used. For instance, if you build an application this year but it is expected to have an average shelf-life of five years (like most commercial apps), then the cost of the dev team and necessary tools required to create and deploy the code base would be depreciated evenly over five years.

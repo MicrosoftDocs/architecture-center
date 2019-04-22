@@ -12,7 +12,7 @@ author: BrianBlanchard
 # Resource Consistency policy compliance processes
 
 This article discusses an approach to policy adherence processes that govern [Resource Consistency](./index.md). Effective cloud Resource Consistency governance starts with recurring manual processes designed to identify operational inefficiency, improve management of deployed resources, and ensure mission-critical workloads have minimal disruptions. These manual processes are supplemented with monitoring, automation, and tooling to help reduce the overhead of governance and allow for faster response to policy deviation.
- 
+
 ## Planning, review, and reporting processes
 
 Cloud platforms provide an array of management tools and features that you can use to organize, provision, scale, and minimize downtime. Using these tools to effectively structure and operate your cloud deployments in ways that remediate potential risks requires well thought out processes and policies in addition to close cooperation with IT Operations teams and business stakeholders.
@@ -43,16 +43,16 @@ Ensure that your IT teams have implemented automated monitoring systems for your
 
 ## Violation triggers and enforcement actions
 
-Because Resource Consistency policy compliance can lead to critical service disruption or significant cost overruns risks, the Cloud Governance team should have visibility into noncompliance incidents. Ensure IT staff have clear escalation paths for reporting these issues to the governance team members best suited to identify and verify that policy issues are mitigated once detected.  
+Because Resource Consistency policy compliance can lead to critical service disruption or significant cost overruns risks, the Cloud Governance team should have visibility into noncompliance incidents. Ensure IT staff have clear escalation paths for reporting these issues to the governance team members best suited to identify and verify that policy issues are mitigated once detected.
 
 When violations are detected, you should take actions to realign with policy as soon as possible. Your IT team can automate most violation triggers using the tools outlined in the [Resource Consistency toolchain for Azure](toolchain.md).
 
 The following triggers and enforcement actions provide examples you can reference when planning how to use monitoring data to resolve policy violations:
 
-- **Overprovisioned resource detected**. Resources detected using less than 60% of CPU or memory capacity should automatically scale down or deprovisioning resources to reduce costs.
-- **Underprovisioned resource detected**. Resources detected using more than 80% of CPU or memory capacity should automatically scale up or provisioning additional resources to provide additional capacity.
-- **Untagged resource creation**. Any request to create a resource without required meta tags will be rejected automatically.
-- **Critical resource outage detected**. IT staff are notified on all detected outages of mission-critical outages. If outage is not immediately resolvable, staff will escalate the issue and notify workload owners and the Cloud Governance team. The Cloud Governance team will track the issue until resolution and update guidance if policy revision is necessary to prevent future incidents.
+- **Overprovisioned resource detected.** Resources detected using less than 60% of CPU or memory capacity should automatically scale down or deprovisioning resources to reduce costs.
+- **Underprovisioned resource detected.** Resources detected using more than 80% of CPU or memory capacity should automatically scale up or provisioning additional resources to provide additional capacity.
+- **Untagged resource creation.** Any request to create a resource without required meta tags will be rejected automatically.
+- **Critical resource outage detected.** IT staff are notified on all detected outages of mission-critical outages. If outage is not immediately resolvable, staff will escalate the issue and notify workload owners and the Cloud Governance team. The Cloud Governance team will track the issue until resolution and update guidance if policy revision is necessary to prevent future incidents.
 
 ## Next steps
 

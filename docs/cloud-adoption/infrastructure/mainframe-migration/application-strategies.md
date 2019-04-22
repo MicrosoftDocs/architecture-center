@@ -1,6 +1,6 @@
 ---
 title: "Mainframe migration: Mainframe application migration"
-description: Migrate applications from mainframe environments to Azure, a proven, highly available, and scalable infrastructure for systems that currently run on mainframes 
+description: Migrate applications from mainframe environments to Azure, a proven, highly available, and scalable infrastructure for systems that currently run on mainframes.
 author: njray
 ms.date: 12/26/2018
 ---

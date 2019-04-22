@@ -25,16 +25,16 @@ The Azure Migrate service assesses on-premises workloads for migration to Azure.
 
 ![Azure migrate overview](./media/assess/azuremigrate-overview-1.png)
 
-### Create a new Migration Project
+### Create a new migration project
 
 To get started with Azure Migrate follow these steps:
 
-1. Select **Azure Migrate**
-1. Create a new Migration Project
-1. Select **Discover and Assess**
-1. Follow the **Discover machines** wizard
-    1. Download, create, configure the collector appliance for on-premises
-1. Follow the **Create assessment** wizard
+1. Select **Azure Migrate**.
+1. Create a new migration project.
+1. Select **Discover and Assess**.
+1. Follow the **Discover machines** wizard.
+    1. Download, create, configure the collector appliance for on-premises.
+1. Follow the **Create assessment** wizard.
 
 ::: zone target="chromeless"
 
@@ -60,10 +60,10 @@ Service Map automatically discovers application components on Windows and Linux 
 
 ### Enable Service Map
 
-1. In the Azure portal, select create a new resource
-1. Choose **Service Map** and click Create
+1. In the Azure portal, select create a new resource.
+1. Choose **Service Map** and click Create.
 1. In **Configure a solution** pane, configure your **Log Analytics** workspace
-1. Click **Create**
+1. Click **Create**.
 
 ::: zone target="chromeless"
 
@@ -91,7 +91,7 @@ Machine Groups allow you to see maps centered around a set of servers, not just 
 
 1. Within **Service Map**, navigate to the Machines tab/list.
 1. Select the Machines you with to add to a group.
-1. Click **Add to group**
+1. Click **Add to group**.
 1. Select an existing group or create a new group to contain your servers.
 
 ### View a Machine Group dependency report

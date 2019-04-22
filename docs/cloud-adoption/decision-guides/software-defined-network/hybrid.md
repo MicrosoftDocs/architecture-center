@@ -1,5 +1,5 @@
 ---
-title: "CAF: Software Defined Networking - Hybrid network" 
+title: "CAF: Software Defined Networking - Hybrid network"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
@@ -39,4 +39,4 @@ Your cloud adoption teams should consider the following issues when looking at i
 
 See the following for more information about hybrid networking in the Azure platform.
 
-- [Hybrid network reference architecture](../../../reference-architectures/hybrid-networking/expressroute.md). Azure hybrid virtual networks use either an ExpressRoute circuit or Azure VPN to connect your virtual network with your organization's existing non-Azure hosted IT assets. This article discusses the options for creating a hybrid network in Azure.
+- [Hybrid network reference architecture](../../../reference-architectures/hybrid-networking/expressroute.md). Azure hybrid virtual networks use either an ExpressRoute circuit or Azure VPN to connect your virtual network with your organization's existing IT assets not hosted in Azure. This article discusses the options for creating a hybrid network in Azure.

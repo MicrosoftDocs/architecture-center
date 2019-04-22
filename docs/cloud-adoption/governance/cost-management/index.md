@@ -13,10 +13,10 @@ ms.topic: landing-page
 
 # Cost Management discipline overview
 
-Cost Management is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md) within the [Cloud Adoption Framework governance model](../index.md). For many customers, governing cost is a major concern when adopting cloud technologies. Balancing performance demands, adoption pacing, and cloud services costs can be challenging. This is especially relevant during major business transformations that implement cloud technologies. This section outlines the approach to developing a Cost Management discipline as part of a cloud governance strategy.  
+Cost Management is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md) within the [Cloud Adoption Framework governance model](../index.md). For many customers, governing cost is a major concern when adopting cloud technologies. Balancing performance demands, adoption pacing, and cloud services costs can be challenging. This is especially relevant during major business transformations that implement cloud technologies. This section outlines the approach to developing a Cost Management discipline as part of a cloud governance strategy.
 
 > [!NOTE]
-> Cost Management governance does not replace the existing business teams, accounting practices, and procedures that are involved in your organization's financial management of IT-related costs. The primary purpose of this discipline is to identify potential cloud-related risks related to IT spending, and provide risk-mitigation guidance to the business and IT teams responsible for deploying and managing cloud resources. 
+> Cost Management governance does not replace the existing business teams, accounting practices, and procedures that are involved in your organization's financial management of IT-related costs. The primary purpose of this discipline is to identify potential cloud-related risks related to IT spending, and provide risk-mitigation guidance to the business and IT teams responsible for deploying and managing cloud resources.
 
 The primary audience for this guidance is your organization's cloud architects and other members of your Cloud Governance team. However, the decisions, policies, and processes that emerge from this discipline should involve engagement and discussions with relevant members of your business and IT teams, especially those leaders responsible for owning, managing, and paying for cloud-based workloads.
 
