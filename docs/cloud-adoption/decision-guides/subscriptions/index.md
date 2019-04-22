@@ -1,5 +1,5 @@
 ---
-title: "CAF: Subscription decision guide" 
+title: "CAF: Subscription decision guide"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
@@ -102,8 +102,8 @@ Management groups can mirror your billing hierarchy, and often enterprises start
 
 Examples include:
 
-- Production/non-production: Some enterprises create management groups to identify their production and non-production subscriptions. Management groups allow these customers to more easily manage roles and policies, for example: non-production subscription may allow developers "contributor" access, but in production, they have only "reader" access.
-- Internal services/external services: Much like production/non-production, enterprises often have different requirements, policies, and roles for internal services versus external customer-facing services.
+- **Production vs. nonproduction:** Some enterprises create management groups to identify their production and nonproduction subscriptions. Management groups allow these customers to more easily manage roles and policies, for example: nonproduction subscription may allow developers "contributor" access, but in production, they have only "reader" access.
+- **Internal services vs. external services:** Much like production versus nonproduction, enterprises often have different requirements, policies, and roles for internal services versus external customer-facing services.
 
 ## Organization at the subscription level
 
@@ -117,7 +117,7 @@ Consider the following patterns as guides:
 
 - **Department:** Subscriptions represent departments in the organization.
 
-The first two patterns are the most commonly used and are both highly recommended. The lifecycle approach is appropriate for most organizations. In this case, the general recommendation is to use two base subscriptions: production and non-production, and then use resource groups to break out the environments further.
+The first two patterns are the most commonly used and are both highly recommended. The lifecycle approach is appropriate for most organizations. In this case, the general recommendation is to use two base subscriptions: production and nonproduction, and then use resource groups to break out the environments further.
 
 For a general description of how Azure subscriptions and resource groups are used to group and manage resources, see [Resource access management in Azure](../../getting-started/azure-resource-access.md).
 

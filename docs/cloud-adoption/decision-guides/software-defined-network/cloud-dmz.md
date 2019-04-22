@@ -1,5 +1,5 @@
 ---
-title: "CAF: Software Defined Networking - Cloud DMZ" 
+title: "CAF: Software Defined Networking - Cloud DMZ"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption

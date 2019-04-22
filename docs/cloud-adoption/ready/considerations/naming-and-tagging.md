@@ -5,7 +5,7 @@ ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: readiness
 ms.date: 04/01/2019
-description: Large Enterprise – Additional technical details regarding governance MVP
+description: Large enterprise – Additional technical details regarding governance MVP
 author: BrianBlanchard
 ---
 

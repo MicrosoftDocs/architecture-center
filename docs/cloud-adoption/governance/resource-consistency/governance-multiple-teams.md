@@ -130,7 +130,7 @@ If you compare each example to the requirements, you'll see that both examples s
 Now that you've designed a permissions model of least privilege, let's move on to take a look at some practical applications of these governance models. Recall from the requirements that you must support the following three environments:
 
 1. **Shared infrastructure:** a single group of resources shared by all workloads. These are resources such as network gateways, firewalls, and security services.
-2. **Development:** multiple groups of resources representing multiple non-production ready workloads. These resources are used for proof-of-concept, testing, and other developer activities. These resources may have a more relaxed governance model to enable increased developer agility.
+2. **Development:** multiple groups of resources representing multiple nonproduction ready workloads. These resources are used for proof-of-concept, testing, and other developer activities. These resources may have a more relaxed governance model to enable increased developer agility.
 3. **Production:** multiple groups of resources representing multiple production workloads. These resources are used to host the private and public facing application artifacts. These resources typically have the tightest governance and security models to protect the resources, application code, and data from unauthorized access.
 
 For each of these three environments, there is a requirement to track cost data by **workload owner**, **environment**, or both. That is, you'll want to know the ongoing cost of the **shared infrastructure**, the costs incurred by individuals in both the **development** and **production** environments, and finally the overall cost of **development** and **production**.
@@ -243,11 +243,11 @@ Follow these steps:
     - Workload owners.
 3. The Azure AD global administrator [creates the new user accounts](/azure/active-directory/add-users-azure-active-directory) for:
     - The person who will be the **subscription owner** for each subscription associated with each environment. Note that this is necessary only if the subscription **service administrator** will not be tasked with managing resource access for each subscription/environment.
-    - The person who will be the **network operations user**, and
+    - The person who will be the **network operations user**.
     - The people who are **workload owners**.
 4. The Azure account administrator creates the following three subscriptions using the [Azure account portal](https://account.azure.com):
-    - A subscription for the **shared infrastructure** environment,
-    - A subscription for the **production** environment, and
+    - A subscription for the **shared infrastructure** environment.
+    - A subscription for the **production** environment.
     - A subscription for the **development** environment.
 5. The Azure account administrator [adds the subscription service owner to each subscription](/azure/billing/billing-add-change-azure-subscription-administrator#add-an-rbac-owner-admin-for-a-subscription-in-azure-portal).
 6. Create an approval process for **workload owners** to request the creation of resource groups. The approval process can be implemented in many ways, such as over email, or you can using a process management tool such as [SharePoint workflows](https://support.office.com/article/introduction-to-sharepoint-workflow-07982276-54e8-4e17-8699-5056eff4d9e3). The approval process can follow these steps:

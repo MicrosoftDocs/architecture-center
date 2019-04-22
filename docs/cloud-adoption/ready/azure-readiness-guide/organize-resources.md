@@ -1,6 +1,6 @@
 ---
 title: Organize your Azure resources effectively | Microsoft docs
-description: Best practices to effectively organize your Azure resources for ease of management 
+description: Best practices to effectively organize your Azure resources for ease of management.
 author: laraaleite
 ms.author: kfollis
 ms.date: 04/09/2019
@@ -18,10 +18,10 @@ The organizing structure for resources in Azure has four levels: management grou
 
    ![Diagram that shows relationship of management hierarchy](./media/organize-resources/scope-levels.png)
 
-- **Management groups**: These are containers that help you manage access, policy, and compliance for multiple subscriptions. All subscriptions in a management group automatically inherit the conditions applied to the management group.
-- **Subscriptions**: A subscription groups together user accounts and the resources that have been created by those user accounts. For each subscription, there are limits or quotas on the amount of resources you can create and use. Organizations can use subscriptions to manage costs and the resources that are created by users, teams, or projects.
-- **Resource groups**: A resource group is a logical container into which Azure resources like web apps, databases, and storage accounts are deployed and managed.
-- **Resources**: Resources are instances of services that you create, like virtual machines, storage, or SQL databases.
+- **Management groups:** These are containers that help you manage access, policy, and compliance for multiple subscriptions. All subscriptions in a management group automatically inherit the conditions applied to the management group.
+- **Subscriptions:** A subscription groups together user accounts and the resources that have been created by those user accounts. For each subscription, there are limits or quotas on the amount of resources you can create and use. Organizations can use subscriptions to manage costs and the resources that are created by users, teams, or projects.
+- **Resource groups:** A resource group is a logical container into which Azure resources like web apps, databases, and storage accounts are deployed and managed.
+- **Resources:** Resources are instances of services that you create, like virtual machines, storage, or SQL databases.
 
 ## Scope of management settings
 
@@ -75,7 +75,7 @@ To learn more, see:
 
 ## Actions
 
-**Create a management group**
+**Create a management group:**
 
 Create a management group to help you manage access, policy, and compliance for multiple subscriptions.
 
@@ -84,7 +84,7 @@ Create a management group to help you manage access, policy, and compliance for 
 
 ::: form action="OpenBlade[#blade/Microsoft_Azure_ManagementGroups/HierarchyBlade]" submitText="Go to Management groups" :::
 
-**Create an additional subscription**
+**Create an additional subscription:**
 
 Use subscriptions to manage costs and resources that are created by users, teams, or projects.
 
@@ -93,7 +93,7 @@ Use subscriptions to manage costs and resources that are created by users, teams
 
 ::: form action="OpenBlade[#blade/Microsoft_Azure_Billing/SubscriptionsBlade]" submitText="Go to Subscriptions" :::
 
-**Create a resource group**
+**Create a resource group:**
 
 Create a resource group to hold resources like web apps, databases, and storage accounts that share the same lifecycle, permissions, and policies.
 
@@ -163,7 +163,7 @@ To learn more, see [Use tags to organize your Azure resources](/azure/azure-reso
 
 ## Action
 
-**Apply a resource tag**
+**Apply a resource tag:**
 
 To apply a tag to a resource group:
 
@@ -171,7 +171,7 @@ To apply a tag to a resource group:
 1. Select a resource group.
 1. Select **Tags**.
 1. Enter a new name and value or select an existing name and value.
- 
+
 ::: form action="OpenBlade[#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fsubscriptions%2FresourceGroups]" submitText="Go to resource groups" :::
 
 ::: zone-end

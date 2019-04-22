@@ -23,7 +23,7 @@ Microsoft suggests that any asset which has been identified as a potential candi
 
 ## Microsoft's data classification
 
-The following is a list of classifications Microsoft uses. Depending on your industry or existing security requirements, data classifications standards may already exist within your organization. If no standard exists, we welcome you to use this sample classification, to help you better understand your digital estate and risk profile.  
+The following is a list of classifications Microsoft uses. Depending on your industry or existing security requirements, data classifications standards may already exist within your organization. If no standard exists, we invite you to use this sample classification to better understand your own digital estate and risk profile.
 
 * **Non-business:** Data from your personal life that does not belong to Microsoft
 * **Public:** Business data that is freely available and approved for public consumption

@@ -232,7 +232,7 @@ Before starting, Contoso admins take a local SQL Server backup, and VMware snaps
 
     ![Migrate](./media/contoso-migration-tfs-vsts/migrate1.png)
 
-2. In **General**, they select **Detach Collection**
+2. In **General**, they select **Detach Collection**.
 
     ![Migrate](./media/contoso-migration-tfs-vsts/migrate2.png)
 
@@ -269,7 +269,7 @@ Contoso admins generate the DACPAC as follows:
 1. They open a command prompt and navigate to the SQLPackage.exe location. They type this following command to generate the DACPAC:
 
     ``` console
-    SqlPackage.exe /sourceconnectionstring:"Data Source=SQLSERVERNAME\INSTANCENAME;Initial Catalog=Tfs_ContosoDev;Integrated Security=True" /targetFile:C:\TFSMigrator\Tfs_ContosoDev.dacpac /action:extract /p:ExtractAllTableData=true /p:IgnoreUserLoginMappings=true /p:IgnorePermissions=true /p:Storage=Memory**
+    SqlPackage.exe /sourceconnectionstring:"Data Source=SQLSERVERNAME\INSTANCENAME;Initial Catalog=Tfs_ContosoDev;Integrated Security=True" /targetFile:C:\TFSMigrator\Tfs_ContosoDev.dacpac /action:extract /p:ExtractAllTableData=true /p:IgnoreUserLoginMappings=true /p:IgnorePermissions=true /p:Storage=Memory
     ```
 
     ![Backup](./media/contoso-migration-tfs-vsts/backup1.png)

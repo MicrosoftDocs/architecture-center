@@ -22,7 +22,7 @@ Removing key obstacles and enabling change requires more than implementation gui
 
 ## Fulfilling the vision
 
-The Cloud Adoption Framework is an overarching framework that covers Plan, Ready and Adopt phases across the Migration and Innovation motivations for cloud adoption, supported by Governance and Operations guidance.  
+The Cloud Adoption Framework is an overarching framework that covers Plan, Ready and Adopt phases across the Migration and Innovation motivations for cloud adoption, supported by Governance and Operations guidance.
 
 Microsoft is actively building this aspirational framework in collaboration with customers, partners, and internal teams. To encourage partnership, content will be released in public preview as it becomes available. These public preview releases enable testing, validating, and incrementally refining the guidance. The framework will reach general availability (GA) when the aspirational goals are met.
 

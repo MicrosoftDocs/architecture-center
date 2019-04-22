@@ -244,7 +244,8 @@ Let's review an example:
 - Your offices are connected on a WAN, which can be either your own backbone network or your service provider's IP VPN.
 - You have two ExpressRoute circuits, one in US West and one in US East, that are also connected on the WAN. Obviously, you have two paths to connect to the Microsoft network.
 
-**Problem**
+**Problem:**
+
 Now imagine you have an Azure deployment (for example, Azure App Service) in both US West and US East.
 
 - You want users in each office to access their nearest Azure services for an optimal experience.

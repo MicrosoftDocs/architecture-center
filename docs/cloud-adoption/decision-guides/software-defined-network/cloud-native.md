@@ -1,5 +1,5 @@
 ---
-title: "CAF: Software Defined Networks - Cloud native" 
+title: "CAF: Software Defined Networks - Cloud native"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption

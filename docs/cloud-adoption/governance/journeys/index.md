@@ -68,13 +68,13 @@ A journey without a target destination is just wandering. It’s important to es
 
 The Cloud Adoption Framework governance model identifies key areas of importance during the journey. Each area relates to different types of risks the company must address as it adopts more cloud services. Within this framework, the governance journey identifies required actions for the Cloud Governance team. Along the way, each principle of the Cloud Adoption Framework governance model is described further. Broadly, these include:
 
-**Corporate policies**. Corporate policies drive cloud governance. The governance journey focuses on specific aspects of corporate policy:
+**Corporate policies:** Corporate policies drive cloud governance. The governance journey focuses on specific aspects of corporate policy:
 
-- **Business risks**. Identifying and understanding corporate risks.
-- **Policy and compliance**. Converting risks into policy statements that support any compliance requirements.
-- **Processes**. Ensuring adherence to the stated policies.
+- **Business risks:** Identifying and understanding corporate risks.
+- **Policy and compliance:** Converting risks into policy statements that support any compliance requirements.
+- **Processes:** Ensuring adherence to the stated policies.
 
-**Five Disciplines of Cloud Governance**. These disciplines support the corporate policies. Each discipline protects the company from potential pitfalls:
+**Five Disciplines of Cloud Governance:** These disciplines support the corporate policies. Each discipline protects the company from potential pitfalls:
 
 - Cost Management
 - Security Baseline

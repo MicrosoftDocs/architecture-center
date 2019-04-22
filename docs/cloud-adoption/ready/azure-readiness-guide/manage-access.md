@@ -24,19 +24,19 @@ When you plan your access control methodology, we recommend you work with people
 
 ## Actions
 
-**Grant resource group access**
+**Grant resource group access:**
 
 To grant a user access to a resource group:
 
 1. Go to **Resource groups**.
-2. Select a resource group.
-3. Select **Access control (IAM)**.
-4. Select **+ Add** > **Add role assignment**.
+1. Select a resource group.
+1. Select **Access control (IAM)**.
+1. Select **+ Add** > **Add role assignment**.
 1. Select a role, then assign access to a user, group, or service principal.
 
 ::: form action="OpenBlade[#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fsubscriptions%2FresourceGroups]" submitText="Go to resource groups" ::: form-end
 
-**Grant subscription access**
+**Grant subscription access:**
 
 To grant a user access to a subscription:
 

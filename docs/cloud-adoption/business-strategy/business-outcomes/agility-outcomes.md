@@ -24,12 +24,13 @@ For incumbents and upstarts alike, business agility can be the difference betwee
 During  cloud-enabled innovation efforts, time-to-market is a key measure of IT's ability to address market change. In many cases, a business leader may have existing budget for the creation of an application or the launch of a new product. Clearly communicating a time-to-market benefit can motivate that leader to redirect budget to IT’s transformation journey.
 
 - Example 1: The European division of a US-based company needs to comply with GDPR regulations by protecting customer data in a database that supports UK operations. The existing version of SQL doesn't support the necessary row-level security. An in-place upgrade would be too disruptive. Using Azure SQL to replicate and upgrade the database, the customer adds the necessary compliance measure in a matter of weeks.
-- Example 2: A logistics company has discovered an untapped segment of the market but will need a new version of their flagship application to capture this market share. Their larger competitor has made the same discovery. Through the execution of a cloud-enabled application innovation effort, the logistics company embraces a customer obsession and a devops driven development approach to beat their slower, legacy competitor by x months. This jump on market entrance secured the customer base.
+- Example 2: A logistics company has discovered an untapped segment of the market but will need a new version of their flagship application to capture this market share. Their larger competitor has made the same discovery. Through the execution of a cloud-enabled application innovation effort, the logistics company embraces a customer obsession and a DevOps-driven development approach to beat their slower, legacy competitor by _x_ months. This jump on market entrance secured the customer base.
 
 **Aurora Health Care:**
 Healthcare system transforms online services into a friendly digital experience. To transform its digital services, Aurora Health Care migrated its websites to the Microsoft Azure platform and adopted a strategy of continuous innovation.
 “As a team, we’re focused on high-quality solutions and speed. Choosing Azure was a very transformative decision for us.”
-Jamey Shiels: Vice President Digital Experience,
+Jamey Shiels
+Vice President Digital Experience
 Aurora Health Care
 
 ## Provision time

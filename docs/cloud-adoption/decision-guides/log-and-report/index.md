@@ -1,5 +1,5 @@
 ---
-title: "CAF: Logging and reporting decision guide" 
+title: "CAF: Logging and reporting decision guide"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption

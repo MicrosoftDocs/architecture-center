@@ -5,7 +5,7 @@ ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 ms.date: 02/11/2019
-description: Small-to-medium enterprise – Cost Management evolution 
+description: Small-to-medium enterprise – Cost Management evolution
 author: BrianBlanchard
 ---
 

@@ -53,7 +53,7 @@ Here's the proposed architecture:
 - The web tier app on OSTICKETWEB will be migrated by building an Azure App Service in two Azure regions. Azure App Service for Linux will be implemented using the PHP 7.0 Docker container.
 - The app code will be moved to GitHub, and the Azure App Service web app will be configured for continuous delivery with GitHub.
 - Azure App Servers will be deployed in both the primary (East US 2) and secondary (Central US) region.
-- Traffic Manager will be set up in front of the two Azure Web Apps in both regions.
+- Traffic Manager will be set up in front of the two web apps in both regions.
 - Traffic Manager will be configured in priority mode to force the traffic through East US 2.
 - If the Azure App Server in East US 2 goes offline, users can access the failed over app in Central US.
 - The app database will be migrated to the Azure Database for MySQL service using MySQL Workbench tools. The on-premises database will be backed up locally, and restored directly to Azure Database for MySQL.
@@ -103,8 +103,8 @@ Here's how Contoso will complete the migration:
 
 > [!div class="checklist"]
 >
-> - **Step 1: Provision Azure App Service.** Contoso admins will provision Web Apps in the primary and secondary regions.
-> - **Step 2: Set up Traffic Manager.** They set up Traffic Manager in front of the Web Apps, for routing and load balancing traffic.
+> - **Step 1: Provision Azure App Service.** Contoso admins will provision web apps in the primary and secondary regions.
+> - **Step 2: Set up Traffic Manager.** They set up Traffic Manager in front of the web apps, for routing and load balancing traffic.
 > - **Step 3: Provision MySQL.** In Azure, they provision an instance of Azure Database for MySQL.
 > - **Step 4: Migrate the database.** They migrate the database using MySQL Workbench.
 > - **Step 5: Set up GitHub.** They set up a local GitHub repository for the app web sites/code.
@@ -138,7 +138,7 @@ Contoso admins provision two web apps (one in each region) using Azure App Servi
 
 ## Step 2: Set up Traffic Manager
 
-Contoso admins set up Traffic Manager to direct inbound web requests to Web Apps running on the osTicket web tier.
+Contoso admins set up Traffic Manager to direct inbound web requests to the web apps running on the osTicket web tier.
 
 1. They create a Traffic Manager resource (**osticket.trafficmanager.net**) from the Azure Marketplace. They use priority routing so that East US 2 is the primary site. They place the resource in their infrastructure resource group (**ContosoInfraRG**). Note that Traffic Manager is global and not bound to a specific location
 
@@ -214,7 +214,7 @@ Contoso admins migrate the database using backup and restore, with MySQL tools. 
 
      ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench7.png)
 
-9. In the strings list, they locate the Web App settings, and click to copy them.
+9. In the strings list, they locate the web app settings, and click to copy them.
 
     ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench8.png)
 

@@ -34,9 +34,9 @@ To use Azure Site Recovery to migrate resources:
 1. Complete the wizard to create a **Recovery Services vault** resource.
 1. In the Resource menu, click **Site Recovery > Prepare Infrastructure > Protection goal**.
 1. In **Protection goal**, select what you want to migrate.
-    1. **VMware**: Select To Azure > Yes, with VMware vSphere Hypervisor.
-    1. **Physical machine**: Select To Azure > Not virtualized/Other.
-    1. **Hyper-V**: Select To Azure > Yes, with Hyper-V. If Hyper-V VMs are managed by VMM, select Yes.
+    1. **VMware:** Select To Azure > Yes, with VMware vSphere Hypervisor.
+    1. **Physical machine:** Select To Azure > Not virtualized/Other.
+    1. **Hyper-V:** Select To Azure > Yes, with Hyper-V. If Hyper-V VMs are managed by VMM, select Yes.
 1. Set up the source environment as appropriate.
 1. Set up the target environment.
     1. Click **Prepare infrastructure > Target**, and select the Azure subscription you want to use.

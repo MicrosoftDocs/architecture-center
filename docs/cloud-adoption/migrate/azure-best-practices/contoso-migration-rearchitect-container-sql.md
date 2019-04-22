@@ -479,8 +479,8 @@ Contoso admins now configure Azure DevOps Services to perform build and release 
 After the SmartHotel360 app and database are running in Azure, Contoso wants to extend the app.
 
 - Contoso’s developers are prototyping a new .NET Core application which will run on the Service Fabric cluster.
-- The app will be used to pull sentiment data from CosmosDB.
-- This data will be in the form of Tweets that are processed using a Serverless Azure Function, and the Cognitive Services Text Analysis API.
+- The app will be used to pull sentiment data from Cosmos DB.
+- This data will be in the form of Tweets that are processed using a Serverless Azure Function, and the Azure Cognitive Services Text Analysis API.
 
 ### Provision Azure Cosmos DB
 

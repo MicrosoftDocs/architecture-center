@@ -59,7 +59,7 @@ Once the Business Risk MVP is established, they can be converted to [policies](i
 
 As your organization deploys more workloads to the cloud, development teams will make use of increasing amounts of cloud resources. At each iteration, new assets are created and staged. At each release, workloads are readied for production promotion. Each of these cycles has the potential to introduce previously unidentified business risks.
 
-Assuming a business risk MVP is the starting point for your initial cloud adoption efforts, governance can mature in parallel to your increasing use of cloud resources. When the Cloud Governance team operates in parallel to cloud adoption teams, the growth of business risks can be addressed as they are identified, providing a stable ongoing model for developing governance maturity.  
+Assuming a business risk MVP is the starting point for your initial cloud adoption efforts, governance can mature in parallel to your increasing use of cloud resources. When the Cloud Governance team operates in parallel to cloud adoption teams, the growth of business risks can be addressed as they are identified, providing a stable ongoing model for developing governance maturity.
 
 Each asset staged can easily be classified according to risk. Data classification documents can be built or created in parallel to staging cycles. Risk profile and exposure points can likewise be documented. Over time an extremely clear view of business risk will come into focus across the organization.
 
