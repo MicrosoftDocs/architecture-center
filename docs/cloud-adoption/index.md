@@ -19,7 +19,7 @@ The Cloud Adoption Framework provides technical guidance for Microsoft Azure. Be
 
 ## Product roadmap
 
-The Microsoft Cloud Adoption Framework for Azure is currently offered as a Public Preview. The framework will reach general availability (GA) when the aspirational goals above are met. In this preview release, the primary area of focus is [Cloud Governance](./governance/journeys/index.md). The Cloud Adoption Framework will be expanded frequently as it moves closer to general availability. For more information, see the [Cloud Adoption Framework roadmap](./appendix/roadmap.md).
+The Microsoft Cloud Adoption Framework for Azure is currently offered as a Public Preview. The framework will reach general availability (GA) when the aspirational goals above are met. In this preview release, the primary areas of focus are [Cloud Governance](./governance/journeys/index.md) and [Cloud Migration](./migrate/index.md). The Cloud Adoption Framework will be expanded frequently as it moves closer to general availability. For more information, see the [Cloud Adoption Framework roadmap](./appendix/roadmap.md).
 
 ## Intended Audience
 
