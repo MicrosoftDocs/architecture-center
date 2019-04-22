@@ -52,10 +52,12 @@ The three phases of adoption are as follows:
 * Ready: Prepare the people, organization, and technical environment for execution of the adoption plan
 * Adopt: Technical strategy required to execute a specific adoption plan, in alignment with a specific adoption journey, to realize business outcomes
 
-These three phases have been mapped to two specific journeys:
+The three phases of cloud adoption have been mapped to two specific journeys:
 
 * [Migrate](../getting-started/migrate.md): Move existing workloads to the cloud
 * [Innovate](../getting-started/innovate.md): Modernize existing workloads and/or create new products/services
+
+Additionally, a number of additional resources required to be successful in any kind of cloud adoption journey are included in a special landing page which focuses on [Enabling adoption success](../getting-started/enable.md).
 
 ## Next steps
 
