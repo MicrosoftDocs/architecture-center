@@ -50,7 +50,7 @@ In addition to the Cloud Adoption Framework, Microsoft provides a number of addi
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="../../resiliency/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="../../reliability/" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -60,8 +60,8 @@ In addition to the Cloud Adoption Framework, Microsoft provides a number of addi
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Resilient Architecture</h3>
-                        <p>Building a reliable application in the cloud is different than building a reliable application in an enterprise setting. Prepare for this subtle differences through a process for achieving resiliency, using a structured approach over the lifetime of an application, from design and implementation to deployment and operations.</p>
+                        <h3>Reliable Architecture (Resiliency)</h3>
+                        <p>Building a reliable application in the cloud is different from traditional application development. While historically you may have purchased higher-end hardware to scale up, in a cloud environment you scale out instead of up. Instead of trying to prevent failures altogether, the goal is to minimize the effects of a single failing component.</p>
                     </div>
                 </div>
             </div>
