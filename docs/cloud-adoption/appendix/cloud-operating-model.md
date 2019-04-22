@@ -9,7 +9,7 @@ author: BrianBlanchard
 ms.date: 4/4/2019
 ---
 
-# Cloud Operating Model is now Microsoft Cloud Adoption Framework for Azure
+# Cloud Operating Model is now part of the Microsoft Cloud Adoption Framework for Azure
 
 In early 2018, Microsoft released the Cloud Operating Model (COM). The COM was a guide which helped customers understand the WHAT and the WHY of digital transformation. This helped customer get a sense of all the areas which needed to be addressed, business strategy, culture strategy and technology strategy. What was not included in the COM was the specific HOW TO’s, this left customer’s asking the question, “Where to from here”. To overcome this gap, partners and a number of Microsoft teams began building their own models and engagement approaches to extend the initial thinking. Whilst directionally accurate, these models lacked central alignment, common taxonomy, and common execution methodologies. Ultimately the disparate guidance led to broader customer confusion.
 
