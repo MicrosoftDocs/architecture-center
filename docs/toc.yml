@@ -642,8 +642,22 @@
         href: cloud-adoption/business-strategy/cloud-migration-business-case.md
       - name: Create a financial model for cloud transformation
         href: cloud-adoption/business-strategy/financial-models.md
-      - name: Examples of fiscal outcomes
-        href: cloud-adoption/business-strategy/business-outcomes/fiscal-outcomes.md
+    - name: Business outcomes
+      items:
+      - name: Overview - What are business outcomes?
+        href: cloud-adoption/business-strategy/business-outcomes/index.md
+      - name: How to use business outcomes?
+        href: cloud-adoption/business-strategy/business-outcomes/how-to-use-the-business-outcome-template.md
+      - name: Fiscal outcomes
+        href: cloud-adoption/business-strategy/business-outcomes/fiscal-outcomes.md  
+      - name: Agility outcomes
+        href: cloud-adoption/business-strategy/business-outcomes/agility-outcomes.md  
+      - name: Reach outcomes
+        href: cloud-adoption/business-strategy/business-outcomes/reach-outcomes.md  
+      - name: Engagement outcomes
+        href: cloud-adoption/business-strategy/business-outcomes/engagement-outcomes.md  
+      - name: Performance outcomes
+        href: cloud-adoption/business-strategy/business-outcomes/performance-outcomes.md  
     - name: Digital estate
       items: 
       - name: The 5 Rs of Rationalization 
