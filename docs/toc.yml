@@ -642,12 +642,16 @@
         href: cloud-adoption/business-strategy/cloud-migration-business-case.md
       - name: Create a financial model for cloud transformation
         href: cloud-adoption/business-strategy/financial-models.md
+      - name: What is Cloud Accounting?
+        href: cloud-adoption/business-strategy/cloud-accounting.md
     - name: Business outcomes
       items:
       - name: Overview - What are business outcomes?
         href: cloud-adoption/business-strategy/business-outcomes/index.md
       - name: How to use business outcomes?
         href: cloud-adoption/business-strategy/business-outcomes/how-to-use-the-business-outcome-template.md
+      - name: Align technical effort to meaningful learning metrics 
+        href: cloud-adoption/business-strategy/learning-metrics.md
       - name: Fiscal outcomes
         href: cloud-adoption/business-strategy/business-outcomes/fiscal-outcomes.md  
       - name: Agility outcomes
