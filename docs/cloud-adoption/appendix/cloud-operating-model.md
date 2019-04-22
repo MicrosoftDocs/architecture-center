@@ -44,7 +44,7 @@ CAF follows a very similar model. However, as the actions and decisions expanded
 
 At the executive level, CAF has been simplified into the following three phases of adoption and two primary journeys.
 
-![Executive level structure of the Cloud Adoption Framework](../_images/caf-scope.png)
+![Executive level structure of the Cloud Adoption Framework](../_images/caf-structure.png)
 
 The three phases of adoption are as follows:
 
