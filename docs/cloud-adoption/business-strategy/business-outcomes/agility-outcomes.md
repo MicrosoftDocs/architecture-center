@@ -28,6 +28,7 @@ During  cloud-enabled innovation efforts, time-to-market is a key measure of IT'
 
 **Aurora Health Care:**
 Healthcare system transforms online services into a friendly digital experience. To transform its digital services, Aurora Health Care migrated its websites to the Microsoft Azure platform and adopted a strategy of continuous innovation.
+
 “As a team, we’re focused on high-quality solutions and speed. Choosing Azure was a very transformative decision for us.”
 Jamey Shiels
 Vice President Digital Experience
