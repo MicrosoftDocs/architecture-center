@@ -1084,20 +1084,6 @@
         href: cloud-adoption/operations/azure-best-practices/index.md
   - name: References
     items:
-    - name: Infrastructure
-      items:
-      - name: Virtual machines
-        items:
-          - name: Deploy a basic workload
-            href: cloud-adoption/infrastructure/virtual-machines/basic-workload.md
-    - name: How does Azure work?
-      href: cloud-adoption/getting-started/what-is-azure.md
-    - name: Virtual Datacenter (VDC)
-      href: vdc/index.md
-    - name: Azure enterprise scaffold
-      href: cloud-adoption/appendix/azure-scaffold.md
-    - name: Implementing Azure enterprise scaffold
-      href: cloud-adoption/appendix/azure-scaffold-examples.md
     - name: Decision guides
       href: cloud-adoption/decision-guides/index.md
       items:
@@ -1129,3 +1115,19 @@
           href: cloud-adoption/decision-guides/software-defined-network/hub-spoke.md
       - name: Logs and reporting
         href: cloud-adoption/decision-guides/log-and-report/index.md
+    - name: Infrastructure
+      items:
+      - name: Virtual machines
+        items:
+          - name: Deploy a basic workload
+            href: cloud-adoption/infrastructure/virtual-machines/basic-workload.md
+    - name: Cloud Operating Model
+      href: cloud-adoption/appendix/cloud-operating-model.md
+    - name: How does Azure work?
+      href: cloud-adoption/getting-started/what-is-azure.md
+    - name: Virtual Datacenter (VDC)
+      href: vdc/index.md
+    - name: Azure enterprise scaffold
+      href: cloud-adoption/appendix/azure-scaffold.md
+    - name: Implementing Azure enterprise scaffold
+      href: cloud-adoption/appendix/azure-scaffold-examples.md
