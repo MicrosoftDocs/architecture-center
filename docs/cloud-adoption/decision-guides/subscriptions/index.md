@@ -90,8 +90,6 @@ For organizations with global operations, this pattern groups subscriptions and 
 
 Azure Enterprise Agreements are limited to the four-level enterprise/department/account/subscriptions hierarchy. However, you can combine patterns such as geographic region and business unit to reflect more complex billing and organizational structures within your company. In addition, your [resource consistency design](../resource-consistency/index.md) can further extend the governance and organizational structure of your subscription design.
 
-Management groups, as discussed in the following section, can help support more complicated organizational structures.
-
 Management groups, discussed in the following section, can help support more complicated organizational structures.
 
 ## Management groups
@@ -111,11 +109,11 @@ When determining your departments and accounts (or management groups), you will 
 
 Consider the following patterns as guides:
 
-- **Application or service:** Subscriptions represent an application or a service (portfolio of applications).
+- **Application or service**. Subscriptions represent an application or a service (portfolio of applications).
 
-- **Deployment environment:** Subscriptions represent the lifecycle stage of a service, such as production or development.
+- **Deployment environment**. Subscriptions represent the lifecycle stage of a service, such as production or development.
 
-- **Department:** Subscriptions represent departments in the organization.
+- **Department**. Subscriptions represent departments in the organization.
 
 The first two patterns are the most commonly used and are both highly recommended. The lifecycle approach is appropriate for most organizations. In this case, the general recommendation is to use two base subscriptions: production and non-production, and then use resource groups to break out the environments further.
 
