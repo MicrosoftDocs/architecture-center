@@ -81,7 +81,7 @@ To provide isolation within a VNet, you segment it into one or more subnets, and
 - When deciding on network range for subnets, it's important to note that Azure retains five IP addresses from each subnet that can't be used. For example, if you create the smallest available subnet of /29 (with eight IP addresses), Azure will retain five addresses, so you only have three usable addresses that can be assigned to hosts on the subnet.
 - In most cases, using /28 as the smallest subnet is recommended.
 
-### Example
+**Example:**
 
 The table shows an example of a VNet with an address space of 10.245.16.0/20 segmented into subnets, for a planned migration.
 
@@ -262,7 +262,7 @@ Now imagine you have an Azure deployment (for example, Azure App Service) in bot
 
 To optimize routing for both office users, you need to know which prefix is from Azure US West and which is from Azure US East. You can encode this information by using BGP community values.
 
-- You assign a unique BGP community value to each Azure region. For example 12076:51004 for US East; 12076:51006 for US West.
+- You assign a unique BGP community value to each Azure region. For example, 12076:51004 for US East; 12076:51006 for US West.
 - Now that it's clear which prefix belongs to which Azure region, you can configure a preferred ExpressRoute circuit.
 - Because you're using BGP to exchange routing info, you can use BGP's local preference to influence routing.
 - In our example, you assign a higher local preference value to 13.100.0.0/16 in US West than in US East, and similarly, a higher local preference value to 23.100.0.0/16 in US East than in US West.
@@ -354,7 +354,7 @@ Application security groups enable you to configure network security as a natura
 - Application security groups enable you to reuse your security policy at scale without manual maintenance of explicit IP addresses.
 - Application security groups handle the complexity of explicit IP addresses and multiple rule sets, allowing you to focus on your business logic.
 
-### Example
+**Example:**
 
 ![Application security group](./media/migrate-best-practices-networking/asg.png)
 *Application security group example*
