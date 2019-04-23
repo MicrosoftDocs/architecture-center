@@ -52,9 +52,9 @@ At the executive level, the Cloud Adoption Framework has been simplified into th
 
 The three phases of adoption are as follows:
 
-- **Plan:** Develop the business plan to guide cloud adoption in alignment with desired business outcomes
-- **Ready:** Prepare the people, organization, and technical environment for execution of the adoption plan
-- **Adopt:** Technical strategy required to execute a specific adoption plan, in alignment with a specific adoption journey, to realize business outcomes
+- **Plan:** Develop the business plan to guide cloud adoption in alignment with desired business outcomes.
+- **Ready:** Prepare the people, organization, and technical environment for execution of the adoption plan.
+- **Adopt:** Technical strategy required to execute a specific adoption plan, in alignment with a specific adoption journey, to realize business outcomes.
 
 The three phases of cloud adoption have been mapped to two specific journeys:
 

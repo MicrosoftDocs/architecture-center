@@ -136,7 +136,7 @@ To set up a custom domain name they add it to the directory, add a DNS entry, an
     - In the **Custom domain names** list, they note the DNS information for the name. It's using an MX entry.
     - They need access to the name server to do this. They log into the Contoso.com domain, and create a new MX record for the DNS entry provided by Azure AD, using the details noted.
 
-3. After the DNS records propagate, in the details name for the domain, they click **Verify** to check the custom domain name.
+3. After the DNS records propagate, in the details name for the domain, they select **Verify** to check the custom domain name.
 
      ![Azure AD DNS](./media/contoso-migration-infrastructure/azure-ad-dns.png)
 
@@ -212,7 +212,7 @@ To facilitate integration, Contoso uses the [Azure AD Connect tool](/azure/activ
 
      ![Azure AD Connect Wizard](./media/contoso-migration-infrastructure/ad-connect-wiz3.png)
 
-5. In **Ready to configure**, they click **Start the synchronization process when configuration completes** to start the sync immediately. Then they install.
+5. In **Ready to configure**, they select **Start the synchronization process when configuration completes** to start the sync immediately. Then they install.
 
 Note that:
 
@@ -232,7 +232,7 @@ Azure [Role-Based Access Control (RBAC)](/azure/role-based-access-control/role-a
 
 Contoso admins now assigns roles to the Active Directory groups that they synchronized from on-premises.
 
-1. In the **ControlCobRG** resource group, they click **Access control (IAM)** > **Add role assignment**.
+1. In the **ControlCobRG** resource group, they select **Access control (IAM)** > **Add role assignment**.
 2. In **Add role assignment** > **Role**, > **Contributor**, they select the **ContosoCobRG** group from the list. The group then appears in the **Selected members** list.
 3. They repeat this with the same permissions for the other resource groups (except for **ContosoAzureAdmins**), by adding the Contributor permissions to the account that matches the resource group.
 4. For the **ContosoAzureAdmins**  group, they assign the **Owner** role.
@@ -655,7 +655,7 @@ Contoso wants to get started with a couple of policies:
 
 Contoso uses the built-in policy definition **Allowed locations** to limit resource regions.
 
-1. In the Azure portal, click **All Services**, and search for **Policy**.
+1. In the Azure portal, select **All Services**, and search for **Policy**.
 2. Select **Assignments** > **Assign Policy**.
 3. In the policy list, select **Allowed locations**.
 4. Set **Scope** to the name of the Azure subscription, and select the two regions in the allowed list.
@@ -676,7 +676,7 @@ Contoso will use the built-in policy definition **Allow virtual machines SKUs** 
 
 Policies go into effect immediately, and Contoso can check resources for compliance.
 
-1. In the Azure portal, click the **Compliance** link.
+1. In the Azure portal, select the **Compliance** link.
 2. The compliance dashboard appears. You can drill down for further details.
 
     ![Policy compliance](./media/contoso-migration-infrastructure/policy-compliance.png)

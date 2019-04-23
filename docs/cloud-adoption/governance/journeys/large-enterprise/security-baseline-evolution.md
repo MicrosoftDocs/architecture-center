@@ -95,10 +95,10 @@ This section of the article will evolve the governance MVP design to include new
 
 The new best practices fall into two categories: Corporate IT (Hub) and Cloud Adoption (Spoke).
 
-**Establishing a corporate IT hub/spoke subscription to centralize the Security Baseline:** In this best practice, the existing governance capacity is wrapped by a [Hub Spoke Topology with Shared Services][shared-services], with a few key additions from the Cloud Governance team.
+**Establishing a corporate IT hub and spoke subscription to centralize the Security Baseline:** In this best practice, the existing governance capacity is wrapped by a [Hub Spoke Topology with Shared Services][shared-services], with a few key additions from the Cloud Governance team.
 
-1. Azure DevOps repository. Create a repository in Azure DevOps to store and version all relevant Azure Resource Manager templates and scripted configurations
-2. Hub-Spoke template.
+1. Azure DevOps repository. Create a repository in Azure DevOps to store and version all relevant Azure Resource Manager templates and scripted configurations.
+2. Hub and spoke template.
     1. The guidance in the [Hub-Spoke with Shared Services Reference Architecture][shared-services] can be used to generate Resource Manager templates for the assets required in a corporate IT hub.
     2. Using those templates, this structure can be made repeatable, as part of a central governance strategy.
     3. In addition to the current reference architecture, it is advised that a network security group (NSG) template should be created capturing any port blocking or whitelisting requirements for the VNet to host the firewall. This NSG will differ from prior NSGs, because it will be the first NSG to allow public traffic into a VNet.
@@ -133,11 +133,11 @@ In prior evolutions of the best practice, NSGs were defined which blocked public
     1. In the prior evolution, an NSG was created blocking all public traffic and whitelisting all internal traffic. Now we want to shift this NSG a bit.
     2. The new NSG configuration, should block all public traffic and all traffic from the local datacenter.
     3. Traffic entering this VNet should only come from the VNet on the other side of the VNet peer.
-3. Azure Security Center implementation
+3. Azure Security Center implementation.
     1. Configure Azure Security Center for any management group that contains protected data classifications.
     2. Set Automatic provisioning to on by default to ensure patching compliance.
     3. Establish OS security configurations. IT Security to define the configuration.
-    4. Support IT Security in the initial use of Azure Security Center. Transition use of security center to IT security, but maintain access for governance continuous improvement purposes
+    4. Support IT Security in the initial use of Azure Security Center. Transition use of security center to IT security, but maintain access for governance continuous improvement purposes.
     5. Create a Resource Manager template reflecting the changes required for Azure Security Center configuration within a subscription.
 4. Update Azure Policy for all subscriptions.
     1. Audit and enforce criticality and data classification across all management groups and subscriptions to identify any subscriptions with protected data classifications.

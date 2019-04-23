@@ -68,13 +68,13 @@ This methodology is based on an incremental approach to cloud adoption that alig
 
 As depicted in the image above, this framework aligns strategic decisions to a small number of contained processes, which operate within an iterative model:
 
-- [Plan](../business-strategy/index.md): When technical implementation is aligned with clear business objectives, it's much easier to measure and align success across multiple cloud adoption efforts.
-- [Ready](../ready/index.md): Preparing the business, culture, people, and environment for coming changes leads to success in each effort and accelerates implementation and change projects.
-- Adopt: Ensure proper implementation of desired changes, across IT and business processes, to achieve business outcomes.
-  - [Migrate](../migrate/index.md): Iterative execution of the cloud migration adhering to the tested process of Assess, Migrate, Optimize, and Secure & Manage to create a repeatable process for migrating collections of IT assets.
-  - [Operate](../operations/index.md): Expand IT operations to ensure cloud-based solutions can be operated through secure, cost effective processes using modern, cloud-first operations tools
-  - [Govern](../governance/index.md): Align corporate policy to tangible risks, mitigated through policy, process, and cloud-based governance tooling.
-  - Change management and oversight: Iterative approaches to implementation will be seen throughout this framework, which provides business and IT teams with a growth mindset approach to addressing ambiguity, learning, and succeeding in the fast paced environments demanded in today's marketplaces.
+- **[Plan](../business-strategy/index.md):** When technical implementation is aligned with clear business objectives, it's much easier to measure and align success across multiple cloud adoption efforts.
+- **[Ready](../ready/index.md):** Preparing the business, culture, people, and environment for coming changes leads to success in each effort and accelerates implementation and change projects.
+- **Adopt:** Ensure proper implementation of desired changes, across IT and business processes, to achieve business outcomes.
+  - **[Migrate](../migrate/index.md):** Iterative execution of the cloud migration adhering to the tested process of Assess, Migrate, Optimize, and Secure & Manage to create a repeatable process for migrating collections of IT assets.
+  - **[Operate](../operations/index.md):** Expand IT operations to ensure cloud-based solutions can be operated through secure, cost effective processes using modern, cloud-first operations tools.
+  - **[Govern](../governance/index.md):** Align corporate policy to tangible risks, mitigated through policy, process, and cloud-based governance tooling.
+  - **Change management and oversight:** Iterative approaches to implementation will be seen throughout this framework, which provides business and IT teams with a growth mindset approach to addressing ambiguity, learning, and succeeding in the fast paced environments demanded in today's marketplaces.
 
 Throughout this migration experience this framework will be used to address ambiguity, manage change, and guide cross-functional teams through the realization of business outcomes.
 

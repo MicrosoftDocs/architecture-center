@@ -142,7 +142,7 @@ The Contoso admins provision as follows:
     ![AKS](./media/contoso-migration-rebuild/aks1.png)
 3. With the file open, they update the $location parameter to **eastus2**, and save the file.
     ![AKS](./media/contoso-migration-rebuild/aks2.png)
-4. They click **View** > **Integrated Terminal** to open the integrated terminal in Code.
+4. They select **View** > **Integrated Terminal** to open the integrated terminal in Visual Studio Code.
     ![AKS](./media/contoso-migration-rebuild/aks3.png)
 5. In the PowerShell Integrated terminal, they sign into Azure using the Connect-AzureRmAccount command. [Learn more](/powershell/azure/get-started-azureps) about getting started with PowerShell.
     ![AKS](./media/contoso-migration-rebuild/aks4.png)
@@ -194,7 +194,7 @@ Contoso creates an Azure DevOps project, and configures a CI Build to create the
 
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts2.png)
 
-4. In **Pipelines**, they click **Build**, and create a new pipeline using Azure Repos Git as a source, from the repository.
+4. In **Pipelines**, they select **Build**, and create a new pipeline using Azure Repos Git as a source, from the repository.
 
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts3.png)
 
@@ -234,7 +234,7 @@ Contoso creates an Azure DevOps project, and configures a CI Build to create the
 
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts12.png)
 
-14. They click on the build job to check progress.
+14. They select the build job to check progress.
 
     ![Azure DevOps](./media/contoso-migration-rebuild/vsts13.png)
 
@@ -280,11 +280,11 @@ They create the pipeline:
 
     ![DB connections](./media/contoso-migration-rebuild/back-pipe1.png)
 
-2. They open Azure DevOps, and in the SmartHotel360 project, in **Releases**, they click **+New Pipeline**.
+2. They open Azure DevOps, and in the SmartHotel360 project, in **Releases**, they select **+New Pipeline**.
 
     ![New pipeline](./media/contoso-migration-rebuild/back-pipe2.png)
 
-3. They click **Empty Job** to start the pipeline without a template.
+3. They select **Empty Job** to start the pipeline without a template.
 4. They provide the stage and pipeline names.
 
       ![Stage name](./media/contoso-migration-rebuild/back-pipe4.png)
@@ -299,7 +299,7 @@ They create the pipeline:
 
     ![Artifact settings](./media/contoso-migration-rebuild/back-pipe7.png)
 
-7. They click the task link.
+7. They select the task link.
 
     ![Task link](./media/contoso-migration-rebuild/back-pipe8.png)
 
@@ -321,7 +321,7 @@ They create the pipeline:
 
     ![New release](./media/contoso-migration-rebuild/back-pipe12.png)
 
-13. They click the release after creating it, and in **Actions**, they click **Deploy**.
+13. They select the release after creating it, and in **Actions**, they select **Deploy**.
 
       ![Deploy release](./media/contoso-migration-rebuild/back-pipe13.png)
 
@@ -335,7 +335,7 @@ Instructions for this section use the [SmartHotel360-public-web](https://github.
 
 ### Create blob storage containers
 
-1. In Azure portal, they open the storage account that was created, and clicks **Blobs**.
+1. In Azure portal, they open the storage account that was created and select **Blobs**.
 2. They create a new container (**Pets**) with the public access level set to container. Users will upload their pet photos to this container.
 
     ![Storage blob](./media/contoso-migration-rebuild/blob1.png)
@@ -455,7 +455,7 @@ Now Contoso admins configure the web app to use Contoso resources.
 
     ![Rename and upload](./media/contoso-migration-rebuild/configure-webapp3.png)
 
-6. They click the file to get the URL. The URL is used by the app when it pulls down the configuration files.
+6. They select the file to get the URL. The URL is used by the app when it pulls down the configuration files.
 
     ![App URL](./media/contoso-migration-rebuild/configure-webapp4.png)
 
@@ -467,7 +467,7 @@ Now Contoso admins configure the web app to use Contoso resources.
 
 Contoso admins can now publish the website.
 
-1. They open Azure DevOps, and in the **SmartHotelFrontend** project, in **Builds and Releases**, they click **+New Pipeline**.
+1. They open Azure DevOps, and in the **SmartHotelFrontend** project, in **Builds and Releases**, they select **+New Pipeline**.
 2. They select **Azure DevOps Git** as a source.
 3. They select the **ASP.NET Core** template.
 4. They review the pipeline, and check that **Publish Web Projects** and **Zip Published Projects** are selected.
@@ -478,7 +478,7 @@ Contoso admins can now publish the website.
 
     ![Continuous integration](./media/contoso-migration-rebuild/vsts-publishfront3.png)
 
-6. They click **Save & Queue** to start a build.
+6. They select **Save & Queue** to start a build.
 7. After the build completes, they configure a release pipeline using **Azure App Service Deployment**.
 8. They provide a Stage name **Staging**.
 
@@ -488,10 +488,10 @@ Contoso admins can now publish the website.
 
      ![Add artifact](./media/contoso-migration-rebuild/vsts-publishfront5.png)
 
-10. They click the lightning bolt icon on the artifact, and enable continuous deployment.
+10. They select the lightning bolt icon on the artifact, and enable continuous deployment.
 
     ![Continuous deployment](./media/contoso-migration-rebuild/vsts-publishfront6.png)
-11. In **Environment**, they click **1 job, 1 task** under **Staging**.
+11. In **Environment**, they select **1 job, 1 task** under **Staging**.
 12. After selecting the subscription, and app name, they open the **Deploy Azure App Service** task. The deployment is configured to use the **staging** deployment slot. This automatically builds code for review and approval in this slot.
 
      ![Slot](./media/contoso-migration-rebuild/vsts-publishfront7.png)
@@ -501,7 +501,7 @@ Contoso admins can now publish the website.
     ![New environment](./media/contoso-migration-rebuild/vsts-publishfront8.png)
 
 14. They select **Azure App Service deployment with slot**, and name the environment **Prod**.
-15. They click on **1 job, 2 tasks**, and select the subscription, app service name, and the **staging** slot.
+15. They select **1 job, 2 tasks**, and select the subscription, app service name, and the **staging** slot.
 
     ![Environment name](./media/contoso-migration-rebuild/vsts-publishfront10.png)
 
@@ -509,7 +509,7 @@ Contoso admins can now publish the website.
 
     ![Remove from pipeline](./media/contoso-migration-rebuild/vsts-publishfront11.png)
 
-17. They save the pipeline. On the pipeline, they click on **Post-deployment conditions**.
+17. They save the pipeline. On the pipeline, they select **Post-deployment conditions**.
 
     ![Post-deployment](./media/contoso-migration-rebuild/vsts-publishfront12.png)
 
@@ -521,7 +521,7 @@ Contoso admins can now publish the website.
 
 20. After the build finishes, and the release deploys to the slot, Azure DevOps emails the dev lead for approval.
 
-21. The dev lead clicks **View approval**, and can approve or reject the request in the Azure DevOps portal.
+21. The dev lead selects **View approval**, and can approve or reject the request in the Azure DevOps portal.
 
     ![Approval mail](./media/contoso-migration-rebuild/vsts-publishfront14.png)
 
@@ -549,7 +549,7 @@ Contoso admins deploy the app as follows.
 5. They add a new Build pipeline, and select **Azure DevOps Git** for the source.
 6. They select the **ASP.NET Core (.NET Framework)** template.
 7. They accept the defaults for the template.
-8. In **Triggers**, then select to **Enable continuous integration**, and click **Save & Queue** to start a build.
+8. In **Triggers**, then select to **Enable continuous integration**, and select **Save & Queue** to start a build.
 9. After the build succeeds, they build a Release pipeline, adding **Azure App Service deployment with slot**.
 10. They name the environment **Prod**, and select the subscription. They set the **App type** to **Function App**, and the app service name as **smarthotelpetchecker**.
 
@@ -559,14 +559,14 @@ Contoso admins deploy the app as follows.
 
     ![Artifact](./media/contoso-migration-rebuild/petchecker3.png)
 
-12. They enable **Continuous deployment trigger**, and click **Save**.
-13. They click **Queue new build** to run the full CI/CD pipeline.
+12. They enable **Continuous deployment trigger**, and select **Save**.
+13. They select **Queue new build** to run the full CI/CD pipeline.
 14. After the function is deployed, it appears in the Azure portal, with the **Running** status.
 
     ![Deploy the function](./media/contoso-migration-rebuild/function6.png)
 
 15. They browse to the app to test that the Pet Checker app is working as expected, at [http://smarthotel360public.azurewebsites.net/Pets](http://smarthotel360public.azurewebsites.net/Pets).
-16. They click on the avatar to upload a picture.
+16. They select the avatar to upload a picture.
     ![Deploy the function](./media/contoso-migration-rebuild/function7.png)
 17. The first photo they want to check is of a small dog.
     ![Deploy the function](./media/contoso-migration-rebuild/function8.png)

@@ -183,7 +183,7 @@ Contoso admins will migrate the SmartHotel360 database using DMA.
 
     ![DMA](media/contoso-migration-refactor-web-app-sql/dma-4.png)
 
-6. After DMS creates the script, they click **Deploy schema**.
+6. After DMS creates the script, they select **Deploy schema**.
 
     ![DMA](media/contoso-migration-refactor-web-app-sql/dma-5.png)
 
@@ -264,7 +264,7 @@ Contoso admins need to make sure the web apps and database can all communicate. 
 
 Contoso admins now configure Azure DevOps to perform build and release process.
 
-1. In Azure DevOps, they click **Build and release** > **New pipeline**.
+1. In Azure DevOps, they select **Build and release** > **New pipeline**.
 
     ![New pipeline](./media/contoso-migration-refactor-web-app-sql/pipeline1.png)
 
@@ -276,11 +276,11 @@ Contoso admins now configure Azure DevOps to perform build and release process.
 
      ![ASP.NET template](./media/contoso-migration-refactor-web-app-sql/pipeline3.png)
 
-4. The name **ContosoSmartHotelRefactor-ASP.NET-CI** is used for the build. They click **Save & Queue**.
+4. The name **ContosoSmartHotelRefactor-ASP.NET-CI** is used for the build. They select **Save & Queue**.
 
      ![Save and queue](./media/contoso-migration-refactor-web-app-sql/pipeline4.png)
 
-5. This kicks off the first build. They click on the build number to watch the process. After it's finished they can see the process feedback, and click **Artifacts** to review the build results.
+5. This kicks off the first build. They select the build number to watch the process. After it's finished they can see the process feedback, and select **Artifacts** to review the build results.
 
     ![Review](./media/contoso-migration-refactor-web-app-sql/pipeline5.png)
 
@@ -291,7 +291,7 @@ Contoso admins now configure Azure DevOps to perform build and release process.
 
      ![Artifact](./media/contoso-migration-refactor-web-app-sql/pipeline6.png)
 
-7. They click **Releases** > **+New pipeline**.
+7. They select **Releases** > **+New pipeline**.
 
     ![New pipeline](./media/contoso-migration-refactor-web-app-sql/pipeline7.png)
 
@@ -303,7 +303,7 @@ Contoso admins now configure Azure DevOps to perform build and release process.
 
     ![Environment](./media/contoso-migration-refactor-web-app-sql/pipeline9.png)
 
-10. Under the stages, they click **1 job, 1 task** to configure deployment of the WCF service.
+10. Under the stages, they select **1 job, 1 task** to configure deployment of the WCF service.
 
     ![Deploy WCF](./media/contoso-migration-refactor-web-app-sql/pipeline10.png)
 
@@ -315,7 +315,7 @@ Contoso admins now configure Azure DevOps to perform build and release process.
 
      ![Build](./media/contoso-migration-refactor-web-app-sql/pipeline12.png)
 
-13. They click the lightning bolt on the artifact is checked., to enable continuous deployment trigger.
+13. They select the lightning bolt on the artifact is checked., to enable continuous deployment trigger.
 
      ![Lightning bolt](./media/contoso-migration-refactor-web-app-sql/pipeline13.png)
 
@@ -323,15 +323,15 @@ Contoso admins now configure Azure DevOps to perform build and release process.
 
     ![Continuous deployment enabled](./media/contoso-migration-refactor-web-app-sql/pipeline14.png)
 
-15. Now, they move back to the Stage 1 job, I tasks, and click **Deploy Azure App Service**.
+15. Now, they move back to the Stage 1 job, I tasks, and select **Deploy Azure App Service**.
 
     ![Deploy Azure App Service](./media/contoso-migration-refactor-web-app-sql/pipeline15.png)
 
-16. In **Select a file or folder**, they locate the **SmartHotel.Registration.Wcf.zip** file that was creating during the build, and click **Save**.
+16. In **Select a file or folder**, they locate the **SmartHotel.Registration.Wcf.zip** file that was creating during the build, and select **Save**.
 
     ![Save WCF](./media/contoso-migration-refactor-web-app-sql/pipeline16.png)
 
-17. They click **Pipeline** > **Stages** **+Add**, to add an environment for **SHWEB-EUS2**. They select another Azure App Service deployment.
+17. They select **Pipeline** > **Stages** **+Add**, to add an environment for **SHWEB-EUS2**. They select another Azure App Service deployment.
 
     ![Add environment](./media/contoso-migration-refactor-web-app-sql/pipeline17.png)
 
@@ -343,11 +343,11 @@ Contoso admins now configure Azure DevOps to perform build and release process.
 
      ![Release pipeline summary](./media/contoso-migration-refactor-web-app-sql/pipeline19.png)
 
-20. They move back to **Build**, and click **Triggers** > **Enable continuous integration**. This enables the pipeline so that when changes are committed to the code, and full build and release occurs.
+20. They move back to **Build**, and select **Triggers** > **Enable continuous integration**. This enables the pipeline so that when changes are committed to the code, and full build and release occurs.
 
     ![Enable continuous integration](./media/contoso-migration-refactor-web-app-sql/pipeline20.png)
 
-21. They click **Save & Queue** to run the full pipeline. A new build is triggered that in turn creates the first release of the app to the Azure App Service.
+21. They select **Save & Queue** to run the full pipeline. A new build is triggered that in turn creates the first release of the app to the Azure App Service.
 
     ![Save pipeline](./media/contoso-migration-refactor-web-app-sql/pipeline21.png)
 

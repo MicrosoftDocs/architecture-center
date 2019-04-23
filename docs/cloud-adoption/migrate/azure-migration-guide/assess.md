@@ -56,14 +56,14 @@ To get started with Azure Migrate follow these steps:
 
 ## Service Map
 
-Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. With Service Map, you can view your servers in the way that you think of them: as interconnected systems that deliver critical services. Service Map shows connections between servers, processes, inbound and outbound connection latency, and ports across any TCP-connected architecture, with no configuration required other than the installation of an agent
+Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. With Service Map, you can view your servers in the way that you think of them: as interconnected systems that deliver critical services. Service Map shows connections between servers, processes, inbound and outbound connection latency, and ports across any TCP-connected architecture, with no configuration required other than the installation of an agent.
 
 ### Enable Service Map
 
 1. In the Azure portal, select create a new resource.
-1. Choose **Service Map** and click Create.
+1. Choose **Service Map** and select **Create**.
 1. In **Configure a solution** pane, configure your **Log Analytics** workspace
-1. Click **Create**.
+1. Select **Create**.
 
 ::: zone target="chromeless"
 

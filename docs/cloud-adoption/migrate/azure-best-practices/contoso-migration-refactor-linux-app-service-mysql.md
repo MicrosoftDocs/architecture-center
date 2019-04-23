@@ -140,7 +140,7 @@ Contoso admins provision two web apps (one in each region) using Azure App Servi
 
 Contoso admins set up Traffic Manager to direct inbound web requests to the web apps running on the osTicket web tier.
 
-1. They create a Traffic Manager resource (**osticket.trafficmanager.net**) from the Azure Marketplace. They use priority routing so that East US 2 is the primary site. They place the resource in their infrastructure resource group (**ContosoInfraRG**). Note that Traffic Manager is global and not bound to a specific location
+1. They create a Traffic Manager resource (**osticket.trafficmanager.net**) from the Azure Marketplace. They use priority routing so that East US 2 is the primary site. They place the resource in their infrastructure resource group (**ContosoInfraRG**). Note that Traffic Manager is global and not bound to a specific location.
 
     ![Traffic Manager](./media/contoso-migration-refactor-linux-app-service-mysql/traffic-manager1.png)
 
@@ -214,7 +214,7 @@ Contoso admins migrate the database using backup and restore, with MySQL tools. 
 
      ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench7.png)
 
-9. In the strings list, they locate the web app settings, and click to copy them.
+9. In the strings list, they locate the web app settings, and select to copy them.
 
     ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench8.png)
 

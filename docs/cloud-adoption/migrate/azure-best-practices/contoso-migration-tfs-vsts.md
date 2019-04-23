@@ -240,15 +240,15 @@ Before starting, Contoso admins take a local SQL Server backup, and VMware snaps
 
     ![Migrate](./media/contoso-migration-tfs-vsts/migrate3.png)
 
-4. In **Detach Progress**, they monitor progress and click **Next** when the process finishes.
+4. In **Detach Progress**, they monitor progress and select **Next** when the process finishes.
 
     ![Migrate](./media/contoso-migration-tfs-vsts/migrate4.png)
 
-5. In **Readiness Checks**, when checks finish they click **Detach**.
+5. In **Readiness Checks**, when checks finish they select **Detach**.
 
     ![Migrate](./media/contoso-migration-tfs-vsts/migrate5.png)
 
-6. They click **Close** to finish up.
+6. They select **Close** to finish up.
 
     ![Migrate](./media/contoso-migration-tfs-vsts/migrate6.png)
 
@@ -298,11 +298,11 @@ After the DACPAC is created, Contoso uploads it to Azure Storage.
 
     ![Upload](./media/contoso-migration-tfs-vsts/backup7.png)
 
-4. After the file's uploaded, they click the file name > **Generate SAS**. They expand the blob containers under the storage account, select the container with the import files, and click **Get Shared Access Signature**.
+4. After the file is uploaded, they select the file name > **Generate SAS**. They expand the blob containers under the storage account, select the container with the import files, and select **Get Shared Access Signature**.
 
     ![Upload](./media/contoso-migration-tfs-vsts/backup8.png)
 
-5. They accept the defaults and click **Create**. This enables access for 24 hours.
+5. They accept the defaults and select **Create**. This enables access for 24 hours.
 
     ![Upload](./media/contoso-migration-tfs-vsts/backup9.png)
 
@@ -435,7 +435,7 @@ With migration complete, Contoso wants to move from TFVC to Git for source code 
 
     ![Git](./media/contoso-migration-tfs-vsts/git1.png)
 
-2. They click the **Source** dropdown > **Import**.
+2. They select the **Source** dropdown > **Import**.
 
     ![Git](./media/contoso-migration-tfs-vsts/git2.png)
 

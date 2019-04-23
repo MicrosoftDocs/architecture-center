@@ -55,9 +55,9 @@ This business risk can be expanded into a number of technical risks:
 
 The following changes to policy will help remediate the new risks and guide implementation. The list looks long, but adopting these policies may be easier than it appears.
 
-1. All deployed assets must be categorized by criticality and data classification. Classifications are to be reviewed by the Cloud Governance team and the application owner before deployment to the cloud
+1. All deployed assets must be categorized by criticality and data classification. Classifications are to be reviewed by the Cloud Governance team and the application owner before deployment to the cloud.
 2. Subnets containing mission-critical applications must be protected by a firewall solution capable of detecting intrusions and responding to attacks.
-3. Governance tooling must audit and enforce network configuration requirements defined by the Security Management team
+3. Governance tooling must audit and enforce network configuration requirements defined by the Security Management team.
 4. Governance tooling must validate that all assets related to mission-critical apps or protected data are included in monitoring for resource depletion and optimization.
 5. Governance tooling must validate that the appropriate level of logging data is being collected for all mission-critical applications or protected data.
 6. Governance process must validate that backup, recovery, and SLA adherence are properly implemented for mission-critical applications and protected data.
@@ -67,7 +67,7 @@ The following changes to policy will help remediate the new risks and guide impl
 10. Governance processes must include audits at the point of deployment and at regular cycles to ensure consistency across all assets.
 11. Trends and exploits that could affect cloud deployments should be reviewed regularly by the Security team to provide updates to security management tooling used in the cloud.
 12. Before release into production, all mission-critical apps and protected data must be added to the designated operational monitoring solution. Assets that cannot be discovered by the chosen IT operations tooling, cannot be released for production use. Any changes required to make the assets discoverable must be made to the relevant deployment processes to ensure assets will be discoverable in future deployments.
-13. Upon discovery, operational management teams will size assets, to ensure that assets meet performance requirements
+13. Upon discovery, operational management teams will size assets, to ensure that assets meet performance requirements.
 14. Deployment tooling must be approved by the Cloud Governance team to ensure ongoing governance of deployed assets.
 15. Deployment scripts must be maintained in a central repository accessible by the Cloud Governance team for periodic review and auditing.
 16. Governance review processes must validate that deployed assets are properly configured in alignment with SLA and recovery requirements.

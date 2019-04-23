@@ -263,11 +263,11 @@ Contoso needs cluster certificates to allow Azure DevOps Services access to the 
 
      ![Base64 value](./media/contoso-migration-rearchitect-container-sql/cert6.png)
 
-9. Finally, they add the new certificate to the Service Fabric cluster. To do this, in the portal they open the cluster, and click **Security**.
+9. Finally, they add the new certificate to the Service Fabric cluster. To do this, in the portal they open the cluster, and select **Security**.
 
      ![Add client cert](./media/contoso-migration-rearchitect-container-sql/cert7.png)
 
-10. They click **Add** > **Admin Client**, and paste in the thumbprint of the new client certificate. Then they click **Add**. This can take up to 15 minutes.
+10. They select **Add** > **Admin Client**, and paste in the thumbprint of the new client certificate. Then they select **Add**. This can take up to 15 minutes.
 
      ![Add client cert](./media/contoso-migration-rearchitect-container-sql/cert8.png)
 
@@ -315,7 +315,7 @@ Contoso admins now migrate the database.
 
     ![DMA](./media/contoso-migration-rearchitect-container-sql/dma-4.png)
 
-6. After DMS creates the script, they click **Deploy schema**.
+6. After DMS creates the script, they select **Deploy schema**.
 
     ![DMA](./media/contoso-migration-rearchitect-container-sql/dma-5.png)
 
@@ -403,7 +403,7 @@ Contoso admins will convert the app to a container using Visual Studio and the S
 
 Contoso admins now configure Azure DevOps Services to perform build and release process to action the DevOps practices.
 
-1. In Azure DevOps Services, they click **Build and release** > **New pipeline**.
+1. In Azure DevOps Services, they select **Build and release** > **New pipeline**.
 
     ![New pipeline](./media/contoso-migration-rearchitect-container-sql/pipeline1.png)
 
@@ -424,8 +424,8 @@ Contoso admins now configure Azure DevOps Services to perform build and release 
 
     ![Triggers](./media/contoso-migration-rearchitect-container-sql/pipeline5.png)
 
-7. They click **Save and Queue** to start a build.
-8. After the build succeeds, they move onto the release pipeline. In Azure DevOps Services they click **Releases** > **New pipeline**.
+7. They select **Save and Queue** to start a build.
+8. After the build succeeds, they move onto the release pipeline. In Azure DevOps Services they select **Releases** > **New pipeline**.
 
     ![Release pipeline](./media/contoso-migration-rearchitect-container-sql/pipeline6.png)
 
@@ -433,11 +433,11 @@ Contoso admins now configure Azure DevOps Services to perform build and release 
 
     ![Environment](./media/contoso-migration-rearchitect-container-sql/pipeline7.png)
 
-10. They provide a pipeline name (**ContosoSmartHotel360Rearchitect**). For the stage, they click **1 job, 1 task** to configure the Service Fabric deployment.
+10. They provide a pipeline name (**ContosoSmartHotel360Rearchitect**). For the stage, they select **1 job, 1 task** to configure the Service Fabric deployment.
 
     ![Phase and task](./media/contoso-migration-rearchitect-container-sql/pipeline8.png)
 
-11. Now, they click **New** to add a new cluster connection.
+11. Now, they select **New** to add a new cluster connection.
 
     ![New connection](./media/contoso-migration-rearchitect-container-sql/pipeline9.png)
 
@@ -447,7 +447,7 @@ Contoso admins now configure Azure DevOps Services to perform build and release 
 
     ![Certificate](./media/contoso-migration-rearchitect-container-sql/pipeline10.png)
 
-14. They click the pipeline > **Add an artifact**.
+14. They select the pipeline > **Add an artifact**.
 
      ![Artifact](./media/contoso-migration-rearchitect-container-sql/pipeline11.png)
 
@@ -462,7 +462,7 @@ Contoso admins now configure Azure DevOps Services to perform build and release 
 17. In addition, note that the continuous deployment trigger is enabled.
    ![Continuous deployment enabled](./media/contoso-migration-rearchitect-container-sql/pipeline14.png)
 
-18. They click **Save** > **Create a release**.
+18. They select **Save** > **Create a release**.
 
     ![Release](./media/contoso-migration-rearchitect-container-sql/pipeline15.png)
 
@@ -499,7 +499,7 @@ As a first step, Contoso admins provision an Azure Cosmos database.
 
     ![Extend](./media/contoso-migration-rearchitect-container-sql/extend3.png)
 
-5. In the portal, they open the new database > **Collection** > **Documents** and click **New Document**.
+5. In the portal, they open the new database > **Collection** > **Documents** and select **New Document**.
 6. They paste the following JSON code into the document window. This is sample data in the form of a single tweet.
 
     ```json
@@ -523,7 +523,7 @@ As a first step, Contoso admins provision an Azure Cosmos database.
 
     ![Extend](./media/contoso-migration-rearchitect-container-sql/extend4.png)
 
-7. They locate the Cosmos DB endpoint, and the authentication key. These are used in the app to connect to the collection. In the database, they click **Keys**, and copy the URI and primary key to Notepad.
+7. They locate the Cosmos DB endpoint, and the authentication key. These are used in the app to connect to the collection. In the database, they select **Keys**, and copy the URI and primary key to Notepad.
 
     ![Extend](./media/contoso-migration-rearchitect-container-sql/extend5.png)
 
@@ -557,7 +557,7 @@ After extending the app, Contoso admins republish it to Azure using the pipeline
 
     ![Republish](./media/contoso-migration-rearchitect-container-sql/republish3.png)
 
-3. They can now click through the services to see that the SentimentIntegration app is up and running
+3. They can now click through the services to see that the SentimentIntegration app is up and running.
 
     ![Republish](./media/contoso-migration-rearchitect-container-sql/republish4.png)
 
