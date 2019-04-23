@@ -22,7 +22,7 @@ Resource names can be difficult to change, so establishing a comprehensive namin
 >
 > As these discussions progress, use the template linked below to capture the naming and tagging decisions you make when aligning these recommendations to your specific business needs.
 >
-> [Download the naming and tagging convention tracking template.](https://archcenter.blob.core.windows.net/cdn/fusion/readiness/CAF%20Readiness%20Naming%20and%20Tagging%20tracking%20template.xlsx)
+> Download the [naming and tagging convention tracking template](https://archcenter.blob.core.windows.net/cdn/fusion/readiness/CAF%20Readiness%20Naming%20and%20Tagging%20tracking%20template.xlsx).
 
 ## Naming and tagging resources
 

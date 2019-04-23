@@ -1,8 +1,9 @@
 ---
 title: "CAF: Enable customer success"
-description: Explanation of Enable customer success
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+description: Enable customer success across any cloud adoption journey
 author: BrianBlanchard
-ms.date: 4/4/2019
+ms.date: 04/04/2019
 layout: LandingPage
 ms.topic: landing-page
 ---
