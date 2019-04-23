@@ -111,7 +111,7 @@ For more information, see:
 
 # [Third-party migration tools](#tab/third-party-tools)
 
-Several third-party migration tools and ISV services can assist you with the migration process. Each offers different benefits and strengths. These tools include:
+Several third-party migration tools and ISV services can assist you with the migration process. Each offers different benefits and strengths. Some of the available third-party tools include:
 
 ## Cloudamize
 
@@ -119,17 +119,23 @@ Cloudamize is an ISV service that covers all phases of the migration strategy.
 
 [Learn more](https://www.cloudamize.com/)
 
-### Zerto
+## Zerto
 
 Zerto provides virtual replication handling both Microsoft Hyper-V and VMware vSphere environments.
 
 [Learn more](https://www.zerto.com/solutions/use-cases/data-center-migration-software/)
 
-### Carbonite
+## Carbonite
 
 Carbonite provides server and data migration solutions to migrate workloads to, from, or between any physical, virtual, or cloud-based environment.
 
 [Learn More](https://www.carbonite.com/data-protection/data-migration-software)
+
+## Movere
+
+Movere is a discovery solution that provides the data and insights needed to plan cloud migrations and continuously optimize, monitor and analyze IT environments with confidence.
+
+[Learn more](https://www.movere.io/)
 
 # [Project management tools](#tab/project-management-tools)
 

@@ -172,4 +172,3 @@ Azure provides a range of governance controls across services and the Azure plat
 ## Learn more
 
 - [Deploy a migration infrastructure](../azure-best-practices/contoso-migration-infrastructure.md)
-
