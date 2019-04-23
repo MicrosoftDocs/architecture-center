@@ -232,4 +232,6 @@ _themes*/
 
 .openpublishing.buildcore.ps1
 
-.vscode
+# Visual Studio Code
+.vscode/*
+!.vscode/extensions.json
