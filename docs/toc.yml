@@ -763,8 +763,9 @@
           - name: Governance and compliance
             href: cloud-adoption/migrate/expanded-scope/governance-or-compliance.md
       - name: Best practices
-        href: cloud-adoption/migrate/azure-best-practices/index.md
         items:
+        - name: Overview
+          href: cloud-adoption/migrate/azure-best-practices/index.md
         - name: Best practices for assessing workloads
           items:
           - name: Assess on-premises resources for migration
@@ -774,8 +775,9 @@
           - name: Set up networking for migrated workloads
             href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-networking.md
           - name: Application migration patterns and examples
-            href: cloud-adoption/migrate/azure-best-practices/contoso-migration-overview.md
             items:
+            - name: Overview
+              href: cloud-adoption/migrate/azure-best-practices/contoso-migration-overview.md
             - name: Deploy an Azure infrastructure
               href: cloud-adoption/migrate/azure-best-practices/contoso-migration-infrastructure.md
             - name: Windows Server workloads
@@ -809,14 +811,15 @@
             - name: Scale a migration
               href: cloud-adoption/migrate/azure-best-practices/contoso-migration-scale.md
           - name: Mainframe migration
-            href: cloud-adoption/infrastructure/mainframe-migration/overview.md
             items:
-              - name: Myths and facts
-                href: cloud-adoption/infrastructure/mainframe-migration/myths-and-facts.md
-              - name: Migration strategies
-                href: cloud-adoption/infrastructure/mainframe-migration/migration-strategies.md
-              - name: Application strategies
-                href: cloud-adoption/infrastructure/mainframe-migration/application-strategies.md
+            - name: Overview
+              href: cloud-adoption/infrastructure/mainframe-migration/overview.md
+            - name: Myths and facts
+              href: cloud-adoption/infrastructure/mainframe-migration/myths-and-facts.md
+            - name: Migration strategies
+              href: cloud-adoption/infrastructure/mainframe-migration/migration-strategies.md
+            - name: Application strategies
+              href: cloud-adoption/infrastructure/mainframe-migration/application-strategies.md
         - name: Best practices for optimizing workloads
           items:
           - name: Costing and sizing workloads
@@ -903,8 +906,9 @@
       - name: Best practices
         href: cloud-adoption/innovate/azure-best-practices/index.md
     - name: Govern
-      href: cloud-adoption/governance/index.md
       items:
+      - name: Overview 
+        href: cloud-adoption/governance/index.md
       - name: Governance guides
         items:
         - name: Overview
