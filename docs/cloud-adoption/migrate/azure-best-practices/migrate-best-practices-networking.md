@@ -229,14 +229,14 @@ Deploying ExpressRoute connections usually involves engaging with an ExpressRout
 
 **Learn more:**
 
-- [Get an overview](/azure/expressroute/expressroute-introduction) of ExpressRoute.
+- [Read an overview](/azure/expressroute/expressroute-introduction) of ExpressRoute.
 - [Learn about](/azure/expressroute/expressroute-erdirect-about) ExpressRoute Direct.
 
 ### Best practice: Optimize ExpressRoute routing with BGP communities
 
 When you have multiple ExpressRoute circuits, you have more than one path to connect to Microsoft. As a result, suboptimal routing can happen, and your traffic might take a longer path to reach Microsoft, and Microsoft to your network. The longer the network path,the higher the latency. Latency has direct impact on app performance and user experience.
 
-#### Example
+**Example:**
 
 Let's review an example:
 

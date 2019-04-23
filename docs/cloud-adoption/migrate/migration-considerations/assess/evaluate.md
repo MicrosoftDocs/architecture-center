@@ -2,7 +2,7 @@
 title: "Evaluate workload readiness"
 description: A process within Cloud Migration that focuses on the tasks of migrating workloads to the cloud
 author: BrianBlanchard
-ms.date: 4/4/2019
+ms.date: 04/04/2019
 ---
 
 # Evaluate workload readiness

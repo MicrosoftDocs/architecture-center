@@ -2,7 +2,7 @@
 title: "Decisions that affect migrations"
 description: Important decisions to be made regarding the migration process
 author: BrianBlanchard
-ms.date: 4/4/2019
+ms.date: 04/04/2019
 ---
 
 # Decisions that affect migrations

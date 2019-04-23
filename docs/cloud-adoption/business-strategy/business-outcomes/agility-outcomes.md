@@ -1,8 +1,9 @@
 ---
 title: "CAF: Examples of agility outcomes"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Examples of agility outcomes
 author: BrianBlanchard
-ms.date: 4/4/2019
+ms.date: 04/04/2019
 ---
 
 # CAF: Examples of agility outcomes

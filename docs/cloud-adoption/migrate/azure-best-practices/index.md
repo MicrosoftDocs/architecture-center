@@ -2,7 +2,7 @@
 title: "CAF: Azure Migration Best Practices"
 description: Introduction to Azure Migration Best Practices
 author: BrianBlanchard
-ms.date: 4/4/2019
+ms.date: 04/04/2019
 ---
 
 # Azure Migration Best Practices

@@ -3,7 +3,7 @@ title: "CAF: Cloud Migration"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Explanation of Cloud Migration Overview
 author: BrianBlanchard
-ms.date: 4/4/2019
+ms.date: 04/04/2019
 layout: LandingPage
 ms.topic: landing-page
 ---

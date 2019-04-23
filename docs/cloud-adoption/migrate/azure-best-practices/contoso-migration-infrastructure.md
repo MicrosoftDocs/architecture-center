@@ -1,5 +1,6 @@
 ---
 title: "CAF: Application migration examples - Set up a migration infrastructure"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how Contoso sets up an Azure infrastructure for migration to Azure.
 services: azure-migrate
 author: BrianBlanchard
@@ -7,7 +8,6 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/1/2018
 ms.author: brblanch
-
 ---
 
 # Deploy a migration infrastructure

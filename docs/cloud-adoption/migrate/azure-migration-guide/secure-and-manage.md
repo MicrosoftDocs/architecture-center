@@ -3,7 +3,7 @@ title: "CAF: Secure and Manage"
 description: Secure and Manage
 author: matticusau
 ms.author: mlavery
-ms.date: 4/4/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: fasttrack, new
@@ -122,11 +122,11 @@ Azure Backup is the Azure-based service you can use to back up (or protect) and 
 
 1. In the Azure portal, click **Virtual machines**, and select the VM you want to replicate.
 1. In **Operations**, click **Backup**.
-1. Create or select an existing Recovery Services Vault
+1. Create or select an existing Recovery Services vault.
 1. Click **Create (or edit) a new policy**.
-1. Configure the schedule and retention period
-1. Click OK
-1. Click Enable Backup
+1. Configure the schedule and retention period.
+1. Click **OK**.
+1. Click **Enable Backup**.
 
 ::: zone target="chromeless"
 

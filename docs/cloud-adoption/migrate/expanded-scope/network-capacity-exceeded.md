@@ -2,7 +2,7 @@
 title: "CAF: Network capacity exceeded"
 description: Storage requirements exceed network capacity during a migration effort
 author: BrianBlanchard
-ms.date: 4/4/2019
+ms.date: 04/04/2019
 ---
 
 # Storage requirements exceed network capacity during a migration effort

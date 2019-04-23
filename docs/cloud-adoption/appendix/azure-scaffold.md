@@ -1,5 +1,6 @@
 ---
 title: Best practices for enterprises moving to Azure
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Describes a scaffold that enterprises can use to ensure a secure and manageable environment.
 author: rdendtler
 ms.author: rodend

@@ -3,7 +3,7 @@ title: "CAF: Simple Migration Journey"
 description: Learn how to migrate your services to Azure effectively for your organization, with step-by-step guidance.
 author: matticusau
 ms.author: mlavery
-ms.date: 4/4/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: fasttrack, new
@@ -25,7 +25,7 @@ Before you migrate resources to your Azure environment, you need to choose the m
 
 ::: zone target="docs"
 
-For the best experience, view this playbook in the Azure portal. Go to the **Azure QuickStart Center** in the Azure portal and select **Migrate your environment to Azure**. The Azure QuickStart Center is currently in preview.
+For the best experience, view this playbook in the Azure portal. Go to the **QuickStart Center** in the Azure portal and select **Migrate your environment to Azure**. The QuickStart Center is currently in preview.
 
 ::: zone-end
 

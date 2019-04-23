@@ -2,7 +2,7 @@
 title: "Approve architecture changes before migration"
 description: Understanding the importance of approval before migration
 author: BrianBlanchard
-ms.date: 4/4/2019
+ms.date: 04/04/2019
 ---
 
 # Approve architecture changes before migration

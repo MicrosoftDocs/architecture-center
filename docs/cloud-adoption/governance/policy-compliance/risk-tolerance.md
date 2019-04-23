@@ -2,7 +2,7 @@
 title: "CAF: What business risks are associated with a cloud transformation?"
 description: Explanation of the business risks associated with a cloud transformation?
 author: BrianBlanchard
-ms.date: 4/4/2019
+ms.date: 04/04/2019
 ---
 
 # Evaluating risk tolerance

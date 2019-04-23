@@ -2,7 +2,7 @@
 title: "Promotion models - Promote, Stage, or Flight"
 description: Understand the impact of promotion on migration activities
 author: BrianBlanchard
-ms.date: 4/4/2019
+ms.date: 04/04/2019
 ---
 
 # Promotion models - single-step, staged, or flight

@@ -1,8 +1,9 @@
 ---
 title: "CAF: Why are we moving to the cloud?"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Cloud accounting and moving to the cloud
 author: BrianBlanchard
-ms.date: 4/4/2019
+ms.date: 04/04/2019
 ---
 
 <!-- markdownlint-disable MD026 -->
