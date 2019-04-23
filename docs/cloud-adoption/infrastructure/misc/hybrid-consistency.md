@@ -1,6 +1,6 @@
 ---
-title: "CAF: Create hybrid cloud consistency" 
-description: Defining the approach to create hybrid cloud consistency
+title: "CAF: Create hybrid cloud consistency"
+description: Defining the approach to create hybrid cloud consistency.
 author: BrianBlanchard
 ms.date: 12/27/2018
 ---
@@ -23,7 +23,7 @@ A true hybrid cloud solution must provide four components, each of which brings 
 - Integrated management and security across your hybrid cloud: This provides you with a cohesive way to monitor, manage, and secure the environment, enabling increased visibility and control.
 - A consistent data platform for the datacenter and the cloud: This creates data portability, combined with seamless access to on-premises and cloud data services for deep insight into all data sources.
 - Unified development and DevOps across the cloud and on-premises datacenters: This allows you to move applications between the two environments as needed, improving developer productivity, as both places now have the same development environment.
-  
+
 Examples of these components from an Azure perspective include:
 
 - Azure Active Directory (Azure AD), which works with on-premises Azure AD to provide common identity for all users. SSO across on-premises and via the cloud makes it simple for users to safely access the applications and assets they need. Adminis can manage security and governance controls so that users can access what they need, with flexibility to adjust those permissions without affecting the user experience.
@@ -50,9 +50,9 @@ Azure Stack is offered via two deployment options:
 
 ## Azure Stack One Cloud Ecosystem
 
-You can speed up Azure Stack initiatives by leveraging the complete Azure ecosystem:
+You can speed up Azure Stack initiatives by using the complete Azure ecosystem:
 
 - Azure ensures that most applications and services certified for Azure will work on Azure Stack. Several ISVs including Bitnami, Docker, Kemp Technologies, Pivotal Cloud Foundry, Red Hat Enterprise Linux, and SUSE Linux are extending their solutions to Azure Stack.
 - You can opt to have Azure Stack delivered and operated as a fully managed service. Several partners including Tieto, Yourhosting, Revera, Pulsant, and NTT will have managed service offerings across Azure and Azure Stack shortly. These partners have been delivering managed services for Azure via the Cloud Solution Provider (Cloud Providers) program and are now extending their offerings to include hybrid solutions.
 - As an example of a complete, fully managed hybrid cloud solution, Avanade is delivering an all-in-one offer that includes cloud transformation services, software, infrastructure, setup and configuration, and ongoing managed services so customers can consume Azure Stack just as they do with Azure today.
-- Systems Integrators (SI) can help accelerate application modernization initiatives by building end-to-end Azure solutions for customers. They bring deep Azure skillsets, domain and industry knowledge, and process expertise (e.g., DevOps). Every Azure Stack cloud is an opportunity for an SI to design the solution, lead and influence system deployment, customize the included capabilities, and deliver operational activities. This includes SIs like Avanade, DXC, Dell EMC Services, InFront Consulting Group, HPE Pointnext, and Pricewaterhouse Coopers (PwC).
+- Systems Integrators (SI) can help accelerate application modernization initiatives by building end-to-end Azure solutions for customers. They bring deep Azure skillsets, domain and industry knowledge, and process expertise (such as DevOps). Every Azure Stack cloud is an opportunity for an SI to design the solution, lead and influence system deployment, customize the included capabilities, and deliver operational activities. This includes SIs like Avanade, DXC, Dell EMC Services, InFront Consulting Group, HPE Pointnext, and Pricewaterhouse Coopers (PwC).

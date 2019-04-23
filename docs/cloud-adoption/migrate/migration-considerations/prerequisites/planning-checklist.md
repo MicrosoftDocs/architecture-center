@@ -23,9 +23,9 @@ The first and most important decision regarding any migration-ready environment 
 
 Whether you choose to align with a broader cloud governance strategy or not for your initial migration, you will need to ensure your cloud deployment environment is configured to support your workloads.
 
-If you're planning to align your migration with a cloud governance strategy from the start, you'll need to apply the [Five Disciplines of Cloud Governance](../../../governance/governance-disciplines.md) to help inform decisions on policies, toolchains, and enforcement mechanisms that will align your cloud environment with overall corporate requirements. Consult the Cloud Adoption Framework [actionable governance design guides](../../../governance/journeys/overview.md) for examples of how to implement this model using Azure services.
+If you're planning to align your migration with a cloud governance strategy from the start, you'll need to apply the [Five Disciplines of Cloud Governance](../../../governance/governance-disciplines.md) to help inform decisions on policies, toolchains, and enforcement mechanisms that will align your cloud environment with overall corporate requirements. Consult the Cloud Adoption Framework [actionable governance design guides](../../../governance/journeys/index.md) for examples of how to implement this model using Azure services.
 
-If your initial migrations are not closely aligned with a broader cloud governance strategy, the general issues of organization, access, and infrastructure planning still need to be managed. Consult the [Azure readiness guide](../../../ready/azure-readiness-guide/overview.md) for help with these cloud readiness decisions.
+If your initial migrations are not closely aligned with a broader cloud governance strategy, the general issues of organization, access, and infrastructure planning still need to be managed. Consult the [Azure readiness guide](../../../ready/azure-readiness-guide/index.md) for help with these cloud readiness decisions.
 
 > [!CAUTION]
 > We highly recommend that you develop a governance strategy for anything beyond your initial workload migration.
@@ -50,7 +50,7 @@ Your cloud-based workloads will require the provisioning of virtual networks to 
 
 ## Identity
 
-Cloud-based identity services are a prerequisite for offering identity and access management (IAM) for your cloud resources. Align your identity management strategy with your cloud adoption plans before proceeding. For example, when migrating existing on-premises assets, consider supporting a hybrid identity approach using [directory synchronization](../../../decision-guides/identity/overview.md) to allow a consistent set of user credentials across you on-premises and cloud environments during and after the migration.
+Cloud-based identity services are a prerequisite for offering identity and access management (IAM) for your cloud resources. Align your identity management strategy with your cloud adoption plans before proceeding. For example, when migrating existing on-premises assets, consider supporting a hybrid identity approach using [directory synchronization](../../../decision-guides/identity/index.md) to allow a consistent set of user credentials across you on-premises and cloud environments during and after the migration.
 
 ## Next steps
 

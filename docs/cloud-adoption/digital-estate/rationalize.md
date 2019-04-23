@@ -64,7 +64,7 @@ By reducing the number of potential outcomes, it’s easier to reach an initial 
 
 Continuing the example, if the options are limited to rehosting or retiring, there is really only one question to ask the business during initial rationalization&mdash;namely, whether to retire.
 
-"Analysis suggests that there are no users actively leveraging this asset. Is that accurate or have we overlooked something?" Such a binary question is generally much easier to run through a qualitative analysis.
+"Analysis suggests that there are no users actively using this asset. Is that accurate, or have we overlooked something?" Such a binary question is generally much easier to run through a qualitative analysis.
 
 This streamlined approach produces baselines, financial plans, strategy, and direction. In later activities, each asset would go through further rationalization and qualitative analysis to evaluate other options. All assumptions made in this initial rationalization would be tested prior to implementation.
 

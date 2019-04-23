@@ -11,17 +11,17 @@ ms.subservice: enterprise-cloud-adoption
 
 # Gather inventory data for a digital estate
 
-Developing an inventory is the first step in [Digital Estate Planning](overview.md). In this process, a list of IT assets that support specific business functions would be collected for later analysis and rationalization. This article assumes that a bottom-up approach to analysis is most appropriate for planning needs. For more information, see [Approaches to digital estate planning](./approach.md).
+Developing an inventory is the first step in [Digital Estate Planning](index.md). In this process, a list of IT assets that support specific business functions would be collected for later analysis and rationalization. This article assumes that a bottom-up approach to analysis is most appropriate for planning needs. For more information, see [Approaches to digital estate planning](./approach.md).
 
 ## Take inventory of a digital estate
 
 The inventory supporting a digital estate changes depending on the desired digital transformation and corresponding transformation journey.
 
-- **Operational transformation:** During an operational transformation, it is often advised that the inventory be collected from scanning tools that can create a centralized list of all VMs and servers. Some tools can also create network mappings and dependencies, which will help define workload alignment.
+- **Cloud migration:** During a cloud migration, it is often advised that the inventory be collected from scanning tools that can create a centralized list of all VMs and servers. Some tools can also create network mappings and dependencies, which will help define workload alignment.
 
-- **Incremental transformation:** Inventory for an incremental transformation begins with the customer. Mapping the customer experience from start to finish is a good place to begin. Aligning that map to applications, APIs, data, and other assets will create a detailed inventory for analysis.
+- **Application innovation:** Inventory during a cloud enabled, application innovation effort begins with the customer. Mapping the customer experience from start to finish is a good place to begin. Aligning that map to applications, APIs, data, and other assets will create a detailed inventory for analysis.
 
-- **Disruptive transformation.** Disruptive transformation focuses on the product or service. From there an inventory would include a mapping of the opportunities to disrupt the market and the capabilities needed.
+- **Data innovation:** Cloud enabled, data innovation efforts focus on the product or service. From there an inventory would include a mapping of the opportunities to disrupt the market and the capabilities needed.
 
 ## Accuracy and completeness of an inventory
 

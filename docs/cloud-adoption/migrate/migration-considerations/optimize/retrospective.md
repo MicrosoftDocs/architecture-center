@@ -41,7 +41,7 @@ The retrospective marks the end of a release or iteration, as teams gain experie
 
 ## Next steps
 
-The [Secure and Manage](../secure-and-manage/overview.md) section of this content can help prepare the reader for the transition from migration to operations.
+The [Secure and Manage](../secure-and-manage/index.md) section of this content can help prepare the reader for the transition from migration to operations.
 
 > [!div class="nextstepaction"]
-> [Secure monitoring and management tools](../secure-and-manage/overview.md)
+> [Secure monitoring and management tools](../secure-and-manage/index.md)

@@ -16,7 +16,7 @@ The Microsoft Cloud Adoption Framework for Azure is provided as a free self-serv
 
 Throughout this framework, enablement is a core theme. The following checklist contains a series of topics that should be embedded in any cloud adoption effort to ensure the journey is a success in the eyes of both IT and the business:
 
-- Plan: Establishing clear [business outcomes](../business-strategy/business-outcomes/overview.md), a defined [digital estate plan](../digital-estate/index.md), and well understood [adoption backlogs](../migrate/migration-considerations/prerequisites/migration-backlog-review.md)
+- Plan: Establishing clear [business outcomes](../business-strategy/business-outcomes/index.md), a defined [digital estate plan](../digital-estate/index.md), and well understood [adoption backlogs](../migrate/migration-considerations/prerequisites/migration-backlog-review.md)
 - Ready: Ensure the readiness of staff through [skills and learning plans](../ready/technical-skills.md)
 - Adopt: Ensure proper implementation of desired changes, across IT and business processes, to achieve business outcomes.
   - Govern: Align proper [governance disciplines](../governance/index.md) to consistently apply cost management, risk mitigation, compliance, and security baselines across all cloud adoption
@@ -31,7 +31,7 @@ In addition to the Cloud Adoption Framework, Microsoft provides a number of addi
 
 <ul class="panelContent cardsH">
 <li style="display: flex; flex-direction: column;">
-    <a href="../governance/journeys/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="../governance/journeys/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -42,7 +42,7 @@ In addition to the Cloud Adoption Framework, Microsoft provides a number of addi
                     </div>
                     <div class="cardText">
                         <h3>Cloud Governance</h3>
-                        <p>Understand business risk, map those risks to proper policies and processes. Leveraging cloud governance tools and the Five Disciplines of Cloud Governance minimizes risks and improves the likelihood of success. Cloud governance helps control costs, create consistency, improve security, and accelerate deployment.</p>
+                        <p>Understand business risk, map those risks to proper policies and processes. Using cloud governance tools and the Five Disciplines of Cloud Governance minimizes risks and improves the likelihood of success. Cloud governance helps control costs, create consistency, improve security, and accelerate deployment.</p>
                     </div>
                 </div>
             </div>
@@ -50,7 +50,7 @@ In addition to the Cloud Adoption Framework, Microsoft provides a number of addi
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="../../resiliency/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="../../reliability/" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -60,8 +60,8 @@ In addition to the Cloud Adoption Framework, Microsoft provides a number of addi
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Resilient Architecture</h3>
-                        <p>Building a reliable application in the cloud is different than building a reliable application in an enterprise setting. Prepare for this subtle differences through a process for achieving resiliency, using a structured approach over the lifetime of an application, from design and implementation to deployment and operations.</p>
+                        <h3>Reliable Architecture (Resiliency)</h3>
+                        <p>Building a reliable application in the cloud is different from traditional application development. While historically you may have purchased higher-end hardware to scale up, in a cloud environment you scale out instead of up. Instead of trying to prevent failures altogether, the goal is to minimize the effects of a single failing component.</p>
                     </div>
                 </div>
             </div>

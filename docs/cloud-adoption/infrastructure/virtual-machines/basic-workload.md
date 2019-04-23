@@ -1,5 +1,5 @@
 ---
-title: "CAF: deploy a basic workload" 
+title: "CAF: deploy a basic workload"
 description: Describes how to deploy a basic workload to Azure
 author: petertaylor9999
 ms.date: 12/31/2018
@@ -43,4 +43,4 @@ Once you've followed the steps and deployed the VM, you can learn about [proven 
 
 ## Next steps
 
-See [Architectural decision guides](../../decision-guides/overview.md) for how to use core infrastructure components in the Azure cloud.
+See [Architectural decision guides](../../decision-guides/index.md) for how to use core infrastructure components in the Azure cloud.

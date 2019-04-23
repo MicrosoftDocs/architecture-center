@@ -29,10 +29,10 @@ The Cost Management discipline attempts to address core business risks related t
 
 Risks will differ between organization, but the following serve as common cost-related risks that you can use as a starting point for discussions within your Cloud Governance team:
 
-- **Budget control**. Not controlling budget can lead to excessive spending with a cloud vendor.
-- **Utilization loss**. Prepurchases or precommitments that are not used can result in wasted investments.
-- **Spending anomalies**: Unexpected spikes in either direction can be indicators of improper usage.
-- **Overprovisioned assets**. When assets are deployed in a configuration that exceed the needs of an application or virtual machine (VM), they can increase costs and create waste.
+- **Budget control:** Not controlling budget can lead to excessive spending with a cloud vendor.
+- **Utilization loss:** Prepurchases or precommitments that are not used can result in wasted investments.
+- **Spending anomalies:** Unexpected spikes in either direction can be indicators of improper usage.
+- **Overprovisioned assets:** When assets are deployed in a configuration that exceed the needs of an application or virtual machine (VM), they can increase costs and create waste.
 
 ## Next steps
 

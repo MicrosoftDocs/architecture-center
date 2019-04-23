@@ -11,7 +11,7 @@ author: BrianBlanchard
 
 # Large enterprise: The narrative behind the governance strategy
 
-The following narrative establishes a use case for a [large enterprise governance journey](./overview.md). Before implementing the journey, it's important to understand the assumptions and reasoning that are reflected in this narrative. Then you can better align the governance strategy to your own organization's journey.
+The following narrative establishes a use case for a [large enterprise governance journey](./index.md). Before implementing the journey, it's important to understand the assumptions and reasoning that are reflected in this narrative. Then you can better align the governance strategy to your own organization's journey.
 
 ## Back story
 

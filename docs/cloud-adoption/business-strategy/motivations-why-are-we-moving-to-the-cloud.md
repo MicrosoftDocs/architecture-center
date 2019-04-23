@@ -69,4 +69,4 @@ The following are a list of the motivations that would make an IT organization f
 
 ## Guiding transformation conversations
 
-To guide transformation conversations, see [Business outcomes](business-outcomes/overview.md) which serve as a model for facilitating the business conversations needed to drive document motives and the supporting metrics, in alignment with the business strategy.
+To guide transformation conversations, see [Business outcomes](business-outcomes/index.md) which serve as a model for facilitating the business conversations needed to drive document motives and the supporting metrics, in alignment with the business strategy.

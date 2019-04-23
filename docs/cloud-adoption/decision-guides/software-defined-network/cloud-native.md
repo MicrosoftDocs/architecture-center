@@ -1,5 +1,5 @@
 ---
-title: "CAF: Software Defined Networks - Cloud native" 
+title: "CAF: Software Defined Networks - Cloud native"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
@@ -19,13 +19,13 @@ A cloud native virtual network has no dependencies on your organization's on-pre
 
 Deploying a cloud native virtual network assumes the following:
 
-- The workloads you deploy to the virtual network have no dependencies on applications or services that are accessible only from inside your on-premises network. Unless they provide endpoints accessible over the public Internet, applications and services hosted internally on-premises are not usable by resources hosted on a cloud platform.
+- The workloads you deploy to the virtual network have no dependencies on applications or services that are accessible only from inside your on-premises network. Unless they provide endpoints accessible over the public internet, applications and services hosted internally on-premises are not usable by resources hosted on a cloud platform.
 - Your workload's identity management and access control depends on the cloud platform's identity services or IaaS servers hosted in your cloud environment. You will not need to directly connect to identity services hosted on-premises or other external locations.
 - Your identity services do not need to support single sign-on (SSO) with on-premises directories.
 
 Cloud native virtual networks have no external dependencies. This makes them simple to deploy and configure, and as a result this architecture is often the best choice for experiments or other smaller self-contained or rapidly iterating deployments.
 
-Additional issues your Cloud Adoption team should consider when discussing a cloud native virtual networking architecture include:
+Additional issues your cloud adoption teams should consider when discussing a cloud native virtual networking architecture include:
 
 - Existing workloads designed to run in an on-premises datacenter may need extensive modification to take advantage of cloud-based functionality, such as storage or authentication services.
 - Cloud native networks are managed solely through the cloud platform management tools, and therefore may lead to management and policy divergence from your existing IT standards as time goes on.

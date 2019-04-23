@@ -5,11 +5,11 @@ ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 ms.date: 02/11/2019
-description: "CAF: Small-to-medium enterprise – Security Baseline evolution"
+description: Explanation small-to-medium enterprise – Security Baseline evolution
 author: BrianBlanchard
 ---
 
-# CAF: Small-to-medium enterprise: Security Baseline evolution
+# Small-to-medium enterprise: Security Baseline evolution
 
 This article evolves the narrative by adding security controls that support moving protected data to the cloud.
 
@@ -19,7 +19,7 @@ IT and business leadership have been happy with results from early stage experim
 
 ### Evolution of the Cloud Governance team
 
-Given the impact of the changing narrative and support provided so far, the Cloud Governance team is now viewed differently. The two system administrators who started the team are now viewed as experienced cloud architects. As this narrative develops, the perception of them will shift from being Cloud Custodians to more of a Cloud Guardian role.
+Given the effect of the changing narrative and support provided so far, the Cloud Governance team is now viewed differently. The two system administrators who started the team are now viewed as experienced cloud architects. As this narrative develops, the perception of them will shift from being Cloud Custodians to more of a Cloud Guardian role.
 
 While the difference is subtle, it’s an important distinction when building a governance- focused IT culture. A Cloud Custodian cleans up the messes made by innovative cloud architects. The two roles have natural friction and opposing objectives. On the other hand, a Cloud Guardian helps keep the cloud safe, so other cloud architects can move more quickly, with less messes. Additionally, a Cloud Guardian is involved in creating templates that accelerate deployment and adoption, making them an innovation accelerator as well as a defender of the Five Disciplines of Cloud Governance.
 
@@ -30,7 +30,7 @@ At the start of this narrative, the application development teams were still wor
 Since then, some things have changed that will affect governance:
 
 - The application development team has implemented a CI/CD pipeline to deploy a cloud native application with an improved user experience. That app doesn’t yet interact with protected data, so it is not production ready.
-- The Business Intelligence team within IT actively curates data in the cloud from logistics, inventory, and third party. This data is being used to drive new predictions, which could shape business processes. However, those predictions and insights are not actionable until customer and financial data can be integrated into the data platform.
+- The Business Intelligence team within IT actively curates data in the cloud from logistics, inventory, and third-party sources. This data is being used to drive new predictions, which could shape business processes. However, those predictions and insights are not actionable until customer and financial data can be integrated into the data platform.
 - The IT team is progressing on the CIO and CFO's plans to retire the DR datacenter. More than 1,000 of the 2,000 assets in the DR datacenter have been retired or migrated.
 - The loosely defined policies regarding PII and financial data have been modernized. However, the new corporate policies are contingent on the implementation of related security and governance policies. Teams are still stalled.
 
@@ -44,11 +44,11 @@ The changes to current and future state expose new risks that require new policy
 
 ## Evolution of tangible risks
 
-**Data Breach**: When adopting any new data platform, there is an inherent increase in liabilities related to potential data breaches. Technicians adopting cloud technologies have increased responsibilities to implement solutions that can decrease this risk. A robust security and governance strategy must be implemented to ensure those technicians fulfill those responsibilities.
+**Data breach:** When adopting any new data platform, there is an inherent increase in liabilities related to potential data breaches. Technicians adopting cloud technologies have increased responsibilities to implement solutions that can decrease this risk. A robust security and governance strategy must be implemented to ensure those technicians fulfill those responsibilities.
 
 This business risk can be expanded into a few technical risks:
 
-- Mission-critical applicationss or protected data might be deployed unintentionally.
+- Mission-critical applications or protected data might be deployed unintentionally.
 - Protected data might be exposed during storage due to poor encryption decisions.
 - Unauthorized users might access protected data.
 - External intrusion might result in access to protected data.
@@ -60,7 +60,7 @@ This business risk can be expanded into a few technical risks:
 
 ## Evolution of the policy statements
 
-The following changes to policy will help mitigate the new risks and guide implementation. The list looks long, but adopting these policies may be easier than it appears.
+The following changes to policy will help remediate the new risks and guide implementation. The list looks long, but adopting these policies may be easier than it appears.
 
 1. All deployed assets must be categorized by criticality and data classification. Classifications are to be reviewed by the Cloud Governance team and the application owner before deployment to the cloud.
 2. Applications that store or access protected data are to be managed differently than those that don’t. At a minimum, they should be segmented to avoid unintended access of protected data.
@@ -118,7 +118,7 @@ The governance MVP design will evolve to include new Azure policies and an imple
 
 ## Conclusion
 
-Adding the above processes and changes to the governance MVP will help to mitigate many of the risks associated with security governance. Together, they add the network, identity, and security monitoring tools needed to protect data.
+Adding the above processes and changes to the governance MVP will help to remediate many of the risks associated with security governance. Together, they add the network, identity, and security monitoring tools needed to protect data.
 
 ## Next Steps
 

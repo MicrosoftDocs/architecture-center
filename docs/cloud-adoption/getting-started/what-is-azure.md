@@ -42,5 +42,4 @@ Now that you understand Azure internals, learn about cloud resource governance.
 
 <!-- Links -->
 
-[cosmosdb]: /azure/cosmos-db/introduction
 [docs-add-users-to-aad]: /azure/active-directory/add-users-azure-active-directory?toc=/azure/architecture/cloud-adoption-guide/toc.json

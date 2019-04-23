@@ -26,7 +26,7 @@ To start down an adoption path, choose one of the following guides. Each guide o
 
 <ul class="panelContent cardsZ">
 <li style="display: flex; flex-direction: column;">
-    <a href="./azure-migration-guide/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./azure-migration-guide/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -40,7 +40,7 @@ To start down an adoption path, choose one of the following guides. Each guide o
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./expanded-scope/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./expanded-scope/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -97,13 +97,13 @@ Unfortunately, an **incremental migration** approach is still required. In most 
 
 The **incremental migration** approach of the Cloud Adoption Framework helps build an incremental plan that documents and works within technical and cultural limitations. The goal of this model is to minimize overhead (from IT or the business), while maximizing migration velocity. Below are two examples of an incremental migration execution based on the migration backlog.
 
-<!-- TODO: 
+<!-- TODO:
     Describe the paths, focusing on key differences
     Show an image of the decomposition of the Migration Backlog into Releases and or Iterations
     Describe the current state that suggested that path
      -->
 
-<!-- TODO: 
+<!-- TODO:
 ## Choosing the right journey
 
 The following two journeys outline migration experiences aligned to the narrative of two fictional customers. Choose the journey that best aligns to your current objectives and constraints to establish a baseline for your own migration plan.
@@ -126,7 +126,7 @@ Narrative Summary: This approach consists of fewer than 10,000 VMs. Applications
 
 <ul class="panelContent cardsZ">
 <li style="display: flex; flex-direction: column;">
-    <a href="./azure-migration-guide/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./azure-migration-guide/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -140,7 +140,7 @@ Narrative Summary: This approach consists of fewer than 10,000 VMs. Applications
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./expanded-scope/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./expanded-scope/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">

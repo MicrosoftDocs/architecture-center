@@ -96,7 +96,7 @@ License Mobility through SA gives Microsoft Volume Licensing customers like Cont
 
 #### Reserve instances for predictable workloads
 
-Predictable workloads are those that always need to be available with VMs running. For example, line-of-business apps such as a SAP ERP system. On the other hand, unpredictable workloads are those that are variable. For example VMs that are on during high demand and off at non-peak times.
+Predictable workloads are those that always need to be available with VMs running. For example, line-of-business apps such as a SAP ERP system. On the other hand, unpredictable workloads are those that are variable, such as VMs that are on during high demand and off when demand is low.
 
 ![Reserved instance](./media/contoso-migration-infrastructure/reserved-instance.png)
 
@@ -210,7 +210,7 @@ To facilitate integration, Contoso uses the [Azure AD Connect tool](/azure/activ
 
 4. In **Connect to AD DS**, they specify credentials for the on-premises Active Directory.
 
-     ![AD Connect Wizard](./media/contoso-migration-infrastructure/ad-connect-wiz3.png)
+     ![Azure AD Connect Wizard](./media/contoso-migration-infrastructure/ad-connect-wiz3.png)
 
 5. In **Ready to configure**, they click **Start the synchronization process when configuration completes** to start the sync immediately. Then they install.
 
@@ -303,7 +303,7 @@ Contoso will use Azure Backup with GRS on all production VMs to ensure workload 
 
 Azure Site Recovery helps ensure business continuity by keeping business apps and workloads running during regional outages.
 
-- Site recovery continually replicates Azure VMs from a primary to a secondary region, ensuring functional copies in both locations.
+- Azure Site Recovery continually replicates Azure VMs from a primary to a secondary region, ensuring functional copies in both locations.
 - In the event of an outage in the primary region, your application or service fails over to using VMs instances replicated in the secondary region, minimizing potential disruption.
 - When operations return to normal, your applications or services can fail back to VMs in the primary region.
 
@@ -688,7 +688,7 @@ Contoso has long been using the ITIL framework for the management of its systems
 Contoso is going to implement locks as follows:
 
 - Any production or failover component must be in a resource group that has a ReadOnly lock. This means that to modify or delete production items, the lock must be removed.
-- Non-production resource groups will have CanNotDelete locks. This means that authorized users can read or modify a resource, but can't delete it.
+- Nonproduction resource groups will have CanNotDelete locks. This means that authorized users can read or modify a resource, but can't delete it.
 
 [Learn more](/azure/azure-resource-manager/resource-group-lock-resources) about locks.
 

@@ -30,8 +30,8 @@ As the innovation content within the Cloud Adoption Framework is developed, it w
 
 * Modernize existing assets
 * Build new apps
-* Practices that encourage a growth mindset
-* Integration of DevOps strategies
+* Follow practices that encourage a growth mindset
+* Integrate DevOps strategies
 
 ![Innovate](../_images/innovate.png)
 
@@ -40,5 +40,5 @@ As the innovation content within the Cloud Adoption Framework is developed, it w
 * Custom-built applications
 * Technology based experiences
 * IoT: Integration of physical products and technology
-* Ambient intelligence: Integration of non-intrusive technology into an environment
-* Cognitive services: Big Data, AI, Machine Learning, and predictive solutions
+* Ambient intelligence: Integration of nonintrusive technology into an environment
+* Cognitive Services: Big Data, AI, Machine Learning, and predictive solutions

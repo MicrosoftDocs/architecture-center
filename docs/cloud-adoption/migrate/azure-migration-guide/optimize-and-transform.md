@@ -19,8 +19,8 @@ This phase is also an opportunity to optimize your environment and perform possi
 
 All Azure services which provide a consumption based cost model can be resized through the Azure Portal, CLI, or PowerShell. The first step in correctly sizing a service is to review the usage metrics of the service. The Azure Monitor service provides access to these metrics. You may need to configure the collection of the metrics for the service you are analyzing, and allow an appropriate time to collect meaningful data based on your workload patterns.
 
-1. Go to **Monitor**
-1. Select **Metrics** and configure the chart to show the metrics for the service to analyze
+1. Go to **Monitor**.
+1. Select **Metrics** and configure the chart to show the metrics for the service to analyze.
 
 ::: zone target="chromeless"
 
@@ -32,10 +32,10 @@ The following are some common services which you can resize.
 
 ## Resize a Virtual Machine
 
-1. Go to **Virtual Machines**
-1. Select the desired virtual machine from the list
+1. Go to **Virtual Machines**.
+1. Select the desired virtual machine from the list.
 1. Select **Size** and the desired new size from the list. You may need to adjust the filters to find the size required.
-1. Select **Resize**
+1. Select **Resize**.
 
 ::: zone target="chromeless"
 
@@ -57,10 +57,10 @@ Partners can use the Partner Center to review the usage.
 
 ## Resize a Storage Account
 
-1. Go to **Storage Accounts**
-1. Select the desired storage account
-1. Select **Configure** and adjust the properties of the storage account to match your requirements
-1. Select **Save**
+1. Go to **Storage Accounts**.
+1. Select the desired storage account.
+1. Select **Configure** and adjust the properties of the storage account to match your requirements.
+1. Select **Save**.
 
 ::: zone target="chromeless"
 
@@ -70,10 +70,10 @@ Partners can use the Partner Center to review the usage.
 
 ## Resize a SQL Database
 
-1. Go to either **SQL Databases**, or **SQL Servers** and then select the server
-1. Select the desired database
+1. Go to either **SQL Databases**, or **SQL Servers** and then select the server.
+1. Select the desired database.
 1. Select **Configure** and the desired new service tier size.
-1. Select **Apply**
+1. Select **Apply**.
 
 ::: zone target="chromeless"
 
@@ -87,9 +87,9 @@ It is important to perform ongoing cost analysis and review. This provides you w
 
 Azure Cost Management works with Azure Advisor to provide cost optimization recommendations. Azure Advisor helps you optimize and improve efficiency by identifying idle and underutilized resources.
 
-1. Select **Cost Management + Billing**
-1. Select **Advisor recommendations** and the **Costs** tab
-1. Use the **Impact** and **Potential yearly savings** to review the potential benefits
+1. Select **Cost Management + Billing**.
+1. Select **Advisor recommendations** and the **Costs** tab.
+1. Use the **Impact** and **Potential yearly savings** to review the potential benefits.
 
 ::: zone target="chromeless"
 

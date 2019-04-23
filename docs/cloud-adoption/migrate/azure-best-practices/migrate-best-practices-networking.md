@@ -59,7 +59,7 @@ Consider the following:
 - Implementing a hub and spoke topology in Azure centralizes common services such as connections to on-premises networks, firewalls, and isolation between VNets. The hub VNet provides a central point of connectivity to on-premises networks, and a place to host services use by workloads hosted in spoke VNets.
 - A hub and spoke configuration is typically used by larger enterprises. Smaller networks might consider a simpler design to save on costs and complexity.
 - Spoke VNets can be used to isolate workloads, with each spoke managed separately from other spokes. Each workload can include multiple tiers, and multiple subnets that are connected with Azure load balancers.
-- Hub and spoke VNets can be implemented in different resource groups, and even in different subscriptions. When you peer virtual networks in different subscriptions, the subscriptions can be associated to the same, or different, Azure Active Directory (AD) tenants. This allows for decentralized management of each workload, while sharing services maintained in the hub network.
+- Hub and spoke VNets can be implemented in different resource groups, and even in different subscriptions. When you peer virtual networks in different subscriptions, the subscriptions can be associated to the same, or different, Azure Active Directory (Azure AD) tenants. This allows for decentralized management of each workload, while sharing services maintained in the hub network.
 
 ![Change management](./media/migrate-best-practices-networking/hub-spoke.png)
 *Hub and spoke topology*
@@ -81,7 +81,7 @@ To provide isolation within a VNet, you segment it into one or more subnets, and
 - When deciding on network range for subnets, it's important to note that Azure retains five IP addresses from each subnet that can't be used. For example, if you create the smallest available subnet of /29 (with eight IP addresses), Azure will retain five addresses, so you only have three usable addresses that can be assigned to hosts on the subnet.
 - In most cases, using /28 as the smallest subnet is recommended.
 
-### Example
+**Example:**
 
 The table shows an example of a VNet with an address space of 10.245.16.0/20 segmented into subnets, for a planned migration.
 
@@ -244,7 +244,8 @@ Let's review an example:
 - Your offices are connected on a WAN, which can be either your own backbone network or your service provider's IP VPN.
 - You have two ExpressRoute circuits, one in US West and one in US East, that are also connected on the WAN. Obviously, you have two paths to connect to the Microsoft network.
 
-**Problem**
+**Problem:**
+
 Now imagine you have an Azure deployment (for example, Azure App Service) in both US West and US East.
 
 - You want users in each office to access their nearest Azure services for an optimal experience.
@@ -261,7 +262,7 @@ Now imagine you have an Azure deployment (for example, Azure App Service) in bot
 
 To optimize routing for both office users, you need to know which prefix is from Azure US West and which is from Azure US East. You can encode this information by using BGP community values.
 
-- You assign a unique BGP community value to each Azure region. For example 12076:51004 for US East; 12076:51006 for US West.
+- You assign a unique BGP community value to each Azure region. For example, 12076:51004 for US East; 12076:51006 for US West.
 - Now that it's clear which prefix belongs to which Azure region, you can configure a preferred ExpressRoute circuit.
 - Because you're using BGP to exchange routing info, you can use BGP's local preference to influence routing.
 - In our example, you assign a higher local preference value to 13.100.0.0/16 in US West than in US East, and similarly, a higher local preference value to 23.100.0.0/16 in US East than in US West.
@@ -353,7 +354,7 @@ Application security groups enable you to configure network security as a natura
 - Application security groups enable you to reuse your security policy at scale without manual maintenance of explicit IP addresses.
 - Application security groups handle the complexity of explicit IP addresses and multiple rule sets, allowing you to focus on your business logic.
 
-### Example
+**Example:**
 
 ![Application security group](./media/migrate-best-practices-networking/asg.png)
 *Application security group example*

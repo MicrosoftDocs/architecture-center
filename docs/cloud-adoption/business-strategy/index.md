@@ -1,6 +1,6 @@
 ---
 title: "CAF: How can the cloud advance my business strategy?"
-description: Explanation of the cloud can be leveraged to advance a business strategy
+description: Use the cloud to advance your business strategy.
 author: BrianBlanchard
 ms.date: 4/4/2019
 ---
@@ -20,11 +20,11 @@ In the business strategy section of the Cloud Adoption Framework, we provide too
 - Review [sample business outcomes](business-outcomes/index.md). Identify any business outcomes that directly align with the targeted business strategy. Document those in the provided [business outcome Microsoft Excel template](https://archcenter.blob.core.windows.net/cdn/business-outcome-template.xlsx) to share with internal partners during the transformation journey.
 - Identify the [learning metrics](learning-metrics.md) that would best represent progress towards the identified business outcomes. It may be necessary to engage the CIO, or members of the IT team, to select relevant metrics based on the current environment.
 - Establish a [financial model](financial-models.md) that aligns with the outcomes and learning metrics.
-- Document the [digital estate](../digital-estate/overview.md) in the current environment to populate the financial model. This will establish investment criteria, time to break even, and return on investment (ROI)
+- Document the [digital estate](../digital-estate/index.md) in the current environment to populate the financial model. This will establish investment criteria, time to break even, and return on investment (ROI)
 
 ## Next steps
 
-Document and communicate desired [business outcomes](business-outcomes/overview.md) using the business outcomes framework.
+Document and communicate desired [business outcomes](business-outcomes/index.md) using the business outcomes framework.
 
 > [!div class="nextstepaction"]
-> [Document business outcomes](business-outcomes/overview.md)
+> [Document business outcomes](business-outcomes/index.md)

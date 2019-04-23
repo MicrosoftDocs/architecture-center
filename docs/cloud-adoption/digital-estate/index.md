@@ -25,7 +25,7 @@ The measurement of a digital estate changes depending on the desired business ou
 
 - **Application innovation.** For customer-obsessed transformations, the lens is a bit different. The focus should be placed in the applications, APIs, and transactional data that support the customers. VMs and network appliances are often of less focus.
 
-- **Data-driven innovation.** In today's digitally driven market, it's difficult to launch a new product or service without a strong foundation in data. During disruptive transformation, the focus is more on the silos of data across the organization.
+- **Data-driven innovation.** In today's digitally driven market, it's difficult to launch a new product or service without a strong foundation in data. During cloud-enabled data innovation efforts, the focus is more on the silos of data across the organization.
 
 Once an organization understands the most important form of transformation, digital estate planning becomes much easier to manage.
 

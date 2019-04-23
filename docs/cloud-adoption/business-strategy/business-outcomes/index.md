@@ -7,11 +7,11 @@ ms.date: 4/4/2019
 
 <!-- markdownlint-disable -->
 
-# CAF: What business outcomes are associated with transformation journeys?
+# What business outcomes are associated with transformation journeys?
 
 The most successful transformation journeys start with a business outcome in mind. Cloud adoption can be a costly and time-consuming effort. Fostering the right level of support from IT and other areas of the business is crucial to success. Microsoft's [Business Outcome Framework](../index.md) is designed to help customers identify business outcomes that are concise, defined, and drive observable results/change in business performance, supported by a specific measure.
 
-During any cloud transformation, the ability to speak in terms of Business Outcomes supports transparency and cross functional partnerships. The [Business Outcome Framework](../overview.md) starts with a simple template to help technically minded individuals document and gain consensus. This template can be used with several business stakeholders to collect a variety of business outcomes, which could each be influenced by a company’s transformation journey. Feel free to use this template electronically or better still, draw it on a whiteboard to engage business leaders and stakeholders in outcome focused discussions. 
+During any cloud transformation, the ability to speak in terms of Business Outcomes supports transparency and cross functional partnerships. The [Business Outcome Framework](../index.md) starts with a simple template to help technically minded individuals document and gain consensus. This template can be used with several business stakeholders to collect a variety of business outcomes, which could each be influenced by a company’s transformation journey. Feel free to use this template electronically or better still, draw it on a whiteboard to engage business leaders and stakeholders in outcome focused discussions.
 
 To learn more about business outcomes and the business outcome template, check out the article on [documenting business outcomes](how-to-use-the-business-outcome-template.md) or download the [excel template](https://archcenter.blob.core.windows.net/cdn/business-outcome-template.xlsx).
 
@@ -26,7 +26,7 @@ The following are a few business outcomes that tend to trigger conversations wit
 
 # Sample outcomes by category
 
-Speaking in business outcomes can feel like a foreign language to many technically minded individuals. To help ease translation, Microsoft curates a number of business outcome examples in the [Business Outcome Framework](../overview.md). Use these samples  to help inspire and demonstrate business outcomes based on actual transformation journeys.
+Speaking in business outcomes can feel like a foreign language to many technically minded individuals. To help ease translation, Microsoft curates a number of business outcome examples in the [Business Outcome Framework](../index.md). Use these samples  to help inspire and demonstrate business outcomes based on actual transformation journeys.
 
 To more quickly find the right business outcomes, they are divided into the following business outcome categories, which tend to drive consensus building conversations across business units:
 

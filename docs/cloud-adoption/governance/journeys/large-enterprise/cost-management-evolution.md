@@ -35,17 +35,17 @@ Since then, some things have changed that will affect governance:
 
 ## Evolution of tangible risks
 
-**Budget control**: There is an inherent risk that self-service capabilities will result in excessive and unexpected costs on the new platform. Governance processes for monitoring costs and mitigating ongoing cost risks must be in place to ensure continued alignment with the planned budget.
+**Budget control:** There is an inherent risk that self-service capabilities will result in excessive and unexpected costs on the new platform. Governance processes for monitoring costs and mitigating ongoing cost risks must be in place to ensure continued alignment with the planned budget.
 
 This business risk can be expanded into a few technical risks:
 
 - There is a risk of actual costs exceeding the plan.
-- Business conditions change. When they do, there will be cases when a business function needs to consume more cloud services than expected, leading to spending anomalies. There is a risk that these additional costs would be seen as overages as opposed to a required adjustment to the plan. If successful, the Canadian experiment should help mitigate this risk.
+- Business conditions change. When they do, there will be cases when a business function needs to consume more cloud services than expected, leading to spending anomalies. There is a risk that these additional costs would be seen as overages as opposed to a required adjustment to the plan. If successful, the Canadian experiment should help remediate this risk.
 - There is a risk of systems being overprovisioned, resulting in excess spending.
 
 ## Evolution of the policy statements
 
-The following changes to policy will help mitigate the new risks and guide implementation.
+The following changes to policy will help remediate the new risks and guide implementation.
 
 1. All cloud costs should be monitored against plan on a weekly basis by the Cloud Governance team. Reporting on deviations between cloud costs and plan is to be shared with IT leadership and finance monthly. All cloud costs and plan updates should be reviewed with IT leadership and finance monthly.
 2. All costs must be allocated to a business function for accountability purposes.
@@ -70,11 +70,11 @@ This section of the article will evolve the governance MVP design to include new
 
 ## Conclusion
 
-Adding the above processes and changes to the governance MVP helps mitigate many of the risks associated with cost governance. Together, they create the visibility, accountability, and optimization needed to control costs.
+Adding the above processes and changes to the governance MVP helps remediate many of the risks associated with cost governance. Together, they create the visibility, accountability, and optimization needed to control costs.
 
 ## Next steps
 
 As cloud adoption continues to evolve and deliver additional business value, risks and cloud governance needs will also evolve. For the fictional company in this journey, the next step is using this governance investment to manage multiple clouds.
 
 > [!div class="nextstepaction"]
-> [Multi-cloud evolution](./multi-cloud-evolution.md)
+> [Multicloud evolution](./multi-cloud-evolution.md)

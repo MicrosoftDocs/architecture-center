@@ -14,7 +14,7 @@ ms.subservice: enterprise-cloud-adoption
 
 # The 5 Rs of rationalization
 
-Cloud rationalization is the process of evaluating assets to determine the best way to migrate or modernize each asset in the cloud. For more information about the process of rationalization, see [What is a digital estate?](overview.md)
+Cloud rationalization is the process of evaluating assets to determine the best way to migrate or modernize each asset in the cloud. For more information about the process of rationalization, see [What is a digital estate?](index.md)
 
 The "5 Rs of rationalization" listed here describe the most common options for rationalization.
 
@@ -143,4 +143,4 @@ Qualitative analysis factors:
 Collectively, these 5 Rs of rationalization can be applied to a digital estate to make rationalization decisions regarding the future state of each application.
 
 > [!div class="nextstepaction"]
-> [What is a digital estate?](overview.md)
+> [What is a digital estate?](index.md)

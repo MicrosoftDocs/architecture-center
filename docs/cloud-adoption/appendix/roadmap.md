@@ -22,7 +22,7 @@ Removing key obstacles and enabling change requires more than implementation gui
 
 ## Fulfilling the vision
 
-The Cloud Adoption Framework is an overarching framework that covers Plan, Ready and Adopt phases across the Migration and Innovation motivations for cloud adoption, supported by Governance and Operations guidance.  
+The Cloud Adoption Framework is an overarching framework that covers Plan, Ready and Adopt phases across the Migration and Innovation motivations for cloud adoption, supported by Governance and Operations guidance.
 
 Microsoft is actively building this aspirational framework in collaboration with customers, partners, and internal teams. To encourage partnership, content will be released in public preview as it becomes available. These public preview releases enable testing, validating, and incrementally refining the guidance. The framework will reach general availability (GA) when the aspirational goals are met.
 
@@ -63,7 +63,7 @@ The following outlines specific releases per quarter, to demonstrate maturity of
 
 ## Looking back (recent releases)
 
-**Cloud Adoption Framework created (10/1/2018):** What we have heard from customers is that they want us to help drive a structured approach to transform their business leveraging the cloud.
+**Cloud Adoption Framework created (10/1/2018):** Customers want us to help drive a structured approach to business transformation using the cloud.
 
 In early 2018, Microsoft released the Cloud Operating Model (COM). COM was a guide that helped customers understand the WHAT and the WHY of digital transformation. This helped customer get a sense of all the areas that needed to be addressed, business strategy, culture strategy and technology strategy. What was not included in the COM was the specific HOW TO’s, this left customers asking the question, "Where do we go from here?" With this gap many of our field teams began building their own models and engagement. Whilst directionally accurate, each team was saying something slightly different, which ultimately led to broader customer confusion.
 

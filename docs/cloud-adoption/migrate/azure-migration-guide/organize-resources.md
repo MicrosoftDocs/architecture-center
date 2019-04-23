@@ -1,7 +1,7 @@
 ---
 title: Organize your Azure resources effectively | Microsoft docs
-description: Best practices to effectively organize your Azure management environment 
-author: laraaleite 
+description: Best practices to effectively organize your Azure management environment.
+author: laraaleite
 ms.author: laleite
 ms.date: 4/4/2019
 ms.topic: conceptual
@@ -39,14 +39,14 @@ You can create a management group, additional subscriptions, or resource groups.
 
 ### Create management group
 
-To create a management group,
+To create a management group:
 
 1. Go to [Management Groups](https://portal.azure.com/#blade/Microsoft_Azure_ManagementGroups/HierarchyBlade).
 2. Select **Add management group**.
 
 ### Create subscription
 
-To create an additional subscriptions,
+To create an additional subscription:
 
 1. Go to [Subscriptions](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 1. Select **Add**.
@@ -75,27 +75,27 @@ To learn more, see:
 
 ## Actions
 
-**Create a management group**
+**Create a management group:**
 
-To create a management group,
+To create a management group:
 
 1. Go to **Management groups**.
 1. Select **Add management group**.
 
 ::: form action="OpenBlade[#blade/Microsoft_Azure_ManagementGroups/HierarchyBlade]" submitText="Go to Management groups" :::
 
-**Create an additional subscription**
+**Create an additional subscription:**
 
-To create an additional subscription,
+To create an additional subscription:
 
 1. Go to **Subscriptions**.
 1. Select **Add** in the top left corner.
 
 ::: form action="OpenBlade[#blade/Microsoft_Azure_Billing/SubscriptionsBlade]" submitText="Go to Subscriptions" :::
 
-**Create a resource group**
+**Create a resource group:**
 
-To create a resource group,
+To create a resource group:
 
 1. Go to **Resource Groups**.
 1. Select **Add**.
@@ -136,7 +136,7 @@ The following section provides examples of naming schemes for common Azure resou
 |--------------|------------------------------|----------------------------------------------------|----------------------------------------------|
 | Subscription | Account/Enterprise Agreement | \<Business Unit\>-\<Subscription type\>-\<\#\#\#\> | <ul><li>mktg-prod-001 </li><li>corp-shared-001 </li><li>fin-client-001</li></ul> |
 
-### Resource groups 
+### Resource groups
 
 | Asset type     | Scope        | Format                                                     | Examples                                                                            |
 |----------------|--------------|------------------------------------------------------------|-------------------------------------------------------------------------------------|
@@ -203,7 +203,7 @@ For further information on tagging refer to [Azure Architecture Center's naming 
 
 ## Apply a resource tag
 
-To apply a tag to a resource group,
+To apply a tag to a resource group:
 
 1. Go to [Resource Groups](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fsubscriptions%2FresourceGroups).
 1. Select on a resource group.
@@ -220,15 +220,15 @@ To learn more, see [Use tags to organize your Azure resources](/azure/azure-reso
 
 ## Action
 
-**Apply a resource tag**
+**Apply a resource tag:**
 
-To apply a tag to a resource group,
+To apply a tag to a resource group:
 
 1. Go to **Resource Groups**.
 1. Select on a resource group.
 1. Select **Tags**.
 1. Type in a new name and value or select an existing name and value.
- 
+
 ::: form action="OpenBlade[#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fsubscriptions%2FresourceGroups]" submitText="Go to resource groups" :::
 
 ::: zone-end

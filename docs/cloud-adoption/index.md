@@ -19,7 +19,7 @@ The Cloud Adoption Framework provides technical guidance for Microsoft Azure. Be
 
 ## Product roadmap
 
-The Microsoft Cloud Adoption Framework for Azure is currently offered as a Public Preview. The framework will reach general availability (GA) when the aspirational goals above are met. In this preview release, the primary area of focus is [Cloud Governance](./governance/journeys/overview.md). The Cloud Adoption Framework will be expanded frequently as it moves closer to general availability. For more information, see the [Cloud Adoption Framework roadmap](./appendix/roadmap.md).
+The Microsoft Cloud Adoption Framework for Azure is currently offered as a Public Preview. The framework will reach general availability (GA) when the aspirational goals above are met. In this preview release, the primary areas of focus are [Cloud Governance](./governance/journeys/index.md) and [Cloud Migration](./migrate/index.md). The Cloud Adoption Framework will be expanded frequently as it moves closer to general availability. For more information, see the [Cloud Adoption Framework roadmap](./appendix/roadmap.md).
 
 ## Intended Audience
 
@@ -31,9 +31,9 @@ Each section of the Cloud Adoption Framework represents a different specializati
 
 ## How to use the Microsoft Cloud Adoption Framework for Azure
 
-If your enterprise is new to Azure, begin by reading [Getting Started with the Cloud Adoption Framework](./getting-started/overview.md). This overview provides prescriptive guidance for your enterprise's digital transformation, walking you through each step of the process.
+If your enterprise is new to Azure, begin by reading [Getting Started with the Cloud Adoption Framework](./getting-started/index.md). This overview provides prescriptive guidance for your enterprise's digital transformation, walking you through each step of the process.
 
-If your enterprise has experience with Azure and is seeking more detailed guidance and best practices for specific areas, review the [Governance overview](./governance/overview.md) and the [Architectural decision guides](./decision-guides/overview.md). More sections will be added as the general availability release approaches.
+If your enterprise has experience with Azure and is seeking more detailed guidance and best practices for specific areas, review the [Governance overview](./governance/index.md) and the [Architectural decision guides](./decision-guides/index.md). More sections will be added as the general availability release approaches.
 
 > [!div class="nextstepaction"]
-> [Get started](./getting-started/overview.md)
+> [Get started](./getting-started/index.md)

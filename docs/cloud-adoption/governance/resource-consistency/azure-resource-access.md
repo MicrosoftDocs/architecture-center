@@ -11,7 +11,7 @@ author: petertaylor9999
 
 # Resource access management in Azure
 
-[Cloud Governance](../overview.md) outlines the Five Disciplines of Cloud Governance, which includes Resource Management. [What is resource access governance](overview.md) furthers explains how resource access management fits into the resource management discipline. Before you move on to learn how to design a governance model, it's important to understand the resource access management controls in Azure. The configuration of these resource access management controls forms the basis of your governance model.
+[Cloud Governance](../index.md) outlines the Five Disciplines of Cloud Governance, which includes Resource Management.  [What is resource access governance](index.md) furthers explains how resource access management fits into the resource management discipline. Before you move on to learn how to design a governance model, it's important to understand the resource access management controls in Azure. The configuration of these resource access management controls forms the basis of your governance model.
 
 Begin by taking a closer look at how resources are deployed in Azure.
 
@@ -109,4 +109,4 @@ In this article, you learned about how resource access is managed in Azure using
 Now that you understand how to manage resource access in Azure, move on to learn how to design a governance model [for a simple workload](governance-simple-workload.md) or for [multiple teams](governance-multiple-teams.md) using these services.
 
 > [!div class="nextstepaction"]
-> [An overview of governance](../overview.md)
+> [An overview of governance](../index.md)

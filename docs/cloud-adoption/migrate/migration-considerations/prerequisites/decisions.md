@@ -37,9 +37,6 @@ If data, experimentation, research and development (R&D), or new products are yo
 
 This section of the Cloud Adoption Framework establishes the theory to help readers understand different approaches to addressing change within a balanced portfolio. The article on [balancing the portfolio](../../expanded-scope/balance-the-portfolio.md) is one example of an expanded scope, designed to help act on this theory.
 
-> [!CAUTION]
-> Only adopt the guidance in this section of the Cloud Adoption Framework if operational transformation or operational outcomes are the primary focus of the Cloud Adoption team for the next three to six months. In some cases, a desire to *urgently drive change* could justify a company using an operational transformation approach, in spite of a desire to modernize or create new products. This is especially true for large application or data portfolios.
-
 ## Effort
 
 Migration effort can vary widely depending on the size and complexities of the workloads involved. A smaller workload migration involving a few hundred virtual machines (VMs) is a tactical process, potentially being implemented using automated tools such as [Azure Migrate](/azure/migrate/migrate-overview). Conversely, a large enterprise migration of tens of thousands of workloads requires a highly strategic process and can involve extensive refactoring, rebuilding, and replacing of existing applications integrating platform as a service (PaaS) and software as a service (SaaS) capabilities. [Identifying and balancing the scope](../../expanded-scope/balance-the-portfolio.md) of your planned migrations is critical.
@@ -62,7 +59,7 @@ Scale of the migration is the next important prerequisite decision. The processe
 
 - **How many assets support the migrating workloads today?** Assets would include data structures, applications, VMs, and necessary IT appliances. It's recommended that you choose a relatively small workload for your first migration candidate.
 - **Of those assets, how many are slated for migration?** It is common for a percentage of assets to be terminated during a migration process, due to lack of sustained end-user dependency.
-- **What are the top-down estimates of the migratable assets scale?** For the workloads slated for migration, estimate the number of supporting assets such as applications, virtual machines, data sources, and IT appliances. See the [digital estate](../../../digital-estate/overview.md) section of the Cloud Adoption Framework for guidance on identifying relevant assets.
+- **What are the top-down estimates of the migratable assets scale?** For the workloads slated for migration, estimate the number of supporting assets such as applications, virtual machines, data sources, and IT appliances. See the [digital estate](../../../digital-estate/index.md) section of the Cloud Adoption Framework for guidance on identifying relevant assets.
 
 ### Effort timing
 

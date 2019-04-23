@@ -43,7 +43,7 @@ Dave creates a subscription to support developer tools that are common across al
 
 ### Role-based access control
 
-After creating his subscription, Dave wants to ensure that the appropriate teams and application owners can access their resources. Dave recognizes that each team has different requirements. He uses the groups that have been synched from Contoso's on-premises Active Directory to Azure Active Directory, and provides the right level of access to the teams.
+After creating his subscription, Dave wants to ensure that the appropriate teams and application owners can access their resources. Dave recognizes that each team has different requirements. He uses the groups that have been synchronized from Contoso's on-premises Active Directory to Azure Active Directory, and provides the right level of access to the teams.
 
 Dave assigns the following roles for the subscription:
 
@@ -62,7 +62,7 @@ Dave has the following requirements for managing resources in the subscription:
 - He is concerned with costs. Therefore, he wants to prevent application owners from creating unnecessarily expensive virtual machines.
 - Because this application serves developers in many business units, he wants to tag each resource with the business unit and application owner. By using these tags, ETS can bill the appropriate teams.
 
-He creates the following policies using [Azure Policy](/azure/azure-policy/azure-policy-introduction):
+He creates the following policies via [Azure Policy](/azure/azure-policy/azure-policy-introduction):
 
 | Field | Effect | Description |
 | --- | --- | --- |

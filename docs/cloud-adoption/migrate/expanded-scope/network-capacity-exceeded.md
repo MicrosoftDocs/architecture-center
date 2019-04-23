@@ -7,7 +7,7 @@ ms.date: 4/4/2019
 
 # Storage requirements exceed network capacity during a migration effort
 
-In a cloud migration, assets are replicated and synchronized over the network between the existing datacenter and the cloud. It is not uncommon for the existing disk or storage requirements of various workloads to exceed network capacity. In such a scenario, the process of migration can be radically slowed, or in some cases, stopped entirely. The following guidance will expand the scope of the [Azure migration guide](../azure-migration-guide/overview.md) to provide a solution that works around network limitations.
+In a cloud migration, assets are replicated and synchronized over the network between the existing datacenter and the cloud. It is not uncommon for the existing disk or storage requirements of various workloads to exceed network capacity. In such a scenario, the process of migration can be radically slowed, or in some cases, stopped entirely. The following guidance will expand the scope of the [Azure migration guide](../azure-migration-guide/index.md) to provide a solution that works around network limitations.
 
 ## General scope expansion
 
@@ -40,13 +40,13 @@ If the storage requirements of a workload (or workloads) exceed network capacity
 
 ## Migrate process changes
 
-When leveraging offline transfer mechanisms, [replication processes](../migration-considerations/migrate/replicate.md) are not likely required. However, [synchronization processes](../migration-considerations/migrate/replicate.md) may still be a requirement. Understanding the results of the drift analysis completed during the Assess process will inform the tasks required during migration, if an asset is being transferred offline.
+When using offline transfer mechanisms, [replication processes](../migration-considerations/migrate/replicate.md) are not likely required. However, [synchronization processes](../migration-considerations/migrate/replicate.md) may still be a requirement. Understanding the results of the drift analysis completed during the Assess process will inform the tasks required during migration, if an asset is being transferred offline.
 
 ### Suggested action during the migrate process
 
 **Copy storage:** This approach could be used to transfer data from [an HDFS store](/azure/storage/blobs/data-lake-storage-migrate-on-premises-hdfs-cluster) or from disks using [SMB](/azure/databox/data-box-deploy-copy-data), [NFS](/azure/databox/data-box-deploy-copy-data-via-nfs), [REST](/azure/databox/data-box-deploy-copy-data-via-rest), or [data copy service](/azure/databox/data-box-deploy-copy-data-via-copy-service).
 
-There are also a number of [third-party partner solutions](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box) which leverage Azure Data Box for a "Seed and Sync" migration, where a large volume of data is moved via an offline transfer but is later synchronized at a lower scale over the network.
+There are also a number of [third-party partner solutions](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box) which use Azure Data Box for a "seed and sync" migration, where a large volume of data is moved via an offline transfer but is later synchronized at a lower scale over the network.
 
 **Ship the device:** Once the data is copied, the device can be [shipped to Microsoft](/azure/databox/data-box-deploy-picked-up). Once received and imported the data will be available as an Azure storage account.
 

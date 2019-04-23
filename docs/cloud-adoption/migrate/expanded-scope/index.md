@@ -7,31 +7,31 @@ ms.date: 4/4/2019
 
 # Expanded scope for cloud migration
 
-The [Azure migration guide](../azure-migration-guide/overview.md) in the Cloud Adoption Framework is the suggested starting point for readers who are interested in a rehost migration to Azure, also known as a Lift and Shift migration. That guide walks you through a series of prerequisites, tools, and approaches to migrating virtual machines to the cloud.
+The [Azure migration guide](../azure-migration-guide/index.md) in the Cloud Adoption Framework is the suggested starting point for readers who are interested in a rehost migration to Azure, also known as a Lift and Shift migration. That guide walks you through a series of prerequisites, tools, and approaches to migrating virtual machines to the cloud.
 
 While this guide is an effective baseline to familiarize you with this type of migration, it makes several assumptions. Those assumptions align the guide with a large percentage of the Cloud Adoption Framework's readers by providing a simplified approach to migrations. This section of the Cloud Adoption Framework addresses some expanded scope migration scenarios, which help guide efforts when those assumptions don't apply.
 
 ## Cloud migration expanded scope checklist
 
-The following checklist outlines the common areas of complexity which could require the scope of the migration to be expanded beyond the [Azure migration guide](../azure-migration-guide/overview.md).
+The following checklist outlines the common areas of complexity which could require the scope of the migration to be expanded beyond the [Azure migration guide](../azure-migration-guide/index.md).
 
-- **Business-driven scope changes**
+- **Business-driven scope changes:**
   - [Balancing the portfolio](./balance-the-portfolio.md)
   - [Support global markets](./multiple-regions.md)
   - Cost consciousness during a migration *(Coming Q2 2019)*
-- **Culture-driven scope changes**
+- **Culture-driven scope changes:**
   - Change management and approval processes *(Coming Q2 2019)*
   - Executive readiness *(Coming Q2 2019)*
   - [Skills readiness](./skills-readiness.md)
   - Aligning support (Partner, services, and support) *(Coming Q2 2019)*
-- **Technical Strategy-driven scope changes**
+- **Technical strategy-driven scope changes:**
   - Existing datacenter constraints *(Coming Q2 2019)*
   - Migrating at scale - High volume or velocity of migrations *(Coming Q2 2019)*
   - [Multiple datacenters](./multiple-datacenters.md)
   - [Data requirements exceed network capacity](./network-capacity-exceeded.md)
   - Change management and solution documentation *(Coming Q2 2019)*
   - [Governance or compliance strategy](./governance-or-compliance.md)
-- **Workload-specific scope changes**
+- **Workload-specific scope changes:**
   - Architect workloads for resiliency *(Coming Q2 2019)*
   - Align migration to application patterns *(Coming Q2 2019)*
 

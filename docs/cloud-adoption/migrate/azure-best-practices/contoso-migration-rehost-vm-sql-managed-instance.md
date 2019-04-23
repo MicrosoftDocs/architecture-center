@@ -75,7 +75,7 @@ As part of the solution design process, Contoso did a feature comparison between
 - Contoso can simply do a lift-and-shift migration to Managed Instance using the fully automated Data Migration Service (DMS). With this service in place, Contoso can reuse it for future database migrations.
 - SQL Managed Instance supports SQL Server Agent which is an important issue for the SmartHotel360 app. Contoso needs this compatibility, otherwise it will have to redesign maintenance plans required by the app.
 - With Software Assurance, Contoso can exchange their existing licenses for discounted rates on a SQL Database Managed Instance using the Azure Hybrid Benefit for SQL Server. This can allow Contoso to save up to 30% on Managed Instance.
-- Managed Instance is fully contained in the virtual network, so it provides a high level of isolation and security for Contoso’s data. Contoso can get the benefits of the public cloud, while keeping the environment isolated from the public Internet.
+- SQL Managed Instance is fully contained in the virtual network, so it provides greater isolation and security for Contoso’s data. Contoso can get the benefits of the public cloud, while keeping the environment isolated from the public Internet.
 - Managed Instance supports many security features including Always-encrypted, dynamic data masking, row-level security, and threat detection.
 
 ### Solution review

@@ -11,7 +11,7 @@ ms.custom: "fasttrack-new"
 
 ::: zone target="chromeless"
 
-# Before you start  
+# Before you start
 
 ::: zone-end
 

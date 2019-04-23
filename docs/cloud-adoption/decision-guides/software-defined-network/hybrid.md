@@ -1,5 +1,5 @@
 ---
-title: "CAF: Software Defined Networks - Hybrid network" 
+title: "CAF: Software Defined Networking - Hybrid network"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
@@ -9,7 +9,7 @@ description: Discussion of how hybrid networks allow your cloud virtual networks
 author: rotycenh
 ---
 
-# Software Defined Networks: Hybrid network
+# Software Defined Networking: Hybrid network
 
 The hybrid cloud network architecture allows virtual networks to access your on-premises resources and services and vice versa, using a Dedicated WAN connection such as ExpressRoute or other connection method to directly connect the networks.
 
@@ -26,10 +26,10 @@ Deploying a hybrid virtual network assumes the following:
 - Your IT security teams have aligned on-premises and cloud-based network security policy to ensure cloud-based virtual networks can be trusted to communicated directly with on-premises systems.
 - Your cloud-based workloads require access to storage, applications, and services hosted on your on-premises or third-party networks, or your users or applications in your on-premises need access to cloud-hosted resources.
 - You need to migrate existing applications and services that depend on on-premises resources, but don't want to expend the resources on redevelopment to remove those dependencies.
-- Implementing a VPN or dedicated WAN connection between your on-premises networks and cloud provider is not prevented by corporate policy, regulatory requirements, or technical compatibility issues.
+- Connecting your on-premises networks to cloud resources over VPN or dedicated WAN is not prevented by corporate policy, data sovereignty requirements, or other regulatory compliance issues.
 - Your workloads either do not require multiple subscriptions to bypass subscription resource limits, OR your workloads involve multiple subscriptions but do not require central management of connectivity or shared services used by resources spread across multiple subscriptions.
 
-Your Cloud Adoption team should consider the following issues when looking at implementing a hybrid virtual networking architecture:
+Your cloud adoption teams should consider the following issues when looking at implementing a hybrid virtual networking architecture:
 
 - Connecting on-premises networks with cloud networks increases the complexity of your security requirements. Both networks need to be secured against external vulnerabilities and unauthorized access from both sides of the hybrid environment.
 - Scaling the number and size of workloads within a hybrid cloud environment can add significant complexity to routing and traffic management.
@@ -39,4 +39,4 @@ Your Cloud Adoption team should consider the following issues when looking at im
 
 See the following for more information about hybrid networking in the Azure platform.
 
-- [Hybrid network reference architecture](../../../reference-architectures/hybrid-networking/expressroute.md). Azure hybrid virtual networks use either an ExpressRoute circuit or Azure VPN to connect your virtual network with your organization's existing non-Azure hosted IT assets. This article discusses the options for creating a hybrid network in Azure.
+- [Hybrid network reference architecture](../../../reference-architectures/hybrid-networking/expressroute.md). Azure hybrid virtual networks use either an ExpressRoute circuit or Azure VPN to connect your virtual network with your organization's existing IT assets not hosted in Azure. This article discusses the options for creating a hybrid network in Azure.

@@ -7,7 +7,7 @@ ms.date: 4/4/2019
 
 # Multiple datacenters
 
-Often times the scope of a migration involves the transition of multiple datacenters. The following guidance will expand the scope of the [Azure migration guide](../azure-migration-guide/overview.md) to address multiple datacenters.
+Often times the scope of a migration involves the transition of multiple datacenters. The following guidance will expand the scope of the [Azure migration guide](../azure-migration-guide/index.md) to address multiple datacenters.
 
 ## General scope expansion
 

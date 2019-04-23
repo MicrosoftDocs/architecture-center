@@ -14,7 +14,7 @@ Managing who can access your Azure resources and subscriptions is an important p
 
 RBAC provides detailed access management of resources in Azure. It helps you manage who has access to Azure resources, what they can do with those resources, and what scopes they can access.
 
-When planning your access control strategy, grant users the least privilege to get their work done. The following image shows a suggested pattern for assigning RBAC.
+When planning your access control strategy, grant users the least privilege required to get their work done. The following image shows a suggested pattern for assigning RBAC.
 
 ![Diagram that shows RBAC roles](./media/manage-access/role-examples.png)
 
@@ -24,19 +24,19 @@ When you plan your access control methodology, we recommend you work with people
 
 ## Actions
 
-**Grant resource group access**
+**Grant resource group access:**
 
 To grant a user access to a resource group:
 
 1. Go to **Resource groups**.
-2. Select a resource group.
-3. Select **Access control (IAM)**.
-4. Select **+ Add** > **Add role assignment**.
+1. Select a resource group.
+1. Select **Access control (IAM)**.
+1. Select **+ Add** > **Add role assignment**.
 1. Select a role, then assign access to a user, group, or service principal.
 
 ::: form action="OpenBlade[#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fsubscriptions%2FresourceGroups]" submitText="Go to resource groups" ::: form-end
 
-**Grant subscription access**
+**Grant subscription access:**
 
 To grant a user access to a subscription:
 
