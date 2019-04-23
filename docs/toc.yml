@@ -721,7 +721,7 @@
         items:
         - name: Introduction to the Azure migration guide
           href: cloud-adoption/migrate/azure-migration-guide/index.md
-        - name: Prerequisites before migrating to Azure 
+        - name: Prerequisites for Azure migration 
           href: cloud-adoption/migrate/azure-migration-guide/prerequisites.md
         - name: Assess individual workloads prior to migration
           href: cloud-adoption/migrate/azure-migration-guide/assess.md

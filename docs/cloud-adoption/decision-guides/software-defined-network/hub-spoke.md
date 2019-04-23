@@ -5,7 +5,7 @@ ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 ms.date: 02/11/2019
-description: Discussion of cloud native virtual networking services
+description: Discussion of cloud-native virtual networking services
 author: rotycenh
 ---
 

@@ -108,17 +108,14 @@ Create a resource group to hold resources like web apps, databases, and storage 
 
 # [Naming standards](#tab/NamingStandards)
 
-A good naming standard helps identify resources in the portal, on a bill, and in scripts. You may already have naming standards for your on-premises infrastructure. When adding Azure to your environment, you should extend those naming standards to your Azure resources. Naming standards help you  manage your environment more efficiently at all levels. You can use Azure Policy as a tool to enforce naming standards across your entire Azure environment.
+A good naming standard helps identify resources in the portal, on a bill, and in scripts. You may already have naming standards for your on-premises infrastructure. When adding Azure to your environment, you should extend those naming standards to your Azure resources. Naming standards help you manage your environment more efficiently at all levels. You can use Azure Policy as a tool to enforce naming standards across your entire Azure environment.
 
 ::: zone target="docs"
 
 We recommend you review and adopt the [Patterns and Practices guidance](/azure/architecture/best-practices/naming-conventions).
 
-
 >[!TIP]
 >Avoid using any special characters (`-` or `_`) as the first or last character in any name. These characters cause most validation rules to fail.
->
->
 
 ::: zone-end
 

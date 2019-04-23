@@ -32,7 +32,7 @@ In the previous phase of this narrative, the company had begun the process of re
 Since then, some things have changed that will affect governance:
 
 - Thousands of IT and business assets have been deployed to the cloud.
-- The application development team has implemented a continuous integration and continuous deployment (CI/CD) pipeline to deploy a cloud native application with an improved user experience. That application doesn’t interact with protected data yet, so it’s not production ready.
+- The application development team has implemented a continuous integration and continuous deployment (CI/CD) pipeline to deploy a cloud-native application with an improved user experience. That application doesn’t interact with protected data yet, so it’s not production ready.
 - The Business Intelligence team within IT actively curates data in the cloud from logistics, inventory, and third-party data. This data is being used to drive new predictions, which could shape business processes. However, those predictions and insights are not actionable until customer and financial data can be integrated into the data platform.
 - The IT team is progressing on the CIO and CFO's plans to retire two datacenters. Almost 3,500 of the assets in the two datacenters have been retired or migrated.
 - The policies regarding PII and financial data have been modernized. However, the new corporate policies are contingent upon the implementation of related security and governance policies. Teams are still stalled.

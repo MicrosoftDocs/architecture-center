@@ -21,7 +21,7 @@ This framework is designed primarily for cloud architects and the cloud strategy
 
 ## Motivations and methodology
 
-The motivation or desired business outcome for a cloud migration often determines the best approach to migration. Cloud migrations can align to a number of business outcomes. Clear communication of business drivers and measures of  success is an important first step in cloud migration efforts. The following are a few examples of common migration motivations, grouped by migration methodology.
+The motivation or desired business outcome for a cloud migration often determines the best approach to migration. Cloud migrations can align to a number of business outcomes. Clear communication of business drivers and measures of success is an important first step in cloud migration efforts. The following are a few examples of common migration motivations, grouped by migration methodology.
 
 ### Asset migration
 

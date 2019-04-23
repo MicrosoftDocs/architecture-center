@@ -21,7 +21,7 @@ There are several ways to manage identity in a cloud environment, which vary in 
 
 In Azure, Azure Active Directory (Azure AD) provides a base level of access control and identity management for cloud resources. However, if your organization's on-premises Active Directory infrastructure has a complex forest structure or customized organizational units (OUs), your cloud-based workloads may require directory synchronization with Azure AD for a consistent set of identities, groups, and roles between your on-premises and cloud environments. Additionally, support for applications dependent on legacy authentication mechanisms may require the deployment of Active Directory Domain Services (AD DS) in the cloud.
 
-Cloud-based identity management is an iterative process. You may start with a cloud native solution with a small set of users and corresponding roles for an initial deployment. As your migration matures, you may need to integrate your identity solution using directory synchronization or add domains services as part of your cloud deployments. Revisit your identity strategy in every iteration of your migration process.
+Cloud-based identity management is an iterative process. You may start with a cloud-native solution with a small set of users and corresponding roles for an initial deployment. As your migration matures, you may need to integrate your identity solution using directory synchronization or add domains services as part of your cloud deployments. Revisit your identity strategy in every iteration of your migration process.
 
 ## Determine identity integration requirements
 

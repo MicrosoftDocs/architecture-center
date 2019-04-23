@@ -44,7 +44,7 @@ The Cloud Governance team is responsible for the following decisions and impleme
 
 ### Subscription design
 
-The decision on what subscription design to use determines how Azure subscriptions get structured and how Azure management groups will be used to  efficiently manage access, policies, and compliance of these subscription. In this narrative, the  governance team has chosen the **[Application Category](../../../decision-guides/subscriptions/index.md#application-category-pattern)** subscription design pattern.
+The decision on what subscription design to use determines how Azure subscriptions get structured and how Azure management groups will be used to efficiently manage access, policies, and compliance of these subscription. In this narrative, the governance team has chosen the **[Application Category](../../../decision-guides/subscriptions/index.md#application-category-pattern)** subscription design pattern.
 
 - An application archetype is a way to group applications with similar needs. Common examples include: Applications with protected data, governed applications (such as HIPAA or FedRAMP), low- risk applications, applications with on-premises dependencies, SAP or other mainframes in Azure, or applications that extend on-premises SAP or mainframes. These archetypes are unique per organization, based on data classifications and the types of applications that power the business. Dependency mapping of the digital estate can aid in defining the application archetypes in an organization.
 - Departments are not likely to be required given the current focus. Deployments are expected to be constrained within a single billing unit. At the stage of adoption, there may not even be an enterprise agreement to centralize billing. It's likely that this level of adoption is being managed by a single pay-as-you-go Azure subscription.
@@ -72,7 +72,7 @@ Resource tagging decisions determine how metadata is applied to Azure resources 
 
 ### Logging and reporting
 
-Logging and reporting decisions determine how your store log data and how the monitoring and reporting tools that keep IT staff informed on operational health are structured. In this narrative a **[Cloud Native](../../../decision-guides/log-and-report/index.md#cloud-native)** pattern for logging and reporting is suggested, but not required of any development team at this point.
+Logging and reporting decisions determine how your store log data and how the monitoring and reporting tools that keep IT staff informed on operational health are structured. In this narrative, a [cloud-native pattern](../../../decision-guides/log-and-report/index.md#cloud-native)** for logging and reporting is suggested, but not required of any development team at this point.
 
 - No governance requirements have been set regarding the data to be collected for logging or reporting purposes.
 - Additional analysis will be needed before releasing any protected data or mission-critical workloads.

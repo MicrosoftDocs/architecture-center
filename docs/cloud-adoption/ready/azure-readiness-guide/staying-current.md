@@ -27,7 +27,7 @@ The resources listed below can all help you stay current with Azure.
   * The Azure blog communicates the most important announcements for the Azure platform, so by following this you will receive critical information.
   * Subscribe via [RSS](https://azurecomcdn.azureedge.net/en-us/blog/feed/)
 * Service specific blogs
-  * Individual Azure services also publish blogs that are good to follow if you  rely on those services.
+  * Individual Azure services also publish blogs that are good to follow if you rely on those services.
   * There are many Azure service blogs available. We recommend that you find the ones you're interested in through a web search.
 * [Azure Info Hub](https://azureinfohub.azurewebsites.net/)
   * This is an unofficial resource that pulls together most of the resources listed above. Follow links to individual services to get detailed information and find service-specific blogs.

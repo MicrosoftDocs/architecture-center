@@ -38,7 +38,7 @@ COM established a scope comprised of the following components:
 The high-level scope of the Cloud Operating Model and the Cloud Adoption Framework are very similar. Business, culture, and technology are reflected throughout the guidance and each methodology within the Cloud Adoption Framework.
 
 > [!NOTE]
-> There are two significant points of clarity with the Cloud Adoption Framework's scope. In the Cloud Adoption Framework, business strategy goes beyond the documentation of cloud costs; it is about understanding motivations, desired outcomes, returns, and cloud costs to create actionable plans and clear business justifications. In the Cloud Adoption Framework, people strategy goes beyond training to include approaches that create demonstrable cultural maturity. A few areas on the roadmap include demonstrations of the impact of Agile management, devops integration, customer empathy and obsession, and lean product development approaches.
+> There are two significant points of clarity with the Cloud Adoption Framework's scope. In the Cloud Adoption Framework, business strategy goes beyond the documentation of cloud costs; it is about understanding motivations, desired outcomes, returns, and cloud costs to create actionable plans and clear business justifications. In the Cloud Adoption Framework, people strategy goes beyond training to include approaches that create demonstrable cultural maturity. A few areas on the roadmap include demonstrations of the impact of Agile management, DevOps integration, customer empathy and obsession, and lean product development approaches.
 
 ## Structure
 
@@ -59,7 +59,7 @@ The three phases of adoption are as follows:
 The three phases of cloud adoption have been mapped to two specific journeys:
 
 - [Migrate](../getting-started/migrate.md): Move existing workloads to the cloud.
-- [Innovate](../getting-started/innovate.md): Modernize existing workloads and  create new products and services.
+- [Innovate](../getting-started/innovate.md): Modernize existing workloads and create new products and services.
 
 Additionally, a number of additional resources required to be successful in any kind of cloud adoption journey are included in a special landing page which focuses on [enabling adoption success](../getting-started/enable.md).
 
