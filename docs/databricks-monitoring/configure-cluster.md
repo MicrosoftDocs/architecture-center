@@ -102,7 +102,7 @@ To create and configure an Azure Databricks cluster, follow these steps:
 1. Navigate to your Azure Databricks workspace in the Azure portal.
 1. On the home page, click **New Cluster**.
 1. Enter a name for your cluster in the **Cluster Name** text box.
-1. In the **Databricks Runtime Version** dropdown, select **4.3** or greater.
+1. In the **Databricks Runtime Version** dropdown, select **5.0** or greater (includes Apache Spark 2.4.0, Scala 2.11).
 1. Under **Advanced Options**, click on the **Spark** tab. Enter the following name-value pairs in the **Spark Config** text box:
 
     ```
