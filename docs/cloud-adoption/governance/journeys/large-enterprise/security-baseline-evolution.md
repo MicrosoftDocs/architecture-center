@@ -93,13 +93,13 @@ The following changes to policy will help remediate the new risks and guide impl
 
 This section of the article will evolve the governance MVP design to include new Azure policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
 
-The new best practices fall into two categories: Corporate IT (Hub) and Cloud Adoption (Spoke).
+The new best practices fall into two categories: Corporate IT (hub) and Cloud Adoption (spoke).
 
-**Establishing a corporate IT hub and spoke subscription to centralize the Security Baseline:** In this best practice, the existing governance capacity is wrapped by a [Hub Spoke Topology with Shared Services][shared-services], with a few key additions from the Cloud Governance team.
+**Establishing a corporate IT hub and spoke subscription to centralize the Security Baseline:** In this best practice, the existing governance capacity is wrapped by a [hub and spoke topology with shared services][shared-services], with a few key additions from the Cloud Governance team.
 
 1. Azure DevOps repository. Create a repository in Azure DevOps to store and version all relevant Azure Resource Manager templates and scripted configurations.
 2. Hub and spoke template.
-    1. The guidance in the [Hub-Spoke with Shared Services Reference Architecture][shared-services] can be used to generate Resource Manager templates for the assets required in a corporate IT hub.
+    1. The guidance in the [hub and spoke topology with shared services][shared-services] reference architecture can be used to generate Resource Manager templates for the assets required in a corporate IT hub.
     2. Using those templates, this structure can be made repeatable, as part of a central governance strategy.
     3. In addition to the current reference architecture, it is advised that a network security group (NSG) template should be created capturing any port blocking or whitelisting requirements for the VNet to host the firewall. This NSG will differ from prior NSGs, because it will be the first NSG to allow public traffic into a VNet.
 3. Create Azure policies. Create a policy named `Hub NSG Enforcement` to enforce the configuration of the NSG assigned to any VNet created in this subscription. Apply the built-in Policies for guest configuration as follows:
@@ -107,7 +107,7 @@ The new best practices fall into two categories: Corporate IT (Hub) and Cloud Ad
     2. Audit that password security settings are set correctly inside Linux and Windows machines.
 4. Corporate IT blueprint
     1. Create an Azure blueprint named `corporate-it-subscription`.
-    2. Add the hub/spoke templates and Hub NSG policy.
+    2. Add the hub and spoke templates and Hub NSG policy.
 5. Expanding on initial management group hierarchy.
     1. For each management group that has requested support for protected data, the `corporate-it-subscription-blueprint` blueprint provides an accelerated hub solution.
     2. Because management groups in this fictional example include a regional hierarchy in addition to a business unit hierarchy, this blueprint will be deployed in each region.
@@ -124,7 +124,7 @@ The new best practices fall into two categories: Corporate IT (Hub) and Cloud Ad
 In prior evolutions of the best practice, NSGs were defined which blocked public traffic and whitelisted internal traffic. Additionally, the Azure blueprint temporarily created DMZ and Active Directory capabilities. In this evolution, we will tweak those assets a bit, creating a new version of the Azure blueprint.
 
 1. Network Peering Template. This template will peer the VNet in each subscription with the Hub VNet in the Corporate IT subscription.
-    1. The guidance from the prior section, [Hub-Spoke with Shared Services Reference Architecture][shared-services] generated a Resource Manager template for enabling VNet peering.
+    1. The reference architecture from the prior section, [hub and spoke topology with shared services][shared-services], generated a Resource Manager template for enabling VNet peering.
     2. That template can be used as a guide to modify the DMZ template from the prior governance evolution.
     3. Essentially, we are now adding VNet peering to the DMZ VNet that was previously connected to the local edge device over VPN.
     4. *** It is also advised that the VPN should be removed from this template as well to ensure no traffic is routed directly to the on-premises datacenter, without passing through the corporate IT subscription and Firewall solution.

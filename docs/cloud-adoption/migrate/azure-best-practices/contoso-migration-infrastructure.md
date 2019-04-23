@@ -347,7 +347,7 @@ It's critical that Contoso puts networks in place in a way that makes the hybrid
 
 To connect the two regions, Contoso has decided to implement a hub-to-hub network model:
 
-- Within each region, Contoso will use a hub-and-spoke model.
+- Within each region, Contoso will use a hub and spoke model.
 - To connect networks and hubs, Contoso will use Azure network peering.
 
 #### Network peering
@@ -369,7 +369,7 @@ Contoso will deploy a hub in each region. A hub is a virtual network (VNet) in A
 
     ![Global peering](./media/contoso-migration-infrastructure/global-peering.png)
 
-#### Hub-and-spoke within a region
+#### Hub and spoke model within a region
 
 Within each region, Contoso will deploy VNets for different purposes, as spoke networks from the region hub. VNets within a region use peering to connect to their hub, and to each other.
 
@@ -422,7 +422,7 @@ VNets in East US 2 are summarized in the following table.
 **VNET-DEV-EUS2** | 10.245.16.0/20 | VNET-HUB-EUS2
 **VNET-PROD-EUS2** | 10.245.32.0/20 | VNET-HUB-EUS2, VNET-PROD-CUS
 
-![Hub/spoke in primary region](./media/contoso-migration-infrastructure/primary-hub-peer.png)
+![Hub and spoke model in the primary region](./media/contoso-migration-infrastructure/primary-hub-peer.png)
 
 #### Subnets in the East US 2 Hub network (VNET-HUB-EUS2)
 
@@ -476,7 +476,7 @@ The VNets in Central US are summarized in the following table.
 **VNET-ASR-CUS** | 10.255.16.0/20 | VNET-HUB-CUS, VNET-PROD-CUS
 **VNET-PROD-CUS** | 10.255.32.0/20 | VNET-HUB-CUS, VNET-ASR-CUS, VNET-PROD-EUS2
 
-![Hub/spoke in paired region](./media/contoso-migration-infrastructure/paired-hub-peer.png)
+![Hub and spoke model in paired region](./media/contoso-migration-infrastructure/paired-hub-peer.png)
 
 #### Subnets in the Central US Hub network (VNET-HUB-CUS)
 

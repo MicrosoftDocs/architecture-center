@@ -11,9 +11,9 @@ author: rotycenh
 
 # Software Defined Networking: Hub and spoke
 
-The hub-spoke networking model organizes your Azure-based cloud network infrastructure into multiple connected virtual networks. This model allows you to more efficiently manage common communication or security requirements and deal with potential subscription limitations.
+The hub and spoke networking model organizes your Azure-based cloud network infrastructure into multiple connected virtual networks. This model allows you to more efficiently manage common communication or security requirements and deal with potential subscription limitations.
 
-In the hub-spoke model, the *hub* is a virtual network that acts as a central location for managing external connectivity and hosting services used by multiple workloads. The *spokes* are virtual networks that host workloads and connect to the central hub through [virtual network peering](/virtual-network/virtual-network-peering-overview).
+In the hub and spoke model, the *hub* is a virtual network that acts as a central location for managing external connectivity and hosting services used by multiple workloads. The *spokes* are virtual networks that host workloads and connect to the central hub through [virtual network peering](/virtual-network/virtual-network-peering-overview).
 
 All traffic passing in or out of the workload spoke networks is routed through the hub network where it can be routed, inspected, or otherwise managed by centrally managed IT rules or processes.
 
@@ -23,7 +23,7 @@ This model aims to address each of the following concerns:
 - **Overcoming subscriptions limits.** Large cloud-based workloads may require the use of more resources than are allowed within a single Azure subscription (see [subscription limits](/azure/azure-subscription-service-limits)). Peering workload virtual networks from different subscriptions to a central hub can overcome these limits.
 - **Separation of concerns.** The ability to deploy individual workloads between central IT teams and workloads teams.
 
-The following diagram shows an example hub-spoke architecture including centrally managed hybrid connectivity.
+The following diagram shows an example hub and spoke architecture including centrally managed hybrid connectivity.
 
 ![Hub and spoke network architecture](../../../reference-architectures/hybrid-networking/images/hub-spoke.png)
 
@@ -46,5 +46,5 @@ Hub and spoke architectures are commonly implemented with virtual networks deplo
 
 For examples of how to implement hub and spoke networks on Azure, see the following examples on the Azure Reference Architectures site:
 
-- [Implement a hub-spoke network topology in Azure](../../../reference-architectures/hybrid-networking/hub-spoke.md)
-- [Implement a hub-spoke network topology with shared services in Azure](../../../reference-architectures/hybrid-networking/shared-services.md)
+- [Implement a hub and spoke network topology in Azure](../../../reference-architectures/hybrid-networking/hub-spoke.md)
+- [Implement a hub and spoke network topology with shared services in Azure](../../../reference-architectures/hybrid-networking/shared-services.md)

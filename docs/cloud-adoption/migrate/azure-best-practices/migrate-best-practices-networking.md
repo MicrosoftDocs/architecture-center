@@ -29,7 +29,7 @@ Azure provides virtual networks (VNets):
 - VNets can connect to each other using VNet peering. Connected VNets can be in the same or different regions. Thus resources in one VNet can connect to resources in other VNets.
 - By default, Azure routes traffic between subnets within a VNet, connected VNets, on-premises networks, and the internet.
 
-There are a number of things you need to think about when planning your VNet topology, including how to arrange IP address spaces, how to implement a hub-spoke network, how to segment VNets into subnets, set up DNS, and implement Azure availability zones.
+There are a number of things you need to think about when planning your VNet topology, including how to arrange IP address spaces, how to implement a hub and spoke network, how to segment VNets into subnets, set up DNS, and implement Azure availability zones.
 
 ## Best practice: Plan IP addressing
 
@@ -46,9 +46,9 @@ When you create VNets as part of your migration, it's important to plan out your
 - [Read](/azure/virtual-network/virtual-networks-faq) the networking FAQ.
 - [Learn about](/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) networking limitations.
 
-## Best practice: Implement a hub-spoke network topology
+## Best practice: Implement a hub and spoke network topology
 
-A hub-spoke network topology isolates workloads while sharing services such as identity and security.
+A hub and spoke network topology isolates workloads while sharing services such as identity and security.
 
 - The hub is an Azure VNet that acts as a central point of connectivity.
 - The spokes are VNets that connect to the hub VNet using VNet peering.

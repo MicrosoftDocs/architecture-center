@@ -314,7 +314,7 @@ The final component of the Azure scaffold reference model is core to how your or
 
 - **Virtual networks** are container objects for subnets. Though not strictly necessary, it is often used when connecting applications to internal corporate resources.
 - **User-defined routes** allow you to manipulate the route table within a subnet enabling you to send traffic through a network virtual appliance or to a remote gateway on a peered virtual network.
-- **Virtual network peering** enables you to seamlessly connect two or more Azure virtual networks, creating more complex hub-spoke designs or shared services networks.
+- **Virtual network peering** enables you to seamlessly connect two or more Azure virtual networks, creating more complex hub and spoke designs or shared services networks.
 - **Service endpoints**. In the past, PaaS services relied on different methods to secure access to those resources from your virtual networks. Service endpoints allow you to secure access to enabled PaaS services from ONLY connected endpoints, increasing overall security.
 - **Security groups** are an extensive set of rules that provide the ability to allow or deny inbound and outbound traffic to/from Azure Resources. [Security groups](/azure/virtual-network/security-overview) consist of security rules, which can be augmented with **service tags** (which define common Azure services such as Azure Key Vault or Azure SQL Database) and **application security groups** (which define and application structure, such as web servers or app servers).
 
