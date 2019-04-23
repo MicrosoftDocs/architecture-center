@@ -632,8 +632,9 @@
     - name: Enable success during either journey
       href: cloud-adoption/getting-started/enable.md
   - name: Plan
-    href: cloud-adoption/business-strategy/index.md
     items:
+    - name: Overview
+      href: cloud-adoption/business-strategy/index.md
     - name: Motivations (why are we moving to the cloud?)
       href: cloud-adoption/business-strategy/motivations-why-are-we-moving-to-the-cloud.md
     - name: Business justification
@@ -679,8 +680,9 @@
     - name: Best practices
       href: cloud-adoption/business-strategy/azure-best-practices/index.md
   - name: Ready
-    href: cloud-adoption/ready/index.md
     items:
+    - name: Overview
+      href: cloud-adoption/ready/index.md
     - name: Azure Readiness Guide
       items:
       - name: Set up your Azure environment
@@ -715,8 +717,9 @@
   - name: Adopt
     items:
     - name: Migrate
-      href: cloud-adoption/migrate/index.md
       items:
+      - name: Overview
+        href: cloud-adoption/migrate/index.md
       - name: Azure migration guide
         items:
         - name: Introduction to the Azure migration guide
@@ -823,8 +826,9 @@
           - name: Securing and managing workloads after migration
             href: cloud-adoption/migrate/azure-best-practices/migrate-best-practices-security-management.md
       - name: Migration considerations
-        href: cloud-adoption/migrate/migration-considerations/index.md
         items:
+        - name: Overview
+          href: cloud-adoption/migrate/migration-considerations/index.md
         - name: Prerequisites
           href: cloud-adoption/migrate/migration-considerations/prerequisites/index.md
           items:
@@ -857,8 +861,9 @@
           - name: Change approval processes
             href: cloud-adoption/migrate/migration-considerations/assess/approve.md
         - name: Migrate individual assets
-          href: cloud-adoption/migrate/migration-considerations/migrate/index.md
           items:
+          - name: Overview
+            href: cloud-adoption/migrate/migration-considerations/migrate/index.md
           - name: Promotion models - Promote, Stage, or Flight
             href: cloud-adoption/migrate/migration-considerations/migrate/promotion-models.md
           - name: Remediation tasks
@@ -870,8 +875,9 @@
           - name: Stage workloads for testing and promotion
             href: cloud-adoption/migrate/migration-considerations/migrate/stage.md
         - name: Optimize and promote workloads
-          href: cloud-adoption/migrate/migration-considerations/optimize/index.md
           items:
+          - name: Overview
+            href: cloud-adoption/migrate/migration-considerations/optimize/index.md
           - name: Business change plan
             href: cloud-adoption/migrate/migration-considerations/optimize/business-change-plan.md
           - name: Business testing
@@ -900,8 +906,9 @@
       href: cloud-adoption/governance/index.md
       items:
       - name: Governance guides
-        href: cloud-adoption/governance/journeys/index.md
         items:
+        - name: Overview
+          href: cloud-adoption/governance/journeys/index.md
         - name: Small-to-medium enterprise guide
           items:
           - name: Best practices for getting started with cloud governance
