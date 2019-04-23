@@ -1,5 +1,5 @@
 ---
-title: Fully managed applications built for secure access
+title: Securely managed web applications
 titleSuffix: Azure Example Scenarios
 description: Securely deploy an expense application to Azure App Service Environment
 author: fmustaf
@@ -13,9 +13,9 @@ ms.custom:
 social_image_url: /azure/architecture/example-scenario/apps/media/ilb-ase-with-architecture.png
 ---
 
-# Fully managed applications built for secure access
+# Securely managed web applications
 
-This scenario provides an overview of deploying secure applications using the [Azure App Service Environment (ASE)][intro-to-app-svc-env]. To restrict application access from the Internet, the Azure Application Gateway service and Web Application Firewall are used. We'll also cover best practices around continuous integration & continuous deployment (CI/CD) for App Service Environments using Azure DevOps.
+This scenario provides an overview of deploying secure applications using the [Azure App Service Environment (ASE)][intro-to-app-svc-env]. To restrict application access from the Internet, the Azure Application Gateway service and Web Application Firewall are used. This article will also cover best practices around continuous integration & continuous deployment (CI/CD) for App Service Environments using Azure DevOps.
 
 This is a commonly deployed scenario in industries such as banking and insurance where customers are conscious of platform level security in addition to application level security. We'll use an application that allows users to submit expense reports in this example.
 
@@ -25,7 +25,7 @@ Consider this scenario for the following use cases:
 
 * Building an Azure Web App where additional security is required
 * Dedicated tenancy is needed, rather than shared tenant App Service Plans
-* Utilize Azure DevOps capabilities with the ILB ASE deployed inside a VNET
+* Utilize Azure DevOps with an [internally load balanced][create-ilb-ase] Application Service Environment, often called an ILB ASE.
 
 ## Architecture
 
@@ -34,35 +34,35 @@ Consider this scenario for the following use cases:
 Data flows through the scenario as follows:
 
 1. HTTP/HTTPs requests first hit the Application Gateway
-2. Optionally (not shown in the diagram) you can have Azure AD Authentication enabled for the Web App. After the traffic first hits the Application Gateway, the user is then prompted to supply the credentials to authenticate with the application.
-3. User requests flow through the ILB of the ASE, which in turn routes the traffic to the Contoso Expenses Web App.
+2. Optionally (not shown in the diagram) you can have Azure Active Directory (Azure AD) Authentication enabled for the Web App. After the traffic first hits the Application Gateway, the user is then prompted to supply the credentials to authenticate with the application.
+3. User requests flow through the internal load balancer (ILB) of the ASE, which in turn routes the traffic to the Expenses Web App.
 4. User then proceeds to create an Expense Report
 5. As part of the expense creation, the deployed API App is invoked to retrieve user's manager name and email
 6. The Created Expense Report is stored in Azure SQL Database
 7. To facilitate continuous deployments, code gets checked into the Azure DevOps instance
-8. The build VM has the Azure DevOps Agent installed which allows the build VM to pull the bits for the Web App to deploy to the ASE (as the Build VM is deployed in a Subnet inside the same VNET)
+8. The build VM has the Azure DevOps Agent installed which allows the build VM to pull the bits for the Web App to deploy to the ASE (as the Build VM is deployed in a subnet inside the same virtual network)
 
 ### Components
 
-* The [App Service Environment][intro-to-app-svc-env] provides a fully isolated and dedicated environment for securely running the application at high scale. In addition, since ASE and the workloads that run on it are behind a VNET, this provides an additional layer of security and isolation. The requirement of high scale and isolation drove towards selecting ILB ASE.
+* The [App Service Environment][intro-to-app-svc-env] provides a fully isolated and dedicated environment for securely running the application at high scale. In addition, since ASE and the workloads that run on it are behind a virtual network, this provides an additional layer of security and isolation. The requirement of high scale and isolation drove towards selecting ILB ASE.
 * This workload is using the [isolated App Service pricing tier][isolated-tier-pricing-and-ase-pricing] so the application is running in a private, dedicated environment in an Azure datacenter using Dv2-series VMs with faster processors, SSD storage, and double the memory-to-core ratio compared to Standard
 * Azure App Services [Web App][docs-webapps] and [API App][docs-apiapps] hosts web applications and RESTful APIs. These are hosted on the Isolated Pricing Tier plan which also offers auto-scaling, custom domains and so on, but in a dedicated tier.
-* Azure [Application Gateway][docs-appgw] is a web traffic load balancer oerating at Layer 7 that manages traffic to the web application. It offers SSL off-loading, that removes additional overhead on the web servers hosting the web app to decrypt traffic again.  
-* [Web Application Firewall][docs-waf] Web application firewall (WAF) is a feature of Application Gateway. The reason for enabling the WAF in the Application Gateway is to further enhance security. The WAF uses OWASP rules to further protect the web application against attacks such as cross-site scripting, session hijacks, and SQL injection.
-* [Azure SQL Database][docs-sql-database] Azure SQL Database was selected as majority of data in this application is relational data, with some data as documents and BLOB. 
-* [Azure Networking] Azure provides a variety of networking capabilities in Azure and the the netowrks can further be peered with other VNETS in Azure or connectivity can be established with on-prem data centers via Express Route or Site to Site. In this case, the Microsoft.Sql service endpoint is enabled on the VNET, then the VNET is allowed access in the Firewall settings hosting the Azure SQL Database. This was done to ensure the data is flowing just between the Azure VNET and the SQL Database instance.
-* [Azure DevOps][docs-azure-devops] Azure DevOps was used for teams to collaborate during many sprints, utilizing features of Azure DevOps that support Agile Development, and create build and release pipelines. 
-* [Build Azure VM][docs-azure-vm] In Azure Portal, create a Visual Studio Enterprise 2017 (latest release) on Windows Server 2016 (x64) VM that will be used as the build agent. This was done, so that the installed agent can pull down the respective build, and deploy the web app to the ASE environment.
+* Azure [Application Gateway][docs-appgw] is a web traffic load balancer operating at Layer 7 that manages traffic to the web application. It offers SSL off-loading, that removes additional overhead on the web servers hosting the web app to decrypt traffic again.  
+* [Web Application Firewall][docs-waf] (WAF) is a feature of Application Gateway. The reason for enabling the WAF in the Application Gateway is to further enhance security. The WAF uses OWASP rules to further protect the web application against attacks such as cross-site scripting, session hijacks, and SQL injection.
+* [Azure SQL Database][docs-sql-database] was selected as majority of the data in this application is relational data, with some data as documents and BLOB.
+* [Azure Networking][azure-networking] provides a variety of networking capabilities in Azure and the the networks can further be peered with other virtual networkS in Azure or connectivity can be established with on-premises data centers via Express Route or Site to Site. In this case, a [service endpoint][sql-service-endpoint] is enabled on the virtual network to ensure the data is flowing just between the Azure virtual network and the SQL Database instance.
+* [Azure DevOps][docs-azure-devops] Azure DevOps was used for teams to collaborate during many sprints, utilizing features of Azure DevOps that support Agile Development, and create build and release pipelines.
+* An Azure build [VM][docs-azure-vm] was created so that the installed agent can pull down the respective build, and deploy the web app to the ASE environment.
 
 ### Alternatives
 ASE can run regular web apps on Windows or like in this instance, the web apps deployed inside the ASE are each running as Linux containers. ASE was thus selected to host these single instance containerized applications. There are some other alternatives and below is when to consider those platforms when designing your solution.
 
-- [Azure Service Fabric][docs-service-fabric] - If you are a Windows-based shop, and the type of workloads are primarily .NET Fullframework, and you are not yet considering rearchitecture to .NET Core, then then use Service Fabric to support and deploy Windows Server Containers. Additionally, Service Fabric supports C# or Java Programming APIs, for developing native micrososervices, the clusters can be provisioned as Windows or Linux based.
-- [Azure Kubernetes Service][docs-kubernetes-service] - Kubernetes is an Open Source Project and an orchestration platform more suitable to host complex mluti-container applications that commonly use a microservices based architecture. AKS is a Managed Kubernetes Azure Service that abstracts away the complexities of provisioning and configuring a Kuberenetes Cluster. However, significant knowledge of Kubernetes platform is still required to support and maintain i, thus to host a handful of single instance containerized web applications may not be the best option.
+* [Azure Service Fabric][docs-service-fabric] - If you are a Windows-based shop, and the type of workloads are primarily .NET Framework, and you are not yet considering rearchitecting to .NET Core, then then use Service Fabric to support and deploy Windows Server Containers. Additionally, Service Fabric supports C# or Java Programming APIs, for developing native microservices, the clusters can be provisioned as Windows or Linux based.
+* [Azure Kubernetes Service][docs-kubernetes-service] (AKS) is an Open Source Project and an orchestration platform more suitable to host complex multi-container applications that commonly use a microservices based architecture. AKS is a managed Kubernetes Azure Service that abstracts away the complexities of provisioning and configuring a Kubernetes Cluster. However, significant knowledge of Kubernetes platform is still required to support and maintain it, thus to host a handful of single instance containerized web applications may not be the best option.
 
 Other options for the data tier include:
 
-* [Azure Cosmos DB](/azure/cosmos-db/introduction): If majority of the data is in non-relational format, s Cosmos DB is a good alternative as this service provides a platform to run other data models such as Mongo DB, Cassandra, Graph data, or simple table storage.
+* [Azure Cosmos DB](/azure/cosmos-db/introduction): If the majority of the data is in non-relational format, Cosmos DB is a good alternative. This service provides a platform to run other data models such as Mongo DB, Cassandra, Graph data, or simple table storage.
 
 ## Considerations
 
@@ -91,7 +91,7 @@ Additionally, the custom domain name used for apps and the domain name used by t
 
 Choose a domain for the ILB ASE that won’t have a conflict with those custom domain names. You can use something like contoso-internal.com for the domain of your ASE for the example here, because that won't conflict with custom domain names that end in .contoso.com.
 
-Another point to consider is regarding DNS. In order to allow applications within the ASE to communicate with each other, for instance a web application to talk to an API, you will need to have DNS configured for your VNET holding the ASE. You can either [bring your own DNS][bring-your-own-dns] or you can use [Azure DNS private zones][private-zones]
+Another point to consider is regarding DNS. In order to allow applications within the ASE to communicate with each other, for instance a web application to talk to an API, you will need to have DNS configured for your virtual network holding the ASE. You can either [bring your own DNS][bring-your-own-dns] or you can use [Azure DNS private zones][private-zones]
 
 ### Availability
 
@@ -148,6 +148,9 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [isolated-tier-pricing-and-ase-pricing]: https://azure.microsoft.com/en-us/pricing/details/app-service/windows/
 [bring-your-own-dns]: /azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#specify-dns-servers
 [private-zones]: /azure/dns/private-dns-overview
+[create-ilb-ase]: azure/app-service/environment/create-ilb-ase
+[azure-networking]: /azure/virtual-network/virtual-networks-overview
+[sql-service-endpoint]: /azure/sql-database/sql-database-virtual network-service-endpoint-rule-overview
 
 [architecture]: ./media/ilb-ase-architecture.png
 [small-pricing]: https://azure.com/e/22e2c9d300ee425a89a001726221c7b2
