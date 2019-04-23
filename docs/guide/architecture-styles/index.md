@@ -5,7 +5,7 @@ description: Common architecture styles for cloud applications.
 layout: LandingPage
 ms.topic: landing-page
 ms.service: architecture-center
-ms.subservice: reference-architecture
+ms.subservice: cloud-fundamentals
 ms.date: 08/30/2018
 ---
 

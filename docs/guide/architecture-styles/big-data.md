@@ -6,8 +6,9 @@ author: MikeWasson
 ms.date: 08/30/2018
 ms.topic: guide
 ms.service: architecture-center
-ms.subservice: reference-architecture
+ms.subservice: cloud-fundamentals
 ms.custom: seojan19, IoT
+
 ---
 
 # Big data architecture style
