@@ -6,7 +6,7 @@ author: MikeWasson
 ms.date: 04/10/2019
 ms.topic: guide
 ms.service: architecture-center
-ms.subservice: reference-architecture
+ms.subservice: cloud-fundamentals
 ms.custom: seojan19
 ---
 
