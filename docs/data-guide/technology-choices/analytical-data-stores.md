@@ -1,6 +1,6 @@
 ---
 title: Choosing an analytical data store
-description: 
+description:
 author: zoinerTejada
 ms.date: 02/12/2018
 ms.topic: guide
@@ -61,7 +61,7 @@ The following tables summarize the key differences in capabilities.
 [1] With manual configuration and scaling.
 
 [2] Using memory-optimized tables and hash or nonclustered indexes.
- 
+
 ### Scalability capabilities
 
 |                                                  | SQL Database | SQL Data Warehouse | HBase/Phoenix on HDInsight | Hive LLAP on HDInsight | Azure Analysis Services | Cosmos DB |

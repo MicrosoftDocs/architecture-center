@@ -63,9 +63,9 @@ Once the deployment is complete, the bitnami image of Grafana is installed on th
 
 ## Update the Grafana password
 
-As part of the setup process, the Grafana installation script outputs a temporary password for the **admin** user. You need this temporary password to sign in. To obtain the temporary password, follow these steps:  
+As part of the setup process, the Grafana installation script outputs a temporary password for the **admin** user. You need this temporary password to sign in. To obtain the temporary password, follow these steps:
 
-1. Log in to the Azure portal.  
+1. Log in to the Azure portal.
 1. Select the resource group where the resources were deployed.
 1. Select the VM where Grafana was installed. If you used the default parameter name in the deployment template, the VM name is prefaced with **sparkmonitoring-vm-grafana**.
 1. In the **Support + troubleshooting** section, click **Boot diagnostics** to open the boot diagnostics page.
@@ -169,7 +169,7 @@ This visualization shows a set of the execution metrics for a given task's execu
 
 ### Cluster throughput
 
-This visualization is a high level view of work items indexed by cluster and application to represent the amount of work done per cluster and application. It shows the number of jobs, tasks, and stages completed per cluster, application, and stage in one minute increments. 
+This visualization is a high level view of work items indexed by cluster and application to represent the amount of work done per cluster and application. It shows the number of jobs, tasks, and stages completed per cluster, application, and stage in one minute increments.
 
 ### Streaming Throughput/Latency
 
