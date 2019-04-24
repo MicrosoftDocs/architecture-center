@@ -109,6 +109,34 @@ For more information, see:
 
 ::: zone-end
 
+## Database Migration Assistant
+
+The Data Migration Assistant (DMA) helps you upgrade to a modern data platform by detecting compatibility issues that can impact database functionality in your new version of SQL Server or Azure SQL Database. DMA recommends performance and reliability improvements for your target environment and allows you to move your schema, data, and uncontained objects from your source server to your target server.
+
+> [!NOTE]
+> For large migrations (in terms of number and size of databases), we recommend that you use the Azure Database Migration Service, which can migrate databases at scale.
+>
+
+::: zone target="docs"
+
+For more information, see:
+
+- [Database Migration Assistant overview](https://docs.microsoft.com/en-us/sql/dma/dma-overview)
+
+::: zone-end
+
+## SQL Server Migration Assistant
+
+Microsoft SQL Server Migration Assistant (SSMA) is a tool designed to automate database migration to SQL Server from Microsoft Access, DB2, MySQL, Oracle, and SAP ASE.
+
+::: zone target="docs"
+
+For more information, see:
+
+- [SQL Server Migration Assistant overview](https://docs.microsoft.com/en-us/sql/ssma/sql-server-migration-assistant)
+
+::: zone-end
+
 # [Third-party migration tools](#tab/third-party-tools)
 
 Several third-party migration tools and ISV services can assist you with the migration process. Each offers different benefits and strengths. Some of the available third-party tools include:
