@@ -54,6 +54,12 @@
       "brand": "azure",
       "ms.author": "pnp",
       "ms.service": "guidance",
+      "_op_documentIdPathDepotMapping": {
+        "./": {
+          "depot_name": "MSDN.azure-architecture-center",
+          "folder_relative_path_in_docset": "./"
+        }
+      },
       "ms.topic": "article",
       "searchScope": [
         "Azure"
