@@ -146,8 +146,15 @@ There are many project management tools available. This list shows some tools th
 - [Microsoft Planner](https://tasks.office.com/): A simple, visual way to organize teamwork.
 - [Microsoft Project](https://products.office.com/project/project-and-portfolio-management-software): Project and Portfolio Management, Resource Capacity Management, Financial Management, Timesheeting and Schedule Management.
 - [Microsoft Teams](https://products.office.com/microsoft-teams): Team collaboration and communication tool, as well as integration with Planner and other tools to improve collaboration.
+- [Azure DevOps](https://dev.azure.com): Utilizing Azure DevOps you can manage your infrastructure as code or just simply utilize the work items and boards to perform project management. As you mature your organization can then take advantage of the CI/CD capabilities, more below.
 
 These are certainly not the only tools available. Many other third-party tools are widely used in the project management community.
+
+## Setup for DevOps
+
+As you migrate into cloud technologies this presents a great opportunity to setup your organization for DevOps and CI/CD. Even if your organization is only managing infrastructure, as you begin to manage your infrastructure as code and utilize the industry patterns and practices for DevOps you can begin to increase your agility through CI/CD pipelines, therefore allowing you to adapt to change, growth, release and even recovery scenarios faster.
+
+[Azure DevOps](https://dev.azure.com) provides all of the required functionality and integration with Azure, On-premises or even other clouds. Find out more [here](https://azure.microsoft.com/en-au/services/devops/). For a guided training click [here](https://microsoft.github.io/PartsUnlimited/pandp/200.1x-PandP-CICDQuickstartwithVSTS.html).
 
 # [Cost management](#tab/ManageCost)
 
