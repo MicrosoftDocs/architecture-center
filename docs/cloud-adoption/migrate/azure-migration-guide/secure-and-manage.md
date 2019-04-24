@@ -11,7 +11,7 @@ ms.custom: fasttrack-new
 
 # Secure and manage
 
-After migrating your environment to Azure, it is important to consider the security and methods used to manage the environment. Azure provides many features and capabilities to meet these needs in your solution.
+After migrating your environment to Azure, it's important to consider the security and methods used to manage the environment. Azure provides many features and capabilities to meet these needs in your solution.
 
 # [Azure Monitor](#tab/monitor)
 
@@ -25,7 +25,7 @@ Azure Monitor maximizes the availability and performance of your applications by
 
 ::: zone target="chromeless"
 
-::: form action="OpenBlade[#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/overview]" submitText="Go to Azure monitor" :::
+::: form action="OpenBlade[#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/overview]" submitText="Go to Azure Monitor" :::
 
 ::: zone-end
 
@@ -39,15 +39,15 @@ Azure Monitor maximizes the availability and performance of your applications by
 
 # [Azure Service Health](#tab/servicehealth)
 
-Azure Service Health is a suite of experiences that provide personalized guidance and support when issues in Azure services affect you. It can notify you, help you understand the impact of issues, and keep you updated as the issue resolves. It can also help you prepare for planned maintenance and changes that could affect the availability of your resources.
+Azure Service Health provides personalized guidance and support when issues in Azure services affect you. It can notify you, help you understand the impact of issues, and keep you updated as the issue resolves. It can also help you prepare for planned maintenance and changes that could affect the availability of your resources.
 
-Azure Service Health is comprised of:
+Azure Service Health includes:
 
 - **Azure Status:** A global view of the health of Azure services.
 - **Service Health:** A personalized view of the health of your Azure services.
 - **Resource Health:** A deeper view of the health of the individual resources provisioned to you by your Azure services.
 
-These experiences combined give you a comprehensive view of Azure health, at a level of detail relevant to you.
+Combined, these experiences give you a comprehensive view of Azure health, at a level of detail relevant to you.
 
 ## Access Service Health
 
@@ -93,11 +93,11 @@ Azure Advisor is a personalized cloud consultant that helps you follow best prac
 
 # [Azure Security Center](#tab/security)
 
-Azure Security Center is a unified infrastructure security management system that strengthens the security posture of your datacenters, and provides advanced threat protection across your hybrid workloads in the cloud - whether they're in Azure or not - as well as on premises.
+Azure Security Center is a unified infrastructure security management system that strengthens the security posture of your datacenters, and provides advanced threat protection across your hybrid workloads in the cloud - whether they're in Azure or not - as well as on-premises.
 
 ## Access Azure Security Center
 
-1. Go to **Security Center** in the Azure Portal, or search for the resource
+1. Go to **Security Center** in the Azure Portal, or search for the resource.
 2. Select **Recommendations**
 
 ::: zone target="chromeless"
@@ -116,7 +116,7 @@ Azure Security Center is a unified infrastructure security management system tha
 
 # [Azure Backup](#tab/backup)
 
-Azure Backup is the Azure-based service you can use to back up (or protect) and restore your data in the Microsoft cloud. Azure Backup replaces your existing on-premises or offsite backup solution with a cloud-based solution that is reliable, secure, and cost-competitive.
+Azure Backup is the Azure-based service you can use to backup (or protect) and restore your data in the Microsoft cloud. Azure Backup replaces your existing on-premises or offsite backup solution with a cloud-based solution that is reliable, secure, and cost-competitive.
 
 ## Enable backup for an Azure VM
 
@@ -153,7 +153,7 @@ Site Recovery can manage replication for:
 
 ## Replicate an Azure VM to another region with Site Recovery service
 
-The following steps outline the process to use Site Recovery service to replicate an Azure VM to another region (azure-to-azure):
+The following steps outline the process to use Site Recovery service to replicate an Azure VM to another region (Azure-to-Azure):
 
 >
 > [!TIP]
@@ -166,7 +166,7 @@ The following steps outline the process to use Site Recovery service to replicat
 1. In **Operations**, select **Disaster recovery**.
 1. In **Configure disaster recovery** > **Target region** select the target region to which you'll replicate.
 1. For this Quickstart, accept the other default settings.
-1. Click **Enable replication**. This starts a job to enable replication for the VM.
+1. Select **Enable replication**. This starts a job to enable replication for the VM.
 
 ::: zone target="chromeless"
 
@@ -179,7 +179,7 @@ The following steps outline the process to use Site Recovery service to replicat
 After the replication job has finished, you can check the replication status, modify replication settings, and test the deployment.
 
 1. In the VM menu, select **Disaster recovery**.
-2. You can verify replication health, the recovery points that have been created, and source, target regions on the map.
+2. Verify replication health, the recovery points that have been created, and source and target regions on the map.
 
 ::: zone target="chromeless"
 

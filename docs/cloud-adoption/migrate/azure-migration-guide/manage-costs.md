@@ -10,7 +10,7 @@ ms.custom: fasttrack-new
 ---
 # Manage costs and billing to understand charges and usage from your Azure Resources
 
-Cost control is a critical component to maximize the value of your investment in the cloud. Depending on your subscription type, use the following sections to learn how to manage Azure cost management and understand billing for your subscription. To see your subscription type, go to Subscriptions in the Azure portal.
+Cost control is a critical component to maximize the value of your investment in the cloud. Depending on your subscription type, use the following sections to learn how to manage Azure costs and understand billing for your subscription. To see your subscription type, go to Subscriptions in the Azure portal.
 
 # [For pay-as-you-go customers](#tab/Forpayasyougocustomers)
 
