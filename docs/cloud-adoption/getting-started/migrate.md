@@ -21,7 +21,7 @@ This framework is designed primarily for cloud architects and the cloud strategy
 
 ## Motivations and methodology
 
-Cloud migrations can help companies deliver on a number of desired business outcomes. Clear communication of motivations, business drivers, and important measurements of success are important foundations for making wise decisions throughout cloud migration efforts. 
+Cloud migrations can help companies deliver on a number of desired business outcomes. Clear communication of motivations, business drivers, and important measurements of success are important foundations for making wise decisions throughout cloud migration efforts.
 
 The Cloud Adoption Framework establishes a high level of construct of Plan, Ready, Adopt to group the type of effort required.
 
