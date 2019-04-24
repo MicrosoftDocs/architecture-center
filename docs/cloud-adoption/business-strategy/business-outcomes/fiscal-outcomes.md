@@ -6,7 +6,7 @@ ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 description: Examples of fiscal outcomes
 author: BrianBlanchard
-ms.date: 4/4/2019
+ms.date: 04/04/2019
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption

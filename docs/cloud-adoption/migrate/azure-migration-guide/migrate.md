@@ -3,7 +3,7 @@ title: "CAF: Migrate assets"
 description: Migrate assets
 author: matticusau
 ms.author: mlavery
-ms.date: 4/4/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: "fasttrack-new"
@@ -30,9 +30,9 @@ To use Azure Site Recovery to migrate resources:
 > [!TIP]
 > Depending on your scenario, these steps may differ slightly.
 
-1. In the Azure Portal, click **Create a resource > Management Tools > Backup and Site Recovery**.
+1. In the Azure Portal, select **Create a resource > Management Tools > Backup and Site Recovery**.
 1. Complete the wizard to create a **Recovery Services vault** resource.
-1. In the Resource menu, click **Site Recovery > Prepare Infrastructure > Protection goal**.
+1. In the Resource menu, select **Site Recovery > Prepare Infrastructure > Protection goal**.
 1. In **Protection goal**, select what you want to migrate.
     1. **VMware:** Select To Azure > Yes, with VMware vSphere Hypervisor.
     1. **Physical machine:** Select To Azure > Not virtualized/Other.
@@ -46,7 +46,7 @@ To use Azure Site Recovery to migrate resources:
 1. Enable replication.
 1. Run a test migration (test failover).
 1. Migrate to Azure (failover).
-    1. In **Settings > Replicated items** click the machine > **Failover**.
+    1. In **Settings > Replicated items** select the machine > **Failover**.
     1. In **Failover** select a **Recovery Point** to fail over to. Select the latest recovery point.
     1. Configure any encryption key settings as required.
     1. Select **Shut down machine before beginning failover**. Site Recovery will attempt to shutdown virtual machines before triggering the failover. Failover continues even if shutdown fails. You can follow the failover progress on the Jobs page.

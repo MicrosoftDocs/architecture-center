@@ -75,7 +75,6 @@ To set up a Service Health alert:
 
 To set up a Service Health alert, go to the [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Health/AzureHealthBrowseBlade/healthalerts).
 
-
 ## Learn more
 
 To learn more, see [Azure Service Health documentation](/azure/service-health/).
@@ -102,14 +101,11 @@ Recommendations in Advisor are based on the resources you deploy and the actions
 
 To explore Azure Advisor, go to the [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Expert/AdvisorBlade).
 
-
 ## Learn more
 
 To learn more, see [Azure Advisor documentation](/azure/advisor/).
 
 ::: zone-end
-
-
 
 # [Azure Security Center](#tab/AzureSecurityCenter)
 
@@ -133,7 +129,6 @@ After you turn on and set up security policies for a subscription’s resources,
 ::: zone target="docs"
 
 To explore Azure Security Center, go to the [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/SecurityMenuBlade/0).
-
 
 ## Learn more
 

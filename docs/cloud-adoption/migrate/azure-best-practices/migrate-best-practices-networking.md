@@ -25,11 +25,11 @@ Azure provides virtual networks (VNets):
 - A VNet is a logical isolation of the Azure cloud that's dedicated to your subscription.
 - You can implement multiple VNets within each Azure subscription and Azure region.
 - Each VNet is isolated from other VNets.
-- VNets can contain private and public IP addresses defined in [RFC 1918](https://tools.ietf.org/html/rfc1918), expressed in CIDR notation. Public IP addresses are not directly accessible from the internet.
+- VNets can contain private and public IP addresses defined in [RFC 1918](https://tools.ietf.org/html/rfc1918), expressed in CIDR notation. Public IP addresses specified in a VNet's address space will not be directly accessible from the internet.
 - VNets can connect to each other using VNet peering. Connected VNets can be in the same or different regions. Thus resources in one VNet can connect to resources in other VNets.
 - By default, Azure routes traffic between subnets within a VNet, connected VNets, on-premises networks, and the internet.
 
-There are a number of things you need to think about when planning your VNet topology, including how to arrange IP address spaces, how to implement a hub-spoke network, how to segment VNets into subnets, set up DNS, and implement Azure availability zones.
+There are a number of things you need to think about when planning your VNet topology, including how to arrange IP address spaces, how to implement a hub and spoke network, how to segment VNets into subnets, set up DNS, and implement Azure availability zones.
 
 ## Best practice: Plan IP addressing
 
@@ -46,9 +46,9 @@ When you create VNets as part of your migration, it's important to plan out your
 - [Read](/azure/virtual-network/virtual-networks-faq) the networking FAQ.
 - [Learn about](/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) networking limitations.
 
-## Best practice: Implement a hub-spoke network topology
+## Best practice: Implement a hub and spoke network topology
 
-A hub-spoke network topology isolates workloads while sharing services such as identity and security.
+A hub and spoke network topology isolates workloads while sharing services such as identity and security.
 
 - The hub is an Azure VNet that acts as a central point of connectivity.
 - The spokes are VNets that connect to the hub VNet using VNet peering.
@@ -229,14 +229,14 @@ Deploying ExpressRoute connections usually involves engaging with an ExpressRout
 
 **Learn more:**
 
-- [Get an overview](/azure/expressroute/expressroute-introduction) of ExpressRoute.
+- [Read an overview](/azure/expressroute/expressroute-introduction) of ExpressRoute.
 - [Learn about](/azure/expressroute/expressroute-erdirect-about) ExpressRoute Direct.
 
 ### Best practice: Optimize ExpressRoute routing with BGP communities
 
 When you have multiple ExpressRoute circuits, you have more than one path to connect to Microsoft. As a result, suboptimal routing can happen, and your traffic might take a longer path to reach Microsoft, and Microsoft to your network. The longer the network path,the higher the latency. Latency has direct impact on app performance and user experience.
 
-#### Example
+**Example:**
 
 Let's review an example:
 

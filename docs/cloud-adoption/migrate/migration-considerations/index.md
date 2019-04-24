@@ -2,7 +2,7 @@
 title: Cloud Adoption Framework migration model
 description: Cloud Adoption Framework migration model
 author: BrianBlanchard
-ms.date: 4/4/2019
+ms.date: 04/04/2019
 ---
 
 # Cloud Adoption Framework migration model

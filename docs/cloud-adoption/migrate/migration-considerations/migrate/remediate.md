@@ -2,7 +2,7 @@
 title: "Remediating assets prior to migration"
 description: Remediating incompatible assets prior to migration
 author: BrianBlanchard
-ms.date: 4/4/2019
+ms.date: 04/04/2019
 ---
 
 # Remediating assets prior to migration

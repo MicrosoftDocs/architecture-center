@@ -6,7 +6,7 @@ ms.custom: governance
 layout: LandingPage
 ms.topic: landing-page
 author: BrianBlanchard
-ms.date: 4/4/2019
+ms.date: 04/04/2019
 ---
 
 # Microsoft Cloud Adoption Framework for Azure
@@ -19,7 +19,7 @@ The Cloud Adoption Framework provides technical guidance for Microsoft Azure. Be
 
 ## Product roadmap
 
-The Microsoft Cloud Adoption Framework for Azure is currently offered as a Public Preview. The framework will reach general availability (GA) when the aspirational goals above are met. In this preview release, the primary areas of focus are [Cloud Governance](./governance/journeys/index.md) and [Cloud Migration](./migrate/index.md). The Cloud Adoption Framework will be expanded frequently as it moves closer to general availability. For more information, see the [Cloud Adoption Framework roadmap](./appendix/roadmap.md).
+The Microsoft Cloud Adoption Framework for Azure is currently offered as a public preview. The framework will reach general availability (GA) when the aspirational goals for it are met. In this preview release, the primary areas of focus are [cloud governance](./governance/journeys/index.md) and [cloud migration](./migrate/index.md). The Cloud Adoption Framework will be expanded frequently as it moves closer to general availability. For more information, see the [Cloud Adoption Framework roadmap](./appendix/roadmap.md).
 
 ## Intended Audience
 
@@ -27,13 +27,13 @@ This guidance affects the business, technology, and culture of enterprises. The 
 
 Enter the **Cloud Architect**. The Cloud Architect serves as the thought leader and facilitator to bring these audiences together. This collection of guides is designed to help the Cloud Architect facilitate the right conversations with the right audiences to drive required decisions. Business transformation empowered by the cloud depends upon the Cloud Architect role to help guide decisions throughout the business and IT.
 
-Each section of the Cloud Adoption Framework represents a different specialization or variant of the Cloud Architect role. These sections also create opportunities to share cloud architecture responsibilities across a team of cloud architects. For example, the governance section is designed for cloud architects with a passion for mitigating technical risks. Some cloud providers refer to these specialists as Cloud Custodians; we prefer the term **Cloud Guardian**, or collectively, the Cloud Governance team.
+Each section of the Cloud Adoption Framework represents a different specialization or variant of the Cloud Architect role. These sections also create opportunities to share cloud architecture responsibilities across a team of cloud architects. For example, the governance section is designed for cloud architects with a passion for mitigating technical risks. Some cloud providers refer to these specialists as Cloud Custodians; we prefer the title **Cloud Guardian**, or collectively, the Cloud Governance team.
 
 ## How to use the Microsoft Cloud Adoption Framework for Azure
 
 If your enterprise is new to Azure, begin by reading [Getting Started with the Cloud Adoption Framework](./getting-started/index.md). This overview provides prescriptive guidance for your enterprise's digital transformation, walking you through each step of the process.
 
-If your enterprise has experience with Azure and is seeking more detailed guidance and best practices for specific areas, review the [Governance overview](./governance/index.md) and the [Architectural decision guides](./decision-guides/index.md). More sections will be added as the general availability release approaches.
+If your enterprise has experience with Azure and is seeking more detailed guidance and best practices for specific areas, review the [governance overview](./governance/index.md) and the [architectural decision guides](./decision-guides/index.md). More sections will be added as the general availability release approaches.
 
 > [!div class="nextstepaction"]
 > [Get started](./getting-started/index.md)

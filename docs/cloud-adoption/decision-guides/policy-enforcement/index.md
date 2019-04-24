@@ -21,7 +21,7 @@ As your cloud estate grows, you will be faced with a corresponding need to maint
 
 Platform-provided policy enforcement mechanisms at the resource or subscription level are usually sufficient for smaller cloud estates. Larger deployments justify a larger enforcement scope and may need to take advantage of more sophisticated enforcement mechanisms involving deployment standards, resource grouping and organization, and integrating policy enforcement with your logging and reporting systems.
 
-The primary factors in determining the scope of your policy enforcement processes is your organization's [cloud governance requirements](/azure/architecture/cloud-adoption/governance/overview), the size and nature of your cloud estate, and how your organization is reflected in your [subscription design](../subscriptions/index.md). An increase in size of your estate or a greater need to centrally manage policy enforcement can both  justify an increase in enforcement scope.
+The primary factors in determining the scope of your policy enforcement processes is your organization's [cloud governance requirements](/azure/architecture/cloud-adoption/governance/overview), the size and nature of your cloud estate, and how your organization is reflected in your [subscription design](../subscriptions/index.md). An increase in size of your estate or a greater need to centrally manage policy enforcement can both justify an increase in enforcement scope.
 
 ## Baseline recommended practices
 

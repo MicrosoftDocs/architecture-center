@@ -2,7 +2,7 @@
 title: "CAF: Azure operations best practices"
 description: Introduction to Azure operations best practices
 author: BrianBlanchard
-ms.date: 4/4/2019
+ms.date: 04/04/2019
 ---
 
 # Azure operations best practices

@@ -1,8 +1,9 @@
 ---
 title: "CAF: What business outcomes are associated with transformation journeys?"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Explanation of the business outcomes associated with cloud transformations
 author: BrianBlanchard
-ms.date: 4/4/2019
+ms.date: 04/04/2019
 ---
 
 <!-- markdownlint-disable -->
@@ -26,7 +27,7 @@ The following are a few business outcomes that tend to trigger conversations wit
 
 # Sample outcomes by category
 
-Speaking in business outcomes can feel like a foreign language to many technically minded individuals. To help ease translation, Microsoft curates a number of business outcome examples in the [Business Outcome Framework](../index.md). Use these samples  to help inspire and demonstrate business outcomes based on actual transformation journeys.
+Speaking in business outcomes can feel like a foreign language to many technically minded individuals. To help ease translation, Microsoft curates a number of business outcome examples in the [Business Outcome Framework](../index.md). Use these samples to help inspire and demonstrate business outcomes based on actual transformation journeys.
 
 To more quickly find the right business outcomes, they are divided into the following business outcome categories, which tend to drive consensus building conversations across business units:
 

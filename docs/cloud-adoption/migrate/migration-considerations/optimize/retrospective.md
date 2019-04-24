@@ -2,7 +2,7 @@
 title: "How do retrospectives help build a growth mindset?"
 description: A process within cloud migration that focuses on the tasks of migrating workloads to the cloud
 author: BrianBlanchard
-ms.date: 4/4/2019
+ms.date: 04/04/2019
 ---
 
 <!-- markdownlint-disable MD026 -->

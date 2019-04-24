@@ -44,7 +44,7 @@ The Cloud Governance team will be responsible for the following decisions and im
 
 ### Subscription design
 
-The decision on what subscription design to use determines how Azure subscriptions get structured and how Azure management groups will be used to  efficiently manage access, policies, and compliance of these subscription. In this narrative, the  governance team has chosen the **[Mixed](../../../decision-guides/subscriptions/index.md#mixed-patterns)** subscription design pattern.
+The decision on what subscription design to use determines how Azure subscriptions get structured and how Azure management groups will be used to efficiently manage access, policies, and compliance of these subscription. In this narrative, the governance team has chosen the **[Mixed](../../../decision-guides/subscriptions/index.md#mixed-patterns)** subscription design pattern.
 
 - As new requests for Azure resources arise, a "Department" should be established for each major business unit in each operating geography. Within each of the Departments, "Subscriptions" should be created for each application archetype.
 - An application archetype is a means of grouping applications with similar needs. Common examples include: Applications with protected data, governed applications (such as HIPAA or FedRAMP), low-risk applications, applications with on-premises dependencies, SAP or other mainframe applications in Azure, or applications that extend on-premises SAP or mainframe applications. Each organization has unique needs based on data classifications and the types of applications that support the business. Dependency mapping of the digital estate can help define the application archetypes in an organization.

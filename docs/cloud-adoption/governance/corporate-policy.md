@@ -52,7 +52,7 @@ Defining corporate policy focuses on identifying and mitigating business risks r
 
 <!-- markdownlint-disable MD033 -->
 
-<ul  class="panelContent cardsF">
+<ul class="panelContent cardsF">
 <li style="display: flex; flex-direction: column;">
     <a href="./policy-compliance/understanding-business-risk.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">

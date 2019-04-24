@@ -6,7 +6,7 @@ ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 description: Provides an overview of the initial organization alignment.
 author: petertaylor9999
-ms.date: 4/04/2019
+ms.date: 04/04/2019
 ---
 
 # Initial organization alignment

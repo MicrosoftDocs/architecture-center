@@ -2,7 +2,7 @@
 title: "Estimate cloud costs prior to migration"
 description: Explanation of the process of estimating cloud costs prior to migration
 author: BrianBlanchard
-ms.date: 4/4/2019
+ms.date: 04/04/2019
 ---
 
 # Estimate cloud costs

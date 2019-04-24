@@ -33,7 +33,7 @@ Here is the current state of the company’s IT and cloud operations:
 
 - IT operates two hosted infrastructure environments. One environment contains production assets. The second environment contains disaster recovery and some dev/test assets. These environments are hosted by two different providers. IT refers to these two datacenters as Prod and DR respectively.
 - IT entered the cloud by migrating all end-user email accounts to Office 365. This migration was completed six months ago. Few other IT assets have been deployed to the cloud.
-- The application development teams are working in a dev/test capacity to learn about cloud native capabilities.
+- The application development teams are working in a dev/test capacity to learn about cloud-native capabilities.
 - The business intelligence (BI) team is experimenting with big data in the cloud and curation of data on new platforms.
 - The company has a loosely defined policy stating that customer personally identifiable information (PII) and financial data cannot be hosted in the cloud, which limits mission-critical applications in the current deployments.
 - IT investments are controlled largely by capital expense. Those investments are planned yearly. In the past several years, investments have included little more than basic maintenance requirements.

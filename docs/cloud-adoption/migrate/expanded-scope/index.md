@@ -2,7 +2,7 @@
 title: "CAF: Cloud migration expanded scope checklist"
 description: Cloud migration expanded scope checklist
 author: BrianBlanchard
-ms.date: 4/4/2019
+ms.date: 04/04/2019
 ---
 
 # Expanded scope for cloud migration

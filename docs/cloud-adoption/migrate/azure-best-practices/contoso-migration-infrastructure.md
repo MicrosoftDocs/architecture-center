@@ -1,5 +1,6 @@
 ---
 title: "CAF: Application migration examples - Set up a migration infrastructure"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how Contoso sets up an Azure infrastructure for migration to Azure.
 services: azure-migrate
 author: BrianBlanchard
@@ -7,7 +8,6 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 10/1/2018
 ms.author: brblanch
-
 ---
 
 # Deploy a migration infrastructure
@@ -136,7 +136,7 @@ To set up a custom domain name they add it to the directory, add a DNS entry, an
     - In the **Custom domain names** list, they note the DNS information for the name. It's using an MX entry.
     - They need access to the name server to do this. They log into the Contoso.com domain, and create a new MX record for the DNS entry provided by Azure AD, using the details noted.
 
-3. After the DNS records propagate, in the details name for the domain, they click **Verify** to check the custom domain name.
+3. After the DNS records propagate, in the details name for the domain, they select **Verify** to check the custom domain name.
 
      ![Azure AD DNS](./media/contoso-migration-infrastructure/azure-ad-dns.png)
 
@@ -212,7 +212,7 @@ To facilitate integration, Contoso uses the [Azure AD Connect tool](/azure/activ
 
      ![Azure AD Connect Wizard](./media/contoso-migration-infrastructure/ad-connect-wiz3.png)
 
-5. In **Ready to configure**, they click **Start the synchronization process when configuration completes** to start the sync immediately. Then they install.
+5. In **Ready to configure**, they select **Start the synchronization process when configuration completes** to start the sync immediately. Then they install.
 
 Note that:
 
@@ -232,7 +232,7 @@ Azure [Role-Based Access Control (RBAC)](/azure/role-based-access-control/role-a
 
 Contoso admins now assigns roles to the Active Directory groups that they synchronized from on-premises.
 
-1. In the **ControlCobRG** resource group, they click **Access control (IAM)** > **Add role assignment**.
+1. In the **ControlCobRG** resource group, they select **Access control (IAM)** > **Add role assignment**.
 2. In **Add role assignment** > **Role**, > **Contributor**, they select the **ContosoCobRG** group from the list. The group then appears in the **Selected members** list.
 3. They repeat this with the same permissions for the other resource groups (except for **ContosoAzureAdmins**), by adding the Contributor permissions to the account that matches the resource group.
 4. For the **ContosoAzureAdmins**  group, they assign the **Owner** role.
@@ -347,7 +347,7 @@ It's critical that Contoso puts networks in place in a way that makes the hybrid
 
 To connect the two regions, Contoso has decided to implement a hub-to-hub network model:
 
-- Within each region, Contoso will use a hub-and-spoke model.
+- Within each region, Contoso will use a hub and spoke model.
 - To connect networks and hubs, Contoso will use Azure network peering.
 
 #### Network peering
@@ -369,7 +369,7 @@ Contoso will deploy a hub in each region. A hub is a virtual network (VNet) in A
 
     ![Global peering](./media/contoso-migration-infrastructure/global-peering.png)
 
-#### Hub-and-spoke within a region
+#### Hub and spoke model within a region
 
 Within each region, Contoso will deploy VNets for different purposes, as spoke networks from the region hub. VNets within a region use peering to connect to their hub, and to each other.
 
@@ -422,7 +422,7 @@ VNets in East US 2 are summarized in the following table.
 **VNET-DEV-EUS2** | 10.245.16.0/20 | VNET-HUB-EUS2
 **VNET-PROD-EUS2** | 10.245.32.0/20 | VNET-HUB-EUS2, VNET-PROD-CUS
 
-![Hub/spoke in primary region](./media/contoso-migration-infrastructure/primary-hub-peer.png)
+![Hub and spoke model in the primary region](./media/contoso-migration-infrastructure/primary-hub-peer.png)
 
 #### Subnets in the East US 2 Hub network (VNET-HUB-EUS2)
 
@@ -476,7 +476,7 @@ The VNets in Central US are summarized in the following table.
 **VNET-ASR-CUS** | 10.255.16.0/20 | VNET-HUB-CUS, VNET-PROD-CUS
 **VNET-PROD-CUS** | 10.255.32.0/20 | VNET-HUB-CUS, VNET-ASR-CUS, VNET-PROD-EUS2
 
-![Hub/spoke in paired region](./media/contoso-migration-infrastructure/paired-hub-peer.png)
+![Hub and spoke model in paired region](./media/contoso-migration-infrastructure/paired-hub-peer.png)
 
 #### Subnets in the Central US Hub network (VNET-HUB-CUS)
 
@@ -655,7 +655,7 @@ Contoso wants to get started with a couple of policies:
 
 Contoso uses the built-in policy definition **Allowed locations** to limit resource regions.
 
-1. In the Azure portal, click **All Services**, and search for **Policy**.
+1. In the Azure portal, select **All Services**, and search for **Policy**.
 2. Select **Assignments** > **Assign Policy**.
 3. In the policy list, select **Allowed locations**.
 4. Set **Scope** to the name of the Azure subscription, and select the two regions in the allowed list.
@@ -676,7 +676,7 @@ Contoso will use the built-in policy definition **Allow virtual machines SKUs** 
 
 Policies go into effect immediately, and Contoso can check resources for compliance.
 
-1. In the Azure portal, click the **Compliance** link.
+1. In the Azure portal, select the **Compliance** link.
 2. The compliance dashboard appears. You can drill down for further details.
 
     ![Policy compliance](./media/contoso-migration-infrastructure/policy-compliance.png)

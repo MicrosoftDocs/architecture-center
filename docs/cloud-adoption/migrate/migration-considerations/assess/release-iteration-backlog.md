@@ -2,7 +2,7 @@
 title: "Iteration and Release Backlog"
 description: Building an iteration and release backlog
 author: BrianBlanchard
-ms.date: 4/4/2019
+ms.date: 04/04/2019
 ---
 
 # Managing change in an incremental migration effort

@@ -29,17 +29,17 @@ Modern key management systems such as Azure Key Vault support storage and manage
 
 When planning a cloud migration, the following table can help you decide how to store and manage encryption keys, certificates, and secrets, which are critical for creating secure and manageable cloud deployments:
 
-| Question | Cloud Native | Bring your own key | Hold your own key |
+| Question | Cloud-native | Bring your own key | Hold your own key |
 |---------------------------------------------------------------------------------------------------------------------------------------|--------------|--------|-------------|
 | Does your organization lack centralized key and secret management?                                                                    | Yes          | No     | No          |
 | Will you need to limit the creation of keys and secrets to devices to your on-premises hardware, while using these keys in the cloud? | No           | Yes    | No          |
 | Does your organization have rules or policies in place that would prevent keys from being stored offsite?                | No           | No     | Yes         |
 
-### Cloud native
+### Cloud-native
 
-With cloud native key management, all keys and secrets are generated, managed, and stored in a cloud-based vault such as Azure Key Vault. This approach simplifies many IT tasks related to key management, such as key backup, storage, and renewal.
+With cloud-native key management, all keys and secrets are generated, managed, and stored in a cloud-based vault such as Azure Key Vault. This approach simplifies many IT tasks related to key management, such as key backup, storage, and renewal.
 
-Using a cloud native key management system assumes the following:
+Using a cloud-native key management system assumes the following:
 
 - You trust the cloud key management solution with creating, managing, and hosting your organization's secrets and keys.
 - You enable all on-premises applications and services that rely on accessing encryption services or secrets to access the cloud key management system.

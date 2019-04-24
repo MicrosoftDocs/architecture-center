@@ -1,8 +1,9 @@
 ---
 title: "CAF: Examples of Global Reach Outcomes"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Examples of Global Reach Outcomes
 author: BrianBlanchard
-ms.date: 4/4/2019
+ms.date: 04/04/2019
 ---
 
 # CAF: Examples of Global Reach Outcomes

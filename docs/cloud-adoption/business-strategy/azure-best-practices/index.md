@@ -1,8 +1,9 @@
 ---
 title: "CAF: Azure planning best practices"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Introduction to Azure planning best practices
 author: BrianBlanchard
-ms.date: 4/4/2019
+ms.date: 04/04/2019
 ---
 
 # Azure planning best practices

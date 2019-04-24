@@ -62,18 +62,18 @@ A number of technical and nontechnical prerequisites are required to successfull
   * If federated, enable tenant restrictions for administrative accounts.
 * Integrate your on-premises and cloud directories.
 * Consider using the following access models:
-  * [Least Privilege Access](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) model
-  * [Privileged Identity Baseline](/azure/active-directory/privileged-identity-management/pim-configure) access model
+  * [Least Privilege Access](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) model.
+  * [Privileged Identity Baseline](/azure/active-directory/privileged-identity-management/pim-configure) access model.
 * Finalize all preintegration details and review [Identity Best Practices](/azure/security/azure-security-identity-management-best-practices).
-  * Enable single identity, single sign-on (SSO), or seamless SSO
-  * Configure multi-factor authentication for administrators
-  * Consolidate or integrate identity providers, where necessary
-  * Implement tooling necessary to centralize management of identities
-  * Enable just-in-time (JIT) access and role change alerting
-  * Conduct a risk analysis of key admin activities for assigning to built-in roles
-  * Consider an updated rollout of stronger authentication for all users
-  * Enable Privileged Identity Baseline (PIM) for JIT (using time-limited activation) for additional administrative roles
-  * Separate user accounts from Global admin accounts (to make sure that administrators do not inadvertently open emails or run programs associated with their Global admin accounts)
+  * Enable single identity, single sign-on (SSO), or seamless SSO.
+  * Configure multi-factor authentication for administrators.
+  * Consolidate or integrate identity providers, where necessary.
+  * Implement tooling necessary to centralize management of identities.
+  * Enable just-in-time (JIT) access and role change alerting.
+  * Conduct a risk analysis of key admin activities for assigning to built-in roles.
+  * Consider an updated rollout of stronger authentication for all users.
+  * Enable Privileged Identity Baseline (PIM) for JIT (using time-limited activation) for additional administrative roles.
+  * Separate user accounts from Global admin accounts (to make sure that administrators do not inadvertently open emails or run programs associated with their Global admin accounts).
 
 ## Adopt and migrate
 

@@ -5,7 +5,7 @@ ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 ms.date: 02/11/2019
-description: Discussion of cloud native virtual networking services
+description: Discussion of cloud-native virtual networking services
 author: rotycenh
 ---
 
@@ -46,5 +46,5 @@ Hub and spoke architectures are commonly implemented with virtual networks deplo
 
 For examples of how to implement hub and spoke networks on Azure, see the following examples on the Azure Reference Architectures site:
 
-- [Implement a hub-spoke network topology in Azure](../../../reference-architectures/hybrid-networking/hub-spoke.md)
-- [Implement a hub-spoke network topology with shared services in Azure](../../../reference-architectures/hybrid-networking/shared-services.md)
+- [Implement a hub and spoke network topology in Azure](../../../reference-architectures/hybrid-networking/hub-spoke.md)
+- [Implement a hub and spoke network topology with shared services in Azure](../../../reference-architectures/hybrid-networking/shared-services.md)

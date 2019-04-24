@@ -3,7 +3,7 @@ title: "CAF: Simple Migration Journey"
 description: Learn how to migrate your services to Azure effectively for your organization, with step-by-step guidance.
 author: matticusau
 ms.author: mlavery
-ms.date: 4/4/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: "fasttrack-new"
@@ -17,21 +17,21 @@ ms.custom: "fasttrack-new"
 
 ::: zone target="docs"
 
-# Introduction
+# Introduction to the Azure migration guide
 
 ::: zone-end
 
-Before you migrate resources to your Azure environment, you need to choose the migration methodology and features you'll use to govern and secure your environment. This playbook walks you through this journey and decision process.
+Before you migrate resources to Azure, you need to choose the migration methodology and features you'll use to govern and secure your environment. This playbook leads you through this journey and decision process.
 
 ::: zone target="docs"
 
-For the best experience, view this playbook in the Azure portal. Go to the **Azure QuickStart Center** in the Azure portal and select **Migrate your environment to Azure**. The Azure QuickStart Center is currently in preview.
+For the best experience, view this playbook in the Azure portal. Go to the **QuickStart Center** in the Azure portal and select **Migrate your environment to Azure**. The QuickStart Center is currently in preview.
 
 ::: zone-end
 
 # [Overview](#tab/Overview)
 
-This guide covers the **rehost** migration journey. Also known as **lift-and-shift**, a rehost effort moves the current state asset to the chosen cloud provider, with minimal changes to overall architecture. This guide is designed for migration scopes with low complexity. To determine the suitability of this scope for your needs, see the **When to use this guide** tab.
+This guide covers the **rehost** migration journey. Also known as **lift-and-shift**, a rehost effort moves current state assets to the chosen cloud provider, with minimal changes to overall architecture. This guide is designed for migration efforts with low complexity. To determine whether this scope meets your needs, see the **When to use this guide** tab.
 
 When you migrate to Azure, you may migrate resources as-is. However, you may have flexibility regarding the types of resources, where they are located, and how to set them up. As you consider your migration strategy, you might ask:
 
@@ -39,7 +39,7 @@ When you migrate to Azure, you may migrate resources as-is. However, you may hav
 - How do I minimize downtime during the migration?
 - How do I control costs?
 - How do I track resource costs and bill them accurately?
-- How do I ensure I remain compliant and meet regulations?
+- How do I ensure we remain compliant and meet regulations?
 - How do I meet legal requirements for data sovereignty in certain countries?
 
 This guide helps address those questions. It suggests the tasks and features you should consider as you prepare to deploy resources in Azure, including:
@@ -52,7 +52,7 @@ This guide helps address those questions. It suggests the tasks and features you
 > - **Manage costs and billing.** Look at the costs of your resources.
 > - **Organize your resources.** Lock resources critical to your system and tag resources to track them.
 > - **Optimize and transform.** Use the post-migration opportunity to review your resources.
-> - **Secure and manage.** Ensure that your environment is secure and  monitored properly.
+> - **Secure and manage.** Ensure that your environment is secure and monitored properly.
 > - **Get assistance.** Get help and support during your migration or post-migration activities.
 
 ::: zone target="docs"

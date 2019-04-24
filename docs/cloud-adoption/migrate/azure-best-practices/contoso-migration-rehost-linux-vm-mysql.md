@@ -5,7 +5,7 @@ description: Learn how Contoso rehosts an on-premises Linux app by migrating it 
 author: BrianBlanchard
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/4/2019
+ms.date: 04/04/2019
 ms.author: brblanch
 ---
 

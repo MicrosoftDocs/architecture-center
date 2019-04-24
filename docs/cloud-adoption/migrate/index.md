@@ -3,7 +3,7 @@ title: "CAF: Cloud Migration"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Explanation of Cloud Migration Overview
 author: BrianBlanchard
-ms.date: 4/4/2019
+ms.date: 04/04/2019
 layout: LandingPage
 ms.topic: landing-page
 ---
@@ -16,7 +16,7 @@ Cloud migration is the process of moving existing digital assets into a cloud pl
 
 In any balanced technology portfolio, there is a mixture of assets in various states. Some applications are slated for retirement, with minimal support. Other applications or assets are supported in a maintenance state, but the features associated with those solutions are stable. For newer processes within the business, changing market conditions will likely result in ongoing feature enhancements or modernization. When opportunities to drive new revenue streams present themselves, net new applications or assets are introduced into the environment. At each stage of an asset's lifecycle, the impact any investment has on revenue and profit will change. The later an asset is in its lifecycle, the less likely a company is to see a return from a new feature or modernization investment.
 
-The cloud provides various adoption mechanisms, each with similar degrees of investment and return. Building cloud native applications can significantly reduce operating expenses. Once a cloud native application is released, new features and solutions can iterate faster. Modernizing an application can have similar yields, by removing legacy constraints associated with on-premises development models. Unfortunately, these two approaches are labor-intensive and have a strong dependency on the size, skill, and experience of software development teams. Sadly, there is commonly a labor misalignment. The people with the skills and talent to modernize applications would much rather be building new applications. In a labor constrained market, modernization projects at scale can suffer from an employee satisfaction and talent issue. In a balanced portfolio, this approach should be reserved for applications that would receive significant feature enhancements, if they remained on-premises.
+The cloud provides various adoption mechanisms, each with similar degrees of investment and return. Building cloud-native applications can significantly reduce operating expenses. Once a cloud-native application is released, new features and solutions can iterate faster. Modernizing an application can have similar yields, by removing legacy constraints associated with on-premises development models. Unfortunately, these two approaches are labor-intensive and have a strong dependency on the size, skill, and experience of software development teams. Sadly, there is commonly a labor misalignment. The people with the skills and talent to modernize applications would much rather be building new applications. In a labor constrained market, modernization projects at scale can suffer from an employee satisfaction and talent issue. In a balanced portfolio, this approach should be reserved for applications that would receive significant feature enhancements, if they remained on-premises.
 
 ## Cloud migration guides
 
@@ -59,7 +59,7 @@ To start down an adoption path, choose one of the following guides. Each guide o
 
 ## Establishing an end state
 
-A journey without a target destination is just wandering. It’s important to establish a rough vision of the end state before taking the first step. The infographic below outlines a starting point consisting of existing applications, data, and infrastructure, which defines the Digital Estate. During the migration process, those assets are transitioned into one of the options on the right.
+A journey without a target destination is just wandering. It’s important to establish a rough vision of the end state before taking the first step. The infographic below outlines a starting point consisting of existing applications, data, and infrastructure, which defines the digital estate. During the migration process, those assets are transitioned into one of the options on the right.
 
 ![Infographic of the migration options](../_images/migration/migration-options.png)
 

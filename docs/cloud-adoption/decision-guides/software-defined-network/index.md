@@ -5,7 +5,7 @@ ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 ms.date: 02/11/2019
-description: Discussion of Software Defined Networks as a core service in Azure migrations
+description: Learn about Software Defined Networks as a core service in Azure migrations.
 author: rotycenh
 ---
 
@@ -17,13 +17,13 @@ Software Defined Networking (SDN) is a network architecture designed to allow vi
 
 ![Plotting networking options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-sdn.png)
 
-Jump to: [PaaS Only](paas-only.md) | [Cloud native](cloud-native.md) | | [Cloud DMZ](cloud-dmz.md) [Hybrid](hybrid.md) | [Hub/Spoke model](hub-spoke.md) | [Learn more](#learn-more)
+Jump to: [PaaS Only](paas-only.md) | [Cloud-native](cloud-native.md) | | [Cloud DMZ](cloud-dmz.md) [Hybrid](hybrid.md) | [Hub and spoke model](hub-spoke.md) | [Learn more](#learn-more)
 
 SDN provides several options with varying degrees of pricing and complexity. The above discovery guide provides a reference to quickly personalize these options to best align with specific business and technology strategies.
 
-The inflection point in this guide depends on several key decisions that your Cloud Strategy team have made before making decisions about networking architecture. Most important among these are decisions involving your [Digital Estate definition](../../digital-estate/index.md) and [Subscription Design](../subscriptions/index.md) (which may also require inputs from decisions made related to your cloud accounting and global markets strategies).
+The inflection point in this guide depends on several key decisions that your Cloud Strategy team have made before making decisions about networking architecture. Most important among these are decisions involving your [digital estate definition](../../digital-estate/index.md) and [subscription design](../subscriptions/index.md) (which may also require inputs from decisions made related to your cloud accounting and global markets strategies).
 
-Small, single region deployments of less than 1,000 VMs are less likely to be significantly affected by this inflection point. Conversely, large adoption efforts with more than 1,000 VMs, multiple business units, or multiple geo-politic markets, could be substantially affected by your SDN decision and this key inflection point.
+Small, single region deployments of less than 1,000 VMs are less likely to be significantly affected by this inflection point. Conversely, large adoption efforts with more than 1,000 VMs, multiple business units, or multiple geopolitical markets, could be substantially affected by your SDN decision and this key inflection point.
 
 ## Choosing the right virtual networking architectures
 
@@ -33,7 +33,7 @@ There are many ways to implement SDN technologies to create cloud-based virtual 
 
 When planning which virtual networking architecture or combination of architectures to consider when planning your cloud migration, consider the following questions to help determine what's right for your organization:
 
-| Question | PaaS Only | Cloud Native | Cloud DMZ | Hybrid | Hub and Spoke |
+| Question | PaaS-only | Cloud-native | Cloud DMZ | Hybrid | Hub and spoke |
 |-----|-----|-----|-----|-----|-----|
 | Will your workload only use PaaS services and not require networking capabilities beyond those provided by the services themselves? | Yes | No | No | No | No |
 | Does your workload require integration with on-premises applications? | No | No | Yes | Yes | Yes |
@@ -46,11 +46,11 @@ When planning which virtual networking architecture or combination of architectu
 
 Learn more about the primary software defined networking architectures:
 
-- [**PaaS Only**](paas-only.md) : Most platform as a service (PaaS) products support a limited set of built-in networking features and may not require an explicitly defined software defined network to support workload requirements.
-- [**Cloud Native**](cloud-native.md) : A cloud native architecture supports cloud-based workloads using virtual networks built on the cloud platform's default software defined networking capabilities, without reliance on on-premises or other external resources.
-- [**Cloud DMZ**](cloud-dmz.md) : Supports limited connectivity between your on-premises and cloud networks, secured through the implementation of a demilitarized zone tightly controlling traffic between the two environments.
-- [**Hybrid**](hybrid.md) : The hybrid cloud network architecture allows virtual networks in trusted cloud environments to access your on-premises resources and vice versa.
-- [**Hub and Spoke**](hub-spoke.md) : The hub and spoke architecture allows you to centrally manage external connectivity and shared services, isolate individual workloads, and overcome potential subscription limits.
+- **[PaaS-only](paas-only.md):** Most platform as a service (PaaS) products support a limited set of built-in networking features and may not require an explicitly defined software defined network to support workload requirements.
+- **[Cloud-native](cloud-native.md):** A cloud-native architecture supports cloud-based workloads using virtual networks built on the cloud platform's default software defined networking capabilities, without reliance on on-premises or other external resources.
+- **[Cloud DMZ](cloud-dmz.md):** Supports limited connectivity between your on-premises and cloud networks, secured through the implementation of a demilitarized zone tightly controlling traffic between the two environments.
+- **[Hybrid](hybrid.md):** The hybrid cloud network architecture allows virtual networks in trusted cloud environments to access your on-premises resources and vice versa.
+- **[Hub and spoke](hub-spoke.md):** The hub and spoke architecture allows you to centrally manage external connectivity and shared services, isolate individual workloads, and overcome potential subscription limits.
 
 ## Learn more
 

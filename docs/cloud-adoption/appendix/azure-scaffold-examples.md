@@ -1,5 +1,6 @@
 ---
 title: Scenarios and examples for subscription governance
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Provides examples of how to implement Azure subscription governance for common scenarios.
 author: rdendtler
 ms.date: 01/03/2017
@@ -25,7 +26,7 @@ The following personas are used in this article:
 - Dave is the ETS Azure administrator.
 - Alice is Contoso's Director of Development in the supply chain business unit.
 
-Contoso needs to build a line-of-business app and a customer-facing app. It has decided to run the apps on Azure. Dave reads the [prescriptive subscription governance](azure-scaffold.md) article, and  is now ready to implement the recommendations.
+Contoso needs to build a line-of-business app and a customer-facing app. It has decided to run the apps on Azure. Dave reads the [prescriptive subscription governance](azure-scaffold.md) article, and is now ready to implement the recommendations.
 
 ## Scenario 1: line-of-business application
 

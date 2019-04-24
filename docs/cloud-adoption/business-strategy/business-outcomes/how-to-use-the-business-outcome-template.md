@@ -1,8 +1,9 @@
 ---
 title: "CAF: How to use the business outcome template"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Explanation of the business outcome template
 author: BrianBlanchard
-ms.date: 4/4/2019
+ms.date: 04/04/2019
 ---
 
 # CAF: How to use the business outcome template

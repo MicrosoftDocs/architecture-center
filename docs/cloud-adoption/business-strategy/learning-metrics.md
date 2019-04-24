@@ -1,8 +1,9 @@
 ---
 title: "CAF: How can we align efforts to meaningful learning metrics?"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Explanation of the concept of learning metrics
 author: BrianBlanchard
-ms.date: 4/4/2019
+ms.date: 04/04/2019
 ---
 
 <!-- markdownlint-disable MD026 -->
@@ -19,7 +20,7 @@ As with much of the material in this framework, it is assumed that the reader is
 
 As the number of VMs is moved, the dependence on on-premises legacy assets is reduced. The cost of asset maintenance is also reduced. Unfortunately, businesses can't realize the cost reduction until clusters are deprovisioned and datacenter leases expire. In many cases, the full value of the effort isn't realized until the depreciation cycles are complete.
 
-Always align with the CFO or finance office before making financial statements. However, IT teams can generally estimate  current money cost and future money cost values for each VM based on CPU, memory, and storage consumed. That value can then be applied to each migrated VM to show estimate the immediate cost savings of the effort, as well as the future money value of the effort.
+Always align with the CFO or finance office before making financial statements. However, IT teams can generally estimate current monetary cost and future monetary cost values for each VM based on CPU, memory, and storage consumed. That value can then be applied to each migrated VM to show estimate the immediate cost savings of the effort, as well as the future money value of the effort.
 
 **Application innovation:** Cloud enabled application innovation, focuses largely on the customer experience and the customer's willingness to consume products and services provided by the company. Increments of change take time to affect consumer or customer buying behaviors. However, these cycles tend to be much shorter than they are in the other forms of transformation. It is often advised that the team start with an understanding of the specific behaviors to be influenced and use those as the learning metrics. For example, in an e-commerce application, total purchases or add-on purchases could be the target behavior. In a video company, time watching video streams could be another.
 

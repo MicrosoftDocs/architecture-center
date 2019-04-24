@@ -70,7 +70,7 @@ Qualitative analysis factors:
 
 Some aging applications aren't compatible with cloud providers because of the architectural decisions made when the application was built. In these cases, the application may need to be rearchitected prior to transformation.
 
-In other cases, applications that are cloud compatible, but not cloud native benefits, may produce cost efficiencies and operational efficiencies by rearchitecting the solution to be a cloud-native application.
+In other cases, applications that are cloud compatible, but not cloud-native benefits, may produce cost efficiencies and operational efficiencies by rearchitecting the solution to be a cloud-native application.
 
 Common drivers could include:
 
@@ -93,7 +93,7 @@ Qualitative analysis factors:
 
 ## Rebuild
 
-In some scenarios, the delta that must be overcome to carry forward an application can be too large to justify further investment. This is especially true for applications that used to meet the needs of the business, but are now unsupported or misaligned with how the business processes are executed today. In this case, a new code base is created to align with a [cloud native](https://azure.microsoft.com/overview/cloudnative) approach.
+In some scenarios, the delta that must be overcome to carry forward an application can be too large to justify further investment. This is especially true for applications that used to meet the needs of the business, but are now unsupported or misaligned with how the business processes are executed today. In this case, a new code base is created to align with a [cloud-native](https://azure.microsoft.com/overview/cloudnative) approach.
 
 Common drivers could include:
 

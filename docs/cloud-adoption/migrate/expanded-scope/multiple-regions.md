@@ -2,7 +2,7 @@
 title: "CAF: Addressing the complexity of migrating multiple geographical regions"
 description: Addressing the complexity of migrating multiple geographical regions
 author: BrianBlanchard
-ms.date: 4/4/2019
+ms.date: 04/04/2019
 ---
 
 # Multiple geographic regions
@@ -64,17 +64,17 @@ It is suggested that the Cloud Adoption team begin with the migration of a simpl
 
 When scope for a migration includes multiple regions, the following readiness considerations should be evaluated by the Cloud Adoption team:
 
-- Data sovereignty might require localization of some assets, but there are a many assets that may not be governed by those compliance constraints. Things like logging, reporting, network routing, identity, and other central IT services may be eligible to be hosted as a shared services across multiple subscriptions or even multiple regions. It is advised that the cloud adoption team evaluate a share service model to those services, as outlined in the [reference architecture for a hub-spoke model with shared services](/azure/architecture/reference-architectures/hybrid-networking/shared-services)
+- Data sovereignty might require localization of some assets, but there are a many assets that may not be governed by those compliance constraints. Things like logging, reporting, network routing, identity, and other central IT services may be eligible to be hosted as a shared services across multiple subscriptions or even multiple regions. It is advised that the cloud adoption team evaluate a share service model to those services, as outlined in the [reference architecture for a hub and spoke topology with shared services](/azure/architecture/reference-architectures/hybrid-networking/shared-services)
 - When deploying multiple instances of similar environments, an environment factory could create consistency, improve governance, and accelerate deployment. The [large enterprise governance journey](../../governance/journeys/large-enterprise/index.md) establishes an approach that creates an environment factory which scales across multiple regions.
 
 Once the team is comfortable with the baseline approach and readiness is aligned, there are a few data-driven prerequisites to consider:
 
-- General discovery: Complete the [Documenting complexity](#documenting-complexity) table above.
-- Perform a user profile analysis on each affected country: It is important to understand general end user routing early in the migration process. Changing global lease lines and adding connections like ExpressRoute to a cloud datacenter can require months of networking delays. Address this as early in the process as possible. **TODO: Can any tools in Azure create a network routing profile from on-premises users to on-premises workloads?**
-- Initial Digital Estate rationalization: Any time complexity is introduced into a migration strategy, an initial digital estate rationalization should be completed. See the guidance on [Digital Estate rationalization](../../digital-estate/index.md) for assistance.
-  - Additional digital estate requirements: Establish tagging policies to identify any workload affected by data sovereignty requirements. Required tags should begin in the digital estate rationalization and carry through to the migrated assets.
-- Evaluate a hub-spoke model: Distribute systems often share a number of common dependencies. Those dependencies can often be addressed through the implementation of a hub-spoke model. While such a model is out of scope for the migration process, it should be flagged for consideration during future iterations of the [Ready processes](../../ready/index.md).
-- Prioritization of the migration backlog: When network changes are required to support the production deployment of a workload that supports multiple regions, it is important for the Cloud Strategy team to track and manage escalations regarding those network changes. The higher level of executive support will aid in accelerating the change. However, the more important impact is that it gives the strategy team an ability to reprioritize the backlog to ensure that global workloads aren't roadblocked by network changes. Such workloads should only be prioritized, after the network changes are complete.
+- **General discovery:** Complete the [Documenting complexity](#documenting-complexity) table above.
+- **Perform a user profile analysis on each affected country:** It is important to understand general end user routing early in the migration process. Changing global lease lines and adding connections like ExpressRoute to a cloud datacenter can require months of networking delays. Address this as early in the process as possible. **TODO: Can any tools in Azure create a network routing profile from on-premises users to on-premises workloads?**
+- **Initial digital estate rationalization:** Any time complexity is introduced into a migration strategy, an initial digital estate rationalization should be completed. See the guidance on [digital estate rationalization](../../digital-estate/index.md) for assistance.
+  - **Additional digital estate requirements:** Establish tagging policies to identify any workload affected by data sovereignty requirements. Required tags should begin in the digital estate rationalization and carry through to the migrated assets.
+- **Evaluate a hub and spoke model:** Distribute systems often share a number of common dependencies. Those dependencies can often be addressed through the implementation of a hub and spoke model. While such a model is out of scope for the migration process, it should be flagged for consideration during future iterations of the [Ready processes](../../ready/index.md).
+- **Prioritization of the migration backlog:** When network changes are required to support the production deployment of a workload that supports multiple regions, it is important for the Cloud Strategy team to track and manage escalations regarding those network changes. The higher level of executive support will aid in accelerating the change. However, the more important impact is that it gives the strategy team an ability to reprioritize the backlog to ensure that global workloads aren't roadblocked by network changes. Such workloads should only be prioritized, after the network changes are complete.
 
 These prerequisites will help establish processes that can address this complexity during execution of the migration strategy.
 

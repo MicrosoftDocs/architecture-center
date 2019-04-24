@@ -3,7 +3,7 @@ title: "CAF: Secure and Manage"
 description: Secure and Manage
 author: matticusau
 ms.author: mlavery
-ms.date: 4/4/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: "fasttrack-new"
@@ -158,13 +158,13 @@ Azure Backup is the Azure-based service you can use to back up (or protect) and 
 
 ## Enable backup for an Azure VM
 
-1. In the Azure portal, click **Virtual machines**, and select the VM you want to replicate.
-1. In **Operations**, click **Backup**.
-1. Create or select an existing Recovery Services Vault
-1. Click **Create (or edit) a new policy**.
-1. Configure the schedule and retention period
-1. Click OK
-1. Click Enable Backup
+1. In the Azure portal, select **Virtual machines**, and select the VM you want to replicate.
+1. In **Operations**, select **Backup**.
+1. Create or select an existing Recovery Services vault.
+1. Select **Create (or edit) a new policy**.
+1. Configure the schedule and retention period.
+1. Select **OK**.
+1. Select **Enable Backup**.
 
 ::: zone target="chromeless"
 
@@ -200,8 +200,8 @@ The following steps outline the process to use Site Recovery service to replicat
 
 ## Enable replication for the Azure VM
 
-1. In the Azure portal, click **Virtual machines**, and select the VM you want to replicate.
-1. In **Operations**, click **Disaster recovery**.
+1. In the Azure portal, select **Virtual machines**, and select the VM you want to replicate.
+1. In **Operations**, select **Disaster recovery**.
 1. In **Configure disaster recovery** > **Target region** select the target region to which you'll replicate.
 1. For this Quickstart, accept the other default settings.
 1. Click **Enable replication**. This starts a job to enable replication for the VM.
@@ -216,7 +216,7 @@ The following steps outline the process to use Site Recovery service to replicat
 
 After the replication job has finished, you can check the replication status, modify replication settings, and test the deployment.
 
-1. In the VM menu, click **Disaster recovery**.
+1. In the VM menu, select **Disaster recovery**.
 2. You can verify replication health, the recovery points that have been created, and source, target regions on the map.
 
 ::: zone target="chromeless"

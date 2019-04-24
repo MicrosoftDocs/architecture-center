@@ -1,8 +1,9 @@
 ---
 title: "CAF: Understanding the impact of global markets"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Explanation of the concept of global markets
 author: BrianBlanchard
-ms.date: 4/4/2019
+ms.date: 04/04/2019
 ---
 
 <!-- markdownlint-disable MD026 -->

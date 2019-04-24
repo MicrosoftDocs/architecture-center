@@ -1,22 +1,27 @@
 ---
-title: "CAF: Migrate"
-description: Introduction to Cloud migration
+title: "CAF: Getting started with a cloud migration journey"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+description: Getting started with a cloud migration journey
 author: BrianBlanchard
-ms.date: 4/4/2019
+ms.date: 04/04/2019
 ---
 
-# Cloud migration executive summary
+# Getting started with a cloud migration journey
 
-Microsoft has defined a cloud adoption framework, to help customers with a simplified cloud adoption journey. The Cloud Adoption Framework is designed to provide comprehensive guidance for transitioning legacy application workloads using modern, innovative, cloud-based technologies. This framework contains detailed information to cover an end-to-end cloud adoption journey, which starts with targeted business outcomes, aligning cloud readiness and assessments to clearly defined business objectives. Those outcomes are then realized through a defined path for cloud adoption. With migration-based adoption, that defined path focuses largely on the completion of a migration from on-premises to the cloud. Sometimes this journey includes modernization of workloads to increase returns from the migration effort.
+Learn about using the Microsoft Cloud Adoption Framework for Azure to begin a cloud migration journey. This framework provides comprehensive guidance for transitioning legacy application workloads using innovative cloud-based technologies.
 
-This framework is designed to speak most directly to cloud architects and the Cloud Strategy team who lead cloud adoption efforts. However, many of the topics in this framework will be relevant to additional roles across the business and IT. It is assumed that cloud architects will serve as facilitators engaging each of the relevant roles. This executive summary is designed to prepare those various roles prior to those facilitated conversations.
+## Executive summary
+
+The Cloud Adoption Framework helps customers undertake a simplified cloud adoption journey. This framework contains detailed information covering an end-to-end cloud adoption journey, starting with targeted business outcomes and aligning cloud readiness and assessments with clearly defined business objectives. Those outcomes are achieved through a defined path for cloud adoption. With migration-based adoption, the defined path focuses largely on completing a migration of on-premises workloads to the cloud. Sometimes this journey includes modernization of workloads to increase the return on investment from the migration effort.
+
+This framework is designed primarily for cloud architects and the cloud strategy teams leading cloud adoption efforts. However, many topics in this framework are relevant to other roles across the business and IT. Cloud architects frequently serve as facilitators to engage each of the relevant roles. This executive summary is designed to prepare the various roles prior to facilitating conversations.
 
 > [!NOTE]
-> This guidance is currently available as a public preview. Terminology, approaches, and guidance are being thoroughly tested with customers, partners, and Microsoft teams during this preview. As such, the TOC and guidance may change slightly over time.
+> This guidance is currently a public preview. Terminology, approaches, and guidance are being thoroughly tested with customers, partners, and Microsoft teams during this preview. As such, the TOC and guidance may change slightly over time.
 
 ## Motivations and methodology
 
-The motivation or business outcome driving a cloud migration can heavily influence the best approach to migration. Cloud migrations can align to a number of business outcomes. Clear communication of business drivers and the measures of  success is an important first step in cloud migration efforts. The following are a few examples of common migration motivations, grouped by the methodology (or type of migration).
+The motivation or desired business outcome for a cloud migration often determines the best approach to migration. Cloud migrations can align to a number of business outcomes. Clear communication of business drivers and measures of success is an important first step in cloud migration efforts. The following are a few examples of common migration motivations, grouped by migration methodology.
 
 ### Asset migration
 
@@ -63,13 +68,13 @@ This methodology is based on an incremental approach to cloud adoption that alig
 
 As depicted in the image above, this framework aligns strategic decisions to a small number of contained processes, which operate within an iterative model:
 
-- [Plan](../business-strategy/index.md): When technical implementation is aligned with clear business objectives, it's much easier to measure and align success across multiple cloud adoption efforts.
-- [Ready](../ready/index.md): Preparing the business, culture, people, and environment for coming changes leads to success in each effort and accelerates implementation and change projects.
-- Adopt: Ensure proper implementation of desired changes, across IT and business processes, to achieve business outcomes.
-  - [Migrate](../migrate/index.md): Iterative execution of the cloud migration adhering to the tested process of Assess, Migrate, Optimize, and Secure & Manage to create a repeatable process for migrating collections of IT assets.
-  - [Operate](../operations/index.md): Expand IT operations to ensure cloud-based solutions can be operated through secure, cost effective processes using modern, cloud-first operations tools
-  - [Govern](../governance/index.md): Align corporate policy to tangible risks, mitigated through policy, process, and cloud-based governance tooling.
-  - Change management and oversight: Iterative approaches to implementation will be seen throughout this framework, which provides business and IT teams with a growth mindset approach to addressing ambiguity, learning, and succeeding in the fast paced environments demanded in today's marketplaces.
+- **[Plan](../business-strategy/index.md):** When technical implementation is aligned with clear business objectives, it's much easier to measure and align success across multiple cloud adoption efforts.
+- **[Ready](../ready/index.md):** Preparing the business, culture, people, and environment for coming changes leads to success in each effort and accelerates implementation and change projects.
+- **Adopt:** Ensure proper implementation of desired changes, across IT and business processes, to achieve business outcomes.
+  - **[Migrate](../migrate/index.md):** Iterative execution of the cloud migration adhering to the tested process of Assess, Migrate, Optimize, and Secure & Manage to create a repeatable process for migrating collections of IT assets.
+  - **[Operate](../operations/index.md):** Expand IT operations to ensure cloud-based solutions can be operated through secure, cost effective processes using modern, cloud-first operations tools.
+  - **[Govern](../governance/index.md):** Align corporate policy to tangible risks, mitigated through policy, process, and cloud-based governance tooling.
+  - **Change management and oversight:** Iterative approaches to implementation will be seen throughout this framework, which provides business and IT teams with a growth mindset approach to addressing ambiguity, learning, and succeeding in the fast paced environments demanded in today's marketplaces.
 
 Throughout this migration experience this framework will be used to address ambiguity, manage change, and guide cross-functional teams through the realization of business outcomes.
 
