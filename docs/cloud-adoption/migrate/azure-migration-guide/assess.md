@@ -6,7 +6,7 @@ ms.author: mlavery
 ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: azure-portal
-ms.custom: fasttrack, new
+ms.custom: fasttrack-new
 ---
 
 # Assess the digital estate
@@ -153,7 +153,7 @@ Some of the factors to consider when evaluating the timeline of your migration a
 
 # [Cost Management](#tab/ManageCost)
 
-As you assess your environment, this presents a perfect opportunity to include a cost analysis step within those activities. Using the data collected by the assessment activities you should be able to analyse and predict costs. This cost prediction should factor both the consumption service costs in addition to any one-time costs (such as increased data ingress).
+As you assess your environment, this presents a perfect opportunity to include a cost analysis step. Using the data collected by the assessment activities you should be able to analyse and predict costs. This cost prediction should factor both the consumption service costs in addition to any one-time costs (such as increased data ingress).
 
 During migration, there are a number of factors that will affect decisions and execution activities:
 
