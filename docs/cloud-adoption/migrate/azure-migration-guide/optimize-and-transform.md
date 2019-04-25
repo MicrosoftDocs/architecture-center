@@ -45,13 +45,13 @@ The following are some common services that you can resize.
 
 ::: zone target="docs"
 
-* [Manage Reservations for Azure resources](/azure/billing/billing-manage-reserved-vm-instance)
-* [Resize a Windows VM](/azure/virtual-machines/windows/resize-vm)
-* [Resize a Linux virtual machine using Azure CLI](/azure/virtual-machines/linux/change-vm-size)
+- [Manage Reservations for Azure resources](/azure/billing/billing-manage-reserved-vm-instance)
+- [Resize a Windows VM](/azure/virtual-machines/windows/resize-vm)
+- [Resize a Linux virtual machine using Azure CLI](/azure/virtual-machines/linux/change-vm-size)
 
 Partners can use the Partner Center to review the usage.
 
-* [Microsoft Azure VM sizing for maximum reservation usage](/partner-center/azure-usage)
+- [Microsoft Azure VM sizing for maximum reservation usage](/partner-center/azure-usage)
 
 ::: zone-end
 
@@ -85,7 +85,7 @@ Partners can use the Partner Center to review the usage.
 
 It's important to perform ongoing cost analysis and review. This provides you with an opportunity to resize resources as needed to balance cost and workload.
 
-Azure Cost Management works with Azure Advisor to provide cost optimization recommendations. Azure Advisor helps you optimize and improve efficiency by identifying idle and under-utilized resources.
+Azure Cost Management works with Azure Advisor to provide cost optimization recommendations. Azure Advisor helps you optimize and improve efficiency by identifying idle and underutilized resources.
 
 1. Select **Cost Management + Billing**.
 1. Select **Advisor recommendations** and the **Costs** tab.
@@ -107,8 +107,8 @@ You can also use **Advisor** and select the **Costs** tab to identify recommenda
 
 ::: zone target="docs"
 
-* [Tutorial: Optimize costs from recommendations](/azure/cost-management/tutorial-acm-opt-recommendations)
-* [Prevent unexpected charges with Azure billing and cost management](/azure/billing/billing-getting-started)
-* [Explore and analyze costs with Cost analysis](/azure/cost-management/quick-acm-cost-analysis)
+- [Tutorial: Optimize costs from recommendations](/azure/cost-management/tutorial-acm-opt-recommendations)
+- [Prevent unexpected charges with Azure billing and cost management](/azure/billing/billing-getting-started)
+- [Explore and analyze costs with Cost analysis](/azure/cost-management/quick-acm-cost-analysis)
 
 ::: zone-end

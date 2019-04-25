@@ -64,7 +64,7 @@ The main phases of a typical FastTrack for Azure engagement are:
 - **Solution enablement.** Learn design principles for building applications, review architecture of applications and solutions, and receive guidance and tools to drive proof of concept (PoC) work through to production.
 - **Continuous partnership.** Azure engineers and program managers check in every so often to ensure that deployment is on track and to help remove blockers.
 
-## Microsoft Services offerings aligned to CAF Approaches
+## Microsoft Services offerings aligned to Cloud Adoption Framework approaches
 
 ![Microsoft Services Cloud Adoption Framework approach](../../../_images/mcs-program-approach.jpg)
 

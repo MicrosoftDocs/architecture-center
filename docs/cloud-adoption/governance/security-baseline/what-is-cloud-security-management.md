@@ -25,10 +25,10 @@ Cloud security is an extension of traditional information security practices. Tr
 
 At minimum, any cloud security strategy should consider the following topics:
 
-* Classify data: Proper data classification to understand any data sources that are private, protected, or highly confidential. This will help manage risk during planning.
-* Plan for a hybrid cloud scenario: Understanding how legacy, on-premises networks will connect to the cloud will help the CISO identify and remediate risks.
-* Plan for attacks and mistakes: In the first few months of a transformation, mistakes will be made as the team learns. Start with low risk and highly restricted deployments to learn securely.
-* Prioritize privacy: Throughout any transformation, the entire team should keep customer and employee privacy top of mind. Your data is safe in the cloud, but the team should be aware and extra cautious when dealing with sensitive data.
+- **Classify data.** Proper data classification to understand any data sources that are private, protected, or highly confidential. This will help manage risk during planning.
+- **Plan for a hybrid cloud scenario.** Understanding how legacy, on-premises networks will connect to the cloud will help the CISO identify and remediate risks.
+- **Plan for attacks and mistakes.** In the first few months of a transformation, mistakes will be made as the team learns. Start with low risk and highly restricted deployments to learn securely.
+- **Prioritize privacy.** Throughout any transformation, the entire team should keep customer and employee privacy top of mind. Your data is safe in the cloud, but the team should be aware and extra cautious when dealing with sensitive data.
 
 ## Protecting data and privacy
 
@@ -42,9 +42,9 @@ Security is an essential component of strong data safeguards in all online compu
 
 The two greatest risks in any datacenter can be grouped into two sources: Aging systems and Human error. Protecting against these two risks is a minimum when defining an IT security strategy. The same is true in the cloud. The following are a few examples of controls that can be put in place to remediate risks and strengthen your Cloud Security strategy.
 
-* Legacy Systems: Many components in on-premises datacenter solutions consist of software, hardware, and processes that predate current security risks. When possible, remediate, replace, or retire these systems during a cloud transformation. Of course, that's not always feasible. If any legacy systems will remain in production in a hybrid solution, it is important that those systems have been inventoried and understood during virtual datacenter design. Doing so allows the design team to eliminate or control access to those systems from the cloud.
-* IT Security processes and controls: At minimum, Cloud design teams should be refreshed on existing IT security processes and controls to carry those forward into the cloud. In an ideal scenario, a member of the IT security team would be trained in cybersecurity and dedicated as a member of the design and implementation teams.
-* Monitoring and Auditing: When designing governance processes and tooling, ensure that monitoring and auditing solutions include security risks or violations.
+- **Legacy systems:** Many components in on-premises datacenter solutions consist of software, hardware, and processes that predate current security risks. When possible, remediate, replace, or retire these systems during a cloud transformation. Of course, that's not always feasible. If any legacy systems will remain in production in a hybrid solution, it is important that those systems have been inventoried and understood during virtual datacenter design. Doing so allows the design team to eliminate or control access to those systems from the cloud.
+- **IT security processes and controls:** At a minimum, cloud design teams should be refreshed on existing IT security processes and controls to carry those forward into the cloud. In an ideal scenario, a member of the IT security team would be trained in cybersecurity and dedicated as a member of the design and implementation teams.
+- **Monitoring and auditing:** When designing governance processes and tooling, ensure that monitoring and auditing solutions include security risks or violations.
 
 > [!NOTE]
-> Technical Debt disclosure: This topic lacks actionable next steps. Addition articles will expand on this topic over time. More detailed information about Cloud Security is available from [Azure's Trusted Cloud](https://azure.microsoft.com/overview/trusted-cloud). Approaches to improving your organizations security posture can be found in the [Cloud Security Service Catalog](https://www.microsoft.com/security/information-protection)
+> **Technical debt disclosure:** This topic lacks actionable next steps. Addition articles will expand on this topic over time. More detailed information about Cloud Security is available from [Azure's Trusted Cloud](https://azure.microsoft.com/overview/trusted-cloud). Approaches to improving your organizations security posture can be found in the [Cloud Security Service Catalog](https://www.microsoft.com/security/information-protection)

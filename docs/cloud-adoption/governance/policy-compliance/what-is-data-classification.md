@@ -25,11 +25,11 @@ Microsoft suggests that any asset which has been identified as a potential candi
 
 The following is a list of classifications Microsoft uses. Depending on your industry or existing security requirements, data classifications standards may already exist within your organization. If no standard exists, we invite you to use this sample classification to better understand your own digital estate and risk profile.
 
-* **Non-business:** Data from your personal life that does not belong to Microsoft
-* **Public:** Business data that is freely available and approved for public consumption
-* **General:** Business data that is not meant for a public audience
-* **Confidential:** Business data that could cause harm to Microsoft if over-shared
-* **Highly confidential:** Business data that would cause extensive harm to Microsoft if over-shared
+- **Non-business:** Data from your personal life that does not belong to Microsoft.
+- **Public:** Business data that is freely available and approved for public consumption.
+- **General:** Business data that is not meant for a public audience.
+- **Confidential:** Business data that could cause harm to Microsoft if overshared.
+- **Highly confidential:** Business data that would cause extensive harm to Microsoft if overshared.
 
 ## Tagging data classification in Azure
 

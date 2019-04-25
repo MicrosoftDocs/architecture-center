@@ -87,7 +87,7 @@ Service Map automatically discovers application components on Windows and Linux 
 
 ### Create a Machine Group
 
-Machine Groups allow you to see maps centered around a set of servers, not just one so you can see all the members of a multi-tier application or server cluster in one map.
+Machine Groups allow you to see maps centered around a set of servers, not just one so you can see all the members of a multitier application or server cluster in one map.
 
 1. In **Service Map**, select the Machines tab/list.
 1. Select the machines you want to add to a group.
@@ -102,6 +102,8 @@ Machine Groups allow you to see maps centered around a set of servers, not just 
 
 > [!TIP]
 > There are many other options for analyzing the data within Service Map, such as filtering by process. For more details see the full product documentation.
+
+<!-- markdownlint-disable MD024 -->
 
 ### Read more
 

@@ -115,7 +115,7 @@ No additional changes are required during Secure and manage processes within the
 
 ## Next steps
 
-Return to the [expanded scope checklist](./index.md) to ensure your migration methodology is fully aligned.
+Return to the [expanded scope checklist](./index.md) to ensure your migration method is fully aligned.
 
 > [!div class="nextstepaction"]
 > [Expanded scope checklist](./index.md)
