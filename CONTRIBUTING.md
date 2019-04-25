@@ -1,6 +1,6 @@
 # Contributing
 
-If you haven't already read through them, we recommend the starting with the
+If you haven't already read through them, we recommend that you start with the
 [Azure contribution guidelines][azure-oss].
 
 ## Legal
