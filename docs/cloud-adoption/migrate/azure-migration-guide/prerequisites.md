@@ -23,12 +23,12 @@ ms.custom: "fasttrack-new"
 
 Before starting any migration, the environment must be prepared for the coming changes. The resources provided within this section of the guide will assist you in achieving this objective.
 
-# [Narrative](#tab/Narrative)
+# [Overview](#tab/Overview)
 
 As a customer you may find you have several reasons for migrating to Azure. These may range from removing risks associated with legacy hardware, reducing capital expense, freeing up datacenter space, looking for a quick cloud return on investment (ROI).
 
 - **Eliminate legacy hardware.** You may have applications hosted on infrastructure reaching its end of life or support, either on-premises or with a hosting provider. Migration to the cloud offers an attractive remediation to the challenge as the ability to migrate "as-is" allows the team to quickly resolve the current infrastructure lifecycle challenge, while then turning attention to the long term planning of application lifecycle and optimization to take advantage of the cloud.
-- **Reduce capital expense.** Hosting your own server infrastructure requires considerable investment in hardware, software, electricity, and personal. Migrating to a cloud solution can provide significant reductions in capital expense. To achieve the best capital expense reductions, a redesign of the solution may be required, however an "as-is" migration is a great first step.
+- **Reduce capital expense.** Hosting your own server infrastructure requires considerable investment in hardware, software, electricity, and personnel. Migrating to a cloud solution can provide significant reductions in capital expense. To achieve the best capital expense reductions, a redesign of the solution may be required, however an "as-is" migration is a great first step.
 - **Free up datacenter space.** You may become an Azure customer through the need to expand your datacenter capacity and one way to do this is to use the cloud as an extension of your on-premises services.
 - **Quick cloud return on investment.** Getting a return on investment (ROI) is much easier with cloud solutions as the overall infrastructure costs are shared across customers. The cloud payment model provides a great way to realize ROI.
 
@@ -36,7 +36,7 @@ Each of the above scenarios may be entry points to then extend your cloud footpr
 
 ## Migration characteristics
 
-Prior to this migration the digital estate will consist of mostly on-premises hosted infrastructure, possibly with hosting business critical applications. After a successful migration your data estate may look very much how it did on-premises but with the infrastructure hosted in cloud resources. Alternatively the ideal data estate will be a variation of your current data estate as it will have aspects of your on-premises infrastructure with components which have been refactored to optimize and take advantage of the cloud platform.
+Prior to this migration the digital estate will consist of mostly on-premises hosted infrastructure, possibly with hosting business critical applications. After a successful migration your digital estate may look very much how it did on-premises but with the infrastructure hosted in cloud resources. Alternatively the ideal digital estate will be a variation of your current digital estate as it will have aspects of your on-premises infrastructure with components which have been refactored to optimize and take advantage of the cloud platform.
 
 The focus of this migration journey is to realize:
 

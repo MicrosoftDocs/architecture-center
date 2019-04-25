@@ -33,7 +33,7 @@ For the best experience, view this playbook in the Azure portal. Go to the **Qui
 
 This guide covers the **rehost** migration journey. Also known as **lift-and-shift**, a rehost effort moves current state assets to the chosen cloud provider, with minimal changes to overall architecture. This guide is designed for migration efforts with low complexity. To determine whether this scope meets your needs, see the **When to use this guide** tab.
 
-When you migrate to Azure, you may migrate resources as-is. However, you may have flexibility regarding the types of resources, where they are located, and how to set them up. As you consider your migration strategy, you might ask:
+When migrating to Azure, resources can be migrated as-is, or you might have flexibility to review the resources types, the region they are located, and the configuration. As you consider your migration strategy, you might ask:
 
 - How do I know which services to migrate to?
 - How do I minimize downtime during the migration?
@@ -65,7 +65,7 @@ To learn more, see [Governance in Azure](/azure/security/governance-in-azure/).
 
 This guide is designed for migration scopes with minimal complexity. This migration guide may meet your needs in the following cases:
 
-- You are migrating a heterogeneous environment.
+- You are migrating a homogeneous environment.
 - Very few business units need to align to complete the migration.
 - You are not planning to automate the entire migration.
 - You are migrating a small number of servers.
@@ -88,9 +88,9 @@ Several methodologies are available for performing a cloud migration. Some are b
 
 - **Rehost:** Also known as lift-and-shift, a rehost effort moves the current state asset to the chosen cloud provider, with minimal change to overall architecture.
 - **Refactor:** Platform as a service (PaaS) options can reduce operational costs associated with many applications. It can be prudent to slightly refactor an application to fit a PaaS model. This also refers to the application development process of refactoring code to allow an application to deliver on new business opportunities.
-- **Rearchitect:** Some aging applications aren't compatible with cloud providers because of the architectural decisions made when the application was built. In these cases, the application may need to be rearchitected prior to transformation.
+- **Rearchitect:** Some aging applications aren't compatible with cloud providers because of the architectural decisions made when the application was built. In these cases, the application may need to be rearchitected as part of a migration.
 - **Rebuild:** In some scenarios, the changes required to migrate an application can be too large to justify further investment, and the solution must be rebuilt.
-- **Replace:** Solutions are generally implemented using the best technology and techniques available at the time. In some cases, modern software as a service (SaaS) applications can meet all of the functionality provided by the hosted application. In these scenarios, a workload could be slated for future replacement, effectively removing it from the transformation effort.
+- **Replace:** Solutions are generally implemented using the best technology and techniques available at the time. In some cases, modern software as a service (SaaS) applications can meet all of the functionality provided by the hosted application. In these scenarios, a workload could be slated for future replacement, thus removing it from consideration as part of the migration.
 
 These methodologies are not mutually exclusive&mdash;for example, while your initial migration might use **rehost**, you may choose to implement **refactor** or **rearchitect** as part of the-post migration optimization phase. This will be revisited in the Optimize and Transform section of this guide.
 
