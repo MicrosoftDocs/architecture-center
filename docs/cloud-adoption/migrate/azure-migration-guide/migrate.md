@@ -6,18 +6,18 @@ ms.author: mlavery
 ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: azure-portal
-ms.custom: fasttrack, new
+ms.custom: fasttrack-new
 ---
 
 # Migrate assets
 
-This guide focuses on the **rehost** (also called **lift-and-shift****) migration methodology. It moves the current state to the chosen cloud provider with minimal changes to the overall architecture.
+This guide focuses on the **rehost** (also called **lift-and-shift****) migration method. It moves the current state to Azure with minimal changes to the overall architecture.
 
-In this phase of the journey, you use the output of the assess phase to initiate the migration of the environment. This guide help identify the appropriate tools to reach a "done state", such as native tools, third party tools, and project Management tools.
+In this phase of the journey, you use the output of the assess phase to initiate the migration of the environment. This guide helps identify the appropriate tools to reach a "done state", including native tools, third-party tools, and project management tools.
 
 # [Native migration tools](#tab/Tools)
 
-The following sections describe the native Azure tools available to perform or assist with a migration.
+The following sections describe the native Azure tools available to perform or assist with migration.
 
 ## Azure Site Recovery
 
@@ -30,7 +30,7 @@ To use Azure Site Recovery to migrate resources:
 > [!TIP]
 > Depending on your scenario, these steps may differ slightly.
 
-1. In the Azure Portal, select **Create a resource > Management Tools > Backup and Site Recovery**.
+1. In the Azure Portal, select **+Create a resource > Management Tools > Backup and Site Recovery**.
 1. Complete the wizard to create a **Recovery Services vault** resource.
 1. In the Resource menu, select **Site Recovery > Prepare Infrastructure > Protection goal**.
 1. In **Protection goal**, select what you want to migrate.
@@ -74,7 +74,7 @@ The Azure Database Migration Service is a fully managed service that enables sea
 
 ### Create an Azure Database Migration Service instance
 
-If this is the first time using Azure Database Migration Service, you first need to register the resource provider within your Azure subscription:
+If this is the first time using Azure Database Migration Service, you need to register the resource provider for your Azure subscription:
 
 1. Select **All Services**, then **Subscriptions**, and choose the target subscription.
 1. Select **Resource providers**.
@@ -86,7 +86,7 @@ If this is the first time using Azure Database Migration Service, you first need
 
 ::: zone-end
 
-Once you have registered the resource provider, you can proceed to create an instance of Azure Database Migration Service.
+After you register the resource provider, you can create an instance of Azure Database Migration Service.
 
 1. Select **+Create a resource** and search the marketplace for **Azure Database Migration Service**.
 1. Complete the **Create Migration Service** wizard, and select **Create**.
@@ -138,11 +138,11 @@ Most organizations already have project management tools. Additionally, most pro
 There are many project management tools available. This list shows some tools that might assist you during your project. These tools can be combined to provide broader capabilities.
 
 - [Microsoft Planner](https://tasks.office.com/): A simple, visual way to organize teamwork.
-- [Microsoft Project](https://products.office.com/project/project-and-portfolio-management-software): Project and Portfolio Management, Resource Capacity Management, Financial Management, Timesheeting and Schedule Management.
-- [Microsoft Teams](https://products.office.com/microsoft-teams): Team collaboration and communication tool, as well as integration with Planner and other tools to improve collaboration.
+- [Microsoft Project](https://products.office.com/project/project-and-portfolio-management-software): Project and Portfolio Management, Resource Capacity Management, Financial Management, Timesheet and Schedule Management.
+- [Microsoft Teams](https://products.office.com/microsoft-teams): Team collaboration and communication tool. Teams also integrates Planner and other tools to improve collaboration.
 
 These are certainly not the only tools available. Many other third-party tools are widely used in the project management community.
 
 # [Cost management](#tab/ManageCost)
 
-As you migrate resources to your cloud environment, it is important to perform periodic cost analysis. This helps you avoid unexpected usage charges, since the migration process can place additional usage requirements on your services. You can also resize resources as needed to balance cost and workload (discussed in more detail in the **Optimize and Transform** section).
+As you migrate resources to your cloud environment, it's important to perform periodic cost analysis. This helps you avoid unexpected usage charges, since the migration process can place additional usage requirements on your services. You can also resize resources as needed to balance cost and workload (discussed in more detail in the **Optimize and Transform** section).

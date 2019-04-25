@@ -6,7 +6,7 @@ ms.author: mlavery
 ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: azure-portal
-ms.custom: fasttrack, new
+ms.custom: fasttrack-new
 ---
 
 ::: zone target="chromeless"
@@ -27,12 +27,12 @@ We know that getting the right support at the right time will accelerate your mi
 
 ## Microsoft Support
 
-Microsoft offers basic support plan to all Azure customers. You have 24x7 access to billing and subscription support, online self-help, documentation, whitepapers, and support forums.
+Microsoft offers a basic support plan to all Azure customers. You have 24x7 access to billing and subscription support, online self-help, documentation, whitepapers, and support forums.
 
-If you find you need assistance or support during your usage of Azure, you may create a support request via these steps.
+If you need help from Microsoft Support while using Azure, follow these steps to create a support request:
 
-1. Navigate to **Help + support** within the [Azure Portal](https://portal.azure.com)
-1. Select **New support request** to contact support
+1. Select **Help + support** in the [Azure Portal](https://portal.azure.com).
+1. Select **New support request** to enter details about your issue and contact support.
 
 ::: zone target="chromeless"
 
@@ -40,10 +40,10 @@ If you find you need assistance or support during your usage of Azure, you may c
 
 ::: zone-end
 
-To view your support requests follow these steps:
+To view your support requests, follow these steps:
 
-1. Navigate to **Help + support** within the [Azure Portal](https://portal.azure.com)
-1. Select **All support requests** to view your support requests
+1. Select **Help + support** in the [Azure Portal](https://portal.azure.com).
+1. Select **All support requests** to view your support requests.
 
 ::: zone target="chromeless"
 
@@ -53,8 +53,8 @@ To view your support requests follow these steps:
 
 Need support engineer assistance for deep technical guidance?
 
-1. Navigate to **Help + support** within the [Azure Portal](https://portal.azure.com)
-1. Select **Support Plans** to review the plans available to you
+1. Select **Help + support** in the [Azure Portal](https://portal.azure.com).
+1. Select **Support Plans** to review the plans available to you.
 
 ::: zone target="chromeless"
 
