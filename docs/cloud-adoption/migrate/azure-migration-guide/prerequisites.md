@@ -70,7 +70,7 @@ Before starting a migration there are a number of activities you will need to co
 > [!div class="checklist"]
 >
 > - **Identify stakeholders:** Identify the key people who will have a role to play or stake in the outcome of the migration.
-> - **Identify key milestones:** To effectively plan the migration timelines, identify  key milestones to meet.
+> - **Identify key milestones:** To effectively plan the migration timelines, identify key milestones to meet.
 > - **Identify the migration strategy:**: Determine which of the 5 Rs of rationalization you will use.
 > - **Assess your technical fit:** Validate the technical readiness and suitability for migration.
 > - **Migrate your services:** Perform the actual migration.
@@ -85,6 +85,8 @@ Assuming you choose a rehost approach to migration, the following activities wil
 > - **Identity:** A hybrid identity approach should be aligned to fit the identity management and cloud adoption plan.
 
 ::: zone target="docs"
+
+<!-- markdownlint-disable MD024 -->
 
 ## Learn more
 

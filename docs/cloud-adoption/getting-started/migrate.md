@@ -23,9 +23,9 @@ This framework is designed primarily for cloud architects and the cloud strategy
 
 Cloud migrations can help companies deliver on a number of desired business outcomes. Clear communication of motivations, business drivers, and important measurements of success are important foundations for making wise decisions throughout cloud migration efforts.
 
-The Cloud Adoption Framework establishes a high level of construct of Plan, Ready, Adopt to group the type of effort required.
+The Cloud Adoption Framework establishes a high-level construct of Plan, Ready, Adopt to group the type of effort required.
 
-Across those constructs, are more detailed methodologies specific to the execution of a cloud migration. The motivation or desired business outcome for a cloud migration often determines how much a team should invest in various phases of migration. Depending on the desired outcomes of a migration, a team may change the way they invest in various phases of the overall cloud adoption methodology. The following examples outline how investments in various phases of migration efforts can facilitate success of common migration motivations.
+Across those constructs, there are more detailed methodologies specific to the execution of a cloud migration. The motivation or desired business outcome for a cloud migration often determines how much a team should invest in various phases of migration. Depending on the desired outcomes of a migration, a team may change the way they invest in various phases of the overall cloud adoption methodology. The following examples outline how investments in various phases of migration efforts can facilitate success of common migration motivations.
 
 ### Asset phase (Migrate individual Applications, Infrastructure, and Data Sources)
 
@@ -35,13 +35,13 @@ During cloud migrations, assets such as infrastructure/virtual machines, data so
 
 Some companies have an immediate need to respond to a critical business event, like the following. Other times companies have a need to simply move specific assets. For companies that simply want a streamlined approach to moving around assets, the asset migration phase may be enough of a process to drive migration success.
 
-- Datacenter exit
-- Mergers, acquisition, or divestiture
-- Reductions in capital expenses
-- End of support for mission-critical technologies
-- Migrate quickly so new approaches to compliance and governance can be quickly added to existing solutions
-- Migrate quickly so new IT operations can be applied to existing solutions
-- Migrate simple assets to reduce burden on existing data centers
+- Datacenter exit.
+- Mergers, acquisition, or divestiture.
+- Reductions in capital expenses.
+- End of support for mission-critical technologies.
+- Migrate quickly so new approaches to compliance and governance can be quickly added to existing solutions.
+- Migrate quickly so new IT operations can be applied to existing solutions.
+- Migrate simple assets to reduce burden on existing datacenters.
 
 > [!WARNING]
 > Executing the asset isolation phase alone can produce technical change, but is less likely to lead to business success. Read on to understand how the Cloud Adoption Framework methodology adds to the existing technical approaches documented on the [Microsoft Azure site](https://azure.microsoft.com/migration/) and [Microsoft Docs](/azure/migrate/migrate-overview) content.

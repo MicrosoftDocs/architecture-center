@@ -47,10 +47,10 @@ To balance the portfolio, better reflecting sunset and retire decisions, the clo
 
 If the answer to any of these questions is "No" then the workload could be a candidate for retirement. If retirement potential is confirmed with the app owner, then it may not make sense to migrate the workload. This prompts for a few qualification questions:
 
-- Can a retirement/sunset plan be established for this workload?
+- Can a retirement plan or sunset plan be established for this workload?
 - Can this workload be retired prior to the datacenter exit?
 
-If the answer to both of these questions is "Yes", then it would be wise to consider NOT migrating the workload. Such an approach would aid in accomplishing the objectives of reducing costs AND exiting the datacenter.
+If the answer to both of these questions is "Yes", then it would be wise to consider **not** migrating the workload. Such an approach would aid in accomplishing the objectives of reducing costs AND exiting the datacenter.
 
 If the answer to either question is "No", then it may be wise to establish a plan for hosting the workload until it can be retired. Such a plan could include moving the assets to a lower cost datacenter or alternative datacenter, which would also accomplish the objectives of reducing costs AND exiting *a* datacenter.
 
