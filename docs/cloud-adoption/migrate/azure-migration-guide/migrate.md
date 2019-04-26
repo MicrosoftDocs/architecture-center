@@ -167,9 +167,7 @@ Movere is a discovery solution that provides the data and insights needed to pla
 
 # [Project management tools](#tab/project-management-tools)
 
-Most organizations already have project management tools. Additionally, most project managers have their own favorite tools and might influence the tool your organization chooses if you don't already have. What really matters is that you **use a project management tool**. Projects that don't effectively plan, track, and manage the project are more susceptible to delays, budget overruns, failures, rejections, and other problems that prevent a successful outcome.
-
-There are many project management tools available. This list shows some tools that might assist you during your project. These tools can be combined to provide broader capabilities.
+Projects that aren't tracked and managed are more likely to run into problems. To ensure a successful outcome, we think it's important that you use a project management tool. There are many different tools available and project managers in your organization may already have a favorite. Microsoft offers the following project management tools, which can work together to provide broader capabilities:
 
 - [Microsoft Planner](https://tasks.office.com/): A simple, visual way to organize teamwork.
 - [Microsoft Project](https://products.office.com/project/project-and-portfolio-management-software): Project and Portfolio Management, Resource Capacity Management, Financial Management, Timesheet and Schedule Management.

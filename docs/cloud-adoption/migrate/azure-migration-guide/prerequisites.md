@@ -28,11 +28,11 @@ The resources in this section will help you to prepare your current environment 
 Reasons for migrating to Azure include removing risks associated with legacy hardware, reducing capital expense, freeing up datacenter space, and a quick return on investment (ROI).
 
 - **Eliminate legacy hardware.** You may have applications hosted on infrastructure reaching its end of life or support, either on-premises or with a hosting provider. Migration to the cloud offers an attractive solution to the challenge as the ability to migrate "as-is" allows the team to quickly resolve the current infrastructure lifecycle challenge, while then turning attention to the long-term planning of application lifecycle and optimization to take advantage of the cloud.
-- **Reduce capital expense.** Hosting your own server infrastructure requires considerable investment in hardware, software, electricity, and personal. Migrating to a cloud solution can provide significant reductions in capital expense. To achieve the best capital expense reductions, a redesign of the solution may be required, however an "as-is" migration is a great first step.
+- **Reduce capital expense.** Hosting your own server infrastructure requires considerable investment in hardware, software, electricity, and personnel. Migrating to a cloud solution can provide significant reductions in capital expense. To achieve the best capital expense reductions, a redesign of the solution may be required, however an "as-is" migration is a great first step.
 - **Free up datacenter space.** You may choose Azure through the need to expand your datacenter capacity and one way to do this is to use the cloud as an extension of your on-premises services.
-- **Quick return on investment.** Getting a return on investment (ROI) is much easier with cloud solutions as the overall infrastructure costs are shared across customers. The cloud payment model provides a great way to realize ROI.
+- **Quick return on investment.** Getting a return on investment (ROI) is much easier with cloud solutions as the cloud payment model provides great utilization insight and promotes a culture to realize ROI.
 
-Each of the above scenarios may be entry points to then extend your cloud footprint using another scenario.
+Each of the above scenarios may be entry points to then extend your cloud footprint using another methodology (rehost, refactor, rearchitect, rebuild or replace).
 
 ## Migration characteristics
 
@@ -81,8 +81,8 @@ Assuming you choose a rehost approach to migration, the following activities wil
 > [!div class="checklist"]
 >
 > - **Governance alignment:** Has a consensus been achieved regarding alignment of governance with the migration foundation?
-> - **Network:** A network approach should be selected and aligned to IT security requirement.
-> - **Identity:** A hybrid identity approach should be aligned to fit the identity management and cloud adoption plan.
+> - **Network:** A network strategy should be selected and aligned to IT security requirement.
+> - **Identity:** A hybrid identity strategy should be aligned to fit the identity management and cloud adoption plan.
 
 ::: zone target="docs"
 
