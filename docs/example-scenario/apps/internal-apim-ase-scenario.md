@@ -85,7 +85,7 @@ This example scenario though talks more about configuration, the APIs hosted on 
 
 ## Deployment scenario
 
-### Prereqs and assumptions
+### Prerequisites and assumptions
 1. A custom domain name will need to be purchased.
 2. An SSL certificate (we used a wild-card certificate from Azure Certificates Service) to use one for all our custom domains. You could also procure a self-signed certificate for Dev Test scenarios.
 3. This specific deployment uses the domain name contoso.org and a wild-card SSL certificate for the domain.
@@ -106,7 +106,7 @@ The components deployed using the above Resource Manager template needs to be fu
      - asesubnet for ILB ASE: 10.0.2.0/24
      - VMSubnet for Test VMs and Internal DevOps Hosted Agent VM: 10.0.3.0/24
 2. Private DNS service (Public Preview) since adding a DNS service requires the VNET to be empty.
-   - Refer this for [deployment guidelines][dnsguide] 
+   - Refer to the [deployment guidelines][dnsguide] for more information
 3. App Service Environment with Internal Load Balancer (ILB) option: aseinternal (DNS: aseinternal.contoso.org). Once the Deployment is complete, upload the wild-card cert for the ILB
 4. App Service Plan with ASE as location
 5. An API App (App Services for simplicity) - srasprest (URL: https://srasprest.contoso.org) – ASP.NET MVC-based web API. After the deployment, configure
@@ -129,7 +129,7 @@ The components deployed using the above Resource Manager template needs to be fu
 
 8. Configure Application Gateway (WAF V1) to access the APU service: apim-gateway on Port 80. Add SSL Certs to the App Gateway and corresponding Health probes and Http settings. Also configure the Rules and Listeners to use SSL Cert
 
-Once the above steps are successfully completed, Configure the DNS entries in Godaddy CNAME entries of api.contoso.org and portal.contoso.org with App Gateway’s public DNS name: ase-appgtwy.westus.cloudapp.azure.com and verify if you are able to reach the Dev Portal from Public and are able to test the APIM services APIs using Azure portal
+Once the above steps are successfully completed, Configure the DNS entries in GoDaddy CNAME entries of api.contoso.org and portal.contoso.org with App Gateway’s public DNS name: ase-appgtwy.westus.cloudapp.azure.com and verify if you are able to reach the Dev Portal from Public and are able to test the APIM services APIs using Azure portal
 
 *It is not a good practice to use same URL for Internal and External endpoints for the APIM services (currently in the above demo, both URLs are same). If we want to choose to have different URLs for internal and external endpoints, we could make use of App Gateway WAF v2, which supports http redirection and much more.*
 
