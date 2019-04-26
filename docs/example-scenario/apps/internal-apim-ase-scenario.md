@@ -131,7 +131,7 @@ The components deployed using the above Resource Manager template needs to be fu
 
 Once the above steps are successfully completed, Configure the DNS entries in Godaddy CNAME entries of api.contoso.org and portal.contoso.org with App Gateway’s public DNS name: ase-appgtwy.westus.cloudapp.azure.com and verify if you are able to reach the Dev Portal from Public and are able to test the APIM services APIs using Azure portal
 
-*It is not a good practice to use same URL for Internal and External Devs for the APIM services (currently in the above demo, both URLs are same). If we want to choose to have different URLs for internal and external devs, we could make use of App Gateway WAF v2, which supports http redirection and much more.*
+*It is not a good practice to use same URL for Internal and External endpoints for the APIM services (currently in the above demo, both URLs are same). If we want to choose to have different URLs for internal and external endpoints, we could make use of App Gateway WAF v2, which supports http redirection and much more.*
 
 ## Pricing
 
