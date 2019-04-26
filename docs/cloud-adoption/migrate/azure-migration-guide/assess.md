@@ -122,24 +122,14 @@ This guide focuses on the **rehost** (also called **lift-and-shift**) method of 
 - **Datacenter modernization:** You need to extend your datacenter or modernize your datacenter with cloud technology to ensure your business remains current and competitive.
 - **Application or service modernization:** While not officially a rehost objective, an outcome of the rehost migration may be an ability to create plans for application or service review and potential modernization.
 
-### Stakeholders
+### Organizational alignment and stakeholders
 
-The complete list of stakeholders will vary from migration project to project. You shouldn't assume to know all of the stakeholders at the start of planning for a migration as often stakeholders are only identified during certain phases of the project. You can mitigate this through more detailed planning and, most importantly, discussions with known stakeholders. An important question to ask a known stakeholder is who else within their business organization/department will have an interest in the business outcome or be affected by this project. To make this question easier, let's define what a stakeholder is:
+The complete list of stakeholders varies from migration project to project. It is best to assume that you will not know all of the stakeholders at the start of planning for a migration, since stakeholders are often only identified during certain phases of the project. 
 
-**Stakeholders:** Who in the organization is likely to see the greatest value in a specific business outcome? Who is most likely to support this transformation, especially when things get tough or time consuming? Who has the greatest stake in the success of this transformation? This person is a potential stakeholder.
+Establishing a core cloud strategy team, consisting of key business leaders from finance, IT infrastructure, and application groups, can help prepare your organization for cloud adoption and guide your overall cloud migration efforts. This team is responsible for understanding cloud technologies and migration process, identifying the business justification for migrations, and determining the best high-level solutions for migration efforts. They also help identify and work with specific application and business stakeholders to ensure a successful migration.
 
-There are some common stakeholders that apply to migration projects. These include:
+For more information on how to prepare your organization for cloud migration efforts, see the Cloud Adoption Framework's article on [initial organization alignment](../../ready/initial-org-alignment.md).
 
-- **CEO:** The project may have been an initiative from the CEO, but ultimately they have final sponsorship for the project. They will have an investment from the point-of-view to ensure that the migration aligns with the overall business objectives and vision for the company.
-- **CTO:** Depending on the infrastructure being migrated the CTO may have initiated this project, but ultimately they will have a stake in the project to ensure it aligns with the long-term infrastructure strategy of the business.
-- **CIO:** Very similar to the CTO, the CIO though is likely to be invested in the project when it contains infrastructure critical to the internal business functions. They will have a stake in the project to ensure it aligns with the long-term infrastructure strategy of the business.
-- **CFO:** The CFO will be invested in the project as it pertains to approval for spending as well as reducing the overall capital expense and operating expense for the business. They will also have strategic investments to ensure that the project aligns with the strategic plans for the business.
-- **Operations management:** Any organization that manages infrastructure and services is likely to have a team who support and manage the day-to-day life of that infrastructure and services. The management of those operational staff will have a stake in the project and how it affects the day-to-day operations as well as the training and skills readiness of their staff.
-- **Application or service owner:** Someone that has a responsibility to oversee the lifecycle of the application or service. This may include implementation, maintenance, feature improvements, and retirement. They act as the voice across the various operational units for their application or service. Their stake in a migration is going to be from a perspective of aligning the project to the lifecycle plans, along with understanding the impact of each operational component change as it pertains to the application or service. All while balancing this with the end-user or customer needs through the assistance of the Customer Advocate role.
-- **Customer advocate:** Someone that has an existing responsibility within the organization to act as a conduit between the operational teams and the business units or customers. Their primary role generally consists of being the voice of the end user or business units when operational staff are planning maintenance activities, as well as providing any end-user feedback regarding the service to the application/service owners or operational management. Therefore, their stake in the project is from a perspective of impact to the customer either before, during, or after the project.
-
-> [!TIP]
-> For the purpose of this statement, a customer can be considered as any end user of the service either external or internal. That is, someone that interacts directly or indirectly with the application or service that is supported by the infrastructure being migrated (or a related application or service with a dependency on that infrastructure).
 
 # [Timelines](#tab/Timelines)
 
