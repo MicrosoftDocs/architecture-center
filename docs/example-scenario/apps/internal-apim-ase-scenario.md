@@ -156,7 +156,7 @@ Check out the related scenario on [Migrating legacy web APIs to API Management][
 
 <!-- links -->
 
-[architecture]: ./media/architecture-internal-apim-ase-scenario.jpg
+[architecture]: ./media/architecture-internal-apim-ase-scenario.png
 [dns]: https://docs.microsoft.com/en-us/azure/dns/private-dns-overview
 [ase]: https://docs.microsoft.com/en-us/azure/app-service/environment/intro
 [apim]: https://docs.microsoft.com/en-us/azure/api-management/api-management-key-concepts
