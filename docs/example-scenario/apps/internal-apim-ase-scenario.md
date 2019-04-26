@@ -83,9 +83,10 @@ Since the above example scenario is hosted completely on an internal network, AP
 
 This example scenario though talks more about configuration, the APIs hosted on the App Service Environments should be resilient enough to handle errors in the requests, which eventually is managed by the API Management service and Application Gateway. Consider [Retry and Circuit breaker patterns][api-pattern] in the API design. For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][resiliency].
 
-## Deployment scenario
+## Deploy the scenario
 
 ### Prerequisites and assumptions
+
 1. A custom domain name will need to be purchased.
 2. An SSL certificate (we used a wild-card certificate from Azure Certificates Service) to use one for all our custom domains. You could also procure a self-signed certificate for Dev Test scenarios.
 3. This specific deployment uses the domain name contoso.org and a wild-card SSL certificate for the domain.
