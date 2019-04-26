@@ -23,9 +23,9 @@ This framework is designed primarily for cloud architects and the cloud strategy
 
 Cloud migrations can help companies deliver on a number of desired business outcomes. Clear communication of motivations, business drivers, and important measurements of success are important foundations for making wise decisions throughout cloud migration efforts.
 
-The Cloud Adoption Framework establishes a high level of construct of Plan, Ready, Adopt to group the type of effort required.
+The Cloud Adoption Framework establishes a high-level construct of Plan, Ready, Adopt to group the type of effort required.
 
-Across those constructs, are more detailed methodologies specific to the execution of a cloud migration. The motivation or desired business outcome for a cloud migration often determines how much a team should invest in various phases of migration. Depending on the desired outcomes of a migration, a team may change the way they invest in various phases of the overall cloud adoption methodology. The following examples outline how investments in various phases of migration efforts can facilitate success of common migration motivations.
+Across those constructs, there are more detailed methodologies specific to the execution of a cloud migration. The motivation or desired business outcome for a cloud migration often determines how much a team should invest in various phases of migration. Depending on the desired outcomes of a migration, a team may change the way they invest in various phases of the overall cloud adoption methodology. The following examples outline how investments in various phases of migration efforts can facilitate success of common migration motivations.
 
 ### Asset phase (Migrate individual Applications, Infrastructure, and Data Sources)
 
@@ -35,20 +35,20 @@ During cloud migrations, assets such as infrastructure/virtual machines, data so
 
 Some companies have an immediate need to respond to a critical business event, like the following. Other times companies have a need to simply move specific assets. For companies that simply want a streamlined approach to moving around assets, the asset migration phase may be enough of a process to drive migration success.
 
-- Datacenter exit
-- Mergers, acquisition, or divestiture
-- Reductions in capital expenses
-- End of support for mission-critical technologies
-- Migrate quickly so new approaches to compliance and governance can be quickly added to existing solutions
-- Migrate quickly so new IT operations can be applied to existing solutions
-- Migrate simple assets to reduce burden on existing data centers
+- Datacenter exit.
+- Mergers, acquisition, or divestiture.
+- Reductions in capital expenses.
+- End of support for mission-critical technologies.
+- Migrate quickly so new approaches to compliance and governance can be quickly added to existing solutions.
+- Migrate quickly so new IT operations can be applied to existing solutions.
+- Migrate simple assets to reduce burden on existing datacenters.
 
 > [!WARNING]
-> Executing the asset isolation phase alone can produce technical change, but is less likely to lead to business success. Read on to understand how the CAF methodology adds to the existing technical approaches documented on the [Azure website](https://azure.microsoft.com/en-us/migration/) and [Docs.Microsoft.com](https://docs.microsoft.com/en-us/azure/migrate/migrate-overview) content.
+> Executing the asset isolation phase alone can produce technical change, but is less likely to lead to business success. Read on to understand how the Cloud Adoption Framework methodology adds to the existing technical approaches documented on the [Microsoft Azure site](https://azure.microsoft.com/migration/) and [Microsoft Docs](/azure/migrate/migrate-overview) content.
 
 **Summary of the asset phase:** Asset migration is a technical process for migrating digital assets (infrastructure, applications, and data) to the cloud using migration automation tooling. This approach can be successfully executed using the tools outlined in the [Azure migration guide](../migrate/azure-migration-guide/index.md).
 
-### Workload phase (Group assets by workload & iterate on asset phases)
+### Workload phase (group assets by workload and iterate on asset phases)
 
 A workload is a collection of assets (infrastructure, applications, and data) which collectively support a common business goal or the execution of a common business process. Examples of workloads could include things like a Line of Business Application, an HR payroll solution, a CRM solution, a document approval workflow in Finance, or a business intelligence solution. Workloads could also include shared technical resources like a data warehouse that supports several other solutions. In some cases, a workload could be represented by a single asset like a self-contained server, application, or data platform.
 
@@ -78,9 +78,9 @@ Heavier investments of time and energy in this phase of the migration are more l
 
 **Summary of the portfolio migration phase:** Portfolio migrations look across the entire IT portfolio to guide decisions regarding investments, impact on business processes, potential of innovation outcomes, and the future state of workload collections. This model requires a much deeper alignment between the business and IT. This phase adds rigor to business planning, requires a richer readiness investments, leads to improvements in change management, and often requires a more disciplined approach to cloud governance. The following section outlines this overarching phase in more detail.
 
-## Portfolio migration phase (Overall CAF Migrate Methodology)
+## Portfolio migration phase (overall Cloud Adoption Framework migrate methodology)
 
-The CAF migrate methodology (also known as the portfolio migration phase) is based on an incremental approach to cloud adoption that aligns to Agile technology strategies, Growth Mindset based cultural growth, and Business Outcome driven strategies. This methodology consists of the following high-level components that guide the implementation of each strategy.
+The Cloud Adoption Framework migrate methodology (also known as the portfolio migration phase) is based on an incremental approach to cloud adoption that aligns to agile technology strategies, cultural growth rooted in a growth mindset, and strategies driven by business outcomes. This methodology consists of the following high-level components that guide the implementation of each strategy.
 
 ![Cloud Adoption Framework's approach to cloud migration](../_images/migrate.png)
 
@@ -89,7 +89,7 @@ As depicted in the image above, this framework aligns strategic decisions to a s
 - **[Plan](../business-strategy/index.md):** When technical implementation is aligned with clear business objectives, it's much easier to measure and align success across multiple cloud adoption efforts.
 - **[Ready](../ready/index.md):** Preparing the business, culture, people, and environment for coming changes leads to success in each effort and accelerates implementation and change projects.
 - **Adopt:** Ensure proper implementation of desired changes, across IT and business processes, to achieve business outcomes.
-  - **[Migrate](../migrate/index.md):** Iterative execution of the cloud migration adhering to the tested process of Assess, Migrate, Optimize, and Secure & Manage to create a repeatable process for migrating collections of IT assets. This section of the CAF migrate methodology is synonymous with the workload migration phase, described above.
+  - **[Migrate](../migrate/index.md):** Iterative execution of the cloud migration adhering to the tested process of Assess, Migrate, Optimize, and Secure & Manage to create a repeatable process for migrating collections of IT assets. This section of the Cloud Adoption Framework migrate methodology is synonymous with the workload migration phase, described above.
   - **[Operate](../operations/index.md):** Expand IT operations to ensure cloud-based solutions can be operated through secure, cost effective processes using modern, cloud-first operations tools.
   - **[Govern](../governance/index.md):** Align corporate policy to tangible risks, mitigated through policy, process, and cloud-based governance tooling.
   - **Change management and oversight:** Iterative approaches to implementation will be seen throughout this framework, which provides business and IT teams with a growth mindset approach to addressing ambiguity, learning, and succeeding in the fast paced environments demanded in today's marketplaces.

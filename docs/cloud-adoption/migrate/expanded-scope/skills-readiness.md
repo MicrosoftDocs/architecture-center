@@ -58,7 +58,7 @@ The following tools can help the team find ways to secure and manage migrated as
 
 ## Next steps
 
-Return to the [expanded scope checklist](./index.md) to ensure your migration methodology is fully aligned.
+Return to the [expanded scope checklist](./index.md) to ensure your migration method is fully aligned.
 
 > [!div class="nextstepaction"]
 > [Expanded scope checklist](./index.md)

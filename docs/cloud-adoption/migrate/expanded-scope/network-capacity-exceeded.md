@@ -68,7 +68,7 @@ Secure and manage activities are not likely affected by this change in scope.
 
 ## Next steps
 
-Return to the [expanded scope checklist](./index.md) to ensure your migration methodology is fully aligned.
+Return to the [expanded scope checklist](./index.md) to ensure your migration method is fully aligned.
 
 > [!div class="nextstepaction"]
 > [Expanded scope checklist](./index.md)

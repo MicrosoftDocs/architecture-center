@@ -16,10 +16,10 @@ Cost control is critical to maximize the value of your cloud investment. Use the
 
 Azure provides a few ways to help you predict and manage costs:
 
-* **Analyze cloud costs** helps you explore and analyze your costs. You can view aggregated cost for your account or view accumulated costs over time.
-* **Monitor with budgets** allows you to create a budget and then configure alerts to warn you when you are close to exceeding it.
-* **Optimize with recommendations** helps identify idle and underused resources so you can take action to reduce waste.
-* **Manage invoices and payments** gives you visibility to your cloud investment.
+- **Analyze cloud costs** helps you explore and analyze your costs. You can view aggregated cost for your account or view accumulated costs over time.
+- **Monitor with budgets** allows you to create a budget and then configure alerts to warn you when you are close to exceeding it.
+- **Optimize with recommendations** helps identify idle and underused resources so you can take action to reduce waste.
+- **Manage invoices and payments** gives you visibility to your cloud investment.
 
 ::: zone target="docs"
 

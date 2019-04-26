@@ -109,11 +109,11 @@ When determining your departments and accounts (or management groups), you will 
 
 Consider the following patterns as guides:
 
-- **Application or service**. Subscriptions represent an application or a service (portfolio of applications).
+- **Application or service:** Subscriptions represent an application or a service (portfolio of applications).
 
-- **Deployment environment**. Subscriptions represent the lifecycle stage of a service, such as production or development.
+- **Deployment environment:** Subscriptions represent the lifecycle stage of a service, such as production or development.
 
-- **Department**. Subscriptions represent departments in the organization.
+- **Department:** Subscriptions represent departments in the organization.
 
 The first two patterns are the most commonly used and are both highly recommended. The lifecycle approach is appropriate for most organizations. In this case, the general recommendation is to use two base subscriptions: production and nonproduction, and then use resource groups to break out the environments further.
 

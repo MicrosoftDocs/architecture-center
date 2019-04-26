@@ -30,19 +30,19 @@ This phase of governance maturity bridges the divide between business outcomes a
 
 **Minimum suggested activities:**
 
-* Evaluate your [Cost Management toolchain](toolchain.md) options.
-* Develop a draft Architecture Guidelines document and distribute to key stakeholders.
-* Educate and involve the people and teams affected by the development of Architecture Guidelines.
+- Evaluate your [Cost Management toolchain](toolchain.md) options.
+- Develop a draft Architecture Guidelines document and distribute to key stakeholders.
+- Educate and involve the people and teams affected by the development of Architecture Guidelines.
 
 **Potential activities:**
 
-* Ensure budgetary decisions that support the business justification for your cloud strategy.
-* Validate learning metrics that you use to report on the successful allocation of funding.
-* Understand the desired cloud accounting model that affects how cloud costs should be accounted for.
-* Become familiar with the digital estate plan and validate accurate costing expectations.
-* Evaluate buying options to determine if it's better to "pay as you go" or to make a precommitment by purchasing an Enterprise Agreement.
-* Align business goals with planned budgets and adjust budgetary plans as necessary.
-* Develop a goals and budget reporting mechanism to notify technical and business stakeholders at the end of each cost cycle.
+- Ensure budgetary decisions that support the business justification for your cloud strategy.
+- Validate learning metrics that you use to report on the successful allocation of funding.
+- Understand the desired cloud accounting model that affects how cloud costs should be accounted for.
+- Become familiar with the digital estate plan and validate accurate costing expectations.
+- Evaluate buying options to determine if it's better to "pay as you go" or to make a precommitment by purchasing an Enterprise Agreement.
+- Align business goals with planned budgets and adjust budgetary plans as necessary.
+- Develop a goals and budget reporting mechanism to notify technical and business stakeholders at the end of each cost cycle.
 
 ## Build and predeployment
 
@@ -50,16 +50,16 @@ A number of technical and nontechnical prerequisites are required to successfull
 
 **Minimum suggested activities:**
 
-* Implement your [Cost Management toolchain](toolchain.md) by rolling out in a predeployment phase.
-* Update the Architecture Guidelines document and distribute to key stakeholders.
-* Develop educational materials and documentation, awareness communications, incentives, and other programs to help drive user adoption.
-* Determine if your purchase requirements align with your budgets and goals.
+- Implement your [Cost Management toolchain](toolchain.md) by rolling out in a predeployment phase.
+- Update the Architecture Guidelines document and distribute to key stakeholders.
+- Develop educational materials and documentation, awareness communications, incentives, and other programs to help drive user adoption.
+- Determine if your purchase requirements align with your budgets and goals.
 
 **Potential activities:**
 
-* Align your budgetary plans with the [Subscription Strategy](../../decision-guides/subscriptions/index.md) that defines your core ownership model.
-* Use the [Resource Consistency Strategy](../../decision-guides/resource-consistency/index.md) to enforce architecture and cost guidelines over time.
-* Determine if there are any cost anomalies that affect your adoption and migration plans.
+- Align your budgetary plans with the [Subscription Strategy](../../decision-guides/subscriptions/index.md) that defines your core ownership model.
+- Use the [Resource Consistency Strategy](../../decision-guides/resource-consistency/index.md) to enforce architecture and cost guidelines over time.
+- Determine if there are any cost anomalies that affect your adoption and migration plans.
 
 ## Adopt and migrate
 
@@ -67,16 +67,16 @@ Migration is an incremental process that focuses on the movement, testing, and a
 
 **Minimum suggested activities:**
 
-* Migrate your [Cost Management toolchain](toolchain.md) from predeployment to production.
-* Update the Architecture Guidelines document and distribute to key stakeholders.
-* Develop educational materials and documentation, awareness communications, incentives, and other programs to help drive user adoption.
+- Migrate your [Cost Management toolchain](toolchain.md) from predeployment to production.
+- Update the Architecture Guidelines document and distribute to key stakeholders.
+- Develop educational materials and documentation, awareness communications, incentives, and other programs to help drive user adoption.
 
 **Potential activities:**
 
-* Implement your Cloud Accounting Model.
-* Ensure that your budgets reflect your actual spending during each release and adjust as necessary.
-* Monitor changes in budgetary plans and validate with stakeholders if additional sign-offs are needed.
-* Update changes to the Architecture Guidelines document to reflect actual costs.
+- Implement your Cloud Accounting Model.
+- Ensure that your budgets reflect your actual spending during each release and adjust as necessary.
+- Monitor changes in budgetary plans and validate with stakeholders if additional sign-offs are needed.
+- Update changes to the Architecture Guidelines document to reflect actual costs.
 
 ## Operate and post-implementation
 
@@ -84,20 +84,20 @@ Once the transformation is complete, governance and operations must live on for 
 
 **Minimum suggested activities:**
 
-* Customize your [Cost Management toolchain](toolchain.md) based on changes in your organization’s cost management needs.
-* Consider automating any notifications and reports to reflect actual spending.
-* Refine Architecture Guidelines to guide future adoption processes.
-* Educate affected teams on a periodic basis to ensure ongoing adherence to the Architecture Guidelines.
+- Customize your [Cost Management toolchain](toolchain.md) based on changes in your organization’s cost management needs.
+- Consider automating any notifications and reports to reflect actual spending.
+- Refine Architecture Guidelines to guide future adoption processes.
+- Educate affected teams on a periodic basis to ensure ongoing adherence to the Architecture Guidelines.
 
 **Potential activities:**
 
-* Execute a quarterly cloud business review to communicate value delivered to the business and associated costs.
-* Adjust plans quarterly to reflect changes to actual spending.
-* Determine financial alignment to P&Ls for business unit subscriptions.
-* Analyze stakeholder value and cost reporting methods on a monthly basis.
-* Remediate underused assets and determine if they're worth continuing.
-* Detect misalignments and anomalies between the plan and actual spending.
-* Assist the cloud adoption teams and the Cloud Strategy team with understanding and resolving these anomalies.
+- Execute a quarterly cloud business review to communicate value delivered to the business and associated costs.
+- Adjust plans quarterly to reflect changes to actual spending.
+- Determine financial alignment to P&Ls for business unit subscriptions.
+- Analyze stakeholder value and cost reporting methods on a monthly basis.
+- Remediate underused assets and determine if they're worth continuing.
+- Detect misalignments and anomalies between the plan and actual spending.
+- Assist the cloud adoption teams and the Cloud Strategy team with understanding and resolving these anomalies.
 
 ## Next steps
 
