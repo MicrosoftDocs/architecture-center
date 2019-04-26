@@ -124,12 +124,11 @@ This guide focuses on the **rehost** (also called **lift-and-shift**) method of 
 
 ### Organizational alignment and stakeholders
 
-The complete list of stakeholders varies from migration project to project. It is best to assume that you will not know all of the stakeholders at the start of planning for a migration, since stakeholders are often only identified during certain phases of the project. 
+The complete list of stakeholders varies between migration projects. It is best to assume that you will not know all of the stakeholders at the start of planning for a migration, since stakeholders are often only identified during certain phases of the project. However, before starting any migration projects, you can identify key business leaders from finance, IT infrastructure, and application groups that will have an interest in your organization's overall cloud migration efforts.
 
-Establishing a core cloud strategy team, consisting of key business leaders from finance, IT infrastructure, and application groups, can help prepare your organization for cloud adoption and guide your overall cloud migration efforts. This team is responsible for understanding cloud technologies and migration process, identifying the business justification for migrations, and determining the best high-level solutions for migration efforts. They also help identify and work with specific application and business stakeholders to ensure a successful migration.
+Establishing a core cloud strategy team, built around these key high-level stakeholders, can help prepare your organization for cloud adoption and guide your overall cloud migration efforts. This team is responsible for understanding cloud technologies and migration processes, identifying the business justification for migrations, and determining the best high-level solutions for migration efforts. They also help identify and work with specific application and business stakeholders to ensure a successful migration.
 
 For more information on how to prepare your organization for cloud migration efforts, see the Cloud Adoption Framework's article on [initial organization alignment](../../ready/initial-org-alignment.md).
-
 
 # [Timelines](#tab/Timelines)
 
