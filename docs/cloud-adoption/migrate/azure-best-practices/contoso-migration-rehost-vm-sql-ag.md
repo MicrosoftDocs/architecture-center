@@ -191,7 +191,7 @@ Contoso admins create a storage account as follows:
 1. They specify a recognizable name for the account (**contosocloudwitness**).
 2. They deploy a general all-purpose account, with LRS.
 3. They place the account in a third region - South Central US. They place it outside the primary and secondary region so that it remains available in case of regional failure.
-4. They place it in their resource group that holds infrastructure resources - **ContosoInfraRG**.
+4. They place it in their resource group that holds infrastructure resources, **ContosoInfraRG**.
 
     ![Cloud witness](media/contoso-migration-rehost-vm-sql-ag/witness-storage.png)
 
@@ -457,9 +457,9 @@ Now, Contoso admins can create a replication policy.
 
 1. In  **Prepare infrastructure** > **Replication Settings** > **Replication Policy** >  **Create and Associate**, they create a policy **ContosoMigrationPolicy**.
 2. They use the default settings:
-    - **RPO threshold**: Default of 60 minutes. This value defines how often recovery points are created. An alert is generated if continuous replication exceeds this limit.
-    - **Recovery point retention**. Default of 24 hours. This value specifies how long the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window.
-    - **App-consistent snapshot frequency**. Default of one hour. This value specifies the frequency at which application-consistent snapshots are created.
+    - **RPO threshold:** Default of 60 minutes. This value defines how often recovery points are created. An alert is generated if continuous replication exceeds this limit.
+    - **Recovery point retention:** Default of 24 hours. This value specifies how long the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window.
+    - **App-consistent snapshot frequency:** Default of one hour. This value specifies the frequency at which application-consistent snapshots are created.
 
         ![Create replication policy](./media/contoso-migration-rehost-vm-sql-ag/replication-policy.png)
 
@@ -505,7 +505,7 @@ Contoso admins will migrate the SmartHotel360 database to Azure VM **SQLAOG1** u
 
 ## Step 8: Migrate the database with DMA
 
-1. In the DMA they run a new migration - **SmartHotel**.
+1. In the DMA they run a new migration, **SmartHotel**.
 2. They select the **Target server type** as **SQL Server on Azure Virtual Machines**.
 
     ![DMA](media/contoso-migration-rehost-vm-sql-ag/dma-1.png)
@@ -534,7 +534,7 @@ With the app database running on **SQLAOG1**, Contoso admins can now protect it 
 
 ### Create an Always On availability group
 
-1. In SQL Management Studio, they right-click on **Always on High Availability** to start the **New Availability Group Wizard**.
+1. In SQL Management Studio, they right-click **Always on High Availability** to start the **New Availability Group Wizard**.
 2. In **Specify Options**, they name the availability group **SHAOG**. In **Select Databases**, they select the SmartHotel360 database.
 
     ![Always On availability group](media/contoso-migration-rehost-vm-sql-ag/aog-1.png)

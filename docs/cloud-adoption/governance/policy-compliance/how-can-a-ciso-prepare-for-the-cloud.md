@@ -11,6 +11,8 @@ Microsoft guidance like the Cloud Adoption Framework is not positioned to determ
 
 Cloud adoption enables services that weren't often considered in traditional IT environments. Self-service or automated deployments are commonly executed by application development or other IT teams not traditionally aligned to production deployment. In some organizations, business constituents similarly have self-service capabilities. This can trigger new security requirements that weren't needed in the on-premises world. Centralized security is more challenging, Security often becomes a shared responsibility across the business and IT culture. This article can help a CISO prepare for that approach and engage in incremental governance.
 
+<!-- markdownlint-disable MD026 -->
+
 ## How can a CISO prepare for the cloud?
 
 Like most policies, security and governance policies within an organization tend to grow organically. When security incidents happen, they shape policy to inform users and reduce the likelihood of repeat occurrences. While natural, this approach creates policy bloat and technical dependencies. Cloud transformation journeys create a unique opportunity to modernize and reset policies. While preparing for any transformation journey, the CISO can create immediate and measurable value by serving as the primary stakeholder in a [policy review](./what-is-a-cloud-policy-review.md).
@@ -29,34 +31,34 @@ Knowledge about the cloud is fundamental to approaching a [policy review](./what
 
 Security platform resources:
 
-* [Security Development Cycle, internal audits](https://www.microsoft.com/sdl)
-* [Mandatory security training, background checks](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx)
-* [Penetration testing, intrusion detection, DDoS, audits, and logging](https://www.microsoft.com/trustcenter/Security/AuditingAndLogging)
-* [State-of-the-art datacenter](https://www.microsoft.com/cloud-platform/global-datacenters), physical security, [secure network](/azure/security/security-network-overview)
-* [Microsoft Azure Security Response in the Cloud (PDF)](https://aka.ms/SecurityResponsePaper)
+- [Security Development Lifecycle, internal audits](https://www.microsoft.com/sdl)
+- [Mandatory security training, background checks](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx)
+- [Penetration testing, intrusion detection, DDoS, audits, and logging](https://www.microsoft.com/trustcenter/Security/AuditingAndLogging)
+- [State-of-the-art datacenter](https://www.microsoft.com/cloud-platform/global-datacenters), physical security, [secure network](/azure/security/security-network-overview)
+- [Microsoft Azure Security Response in the Cloud (PDF)](https://aka.ms/SecurityResponsePaper)
 
 Privacy and controls:
 
-* [Manage your data all the time](https://www.microsoft.com/trustcenter/Privacy/You-own-your-data)
-* [Control on data location](https://www.microsoft.com/trustcenter/Privacy/Where-your-data-is-located)
-* [Provide data access on your terms](https://www.microsoft.com/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)
-* [Responding to law enforcement](https://www.microsoft.com/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data)
-* [Stringent privacy standards](https://www.microsoft.com/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards)
+- [Manage your data all the time](https://www.microsoft.com/trustcenter/Privacy/You-own-your-data)
+- [Control on data location](https://www.microsoft.com/trustcenter/Privacy/Where-your-data-is-located)
+- [Provide data access on your terms](https://www.microsoft.com/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)
+- [Responding to law enforcement](https://www.microsoft.com/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data)
+- [Stringent privacy standards](https://www.microsoft.com/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards)
 
 Compliance:
 
-* [Trust Center](https://www.microsoft.com/trustcenter/default.aspx)
-* [Common Controls Hub](https://www.microsoft.com/trustcenter/Common-Controls-Hub)
-* [The Cloud Services Due Diligence Checklist](https://www.microsoft.com/trustcenter/Compliance/Due-Diligence-Checklist)
-* [Compliance by service, location, and industry](https://www.microsoft.com/trustcenter/Compliance/default.aspx)
+- [Trust Center](https://www.microsoft.com/trustcenter/default.aspx)
+- [Common Controls Hub](https://www.microsoft.com/trustcenter/Common-Controls-Hub)
+- [The Cloud Services Due Diligence Checklist](https://www.microsoft.com/trustcenter/Compliance/Due-Diligence-Checklist)
+- [Compliance by service, location, and industry](https://www.microsoft.com/trustcenter/Compliance/default.aspx)
 
 Transparency:
 
-* [How Microsoft secures customer data in Azure services](https://www.microsoft.com/trustcenter/Transparency/default.aspx)
-* [How Microsoft manages data location in Azure services](https://azuredatacentermap.azurewebsites.net)
-* [Who in Microsoft can access your data on what terms](https://www.microsoft.com/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)
-* [How Microsoft secures customer data in Azure services](https://www.microsoft.com/trustcenter/Transparency/default.aspx)
-* [Review certification for Azure services, transparency hub](https://www.microsoft.com/trustcenter/Compliance/default.aspx)
+- [How Microsoft secures customer data in Azure services](https://www.microsoft.com/trustcenter/Transparency/default.aspx)
+- [How Microsoft manages data location in Azure services](https://azuredatacentermap.azurewebsites.net)
+- [Who in Microsoft can access your data on what terms](https://www.microsoft.com/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)
+- [How Microsoft secures customer data in Azure services](https://www.microsoft.com/trustcenter/Transparency/default.aspx)
+- [Review certification for Azure services, transparency hub](https://www.microsoft.com/trustcenter/Compliance/default.aspx)
 
 ## Next steps
 

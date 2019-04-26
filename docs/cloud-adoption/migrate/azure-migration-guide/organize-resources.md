@@ -6,7 +6,7 @@ ms.author: laleite
 ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: azure-portal
-ms.custom: "fasttrack-new"
+ms.custom: fasttrack-new
 ---
 # Organize your Azure resources
 

@@ -8,9 +8,12 @@ ms.topic: conceptual
 ms.service: azure-portal
 ms.custom: "fasttrack-edit"
 ---
+
 # Organize your Azure resources
 
 Use the following features and best practices to secure resources that are critical to your system. Tag resources so you can track them by values that make sense to your organization.
+
+<!-- markdownlint-disable MD024 MD025 -->
 
 # [Azure management groups and hierarchy](#tab/AzureManagmentGroupsAndHierarchy)
 
@@ -133,9 +136,9 @@ After you apply tags, you can retrieve all the resources in your subscription wi
 
 You can also use tags for many other things. Common uses include:
 
-- **Metadata / documentation**: Administrators can easily see detail about the resources they are working on by applying a tag like "ProjectOwner".
-- **Automation**: You may have regularly running scripts that can take an action based on a tag value like "ShutdownTime" or "DeprovisionDate".
-- **Billing**: Tags can appear on your invoice. You can use them to help segment your bill by using tags like "CostCenter" or "BillTo".
+- **Metadata and documentation:** Administrators can easily see detail about the resources they are working on by applying a tag like "ProjectOwner".
+- **Automation:** You may have regularly running scripts that can take an action based on a tag value like "ShutdownTime" or "DeprovisionDate".
+- **Billing:** Tags can appear on your invoice. You can use them to help segment your bill by using tags like "CostCenter" or "BillTo".
 
 Each resource or resource group can have a maximum of 15 tag name/value pairs. However, this limitation only applies to tags directly applied to the resource group or resource.
 

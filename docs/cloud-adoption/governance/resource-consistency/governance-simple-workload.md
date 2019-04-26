@@ -15,8 +15,8 @@ The goal of this guidance is to help you learn the process for designing a resou
 
 In the foundational adoption stage, our goal is to deploy a simple workload to Azure. This results in the following requirements:
 
-* Identity management for a single **workload owner** who is responsible for deploying and maintaining the simple workload. The workload owner requires permission to create, read, update, and delete resources as well as permission to delegate these rights to other users in the identity management system.
-* Manage all resources for the simple workload as a single management unit.
+- Identity management for a single **workload owner** who is responsible for deploying and maintaining the simple workload. The workload owner requires permission to create, read, update, and delete resources as well as permission to delegate these rights to other users in the identity management system.
+- Manage all resources for the simple workload as a single management unit.
 
 ## Licensing Azure
 

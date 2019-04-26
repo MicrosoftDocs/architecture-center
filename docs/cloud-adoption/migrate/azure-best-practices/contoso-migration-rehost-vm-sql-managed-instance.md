@@ -414,9 +414,9 @@ When the source and target are set up, Contoso admins create a replication polic
 
 1. In  **Prepare infrastructure** > **Replication Settings** > **Replication Policy** >  **Create and Associate**, they create the **ContosoMigrationPolicy** policy.
 2. They use the default settings:
-    - **RPO threshold**: Default of 60 minutes. This value defines how often recovery points are created. An alert is generated if continuous replication exceeds this limit.
-    - **Recovery point retention**: Default of 24 hours. This value specifies how long the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window.
-    - **App-consistent snapshot frequency**: Default of 1 hour. This value specifies the frequency at which application-consistent snapshots are created.
+    - **RPO threshold:** Default of 60 minutes. This value defines how often recovery points are created. An alert is generated if continuous replication exceeds this limit.
+    - **Recovery point retention:** Default of 24 hours. This value specifies how long the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window.
+    - **App-consistent snapshot frequency:** Default of 1 hour. This value specifies the frequency at which application-consistent snapshots are created.
 
     ![Replication policy - Create](./media/contoso-migration-rehost-vm-sql-managed-instance/replication-policy.png)
 

@@ -97,33 +97,6 @@ Unfortunately, an **incremental migration** approach is still required. In most 
 
 The **incremental migration** approach of the Cloud Adoption Framework helps build an incremental plan that documents and works within technical and cultural limitations. The goal of this model is to minimize overhead (from IT or the business), while maximizing migration velocity. Below are two examples of an incremental migration execution based on the migration backlog.
 
-<!-- TODO:
-    Describe the paths, focusing on key differences
-    Show an image of the decomposition of the Migration Backlog into Releases and or Iterations
-    Describe the current state that suggested that path
-     -->
-
-<!-- TODO:
-## Choosing the right journey
-
-The following two journeys outline migration experiences aligned to the narrative of two fictional customers. Choose the journey that best aligns to your current objectives and constraints to establish a baseline for your own migration plan.
-
-**Simple migration:** Rapid migration approach with little overhead.
-
-Narrative Summary: This approach consists of fewer than 1,000 VMs. Less than 10 of the applications supported are owned by an application owner who is not a part of IT. The remainder of the applications, VMs, and associated data are owned and supported by members of the Cloud Adoption team. Members of the Cloud Adoption team have administrative access to the production environments in the existing datacenter.
-
-![Example of Incremental migration evolutions](../../_images/migration/incremental-migration-example.png)
-
-**Complex migration:** Longer term migration with greater rigor in areas of change management, and deeper process controls
-
-Narrative Summary: This approach consists of fewer than 10,000 VMs. Applications are supported by a number of business and IT Application Owners. Central IT has established governance best practices, but prioritizes innovation over control. Administrative access to production environments is dispersed across business units to create separation of responsibility.
-
-![Example of Incremental migration evolutions](../../_images/migration/incremental-migration-example.png)
-
--->
-
-<!-- markdownlint-disable MD033 -->
-
 <ul class="panelContent cardsZ">
 <li style="display: flex; flex-direction: column;">
     <a href="./azure-migration-guide/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">

@@ -45,5 +45,5 @@ Azure compliance offerings are based on various types of assurances, including f
 
 More detailed information about Azure compliance offerings is available from the [Microsoft Trust Center](/trustcenter/compliance/complianceofferings). Moreover, all downloadable documentation is available to Azure customers under a nondisclosure agreement from the [Service Trust Portal](https://servicetrust.microsoft.com) in the following sections:
 
-* Audit reports: Includes FedRAMP, GRC assessment, ISO, PCI DSS, and SOC reports sections
-* Data protection resources: Includes compliance guides, FAQ and white papers, and pen test and security assessments sections
+- **Audit reports:** Includes sections for FedRAMP, GRC assessment, ISO, PCI DSS, and SOC reports.
+- **Data protection resources:** Includes compliance guides, FAQ and white papers, and pen test and security assessment sections.

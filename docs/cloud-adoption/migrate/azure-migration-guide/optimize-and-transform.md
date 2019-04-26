@@ -6,18 +6,18 @@ ms.author: mlavery
 ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: azure-portal
-ms.custom: "fasttrack-new"
+ms.custom: fasttrack-new
 ---
 
 # Optimize and Transform
 
-Now that you have migrated your services to Azure, the next phase includes reviewing the solution for possible areas of optimization. This could include reviewing the design of the solution, rightly sizing the services, and analyzing costs.
+Now that you have migrated your services to Azure, the next phase includes reviewing the solution for possible areas of optimization. This could include reviewing the design of the solution, right-sizing the services, and analyzing costs.
 
 This phase is also an opportunity to optimize your environment and perform possible transformations of the environment. For example, you may have performed a "rehost" migration, and now that your services are running on Azure you can revisit the solutions configuration or consumed services, and possibly perform some "refactoring" to modernize and increase the functionality of your solution.
 
 # [Right Size Assets](#tab/optimize)
 
-All Azure services which provide a consumption based cost model can be resized through the Azure Portal, CLI, or PowerShell. The first step in correctly sizing a service is to review the usage metrics of the service. The Azure Monitor service provides access to these metrics. You may need to configure the collection of the metrics for the service you are analyzing, and allow an appropriate time to collect meaningful data based on your workload patterns.
+All Azure services that provide a consumption-based cost model can be resized through the Azure Portal, CLI, or PowerShell. The first step in correctly sizing a service is to review its usage metrics. The Azure Monitor service provides access to these metrics. You may need to configure the collection of the metrics for the service you are analyzing, and allow an appropriate time to collect meaningful data based on your workload patterns.
 
 1. Go to **Monitor**.
 1. Select **Metrics** and configure the chart to show the metrics for the service to analyze.
@@ -28,13 +28,13 @@ All Azure services which provide a consumption based cost model can be resized t
 
 ::: zone-end
 
-The following are some common services which you can resize.
+The following are some common services that you can resize.
 
 ## Resize a Virtual Machine
 
 1. Go to **Virtual Machines**.
 1. Select the desired virtual machine from the list.
-1. Select **Size** and the desired new size from the list. You may need to adjust the filters to find the size required.
+1. Select **Size** and the desired new size from the list. You may need to adjust the filters to find the size you need.
 1. Select **Resize**.
 
 ::: zone target="chromeless"
@@ -45,13 +45,13 @@ The following are some common services which you can resize.
 
 ::: zone target="docs"
 
-* [Manage Reservations for Azure resources](/azure/billing/billing-manage-reserved-vm-instance)
-* [Resize a Windows VM](/azure/virtual-machines/windows/resize-vm)
-* [Resize a Linux virtual machine using Azure CLI](/azure/virtual-machines/linux/change-vm-size)
+- [Manage Reservations for Azure resources](/azure/billing/billing-manage-reserved-vm-instance)
+- [Resize a Windows VM](/azure/virtual-machines/windows/resize-vm)
+- [Resize a Linux virtual machine using Azure CLI](/azure/virtual-machines/linux/change-vm-size)
 
 Partners can use the Partner Center to review the usage.
 
-* [Microsoft Azure VM sizing for maximum reservation usage](/partner-center/azure-usage)
+- [Microsoft Azure VM sizing for maximum reservation usage](/partner-center/azure-usage)
 
 ::: zone-end
 
@@ -83,7 +83,7 @@ Partners can use the Partner Center to review the usage.
 
 # [Cost Management](#tab/ManageCost)
 
-It is important to perform ongoing cost analysis and review. This provides you with an opportunity to resize resources as needed to balance cost and workload.
+It's important to perform ongoing cost analysis and review. This provides you with an opportunity to resize resources as needed to balance cost and workload.
 
 Azure Cost Management works with Azure Advisor to provide cost optimization recommendations. Azure Advisor helps you optimize and improve efficiency by identifying idle and underutilized resources.
 
@@ -97,7 +97,7 @@ Azure Cost Management works with Azure Advisor to provide cost optimization reco
 
 ::: zone-end
 
-Alternatively you can use **Advisor** and select **Costs** tab to identify recommendations for potentially reducing costs.
+You can also use **Advisor** and select the **Costs** tab to identify recommendations for potential cost reductions.
 
 ::: zone target="chromeless"
 
@@ -107,8 +107,8 @@ Alternatively you can use **Advisor** and select **Costs** tab to identify recom
 
 ::: zone target="docs"
 
-* [Tutorial: Optimize costs from recommendations](/azure/cost-management/tutorial-acm-opt-recommendations)
-* [Prevent unexpected charges with Azure billing and cost management](/azure/billing/billing-getting-started)
-* [Explore and analyze costs with Cost analysis](/azure/cost-management/quick-acm-cost-analysis)
+- [Tutorial: Optimize costs from recommendations](/azure/cost-management/tutorial-acm-opt-recommendations)
+- [Prevent unexpected charges with Azure billing and cost management](/azure/billing/billing-getting-started)
+- [Explore and analyze costs with Cost analysis](/azure/cost-management/quick-acm-cost-analysis)
 
 ::: zone-end

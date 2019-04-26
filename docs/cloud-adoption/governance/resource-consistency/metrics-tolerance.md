@@ -21,7 +21,7 @@ Every organization has different operational scenarios, but the following items 
 
 - **Cloud assets.** Total number of cloud-deployed resources.
 - **Untagged resources.** Number of resources without required accounting, business impact, or organizational tags.
-- **Underused assets.** Number of resources where memory, CPU, or network capabilities are all consistently under-used.
+- **Underused assets.** Number of resources where memory, CPU, or network capabilities are all consistently underutilized.
 - **Resource depletion.** Number of resources where memory, CPU, or network capabilities are exhausted by load.
 - **Resource age.** Time since resource was last deployed or modified.
 - **VMs in critical condition.** Number of deployed VMs where one or more critical issues are detected which need to be addressed in order to restore normal functionality.

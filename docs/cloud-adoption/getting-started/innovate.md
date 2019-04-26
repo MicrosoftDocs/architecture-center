@@ -17,29 +17,29 @@ Innovation is closely linked to migration. When workloads create market differen
 
 Innovation should not be the chosen adoption path for all workloads. This path to cloud adoption often requires a larger investment in custom code and data management. Innovation also takes inherently longer than migration, or even many forms of modernization. However, this path is suggested when customers are targeting the following types of business outcomes:
 
-* Prepare for new technical capabilities
-* Scale to meet market demands
-* Scale to meet geographic demands
-* Build new technical capabilities
-* Improve customer experiences / engagements
-* Transform products or services
-* Disrupt the market with new products or services
+- Prepare for new technical capabilities
+- Scale to meet market demands
+- Scale to meet geographic demands
+- Build new technical capabilities
+- Improve customer experiences / engagements
+- Transform products or services
+- Disrupt the market with new products or services
 
 ## Innovation guidance
 
 As the innovation content within the Cloud Adoption Framework is developed, it will provide guidance related to the following topics:
 
-* Modernize existing assets
-* Build new apps
-* Follow practices that encourage a growth mindset
-* Integrate DevOps strategies
+- Modernize existing assets
+- Build new apps
+- Follow practices that encourage a growth mindset
+- Integrate DevOps strategies
 
 ![Innovate](../_images/innovate.png)
 
 ## Common workload examples associated with a cloud innovation
 
-* Custom-built applications
-* Technology based experiences
-* IoT: Integration of physical products and technology
-* Ambient intelligence: Integration of nonintrusive technology into an environment
-* Cognitive Services: Big Data, AI, Machine Learning, and predictive solutions
+- Custom-built applications
+- Technology-based experiences
+- IoT: Integration of physical products and technology
+- Ambient intelligence: Integration of nonintrusive technology into an environment
+- Cognitive Services: Big Data, AI, Machine Learning, and predictive solutions
