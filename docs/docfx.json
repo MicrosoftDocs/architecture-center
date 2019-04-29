@@ -70,7 +70,12 @@
         "patterns/**/*.md": "https://azure-architecture.uservoice.com/forums/918628-cloud-fundamentals",
         "best-practices/**/*.md": "https://azure-architecture.uservoice.com/forums/918628-cloud-fundamentals",
         "antipatterns/**/*.md": "https://azure-architecture.uservoice.com/forums/918628-cloud-fundamentals"
-      }
+      },
+      "featureFlags": {
+				"**/*.md": [
+					"show_star_rating"
+				]
+			}
     },
     "template": [
       "docs.html"
