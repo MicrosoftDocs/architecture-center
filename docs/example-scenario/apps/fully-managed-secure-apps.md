@@ -10,14 +10,14 @@ ms.subservice: example-scenario
 ms.custom:
     - fasttrack
     - security
-social_image_url: /azure/architecture/example-scenario/apps/media/ilb-ase-with-architecture.png
+social_image_url: /azure/architecture/example-scenario/apps/media/ilb-ase-architecture.png
 ---
 
 # Securely managed web applications
 
-This scenario provides an overview of deploying secure applications using the [Azure App Service Environment (ASE)][intro-to-app-svc-env]. To restrict application access from the Internet, the Azure Application Gateway service and Web Application Firewall are used. This article will also cover best practices around continuous integration & continuous deployment (CI/CD) for App Service Environments using Azure DevOps.
+This scenario provides an overview of deploying secure applications using the [Azure App Service Environment (ASE)][intro-to-app-svc-env]. To restrict application access from the Internet, the Azure Application Gateway service and Web Application Firewall are used. This article will also provide guidance around continuous integration & continuous deployment (CI/CD) for App Service Environments using Azure DevOps.
 
-This is a commonly deployed scenario in industries such as banking and insurance where customers are conscious of platform level security in addition to application level security. We'll use an application that allows users to submit expense reports in this example.
+This scenario is commonly deployed in industries such as banking and insurance where customers are conscious of platform level security in addition to application level security. To demonstrate these concepts, we'll use an application that allows users to submit expense reports.
 
 ## Relevant use cases
 
@@ -44,21 +44,21 @@ Data flows through the scenario as follows:
 
 ### Components
 
-* The [App Service Environment][intro-to-app-svc-env] provides a fully isolated and dedicated environment for securely running the application at high scale. In addition, since ASE and the workloads that run on it are behind a virtual network, this provides an additional layer of security and isolation. The requirement of high scale and isolation drove towards selecting ILB ASE.
+* The [App Service Environment][intro-to-app-svc-env] provides a fully isolated and dedicated environment for securely running the application at high scale. In addition, since ASE and the workloads that run on it are behind a virtual network, it also provides an additional layer of security and isolation. The requirement of high scale and isolation drove towards selecting ILB ASE.
 * This workload is using the [isolated App Service pricing tier][isolated-tier-pricing-and-ase-pricing] so the application is running in a private, dedicated environment in an Azure datacenter using Dv2-series VMs with faster processors, SSD storage, and double the memory-to-core ratio compared to Standard
-* Azure App Services [Web App][docs-webapps] and [API App][docs-apiapps] hosts web applications and RESTful APIs. These are hosted on the Isolated Pricing Tier plan which also offers auto-scaling, custom domains and so on, but in a dedicated tier.
+* Azure App Services [Web App][docs-webapps] and [API App][docs-apiapps] host web applications and RESTful APIs. These are hosted on the Isolated Pricing Tier plan that also offers auto-scaling, custom domains, and so on, but in a dedicated tier.
 * Azure [Application Gateway][docs-appgw] is a web traffic load balancer operating at Layer 7 that manages traffic to the web application. It offers SSL off-loading, that removes additional overhead on the web servers hosting the web app to decrypt traffic again.  
 * [Web Application Firewall][docs-waf] (WAF) is a feature of Application Gateway. The reason for enabling the WAF in the Application Gateway is to further enhance security. The WAF uses OWASP rules to further protect the web application against attacks such as cross-site scripting, session hijacks, and SQL injection.
 * [Azure SQL Database][docs-sql-database] was selected as majority of the data in this application is relational data, with some data as documents and BLOB.
-* [Azure Networking][azure-networking] provides a variety of networking capabilities in Azure and the the networks can further be peered with other virtual networkS in Azure or connectivity can be established with on-premises data centers via Express Route or Site to Site. In this case, a [service endpoint][sql-service-endpoint] is enabled on the virtual network to ensure the data is flowing just between the Azure virtual network and the SQL Database instance.
-* [Azure DevOps][docs-azure-devops] Azure DevOps was used for teams to collaborate during many sprints, utilizing features of Azure DevOps that support Agile Development, and create build and release pipelines.
+* [Azure Networking][azure-networking] provides a variety of networking capabilities in Azure and the networks can further be peered with other virtual networkS in Azure or connectivity can be established with on-premises data centers via Express Route or Site to Site. In this case, a [service endpoint][sql-service-endpoint] is enabled on the virtual network to ensure the data is flowing just between the Azure virtual network and the SQL Database instance.
+* [Azure DevOps][docs-azure-devops] is used for teams to collaborate during many sprints, utilizing features of Azure DevOps that support Agile Development, and create build and release pipelines.
 * An Azure build [VM][docs-azure-vm] was created so that the installed agent can pull down the respective build, and deploy the web app to the ASE environment.
 
 ### Alternatives
 ASE can run regular web apps on Windows or like in this instance, the web apps deployed inside the ASE are each running as Linux containers. ASE was thus selected to host these single instance containerized applications. There are some other alternatives and below is when to consider those platforms when designing your solution.
 
-* [Azure Service Fabric][docs-service-fabric] - If you are a Windows-based shop, and the type of workloads are primarily .NET Framework, and you are not yet considering rearchitecting to .NET Core, then then use Service Fabric to support and deploy Windows Server Containers. Additionally, Service Fabric supports C# or Java Programming APIs, for developing native microservices, the clusters can be provisioned as Windows or Linux based.
-* [Azure Kubernetes Service][docs-kubernetes-service] (AKS) is an Open Source Project and an orchestration platform more suitable to host complex multi-container applications that commonly use a microservices based architecture. AKS is a managed Kubernetes Azure Service that abstracts away the complexities of provisioning and configuring a Kubernetes Cluster. However, significant knowledge of Kubernetes platform is still required to support and maintain it, thus to host a handful of single instance containerized web applications may not be the best option.
+* [Azure Service Fabric][docs-service-fabric] - If you are a Windows-based shop, and the type of workloads are primarily .NET Framework, and you are not yet considering rearchitecting to .NET Core, then use Service Fabric to support and deploy Windows Server Containers. Additionally, Service Fabric supports C# or Java Programming APIs, for developing native microservices, the clusters can be provisioned as Windows or Linux based.
+* [Azure Kubernetes Service][docs-kubernetes-service] (AKS) is an Open Source Project and an orchestration platform more suitable to host complex multi-container applications that commonly use a microservices-based architecture. AKS is a managed Kubernetes Azure Service that abstracts away the complexities of provisioning and configuring a Kubernetes Cluster. However, significant knowledge of Kubernetes platform is still required to support and maintain it, thus to host a handful of single instance containerized web applications may not be the best option.
 
 Other options for the data tier include:
 
@@ -66,7 +66,7 @@ Other options for the data tier include:
 
 ## Considerations
 
-There are certain considerations to be aware of when dealing with certificates on ILB ASE. The real trick here is generating a certificate that is chained up to a trusted root without requiring a Certificate Signing Request generated by the server on which the cert will be eventually placed. In other words, with IIS for example the first step is to generate a CSR from your IIS server and then send it to the SSL certificate issuing authority.
+There are certain considerations to be aware of when dealing with certificates on ILB ASE. The real trick here is generating a certificate that is chained up to a trusted root without requiring a Certificate Signing Request generated by the server on which the cert will be eventually placed. With IIS for example, the first step is to generate a CSR from your IIS server and then send it to the SSL certificate issuing authority.
 
 You cannot issue a CSR from the Internal Load Balancer (ILB) of an ASE. The way to handle this is to use [this procedure][create-wildcard-cert-letsencrypt].
 
@@ -132,9 +132,9 @@ Explore the cost of running this scenario, all of the services are pre-configure
 
 We have provided three sample cost profiles based on amount of traffic you expect to get:
 
-* [Small][small-pricing]: This pricing example represents the components necessary to build the out for a minimum production level instance. Here we are assuming a small number of users, numbering only in a few thousand per month. The app is using a single instance of a standard web app that will be enough to enable autoscaling. Each of the other components are scaled to a basic tier that will allow for a minimum amount of cost but still ensure that there is SLA support and enough capacity to handle a production level workload.
+* [Small][small-pricing]: This pricing example represents the components necessary to build the out for a minimum production level instance. Here we are assuming a small number of users, numbering only in a few thousand per month. The app is using a single instance of a standard web app that will be enough to enable autoscaling. Each of the other components is scaled to a basic tier that will allow for a minimum amount of cost but still ensure that there is SLA support and enough capacity to handle a production level workload.
 * [Medium][medium-pricing]: This pricing example represents the components indicative of a moderate size deployment. Here we estimate approximately 100,000 users using the system over the course of a month. The expected traffic is handled in a single app service instance with a moderate standard tier. Additionally, moderate tiers of cognitive and search services are added to the calculator.
-* [Large][large-pricing]: This pricing example represents an application meant for high scale, at the order of millions of users per month moving terabytes of data. At this level of usage high performance, premium tier web apps deployed in multiple regions fronted by traffic manager is required. Data consists of the following: storage, databases, and CDN, are configured for terabytes of data.
+* [Large][large-pricing]: This pricing example represents an application meant for high scale, at the order of millions of users per month moving terabytes of data. At this level of usage high performance, premium tier web apps deployed in multiple regions fronted by traffic manager is required. Data consists of the following components: storage, databases, and CDN, are configured for terabytes of data.
 
 ## Related resources
 

@@ -80,6 +80,7 @@
 </li>
 </ul>
 
+
 ## Application Scenarios
 
 <ul  class="panelContent cardsC">
@@ -198,6 +199,25 @@
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
+    <a href="./apps/fully-managed-secure-apps.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="./apps/media/ilb-ase-with-architecture.png" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Securely managed web applications</h3>
+                        <p>Securely deploy an expense application to Azure App Service Environment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<li style="display: flex; flex-direction: column;">
     <a href="./apps/hpc-saas.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
@@ -274,6 +294,7 @@
     </a>
 </li>
 </ul>
+
 
 ## Data Scenarios
 
@@ -393,6 +414,7 @@
     </a>
 </li>
 </ul>
+
 
 ## Infrastructure Scenarios
 
@@ -550,3 +572,4 @@
     </a>
 </li>
 </ul>
+
