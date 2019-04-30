@@ -15,7 +15,7 @@ In this phase of the journey, you use the output of the assess phase to initiate
 
 # [Native migration tools](#tab/Tools)
 
-The following sections describe the native Azure tools available to perform or assist with migration.
+The following sections describe the native Azure tools available to perform or assist with migration. For information on choosing the right tools to support your migration efforts, see the [Cloud Adoption Framework's Migration tools decision guide](migrate-decision-guide.md).
 
 ## Azure Site Recovery
 
