@@ -21,7 +21,7 @@ The following tools help you perform an assessment of your environment to ascert
 
 ## Azure Migrate
 
-The Azure Migrate service assesses on-premises workloads for migration to Azure. The service assesses the migration suitability of on-premises machines, performs performance-based sizing, and provides cost estimates for running on-premises machines in Azure. If you're contemplating lift-and-shift migrations, or are in the early assessment stages of migration, this service is for you. After the assessment, you can use services such as Azure Site Recovery and Azure Database Migration Service to migrate the machines to Azure.
+The Azure Migrate service assesses on-premises VMware or Hyper-V servers and their dependencies for migration to Azure. The service assesses the migration suitability of on-premises machines, performs performance-based sizing, and provides cost estimates for running on-premises machines in Azure. If you're contemplating lift-and-shift migrations, or are in the early assessment stages of migration, this service is for you. After the assessment, you can use services such as Azure Site Recovery and Azure Database Migration Service to migrate the machines to Azure.
 
 ![Azure migrate overview](./media/assess/azuremigrate-overview-1.png)
 
@@ -115,12 +115,12 @@ Machine Groups allow you to see maps centered around a set of servers, not just 
 
 ## Scenarios
 
-This guide focuses on the **rehost** (also called **lift-and-shift**) method of migration. Some scenarios that exist within the Rehost method are:
+This guide focuses on the following scenarios:
 
 - **Legacy hardware:** You are migrating to remove a dependency on legacy hardware nearing end of support or end of life.
 - **Capacity growth:** You need to increase the capacity for assets, which your current infrastructure can't provide.
 - **Datacenter modernization:** You need to extend your datacenter or modernize your datacenter with cloud technology to ensure your business remains current and competitive.
-- **Application or service modernization:** While not officially a rehost objective, an outcome of the rehost migration may be an ability to create plans for application or service review and potential modernization.
+- **Application or service modernization:** You want to update your applications to take advantage of cloud-native functionality. Even if a rehost migration strategy is your initial objective, the ability to create plans for application or service review and potential modernization is a common process in any migration.
 
 ### Organizational alignment and stakeholders
 
@@ -136,7 +136,7 @@ As a general statement, customers find that the migration scenario covered by th
 
 Some of the factors to consider when evaluating the timeline of your migration are:
 
-- **Assets to migrate:** The number of and diversity of assets.
+- **Assets (Infrastructure, Applications, and Data) to migrate:** The number of and diversity of assets.
 - **Staff readiness:** Are your staff ready to manage the new environment or do they need training?
 - **Funding:** Do you have the appropriate approval and budget to complete the migration?
 - **Change management:** Does your business have specific requirements regarding change implementation and approval?
