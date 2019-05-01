@@ -17,6 +17,8 @@ This reference architectures shows a microservices application deployed to Azure
 
 ![AKS reference architecture](./_images/aks.png)
 
+*Download a [Visio file][visio-download] of this architecture.*
+
 ## Architecture
 
 The architecture consists of the following components.
@@ -267,3 +269,4 @@ To deploy the reference implementation for this architecture, follow the steps i
 
 [ri]: https://github.com/mspnp/microservices-reference-implementation
 [ri-deploy]: https://github.com/mspnp/microservices-reference-implementation/blob/master/deployment.md
+[visio-download]: https://archcenter.blob.core.windows.net/cdn/aks-reference-architecture.vsdx
