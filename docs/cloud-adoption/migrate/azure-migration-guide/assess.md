@@ -58,6 +58,8 @@ To get started with Azure Migrate follow these steps:
 
 Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. With Service Map, you can view your servers in the way that you think of them: as interconnected systems that deliver critical services. Service Map shows connections between servers, processes, inbound and outbound connection latency, and ports across any TCP-connected architecture, with no configuration required other than the installation of an agent.
 
+Azure Migrate and Azure Migrate v2 (currently in preview) utilize Service Map to enhance the reporting capabilities and dependencies across the environment. Full details of this integration is outlined [here](https://docs.microsoft.com/en-us/azure/migrate/concepts-dependency-visualization). If you utilize the Azure Migration service then there are no additional steps required to configure and obtain the benefits of Service Map. The following instructions are provided for your reference should your wish to use Service Map for other purposes or projects.
+
 ### Enable Service Map
 
 1. In the Azure portal, select **+ Create a resource**.
@@ -108,6 +110,7 @@ Machine Groups allow you to see maps centered around a set of servers, not just 
 ### Read more
 
 - [Using Service Map solution in Azure](/azure/azure-monitor/insights/service-map)
+- [Azure Migrate and Service Map: Dependency visualization](https://docs.microsoft.com/en-us/azure/migrate/concepts-dependency-visualization)
 
 ::: zone-end
 

@@ -97,15 +97,11 @@ The service is now ready to migrate the supported source databases (for example,
 
 ::: zone-end
 
-::: zone target="docs"
-
 For more information, see:
 
 - [Azure Database Migration Service overview](/azure/dms/dms-overview)
 - [Azure Migrate in the Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_ManagementGroups/HierarchyBlade)
 - [Azure Portal: Create a migration project](https://ms.portal.azure.com/#create/Microsoft.AzureMigrate)
-
-::: zone-end
 
 ## Database Migration Assistant
 
@@ -115,25 +111,46 @@ The Data Migration Assistant (DMA) helps you upgrade to a modern data platform b
 > For large migrations (in terms of number and size of databases), we recommend that you use the Azure Database Migration Service, which can migrate databases at scale.
 >
 
-::: zone target="docs"
+To get started with the Database Migration Assistant follow these steps.
 
-For more information, see:
+1. Download and Install the Database Migration Assistant from the [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=53595).
+1. Create an assessment by clicking the **New (+)** icon and select the **Assessment** project type.
+1. Set the source and target server type. Click **Create**.
+1. Configure the assessment options as required (recommend all defaults).
+1. Add the databases to assess.
+1. Click **Next** to start the assessment.
+1. View results within the Database Migration Assistant tool set.
+
+For an enterprise we recommend following the approach outlined in [Assess an enterprise and consolidate assessment reports with DMA](https://docs.microsoft.com/en-us/sql/dma/dma-consolidatereports) to assess multiple servers, combine the reports and then use provided Power BI reports to analyse the results.
+
+For more information, including detailed usage steps, see:
 
 - [Database Migration Assistant overview](https://docs.microsoft.com/en-us/sql/dma/dma-overview)
-
-::: zone-end
+- [Assess an enterprise and consolidate assessment reports with DMA](https://docs.microsoft.com/en-us/sql/dma/dma-consolidatereports)
+- [Analyze consolidated assessment reports created by Data Migration Assistant with Power BI](https://docs.microsoft.com/en-us/sql/dma/dma-powerbiassesreport)
 
 ## SQL Server Migration Assistant
 
-Microsoft SQL Server Migration Assistant (SSMA) is a tool designed to automate database migration to SQL Server from Microsoft Access, DB2, MySQL, Oracle, and SAP ASE.
-
-::: zone target="docs"
+Microsoft SQL Server Migration Assistant (SSMA) is a tool designed to automate database migration to SQL Server from Microsoft Access, DB2, MySQL, Oracle, and SAP ASE. The general concept is to collect, assess, and then review with these tools, however, due to the variances in the process for each of the source systems we recommend reviewing the detailed documentation [here](https://docs.microsoft.com/en-us/sql/ssma/sql-server-migration-assistant).
 
 For more information, see:
 
 - [SQL Server Migration Assistant overview](https://docs.microsoft.com/en-us/sql/ssma/sql-server-migration-assistant)
 
-::: zone-end
+## Database Experimentation Assistant
+
+Database Experimentation Assistant (DEA) is a new A/B testing solution for SQL Server upgrades. It will assist in evaluating a targeted version of SQL for a given workload. Customers who are upgrading from previous SQL Server versions (SQL Server 2005 and above) to any new version of the SQL Server will be able to use these analysis metrics.
+
+The Database Experimentation Assistant contains the following workflow activities:
+
+> * **Capture** The first step of SQL Server A/B testing is to capture a trace on your source server. The source server usually is the production server. 
+> * **Replay** The second step of SQL Server A/B testing is to replay the trace file that was captured to your target servers. Then, collect extensive traces from the replays for analysis. 
+> * **Analysis** The final step is to generate an analysis report by using the replay traces. The analysis report can help you gain insight about the performance implications of the proposed change.
+
+For more information, see:
+
+- [Overview of Database Experimentation Assistant](https://docs.microsoft.com/en-us/sql/dea/database-experimentation-assistant-overview)
+
 
 # [Third-party migration tools](#tab/third-party-tools)
 
