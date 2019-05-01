@@ -32,11 +32,12 @@ Before you migrate resources to Azure, you need to choose the migration method a
 
 # [Overview](#tab/Overview)
 
-This guide covers the **rehost** migration journey. Also known as **lift-and-shift**, a rehost effort moves current state assets to Azure, with minimal changes to overall architecture. This guide is designed for migration efforts with low complexity. To determine whether this scope meets your needs, see the **When to use this guide** tab.
+This guide is intended to walk you through the basics of migrating applications and resources from your on-premises environment to Azure. It is designed for migration scopes with minimal complexity. To determine the suitability of this guide for your migration, please see the **When to use this guide** tab.
 
-When you migrate to Azure, you can migrate resources as-is. However, you have flexibility regarding the types of resources you migrate, where to locate them, and how to set them up. As you consider your migration strategy, you might ask:
+When you migrate to Azure, you may migrate your applications as-is using IaaS-based virtual machine solutions (a *rehost*, or *lift and shift* migration), or you may have the flexibility to take advantage of managed services and other cloud-native features to modernize your applications. See the **Migration options** tab for more information on these choices. As you consider migration strategy, you might wonder:
 
-- How do I know which services to migrate to?
+- Will my migrating applications work in the cloud?
+- What is the best technology, tools, and migrations strategy for my application? (see the Microsoft Cloud Adoption Framework's [Migration tool decision guide](migrate-decision-guide.md) for more information)
 - How do I minimize downtime during the migration?
 - How do I control costs?
 - How do I track resource costs and bill them accurately?
@@ -58,13 +59,13 @@ This guide helps answer those questions. It suggests the tasks and features you 
 
 ::: zone target="docs"
 
-To learn more, see [Governance in Azure](/azure/security/governance-in-azure/).
+To learn more about  organizing and structuring your subscriptions, managing your deployed resources, and complying with your corporate policy requirements, see [Governance in Azure](/azure/security/governance-in-azure/).
 
 ::: zone-end
 
 # [When to use this guide](#tab/WhenToUseThisGuide)
 
-This guide is designed for migrations with minimal complexity. This migration guide may meet your needs in the following cases:
+While the tools discussed in this guide support a wide variety of migration scenarios, this guide will focus on limited scope efforts with **<u>minimal complexity</u>**. To determine whether this migration guide is suitable for your project, please consider the following issues:
 
 - You are migrating a homogeneous environment.
 - Very few business units need to align to complete the migration.
@@ -85,7 +86,7 @@ For more information, see:
 
 # [Migration options](#tab/MigrationOptions)
 
-You can perform a cloud migration several ways. Some are better suited to different scenarios than others. While this guide focuses on the rehost method, you should consider all these choices and decide if this guide provides the right approach to migrate your environment.
+You can perform a cloud migration several ways. Some are better suited to different scenarios than others. You can perform a cloud migration several ways. Some are better suited to different scenarios than others. As you determine how to migrate your environment, please consider all the following options when deciding on a migration strategy:
 
 - **Rehost:** Also known as lift-and-shift, a rehost effort moves the current state asset to Azure, with minimal change to overall architecture.
 - **Refactor:** Platform as a service (PaaS) options can reduce operational costs associated with many applications. It can be prudent to slightly refactor an application to fit a PaaS model. This also refers to the application development process of refactoring code to allow an application to deliver on new business opportunities.
@@ -93,6 +94,6 @@ You can perform a cloud migration several ways. Some are better suited to differ
 - **Rebuild:** In some scenarios, the changes required to migrate an application can be too large to justify further investment, and the solution must be rebuilt.
 - **Replace:** Solutions are generally implemented using the best technology and techniques available at the time. In some cases, modern software as a service (SaaS) applications can meet all of the functionality provided by the hosted application. In these scenarios, a workload could be slated for future replacement, thus removing it from consideration as part of the migration.
 
-These methods are not mutually exclusive&mdash;for example, while your initial migration might use **rehost**, you may choose to implement **refactor** or **rearchitect** as part of the-post migration optimization phase. This will be revisited in the Optimize and Transform section of this guide.
+These methods are not mutually exclusive&mdash;for example, while your initial migration might use a **rehost** model, you may choose to implement **refactor** or **rearchitect** as part of the-post migration optimization phase. This will be revisited in the [Optimize and Transform](optimize-and-transform.md) section of this guide.
 
 ![Infographic of the migration options](../../_images/migration/migration-options.png)

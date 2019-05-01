@@ -11,13 +11,11 @@ ms.custom: fasttrack-new
 
 # Migrate assets
 
-This guide focuses on the **rehost** (also called **lift-and-shift****) migration method. It moves the current state to Azure with minimal changes to the overall architecture.
-
 In this phase of the journey, you use the output of the assess phase to initiate the migration of the environment. This guide helps identify the appropriate tools to reach a "done state", including native tools, third-party tools, and project management tools.
 
 # [Native migration tools](#tab/Tools)
 
-The following sections describe the native Azure tools available to perform or assist with migration.
+The following sections describe the native Azure tools available to perform or assist with migration. For information on choosing the right tools to support your migration efforts, see the [Cloud Adoption Framework's Migration tools decision guide](migrate-decision-guide.md).
 
 ## Azure Site Recovery
 
@@ -70,7 +68,7 @@ For more information, see:
 
 ## Azure Database Migration Service
 
-The Azure Database Migration Service is a fully managed service that enables seamless migrations from multiple database sources to Azure data platforms, with minimal downtime (online migrations). The Azure Database Migration Service performs all of the required steps. You can fire and forget your migration projects with peace of mind, knowing that the process takes advantage of best practices recommended by Microsoft.
+The Azure Database Migration Service is a fully managed service that enables seamless migrations from multiple database sources to Azure data platforms, with minimal downtime (online migrations). The Azure Database Migration Service performs all of the required steps. You can you can initiate or start your migration projects with the assurance that the process takes advantage of best practices recommended by Microsoft.
 
 ### Create an Azure Database Migration Service instance
 
@@ -184,4 +182,4 @@ As you migrate into cloud technologies this presents a great opportunity to setu
 
 # [Cost management](#tab/ManageCost)
 
-As you migrate resources to your cloud environment, it's important to perform periodic cost analysis. This helps you avoid unexpected usage charges, since the migration process can place additional usage requirements on your services. You can also resize resources as needed to balance cost and workload (discussed in more detail in the **Optimize and Transform** section).
+As you migrate resources to your cloud environment, it's important to perform periodic cost analysis. This helps you avoid unexpected usage charges, since the migration process can place additional usage requirements on your services. You can also resize resources as needed to balance cost and workload (discussed in more detail in the **[Optimize and Transform](optimize-and-transform.md)** section).

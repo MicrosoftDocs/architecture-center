@@ -21,7 +21,7 @@ The following tools help you perform an assessment of your environment to ascert
 
 ## Azure Migrate
 
-The Azure Migrate service assesses on-premises workloads for migration to Azure. The service assesses the migration suitability of on-premises machines, performs performance-based sizing, and provides cost estimates for running on-premises machines in Azure. If you're contemplating lift-and-shift migrations, or are in the early assessment stages of migration, this service is for you. After the assessment, you can use services such as Azure Site Recovery and Azure Database Migration Service to migrate the machines to Azure.
+The Azure Migrate service assesses on-premises VMware or Hyper-V servers and their dependencies for migration to Azure. The service assesses the migration suitability of on-premises machines, performs performance-based sizing, and provides cost estimates for running on-premises machines in Azure. If you're contemplating lift-and-shift migrations, or are in the early assessment stages of migration, this service is for you. After the assessment, you can use services such as Azure Site Recovery and Azure Database Migration Service to migrate the machines to Azure.
 
 ![Azure migrate overview](./media/assess/azuremigrate-overview-1.png)
 
@@ -115,31 +115,20 @@ Machine Groups allow you to see maps centered around a set of servers, not just 
 
 ## Scenarios
 
-This guide focuses on the **rehost** (also called **lift-and-shift**) method of migration. Some scenarios that exist within the Rehost method are:
+This guide focuses on the following scenarios:
 
 - **Legacy hardware:** You are migrating to remove a dependency on legacy hardware nearing end of support or end of life.
 - **Capacity growth:** You need to increase the capacity for assets, which your current infrastructure can't provide.
 - **Datacenter modernization:** You need to extend your datacenter or modernize your datacenter with cloud technology to ensure your business remains current and competitive.
-- **Application or service modernization:** While not officially a rehost objective, an outcome of the rehost migration may be an ability to create plans for application or service review and potential modernization.
+- **Application or service modernization:** You want to update your applications to take advantage of cloud-native functionality. Even if a rehost migration strategy is your initial objective, the ability to create plans for application or service review and potential modernization is a common process in any migration.
 
-### Stakeholders
+### Organizational alignment and stakeholders
 
-The complete list of stakeholders will vary from migration project to project. You shouldn't assume to know all of the stakeholders at the start of planning for a migration as often stakeholders are only identified during certain phases of the project. You can mitigate this through more detailed planning and, most importantly, discussions with known stakeholders. An important question to ask a known stakeholder is who else within their business organization/department will have an interest in the business outcome or be affected by this project. To make this question easier, let's define what a stakeholder is:
+The complete list of stakeholders varies between migration projects. It is best to assume that you will not know all of the stakeholders at the start of planning for a migration, since stakeholders are often only identified during certain phases of the project. However, before starting any migration projects, you can identify key business leaders from finance, IT infrastructure, and application groups that will have an interest in your organization's overall cloud migration efforts.
 
-**Stakeholders:** Who in the organization is likely to see the greatest value in a specific business outcome? Who is most likely to support this transformation, especially when things get tough or time consuming? Who has the greatest stake in the success of this transformation? This person is a potential stakeholder.
+Establishing a core cloud strategy team, built around these key high-level stakeholders, can help prepare your organization for cloud adoption and guide your overall cloud migration efforts. This team is responsible for understanding cloud technologies and migration processes, identifying the business justification for migrations, and determining the best high-level solutions for migration efforts. They also help identify and work with specific application and business stakeholders to ensure a successful migration.
 
-There are some common stakeholders that apply to migration projects. These include:
-
-- **Chief Executive Officer (CEO):** The project may have been an initiative from the CEO, but ultimately they have final sponsorship for the project. They will have an investment from the point-of-view to ensure that the migration aligns with the overall business objectives and vision for the company.
-- **Chief Technology Officer (CTO):** Depending on the infrastructure being migrated the CTO may have initiated this project, but ultimately they will have a stake in the project to ensure it aligns with the long-term infrastructure strategy of the business.
-- **Chief Information Officer (CIO):** Very similar to the CTO, the CIO though is likely to be invested in the project when it contains infrastructure critical to the internal business functions. They will have a stake in the project to ensure it aligns with the long-term infrastructure strategy of the business.
-- **Chief Financial Office (CFO):** The CFO will be invested in the project as it pertains to approval for spending as well as reducing the overall capital expense and operating expense for the business. They will also have strategic investments to ensure that the project aligns with the strategic plans for the business.
-- **Operations management:** Any organization that manages infrastructure and services is likely to have a team who support and manage the day-to-day life of that infrastructure and services. The management of those operational staff will have a stake in the project and how it affects the day-to-day operations as well as the training and skills readiness of their staff.
-- **Application or service owner:** Someone that has a responsibility to oversee the lifecycle of the application or service. This may include implementation, maintenance, feature improvements, and retirement. They act as the voice across the various operational units for their application or service. Their stake in a migration is going to be from a perspective of aligning the project to the lifecycle plans, along with understanding the impact of each operational component change as it pertains to the application or service. Through consultation with the Customer Advocate role(s), they will balance these priorities against the customer SLA and functional requirements.
-- **Customer advocate:** Someone that has an existing responsibility within the organization to act as a conduit between the operational teams and the business units or customers. Their primary role generally consists of being the voice of the end user or business units when operational staff are planning maintenance activities, as well as providing any customer feedback regarding the service to the application/service owners or operational management. Therefore, their stake in the project is from a perspective of impact to the customer either before, during, or after the project.
-
-> [!TIP]
-> For the purpose of this statement, a customer can be considered as any end user of the service either external or internal. That is, someone that interacts directly or indirectly with the application or service that is supported by the infrastructure being migrated (or a related application or service with a dependency on that infrastructure).
+For more information on how to prepare your organization for cloud migration efforts, see the Cloud Adoption Framework's article on [initial organization alignment](../../ready/initial-org-alignment.md).
 
 # [Timelines](#tab/Timelines)
 
@@ -147,7 +136,7 @@ As a general statement, customers find that the migration scenario covered by th
 
 Some of the factors to consider when evaluating the timeline of your migration are:
 
-- **Assets to migrate:** The number of and diversity of assets.
+- **Assets (Infrastructure, Applications, and Data) to migrate:** The number of and diversity of assets.
 - **Staff readiness:** Are your staff ready to manage the new environment or do they need training?
 - **Funding:** Do you have the appropriate approval and budget to complete the migration?
 - **Change management:** Does your business have specific requirements regarding change implementation and approval?
@@ -169,3 +158,4 @@ The following resources provide related information:
 - [CAF: Estimate cloud costs](../migration-considerations/assess/estimate.md)
 
 ::: zone-end
+
