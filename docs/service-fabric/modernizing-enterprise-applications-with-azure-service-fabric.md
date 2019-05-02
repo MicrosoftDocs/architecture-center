@@ -27,15 +27,15 @@ Before reading this article, get familiar with core Windows container and Servic
 - [Service Fabric best practices overview](/azure/service-fabric/service-fabric-best-practices-overview)
 
 ## Resources
- Customize the templates in this repo for your cluster. The templates implement the best practices described in this article.
-
-![GitHub logo](../_images/github.png)  [GitHub](https://github.com/Azure-Samples/Service-fabric-dotnet-modernization).
+![GitHub logo](../_images/github.png)  [Sample: Moderinization templates and scripts](https://github.com/Azure-Samples/Service-fabric-dotnet-modernization).
 
 The repo has these resources:
 - Example ARM template to bring up an Azure Service Fabric cluster.
 - A reverse proxy solution for brokering web request into the Service Fabric cluster to the destination containers. 
 - Sample Service Fabric application configuration and scripts that show the use of placement, resource constraints, and auto-scaling.
 - Sample scripts and Dockerfiles that build and package an existing web application.
+
+ Customize the templates in this repo for your cluster. The templates implement the best practices described in this article.
 
 ## Evaluate requirements 
 
