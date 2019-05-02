@@ -3,7 +3,7 @@ title: Securely managed web applications
 titleSuffix: Azure Example Scenarios
 description: Securely deploy an expense application to Azure App Service Environment
 author: fmustaf
-ms.date: 2/6/2019
+ms.date: 5/2/2019
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -55,6 +55,7 @@ Data flows through the scenario as follows:
 * An Azure build [VM][docs-azure-vm] was created so that the installed agent can pull down the respective build, and deploy the web app to the ASE environment.
 
 ### Alternatives
+
 ASE can run regular web apps on Windows or like in this instance, the web apps deployed inside the ASE are each running as Linux containers. ASE was thus selected to host these single instance containerized applications. There are some other alternatives and below is when to consider those platforms when designing your solution.
 
 * [Azure Service Fabric][docs-service-fabric] - If you are a Windows-based shop, and the type of workloads are primarily .NET Framework, and you are not yet considering rearchitecting to .NET Core, then use Service Fabric to support and deploy Windows Server Containers. Additionally, Service Fabric supports C# or Java Programming APIs, for developing native microservices, the clusters can be provisioned as Windows or Linux based.
@@ -124,7 +125,7 @@ Another point to consider is regarding DNS. In order to allow applications withi
 
 ## Deploy the scenario
 
-To deploy this scenario, you can follow this [step-by-step tutorial][end-to-end-walkthrough] demonstrating how to manually deploy each component. This tutorial also provides a .NET sample application that runs a simple Contoso Expenses reporting application. 
+To deploy this scenario, you can follow this [step-by-step tutorial][end-to-end-walkthrough] demonstrating how to manually deploy each component. This tutorial also provides a .NET sample application that runs a simple Contoso Expenses reporting application.
 
 ## Pricing
 
