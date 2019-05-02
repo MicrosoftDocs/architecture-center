@@ -205,7 +205,7 @@
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./apps/media/ilb-ase-with-architecture.png" height="140px" />
+                            <img src="./apps/media/ilb-ase-architecture.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">

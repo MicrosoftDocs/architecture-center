@@ -149,7 +149,7 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [isolated-tier-pricing-and-ase-pricing]: https://azure.microsoft.com/en-us/pricing/details/app-service/windows/
 [bring-your-own-dns]: /azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#specify-dns-servers
 [private-zones]: /azure/dns/private-dns-overview
-[create-ilb-ase]: azure/app-service/environment/create-ilb-ase
+[create-ilb-ase]: /azure/app-service/environment/create-ilb-ase
 [azure-networking]: /azure/virtual-network/virtual-networks-overview
 [sql-service-endpoint]: /azure/sql-database/sql-database-virtual network-service-endpoint-rule-overview
 
