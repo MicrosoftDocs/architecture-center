@@ -13,6 +13,8 @@ ms.date: 04/04/2019
 
 The cloud fundamentally changes how enterprises procure and use technology resources. Traditionally, enterprises assumed ownership and responsibility of all aspects of technology from infrastructure to software. The cloud allows enterprises provisioning and consuming resources only when needed. While the cloud offers tremendous flexibility in design choices, enterprises need a proven and consistent methodology for the adopting cloud technologies. The Microsoft Cloud Adoption Framework for Azure meets that need, helping guide decisions throughout cloud adoption.
 
+Make your changes directly in the content.
+
 However, cloud adoption is a means to an end. Successful cloud adoption starts well before a cloud platform vendor is selected. It begins when business and IT decision makers realize that the cloud can accelerate a specific business transformation objective. The Cloud Adoption Framework helps align strategies for business, culture, and technical change to achieve the desired business outcomes.
 
 The Cloud Adoption Framework provides technical guidance for Microsoft Azure. Because customers may still be in the process of choosing a cloud vendor, this framework provides cloud-agnostic guidance for higher-level decisions whenever possible.
