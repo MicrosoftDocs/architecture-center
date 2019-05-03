@@ -8,6 +8,8 @@ ms.date: 04/04/2019
 
 # Getting started with a cloud migration journey
 
+Testing the edit process
+
 Learn about using the Microsoft Cloud Adoption Framework for Azure to begin a cloud migration journey. This framework provides comprehensive guidance for transitioning legacy application workloads using innovative cloud-based technologies.
 
 ## Executive summary
