@@ -107,7 +107,7 @@ Here are the basic steps for containerizing an application.
     docker push myacr.azurecr.io/appa:1.0 
 
     ```
-The image is tagged with a version number that Service Fabric references when it deploys and versions the container. Azure DevOps encapsulates and executes the manual Docker build/tag/push process. DevOps details are described in the [DevOps and CI/CD](#devops-and-ci/cd) section.
+The image is tagged with a version number that Service Fabric references when it deploys and versions the container. Azure DevOps encapsulates and executes the manual Docker build/tag/push process. DevOps details are described in the [DevOps and CI/CD](#devops-and-cicd) section.
 
 > In the preceding example, the base image is “microsoft/aspnet4.7” from DockerHub.
 
