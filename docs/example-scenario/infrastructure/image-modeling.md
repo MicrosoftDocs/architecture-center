@@ -108,7 +108,7 @@ For step-by-step instructions for deploying this architecture, including all the
 
 ## Related resources
 
-The following resources will provide more information on the components utilized in this scenario, along with alternative approaches for batch computing on Azure.
+The following resources will provide more information on the components used in this scenario, along with alternative approaches for batch computing on Azure.
 
 - Overview of [Avere vFXT for Azure](/azure/avere-vfxt/avere-vfxt-overview)
 - [Agisoft PhotoScan](https://www.agisoft.com/) home Page

@@ -23,7 +23,7 @@ Goals for the project include addressing technical debt, improving ongoing maint
 
 New application features will be delivered in stages. These features will gradually replace the existing browser-based client-server UI functionality (hosted on-premises) that powers their e-commerce business today.
 
-The management team does not want to modernize unnecessarily. They also want to maintain control of scope and costs. To do this, they have decided to preserve their existing SOAP HTTP services. They also intend to minimize changes to the existing UI. [Azure API Management (APIM)][apim] can be utilized to address many of the project's requirements and constraints.
+The management team does not want to modernize unnecessarily. They also want to maintain control of scope and costs. To do this, they have decided to preserve their existing SOAP HTTP services. They also intend to minimize changes to the existing UI. [Azure API Management (APIM)][apim] can be used to address many of the project's requirements and constraints.
 
 ## Architecture
 
