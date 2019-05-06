@@ -1,5 +1,5 @@
 ---
-title: "CAF: Resource Consistency discipline improvement"
+title: "Resource Consistency discipline improvement"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
