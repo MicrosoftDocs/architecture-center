@@ -43,7 +43,7 @@ To simplify this process, you could also use the [Batch Plugins for Maya and 3ds
 
 ### Components
 
-Azure Batch builds upon the following Azure technologies:
+Azure Batch builds on the following Azure technologies:
 
 - [Virtual Networks](/azure/virtual-network/virtual-networks-overview) are used for both the head node and the compute resources.
 - [Azure Storage accounts](/azure/storage/common/storage-introduction) are used for synchronization and data retention.

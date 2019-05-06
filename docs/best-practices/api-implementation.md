@@ -1,7 +1,7 @@
 ---
 title: API implementation guidance
 titleSuffix: Best practices for cloud applications
-description: Guidance upon how to implement an API.
+description: Guidance on how to implement an API.
 author: dragon119
 ms.date: 07/13/2016
 ms.topic: best-practice

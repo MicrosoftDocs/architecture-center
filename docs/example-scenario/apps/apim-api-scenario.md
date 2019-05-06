@@ -38,7 +38,7 @@ The new UI will be hosted as a platform as a service (PaaS) application on Azure
 3. Inbound calls are made from Azure to the existing internal services:
     - The security team allows traffic from the APIM instance to pass through the corporate firewall to the existing on-premises services [using secure transport (HTTPS/SSL)][apim-ssl].
     - The operations team will allow inbound calls to the services only from the APIM instance. This requirement is met by [white-listing the IP address of the APIM instance][apim-whitelist-ip] within the corporate network perimeter.
-    - A new module is configured into the on-premises HTTP services request pipeline (to act upon **only** those connections originating externally), which will validate [a certificate which APIM will provide][apim-mutualcert-auth].
+    - A new module is configured into the on-premises HTTP services request pipeline (to act on **only** those connections originating externally), which will validate [a certificate which APIM will provide][apim-mutualcert-auth].
 4. The new API:
     - Is surfaced only through the APIM instance, which will provide the API facade. The new API won't be accessed directly.
     - Is developed and published as an [Azure PaaS Web API App][azure-api-apps].
