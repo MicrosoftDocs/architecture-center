@@ -100,7 +100,7 @@ Azure DevOps costs depend on the number of users in your organization that requi
 
 This [pricing calculator][vsts-pricing-calculator] provides an estimate for running Azure DevOps with 20 users.
 
-Azure DevOps is billed on a per-user per-month basis. There may be additional charges dependent upon concurrent pipelines needed, in addition to any additional test users or user basic licenses.
+Azure DevOps is billed on a per-user per-month basis. There may be additional charges depending on concurrent pipelines needed, in addition to any additional test users or user basic licenses.
 
 ## Related resources
 
