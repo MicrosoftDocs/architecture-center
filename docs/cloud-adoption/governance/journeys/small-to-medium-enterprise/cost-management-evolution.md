@@ -1,11 +1,11 @@
 ---
-title: "CAF: Small-to-medium enterprise – Cost Management evolution"
+title: "Small-to-medium enterprise: Cost Management evolution"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 ms.date: 02/11/2019
-description: Small-to-medium enterprise – Cost Management evolution 
+description: Small-to-medium enterprise – Cost Management evolution
 author: BrianBlanchard
 ---
 
@@ -25,18 +25,18 @@ Since then, some things have changed that will affect governance:
 
 - The migration team has begun migrating VMs out of the production datacenter.
 - The application development teams is actively pushing production applications to the cloud through CI/CD pipelines. Those applications can reactively scale with user demands.
-- The business intelligence team within IT has delivered a number of predictive analytics tools in the cloud. the volumes of data aggregated in the cloud continues to grow.
+- The business intelligence team within IT has delivered several predictive analytics tools in the cloud. The volumes of data aggregated in the cloud continues to grow.
 - All of this growth supports committed business outcomes. However, costs have begun to mushroom. Projected budgets are growing faster than expected. The CFO needs improved approaches to managing costs.
 
 ### Evolution of the future state
 
-Cost monitoring and reporting is to be added to the cloud solution. IT is still serving as a cost clearing house. This means that payment for cloud services continues to come from IT procurement. However, reporting should tie direct operational expenses to the functions that are consuming the cloud costs. This model is referred to as "Show Back" model to cloud accounting.
+Cost monitoring and reporting is to be added to the cloud solution. IT is still serving as a cost clearing house. This means that payment for cloud services continues to come from IT procurement. However, reporting should tie direct operating expenses to the functions that are consuming the cloud costs. This model is referred to as a "Show Back" cloud accounting model.
 
 The changes to current and future state expose new risks that will require new policy statements.
 
 ## Evolution of tangible risks
 
-**Budget control**: There is an inherent risk that self-service capabilities will result in excessive and unexpected costs on the new platform. Governance processes for monitoring costs and mitigating ongoing cost risks must be in place to ensure continued alignment with the planned budget.
+**Budget control:** There is an inherent risk that self-service capabilities will result in excessive and unexpected costs on the new platform. Governance processes for monitoring costs and mitigating ongoing cost risks must be in place to ensure continued alignment with the planned budget.
 
 This business risk can be expanded into a few technical risks:
 
@@ -46,7 +46,7 @@ This business risk can be expanded into a few technical risks:
 
 ## Evolution of the policy statements
 
-The following changes to policy will help mitigate the new risks and guide implementation.
+The following changes to policy will help remediate the new risks and guide implementation.
 
 1. All cloud costs should be monitored against plan on a weekly basis by the governance team. Reporting on deviations between cloud costs and plan is to be shared with IT leadership and finance monthly. All cloud costs and plan updates should be reviewed with IT leadership and finance monthly.
 2. All costs must be allocated to a business function for accountability purposes.
@@ -70,11 +70,11 @@ This section of the article will evolve the governance MVP design to include new
 
 ## Conclusion
 
-Adding these processes and changes to the governance MVP helps mitigate many of the risks associated with cost governance. Together, they create the visibility, accountability, and optimization needed to control costs.
+Adding these processes and changes to the governance MVP helps remediate many of the risks associated with cost governance. Together, they create the visibility, accountability, and optimization needed to control costs.
 
 ## Next steps
 
 As cloud adoption continues to evolve and deliver additional business value, risks and cloud governance needs will also evolve. For the fictional company in this journey, the next step is using this governance investment to manage multiple clouds.
 
 > [!div class="nextstepaction"]
-> [Multi-cloud evolution](./multi-cloud-evolution.md)
+> [Multicloud evolution](./multi-cloud-evolution.md)

@@ -1,5 +1,5 @@
 ---
-title: "CAF: Deployment Acceleration discipline improvement"
+title: "Deployment Acceleration discipline improvement"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
@@ -13,16 +13,16 @@ author: alexbuckgit
 
 The Deployment Acceleration discipline focuses on establishing policies that ensure that resources are deployed and configured consistently and repeatably, and remain in compliance throughout their lifecycle. Within the Five Disciplines of Cloud Governance, Deployment Acceleration includes decisions regarding automating deployments, source-controlling deployment artifacts, monitoring deployed resources to maintain desired state, and auditing any compliance issues.
 
-This article outlines some potential tasks your company can engage in to better develop and mature the Deployment Acceleration discipline. These tasks can be broken down into planning, building, adopting, and operating phases of implementing a cloud solution, which are then iterated on allowing the development of an [incremental approach to cloud governance](../journeys/overview.md#an-incremental-approach-to-cloud-governance).
+This article outlines some potential tasks your company can engage in to better develop and mature the Deployment Acceleration discipline. These tasks can be broken down into planning, building, adopting, and operating phases of implementing a cloud solution, which are then iterated on allowing the development of an [incremental approach to cloud governance](../journeys/index.md#an-incremental-approach-to-cloud-governance).
 
 ![Four phases of adoption](../../_images/adoption-phases.png)
 
 *Figure 1. Adoption phases of the incremental approach to cloud governance.*
 
-It's impossible for any one document to account for the requirements of all businesses. As such, this article outlines suggested minimum and potential example activities for each phase of the governance maturation process. The initial objective of these activities is to help you build a [Policy MVP](../journeys/overview.md#an-incremental-approach-to-cloud-governance) and establish a framework for incremental policy evolution. Your Cloud Governance team will need to decide how much to invest in these activities to improve your Identity Baseline governance capabilities.
+It's impossible for any one document to account for the requirements of all businesses. As such, this article outlines suggested minimum and potential example activities for each phase of the governance maturation process. The initial objective of these activities is to help you build a [Policy MVP](../journeys/index.md#an-incremental-approach-to-cloud-governance) and establish a framework for incremental policy evolution. Your Cloud Governance team will need to decide how much to invest in these activities to improve your Identity Baseline governance capabilities.
 
 > [!CAUTION]
-> Neither the minimum or potential activities outlined in this article are aligned to specific corporate policies or third party compliance requirements. This guidance is designed to help facilitate the conversations that will lead to alignment of both requirements with a cloud governance model.
+> Neither the minimum or potential activities outlined in this article are aligned to specific corporate policies or third-party compliance requirements. This guidance is designed to help facilitate the conversations that will lead to alignment of both requirements with a cloud governance model.
 
 ## Planning and readiness
 
@@ -39,13 +39,13 @@ This phase of governance maturity bridges the divide between business outcomes a
 
 - Define roles and assignments that will govern Deployment Acceleration in the cloud.
 
-## Build and pre-deployment
+## Build and predeployment
 
 **Minimum suggested activities:**
 
 - For new cloud-based applications, introduce fully automated deployments early in the development process. This investment will improve the reliability of your testing processes and ensure consistency across your development, QA, and production environments.
 - Store all deployment artifacts such as deployment templates or configuration scripts using a source-control platform such as GitHub or Azure DevOps.
-- Consider a pilot test before implementing your [Deployment Acceleration toolchain](toolchain.md), making sure it streamlines your deployments as much as possible. Apply feedback from pilot tests during the pre-deployment phase, repeating as needed.
+- Consider a pilot test before implementing your [Deployment Acceleration toolchain](toolchain.md), making sure it streamlines your deployments as much as possible. Apply feedback from pilot tests during the predeployment phase, repeating as needed.
 - Evaluate the logical and physical architecture of your applications, and identify opportunities to automate the deployment of application resources or improve portions of the architecture using other cloud-based resources.
 - Update the Architecture Guidelines document to include deployment and user adoption plans, and distribute to key stakeholders.
 - Continue to educate the people and teams most affected by the architecture guidelines.
@@ -66,7 +66,7 @@ Migration is an incremental process that focuses on the movement, testing, and a
 
 **Potential activities:**
 
-- Validate that the best practices defined during the build and pre-deployment phases are properly executed.
+- Validate that the best practices defined during the build and predeployment phases are properly executed.
 - Ensure that each application or workload aligns with the Deployment Acceleration strategy before release.
 
 ## Operate and post-implementation

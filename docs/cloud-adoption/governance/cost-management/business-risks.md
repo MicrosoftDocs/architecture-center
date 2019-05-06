@@ -1,5 +1,5 @@
 ---
-title: "CAF: Cost Management motivations and business risks"
+title: "Cost Management motivations and business risks"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
@@ -29,14 +29,14 @@ The Cost Management discipline attempts to address core business risks related t
 
 Risks will differ between organization, but the following serve as common cost-related risks that you can use as a starting point for discussions within your Cloud Governance team:
 
-- **Budget control**. Not controlling budget can lead to excessive spending with a cloud vendor.
-- **Utilization loss**. Prepurchases or precommitments that are not used can result in wasted investments.
-- **Spending anomalies**: Unexpected spikes in either direction can be indicators of improper usage.
-- **Overprovisioned assets**. When assets are deployed in a configuration that exceed the needs of an application or virtual machine (VM), they can increase costs and create waste.
+- **Budget control:** Not controlling budget can lead to excessive spending with a cloud vendor.
+- **Utilization loss:** Prepurchases or precommitments that are not used can result in wasted investments.
+- **Spending anomalies:** Unexpected spikes in either direction can be indicators of improper usage.
+- **Overprovisioned assets:** When assets are deployed in a configuration that exceed the needs of an application or virtual machine (VM), they can increase costs and create waste.
 
 ## Next steps
 
-Using the [Cloud Management Template](./template.md), document business risks that are likely to be introduced by the current cloud adoption plan.
+Using the [Cloud Management template](./template.md), document business risks that are likely to be introduced by the current cloud adoption plan.
 
 Once an understanding of realistic business risks is established, the next step is to document the business's tolerance for risk and the indicators and key metrics to monitor that tolerance.
 

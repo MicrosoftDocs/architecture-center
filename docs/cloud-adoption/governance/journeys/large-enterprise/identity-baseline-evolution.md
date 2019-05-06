@@ -1,5 +1,5 @@
 ---
-title: "CAF: Large enterprise – Identity Baseline evolution"
+title: "Large enterprise: Identity Baseline evolution"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
@@ -22,7 +22,7 @@ The business justification for the cloud migration of the two datacenters was ap
 - 15% of the assets in the datacenter (750 virtual machines) have a dependency on legacy authentication or third-party multi-factor authentication.
 - The VPN connection that connects existing datacenters and Azure does not offer sufficient data transmission speeds or latency to migrate the volume of assets within the two-year timeline to retire the datacenter.
 
-The first two roadblocks are being mitigated in parallel. This article will address the resolution of the third and fourth roadblocks.
+The first two roadblocks are being managed in parallel. This article will address the resolution of the third and fourth roadblocks.
 
 ### Evolution of the Cloud Governance team
 
@@ -41,24 +41,24 @@ The changes to current and future state expose new risks that will require new p
 
 ## Evolution of tangible risks
 
-**Business interruption during migration**. Migration to the cloud creates a controlled, time-bound risk that can be managed. Moving aging hardware to another part of the world is much higher risk. A mitigation strategy is needed to avoid interruptions to business operations.
+**Business interruption during migration.** Migration to the cloud creates a controlled, time-bound risk that can be managed. Moving aging hardware to another part of the world is much higher risk. A mitigation strategy is needed to avoid interruptions to business operations.
 
-**Existing identity dependencies**. Dependencies on existing authentication and identity services may delay or prevent the migration of some workloads to the cloud. Failure to return the two datacenters on time will incur millions of dollars in datacenter lease fees.
+**Existing identity dependencies.** Dependencies on existing authentication and identity services may delay or prevent the migration of some workloads to the cloud. Failure to return the two datacenters on time will incur millions of dollars in datacenter lease fees.
 
 This business risk can be expanded into a few technical risks:
 
 - Legacy authentication might not be available in the cloud, limiting deployment of some applications.
-- The current third-party MFA solution might not be available in the cloud, limiting deployment of some applications.
+- The current third-party multi-factor authentication solution might not be available in the cloud, limiting deployment of some applications.
 - Retooling or moving either could create outages and add costs.
 - The speed and stability of the VPN might impede migration.
-- Traffic coming into the cloud could cause security issues in other parts of the global network.
+- Traffic entering the cloud could cause security issues in other parts of the global network.
 
 ## Evolution of the policy statements
 
-The following changes to policy will help mitigate the new risks and guide implementation.
+The following changes to policy will help remediate the new risks and guide implementation.
 
 1. The chosen cloud provider must offer a means of authenticating via legacy methods.
-2. The chosen cloud provider must offer a means of authentication with the current third-party MFA solution.
+2. The chosen cloud provider must offer a means of authentication with the current third-party multi-factor authentication solution.
 3. A high-speed private connection should be established between the cloud provider and the company’s telco provider, connecting the cloud provider to the global network of datacenters.
 4. Until sufficient security requirements are established, no inbound public traffic may access company assets hosted in the cloud. All ports are blocked from any source outside of the global WAN.
 
@@ -71,18 +71,18 @@ Here are the new best practices:
 1. DMZ blueprint: The on-premises side of the DMZ should be configured to allow communication between the following solution and the on-premises Active Directory servers. This best practice requires a DMZ to enable Active Directory Domain Services across network boundaries.
 2. Azure Resource Manager templates:
     1. Define an NSG to block external traffic and whitelist internal traffic.
-    1. Deploy two AD virtual machines in a load balanced pair based on a golden image. On first boot, that image runs a PowerShell script to join the domain and register with domain services. For more information, see [Extend Active Directory Domain Services (AD DS) to Azure](../../../../reference-architectures/identity/adds-extend-domain.md).
+    1. Deploy two Active Directory virtual machines in a load-balanced pair based on a golden image. On first boot, that image runs a PowerShell script to join the domain and register with domain services. For more information, see [Extend Active Directory Domain Services (AD DS) to Azure](../../../../reference-architectures/identity/adds-extend-domain.md).
 3. Azure Policy: Apply the NSG to all resources.
-4. Azure blueprint
+4. Azure blueprint:
     1. Create a blueprint named `active-directory-virtual-machines`.
-    1. Add each of the AD templates and policies to the blueprint.
+    1. Add each of the Active Directory templates and policies to the blueprint.
     1. Publish the blueprint to any applicable management group.
-    1. Apply the blueprint to any subscription requiring legacy or third-party MFA authentication.
-    1. The instance of AD running in Azure can now be used as an extension of the on-premises AD solution, allowing it to integrate with the existing MFA tool and provide claims-based authentication, both through existing Active Directory functionality.
+    1. Apply the blueprint to any subscription requiring legacy or third-party multi-factor authentication.
+    1. The instance of Active Directory running in Azure can now be used as an extension of the on-premises Active Directory solution, allowing it to integrate with the existing multi-factor authentication tool and provide claims-based authentication, both through existing Active Directory functionality.
 
 ## Conclusion
 
-Adding these changes to the governance MVP helps mitigate many of the risks in this article, allowing each cloud adoption team to quickly move past this roadblock.
+Adding these changes to the governance MVP helps remediate many of the risks in this article, allowing each cloud adoption team to quickly move past this roadblock.
 
 ## Next steps
 

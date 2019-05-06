@@ -1,11 +1,11 @@
 ---
-title: "CAF: The Five Disciplines of Cloud Governance"
+title: "The Five Disciplines of Cloud Governance"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 ms.date: 02/11/2019
-description: Overview of governance content within CAF
+description: Overview of governance content within the Cloud Adoption Framework
 author: BrianBlanchard
 layout: LandingPage
 ms.topic: landing-page
@@ -21,7 +21,7 @@ ms.topic: landing-page
         <div class="cardPadding" style="padding-bottom:10px;">
             <div class="card" style="padding-bottom:10px;">
                 <div class="cardText" style="padding-left:0px;">
-Any change to business processes or technology platforms introduces risk. Cloud Governance teams, whose members are sometimes known as cloud custodians, are tasked with mitigating these risks, with minimal interruption to adoption or innovation efforts.<br/><br/>The CAF governance model guides these decisions (regardless of the chosen cloud platform) by focusing on development of corporate policy and <a href="#disciplines-of-cloud-governance">Disciplines of Cloud Governance</a>. <a href="./journeys/overview.md">Actionable journeys</a> demonstrate this model using Azure services. This article serves as a landing page for the five disciplines of the CAF governance model.
+Any change to business processes or technology platforms introduces risk. Cloud Governance teams, whose members are sometimes known as cloud custodians, are tasked with mitigating these risks, with minimal interruption to adoption or innovation efforts.<br/><br/>The Cloud Adoption Framework governance model guides these decisions (regardless of the chosen cloud platform) by focusing on [development of corporate policy](./corporate-policy.md) and the [Five Disciplines of Cloud Governance](#disciplines-of-cloud-governance). [Actionable design guides](./actionable-journeys/index.md) demonstrate this model using Azure services. This landing page lists the disciplines of the Cloud Adoption Framework governance model.
                 </div>
             </div>
         </div>
@@ -33,7 +33,7 @@ Any change to business processes or technology platforms introduces risk. Cloud 
             <div class="cardPadding" style="padding-bottom:10px;">
                 <div class="card" style="padding-bottom:10px;">
                     <div class="cardText" style="padding-left:0px;">
-<img src="../_images/operational-transformation-govern-highres.png" alt="Diagram of the CAF governance model: Corporate policy and governance disciplines">
+<img src="../_images/operational-transformation-govern-highres.png" alt="Diagram of the Cloud Adoption Framework governance model: Corporate policy and governance disciplines">
 <br>
 <i>Figure 1. Diagram of corporate policy and the Five Disciplines of Cloud Governance</i>
                     </div>
@@ -54,7 +54,7 @@ Across each cloud provider, there are common governance disciplines that can ser
 
 <ul class="panelContent cardsA">
 <li style="display: flex; flex-direction: column;">
-    <a href="./cost-management/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./cost-management/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -73,7 +73,7 @@ Across each cloud provider, there are common governance disciplines that can ser
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./security-baseline/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./security-baseline/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -92,7 +92,7 @@ Across each cloud provider, there are common governance disciplines that can ser
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./identity-baseline/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./identity-baseline/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -111,7 +111,7 @@ Across each cloud provider, there are common governance disciplines that can ser
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./resource-consistency/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./resource-consistency/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -122,7 +122,7 @@ Across each cloud provider, there are common governance disciplines that can ser
                     </div>
                     <div class="cardText">
                         <h3>Resource Consistency</h3>
-                        <p>Cloud operations depends on consistency in resource configuration. Through governance tooling, resources can consistently be configured to mitigate risks related to on-boarding, drift, discoverability, and recovery.</p>
+                        <p>Cloud operations depends on consistency in resource configuration. Through governance tooling, resources can consistently be configured to manage risks related to on-boarding, drift, discoverability, and recovery.</p>
                     </div>
                 </div>
             </div>
@@ -130,7 +130,7 @@ Across each cloud provider, there are common governance disciplines that can ser
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./deployment-acceleration/overview.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./deployment-acceleration/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
@@ -141,7 +141,7 @@ Across each cloud provider, there are common governance disciplines that can ser
                     </div>
                     <div class="cardText">
                         <h3>Deployment Acceleration</h3>
-                        <p>Centralization, standardization, and consistency in deployment and configuration approaches improve governance practices. When made available through cloud-based governance tooling, they create a cloud factor which can accelerate deployment activities.</p>
+                        <p>Centralization, standardization, and consistency in deployment and configuration approaches improve governance practices. When made available through cloud-based governance tooling, they create a cloud factor that can accelerate deployment activities.</p>
                     </div>
                 </div>
             </div>
