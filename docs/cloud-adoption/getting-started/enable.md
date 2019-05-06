@@ -1,5 +1,5 @@
 ---
-title: "CAF: Enable customer success"
+title: "Enable customer success across any cloud adoption journey"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Enable customer success across any cloud adoption journey
 author: BrianBlanchard

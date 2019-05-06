@@ -1,5 +1,5 @@
 ---
-title: "CAF: Resource Consistency tools in Azure"
+title: "Resource Consistency tools in Azure"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
@@ -55,6 +55,6 @@ When planning your deployment, you will need to consider where logging data is s
 > [!NOTE]
 > Organizations also use third-party DevOps tools to monitor workloads and resources. For more information, see [DevOps tool integrations](https://azure.microsoft.com/products/devops-tool-integrations).
 
-# Next steps
+## Next steps
 
 Learn how to create, assign, and manage [policy definitions](/azure/governance/policy) in Azure.
