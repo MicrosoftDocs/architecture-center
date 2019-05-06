@@ -1,6 +1,9 @@
 ---
-layout: LandingPage
-ms.topic: landing-page
+title: Azure Application Architecture Guide
+description: A structured approach for designing applications on Azure that are scalable, resilient, and highly available
+author: MikeWasson
+ms.author: pnp
+ms.topic: guide
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.date: 08/30/2018
