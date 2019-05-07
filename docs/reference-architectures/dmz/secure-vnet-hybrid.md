@@ -50,7 +50,7 @@ The following recommendations apply for most scenarios. Follow these recommendat
 
 ### Access control recommendations
 
-Use [Role-Based Access Control][rbac] (RBAC) to manage the resources in your application. Consider creating the following [custom roles][rbac-custom-roles]:
+Use [role-based access control][rbac] (RBAC) to manage the resources in your application. Consider creating the following [custom roles][rbac-custom-roles]:
 
 - A DevOps role with permissions to administer the infrastructure for the application, deploy the application components, and monitor and restart VMs.
 

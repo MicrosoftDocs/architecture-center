@@ -65,7 +65,7 @@ Cloud strategy and planning is a methodology that focuses on aligning business o
 
 The Cloud Adoption Framework's Cloud strategy and planning methodology is based on an incremental approach to cloud implementation that aligns to agile technology strategies, cultural maturity based on growth mindset approaches, and strategies driven by business outcomes. This methodology consists of the following high-level components that guide the implementation of each strategy.
 
-As depicted in the image above, this framework aligns strategic decisions to a small number of contained processes, which operate within an iterative model. While described in a linear document, each of the following processes is expected to mature in parallel to iterations of the cloud implementation. The links for each process will aid in defining the end state and means of maturing towards the targeted end state:
+As depicted in the image above, this framework aligns strategic decisions to a small number of contained processes, which operate within an iterative model. While described in a linear document, each of the following processes is expected to mature in parallel to iterations of the cloud implementation. The links for each process will aid in defining the end state and the means of maturing toward the desired end state:
 
 - **[Plan](../business-strategy/index.md):** When technical implementation is aligned with clear business objectives, it's much easier to measure and align success across multiple cloud implementation efforts, regardless of technical decisions.
 - **[Ready](../ready/index.md):** Preparing the business, culture, people, and environment for coming changes leads to success in each effort and accelerates implementation and change projects.
