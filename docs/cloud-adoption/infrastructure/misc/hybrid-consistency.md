@@ -8,7 +8,7 @@ ms.date: 12/27/2018
 
 This article guides you through the high-level approaches for creating hybrid cloud consistency.
 
-Hybrid deployment models during migration can reduce risk and contribute to a smooth infrastructure transition. Cloud platforms offer the greatest level of flexibility when it comes to business processes. Many organizations are hesitant to make the move to the cloud, preferring instead to keep full control over the most sensitive data. Unfortunately, on-premises servers don’t allow for the same rate of innovation as the cloud. A hybrid cloud solution allows you the best of both worlds: The speed of cloud innovation AND the comfort of on-premises management.
+Hybrid deployment models during migration can reduce risk and contribute to a smooth infrastructure transition. Cloud platforms offer the greatest level of flexibility when it comes to business processes. Many organizations are hesitant to make the move to the cloud, preferring instead to keep full control over the most sensitive data. Unfortunately, on-premises servers don’t allow for the same rate of innovation as the cloud. A hybrid cloud solution allows you the best of both worlds: the speed of cloud innovation and the comfort of on-premises management.
 
 ## Integrate hybrid cloud consistency
 

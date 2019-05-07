@@ -72,7 +72,7 @@ Contoso evaluates their proposed design by putting together a pros and cons list
 **Consideration** | **Details**
 --- | ---
 **Pros** | The SmartHotel360 app code won't need to be altered for migration to Azure.<br/><br/> Contoso can take advantage of their investment in Software Assurance using the Azure Hybrid Benefit for both SQL Server and Windows Server.<br/><br/> After the migration Windows Server 2008 R2 won't need to be supported. [Learn more](https://support.microsoft.com/lifecycle).<br/><br/> Contoso can configure the web tier of the app with multiple instances, so that it's no longer a single point of failure.<br/><br/> The database will no longer depend on the aging SQL Server 2008 R2.<br/><br/> SQL Database supports the technical requirements. Contoso assessed the on-premises database using the Data Migration Assistant and found that it's compatible.<br/><br/> Azure SQL Database has built-in fault tolerance that Contoso don't need to set up. This ensures that the data tier is no longer a single point of failover.
-**Cons** | Azure App Service only supports one app deployment for each web app. This means that two web apps must be provisioned (one for the website and one for the WCF service).<br/><br/> If Contoso uses the Data Migration Assistant instead of Database Migration Service to migrate their database, it won’t have the infrastructure ready for migrating databases at scale. Contoso will need to build another region to ensure failover if the primary region is unavailable.
+**Cons** | Azure App Service only supports one app deployment for each web app. This means that two web apps must be provisioned (one for the website and one for the WCF service).<br/><br/> If Contoso uses the Data Migration Assistant instead of Azure Database Migration Service to migrate their database, it won’t have the infrastructure ready for migrating databases at scale. Contoso will need to build another region to ensure failover if the primary region is unavailable.
 
 <!-- markdownlint-enable MD033 -->
 
@@ -183,7 +183,7 @@ Contoso admins will migrate the SmartHotel360 database using DMA.
 
     ![DMA](media/contoso-migration-refactor-web-app-sql/dma-4.png)
 
-6. After DMS creates the script, they select **Deploy schema**.
+6. After DMA creates the script, they select **Deploy schema**.
 
     ![DMA](media/contoso-migration-refactor-web-app-sql/dma-5.png)
 

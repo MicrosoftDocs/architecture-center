@@ -526,7 +526,7 @@ Contoso admins will migrate the SmartHotel360 database to Azure VM **SQLAOG1** u
 
     ![DMA](media/contoso-migration-rehost-vm-sql-ag/dma-5.png)
 
-DMS connects to the on-premises SQL Server VM across a site-to-site VPN connection between the Contoso datacenter and Azure, and then migrates the database.
+DMA connects to the on-premises SQL Server VM across a site-to-site VPN connection between the Contoso datacenter and Azure, and then migrates the database.
 
 ## Step 7: Protect the database with Always On
 

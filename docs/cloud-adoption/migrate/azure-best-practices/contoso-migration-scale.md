@@ -264,9 +264,9 @@ Contoso has made the decision to use Managed disks for all VMs that are deployed
 
 <!--markdownlint-enable MD033 -->
 
-#### Database Migration Service
+#### Azure Database Migration Service
 
-The Azure Database Migration Service (DMS), is a fully managed service that enables seamless migrations from multiple database sources to Azure data platforms, with minimal downtime.
+The Azure Database Migration Service is a fully managed service that enables seamless migrations from multiple database sources to Azure data platforms with minimal downtime.
 
 - DMS integrates functionality of existing tools and services. It uses the Data Migration Assistant (DMA), to generate assessment reports that pinpoint recommendations about database compatibility and any required modifications.
 - DMS uses a simple, self-guided migration process, with intelligent assessment that helps address potential issues before the migration.
