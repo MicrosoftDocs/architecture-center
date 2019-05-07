@@ -222,8 +222,8 @@ Service Fabric spreads VM instances across fault and update domains to ensure ma
 
 ### Scale planning
 There are two aspects to consider:
-1.	Scale in or scale out the scale set associated with the application node type by adding or removing VM instances. VMs can be added and removed automatically through autoscaling or manually through scripts. For an enterprise cluster, do not add or remove nodes frequently. It is important that you disable nodes in Service Fabric before deleting them. Do not delete seed nodes from your cluster. Monitor the cluster VMs with alerts to trigger when VM resources exceed threshold values.
-2.	Scale the application’s container count across the scale set instances in the application node type.
+- Scale in or scale out the scale set associated with the application node type by adding or removing VM instances. VMs can be added and removed automatically through autoscaling or manually through scripts. For an enterprise cluster, do not add or remove nodes frequently. It is important that you disable nodes in Service Fabric before deleting them. Do not delete seed nodes from your cluster. Monitor the cluster VMs with alerts to trigger when VM resources exceed threshold values.
+- Scale the application’s container count across the scale set instances in the application node type.
 
 For the application node type, start with the minimal required nodes to support the containerized applications and ensure high availability. Have extra nodes in the cluster. A node can be removed from the cluster for maintenance and its running containers can be temporarily moved to other nodes. The cluster can grow statically using the **Add-AzureRmServiceFabricNode** cmdlet, or dynamically by using scale set autoscale capability.
 
@@ -403,15 +403,15 @@ Application containerization ensures consistency. It makes sure all Service Fabr
 - There are various third-party image scanning tools that can plug into this process on Docker push/pulls from the Azure Container Registry. Those solutions are available in Azure Marketplace and referenced in the Azure portal Container Registry blade. For example, Aqua and TwistLock.
 After the source code is pushed to a git-based repository, set up CI/CD by creating an Azure DevOps build definition, selecting the source repository, and choosing the **Azure Service Fabric Application and Docker Support** template. 
 
-![Azure Service Fabric Application and Docker Support template](images/ContainerSF-devops-template1.png)
+![Azure Service Fabric Application and Docker Support template](images/containersf-devops-template1.png)
 
 The template sets up the build process and tasks for CI/CD by building and containerizing  the application, pushing the container image to a Docker registry (Azure Container Registry is the default), and deploying the Service Fabric application with the containerized services to the cluster. Each application code change creates a version of the code and an updated containerized image. Service Fabric’s rolling upgrade feature deploys service upgrades gracefully.
 
-![Azure Service Fabric Application and Docker Support template](images/ContainerSF-devops-template2.png)
+![Azure Service Fabric Application and Docker Support template](images/containersf-devops-template2.png)
 
 Here is an example of a build starting the full DevOps process on an Azure-provided hosted build agent. Some enterprises may require the build agents to run internally within their private Azure virtual network corpnet. Set up a Windows build agent VM and instruct Azure DevOps to use the private VM for building and deploying code. For information about using custom build agents, see Self-hosted Windows agents.
 
-![Azure Service Fabric Application and Docker Support template](images/ContainerSF-devops-process.png)
+![Azure Service Fabric Application and Docker Support template](images/containersf-devops-process.png)
 
 ## Conclusion
 
