@@ -27,7 +27,7 @@ Answering the following questions will allow you to make decisions based on the 
 
 ## Innovation and migration
 
-In line with the Cloud Adoption Frameworks emphasis on [incremental migration](../../migrate/index.md#incremental-migration-model) efforts, an initial decision on migration strategy and tooling does not rule out future innovation efforts to update an application to take advantage of opportunities presented by the Azure platform. While an initial migration effort may primarily focus on rehosting using an IaaS approach, you should plan to revisit your cloud-hosted application portfolio regularly to investigate optimization opportunities.
+In line with the Cloud Adoption Frameworks emphasis on [incremental migration](../../migrate/index.md#migration-implementation) efforts, an initial decision on migration strategy and tooling does not rule out future innovation efforts to update an application to take advantage of opportunities presented by the Azure platform. While an initial migration effort may primarily focus on rehosting using an IaaS approach, you should plan to revisit your cloud-hosted application portfolio regularly to investigate optimization opportunities.
 
 ## Learn more
 

@@ -615,7 +615,7 @@ public async static Task<SqlDataReader> ExecuteReaderWithRetryAsync(this SqlComm
         sleepDurationProvider: attempt => TimeSpan.FromMilliseconds(200 * Math.Pow(2, attempt - 1)), // Exponential backoff based on an initial 200ms delay.
         onRetry: (exception, attempt) =>
         {
-            // Capture some info for logging/telemetry.
+            // Capture some information for logging/telemetry.
             logger.LogWarn($"ExecuteReaderWithRetryAsync: Retry {attempt} due to {exception}.");
         });
 
