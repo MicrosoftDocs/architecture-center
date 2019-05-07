@@ -110,7 +110,7 @@ This is still supported in ASP.NET Core, but it has some drawbacks compared with
 
 * It assumes a particular claim type. Policies can check for any claim type. Roles are just a type of claim.
 * The role name is hard-coded into the attribute. With policies, the authorization logic is all in one place, making it easier to update or even load from configuration settings.
-* Policies enable more complex authorization decisions (e.g., age >= 21) that can't be expressed by simple role membership.
+* Policies enable more complex authorization decisions (for example, age >= 21) that can't be expressed by simple role membership.
 
 ## Resource-based authorization
 

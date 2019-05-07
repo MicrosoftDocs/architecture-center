@@ -26,7 +26,7 @@ The following assumptions are typical for any migration effort:
 The itemized assumptions can create roadblocks that could slow progress or cause later pain points. The following are a few roadblocks to watch for, prior to the release:
 
 - **Paying for technical debt.** Some aging workloads carry with them a high amount of technical debt. This can lead to long-term challenges by increasing hosting costs with any cloud provider. When technical debt unnaturally increases hosting costs, alternative architectures should be evaluated.
-- **User traffic patterns.** Existing solutions may be dependent on existing network routing patterns. These patterns could slow performance considerably. Further, introduction of new hybrid wide area network (WAN) solutions can take weeks or even months. Prepare early in the architecture process for these roadblocks by considering traffic patterns and changes to any core infrastructure services.
+- **User traffic patterns.** Existing solutions may depend on existing network routing patterns. These patterns could slow performance considerably. Further, introduction of new hybrid wide area network (WAN) solutions can take weeks or even months. Prepare early in the architecture process for these roadblocks by considering traffic patterns and changes to any core infrastructure services.
 
 ## Accelerating business value
 

@@ -207,7 +207,7 @@ One of the key tasks you can do to keep your environment safe is ensure that you
 
 ## Monitor and alerts
 
-Collecting and analyzing telemetry that provides line of sight into the activities, performance metrics, health, and availability of the services you are using across all of your Azure subscriptions is critical to proactively manage your applications and infrastructure and is a foundational need of every Azure subscription. Every Azure service emits telemetry in the form of activity logs, metrics, and diagnostic logs.
+Collecting and analyzing telemetry that provides line of sight into the activities, performance metrics, health, and availability of the services you are using across your Azure subscriptions is critical to proactively manage your applications and infrastructure and is a foundational need of every Azure subscription. Every Azure service emits telemetry in the form of activity logs, metrics, and diagnostic logs.
 
 - **Activity logs** describe all operations performed on resources in your subscriptions.
 - **Metrics** are numerical information emitted by a resource that describe the performance and health of a resource.
