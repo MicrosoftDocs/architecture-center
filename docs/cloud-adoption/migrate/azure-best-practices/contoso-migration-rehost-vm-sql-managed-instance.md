@@ -146,7 +146,7 @@ To set up an Azure SQL Database Managed Instance, Contoso needs a subnet that me
 - The subnet must be dedicated. It must be empty, and it can't contain any other cloud service. The subnet can't be a gateway subnet.
 - After the Managed Instance is created, Contoso should not add resources to the subnet.
 - The subnet can't have a network security group associated with it.
-- The subnet must have a user-defined routing (UDR) route table. The only route assigned should be 0.0.0.0/0 next hop internet.
+- The subnet must have a user-defined route table. The only route assigned should be 0.0.0.0/0 next-hop internet.
 - Optional custom DNS: If custom DNS is specified on the Azure virtual network, Azure's recursive resolvers IP address (such as 168.63.129.16) must be added to the list. Learn how to [configure custom DNS for a Managed Instance](/azure/sql-database/sql-database-managed-instance-custom-dns).
 - The subnet must not have a service endpoint (storage or SQL) associated with it. Service endpoints should be disabled on the virtual network.
 - The subnet must have a minimum of 16 IP addresses. Learn how to [size the Managed Instance subnet](/azure/sql-database/sql-database-managed-instance-vnet-configuration).
@@ -200,7 +200,7 @@ Contoso considers these factors:
 
  To set up routing Contoso admins do the following:
 
-1. They create a UDR (route) table in the **ContosoNetworkingRG** resource group.
+1. They create a user-defined route table in the **ContosoNetworkingRG** resource group.
 
     ![Route table](media/contoso-migration-rehost-vm-sql-managed-instance/mi-route-table.png)
 

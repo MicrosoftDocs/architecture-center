@@ -228,7 +228,7 @@ Note that:
 
 ### Set up RBAC
 
-Azure [Role-Based Access Control (RBAC)](/azure/role-based-access-control/role-assignments-portal) enables fine-grained access management for Azure. Using RBAC, you can grant only the amount of access that users need to perform tasks. You assign the appropriate RBAC role to users, groups, and applications at a scope level. The scope of a role assignment can be a subscription, a resource group, or a single resource.
+Azure [role-based access control (RBAC)](/azure/role-based-access-control/role-assignments-portal) enables fine-grained access management for Azure. Using RBAC, you can grant only the amount of access that users need to perform tasks. You assign the appropriate RBAC role to users, groups, and applications at a scope level. The scope of a role assignment can be a subscription, a resource group, or a single resource.
 
 Contoso admins now assigns roles to the Active Directory groups that they synchronized from on-premises.
 
@@ -384,7 +384,7 @@ Within the hub and spoke model that Contoso has chosen, it needs to think about 
   - Internet traffic will hit a load-balanced public IP address on the perimeter network.
   - This traffic is routed through the firewall, and subject to firewall rules.
   - After network access controls are implemented, traffic will be forwarded to the appropriate location in the trusted zone.
-  - Outbound traffic from the VNet will be routed to the internet using user-defined routes (UDRs). The traffic is forced through the firewall, and inspected in line with Contoso policies.
+  - Outbound traffic from the VNet will be routed to the internet using user-defined routes. The traffic is forced through the firewall, and inspected in line with Contoso policies.
 - From the Contoso datacenter:
   - Incoming traffic over VPN site-to-site (or ExpressRoute) hits the public IP address of the Azure VPN gateway.
   - Traffic is routed through the firewall and subject to firewall rules.
