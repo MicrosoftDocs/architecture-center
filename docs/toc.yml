@@ -584,6 +584,8 @@
       href: multitenant-identity/adfs.md
     - name: Run the Surveys application
       href: multitenant-identity/run-the-app.md
+  - name: Modernizing enterprise applications with Azure Service Fabric
+    href: service-fabric/modernize-app-azure-service-fabric.md
   - name: Migrate from Cloud Services to Service Fabric
     items:
     - name: Migrate a Cloud Services application to Service Fabric
