@@ -9,7 +9,7 @@ ms.service: architecture-center
 ms.subservice: reference-architecture
 ---
 
-# Modernize enterprise applications - Azure Service Fabric
+# Modernize enterprise applications with Azure Service Fabric
 The article provides guidelines for moving Windows applications to an Azure compute platform without rewriting. This migration uses container support in Azure Service Fabric.
 
 A typical approach for migrating existing workloads to the cloud is the lift-and-shift strategy. In IaaS VM migrations, you provision VMs with network and storage components and deploy the existing applications onto those VMs. Unfortunately lift-and-shift often results in overprovisioning and overpaying for compute resources. Another approach is to move to PaaS platforms or refactor code into microservices and run in newer serverless platforms. But those options typically involve changing existing code. 
