@@ -20,7 +20,7 @@ The "5 Rs of rationalization" listed here describe the most common options for r
 
 ## Rehost
 
-Also known as "lift and shift," a rehost effort moves a current state asset to the chosen cloud provider, with minimal change to overall architecture.
+Also known as a "lift and shift" migration, a rehost effort moves a current state asset to the chosen cloud provider, with minimal change to overall architecture.
 
 Common drivers could include:
 

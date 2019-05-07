@@ -7,6 +7,7 @@ ms.custom: governance
 ms.date: 02/11/2019
 description: Identity Baseline sample policy statements
 author: BrianBlanchard
+ms.author: brblanch
 ---
 
 # Identity Baseline sample policy statements
@@ -17,7 +18,7 @@ Individual cloud policy statements are guidelines for addressing specific risks 
 - **Policy statement:** A clear summary explanation of the policy requirements.
 - **Design options:** Actionable recommendations, specifications, or other guidance that IT teams and developers can use when implementing the policy.
 
-The following sample policy statements address common identity-related business risks, and are provided as examples for you to reference when drafting policy statements to address your own organization's needs. These examples are not meant to be proscriptive, and there are potentially several policy options for dealing with any particular risk. Work closely with business and IT teams to identify the best policy solutions for your unique set of risks.
+The following sample policy statements address common  identity-related business risks. These statements are examples you can reference when drafting policy statements to address your organization's needs. These examples are not meant to be proscriptive, and there are potentially several policy options for dealing with each identified risk. Work closely with business and IT teams to identify the best policies for your unique set of risks.
 
 ## Lack of access controls
 
