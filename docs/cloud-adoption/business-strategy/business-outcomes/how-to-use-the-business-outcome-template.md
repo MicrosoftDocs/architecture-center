@@ -34,7 +34,7 @@ An example can be found on the "Example Outcome" tab of the spreadsheet, as show
 
 ## Why is this template relevant?
 
-Discovery is a fundamental tenet to enterprise architecture. If discovery is limited to technical discovery, the solution is likely to miss many opportunities to improve the business. Enterprise architects, solution architects, and other technically minded leaders can master the discovery process using this template. In effective discovery processes, these leaders consider five key aspects of the business outcome before leading a transformation journey.
+Discovery is a fundamental tenet of enterprise architecture. If discovery is limited to technical discovery, the solution is likely to miss many opportunities to improve the business. Enterprise architects, solution architects, and other technically minded leaders can master the discovery process using this template. In effective discovery processes, these leaders consider five key aspects of the business outcome before leading a transformation journey.
 
 ![Five areas of focus in discovery: stakeholders, outcomes, drivers, KPIs, and capabilities](../../_images/business-outcome-focus-areas.png)
 *Figure 3: Five areas of focus in discovery: stakeholders, outcomes, drivers, KPIs, and capabilities*
