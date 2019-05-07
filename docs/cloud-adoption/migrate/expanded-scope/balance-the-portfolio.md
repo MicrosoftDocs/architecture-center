@@ -51,9 +51,9 @@ If the answer to any of these questions is "No", then the workload could be a ca
 - Can a retirement plan or sunset plan be established for this workload?
 - Can this workload be retired prior to the datacenter exit?
 
-If the answer to both of these questions is "Yes", then it would be wise to consider _not_ migrating the workload. Such an approach would aid in accomplishing the objectives of reducing costs AND exiting the datacenter.
+If the answer to both of these questions is "Yes", then it would be wise to consider _not_ migrating the workload. This approach would help meet the objectives of reducing costs and exiting the datacenter.
 
-If the answer to either question is "No", then it may be wise to establish a plan for hosting the workload until it can be retired. Such a plan could include moving the assets to a lower-cost datacenter or alternative datacenter, which would also accomplish the objectives of reducing costs AND exiting *a* datacenter.
+If the answer to either question is "No", it may be wise to establish a plan for hosting the workload until it can be retired. This plan could include moving the assets to a lower-cost datacenter or alternative datacenter, which would also accomplish the objectives of reducing costs and exiting one datacenter.
 
 ## Suggested prerequisites
 

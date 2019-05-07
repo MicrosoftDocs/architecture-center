@@ -101,13 +101,13 @@ The new best practices fall into two categories: Corporate IT (hub) and Cloud Ad
 2. Hub and spoke template.
     1. The guidance in the [hub and spoke topology with shared services][shared-services] reference architecture can be used to generate Resource Manager templates for the assets required in a corporate IT hub.
     2. Using those templates, this structure can be made repeatable, as part of a central governance strategy.
-    3. In addition to the current reference architecture, it is advised that a network security group (NSG) template should be created capturing any port blocking or whitelisting requirements for the VNet to host the firewall. This NSG will differ from prior NSGs, because it will be the first NSG to allow public traffic into a VNet.
-3. Create Azure policies. Create a policy named `Hub NSG Enforcement` to enforce the configuration of the NSG assigned to any VNet created in this subscription. Apply the built-in Policies for guest configuration as follows:
+    3. In addition to the current reference architecture, it is advised that a network security group template should be created capturing any port blocking or whitelisting requirements for the VNet to host the firewall. This network security group differs from prior groups, because it will be the first network security group to allow public traffic into a VNet.
+3. Create Azure policies. Create a policy named `Hub NSG Enforcement` to enforce the configuration of the network security group assigned to any VNet created in this subscription. Apply the built-in Policies for guest configuration as follows:
     1. Audit that Windows web servers are using secure communication protocols.
     2. Audit that password security settings are set correctly inside Linux and Windows machines.
 4. Corporate IT blueprint
     1. Create an Azure blueprint named `corporate-it-subscription`.
-    2. Add the hub and spoke templates and Hub NSG policy.
+    2. Add the hub and spoke templates and `Hub NSG Enforcement` policy.
 5. Expanding on initial management group hierarchy.
     1. For each management group that has requested support for protected data, the `corporate-it-subscription-blueprint` blueprint provides an accelerated hub solution.
     2. Because management groups in this fictional example include a regional hierarchy in addition to a business unit hierarchy, this blueprint will be deployed in each region.
@@ -121,19 +121,19 @@ The new best practices fall into two categories: Corporate IT (hub) and Cloud Ad
 
 **Applying additional governance to a Cloud Adoption Subscription (Spoke):** Building on the `Corporate IT Subscription`, minor changes to the governance MVP applied to each subscription dedicated to the support of application archetypes can produce rapid evolution.
 
-In prior evolutions of the best practice, NSGs were defined which blocked public traffic and whitelisted internal traffic. Additionally, the Azure blueprint temporarily created DMZ and Active Directory capabilities. In this evolution, we will tweak those assets a bit, creating a new version of the Azure blueprint.
+In prior evolutions of the best practice, we defined network security groups to block public traffic and whitelisted internal traffic. Additionally, the Azure blueprint temporarily created DMZ and Active Directory capabilities. In this evolution, we will tweak those assets a bit, creating a new version of the Azure blueprint.
 
-1. Network Peering Template. This template will peer the VNet in each subscription with the Hub VNet in the Corporate IT subscription.
+1. Network peering template. This template will peer the VNet in each subscription with the Hub VNet in the Corporate IT subscription.
     1. The reference architecture from the prior section, [hub and spoke topology with shared services][shared-services], generated a Resource Manager template for enabling VNet peering.
     2. That template can be used as a guide to modify the DMZ template from the prior governance evolution.
     3. Essentially, we are now adding VNet peering to the DMZ VNet that was previously connected to the local edge device over VPN.
     4. *** It is also advised that the VPN should be removed from this template as well to ensure no traffic is routed directly to the on-premises datacenter, without passing through the corporate IT subscription and Firewall solution.
     5. Additional [network configuration](/azure/automation/automation-dsc-overview#network-planning) will be required by Azure Automation to apply DSC to hosted VMs.
-2. Modify the NSG. Block all public AND direct on-premises traffic in the NSG. The only inbound traffic should be coming through the VNet peer in the corporate IT subscription.
-    1. In the prior evolution, an NSG was created blocking all public traffic and whitelisting all internal traffic. Now we want to shift this NSG a bit.
-    2. The new NSG configuration, should block all public traffic and all traffic from the local datacenter.
+2. Modify the network security group. Block all public **and** direct on-premises traffic in the network security group. The only inbound traffic should be coming through the VNet peer in the corporate IT subscription.
+    1. In the prior evolution, a network security group was created blocking all public traffic and whitelisting all internal traffic. Now we want to shift this network security group a bit.
+    2. The new network security group configuration should block all public traffic, along with all traffic from the local datacenter.
     3. Traffic entering this VNet should only come from the VNet on the other side of the VNet peer.
-3. Azure Security Center implementation.
+3. Azure Security Center implementation:
     1. Configure Azure Security Center for any management group that contains protected data classifications.
     2. Set Automatic provisioning to on by default to ensure patching compliance.
     3. Establish OS security configurations. IT Security to define the configuration.
@@ -146,12 +146,12 @@ In prior evolutions of the best practice, NSGs were defined which blocked public
 5. Update Azure Policy for all subscriptions that contains protected data classifications.
     1. Audit and enforce use of standard roles only
     2. Audit and enforce application of encryption for all storage accounts and files at rest on individual nodes.
-    3. Audit and enforce the application of the new version of the DMZ NSG.
+    3. Audit and enforce the application of the new version of the DMZ network security group.
     4. Audit and enforce use of approved network subnet and VNet per network interface.
     5. Audit and enforce the limitation of user-defined routing tables.
 6. Azure blueprint:
     1. Create an Azure blueprint named `protected-data`.
-    2. Add the VNet peer, NSG, and Azure Security Center templates to the blueprint.
+    2. Add the VNet peer, network security group, and Azure Security Center templates to the blueprint.
     3. Ensure the template for Active Directory from the previous evolution is NOT included in the blueprint. Any dependencies on Active Directory will be provided by the corporate IT subscription.
     4. Terminate any existing Active Directory VMs deployed in the previous evolution.
     5. Add the new policies for protected data subscriptions.

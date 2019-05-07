@@ -30,7 +30,7 @@ The processes described in this article may also require a partnership with IT m
 
 # [Estimate VM costs prior to migration](#tab/EstimateVMCosts)
 
-Prior to migration of any asset (infrastructure, app, or data), there is an opportunity to estimate costs and refine sizing based on observed performance criteria for those assets. Estimating costs serves two purposes, it allows for cost control AND provides a check point to ensure that current budgets account for necessary performance requirements.
+Prior to migration of any asset (infrastructure, app, or data), there is an opportunity to estimate costs and refine sizing based on observed performance criteria for those assets. Estimating costs serves two purposes: it allows for cost control, and it provides a checkpoint to ensure that current budgets account for necessary performance requirements.
 
 ## Cost calculators
 
