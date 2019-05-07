@@ -28,15 +28,15 @@ At a high level:
 
 In OpenID Connect, the set of claims that you get is controlled by the [scope parameter] of the authentication request. However, Azure AD issues a limited set of claims through OpenID Connect; see [Supported Token and Claim Types]. If you want more information about the user, you'll need to use the Azure AD Graph API.
 
-Here are some of the claims from AAD that an app might typically care about:
+Here are some of the claims from Azure AD that an app might typically care about:
 
 | Claim type in ID token | Description |
 | --- | --- |
 | aud |Who the token was issued for. This will be the application's client ID. Generally, you shouldn't need to worry about this claim, because the middleware automatically validates it. Example:  `"91464657-d17a-4327-91f3-2ed99386406f"` |
-| groups |A list of AAD groups of which the user is a member. Example: `["93e8f556-8661-4955-87b6-890bc043c30f", "fc781505-18ef-4a31-a7d5-7d931d7b857e"]` |
+| groups |A list of Azure AD groups of which the user is a member. Example: `["93e8f556-8661-4955-87b6-890bc043c30f", "fc781505-18ef-4a31-a7d5-7d931d7b857e"]` |
 | iss |The [issuer] of the OIDC token. Example: `https://sts.windows.net/b9bd2162-77ac-4fb2-8254-5c36e9c0a9c4/` |
 | name |The user's display name. Example: `"Alice A."` |
-| oid |The object identifier for the user in AAD. This value is the immutable and non-reusable identifier of the user. Use this value, not email, as a unique identifier for users; email addresses can change. If you use the Azure AD Graph API in your app, object ID is that value used to query profile information. Example: `"59f9d2dc-995a-4ddf-915e-b3bb314a7fa4"` |
+| oid |The object identifier for the user in Azure AD. This value is the immutable and non-reusable identifier of the user. Use this value, not email, as a unique identifier for users; email addresses can change. If you use the Azure AD Graph API in your app, object ID is that value used to query profile information. Example: `"59f9d2dc-995a-4ddf-915e-b3bb314a7fa4"` |
 | roles |A list of app roles for the user.    Example: `["SurveyCreator"]` |
 | tid |Tenant ID. This value is a unique identifier for the tenant in Azure AD. Example: `"b9bd2162-77ac-4fb2-8254-5c36e9c0a9c4"` |
 | unique_name |A human readable display name of the user. Example: `"alice@contoso.com"` |

@@ -45,7 +45,7 @@ In this reference architecture, HTTPS is enabled for communication with the clus
 
 ### Authentication and authorization
 
-Machine Learning Server [Model Operationalization][operationalization] requires scoring requests to be authenticated. In this deployment, a username and password are used. In an enterprise setting, you can enable authentication using [Azure Active Directory][AAD] or create a separate front end using [Azure API Management][API].
+Machine Learning Server [Model Operationalization][operationalization] requires scoring requests to be authenticated. In this deployment, a username and password are used. In an enterprise setting, you can enable authentication using [Azure Active Directory][azure-ad] or create a separate front end using [Azure API Management][API].
 
 For Model Operationalization to work correctly with Machine Learning Server on containers, you must install a JSON Web Token (JWT) certificate. This deployment uses a certificate supplied by Microsoft. In a production setting, supply your own.
 
@@ -74,7 +74,7 @@ Besides licensing, the main cost consideration is the Kubernetes cluster's compu
 The reference implementation of this architecture is available on [GitHub][github]. Follow the steps described there to deploy a simple predictive model as a service.
 
 <!-- links -->
-[AAD]: /azure/active-directory/fundamentals/active-directory-whatis
+[azure-ad]: /azure/active-directory/fundamentals/active-directory-whatis
 [API]: /azure/api-management/api-management-key-concepts
 [ACR]: /azure/container-registry/container-registry-intro
 [AKS]: /azure/aks/intro-kubernetes
