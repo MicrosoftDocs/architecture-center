@@ -122,7 +122,7 @@ Here are some considerations about the base images:
 For information about running an IIS ASP.net MVC application in a Windows container, see [Migrating ASP.NET MVC Applications to Windows Containers](/aspnet/mvc/overview/deployment/docker-aspnetmvc).
 
 ## Service Fabric cluster configuration for enterprise deployments
-To deploy a Service Fabric cluster, start with the sample Azure Resource Manager template in this [GitHub Repo] and customize it to fit your requirements. You also deploy a cluster through the Azure portal, but that option should be used for development/test provisioning. 
+To deploy a Service Fabric cluster, start with the sample Azure Resource Manager template in this [GitHub Repo](https://github.com/Azure-Samples/Service-fabric-dotnet-modernization) and customize it to fit your requirements. You also deploy a cluster through the Azure portal, but that option should be used for development/test provisioning. 
 
 ### Service Fabric node types
 
