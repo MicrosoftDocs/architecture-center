@@ -76,7 +76,8 @@ Service Fabric is suitable as a containerization platform. It plugs into an exis
 ## Containerize existing Windows applications
 After you’ve determined the applications that meet the selection criteria, containerize them into Docker images. The result is containerized .NET web application running in IIS where all tiers run in one container.
 
-> [!NOTE] You can use multiple containers; one per tier.  
+> [!NOTE] 
+> You can use multiple containers; one per tier.  
 
 Here are the basic steps for containerizing an application.
 
@@ -111,7 +112,8 @@ Here are the basic steps for containerizing an application.
     ```
 The image is tagged with a version number that Service Fabric references when it deploys and versions the container. Azure DevOps encapsulates and executes the manual Docker build/tag/push process. DevOps details are described in the [DevOps and CI/CD](#devops-and-cicd) section.
 
-> [!NOTE] In the preceding example, the base image is “microsoft/aspnet4.7” from DockerHub.
+> [!NOTE] 
+> In the preceding example, the base image is “microsoft/aspnet4.7” from DockerHub.
 
 Here are some considerations about the base images:
 - The base image could be a locked-down custom enterprise image that enforces enterprise requirements. For a shared application, isolation boundaries can be created through credentials or by using separate registry. It's recommended that enterprise-supported docker images be kept separately and stored in an isolated container registry.  
@@ -230,7 +232,8 @@ Starting with Service Fabric 6.2, application containers can autoscale individua
 - Rather than overprovisioning a VM to run an application, deploy a container to the cluster, monitor it, and then scale out with additional containers, as necessary. Choosing the right size is easier because Docker statistics are used to determine the number of containers. 
 In the [example infrastructure](#service-fabric-node-types), application A has two containers deployed across the cluster that divide load. This approach allows the application and container combination to be adjusted later for optimization. 
 
-  >  [!NOTE] Docker statistics showing individual container resource utilization is sent to Log Analytics and can be analyzed in Azure Monitor.
+  > [!NOTE]
+  > Docker statistics showing individual container resource utilization is sent to Log Analytics and can be analyzed in Azure Monitor.
 - Service Fabric offers constant monitoring and [heath checks](/azure/service-fabric/service-fabric-health-introduction) across the cluster. If a node is unhealthy, applications on that node automatically move to a healthy node and the bad node stops receiving requests. Regardless of the number of containers hosting an application, Service Fabric ensures that the application is healthy and running. 
 
 For an application that is infrequently used and can be offline, run it in the cluster with just one container instance (such as application B and C). Service Fabric makes sure that the application is up and healthy during upgrades or when the container needs to move to a new VM. Heath checking can reduce cost compared to hosting that application on two redundant and overprovisioned VMs in the traditional IaaS model.  
