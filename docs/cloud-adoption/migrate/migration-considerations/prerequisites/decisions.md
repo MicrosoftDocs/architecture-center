@@ -24,7 +24,7 @@ This prerequisite isn't a demand for you to pick one of these three goals, but i
 
 ### Acting on migration outcomes
 
-If operational outcomes rank highest in the list, this section of the Cloud Adoption Framework will work well for your team. In this section, it is assumed that you need to prioritize speed and cost savings as primary key performance indicators (KPIs), in which case a migration model to adoption would be well aligned with the outcomes. A migration-focused model is heavily predicated on lift and shift migration of infrastructure as a service (IaaS) assets to deplete a datacenter and to produce cost savings. In such a model, modernization may occur but is a secondary focus until the primary migration mission is realized.
+If operational outcomes rank highest in the list, this section of the Cloud Adoption Framework will work well for your team. In this section, it is assumed that you need to prioritize speed and cost savings as primary key performance indicators (KPIs), in which case a migration model to adoption would be well aligned with the outcomes. A migration-focused model is heavily predicated on "lift and shift" migration of infrastructure as a service (IaaS) assets to deplete a datacenter and to produce cost savings. In such a model, modernization may occur but is a secondary focus until the primary migration mission is realized.
 
 ### Acting on application innovations
 
