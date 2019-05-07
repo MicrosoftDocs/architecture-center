@@ -14,7 +14,7 @@ This article expands on the assessment process by reviewing activities associate
 
 The following assumptions are typical for any migration effort:
 
-- **IaaS.** It is commonly assumed that migrating workloads primarily involves the movement of virtual machines from a physical datacenter to a cloud datacenter via an IaaS migration, requiring a minimum of redevelopment or reconfiguration. This is known as a *lift and shift*. (Exceptions follow.)
+- **IaaS.** It is commonly assumed that migrating workloads primarily involves the movement of virtual machines from a physical datacenter to a cloud datacenter via an IaaS migration, requiring a minimum of redevelopment or reconfiguration. This is known as a "lift and shift" migration. (Exceptions follow.)
 - **Architecture consistency.** Changes to core architecture during a migration considerably increase complexity. Debugging a changed system on a new platform introduces many variables that can be difficult to isolate. For this reason, workloads should undergo only minor changes during migration and any changes should be thoroughly tested.
 - **Retirement test.** Migrations and the hosting of assets consume operational and potential capital expenses. It is assumed that any workloads being migrated have been reviewed to validate ongoing usage. The choice to retire unused assets produces immediate cost savings.
 - **Resize assets.** It is assumed that few on-premises assets are fully using the allocated resources. Prior to migration, it is assumed that assets will be resized to best fit actual usage requirements.

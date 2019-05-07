@@ -174,7 +174,7 @@ The Data Migration Assistant (DMA) can help Contoso to figure out whether on-pre
 
 In addition to DMS, Contoso has some other scripts that they use to discover and documenting the SQL Server databases. These are located in the GitHub repo.
 
-#### Partner tools
+#### Partner assessment tools
 
 There are several other partner tools which can help Contoso in assessing the on-premises environment for migration to Azure. [Learn more](https://azure.microsoft.com/migration/partners) about Azure Migration partners.
 
@@ -190,7 +190,7 @@ There are four broad migration strategies that Contoso can consider.
 
 **Strategy** | **Details** | **Usage**
 --- | --- | ---
-**Rehost** | Often referred to as "lift-and-shift" migration, this is a no-code option for migrating existing apps to Azure quickly.<br/><br/> An app is migrated as-is, with the benefits of the cloud, without the risks or costs associated with code changes. | Contoso can rehost less-strategic apps, requiring no code changes.
+**Rehost** | Often referred to as a "lift and shift" migration, this is a no-code option for migrating existing apps to Azure quickly.<br/><br/> An app is migrated as-is, with the benefits of the cloud, without the risks or costs associated with code changes. | Contoso can rehost less-strategic apps, requiring no code changes.
 **Refactor** | Also referred to as "repackaging", this strategy requires minimal app code or configuration changes need to connect the app to Azure PaaS, and take better advantage of cloud capabilities. | Contoso can refactor strategic apps to retain the same basic functionality, but move them to run on an Azure platform such as Azure App Service.<br/><br/> This requires minimum code changes.<br/><br/> On the other hand, Contoso will have to maintain a VM platform since this won't be managed by Microsoft.
 **Rearchitect** | This strategy modifies or extends an app code base to optimize the app architecture for cloud capabilities and scale.<br/><br/> It modernizes an app into a resilient, highly scalable, independently deployable architecture.<br/><br/> Azure services can accelerate the process, scale applications with confidence, and manage apps with ease.
 **Rebuild** | This strategy rebuilds an app from scratch using cloud-native technologies.<br/><br/> Azure platform as a service (PaaS) provides a complete development and deployment environment in the cloud. It eliminates some expense and complexity of software licenses, and removes the need for an underlying app infrastructure, middleware, and other resources. | Contoso can rewrite critical apps from the ground up, to take advantage of cloud technologies such as serverless computer, or microservices.<br/><br/> Contoso will manage the app and services it develops, and Azure manages everything else.
@@ -217,7 +217,7 @@ Contoso already [completed a POC](contoso-migration-rehost-vm.md) to see how Sit
 
 ##### Using Site Recovery at scale
 
-Contoso plans on running multiple lift-and-shift migrations. To ensure this works, Site Recovery will be replicating batches of around 100 VMs at a time. To figure out how this will work, Contoso needs to perform capacity planning for the proposed Site Recovery migration.
+Contoso plans on running multiple "lift and shift" migrations. To ensure this works, Site Recovery will be replicating batches of around 100 VMs at a time. To figure out how this will work, Contoso needs to perform capacity planning for the proposed Site Recovery migration.
 
 - Contoso needs to gather information about their traffic volumes. In particular:
   - Contoso needs to determine the rate of change for VMs it wants to replicate.
@@ -321,7 +321,7 @@ Contoso will also use scripts to locate unused resources.
   - Bulk deletion of resource groups on-demand.
 - Get started with the ARO toolkit in this [GitHub repo](https://github.com/Azure/azure-quickstart-templates/tree/master/azure-resource-optimization-toolkit).
 
-### Partner tools
+### Partner optimization tools
 
 Partner tools such as [Hanu](https://hanu.com/insight) and [Scalr]( https://www.scalr.com/cost-optimization) can be used.
 

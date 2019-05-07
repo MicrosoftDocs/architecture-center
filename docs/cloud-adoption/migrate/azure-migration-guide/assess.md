@@ -22,7 +22,7 @@ The following tools help you assess your environment to determine the suitabilit
 
 ## Azure Migrate
 
-The Azure Migrate service assesses on-premises VMware or Hyper-V servers and their dependencies for migration to Azure. The service assesses the migration suitability of on-premises machines, performs performance-based sizing, and provides cost estimates for running on-premises machines in Azure. If you're considering lift-and-shift migrations, or are in the early assessment stages of migration, this service is for you. After the assessment, you can use other services like Azure Site Recovery and Azure Database Migration Service to migrate the machines to Azure.
+The Azure Migrate service assesses on-premises VMware or Hyper-V servers and their dependencies for migration to Azure. The service assesses the migration suitability of on-premises machines, performs performance-based sizing, and provides cost estimates for running on-premises machines in Azure. If you're considering "lift and shift" migrations, or are in the early assessment stages of migration, this service is for you. After the assessment, you can use other services like Azure Site Recovery and Azure Database Migration Service to migrate the machines to Azure.
 
 ![Azure Migrate overview](./media/assess/azuremigrate-overview-1.png)
 
