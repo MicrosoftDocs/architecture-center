@@ -25,7 +25,7 @@ Cloud migrations can help companies deliver on a number of desired business outc
 
 |Critical Business Events  |Migration Motivations  |Innovation Motivations  |
 |---------|---------|---------|
-|Data center exit<br/><br/>Mergers, acquisition, or divestiture<br/><br/>Reductions in capital expenses<br/><br/>End of support for mission-critical technologies<br/><br/>Response to regulatory compliance changes<br/><br/>Meet new data sovereignty requirements<br/><br/>Reduce disruptions and improve IT stability|Cost savings<br/><br/>Reduction in vendor or technical complexity<br/><br/>Optimization of internal operations<br/><br/>Increase business agility<br/><br/>Prepare for new technical capabilities<br/><br/>Scale to meet market demands<br/><br/>Scale to meet geographic demands|Prepare for new technical capabilities<br/><br/>Build new technical capabilities<br/><br/>Scale to meet market demands<br/><br/>Scale to meet geographic demands<br/><br/>Improve customer experiences / engagements<br/><br/>Transform products or services<br/><br/>Disrupt the market with new products or services|
+|Datacenter exit<br/><br/>Mergers, acquisition, or divestiture<br/><br/>Reductions in capital expenses<br/><br/>End of support for mission-critical technologies<br/><br/>Response to regulatory compliance changes<br/><br/>Meet new data sovereignty requirements<br/><br/>Reduce disruptions and improve IT stability|Cost savings<br/><br/>Reduction in vendor or technical complexity<br/><br/>Optimization of internal operations<br/><br/>Increase business agility<br/><br/>Prepare for new technical capabilities<br/><br/>Scale to meet market demands<br/><br/>Scale to meet geographic demands|Prepare for new technical capabilities<br/><br/>Build new technical capabilities<br/><br/>Scale to meet market demands<br/><br/>Scale to meet geographic demands<br/><br/>Improve customer experiences / engagements<br/><br/>Transform products or services<br/><br/>Disrupt the market with new products or services|
 
 When a response to critical business events is the highest priority, it is important to engage in [cloud implementation](#cloud-implementation) early, often in parallel to strategy and planning efforts. Taking such an approach requires a growth mindset and a willingness to iterate and evolve processes, based on direct lessons learned.
 
@@ -43,7 +43,7 @@ This approach consists of two methodologies or areas of focus: Cloud Strategy & 
 
 ## Cloud implementation
 
-Cloud implementation is an iterative process for migrating and modernizing the digital estate in alignment with targeted business outcomes and change management controls. During each iteration, workloads are migrated &/or modernized in alignment with the strategy & plan. Decisions regarding IaaS, PaaS, or hybrid are made during the assess phase to optimized control and execution. Those decisions will drive the tools used during the Migrate phase. This model can be used with minimal strategy and planning. However, to ensure the greatest business returns, it is highly suggested that both IT and the business align on a clear strategy and plan to guide implementation activities.
+Cloud implementation is an iterative process for migrating and modernizing the digital estate in alignment with targeted business outcomes and change management controls. During each iteration, workloads are migrated or modernized in alignment with the strategy and plan. Decisions regarding IaaS, PaaS, or hybrid are made during the assess phase to optimized control and execution. Those decisions will drive the tools used during the Migrate phase. This model can be used with minimal strategy and planning. However, to ensure the greatest business returns, it is highly suggested that both IT and the business align on a clear strategy and plan to guide implementation activities.
 
 ![Cloud Adoption Framework's Cloud implementation methodology](../_images/operational-transformation-migrate.png)
 
@@ -55,7 +55,7 @@ Cloud migrations are often times seen as a single project within a broader, focu
 
 ## Cloud strategy and planning
 
-Cloud strategy and planning is a methodology that focuses on aligning business outcomes, priorities, and constraints to establish a clear migration strategy & plan. The resultant plan (or migration backlog) outlines the approach to migration and modernization across the IT portfolio, which may span entire data centers, multiple workloads, and/or misc. collections of infrastructure, applications, and data. Proper management of the IT portfolio across cloud implementation efforts will help drive the desired business outcomes.
+Cloud strategy and planning is a methodology that focuses on aligning business outcomes, priorities, and constraints to establish a clear migration strategy and plan. The resultant plan (or migration backlog) outlines the approach to migration and modernization across the IT portfolio, which may span entire datacenters, multiple workloads, and/or misc. collections of infrastructure, applications, and data. Proper management of the IT portfolio across cloud implementation efforts will help drive the desired business outcomes.
 
 ![Cloud Adoption Framework's Cloud strategy and planning methodology](../_images/migrate.png)
 
