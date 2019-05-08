@@ -38,7 +38,7 @@ The architecture has the following components:
 
 - **Azure DNS**. [Azure DNS][azure-dns] is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services. To use a custom domain name (such as `contoso.com`) create DNS records that map the custom domain name to the IP address. For more information, see [Configure a custom domain name in Azure App Service][custom-domain-name].
 
-- **Azure SQL Database**. [SQL Database][sql-db] is a relational database-as-a-service in the cloud. SQL Database shares its code base with the Microsoft SQL Server database engine. Depending on your application requirements, you can also use [Azure Database for MySQL](/azure/mysql) or [Azure Database for PostgreSQL](/azure/postgresql). These are fully managed database services, based on the open source MySQL Server and Postgres database engines, respectively.
+- **Azure SQL Database**. [SQL Database][sql-db] is a relational database-as-a-service in the cloud. SQL Database shares its code base with the Microsoft SQL Server database engine. Depending on your application requirements, you can also use [Azure Database for MySQL](/azure/mysql) or [Azure Database for PostgreSQL](/azure/postgresql). These are fully managed database services, based on the open-source MySQL Server and Postgres database engines, respectively.
 
 - **Logical server**. In Azure SQL Database, a logical server hosts your databases. You can create multiple databases per logical server.
 
@@ -52,7 +52,7 @@ Your requirements might differ from the architecture described here. Use the rec
 
 ### App Service plan
 
-Use the Standard or Premium tiers, because they support scale out, autoscale, and secure sockets layer (SSL). Each tier supports several *instance sizes* that differ by number of cores and memory. You can change the tier or instance size after you create a plan. For more information about App Service plans, see [App Service Pricing][app-service-plans-tiers].
+Use the Standard or Premium tiers, because they support scale-out, autoscale, and secure sockets layer (SSL). Each tier supports several *instance sizes* that differ by number of cores and memory. You can change the tier or instance size after you create a plan. For more information about App Service plans, see [App Service Pricing][app-service-plans-tiers].
 
 You are charged for the instances in the App Service plan, even if the app is stopped. Make sure to delete plans that you aren't using (for example, test deployments).
 
@@ -110,7 +110,7 @@ In the event of data loss, SQL Database provides point-in-time restore and geo-r
 
 For more information, see [Cloud business continuity and database disaster recovery with SQL Database][sql-backup].
 
-App Service provides a [backup and restore][web-app-backup] feature for your application files. However, be aware that the backed-up files include app settings in plain text and these may include secrets, such as connection strings. Avoid using the App Service backup feature to back up your SQL databases because it exports the database to a SQL .bacpac file, consuming [DTUs][sql-dtu]. Instead, use SQL Database point-in-time restore described above.
+App Service provides a [backup and restore][web-app-backup] feature for your application files. However, be aware that the backed-up files include app settings in plain text and these may include secrets, such as connection strings. Avoid using the App Service backup feature to back up your SQL databases because it exports the database to a SQL BACPAC file, consuming [DTUs][sql-dtu]. Instead, use SQL Database point-in-time restore described above.
 
 ## Manageability considerations
 
@@ -128,7 +128,7 @@ For more information, see [Azure Resource Manager overview](/azure/azure-resourc
 
 Deployment involves two steps:
 
-1. Provisioning the Azure resources. We recommend that you use [Azure Resource Manager templates][arm-template] for this step. Templates make it easier to automate deployments via PowerShell or the Azure command line interface (CLI).
+1. Provisioning the Azure resources. We recommend that you use [Azure Resource Manager templates][arm-template] for this step. Templates make it easier to automate deployments via PowerShell or the Azure CLI.
 2. Deploying the application (code, binaries, and content files). You have several options, including deploying from a local Git repository, using Visual Studio, or continuous deployment from cloud-based source control. See [Deploy your app to Azure App Service][deploy].
 
 An App Service app always has one deployment slot named `production`, which represents the live production site. We recommend creating a staging slot for deploying updates. The benefits of using a staging slot include:
