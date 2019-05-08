@@ -37,6 +37,8 @@ The application code is available on [GitHub][sample-code]. This repo contains b
 
 > The cloud service is an updated version of the original application from the *Developing Multi-tenant Applications* book.
 
+<!-- markdownlint-disable MD026 -->
+
 ## Why Microservices?
 
 An in-depth discussion of microservices is beyond scope of this article, but here are some of the benefits that Tailspin hopes to get by moving to a microservices architecture:
@@ -77,7 +79,7 @@ The following table summarizes some of the important differences between Cloud S
 | Deployment model | [Classic deployment model][azure-deployment-models] | [Resource Manager][azure-deployment-models]  |
 | Packaging | Cloud service package files (.cspkg) | Application and service packages |
 | Application update | VIP swap or rolling update | Rolling update |
-| Auto-scaling | [Built-in service][cloud-service-autoscale] | VM Scale Sets for auto scale out |
+| Auto-scaling | [Built-in service][cloud-service-autoscale] | Virtual machine scale sets for auto scale out |
 | Debugging | Local emulator | Local cluster |
 
 \* Stateful services use [reliable collections][sf-reliable-collections] to store state across replicas, so that all reads are local to the nodes in the cluster. Writes are replicated across nodes for reliability. Stateless services can have external state, using a database or other external storage.
@@ -215,7 +217,7 @@ The following diagram shows a recommended deployment:
 
 ![](./images/tailspin-cluster.png)
 
-The Service Fabric cluster is deployed to a [VM scale set][vm-scale-sets]. Scale sets are an Azure Compute resource that can be used to deploy and manage a set of identical VMs.
+The Service Fabric cluster is deployed to a [virtual machine scale set][vm-scale-sets]. Scale sets are an Azure Compute resource that can be used to deploy and manage a set of identical VMs.
 
 As mentioned, the Kestrel web server requires a reverse proxy for security reasons. This diagram shows [Azure Application Gateway][application-gateway], which is an Azure service that offers various layer 7 load balancing capabilities. It acts as a reverse-proxy service, terminating the client connection and forwarding requests to back-end endpoints. You might use a different reverse proxy solution, such as nginx.
 
@@ -258,7 +260,7 @@ To implement this approach:
 1. When you create the cluster, define two or more node types.
 2. For each service, use [placement constraints][sf-placement-constraints] to assign the service to a node type.
 
-When you deploy to Azure, each node type is deployed to a separate VM scale set. The
+When you deploy to Azure, each node type is deployed to a separate virtual machine scale set. The
 Service Fabric cluster spans all node types. For more information, see [The relationship between Service Fabric node types and Virtual Machine Scale Sets][sf-node-types].
 
 > If a cluster has multiple node types, one node type is designated as the *primary* node type. Service Fabric runtime services, such as the Cluster Management Service, run on the primary node type. Provision at least 5 nodes for the primary node type in a production environment. The other node type should have at least 2 nodes.
@@ -269,7 +271,7 @@ Clusters must be secured to prevent unauthorized users from connecting to your c
 
 To configure a public HTTPS endpoint, see [Specify resources in a service manifest][sf-manifest-resources].
 
-You can scale out the application by adding VMs to the cluster. VM scale sets support auto-scaling using auto-scale rules based on performance counters. For more information, see [Scale a Service Fabric cluster in or out using auto-scale rules][sf-auto-scale].
+You can scale out the application by adding VMs to the cluster. Virtual machine scale sets support auto-scaling using auto-scale rules based on performance counters. For more information, see [Scale a Service Fabric cluster in or out using auto-scale rules][sf-auto-scale].
 
 While the cluster is running, you should collect logs from all the nodes in a central location. For more information, see [Collect logs by using Azure Diagnostics][sf-logs].
 
@@ -281,7 +283,7 @@ Porting the Surveys application to Service Fabric was fairly straightforward. To
 - Converted the web front ends to ASP.NET Core.
 - Changed the packaging and configuration files to the Service Fabric model.
 
-In addition, the deployment changed from Cloud Services to a Service Fabric cluster running in a VM Scale Set.
+In addition, the deployment changed from Cloud Services to a Service Fabric cluster running in a virtual machine scale set.
 
 ## Next steps
 
