@@ -114,7 +114,7 @@ The Scheduler also runs as part of a worker role and implements the business log
 
 The Scheduler then runs the business workflow to process the order asynchronously, passing it the value in the `OrderID` field from the state store. The workflow handling the order retrieves the details of the order from the orders database and performs its work. When a step in the order processing workflow needs to invoke the remote service, it uses an Agent. The workflow step communicates with the Agent using a pair of Azure Service Bus message queues acting as a request/response channel. The figure shows a high-level view of the solution.
 
-![Figure 2 - Using the Scheduler Agent Supervisor pattern to handle orders in a Azure solution](./_images/scheduler-agent-supervisor-solution.png)
+![Figure 2 - Using the Scheduler Agent Supervisor pattern to handle orders in an Azure solution](./_images/scheduler-agent-supervisor-solution.png)
 
 The message sent to the Agent from a workflow step describes the order and includes the complete-by time. If the Agent receives a response from the remote service before the complete-by time expires, it posts a reply message on the Service Bus queue on which the workflow is listening. When the workflow step receives the valid reply message, it completes its processing and the Scheduler sets the `ProcessState` field of the order state to processed. At this point, the order processing has completed successfully.
 

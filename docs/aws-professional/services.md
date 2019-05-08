@@ -106,7 +106,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | Relational database | RDS | [SQL Database](https://azure.microsoft.com/services/sql-database/)<br/><br/>[Azure Database for MySQL](https://azure.microsoft.com/services/mysql/)<br/><br/>[Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/) | Relational database-as-a-service (DBaaS) where the database resilience, scale, and maintenance are primarily handled by the platform. |
 | NoSQL / Document | DynamoDB and SimpleDB | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) | A globally distributed, multi-model database that natively supports multiple data models: key-value, documents, graphs, and columnar. |
 | Caching | ElastiCache | [Azure Redis Cache](https://azure.microsoft.com/services/cache/) | An in-memory–based, distributed caching service that provides a high-performance store typically used to offload nontransactional work from a database. |
-| Database migration | Database Migration Service | [Azure Database Migration Service](https://azure.microsoft.com/campaigns/database-migration/) | Migration of database schema and data from one database format to a specific database technology in the cloud. |
+| Database migration | AWS Database Migration Service | [Azure Database Migration Service](https://azure.microsoft.com/campaigns/database-migration/) | Migration of database schema and data from one database format to a specific database technology in the cloud. |
 
 ## DevOps and application monitoring
 

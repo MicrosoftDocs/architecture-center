@@ -29,7 +29,7 @@ To deploy the Azure Log Analytics workspace, follow these steps:
 
     * **location**: The region where the Log Analytics workspace and dashboards are deployed.
     * **serviceTier**: Rhe workspace pricing tier. See [here][sku] for a list of valid values.
-    * **dataRetention** (optional): The number of days log data is retained in the Log Analytics workspace. The default value is 30 days. If the pricing tier is `Free`, the data retention must be 7 days.
+    * **dataRetention** (optional): The number of days the log data is retained in the Log Analytics workspace. The default value is 30 days. If the pricing tier is `Free`, the data retention must be seven days.
     * **workspaceName** (optional): A name for the workspace. If not specified, the template generates a name.
 
     ```bash
