@@ -18,7 +18,7 @@ This article describes some considerations and best practices for managing data 
 
 Consider using a hybrid solution in the following scenarios:
 
-- As a transition strategy during a longer-term migration to a fully cloud native solution.
+- As a transition strategy during a longer-term migration to a fully cloud-native solution.
 - When regulations or policies do not permit moving specific data or workloads to the cloud.
 - For disaster recovery and fault tolerance, by replicating data and services between on-premises and cloud environments.
 - To reduce latency between your on-premises datacenter and remote locations, by hosting part of your architecture in Azure.
@@ -35,7 +35,7 @@ Consider using a hybrid solution in the following scenarios:
 
 ## On-premises data stores
 
-On-premises data stores include databases and files. There may be several reasons to keep these local. There may be regulations or policies that do not permit moving specific data or workloads to the cloud. Data sovereignty, privacy, or security concerns may favor on-premises placement. During a migration, you may want to keep some data local to an application that hasn't been migrated yet.
+On-premises data stores include databases and files. There may be several reasons to keep these data stores local. There may be regulations or policies that do not permit moving specific data or workloads to the cloud. Data sovereignty, privacy, or security concerns may favor on-premises placement. During a migration, you may want to keep some data local to an application that hasn't been migrated yet.
 
 Considerations in placing application data in a public cloud include:
 
