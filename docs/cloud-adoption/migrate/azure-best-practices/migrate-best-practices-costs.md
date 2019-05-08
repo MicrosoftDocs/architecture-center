@@ -11,7 +11,7 @@ ms.author: brblanch
 
 # Best practices for costing and sizing workloads migrated to Azure
 
-As you plan and design for migration, focusing on costs ensures the long-term success of your Azure migration. During a migration project, it's critical that all teams (finance, management, app teams etc) understand associated costs.
+As you plan and design for migration, focusing on costs ensures the long-term success of your Azure migration. During a migration project, it's critical that all teams (such as finance, management, and application development teams) understand associated costs.
 
 - Before migration, estimating your migration spend, with a baseline for monthly, quarterly, and yearly budget targets is critical to success.
 - After migration, you should optimize costs, continually monitor workloads, and plan for future usage patterns. Migrated resources might start out as one type of workload, but evolve into another type over time, based on usage, costs, and shifting business requirements.
@@ -301,9 +301,9 @@ Identifying and moving stale data to cheaper storage areas can have a huge impac
 
 ## Best practice: Automate VM optimization
 
-The ultimate goal of running a VM in the cloud is to maximize the CPU, memory, and disk that it uses. If you discover VMs that aren't optimized, or have frequent periods when VMs aren't used, it makes sense to either shut them down, or downscale them using VM scale sets.
+The ultimate goal of running a VM in the cloud is to maximize the CPU, memory, and disk that it uses. If you discover VMs that aren't optimized, or have frequent periods when VMs aren't used, it makes sense to either shut them down, or downscale them using virtual machine scale sets.
 
-You can optimize a VM with Azure Automation, VM scale sets, auto-shutdown, and scripted or third-party solutions.
+You can optimize a VM with Azure Automation, virtual machine scale sets, auto-shutdown, and scripted or third-party solutions.
 
 **Learn more:**
 

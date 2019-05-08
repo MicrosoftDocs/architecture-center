@@ -24,7 +24,7 @@ Resiliency is the ability of a system to recover from failures and continue to f
 
 **Create separate App Service plans for production and test.** Don't use slots on your production deployment for testing.  All apps within the same App Service plan share the same VM instances. If you put production and test deployments in the same plan, it can negatively affect the production deployment. For example, load tests might degrade the live production site. By putting test deployments into a separate plan, you isolate them from the production version.
 
-**Separate web apps from web APIs.** If your solution has both a web front-end and a web API, consider decomposing them into separate App Service apps. This design makes it easier to decompose the solution by workload. You can run the web app and the API in separate App Service plans, so they can be scaled independently. If you don't need that level of scalability at first, you can deploy the apps into the same plan, and move them into separate plans later, if needed.
+**Separate web apps from web APIs.** If your solution has both a web front end and a web API, consider decomposing them into separate App Service apps. This design makes it easier to decompose the solution by workload. You can run the web app and the API in separate App Service plans, so they can be scaled independently. If you don't need that level of scalability at first, you can deploy the apps into the same plan, and move them into separate plans later, if needed.
 
 **Avoid using the App Service backup feature to back up Azure SQL databases.** Instead, use [SQL Database automated backups][sql-backup]. App Service backup exports the database to a SQL .bacpac file, which costs DTUs.
 
@@ -116,7 +116,7 @@ If you are using Redis Cache as a temporary data cache and not as a persistent s
 
 ## SQL Data Warehouse
 
-**Do not disable geo-backup.** By default, SQL Data Warehouse takes a full backup of your data every 24 hours for disaster recovery. It is not recommended to turn this feature off. For more information, see [Geo-backups](/azure/sql-data-warehouse/backup-and-restore#geo-backups).
+**Do not disable geo-backup.** By default, SQL Data Warehouse takes a full backup of your data every 24 hours for disaster recovery. It is not recommended to turn off this feature. For more information, see [Geo-backups](/azure/sql-data-warehouse/backup-and-restore#geo-backups).
 
 ## SQL Server running in a VM
 
@@ -132,7 +132,7 @@ If you are using Redis Cache as a temporary data cache and not as a persistent s
 
 ## Virtual Machines
 
-**Avoid running a production workload on a single VM.** A single VM deployment is not resilient to planned or unplanned maintenance. Instead, put multiple VMs in an availability set or [VM scale set](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview/), with a load balancer in front.
+**Avoid running a production workload on a single VM.** A single VM deployment is not resilient to planned or unplanned maintenance. Instead, put multiple VMs in an availability set or [virtual machine scale set](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview/), with a load balancer in front.
 
 **Specify an availability set when you provision the VM.** Currently, there is no way to add a VM to an availability set after the VM is provisioned. When you add a new VM to an existing availability set, make sure to create a NIC for the VM, and add the NIC to the back-end address pool on the load balancer. Otherwise, the load balancer won't route network traffic to that VM.
 
