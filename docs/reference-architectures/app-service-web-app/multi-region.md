@@ -87,7 +87,7 @@ For Queue storage, create a backup queue in the secondary region. During failove
 
 Traffic Manager automatically fails over if the primary region becomes unavailable. When Traffic Manager fails over, there is a period of time when clients cannot reach the application. The duration is affected by the following factors:
 
-- The health probe must detect that the primary data center has become unreachable.
+- The health probe must detect that the primary datacenter has become unreachable.
 - Domain name service (DNS) servers must update the cached DNS records for the IP address, which depends on the DNS time-to-live (TTL). The default TTL is 300 seconds (5 minutes), but you can configure this value when you create the Traffic Manager profile.
 
 For details, see [About Traffic Manager Monitoring][tm-monitoring].
