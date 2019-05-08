@@ -107,7 +107,7 @@ Azure Cost Management works with Azure Advisor to provide cost optimization reco
 You can also use **Advisor** and select the **Costs** tab to identify recommendations for potential cost reductions.
 
 > [!TIP]
-> For services that don't require continuous availability, implementing a solution to start, stop, or pause the service as needed can help manage the cost (e.g. Azure Virtual Machines, Azure SQL Data Warehouse, and others).
+> For services that don't require continuous availability, implementing a solution to start, stop, or pause the service as needed can help manage the cost (for example, Azure Virtual Machines or Azure SQL Data Warehouse).
 
 ::: zone target="chromeless"
 

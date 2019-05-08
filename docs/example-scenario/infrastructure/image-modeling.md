@@ -111,9 +111,9 @@ For step-by-step instructions for deploying this architecture, including all the
 The following resources will provide more information on the components used in this scenario, along with alternative approaches for batch computing on Azure.
 
 - Overview of [Avere vFXT for Azure](/azure/avere-vfxt/avere-vfxt-overview)
-- [Agisoft PhotoScan](https://www.agisoft.com/) home Page
+- [Agisoft PhotoScan](https://www.agisoft.com/) home page
 - [Azure Storage Performance and Scalability Checklist](/azure/storage/common/storage-performance-checklist)
 - [Parallel Virtual File Systems on Microsoft Azure: Performance tests of Lustre, GlusterFS, and BeeGFS](https://azure.microsoft.com/mediahandler/files/resourcefiles/parallel-virtual-file-systems-on-microsoft-azure/Parallel_Virtual_File_Systems_on_Microsoft_Azure.pdf) (PDF)
 - An example scenario for [computer-aided engineering (CAE) on Azure](/azure/architecture/example-scenario/apps/hpc-saas)
 - [HPC on Azure](https://azure.microsoft.com/solutions/high-performance-computing/) home page
-- Overview of [Big Compute: HPC &amp; Microsoft Batch](https://azure.microsoft.com/solutions/big-compute/)
+- Overview of [Big Compute: HPC &amp; Microsoft Batch](https://azure.microsoft.com/solutions/big-compute)

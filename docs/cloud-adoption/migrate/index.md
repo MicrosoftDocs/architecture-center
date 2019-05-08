@@ -63,7 +63,7 @@ An effective journey needs a target destination. Establish a rough vision of the
 
 ![Infographic of the migration options](../_images/migration/migration-options.png)
 
-## Incremental migration model
+## Migration implementation
 
 These articles outlines two journeys, each with a similar goal&mdash;to migrate a large percentage of existing assets to Azure. However, the business outcomes and current state will significantly influence the processes required to get there. Those subtle deviations result in two radically different approaches to reaching a similar end state.
 

@@ -110,7 +110,7 @@ This is still supported in ASP.NET Core, but it has some drawbacks compared with
 
 * It assumes a particular claim type. Policies can check for any claim type. Roles are just a type of claim.
 * The role name is hard-coded into the attribute. With policies, the authorization logic is all in one place, making it easier to update or even load from configuration settings.
-* Policies enable more complex authorization decisions (e.g., age >= 21) that can't be expressed by simple role membership.
+* Policies enable more complex authorization decisions (for example, age >= 21) that can't be expressed by simple role membership.
 
 ## Resource-based authorization
 
@@ -222,7 +222,7 @@ public class SurveyAuthorizationHandler : AuthorizationHandler<OperationAuthoriz
 
 In a multi-tenant application, you must ensure that permissions don't "leak" to another tenant's data. In the Surveys app, the Contributor permission is allowed across tenants&mdash;you can assign someone from another tenant as a contributor. The other permission types are restricted to resources that belong to that user's tenant. To enforce this requirement, the code checks the tenant ID before granting the permission. (The `TenantId` field as assigned when the survey is created.)
 
-The next step is to check the operation (read, update, delete, etc) against the permissions. The Surveys app implements this step by using a lookup table of functions:
+The next step is to check the operation (such as read, update, or delete) against the permissions. The Surveys app implements this step by using a lookup table of functions:
 
 ```csharp
 static readonly Dictionary<OperationAuthorizationRequirement, Func<List<UserPermissionType>, bool>> ValidateUserPermissions
