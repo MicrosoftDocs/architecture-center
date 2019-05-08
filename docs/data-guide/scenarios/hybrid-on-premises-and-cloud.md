@@ -10,7 +10,7 @@ ms.subservice: cloud-fundamentals
 
 # Extending on-premises data solutions to the cloud
 
-When organizations move workloads and data to the cloud, their on-premises datacenters often continue to play an important role. The term *hybrid cloud* refers to a combination of public cloud and on-premises data centers, to create an integrated IT environment that spans both. Some organizations use hybrid cloud as a path to migrate their entire datacenter to the cloud ove time. Other organizations use cloud services to extend their existing on-premises infrastructure.
+When organizations move workloads and data to the cloud, their on-premises datacenters often continue to play an important role. The term *hybrid cloud* refers to a combination of public cloud and on-premises datacenters, to create an integrated IT environment that spans both. Some organizations use hybrid cloud as a path to migrate their entire datacenter to the cloud ove time. Other organizations use cloud services to extend their existing on-premises infrastructure.
 
 This article describes some considerations and best practices for managing data in a hybrid cloud solution,
 
@@ -21,7 +21,7 @@ Consider using a hybrid solution in the following scenarios:
 - As a transition strategy during a longer-term migration to a fully cloud native solution.
 - When regulations or policies do not permit moving specific data or workloads to the cloud.
 - For disaster recovery and fault tolerance, by replicating data and services between on-premises and cloud environments.
-- To reduce latency between your on-premises data center and remote locations, by hosting part of your architecture in Azure.
+- To reduce latency between your on-premises datacenter and remote locations, by hosting part of your architecture in Azure.
 
 ## Challenges
 

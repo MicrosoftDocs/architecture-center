@@ -23,9 +23,13 @@ This framework is designed primarily for cloud architects and the cloud strategy
 
 Cloud migrations can help companies deliver on a number of desired business outcomes. Clear communication of motivations, business drivers, and measurements of success are important foundations for making wise decisions throughout cloud migration efforts. The following table classifies motivations to facilitate this conversation. It is assumed that most companies will have motivations across each classification. The objective of this table is not to limit outcomes, but instead make it easier to prioritize overall objectives and motivations:
 
+<!-- markdownlint-disable MD033 -->
+
 |Critical Business Events  |Migration Motivations  |Innovation Motivations  |
 |---------|---------|---------|
 |Datacenter exit<br/><br/>Mergers, acquisition, or divestiture<br/><br/>Reductions in capital expenses<br/><br/>End of support for mission-critical technologies<br/><br/>Response to regulatory compliance changes<br/><br/>Meet new data sovereignty requirements<br/><br/>Reduce disruptions and improve IT stability|Cost savings<br/><br/>Reduction in vendor or technical complexity<br/><br/>Optimization of internal operations<br/><br/>Increase business agility<br/><br/>Prepare for new technical capabilities<br/><br/>Scale to meet market demands<br/><br/>Scale to meet geographic demands|Prepare for new technical capabilities<br/><br/>Build new technical capabilities<br/><br/>Scale to meet market demands<br/><br/>Scale to meet geographic demands<br/><br/>Improve customer experiences / engagements<br/><br/>Transform products or services<br/><br/>Disrupt the market with new products or services|
+
+<!-- markdownlint-enable MD033 -->
 
 When a response to critical business events is the highest priority, it is important to engage in [cloud implementation](#cloud-implementation) early, often in parallel to strategy and planning efforts. Taking such an approach requires a growth mindset and a willingness to iterate and evolve processes, based on direct lessons learned.
 
@@ -47,7 +51,7 @@ Cloud implementation is an iterative process for migrating and modernizing the d
 
 ![Cloud Adoption Framework's Cloud implementation methodology](../_images/operational-transformation-migrate.png)
 
-The focus of this effort is the migration &/or modernization of workloads. A workload is a collection of infrastructure, applications, and data that collectively supports a common business goal, or the execution of a common business process. Examples of workloads could include things like a Line of Business Application, an HR payroll solution, a CRM solution, a document approval workflow in Finance, or a business intelligence solution. Workloads could also include shared technical resources like a data warehouse that supports several other solutions. In some cases, a workload could be represented by a single asset like a self-contained server, application, or data platform.
+The focus of this effort is the migration or modernization of workloads. A workload is a collection of infrastructure, applications, and data that collectively supports a common business goal, or the execution of a common business process. Examples of workloads could include things like a line-of-business application, an HR payroll solution, a CRM solution, a financial document approval workflow, or a business intelligence solution. Workloads may also include shared technical resources like a data warehouse that supports several other solutions. In some cases, a workload could be represented by a single asset like a self-contained server, application, or data platform.
 
 Cloud migrations are often times seen as a single project within a broader, focused program to streamline IT operations, costs, or complexity. The cloud implementation methodology helps align the technical efforts within a series of workload migrations to higher-level business values outlined in the cloud strategy and plan.
 
