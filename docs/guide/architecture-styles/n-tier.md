@@ -71,7 +71,7 @@ This section describes a recommended N-tier architecture running on VMs.
 
 ![Physical diagram of an N-tier architecture](./images/n-tier-physical.png)
 
-Each tier consists of two or more VMs, placed in an availability set or VM scale set. Multiple VMs provide resiliency in case one VM fails. Load balancers are used to distribute requests across the VMs in a tier. A tier can be scaled horizontally by adding more VMs to the pool.
+Each tier consists of two or more VMs, placed in an availability set or virtual machine scale set. Multiple VMs provide resiliency in case one VM fails. Load balancers are used to distribute requests across the VMs in a tier. A tier can be scaled horizontally by adding more VMs to the pool.
 
 Each tier is also placed inside its own subnet, meaning their internal IP addresses fall within the same address range. That makes it easy to apply network security group (NSG) rules and route tables to individual tiers.
 
@@ -91,7 +91,7 @@ For more information about running N-tier applications on Azure:
 
 - Tiers are the boundary of scalability, reliability, and security. Consider having separate tiers for services with different requirements in those areas.
 
-- Use VM Scale Sets for autoscaling.
+- Use virtual machine scale sets for autoscaling.
 
 - Look for places in the architecture where you can use a managed service without significant refactoring. In particular, look at caching, messaging, storage, and databases.
 

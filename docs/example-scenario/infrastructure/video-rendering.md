@@ -47,7 +47,7 @@ Azure Batch builds on the following Azure technologies:
 
 - [Virtual Networks](/azure/virtual-network/virtual-networks-overview) are used for both the head node and the compute resources.
 - [Azure Storage accounts](/azure/storage/common/storage-introduction) are used for synchronization and data retention.
-- [Virtual Machine Scale Sets][vmss] are used by CycleCloud for compute resources.
+- [Virtual machine scale sets][vmss] are used by CycleCloud for compute resources.
 
 ## Considerations
 
