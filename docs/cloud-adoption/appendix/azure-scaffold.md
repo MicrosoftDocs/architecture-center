@@ -55,12 +55,17 @@ Every enterprise is different and the hierarchy in the above image allows for si
 
 The three common patterns for Azure Enrollments are:
 
-- The **functional** pattern
-    ![functional](./_images/functional.png)
-- The **business unit** pattern
-    ![business](./_images/business.png)
+- The **functional** pattern:
+
+  ![The functional pattern](./_images/functional.png)
+
+- The **business unit** pattern:
+
+  ![The business unit pattern](./_images/business.png)
+
 - The **geographic** pattern
-    ![geographic](./_images/geographic.png)
+
+  ![The geographic pattern](./_images/geographic.png)
 
 Though each of these patterns has its place, the **business unit** pattern is increasingly being adopted for its flexibility in modeling an organization's cost model as well as reflecting span of control. Microsoft Core Engineering and Operations group has created an effective subset of the **business unit** pattern modeled on **Federal**, **State**, and **Local**. For more information, see [Organizing subscriptions and resource groups within the Enterprise](https://azure.microsoft.com/blog/organizing-subscriptions-and-resource-groups-within-the-enterprise).
 
