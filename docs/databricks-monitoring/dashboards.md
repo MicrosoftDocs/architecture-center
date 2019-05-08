@@ -169,7 +169,7 @@ This visualization shows a set of the execution metrics for a given task's execu
 
 ### Cluster throughput
 
-This visualization is a high level view of work items indexed by cluster and application to represent the amount of work done per cluster and application. It shows the number of jobs, tasks, and stages completed per cluster, application, and stage in one minute increments.
+This visualization is a high-level view of work items indexed by cluster and application to represent the amount of work done per cluster and application. It shows the number of jobs, tasks, and stages completed per cluster, application, and stage in one minute increments.
 
 ### Streaming Throughput/Latency
 
