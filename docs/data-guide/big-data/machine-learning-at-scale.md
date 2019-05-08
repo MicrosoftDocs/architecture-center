@@ -19,7 +19,7 @@ Creating and deploying a machine learning model is an iterative process:
 - The optimal model is deployed into production, as a web service or some other encapsulated function.
 - As new data is collected, the model is periodically retrained to improve its effectiveness.
 
-Machine learning at scale addresses two different scalability concerns. The first is training a model against large data sets that require the scale-out capabilities of a cluster to train. The second centers is operationalizing the learned model so it can scale to meet the demands of the applications that consume it. Typically this is accomplished by deploying the predictive capabilities as a web service that can then be scaled out.
+Machine learning at scale addresses two different scalability concerns. The first is training a model against large data sets that require the scale-out capabilities of a cluster to train. The second centers on operationalizing the learned model so it can scale to meet the demands of the applications that consume it. Typically this is accomplished by deploying the predictive capabilities as a web service that can then be scaled out.
 
 Machine learning at scale has the benefit that it can produce powerful, predictive capabilities because better models typically result from more data. Once a model is trained, it can be deployed as a stateless, highly performant scale-out web service.
 
@@ -61,7 +61,7 @@ If a prebuilt model does not fit your data or your scenario, options in Azure in
 
 ![Model options in Azure](./images/machine-learning-model-training-and-deployment.png)
 
-For a list of technology choices for ML in Azure, see the following topics:
+For a list of technology choices for ML in Azure, see:
 
 - [Choosing a cognitive services technology](../technology-choices/cognitive-services.md)
 - [Choosing a machine learning technology](../technology-choices/data-science-and-machine-learning.md)
