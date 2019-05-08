@@ -310,7 +310,7 @@ Log Analytics is a service in Azure that helps collect, correlate, search, and a
 - Analyze traffic to or from a network security group.
 - View diagnostic logs for network resources.
 
-The [Network Performance Monitor][NPM] solution inside Operations Management Suite can provide detailed network information end to end. This information includes a single view of your Azure networks and on-premises networks. The solution has specific monitors for ExpressRoute and public services.
+The [Network Performance Monitor][NPM] solution inside Operations Management Suite can provide detailed network information end-to-end. This information includes a single view of your Azure networks and on-premises networks. The solution has specific monitors for ExpressRoute and public services.
 
 #### Component type: Workloads
 

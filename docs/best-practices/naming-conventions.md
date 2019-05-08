@@ -1,7 +1,7 @@
 ---
 title: Naming conventions for Azure resources
 titleSuffix: Best practices for cloud applications
-description: Recommendations for naming virtual machines, storage accounts, networks, virtual networks, subnets and other Azure entities.
+description: Recommendations for naming virtual machines, storage accounts, networks, virtual networks, subnets, and other Azure entities.
 author: telmosampaio
 ms.date: 10/19/2018
 ms.topic: best-practice
@@ -33,7 +33,7 @@ A recommended pattern for naming subscriptions is:
 
 - Company would usually be the same for each subscription. However, some companies may have child companies within the organizational structure. These companies may be managed by a central IT group. In these cases, they could be differentiated by having both the parent company name (*Contoso*) and child company name (*Northwind*).
 - Department is a name within the organization that contains a group of individuals. This item within the namespace is optional.
-- Product line is a specific name for a product or function that is performed from within the department. This is generally optional for internal-facing services and applications. However, it is highly recommended to use for public-facing services that require easy separation and identification (such as for clear separation of billing records).
+- Product line is a specific name for a product or function that is performed from within the department. This is typically optional for internal-facing services and applications. However, it is highly recommended to use for public-facing services that require easy separation and identification (such as for clear separation of billing records).
 - Environment is the name that describes the deployment lifecycle of the applications or services, such as Dev, QA, or Prod.
 
 | Company | Department | Product Line or Service | Environment | Full Name |
@@ -141,13 +141,13 @@ The Azure Resource Manager supports tagging entities with arbitrary text strings
 
 Each resource or resource group can have a maximum of **15** tags. The tag name is limited to 512 characters, and the tag value is limited to 256 characters.
 
-For more information on resource tagging, refer to [Using tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags/).
+For more information on resource tagging, see [Using tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags/).
 
 Some of the common tagging use cases are:
 
-- **Billing**. Grouping resources and associating them with billing or charge back codes.
+- **Billing**. Grouping resources and associating them with billing or chargeback codes.
 - **Service Context Identification**. Identify groups of resources across Resource Groups for common operations and grouping.
-- **Access Control and Security Context**. Administrative role identification based on portfolio, system, service, app, instance, etc.
+- **Access Control and Security Context**. Administrative role identification based on portfolio, system, service, app, instance, or other factors.
 
 > [!TIP]
 > Tag early, tag often. Better to have a baseline tagging scheme in place and adjust over time rather than having to retrofit after the fact.
@@ -184,9 +184,9 @@ It's possible to configure a custom domain name for accessing blob data in your 
 But if you map a custom domain (such as `www.contoso.com`) to the blob endpoint for your storage account, you can also access blob data in your storage account by using that domain. For example, with a custom domain name, `https://mystorage.blob.core.windows.net/mycontainer/myblob` could be accessed as
 `https://www.contoso.com/mycontainer/myblob`.
 
-For more information about configuring this feature, refer to [Configure a custom domain name for your Blob storage endpoint](/azure/storage/storage-custom-domain-name/).
+For more information about configuring this feature, see [Configure a custom domain name for your Blob storage endpoint](/azure/storage/storage-custom-domain-name/).
 
-For more information on naming blobs, containers and tables, refer to the following list:
+For more information on naming blobs, containers and tables, see the following list:
 
 - [Naming and Referencing Containers, Blobs, and Metadata](https://msdn.microsoft.com/library/dd135715.aspx)
 - [Naming Queues and Metadata](https://msdn.microsoft.com/library/dd179349.aspx)
