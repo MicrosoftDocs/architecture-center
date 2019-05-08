@@ -63,7 +63,7 @@ The three common patterns for Azure Enrollments are:
 
   ![The business unit pattern](./_images/business.png)
 
-- The **geographic** pattern
+- The **geographic** pattern:
 
   ![The geographic pattern](./_images/geographic.png)
 
