@@ -24,7 +24,7 @@ It’s important to establish a rough vision of your end state before starting y
 
 ![Infographic of the migration options](../../_images/migration/migration-options.png)
 
-Migration and modernization of workloads range from simple *rehost* (lift-and-shift) migrations using infrastructure as a service (IaaS) capabilities that don't require code and app changes, through *refactoring* with minimal changes, to *rearchitecting* to modify and extend code and app functionality to take advantage of cloud technologies.
+Migration and modernization of workloads range from simple *rehost* ("lift and shift") migrations using infrastructure as a service (IaaS) capabilities that don't require code and app changes, through *refactoring* with minimal changes, to *rearchitecting* to modify and extend code and app functionality to take advantage of cloud technologies.
 
 Cloud-native strategies and platform as a service (PaaS) strategies *rebuild* on-premises workloads using Azure platform offerings and managed services. Workloads that have equivalent fully managed software as a service (SaaS) cloud-based offerings can often be fully *replaced* by these services as part of the migration process.
 

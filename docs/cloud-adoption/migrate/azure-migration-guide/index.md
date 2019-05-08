@@ -35,7 +35,7 @@ Before you migrate resources to Azure, you need to choose the migration method a
 
 This guide walks you through the basics of migrating applications and resources from your on-premises environment to Azure. It is designed for migration scopes with minimal complexity. To determine the suitability of this guide for your migration, see the **When to use this guide** tab.
 
-When you migrate to Azure, you may migrate your applications as-is using IaaS-based virtual machine solutions (known as a *rehost* or *lift and shift* migration), or you may have the flexibility to use managed services and other cloud-native features to modernize your applications. See the **Migration options** tab for more information on these choices. As you develop your migration strategy, you might consider:
+When you migrate to Azure, you may migrate your applications as-is using IaaS-based virtual machine solutions (known as a "rehost" or "lift and shift" migration), or you may have the flexibility to use managed services and other cloud-native features to modernize your applications. See the **Migration options** tab for more information on these choices. As you develop your migration strategy, you might consider:
 
 - Will my migrating applications work in the cloud?
 - What is the best strategy (with regard to technology, tools, and migrations) for my application? (See the Microsoft Cloud Adoption Framework's [Migration tool decision guide](../../decision-guides/migrate-decision-guide/index.md) for more information.)
@@ -91,7 +91,7 @@ For more information, see:
 
 You can perform a cloud migration several ways. Some are better suited to different scenarios than others. As you determine how to migrate your environment, consider the following options when deciding on a migration strategy:
 
-- **Rehost:** Also known as lift-and-shift, a rehost effort moves the current state to Azure, with minimal change to overall architecture.
+- **Rehost:** Also known as "lift and shift", a rehost effort moves the current state to Azure, with minimal change to overall architecture.
 - **Refactor:** Platform as a service (PaaS) options can reduce operational costs associated with many applications. It can be prudent to slightly refactor an application to fit a PaaS model. This also refers to the application development process of refactoring code to allow an application to deliver on new business opportunities.
 - **Rearchitect:** Some aging applications aren't compatible with cloud providers because of the architectural decisions made when the application was built. In these cases, the application may need to be rearchitected as part of a migration.
 - **Rebuild:** In some scenarios, the changes required to migrate an application can be too large to justify further investment, and the solution must be rebuilt.
