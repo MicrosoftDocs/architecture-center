@@ -18,7 +18,7 @@ Individual cloud policy statements are guidelines for addressing specific risks 
 - **Policy statement:** A clear summary explanation of the policy requirements.
 - **Design options:** Actionable recommendations, specifications, or other guidance that IT teams and developers can use when implementing the policy.
 
-The following sample policy statements address common  identity-related business risks. These statements are examples you can reference when drafting policy statements to address your organization's needs. These examples are not meant to be proscriptive, and there are potentially several policy options for dealing with each identified risk. Work closely with business and IT teams to identify the best policies for your unique set of risks.
+The following sample policy statements address common identity-related business risks. These statements are examples you can reference when drafting policy statements to address your organization's needs. These examples are not meant to be proscriptive, and there are potentially several policy options for dealing with each identified risk. Work closely with business and IT teams to identify the best policies for your unique set of risks.
 
 ## Lack of access controls
 
@@ -51,7 +51,7 @@ The following sample policy statements address common  identity-related business
 
 **Technical risk:** Identity management systems with insufficiently secure user authentication methods, such as basic user/password combinations, can lead to compromised or hacked passwords, providing a major risk of unauthorized access to secure cloud systems.
 
-**Policy statement:** All accounts are required to login to secured resources using a multi-factor authentication method.
+**Policy statement:** All accounts are required to log in to secured resources using a multi-factor authentication method.
 
 **Potential design options:** For Azure Active Directory, implement [Azure Multi-Factor Authentication](/azure/active-directory/authentication/concept-mfa-howitworks) as part of your user authorization process.
 

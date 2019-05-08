@@ -177,7 +177,7 @@ Especially in larger topologies, carefully naming virtual machines streamlines i
 There are two primary use cases for storage accounts: backing disks for VMs, and storing data in blobs, queues and tables. Storage accounts used for VM disks should follow the naming convention of associating them with the parent VM name (and with the potential need for multiple storage accounts for high-end VM SKUs, also apply a number suffix).
 
 > [!TIP]
-> Storage accounts - whether for data or disks - should follow a naming convention that allows for multiple storage accounts to be leveraged (i.e. always using a numeric suffix).
+> Storage accounts&mdash;whether for data or disks&mdash;should follow a naming convention that allows for multiple storage accounts to be leveraged (that is, always using a numeric suffix).
 
 It's possible to configure a custom domain name for accessing blob data in your Azure Storage account. The default endpoint for the Blob service is `https://<name>.blob.core.windows.net`.
 
