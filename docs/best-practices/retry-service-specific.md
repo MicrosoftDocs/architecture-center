@@ -1,7 +1,7 @@
 ---
-title: Retry service specific guidance
+title: Retry guidance for specific services
 titleSuffix: Best practices for cloud applications
-description: Service specific guidance for setting the retry mechanism.
+description: Service-specific guidance for setting the retry mechanism.
 author: dragon119
 ms.date: 08/13/2018
 ms.topic: best-practice
@@ -48,7 +48,7 @@ Azure Active Directory (Azure AD) is a comprehensive identity and access managem
 
 ### Retry mechanism
 
-There is a built-in retry mechanism for Azure Active Directory in the Active Directory Authentication Library (ADAL). To avoid unexpected lockouts, we recommend that third party libraries and application code do **not** retry failed connections, but allow ADAL to handle retries.
+There is a built-in retry mechanism for Azure Active Directory in the Active Directory Authentication Library (ADAL). To avoid unexpected lockouts, we recommend that third-party libraries and application code do **not** retry failed connections, but allow ADAL to handle retries.
 
 ### Retry usage guidance
 
@@ -58,7 +58,7 @@ Consider the following guidelines when using Azure Active Directory:
 - If you are using the REST API for Azure Active Directory, retry the operation if the result code is 429 (Too Many Requests) or an error in the 5xx range. Do not retry for any other errors.
 - An exponential back-off policy is recommended for use in batch scenarios with Azure Active Directory.
 
-Consider starting with the following settings for retrying operations. These are general purpose settings, and you should monitor the operations and fine tune the values to suit your own scenario.
+Consider starting with the following settings for retrying operations. These settings are general purpose, and you should monitor the operations and fine-tune the values to suit your own scenario.
 
 | **Context** | **Sample target E2E<br />max latency** | **Retry strategy** | **Settings** | **Values** | **How it works** |
 | --- | --- | --- | --- | --- | --- |
@@ -367,7 +367,7 @@ Service Bus implements retries using implementations of the [RetryPolicy](/dotne
 
 - The [RetryExponential class](/dotnet/api/microsoft.servicebus.retryexponential). This exposes properties that control the back-off interval, the retry count, and the **TerminationTimeBuffer** property that is used to limit the total time for the operation to complete.
 
-- The [NoRetry class](/dotnet/api/microsoft.servicebus.noretry). This is used when retries at the Service Bus API level are not required, such as when retries are managed by another process as part of a batch or multiple step operation.
+- The [NoRetry class](/dotnet/api/microsoft.servicebus.noretry). This is used when retries at the Service Bus API level are not required, such as when retries are managed by another process as part of a batch or multistep operation.
 
 Service Bus actions can return a range of exceptions, as listed in [Service Bus messaging exceptions](/azure/service-bus-messaging/service-bus-messaging-exceptions). The list provides information about which if these indicate that retrying the operation is appropriate. For example, a **ServerBusyException** indicates that the client should wait for a period of time, then retry the operation. The occurrence of a **ServerBusyException** also causes Service Bus to switch to a different mode, in which an extra 10-second delay is added to the computed retry delays. This mode is reset after a short period.
 
@@ -417,9 +417,9 @@ The following table shows the default settings for the built-in retry policy.
 Consider the following guidelines when using Service Bus:
 
 - When using the built-in **RetryExponential** implementation, do not implement a fallback operation as the policy reacts to Server Busy exceptions and automatically switches to an appropriate retry mode.
-- Service Bus supports a feature called Paired Namespaces, which implements automatic failover to a backup queue in a separate namespace if the queue in the primary namespace fails. Messages from the secondary queue can be sent back to the primary queue when it recovers. This feature helps to address transient failures. For more information, see [Asynchronous Messaging Patterns and High Availability](/azure/service-bus-messaging/service-bus-async-messaging).
+- Service Bus supports a feature called Paired Namespaces that implements automatic failover to a backup queue in a separate namespace if the queue in the primary namespace fails. Messages from the secondary queue can be sent back to the primary queue when it recovers. This feature helps to address transient failures. For more information, see [Asynchronous Messaging Patterns and High Availability](/azure/service-bus-messaging/service-bus-async-messaging).
 
-Consider starting with following settings for retrying operations. These are general purpose settings, and you should monitor the operations and fine tune the values to suit your own scenario.
+Consider starting with the following settings for retrying operations. These settings are general purpose, and you should monitor the operations and fine-tune the values to suit your own scenario.
 
 | Context | Example maximum latency | Retry policy | Settings | How it works |
 |---------|---------|---------|---------|---------|
@@ -589,7 +589,7 @@ Consider the following guidelines when accessing SQL Database using ADO.NET:
 - When connection pooling is in use (the default) there is a chance that the same connection will be chosen from the pool, even after closing and reopening a connection. If this is the case, a technique to resolve it is to call the **ClearPool** method of the **SqlConnection** class to mark the connection as not reusable. However, you should do this only after several connection attempts have failed, and only when encountering the specific class of transient failures such as SQL timeouts (error code -2) related to faulty connections.
 - If the data access code uses transactions initiated as **TransactionScope** instances, the retry logic should reopen the connection and initiate a new transaction scope. For this reason, the retryable code block should encompass the entire scope of the transaction.
 
-Consider starting with following settings for retrying operations. These are general purpose settings, and you should monitor the operations and fine tune the values to suit your own scenario.
+Consider starting with the following settings for retrying operations. These settings are general purpose, and you should monitor the operations and fine-tune the values to suit your own scenario.
 
 | **Context** | **Sample target E2E<br />max latency** | **Retry strategy** | **Settings** | **Values** | **How it works** |
 | --- | --- | --- | --- | --- | --- |
@@ -666,7 +666,7 @@ Retry support is provided when accessing SQL Database using Entity Framework 6.0
   - Default for SQL Database (automatic) - no retrying, but inspects exceptions and wraps them with suggestion to use the SQL Database strategy.
   - Default for SQL Database - exponential (inherited from base class) plus SQL Database detection logic.
 - It implements an exponential back-off strategy that includes randomization.
-- The built-in retry classes are stateful and are not thread safe. However, they can be reused after the current operation is completed.
+- The built-in retry classes are stateful and are not thread-safe. However, they can be reused after the current operation is completed.
 - If the specified retry count is exceeded, the results are wrapped in a new exception. It does not bubble up the current exception.
 
 ### Policy configuration
@@ -745,7 +745,7 @@ Consider the following guidelines when accessing SQL Database using EF6:
 
 - Entity Framework supports retry configurations defined in configuration files. However, for maximum flexibility on Azure you should consider creating the configuration programmatically within the application. The specific parameters for the retry policies, such as the number of retries and the retry intervals, can be stored in the service configuration file and used at runtime to create the appropriate policies. This allows the settings to be changed without requiring the application to be restarted.
 
-Consider starting with the following settings for retrying operations. You cannot specify the delay between retry attempts (it is fixed and generated as an exponential sequence). You can specify only the maximum values, as shown here; unless you create a custom retry strategy. These are general purpose settings, and you should monitor the operations and fine tune the values to suit your own scenario.
+Consider starting with the following settings for retrying operations. You cannot specify the delay between retry attempts (it is fixed and generated as an exponential sequence). You can specify only the maximum values, as shown here; unless you create a custom retry strategy. These settings are general purpose, and you should monitor the operations and fine-tune the values to suit your own scenario.
 
 | **Context** | **Sample target E2E<br />max latency** | **Retry policy** | **Settings** | **Values** | **How it works** |
 | --- | --- | --- | --- | --- | --- |
@@ -958,7 +958,7 @@ Consider the following guidelines when accessing Azure storage services using th
 
 - If you are using read access geo-redundant storage (RA-GRS) you can use the **LocationMode** to specify that retry attempts will access the secondary read-only copy of the store should the primary access fail. However, when using this option you must ensure that your application can work successfully with data that may be stale if the replication from the primary store has not yet completed.
 
-Consider starting with following settings for retrying operations. These are general purpose settings, and you should monitor the operations and fine tune the values to suit your own scenario.
+Consider starting with the following settings for retrying operations. These settings are general purpose, and you should monitor the operations and fine-tune the values to suit your own scenario.
 
 | **Context** | **Sample target E2E<br />max latency** | **Retry policy** | **Settings** | **Values** | **How it works** |
 | --- | --- | --- | --- | --- | --- |
@@ -1056,7 +1056,7 @@ namespace RetryCodeSamples
 
 ## General REST and retry guidelines
 
-Consider the following when accessing Azure or third party services:
+Consider the following when accessing Azure or third-party services:
 
 - Use a systematic approach to managing retries, perhaps as reusable code, so that you can apply a consistent methodology across all clients and all solutions.
 
