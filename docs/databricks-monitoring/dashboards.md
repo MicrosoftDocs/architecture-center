@@ -78,7 +78,7 @@ Next, change the Grafana administrator password by following these steps:
 1. In the Azure portal, select the VM and click **Overview**.
 1. Copy the public IP address.
 1. Open a web browser and navigate to the following URL: `http://<IP address>:3000`.
-1. At the Grafana log in screen, enter **admin** for the user name, and use the Grafana password from the previous steps.
+1. At the Grafana login screen, enter **admin** for the user name, and use the Grafana password from the previous steps.
 1. Once logged in, select **Configuration** (the gear icon).
 1. Select **Server Admin**.
 1. On the **Users** tab, select the **admin** login.
@@ -173,7 +173,7 @@ This visualization is a high-level view of work items indexed by cluster and app
 
 ### Streaming Throughput/Latency
 
-This visualization is related to the metrics associated with a structured streaming query. The graphs shows the number of input rows per second and the number of rows processed per second. The streaming metrics are also represented per application. These metrics are sent when the OnQueryProgress event is generated as the structured streaming query is processed and the visualization represents streaming latency as the amount of time, in milliseconds, taken to execute a query batch.
+This visualization is related to the metrics associated with a structured streaming query. The graph shows the number of input rows per second and the number of rows processed per second. The streaming metrics are also represented per application. These metrics are sent when the OnQueryProgress event is generated as the structured streaming query is processed and the visualization represents streaming latency as the amount of time, in milliseconds, taken to execute a query batch.
 
 ### Resource consumption per executor
 
@@ -181,11 +181,11 @@ Next is a set of visualizations for the dashboard show the particular type of re
 
 ### Executor compute time metrics
 
-Next is a set of visualizations for the dashboard that show the ratio of executor serialize time, deserialize time, CPU time, and Java virtual machine time to overall executor compute time. This demonstrates visually how much each of these four metrics are contributing to overall executor processing.
+Next is a set of visualizations for the dashboard that show the ratio of executor serialize time, deserialize time, CPU time, and Java virtual machine time to overall executor compute time. This demonstrates visually how much each of these four metrics is contributing to overall executor processing.
 
 ### Shuffle metrics
 
-The final set of visualizations show the data shuffle metrics associated with a structured streaming query across all executors. These include shuffle bytes read, shuffle bytes written, shuffle memory, and disk usage in queries where the file system is used.
+The final set of visualizations shows the data shuffle metrics associated with a structured streaming query across all executors. These include shuffle bytes read, shuffle bytes written, shuffle memory, and disk usage in queries where the file system is used.
 
 ## Next steps
 

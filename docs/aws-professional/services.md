@@ -114,7 +114,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 |-------------|---------------|-------------|
 | CloudWatch, AWS X-Ray | [Azure Monitor](https://azure.microsoft.com/services/monitor/) | Comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. |
 | CodeDeploy <br/><br/>CodeCommit <br/><br/>CodePipeline | [Azure DevOps](https://azure.microsoft.com/services/devops/) | A cloud service for collaborating on code development. |
-| AWS Developer Tools | [Azure Developer Tools](https://azure.microsoft.com/tools/) | Collection of tools for building, debugging, deploying, diagnosing, and managing multi-platform, scalable apps and services. |
+| AWS Developer Tools | [Azure Developer Tools](https://azure.microsoft.com/tools/) | Collection of tools for building, debugging, deploying, diagnosing, and managing multi-platform scalable apps and services. |
 | AWS CodeBuild | [Azure DevOps](https://azure.microsoft.com/services/devops/) | Fully managed build service that supports continuous integration and deployment. |
 | Command Line Interface | [Azure Command Line Interface (CLI)](/cli/azure/install-azure-cli) <br/><br/>[Azure PowerShell](/powershell/azure/overview) | Built on top of the native REST API across all cloud services, various programming language-specific wrappers provide easier ways to create solutions. |
 | OpsWorks (Chef-based) | [Azure Automation](https://azure.microsoft.com/services/automation/) | Configures and operates applications of all shapes and sizes, and provides templates to create and manage a collection of resources. |
@@ -177,7 +177,7 @@ Dedicated network | Direct Connect | [ExpressRoute](https://azure.microsoft.com/
 | Identity and Access Management (IAM) | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) | Allows users to securely control access to services and resources while offering data security and protection. Create and manage users and groups, and use permissions to allow and deny access to resources. |
 | AWS Organizations | [Azure Subscription and Service Management + Azure RBAC](/azure/azure-subscription-service-limits) | Security policy and role management for working with multiple accounts. |
 | Multi-Factor Authentication | [Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/) | Safeguard access to data and applications while meeting user demand for a simple sign-in process.  |
-| AWS Directory Service | [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/) | Provides managed domain services such as domain join, group policy, LDAP, Kerberos/NTLM authentication that are fully compatible with Windows Server Active Directory |
+| AWS Directory Service | [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/) | Provides managed domain services such as domain join, group policy, LDAP, and Kerberos/NTLM authentication that are fully compatible with Windows Server Active Directory |
 | Cognito | [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) | A highly available, global, identity management service for consumer-facing applications that scales to hundreds of millions of identities. |
 
 ### Encryption
@@ -199,7 +199,7 @@ Dedicated network | Direct Connect | [ExpressRoute](https://azure.microsoft.com/
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
 | Inspector | [Security Center](https://azure.microsoft.com/services/security-center/) | An automated security assessment service that improves the security and compliance of applications. Automatically assess applications for vulnerabilities or deviations from best practices. |
-| Certificate Manager | [App Service Certificates available on the Portal](https://azure.microsoft.com/blog/internals-of-app-service-certificate/) | Service that allows customers to create, manage and consume certificates seamlessly in the cloud. |
+| Certificate Manager | [App Service Certificates available on the Portal](https://azure.microsoft.com/blog/internals-of-app-service-certificate/) | Service that allows customers to create, manage, and consume certificates seamlessly in the cloud. |
 | GuardDuty | [Azure Advanced Threat Protection](https://azure.microsoft.com/features/azure-advanced-threat-protection/) | Detect and investigate advanced attacks on-premises and in the cloud. |
 | AWS Artifact | [Service Trust Portal](https://servicetrust.microsoft.com/) | Provides access to audit reports, compliance guides, and trust documents from across cloud services. |
 | AWS Shield | [Azure DDos Protection Service](/azure/security/azure-ddos-best-practices) | Provides cloud services with protection from distributed denial of services (DDoS) attacks. |
@@ -228,7 +228,7 @@ Dedicated network | Direct Connect | [ExpressRoute](https://azure.microsoft.com/
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| S3 Infrequent Access (IA) | [Azure Storage cool tier](/azure/storage/blobs/storage-blob-storage-tiers) | Cool storage is a lower cost tier for storing data that is infrequently accessed and long-lived. |
+| S3 Infrequent Access (IA) | [Azure Storage cool tier](/azure/storage/blobs/storage-blob-storage-tiers) | Cool storage is a lower-cost tier for storing data that is infrequently accessed and long-lived. |
 | S3 Glacier | [Azure Storage archive access tier](/azure/storage/blobs/storage-blob-storage-tiers) | Archive storage has the lowest storage cost and higher data retrieval costs compared to hot and cool storage. |
 | AWS Backup | [Azure Backup](https://azure.microsoft.com/services/backup/) | Back up and recover files and folders from the cloud, and provide off-site protection against data loss. |
 
