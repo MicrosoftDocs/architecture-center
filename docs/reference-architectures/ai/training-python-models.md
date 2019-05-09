@@ -94,7 +94,7 @@ To deploy the reference implementation for this architecture, follow the steps i
 
 ## Next steps
 
-To operationalize the model, see [Machine learning operationalization (MLOps) for Python models using Azure Machine Learning](./mlops-python.md)
+To operationalize the model, see [Machine learning operationalization (MLOps) for Python models using Azure Machine Learning](./mlops-python.md).
 
 [0]: ./_images//training-python-models.png
 [1]: ./_images/run-object.png
