@@ -37,7 +37,7 @@ Introduce an asynchronous messaging subsystem that includes the following:
 The following diagram shows the logical components of this pattern:
 
 ![Publish-subscribe pattern using a message broker](./_images/publish-subscribe.png)
- 
+
 Pub/sub messaging has the following benefits:
 
 - It decouples subsystems that still need to communicate. Subsystems can be managed independently, and messages can be properly managed even if one or more receivers are offline.
@@ -54,7 +54,7 @@ Pub/sub messaging has the following benefits:
 
 - It improves testability. Channels can be monitored and messages can be inspected or logged as part of an overall integration test strategy.
 
-- It provides separation of concerns for your applications. Each application can focus on its core capabilities, while the messaging infrastructure handles everything required to reliably route messages to multiple consumers. 
+- It provides separation of concerns for your applications. Each application can focus on its core capabilities, while the messaging infrastructure handles everything required to reliably route messages to multiple consumers.
 
 ## Issues and considerations
 
@@ -109,7 +109,7 @@ This pattern might not be useful when:
 
 ## Example
 
-The following diagram shows an enterprise integration architecture that uses Service Bus to coordinate workflows, and Event Grid notify subsystems of events that occur. 
+The following diagram shows an enterprise integration architecture that uses Service Bus to coordinate workflows, and Event Grid notify subsystems of events that occur.
 For more information, see [Enterprise integration on Azure using message queues and events](../reference-architectures/enterprise-integration/queues-events.md).
 
 ![Enterprise integration architecture](../reference-architectures/enterprise-integration/_images/enterprise-integration-queues-events.png)

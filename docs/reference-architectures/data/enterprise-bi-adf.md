@@ -146,7 +146,7 @@ The advantage of this approach is that it preserves historical data, which can b
 
 ![Second screenshot of the city dimension table](./images/city-dimension-table-2.png)
 
-For each Sales fact, you want to associate that fact with a single row in City dimension table, corresponding to the invoice date. As part of the ETL process, create an additional column that 
+For each Sales fact, you want to associate that fact with a single row in City dimension table, corresponding to the invoice date. As part of the ETL process, create an additional column that
 
 The following T-SQL query creates a temporary table that associates each invoice with the correct City Key from the City dimension table.
 

@@ -153,7 +153,7 @@ For more information, see:
 
 - [Scale a Service Fabric cluster in or out using autoscale rules or manually](/azure/service-fabric/service-fabric-cluster-scale-up-down)
 - [Scale a Service Fabric cluster programmatically](/azure/service-fabric/service-fabric-cluster-programmatic-scaling)
-- [Scale a Service Fabric cluster out by adding a Virtual Machine Scale Set](/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out)
+- [Scale a Service Fabric cluster out by adding a virtual machine scale set](/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out)
 
 ### Using metrics to balance load
 
@@ -212,6 +212,7 @@ Do not use client certificates to access Service Fabric Explorer. Instead, use A
 Do not use self-signed certificates for production.
 
 ### Data at rest protection
+
 If you have attached data disks to the virtual machine scale sets of the Service Fabric cluster and your services save data on those disks, you must encrypt the disks. For more information, see [Encrypt OS and attached data disks in a virtual machine scale set with Azure PowerShell (Preview)](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps).
 
 For more information about securing Service Fabric, see:

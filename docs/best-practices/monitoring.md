@@ -12,7 +12,7 @@ ms.custom: seodec18
 
 # Monitoring and diagnostics
 
-Distributed applications and services running in the cloud are, by their nature, complex pieces of software that comprise many moving parts. In a production environment, it's important to be able to track the way in which users utilize your system, trace resource utilization, and generally monitor the health and performance of your system. You can use this information as a diagnostic aid to detect and correct issues, and also to help spot potential problems and prevent them from occurring.
+Distributed applications and services running in the cloud are, by their nature, complex pieces of software that comprise many moving parts. In a production environment, it's important to be able to track the way in which users use your system, trace resource utilization, and generally monitor the health and performance of your system. You can use this information as a diagnostic aid to detect and correct issues, and also to help spot potential problems and prevent them from occurring.
 
 ## Monitoring and diagnostics scenarios
 
@@ -332,7 +332,7 @@ Usage tracking can be performed at a relatively high level. It can note the star
 - Capturing performance counters that measure the utilization for each resource.
 - Monitoring the resource consumption by each user.
 
-For metering purposes, you also need to be able to identify which users are responsible for performing which operations, and the resources that these operations utilize. The gathered information should be detailed enough to enable accurate billing.
+For metering purposes, you also need to be able to identify which users are responsible for performing which operations, and the resources that these operations use. The gathered information should be detailed enough to enable accurate billing.
 
 ## Issue tracking
 

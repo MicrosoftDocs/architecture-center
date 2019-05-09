@@ -15,16 +15,16 @@ Avoid naming the scenario after the Azure technologies that are used.
 <Introductory section (no heading)>
 
 > This should be an introduction of the business problem and why this scenario was built to solve it.
->> What industry is the customer in?  
->> What prompted them to solve the problem?  
+>> What industry is the customer in?
+>> What prompted them to solve the problem?
 >> What services were used in building out this solution?
->> What does this example scenario show? What are the customer's goals?  
+>> What does this example scenario show? What are the customer's goals?
 
 > What were the benefits of implementing the solution described blow?
 
 ## Potential use cases
 
-> Are there any other use cases or industries where this would be a fit?  
+> Are there any other use cases or industries where this would be a fit?
 > How similar or different are they to what's in this article?
 
 These other uses cases have similar design patterns:
@@ -35,16 +35,16 @@ These other uses cases have similar design patterns:
 
 *Architecture Diagram goes here*
 
-> What does the solution look like at a high level?  
-> Why did we build the solution this way?  
-> What will the customer need to bring to this?  (Software, skills, etc?)  
+> What does the solution look like at a high level?
+> Why did we build the solution this way?
+> What will the customer need to bring to this?  (Software, skills, etc?)
 > Is there a data flow that should be described?
 
 ### Components
 
 A bullet list of components in the architecture (including all relevant Azure services) with links to the product documentation.
 
-> Why is each component there?  
+> Why is each component there?
 > What does it do and why was it necessary?
 
 * Example: [Resource Groups][resource-groups] is a logical container for Azure resources.  We use resource groups to organize everything related to this project in the Azure console.
@@ -63,8 +63,8 @@ Use this section to talk about alternative Azure services or architectures that 
 
 > How do I need to think about managing, maintaining, and monitoring this long term?
 
-> Are there any size considerations around this specific solution?  
-> What scale does this work at?  
+> Are there any size considerations around this specific solution?
+> What scale does this work at?
 > At what point do things break or not make sense for this architecture?
 
 > Are there any security considerations (past the typical) that I should know about this?
@@ -77,24 +77,24 @@ Use this section to talk about alternative Azure services or architectures that 
 
 ## Pricing
 
-> How much will this cost to run?  
-> Are there ways I could save cost?  
-> If it scales linearly, than we should break it down by cost/unit.  If it does not, why?  
-> What are the components that make up the cost?  
+> How much will this cost to run?
+> Are there ways I could save cost?
+> If it scales linearly, than we should break it down by cost/unit.  If it does not, why?
+> What are the components that make up the cost?
 > How does scale effect the cost?
-> 
-> Link to the pricing calculator with all of the components in the architecture included, even if they're a $0 or $1 usage.  
+>
+> Link to the pricing calculator with all of the components in the architecture included, even if they're a $0 or $1 usage.
 > If it makes sense, include a small/medium/large configurations.  Describe what needs to be changed as you move to larger sizes
 
 ## Next Steps
 
-> Where should I go next if I want to start building this?  
+> Where should I go next if I want to start building this?
 > Are there any reference architectures that help me build this?
 
 ## Related Resources
 
 > Are there any relevant case studies or customers doing something similar?
-> Is there any other documentation that might be useful?  
+> Is there any other documentation that might be useful?
 > Are there product documents that go into more detail on specific technologies not already linked
 
 <!-- links -->

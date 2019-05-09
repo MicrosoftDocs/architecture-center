@@ -19,9 +19,9 @@ Creating and deploying a machine learning model is an iterative process:
 - The optimal model is deployed into production, as a web service or some other encapsulated function.
 - As new data is collected, the model is periodically retrained to improve its effectiveness.
 
-Machine learning at scale addresses two different scalability concerns. The first is training a model against large data sets that require the scale-out capabilities of a cluster to train. The second centers is operationalizating the learned model in a way that can scale to meet the demands of the applications that consume it. Typically this is accomplished by deploying the predictive capabilities as a web service that can then be scaled out.
+Machine learning at scale addresses two different scalability concerns. The first is training a model against large data sets that require the scale-out capabilities of a cluster to train. The second centers on operationalizing the learned model so it can scale to meet the demands of the applications that consume it. Typically this is accomplished by deploying the predictive capabilities as a web service that can then be scaled out.
 
-Machine learning at scale has the benefit that it can produce powerful, predictive capabilities because better models typically result from more data. Once a model is trained, it can be deployed as a stateless, highly-performant, scale-out web service.
+Machine learning at scale has the benefit that it can produce powerful, predictive capabilities because better models typically result from more data. Once a model is trained, it can be deployed as a stateless, highly performant scale-out web service.
 
 ## Model preparation and training
 
@@ -47,21 +47,21 @@ Machine learning at scale produces a few challenges:
 - You typically need a lot of data to train a model, especially for deep learning models.
 - You need to prepare these big data sets before you can even begin training your model.
 - The model training phase must access the big data stores. It's common to perform the model training using the same big data cluster, such as Spark, that is used for data preparation.
-- For scenarios such as deep learning, not only will you need a cluster that can provide you scale out on CPUs, but your cluster will need to consist of GPU-enabled nodes.
+- For scenarios such as deep learning, not only will you need a cluster that can provide you scale-out on CPUs, but your cluster will need to consist of GPU-enabled nodes.
 
 ## Machine learning at scale in Azure
 
 Before deciding which ML services to use in training and operationalization, consider whether you need to train a model at all, or if a prebuilt model can meet your requirements. In many cases, using a prebuilt model is just a matter of calling a web service or using an ML library to load an existing model. Some options include:
 
-- Use the web services provided by Microsoft Cognitive Services.
-- Use the pretrained neural network models provided by Cognitive Toolkit.
-- Embed the serialized models provided by Core ML for an iOS apps.
+- Use the web services provided by Azure Cognitive Services.
+- Use the pretrained neural network models provided by the Cognitive Toolkit.
+- Embed the serialized models provided by Core ML for an iOS app.
 
 If a prebuilt model does not fit your data or your scenario, options in Azure include Azure Machine Learning, HDInsight with Spark MLlib and MMLSpark, Azure Databricks, Cognitive Toolkit, and SQL Machine Learning Services. If you decide to use a custom model, you must design a pipeline that includes model training and operationalization.
 
 ![Model options in Azure](./images/machine-learning-model-training-and-deployment.png)
 
-For a list of technology choices for ML in Azure, see the following topics:
+For a list of technology choices for ML in Azure, see:
 
 - [Choosing a cognitive services technology](../technology-choices/cognitive-services.md)
 - [Choosing a machine learning technology](../technology-choices/data-science-and-machine-learning.md)

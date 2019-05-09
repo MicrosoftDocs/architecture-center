@@ -122,7 +122,7 @@ Disadvantages:
 
 <!-- markdownlint-enable MD024 -->
 
-In the application manifest, set the `groupMembershipClaims` property to "SecurityGroup". This is needed to get group membership claims from AAD.
+In the application manifest, set the `groupMembershipClaims` property to "SecurityGroup". This is needed to get group membership claims from Azure AD.
 
 ```json
 {

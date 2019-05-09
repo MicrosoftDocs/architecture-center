@@ -1,11 +1,11 @@
 ---
-title: "CAF: Small-to-medium enterprise - Initial corporate policy behind the governance strategy"
+title: "Small-to-medium enterprise: Initial corporate policy behind the governance strategy"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 ms.date: 02/11/2019
-description: Small-to-medium enterprise - Initial corporate policy behind the governance strategy
+description: Small-to-medium enterprise - Initial corporate policy behind the governance strategy.
 author: BrianBlanchard
 ---
 
@@ -14,13 +14,13 @@ author: BrianBlanchard
 The following corporate policy defines an initial governance position, which is the starting point for this journey. This article defines early-stage risks, initial policy statements, and early processes to enforce policy statements.
 
 > [!NOTE]
->The corporate policy is not a technical document, but it drives many technical decisions. The governance MVP described in the [overview](./overview.md) ultimately derives from this policy. Before implementing a governance MVP, your organization should develop a corporate policy based on your own objectives and business risks.
+>The corporate policy is not a technical document, but it drives many technical decisions. The governance MVP described in the [overview](./index.md) ultimately derives from this policy. Before implementing a governance MVP, your organization should develop a corporate policy based on your own objectives and business risks.
 
 ## Cloud Governance team
 
-In this narrative, the Cloud Governance team is comprised of two systems administrators who have recognized the need for governance. Over the next several months, they will inherit the job of cleaning up the governance of the company’s cloud presence, earning them the title of Cloud Custodians. In subsequent evolutions, this title will likely change.
+In this narrative, the Cloud Governance team is comprised of two systems administrators who have recognized the need for governance. Over the next several months, they will inherit the job of cleaning up the governance of the company’s cloud presence, earning them the title of _cloud custodians_. In subsequent evolutions, this title will likely change.
 
-[!INCLUDE [business-risk](../../../../../includes/cloud-adoption/governance/business-risks.md)]
+[!INCLUDE [business-risk](../../../includes/governance/business-risks.md)]
 
 ## Tolerance indicators
 
@@ -30,7 +30,7 @@ The current tolerance for risk is high and the appetite for investing in cloud g
 - Security Baseline: Inclusion of protected data in defined cloud adoption plans.
 - Resource Consistency: Inclusion of any mission-critical applications in defined cloud adoption plans.
 
-[!INCLUDE [policy-statements](../../../../../includes/cloud-adoption/governance/policy-statements.md)]
+[!INCLUDE [policy-statements](../../../includes/governance/policy-statements.md)]
 
 ## Next steps
 

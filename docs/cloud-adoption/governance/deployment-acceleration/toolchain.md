@@ -1,5 +1,5 @@
 ---
-title: "CAF: Deployment Acceleration tools in Azure"
+title: "Deployment Acceleration tools in Azure"
 description: Deployment Acceleration tools in Azure
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
@@ -11,13 +11,13 @@ author: BrianBlanchard
 
 # Deployment Acceleration tools in Azure
 
-[Deployment Acceleration](overview.md) is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md). This discipline focuses on ways of establishing policies to govern asset configuration or deployment. Within the five disciplines of Cloud Governance, configuration governance includes deployment, configuration alignment, and HA/DR strategies. This could be through manual activities or fully automated DevOps activities. In either case, the policies would remain largely the same.
+[Deployment Acceleration](index.md) is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md). This discipline focuses on ways of establishing policies to govern asset configuration or deployment. Within the Five Disciplines of Cloud Governance, the Deployment Acceleration discipline involves deployment and configuration alignment. This could be through manual activities or fully automated DevOps activities. In either case, the policies involved would remain largely the same.
 
 Cloud custodians, cloud guardians, and cloud architects with an interest in governance are each likely to invest a lot of time in the Deployment Acceleration discipline, which codifies policies and requirements across multiple cloud adoption efforts. The tools in this toolchain are important to the Cloud Governance team and should be a high priority on the learning path for the team.
 
 The following is a list of Azure tools that can help mature the policies and processes that support this governance discipline.
 
-|  | Azure Policy | Azure Management Groups | Azure Resource Manager Templates | Azure Blueprints | Azure Resource Graph | Azure Cost Management |
+|  | [Azure Policy](/azure/governance/policy/overview) | [Azure Management Groups](/azure/governance/management-groups) | [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview) | [Azure Blueprints](/azure/governance/blueprints/overview) | [Azure Resource Graph](/azure/governance/resource-graph/overview) | [Azure Cost Management](/azure/cost-management) |
 |---------|---------|---------|---------|---------|---------|---------|
 |Implement Corporate Policies     |Yes |No  |No  |No | No |No |
 |Apply Policies across subscriptions     |Required |Yes  |No  |No | No |No |
@@ -29,7 +29,7 @@ The following is a list of Azure tools that can help mature the policies and pro
 
 The following are additional tools that may be required to accomplish specific Deployment Acceleration objectives. Often these tools are used outside of the governance team, but are still considered an aspect of Deployment Acceleration as a discipline.
 
-|  |Azure portal  |Azure Resource Manager Templates  |Azure Policy  | Azure DevOps | Azure Backup | Azure Site Recovery |
+|  | [Azure portal](https://azure.microsoft.com/features/azure-portal)  | [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)  | [Azure Policy](/azure/governance/policy/overview) | [Azure DevOps](/azure/devops/index) | [Azure Backup](/azure/backup/backup-introduction-to-azure-backup) | [Azure Site Recovery](/azure/site-recovery/site-recovery-overview) |
 |---------|---------|---------|---------|---------|---------|---------|
 |Manual deployment (single asset)     | Yes | Yes  | No  | Not efficiently | No | Yes |
 |Manual deployment (full environment)     | Not efficiently | Yes | No  | Not efficiently | No | Yes |
@@ -38,7 +38,5 @@ The following are additional tools that may be required to accomplish specific D
 |Update configuration of a full environment     | Not efficiently | Yes | Yes | Yes  | No | Yes - during replication |
 |Manage configuration drift     | Not efficiently | Not efficiently | Yes  | Yes  | No | Yes - during replication |
 |Create an automated pipeline to deploy code and configure assets (DevOps)     | No | No | No | Yes | No | No |
-|Recover data during an outage or SLA violation     | No | No | No | Yes | Yes | Yes |
-|Recover applications and data during an outage or SLA violation     | No | No | No | Yes | No | Yes |
 
 Aside from the Azure native tools mentioned above, it is common for customers to use third-party tools to facilitate Deployment Acceleration and DevOps deployments.

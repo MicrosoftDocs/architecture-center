@@ -1,6 +1,9 @@
 ---
-layout: LandingPage
-ms.topic: landing-page
+title: Azure Application Architecture Guide
+description: A structured approach for designing applications on Azure that are scalable, resilient, and highly available
+author: MikeWasson
+ms.author: pnp
+ms.topic: guide
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.date: 08/30/2018
@@ -48,7 +51,7 @@ Immutable infrastructure<br/>
 
 <!-- markdownlint-enable MD033 -->
 
-This guide is intended for application architects, developers, and operations teams. It's not a how-to guide for using individual Azure services. After reading this guide, you will understand the architectural patterns and best practices to apply when building on the Azure cloud platform. You can also download an [e-book version of the guide][ebook].
+This guide is intended for application architects, developers, and operations teams. It's not a how-to guide for using individual Azure services. After reading this guide, you will understand the architectural patterns and best practices to apply when building on the Azure cloud platform. You can also download an [e-book version of the guide][e-book].
 
 ## How this guide is structured
 
@@ -85,4 +88,4 @@ A successful cloud application will focus on five pillars of software quality: S
 
 - [Quality pillars](./pillars.md)
 
-[ebook]: https://azure.microsoft.com/campaigns/cloud-application-architecture-guide/
+[e-book]: https://azure.microsoft.com/campaigns/cloud-application-architecture-guide/

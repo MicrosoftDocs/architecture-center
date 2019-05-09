@@ -2,10 +2,11 @@
 title: Architecture styles
 titleSuffix: Azure Application Architecture Guide
 description: Common architecture styles for cloud applications.
-layout: LandingPage
-ms.topic: landing-page
+author: MikeWasson
+ms.author: pnp
+ms.topic: guide
 ms.service: architecture-center
-ms.subservice: reference-architecture
+ms.subservice: cloud-fundamentals
 ms.date: 08/30/2018
 ---
 
@@ -26,23 +27,11 @@ This section gives a quick tour of the architecture styles that we've identified
 
 ### N-tier
 
-<!-- markdownlint-disable MD033 -->
-
-<img src="./images/n-tier-sketch.svg" style="float:left; margin-top:6px;"/>
-
-<!-- markdownlint-enable MD033 -->
-
 **[N-tier][n-tier]** is a traditional architecture for enterprise applications. Dependencies are managed by dividing the application into *layers* that perform logical functions, such as presentation, business logic, and data access. A layer can only call into layers that sit below it. However, this horizontal layering can be a liability. It can be hard to introduce changes in one part of the application without touching the rest of the application. That makes frequent updates a challenge, limiting how quickly new features can be added.
 
 N-tier is a natural fit for migrating existing applications that already use a layered architecture. For that reason, N-tier is most often seen in infrastructure as a service (IaaS) solutions, or application that use a mix of IaaS and managed services.
 
 ### Web-Queue-Worker
-
-<!-- markdownlint-disable MD033 -->
-
-<img src="./images/web-queue-worker-sketch.svg" style="float:left; margin-top:6px;"/>
-
-<!-- markdownlint-enable MD033 -->
 
 For a purely PaaS solution, consider a **[Web-Queue-Worker](./web-queue-worker.md)** architecture. In this style, the application has a web front end that handles HTTP requests and a back-end worker that performs CPU-intensive tasks or long-running operations. The front end communicates to the worker through an asynchronous message queue.
 
@@ -50,23 +39,11 @@ Web-queue-worker is suitable for relatively simple domains with some resource-in
 
 ### Microservices
 
-<!-- markdownlint-disable MD033 -->
-
-<img src="./images/microservices-sketch.svg" style="float:left; margin-top:6px;"/>
-
-<!-- markdownlint-enable MD033 -->
-
 If your application has a more complex domain, consider moving to a **[Microservices][microservices]** architecture. A microservices application is composed of many small, independent services. Each service implements a single business capability. Services are loosely coupled, communicating through API contracts.
 
 Each service can be built by a small, focused development team. Individual services can be deployed without a lot of coordination between teams, which encourages frequent updates. A microservice architecture is more complex to build and manage than either N-tier or web-queue-worker. It requires a mature development and DevOps culture. But done right, this style can lead to higher release velocity, faster innovation, and a more resilient architecture.
 
 ### CQRS
-
-<!-- markdownlint-disable MD033 -->
-
-<img src="./images/cqrs-sketch.svg" style="float:left; margin-top:6px;"/>
-
-<!-- markdownlint-enable MD033 -->
 
 The **[CQRS](./cqrs.md)** (Command and Query Responsibility Segregation) style separates read and write operations into separate models. This isolates the parts of the system that update data from the parts that read the data. Moreover, reads can be executed against a materialized view that is physically separate from the write database. That lets you scale the read and write workloads independently, and optimize the materialized view for queries.
 
@@ -74,17 +51,9 @@ CQRS makes the most sense when it's applied to a subsystem of a larger architect
 
 ### Event-driven architecture
 
-<!-- markdownlint-disable MD033 -->
-
-<img src="./images/event-driven-sketch.svg" style="float:left; margin-top:6px;"/>
-
 **[Event-Driven Architectures](./event-driven.md)** use a publish-subscribe (pub-sub) model, where producers publish events, and consumers subscribe to them. The producers are independent from the consumers, and consumers are independent from each other.
 
 Consider an event-driven architecture for applications that ingest and process a large volume of data with very low latency, such as IoT solutions. The style is also useful when different subsystems must perform different types of processing on the same event data.
-
-<br />
-
-<!-- markdownlint-enable MD033 -->
 
 ### Big Data, Big Compute
 

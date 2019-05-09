@@ -22,7 +22,7 @@ Some benefits of this scenario include the following:
 - Return on investment will be higher with shared Linux virtual desktops by giving more users access to the same infrastructure. By consolidating resources on a centralized VDI environment, the end user devices don't need to be as powerful.
 - Performance will be consistent regardless of the end user device.
 - Users can access Linux applications from any device (including non-Linux devices).
-- Sensitive data can be secured in the Azure data center for all distributed employees.
+- Sensitive data can be secured in the Azure datacenter for all distributed employees.
 
 ## Relevant use cases
 

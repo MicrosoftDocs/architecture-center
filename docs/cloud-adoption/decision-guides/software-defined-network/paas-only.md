@@ -1,19 +1,19 @@
 ---
-title: "CAF: Software Defined Networks - PaaS only" 
+title: "Software Defined Networking: PaaS-only"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 ms.date: 02/11/2019
-description: Discussion of the PaaS only model for cloud based networking functionality
+description: Discussion of the PaaS-only model for Software Defined Networking in the cloud.
 author: rotycenh
 ---
 
-# Software Defined Networks: PaaS-only
+# Software Defined Networking: PaaS-only
 
 When you implement a platform as a service (PaaS) resource, the deployment process automatically creates an assumed underlying network with a limited number of controls over that network, including load balancing, port blocking, and connections to other PaaS services.
 
-In Azure, several PaaS resource types can be [deployed into](/azure/virtual-network/virtual-network-for-azure-services) or [connected to](/azure/virtual-network/virtual-network-service-endpoints-overview) a virtual network, allowing these resources to integrate with your existing virtual networking infrastructure. However, in many cases a PaaS only networking architecture, relying only on these default networking capabilities natively provided by PaaS resources, is sufficient to meet workload requirements.
+In Azure, several PaaS resource types can be [deployed into](/azure/virtual-network/virtual-network-for-azure-services) or [connected to](/azure/virtual-network/virtual-network-service-endpoints-overview) a virtual network, allowing these resources to integrate with your existing virtual networking infrastructure. Other services, such as [App Service Environments](/azure/app-service/environment/intro), [Azure Kubernetes Services](/azure/aks/intro-kubernetes), and [Service Fabric](/azure/service-fabric/service-fabric-overview) must be deployed within virtual network. However, in many cases a PaaS only networking architecture, relying only on the default native networking capabilities provided by PaaS resources, is sufficient to meet a workload's connectivity and traffic management requirements.
 
 If you are considering a PaaS only networking architecture, be sure you validate that the required assumptions align with your requirements.
 
@@ -21,11 +21,11 @@ If you are considering a PaaS only networking architecture, be sure you validate
 
 Deploying a PaaS-only networking architecture assumes the following:
 
-- The application being deployed is a standalone application OR is dependent on only other PaaS resources.
+- The application being deployed is a standalone application or depends only on other PaaS resources that do not require a virtual network.
 - Your IT operations teams can update their tools, training, and processes to support management, configuration, and deployment of standalone PaaS applications.
 - The PaaS application is not part of a broader cloud migration effort that will include IaaS resources.
 
-These assumptions are minimum qualifiers aligned to deploying a PaaS-only network. While this approach may align with the requirements of a single application deployment, your Cloud Adoption Team should examine these long-term questions:
+These assumptions are minimum qualifiers aligned to deploying a PaaS-only network. While this approach may align with the requirements of a single application deployment, each cloud adoption team should consider these long-term questions:
 
 - Will this deployment expand in scope or scale to require access to other non-PaaS resources?
 - Are other PaaS deployments planned beyond the current solution?

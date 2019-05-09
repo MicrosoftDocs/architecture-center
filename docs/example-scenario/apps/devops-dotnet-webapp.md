@@ -15,7 +15,7 @@ social_image_url: /azure/architecture/example-scenario/apps/media/architecture-d
 
 This scenario provides architecture and design guidance for building a continuous integration (CI) and continuous deployment (CD) pipeline. In this example, the CI/CD pipeline deploys a two-tier .NET web application to the Azure App Service.
 
-Migrating to modern CI/CD processes provides many benefits for application builds, deployments, testing, and monitoring. By utilizing Azure DevOps along with other services such as App Service, organizations can focus on the development of their apps rather than the management of the supporting infrastructure.
+Migrating to modern CI/CD processes provides many benefits for application builds, deployments, testing, and monitoring. By using Azure DevOps along with other services such as App Service, organizations can focus on the development of their apps rather than the management of the supporting infrastructure.
 
 ## Relevant use cases
 
@@ -100,7 +100,7 @@ Azure DevOps costs depend on the number of users in your organization that requi
 
 This [pricing calculator][vsts-pricing-calculator] provides an estimate for running Azure DevOps with 20 users.
 
-Azure DevOps is billed on a per-user per-month basis. There may be additional charges dependent upon concurrent pipelines needed, in addition to any additional test users or user basic licenses.
+Azure DevOps is billed on a per-user per-month basis. There may be additional charges depending on concurrent pipelines needed, in addition to any additional test users or user basic licenses.
 
 ## Related resources
 

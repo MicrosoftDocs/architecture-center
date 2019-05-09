@@ -105,7 +105,7 @@ To deploy this architecture, follow the **Azure Databricks** instructions in the
 
 1. Create a personal access token within the [Azure Databricks workspace][workspace]. See the Azure Databricks authentication [documentation][adbauthentication] for details.
 
-1. Clone the [Microsoft Recommenders][github] repository into an environment where you can execute scripts (e.g. your local computer).
+1. Clone the [Microsoft Recommenders][github] repository into an environment where you can execute scripts (for example, your local computer).
 
 1. Follow the **Quick install** setup instructions to [install the relevant libraries][setup] on Azure Databricks.
 

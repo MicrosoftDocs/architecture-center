@@ -70,7 +70,7 @@ This following code examples use the [StackExchange.Redis](https://github.com/St
 ```csharp
 private static ConnectionMultiplexer Connection;
 
-// Redis Connection string info
+// Redis connection string information
 private static Lazy<ConnectionMultiplexer> lazyConnection = new Lazy<ConnectionMultiplexer>(() =>
 {
     string cacheConnection = ConfigurationManager.AppSettings["CacheConnection"].ToString();
