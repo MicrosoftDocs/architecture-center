@@ -26,7 +26,7 @@ Many database systems can run code. Examples include stored procedures and trigg
 This antipattern typically occurs because:
 
 - The database is viewed as a service rather than a repository. An application might use the database server to format data (for example, converting to XML), manipulate string data, or perform complex calculations.
-- Developers try to write queries whose results can be displayed directly to users. For example a query might combine fields, or format dates, times, and currency according to locale.
+- Developers try to write queries whose results can be displayed directly to users. For example, a query might combine fields or format dates, times, and currency according to locale.
 - Developers are trying to correct the [Extraneous Fetching][ExtraneousFetching] antipattern by pushing computations to the database.
 - Stored procedures are used to encapsulate business logic, perhaps because they are considered easier to maintain and update.
 
@@ -89,8 +89,7 @@ Clearly, this is complex query. As we'll see later, it turns out to use signific
 
 ## How to fix the problem
 
-Move processing from the database server into other application tiers. Ideally, you should limit the database to performing data access
-operations, using only the capabilities that the database is optimized for, such as aggregation in an RDBMS.
+Move processing from the database server into other application tiers. Ideally, you should limit the database to performing data access operations, using only the capabilities that the database is optimized for, such as aggregation in an RDBMS.
 
 For example, the previous Transact-SQL code can be replaced with a statement that simply retrieves the data to be processed.
 
@@ -238,11 +237,11 @@ The following sections apply these steps to the sample application described ear
 
 ### Monitor the volume of database activity
 
-The following graph shows the results of running a load test against the sample application, using a step load of up to 50 concurrent users. The volume of requests quickly reaches a limit and stays at that level, while the average response time steadily increases. Note that a logarithmic scale is used for those two metrics.
+The following graph shows the results of running a load test against the sample application, using a step load of up to 50 concurrent users. The volume of requests quickly reaches a limit and stays at that level, while the average response time steadily increases. A logarithmic scale is used for those two metrics.
 
 ![Load-test results for performing processing in the database][ProcessingInDatabaseLoadTest]
 
-The next graph shows CPU utilization and DTUs as a percentage of service quota. DTUs provides a measure of how much processing the database performs. The graph shows that CPU and DTU utilization both quickly reached 100%.
+The next graph shows CPU utilization and DTUs as a percentage of service quota. DTUs provide a measure of how much processing the database performs. The graph shows that CPU and DTU utilization both quickly reached 100%.
 
 ![Azure SQL Database monitor showing the performance of the database while performing processing][ProcessingInDatabaseMonitor]
 
@@ -254,8 +253,7 @@ If the database operations are purely data access operations, without a lot of p
 
 ### Implement the solution and verify the result
 
-The following graph shows a load test using the updated code. Throughput is significantly higher, over 400 requests per second versus 12
-earlier. The average response time is also much lower, just above 0.1 seconds compared to over 4 seconds.
+The following graph shows a load test using the updated code. Throughput is significantly higher, over 400 requests per second versus 12 earlier. The average response time is also much lower, just above 0.1 seconds compared to over 4 seconds.
 
 ![Load-test results for performing processing in the database][ProcessingInClientApplicationLoadTest]
 
