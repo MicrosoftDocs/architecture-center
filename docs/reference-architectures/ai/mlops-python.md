@@ -1,6 +1,6 @@
 # Machine learning operationalization (MLOps) for Python models using Azure Machine Learning
 
-This reference architecture shows a implement continuous integration (CI), continuous delivery (CD), and retraining pipeline for an AI application using Azure DevOps and Azure Machine Learning. The solution is built on the scikit-learn diabetes dataset but can be easily adapted for any AI scenario and other popular build systems such as Jenkins and Travis.
+This reference architecture shows how to implement continuous integration (CI), continuous delivery (CD), and retraining pipeline for an AI application using Azure DevOps and Azure Machine Learning. The solution is built on the scikit-learn diabetes dataset but can be easily adapted for any AI scenario and other popular build systems such as Jenkins and Travis.
 
 A reference implementation for this architecture is available on GitHub.
 
@@ -14,7 +14,7 @@ This architecture consists of the following components:
 
 **[Azure Machine Learning service](/azure/machine-learning/service/overview-what-is-azure-ml)**. Machine Learning is a cloud service for training, scoring, deploying, and managing machine learning models at scale. This architecture uses the Azure Machine Learning [SDK for Python 3](/azure/machine-learning/service/quickstart-create-workspace-with-python) to create a workspace, compute resources, the machine learning pipeline, and the scoring image. An Azure Machine Learning workspace provides the space in which to experiment and train and deploy machine learning models.
 
-**Azure Machine Learning Compute** is cluster of virtual machines on demand with an automatic scaling and GPU and CPU node options. The training job is executed on this cluster.
+**[Azure Machine Learning Compute](/azure/machine-learning/service/how-to-set-up-training-targets)** is cluster of virtual machines on demand with an automatic scaling and GPU and CPU node options. The training job is executed on this cluster.
 
 **[Azure Machine Learning pipelines](/azure/machine-learning/service/concept-ml-pipelines)** provide reusable machine learning workflows that can be reused across scenarios. Training, model evaluation, model registration, and image creation occur in distinct steps within these pipelines for this use case. The pipeline is published or updated at the end of the build phase and gets triggered on new data arrival.
 
@@ -28,15 +28,21 @@ This architecture consists of the following components:
 
 **[Azure Application Insights](/azure/azure-monitor/app/app-insights-overview)**. This monitoring service is used to detect performance anomalies.
 
-## Scenario
+## MLOps Pipeline
 
 This solution demonstrates an end-to-end automation of various stages of an AI project using tools that are already familiar to software engineers. The machine learning problem is simple to keep the focus on the DevOps pipeline. The solution uses the [scikit-learn diabetes dataset](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_diabetes.html) and builds a ridge linear regression model to predict the likelihood of diabetes. See [Training of Python scikit-learn models](/azure/architecture/reference-architectures/ai/training-python-models) for details.
 
-This solution is based on the following three key components.
+This solution is based on the following three pipelines:
+
+- **Build pipeline**. Buildings the code and runs a suite of tests.
+- **Retraining pipeline**. Retrains the model on a schedule or when new data becomes available
+- **Release pipeline**. Operationalizes the scoring image and promotes it safely across different environments.
+
+The next sections describe each of these pipelines.
 
 ### Build pipeline
 
-This CI pipeline gets triggered every time code is checked in. It publishes an updated Azure Machine Learning pipeline after building the code and running a suite of tests. The build pipeline consists of the following tasks:
+The CI pipeline gets triggered every time code is checked in. It publishes an updated Azure Machine Learning pipeline after building the code and running a suite of tests. The build pipeline consists of the following tasks:
 
 - **Unit test.** These tests make sure the code works and is stable.
 
@@ -84,6 +90,9 @@ This pipeline shows how to operationalize the scoring image and promote it safel
 
 - **Test web service.** A simple API test makes sure the image is successfully deployed.
 
+To understand the end-to-end flow of the solution, see the project
+[readme](https://github.com/Microsoft/MLOpsPython#architecture-flow) on GitHub.
+
 ## Scalability considerations
 
 A build pipeline on Azure DevOps can be scaled for applications of any size. Build pipelines have a maximum timeout that varies depending on the agent they are run on. Builds can run forever on self-hosted agents (private agents). For Microsoft-hosted agents for a public project, builds can run for six hours. For private projects, 30 minutes.
@@ -106,25 +115,20 @@ Scale the retraining pipeline up and down depending on the number of nodes in yo
 
 ## Management considerations
 
-- **Monitor retraining job.** Machine Learning pipelines orchestrate retraining across a cluster of machines and provides an easy way to monitor them. Use the [Azure Portal](https://portal.azure.com/), and go to Machine Learning workspace, and look under pipelines section for the logs. Alternatively, these logs are also written to blob and can be read from there as well using tools such as [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
+- **Monitor retraining job.** Machine Learning pipelines orchestrate retraining across a cluster of machines and provides an easy way to monitor them. Use the [Azure portal](https://portal.azure.com/), and go to Machine Learning workspace, and look under pipelines section for the logs. Alternatively, these logs are also written to blob and can be read from there as well using tools such as [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
 - **Logging.** The Machine Learning service provides an easy way to log at each step of the machine learning life cycle. The logs are stored in a blob container. For more information, see [Enable logging in Azure Machine Learning service](/azure/machine-learning/service/how-to-enable-logging). For richer monitoring, configure [Application Insights](/azure/machine-learning/service/how-to-enable-app-insights#enable-and-disable-in-the-portal) to use the logs.
 
-- **Security.** For the solution, all the secrets and credentials are kept in a [Key Vault](/azure/key-vault/) and accessed in Azure DevOps Pipelines using [Variable Groups](/azure/devops/pipelines/library/variable-groups?view=azure-devops&tabs=yaml#link-secrets-from-an-azure-key-vault).
+- **Security.** All secrets and credentials are stored in [Azure Key Vault](/azure/key-vault/) and accessed in Azure Pipelines using [variable groups](/azure/devops/pipelines/library/variable-groups?view=azure-devops&tabs=yaml#link-secrets-from-an-azure-key-vault).
 
 ## Cost considerations
 
-Azure DevOps is [free](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/) for open source projects and small projects with up to five users. For larger teams, purchase a plan based on the number of users.
+Azure DevOps is [free](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/) for open-source projects and small projects with up to five users. For larger teams, purchase a plan based on the number of users.
 
 Compute is the biggest cost driver in this architecture and varies depending on the use case. For experimentation and training, Machine Learning services are free, you pay only for the compute used. While deploying models to Kubernetes Service cluster, Machine Learning adds a small [surcharge](https://azure.microsoft.com/pricing/details/machine-learning-service/) on top of the Kubernetes Service compute cost. Depending on the expected web service load and the defined autoscaling option, you can control this cost. You can use either Azure CLI or Azure Machine Learning Python SDK to programmatically set an autoscaling configuration.
 
-The retraining pipeline also requires a form of compute. This architecture uses Machine Learning Compute, but other [options](/azure/machine-learning/service/concept-azure-machine-learning-architecture#compute-target) are available. As mentioned earlier, training models do not incur the Machine Learning surcharge; you simply pay the compute cost. The compute cost depends on the cluster size, node type, and number of nodes. You can estimate the cost for Machine Learning and other services using the Azure [pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service).
+The retraining pipeline also requires a form of compute. This architecture uses Machine Learning Compute, but other [options](/azure/machine-learning/service/concept-azure-machine-learning-architecture#compute-target) are available. As mentioned earlier, training models do not incur the Machine Learning surcharge; you only pay the compute cost. The compute cost depends on the cluster size, node type, and number of nodes. You can estimate the cost for Machine Learning and other services using the Azure [pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service).
 
-## Deployment
+## Deploy the solution
 
 To deploy this reference architecture, follow the steps described in the [GitHub repo](https://github.com/Microsoft/MLOpsPython).
-
-## End to End Flow
-
-To understand the end to end flow of the solution, refer to the link
-[here](https://github.com/Microsoft/MLOpsPython#architecture-flow).
