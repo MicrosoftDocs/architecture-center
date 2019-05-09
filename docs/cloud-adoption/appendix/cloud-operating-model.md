@@ -50,7 +50,7 @@ At the executive level, the Cloud Adoption Framework has been simplified into th
 
 ![Executive level structure of the Cloud Adoption Framework](../_images/caf-structure.png)
 
-The three phases of adoption are as follows:
+The three phases of adoption are:
 
 - **Plan:** Develop the business plan to guide cloud adoption in alignment with desired business outcomes.
 - **Ready:** Prepare the people, organization, and technical environment for execution of the adoption plan.

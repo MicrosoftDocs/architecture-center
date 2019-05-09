@@ -42,7 +42,7 @@ There are technical strategies to execute against each of these motivations. How
 
 **Migrate:** The motivations near the top of the list above are the most common (but not necessarily the most significant) reasons for adopting the cloud. These are important outcomes to achieve, but are most effectively used as a means of transitioning to other more effective worldviews in the future. This important first step to cloud adoption is often called a cloud migration, this framework refers to the strategy behind execution of such a migration by the verb [Migrate](../getting-started/migrate.md).
 
-The motivations that align well with a migrate strategy are as follows. The motives at the top of the list are likely to have significantly less business impact than those that fall closer to the bottom of the list.
+The motivations that align well with a migrate strategy are listed below. The motives at the top of the list are likely to have significantly less business impact than those that fall closer to the bottom of the list.
 
 - Unclear direction from board or others at an executive level.
 - Critical business events, such as:
