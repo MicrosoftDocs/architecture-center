@@ -218,13 +218,13 @@
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./apps/internal-apim-ase-scenario.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./apps/publishing-internal-apis-externally.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./apps/media/architecture-internal-apim-ase-scenario.png" height="140px" />
+                            <img src="./apps/media/architecture-publishing-internal-apis-externally.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">

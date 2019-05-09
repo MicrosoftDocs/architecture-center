@@ -1,14 +1,15 @@
 ---
 title: Publishing internal APIs to external consumers
-titleSuffix: Azure Example Scenarios
+titleSuffix: Azure example scenarios
 description: Use Azure API Management to modernize and expose intranet legacy web APIs.
 author: ssarwa
 ms.date: 03/12/2019
+ms.author: ssarwa
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom: fasttrack
-social_image_url: ./media/architecture-internal-apim-ase-scenario.png
+social_image_url: ./media/architecture-publishing-internal-apis-externally.png
 ---
 
 # Publishing internal APIs to external consumers
@@ -155,42 +156,42 @@ Check out the related scenario on [Migrating legacy web APIs to API Management][
 
 <!-- links -->
 
-[architecture]: ./media/architecture-internal-apim-ase-scenario.png
-[dns]: https://docs.microsoft.com/en-us/azure/dns/private-dns-overview
-[ase]: https://docs.microsoft.com/en-us/azure/app-service/environment/intro
-[apim]: https://docs.microsoft.com/en-us/azure/api-management/api-management-key-concepts
-[appgtwy]: https://docs.microsoft.com/en-us/azure/application-gateway/overview
-[ssl]: https://docs.microsoft.com/en-us/azure/app-service/web-sites-purchase-ssl-web-site
-[ntwkcons]: https://docs.microsoft.com/en-us/azure/app-service/environment/network-info
-[apim-port-nsg]: https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet#a-namenetwork-configuration-issues-acommon-network-configuration-issues
-[apim-policy]: https://docs.microsoft.com/en-us/azure/api-management/api-management-transformation-policies#SetHTTPheader
-[hosted-agent]: https://docs.microsoft.com/en-us/azure/devops/pipelines/agents/v2-windows?view=azure-devops
-[vnet]: https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview
-[devops]: https://docs.microsoft.com/en-us/azure/devops/index?view=azure-devops&viewFallbackFrom=vsts
-[appinsights]: https://docs.microsoft.com/en-us/azure/azure-monitor/app/app-insights-overview
-[cosmosdb]: https://docs.microsoft.com/en-us/azure/cosmos-db/introduction
-[dnsguide]: https://docs.microsoft.com/en-us/azure/dns/private-dns-getstarted-cli
-[related-scenario]: https://docs.microsoft.com/en-us/azure/architecture/example-scenario/apps/apim-api-scenario
+[architecture]: ./media/architecture-publishing-internal-apis-externally.png
+[dns]: /azure/dns/private-dns-overview
+[ase]: /azure/app-service/environment/intro
+[apim]: /azure/api-management/api-management-key-concepts
+[appgtwy]: /azure/application-gateway/overview
+[ssl]: /azure/app-service/web-sites-purchase-ssl-web-site
+[ntwkcons]: /azure/app-service/environment/network-info
+[apim-port-nsg]: /azure/api-management/api-management-using-with-vnet#a-namenetwork-configuration-issues-acommon-network-configuration-issues
+[apim-policy]: /azure/api-management/api-management-transformation-policies#SetHTTPheader
+[hosted-agent]: /azure/devops/pipelines/agents/v2-windows?view=azure-devops
+[vnet]: /azure/virtual-network/virtual-networks-overview
+[devops]: /azure/devops/index?view=azure-devops&viewFallbackFrom=vsts
+[appinsights]: /azure/azure-monitor/app/app-insights-overview
+[cosmosdb]: /azure/cosmos-db/introduction
+[dnsguide]: /azure/dns/private-dns-getstarted-cli
+[related-scenario]: /azure/architecture/example-scenario/apps/apim-api-scenario
 [apim-pricing]: https://azure.microsoft.com/pricing/details/api-management/
 [pricing-calculator]: https://azure.com/e/0e916a861fac464db61342d378cc0bd6
-[azure-er]: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction
-[azure-mon]: https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview
-[ase-pricing]: https://azure.microsoft.com/en-us/pricing/details/app-service/windows/
-[appgtwy-pricing]: https://azure.microsoft.com/en-us/pricing/details/application-gateway/
-[availability]: https://docs.microsoft.com/en-us/azure/architecture/checklist/availability
-[scalability]: https://docs.microsoft.com/en-us/azure/architecture/checklist/scalability
-[security]: https://docs.microsoft.com/en-us/azure/security/
-[resiliency]: https://docs.microsoft.com/en-us/azure/architecture/resiliency/index
-[azure-vpn]: https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal
-[azure-hybrid]: https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/
-[azure-vm-lift-shift]: https://azure.microsoft.com/en-us/resources/azure-virtual-datacenter-lift-and-shift-guide/
-[azure-apim-ai]: https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-app-insights
-[apim-multiregion]: https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-deploy-multi-region
-[ase-trafficmanager]: https://docs.microsoft.com/en-us/azure/app-service/environment/app-service-app-service-environment-geo-distributed-scale
-[apim-scale]: https://docs.microsoft.com/en-us/azure/api-management/upgrade-and-scale
-[apim-autoscale]: https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-autoscale
-[ase-scale]: https://docs.microsoft.com/en-us/azure/app-service/environment/app-service-web-scale-a-web-app-in-an-app-service-environment
-[vnet-security]: https://docs.microsoft.com/en-us/azure/security/azure-network-security
-[appgtwy-asc]: https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-integration-security-center
-[appgtwy-scale]: https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-autoscaling-zone-redundant
-[api-pattern]: https://azure.microsoft.com/en-us/blog/using-the-retry-pattern-to-make-your-cloud-application-more-resilient/
+[azure-er]: /azure/expressroute/expressroute-introduction
+[azure-mon]: /azure/monitoring-and-diagnostics/monitoring-overview
+[ase-pricing]: https://azure.microsoft.com/pricing/details/app-service/windows/
+[appgtwy-pricing]: https://azure.microsoft.com/pricing/details/application-gateway/
+[availability]: /azure/architecture/checklist/availability
+[scalability]: /azure/architecture/checklist/scalability
+[security]: /azure/security/
+[resiliency]: /azure/architecture/resiliency/index
+[azure-vpn]: /azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal
+[azure-hybrid]: /azure/architecture/reference-architectures/hybrid-networking/
+[azure-vm-lift-shift]: https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/
+[azure-apim-ai]: /azure/api-management/api-management-howto-app-insights
+[apim-multiregion]: /azure/api-management/api-management-howto-deploy-multi-region
+[ase-trafficmanager]: /azure/app-service/environment/app-service-app-service-environment-geo-distributed-scale
+[apim-scale]: /azure/api-management/upgrade-and-scale
+[apim-autoscale]: /azure/api-management/api-management-howto-autoscale
+[ase-scale]: /azure/app-service/environment/app-service-web-scale-a-web-app-in-an-app-service-environment
+[vnet-security]: /azure/security/azure-network-security
+[appgtwy-asc]: /azure/application-gateway/application-gateway-integration-security-center
+[appgtwy-scale]: /azure/application-gateway/application-gateway-autoscaling-zone-redundant
+[api-pattern]: https://azure.microsoft.com/blog/using-the-retry-pattern-to-make-your-cloud-application-more-resilient/
