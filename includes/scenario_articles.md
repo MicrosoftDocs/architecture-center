@@ -1,3 +1,11 @@
+---
+author: adamboeglin
+ms.author: adboegli
+ms.date: 05/09/2019
+ms.topic: include
+ms.service: architecture-center
+ms.subservice: example-scenario
+---
 
 ## AI Scenarios
 

@@ -3,7 +3,8 @@ title: Securely managed web applications
 titleSuffix: Azure Example Scenarios
 description: Securely deploy an expense application to Azure App Service Environment
 author: fmustaf
-ms.date: 5/2/2019
+ms.date: 05/09/2019
+ms.author: faisalm
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -146,12 +147,12 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [intro-to-app-svc-env]: /azure/app-service/environment/intro
 [create-wildcard-cert-letsencrypt]: https://blogs.msdn.microsoft.com/mihansen/2018/03/15/creating-wildcard-ssl-certificates-with-lets-encrypt/
 [ase-and-internally-issued-cert]: https://www.patrickob.com/2018/11/10/adding-ca-certs-to-the-trusted-root-store-for-web-apps-hosted-in-an-ase/
-[isolated-tier-pricing-and-ase-pricing]: https://azure.microsoft.com/en-us/pricing/details/app-service/windows/
+[isolated-tier-pricing-and-ase-pricing]: https://azure.microsoft.com/pricing/details/app-service/windows/
 [bring-your-own-dns]: /azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#specify-dns-servers
 [private-zones]: /azure/dns/private-dns-overview
 [create-ilb-ase]: /azure/app-service/environment/create-ilb-ase
 [azure-networking]: /azure/virtual-network/virtual-networks-overview
-[sql-service-endpoint]: /azure/sql-database/sql-database-virtual network-service-endpoint-rule-overview
+[sql-service-endpoint]: /azure/sql-database/sql-database-vnet-service-endpoint-rule-overview
 
 [architecture]: ./media/ilb-ase-architecture.png
 [small-pricing]: https://azure.com/e/22e2c9d300ee425a89a001726221c7b2
