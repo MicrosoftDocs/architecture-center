@@ -56,7 +56,7 @@ To start down an adoption path, choose one of the following journeys. Each journ
 
 ## An incremental approach to cloud governance
 
-Adopting the cloud is a journey, not a destination. Along the way, there are clear milestones and tangible business benefits. However, the final state of cloud adoption is usually unknown when a company begins the journey. Cloud governance creates guardrails that keep the company on a safe path throughout the journey.
+Adopting the cloud is a journey, not a destination. Along the way, there are clear milestones and tangible business benefits. However, the final state of cloud adoption is unknown when a company begins the journey. Cloud governance creates guardrails that keep the company on a safe path throughout the journey.
 
 These governance journeys describe the experiences of fictional companies, based on the journeys of real customers. Each journey follows the customer through the governance aspects of their cloud adoption.
 
@@ -133,7 +133,7 @@ To begin a governance journey, choose one of the two options below. The options 
 |                                              | Small-to-medium enterprise                                                                        | Large enterprise                                                                                        |
 |----------------------------------------------|---------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 | Cost Management – cloud accounting           | Showback model. Billing is centralized through IT.                                                | Chargeback model. Billing could be distributed through IT procurement.                                  |
-| Security Baseline – protected data           | Company financial data and IP. Limited customer data. No third-party compliance requirements.     | Multiple collections of customers’ financial and PII data. May need to consider third-party compliance. |
+| Security Baseline – protected data           | Company financial data and IP. Limited customer data. No third-party compliance requirements.     | Multiple collections of customers’ financial and personal data. May need to consider third-party compliance. |
 | Resource Consistency – mission-critical applications | Outages are painful but not financially damaging. Existing IT Operations are relatively immature. | Outages have defined and monitored financial impacts. IT operations are established and mature.         |
 
 These two journeys represent two extremes of experience for customers who invest in cloud governance. Most companies reflect a combination of the two scenarios above. After reviewing the journey, use the Cloud Adoption Framework governance model to start the governance conversation and modify the baseline journeys to more closely meet your needs.
@@ -150,12 +150,12 @@ A virtual datacenter can be thought of as your own isolated cloud within the Azu
 
 ### Azure Virtual Datacenter assumptions
 
-Although smaller teams may benefit from the models and recommendations the Azure Virtual Datacenter provides, this approach is specifically designed to guide enterprise IT groups managing large cloud environments. For organizations that meet the following criteria it's recommended that you consider consulting the Azure Virtual Datacenter guidance when designing your Azure-based cloud infrastructure:
+Although smaller teams may benefit from the models and recommendations the Azure Virtual Datacenter provides, this approach is designed to guide enterprise IT groups managing large cloud environments. For organizations that meet the following criteria it's recommended that you consider consulting the Azure Virtual Datacenter guidance when designing your Azure-based cloud infrastructure:
 
 - Your enterprise is subject to regulatory compliance requirements that require centralized monitoring and audit capabilities.
 - Your cloud estate will consist of over 10,000 IaaS VMs or an equivalent scale of PaaS services.
 - You need to enable agile deployment capabilities for workloads in support of developer and operations teams, while maintaining common policy and governance compliance and central IT control over core services.
-- Your industry depends on a complex platform which requires deep domain expertise (for example, finance, oil and gas, or manufacturing).
+- Your industry depends on a complex platform that requires deep domain expertise (for example, finance, oil and gas, or manufacturing).
 - Your existing IT governance policies require tighter parity with existing features, even during early stage adoption.
 
 For more information, visit the [Azure Virtual Datacenter](/azure/architecture/vdc) section of the Cloud Adoption Framework site.
