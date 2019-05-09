@@ -300,6 +300,8 @@
           href: reference-architectures/ai/batch-scoring-python.md
         - name: Real-time scoring of Python and deep learning models
           href: reference-architectures/ai/realtime-scoring-python.md
+        - name: MLOps for Python models using Azure Machine Learning
+          href: reference-architectures/ai/mlops-python.md
 
       - name: Scoring R models
         items:
