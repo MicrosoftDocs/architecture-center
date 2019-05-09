@@ -246,6 +246,8 @@
       href: example-scenario/apps/apim-api-scenario.md
     - name: E-commerce product search
       href: example-scenario/apps/ecommerce-search.md
+    - name: Publishing internal APIs externally
+      href: example-scenario/apps/publish-internal-apis-externally.md
     - name: Jenkins server
       href: example-scenario/apps/jenkins.md
     - name: Securely managed web applications
