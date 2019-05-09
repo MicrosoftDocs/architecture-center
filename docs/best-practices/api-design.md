@@ -115,7 +115,7 @@ The HTTP protocol defines a number of methods that assign semantic meaning to a 
 - **PATCH** performs a partial update of a resource. The request body specifies the set of changes to apply to the resource.
 - **DELETE** removes the resource at the specified URI.
 
-The effect of a specific request should depend on whether the resource is a collection or an individual item. The following table summarizes the common conventions adopted by most RESTful implementations using the ecommerce example. Note that not all of these requests might be implemented; it depends on the specific scenario.
+The effect of a specific request should depend on whether the resource is a collection or an individual item. The following table summarizes the common conventions adopted by most RESTful implementations using the e-commerce example. Note that not all of these requests might be implemented; it depends on the specific scenario.
 
 | **Resource** | **POST** | **GET** | **PUT** | **DELETE** |
 | --- | --- | --- | --- | --- |
