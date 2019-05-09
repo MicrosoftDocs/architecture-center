@@ -1,8 +1,21 @@
+---
+title: MLOps for Python models using Azure Machine Learning
+titleSuffix: Azure Reference Architectures
+description:  Implement continuous integration (CI), continuous delivery (CD), and retraining for Azure Machine Learning.
+author: praneetmsft
+ms.author: pnp
+ms.date: 05/09/2019
+ms.topic: reference-architecture
+ms.service: architecture-center
+ms.subservice: reference-architecture
+ms.custom: azcat-ai
+---
+
 # Machine learning operationalization (MLOps) for Python models using Azure Machine Learning
 
-This reference architecture shows how to implement continuous integration (CI), continuous delivery (CD), and retraining pipeline for an AI application using Azure DevOps and Azure Machine Learning. The solution is built on the scikit-learn diabetes dataset but can be easily adapted for any AI scenario and other popular build systems such as Jenkins and Travis.
+This reference architecture shows how to implement a continuous integration (CI), continuous delivery (CD), and retraining pipeline for an AI application using Azure DevOps and Azure Machine Learning. The solution is built on the scikit-learn diabetes dataset but can be easily adapted for any AI scenario and other popular build systems such as Jenkins and Travis.
 
-A reference implementation for this architecture is available on GitHub.
+![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][repo].
 
 ![Diagram of the MLOps architecture](./_images/ml-ops-python.png)
 
@@ -131,4 +144,6 @@ The retraining pipeline also requires a form of compute. This architecture uses 
 
 ## Deploy the solution
 
-To deploy this reference architecture, follow the steps described in the [GitHub repo](https://github.com/Microsoft/MLOpsPython).
+To deploy this reference architecture, follow the steps described in the [GitHub repo][repo].
+
+[repo]: https://github.com/Microsoft/MLOpsPython
