@@ -51,7 +51,7 @@ The following sample policy statements address common identity-related business 
 
 **Technical risk:** Identity management systems with insufficiently secure user authentication methods, such as basic user/password combinations, can lead to compromised or hacked passwords, providing a major risk of unauthorized access to secure cloud systems.
 
-**Policy statement:** All accounts are required to log in to secured resources using a multi-factor authentication method.
+**Policy statement:** All accounts are required to sign in to secured resources using a multi-factor authentication method.
 
 **Potential design options:** For Azure Active Directory, implement [Azure Multi-Factor Authentication](/azure/active-directory/authentication/concept-mfa-howitworks) as part of your user authorization process.
 
@@ -73,7 +73,7 @@ The following sample policy statements address common identity-related business 
 
 ## Next steps
 
-Use the samples mentioned in this article as a starting point to develop policies that address specific business risks that align with your cloud adoption plans.
+Use the samples mentioned in this article as a starting point for developing policies to address specific business risks that align with your cloud adoption plans.
 
 To begin developing your own custom policy statements related to Identity Baseline, download the [Identity Baseline template](./template.md).
 
