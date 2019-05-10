@@ -145,7 +145,7 @@ Create the dashboards in Grafana by following these steps:
 
 Both the Azure Log Analytics and Grafana dashboards include a set of time-series visualizations. Each graph is time-series plot of metric data related to an Apache Spark [job](https://spark.apache.org/docs/latest/job-scheduling.html), stages of the job, and tasks that make up each stage.
 
-The visualizations are as follows:
+The visualizations are:
 
 ### Job latency
 
