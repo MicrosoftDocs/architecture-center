@@ -43,7 +43,7 @@ When selecting a compute option, here are some factors to consider:
 
 - Hosting model. How is the service hosted? What requirements and limitations are imposed by this hosting environment?
 - DevOps. Is there built-in support for application upgrades? What is the deployment model?
-- Scalability. How does the service handle adding or removing instances? Can it auto-scale based on load and other metrics?
+- Scalability. How does the service handle adding or removing instances? Can it autoscale based on load and other metrics?
 - Availability. What is the service SLA?
 - Cost. In addition to the cost of the service itself, consider the operations cost for managing a solution built on that service. For example, IaaS solutions might have a higher operations cost.
 - What are the overall limitations of each service?
