@@ -20,7 +20,7 @@ Network calls and other I/O operations are inherently slow compared to compute t
 
 ### Reading and writing individual records to a database as distinct requests
 
-The following example reads from a database of products. There are three tables, `Product`, `ProductSubcategory`, and `ProductPriceListHistory`. The code retrieves all of the products in a subcategory, along with the pricing information, by executing a series of queries:  
+The following example reads from a database of products. There are three tables, `Product`, `ProductSubcategory`, and `ProductPriceListHistory`. The code retrieves all of the products in a subcategory, along with the pricing information, by executing a series of queries:
 
 1. Query the subcategory from the `ProductSubcategory` table.
 2. Find all products in that subcategory by querying the `Product` table.
@@ -306,7 +306,7 @@ Tracing the SQL statement shows that all the data is fetched in a single SELECT 
 
 [api-design]: ../../best-practices/api-design.md
 [caching-guidance]: ../../best-practices/caching.md
-[code-sample]:  https://github.com/mspnp/performance-optimization/tree/master/ChattyIO
+[code-sample]: https://github.com/mspnp/performance-optimization/tree/master/ChattyIO
 [data-consistency-guidance]: https://msdn.microsoft.com/library/dn589800.aspx
 [ef]: /ef/
 [extraneous-fetching]: ../extraneous-fetching/index.md

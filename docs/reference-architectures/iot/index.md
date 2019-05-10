@@ -40,9 +40,9 @@ Machine learning allows predictive algorithms to be executed over historical tel
 
 **Warm path storage** holds data that must be available immediately from device for reporting and visualization. For warm path storage, we recommend [Cosmos DB](/azure/cosmos-db/introduction). Cosmos DB is a globally distributed, multi-model database.
 
-**Cold path storage** holds data that is kept longer term and is used for batch processing. For cold path storage, we recommend [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction). Data can be archived in Blob storage indefinitely at low cost, and is easily accessible for batch processing.
+**Cold path storage** holds data that is kept longer-term and is used for batch processing. For cold path storage, we recommend [Azure Blob Storage](/azure/storage/blobs/storage-blobs-introduction). Data can be archived in Blob storage indefinitely at low cost, and is easily accessible for batch processing.
 
-**Data transformation** manipulates or aggregates the telemetry stream. Examples include protocol transformation, such as converting binary data to JSON, or combining data points. If the data must be transformed before reaching IoT Hub, we recommend using a [protocol gateway](/azure/iot-hub/iot-hub-protocol-gateway) (not shown). Otherwise, data can be transformed after it reaches IoT Hub. In that case, we recommend using [Azure Functions](/azure/azure-functions/). Functions has built-in integration with IoT Hub, Cosmos DB, and Blob Storage.
+**Data transformation** manipulates or aggregates the telemetry stream. Examples include protocol transformation, such as converting binary data to JSON, or combining data points. If the data must be transformed before reaching IoT Hub, we recommend using a [protocol gateway](/azure/iot-hub/iot-hub-protocol-gateway) (not shown). Otherwise, data can be transformed after it reaches IoT Hub. In that case, we recommend using [Azure Functions](/azure/azure-functions/), which has built-in integration with IoT Hub, Cosmos DB, and Blob Storage.
 
 **Business process integration** performs actions based on insights from the device data. This could include storing informational messages, raising alarms, sending email or SMS messages, or integrating with CRM. We recommend using [Azure Logic Apps](/azure/logic-apps/logic-apps-overview) for business process integration.
 
@@ -86,7 +86,7 @@ All information received from and sent to a device must be trustworthy. Unless a
 
 However, many devices are too constrained to support these requirements. In that case, a field gateway should be used. Devices connect securely to the field gateway through a local area network, and the gateway enables secure communication to the cloud.
 
-### Physical tamper proofing
+### Physical tamper-proofing
 
 It is strongly recommended that device design incorporates features that defend against physical manipulation attempts, to help ensure the security integrity and trustworthiness of the overall system.
 
@@ -94,7 +94,7 @@ For example:
 
 - Choose microcontrollers/microprocessors or auxiliary hardware that provide secure storage and use of cryptographic key material, such as trusted platform module (TPM) integration.
 - Secure boot loader and secure software loading, anchored in the TPM.
-- Use sensors to detect intrusion attempts and attempts to manipulate the device environment with alerting and potentially “digital self-destruction” of the device.
+- Use sensors to detect intrusion attempts and attempts to manipulate the device environment with alerting and potentially "digital self-destruction" of the device.
 
 For additional security considerations, see [Internet of Things (IoT) security architecture](/azure/iot-fundamentals/iot-security-architecture).
 

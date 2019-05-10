@@ -59,7 +59,7 @@ There are a number of infrastructure components necessary to build an HPC system
 
 ### Example HPC architectures
 
-There are a number of different ways to design and implement your HPC architecture on Azure.  HPC applications can scale to thousands of compute cores, extend on-premises clusters, or run as a 100% cloud native solution.
+There are a number of different ways to design and implement your HPC architecture on Azure.  HPC applications can scale to thousands of compute cores, extend on-premises clusters, or run as a 100% cloud-native solution.
 
 The following scenarios outline a few of the common ways HPC solutions are built.
 

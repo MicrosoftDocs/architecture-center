@@ -140,7 +140,7 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
                         </div>
                         <div class="cardText">
                             <h3>Cloud Best Practices</h3>
-                            <p>Best practices for cloud applications, covering aspects such as auto-scaling, caching, data partitioning,
+                            <p>Best practices for cloud applications, covering aspects such as autoscaling, caching, data partitioning,
                                 API design, and others.</p>
                         </div>
                     </div>

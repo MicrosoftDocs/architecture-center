@@ -63,7 +63,7 @@ To achieve scale in the cloud, it’s common to add more physical instances. Thi
 
 ![Load balancing a web site](./images/load-balancing.png)
 
-Any request can be routed to any instance. Together, the system functions as a single logical instance. You can tear down a VM or spin up a new VM, without affecting users. In this architecture, each physical instance is multi-tenant, and you scale by adding more instances. If one instance goes down, it should not affect any tenant.
+Any request can be routed to any instance. Together, the system functions as a single logical instance. You can tear down a VM or spin up a new VM, without affecting users. In this architecture, each physical instance is multitenant, and you scale by adding more instances. If one instance goes down, it should not affect any tenant.
 
 ## Identity in a multitenant app
 
@@ -80,7 +80,7 @@ In a multitenant app, you must consider users in the context of tenants.
 - When authorizing a user's actions (say, viewing a resource), the app must take into account the user's tenant.
 - Users might be assigned roles within the application, such as "Admin" or "Standard User". Role assignments should be managed by the customer, not by the SaaS provider.
 
-**Example.** Alice, an employee at Contoso, navigates to the application in her browser and clicks the “Log in” button. She is redirected to a login screen where she enters her corporate credentials (username and password). At this point, she is logged into the app as `alice@contoso.com`. The application also knows that Alice is an admin user for this application. Because she is an admin, she can see a list of all the resources that belong to Contoso. However, she cannot view Fabrikam's resources, because she is an admin only within her tenant.
+**Example.** Alice, an employee at Contoso, navigates to the application in her browser and clicks the "Log in" button. She is redirected to a sign-in screen where she enters her corporate credentials (username and password). At this point, she is logged into the app as `alice@contoso.com`. The application also knows that Alice is an admin user for this application. Because she is an admin, she can see a list of all the resources that belong to Contoso. However, she cannot view Fabrikam's resources, because she is an admin only within her tenant.
 
 In this guidance, we'll look specifically at using Azure AD for identity management.
 
