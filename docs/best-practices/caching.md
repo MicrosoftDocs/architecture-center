@@ -648,7 +648,7 @@ You can also combine existing sets to create new sets by using the SDIFF (set di
 
 The following code snippets show how sets can be useful for quickly storing and retrieving collections of related items. This code uses the `BlogPost` type that was described in the section Implement Redis Cache Client Applications earlier in this article.
 
-A `BlogPost` object contains four fields &mdash; an ID, a title, a ranking score, and a collection of tags. The first code snippet below shows the sample data that's used for populating a C# list of `BlogPost` objects:
+A `BlogPost` object contains four fields&mdash;an ID, a title, a ranking score, and a collection of tags. The first code snippet below shows the sample data that's used for populating a C# list of `BlogPost` objects:
 
 ```csharp
 List<string[]> tags = new List<string[]>

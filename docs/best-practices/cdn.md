@@ -24,7 +24,7 @@ This topic describes some general best practices and considerations when using a
 
 ## How and why a CDN is used
 
-Typical uses for a CDN include:  
+Typical uses for a CDN include:
 
 - Delivering static resources for client applications, often from a website. These resources can be images, style sheets, documents, files, client-side scripts, HTML pages, HTML fragments, or any other content that the server does not need to modify for each request. The application can create items at runtime and make them available to the CDN (for example, by creating a list of current news headlines), but it does not do so for each request.
 
@@ -38,7 +38,7 @@ Typical uses for a CDN include:
 
 - Supporting IoT (Internet of Things) solutions. The huge numbers of devices and appliances involved in an IoT solution could easily overwhelm an application if it had to distribute firmware updates directly to each device.
 
-- Coping with peaks and surges in demand without requiring the application to scale, avoiding the consequent increased running costs. For example, when an update to an operating system is released for a hardware device such as a specific model of router, or for a consumer device such as a smart TV, there will be a huge peak in demand as it is downloaded by millions of users and devices over a short period.
+- Coping with peaks and surges in demand without requiring the application to scale, avoiding the consequent increase in running costs. For example, when an update to an operating system is released for a hardware device such as a specific model of router, or for a consumer device such as a smart TV, there will be a huge peak in demand as it is downloaded by millions of users and devices over a short period.
 
 ## Challenges
 
@@ -58,7 +58,7 @@ There are several challenges to take into account when planning to use a CDN.
 
 - **Resilience**. The CDN is a potential single point of failure for an application.
 
-Scenarios where CDN may be less useful include:  
+Scenarios where a CDN may be less useful include:
 
 - If the content has a low hit rate, it might be accessed only few times while it is valid (determined by its time-to-live setting).
 
