@@ -366,7 +366,7 @@ The following sections compare various data store models in terms of workload pr
 <tr><td><strong>Data type</strong></td>
     <td>
         <ul>
-            <li>A time stamp that is used as the primary key and sorting mechanism.</li>
+            <li>A timestamp that is used as the primary key and sorting mechanism.</li>
             <li>Measurements from the entry or descriptions of what the entry represents.</li>
             <li>Tags that define additional information about the type, origin, and other information about the entry.</li>
         </ul>
