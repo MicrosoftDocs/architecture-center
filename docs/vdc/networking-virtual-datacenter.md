@@ -90,7 +90,7 @@ A single global administrator is not required to assign all permissions in a VDC
 
 #### Security infrastructure
 
-Security infrastructure refers to the segregation of traffic in a VDC implementation's specific virtual network segment. This infrastructure specifies how ingress and egress is controlled in a VDC implementation. Azure is based on a multi-tenant architecture that prevents unauthorized and unintentional traffic between deployments by using VNet isolation, access control lists (ACLs), load balancers, IP filters, and traffic flow policies. Network address translation (NAT) separates internal network traffic from external traffic.
+Security infrastructure refers to the segregation of traffic in a VDC implementation's specific virtual network segment. This infrastructure specifies how ingress and egress is controlled in a VDC implementation. Azure is based on a multitenant architecture that prevents unauthorized and unintentional traffic between deployments by using VNet isolation, access control lists (ACLs), load balancers, IP filters, and traffic flow policies. Network address translation (NAT) separates internal network traffic from external traffic.
 
 The Azure fabric allocates infrastructure resources to tenant workloads and manages communications to and from virtual machines (VMs). The Azure hypervisor enforces memory and process separation between VMs and securely routes network traffic to guest OS tenants.
 
@@ -354,7 +354,7 @@ The region in which VDC implementations are hosted must conform with regulatory 
 
 #### Disaster recovery
 
-The design of a disaster recovery plan depends on the types of workloads  and the ability to synchronize state of those workloads between different VDC implementations. Ideally, most customers desire a fast fail-over mechanism, and this may require application data synchronization between deployments running multiple VDC implementations. However, when designing disaster recovery plans, it's important to consider that most applications are sensitive to the latency that can be caused by this data synchronization.
+The design of a disaster recovery plan depends on the types of workloads and the ability to synchronize state of those workloads between different VDC implementations. Ideally, most customers desire a fast fail-over mechanism, and this may require application data synchronization between deployments running multiple VDC implementations. However, when designing disaster recovery plans, it's important to consider that most applications are sensitive to the latency that can be caused by this data synchronization.
 
 Synchronization and heartbeat monitoring of applications in different VDC implementations requires them to communicate over the network. Two VDC implementations in different regions can be connected through:
 
@@ -406,7 +406,7 @@ The following features were discussed in this document. Follow the links to lear
 [6]: ./images/networking-infrastructure-high-level.png "High-level infrastructure diagram"
 [7]: ./images/networking-highlevel-perimeter-networks.png "High-level infrastructure diagram"
 [8]: ./images/networking-vnet-peering-perimeter-neworks.png "VNet Peering and perimeter networks"
-[9]: ./images/networking-high-level-diagram-monitoring.png "High-Level diagram for Monitoring"
+[9]: ./images/networking-high-level-diagram-monitoring.png "High-level diagram for monitoring"
 [10]: ./images/networking-high-level-workloads.png "High-level diagram for Workload"
 
 <!--Link References-->

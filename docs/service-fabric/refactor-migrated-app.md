@@ -130,7 +130,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 ```
 
 > [!NOTE]
-> These lines may be conditionally excluded when Visual Studio is set to “release” when publishing.
+> These lines may be conditionally excluded when Visual Studio is set to **release** when publishing.
 
 Finally, when Tailspin deploys the Tailspin application to production, they switch Visual Studio to **release** mode.
 

@@ -112,8 +112,8 @@ Here are the basic steps for containerizing an application.
     ```
 The image is tagged with a version number that Service Fabric references when it deploys and versions the container. Azure DevOps encapsulates and executes the manual Docker build/tag/push process. DevOps details are described in the [DevOps and CI/CD](#devops-and-cicd) section.
 
-> [!NOTE] 
-> In the preceding example, the base image is “microsoft/aspnet4.7” from DockerHub.
+> [!NOTE]
+> In the preceding example, the base image is "microsoft/aspnet4.7" from DockerHub.
 
 Here are some considerations about the base images:
 - The base image could be a locked-down custom enterprise image that enforces enterprise requirements. For a shared application, isolation boundaries can be created through credentials or by using separate registry. It's recommended that enterprise-supported docker images be kept separately and stored in an isolated container registry.  
@@ -140,7 +140,7 @@ In the preceding image, the application node type has three nodes that run three
 ### Placement constraints
 Use placement constraints that target the non-primary node type to reserve the primary node type for system services. 
 
-This approach enables you to configure each scale set with a separate virtual network subnet. A unique subnet for each node type uses Network Security Group (NSG) rules for inbound/outbound access to and from the subnet and controls network flow. You can configure the primary node type with a private load balancer so that external traffic can't access Service Fabric management and application deployment. If the application node type wants to expose application endpoints publicly, configure it with a separate load balancer with security configuration. For an example template that uses Windows Service with NSG rule and multiple node types,  see [7 Node, 3 node type secure Windows Service Fabric Cluster with NSG](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/7-VM-Windows-3-NodeTypes-Secure-NSG).
+This approach enables you to configure each scale set with a separate virtual network subnet. A unique subnet for each node type uses network security group rules for inbound/outbound access to and from the subnet and controls network flow. You can configure the primary node type with a private load balancer so that external traffic can't access Service Fabric management and application deployment. If the application node type wants to expose application endpoints publicly, configure it with a separate load balancer with security configuration. For an example template that uses Windows Service with NSG rule and multiple node types,  see [7 Node, 3 node type secure Windows Service Fabric Cluster with NSG](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/7-VM-Windows-3-NodeTypes-Secure-NSG).
 
 A scale set associated with a node type can reliably scale out to 100 VM instances by using a single placement group as applications are added to the cluster. The primary node type often doesn't need as many instances and can run with 5-7 nodes, depending on durability and reliability requirements.
 

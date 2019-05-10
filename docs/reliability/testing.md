@@ -54,7 +54,7 @@ Load testing is crucial for identifying failures that only happen under load, su
 
 Start with a good disaster recovery plan, and test it periodically to make sure it works.
 
-For Azure Virtual Machines, you can use [Azure Site Recovery](/azure/site-recovery/azure-to-azure-quickstart/) to replicate and perform [disaster recovery drills](/azure/site-recovery/azure-to-azure-tutorial-dr-drill/) without impacting production applications or ongoing replication.
+For Azure Virtual Machines, you can use [Azure Site Recovery](/azure/site-recovery/azure-to-azure-quickstart/) to replicate and perform [disaster recovery drills](/azure/site-recovery/azure-to-azure-tutorial-dr-drill/) without affecting production applications or ongoing replication.
 
 ### Failover and failback testing
 
