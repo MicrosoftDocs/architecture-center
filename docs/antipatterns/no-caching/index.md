@@ -197,7 +197,7 @@ After you incorporate a cache, repeat the load tests and compare the results to 
 
 ![Performance load test results for the cached scenario][Performance-Load-Test-Results-Cached]
 
-The volume of successful tests still reaches a plateau, but at a higher user load. The request rate at this load is significantly higher than earlier. Average test time still increases with load, but the maximum response time is 0.05 ms, compared with 1ms earlier &mdash; a 20&times; improvement.
+The volume of successful tests still reaches a plateau, but at a higher user load. The request rate at this load is significantly higher than earlier. Average test time still increases with load, but the maximum response time is 0.05 ms, compared with 1 ms earlier&mdash;a 20&times; improvement.
 
 ## Related resources
 

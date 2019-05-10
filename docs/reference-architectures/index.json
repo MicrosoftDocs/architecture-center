@@ -212,7 +212,7 @@
                     "url": "./n-tier/multi-region-sql-server.md",
                     "image": "../_images/icons/windows.svg",
                     "title": "Multi-region N-tier application",
-                    "summary": "N-tier application in two regions for high availability, using SQL Server Always On Availability Groups."
+                    "summary": "N-tier application in two regions for high availability, using SQL Server Always On availability groups."
                 },
                 {
                     "url": "./n-tier/n-tier-cassandra.md",
@@ -224,7 +224,7 @@
                     "url": "./sharepoint/index.md",
                     "image": "../_images/icons/sharepoint.svg",
                     "title": "SharePoint Server 2016 farm",
-                    "summary": "Highly available SharePoint Server 2016 farm on Azure with SQL Server Always On Availability Groups."
+                    "summary": "Highly available SharePoint Server 2016 farm on Azure with SQL Server Always On availability groups."
                 }
             ]
         },
