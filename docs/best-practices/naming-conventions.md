@@ -68,7 +68,7 @@ When developing a specific naming convention for your company or projects, it is
 
 ## Naming rules and restrictions
 
-Each resource or service type in Azure enforces a set of naming restrictions and scope; any naming convention or pattern must adhere to the requisite naming rules and scope. For example, while the name of a VM maps to a DNS name (and is thus required to be unique across all of Azure), the name of a VNET is scoped to the Resource Group that it is created within.
+Each resource or service type in Azure enforces a set of naming restrictions and scope. Any naming convention or pattern must adhere to the required naming rules and scope. For example, while the name of a virtual machine maps to a DNS name (and is thus required to be unique across all of Azure), the name of a virtual network is scoped to the resource group in which it resides.
 
 In general, avoid having any special characters (`-` or `_`) as the first or last character in any name. These characters will cause most validation rules to fail.
 

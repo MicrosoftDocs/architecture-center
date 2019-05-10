@@ -29,7 +29,7 @@ However, the partitioning strategy must be chosen carefully to maximize the bene
 
 - **Improve performance**. Data access operations on each partition take place over a smaller volume of data. Correctly done, partitioning can make your system more efficient. Operations that affect more than one partition can run in parallel.
 
-- **Improve security**. In some cases, you can separate sensitive and non-sensitive data into different partitions and apply different security controls to the sensitive data.
+- **Improve security**. In some cases, you can separate sensitive and nonsensitive data into different partitions and apply different security controls to the sensitive data.
 
 - **Provide operational flexibility**. Partitioning offers many opportunities for fine-tuning operations, maximizing administrative efficiency, and minimizing cost. For example, you can define different strategies for management, monitoring, backup and restore, and other administrative tasks based on the importance of the data in each partition.
 
