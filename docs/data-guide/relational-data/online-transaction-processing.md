@@ -81,7 +81,7 @@ To narrow the choices, start by answering these questions:
 
 - Are your write throughput requirements particularly high? If yes, choose an option that provides in-memory tables.
 
-- Is your solution multi-tenant? If so, consider options that support capacity pools, where multiple database instances draw from an elastic pool of resources, instead of fixed resources per database. This can help you better distribute capacity across all database instances, and can make your solution more cost effective.
+- Is your solution multitenant? If so, consider options that support capacity pools, where multiple database instances draw from an elastic pool of resources, instead of fixed resources per database. This can help you better distribute capacity across all database instances, and can make your solution more cost effective.
 
 - Does your data need to be readable with low latency in multiple regions? If yes, choose an option that supports readable secondary replicas.
 
@@ -142,7 +142,7 @@ The following tables summarize the key differences in capabilities.
 |                                                Data masking                                                 |        Yes         |                  Yes                   |            No            |              No               |
 |                                         Transparent data encryption                                         |        Yes         |                  Yes                   |           Yes            |              Yes              |
 |                                  Restrict access to specific IP addresses                                   |        Yes         |                  Yes                   |           Yes            |              Yes              |
-|                                  Restrict access to allow VNET access only                                  |        Yes         |                  Yes                   |            No            |              No               |
+|                                  Restrict access to allow VNet access only                                  |        Yes         |                  Yes                   |            No            |              No               |
 |                                    Azure Active Directory authentication                                    |        Yes         |                  Yes                   |            No            |              No               |
 |                                       Active Directory authentication                                       |         No         |                  Yes                   |            No            |              No               |
 |                                         Multi-factor authentication                                         |        Yes         |                  Yes                   |            No            |              No               |
