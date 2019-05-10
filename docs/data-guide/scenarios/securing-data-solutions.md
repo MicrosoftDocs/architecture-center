@@ -36,7 +36,7 @@ Central to protecting your data in the cloud is a combination of identity manage
 - Centralize your identity management.
 - Enable Single Sign-On (SSO).
 - Deploy password management.
-- Enforce multi-factor authentication (MFA) for users.
+- Enforce multi-factor authentication for users.
 - Use role based access control (RBAC).
 - Conditional Access Policies should be configured, which enhances the classic concept of user identity with additional properties related to user location, device type, patch level, and so on.
 - Control locations where resources are created using resource manager.
@@ -76,7 +76,7 @@ Use [Conditional access in Azure Active Directory](/azure/active-directory/activ
 
 To protect data in transit, always use SSL/TLS when exchanging data across different locations. Sometimes you need to isolate your entire communication channel between your on-premises and cloud infrastructure by using either a virtual private network (VPN) or [ExpressRoute](/azure/expressroute/). For more information, see [Extending on-premises data solutions to the cloud](../scenarios/hybrid-on-premises-and-cloud.md).
 
-Use [network security groups](/azure/virtual-network/virtual-networks-nsg) (NSGs) to reduce the number of potential attack vectors. A network security group contains a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol.
+Use [network security groups](/azure/virtual-network/virtual-networks-nsg) to reduce the number of potential attack vectors. A network security group contains a list of security rules that allow or deny inbound or outbound network traffic based on source or destination IP address, port, and protocol.
 
 Use [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview) to secure Azure SQL or Azure Storage resources, so that only traffic from your virtual network can access these resources.
 

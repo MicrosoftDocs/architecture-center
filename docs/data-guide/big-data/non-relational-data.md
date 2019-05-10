@@ -139,7 +139,7 @@ Relevant Azure service:
 
 ## Typical requirements
 
-Non-relational data stores often use a different storage architecture from that used by relational databases. Specifically, they tend towards having no fixed schema. Also, they tend not to support transactions, or else restrict the scope of transactions, and they generally don't include secondary indexes for scalability reasons.
+Non-relational data stores often use a different storage architecture from that used by relational databases. Specifically, they tend toward having no fixed schema. Also, they tend not to support transactions, or else restrict the scope of transactions, and they generally don't include secondary indexes for scalability reasons.
 
 The following compares the requirements for each of the non-relational data stores:
 
