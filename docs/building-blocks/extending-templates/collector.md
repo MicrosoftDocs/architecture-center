@@ -17,25 +17,25 @@ To work around this, you can implement a property transform and collector templa
 > [!IMPORTANT]
 > This approach requires that you have a deep understanding of Resource Manager templates and functions.
 
-Let's take a look at how we can implement a property collector and transformer with an example that deploys a [network security group (NSG)][nsg]. The diagram below shows the relationship between our templates and our resources within those templates:
+Let's take a look at how we can implement a property collector and transformer with an example that deploys a [network security group][nsg]. The diagram below shows the relationship between our templates and our resources within those templates:
 
 ![property collector and transformer architecture](../_images/collector-transformer.png)
 
 Our **calling template** includes two resources:
 
 - A template link that invokes our **collector template**.
-- The NSG resource to deploy.
+- The network security group resource to deploy.
 
 Our **collector template** includes two resources:
 
 - An **anchor** resource.
 - A template link that invokes the transform template in a copy loop.
 
-Our **transform template** includes a single resource: an empty template with a variable that transforms our `source` JSON to the JSON schema expected by our NSG resource in the **main template**.
+Our **transform template** includes a single resource: an empty template with a variable that transforms our `source` JSON to the JSON schema expected by our network security group resource in the **main template**.
 
 ## Parameter object
 
-We'll be using our `securityRules` parameter object from [objects as parameters][objects-as-parameters]. Our **transform template** will transform each object in the `securityRules` array into the JSON schema expected by the NSG resource in our **calling template**.
+We'll be using our `securityRules` parameter object from [objects as parameters][objects-as-parameters]. Our **transform template** will transform each object in the `securityRules` array into the JSON schema expected by the network security group resource in our **calling template**.
 
 ```json
 {
