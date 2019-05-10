@@ -230,7 +230,7 @@ Dedicated network | Direct Connect | [ExpressRoute](https://azure.microsoft.com/
 | ----------- | ------------- | ----------- |
 | S3 Infrequent Access (IA) | [Azure Storage cool tier](/azure/storage/blobs/storage-blob-storage-tiers) | Cool storage is a lower-cost tier for storing data that is infrequently accessed and long-lived. |
 | S3 Glacier | [Azure Storage archive access tier](/azure/storage/blobs/storage-blob-storage-tiers) | Archive storage has the lowest storage cost and higher data retrieval costs compared to hot and cool storage. |
-| AWS Backup | [Azure Backup](https://azure.microsoft.com/services/backup/) | Back up and recover files and folders from the cloud, and provide off-site protection against data loss. |
+| AWS Backup | [Azure Backup](https://azure.microsoft.com/services/backup/) | Back up and recover files and folders from the cloud, and provide offsite protection against data loss. |
 
 ### Hybrid storage
 
@@ -261,4 +261,4 @@ Dedicated network | Direct Connect | [ExpressRoute](https://azure.microsoft.com/
 | Enterprise application services | Amazon WorkMail, Amazon WorkDocs | [Office 365](https://products.office.com/) | Fully integrated Cloud service providing communications, email, document management in the cloud and available on a wide variety of devices. |
 | Gaming | GameLift, GameSparks | [PlayFab](https://playfab.com/) | Managed services for hosting dedicated game servers. |
 | Media transcoding | Elastic Transcoder | [Media Services](https://azure.microsoft.com/services/media-services/) | Services that offer broadcast-quality video streaming services, including various transcoding technologies. |
-| Workflow | Simple Workflow Service (SWF) | [Logic Apps](https://azure.microsoft.com/services/logic-apps/) | Serverless technology for connecting apps, data and devices anywhere—on-premises or in the cloud for large ecosystems of SaaS and cloud based connectors. |
+| Workflow | Simple Workflow Service (SWF) | [Logic Apps](https://azure.microsoft.com/services/logic-apps/) | Serverless technology for connecting apps, data, and devices anywhere, whether on-premises or in the cloud for large ecosystems of SaaS and cloud-based connectors. |

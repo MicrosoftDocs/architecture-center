@@ -277,7 +277,7 @@ For internal purposes, an organization might also track the number and nature of
 
 ## Auditing
 
-Depending on the nature of the application, there might be statutory or other legal regulations that specify requirements for auditing users' operations and recording all data access. Auditing can provide evidence that links customers to specific requests. Non-repudiation is an important factor in many e-business systems to help maintain trust be between a customer and the organization that's responsible for the application or service.
+Depending on the nature of the application, there might be statutory or other legal regulations that specify requirements for auditing users' operations and recording all data access. Auditing can provide evidence that links customers to specific requests. Nonrepudiation is an important factor in many e-business systems to help maintain trust be between a customer and the organization that's responsible for the application or service.
 
 ### Requirements for auditing
 
