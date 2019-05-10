@@ -183,7 +183,7 @@ Consider the following points when you design a data partitioning scheme:
 
 **Consider periodically rebalancing shards**. With horizontal partitioning, rebalancing shards can help distribute the data evenly by size and by workload to minimize hotspots, maximize query performance, and work around physical storage limitations. However, this is a complex task that often requires the use of a custom tool or process.
 
-**Replicate partitions.** If you replicate each partition, it provides additional protection against failure. If a single replica fails, queries can be directed towards a working copy.
+**Replicate partitions.** If you replicate each partition, it provides additional protection against failure. If a single replica fails, queries can be directed toward a working copy.
 
 **If you reach the physical limits of a partitioning strategy, you might need to extend the scalability to a different level**. For example, if partitioning is at the database level, you might need to locate or replicate partitions in multiple databases. If partitioning is already at the database level, and physical limitations are an issue, it might mean that you need to locate or replicate partitions in multiple hosting accounts.
 

@@ -136,7 +136,7 @@ Then, go back to the resource group and click `nic1` then click `IP configuratio
 
 ![nic1 IP configurations settings](../_images/nic1-ipconfigurations.png)
 
-The original `firstVNet` has been updated instead of recreated. If `firstVNet` had been recreated, `nic1` would not be associated with `firstVNet`.
+The original `firstVNet` has been updated instead of re-created. If `firstVNet` had been re-created, `nic1` would not be associated with `firstVNet`.
 
 ## Next steps
 
