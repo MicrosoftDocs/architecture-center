@@ -181,8 +181,7 @@ There are two primary use cases for storage accounts: backing disks for VMs, and
 
 It's possible to configure a custom domain name for accessing blob data in your Azure Storage account. The default endpoint for the Blob service is `https://<name>.blob.core.windows.net`.
 
-But if you map a custom domain (such as `www.contoso.com`) to the blob endpoint for your storage account, you can also access blob data in your storage account by using that domain. For example, with a custom domain name, `https://mystorage.blob.core.windows.net/mycontainer/myblob` could be accessed as
-`https://www.contoso.com/mycontainer/myblob`.
+But if you map a custom domain (such as `www.contoso.com`) to the blob endpoint for your storage account, you can also access blob data in your storage account by using that domain. For example, with a custom domain name, `https://mystorage.blob.core.windows.net/mycontainer/myblob` could be accessed as `https://www.contoso.com/mycontainer/myblob`.
 
 For more information about configuring this feature, see [Configure a custom domain name for your Blob storage endpoint](/azure/storage/storage-custom-domain-name/).
 
@@ -197,5 +196,4 @@ A blob name can contain any combination of characters, but reserved URL characte
 It is not possible to modify the name of a storage account or container after it has been created. If you want to use a new name, you must delete it and create a new one.
 
 > [!TIP]
-> We recommend that you establish a naming convention for all storage accounts and types
-> before embarking on the development of a new service or application.
+> We recommend that you establish a naming convention for all storage accounts and types before embarking on the development of a new service or application.
