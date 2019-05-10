@@ -11,32 +11,33 @@ ms.subservice: reference-architecture
 
 # Modernize enterprise applications with Azure Service Fabric
 
-The article provides guidelines for moving Windows applications to an Azure compute platform without rewriting. This migration uses container support in Azure Service Fabric.
+This article provides guidelines for moving Windows applications to an Azure compute platform without rewriting. This migration uses container support in Azure Service Fabric.
 
-A typical approach for migrating existing workloads to the cloud is the lift-and-shift strategy. In IaaS VM migrations, you provision VMs with network and storage components and deploy the existing applications onto those VMs. Unfortunately lift-and-shift often results in overprovisioning and overpaying for compute resources. Another approach is to move to PaaS platforms or refactor code into microservices and run in newer serverless platforms. But those options typically involve changing existing code.
+A typical approach for migrating existing workloads to the cloud is the lift-and-shift strategy. In IaaS virtual machine (VM) migrations, you provision VMs with network and storage components and deploy the existing applications onto those VMs. Unfortunately, lift-and-shift often results in overprovisioning and overpaying for compute resources. Another approach is to move to PaaS platforms or refactor code into microservices and run in newer serverless platforms. But those options typically involve changing existing code.
 
-Containers and container orchestration offers improvements. Containerizing an existing application enables it to run on a cluster with other applications. It provides a tight control over resources, scaling, and shared monitoring and DevOps.
+Containers and container orchestration offer improvements. Containerizing an existing application enables it to run on a cluster with other applications. It provides tight control over resources, scaling, and shared monitoring and DevOps.
 
-Optimizing and provisioning the right amount compute resources for containerization isn't trivial. Service Fabric’s orchestration allows an organization to migrate Windows and Linux applications to a runtime platform without changing code and scale the needs of the application without overprovisioning VMs. The result is better density, better hardware use, simplified operations, and overall lower cloud compute costs.
+Optimizing and provisioning the right amount of compute resources for containerization isn't trivial. Service Fabric’s orchestration allows an organization to migrate Windows and Linux applications to a runtime platform without changing code and to scale the needs of the application without overprovisioning VMs. The result is better density, better hardware use, simplified operations, and overall lower cloud-compute costs.
 
-An enterprise can use Service Fabric as a platform to run a large set of existing Windows-based web applications with improved density, monitoring, consistency, and DevOps, all within a secure extended private network in the cloud. The principle is to use Docker and Service Fabric’s containerization support that packages and hosts existing web applications on a shared cluster with shared monitoring and operations; and maximize cloud compute resources for the ideal performance-to-cost ratio.
+An enterprise can use Service Fabric as a platform to run a large set of existing Windows-based web applications with improved density, monitoring, consistency, and DevOps, all within a secure extended private network in the cloud. The principle is to use Docker and Service Fabric’s containerization support that packages and hosts existing web applications on a shared cluster with shared monitoring and operations, in order to maximize cloud compute resources for the ideal performance-to-cost ratio.
 
 This article describes the processes, capabilities, and Service Fabric features that enable containerizing in an optimal environment for a large enterprise. The guidance is scoped to web applications and Windows containers.
-Before reading this article, get familiar with core Windows container and Service Fabric concepts. For information, see these articles:
+Before reading this article, get familiar with core Windows container and Service Fabric concepts. For more information, see:
 
 - [Create your first Service Fabric container application on Windows](/azure/service-fabric/service-fabric-get-started-containers)
 - [Service Fabric terminology overview](/azure/service-fabric/service-fabric-technical-overview)
 - [Service Fabric best practices overview](/azure/service-fabric/service-fabric-best-practices-overview)
 
 ## Resources
+
 ![GitHub logo](../_images/github.png)  [Sample: Modernization templates and scripts](https://github.com/Azure-Samples/Service-fabric-dotnet-modernization).
 
 The repo has these resources:
 
-- Example Azure Resource Manager template to bring up an Azure Service Fabric cluster.
-- A reverse proxy solution for brokering web request into the Service Fabric cluster to the destination containers. 
+- An example Azure Resource Manager template to bring up an Azure Service Fabric cluster.
+- A reverse-proxy solution for brokering web requests into the Service Fabric cluster to the destination containers.
 - Sample Service Fabric application configuration and scripts that show the use of placement, resource constraints, and autoscaling.
-- Sample scripts and Dockerfiles that build and package an existing web application.
+- Sample scripts and Docker files that build and package an existing web application.
 
  Customize the templates in this repo for your cluster. The templates implement the best practices described in this article.
 

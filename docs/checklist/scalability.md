@@ -30,7 +30,7 @@ Scalability is the ability of a system to handle increased load, and is one of t
 
 **Distribute the workload for background tasks**. Where there are many background tasks, or the tasks require considerable time or resources, spread the work across multiple compute units (such as worker roles or background jobs). For one possible solution, see the [Competing Consumers pattern](../patterns/competing-consumers.md).
 
-**Consider moving towards a *shared-nothing* architecture**. A shared-nothing architecture uses independent, self-sufficient nodes that have no single point of contention (such as shared services or storage). In theory, such a system can scale almost indefinitely. While a fully shared-nothing approach is generally not practical for most applications, it may provide opportunities to design for better scalability. For example, avoiding the use of server-side session state, client affinity, and data partitioning are good examples of moving towards a shared-nothing architecture.
+**Consider moving toward a *shared-nothing* architecture**. A shared-nothing architecture uses independent, self-sufficient nodes that have no single point of contention (such as shared services or storage). In theory, such a system can scale almost indefinitely. While a fully shared-nothing approach is generally not practical for most applications, it may provide opportunities to design for better scalability. For example, avoiding the use of server-side session state, client affinity, and data partitioning are good examples of moving toward a shared-nothing architecture.
 
 ## Data management
 
