@@ -41,7 +41,7 @@ This scenario covers a conversational bot that functions as a concierge for a ho
 
 ### Components
 
-- [Azure Active Directory (Azure AD)][aad-docs] is Microsoft’s multi-tenant cloud-based directory and identity management service. Azure AD supports a B2C connector allowing you to identify individuals using external IDs such as Google, Facebook, or a Microsoft Account.
+- [Azure Active Directory (Azure AD)][aad-docs] is Microsoft’s multitenant cloud-based directory and identity management service. Azure AD supports a B2C connector allowing you to identify individuals using external IDs such as Google, Facebook, or a Microsoft Account.
 - [App Service][appservice-docs] enables you to build and host web applications in the programming language of your choice without managing infrastructure.
 - [Bot Service][botservice-docs] provides tools to build, test, deploy, and manage intelligent bots.
 - [Cognitive Services][cognitive-docs] lets you use intelligent algorithms to see, hear, speak, understand, and interpret your user needs through natural methods of communication.
