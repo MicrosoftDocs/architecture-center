@@ -10,15 +10,16 @@ ms.subservice: reference-architecture
 ---
 
 # Modernize enterprise applications with Azure Service Fabric
+
 The article provides guidelines for moving Windows applications to an Azure compute platform without rewriting. This migration uses container support in Azure Service Fabric.
 
-A typical approach for migrating existing workloads to the cloud is the lift-and-shift strategy. In IaaS VM migrations, you provision VMs with network and storage components and deploy the existing applications onto those VMs. Unfortunately lift-and-shift often results in overprovisioning and overpaying for compute resources. Another approach is to move to PaaS platforms or refactor code into microservices and run in newer serverless platforms. But those options typically involve changing existing code. 
+A typical approach for migrating existing workloads to the cloud is the lift-and-shift strategy. In IaaS VM migrations, you provision VMs with network and storage components and deploy the existing applications onto those VMs. Unfortunately lift-and-shift often results in overprovisioning and overpaying for compute resources. Another approach is to move to PaaS platforms or refactor code into microservices and run in newer serverless platforms. But those options typically involve changing existing code.
 
 Containers and container orchestration offers improvements. Containerizing an existing application enables it to run on a cluster with other applications. It provides a tight control over resources, scaling, and shared monitoring and DevOps.
 
-Optimizing and provisioning the right amount compute resources for containerization isn't trivial. Service Fabric’s orchestration allows an organization to migrate Windows and Linux applications to a runtime platform without changing code and scale the needs of the application without overprovisioning VMs. The result is better density, better hardware use, simplified operations, and overall lower cloud compute costs. 
+Optimizing and provisioning the right amount compute resources for containerization isn't trivial. Service Fabric’s orchestration allows an organization to migrate Windows and Linux applications to a runtime platform without changing code and scale the needs of the application without overprovisioning VMs. The result is better density, better hardware use, simplified operations, and overall lower cloud compute costs.
 
-An enterprise can use Service Fabric as a platform to run a large set of existing Windows-based web applications with improved density, monitoring, consistency, and DevOps, all within a secure extended private network in the cloud. The principle is to use Docker and Service Fabric’s containerization support that packages and hosts existing web applications on a shared cluster with shared monitoring and operations; and maximize cloud compute resources for the ideal performance-to-cost ratio. 
+An enterprise can use Service Fabric as a platform to run a large set of existing Windows-based web applications with improved density, monitoring, consistency, and DevOps, all within a secure extended private network in the cloud. The principle is to use Docker and Service Fabric’s containerization support that packages and hosts existing web applications on a shared cluster with shared monitoring and operations; and maximize cloud compute resources for the ideal performance-to-cost ratio.
 
 This article describes the processes, capabilities, and Service Fabric features that enable containerizing in an optimal environment for a large enterprise. The guidance is scoped to web applications and Windows containers.
 Before reading this article, get familiar with core Windows container and Service Fabric concepts. For information, see these articles:
@@ -31,6 +32,7 @@ Before reading this article, get familiar with core Windows container and Servic
 ![GitHub logo](../_images/github.png)  [Sample: Modernization templates and scripts](https://github.com/Azure-Samples/Service-fabric-dotnet-modernization).
 
 The repo has these resources:
+
 - Example Azure Resource Manager template to bring up an Azure Service Fabric cluster.
 - A reverse proxy solution for brokering web request into the Service Fabric cluster to the destination containers. 
 - Sample Service Fabric application configuration and scripts that show the use of placement, resource constraints, and autoscaling.
@@ -38,12 +40,13 @@ The repo has these resources:
 
  Customize the templates in this repo for your cluster. The templates implement the best practices described in this article.
 
-## Evaluate requirements 
+## Evaluate requirements
 
-Before containerizing existing applications, evaluate requirements. Select applications that are right for migration, choose the right developer workstation, and determine network requirements. 
+Before containerizing existing applications, evaluate requirements. Select applications that are right for migration, choose the right developer workstation, and determine network requirements.
 
-### Application selection 
-First, determine the type of applications that are best suited for a containerized platform, full virtual machines, and pure PaaS environment. The application could be a shared application that is built with Service Fabric to share Windows Server hosts across various containerized applications. Each Service Fabric host can run multiple different applications running in isolated Windows containers. 
+### Application selection
+
+First, determine the type of applications that are best suited for a containerized platform, full virtual machines, and pure PaaS environment. The application could be a shared application that is built with Service Fabric to share Windows Server hosts across various containerized applications. Each Service Fabric host can run multiple different applications running in isolated Windows containers.
 
 Consider creating a set of criteria to determine such applications. Here are some example criteria of containerized Windows applications in Service Fabric. 
 
@@ -166,8 +169,9 @@ Service Fabric supports with two networking modes for containerized applications
     - Provides application traceability that is, the assigned enterprise-friendly IP is constant for the life of the container.
     - Is efficient with Windows containers.
 
-There are downsides. 
-- The number of IP addresses must be set aside during cluster creation and that number is fixed. For example, if 10 IP addresses are assigned to each host, the host supports up to 9 application containers; one IP is reserved for the host VM’s primary NIC, the remaining addresses for each container. The number of IP addresses to configure for each host is determined based on the hardware size for the node type, and the maximum number of containers on each host. Both factors depend on application size and needs. If you need  more containers in the cluster, add more application node type VM instances. That is because you can't change the IP number per instance without rebuilding the cluster.
+There are downsides:
+
+- The number of IP addresses must be set aside during cluster creation and that number is fixed. For example, if 10 IP addresses are assigned to each host, the host supports up to 9 application containers; one IP is reserved for the host VM’s primary NIC, the remaining addresses for each container. The number of IP addresses to configure for each host is determined based on the hardware size for the node type, and the maximum number of containers on each host. Both factors depend on application size and needs. If you need more containers in the cluster, add more application node type VM instances. That is because you can't change the IP number per instance without rebuilding the cluster.
 - You need a reverse proxy to route traffic to the correct destination container. The Service Fabric DNS Service can be used by the reverse proxy to look up the application container and rewrite the HTTP request to this container. That solution is more complex to implement than the **nat** mode.
 
 For more information, see [Service Fabric container networking modes](/azure/service-fabric/service-fabric-networking-modes).
@@ -239,11 +243,13 @@ In the [example infrastructure](#service-fabric-node-types), application A has t
 For an application that is infrequently used and can be offline, run it in the cluster with just one container instance (such as application B and C). Service Fabric makes sure that the application is up and healthy during upgrades or when the container needs to move to a new VM. Heath checking can reduce cost compared to hosting that application on two redundant and overprovisioned VMs in the traditional IaaS model.  
 
 ## Container networking and constraints
-Use the [**Open**](#service-fabric-networking) mode for hosting containerized web applications in the cluster. After deployment, the application is immediately discoverable through the Service Fabric DNS service. The DNS service is a name-value lookup between a configured service name and the resultant IP address of a container hosting the application. 
 
-To route web requests to application, use an ingress reverse proxy. If applications  containers listen on different ports (AppA port 8080, AppB on 8081), the default host NAT bridge works without issues. Azure Load Balancer probes route the traffic appropriately. However, if you want incoming traffic over SSL/443 routed to one port for all applications, use a reverse proxy to route traffic appropriately. 
+Use the [**Open**](#service-fabric-networking) mode for hosting containerized web applications in the cluster. After deployment, the application is immediately discoverable through the Service Fabric DNS service. The DNS service is a name-value lookup between a configured service name and the resultant IP address of a container hosting the application.
+
+To route web requests to an application, use an ingress reverse proxy. If application containers listen on different ports (AppA port 8080, AppB on 8081), the default host NAT bridge works without issues. Azure Load Balancer probes route the traffic appropriately. However, if you want incoming traffic over SSL/443 routed to one port for all applications, use a reverse proxy to route traffic appropriately.
 
 ### Reverse proxy for inbound traffic
+
 Service Fabric has a built-in reverse proxy but is limited in its feature set.  Therefore, deploy a different reverse proxy. An option is the IIS Application Request Routing (ARR) extension for IIS hosted web applications. The ARR can be deployed to a container and configured to take inbound requests and route them to the appropriate application container. In this example, the ARR uses a NAT bridge over port 80/443, accepts all inbound web traffic, inspects the traffic, looks up the destination container using Service Fabric DNS service, and rewrites the request to the destination container. The traffic can be secured with SSL to the destination container. Follow the [IIS Application Request Routing sample](https://github.com/MicrosoftDocs/Virtualization-Documentation/tree/master/windows-container-samples/iis-arr) for building an ARR reverse proxy. For information, see [Using the Application Request Routing Module](/iis/extensions/planning-for-arr/using-the-application-request-routing-module).
 
 Here is the network flow for the example infrastructure.
@@ -405,7 +411,7 @@ After the source code is pushed to a git-based repository, set up CI/CD by creat
 
 ![Azure Service Fabric Application and Docker Support template](images/containersf-devops-template1.png)
 
-The template sets up the build process and tasks for CI/CD by building and containerizing  the application, pushing the container image to a Docker registry (Azure Container Registry is the default), and deploying the Service Fabric application with the containerized services to the cluster. Each application code change creates a version of the code and an updated containerized image. Service Fabric’s rolling upgrade feature deploys service upgrades gracefully.
+The template sets up the build process and tasks for CI/CD by building and containerizing the application, pushing the container image to a Docker registry (Azure Container Registry is the default), and deploying the Service Fabric application with the containerized services to the cluster. Each application code change creates a version of the code and an updated containerized image. Service Fabric’s rolling upgrade feature deploys service upgrades gracefully.
 
 ![Azure Service Fabric Application and Docker Support template](images/containersf-devops-template2.png)
 
