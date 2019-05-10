@@ -114,7 +114,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 |-------------|---------------|-------------|
 | CloudWatch, AWS X-Ray | [Azure Monitor](https://azure.microsoft.com/services/monitor/) | Comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. |
 | CodeDeploy <br/><br/>CodeCommit <br/><br/>CodePipeline | [Azure DevOps](https://azure.microsoft.com/services/devops/) | A cloud service for collaborating on code development. |
-| AWS Developer Tools | [Azure Developer Tools](https://azure.microsoft.com/tools/) | Collection of tools for building, debugging, deploying, diagnosing, and managing multi-platform scalable apps and services. |
+| AWS Developer Tools | [Azure Developer Tools](https://azure.microsoft.com/tools/) | Collection of tools for building, debugging, deploying, diagnosing, and managing multiplatform scalable apps and services. |
 | AWS CodeBuild | [Azure DevOps](https://azure.microsoft.com/services/devops/) | Fully managed build service that supports continuous integration and deployment. |
 | Command Line Interface | [Azure Command Line Interface (CLI)](/cli/azure/install-azure-cli) <br/><br/>[Azure PowerShell](/powershell/azure/overview) | Built on top of the native REST API across all cloud services, various programming language-specific wrappers provide easier ways to create solutions. |
 | OpsWorks (Chef-based) | [Azure Automation](https://azure.microsoft.com/services/automation/) | Configures and operates applications of all shapes and sizes, and provides templates to create and manage a collection of resources. |
@@ -261,4 +261,4 @@ Dedicated network | Direct Connect | [ExpressRoute](https://azure.microsoft.com/
 | Enterprise application services | Amazon WorkMail, Amazon WorkDocs | [Office 365](https://products.office.com/) | Fully integrated Cloud service providing communications, email, document management in the cloud and available on a wide variety of devices. |
 | Gaming | GameLift, GameSparks | [PlayFab](https://playfab.com/) | Managed services for hosting dedicated game servers. |
 | Media transcoding | Elastic Transcoder | [Media Services](https://azure.microsoft.com/services/media-services/) | Services that offer broadcast-quality video streaming services, including various transcoding technologies. |
-| Workflow | Simple Workflow Service (SWF) | [Logic Apps](https://azure.microsoft.com/services/logic-apps/) | Serverless technology for connecting apps, data, and devices anywhere, whether on-premises or in the cloud for large ecosystems of SaaS and cloud-based connectors. |
+| Workflow | Simple Workflow Service (SWF) | [Logic Apps](https://azure.microsoft.com/services/logic-apps/) | Serverless technology for connecting apps, data and devices anywhere, whether on-premises or in the cloud for large ecosystems of SaaS and cloud-based connectors. |

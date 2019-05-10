@@ -22,7 +22,7 @@ Before reading this article, it will be useful to understand the basics of Servi
 
 ## About the Surveys application
 
-In 2012, the patterns & practices group created an application called Surveys, for a book called [Developing Multi-tenant Applications for the Cloud][tailspin-book]. The book describes a fictitious company named Tailspin that designs and implements the Surveys application.
+In 2012, the patterns & practices group created an application called Surveys, for a book called [Developing Multitenant Applications for the Cloud][tailspin-book]. The book describes a fictitious company named Tailspin that designs and implements the Surveys application.
 
 Surveys is a multitenant application that allows customers to create surveys. After a customer signs up for the application,  members of the customer's organization can create and publish surveys, and collect the results for analysis. The application includes a public website where people can take a survey. Read more about the original Tailspin scenario [here][tailspin-scenario].
 
@@ -35,7 +35,7 @@ This article describes the first phase. A later article will describe the second
 
 The application code is available on [GitHub][sample-code]. This repo contains both the Cloud Services application and the Service Fabric version.
 
-> The cloud service is an updated version of the original application from the *Developing Multi-tenant Applications* book.
+> The cloud service is an updated version of the original application from the *Developing Multitenant Applications* book.
 
 <!-- markdownlint-disable MD026 -->
 
@@ -79,7 +79,7 @@ The following table summarizes some of the important differences between Cloud S
 | Deployment model | [Classic deployment model][azure-deployment-models] | [Resource Manager][azure-deployment-models]  |
 | Packaging | Cloud service package files (.cspkg) | Application and service packages |
 | Application update | VIP swap or rolling update | Rolling update |
-| Auto-scaling | [Built-in service][cloud-service-autoscale] | Virtual machine scale sets for auto scale out |
+| Autoscaling | [Built-in service][cloud-service-autoscale] | Virtual machine scale sets for auto scale out |
 | Debugging | Local emulator | Local cluster |
 
 \* Stateful services use [reliable collections][sf-reliable-collections] to store state across replicas, so that all reads are local to the nodes in the cluster. Writes are replicated across nodes for reliability. Stateless services can have external state, using a database or other external storage.
@@ -271,7 +271,7 @@ Clusters must be secured to prevent unauthorized users from connecting to your c
 
 To configure a public HTTPS endpoint, see [Specify resources in a service manifest][sf-manifest-resources].
 
-You can scale out the application by adding VMs to the cluster. Virtual machine scale sets support auto-scaling using auto-scale rules based on performance counters. For more information, see [Scale a Service Fabric cluster in or out using auto-scale rules][sf-auto-scale].
+You can scale out the application by adding VMs to the cluster. Virtual machine scale sets support autoscaling using autoscale rules based on performance counters. For more information, see [Scale a Service Fabric cluster in or out using autoscale rules][sf-auto-scale].
 
 While the cluster is running, you should collect logs from all the nodes in a central location. For more information, see [Collect logs by using Azure Diagnostics][sf-logs].
 
