@@ -5,22 +5,16 @@
             "shortName": "AI",
             "cards": [
                 {
-                    "url": "./ai/training-deep-learning.md",
-                    "image": "../_images/icons/batch-ai.svg",
-                    "title": "Distributed training of deep learning models",
-                    "summary": "Run distributed training of deep learning models across clusters of GPU-enabled VMs."
-                },
-                {
-                    "url": "./ai/batch-scoring-deep-learning.md",
-                    "image": "../_images/icons/batch-ai.svg",
-                    "title": "Batch scoring for deep learning models",
-                    "summary": "Automate running batch jobs that apply neural style transfer to a video."
-                },
-                {
                     "url": "./ai/training-python-models.md",
                     "image": "../_images/icons/python-powered-h.svg",
                     "title": "Training of Python scikit-learn models",
                     "summary": "Recommended practices for tuning the hyperparameters of a scikit-learn Python model."
+                },
+                {
+                    "url": "./ai/training-deep-learning.md",
+                    "image": "../_images/icons/batch-ai.svg",
+                    "title": "Distributed training of deep learning models",
+                    "summary": "Run distributed training of deep learning models across clusters of GPU-enabled VMs."
                 },
                 {
                     "url": "./ai/batch-scoring-python.md",
@@ -29,10 +23,22 @@
                     "summary": "Batch score many Python models in parallel on a schedule using Azure Machine Learning."
                 },
                 {
+                    "url": "./ai/batch-scoring-deep-learning.md",
+                    "image": "../_images/icons/batch-ai.svg",
+                    "title": "Batch scoring for deep learning models",
+                    "summary": "Automate running batch jobs that apply neural style transfer to a video."
+                },
+                {
                     "url": "./ai/realtime-scoring-python.md",
                     "image": "../_images/icons/python-powered-h.svg",
                     "title": "Real-time scoring of Python and deep learning models",
                     "summary": "Deploy Python models as web services to make real-time predictions, using regular Python models or deep learning models."
+                },
+                {
+                    "url": "./ai/mlops-python.md",
+                    "image": "../_images/icons/python-powered-h.svg",
+                    "title": "MLOps for Python models using Azure Machine Learning",
+                    "summary": "Implement a CI/CD and retraining pipeline using Azure DevOps and Azure Machine Learning."
                 },
                 {
                     "url": "./ai/batch-scoring-R-models.md",

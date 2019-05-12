@@ -3,7 +3,7 @@ title: Azure Reference Architectures
 description: Reference architectures and implementation guidance for common workloads on Azure.
 layout: LandingPage
 ms.topic: landing-page
-ms.date: 04/02/2019
+ms.date: 05/12/2019
 ---
 <!-- This file is generated! -->
 <!-- See the templates in ./build/reference-architectures  -->
@@ -20,46 +20,6 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
 ## AI and machine learning
 
 <ul  class="panelContent cardsF">
-<!-- Distributed training of deep learning models -->
-<li style="display: flex; flex-direction: column;">
-    <a href="./ai/training-deep-learning.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="../_images/icons/batch-ai.svg" height="140px" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Distributed training of deep learning models</h3>
-                        <p>Run distributed training of deep learning models across clusters of GPU-enabled VMs.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-<!-- Batch scoring for deep learning models -->
-<li style="display: flex; flex-direction: column;">
-    <a href="./ai/batch-scoring-deep-learning.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="../_images/icons/batch-ai.svg" height="140px" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Batch scoring for deep learning models</h3>
-                        <p>Automate running batch jobs that apply neural style transfer to a video.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
 <!-- Training of Python scikit-learn models -->
 <li style="display: flex; flex-direction: column;">
     <a href="./ai/training-python-models.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
@@ -74,6 +34,26 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
                     <div class="cardText">
                         <h3>Training of Python scikit-learn models</h3>
                         <p>Recommended practices for tuning the hyperparameters of a scikit-learn Python model.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<!-- Distributed training of deep learning models -->
+<li style="display: flex; flex-direction: column;">
+    <a href="./ai/training-deep-learning.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/icons/batch-ai.svg" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Distributed training of deep learning models</h3>
+                        <p>Run distributed training of deep learning models across clusters of GPU-enabled VMs.</p>
                     </div>
                 </div>
             </div>
@@ -100,6 +80,26 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
         </div>
     </a>
 </li>
+<!-- Batch scoring for deep learning models -->
+<li style="display: flex; flex-direction: column;">
+    <a href="./ai/batch-scoring-deep-learning.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/icons/batch-ai.svg" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Batch scoring for deep learning models</h3>
+                        <p>Automate running batch jobs that apply neural style transfer to a video.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
 <!-- Real-time scoring of Python and deep learning models -->
 <li style="display: flex; flex-direction: column;">
     <a href="./ai/realtime-scoring-python.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
@@ -114,6 +114,26 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
                     <div class="cardText">
                         <h3>Real-time scoring of Python and deep learning models</h3>
                         <p>Deploy Python models as web services to make real-time predictions, using regular Python models or deep learning models.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<!-- MLOps for Python models using Azure Machine Learning -->
+<li style="display: flex; flex-direction: column;">
+    <a href="./ai/mlops-python.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="../_images/icons/python-powered-h.svg" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>MLOps for Python models using Azure Machine Learning</h3>
+                        <p>Implement a CI/CD and retraining pipeline using Azure DevOps and Azure Machine Learning.</p>
                     </div>
                 </div>
             </div>
