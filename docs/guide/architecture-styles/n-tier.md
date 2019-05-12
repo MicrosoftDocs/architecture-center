@@ -6,7 +6,7 @@ author: MikeWasson
 ms.date: 08/30/2018
 ms.topic: guide
 ms.service: architecture-center
-ms.subservice: reference-architecture
+ms.subservice: cloud-fundamentals
 ms.custom: seojan19
 ---
 
@@ -59,8 +59,8 @@ N-tier architectures are very common in traditional on-premises applications, so
 
 - Use autoscaling to handle changes in load. See [Autoscaling best practices][autoscaling].
 - Use asynchronous messaging to decouple tiers.
-- Cache semi-static data. See [Caching best practices][caching].
-- Configure database tier for high availability, using a solution such as [SQL Server Always On Availability Groups][sql-always-on].
+- Cache semistatic data. See [Caching best practices][caching].
+- Configure the database tier for high availability, using a solution such as [SQL Server Always On availability groups][sql-always-on].
 - Place a web application firewall (WAF) between the front end and the Internet.
 - Place each tier in its own subnet, and use subnets as a security boundary.
 - Restrict access to the data tier, by allowing requests only from the middle tier(s).
@@ -71,13 +71,13 @@ This section describes a recommended N-tier architecture running on VMs.
 
 ![Physical diagram of an N-tier architecture](./images/n-tier-physical.png)
 
-Each tier consists of two or more VMs, placed in an availability set or VM scale set. Multiple VMs provide resiliency in case one VM fails. Load balancers are used to distribute requests across the VMs in a tier. A tier can be scaled horizontally by adding more VMs to the pool.
+Each tier consists of two or more VMs, placed in an availability set or virtual machine scale set. Multiple VMs provide resiliency in case one VM fails. Load balancers are used to distribute requests across the VMs in a tier. A tier can be scaled horizontally by adding more VMs to the pool.
 
-Each tier is also placed inside its own subnet, meaning their internal IP addresses fall within the same address range. That makes it easy to apply network security group (NSG) rules and route tables to individual tiers.
+Each tier is also placed inside its own subnet, meaning their internal IP addresses fall within the same address range. That makes it easy to apply network security group rules and route tables to individual tiers.
 
-The web and business tiers are stateless. Any VM can handle any request for that tier. The data tier should consist of a replicated database. For Windows, we recommend SQL Server, using Always On Availability Groups for high availability. For Linux, choose a database that supports replication, such as Apache Cassandra.
+The web and business tiers are stateless. Any VM can handle any request for that tier. The data tier should consist of a replicated database. For Windows, we recommend SQL Server, using Always On availability groups for high availability. For Linux, choose a database that supports replication, such as Apache Cassandra.
 
-Network Security Groups (NSGs) restrict access to each tier. For example, the database tier only allows access from the business tier.
+Network security groups restrict access to each tier. For example, the database tier only allows access from the business tier.
 
 For more information about running N-tier applications on Azure:
 
@@ -91,7 +91,7 @@ For more information about running N-tier applications on Azure:
 
 - Tiers are the boundary of scalability, reliability, and security. Consider having separate tiers for services with different requirements in those areas.
 
-- Use VM Scale Sets for autoscaling.
+- Use virtual machine scale sets for autoscaling.
 
 - Look for places in the architecture where you can use a managed service without significant refactoring. In particular, look at caching, messaging, storage, and databases.
 
@@ -99,7 +99,7 @@ For more information about running N-tier applications on Azure:
 
 - For high availability, place two or more NVAs in an availability set, with an external load balancer to distribute Internet requests across the instances. For more information, see [Deploy highly available network virtual appliances][ha-nva].
 
-- Do not allow direct RDP or SSH access to VMs that are running application code. Instead, operators should log into a jumpbox, also called a bastion host. This is a VM on the network that administrators use to connect to the other VMs. The jumpbox has an NSG that allows RDP or SSH only from approved public IP addresses.
+- Do not allow direct RDP or SSH access to VMs that are running application code. Instead, operators should log into a jumpbox, also called a bastion host. This is a VM on the network that administrators use to connect to the other VMs. The jumpbox has a network security group that allows RDP or SSH only from approved public IP addresses.
 
 - You can extend the Azure virtual network to your on-premises network using a site-to-site virtual private network (VPN) or Azure ExpressRoute. For more information, see [Hybrid network reference architecture][hybrid-network].
 

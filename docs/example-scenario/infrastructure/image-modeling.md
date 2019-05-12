@@ -100,20 +100,20 @@ The following sample cost profile in the [Azure pricing calculator](https://azur
 - General purpose v2 (GPv2) Blob storage with LRS and hot tier access (only GPv2 storage accounts expose the Access Tier attribute).
 - Virtual network with support for 10 TB data transfer.
 
-For details about this architecture, see the [ebook](https://azure.microsoft.com/en-us/resources/deploy-agisoft-photoscan-on-azure-with-azere-vfxt-for-azure-or-beegfs/). To see how the pricing would change for your particular use case, choose different VM sizes in the pricing calculator to match your expected deployment.
+For details about this architecture, see the [e-book](https://azure.microsoft.com/resources/deploy-agisoft-photoscan-on-azure-with-azere-vfxt-for-azure-or-beegfs/). To see how the pricing would change for your particular use case, choose different VM sizes in the pricing calculator to match your expected deployment.
 
 ## Deployment
 
-For step-by-step instructions for deploying this architecture, including all the prerequisites for using either Avere FxT or BeeGFS, download the ebook: [Deploy Agisoft PhotoScan on Azure With Avere vFXT for Azure or BeeGFS](https://azure.microsoft.com/en-us/resources/deploy-agisoft-photoscan-on-azure-with-azere-vfxt-for-azure-or-beegfs/).
+For step-by-step instructions for deploying this architecture, including all the prerequisites for using either Avere FxT or BeeGFS, download the e-book [Deploy Agisoft PhotoScan on Azure With Avere vFXT for Azure or BeeGFS](https://azure.microsoft.com/resources/deploy-agisoft-photoscan-on-azure-with-azere-vfxt-for-azure-or-beegfs/).
 
 ## Related resources
 
-The following resources will provide more information on the components utilized in this scenario, along with alternative approaches for batch computing on Azure.
+The following resources will provide more information on the components used in this scenario, along with alternative approaches for batch computing on Azure.
 
 - Overview of [Avere vFXT for Azure](/azure/avere-vfxt/avere-vfxt-overview)
-- [Agisoft PhotoScan](https://www.agisoft.com/) home Page
+- [Agisoft PhotoScan](https://www.agisoft.com/) home page
 - [Azure Storage Performance and Scalability Checklist](/azure/storage/common/storage-performance-checklist)
 - [Parallel Virtual File Systems on Microsoft Azure: Performance tests of Lustre, GlusterFS, and BeeGFS](https://azure.microsoft.com/mediahandler/files/resourcefiles/parallel-virtual-file-systems-on-microsoft-azure/Parallel_Virtual_File_Systems_on_Microsoft_Azure.pdf) (PDF)
 - An example scenario for [computer-aided engineering (CAE) on Azure](/azure/architecture/example-scenario/apps/hpc-saas)
-- [HPC on Azure](https://azure.microsoft.com/en-us/solutions/high-performance-computing/) home page
-- Overview of [Big Compute: HPC &amp; Microsoft Batch](https://azure.microsoft.com/en-us/solutions/big-compute/)
+- [HPC on Azure](https://azure.microsoft.com/solutions/high-performance-computing/) home page
+- Overview of [Big Compute: HPC &amp; Microsoft Batch](https://azure.microsoft.com/solutions/big-compute)

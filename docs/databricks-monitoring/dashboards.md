@@ -29,7 +29,7 @@ To deploy the Azure Log Analytics workspace, follow these steps:
 
     * **location**: The region where the Log Analytics workspace and dashboards are deployed.
     * **serviceTier**: Rhe workspace pricing tier. See [here][sku] for a list of valid values.
-    * **dataRetention** (optional): The number of days log data is retained in the Log Analytics workspace. The default value is 30 days. If the pricing tier is `Free`, the data retention must be 7 days.
+    * **dataRetention** (optional): The number of days the log data is retained in the Log Analytics workspace. The default value is 30 days. If the pricing tier is `Free`, the data retention must be seven days.
     * **workspaceName** (optional): A name for the workspace. If not specified, the template generates a name.
 
     ```bash
@@ -78,7 +78,7 @@ Next, change the Grafana administrator password by following these steps:
 1. In the Azure portal, select the VM and click **Overview**.
 1. Copy the public IP address.
 1. Open a web browser and navigate to the following URL: `http://<IP address>:3000`.
-1. At the Grafana log in screen, enter **admin** for the user name, and use the Grafana password from the previous steps.
+1. At the Grafana login screen, enter **admin** for the user name, and use the Grafana password from the previous steps.
 1. Once logged in, select **Configuration** (the gear icon).
 1. Select **Server Admin**.
 1. On the **Users** tab, select the **admin** login.
@@ -145,7 +145,7 @@ Create the dashboards in Grafana by following these steps:
 
 Both the Azure Log Analytics and Grafana dashboards include a set of time-series visualizations. Each graph is time-series plot of metric data related to an Apache Spark [job](https://spark.apache.org/docs/latest/job-scheduling.html), stages of the job, and tasks that make up each stage.
 
-The visualizations are as follows:
+The visualizations are:
 
 ### Job latency
 
@@ -169,11 +169,11 @@ This visualization shows a set of the execution metrics for a given task's execu
 
 ### Cluster throughput
 
-This visualization is a high level view of work items indexed by cluster and application to represent the amount of work done per cluster and application. It shows the number of jobs, tasks, and stages completed per cluster, application, and stage in one minute increments.
+This visualization is a high-level view of work items indexed by cluster and application to represent the amount of work done per cluster and application. It shows the number of jobs, tasks, and stages completed per cluster, application, and stage in one minute increments.
 
 ### Streaming Throughput/Latency
 
-This visualization is related to the metrics associated with a structured streaming query. The graphs shows the number of input rows per second and the number of rows processed per second. The streaming metrics are also represented per application. These metrics are sent when the OnQueryProgress event is generated as the structured streaming query is processed and the visualization represents streaming latency as the amount of time, in milliseconds, taken to execute a query batch.
+This visualization is related to the metrics associated with a structured streaming query. The graph shows the number of input rows per second and the number of rows processed per second. The streaming metrics are also represented per application. These metrics are sent when the OnQueryProgress event is generated as the structured streaming query is processed and the visualization represents streaming latency as the amount of time, in milliseconds, taken to execute a query batch.
 
 ### Resource consumption per executor
 
@@ -181,11 +181,11 @@ Next is a set of visualizations for the dashboard show the particular type of re
 
 ### Executor compute time metrics
 
-Next is a set of visualizations for the dashboard that show the ratio of executor serialize time, deserialize time, CPU time, and Java virtual machine time to overall executor compute time. This demonstrates visually how much each of these four metrics are contributing to overall executor processing.
+Next is a set of visualizations for the dashboard that show the ratio of executor serialize time, deserialize time, CPU time, and Java virtual machine time to overall executor compute time. This demonstrates visually how much each of these four metrics is contributing to overall executor processing.
 
 ### Shuffle metrics
 
-The final set of visualizations show the data shuffle metrics associated with a structured streaming query across all executors. These include shuffle bytes read, shuffle bytes written, shuffle memory, and disk usage in queries where the file system is used.
+The final set of visualizations shows the data shuffle metrics associated with a structured streaming query across all executors. These include shuffle bytes read, shuffle bytes written, shuffle memory, and disk usage in queries where the file system is used.
 
 ## Next steps
 

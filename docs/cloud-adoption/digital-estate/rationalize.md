@@ -1,5 +1,5 @@
 ---
-title: "CAF: Rationalize the digital estate"
+title: "Rationalize the digital estate"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
@@ -18,21 +18,21 @@ Cloud rationalization is the process of evaluating assets to determine the best 
 
 ## Traditional view of rationalization
 
-It's easy to understand rationalization, when visualizing the traditional process of rationalization like a complex decision tree. Each asset in the digital estate is fed through a process that results in one of five answers (the 5 Rs). For small estates, this process works well. For larger estates, it's not very efficient and can lead to significant delays. Let's examine the process to see why. Then we'll present a more efficient model.
+It's easy to understand rationalization, when visualizing the traditional process of rationalization like a complex decision tree. Each asset in the digital estate is fed through a process that results in one of five answers (the 5 Rs). For small estates, this process works well. For larger estates, it's not efficient and can lead to significant delays. Let's examine the process to see why. Then we'll present a more efficient model.
 
-**Inventory**. A thorough inventory of assets, including applications, software, hardware, operating systems, and system performance metrics is required to complete a full rationalization using traditional models.
+**Inventory:** A thorough inventory of assets (including applications, software, hardware, operating systems, and system performance metrics) is required to complete a full rationalization using traditional models.
 
-**Quantitative analysis**. In the decision tree, quantitative questions drive the first layer of decisions. Common questions: Is the asset in use today? If so, is it optimized and sized properly? What dependencies exist between assets? These questions are vital to classification of the inventory.
+**Quantitative analysis:** In the decision tree, quantitative questions drive the first layer of decisions. Common questions: Is the asset in use today? If so, is it optimized and sized properly? What dependencies exist between assets? These questions are vital to classification of the inventory.
 
-**Qualitative analysis**. The next set of decisions require human intelligence in the form of qualitative analysis. Often, these questions are unique to the solution and can only be answered by business stakeholders and power users. These decisions are where the process is generally delayed, slowing things down considerably. This analysis generally consumes 40&ndash;80 FTE hours per application. For guidance on building a list of qualitative analysis questions, see [Approaches to digital estate planning](approach.md).
+**Qualitative analysis:** The next set of decisions requires human intelligence in the form of qualitative analysis. Often, these questions are unique to the solution and can only be answered by business stakeholders and power users. These decisions are where the process is typically delayed, slowing things down considerably. This analysis generally consumes 40&ndash;80 FTE hours per application. For guidance on building a list of qualitative analysis questions, see [Approaches to digital estate planning](approach.md).
 
-**Rationalization decision**. In the hands of an experienced rationalization team, the qualitative and quantitative data creates clear decisions. Unfortunately, teams with a high degree of rationalization experience are expensive to hire or take months to train.
+**Rationalization decision:** In the hands of an experienced rationalization team, the qualitative and quantitative data creates clear decisions. Unfortunately, teams with a high degree of rationalization experience are expensive to hire or take months to train.
 
 ## Rationalization at enterprise scale
 
 If this effort is time consuming and daunting for a 50-VM digital estate, imagine the effort required to drive business transformation in an environment with thousands of VMs and hundreds of applications. The human effort required can easily exceed 1,500 FTE hours and nine months of planning.
 
-While full rationalization is the end state and a great direction to move towards, it seldom produces a high ROI relative to the time and energy required.
+While full rationalization is the end state and a great direction to move in, it seldom produces a high ROI relative to the time and energy required.
 
 When rationalization is essential to financial decisions, it is worth considering a professional services organization that specializes in cloud rationalization to accelerate the process. Even then, full rationalization can be a costly and time-consuming effort that could delay transformation or business outcomes.
 
@@ -44,9 +44,9 @@ The complete rationalization of a large digital estate is prone to risk and can 
 
 ### Inventory: Reduce discovery data points
 
-Very few organizations invest the time, energy, and expense to maintain an accurate, real-time inventory of the full digital estate. Loss, theft, refresh cycles, and employee on-boarding often justify detailed asset tracking of end-user devices. However, the return on investment (ROI) of maintaining an accurate server and application inventory in a traditional, on-premises datacenter is often low. Most IT organizations have other more pressing issues to address than tracking the usage of fixed assets in a datacenter.
+Few organizations invest the time, energy, and expense to maintain an accurate, real-time inventory of the full digital estate. Loss, theft, refresh cycles, and employee on-boarding often justify detailed asset tracking of end-user devices. However, the return on investment (ROI) of maintaining an accurate server and application inventory in a traditional, on-premises datacenter is often low. Most IT organizations have other more pressing issues to address than tracking the usage of fixed assets in a datacenter.
 
-In a Cloud Transformation, inventory directly correlates to operating costs. Accurate inventory data is required for proper planning. Unfortunately, current environmental scanning options can delay decisions by weeks or months, to scan and catalog the full inventory. Fortunately, there are a few tricks to accelerating data collection.
+In a cloud transformation, inventory directly correlates to operating costs. Accurate inventory data is required for proper planning. Unfortunately, current environmental scanning options can delay decisions by weeks or months, to scan and catalog the full inventory. Fortunately, there are a few tricks to accelerating data collection.
 
 Agent-based scanning is the most frequently cited delay. The robust data required for a traditional rationalization often depends on data that can only be collected with an agent running on each asset. This dependency on agents often slows progress, as it can require feedback from security, operations, and administration functions.
 
@@ -54,7 +54,7 @@ In an incremental rationalization process, an agent-less solution could be used 
 
 ### Quantitative analysis: Streamline decisions
 
-Regardless of the approach to inventory discovery, quantitative analysis can drive a number of initial decisions and assumptions. This is especially true when trying to identify the first workload or when the goal of rationalization is a high-level cost comparison. In an incremental rationalization process, the Cloud Strategy and Cloud Adoption teams limit the [5 Rs of Rationalization](5-rs-of-rationalization.md) to two concise decisions and only apply those quantitative factors, streamlining the analysis and reducing the amount of initial data required to drive change.
+Regardless of the approach to inventory discovery, quantitative analysis can drive initial decisions and assumptions. This is especially true when trying to identify the first workload or when the goal of rationalization is a high-level cost comparison. In an incremental rationalization process, the Cloud Strategy and Cloud Adoption teams limit the [5 Rs of rationalization](5-rs-of-rationalization.md) to two concise decisions and only apply those quantitative factors, streamlining the analysis and reducing the amount of initial data required to drive change.
 
 For example, if an organization is in the midst of an IaaS migration to the cloud, it can be assumed that most workloads will either be retired or rehosted.
 
@@ -62,11 +62,11 @@ For example, if an organization is in the midst of an IaaS migration to the clou
 
 By reducing the number of potential outcomes, it’s easier to reach an initial decision about the future state of an asset. When the options are reduced, the number of questions asked of the business at this early stage is also reduced.
 
-Continuing with the example above, if the options are limited to rehost or retire, there is really only one question to ask the business during initial rationalization &mdash; namely, whether to retire.
+Continuing the example, if the options are limited to rehosting or retiring, the business needs to answer only one question during initial rationalization&mdash;whether to retire the asset.
 
-"Analysis suggests that there are no users actively using this asset. Is that accurate or have we overlooked something?" Such a binary question is generally much easier to run through a qualitative analysis.
+"Analysis suggests that there are no users actively using this asset. Is that accurate, or have we overlooked something?" Such a binary question is typically much easier to run through a qualitative analysis.
 
-This streamlined approach produces baselines, financial plans, strategy, and direction. In later activities, each asset would go through further rationalization and qualitative analysis to evaluate other options. All assumptions made in this initial rationalization would be tested before implementation.
+This streamlined approach produces baselines, financial plans, strategy, and direction. In later activities, each asset would go through further rationalization and qualitative analysis to evaluate other options. All assumptions made in this initial rationalization would be tested prior to implementation.
 
 ## Challenging assumptions
 
@@ -74,7 +74,7 @@ The outcome of the prior section is a rough rationalization loaded with assumpti
 
 ### Retiring assets
 
-In a traditional on-premises environment, hosting small unused assets seldom increases annual costs. With a few exceptions, the cost savings associated with pruning and retiring those assets is outweighed by the FTE effort required to analyze and retire the actual asset.
+In a traditional on-premises environment, hosting small, unused assets seldom causes a significant impact on annual costs. With a few exceptions, the cost savings from pruning and retiring those assets is outweighed by the FTE effort required to analyze and retire the actual asset.
 
 However, when moving to a cloud accounting model, retiring assets can produce significant savings in annual operating costs and up-front migration efforts.
 
@@ -82,17 +82,17 @@ It is not uncommon for organizations to retire 20% or more of their digital esta
 
 ### Program adjustments
 
-A company seldom embarks on just one transformation journey. The choice between cost reduction, market growth, and new revenue streams is rarely a binary decision. As such, it's suggested that the Cloud Strategy team work with IT to identify assets on parallel transformation efforts that are outside of the scope of the primary Transformation Journey.
+A company seldom embarks on just one transformation journey. The choice between cost reduction, market growth, and new revenue streams is rarely a binary decision. As such, it's suggested that the Cloud Strategy team work with IT to identify assets on parallel transformation efforts that are outside of the scope of the primary transformation journey.
 
-In the IaaS Migration example used in this article:
+In the IaaS migration example used in this article:
 
-- Ask the DevOps team to identify assets that are already part of a deployment automation and remove those from the core migration plan.
+- Ask the DevOps team to identify assets that are already part of a deployment automation and remove those assets from the core migration plan.
 
 - Ask the Data and R&D teams to identify assets that are powering new revenue streams and remove them from the core migration plan.
 
 This program-focused qualitative analysis can be executed quickly and will create alignment across multiple migration backlogs.
 
-Some assets may still need to be treated like rehost assets for a period of time, phasing in later rationalization, after the initial migration.
+Some assets may still need to be considered rehost assets for a while, phasing in later rationalization after the initial migration.
 
 ## Selecting the first workload
 
@@ -104,20 +104,20 @@ Identify a workload that is supported by a member of the Cloud Strategy team’s
 
 ### Technical criteria
 
-Select a workload that has minimum dependencies and can be moved as a small group of assets. It's suggested that a workload with a defined testing path be selected to ease validation.
+Select a workload that has minimum dependencies and can be moved as a small group of assets. It's suggested that a workload with a defined testing path should be selected to ease validation.
 
-The first workload is often deployed in an experimental environment with no operational or governance capacity. It's very important to select a workload that does not interact with secure data.
+The first workload is often deployed in an experimental environment with no operational or governance capacity. It's important to select a workload that does not interact with secure data.
 
 ### Qualitative analysis
 
-The Cloud Adoption and Cloud Strategy teams can work together to analyze this small workload. This creates a controlled opportunity to create and test qualitative analysis criteria. The smaller population creates an opportunity to survey the affected users, to complete a detailed qualitative analysis in a week or less. For common qualitative analysis factors, see the specific rationalization target in the [5 Rs of Rationalization](5-rs-of-rationalization.md).
+The Cloud Adoption and Cloud Strategy teams can work together to analyze this small workload. This colaboration creates a controlled opportunity to create and test qualitative analysis criteria. The smaller population creates an opportunity to survey the affected users, to complete a detailed qualitative analysis in a week or less. For common qualitative analysis factors, see the specific rationalization target in the [5 Rs of rationalization](5-rs-of-rationalization.md).
 
 ### Migration
 
 In parallel to continued rationalization, the Cloud Adoption team can begin migrating the small workload to expand learning in the following key areas:
 
 - Strengthen skills with the cloud provider’s platform.
-- Define the core services (and Azure standards) needed to fit the long term vision.
+- Define the core services (and Azure standards) needed to fit the long-term vision.
 - Better understand how operations may need to evolve later in the transformation.
 - Understand any inherent business risks and the business' tolerance for those risks.
 - Establish a baseline or minimum viable product (MVP) for governance based on the business' risk tolerance.
@@ -126,13 +126,13 @@ In parallel to continued rationalization, the Cloud Adoption team can begin migr
 
 While the Cloud Adoption team is executing the migration or implementation of the first workload, the Cloud Strategy team can begin prioritizing the remaining applications/workloads.
 
-### Power of Ten
+### Power of 10
 
-The traditional approach to rationalization attempts to boil the ocean. Fortunately, a plan for every application is often not required to start a transformation journey. In an incremental model, the Power of Ten provides a good starting point. In this model, the cloud strategy team selects the first ten applications to be migrated. Those ten workloads should contain a mixture of simple and complex workloads.
+The traditional approach to rationalization attempts to boil the ocean. Fortunately, a plan for every application is often not required to start a transformation journey. In an incremental model, the Power of 10 provides a good starting point. In this model, the cloud strategy team selects the first ten applications to be migrated. Those ten workloads should contain a mixture of simple and complex workloads.
 
 ### Building the first backlogs
 
-The Cloud Adoption and Cloud Strategy teams can work together on the qualitative analysis for the first ten workloads. This creates the first prioritized migration backlog and the first prioritized release backlog. This approach allows the teams to iterate on the approach, and provides sufficient time to create an adequate process for qualitative analysis.
+The Cloud Adoption and Cloud Strategy teams can work together on the qualitative analysis for the first ten workloads. This effort creates the first prioritized migration backlog and the first prioritized release backlog. This approach allows the teams to iterate on the approach and provides sufficient time to create an adequate process for qualitative analysis.
 
 ### Maturing the process
 
@@ -140,13 +140,13 @@ Once the two teams agree on the qualitative analysis criteria, assessment can be
 
 Once the assessment is moved into the incremental execution processes of migration, the Cloud Adoption team can iterate on assessment and architecture faster. At this stage, the Cloud Strategy team is also abstracted, reducing the drain on their time. This also allows the Cloud Strategy team to focus on prioritizing the applications that are not yet in a specific release, thus ensuring tight alignment with changing market conditions.
 
-Not all of the prioritized applications will be ready for migration. Sequencing is likely to change, as the team performs deeper qualitative analysis and discovers business events and dependencies that would prompt for re-prioritization of the backlog. Some releases may group together a small number of workloads. Others may just contain a single workload.
+Not all of the prioritized applications will be ready for migration. Sequencing is likely to change, as the team performs deeper qualitative analysis and discovers business events and dependencies that would prompt for reprioritization of the backlog. Some releases may group together a small number of workloads. Others may just contain a single workload.
 
 The Cloud Adoption team is likely to run iterations that don’t produce a complete workload migration. The smaller the workload, and the fewer dependencies, the more likely a workload is to fit into a single sprint or iteration. For this reason, it's suggested that the first few applications in the release backlog be small and contain few external dependencies.
 
 ## End state
 
-Over time, the combination of the Cloud Adoption and the Cloud Strategy teams will complete a full rationalization of the inventory. However, this incremental approach allows the teams to get continually faster at the rationalization process. It also allows the Transformation Journey to yield tangible business results sooner, without as large of an upfront analysis effort.
+Over time, the combination of the Cloud Adoption team and the Cloud Strategy team will complete a full rationalization of the inventory. However, this incremental approach allows the teams to get continually faster at the rationalization process. It also allows the transformation journey to yield tangible business results sooner, without as large of an upfront analysis effort.
 
 In some cases, the financial model may be too tight to make a decision to act, without additional rationalization. In such cases, a more traditional approach to rationalization may be required.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure for AWS Professionals
+title: Azure for Amazon Web Services (AWS) Professionals
 titleSuffix: Azure Architecture Center
 description: Understand the basics of Microsoft Azure accounts, platform, and services. Also learn key similarities and differences between the AWS and Azure platforms. Leverage your AWS experience in Azure.
 keywords: AWS experts, Azure comparison, AWS comparison, difference between azure and aws, azure and aws
@@ -51,7 +51,7 @@ Subscriptions are assigned three types of administrator accounts:
 
 - **Co-administrator**. There can be multiple co-administrator accounts assigned to a subscription. Co-administrators cannot change the service administrator, but otherwise have full control over subscription resources and users.
 
-Below the subscription level user roles and individual permissions can also be assigned to specific resources, similarly to how permissions are granted to IAM users and groups in AWS. In Azure all user accounts are associated with either a Microsoft Account or Organizational Account (an account managed through an Azure Active Directory).
+Below the subscription level user roles and individual permissions can also be assigned to specific resources, similarly to how permissions are granted to IAM users and groups in AWS. In Azure, all user accounts are associated with either a Microsoft Account or Organizational Account (an account managed through an Azure Active Directory).
 
 Like AWS accounts, subscriptions have default service quotas and limits. For a full list of these limits, see [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits).
 These limits can be increased up to the maximum by [filing a support request in the management portal](https://blogs.msdn.microsoft.com/girishp/2015/09/20/increasing-core-quota-limits-in-azure/).
@@ -97,7 +97,7 @@ Azure offers several ways to manage your resources:
 
 In each of these interfaces, the resource group is central to how Azure resources get created, deployed, or modified. This is similar to the role a "stack" plays in grouping AWS resources during CloudFormation deployments.
 
-The syntax and structure of these interfaces are different from their AWS equivalents, but they provide comparable capabilities. In addition, many third party management tools used on AWS, like [Hashicorp's Terraform](https://www.terraform.io/docs/providers/azurerm/) and [Netflix Spinnaker](https://www.spinnaker.io/), are also available on Azure.
+The syntax and structure of these interfaces are different from their AWS equivalents, but they provide comparable capabilities. In addition, many third-party management tools used on AWS, like [Hashicorp's Terraform](https://www.terraform.io/docs/providers/azurerm/) and [Netflix Spinnaker](https://www.spinnaker.io/), are also available on Azure.
 
 <!-- markdownlint-disable MD024 -->
 
@@ -109,7 +109,7 @@ The syntax and structure of these interfaces are different from their AWS equiva
 
 Failures can vary in the scope of their impact. Some hardware failures, such as a failed disk, may affect a single host machine. A failed network switch could affect a whole server rack. Less common are failures that disrupt a whole data center, such as loss of power in a data center. Rarely, an entire region could become unavailable.
 
-One of the main ways to make an application resilient is through redundancy. But you need to plan for this redundancy when you design the application. Also, the level of redundancy that you need depends on your business requirements &mdash; not every application needs redundancy across regions to guard against a regional outage. In general, there is a tradeoff between greater redundancy and reliability versus higher cost and complexity.
+One of the main ways to make an application resilient is through redundancy. But you need to plan for this redundancy when you design the application. Also, the level of redundancy that you need depends on your business requirements&mdash;not every application needs redundancy across regions to guard against a regional outage. In general, there is a tradeoff between greater redundancy and reliability versus higher cost and complexity.
 
 In AWS, a region is divided into two or more Availability Zones. An Availability Zone corresponds with a physically isolated datacenter in the geographic region. Azure has a number of features to make an application redundant at every level of failure, including **availability sets**, **availability zones**, and **paired regions**.
 
@@ -143,7 +143,7 @@ An [Availability Zone](/azure/availability-zones/az-overview) is a physically se
 
 To protect an application against a regional outage, you can deploy the application across multiple regions, using [Azure Traffic Manager][traffic-manager] to distribute internet traffic to the different regions. Each Azure region is paired with another region. Together, these form a [regional pair][paired-regions]. With the exception of Brazil South, regional pairs are located within the same geography in order to meet data residency requirements for tax and law enforcement jurisdiction purposes.
 
-Unlike Availability Zones, which are physically separate datacenters but may be in relatively nearby geographic areas, paired regions are usually separated by at least 300 miles. This is intended to ensure larger scale disasters only affect one of the regions in the pair. Neighboring pairs can be set to sync database and storage service data, and are configured so that platform updates are rolled out to only one region in the pair at a time.
+Unlike Availability Zones, which are physically separate datacenters but may be in relatively nearby geographic areas, paired regions are typically separated by at least 300 miles. This is intended to ensure larger scale disasters only affect one of the regions in the pair. Neighboring pairs can be set to sync database and storage service data, and are configured so that platform updates are rolled out to only one region in the pair at a time.
 
 Azure [geo-redundant storage](/azure/storage/common/storage-redundancy-grs) is automatically backed up to the appropriate paired region. For all other resources, creating a fully redundant solution using paired regions means
 creating a full copy of your solution in both regions.
@@ -170,7 +170,7 @@ The following sections provide a brief explanation of how commonly used features
 
 #### EC2 Instances and Azure virtual machines
 
-Although AWS instance types and Azure virtual machine sizes breakdown in a similar way, there are differences in the RAM, CPU, and storage capabilities.
+Although AWS instance types and Azure virtual machine sizes are categorized similarly, there are differences in the RAM, CPU, and storage capabilities.
 
 - [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/)
 
@@ -199,7 +199,7 @@ Higher performance disk IO is supported using [Azure premium storage](/azure/vir
 
 Autoscaling in Azure is handled by two services:
 
-- [VM scale sets](/azure/virtual-machine-scale-sets/overview) allow you to deploy and manage an identical set of VMs. The number of instances can autoscale based on performance needs.
+- [Virtual machine scale sets](/azure/virtual-machine-scale-sets/overview) allow you to deploy and manage an identical set of VMs. The number of instances can autoscale based on performance needs.
 
 - [App Service Autoscale](/azure/app-service/web-sites-scale) provides the capability to autoscale Azure App Service solutions.
 
@@ -233,7 +233,7 @@ Azure offers several compute services that do not have direct equivalents in AWS
 
 In the AWS platform, cloud storage is primarily broken down into three services:
 
-- **Simple Storage Service (S3)**. Basic object storage that akes data available through an Internet accessible API.
+- **Simple Storage Service (S3)**. Basic object storage that makes data available through an Internet accessible API.
 
 - **Elastic Block Storage (EBS)**. Block level storage intended for access by a single VM.
 
@@ -339,7 +339,7 @@ Costs for AWS RDS are determined by the amount of hardware resources that your i
 Azure splits up directory services into the following offerings:
 
 - [Azure Active
-    Directory](https://azure.microsoft.com/documentation/articles/active-directory-whatis/) - cloud based directory and identity management service.
+    Directory](https://azure.microsoft.com/documentation/articles/active-directory-whatis/) - cloud-based directory and identity management service.
 
 - [Azure Active Directory
     B2B](https://azure.microsoft.com/documentation/articles/active-directory-b2b-collaboration-overview/) - enables access to your corporate applications from partner-managed
@@ -376,7 +376,7 @@ transactional, or marketing emails. In Azure, third-party solutions like
 
 AWS Simple Queueing Service (SQS) provides a messaging system for connecting applications, services, and devices within the AWS platform. Azure has two services that provide similar functionality:
 
-- [Queue storage](/azure/storage/queues/storage-nodejs-how-to-use-queues): a cloud messaging service that allows communication between application components within the Azure platform.
+- [Queue storage](/azure/storage/queues/storage-nodejs-how-to-use-queues): a cloud messaging service that allows communication between application components within Azure.
 
 - [Service Bus](https://azure.microsoft.com/services/service-bus/): a more robust messaging system for connecting applications, services, and devices. Using the related [Service Bus relay](/azure/service-bus-relay/relay-what-is-it), Service Bus can also connect to remotely hosted applications and services.
 
@@ -417,7 +417,7 @@ testing resources for Linux and Windows environments.
 - [Data Lake
     Analytics](https://azure.microsoft.com/documentation/articles/data-lake-analytics-overview/) - large-scale analytics service optimized to work with Data Lake Store
 
-- [PowerBI](https://powerbi.microsoft.com/) - used to power data
+- [Power BI](https://powerbi.microsoft.com/) - used to power data
     visualization.
 
 #### See also

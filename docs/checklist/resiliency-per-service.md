@@ -24,9 +24,9 @@ Resiliency is the ability of a system to recover from failures and continue to f
 
 **Create separate App Service plans for production and test.** Don't use slots on your production deployment for testing.  All apps within the same App Service plan share the same VM instances. If you put production and test deployments in the same plan, it can negatively affect the production deployment. For example, load tests might degrade the live production site. By putting test deployments into a separate plan, you isolate them from the production version.
 
-**Separate web apps from web APIs.** If your solution has both a web front-end and a web API, consider decomposing them into separate App Service apps. This design makes it easier to decompose the solution by workload. You can run the web app and the API in separate App Service plans, so they can be scaled independently. If you don't need that level of scalability at first, you can deploy the apps into the same plan, and move them into separate plans later, if needed.
+**Separate web apps from web APIs.** If your solution has both a web front end and a web API, consider decomposing them into separate App Service apps. This design makes it easier to decompose the solution by workload. You can run the web app and the API in separate App Service plans, so they can be scaled independently. If you don't need that level of scalability at first, you can deploy the apps into the same plan, and move them into separate plans later, if needed.
 
-**Avoid using the App Service backup feature to back up Azure SQL databases.** Instead, use [SQL Database automated backups][sql-backup]. App Service backup exports the database to a SQL .bacpac file, which costs DTUs.
+**Avoid using the App Service backup feature to back up Azure SQL databases.** Instead, use [SQL Database automated backups][sql-backup]. App Service backup exports the database to a SQL BACPAC file, which costs DTUs.
 
 **Deploy to a staging slot.** Create a deployment slot for staging. Deploy application updates to the staging slot, and verify the deployment before swapping it into production. This reduces the chance of a bad update in production. It also ensures that all instances are warmed up before being swapped into production. Many applications have a significant warmup and cold-start time. For more information, see [Set up staging environments for web apps in Azure App Service](/azure/app-service-web/web-sites-staged-publishing/).
 
@@ -120,19 +120,19 @@ If you are using Redis Cache as a temporary data cache and not as a persistent s
 
 ## SQL Server running in a VM
 
-**Replicate the database.** Use SQL Server Always On Availability Groups to replicate the database. Provides high availability if one SQL Server instance fails. For more information, see [Run Windows VMs for an N-tier application](../reference-architectures/virtual-machines-windows/n-tier.md)
+**Replicate the database.** Use SQL Server Always On availability groups to replicate the database. Provides high availability if one SQL Server instance fails. For more information, see [Run Windows VMs for an N-tier application](../reference-architectures/virtual-machines-windows/n-tier.md)
 
 **Back up the database**. If you are already using [Azure Backup](/azure/backup/) to back up your VMs, consider using [Azure Backup for SQL Server workloads using DPM](/azure/backup/backup-azure-backup-sql/). With this approach, there is one backup administrator role for the organization and a unified recovery procedure for VMs and SQL Server. Otherwise, use [SQL Server Managed Backup to Microsoft Azure](https://msdn.microsoft.com/library/dn449496.aspx).
 
 ## Traffic Manager
 
-**Perform manual failback.** After a Traffic Manager failover, perform manual failback, rather than automatically failing back. Before failing back, verify that all application subsystems are healthy.  Otherwise, you can create a situation where the application flips back and forth between data centers. For more information, see [Run VMs in multiple regions for high availability](../reference-architectures/virtual-machines-windows/multi-region-application.md).
+**Perform manual failback.** After a Traffic Manager failover, perform manual failback, rather than automatically failing back. Before failing back, verify that all application subsystems are healthy.  Otherwise, you can create a situation where the application flips back and forth between datacenters. For more information, see [Run VMs in multiple regions for high availability](../reference-architectures/virtual-machines-windows/multi-region-application.md).
 
 **Create a health probe endpoint.** Create a custom endpoint that reports on the overall health of the application. This enables Traffic Manager to fail over if any critical path fails, not just the front end. The endpoint should return an HTTP error code if any critical dependency is unhealthy or unreachable. Don't report errors for non-critical services, however. Otherwise, the health probe might trigger failover when it's not needed, creating false positives. For more information, see [Traffic Manager endpoint monitoring and failover](/azure/traffic-manager/traffic-manager-monitoring/).
 
 ## Virtual Machines
 
-**Avoid running a production workload on a single VM.** A single VM deployment is not resilient to planned or unplanned maintenance. Instead, put multiple VMs in an availability set or [VM scale set](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview/), with a load balancer in front.
+**Avoid running a production workload on a single VM.** A single VM deployment is not resilient to planned or unplanned maintenance. Instead, put multiple VMs in an availability set or [virtual machine scale set](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview/), with a load balancer in front.
 
 **Specify an availability set when you provision the VM.** Currently, there is no way to add a VM to an availability set after the VM is provisioned. When you add a new VM to an existing availability set, make sure to create a NIC for the VM, and add the NIC to the back-end address pool on the load balancer. Otherwise, the load balancer won't route network traffic to that VM.
 
@@ -146,7 +146,7 @@ If you are using Redis Cache as a temporary data cache and not as a persistent s
 
 **Install applications on a data disk, not the OS disk.** Otherwise, you may reach the disk size limit.
 
-**Use Azure Backup to back up VMs.** Backups protect against accidental data loss. For more information, see [Protect Azure VMs with a recovery services vault](/azure/backup/backup-azure-vms-first-look-arm/).
+**Use Azure Backup to back up VMs.** Backups protect against accidental data loss. For more information, see [Protect Azure VMs with a Recovery Services vault](/azure/backup/backup-azure-vms-first-look-arm).
 
 **Enable diagnostic logs**, including basic health metrics, infrastructure logs, and [boot diagnostics][boot-diagnostics]. Boot diagnostics can help you diagnose a boot failure if your VM gets into a non-bootable state. For more information, see [Overview of Azure Diagnostic Logs][diagnostics-logs].
 
@@ -154,11 +154,11 @@ If you are using Redis Cache as a temporary data cache and not as a persistent s
 
 ## Virtual Network
 
-**To whitelist or block public IP addresses, add an NSG to the subnet.** Block access from malicious users, or allow access only from users who have privilege to access the application.
+**To whitelist or block public IP addresses, add a network security group to the subnet.** Block access from malicious users, or allow access only from users who have privilege to access the application.
 
 **Create a custom health probe.** Load Balancer Health Probes can test either HTTP or TCP. If a VM runs an HTTP server, the HTTP probe is a better indicator of health status than a TCP probe. For an HTTP probe, use a custom endpoint that reports the overall health of the application, including all critical dependencies. For more information, see [Azure Load Balancer overview](/azure/load-balancer/load-balancer-overview/).
 
-**Don't block the health probe.** The Load Balancer Health probe is sent from a known IP address, 168.63.129.16. Don't block traffic to or from this IP in any firewall policies or network security group (NSG) rules. Blocking the health probe would cause the load balancer to remove the VM from rotation.
+**Don't block the health probe.** The Load Balancer Health probe is sent from a known IP address, 168.63.129.16. Don't block traffic to or from this IP in any firewall policies or network security group rules. Blocking the health probe would cause the load balancer to remove the VM from rotation.
 
 **Enable Load Balancer logging.** The logs show how many VMs on the back-end are not receiving network traffic due to failed probe responses. For more information, see [Log analytics for Azure Load Balancer](/azure/load-balancer/load-balancer-monitor-log/).
 

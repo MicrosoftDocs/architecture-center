@@ -1,5 +1,5 @@
 ---
-title: "CAF: Small-to-medium enterprise - The narrative behind the governance strategy"
+title: "Small-to-medium enterprise: The narrative behind the governance strategy"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
@@ -11,7 +11,7 @@ author: BrianBlanchard
 
 # Small-to-medium enterprise: The narrative behind the governance strategy
 
-The following narrative describes the use case for the [small-to-medium enterprise governance journey](./overview.md). Before implementing the journey, it’s important to understand the assumptions and reasoning that are reflected in this narrative. Then you can better align the governance strategy to your own organization’s journey.
+The following narrative describes the use case for the [small-to-medium enterprise governance journey](./index.md). Before implementing the journey, it’s important to understand the assumptions and reasoning that are reflected in this narrative. Then you can better align the governance strategy to your own organization’s journey.
 
 ## Back story
 
@@ -33,10 +33,10 @@ Here is the current state of the company’s IT and cloud operations:
 
 - IT operates two hosted infrastructure environments. One environment contains production assets. The second environment contains disaster recovery and some dev/test assets. These environments are hosted by two different providers. IT refers to these two datacenters as Prod and DR respectively.
 - IT entered the cloud by migrating all end-user email accounts to Office 365. This migration was completed six months ago. Few other IT assets have been deployed to the cloud.
-- The application development teams are working in a dev/test capacity to learn about cloud native capabilities.
+- The application development teams are working in a dev/test capacity to learn about cloud-native capabilities.
 - The business intelligence (BI) team is experimenting with big data in the cloud and curation of data on new platforms.
 - The company has a loosely defined policy stating that customer personally identifiable information (PII) and financial data cannot be hosted in the cloud, which limits mission-critical applications in the current deployments.
-- IT investments are controlled largely by capital expense (CapEx). Those investments are planned yearly. In the past several years, investments have included little more than basic maintenance requirements.
+- IT investments are controlled largely by capital expense. Those investments are planned yearly. In the past several years, investments have included little more than basic maintenance requirements.
 
 ## Future state
 
@@ -46,7 +46,7 @@ The following changes are anticipated over the next several years:
 - The application development and BI teams want to release cloud-based solutions to production over the next 24 months based on the vision for customer engagement and new products.
 - This year, the IT team will finish retiring the disaster recovery workloads of the DR datacenter by migrating 2,000 VMs to the cloud. This is expected to produce an estimated $25M USD cost savings over the next five years.
     ![On-premises costs versus Azure costs demonstrating a return of $25M USD over the next five years](../../../_images/governance/calculator-small-to-medium-enterprise.png)
-- The company plans to change how it makes IT investments by repositioning the committed CapEx as an operational expense (OpEx) within IT. This change will provide greater cost control and enable IT to accelerate other planned efforts.
+- The company plans to change how it makes IT investments by repositioning the committed capital expense as an operating expense within IT. This change will provide greater cost control and enable IT to accelerate other planned efforts.
 
 ## Next steps
 

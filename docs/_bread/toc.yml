@@ -46,7 +46,7 @@
       - name: Decision Guides
         tocHref: /azure/architecture/cloud-adoption/decision-guides/
         topicHref: /azure/architecture/cloud-adoption/decision-guides/overview
-      - name: Virtual Data Center (VDC)
+      - name: Virtual Datacenter (VDC)
         tocHref: /azure/architecture/vdc/
         topicHref: /azure/architecture/vdc/
       - name: Appendix

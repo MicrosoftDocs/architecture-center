@@ -1,7 +1,7 @@
 ---
 title: Content Delivery Network guidance
 titleSuffix: Best practices for cloud applications
-description: Guidance on using Content Delivery Networks (CDNs) to deliver high bandwidth content hosted in Azure.
+description: Guidance on using Content Delivery Networks (CDNs) to deliver high-bandwidth content hosted in Azure.
 author: dragon119
 ms.date: 02/02/2018
 ms.topic: best-practice
@@ -12,7 +12,7 @@ ms.custom: seodec18
 
 # Content delivery networks (CDNs)
 
-A content delivery network (CDN) is a distributed network of servers that can efficiently deliver web content to users. CDNs store cached content on edge servers that are close to end-users, to minimize latency.
+A content delivery network (CDN) is a distributed network of servers that can efficiently deliver web content to users. CDNs store cached content on edge servers that are close to end users to minimize latency.
 
 CDNs are typically used to deliver static content such as images, style sheets, documents, client-side scripts, and HTML pages. The major advantages of using a CDN are lower latency and faster delivery of content to users, regardless of their geographical location in relation to the datacenter where the application is hosted. CDNs can also help to reduce load on a web application, because the application does not have to service requests for the content that is hosted in the CDN.
 
@@ -24,7 +24,7 @@ This topic describes some general best practices and considerations when using a
 
 ## How and why a CDN is used
 
-Typical uses for a CDN include:  
+Typical uses for a CDN include:
 
 - Delivering static resources for client applications, often from a website. These resources can be images, style sheets, documents, files, client-side scripts, HTML pages, HTML fragments, or any other content that the server does not need to modify for each request. The application can create items at runtime and make them available to the CDN (for example, by creating a list of current news headlines), but it does not do so for each request.
 
@@ -34,11 +34,11 @@ Typical uses for a CDN include:
 
 - Streaming video files to the client on demand. Video benefits from the low latency and reliable connectivity available from the globally located datacenters that offer CDN connections. Microsoft Azure Media Services (AMS) integrates with Azure CDN to deliver content directly to the CDN for further distribution. For more information, see [Streaming endpoints overview](/azure/media-services/media-services-streaming-endpoints-overview).
 
-- Generally improving the experience for users, especially those located far from the datacenter hosting the application. These users might otherwise suffer higher latency. A large proportion of the total size of the content in a web application is often static, and using the CDN can help to maintain performance and overall user experience while eliminating the requirement to deploy the application to multiple data centers. For a list of Azure CDN node locations, see [Azure CDN POP Locations](/azure/cdn/cdn-pop-locations/).
+- Generally improving the experience for users, especially those located far from the datacenter hosting the application. These users might otherwise suffer higher latency. A large proportion of the total size of the content in a web application is often static, and using the CDN can help to maintain performance and overall user experience while eliminating the requirement to deploy the application to multiple datacenters. For a list of Azure CDN node locations, see [Azure CDN POP Locations](/azure/cdn/cdn-pop-locations/).
 
 - Supporting IoT (Internet of Things) solutions. The huge numbers of devices and appliances involved in an IoT solution could easily overwhelm an application if it had to distribute firmware updates directly to each device.
 
-- Coping with peaks and surges in demand without requiring the application to scale, avoiding the consequent increased running costs. For example, when an update to an operating system is released for a hardware device such as a specific model of router, or for a consumer device such as a smart TV, there will be a huge peak in demand as it is downloaded by millions of users and devices over a short period.
+- Coping with peaks and surges in demand without requiring the application to scale, avoiding the consequent increase in running costs. For example, when an update to an operating system is released for a hardware device such as a specific model of router, or for a consumer device such as a smart TV, there will be a huge peak in demand as it is downloaded by millions of users and devices over a short period.
 
 ## Challenges
 
@@ -58,7 +58,7 @@ There are several challenges to take into account when planning to use a CDN.
 
 - **Resilience**. The CDN is a potential single point of failure for an application.
 
-Scenarios where CDN may be less useful include:  
+Scenarios where a CDN may be less useful include:
 
 - If the content has a low hit rate, it might be accessed only few times while it is valid (determined by its time-to-live setting).
 
@@ -76,7 +76,7 @@ Consider using bundling and minification techniques to reduce load times for cli
 
 If you need to deploy the content to an additional location, this will be an extra step in the deployment process. If the application updates the content for the CDN, perhaps at regular intervals or in response to an event, it must store the updated content in any additional locations as well as the endpoint for the CDN.
 
-Consider how you will handle local development and testing when some static content is expected to be served from a CDN. For example, you could pre-deploy the content to the CDN as part of your build script. Alternatively, use compile directives or flags to control how the application loads the resources. For example, in debug mode, the application could load static resources from a local folder. In release mode, the application would use the CDN.
+Consider how you will handle local development and testing when some static content is expected to be served from a CDN. For example, you could predeploy the content to the CDN as part of your build script. Alternatively, use compile directives or flags to control how the application loads the resources. For example, in debug mode, the application could load static resources from a local folder. In release mode, the application would use the CDN.
 
 Consider the options for file compression, such as gzip (GNU zip). Compression may be performed on the origin server by the web application hosting or directly on the edge servers by the CDN. For more information, see [Improve performance by compressing files in Azure CDN](/azure/cdn/cdn-improve-performance).
 
@@ -96,7 +96,7 @@ Consider how to manage caching within the system. For example, in Azure CDN, you
 
 For more information, see [How caching works](/azure/cdn/cdn-how-caching-works).
 
-To prevent objects from being available on the CDN, you can delete them from the origin, remove or delete the CDN endpoint, or in the case of blob storage, make the container or blob private. However, items are not removed from the until the time-to-live expires. You can also manually purge a CDN endpoint.
+To prevent objects from being available on the CDN, you can delete them from the origin, remove or delete the CDN endpoint, or in the case of blob storage, make the container or blob private. However, items are not removed from the CDN until the time-to-live expires. You can also manually purge a CDN endpoint.
 
 ### Security
 

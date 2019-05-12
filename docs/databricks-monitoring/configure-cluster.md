@@ -13,7 +13,7 @@ This article shows how to configure an Azure Databricks cluster to send metrics 
 
 ## About the Azure Databricks Monitoring Library
 
-The [GitHub repo](https://github.com/mspnp/spark-monitoring) for the Azure Databricks Monitoring Library has following directory structure:
+The [GitHub repo](https://github.com/mspnp/spark-monitoring) for the Azure Databricks Monitoring Library has the following directory structure:
 
 ```
 /src  

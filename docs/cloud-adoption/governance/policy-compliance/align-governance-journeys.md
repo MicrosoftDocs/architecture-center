@@ -1,5 +1,5 @@
 ---
-title: "CAF: Align design guides with policy."
+title: "Align design guides with policy"
 description: How do you align design guides with policy?
 author: BrianBlanchard
 ms.date: 01/04/2019
@@ -15,19 +15,19 @@ Draft an architecture design guide.
 
 # How do you align design guides with policy?
 
-After you've [defined cloud policies](define-policy.md) based on your [identified risks](understanding-business-risk.md), you'll need to generate actionable guidance that aligns with these policies for your IT staff and developers to refer to. Drafting a cloud governance design guide allows you to specify specific structural, technological, and process choices based on the policy statements you generated for each of the five governance disciplines.
+After you've [defined cloud policies](define-policy.md) based on your [identified risks](understanding-business-risk.md), you'll need to generate actionable guidance that aligns with these policies for your IT staff and developers to refer to. Drafting a cloud governance design guide allows you to specify specific structural, technological, and process choices based on the policy statements you generated for each of the [five governance disciplines](../governance-disciplines.md).
 
 A cloud governance design guide should establish the architecture choices and design patterns for each of the core infrastructure components of cloud deployments that best meet your policy requirements. Alongside these you should provide a high-level explanation of the technology, tools, and processes that will support each of these design decisions.
 
-Although your risk analysis and policy statements may, to some degree, be cloud platform agnostic, your design guide should provide platform-specific implementation details that your IT and dev. Focus on the architecture, tools, and features of your chosen platform when making design decision and providing guidance.
+Although your risk analysis and policy statements may, to some degree, be cloud platform agnostic, your design guide should provide platform-specific implementation details that your IT and dev teams can use when creating and deploying cloud-based workloads. Focus on the architecture, tools, and features of your chosen platform when making design decision and providing guidance.
 
-While cloud design guides should take into account some of the technical details associated with each infrastructure component, they are not meant to be extensive technical documents or specifications. Make sure your guides address all of your policy statements and clearly state design decisions in a format easy for staff to understand and reference.
+While cloud design guides should take into account some of the technical details associated with each infrastructure component, they are not meant to be extensive technical documents or specifications. Make sure your guides address your policy statements and clearly state design decisions in a format easy for staff to understand and reference.
 
 <!-- markdownlint-enable MD033 -->
 
 ## Using the actionable governance journeys
 
-If you're planning to use the Azure platform for your cloud adoption, the CAF provides [governance journeys](../journeys/overview.md) illustrating the incremental approach of the CAF governance model. These narrative journeys cover a range of common adoption scenarios, including the business risks, tolerance requirements, and policy statements that went into creating a governance minimum viable product (MVP). These journeys represent a synthesis of real-world customer experience of the cloud adoption process in Azure.
+If you're planning to use the Azure platform for your cloud adoption, the Cloud Adoption Framework provides [governance journeys](../journeys/index.md) illustrating the incremental approach of the Cloud Adoption Framework governance model. These narrative journeys cover a range of common adoption scenarios, including the business risks, tolerance requirements, and policy statements that went into creating a governance minimum viable product (MVP). These journeys represent a synthesis of real-world customer experience of the cloud adoption process in Azure.
 
 While every cloud adoption has unique goals, priorities, and challenges, these samples should provide a good template for converting your policy into guidance. Pick the closest scenario to your situation as a starting point, and mold it to fit your specific policy needs.
 

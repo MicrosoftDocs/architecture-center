@@ -50,7 +50,7 @@ These two patterns complement each other. If the write-only store in CQRS uses e
 
 **Use optimistic concurrency when possible**. Pessimistic concurrency control uses database locks to prevent conflicts. This can cause poor performance and reduce availability. With optimistic concurrency control, each transaction modifies a copy or snapshot of the data. When the transaction is committed, the database engine validates the transaction and rejects any transactions that would affect database consistency.
 
-Azure SQL Database and SQL Server support optimistic concurrency through [snapshot isolation][sql-snapshot-isolation]. Some Azure storage services support optimistic concurrency through the use of Etags, including [Azure Cosmos DB][cosmosdb-faq] and [Azure Storage][storage-concurrency].
+Azure SQL Database and SQL Server support optimistic concurrency through [snapshot isolation][sql-snapshot-isolation]. Some Azure storage services support optimistic concurrency through the use of Etags, including [Azure Cosmos DB][cosmos-db-faq] and [Azure Storage][storage-concurrency].
 
 **Consider MapReduce or other parallel, distributed algorithms**. Depending on the data and type of work to be performed, you may be able to split the work into independent tasks that can be performed by multiple nodes working in parallel. See [Big compute architecture style][big-compute].
 
@@ -62,7 +62,7 @@ Azure SQL Database and SQL Server support optimistic concurrency through [snapsh
 [compensating-transaction]: ../../patterns/compensating-transaction.md
 [cqrs-style]: ../architecture-styles/cqrs.md
 [cqrs-pattern]: ../../patterns/cqrs.md
-[cosmosdb-faq]: /azure/cosmos-db/faq
+[cosmos-db-faq]: /azure/cosmos-db/faq
 [domain-event]: https://martinfowler.com/eaaDev/DomainEvent.html
 [event-sourcing]: ../../patterns/event-sourcing.md
 [leader-election]: ../../patterns/leader-election.md

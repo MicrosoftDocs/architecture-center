@@ -16,7 +16,7 @@ Putting all of an application's data into a single data store can hurt performan
 
 ## Problem description
 
-Historically, applications have often used a single data store, regardless of the different types of data that the application might need to store. Usually this was done to simplify the application design, or else to match the existing skill set of the development team.
+Historically, applications have often used a single data store, regardless of the different types of data that the application might need to store. Usually this was done to simplify the application design, or else to match the existing skillset of the development team.
 
 Modern cloud-based systems often have additional functional and nonfunctional requirements, and need to store many heterogenous types of data, such as documents, images, cached data, queued messages, application logs, and telemetry. Following the traditional approach and putting all of this information into the same data store can hurt performance, for two main reasons:
 
@@ -125,8 +125,7 @@ The application was changed to write logs to a separate data store. Here are the
 
 ![Load test performance results using the Polyglot controller][PolyglotScenarioLoadTest]
 
-The pattern of throughput is similar to the earlier graph, but the point at which performance peaks is approximately 500 requests
-per second higher. The average response time is marginally lower. However, these statistics don't tell the full story. Telemetry for the business database shows that DTU utilization peaks at around 75%, rather than 100%.
+The pattern of throughput is similar to the earlier graph, but the point at which performance peaks is approximately 500 requests per second higher. The average response time is marginally lower. However, these statistics don't tell the full story. Telemetry for the business database shows that DTU utilization peaks at around 75%, rather than 100%.
 
 ![The database monitor in the Azure classic portal showing resource utilization of the database in the polyglot scenario][PolyglotDatabaseUtilization]
 
@@ -138,7 +137,7 @@ Similarly, the maximum DTU utilization of the log database only reaches about 70
 
 - [Choose the right data store][data-store-overview]
 - [Criteria for choosing a data store][data-store-comparison]
-- [Data Access for Highly-Scalable Solutions: Using SQL, NoSQL, and Polyglot Persistence][Data-Access-Guide]
+- [Data Access for Highly Scalable Solutions: Using SQL, NoSQL, and Polyglot Persistence][Data-Access-Guide]
 - [Data partitioning][DataPartitioningGuidance]
 
 [sample-app]: https://github.com/mspnp/performance-optimization/tree/master/MonolithicPersistence

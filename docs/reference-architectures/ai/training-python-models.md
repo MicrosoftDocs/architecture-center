@@ -92,6 +92,10 @@ For production deployments, consider deploying the cluster into a subnet of a vi
 
 To deploy the reference implementation for this architecture, follow the steps in the [GitHub][github] repo.
 
+## Next steps
+
+To operationalize the model, see [Machine learning operationalization (MLOps) for Python models using Azure Machine Learning](./mlops-python.md).
+
 [0]: ./_images//training-python-models.png
 [1]: ./_images/run-object.png
 [acr]: /azure/container-registry/container-registry-intro

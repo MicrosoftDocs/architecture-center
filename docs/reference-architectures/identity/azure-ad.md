@@ -12,7 +12,7 @@ ms.custom: seodec18, identity
 
 # Integrate on-premises Active Directory domains with Azure Active Directory
 
-Azure Active Directory (Azure AD) is a cloud based multi-tenant directory and identity service. This reference architecture shows best practices for integrating on-premises Active Directory domains with Azure AD to provide cloud-based identity authentication. [**Deploy this solution**](#deploy-the-solution).
+Azure Active Directory (Azure AD) is a cloud-based multi-tenant directory and identity service. This reference architecture shows best practices for integrating on-premises Active Directory domains with Azure AD to provide cloud-based identity authentication. [**Deploy this solution**](#deploy-the-solution).
 
 ![Cloud identity architecture using Azure Active Directory](./images/azure-ad.png)
 
@@ -25,7 +25,7 @@ Azure Active Directory (Azure AD) is a cloud based multi-tenant directory and id
 Typical uses for this reference architecture include:
 
 - Web applications deployed in Azure that provide access to remote users who belong to your organization.
-- Implementing self-service capabilities for end-users, such as resetting their passwords, and delegating group management. Note that this requires Azure AD Premium edition.
+- Implementing self-service capabilities for end-users, such as resetting their passwords, and delegating group management. This requires Azure AD Premium edition.
 - Architectures in which the on-premises network and the application's Azure VNet are not connected using a VPN tunnel or ExpressRoute circuit.
 
 > [!NOTE]
@@ -69,7 +69,7 @@ To implement high availability for the AD Connect sync service, run a secondary 
 
 ### Security recommendations
 
-**User password management**. The Azure AD Premium editions support password writeback, enabling your on-premises users to perform self-service password resets from within the Azure portal. This feature should only be enabled after reviewing your organization's password security policy. For example, you can restrict which users can change their passwords, and you can tailor the password management experience. For more information, see [Customizing Password Management to fit your organization's needs][aad-password-management].
+**User password management**. The Azure AD Premium editions support password writeback, enabling your on-premises users to perform self-service password resets from within the Azure portal. This feature should be enabled only after reviewing your organization's password security policy. For example, you can restrict which users can change their passwords, and you can tailor the password management experience. For more information, see [Customizing Password Management to fit your organization's needs][aad-password-management].
 
 **Protect on-premises applications that can be accessed externally.** Use the Azure AD Application Proxy to provide controlled access to on-premises web applications for external users through Azure AD. Only users that have valid credentials in your Azure directory have permission to use the application. For more information, see the article [Enable Application Proxy in the Azure portal][aad-application-proxy].
 
@@ -79,7 +79,7 @@ You can use the reporting feature of Azure AD in the Azure portal to monitor sec
 
 ### Topology recommendations
 
-Configure Azure AD Connect to implement a topology that most closely matches the requirements of your organization. Topologies that Azure AD Connect supports include the following:
+Configure Azure AD Connect to implement a topology that most closely matches the requirements of your organization. Topologies that Azure AD Connect supports include:
 
 - **Single forest, single Azure AD directory**. In this topology, Azure AD Connect synchronizes objects and identity information from one or more domains in a single on-premises forest into a single Azure AD tenant. This is the default topology implemented by the express installation of Azure AD Connect.
 
@@ -116,11 +116,11 @@ For more information about these topologies, see [Topologies for Azure AD Connec
 
 By default, the Azure AD Connect sync server configures password hash synchronization between the on-premises domain and Azure AD, and the Azure AD service assumes that users authenticate by providing the same password that they use on-premises. For many organizations, this is appropriate, but you should consider your organization's existing policies and infrastructure. For example:
 
-- The security policy of your organization may prohibit synchronizing password hashes to the cloud. In this case your organization should consider [pass-through authentication](/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication).
+- The security policy of your organization may prohibit synchronizing password hashes to the cloud. In this case, your organization should consider [pass-through authentication](/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication).
 - You might require that users experience seamless single sign-on (SSO) when accessing cloud resources from domain-joined machines on the corporate network.
-- Your organization might already have Active Directory Federation Services (AD FS) or a third party federation provider deployed. You can configure Azure AD to use this infrastructure to implement authentication and SSO rather than by using password information held in the cloud.
+- Your organization might already have Active Directory Federation Services (AD FS) or a third-party federation provider deployed. You can configure Azure AD to use this infrastructure to implement authentication and SSO rather than by using password information held in the cloud.
 
-For more information, see [Azure AD Connect User Sign on options][aad-user-sign-in].
+For more information, see [Azure AD Connect User Sign-on options][aad-user-sign-in].
 
 ### Azure AD application proxy
 
@@ -159,7 +159,7 @@ For the Azure AD Connect sync server, determine how many objects you are likely 
 
 ## Availability considerations
 
-The Azure AD service is geo-distributed and runs in multiple data centers spread around the world with automated failover. If a data center becomes unavailable, Azure AD ensures that your directory data is available for instance access in at least two more regionally dispersed data centers.
+The Azure AD service is geo-distributed and runs in multiple datacenters spread around the world with automated failover. If a datacenter becomes unavailable, Azure AD ensures that your directory data is available for instance access in at least two more regionally dispersed datacenters.
 
 > [!NOTE]
 > The service level agreement (SLA) for Azure AD Basic and Premium services guarantees at least 99.9% availability. There is no SLA for the Free tier of Azure AD. For more information, see [SLA for Azure Active Directory][sla-aad].
@@ -185,7 +185,7 @@ Azure AD provides the following options for managing domains and directories in 
 
 Azure AD Connect installs the following tools to maintain Azure AD Connect sync services from your on-premises machines:
 
-- **Microsoft Azure Active Directory Connect console**. This tool enables you to modify the configuration of the Azure AD Sync server, customize how synchronization occurs, enable or disable staging mode, and switch the user sign-in mode. Note that you can enable Active Directory FS sign-in using your on-premises infrastructure.
+- **Microsoft Azure Active Directory Connect console**. This tool enables you to modify the configuration of the Azure AD Sync server, customize how synchronization occurs, enable or disable staging mode, and switch the user sign-in mode. You can enable Active Directory FS sign-in using your on-premises infrastructure.
 - **Synchronization Service Manager**. Use the *Operations* tab in this tool to manage the synchronization process and detect whether any parts of the process have failed. You can trigger synchronizations manually using this tool. The *Connectors* tab enables you to control the connections for the domains that the synchronization engine is attached to.
 - **Synchronization Rules Editor**. Use this tool to customize the way objects are transformed when they are copied between an on-premises directory and Azure AD. This tool enables you to specify additional attributes and objects for synchronization, then executes filters to determine which objects should or should not be synchronized. For more information, see the Synchronization Rule Editor section in the document [Azure AD Connect sync: Understanding the default configuration][aad-connect-sync-default-rules].
 
@@ -217,15 +217,15 @@ A deployment for a reference architecture that implements these recommendations 
 
 2. Once the link has opened in the Azure portal, you must enter values for some of the settings:
    - The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-aad-onpremise-rg` in the text box.
-   - Select the region from the **Location** drop down box.
+   - Select the region from the **Location** drop-down box.
    - Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
-   - Select **windows** or **linux** in the **Os Type** the drop down box.
+   - Select **windows** or **linux** in the **Os Type** the drop-down box.
    - Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
    - Click the **Purchase** button.
 
 3. Wait for the deployment to complete.
 
-4. The parameter files include a hard-coded administrator user names and passwords, and it is strongly recommended that you immediately change both on all the VMs. Click each VM in the Azure Portal then click on **Reset password** in the **Support + troubleshooting** blade. Select **Reset password** in the **Mode** drop down box, then select a new **User name** and **Password**. Click the **Update** button to persist the new user name and password.
+4. The parameter files include hard-coded administrator user names and passwords, and you should immediately change both on all the VMs. Click each VM in the Azure portal then click on **Reset password** in the **Support + troubleshooting** blade. Select **Reset password** in the **Mode** drop down box, then select a new **User name** and **Password**. Click the **Update** button to persist the new user name and password.
 
 <!-- markdownlint-disable MD033 -->
 

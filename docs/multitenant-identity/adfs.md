@@ -92,7 +92,7 @@ The SaaS provider must enable OpenID Connect between the application and AD FS. 
 
 Next, configure the OpenID Connect middleware. The metadata endpoint is `https://domain/adfs/.well-known/openid-configuration`, where domain is the SaaS provider's AD FS domain.
 
-Typically you might combine this with other OpenID Connect endpoints (such as AAD). You'll need two different sign-in buttons or some other way to distinguish them, so that the user is sent to the correct authentication endpoint.
+Typically you might combine this with other OpenID Connect endpoints (such as Azure AD). You'll need two different sign-in buttons or some other way to distinguish them, so that the user is sent to the correct authentication endpoint.
 
 ## Configure the AD FS Resource Partner
 

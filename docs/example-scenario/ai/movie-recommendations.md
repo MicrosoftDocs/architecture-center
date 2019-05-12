@@ -14,7 +14,7 @@ ms.subservice: example-scenario
 
 This example scenario shows how a business can use machine learning to automate product recommendations for their customers. An Azure Data Science Virtual Machine (DSVM) is used to train a model on Azure that recommends movies to users based on ratings that have been given to movies.
 
-Recommendations can be useful in various industries from retail to news to media. Potential applications include providing  product recommendations in a virtual store, providing news or post recommendations, or providing music recommendations. Traditionally, businesses had to hire and train assistants to make personalized recommendations to customers. Today, we can  provide customized recommendations at scale by utilizing Azure to train models to understand customer preferences.
+Recommendations can be useful in various industries from retail to news to media. Potential applications include providing product recommendations in a virtual store, providing news or post recommendations, or providing music recommendations. Traditionally, businesses had to hire and train assistants to make personalized recommendations to customers. Today, we can provide customized recommendations at scale by using Azure to train models to understand customer preferences.
 
 ## Relevant use cases
 
@@ -28,7 +28,7 @@ Consider this scenario for the following use cases:
 
 ![Architecture of a machine learning model for training movie recommendations][architecture]
 
-This scenario covers the training and evaluating of the machine learning model using the Spark [alternating least squares][als] (ALS) algorithm on a dataset of movie ratings. The steps for this scenario are as following:
+This scenario covers the training and evaluating of the machine learning model using the Spark [alternating least squares][als] (ALS) algorithm on a dataset of movie ratings. The steps for this scenario are:
 
 1. The front-end website or app service collects historical data of user-movie interactions, which are represented in a table of user, item, and numerical rating tuples.
 
@@ -52,7 +52,7 @@ For an in-depth guide to building and scaling a recommender service, see [Build 
 
 * [Azure Machine Learning service][mls] is used to accelerate the building, managing, and deploying of machine learning models.
 
-* [Azure Cosmos DB][cosmosdb] enables globally distributed and multi-model database storage.
+* [Azure Cosmos DB][cosmos-db] enables globally distributed and multi-model database storage.
 
 * [Azure Container Instances][aci] is used to deploy the trained models to web or app services, optionally using [Azure Kubernetes Service][aks].
 
@@ -64,7 +64,7 @@ For an in-depth guide to building and scaling a recommender service, see [Build 
 
 ### Availability
 
-Machine-learning-built apps are split into two resource components: resources for training, and resources for serving. Resources required for training generally do not need  high availability, as live production requests do not directly hit these resources. Resources required for serving need to have high availability to serve customer requests.
+Machine-learning-built apps are split into two resource components: resources for training, and resources for serving. Resources required for training generally do not need high availability, as live production requests do not directly hit these resources. Resources required for serving need to have high availability to serve customer requests.
 
 For training, the DSVM is available in [multiple regions][regions] around the globe and meets the [service level agreement][sla] (SLA) for virtual machines. For serving, Azure Kubernetes Service provides a [highly available][ha] infrastructure. Agent nodes also follow the [SLA][sla-aks] for virtual machines.
 
@@ -111,7 +111,7 @@ For an in-depth guide to building and scaling a recommender service, see [Build 
 [autoscale]: https://docs.azuredatabricks.net/user-guide/clusters/sizing.html#autoscaling
 [blob]: /azure/storage/blobs/storage-blobs-introduction
 [clusters]: https://docs.azuredatabricks.net/user-guide/clusters/configure.html
-[cosmosdb]: /azure/cosmos-db/introduction
+[cosmos-db]: /azure/cosmos-db/introduction
 [databricks]: /azure/azure-databricks/what-is-azure-databricks
 [dsvm]: /azure/machine-learning/data-science-virtual-machine/overview
 [dsvm-id]: /azure/machine-learning/data-science-virtual-machine/dsvm-common-identity

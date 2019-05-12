@@ -7,7 +7,7 @@ ms.date: 12/27/2018
 
 # Mainframe myths and facts
 
-Mainframes figure prominently in the history of computing and remain viable for highly specific workloads. Most agree that mainframes are a proven platform with long-established operating procedures that make them reliable, robust environments. Software runs based on usage, measured in million instructions per second (MIPS), and extensive usage reports are available for charge backs.
+Mainframes figure prominently in the history of computing and remain viable for highly specific workloads. Most agree that mainframes are a proven platform with long-established operating procedures that make them reliable, robust environments. Software runs based on usage, measured in million instructions per second (MIPS), and extensive usage reports are available for chargebacks.
 
 The reliability, availability, and processing power of mainframes have taken on almost mythical proportions. To evaluate the mainframe workloads that are most suitable for Azure, you first want to distinguish the myths from the reality.
 
@@ -25,15 +25,15 @@ A mainframe’s scalability depends on the capacity of its system software, such
 
 The new core-dense, Intel-based systems have as much compute capacity as mainframes.
 
-## Myth: The cloud cannot accommodate mission-critical applications for large companies, such as financial institutions
+## Myth: The cloud can't accommodate mission-critical applications for large companies such as financial institutions
 
-Although there may be some isolated instances where cloud solutions fall short, it is usually because the application algorithms cannot be distributed. These few examples are the exceptions, not the rule.
+Although there may be some isolated instances where cloud solutions fall short, it is usually becuase the application algorithms cannot be distributed. These few examples are the exceptions, not the rule.
 
 ## Summary
 
-By comparison, Azure offers  an alternative platform that is capable of delivering equivalent mainframe functionality and features, and at a much lower cost. In addition, the total cost of ownership (TCO) of the cloud’s subscription-based, usage-driven cost model is far less expensive than mainframe computers.
+By comparison, Azure offers an alternative platform that is capable of delivering equivalent mainframe functionality and features, and at a much lower cost. In addition, the total cost of ownership (TCO) of the cloud’s subscription-based, usage-driven cost model is far less expensive than mainframe computers.
 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Make the Switch from Mainframes to Azure](migration-strategies.md)
+> [Make the switch from mainframes to Azure](migration-strategies.md)

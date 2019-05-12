@@ -10,7 +10,7 @@ ms.subservice: cloud-fundamentals
 
 # Extending on-premises data solutions to the cloud
 
-When organizations move workloads and data to the cloud, their on-premises datacenters often continue to play an important role. The term *hybrid cloud* refers to a combination of public cloud and on-premises data centers, to create an integrated IT environment that spans both. Some organizations use hybrid cloud as a path to migrate their entire datacenter to the cloud ove time. Other organizations use cloud services to extend their existing on-premises infrastructure.
+When organizations move workloads and data to the cloud, their on-premises datacenters often continue to play an important role. The term *hybrid cloud* refers to a combination of public cloud and on-premises datacenters, to create an integrated IT environment that spans both. Some organizations use hybrid cloud as a path to migrate their entire datacenter to the cloud over time. Other organizations use cloud services to extend their existing on-premises infrastructure.
 
 This article describes some considerations and best practices for managing data in a hybrid cloud solution,
 
@@ -18,10 +18,10 @@ This article describes some considerations and best practices for managing data 
 
 Consider using a hybrid solution in the following scenarios:
 
-- As a transition strategy during a longer-term migration to a fully cloud native solution.
+- As a transition strategy during a longer-term migration to a fully cloud-native solution.
 - When regulations or policies do not permit moving specific data or workloads to the cloud.
 - For disaster recovery and fault tolerance, by replicating data and services between on-premises and cloud environments.
-- To reduce latency between your on-premises data center and remote locations, by hosting part of your architecture in Azure.
+- To reduce latency between your on-premises datacenter and remote locations, by hosting part of your architecture in Azure.
 
 ## Challenges
 
@@ -35,13 +35,13 @@ Consider using a hybrid solution in the following scenarios:
 
 ## On-premises data stores
 
-On-premises data stores include databases and files. There may be several reasons to keep these local. There there may be regulations or policies that do not permit moving specific data or workloads to the cloud. Data sovereignty, privacy, or security concerns may favor on-premises placement. During a migration, you may want to keep some data local to an application that hasn't been migrated yet.
+On-premises data stores include databases and files. There may be several reasons to keep these data stores local. There may be regulations or policies that do not permit moving specific data or workloads to the cloud. Data sovereignty, privacy, or security concerns may favor on-premises placement. During a migration, you may want to keep some data local to an application that hasn't been migrated yet.
 
 Considerations in placing application data in a public cloud include:
 
 - **Cost**. The cost of storage in Azure can be significantly lower than the cost of maintaining storage with similar characteristics in an on-premises datacenter. Of course, many companies have existing investments in high-end SANs, so these cost advantages may not reach full fruition until existing hardware ages out.
 
-- **Elastic scale**. Planning and managing data capacity growth in an on-premises environment can be challenging, particularly when data growth is difficult to predict. These applications can take advantage of the capacity-on-demand and virtually unlimited storage available in the cloud. This consideration is less relevant for applications that consist of relatively static sized datasets.
+- **Elastic scale**. Planning and managing data capacity growth in an on-premises environment can be challenging, particularly when data growth is difficult to predict. These applications can take advantage of the capacity-on-demand and virtually unlimited storage available in the cloud. This consideration is less relevant for applications that consist of relatively static-sized datasets.
 
 - **Disaster recovery**. Data stored in Azure can be automatically replicated within an Azure region and across geographic regions. In hybrid environments, these same technologies can be used to replicate between on-premises and cloud-based data stores.
 
@@ -63,7 +63,7 @@ The following are some use cases for Azure and Azure Stack:
 
 - **Cloud applications that meet varied regulations**. Develop and deploy applications in Azure, with the flexibility to deploy the same applications on-premises on Azure Stack to meet regulatory or policy requirements.
 
-- **Cloud application model on-premises**. Use Azure to update and extend existing applications or build new ones. Use a consistent DevOps processes across Azure in the cloud and Azure Stack on-premises.
+- **Cloud application model on-premises**. Use Azure to update and extend existing applications or build new ones. Use consistent DevOps processes across Azure in the cloud and Azure Stack on-premises.
 
 ## SQL Server data stores
 
@@ -91,7 +91,7 @@ For more information, see [Deciding when to use Azure Blob storage, Azure Files,
 
 ## Hybrid networking
 
-This article focused on hybrid data solutions, but another consideration is how to extend your on-premises network to Azure. For more information about this aspect of hybrid solutions, see the following topics:
+This article focused on hybrid data solutions, but another consideration is how to extend your on-premises network to Azure. For more information about this aspect of hybrid solutions, see:
 
 - [Choose a solution for connecting an on-premises network to Azure](../../reference-architectures/hybrid-networking/considerations.md)
 - [Hybrid network reference architectures](../../reference-architectures/hybrid-networking/index.md)

@@ -44,7 +44,7 @@ A single shard can contain the data for several shardlets. For example, you can 
 
 ![Implementing multiple shard maps](./images/data-partitioning/MultipleShardMaps.png)
 
-Elastic pools makes it possible to add and remove shards as the volume of data shrinks and grows. Client applications can create and delete shards dynamically, and transparently update the shard map manager. However, removing a shard is a destructive operation that also requires deleting all the data in that shard.
+Elastic pools make it possible to add and remove shards as the volume of data shrinks and grows. Client applications can create and delete shards dynamically, and transparently update the shard map manager. However, removing a shard is a destructive operation that also requires deleting all the data in that shard.
 
 If an application needs to split a shard into two separate shards or combine shards, use the [split-merge tool](/azure/sql-database/sql-database-elastic-scale-overview-split-and-merge). This tool runs as an Azure web service, and migrates data safely between shards.
 
@@ -88,7 +88,7 @@ Each table has multiple partitions.
 
 - In the Customer Info table, the data is partitioned according to the city where the customer is located. The row key contains the customer ID.
 - In the Product Info table, products are partitioned by product category, and the row key contains the product number.
-- In the Order Info table, the orders are partitioned by order date, and the row key specifies the time the order was received. Note that all data is ordered by the row key in each partition.
+- In the Order Info table, the orders are partitioned by order date, and the row key specifies the time the order was received. All data is ordered by the row key in each partition.
 
 Consider the following points when you design your entities for Azure table storage:
 
@@ -120,7 +120,7 @@ Each blob (either block or page) is held in a container in an Azure storage acco
 
 The partition key for a blob is account name + container name + blob name. The partition key is used to partition data into ranges and these ranges are load-balanced across the system. Blobs can be distributed across many servers in order to scale out access to them, but a single blob can only be served by a single server.
 
-If your naming scheme uses timestamps or numerical identifiers, it can lead to excessive traffic going to one partition, limiting the system from effectively load balancing. For instance, if you have daily operations that use a blob object with a timestamp such as *yyyy-mm-dd*, all the traffic for that operation would go to a single partition server. Instead, consider prefixing the name with a 3-digit hash. For more information, see [Partition Naming Convention](/azure/storage/common/storage-performance-checklist#subheading47)
+If your naming scheme uses timestamps or numerical identifiers, it can lead to excessive traffic going to one partition, limiting the system from effectively load balancing. For instance, if you have daily operations that use a blob object with a timestamp such as *yyyy-mm-dd*, all the traffic for that operation would go to a single partition server. Instead, consider prefixing the name with a three-digit hash. For more information, see [Partition Naming Convention](/azure/storage/common/storage-performance-checklist#subheading47)
 
 The actions of writing a single block or page are atomic, but operations that span blocks, pages, or blobs are not. If you need to ensure consistency when performing write operations across blocks, pages, and blobs, take out a write lock by using a blob lease.
 
@@ -169,7 +169,7 @@ Consider the following points when deciding if or how to partition a Service Bus
 
 ## Partitioning Cosmos DB
 
-Azure Cosmos DB is a NoSQL database that can store JSON documents using the [Azure Cosmos DB SQL API][cosmosdb-sql-api]. A document in a Cosmos DB database is a JSON-serialized representation of an object or other piece of data. No fixed schemas are enforced except that every document must contain a unique ID.
+Azure Cosmos DB is a NoSQL database that can store JSON documents using the [Azure Cosmos DB SQL API][cosmos-db-sql-api]. A document in a Cosmos DB database is a JSON-serialized representation of an object or other piece of data. No fixed schemas are enforced except that every document must contain a unique ID.
 
 Documents are organized into collections. You can group related documents together in a collection. For example, in a system that maintains blog postings, you can store the contents of each blog post as a document in a collection. You can also create collections for each subject type. Alternatively, in a multitenant application, such as a system where different authors control and manage their own blog posts, you can partition blogs by author and create separate collections for each author. The storage space that's allocated to collections is elastic and can shrink or grow as needed.
 
@@ -209,11 +209,11 @@ You are billed for each SU that is allocated to your service. As the volume of s
 Each partition can contain a maximum of 15 million documents or occupy 300 GB of storage space (whichever is smaller). You can create up to 50 indexes. The performance of the service varies and depends on the complexity of the documents, the available indexes, and the effects of network latency. On average, a single replica (1 SU) should be able to handle 15 queries per second (QPS), although we recommend performing benchmarking with your own data to obtain a more precise measure of throughput. For more information, see [Service limits in Azure Search].
 
 > [!NOTE]
-> You can store a limited set of data types in searchable documents, including strings, Booleans, numeric data, datetime data, and some geographical data. For more details, see the page [Supported data types (Azure Search)] on the Microsoft website.
+> You can store a limited set of data types in searchable documents, including strings, Booleans, numeric data, datetime data, and some geographical data. For more information, see the page [Supported data types (Azure Search)] on the Microsoft website.
 
 You have limited control over how Azure Search partitions data for each instance of the service. However, in a global environment you might be able to improve performance and reduce latency and contention further by partitioning the service itself using either of the following strategies:
 
-- Create an instance of Azure Search in each geographic region, and ensure that client applications are directed towards the nearest available instance. This strategy requires that any updates to searchable content are replicated in a timely manner across all instances of the service.
+- Create an instance of Azure Search in each geographic region, and ensure that client applications are directed toward the nearest available instance. This strategy requires that any updates to searchable content are replicated in a timely manner across all instances of the service.
 
 - Create two tiers of Azure Search:
 
@@ -234,7 +234,7 @@ Native Redis (not Azure Redis Cache) supports server-side partitioning based on 
 
 Client applications simply send requests to any of the participating Redis servers (probably the closest one). The Redis server examines the client request. If it can be resolved locally, it performs the requested operation. Otherwise it forwards the request on to the appropriate server.
 
-This model is implemented by using Redis clustering, and is described in more detail on the [Redis cluster tutorial] page on the Redis website. Redis clustering is transparent to client applications. Additional Redis servers can be added to the cluster (and the data can be re-partitioned) without requiring that you reconfigure the clients.
+This model is implemented by using Redis clustering, and is described in more detail on the [Redis cluster tutorial] page on the Redis website. Redis clustering is transparent to client applications. Additional Redis servers can be added to the cluster (and the data can be repartitioned) without requiring that you reconfigure the clients.
 
 > [!IMPORTANT]
 > Azure Redis Cache currently supports Redis clustering in [premium](/azure/azure-cache-for-redis/cache-how-to-premium-clustering) tier only.
@@ -304,11 +304,11 @@ For considerations about trade-offs between availability and consistency, see [A
 [Azure Storage Table Design Guide]: /azure/storage/storage-table-design-guide
 [Building a Polyglot Solution]: https://msdn.microsoft.com/library/dn313279.aspx
 [cosmos-db-ru]: /azure/cosmos-db/request-units
-[Data Access for Highly-Scalable Solutions: Using SQL, NoSQL, and Polyglot Persistence]: https://msdn.microsoft.com/library/dn271399.aspx
+[Data Access for Highly Scalable Solutions: Using SQL, NoSQL, and Polyglot Persistence]: https://msdn.microsoft.com/library/dn271399.aspx
 [Data consistency primer]: https://aka.ms/Data-Consistency-Primer
 [Data Partitioning Guidance]: https://msdn.microsoft.com/library/dn589795.aspx
 [Data Types]: https://redis.io/topics/data-types
-[cosmosdb-sql-api]: /azure/cosmos-db/sql-api-introduction
+[cosmos-db-sql-api]: /azure/cosmos-db/sql-api-introduction
 [Elastic Database features overview]: /azure/sql-database/sql-database-elastic-scale-introduction
 [event-hubs]: /azure/event-hubs
 [Federations Migration Utility]: https://code.msdn.microsoft.com/vstudio/Federations-Migration-ce61e9c1

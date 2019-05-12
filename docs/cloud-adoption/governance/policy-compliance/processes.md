@@ -1,6 +1,6 @@
 ---
-title: "CAF: Monitor and enforce policy adherence"
-description: How do you ensure compliance with established policies? 
+title: "Monitor and enforce policy adherence"
+description: How do you ensure compliance with established policies?
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
@@ -19,7 +19,7 @@ I've defined policies, I've provided an architecture guide. Now how do I monitor
 
 After establishing your cloud policy statements and drafting a design guide, you'll need to create a strategy for ensuring your cloud deployment stays in compliance with your policy requirements. This strategy will need to encompass your Cloud Governance team's ongoing review and communication processes, establish criteria for when policy violations require action, and defining the requirements for automated monitoring and compliance systems that will detect violations and trigger remediation actions.
 
-See the corporate policy sections of the [actionable governance journeys](../journeys/overview.md) for examples of how policy adherence process fit into a cloud governance plan.
+See the corporate policy sections of the [actionable governance journeys](../journeys/index.md) for examples of how policy adherence process fit into a cloud governance plan.
 
 ## Prioritize policy adherence processes
 
@@ -35,23 +35,21 @@ Before defining triggers for policy compliance remediation, you need establish t
 
 ### Assign Cloud Governance team members
 
-Who will provide ongoing guidance on policy compliance and handle policy-related issues that emerge when deploying and operating your cloud assets? The size and composition of your Cloud Governance team will depend on the complexity of your policy requirements, and the budgeting and staffing priorities you've attached to policy compliance.
+Your Cloud Governance team will provide ongoing guidance on policy compliance and handle policy-related issues that emerge when deploying and operating your cloud assets. When building this team, invite staff from your organization that have expertise in areas covered by your defined policy statements and identified risks.
 
-Choose team members that have expertise in the areas covered by your defined policy statements. For initial test deployments this can be limited to a few system administrators responsible for establishing the basics of governance. As your deployments mature and your policies become more complex and more integrated with your wider corporate policy requirements, your Cloud Governance team will need to change to support increasingly complicated policy requirements.
-
-As your governance processes mature, review the cloud guidance team's membership regularly to ensure that you can properly address the latest policy requirements. Identify members of your IT staff with relevant experience or interest in specific areas of governance and include them in your teams on a permanent or ad-hoc basis as-needed.
+For initial test deployments this can be limited to a few system administrators responsible for establishing the basics of governance. As your governance processes mature, review the cloud guidance team's membership regularly to ensure that you can properly address new potential risks and policy requirements. Identify members of your IT and business staff with relevant experience or interest in specific areas of governance and include them in your teams on a permanent or ad-hoc basis as-needed.
 
 ### Reviews and policy iteration
 
-As additional resources are deployed, the Cloud Governance team will need to ensure that new workloads or assets comply with policy requirements. Plan to meet with the teams responsible for deploying any new resources to discuss alignment with your design guides.
+As additional resources and workloads are deployed, the Cloud Governance team will need to ensure that new workloads or assets comply with policy requirements. Evaluate new requirements from workload development teams to ensure their planned deployments will align with your design guides, and update your policies to support these requirements when appropriate.
 
-As your overall deployment grows, evaluate new potential risks regularly and update policy statements and design guides as needed. Schedule regular review cycles each of the five governance disciplines to ensure policy is up-to-date and being met.
+Plan to evaluate new potential risks and update policy statements and design guides as needed. Work with IT staff and workload teams to evaluate new Azure features and services on an ongoing basis. Also schedule regular review cycles each of the five governance disciplines to ensure policy is up-to-date and being met.
 
 ### Education
 
 Policy compliance requires IT staff and developers to understand the policy requirements that affect their areas of responsibility. Plan to devote resources to document decisions and requirements, and educate all relevant teams on the design guides that support your policy requirements.
 
-As policy changes, regularly update documentation and training materials, and ensure education efforts communicate updated requirements and guidance to relevant IT staff.  
+As policy changes, regularly update documentation and training materials, and ensure education efforts communicate updated requirements and guidance to relevant IT staff.
 
 ### Establish escalation paths
 
@@ -65,12 +63,12 @@ After defining your Cloud Governance team and its processes, you need to explici
 
 For each of your policy statements, review requirements to determine what constitutes a policy violation. Generate your triggers using the information you've already established as part of the policy definition process.
 
-* Risk tolerance - Create violation triggers based on the metrics and risk indicators you established as part of your [risk tolerance analysis](risk-tolerance.md).
-* Defined policy requirements - Policy statements may provide Service Level Agreement (SLA), Business continuity and disaster recovery (BRCD), or performance requirements that should be used as the basis for compliance triggers.
+- **Risk tolerance:** Create violation triggers based on the metrics and risk indicators you established as part of your [risk tolerance analysis](risk-tolerance.md).
+- **Defined policy requirements:** Policy statements may provide service level agreement (SLA), business continuity and disaster recovery (BCDR), or performance requirements that should be used as the basis for compliance triggers.
 
 ### Define actions
 
-Each violation trigger should have a corresponding action. Triggered actions should always notify an appropriate IT staff or Cloud Governance team member when a violation occurs. This notification can lead to a manual review of the compliance issue or kickoff a pre-established remediation process depending on the type and severity of the detected violation.
+Each violation trigger should have a corresponding action. Triggered actions should always notify an appropriate IT staff or Cloud Governance team member when a violation occurs. This notification can lead to a manual review of the compliance issue or kickoff a predefined remediation process depending on the type and severity of the detected violation.
 
 Some examples of violation triggers and actions:
 
@@ -84,4 +82,4 @@ Some examples of violation triggers and actions:
 
 After you've defined your compliance violation triggers and actions, you can start planning how best to use the logging and reporting tools and other features of the cloud platform to help automate your monitoring and policy compliance strategy.
 
-Consult the CAF [logging and reporting decision guide](../../decision-guides/log-and-report/overview.md) topic for guidance on choosing the best monitoring pattern for your deployment.
+Consult the Cloud Adoption Framework [logging and reporting decision guide](../../decision-guides/log-and-report/index.md) topic for guidance on choosing the best monitoring pattern for your deployment.

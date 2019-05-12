@@ -1,7 +1,7 @@
 ---
-title: Retry service specific guidance
+title: Retry guidance for specific services
 titleSuffix: Best practices for cloud applications
-description: Service specific guidance for setting the retry mechanism.
+description: Service-specific guidance for setting the retry mechanism.
 author: dragon119
 ms.date: 08/13/2018
 ms.topic: best-practice
@@ -48,7 +48,7 @@ Azure Active Directory (Azure AD) is a comprehensive identity and access managem
 
 ### Retry mechanism
 
-There is a built-in retry mechanism for Azure Active Directory in the Active Directory Authentication Library (ADAL). To avoid unexpected lockouts, we recommend that third party libraries and application code do **not** retry failed connections, but allow ADAL to handle retries.
+There is a built-in retry mechanism for Azure Active Directory in the Active Directory Authentication Library (ADAL). To avoid unexpected lockouts, we recommend that third-party libraries and application code do **not** retry failed connections, but allow ADAL to handle retries.
 
 ### Retry usage guidance
 
@@ -58,7 +58,7 @@ Consider the following guidelines when using Azure Active Directory:
 - If you are using the REST API for Azure Active Directory, retry the operation if the result code is 429 (Too Many Requests) or an error in the 5xx range. Do not retry for any other errors.
 - An exponential back-off policy is recommended for use in batch scenarios with Azure Active Directory.
 
-Consider starting with the following settings for retrying operations. These are general purpose settings, and you should monitor the operations and fine tune the values to suit your own scenario.
+Consider starting with the following settings for retrying operations. These settings are general purpose, and you should monitor the operations and fine-tune the values to suit your own scenario.
 
 | **Context** | **Sample target E2E<br />max latency** | **Retry strategy** | **Settings** | **Values** | **How it works** |
 | --- | --- | --- | --- | --- | --- |
@@ -71,7 +71,7 @@ Consider starting with the following settings for retrying operations. These are
 
 ## Cosmos DB
 
-Cosmos DB is a fully-managed multi-model database that supports schema-less JSON data. It offers configurable and reliable performance, native JavaScript transactional processing, and is built for the cloud with elastic scale.
+Cosmos DB is a fully managed multi-model database that supports schemaless JSON data. It offers configurable and reliable performance, native JavaScript transactional processing, and is built for the cloud with elastic scale.
 
 ### Retry mechanism
 
@@ -164,7 +164,7 @@ Azure Redis Cache is a fast data access and low latency cache service based on t
 
 The guidance in this section is based on using the StackExchange.Redis client to access the cache. A list of other suitable clients can be found on the [Redis website](https://redis.io/clients), and these may have different retry mechanisms.
 
-Note that the StackExchange.Redis client uses multiplexing through a single connection. The recommended usage is to create an instance of the client at application startup and use this instance for all operations against the cache. For this reason, the connection to the cache is made only once, and so all of the guidance in this section is related to the retry policy for this initial connection &mdash; and not for each operation that accesses the cache.
+Note that the StackExchange.Redis client uses multiplexing through a single connection. The recommended usage is to create an instance of the client at application startup and use this instance for all operations against the cache. For this reason, the connection to the cache is made only once, and so all of the guidance in this section is related to the retry policy for this initial connection&mdash;and not for each operation that accesses the cache.
 
 ### Retry mechanism
 
@@ -195,7 +195,7 @@ var options = new ConfigurationOptions
 ConnectionMultiplexer redis = ConnectionMultiplexer.Connect(options, writer);
 ```
 
-Alternatively, you can specify the options as a string, and pass this to the **Connect** method. Note that the **ReconnectRetryPolicy** property cannot be set this way, only through code.
+Alternatively, you can specify the options as a string, and pass this to the **Connect** method. The **ReconnectRetryPolicy** property cannot be set this way, only through code.
 
 ```csharp
 var options = "localhost,connectRetry=3,connectTimeout=2000";
@@ -217,7 +217,7 @@ The following table shows the default settings for the built-in retry policy.
 | ConfigurationOptions |ConnectRetry<br /><br />ConnectTimeout<br /><br />SyncTimeout<br /><br />ReconnectRetryPolicy |3<br /><br />Maximum 5000 ms plus SyncTimeout<br />1000<br /><br />LinearRetry 5000 ms |The number of times to repeat connect attempts during the initial connection operation.<br />Timeout (ms) for connect operations. Not a delay between retry attempts.<br />Time (ms) to allow for synchronous operations.<br /><br />Retry every 5000 ms.|
 
 > [!NOTE]
-> For synchronous operations, `SyncTimeout` can add to the end-to-end latency, but setting the value too low can cause excessive timeouts. See [How to troubleshoot Azure Redis Cache][redis-cache-troubleshoot]. In general, avoid using synchronous operations, and use asynchronous operations instead. For more information see [Pipelines and Multiplexers](https://github.com/StackExchange/StackExchange.Redis/blob/master/docs/PipelinesMultiplexers.md).
+> For synchronous operations, `SyncTimeout` can add to the end-to-end latency, but setting the value too low can cause excessive timeouts. See [How to troubleshoot Azure Redis Cache][redis-cache-troubleshoot]. In general, avoid using synchronous operations, and use asynchronous operations instead. For more information, see [Pipelines and Multiplexers](https://github.com/StackExchange/StackExchange.Redis/blob/master/docs/PipelinesMultiplexers.md).
 
 ### Retry usage guidance
 
@@ -367,7 +367,7 @@ Service Bus implements retries using implementations of the [RetryPolicy](/dotne
 
 - The [RetryExponential class](/dotnet/api/microsoft.servicebus.retryexponential). This exposes properties that control the back-off interval, the retry count, and the **TerminationTimeBuffer** property that is used to limit the total time for the operation to complete.
 
-- The [NoRetry class](/dotnet/api/microsoft.servicebus.noretry). This is used when retries at the Service Bus API level are not required, such as when retries are managed by another process as part of a batch or multiple step operation.
+- The [NoRetry class](/dotnet/api/microsoft.servicebus.noretry). This is used when retries at the Service Bus API level are not required, such as when retries are managed by another process as part of a batch or multistep operation.
 
 Service Bus actions can return a range of exceptions, as listed in [Service Bus messaging exceptions](/azure/service-bus-messaging/service-bus-messaging-exceptions). The list provides information about which if these indicate that retrying the operation is appropriate. For example, a **ServerBusyException** indicates that the client should wait for a period of time, then retry the operation. The occurrence of a **ServerBusyException** also causes Service Bus to switch to a different mode, in which an extra 10-second delay is added to the computed retry delays. This mode is reset after a short period.
 
@@ -417,9 +417,9 @@ The following table shows the default settings for the built-in retry policy.
 Consider the following guidelines when using Service Bus:
 
 - When using the built-in **RetryExponential** implementation, do not implement a fallback operation as the policy reacts to Server Busy exceptions and automatically switches to an appropriate retry mode.
-- Service Bus supports a feature called Paired Namespaces, which implements automatic failover to a backup queue in a separate namespace if the queue in the primary namespace fails. Messages from the secondary queue can be sent back to the primary queue when it recovers. This feature helps to address transient failures. For more information, see [Asynchronous Messaging Patterns and High Availability](/azure/service-bus-messaging/service-bus-async-messaging).
+- Service Bus supports a feature called Paired Namespaces that implements automatic failover to a backup queue in a separate namespace if the queue in the primary namespace fails. Messages from the secondary queue can be sent back to the primary queue when it recovers. This feature helps to address transient failures. For more information, see [Asynchronous Messaging Patterns and High Availability](/azure/service-bus-messaging/service-bus-async-messaging).
 
-Consider starting with following settings for retrying operations. These are general purpose settings, and you should monitor the operations and fine tune the values to suit your own scenario.
+Consider starting with the following settings for retrying operations. These settings are general purpose, and you should monitor the operations and fine-tune the values to suit your own scenario.
 
 | Context | Example maximum latency | Retry policy | Settings | How it works |
 |---------|---------|---------|---------|---------|
@@ -589,7 +589,7 @@ Consider the following guidelines when accessing SQL Database using ADO.NET:
 - When connection pooling is in use (the default) there is a chance that the same connection will be chosen from the pool, even after closing and reopening a connection. If this is the case, a technique to resolve it is to call the **ClearPool** method of the **SqlConnection** class to mark the connection as not reusable. However, you should do this only after several connection attempts have failed, and only when encountering the specific class of transient failures such as SQL timeouts (error code -2) related to faulty connections.
 - If the data access code uses transactions initiated as **TransactionScope** instances, the retry logic should reopen the connection and initiate a new transaction scope. For this reason, the retryable code block should encompass the entire scope of the transaction.
 
-Consider starting with following settings for retrying operations. These are general purpose settings, and you should monitor the operations and fine tune the values to suit your own scenario.
+Consider starting with the following settings for retrying operations. These settings are general purpose, and you should monitor the operations and fine-tune the values to suit your own scenario.
 
 | **Context** | **Sample target E2E<br />max latency** | **Retry strategy** | **Settings** | **Values** | **How it works** |
 | --- | --- | --- | --- | --- | --- |
@@ -612,10 +612,10 @@ public async static Task<SqlDataReader> ExecuteReaderWithRetryAsync(this SqlComm
 
     var policy = Policy.Handle<Exception>().WaitAndRetryAsync(
         retryCount: 3, // Retry 3 times
-        sleepDurationProvider: attempt => TimeSpan.FromMilliseconds(200 * Math.Pow(2, attempt - 1)), // Exponential backoff based on an initial 200ms delay.
+        sleepDurationProvider: attempt => TimeSpan.FromMilliseconds(200 * Math.Pow(2, attempt - 1)), // Exponential backoff based on an initial 200 ms delay.
         onRetry: (exception, attempt) =>
         {
-            // Capture some info for logging/telemetry.
+            // Capture some information for logging/telemetry.
             logger.LogWarn($"ExecuteReaderWithRetryAsync: Retry {attempt} due to {exception}.");
         });
 
@@ -666,7 +666,7 @@ Retry support is provided when accessing SQL Database using Entity Framework 6.0
   - Default for SQL Database (automatic) - no retrying, but inspects exceptions and wraps them with suggestion to use the SQL Database strategy.
   - Default for SQL Database - exponential (inherited from base class) plus SQL Database detection logic.
 - It implements an exponential back-off strategy that includes randomization.
-- The built-in retry classes are stateful and are not thread safe. However, they can be reused after the current operation is completed.
+- The built-in retry classes are stateful and are not thread-safe. However, they can be reused after the current operation is completed.
 - If the specified retry count is exceeded, the results are wrapped in a new exception. It does not bubble up the current exception.
 
 ### Policy configuration
@@ -745,7 +745,7 @@ Consider the following guidelines when accessing SQL Database using EF6:
 
 - Entity Framework supports retry configurations defined in configuration files. However, for maximum flexibility on Azure you should consider creating the configuration programmatically within the application. The specific parameters for the retry policies, such as the number of retries and the retry intervals, can be stored in the service configuration file and used at runtime to create the appropriate policies. This allows the settings to be changed without requiring the application to be restarted.
 
-Consider starting with the following settings for retrying operations. You cannot specify the delay between retry attempts (it is fixed and generated as an exponential sequence). You can specify only the maximum values, as shown here; unless you create a custom retry strategy. These are general purpose settings, and you should monitor the operations and fine tune the values to suit your own scenario.
+Consider starting with the following settings for retrying operations. You cannot specify the delay between retry attempts (it is fixed and generated as an exponential sequence). You can specify only the maximum values, as shown here; unless you create a custom retry strategy. These settings are general purpose, and you should monitor the operations and fine-tune the values to suit your own scenario.
 
 | **Context** | **Sample target E2E<br />max latency** | **Retry policy** | **Settings** | **Values** | **How it works** |
 | --- | --- | --- | --- | --- | --- |
@@ -863,7 +863,7 @@ Azure Storage services include table and blob storage, files, and storage queues
 
 Retries occur at the individual REST operation level and are an integral part of the client API implementation. The client storage SDK uses classes that implement the [IExtendedRetryPolicy Interface](/dotnet/api/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy).
 
-There are different implementations of the interface. Storage clients can choose from policies specifically designed for accessing tables, blobs, and queues. Each implementation uses a different retry strategy that essentially defines the retry interval and other details.
+There are different implementations of the interface. Storage clients can choose from policies designed for accessing tables, blobs, and queues. Each implementation uses a different retry strategy that essentially defines the retry interval and other details.
 
 The built-in classes provide support for linear (constant delay) and exponential with randomization retry intervals. There is also a no retry policy for use when another process is handling retries at a higher level. However, you can implement your own retry classes if you have specific requirements not provided by the built-in classes.
 
@@ -915,7 +915,7 @@ context.RequestCompleted += (sender, args) =>
 var stats = await client.GetServiceStatsAsync(null, context);
 ```
 
-In addition to indicating whether a failure is suitable for retry, the extended retry policies return a **RetryContext** object that indicates the number of retries, the results of the last request, whether the next retry will happen in the primary or secondary location (see table below for details). The properties of the **RetryContext** object can be used to decide if and when to attempt a retry. For more details, see [IExtendedRetryPolicy.Evaluate Method](/dotnet/api/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate).
+In addition to indicating whether a failure is suitable for retry, the extended retry policies return a **RetryContext** object that indicates the number of retries, the results of the last request, whether the next retry will happen in the primary or secondary location (see table below for details). The properties of the **RetryContext** object can be used to decide if and when to attempt a retry. For more information, see [IExtendedRetryPolicy.Evaluate Method](/dotnet/api/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate).
 
 The following tables show the default settings for the built-in retry policies.
 
@@ -950,7 +950,7 @@ Consider the following guidelines when accessing Azure storage services using th
 
 - Use the built-in retry policies from the Microsoft.WindowsAzure.Storage.RetryPolicies namespace where they are appropriate for your requirements. In most cases, these policies will be sufficient.
 
-- Use the **ExponentialRetry** policy in batch operations, background tasks, or non-interactive scenarios. In these scenarios, you can typically allow more time for the service to recover &mdash; with a consequently increased chance of the operation eventually succeeding.
+- Use the **ExponentialRetry** policy in batch operations, background tasks, or non-interactive scenarios. In these scenarios, you can typically allow more time for the service to recover&mdash;with a consequently increased chance of the operation eventually succeeding.
 
 - Consider specifying the **MaximumExecutionTime** property of the **RequestOptions** parameter to limit the total execution time, but take into account the type and size of the operation when choosing a timeout value.
 
@@ -958,7 +958,7 @@ Consider the following guidelines when accessing Azure storage services using th
 
 - If you are using read access geo-redundant storage (RA-GRS) you can use the **LocationMode** to specify that retry attempts will access the secondary read-only copy of the store should the primary access fail. However, when using this option you must ensure that your application can work successfully with data that may be stale if the replication from the primary store has not yet completed.
 
-Consider starting with following settings for retrying operations. These are general purpose settings, and you should monitor the operations and fine tune the values to suit your own scenario.
+Consider starting with the following settings for retrying operations. These settings are general purpose, and you should monitor the operations and fine-tune the values to suit your own scenario.
 
 | **Context** | **Sample target E2E<br />max latency** | **Retry policy** | **Settings** | **Values** | **How it works** |
 | --- | --- | --- | --- | --- | --- |
@@ -967,7 +967,7 @@ Consider starting with following settings for retrying operations. These are gen
 
 ### Telemetry
 
-Retry attempts are logged to a **TraceSource**. You must configure a **TraceListener** to capture the events and write them to a suitable destination log. You can use the **TextWriterTraceListener** or **XmlWriterTraceListener** to write the data to a log file, the **EventLogTraceListener** to write to the Windows Event Log, or the **EventProviderTraceListener** to write trace data to the ETW subsystem. You can also configure auto-flushing of the buffer, and the verbosity of events that will be logged (for example, Error, Warning, Informational, and Verbose). For more information, see [Client-side Logging with the .NET Storage Client Library](/rest/api/storageservices/Client-side-Logging-with-the-.NET-Storage-Client-Library).
+Retry attempts are logged to a **TraceSource**. You must configure a **TraceListener** to capture the events and write them to a suitable destination log. You can use the **TextWriterTraceListener** or **XmlWriterTraceListener** to write the data to a log file, the **EventLogTraceListener** to write to the Windows Event Log, or the **EventProviderTraceListener** to write trace data to the ETW subsystem. You can also configure autoflushing of the buffer, and the verbosity of events that will be logged (for example, Error, Warning, Informational, and Verbose). For more information, see [Client-side Logging with the .NET Storage Client Library](/rest/api/storageservices/Client-side-Logging-with-the-.NET-Storage-Client-Library).
 
 Operations can receive an **OperationContext** instance, which exposes a **Retrying** event that can be used to attach custom telemetry logic. For more information, see [OperationContext.Retrying Event](/dotnet/api/microsoft.windowsazure.storage.operationcontext.retrying).
 
@@ -1056,11 +1056,11 @@ namespace RetryCodeSamples
 
 ## General REST and retry guidelines
 
-Consider the following when accessing Azure or third party services:
+Consider the following when accessing Azure or third-party services:
 
 - Use a systematic approach to managing retries, perhaps as reusable code, so that you can apply a consistent methodology across all clients and all solutions.
 
-- Consider using a retry framework such as [Polly][polly] to manage retries if the target service or client has no built-in retry mechanism. This will help you implement a consistent retry behavior, and it may provide a suitable default retry strategy for the target service. However, you may need to create custom retry code for services that have non-standard behavior, that do not rely on exceptions to indicate transient failures, or if you want to use a **Retry-Response** reply to manage retry behavior.
+- Consider using a retry framework such as [Polly][polly] to manage retries if the target service or client has no built-in retry mechanism. This will help you implement a consistent retry behavior, and it may provide a suitable default retry strategy for the target service. However, you may need to create custom retry code for services that have nonstandard behavior, that do not rely on exceptions to indicate transient failures, or if you want to use a **Retry-Response** reply to manage retry behavior.
 
 - The transient detection logic will depend on the actual client API you use to invoke the REST calls. Some clients, such as the newer **HttpClient** class, will not throw exceptions for completed requests with a non-success HTTP status code.
 
@@ -1131,7 +1131,7 @@ The following are the typical types of retry strategy intervals:
 [autorest]: https://github.com/Azure/autorest/tree/master/docs
 [ConnectionPolicy.RetryOptions]: https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.retryoptions.aspx
 [dotnet-foundation]: https://dotnetfoundation.org/
-[polly]: http://www.thepollyproject.org
+[polly]: http://thepollyproject.org
 [redis-cache-troubleshoot]: /azure/redis-cache/cache-how-to-troubleshoot
 [SearchIndexClient]: https://msdn.microsoft.com/library/azure/microsoft.azure.search.searchindexclient.aspx
 [SearchServiceClient]: https://msdn.microsoft.com/library/microsoft.azure.search.searchserviceclient.aspx

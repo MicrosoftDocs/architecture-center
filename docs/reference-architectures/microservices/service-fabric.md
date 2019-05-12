@@ -153,7 +153,7 @@ For more information, see:
 
 - [Scale a Service Fabric cluster in or out using autoscale rules or manually](/azure/service-fabric/service-fabric-cluster-scale-up-down)
 - [Scale a Service Fabric cluster programmatically](/azure/service-fabric/service-fabric-cluster-programmatic-scaling)
-- [Scale a Service Fabric cluster out by adding a Virtual Machine Scale Set](/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out)
+- [Scale a Service Fabric cluster out by adding a virtual machine scale set](/azure/service-fabric/virtual-machine-scale-set-scale-node-type-scale-out)
 
 ### Using metrics to balance load
 

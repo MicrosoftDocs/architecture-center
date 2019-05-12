@@ -1,5 +1,5 @@
 ---
-title: "CAF: Security Baseline motivations and business risks"
+title: "Security Baseline motivations and business risks"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
@@ -19,14 +19,14 @@ This article discusses the reasons that customers typically adopt a Security Bas
 
 Security is a key concern for any IT organization. Cloud deployments face many of the same security risks as workloads hosted in traditional on-premises datacenters. However, the nature of public cloud platforms, with a lack of direct ownership of the physical hardware storing and running your workloads, means cloud security requires its own policy and processes.
 
-One of the primary things that set cloud security governance apart from traditional security policy is the ease with which resources can be created, potentially adding vulnerabilities if security isn't considered before deployment. The flexibility that technologies like [software defined networking (SDN)](../../decision-guides/software-defined-network/overview.md) provide for rapidly changing your cloud-based network topology can also easily modify your overall network attack surface in unforeseen ways. Cloud platforms also provide tools and features that can improve your security capabilities in ways not always possible in on-premises environments.
+One of the primary things that sets cloud security governance apart from traditional security policy is the ease with which resources can be created, potentially adding vulnerabilities if security isn't considered before deployment. The flexibility that technologies like [software defined networking (SDN)](../../decision-guides/software-defined-network/index.md) provide for rapidly changing your cloud-based network topology can also easily modify your overall network attack surface in unforeseen ways. Cloud platforms also provide tools and features that can improve your security capabilities in ways not always possible in on-premises environments.
 
 The amount you invest into security policy and processes will depend a great deal on the nature of your cloud deployment. Initial test deployments may only need the most basic of security policies in place, while a mission-critical workload will entail addressing complex and extensive security needs. All deployments will need to engage with the discipline at some level.
 
 The Security Baseline discipline covers the corporate policies and manual processes that you can put in place to protect your cloud deployment against security risks.
 
 > [!NOTE]
->While it is important to understand [Identity Baseline](../identity-baseline/overview.md) in the context of Security Baseline and how that relates to Access Control, the [Five Disciplines of Cloud Governance](../overview.md) calls out [Identity Baseline](../identity-baseline/overview.md) as its own discipline, separate from Security Baseline.
+>While it is important to understand [Identity Baseline](../identity-baseline/index.md) in the context of Security Baseline and how that relates to Access Control, the [Five Disciplines of Cloud Governance](../index.md) calls out [Identity Baseline](../identity-baseline/index.md) as its own discipline, separate from Security Baseline.
 
 ## Business risk
 
@@ -34,12 +34,12 @@ The Security Baseline discipline attempts to address core security-related busin
 
 Risks will differ between organization, but the following serve as common security-related risks that you can use as a starting point for discussions within your Cloud Governance team:
 
-- **Data breach**. Inadvertent exposure or loss of sensitive cloud-hosted data can lead to losing customers, contractual issues, or legal consequences.
-- **Service disruption**. Outages and other performance issues due to insecure infrastructure interrupts normal operations and can result in lost productivity or lost business.
+- **Data breach:** Inadvertent exposure or loss of sensitive cloud-hosted data can lead to losing customers, contractual issues, or legal consequences.
+- **Service disruption:** Outages and other performance issues due to insecure infrastructure interrupts normal operations and can result in lost productivity or lost business.
 
 ## Next steps
 
-Using the [Cloud Management Template](./template.md), document business risks that are likely to be introduced by the current cloud adoption plan.
+Using the [Cloud Management template](./template.md), document business risks that are likely to be introduced by the current cloud adoption plan.
 
 Once an understanding of realistic business risks is established, the next step is to document the business's tolerance for risk and the indicators and key metrics to monitor that tolerance.
 

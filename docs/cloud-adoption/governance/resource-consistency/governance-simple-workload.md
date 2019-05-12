@@ -1,10 +1,10 @@
 ---
-title: "CAF: Governance design for a simple workload"
+title: "Governance design for a simple workload"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
-description: Guidance for configuring Azure governance controls to enable a user to deploy a simple workload
+description: Guidance for configuring Azure governance controls to enable a user to deploy a simple workload.
 author: petertaylor9999
 ms.date: 02/11/2019
 ---
@@ -15,15 +15,15 @@ The goal of this guidance is to help you learn the process for designing a resou
 
 In the foundational adoption stage, our goal is to deploy a simple workload to Azure. This results in the following requirements:
 
-* Identity management for a single **workload owner** who is responsible for deploying and maintaining the simple workload. The workload owner requires permission to create, read, update, and delete resources as well as permission to delegate these rights to other users in the identity management system.
-* Manage all resources for the simple workload as a single management unit.
+- Identity management for a single **workload owner** who is responsible for deploying and maintaining the simple workload. The workload owner requires permission to create, read, update, and delete resources as well as permission to delegate these rights to other users in the identity management system.
+- Manage all resources for the simple workload as a single management unit.
 
 ## Licensing Azure
 
-Before you begin designing our governance model, it's important to understand how Azure is licensed. This is because the administrative accounts associated with your Azure license have the highest level of access to all of your Azure resources. These administrative accounts form the basis of your governance model.  
+Before you begin designing our governance model, it's important to understand how Azure is licensed. This is because the administrative accounts associated with your Azure license have the highest level of access to your Azure resources. These administrative accounts form the basis of your governance model.
 
 > [!NOTE]
-> If your organization has an existing [Microsoft Enterprise Agreement](https://www.microsoft.com/licensing/licensing-programs/enterprise.aspx) that does not include Azure, Azure can be added by making an upfront monetary commitment. See [licensing Azure for the enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/) for more information.
+> If your organization has an existing [Microsoft Enterprise Agreement](https://www.microsoft.com/licensing/licensing-programs/enterprise.aspx) that does not include Azure, Azure can be added by making an upfront monetary commitment. See [licensing Azure for the enterprise](https://azure.microsoft.com/pricing/enterprise-agreement) for more information.
 
 When Azure was added to your organization's Enterprise Agreement, your organization was prompted to create an **Azure account**. During the account creation process, an **Azure account owner** was created, as well as an Azure Active Directory (Azure AD) tenant with a **global administrator** account. An Azure AD tenant is a logical construct that represents a secure, dedicated instance of Azure AD.
 
@@ -36,7 +36,7 @@ Azure only trusts [Azure AD](/azure/active-directory) to authenticate users and 
 
 Our requirement is identity management for a single **workload owner** who is responsible for deploying and maintaining the simple workload. The workload owner requires permission to create, read, update, and delete resources as well as permission to delegate these rights to other users in the identity management system.
 
-Our Azure AD global administrator will create the **workload owner** account for the **workload owner**:
+Our Azure AD global administrator will create the **workload owner** account for the workload owner:
 
 ![The Azure AD global administrator creates the workload owner account](../../_images/governance-1-2.png)
 *Figure 2. The Azure AD global administrator creates the workload owner user account.*
@@ -64,7 +64,7 @@ Since the **account owner** is currently the only user with permission to add th
 ![The Azure account owner adds the **workload owner** to the subscription](../../_images/governance-1-5.png)
 *Figure 5. The Azure account owner adds the workload owner to the subscription.*
 
-The Azure **account owner** grants permissions to the **workload owner** by assigning a [role-based access control (RBAC)](/azure/role-based-access-control/) role. The RBAC role specifies a set of permissions that the **workload owner** has for an individual resource type or a set of resource types.
+The Azure **account owner** grants permissions to the **workload owner** by assigning a [role-based access control (RBAC)](/azure/role-based-access-control) role. The RBAC role specifies a set of permissions that the **workload owner** has for an individual resource type or a set of resource types.
 
 Notice that in this example, the **account owner** has assigned the [built-in **owner** role](/azure/role-based-access-control/built-in-roles#owner):
 
@@ -74,7 +74,7 @@ Notice that in this example, the **account owner** has assigned the [built-in **
 The built-in **owner** role grants all permissions to the **workload owner** at the subscription scope.
 
 > [!IMPORTANT]
-> The Azure **account owner** is responsible for the financial commitment associated with the subscription, but the **workload owner** has the same permissions. The **account owner** must trust the **workload owner** to deploy resources that are within the subscription budget.
+> The Azure **acount owner** is responsible for the financial committment associated with the subscription, but the **workload owner** has the same permissions. The **account owner** must trust the **workload owner** to deploy resources that are within the subscription budget.
 
 The next level of management scope is the **resource group** level. A resource group is a logical container for resources. Operations applied at the resource group level apply to all resources in a group. Also, it's important to note that permissions for each user are inherited from the next level up unless they are explicitly changed at that scope.
 
@@ -96,7 +96,7 @@ The **workload owner** inherits the owner role at the resource scope, which mean
 
 Let's move on to learn how to implement the governance model designed earlier.
 
-To begin, your organization requires an Azure account. If your organization has an existing [Microsoft Enterprise Agreement](https://www.microsoft.com/licensing/licensing-programs/enterprise.aspx) that does not include Azure, Azure can be added by making an upfront monetary commitment. See [licensing Azure for the enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/) for more information.
+To begin, your organization requires an Azure account. If your organization has an existing [Microsoft Enterprise Agreement](https://www.microsoft.com/licensing/licensing-programs/enterprise.aspx) that does not include Azure, Azure can be added by making an upfront monetary commitment. See [licensing Azure for the enterprise](https://azure.microsoft.com/pricing/enterprise-agreement) for more information.
 
 When your Azure account is created, you specify a person in your organization to be the Azure **account owner**. An Azure Active Directory (Azure AD) tenant is then created by default. Your Azure **account owner** must [create the user account](/azure/active-directory/add-users-azure-active-directory) for the person in your organization who is the **workload owner**.
 

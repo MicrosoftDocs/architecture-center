@@ -623,7 +623,7 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
                     </div>
                     <div class="cardText">
                         <h3>Multi-region N-tier application</h3>
-                        <p>N-tier application in two regions for high availability, using SQL Server Always On Availability Groups.</p>
+                        <p>N-tier application in two regions for high availability, using SQL Server Always On availability groups.</p>
                     </div>
                 </div>
             </div>
@@ -663,7 +663,7 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
                     </div>
                     <div class="cardText">
                         <h3>SharePoint Server 2016 farm</h3>
-                        <p>Highly available SharePoint Server 2016 farm on Azure with SQL Server Always On Availability Groups.</p>
+                        <p>Highly available SharePoint Server 2016 farm on Azure with SQL Server Always On availability groups.</p>
                     </div>
                 </div>
             </div>

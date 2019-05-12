@@ -12,7 +12,7 @@ ms.custom: seodec18
 
 # Monitoring and diagnostics
 
-Distributed applications and services running in the cloud are, by their nature, complex pieces of software that comprise many moving parts. In a production environment, it's important to be able to track the way in which users utilize your system, trace resource utilization, and generally monitor the health and performance of your system. You can use this information as a diagnostic aid to detect and correct issues, and also to help spot potential problems and prevent them from occurring.
+Distributed applications and services running in the cloud are, by their nature, complex pieces of software that comprise many moving parts. In a production environment, it's important to be able to track the way in which users use your system, trace resource utilization, and generally monitor the health and performance of your system. You can use this information as a diagnostic aid to detect and correct issues, and also to help spot potential problems and prevent them from occurring.
 
 ## Monitoring and diagnostics scenarios
 
@@ -33,10 +33,10 @@ You can use monitoring to gain an insight into how well a system is functioning.
 
 The following sections describe these scenarios in more detail. The information for each scenario is discussed in the following format:
 
-1. A brief overview of the scenario
-2. The typical requirements of this scenario
-3. The raw instrumentation data that's required to support the scenario, and possible sources of this information
-4. How this raw data can be analyzed and combined to generate meaningful diagnostic information
+1. A brief overview of the scenario.
+2. The typical requirements of this scenario.
+3. The raw instrumentation data that's required to support the scenario, and possible sources of this information.
+4. How this raw data can be analyzed and combined to generate meaningful diagnostic information.
 
 ## Health monitoring
 
@@ -95,7 +95,7 @@ A monitoring solution should provide an immediate and historical view of the ava
 
 As with health monitoring, the raw data that's required to support availability monitoring can be generated as a result of synthetic user monitoring and logging any exceptions, faults, and warnings that might occur. In addition, availability data can be obtained from performing endpoint monitoring. The application can expose one or more health endpoints, each testing access to a functional area within the system. The monitoring system can ping each endpoint by following a defined schedule and collect the results (success or fail).
 
-All timeouts, network connectivity failures, and connection retry attempts must be recorded. All data should be time-stamped.
+All timeouts, network connectivity failures, and connection retry attempts must be recorded. All data should be timestamped.
 
 ### Analyzing availability data
 
@@ -178,7 +178,7 @@ Depending on the visualization requirements, it might be useful to generate and 
 All commercial systems that include sensitive data must implement a security structure. The complexity of the security mechanism is usually a function of the sensitivity of the data. In a system that requires users to be authenticated, you should record:
 
 - All sign-in attempts, whether they fail or succeed.
-- All operations performed by &mdash; and the details of all resources accessed by &mdash; an authenticated user.
+- All operations performed by&mdash;and the details of all resources accessed by&mdash;an authenticated user.
 - When a user ends a session and signs out.
 
 Monitoring might be able to help detect attacks on the system. For example, a large number of failed sign-in attempts might indicate a brute-force attack. An unexpected surge in requests might be the result of a distributed denial-of-service (DDoS) attack. You must be prepared to monitor all requests to all resources regardless of the source of these requests. A system that has a sign-in vulnerability might accidentally expose resources to the outside world without requiring a user to actually sign in.
@@ -191,11 +191,11 @@ The most critical aspects of security monitoring should enable an operator to qu
 - Identify attempts by entities to perform operations on data for which they have not been granted access.
 - Determine whether the system, or some part of the system, is under attack from outside or inside. (For example, a malicious authenticated user might be attempting to bring the system down.)
 
-To support these requirements, an operator should be notified:
+To support these requirements, an operator should be notified if:
 
-- If one account makes repeated failed sign-in attempts within a specified period.
-- If one authenticated account repeatedly tries to access a prohibited resource during a specified period.
-- If a large number of unauthenticated or unauthorized requests occur during a specified period.
+- One account makes repeated failed sign-in attempts within a specified period.
+- One authenticated account repeatedly tries to access a prohibited resource during a specified period.
+- A large number of unauthenticated or unauthorized requests occur during a specified period.
 
 The information that's provided to an operator should include the host address of the source for each request. If security violations regularly arise from a particular range of addresses, these hosts might be blocked.
 
@@ -211,7 +211,7 @@ In all cases, the gathered data must enable an administrator to determine the na
 
 ### Analyzing security data
 
-A feature of security monitoring is the variety of sources from which the data arises. The different formats and level of detail often require complex analysis of the captured data to tie it together into a coherent thread of information. Apart from the simplest of cases (such as detecting a large number of failed sign-ins, or repeated attempts to gain unauthorized access to critical resources), it might not be possible to perform any complex automated processing of security data. Instead, it might be preferable to write this data, time-stamped but otherwise in its original form, to a secure repository to allow for expert manual analysis.
+A feature of security monitoring is the variety of sources from which the data arises. The different formats and level of detail often require complex analysis of the captured data to tie it together into a coherent thread of information. Apart from the simplest of cases (such as detecting a large number of failed sign-ins, or repeated attempts to gain unauthorized access to critical resources), it might not be possible to perform any complex automated processing of security data. Instead, it might be preferable to write this data, timestamped but otherwise in its original form, to a secure repository to allow for expert manual analysis.
 
 ## SLA monitoring
 
@@ -227,7 +227,7 @@ SLAs are often defined in terms of:
 - Operational response time. The system might also make guarantees for the rate at which requests are processed. An example is that 99 percent of all business transactions will finish within 2 seconds, and no single transaction will take longer than 10 seconds.
 
 > [!NOTE]
-> Some contracts for commercial systems might also include SLAs for customer support. An example is that all help-desk requests will elicit a response within 5 minutes, and that 99 percent of all problems will be fully addressed within 1 working day. Effective [issue tracking](#issue-tracking) (described later in this section) is key to meeting SLAs such as these.
+> Some contracts for commercial systems might also include SLAs for customer support. An example is that all help-desk requests will elicit a response within five minutes, and that 99 percent of all problems will be fully addressed within 1 working day. Effective [issue tracking](#issue-tracking) (described later in this section) is key to meeting SLAs such as these.
 
 ### Requirements for SLA monitoring
 
@@ -259,7 +259,7 @@ The raw data that's required to support SLA monitoring is similar to the raw dat
 - Monitoring the availability of any third-party services that the system uses.
 - Using performance metrics and counters.
 
-All data must be timed and time-stamped.
+All data must be timed and timestamped.
 
 ### Analyzing SLA data
 
@@ -277,7 +277,7 @@ For internal purposes, an organization might also track the number and nature of
 
 ## Auditing
 
-Depending on the nature of the application, there might be statutory or other legal regulations that specify requirements for auditing users' operations and recording all data access. Auditing can provide evidence that links customers to specific requests. Non-repudiation is an important factor in many e-business systems to help maintain trust be between a customer and the organization that's responsible for the application or service.
+Depending on the nature of the application, there might be statutory or other legal regulations that specify requirements for auditing users' operations and recording all data access. Auditing can provide evidence that links customers to specific requests. Nonrepudiation is an important factor in many e-business systems to help maintain trust be between a customer and the organization that's responsible for the application or service.
 
 ### Requirements for auditing
 
@@ -332,7 +332,7 @@ Usage tracking can be performed at a relatively high level. It can note the star
 - Capturing performance counters that measure the utilization for each resource.
 - Monitoring the resource consumption by each user.
 
-For metering purposes, you also need to be able to identify which users are responsible for performing which operations, and the resources that these operations utilize. The gathered information should be detailed enough to enable accurate billing.
+For metering purposes, you also need to be able to identify which users are responsible for performing which operations, and the resources that these operations use. The gathered information should be detailed enough to enable accurate billing.
 
 ## Issue tracking
 
@@ -455,10 +455,10 @@ You can easily monitor individual system-level performance counters, capture met
 
 Also, there's unlikely to be a 1:1 mapping between threads and user requests, because asynchronous operations might reuse the same threads to perform operations on behalf of more than one user. To complicate matters further, a single request might be handled by more than one thread as execution flows through the system. If possible, associate each request with a unique activity ID that's propagated through the system as part of the request context. (The technique for generating and including activity IDs in trace information depends on the technology that's used to capture the trace data.)
 
-All monitoring data should be time-stamped in the same way. For consistency, record all dates and times by using Coordinated Universal Time. This will help you more easily trace sequences of events.
+All monitoring data should be timestamped in the same way. For consistency, record all dates and times by using Coordinated Universal Time. This will help you more easily trace sequences of events.
 
 > [!NOTE]
-> Computers operating in different time zones and networks might not be synchronized. Don't depend on using time stamps alone for correlating instrumentation data that spans multiple machines.
+> Computers operating in different time zones and networks might not be synchronized. Don't depend on using timestamps alone for correlating instrumentation data that spans multiple machines.
 
 ### Information to include in the instrumentation data
 
@@ -496,7 +496,7 @@ The following list summarizes best practices for instrumenting a distributed app
 
 - In all logs, identify the source and provide context and timing information as each log record is written.
 
-- Use the same time zone and format for all time stamps. This will help to correlate events for operations that span hardware and services running in different geographic regions.
+- Use the same time zone and format for all timestamps. This will help to correlate events for operations that span hardware and services running in different geographic regions.
 
 - Categorize logs and write messages to the appropriate log file.
 
@@ -533,7 +533,7 @@ For Azure applications and services, Azure Diagnostics provides one possible sol
 - Windows event logs
 - Performance counters
 - Crash dumps
-- Azure Diagnostics infrastructure logs  
+- Azure Diagnostics infrastructure logs
 - Custom error logs
 - .NET EventSource
 - Manifest-based ETW
@@ -628,7 +628,7 @@ The following list summarizes best practices for capturing and storing logging i
 
 An important part of the monitoring and diagnostics process is analyzing the gathered data to obtain a picture of the overall well-being of the system. You should have defined your own KPIs and performance metrics, and it's important to understand how you can structure the data that has been gathered to meet your analysis requirements. It's also important to understand how the data that's captured in different metrics and log files is correlated, because this information can be key to tracking a sequence of events and help diagnose problems that arise.
 
-As described in the section [Consolidating instrumentation data](#consolidating-instrumentation-data), the data for each part of the system is typically captured locally, but it generally needs to be combined with data generated at other sites that participate in the system. This information requires careful correlation to ensure that data is combined accurately. For example, the usage data for an operation might span a node that hosts a website to which a user connects, a node that runs a separate service accessed as part of this operation, and data storage held on another node. This information needs to be tied together to provide an overall view of the resource and processing usage for the operation. Some pre-processing and filtering of data might occur on the node on which the data is captured, whereas aggregation and formatting are more likely to occur on a central node.
+As described in the section [Consolidating instrumentation data](#consolidating-instrumentation-data), the data for each part of the system is typically captured locally, but it generally needs to be combined with data generated at other sites that participate in the system. This information requires careful correlation to ensure that data is combined accurately. For example, the usage data for an operation might span a node that hosts a website to which a user connects, a node that runs a separate service accessed as part of this operation, and data storage held on another node. This information needs to be tied together to provide an overall view of the resource and processing usage for the operation. Some preprocessing and filtering of data might occur on the node on which the data is captured, whereas aggregation and formatting are more likely to occur on a central node.
 
 ### Supporting hot, warm, and cold analysis
 

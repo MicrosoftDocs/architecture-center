@@ -11,11 +11,13 @@ ms.custom: microservices
 
 # Microservices architecture on Azure Kubernetes Service (AKS)
 
-This reference architectures shows a microservices application deployed to Azure Kubernetes Service (AKS). It describes a basic AKS configuration that can be the starting point for most deployments. This article assumes basic knowledge of Kubernetes. The article focuses mainly on the infrastructure and DevOps considerations of running a microservices architecture on AKS. For guidance on how to design microservices, see [Building microservices on Azure](../../microservices/index.md).
+This reference architecture shows a microservices application deployed to Azure Kubernetes Service (AKS). It describes a basic AKS configuration that can be the starting point for most deployments. This article assumes basic knowledge of Kubernetes. The article focuses mainly on the infrastructure and DevOps considerations of running a microservices architecture on AKS. For guidance on how to design microservices, see [Building microservices on Azure](../../microservices/index.md).
 
 ![GitHub logo](../../_images/github.png) A reference implementation of this architecture is available on [GitHub][ri].
 
 ![AKS reference architecture](./_images/aks.png)
+
+*Download a [Visio file][visio-download] of this architecture.*
 
 ## Architecture
 
@@ -267,3 +269,4 @@ To deploy the reference implementation for this architecture, follow the steps i
 
 [ri]: https://github.com/mspnp/microservices-reference-implementation
 [ri-deploy]: https://github.com/mspnp/microservices-reference-implementation/blob/master/deployment.md
+[visio-download]: https://archcenter.blob.core.windows.net/cdn/aks-reference-architecture.vsdx

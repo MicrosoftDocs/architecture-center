@@ -41,7 +41,7 @@ HDInsight is a managed Hadoop service. Use it deploy and manage Hadoop clusters 
 [Azure Databricks](/azure/azure-databricks/) is an Apache Spark-based analytics platform. You can think of it as "Spark as a service." It's the easiest way to use Spark on the Azure platform.
 
 - Languages: R, Python, Java, Scala, Spark SQL
-- Fast cluster start times, auto-termination, auto-scaling.
+- Fast cluster start times, autotermination, autoscaling.
 - Manages the Spark cluster for you.
 - Built-in integration with Azure Blob Storage, Azure Data Lake Storage (ADLS), Azure SQL Data Warehouse (SQL DW), and other services. See [Data Sources](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html).
 - User authentication with Azure Active Directory.

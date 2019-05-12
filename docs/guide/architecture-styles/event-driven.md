@@ -6,7 +6,7 @@ author: MikeWasson
 ms.date: 08/30/2018
 ms.topic: guide
 ms.service: architecture-center
-ms.subservice: reference-architecture
+ms.subservice: cloud-fundamentals
 ms.custom: seojan19
 ---
 
@@ -34,7 +34,7 @@ On the consumer side, there are some common variations:
 
 The source of the events may be external to the system, such as physical devices in an IoT solution. In that case, the system must be able to ingest the data at the volume and throughput that is required by the data source.
 
-In the logical diagram above, each type of consumer is shown as a single box. In practice, it's common to have multiple instances of a consumer, to avoid having the consumer become a single point of failure in system. Multiple instances might also be necessary to handle the volume and frequency of events. Also, a single consumer might process events on multiple threads. This can create challenges if events must be processed in order, or require exactly-once semantics. See [Minimize Coordination][minimize-coordination].
+In the logical diagram above, each type of consumer is shown as a single box. In practice, it's common to have multiple instances of a consumer, to avoid having the consumer become a single point of failure in system. Multiple instances might also be necessary to handle the volume and frequency of events. Also, a single consumer might process events on multiple threads. This can create challenges if events must be processed in order or require exactly-once semantics. See [Minimize Coordination][minimize-coordination].
 
 ## When to use this architecture
 

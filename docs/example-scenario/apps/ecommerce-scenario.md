@@ -39,7 +39,7 @@ This scenario covers purchasing tickets from an e-commerce site, the data flows 
 7. Database query results are cached in Azure Redis Cache for better performance.
 8. User submits ticket orders and concert reviews, which are placed in the queue.
 9. Azure Functions processes order payment and concert reviews.
-10. Cognitive services provide an analysis of the concert review to determine the sentiment (positive or negative).
+10. Cognitive Services provides an analysis of the concert review to determine the sentiment (positive or negative).
 11. Application Insights provides performance metrics for monitoring the health of the web application.
 
 ### Components
@@ -111,7 +111,7 @@ Explore the cost of running this scenario, all of the services are pre-configure
 
 We have provided three sample cost profiles based on amount of traffic you expect to get:
 
-- [Small][small-pricing]: This pricing example represents the components necessary to build the out for a minimum production level instance. Here we are assuming a small number of users, numbering only in a few thousand per month. The app is using a single instance of a standard web app that will be enough to enable autoscaling. Each of the other components are scaled to a basic tier that will allow for a minimum amount of cost but still ensure that there is SLA support and enough capacity to handle a production level workload.
+- [Small][small-pricing]: This pricing example represents the components necessary to build the out for a minimum production level instance. Here we are assuming a small number of users, numbering only in a few thousand per month. The app is using a single instance of a standard web app that will be enough to enable autoscaling. The other components are each scaled to a basic tier that will allow for a minimum amount of cost but still ensure that there is SLA support and enough capacity to handle a production level workload.
 - [Medium][medium-pricing]: This pricing example represents the components indicative of a moderate size deployment. Here we estimate approximately 100,000 users using the system over the course of a month. The expected traffic is handled in a single app service instance with a moderate standard tier. Additionally, moderate tiers of cognitive and search services are added to the calculator.
 - [Large][large-pricing]: This pricing example represents an application meant for high scale, at the order of millions of users per month moving terabytes of data. At this level of usage high performance, premium tier web apps deployed in multiple regions fronted by traffic manager is required. Data consists of the following: storage, databases, and CDN, are configured for terabytes of data.
 

@@ -44,7 +44,7 @@ public class NewHttpClientInstancePerRequestController : ApiController
 
 In a web application, this technique is not scalable. A new `HttpClient` object is created for each user request. Under heavy load, the web server may exhaust the number of available sockets, resulting in `SocketException` errors.
 
-This problem is not restricted to the `HttpClient` class. Other classes that wrap resources or are expensive to create might cause similar issues. The following example creates an instances of the `ExpensiveToCreateService` class. Here the issue is not necessarily socket exhaustion, but simply how long it takes to create each instance. Continually creating and destroying instances of this class might adversely affect the scalability of the system.
+This problem is not restricted to the `HttpClient` class. Other classes that wrap resources or are expensive to create might cause similar issues. The following example creates an instance of the `ExpensiveToCreateService` class. Here the issue is not necessarily socket exhaustion, but simply how long it takes to create each instance. Continually creating and destroying instances of this class might adversely affect the scalability of the system.
 
 ```csharp
 public class NewServiceInstancePerRequestController : ApiController
@@ -105,7 +105,7 @@ public class SingleHttpClientInstanceController : ApiController
 
 - Some resource types are scarce and should not be held onto. Database connections are an example. Holding an open database connection that is not required may prevent other concurrent users from gaining access to the database.
 
-- In the .NET Framework, many objects that establish connections to external resources are created by using static factory methods of other classes that manage these connections. These objects are intended to be saved and reused, rather than disposed and recreated. For example, in Azure Service Bus, the `QueueClient` object is created through a `MessagingFactory` object. Internally, the `MessagingFactory` manages connections. For more information, see [Best Practices for performance improvements using Service Bus Messaging][service-bus-messaging].
+- In the .NET Framework, many objects that establish connections to external resources are created by using static factory methods of other classes that manage these connections. These objects are intended to be saved and reused, rather than disposed and re-created. For example, in Azure Service Bus, the `QueueClient` object is created through a `MessagingFactory` object. Internally, the `MessagingFactory` manages connections. For more information, see [Best Practices for performance improvements using Service Bus Messaging][service-bus-messaging].
 
 ## How to detect the problem
 
@@ -128,7 +128,7 @@ Look at stack traces for operations that are slow-running or that generate excep
 
 The following sections apply these steps to the sample application described earlier.
 
-### Identify points of slow down or failure
+### Identify points of slowdown or failure
 
 The following image shows results generated using [New Relic APM][new-relic], showing operations that have a poor response time. In this case, the `GetProductAsync` method in the `NewHttpClientInstancePerRequest` controller is worth investigating further. Notice that the error rate also increases when these operations are running.
 
@@ -142,8 +142,7 @@ The next image shows data captured using thread profiling, over the same period 
 
 ### Performing load testing
 
-Use load testing to simulate the typical operations that users might perform. This can help to identify which parts of a system suffer
-from resource exhaustion under varying loads. Perform these tests in a controlled environment rather than the production system. The following graph shows the throughput of requests handled by the `NewHttpClientInstancePerRequest` controller as the user load increases to 100 concurrent users.
+Use load testing to simulate the typical operations that users might perform. This can help to identify which parts of a system suffer from resource exhaustion under varying loads. Perform these tests in a controlled environment rather than the production system. The following graph shows the throughput of requests handled by the `NewHttpClientInstancePerRequest` controller as the user load increases to 100 concurrent users.
 
 ![Throughput of the sample application creating a new instance of an HttpClient object for each request][throughput-new-HTTPClient-instance]
 

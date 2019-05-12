@@ -23,7 +23,7 @@ Goals for the project include addressing technical debt, improving ongoing maint
 
 New application features will be delivered in stages. These features will gradually replace the existing browser-based client-server UI functionality (hosted on-premises) that powers their e-commerce business today.
 
-The management team does not want to modernize unnecessarily. They also want to maintain control of scope and costs. To do this, they have decided to preserve their existing SOAP HTTP services. They also intend to minimize changes to the existing UI. [Azure API Management (APIM)][apim] can be utilized to address many of the project's requirements and constraints.
+The management team does not want to modernize unnecessarily. They also want to maintain control of scope and costs. To do this, they have decided to preserve their existing SOAP HTTP services. They also intend to minimize changes to the existing UI. [Azure API Management (APIM)][apim] can be used to address many of the project's requirements and constraints.
 
 ## Architecture
 
@@ -38,7 +38,7 @@ The new UI will be hosted as a platform as a service (PaaS) application on Azure
 3. Inbound calls are made from Azure to the existing internal services:
     - The security team allows traffic from the APIM instance to pass through the corporate firewall to the existing on-premises services [using secure transport (HTTPS/SSL)][apim-ssl].
     - The operations team will allow inbound calls to the services only from the APIM instance. This requirement is met by [white-listing the IP address of the APIM instance][apim-whitelist-ip] within the corporate network perimeter.
-    - A new module is configured into the on-premises HTTP services request pipeline (to act upon **only** those connections originating externally), which will validate [a certificate which APIM will provide][apim-mutualcert-auth].
+    - A new module is configured into the on-premises HTTP services request pipeline (to act on **only** those connections originating externally), which will validate [a certificate which APIM will provide][apim-mutualcert-auth].
 4. The new API:
     - Is surfaced only through the APIM instance, which will provide the API facade. The new API won't be accessed directly.
     - Is developed and published as an [Azure PaaS Web API App][azure-api-apps].
@@ -53,7 +53,7 @@ The APIM instance will be configured to map the legacy HTTP services to a new AP
 
 - If the organization was planning to move their infrastructure entirely to Azure, including the VMs hosting the legacy applications, then APIM would still be a great option since it can act as a facade for any addressable HTTP endpoint.
 - If the customer had decided to keep the existing endpoints private and not expose them publicly, their API Management instance could be linked to an [Azure Virtual Network (VNet)][azure-vnet]:
-  - In an [Azure lift and shift scenario][azure-vm-lift-shift] linked to their deployed Azure Virtual Network, the customer could directly address the back-end service through private IP addresses.
+  - In an [Azure "lift and shift" scenario][azure-vm-lift-shift] linked to their deployed Azure virtual network, the customer could directly address the back-end service through private IP addresses.
   - In the on-premises scenario, the API Management instance could reach back to the internal service privately via an [Azure VPN gateway and site-to-site IPSec VPN connection][azure-vpn] or [ExpressRoute][azure-er] making this a [hybrid Azure and on-premises scenario][azure-hybrid].
 - The API Management instance can be kept private by deploying the API Management instance in Internal mode. The deployment could then be used with an [Azure Application Gateway][azure-appgw] to enable public access for some APIs while others remain internal. For more information, see [Connecting APIM in internal mode to a VNET][apim-vnet-internal].
 

@@ -42,7 +42,7 @@ The architecture consists of the following components:
 
   SharePoint Server 2016 also supports using [Azure Active Directory Domain Services](/azure/active-directory-domain-services/). Azure AD Domain Services provides managed domain services, so that you don't need to deploy and manage domain controllers in Azure.
 
-- **SQL Server Always On Availability Group**. For high availability of the SQL Server database, we recommend [SQL Server Always On Availability Groups][sql-always-on]. Two virtual machines are used for SQL Server. One contains the primary database replica and the other contains the secondary replica.
+- **SQL Server Always On availability group**. For high availability of the SQL Server database, we recommend [SQL Server Always On availability groups][sql-always-on]. Two virtual machines are used for SQL Server. One contains the primary database replica and the other contains the secondary replica.
 
 - **Majority node VM**. This VM allows the failover cluster to establish quorum. For more information, see [Understanding Quorum Configurations in a Failover Cluster][sql-quorum].
 
@@ -123,9 +123,9 @@ This reference architecture deploys a SharePoint Server 2016 farm that can be us
 
 The default service applications in this deployment are designed to support hybrid workloads. All SharePoint Server 2016 and Office 365 hybrid workloads can be deployed to this farm without changes to the SharePoint infrastructure, with one exception: The Cloud Hybrid Search Service Application must not be deployed onto servers hosting an existing search topology. Therefore, one or more search-role-based VMs must be added to the farm to support this hybrid scenario.
 
-### SQL Server Always On Availability Groups
+### SQL Server Always On availability groups
 
-This architecture uses SQL Server virtual machines because SharePoint Server 2016 cannot use Azure SQL Database. To support high availability in SQL Server, we recommend using Always On Availability Groups, which specify a set of databases that fail over together, making them highly-available and recoverable. In this reference architecture, the databases are created during deployment, but you must manually enable Always On Availability Groups and add the SharePoint databases to an availability group. For more information, see [Create the availability group and add the SharePoint databases][create-availability-group].
+This architecture uses SQL Server virtual machines because SharePoint Server 2016 cannot use Azure SQL Database. To support high availability in SQL Server, we recommend using Always On availability groups, which specify a set of databases that fail over together, making them highly available and recoverable. In this reference architecture, the databases are created during deployment, but you must manually enable Always On availability groups and add the SharePoint databases to an availability group. For more information, see [Create the availability group and add the SharePoint databases][create-availability-group].
 
 We also recommend adding a listener IP address to the cluster, which is the private IP address of the internal load balancer for the SQL Server virtual machines.
 
@@ -139,7 +139,7 @@ To scale up the existing servers, simply change the VM size.
 
 With the [MinRoles][minroles] capability in SharePoint Server 2016, you can scale out servers based on the server's role and also remove servers from a role. When you add servers to a role, you can specify any of the single roles or one of the combined roles. If you add servers to the Search role, however, you must also reconfigure the search topology using PowerShell. You can also convert roles using MinRoles. For more information, see [Managing a MinRole Server Farm in SharePoint Server 2016][sharepoint-minrole].
 
-Note that SharePoint Server 2016 doesn't support using virtual machine scale sets for auto-scaling.
+Note that SharePoint Server 2016 doesn't support using virtual machine scale sets for autoscaling.
 
 ## Availability considerations
 

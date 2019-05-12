@@ -29,9 +29,9 @@ However, the partitioning strategy must be chosen carefully to maximize the bene
 
 - **Improve performance**. Data access operations on each partition take place over a smaller volume of data. Correctly done, partitioning can make your system more efficient. Operations that affect more than one partition can run in parallel.
 
-- **Improve security**. In some cases, you can separate sensitive and non-sensitive data into different partitions and apply different security controls to the sensitive data.
+- **Improve security**. In some cases, you can separate sensitive and nonsensitive data into different partitions and apply different security controls to the sensitive data.
 
-- **Provide operational flexibility**. Partitioning offers many opportunities for fine tuning operations, maximizing administrative efficiency, and minimizing cost. For example, you can define different strategies for management, monitoring, backup and restore, and other administrative tasks based on the importance of the data in each partition.
+- **Provide operational flexibility**. Partitioning offers many opportunities for fine-tuning operations, maximizing administrative efficiency, and minimizing cost. For example, you can define different strategies for management, monitoring, backup and restore, and other administrative tasks based on the importance of the data in each partition.
 
 - **Match the data store to the pattern of use**. Partitioning allows each partition to be deployed on a different type of data store, based on cost and the built-in features that data store offers. For example, large binary data can be stored in blob storage, while more structured data can be held in a document database. See [Choose the right data store](../guide/technology-choices/data-store-overview.md).
 
@@ -61,7 +61,7 @@ The most important factor is the choice of a sharding key. It can be difficult t
 
 The shards don't have to be the same size. It's more important to balance the number of requests. Some shards might be very large, but each item has a low number of access operations. Other shards might be smaller, but each item is accessed much more frequently. It's also important to ensure that a single shard does not exceed the scale limits (in terms of capacity and processing resources) of the data store.
 
-Avoid creating "hot" partitions that can affect performance and availability. For example, using the first letter of a customer’s name causes an unbalanced distribution, because some letters are more common Instead, use a hash of a customer identifier to distribute data more evenly across partitions.
+Avoid creating "hot" partitions that can affect performance and availability. For example, using the first letter of a customer’s name causes an unbalanced distribution, because some letters are more common. Instead, use a hash of a customer identifier to distribute data more evenly across partitions.
 
 Choose a sharding key that minimizes any future requirements to split large shards, coalesce small shards into larger partitions, or change the schema. These operations can be very time consuming, and might require taking one or more shards offline while they are performed.
 
@@ -131,7 +131,7 @@ Follow these steps when designing partitions for query performance:
    - If you use horizontal partitioning, design the shard key so that the application can easily select the right partition. This prevents the query from having to scan through every partition.
    - Consider the location of a partition. If possible, try to keep data in partitions that are geographically close to the applications and users that access it.
 
-3. If an entity has throughput and query performance requirements, use functional partitioning based on that entity. If this still doesn't satisfy the requirements, apply horizontal partitioning as well. In most cases a single partitioning strategy will suffice, but in some cases it is more efficient to combine both strategies.
+3. If an entity has throughput and query performance requirements, use functional partitioning based on that entity. If this still doesn't satisfy the requirements, apply horizontal partitioning as well. In most cases, a single partitioning strategy will suffice, but in some cases it is more efficient to combine both strategies.
 
 4. Consider running queries in parallel across partitions to improve performance.
 
@@ -143,7 +143,7 @@ Consider the following factors that affect availability:
 
 **How critical the data is to business operations**. Identify which data is critical business information, such as transactions, and which data is less critical operational data, such as log files.
 
-- Consider storing critical data in highly-available partitions with an appropriate backup plan.
+- Consider storing critical data in highly available partitions with an appropriate backup plan.
 
 - Establish separate management and monitoring procedures for the different datasets.
 
@@ -153,7 +153,7 @@ Consider the following factors that affect availability:
 
 - If a partition fails, it can be recovered independently without applications that access data in other partitions.
 
-- Partitioning data by geographical area allows scheduled maintenance tasks to occur at off-peak hours for each location. Ensure that partitions are not too big to prevent any planned maintenance from being completed during this period.
+- Partitioning data by geographical area allows scheduled maintenance tasks to occur at off-peak hours for each location. Ensure that partitions are not too large to prevent any planned maintenance from being completed during this period.
 
 **Whether to replicate critical data across partitions**. This strategy can improve availability and performance, but can also introduce consistency issues. It takes time to synchronize changes with every replica. During this period, different partitions will contain different data values.
 
@@ -162,7 +162,7 @@ Consider the following factors that affect availability:
 Partitioning adds complexity to the design and development of your system. Consider partitioning as a fundamental part of system design even if the system initially only contains a single partition. If you address partitioning as an afterthought, it will be more challenging because you already have a live system to maintain:
 
 - Data access logic will need to be modified.
-- Large quantities of existing data may need to be migrated, to distribute it across partitions
+- Large quantities of existing data may need to be migrated, to distribute it across partitions.
 - Users expect to be able to continue using the system during the migration.
 
 In some cases, partitioning is not considered important because the initial dataset is small and can be easily handled by a single server. This might be true for some workloads, but many commercial systems need to expand as the number of users increases.
@@ -183,7 +183,7 @@ Consider the following points when you design a data partitioning scheme:
 
 **Consider periodically rebalancing shards**. With horizontal partitioning, rebalancing shards can help distribute the data evenly by size and by workload to minimize hotspots, maximize query performance, and work around physical storage limitations. However, this is a complex task that often requires the use of a custom tool or process.
 
-**Replicate partitions.** If you replicate each partition, it provides additional protection against failure. If a single replica fails, queries can be directed towards a working copy.
+**Replicate partitions.** If you replicate each partition, it provides additional protection against failure. If a single replica fails, queries can be directed toward a working copy.
 
 **If you reach the physical limits of a partitioning strategy, you might need to extend the scalability to a different level**. For example, if partitioning is at the database level, you might need to locate or replicate partitions in multiple databases. If partitioning is already at the database level, and physical limitations are an issue, it might mean that you need to locate or replicate partitions in multiple hosting accounts.
 
@@ -197,13 +197,13 @@ Consider the following factors that affect operational management:
 
 - **How to load the data into multiple partitions and add new data that's arriving from other sources**. Some tools and utilities might not support sharded data operations such as loading data into the correct partition.
 
-- **How to archive and delete the data on a regular basis**. To prevent the excessive growth of partitions, you need to archive and delete data on a regular basis (perhaps monthly). It might be necessary to transform the data to match a different archive schema.
+- **How to archive and delete the data on a regular basis**. To prevent the excessive growth of partitions, you need to archive and delete data on a regular basis (such as monthly). It might be necessary to transform the data to match a different archive schema.
 
-- **How to locate data integrity issues**. Consider running a periodic process to locate any data integrity issues, such as data in one partition that references missing information in another. The process can either attempt to fix these issues automatically or simply generate a report for manual review.
+- **How to locate data integrity issues**. Consider running a periodic process to locate any data integrity issues, such as data in one partition that references missing information in another. The process can either attempt to fix these issues automatically or generate a report for manual review.
 
 ## Rebalancing partitions
 
-As a system matures, you might have to adjust the partitioning scheme. For example, individual partitions might start get a disproportionate volume of traffic and become hot, leading to excessive contention. Or you might have underestimated the volume of data in some partitions, causing some partitions to approach capacity limits.
+As a system matures, you might have to adjust the partitioning scheme. For example, individual partitions might start getting a disproportionate volume of traffic and become hot, leading to excessive contention. Or you might have underestimated the volume of data in some partitions, causing some partitions to approach capacity limits.
 
 Some data stores, such as Cosmos DB, can automatically rebalance partitions. In other cases, rebalancing is an administrative task that consists of two stages:
 
@@ -218,7 +218,7 @@ Depending on the data store, you might be able to migrate data between partition
 
 ### Offline migration
 
-Offline migration is generally simpler, because it reduces the chances of contention occurring. Conceptually, offline migration works as follows:
+Offline migration is typically simpler because it reduces the chances of contention occurring. Conceptually, offline migration works as follows:
 
 1. Mark the partition offline.
 2. Split-merge and move the data to the new partitions.
@@ -240,7 +240,7 @@ The following design patterns might be relevant to your scenario:
 
 - The [index table pattern](../patterns/index-table.md) shows how to create secondary indexes over data. An application can quickly retrieve data with this approach, by using queries that do not reference the primary key of a collection.
 
-- The [materialized view pattern](../patterns/materialized-view.md) describes how to generate pre-populated views that summarize data to support fast query operations. This approach can be useful in a partitioned data store if the partitions that contain the data being summarized are distributed across multiple sites.
+- The [materialized view pattern](../patterns/materialized-view.md) describes how to generate prepopulated views that summarize data to support fast query operations. This approach can be useful in a partitioned data store if the partitions that contain the data being summarized are distributed across multiple sites.
 
 ## Next steps
 

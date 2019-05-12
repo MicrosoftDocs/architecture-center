@@ -33,7 +33,7 @@ Other relevant use cases include:
 This scenario covers a conversational bot that functions as a concierge for a hotel. The data flows through the scenario as follows:
 
 1. The customer accesses the chatbot with a mobile or web app.
-2. Using Azure Active Directory B2C (Business 2 Customer), the user is authenticated.
+2. Using Azure Active Directory (Azure AD) B2C (business-to-consumer), the user is authenticated.
 3. Interacting with the Bot Service, the user requests information about hotel availability.
 4. Cognitive Services processes the natural language request to understand the customer communication.
 5. After the user is happy with the results, the bot adds or updates the customer’s reservation in a SQL Database.
@@ -41,7 +41,7 @@ This scenario covers a conversational bot that functions as a concierge for a ho
 
 ### Components
 
-- [Azure Active Directory][aad-docs] is Microsoft’s multi-tenant cloud-based directory and identity management service. Azure AD supports a B2C connector allowing you to identify individuals using external IDs such as Google, Facebook, or a Microsoft Account.
+- [Azure Active Directory (Azure AD)][aad-docs] is Microsoft’s multitenant cloud-based directory and identity management service. Azure AD supports a B2C connector allowing you to identify individuals using external IDs such as Google, Facebook, or a Microsoft Account.
 - [App Service][appservice-docs] enables you to build and host web applications in the programming language of your choice without managing infrastructure.
 - [Bot Service][botservice-docs] provides tools to build, test, deploy, and manage intelligent bots.
 - [Cognitive Services][cognitive-docs] lets you use intelligent algorithms to see, hear, speak, understand, and interpret your user needs through natural methods of communication.
@@ -68,7 +68,7 @@ For other scalability topics, see the [scalability checklist][scalability] in th
 
 ### Security
 
-This scenario uses Azure Active Directory B2C (Business 2 Consumer) to authenticate users. With AAD B2C, your chatbot doesn't store any sensitive customer account information or credentials. For more information, see [Azure Active Directory B2C overview][aadb2c-docs].
+This scenario uses Azure Active Directory (Azure AD) B2C, a business-to-consumer identity management service, to authenticate users. With Azure AD B2C, your chatbot doesn't store any sensitive customer account information or credentials. For more information, see the [Azure AD B2C overview][aadb2c-docs].
 
 Information stored in Azure SQL Database is encrypted at rest with transparent data encryption (TDE). SQL Database also offers Always Encrypted which encrypts data during querying and processing. For more information on SQL Database security, see [Azure SQL Database security and compliance][sqlsecurity-docs].
 
@@ -139,7 +139,7 @@ A sample C# application is available on GitHub:
 
 - [Commerce Bot C# sample](https://github.com/Microsoft/AzureBotServices-scenarios/tree/master/CSharp/Commerce/src)
 
-The sample application includes the Azure Active Directory authentication components and integration with the Language Understanding and Intelligent Services (LUIS) component of Cognitive Services. The application requires Visual Studio to build and deploy the scenario. Additional information on configuring AAD B2C and the LUIS app can be found in the GitHub repo documentation.
+The sample application includes the Azure Active Directory authentication components and integration with the Language Understanding and Intelligent Services (LUIS) component of Cognitive Services. The application requires Visual Studio to build and deploy the scenario. Additional information on configuring Azure AD B2C and the LUIS app can be found in the GitHub repo documentation.
 
 ## Pricing
 

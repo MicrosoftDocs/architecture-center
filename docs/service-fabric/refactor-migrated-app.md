@@ -130,7 +130,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerF
 ```
 
 > [!NOTE]
-> These lines may be conditionally excluded when Visual Studio is set to “release” when publishing.
+> These lines may be conditionally excluded when Visual Studio is set to **release** when publishing.
 
 Finally, when Tailspin deploys the Tailspin application to production, they switch Visual Studio to **release** mode.
 
@@ -141,7 +141,7 @@ The refactored Surveys application is composed of five stateless services and on
 > [!NOTE]
 > Stateful services require the additional step of planning the correct number of partitions and replicas for their data.
 
-Tailspin deploys the cluster using the Azure Portal. The Service Fabric Cluster resource type deploys all of the necessary infrastructure, including VM scale sets and a load balancer. The recommended VM sizes are displayed in the Azure portal during the provisioning process for the Service Fabric cluster. Note that because the VMs are deployed in a VM scale set, they can be both scaled up and out as user load increases.
+Tailspin deploys the cluster using the Azure Portal. The Service Fabric Cluster resource type deploys all of the necessary infrastructure, including virtual machine scale sets and a load balancer. The recommended VM sizes are displayed in the Azure portal during the provisioning process for the Service Fabric cluster. Note that because the VMs are deployed in a virtual machine scale set, they can be both scaled up and out as user load increases.
 
 > [!NOTE]
 > As discussed earlier, in the migrated version of the Surveys application the two web front ends were self-hosted using ASP.NET Core and Kestrel as a web server. While the migrated version of the Survey application does not use a reverse proxy, it is strongly recommended to use a reverse proxy such as IIS, Nginx, or Apache. For more information see [introduction to Kestrel web server implementation in ASP.NET core][kestrel-intro].

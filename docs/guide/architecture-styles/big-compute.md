@@ -6,7 +6,7 @@ author: MikeWasson
 ms.date: 08/30/2018
 ms.topic: guide
 ms.service: architecture-center
-ms.subservice: reference-architecture
+ms.subservice: cloud-fundamentals
 ms.custom: seojan19, HPC
 ---
 
@@ -56,7 +56,7 @@ Using Azure Batch, you configure a VM pool, and upload the applications and data
 
 ## Big compute running on Virtual Machines
 
-You can use [Microsoft HPC Pack][hpc-pack] to administer a cluster of VMs, and schedule and monitor HPC jobs. With this approach, you must provision and manage the VMs and network infrastructure. Consider this approach if you have existing HPC workloads and want to move some or all it to Azure. You can move the entire HPC cluster to Azure, or keep your HPC cluster on-premises but use Azure for burst capacity. For more information, see [Batch and HPC solutions for large-scale computing workloads][batch-hpc-solutions].
+You can use [Microsoft HPC Pack][hpc-pack] to administer a cluster of VMs, and schedule and monitor HPC jobs. With this approach, you must provision and manage the VMs and network infrastructure. Consider this approach if you have existing HPC workloads and want to move some or all it to Azure. You can move the entire HPC cluster to Azure, or you can keep your HPC cluster on-premises but use Azure for burst capacity. For more information, see [Batch and HPC solutions for large-scale computing workloads][batch-hpc-solutions].
 
 ### HPC Pack deployed to Azure
 

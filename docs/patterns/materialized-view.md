@@ -78,7 +78,7 @@ The following figure shows an example of using the Materialized View pattern to 
 
 Creating this materialized view requires complex queries. However, by exposing the query result as a materialized view, users can easily obtain the results and use them directly or incorporate them in another query. The view is likely to be used in a reporting system or dashboard, and can be updated on a scheduled basis such as weekly.
 
-> Although this example utilizes Azure table storage, many relational database management systems also provide native support for materialized views.
+> Although this example uses Azure table storage, many relational database management systems also provide native support for materialized views.
 
 ## Related patterns and guidance
 

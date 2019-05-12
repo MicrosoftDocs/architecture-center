@@ -1,7 +1,7 @@
 ---
 title: Naming conventions for Azure resources
 titleSuffix: Best practices for cloud applications
-description: Recommendations for naming virtual machines, storage accounts, networks, virtual networks, subnets and other Azure entities.
+description: Recommendations for naming virtual machines, storage accounts, networks, virtual networks, subnets, and other Azure entities.
 author: telmosampaio
 ms.date: 10/19/2018
 ms.topic: best-practice
@@ -33,7 +33,7 @@ A recommended pattern for naming subscriptions is:
 
 - Company would usually be the same for each subscription. However, some companies may have child companies within the organizational structure. These companies may be managed by a central IT group. In these cases, they could be differentiated by having both the parent company name (*Contoso*) and child company name (*Northwind*).
 - Department is a name within the organization that contains a group of individuals. This item within the namespace is optional.
-- Product line is a specific name for a product or function that is performed from within the department. This is generally optional for internal-facing services and applications. However, it is highly recommended to use for public-facing services that require easy separation and identification (such as for clear separation of billing records).
+- Product line is a specific name for a product or function that is performed from within the department. This is typically optional for internal-facing services and applications. However, it is highly recommended to use for public-facing services that require easy separation and identification (such as for clear separation of billing records).
 - Environment is the name that describes the deployment lifecycle of the applications or services, such as Dev, QA, or Prod.
 
 | Company | Department | Product Line or Service | Environment | Full Name |
@@ -68,7 +68,7 @@ When developing a specific naming convention for your company or projects, it is
 
 ## Naming rules and restrictions
 
-Each resource or service type in Azure enforces a set of naming restrictions and scope; any naming convention or pattern must adhere to the requisite naming rules and scope. For example, while the name of a VM maps to a DNS name (and is thus required to be unique across all of Azure), the name of a VNET is scoped to the Resource Group that it is created within.
+Each resource or service type in Azure enforces a set of naming restrictions and scope. Any naming convention or pattern must adhere to the required naming rules and scope. For example, while the name of a virtual machine maps to a DNS name (and is thus required to be unique across all of Azure), the name of a virtual network is scoped to the resource group in which it resides.
 
 In general, avoid having any special characters (`-` or `_`) as the first or last character in any name. These characters will cause most validation rules to fail.
 
@@ -141,13 +141,13 @@ The Azure Resource Manager supports tagging entities with arbitrary text strings
 
 Each resource or resource group can have a maximum of **15** tags. The tag name is limited to 512 characters, and the tag value is limited to 256 characters.
 
-For more information on resource tagging, refer to [Using tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags/).
+For more information on resource tagging, see [Using tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags/).
 
 Some of the common tagging use cases are:
 
-- **Billing**. Grouping resources and associating them with billing or charge back codes.
+- **Billing**. Grouping resources and associating them with billing or chargeback codes.
 - **Service Context Identification**. Identify groups of resources across Resource Groups for common operations and grouping.
-- **Access Control and Security Context**. Administrative role identification based on portfolio, system, service, app, instance, etc.
+- **Access Control and Security Context**. Administrative role identification based on portfolio, system, service, app, instance, or other factors.
 
 > [!TIP]
 > Tag early, tag often. Better to have a baseline tagging scheme in place and adjust over time rather than having to retrofit after the fact.
@@ -177,16 +177,15 @@ Especially in larger topologies, carefully naming virtual machines streamlines i
 There are two primary use cases for storage accounts: backing disks for VMs, and storing data in blobs, queues and tables. Storage accounts used for VM disks should follow the naming convention of associating them with the parent VM name (and with the potential need for multiple storage accounts for high-end VM SKUs, also apply a number suffix).
 
 > [!TIP]
-> Storage accounts - whether for data or disks - should follow a naming convention that allows for multiple storage accounts to be leveraged (i.e. always using a numeric suffix).
+> Storage accounts&mdash;whether for data or disks&mdash;should follow a naming convention that allows for multiple storage accounts to be leveraged (that is, always using a numeric suffix).
 
 It's possible to configure a custom domain name for accessing blob data in your Azure Storage account. The default endpoint for the Blob service is `https://<name>.blob.core.windows.net`.
 
-But if you map a custom domain (such as `www.contoso.com`) to the blob endpoint for your storage account, you can also access blob data in your storage account by using that domain. For example, with a custom domain name, `https://mystorage.blob.core.windows.net/mycontainer/myblob` could be accessed as
-`https://www.contoso.com/mycontainer/myblob`.
+But if you map a custom domain (such as `www.contoso.com`) to the blob endpoint for your storage account, you can also access blob data in your storage account by using that domain. For example, with a custom domain name, `https://mystorage.blob.core.windows.net/mycontainer/myblob` could be accessed as `https://www.contoso.com/mycontainer/myblob`.
 
-For more information about configuring this feature, refer to [Configure a custom domain name for your Blob storage endpoint](/azure/storage/storage-custom-domain-name/).
+For more information about configuring this feature, see [Configure a custom domain name for your Blob storage endpoint](/azure/storage/storage-custom-domain-name/).
 
-For more information on naming blobs, containers and tables, refer to the following list:
+For more information on naming blobs, containers and tables, see the following list:
 
 - [Naming and Referencing Containers, Blobs, and Metadata](https://msdn.microsoft.com/library/dd135715.aspx)
 - [Naming Queues and Metadata](https://msdn.microsoft.com/library/dd179349.aspx)
@@ -197,5 +196,4 @@ A blob name can contain any combination of characters, but reserved URL characte
 It is not possible to modify the name of a storage account or container after it has been created. If you want to use a new name, you must delete it and create a new one.
 
 > [!TIP]
-> We recommend that you establish a naming convention for all storage accounts and types
-> before embarking on the development of a new service or application.
+> We recommend that you establish a naming convention for all storage accounts and types before embarking on the development of a new service or application.

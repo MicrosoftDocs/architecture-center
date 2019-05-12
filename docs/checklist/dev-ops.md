@@ -58,15 +58,15 @@ DevOps is the integration of development, quality assurance, and IT operations i
 
 **Test in production.** The release process doesn't end with deployment to production. Have tests in place to ensure that deployed code works as expected. For deployments that are infrequently updated, schedule production testing as a regular part of maintenance.
 
-**Automate performance testing to identify performance issues early.** The impact of a serious performance issue can be just as severe as a bug in the code. While automated functional tests can prevent application bugs, they might not detect performance problems. Define acceptable performance goals for metrics like latency, load times, and resource usage. Include automated performance tests in your release pipeline, to make sure the application meets those goals.
+**Automate performance testing to identify performance issues early.** The impact of a serious performance issue can be as severe as a bug in the code. While automated functional tests can prevent application bugs, they might not detect performance problems. Define acceptable performance goals for metrics like latency, load times, and resource usage. Include automated performance tests in your release pipeline, to make sure the application meets those goals.
 
 **Perform capacity testing.** An application might work fine under test conditions, and then have problems in production due to scale or resource limitations. Always define the maximum expected capacity and usage limits. Test to make sure the application can handle those limits, but also test what happens when those limits are exceeded. Capacity testing should be performed at regular intervals.
 
-After the initial release, you should run performance and capacity tests whenever updates are made to production code. Use historical data to fine tune tests and to determine what types of tests need to be performed.
+After the initial release, you should run performance and capacity tests whenever updates are made to production code. Use historical data to fine-tune tests and to determine what types of tests need to be performed.
 
 **Perform automated security penetration testing.** Ensuring your application is secure is as important as testing any other functionality. Make automated penetration testing a standard part of the build and deployment process. Schedule regular security tests and vulnerability scanning on deployed applications, monitoring for open ports, endpoints, and attacks. Automated testing does not remove the need for in-depth security reviews at regular intervals.
 
-**Perform automated business continuity testing.** Develop tests for large scale business continuity, including backup recovery and failover. Set up automated processes to perform these tests regularly.
+**Perform automated business continuity testing.** Develop tests for large-scale business continuity, including backup recovery and failover. Set up automated processes to perform these tests regularly.
 
 ## Release
 
@@ -94,7 +94,7 @@ After the initial release, you should run performance and capacity tests wheneve
 
 ## Monitoring
 
-**Make systems observable.** The operations team should always have clear visibility into the health and status of a system or service. Set up external health endpoints to monitor status, and ensure that applications are coded to instrument the operations metrics. Use a common and consistent schema that lets you correlate events across systems. [Azure Diagnostics][azure-diagnostics] and [Application Insights][app-insights] are the standard method of tracking the health and status of Azure resources. Microsoft [Operation Management Suite][oms] also provides centralized monitoring and management for cloud or hybrid solutions.
+**Make systems observable.** The operations team should always have clear visibility into the health and status of a system or service. Set up external health endpoints to monitor status, and ensure that applications are coded to instrument the operations metrics. Use a common and consistent schema that helps you correlate events across systems. [Azure Diagnostics][azure-diagnostics] and [Application Insights][app-insights] are the standard method of tracking the health and status of Azure resources. Microsoft [Operation Management Suite][oms] also provides centralized monitoring and management for cloud or hybrid solutions.
 
 **Aggregate and correlate logs and metrics**. A properly instrumented telemetry system will provide a large amount of raw performance data and event logs. Make sure that telemetry and log data is processed and correlated in a short period of time, so that operations staff always have an up-to-date picture of system health. Organize and display data in ways that give a cohesive view of any issues, so that whenever possible it's clear when events are related to one another.
 
@@ -131,7 +131,7 @@ Shared documentation is critical. Encourage team members to contribute and share
 
 **Follow least-privilege principles when granting access to resources.** Carefully manage access to resources. Access should be denied by default, unless a user is explicitly given access to a resource. Only grant a user access to what they need to complete their tasks. Track user permissions and perform regular security audits.
 
-**Use role-based access control.** Assigning user accounts and access to resources should not be a manual process. Use [Role-Based Access Control][rbac] (RBAC) grant access based on [Azure Active Directory][azure-ad] identities and groups.
+**Use role-based access control.** Assigning user accounts and access to resources should not be a manual process. Use [role-based access control][rbac] (RBAC) grant access based on [Azure Active Directory][azure-ad] identities and groups.
 
 **Use a bug tracking system to track issues.** Without a good way to track issues, it's easy to miss items, duplicate work, or introduce additional problems. Don't rely on informal person-to-person communication to track the status of bugs. Use a bug tracking tool to record details about problems, assign resources to address them, and provide an audit trail of progress and status.
 
