@@ -87,7 +87,7 @@ Follow these steps before deploying the Resource Manager template:
 
 The Avere Cache is an optional solution that can drastically increase read throughput for the application job data. Avere vFXT for Azure solves the problem of running these enterprise HPC applications in the cloud while leveraging data stored on-premises or in Azure Blob storage.
 
-For organizations that are planning for a hybrid infrastructure with both on-premises storage and cloud computing, HPC applications can “burst” into Azure using data stored in NAS devices and spin up virtual CPUs as needed. The data set is never moved completely into the cloud. The requested bytes are temporarily cached using an Avere cluster during processing.
+For organizations that are planning for a hybrid infrastructure with both on-premises storage and cloud computing, HPC applications can "burst" into Azure using data stored in NAS devices and spin up virtual CPUs as needed. The data set is never moved completely into the cloud. The requested bytes are temporarily cached using an Avere cluster during processing.
 
 To set up and configure an Avere vFXT installation, follow the [Avere Setup and Configuration guide][avere].
 

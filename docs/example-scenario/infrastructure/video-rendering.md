@@ -28,7 +28,7 @@ Other relevant use cases include:
 
 ## Architecture
 
-![Architecture overview of the components involved in a Cloud Native HPC solution using Azure Batch][architecture]
+![Architecture overview of the components involved in a cloud-native HPC solution using Azure Batch][architecture]
 
 This scenario shows a workflow that uses Azure Batch. The data flows as follows:
 

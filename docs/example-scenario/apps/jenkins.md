@@ -208,7 +208,7 @@ The step is run by the Jenkins administrator to set up the Azure Credential plug
 
 To set up monitoring for your Jenkins server, follow the instructions in [Create metric alerts in Azure Monitor for Azure services][create-metric].
 
-### Step 7: Provision Jenkins server with Managed Disks for disaster recovery
+### Step 7: Provision Jenkins server with managed disks for disaster recovery
 
 The Microsoft Jenkins product group has created disaster recovery scripts that build a managed disk used to save the Jenkins state. If the server goes down, it can be restored to its latest state.
 
