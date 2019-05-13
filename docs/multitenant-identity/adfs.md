@@ -13,7 +13,7 @@ pnp.series.next: client-assertion
 
 # Federate with a customer's AD FS
 
-This article describes how a multi-tenant SaaS application can support authentication via Active Directory Federation Services (AD FS), in order to federate with a customer's AD FS.
+This article describes how a multitenant SaaS application can support authentication via Active Directory Federation Services (AD FS), in order to federate with a customer's AD FS.
 
 ## Overview
 
@@ -84,11 +84,11 @@ The SaaS provider can deploy AD FS either on-premises or on Azure VMs. For secur
 * Domain controllers and AD FS servers should never be exposed directly to the Internet and should be in a virtual network with direct access to them.
 * Web application proxies (previously AD FS proxies) must be used to publish AD FS servers to the Internet.
 
-To set up a similar topology in Azure requires the use of Virtual networks, NSG’s, azure VM’s and availability sets. For more details, see [Guidelines for Deploying Windows Server Active Directory on Azure Virtual Machines][active-directory-on-azure].
+To set up a similar topology in Azure requires the use of virtual networks, network security groups, virtual machines, and availability sets. For more details, see [Guidelines for deploying Windows Server Active Directory on Azure Virtual Machines][active-directory-on-azure].
 
 ## Configure OpenID Connect authentication with AD FS
 
-The SaaS provider must enable OpenID Connect between the application and AD FS. To do so, add an application group in AD FS.  You can find detailed instructions in this [blog post], under " Setting up a Web App for OpenId Connect sign in AD FS."
+The SaaS provider must enable OpenID Connect between the application and AD FS. To do so, add an application group in AD FS.  You can find detailed instructions in this [blog post], under "Setting up a Web App for OpenId Connect sign in AD FS."
 
 Next, configure the OpenID Connect middleware. The metadata endpoint is `https://domain/adfs/.well-known/openid-configuration`, where domain is the SaaS provider's AD FS domain.
 

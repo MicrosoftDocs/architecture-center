@@ -29,7 +29,7 @@ As the development activity focuses on the backend service, a separate team may 
 
 ## Solution
 
-Create one backend per user interface. Fine tune the behavior and performance of each backend to best match the needs of the frontend environment, without worrying about affecting other frontend experiences.
+Create one backend per user interface. Fine-tune the behavior and performance of each backend to best match the needs of the frontend environment, without worrying about affecting other frontend experiences.
 
 ![Diagram of the Backends for Frontends pattern](./_images/backend-for-frontend-example.png)
 

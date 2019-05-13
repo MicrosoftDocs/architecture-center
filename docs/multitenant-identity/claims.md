@@ -78,7 +78,7 @@ In OpenID Connect, the issuer claim ("iss") identifies the IDP that issued the I
 
 In Azure AD, the issuer value is unique per AD tenant (`https://sts.windows.net/<tenantID>`). Therefore, an application should do an additional check, to make sure the issuer represents a tenant that is allowed to sign in to the app.
 
-For a single-tenant application, you can just check that the issuer is your own tenant. In fact, the OIDC middleware does this automatically by default. In a multi-tenant app, you need to allow for multiple issuers, corresponding to the different tenants. Here is a general approach to use:
+For a single-tenant application, you can just check that the issuer is your own tenant. In fact, the OIDC middleware does this automatically by default. In a multitenant app, you need to allow for multiple issuers, corresponding to the different tenants. Here is a general approach to use:
 
 * In the OIDC middleware options, set **ValidateIssuer** to false. This turns off the automatic check.
 * When a tenant signs up, store the tenant and the issuer in your user DB.
@@ -101,7 +101,7 @@ Here are some basic patterns for checking claims.
 
    This code checks whether the user has a Role claim with the value "Admin". It correctly handles the case where the user has no Role claim or multiple Role claims.
   
-   The **ClaimTypes** class defines constants for commonly-used claim types. However, you can use any string value for the claim type.
+   The **ClaimTypes** class defines constants for commonly used claim types. However, you can use any string value for the claim type.
 * To get a single value for a claim type, when you expect there to be at most one value:
 
   ```csharp
