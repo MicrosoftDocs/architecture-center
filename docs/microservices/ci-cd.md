@@ -43,7 +43,7 @@ Following the microservices philosophy, there should never be a long release tra
 
 ![Diagram of a CI/CD monolith](./images/cicd-monolith.png)
 
-To achieve a high release velocity, your release pipeline must be automated and highly reliable, to minimize risk. If you release to production daily or multiple times a day, regressions or service disruptions must be very rare. At the same time, if a bad update does get deployed, you must have a reliable way to quickly roll back or roll forward to a previous version of a service.
+To achieve a high release velocity, your release pipeline must be automated and highly reliable to minimize risk. If you release to production one or more times daily , regressions or service disruptions must be rare. At the same time, if a bad update does get deployed, you must have a reliable way to quickly roll back or roll forward to a previous version of a service.
 
 ## Challenges
 
@@ -65,7 +65,7 @@ To achieve a high release velocity, your release pipeline must be automated and 
 
     **Mitigation**: Use deployment techniques such as blue-green or canary release for non-breaking changes. For breaking API changes, deploy the new version side by side with the previous version. That way, services that consume the previous API can be updated and tested for the new API. See [Updating services](#updating-services), below.
 
-## Monorepo vs multi-repo
+## Monorepo vs. multi-repo
 
 Before creating a CI/CD workflow, you must know how the code base will be structured and managed.
 
