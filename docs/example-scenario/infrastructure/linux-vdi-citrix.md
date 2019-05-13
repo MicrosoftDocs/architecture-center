@@ -39,7 +39,7 @@ This example scenario demonstrates allowing the corporate network to access the 
 - An ExpressRoute is established between the on-premises environment and Azure, for fast and reliable connectivity to the cloud.
 - Citrix XenDeskop solution deployed for VDI.
 - The CitrixVDA run on Ubuntu (or another supported distro).
-- Azure Network Security Groups will apply the correct network ACLs.
+- Azure network security groups will apply the correct network ACLs.
 - Citrix ADC (NetScaler) will publish and load balance all the Citrix services.
 - Active Directory Domain Services will be used to domain join the Citrix servers. VDA servers will not be domain joined.
 - Azure Hybrid File Sync will enable shared storage across the solution. For example, it can be used in remote/home solutions.
