@@ -47,9 +47,9 @@ This example includes a high availability configuration for an Oracle database, 
 
 - [ExpressRoute](/azure/expressroute/expressroute-introduction) extends your on-premises network into the Microsoft cloud through a private connection established by a connectivity provider.
 
-- [Network Security Groups (NSG)](/azure/virtual-network/security-overview) limit network access to the resources in a virtual network. An NSG contains a list of security rules that allow or deny network traffic based on source or destination IP address, port, and protocol.
+- [Network security groups](/azure/virtual-network/security-overview) limit network access to the resources in a virtual network. A network security group contains a list of security rules that allow or deny network traffic based on source or destination IP address, port, and protocol.
 
-- [Resource Groups](/azure/azure-resource-manager/resource-group-overview#resource-groups) act as logical containers for Azure resources.
+- [Resource groups](/azure/azure-resource-manager/resource-group-overview#resource-groups) act as logical containers for Azure resources.
 
 ### Alternatives
 

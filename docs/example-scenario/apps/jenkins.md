@@ -27,27 +27,27 @@ The focus of this document is on the core Azure operations needed to support Jen
 
 The architecture consists of the following components:
 
-- **Resource group**. A [resource group][rg] is used to group Azure assets so they can be managed by lifetime, owner, and other criteria. Use resource groups to deploy and monitor Azure assets as a group and track billing costs by resource group. You can also delete resources as a set, which is very useful for test deployments.
+- **Resource group.** A [resource group][rg] is used to group Azure assets so they can be managed by lifetime, owner, and other criteria. Use resource groups to deploy and monitor Azure assets as a group and track billing costs by resource group. You can also delete resources as a set, which is very useful for test deployments.
 
-- **Jenkins server**. A virtual machine is deployed to run [Jenkins][azure-market] as an automation server and serves as Jenkins Master. To deploy this VM, use the [solution template for Jenkins on Azure][solution]. Other Jenkins offerings are available in the Azure Marketplace.
+- **Jenkins server.** A virtual machine is deployed to run [Jenkins][azure-market] as an automation server and serves as Jenkins Master. To deploy this VM, use the [solution template for Jenkins on Azure][solution]. Other Jenkins offerings are available in the Azure Marketplace.
 
   > [!NOTE]
   > Nginx is installed on the VM to act as a reverse proxy to Jenkins. You can configure Nginx to enable SSL for the Jenkins server.
   >
 
-- **Virtual network**. A [virtual network][vnet] connects Azure resources to each other and provides logical isolation. In this architecture, the Jenkins server runs in a virtual network.
+- **Virtual network.** A [virtual network][vnet] connects Azure resources to each other and provides logical isolation. In this architecture, the Jenkins server runs in a virtual network.
 
-- **Subnets**. The Jenkins server is isolated in a [subnet][subnet] to make it easier to manage and segregate network traffic without affecting performance.
+- **Subnets.** The Jenkins server is isolated in a [subnet][subnet] to make it easier to manage and segregate network traffic without affecting performance.
 
-- **NSGs**. Use [network security groups][nsg] (NSGs) to restrict network traffic from the Internet to the subnet of a virtual network.
+- **Network security groups.** Use [network security groups][nsg] to restrict network traffic from the Internet to the subnet of a virtual network.
 
-- **Managed disks**. A [managed disk][managed-disk] is a persistent virtual hard disk (VHD) used for application storage and also to maintain the state of the Jenkins server and provide disaster recovery. Data disks are stored in Azure Storage. For high performance, [premium storage][premium] is recommended.
+- **Managed disks.** A [managed disk][managed-disk] is a persistent virtual hard disk (VHD) used for application storage and also to maintain the state of the Jenkins server and provide disaster recovery. Data disks are stored in Azure Storage. For high performance, [premium storage][premium] is recommended.
 
-- **Azure Blob Storage**. The [Windows Azure Storage plugin][configure-storage] uses Azure Blob Storage to store the build artifacts that are created and shared with other Jenkins builds.
+- **Azure Blob storage.** The [Windows Azure Storage plugin][configure-storage] uses Azure Blob storage to store the build artifacts that are created and shared with other Jenkins builds.
 
-- **Azure Active Directory (Azure AD)**. [Azure AD][azure-ad] supports user authentication, allowing you to set up SSO. Azure AD [service principals][service-principal] define the policy and permissions for each role authorization in the workflow, using [role-based access control][rbac] (RBAC). Each service principal is associated with a Jenkins job.
+- **Azure Active Directory (Azure AD).** [Azure AD][azure-ad] supports user authentication, allowing you to set up SSO. Azure AD [service principals][service-principal] define the policy and permissions for each role authorization in the workflow, using [role-based access control][rbac] (RBAC). Each service principal is associated with a Jenkins job.
 
-- **Azure Key Vault**. To manage secrets and cryptographic keys used to provision Azure resources when secrets are required, this architecture uses [Key Vault][key-vault]. For added help storing secrets associated with the application in the pipeline, see also the [Azure Credentials][configure-credential] plugin for Jenkins.
+- **Azure Key Vault.** To manage secrets and cryptographic keys used to provision Azure resources when secrets are required, this architecture uses [Azure Key Vault][key-vault]. For added help storing secrets associated with the application in the pipeline, see also the [Azure Credentials][configure-credential] plugin for Jenkins.
 
 - **Azure monitoring services**. This service [monitors][monitor] the Azure virtual machine hosting Jenkins. This deployment monitors the virtual machine status and CPU utilization and sends alerts.
 
@@ -130,8 +130,7 @@ Use the following approaches to help lock down security on a basic Jenkins serve
 - Set up a secure way to log into the Jenkins server. This architecture uses HTTP and has a public IP, but HTTP is not secure by default. Consider setting up [HTTPS on the Nginx server][nginx] being used for a secure logon.
 
     > [!NOTE]
-    > When adding SSL to your server, create an NSG rule for the Jenkins subnet to open port 443. For more information, see [How to open ports to a virtual machine with the Azure portal][port443].
-    >
+    > When adding SSL to your server, create a network security group rule for the Jenkins subnet to open port 443. For more information, see [How to open ports to a virtual machine with the Azure portal][port443].
 
 - Ensure that the Jenkins configuration prevents cross site request forgery (Manage Jenkins \> Configure Global Security). This is the default for Microsoft Jenkins Server.
 
