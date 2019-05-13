@@ -21,9 +21,9 @@ Migrating to modern CI/CD processes provides many benefits for application build
 
 Consider Azure DevOps and CI/CD processes for:
 
-- Accelerating application development and development life cycles
+- Accelerating application development and development lifecycles.
 - Building quality and consistency into an automated build and release process
-- Increasing application stability and uptime
+- Increasing application stability and uptime.
 
 ## Architecture
 
@@ -42,7 +42,7 @@ The data flows through the scenario as follows:
 
 ### Components
 
-- [Azure DevOps][vsts] is a service for managing your development life cycle end-to-end &mdash; from planning and project management, to code management, and continuing to build and release.
+- [Azure DevOps][vsts] is a service for managing your development lifecycle end-to-end&mdash;from planning and project management, to code management, and continuing to build and release.
 
 - [Azure Web Apps][web-apps] is a PaaS service for hosting web applications, REST APIs, and mobile back ends. While this article focuses on .NET, there are several additional development platform options supported.
 

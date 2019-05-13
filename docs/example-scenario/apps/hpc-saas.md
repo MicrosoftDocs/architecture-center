@@ -67,7 +67,7 @@ Other relevant use cases include:
 
 ## Pricing
 
-To help you explore the cost of running this scenario, many of the required services are pre-configured in a [cost calculator example][calculator]. The costs of your solution are dependent on the number and scale of services needed to meet your requirements.
+To help you explore the cost of running this scenario, many of the required services are pre-configured in a [cost calculator example][calculator]. The costs of your solution depend on the number and scale of services needed to meet your requirements.
 
 The following considerations will drive a substantial portion of the costs for this solution:
 

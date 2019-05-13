@@ -20,7 +20,7 @@ In this scenario, an organization has hosted multiple APIs using [Application Se
 
 ![Architecture diagram][architecture]
 
-The above scenario covers a complete life cycle of internal APIs getting consumed by the external users.
+The above scenario covers a complete lifecycle of internal APIs getting consumed by the external users.
 
 The data flows as follows:
 
@@ -36,12 +36,12 @@ The data flows as follows:
 
 - [Azure Virtual Network][vnet] enables Azure resources to securely communicate with each other, the internet, and on-premises networks.
 - [Azure Private DNS][dns] allows domain names to be resolved in a virtual network without needing to add a custom DNS solution.
-- [Azure API Management][apim] helps organizations publish APIs to external, partner, and internal developers to utilize their data and services.
+- [Azure API Management][apim] helps organizations publish APIs to external, partner, and internal developers to use their data and services.
 - [Application Gateway][appgtwy] is a web traffic load balancer that enables you to manage traffic to your web applications.
 - Internal Load Balancer [App Service Environment][ase] is an Azure App Service feature that provides a fully isolated and dedicated environment for securely running App Service apps at high scale.
-- [Azure DevOps][devops] is a service for managing your development life cycle and includes features for planning and project management, code management, build, and release.
+- [Azure DevOps][devops] is a service for managing your development lifecycle and includes features for planning and project management, code management, build, and release.
 - [Application Insights][appinsights] is an extensible Application Performance Management (APM) service for web developers on multiple platforms.
-- [Azure Cosmos DB][cosmosdb] is Microsoft's globally distributed, multi-model database service.
+- [Azure Cosmos DB][cosmos-db] is Microsoft's globally distributed, multi-model database service.
 
 ### Alternatives
 
@@ -78,7 +78,7 @@ Azure Application Gateway auto scaling is available as a part of the Zone redund
 
 ### Security
 
-Since the above example scenario is hosted completely on an internal network, API Management and ASE are already deployed on [secured infrastructure (Azure VNET)][vnet-security]. Application Gateways can be [integrated with Azure Security Center][appgtwy-asc] to provide a seamless way to prevent, detect, and respond to threats to the environment.  For general guidance on designing secure solutions, see the [Azure Security Documentation][security]
+Since the above example scenario is hosted completely on an internal network, API Management and ASE are already deployed on [secured infrastructure (Azure VNet)][vnet-security]. Application Gateways can be [integrated with Azure Security Center][appgtwy-asc] to provide a seamless way to prevent, detect, and respond to threats to the environment.  For general guidance on designing secure solutions, see the [Azure Security Documentation][security]
 
 ### Resiliency
 
@@ -99,27 +99,27 @@ This example scenario though talks more about configuration, the APIs hosted on 
 
 The components deployed using the above Resource Manager template needs to be further configured as below
 
-1. VNET with the following configurations:
+1. VNet with the following configurations:
    - Name: ase-internal-vnet
-   - Address space for VNET: 10.0.0.0/16
+   - Address space for VNet: 10.0.0.0/16
    - Four Subnets
      - backendSubnet for DNS Service: 10.0.0.0/24
      - apimsubnet for Internal API Management Service: 10.0.1.0/28
      - asesubnet for ILB ASE: 10.0.2.0/24
      - VMSubnet for Test VMs and Internal DevOps Hosted Agent VM: 10.0.3.0/24
-2. Private DNS service (Public Preview) since adding a DNS service requires the VNET to be empty.
+2. Private DNS service (Public Preview) since adding a DNS service requires the VNet to be empty.
    - Refer to the [deployment guidelines][dnsguide] for more information
 3. App Service Environment with Internal Load Balancer (ILB) option: aseinternal (DNS: aseinternal.contoso.org). Once the Deployment is complete, upload the wild-card cert for the ILB
 4. App Service Plan with ASE as location
 5. An API App (App Services for simplicity) - srasprest (URL: https://srasprest.contoso.org) – ASP.NET MVC-based web API. After the deployment, configure
    - web app to use the SSL certificate
    - Application Insights to the above apps: api-insights
-   - Create a Cosmos DB service for web APIs hosted internal to VNET: noderestapidb
+   - Create a Cosmos DB service for web APIs hosted internal to VNet: noderestapidb
    - Create DNS entries on the Private DNS zone created
    - You could make use of Azure Pipelines to configure the agents on Virtual Machines to deploy the code for Web App on internal Network
-   - For testing the API App internally, create a test VM within the VNET subnet
+   - For testing the API App internally, create a test VM within the VNet subnet
 6. Creates API Management service: apim-internal
-7. Configure the service to connect to intern VNET on Subnet: apimsubnet. After the deployment is complete, perform the below additional steps
+7. Configure the service to connect to internal VNet on Subnet: apimsubnet. After the deployment is complete, perform the below additional steps
    - Configure custom domains for APIM Services using SSL Cert
      - API portal (api.contoso.org)
      - Dev Portal (portal.contoso.org)
@@ -169,7 +169,7 @@ Check out the related scenario on [Migrating legacy web APIs to API Management][
 [vnet]: /azure/virtual-network/virtual-networks-overview
 [devops]: /azure/devops/index?view=azure-devops&viewFallbackFrom=vsts
 [appinsights]: /azure/azure-monitor/app/app-insights-overview
-[cosmosdb]: /azure/cosmos-db/introduction
+[cosmos-db]: /azure/cosmos-db/introduction
 [dnsguide]: /azure/dns/private-dns-getstarted-cli
 [related-scenario]: /azure/architecture/example-scenario/apps/apim-api-scenario
 [apim-pricing]: https://azure.microsoft.com/pricing/details/api-management/
