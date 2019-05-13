@@ -14,7 +14,8 @@ pnp.series.next: app-roles
 
 [![GitHub](../_images/github.png) Sample code][sample application]
 
-This article describes how to implement a *sign-up* process in a multi-tenant application, which allows a customer to sign up their organization for your application.
+This article describes how to implement a *sign-up* process in a multitenant application, which allows a customer to sign up their organization for your application.
+
 There are several reasons to implement a sign-up process:
 
 * Allow an AD admin to consent for the customer's entire organization to use the application.
