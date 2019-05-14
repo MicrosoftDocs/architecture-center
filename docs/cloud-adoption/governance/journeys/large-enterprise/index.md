@@ -62,7 +62,7 @@ In the MVP, practices and tools from the [Deployment Acceleration](../../deploym
 
 ## Evolving the best practice
 
-Over time, this governance MVP will be used to evolve the governance practices. As adoption advances, business risk grows. Various disciplines within the Cloud Adoption Framework governance model will evolve to manage those risks. Later articles in this series discuss the evolution of corporate policy affecting the fictional company. These evolutions happen across three disciplines:
+Over time, this governance MVP will be used to evolve the governance practices. As adoption advances, business risk grows. Various disciplines within the Cloud Adoption Framework governance model will evolve to manage those risks. Later articles in this series discuss the evolution of corporate policy affecting the fictional company. These evolutions happen across four disciplines:
 
 - Identity Baseline, as migration dependencies evolve in the narrative.
 - Cost Management, as adoption scales.
