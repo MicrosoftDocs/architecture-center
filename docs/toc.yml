@@ -17,8 +17,6 @@
         href: guide/architecture-styles/web-queue-worker.md
       - name: Microservices
         href: guide/architecture-styles/microservices.md
-      - name: CQRS
-        href: guide/architecture-styles/cqrs.md
       - name: Event-driven architecture
         href: guide/architecture-styles/event-driven.md
       - name: Big data

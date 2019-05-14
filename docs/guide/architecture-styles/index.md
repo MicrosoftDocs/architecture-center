@@ -7,7 +7,7 @@ ms.author: pnp
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
-ms.date: 08/30/2018
+ms.date: 05/14/2019
 ---
 
 # Architecture styles
@@ -43,12 +43,6 @@ If your application has a more complex domain, consider moving to a **[Microserv
 
 Each service can be built by a small, focused development team. Individual services can be deployed without a lot of coordination between teams, which encourages frequent updates. A microservice architecture is more complex to build and manage than either N-tier or web-queue-worker. It requires a mature development and DevOps culture. But done right, this style can lead to higher release velocity, faster innovation, and a more resilient architecture.
 
-### CQRS
-
-The **[CQRS](./cqrs.md)** (Command and Query Responsibility Segregation) style separates read and write operations into separate models. This isolates the parts of the system that update data from the parts that read the data. Moreover, reads can be executed against a materialized view that is physically separate from the write database. That lets you scale the read and write workloads independently, and optimize the materialized view for queries.
-
-CQRS makes the most sense when it's applied to a subsystem of a larger architecture. Generally, you shouldn't impose it across the entire application, as that will just create unneeded complexity. Consider it for collaborative domains where many users access the same data.
-
 ### Event-driven architecture
 
 **[Event-Driven Architectures](./event-driven.md)** use a publish-subscribe (pub-sub) model, where producers publish events, and consumers subscribe to them. The producers are independent from the consumers, and consumers are independent from each other.
@@ -80,7 +74,6 @@ The following table summarizes how each style manages dependencies, and the type
 | N-tier | Horizontal tiers divided by subnet | Traditional business domain. Frequency of updates is low. |
 | Web-Queue-Worker | Front and backend jobs, decoupled by async messaging. | Relatively simple domain with some resource intensive tasks. |
 | Microservices | Vertically (functionally) decomposed services that call each other through APIs. | Complicated domain. Frequent updates. |
-| CQRS | Read/write segregation. Schema and scale are optimized separately. | Collaborative domain where lots of users access the same data. |
 | Event-driven architecture. | Producer/consumer. Independent view per sub-system. | IoT and real-time systems |
 | Big data | Divide a huge dataset into small chunks. Parallel processing on local datasets. | Batch and real-time data analysis. Predictive analysis using ML. |
 | Big compute| Data allocation to thousands of cores. | Compute intensive domains such as simulation. |
