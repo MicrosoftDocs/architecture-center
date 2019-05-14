@@ -464,7 +464,7 @@
       href: microservices/design/patterns.md
   - name: Operate microservices in production
     items:
-    - name: Logging and monitoring
+    - name: Monitor microservices in Azure Kubernetes Service (AKS)
       href: microservices/logging-monitoring.md
     - name: CI/CD for microservices
       href: microservices/ci-cd.md
