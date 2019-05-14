@@ -309,6 +309,11 @@
       {
          "source_path": "docs/resiliency/disaster-recovery-high-availability-azure-applications.md",
          "redirect_url": "/azure/architecture/reliability/disaster-recovery"
+      },
+      {
+         "source_path": "docs/guide/architectural-styles/cqrs.md",
+         "redirect_url": "/azure/architecture/patterns/cqrs",
+         "redirect_document_id": true
       }
   ] 
   } 
