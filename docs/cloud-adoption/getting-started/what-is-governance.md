@@ -1,3 +1,3 @@
 ---
-redirect_url: ./governance/resource-consistency/what-is-governance
+redirect_url: /azure/architecture/cloud-adoption/governance/resource-consistency/what-is-governance
 ---
