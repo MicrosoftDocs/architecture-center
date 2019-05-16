@@ -20,7 +20,7 @@ This reference architecture shows how to perform incremental loading in an [extr
 
 <!-- markdownlint-enable MD034 -->
 
-A reference implementation for this architecture is available on [GitHub][github].
+![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github].
 
 ![Architecture diagram for automated enterprise BI with SQL Data Warehouse and Azure Data Factory](./images/enterprise-bi-sqldw-adf.png)
 
