@@ -138,10 +138,20 @@
         "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
      }, 
      {
+        "source_path": "docs/cloud-adoption/getting-started/azure-resource-access.md",
+        "redirect_url": "/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access",
+        "redirect_document_id": true  
+     },
+     {
         "source_path": "docs/cloud-adoption-guide/adoption-intro/governance-explainer.md",
         "redirect_url": "/azure/architecture/cloud-adoption/getting-started/what-is-governance",
         "redirect_document_id": true
-     }, 
+     },
+     {
+        "source_path": "docs/cloud-adoption/getting-started/what-is-governance.md",
+        "redirect_url": "/azure/architecture/cloud-adoption/governance/resource-consistency/what-is-governance",
+        "redirect_document_id": true
+     },
      {
         "source_path": "docs/cloud-adoption-guide/adoption-intro/governance-how-to.md",
         "redirect_url": "/azure/architecture/cloud-adoption/governance/governance-single-team",
