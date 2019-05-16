@@ -12,7 +12,9 @@ ms.custom: seodec18, serverless
 
 # Serverless web application on Azure
 
-This reference architecture shows a [serverless](https://azure.microsoft.com/solutions/serverless/) web application. The application serves static content from Azure Blob Storage, and implements an API using Azure Functions. The API reads data from Cosmos DB and returns the results to the web app. A reference implementation for this architecture is available on [GitHub][github].
+This reference architecture shows a [serverless](https://azure.microsoft.com/solutions/serverless/) web application. The application serves static content from Azure Blob Storage, and implements an API using Azure Functions. The API reads data from Cosmos DB and returns the results to the web app.
+
+![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github].
 
 ![Reference architecture for a serverless web application](./_images/serverless-web-app.png)
 
