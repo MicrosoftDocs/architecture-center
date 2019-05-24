@@ -468,86 +468,100 @@
       href: microservices/ci-cd.md
     - name: CI/CD for microservices on Kubernetes
       href: microservices/ci-cd-kubernetes.md
+
+- name: Data architectures for Azure
+  items:
+  - name: Overview
+    href: data-guide/index.md
+  - name: Online transaction processing (OLTP)
+    href: data-guide/relational-data/online-transaction-processing.md 
+  - name: Online analytical processing (OLAP)
+    href: data-guide/relational-data/online-analytical-processing.md
+  - name: Data warehousing
+    items:
+    - name: Overview
+      href: data-guide/relational-data/data-warehousing.md
+    - name: Extract, transform, and load (ETL)
+      href: data-guide/relational-data/etl.md
+  - name: Big data architectures
+    items:
+      - name: Overview
+        href: data-guide/big-data/index.md
+      - name: Batch processing
+        href: data-guide/big-data/batch-processing.md
+      - name: Real time processing
+        href: data-guide/big-data/real-time-processing.md
+      - name: Machine learning at scale
+        href: data-guide/big-data/machine-learning-at-scale.md
+      - name: Non-relational data stores
+        href: data-guide/big-data/non-relational-data.md
+      - name: Scenarios
+        items:
+        - name: Advanced analytics
+          href: data-guide/scenarios/advanced-analytics.md 
+        - name: Data lakes
+          href: data-guide/scenarios/data-lake.md
+        - name: Free-form text search
+          href: data-guide/scenarios/search.md
+        - name: Interactive data exploration
+          href: data-guide/scenarios/interactive-data-exploration.md
+        - name: Natural language processing
+          href: data-guide/scenarios/natural-language-processing.md
+        - name: Time series solutions 
+          href: data-guide/scenarios/time-series.md
+        - name: Working with CSV and JSON files
+          href: data-guide/scenarios/csv-and-json.md
+      - name: Technology choices
+        items:
+        - name: Analytical data stores
+          href: data-guide/technology-choices/analytical-data-stores.md 
+        - name: Analytics and reporting
+          href: data-guide/technology-choices/analysis-visualizations-reporting.md 
+        - name: Batch processing
+          href: data-guide/technology-choices/batch-processing.md 
+        - name: Cognitive services
+          href: data-guide/technology-choices/cognitive-services.md 
+        - name: Data storage
+          href: data-guide/technology-choices/data-storage.md
+        - name: Machine learning
+          href: data-guide/technology-choices/data-science-and-machine-learning.md 
+        - name: Natural language processing
+          href: data-guide/technology-choices/natural-language-processing.md 
+        - name: Pipeline orchestration
+          href: data-guide/technology-choices/pipeline-orchestration-data-movement.md 
+        - name: R developer's guide to Azure
+          href: data-guide/technology-choices/r-developers-guide.md
+        - name: Real-time message ingestion
+          href: data-guide/technology-choices/real-time-ingestion.md
+        - name: Search data stores
+          href: data-guide/technology-choices/search-options.md
+        - name: Stream processing
+          href: data-guide/technology-choices/stream-processing.md
+
+  - name: Monitoring Azure Databricks
+    items:
+    - name: Overview
+      href: databricks-monitoring/index.md
+    - name: Configure Databricks to send metrics to Azure Monitor
+      href: databricks-monitoring/configure-cluster.md
+    - name: Send Databricks application logs to Azure Monitor
+      href: databricks-monitoring/application-logs.md
+    - name: Use dashboards to visualize Databricks metrics
+      href: databricks-monitoring/dashboards.md
+    - name: Troubleshoot performance bottlenecks
+      href: databricks-monitoring/performance-troubleshooting.md
+
+  - name: Cross-cutting concerns
+    items:
+    - name: Data transfer
+      href: data-guide/scenarios/data-transfer.md 
+    - name: Extending on-premises data solutions to the cloud
+      href: data-guide/scenarios/hybrid-on-premises-and-cloud.md 
+    - name: Securing data solutions
+      href: data-guide/scenarios/securing-data-solutions.md 
+
 - name: Design guides
   items:
-  - name: Data architecture guide
-    items:
-    - name: Introduction
-      href: data-guide/index.md
-    - name: Traditional RDBMS workloads
-      items:
-      - name: Overview
-        href: data-guide/relational-data/index.md 
-      - name: Online transaction processing (OLTP)
-        href: data-guide/relational-data/online-transaction-processing.md 
-      - name: Data warehousing
-        href: data-guide/relational-data/data-warehousing.md
-      - name: Online analytical processing (OLAP)
-        href: data-guide/relational-data/online-analytical-processing.md
-      - name: Extract, transform, and load (ETL)
-        href: data-guide/relational-data/etl.md 
-    - name: Big data architectures
-      items:
-        - name: Overview
-          href: data-guide/big-data/index.md
-        - name: Batch processing
-          href: data-guide/big-data/batch-processing.md
-        - name: Real time processing
-          href: data-guide/big-data/real-time-processing.md
-        - name: Machine learning at scale
-          href: data-guide/big-data/machine-learning-at-scale.md
-        - name: Non-relational data stores
-          href: data-guide/big-data/non-relational-data.md
-        - name: Scenarios
-          items:
-          - name: Advanced analytics
-            href: data-guide/scenarios/advanced-analytics.md 
-          - name: Data lakes
-            href: data-guide/scenarios/data-lake.md
-          - name: Free-form text search
-            href: data-guide/scenarios/search.md
-          - name: Interactive data exploration
-            href: data-guide/scenarios/interactive-data-exploration.md
-          - name: Natural language processing
-            href: data-guide/scenarios/natural-language-processing.md
-          - name: Time series solutions 
-            href: data-guide/scenarios/time-series.md
-          - name: Working with CSV and JSON files
-            href: data-guide/scenarios/csv-and-json.md
-        - name: Technology choices
-          items:
-          - name: Analytical data stores
-            href: data-guide/technology-choices/analytical-data-stores.md 
-          - name: Analytics and reporting
-            href: data-guide/technology-choices/analysis-visualizations-reporting.md 
-          - name: Batch processing
-            href: data-guide/technology-choices/batch-processing.md 
-          - name: Cognitive services
-            href: data-guide/technology-choices/cognitive-services.md 
-          - name: Data storage
-            href: data-guide/technology-choices/data-storage.md
-          - name: Machine learning
-            href: data-guide/technology-choices/data-science-and-machine-learning.md 
-          - name: Natural language processing
-            href: data-guide/technology-choices/natural-language-processing.md 
-          - name: Pipeline orchestration
-            href: data-guide/technology-choices/pipeline-orchestration-data-movement.md 
-          - name: R developer's guide to Azure
-            href: data-guide/technology-choices/r-developers-guide.md
-          - name: Real-time message ingestion
-            href: data-guide/technology-choices/real-time-ingestion.md
-          - name: Search data stores
-            href: data-guide/technology-choices/search-options.md
-          - name: Stream processing
-            href: data-guide/technology-choices/stream-processing.md
-    - name: Cross-cutting concerns
-      items:
-      - name: Data transfer
-        href: data-guide/scenarios/data-transfer.md 
-      - name: Extending on-premises data solutions to the cloud
-        href: data-guide/scenarios/hybrid-on-premises-and-cloud.md 
-      - name: Securing data solutions
-        href: data-guide/scenarios/securing-data-solutions.md 
   - name: Extend Azure Resource Manager templates
     items:
     - name: Introduction
@@ -596,18 +610,6 @@
       href: service-fabric/migrate-from-cloud-services.md
     - name: Refactor a Service Fabric application
       href: service-fabric/refactor-migrated-app.md
-  - name: Monitor Azure Databricks
-    items:
-    - name: Overview
-      href: databricks-monitoring/index.md
-    - name: Configure Databricks to send metrics to Azure Monitor
-      href: databricks-monitoring/configure-cluster.md
-    - name: Send Databricks application logs to Azure Monitor
-      href: databricks-monitoring/application-logs.md
-    - name: Use dashboards to visualize Databricks metrics
-      href: databricks-monitoring/dashboards.md
-    - name: Troubleshoot performance bottlenecks
-      href: databricks-monitoring/performance-troubleshooting.md
 
 - name: Design Review Framework
   items:

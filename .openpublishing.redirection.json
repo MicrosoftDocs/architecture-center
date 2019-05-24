@@ -324,6 +324,15 @@
          "source_path": "docs/guide/architectural-styles/cqrs.md",
          "redirect_url": "/azure/architecture/patterns/cqrs",
          "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/data-guide/relational-data/index.md",
+         "redirect_url": "/azure/architecture/data-guide",
+         "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/microservices/ingestion-workflow.md",
+         "redirect_url": "/azure/architecture/microservices/design/api-design"
       }
   ] 
   } 
