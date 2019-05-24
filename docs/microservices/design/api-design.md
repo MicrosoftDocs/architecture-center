@@ -2,7 +2,7 @@
 title: API design
 description: Designing APIs for microservices
 author: MikeWasson
-ms.date: 02/25/2019
+ms.date: 05/23/2019
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -143,6 +143,59 @@ There's a cost to supporting multiple versions, in terms of developer time, test
 When a service implementation changes, it's useful to tag the change with a version. The version provides important information when troubleshooting errors. It can be very helpful for root cause analysis to know exactly which version of the service was called. Consider using [semantic versioning](https://semver.org/) for service versions. Semantic versioning uses a *MAJOR.MINOR.PATCH* format. However, clients should only select an API by the major version number, or possibly the minor version if there are significant (but non-breaking) changes between minor versions. In other words, it's reasonable for clients to select between version 1 and version 2 of an API, but not to select version 2.1.3. If you allow that level of granularity, you risk having to support a proliferation of versions.
 
 For further discussion of API versioning, see [Versioning a RESTful web API](../../best-practices/api-design.md#versioning-a-restful-web-api).
+
+## Idempotent operations
+
+An operation is *idempotent* if it can be called multiple times without producing additional side-effects after the first call. Idempotency can be a useful resiliency strategy, because it allows an upstream service to safely invoke an operation multiple times. For a discussion of this point, see [Distributed transactions](./interservice-communication.md#distributed-transactions).
+
+The HTTP specification states that GET, PUT, and DELETE methods must be idempotent. POST methods are not guaranteed to be idempotent. If a POST method creates a new resource, there is generally no guarantee that this operation is idempotent. The specification defines idempotent this way:
+
+> A request method is considered "idempotent" if the intended effect on the server of multiple identical requests with that method is the same as the effect for a single such request. ([RFC 7231](https://tools.ietf.org/html/rfc7231#section-4))
+
+It's important to understand the difference between PUT and POST semantics when creating a new entity. In both cases, the client sends a representation of an entity in the request body. But the meaning of the URI is different.
+
+- For a POST method, the URI represents a parent resource of the new entity, such as a collection. For example, to create a new delivery, the URI might be `/api/deliveries`. The server creates the entity and assigns it a new URI, such as `/api/deliveries/39660`. This URI is returned in the Location header of the response. Each time the client sends a request, the server will create a new entity with a new URI.
+
+- For a PUT method, the URI identifies the entity. If there already exists an entity with that URI, the server replaces the existing entity with the version in the request. If no entity exists with that URI, the server creates one. For example, suppose the client sends a PUT request to `api/deliveries/39660`. Assuming there is no delivery with that URI, the server creates a new one. Now if the client sends the same request again, the server will replace the existing entity.
+
+Here is the Delivery service's implementation of the PUT method.
+
+```csharp
+[HttpPut("{id}")]
+[ProducesResponseType(typeof(Delivery), 201)]
+[ProducesResponseType(typeof(void), 204)]
+public async Task<IActionResult> Put([FromBody]Delivery delivery, string id)
+{
+    logger.LogInformation("In Put action with delivery {Id}: {@DeliveryInfo}", id, delivery.ToLogInfo());
+    try
+    {
+        var internalDelivery = delivery.ToInternal();
+
+        // Create the new delivery entity.
+        await deliveryRepository.CreateAsync(internalDelivery);
+
+        // Create a delivery status event.
+        var deliveryStatusEvent = new DeliveryStatusEvent { DeliveryId = delivery.Id, Stage = DeliveryEventType.Created };
+        await deliveryStatusEventRepository.AddAsync(deliveryStatusEvent);
+
+        // Return HTTP 201 (Created)
+        return CreatedAtRoute("GetDelivery", new { id= delivery.Id }, delivery);
+    }
+    catch (DuplicateResourceException)
+    {
+        // This method is mainly used to create deliveries. If the delivery already exists then update it.
+        logger.LogInformation("Updating resource with delivery id: {DeliveryId}", id);
+
+        var internalDelivery = delivery.ToInternal();
+        await deliveryRepository.UpdateAsync(id, internalDelivery);
+
+        // Return HTTP 204 (No Content)
+        return NoContent();
+    }
+}
+```
+
+It's expected that most requests will create a new entity, so the method optimistically calls `CreateAsync` on the repository object, and then handles any duplicate-resource exceptions by updating the resource instead.
 
 ## Next steps
 
