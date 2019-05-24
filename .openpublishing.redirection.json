@@ -327,7 +327,7 @@
       },
       {
          "source_path": "docs/data-guide/relational-data/index.md",
-         "redirect_url": "/azure/data-guide/",
+         "redirect_url": "/azure/architecture/data-guide",
          "redirect_document_id": true
       }
   ] 
