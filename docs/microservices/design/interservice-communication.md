@@ -118,9 +118,9 @@ A common challenge in microservices is correctly handling transactions that span
 
 There are two cases to consider:
 
-1. A service may experience a *transient* failure such as a network timeout. These errors can often be resolved simply by retrying the call. If the operation still fails after a certain number of attempts, it's considered a non-transient failure.
+- A service may experience a *transient* failure such as a network timeout. These errors can often be resolved simply by retrying the call. If the operation still fails after a certain number of attempts, it's considered a non-transient failure.
 
-1. A  *non-transient* failure is any failure that's unlikely to go away by itself. Non-transient failures include normal error conditions, such as invalid input. They also include unhandled exceptions in application code or a process crashing. If this type of error occurs, the entire business transaction must be marked as a failure. It may be necessary to undo other steps in the same transaction that already succeeded.
+- A  *non-transient* failure is any failure that's unlikely to go away by itself. Non-transient failures include normal error conditions, such as invalid input. They also include unhandled exceptions in application code or a process crashing. If this type of error occurs, the entire business transaction must be marked as a failure. It may be necessary to undo other steps in the same transaction that already succeeded.
 
 After a non-transient failure, the current transaction might be in a *partially failed* state, where one or more steps already completed successfully. For example, if the Drone service already scheduled a drone, the drone must be canceled. In that case, the application needs to undo the steps that succeeded, by using a [Compensating Transaction](../../patterns/compensating-transaction.md). In some cases, this must be done by an external system or even by a manual process.
 
