@@ -102,7 +102,7 @@ You can find example code for this approach [here][example-3].
 
 ### Manual claim-check generation with Kafka
 
-In this example, a Kafka client writes the payload to Azure Blob Storage. Then it sends a notification message using [Kakfa-enabled Event Hubs](/azure/event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs). The consumer receives the message and can access the payload from Blob Storage. This example shows how a different messaging protocol can be used to implement the claim-check pattern in Azure. For example, you might need to support existing Kafka clients.
+In this example, a Kafka client writes the payload to Azure Blob Storage. Then it sends a notification message using [Kafka-enabled Event Hubs](/azure/event-hubs/event-hubs-quickstart-kafka-enabled-event-hubs). The consumer receives the message and can access the payload from Blob Storage. This example shows how a different messaging protocol can be used to implement the claim-check pattern in Azure. For example, you might need to support existing Kafka clients.
 
 You can find example code for this approach [here][example-4].
 
