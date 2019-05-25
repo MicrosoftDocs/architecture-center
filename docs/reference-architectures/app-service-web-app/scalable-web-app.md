@@ -14,6 +14,8 @@ ms.custom: seodec18
 
 This reference architecture shows proven practices for improving scalability and performance in an Azure App Service web application.
 
+![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github].
+
 ![Web application in Azure with improved scalability](./images/scalable-web-app.png)
 
 *Download a [Visio file][visio-download] of this architecture.*
@@ -144,6 +146,7 @@ Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at
 [durable-functions]: /azure/azure-functions/durable-functions-overview
 [functions]: /azure/azure-functions/functions-overview
 [functions-consumption-plan]: /azure/azure-functions/functions-scale#consumption-plan
+[github]: https://github.com/mspnp/reference-architectures/tree/master/web-app
 [queue-storage]: /azure/storage/storage-dotnet-how-to-use-queues
 [queues-compared]: /azure/service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted
 [resource-group]: /azure/azure-resource-manager/resource-group-overview#resource-groups
