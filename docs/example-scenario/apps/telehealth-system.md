@@ -18,7 +18,7 @@ This document explains how to build a [telehealth system](https://en.wikipedia.o
 
 There are about 700 million people who suffer from hearing disabilities. However, only 10% of them use hearing aid devices to improve their lives. In some geographies or situations, it is impossible for a patient to get direct assistance when needed. For example, consider patients who:
 
-- Need help in a specific hearing situation (e.g., while walking in the park, attending a party, or being at home), which cannot be reproduced in the hearing care professional's office.
+- Need help in a specific hearing situation (for example, while walking in the park, attending a party, or being at home), which cannot be reproduced in the hearing care professional's office.
 - Have mobility issues or reside long distances from their hearing care professional.
 - Live in an emerging country that has a limited number of hearing care professionals.
 
@@ -44,7 +44,7 @@ The solution is built on four pillars, including:
 - APIs and business logic
 - Storage and infrastructure services
 
-On the left side of the architectural diagram there are clients in two groups, the healthcare professional and the patient. The healthcare professional uses the fitting software and web portal clients to communicate with their patients. The patients, on the other hand, use a mobile app that is linked to the medical device via a Bluetooth connection. This back and forth communication is achieved using backend services:
+On the left side of the architectural diagram, there are clients in two groups, the healthcare professional and the patient. The healthcare professional uses the fitting software and web portal clients to communicate with their patients. The patients, on the other hand, use a mobile app that is linked to the medical device via a Bluetooth connection. This back and forth communication is achieved using backend services:
 
 - Public facing APIs
 - Internal microservices that are responsible for workflows such as video calls through Web RTC or client-to-client communication using Signal. signal is a software library for Microsoft ASP.NET that allows server code to send asynchronous notifications to client-side web applications.
@@ -61,12 +61,12 @@ The solution was set up in this way to:
 
 ## Components
 
-- [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/) stores user (patient and health care professional) and device related data. The service was chosen because it's stable, lightweight, and has no vendor lock-in.
+- [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/) stores user (patient and health care professional) and device-related data. The service was chosen because it's stable, lightweight, and has no vendor lock-in.
 - [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) hosts the application business logic and provides ease of deployment and flexibility for customization. The service also abstracts the solution from the actual hardware used underneath.
 - [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) hosts temporary data used for intra service data (shared data). The service can be recreated from the database in case the data expires from the cache
 - [Azure Notification Hub](https://azure.microsoft.com/services/notification-hubs/) notifies patient of incoming content: chat, video calls, device configuration settings.
 - [Azure Functions](https://azure.microsoft.com/services/functions/) schedules tasks. For instance, broad communications to large set of users, coordination of analytics work in the backend (aggregations…).
-- [Azure Application Insights](https://azure.microsoft.com/services/monitor/) centralizes signals/events from the system (logs, telemetry from logs from microservices, frontend and devices) for troubleshooting purposes.
+- [Azure Application Insights](https://azure.microsoft.com/services/monitor/) centralizes signals/events from the system (logs, telemetry from logs from microservices, frontend, and devices) for troubleshooting purposes.
 - [Azure Content Delivery Network (CDN)](https://azure.microsoft.com/services/cdn/) is used for maintenance and updates (delivery of java scripts file) to the web portal and to deliver media files (videos, images) through the portal. All this content is stored in the Azure storage accounts in the background.
 - [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) load balances between geo locations.
 - [Azure signalers](/azure/azure-signalr/signalr-overview)allows server code to send asynchronous notifications to client-side web applications. End-user devices can be configured in either ## Standard##  or ## Advanced##  mode.
@@ -77,7 +77,7 @@ In Standard mode, the fitting software prepares a notification, which contains s
 
 ## Advanced mode
 
-In Advanced mode, the hearing aid professional uses the fitting software to push very detailed configuration to the device. This requires a very stable and reliable connection between the backend and the device, which SignalR achieves by using WebSockets. The end-user's phone is on the receiving end of this channel. From the phone, the Bluetooth connection establishes the final communication link with the device.
+In Advanced mode, the hearing aid professional uses the fitting software to push detailed configuration to the device. This requires a stable and reliable connection between the backend and the device, which SignalR achieves by using WebSockets. The end user's phone is on the receiving end of this channel. From the phone, the Bluetooth connection establishes the final communication link with the device.
 
 ## Alternatives
 
