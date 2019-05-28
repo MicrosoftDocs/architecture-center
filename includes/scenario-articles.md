@@ -270,7 +270,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./apps/media/architecture-publishing-internal-apis-externally.png" height="140px" />
+                            <img src="./apps/media/architecture-publish-internal-apis-externally.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -327,7 +327,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./apps/media/architecture-telecare-system.png" height="140px" />
+                            <img src="./apps/media/architecture-telehealth-system.png" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">

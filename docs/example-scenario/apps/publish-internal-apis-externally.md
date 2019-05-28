@@ -9,7 +9,7 @@ ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom: fasttrack
-social_image_url: ./media/architecture-publishing-internal-apis-externally.png
+social_image_url: ./media/architecture-publish-internal-apis-externally.png
 ---
 
 # Publishing internal APIs to external consumers
