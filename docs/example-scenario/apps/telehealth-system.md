@@ -1,7 +1,7 @@
 ---
 title: Building a telehealth system on Azure
 titleSuffix: Azure Example Scenarios
-description: Building a telehealth system on Azure
+description: A healthcare system connecting users, devices, and providers built using Kubernetes and PostgreSQL 
 author: jeanyd
 ms.author: jeanyd
 ms.date: 05/25/2019

@@ -1,7 +1,7 @@
 ---
 author: adamboeglin
 ms.author: adboegli
-ms.date: 05/09/2019
+ms.date: 05/28/2019
 ms.topic: include
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -245,25 +245,6 @@ ms.subservice: example-scenario
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./apps/publish-internal-apis-externally.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="./apps/media/architecture-publish-internal-apis-externally.png" height="140px" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Publishing internal APIs to external consumers</h3>
-                        <p>Use Azure API Management to modernize and expose intranet legacy web APIs.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-<li style="display: flex; flex-direction: column;">
     <a href="./apps/jenkins.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
@@ -276,6 +257,25 @@ ms.subservice: example-scenario
                     <div class="cardText">
                         <h3>Run a Jenkins server on Azure</h3>
                         <p>Recommended architecture that shows how to deploy and operate a scalable, enterprise-grade Jenkins server on Azure secured with single sign-on (SSO).</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<li style="display: flex; flex-direction: column;">
+    <a href="./apps/publish-internal-apis-externally.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="./apps/media/architecture-publishing-internal-apis-externally.png" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Publishing internal APIs to external consumers</h3>
+                        <p>Use Azure API Management to modernize and expose intranet legacy web APIs.</p>
                     </div>
                 </div>
             </div>
@@ -314,6 +314,25 @@ ms.subservice: example-scenario
                     <div class="cardText">
                         <h3>Running SAP production workloads using an Oracle database</h3>
                         <p>Run an SAP production deployment in Azure using an Oracle database.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<li style="display: flex; flex-direction: column;">
+    <a href="./apps/telehealth-system.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="./apps/media/architecture-telecare-system.png" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Building a telehealth system on Azure</h3>
+                        <p>A healthcare system connecting users, devices, and providers built using Kubernetes and PostgreSQL</p>
                     </div>
                 </div>
             </div>
