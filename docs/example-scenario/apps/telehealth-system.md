@@ -2,19 +2,19 @@
 title: Building a telehealth system on Azure
 titleSuffix: Azure Example Scenarios
 description: A healthcare system connecting users, devices, and providers built using Kubernetes and PostgreSQL 
-author: jeanyd
+author: adamboeglin
 ms.author: jeanyd
 ms.date: 05/25/2019
 ms.topic: example-scenario
 ms.service: architecture-center
 ms.subservice: example-scenario
 ms.custom: database-team
-social_image_url: /azure/architecture/example-scenario/apps/media/architecture-telecare-system.png
+social_image_url: /azure/architecture/example-scenario/apps/media/architecture-telehealth-system.png
 ---
 
 # Building a telehealth system on Azure
 
-This document explains how to build a [telehealth system](https://en.wikipedia.org/wiki/Telehealth) using Azure cloud services. The details it contains are based on a real customer implementation that connects a professional healthcare organization to its remote patients. While there are other ways to build such a system, the solution this paper describes has been successful in enabling communication between patients and their remote care provider, as well as remotely tuning the medical devices that patients carry.
+This article explains how to build a [telehealth system](https://en.wikipedia.org/wiki/Telehealth) using Azure cloud services. It's details are based on a real customer implementation that connects a professional healthcare organization to its remote patients. While there are other ways to build such a system, the solution described has been successful in enabling communication between patients and their remote care provider, as well as remotely tuning the medical devices that patients carry.
 
 There are about 700 million people who suffer from hearing disabilities. However, only 10% of them use hearing aid devices to improve their lives. In some geographies or situations, it is impossible for a patient to get direct assistance when needed. For example, consider patients who:
 
@@ -59,7 +59,7 @@ The solution was set up in this way to:
 - Build the inter-services communication and coordination mechanism required by the distribution of functionalities across microservices. The solution described in this document uses Azure Cache for Redis to accomplish this task.
 - Achieve central monitoring and enhance the ability to troubleshoot the solution.
 
-## Components
+### Components
 
 - [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/) stores user (patient and health care professional) and device-related data. The service was chosen because it's stable, lightweight, and has no vendor lock-in.
 - [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) hosts the application business logic and provides ease of deployment and flexibility for customization. The service also abstracts the solution from the actual hardware used underneath.
@@ -71,11 +71,11 @@ The solution was set up in this way to:
 - [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) load balances between geo locations.
 - [Azure signalers](/azure/azure-signalr/signalr-overview)allows server code to send asynchronous notifications to client-side web applications. End-user devices can be configured in either ## Standard##  or ## Advanced##  mode.
 
-## Standard mode
+### Standard mode
 
 In Standard mode, the fitting software prepares a notification, which contains some configuration JSON file or content for the device. The notification is then passed to Azure Notification Hub, which pushes the notification to the user's phone.
 
-## Advanced mode
+### Advanced mode
 
 In Advanced mode, the hearing aid professional uses the fitting software to push detailed configuration to the device. This requires a stable and reliable connection between the backend and the device, which SignalR achieves by using WebSockets. The end user's phone is on the receiving end of this channel. From the phone, the Bluetooth connection establishes the final communication link with the device.
 
@@ -87,15 +87,15 @@ On the database side, any other PaaS database services could be used. For hostin
 
 We recommend using a traffic manager in front of the different clusters to optimize for latency between regions and as a fallback mechanism should the clusters become unavailable. For the databases, we recommend using read-only replicas for queries that require loading and aggregating a large amount of data. We recommend delivering static web files (.html, .js, images, etc.) globally using a content delivery network (CDN) to improve speed through caching.
 
-## Deployment
+### Deployment
 
 The most important aspect to consider when deploying this scenario is the coordination of deployments across the cloud-based backend and the frontend (phones/devices). Consider using the concept of a [feature flag](/azure/devops/migrate/phase-features-with-feature-flags?view=azure-devops) to achieve this.
 
-## Management
+### Management
 
 To better align to the idea of having each functional domain dealt with using a specific microservice, long term, there is an opportunity to split the database into several smaller databases. Doing so will enable the principle isolation and autonomy of the flow related to each microservice as opposed to concentrating the data related to all services into a single database. Achieving this goal will require automating provisioning and managing those databases, which is one of the core capabilities of a PaaS database service in the cloud. That database management layer should be integrated in the solution as well as into the unified monitoring solution.
 
-## Monitoring
+### Monitoring
 
 It is important to monitor each of the tiers, and each monitoring facet should be federated into a single bucket in the cloud. It is important to enable the correlation of all these logs and telemetry data points to ensure holistic insights across components and layers.
 
@@ -105,7 +105,7 @@ Today, monitored layers include the:
 - Hosted application logic
 - Cloud services
 
-## Sizing and scaling
+### Sizing and scaling
 
 Make sure to optimize the configuration of the Azure Kubernetes clusters to match the scale requirements that fluctuate with the time of the day or regional patterns. Consider offloading read workloads (such as aggregating queries) by using Read Replicas in Azure Database for PostgreSQL.
 
@@ -125,11 +125,11 @@ To get started with implementing a comparable architecture for your business, co
 
 ## Related resources
 
-## Real-time communications
+### Real-time communications
 
 More information about how WebRTC provides real-time communication capabilities to mobile applications is available on the [WebRTC project site](https://webrtc.org/).
 
-## Turn servers
+### Turn servers
 
 Use a client library such as [Icelink](https://www.frozenmountain.com/products-services/icelink/) (loaded by the application on the phone and by the fitting software of the desktop of the hearing aid professional) to manage the turn servers\* and the types of connection (tcp, udp, p2p) between the two clients (fitting software and application on the phone). The client library:
 
