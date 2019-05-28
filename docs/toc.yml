@@ -609,6 +609,11 @@
   - name: Migrate from Cloud Services to Service Fabric
     href: service-fabric/migrate-from-cloud-services.md
 
+- name: Show me the code
+  items:
+  - name: Serverless application on Azure
+    href: serverless/index.md
+
 - name: Design Review Framework
   items:
   - name: Design reliable Azure applications
