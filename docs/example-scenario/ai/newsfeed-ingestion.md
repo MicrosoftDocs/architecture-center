@@ -27,7 +27,7 @@ While this scenario is based on processing of RSS feeds, it's relevant to any do
 
 ## Architecture
 
-![][architecture]
+![Diagram of the architecture][architecture]
 
 The data flows through the solution as follows:
 
