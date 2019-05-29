@@ -159,46 +159,46 @@ First let's look at an example resource management model using a single subscrip
 Let's begin by evaluating the first option. You'll be using the permissions model that was discussed in the previous section, with a single subscription service administrator who creates resource groups and adds users to them with either the built-in **contributor** or **reader** role.
 
 1. The first resource group deployed represents the **shared infrastructure** environment. The **subscription owner** creates a resource group for the shared infrastructure resources named `netops-shared-rg`.
-    ![](../../_images/governance-3-0d.png)
+    ![Creating a resource group](../../_images/governance-3-0d.png)
 2. The **subscription owner** adds the **network operations user** account to the resource group and assigns the **contributor** role.
-    ![](../../_images/governance-3-0e.png)
+    ![Adding a network operations user](../../_images/governance-3-0e.png)
 3. The **network operations user** creates a [VPN gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) and configures it to connect to the on-premises VPN appliance. The **network operations** user also applies a pair of [tags](/azure/azure-resource-manager/resource-group-using-tags) to each of the resources: *environment:shared* and *managedBy:netOps*. When the **subscription service administrator** exports a cost report, costs will be aligned with each of these tags. This allows the **subscription service administrator** to pivot costs using the *environment* tag and the *managedBy* tag. Notice the **resource limits** counter at the top right-hand side of the figure. Each Azure subscription has [service limits](/azure/azure-subscription-service-limits), and to help you understand the effect of these limits you'll follow the virtual network limit for each subscription. There is a limit of 1000 virtual networks per subscription, and after the first virtual network is deployed there are now 999 available.
-    ![](../../_images/governance-3-1.png)
+    ![Creating a VPN gateway](../../_images/governance-3-1.png)
 4. Two more resource groups are deployed. The first is named `prod-rg`. This resource group is aligned with the production environment. The second is named `dev-rg` and is aligned with the development environment. All resources associated with production workloads are deployed to the production environment and all resources associated with development workloads are deployed to the development environment. In this example, you'll only deploy two workloads to each of these two environments, so you won't encounter any Azure subscription service limits. However, consider that each resource group has a limit of 800 resources per resource group. If you continue to add workloads to each resource group, eventually this limit will be reached.
-    ![](../../_images/governance-3-2.png)
+    ![Creating resource groups](../../_images/governance-3-2.png)
 5. The first **workload owner** sends a request to the **subscription service administrator** and is added to each of the development and production environment resource groups with the **contributor** role. As you learned earlier, the **contributor** role allows the user to perform any operation other than assigning a role to another user. The first **workload owner** can now create the resources associated with their workload.
-    ![](../../_images/governance-3-3.png)
+    ![Adding contributors](../../_images/governance-3-3.png)
 6. The first **workload owner** creates a virtual network in each of the two resource groups with a pair of virtual machines in each. The first **workload owner** applies the *environment* and *managedBy* tags to all resources. Note that the Azure service limit counter is now at 997 virtual networks remaining.
-    ![](../../_images/governance-3-4.png)
+    ![Creating virtual networks](../../_images/governance-3-4.png)
 7. Each of the virtual networks does not have connectivity to on-premises when they are created. In this type of architecture, each virtual network must be peered to the *hub-vnet* in the **shared infrastructure** environment. Virtual network peering creates a connection between two separate virtual networks and allows network traffic to travel between them. Note that virtual network peering is not inherently transitive. A peering must be specified in each of the two virtual networks that are connected, and if only one of the virtual networks specifies a peering the connection is incomplete. To illustrate the effect of this, the first **workload owner** specifies a peering between **prod-vnet** and **hub-vnet**. The first peering is created, but no traffic flows because the complementary peering from **hub-vnet** to **prod-vnet** has not yet been specified. The first **workload owner** contacts the **network operations** user and requests this complementary peering connection.
-    ![](../../_images/governance-3-5.png)
+    ![Creating a peering connection](../../_images/governance-3-5.png)
 8. The **network operations** user reviews the request, approves it, then specifies the peering in the settings for the **hub-vnet**. The peering connection is now complete and network traffic flows between the two virtual networks.
-    ![](../../_images/governance-3-6.png)
+    ![Creating a peering connection](../../_images/governance-3-6.png)
 9. Now, a second **workload owner** sends a request to the **subscription service administrator** and is added to the existing **production** and **development** environment resource groups with the **contributor** role. The second **workload owner** has the same permissions on all resources as the first **workload owner** in each resource group.
-    ![](../../_images/governance-3-7.png)
+    ![Adding contributors](../../_images/governance-3-7.png)
 10. The second **workload owner** creates a subnet in the **prod-vnet** virtual network, then adds two virtual machines. The second **workload owner** applies the *environment* and *managedBy* tags to each resource.
-    ![](../../_images/governance-3-8.png)
+    ![Creating subnets](../../_images/governance-3-8.png)
 
 This example resource management model enables us to manage resources in the three required environments. The shared infrastructure resources are protected because there's only a single user in the subscription with permission to access those resources. Each of the workload owners is able to use the shared infrastructure resources without having any permissions on the actual shared resources themselves. However, This management model fails the requirement for workload isolation - each of the two **workload owners** are able to access the resources of the other's workload.
 
 There's another important consideration with this model that may not be immediately obvious. In the example, it was **app1 workload owner** that requested the network peering connection with the **hub-vnet** to provide connectivity to on-premises. The **network operations** user evaluated that request based on the resources deployed with that workload. When the **subscription owner** added **app2 workload owner** with the **contributor** role, that user had management access rights to all resources in the **prod-rg** resource group.
 
-![](../../_images/governance-3-10.png)
+![Diagram showing management access rights](../../_images/governance-3-10.png)
 
 This means **app2 workload owner** had permission to deploy their own subnet with virtual machines in the **prod-vnet** virtual network. By default, those virtual machines now have access to the on-premises network. The **network operations** user is not aware of those machines and did not approve their connectivity to on-premises.
 
 Next, let's look at a single subscription with multiple resources groups for different environments and workloads. Note that in the previous example, the resources for each environment were easily identifiable because they were in the same resource group. Now that you no longer have that grouping, you will have to rely on a resource group naming convention to provide that functionality.
 
 1. The **shared infrastructure** resources will still have a separate resource group in this model, so that remains the same. Each workload requires two resource groups - one for each of the **development** and **production** environments. For the first workload, the **subscription owner** creates two resource groups. The first is named **app1-prod-rg** and the second is named **app1-dev-rg**. As discussed earlier, this naming convention identifies the resources as being associated with the first workload, **app1**, and either the **dev** or **prod** environment. Again, the *subscription* owner adds the **app1 workload owner** to the resource group with the **contributor** role.
-    ![](../../_images/governance-3-12.png)
+    ![Adding contributors](../../_images/governance-3-12.png)
 2. Similar to the first example, **app1 workload owner** deploys a virtual network named **app1-prod-vnet** to the **production** environment, and another named **app1-dev-vnet** to the **development** environment. Again, **app1 workload owner** sends a request to the **network operations** user to create a peering connection. Note that **app1 workload owner** adds the same tags as in the first example, and the limit counter has been decremented to 997 virtual networks remaining in the subscription.
-    ![](../../_images/governance-3-13.png)
+    ![Creating a peering connection](../../_images/governance-3-13.png)
 3. The **subscription owner** now creates two resource groups for **app2 workload owner**. Following the same conventions as for **app1 workload owner**, the resource groups are named **app2-prod-rg** and **app2-dev-rg**. The **subscription owner** adds **app2 workload owner** to each of the resource groups with the **contributor** role.
-    ![](../../_images/governance-3-14.png)
+    ![Adding contributors](../../_images/governance-3-14.png)
 4. *App2 workload owner* deploys virtual networks and virtual machines to the resource groups with the same naming conventions. Tags are added and the limit counter has been decremented to 995 virtual networks remaining in the *subscription*.
-    ![](../../_images/governance-3-15.png)
+    ![Deploying virtual networks and VMs](../../_images/governance-3-15.png)
 5. *App2 workload owner* sends a request to the *network operations* user to peer the *app2-prod-vnet* with the *hub-vnet*. The *network operations* user creates the peering connection.
-    ![](../../_images/governance-3-16.png)
+    ![Creating a peering connection](../../_images/governance-3-16.png)
 
 The resulting management model is similar to the first example, with several key differences:
 
@@ -210,9 +210,9 @@ The resulting management model is similar to the first example, with several key
 Now let's look at a resource management model using multiple subscriptions. In this model, you'll align each of the three environments to a separate subscription: a **shared services** subscription, **production** subscription, and finally a **development** subscription. The considerations for this model are similar to a model using a single subscription in that you have to decide how to align resource groups to workloads. Already determined is that creating a resource group for each workload satisfies the workload isolation requirement, so you'll stick with that model in this example.
 
 1. In this model, there are three *subscriptions*: *shared infrastructure*, *production*, and *development*. Each of these three subscriptions requires a *subscription owner*, and in the simple example you'll use the same user account for all three. The *shared infrastructure* resources are managed similarly to the first two examples above, and the first workload is associated with the *app1-rg* in the *production* environment and the same-named resource group in the *development* environment. The *app1 workload owner* is added to each of the resource group with the *contributor* role.
-    ![](../../_images/governance-3-17.png)
+    ![Adding contributors](../../_images/governance-3-17.png)
 2. As with the earlier examples, *app1 workload owner* creates the resources and requests the peering connection with the *shared infrastructure* virtual network. *App1 workload owner* adds only the *managedBy* tag because there is no longer a need for the *environment* tag. That is, resources are for each environment are now grouped in the same *subscription* and the *environment* tag is redundant. The limit counter is decremented to 999 virtual networks remaining.
-    ![](../../_images/governance-3-18.png)
+    ![Creating a peering connection](../../_images/governance-3-18.png)
 3. Finally, the *subscription owner* repeats the process for the second workload, adding the resource groups with the *app2 workload owner* in the *contributor role. The limit counter for each of the environment subscriptions is decremented to 998 virtual networks remaining.
 
 This management model has the benefits of the second example above. However, the key difference is that limits are less of an issue due to the fact that they are spread over two *subscriptions*. The drawback is that the cost data tracked by tags must be aggregated across all three *subscriptions*.
