@@ -605,11 +605,7 @@
   - name: Modernizing enterprise applications with Azure Service Fabric
     href: service-fabric/modernize-app-azure-service-fabric.md
   - name: Migrate from Cloud Services to Service Fabric
-    items:
-    - name: Migrate a Cloud Services application to Service Fabric
-      href: service-fabric/migrate-from-cloud-services.md
-    - name: Refactor a Service Fabric application
-      href: service-fabric/refactor-migrated-app.md
+    href: service-fabric/migrate-from-cloud-services.md
 
 - name: Design Review Framework
   items:

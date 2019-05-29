@@ -333,6 +333,11 @@
       {
          "source_path": "docs/microservices/ingestion-workflow.md",
          "redirect_url": "/azure/architecture/microservices/design/api-design"
+      },
+      {
+         "source_path": "docs/service-fabric/refactor-migrated-app.md",
+         "redirect_url": "/azure/architecture/service-fabric/migrate-from-cloud-services",
+         "redirect_document_id": true
       }
   ] 
   } 
