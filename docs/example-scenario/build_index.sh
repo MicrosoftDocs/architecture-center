@@ -2,7 +2,18 @@
 #
 # Parse and generate article list for index file
 #
-# Usage (Bash or WSL): ./build_index.sh > ../../includes/scenario_articles.md
+# Usage (Bash or WSL): ./build_index.sh > ../../includes/scenario-articles.md
+
+cat <<EOF
+---
+author: adamboeglin
+ms.author: adboegli
+ms.date: $(date +%m/%d/%Y)
+ms.topic: include
+ms.service: architecture-center
+ms.subservice: example-scenario
+---
+EOF
 
 for folder in $(ls -d */ | cut -f1 -d'/'); do
 

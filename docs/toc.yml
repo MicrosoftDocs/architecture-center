@@ -250,6 +250,8 @@
       href: example-scenario/apps/jenkins.md
     - name: Securely managed web applications
       href: example-scenario/apps/fully-managed-secure-apps.md
+    - name: Telehealth System
+      href: example-scenario/apps/telehealth-system.md
   - name: Data and analytics
     items:
     - name: Hybrid ETL with Data Factory
