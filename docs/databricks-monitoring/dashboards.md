@@ -3,7 +3,8 @@ title: Use dashboards to visualize Azure Databricks metrics
 description: How to deploy a Grafana dashboard to monitor performance in Azure Databricks
 author: petertaylor9999
 ms.date: 03/26/2019
-
+ms.service: architecture-center
+ms.subservice: reference-architecture
 ---
 
 # Use dashboards to visualize Azure Databricks metrics
