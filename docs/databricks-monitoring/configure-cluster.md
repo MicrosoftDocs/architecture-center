@@ -3,6 +3,8 @@ title: Configure Azure Databricks to send metrics to Azure Monitor
 description: A scala library to enable monitoring of metrics and logging data in Azure Log Analytics
 author: MikeWasson
 ms.date: 03/26/2019
+ms.service: architecture-center
+ms.subservice: reference-architecture
 ---
 
 <!-- markdownlint-disable MD040 -->

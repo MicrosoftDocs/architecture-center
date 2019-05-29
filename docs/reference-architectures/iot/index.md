@@ -4,6 +4,8 @@ description: Recommended architecture for IoT applications on Azure using PaaS (
 titleSuffix: Azure Reference Architectures
 author: MikeWasson
 ms.date: 01/09/2019
+ms.service: architecture-center
+ms.subservice: reference-architecture
 ---
 
 # Azure IoT reference architecture

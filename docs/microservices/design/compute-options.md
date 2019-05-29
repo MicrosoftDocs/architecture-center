@@ -1,4 +1,15 @@
-# Choosing a compute option for microservices
+---
+title: Choosing an Azure compute option for microservices
+description: Guidelines for choosing an Azure compute service for microservices
+author: MikeWasson
+ms.date: 02/25/2019
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: reference-architecture
+ms.custom: microservices
+---
+
+# Choosing an Azure compute option for microservices
 
 The term *compute* refers to the hosting model for the computing resources that your application runs on. For a microservices architecture, two approaches are especially popular:
 
