@@ -45,7 +45,7 @@ for folder in $(ls -d */ | cut -f1 -d'/'); do
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="${image}" height="140px" />
+                            <img src="${image}" alt="Architecture diagram for ${title}" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">

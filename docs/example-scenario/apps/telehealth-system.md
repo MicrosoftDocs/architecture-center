@@ -35,7 +35,7 @@ The following additional use cases have similar design patterns:
 
 ## Architecture
 
-![](media/architecture-telehealth-system.png)
+![Architecture overview of the Azure components included in the telehealth system](media/architecture-telehealth-system.png)
 
 The solution is built on four pillars, including:
 
