@@ -33,7 +33,7 @@ Other relevant use cases include:
 
 ## Architecture
 
-![Screenshot](media/architecture-realtime-analytics-vehicle-data1.png)
+![Architecture overview of the components for this scenario](media/architecture-realtime-analytics-vehicle-data1.png)
 
 In a typical big data processing pipeline implementation, the data flows from left to right. In this real-time big data processing pipeline, the data flows through the solution as follows:
 
@@ -56,7 +56,7 @@ IoT device-generated events (data or messages) are ingested, processed, and then
 
 ## Alternatives
 
-![Screenshot](media/architecture-realtime-analytics-vehicle-data2.png)
+![Architecture components described below for alternative technologies](media/architecture-realtime-analytics-vehicle-data2.png)
 
 A more generalized big data pipeline could be implemented using other Azure components.
 
