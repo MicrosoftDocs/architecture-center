@@ -1,7 +1,7 @@
 ---
 author: adamboeglin
 ms.author: adboegli
-ms.date: 05/28/2019
+ms.date: 05/31/2019
 ms.topic: include
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -17,7 +17,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./ai/media/architecture-commerce-chatbot.png" height="140px" />
+                            <img src="./ai/media/architecture-commerce-chatbot.png" alt="Architecture diagram for Conversational chatbot for hotel reservations" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -36,7 +36,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./ai/media/architecture-intelligent-apps-image-processing.png" height="140px" />
+                            <img src="./ai/media/architecture-intelligent-apps-image-processing.png" alt="Architecture diagram for Image classification for insurance claims" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -55,7 +55,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./ai/media/architecture-movie-recommender.png" height="140px" />
+                            <img src="./ai/media/architecture-movie-recommender.png" alt="Architecture diagram for Movie recommendations on Azure" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -74,7 +74,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./ai/media/mass-ingestion-newsfeeds-architecture.png" height="140px" />
+                            <img src="./ai/media/mass-ingestion-newsfeeds-architecture.png" alt="Architecture diagram for Mass ingestion and analysis of news feeds on Azure" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -99,7 +99,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./apps/media/architecture-apim-api-scenario.png" height="140px" />
+                            <img src="./apps/media/architecture-apim-api-scenario.png" alt="Architecture diagram for Migrating a web app to an API-based architecture" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -118,7 +118,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./apps/media/architecture-decentralized-trust.png" height="140px" />
+                            <img src="./apps/media/architecture-decentralized-trust.png" alt="Architecture diagram for Decentralized trust between banks" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -137,7 +137,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./apps/media/architecture-devops-dotnet-webapp.svg" height="140px" />
+                            <img src="./apps/media/architecture-devops-dotnet-webapp.svg" alt="Architecture diagram for Design a CI/CD pipeline using Azure DevOps" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -156,7 +156,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./apps/media/architecture-devops-with-aks.png" height="140px" />
+                            <img src="./apps/media/architecture-devops-with-aks.png" alt="Architecture diagram for CI/CD pipeline for container-based workloads" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -175,7 +175,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./apps/media/architecture-ecommerce-scenario.png" height="140px" />
+                            <img src="./apps/media/architecture-ecommerce-scenario.png" alt="Architecture diagram for E-commerce front end" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -194,7 +194,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./apps/media/architecture-ecommerce-search.png" height="140px" />
+                            <img src="./apps/media/architecture-ecommerce-search.png" alt="Architecture diagram for Intelligent product search engine for e-commerce" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -213,7 +213,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./apps/media/ilb-ase-architecture.png" height="140px" />
+                            <img src="./apps/media/ilb-ase-architecture.png" alt="Architecture diagram for Securely managed web applications" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -232,7 +232,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./apps/media/architecture-hpc-saas.png" height="140px" />
+                            <img src="./apps/media/architecture-hpc-saas.png" alt="Architecture diagram for A computer-aided engineering service" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -251,7 +251,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./apps/media/architecture-jenkins.png" height="140px" />
+                            <img src="./apps/media/architecture-jenkins.png" alt="Architecture diagram for Run a Jenkins server on Azure" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -270,7 +270,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./apps/media/architecture-publish-internal-apis-externally.png" height="140px" />
+                            <img src="./apps/media/architecture-publish-internal-apis-externally.png" alt="Architecture diagram for Publishing internal APIs to external consumers" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -289,7 +289,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./apps/media/architecture-sap-dev-test.png" height="140px" />
+                            <img src="./apps/media/architecture-sap-dev-test.png" alt="Architecture diagram for Dev/test environments for SAP workloads" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -308,7 +308,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./apps/media/architecture-sap-production.png" height="140px" />
+                            <img src="./apps/media/architecture-sap-production.png" alt="Architecture diagram for Running SAP production workloads using an Oracle database" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -327,7 +327,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./apps/media/architecture-telehealth-system.png" height="140px" />
+                            <img src="./apps/media/architecture-telehealth-system.png" alt="Architecture diagram for Building a telehealth system on Azure" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -352,7 +352,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./data/media/architecture-big-data-with-iot.png" height="140px" />
+                            <img src="./data/media/architecture-big-data-with-iot.png" alt="Architecture diagram for IoT and data analytics in the construction industry" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -371,7 +371,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./data/media/architecture-data-warehouse.png" height="140px" />
+                            <img src="./data/media/architecture-data-warehouse.png" alt="Architecture diagram for Data warehousing and analytics for sales and marketing" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -390,7 +390,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./data/media/architecture-ecommerce-order-processing.png" height="140px" />
+                            <img src="./data/media/architecture-ecommerce-order-processing.png" alt="Architecture diagram for Scalable order processing" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -409,7 +409,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./data/media/architecture-fraud-detection.png" height="140px" />
+                            <img src="./data/media/architecture-fraud-detection.png" alt="Architecture diagram for Real-time fraud detection" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -428,7 +428,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./data/media/architecture-diagram-hybrid-etl-with-adf.png" height="140px" />
+                            <img src="./data/media/architecture-diagram-hybrid-etl-with-adf.png" alt="Architecture diagram for Hybrid ETL with existing on-premises SSIS and Azure Data Factory" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -447,7 +447,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./data/media/architecture-realtime-analytics-vehicle-data1.png" height="140px" />
+                            <img src="./data/media/architecture-realtime-analytics-vehicle-data1.png" alt="Architecture diagram for Ingestion and processing of real-time automotive IoT data" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -472,7 +472,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./infrastructure/media/architecture-hpc-cfd.png" height="140px" />
+                            <img src="./infrastructure/media/architecture-hpc-cfd.png" alt="Architecture diagram for Running CFD simulations" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -491,7 +491,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./infrastructure/media/architecture-image-modeling.png" height="140px" />
+                            <img src="./infrastructure/media/architecture-image-modeling.png" alt="Architecture diagram for Accelerate digital image-based modeling on Azure" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -510,7 +510,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./infrastructure/media/azure-citrix-sample-diagram.png" height="140px" />
+                            <img src="./infrastructure/media/azure-citrix-sample-diagram.png" alt="Architecture diagram for Linux virtual desktops with Citrix" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -529,7 +529,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./infrastructure/media/arhitecture-disaster-recovery-multi-tier-app.png" height="140px" />
+                            <img src="./infrastructure/media/arhitecture-disaster-recovery-multi-tier-app.png" alt="Architecture diagram for Multi-tier web application built for HA/DR" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -548,7 +548,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./infrastructure/media/architecture-regulated-multitier-app.png" height="140px" />
+                            <img src="./infrastructure/media/architecture-regulated-multitier-app.png" alt="Architecture diagram for Building secure web apps with Windows VMs" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -567,7 +567,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./infrastructure/media/architecture-service-fabric-complete.png" height="140px" />
+                            <img src="./infrastructure/media/architecture-service-fabric-complete.png" alt="Architecture diagram for Using Service Fabric to decompose applications" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -586,7 +586,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./infrastructure/media/architecture-video-rendering.png" height="140px" />
+                            <img src="./infrastructure/media/architecture-video-rendering.png" alt="Architecture diagram for 3D video rendering" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -605,7 +605,7 @@ ms.subservice: example-scenario
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="./infrastructure/media/secure-scalable-wordpress.png" height="140px" />
+                            <img src="./infrastructure/media/secure-scalable-wordpress.png" alt="Architecture diagram for Highly scalable and secure WordPress websites" height="140px" />
                         </div>
                     </div>
                     <div class="cardText">
