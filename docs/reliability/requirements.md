@@ -6,6 +6,7 @@ ms.date: 04/10/2019
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: cloud-design-principles
+ms.custom: fasttrack-edit
 ---
 
 # Developing requirements for resilient Azure applications
@@ -126,6 +127,8 @@ The expected chance that the application fails in all regions at the same time i
 
 - The combined SLA for two regions = (1 − (1 − 0.9995) \^ 2) = 99.999975%
 - The combined SLA for four regions =  (1 − (1 − 0.9995) \^ 4)  = 99.999999%
+
+Serverless deployments can be incredibly cost-effective in this scenario, as you are only likely to be charged for consumption of resources used, rather than hard provisioning of resources. Hence you can get a **significant** increase in your composite SLA, with little or no increase in compute costs. 
 
 The [SLA for Traffic Manager](https://azure.microsoft.com/en-us/support/legal/sla/traffic-manager/v1_0/) is also a factor. Failing over is not instantaneous in active-passive configurations, which can result in downtime during a failover. See [Traffic Manager endpoint monitoring and failover](/azure/traffic-manager/traffic-manager-monitoring).
 
