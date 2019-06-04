@@ -9,7 +9,7 @@ ms.date: 05/31/2019
 
 Recommendations are used in a variety of industries, such as retail, news, and media. Recommendations are a main revenue driver for many businesses. With the availability of large amounts of data, you can now provide highly relevant recommendations using machine learning.
 
-There are two main types of recommendation systems: collaborative filtering and content-based recommendations. Collaborative filtering identifies similar patterns in customer behavior and recommends items that other similar customers have interacted with. Content-based recommendation uses information about the items to learn customer preferences and recommends items that share properties with items that a customer has previously interacted with. The approach described in this document focuses on the latter, content based, recommendation system.￼
+There are two main types of recommendation systems: collaborative filtering and content-based recommendations. Collaborative filtering identifies similar patterns in customer behavior and recommends items that other similar customers have interacted with. Content-based recommendation uses information about the items to learn customer preferences and recommends items that share properties with items that a customer has previously interacted with. The approach described in this document focuses on the latter, content based, recommendation system.
 
 This example scenario shows how your business can use machine learning to automate content-based personalization for your customers. At a high level, we use [Azure Databricks] to train a model that predicts the probability a user will engage with an item. That model is deployed to production as a prediction service using [Azure Kubernetes Service]. In turn, you can use this estimate to create personalized recommendations by ranking items based on the content that a user is most likely to consume.
 
@@ -77,7 +77,7 @@ Follow these steps to run the notebooks for training and deploying the recommend
 
 1. [Create an Azure Databricks workspace](/azure/machine-learning/service/how-to-configure-environment#aml-databricks) from the Azure portal.
 2. Follow the [setup instructions](https://github.com/Microsoft/Recommenders/blob/master/SETUP.md#setup-guide-for-azure-databricks) to install utilities from the [Microsoft Recommenders] repository on a cluster within your workspace.
-   1. Be sure to include the `--mmlspark` option in the install script to have [MMLSpark] installed.
+   1. Include the `--mmlspark` option in the install script to have [MMLSpark] installed.
    2. Also, [MMLSpark] requires autoscaling to be disabled in the Cluster setup.
 3. Import the training notebook into your workspace. After logging into your [Azure Databricks] Workspace, do these steps:
    1. Select **Home** on the left side of the workspace.
