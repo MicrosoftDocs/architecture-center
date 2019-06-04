@@ -137,7 +137,7 @@ Stateless and stateful services apply different approaches to scaling.
 #### Autoscaling for stateless services
 
 - Use the average partition load trigger. This trigger determines when the service is scaled in or out, based on a load threshold value specified in the scaling policy. You can also set how often the trigger is checked. See [Average partition load trigger with instance-based scaling](/azure/service-fabric/service-fabric-cluster-resource-manager-autoscaling#average-partition-load-trigger-with-instance-based-scaling). This allows you to scale up to the number of available nodes.
-- Set **InstanceCount** to -1 in the service manifest, which tells Service Fabric to run an instance of the service on every node. This approach enables the service to scale dynamically as the cluster scales. As the number of nodes in the cluster change, Service Fabric automatically creates and deletes service instances to match.
+- Set **InstanceCount** to -1 in the service manifest, which tells Service Fabric to run an instance of the service on every node. This approach enables the service to scale dynamically as the cluster scales. As the number of nodes in the cluster changes, Service Fabric automatically creates and deletes service instances to match.
 
 > [!NOTE]
 > In some cases, you might want to manually scale your service.  For example, if you have a service that reads from Event Hubs, you might want a dedicated instance to read from each event hub partition, to avoid concurrent access to the partition.  
