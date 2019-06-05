@@ -39,7 +39,7 @@
         topicHref: /azure/architecture/cloud-adoption/governance
       - name: Infrastructure
         tocHref: /azure/architecture/cloud-adoption/infrastructure/
-        topicHref: /azure/architecture/cloud-adoption/infrastructure
+        topicHref: /azure/architecture/cloud-adoption/infrastructure/basic-workload
       - name: Operations
         tocHref: /azure/architecture/cloud-adoption/operations/
         topicHref: /azure/architecture/cloud-adoption/operations
