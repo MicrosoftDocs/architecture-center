@@ -79,7 +79,7 @@ The following tables summarize the key differences in capabilities.
 
 <!-- markdownlint-disable MD033 -->
 
-| | Azure Data Lake Analytics | Azure SQL Data Warehouse | HDInsight | Azure Databricks |
+| Capability | Azure Data Lake Analytics | Azure SQL Data Warehouse | HDInsight | Azure Databricks |
 | --- | --- | --- | --- | --- | --- |
 | Is managed service | Yes | Yes | Yes <sup>1</sup> | Yes |
 | Relational data store | Yes | Yes | No | No |
@@ -91,7 +91,7 @@ The following tables summarize the key differences in capabilities.
 
 ### Capabilities
 
-| | Azure Data Lake Analytics | SQL Data Warehouse | HDInsight with Spark | HDInsight with Hive | HDInsight with Hive LLAP | Azure Databricks |
+| Capability | Azure Data Lake Analytics | SQL Data Warehouse | HDInsight with Spark | HDInsight with Hive | HDInsight with Hive LLAP | Azure Databricks |
 | --- | --- | --- | --- | --- | --- | --- |
 | Autoscaling | No | No | No | No | No | Yes |
 | Scale-out granularity  | Per job | Per cluster | Per cluster | Per cluster | Per cluster | Per cluster |

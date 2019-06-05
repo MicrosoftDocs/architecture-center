@@ -95,7 +95,7 @@ The following tables summarize the key differences in capabilities.
 
 ### File storage capabilities
 
-|  | Azure Data Lake Store | Azure Blob Storage containers |
+| Capability | Azure Data Lake Store | Azure Blob Storage containers |
 | --- | --- | --- |
 | Purpose | Optimized storage for big data analytics workloads |General purpose object store for a wide variety of storage scenarios |
 | Use cases | Batch, streaming analytics, and machine learning data such as log files, IoT data, click streams, large datasets | Any type of text or binary data, such as application back end, backup data, media storage for streaming, and general purpose data |
@@ -112,7 +112,7 @@ The following tables summarize the key differences in capabilities.
 
 ### NoSQL database capabilities
 
-|                                    |                                           Azure Cosmos DB                                           |                                                             HBase on HDInsight                                                             |
+| Capability |                                           Azure Cosmos DB                                           |                                                             HBase on HDInsight                                                             |
 |------------------------------------|-----------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 |       Primary database model       |                      Document store, graph, key-value store, wide column store                      |                                                             Wide column store                                                              |
 |         Secondary indexes          |                                                 Yes                                                 |                                                                     No                                                                     |
