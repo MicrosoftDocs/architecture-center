@@ -48,7 +48,7 @@ This architecture consists of the following components.
 
 **[Blob storage][azure-blob]** is used to store the logs and results. 
 
-**[Premium Blob storage][batch-ai-files]** is used to store the training data. The premium blob storage is mounted in the nodes using blob fuse. Premium blob offers better performance than standard blob and is recommended for distributed training scenarios. When mounted blob fuse uses caching so that the data is saved locally. This means that after the first epoch subsequent epochs will read from the local storage which is the most performant option.
+**[Premium Blob storage][premium-storage]** is used to store the training data. The premium blob storage is mounted in the nodes using blob fuse. Premium blob offers better performance than standard blob and is recommended for distributed training scenarios. When mounted blob fuse uses caching so that the data is saved locally. This means that after the first epoch subsequent epochs will read from the local storage which is the most performant option.
 
 **[Container Registry][acr]** is used to store the Docker image that AzureML Compute uses to run the training. 
 
@@ -145,3 +145,4 @@ The output from this architecture is a trained model that is saved to blob stora
 [azureml-tensorboard]: https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/tensorboard/tensorboard.ipynb
 [tfrecords]: https://www.tensorflow.org/tutorials/load_data/tf_records
 [petastorm]: https://github.com/uber/petastorm
+[premium-storage]: https://azure.microsoft.com/en-us/services/storage/blobs/
