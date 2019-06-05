@@ -106,7 +106,7 @@ For production deployments, consider deploying the Azure Machine Learning cluste
 
 While running your job, it's important to monitor the progress and make sure that things are working as expected. However, it can be a challenge to monitor across a cluster of active nodes.
 
-Azure Machine Learning offers many ways to [instrument your experiments][azureml-logging]. The stdout/stderr from your scripts are automatically logged. These logs are automatically synced to your workspace Blob storage. You can either view these files through the Azure portal, or download or stream them using the Python SDK or Azure Machien Learning CLI. If you log your experiments using Tensorboard, these logs are automatically synced and you can access them directly or use the Azure Machine Learning SDK to stream them to a [Tensorboard session][azureml-tensorboard].
+Azure Machine Learning offers many ways to [instrument your experiments][azureml-logging]. The stdout/stderr from your scripts are automatically logged. These logs are automatically synced to your workspace Blob storage. You can either view these files through the Azure portal, or download or stream them using the Python SDK or Azure Machine Learning CLI. If you log your experiments using Tensorboard, these logs are automatically synced and you can access them directly or use the Azure Machine Learning SDK to stream them to a [Tensorboard session][azureml-tensorboard].
 
 ## Deployment
 
@@ -134,7 +134,7 @@ The output from this architecture is a trained model that is saved to blob stora
 [docker]: https://hub.docker.com/
 [endpoints]: /azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network
 [files]: /azure/storage/files/storage-files-introduction
-[github]: https://github.com/Azure/DistributedDeepLearning/
+[github]: https://github.com/microsoft/DistributedDeepLearning/
 [gpu]: /azure/virtual-machines/windows/sizes-gpu
 [horovod]: https://github.com/uber/horovod
 [imagenet]: http://www.image-net.org/
