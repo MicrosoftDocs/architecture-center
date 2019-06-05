@@ -291,7 +291,7 @@ This logon tunnels from the Fabrikam.com domain used by the on-premises network 
 [hybrid-vpn-ra]: ../hybrid-networking/vpn.md
 [load-balancer]: /azure/load-balancer/load-balancer-internal-overview
 [managed-disks]: /azure/storage/storage-managed-disks-overview
-[minroles]: https://technet.microsoft.com/library/mt346114(v=office.16).aspx
+[minroles]: https://docs.microsoft.com/SharePoint/install/overview-of-minrole-server-roles-in-sharepoint-server
 [nsg]: /azure/virtual-network/virtual-networks-nsg
 [office-web-apps]: https://support.microsoft.com/help/3199955/office-web-apps-and-office-online-server-supportability-in-azure
 [paired-regions]: /azure/best-practices-availability-paired-regions
