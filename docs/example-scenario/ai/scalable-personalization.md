@@ -47,17 +47,17 @@ This architecture makes use of the following components:
 
 ## Considerations
 
+### Scalability
+
+For training, you can scale [Azure Databricks] up or down based on the size of the data used and the compute necessary for model training. To scale, you can adjust the total number of cores or amount of memory available to the cluster. Just edit the number or type of [Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) (VMs) used. The Criteo dataset contains 45.8 million rows in this example; it was trained in a few minutes on a cluster with 10 standard **L8s** VMs.
+
+For deployment, you can scale the compute resources based on the expected load for the scoring service and latency requirements. The scoring service uses [MML Spark Serving](https://github.com/Azure/mmlspark/blob/master/docs/mmlspark-serving.md) running separately on each node in the Kubernetes cluster. With this practice, you can seamlessly transfer the feature transformation and model prediction pipeline developed on [Azure Databricks] to the production side. It also removes the need to precompute scores for all possible user and item combinations, which might be difficult if you're using dynamic user features, such as time of day.
+
 ### Availability
 
 Machine learning tasks are split into two resource components: resources for training, and resources for production deployment. Resources required for training generally don't need high availability, as live production requests don't directly hit these resources. Resources required for serving need to have high availability to serve customer requests.
 
 For training, [Azure Databricks] is available across many [regions](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/regions.html) with a [service level agreement][1] (SLA) to support businesses. For production deployment, [Azure Kubernetes Service] is used to provide broad geographic availability with this [SLA][1].
-
-### Scalability
-
-For training, you can scale [Azure Databricks] up or down based on the size of the data used and the compute necessary for model training. To scale, you can adjust the total number of cores or amount of memory available to the cluster. Just edit the number or type of [Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) (VMs) used. The Criteo dataset contains 45.8 million rows in this example; it was trained in a few minutes on a cluster with 10 standard **L8s** virtual machines.
-
-For deployment, you can scale the compute resources based on the expected load for the scoring service and latency requirements. The scoring service uses [MML Spark Serving](https://github.com/Azure/mmlspark/blob/master/docs/mmlspark-serving.md) running separately on each node in the Kubernetes cluster. With this practice, you can seamlessly transfer the feature transformation and model prediction pipeline developed on [Azure Databricks] to the production side. It also removes the need to precompute scores for all possible user and item combinations, which might be difficult if you're using dynamic user features, such as time of day.
 
 ### Security
 
@@ -90,7 +90,7 @@ To run the notebooks for training and deploying the recommendation model on [Azu
 
 ## Pricing
 
-To better understand the cost of running this scenario on Azure, we provide a pricing estimator based on the following assumptions:
+To better understand the cost of running this scenario on Azure, we provide a [pricing estimator](https://azure.com/e/ce86a34735d64f1280812233b0071c4e) based on the following assumptions:
 
 - Training data is of the same scale as the example dataset used (45.8 million rows).
 - Training needs to happen daily to update the serving model.
@@ -99,7 +99,7 @@ To better understand the cost of running this scenario on Azure, we provide a pr
 - [Azure Machine Learning service] will be used to deploy the model to AKS with a small three-node cluster using **D3** instances.
 - AKS cluster will autoscale as needed, resulting in two nodes per month being active on average.
 
-To see how pricing differs for your use case, change the variables to match your expected data size and serving load requirements. For larger or smaller training data sizes, the size of the Databricks cluster can be increased or reduced, respectively. To handle larger numbers of concurrent users during model serving, the AKS cluster should be increased. For more information on scaling AKS to support latency and load requirements, review the operationalization notebook.
+To see how pricing differs for your use case, change the variables to match your expected data size and serving load requirements. For larger or smaller training data sizes, the size of the Databricks cluster can be increased or reduced, respectively. To handle larger numbers of concurrent users during model serving, the AKS cluster should be increased. For more information on scaling AKS to support latency and load requirements, review the [operationalization notebook](https://github.com/microsoft/recommenders/blob/master/notebooks/05_operationalize/lightgbm_criteo_o16n.ipynb).
 
 ## Related resources
 
