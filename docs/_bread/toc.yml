@@ -17,7 +17,7 @@
       topicHref: /azure/architecture/resiliency
     - name: Design Review Checklists
       tocHref: /azure/architecture/checklist/
-      topicHref: /azure/architecture/checklist
+      topicHref: /azure/architecture/checklist/resiliency-per-service
     - name: Manage Identity in Multitenant Applications
       tocHref: /azure/architecture/multitenant-identity/
       tocHref: /azure/architecture/multitenant-identity
