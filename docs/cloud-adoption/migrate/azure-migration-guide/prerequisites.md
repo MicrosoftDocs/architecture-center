@@ -49,8 +49,8 @@ The focus of this migration journey is to achieve:
 > [!NOTE]
 > An additional benefit of this migration journey is the additional software support model for Windows 2008, Windows 2008 R2, and SQL Server 2008, and SQL Server 2008 R2. For more information, see:
 >
-> - [Windows Server 2008 and Windows Server 2008 R2](/cloud-platform/windows-server-2008).
-> - [SQL Server 2008 and SQL Serve r2008 R2](/sql-server/sql-server-2008).
+> - [Windows Server 2008 and Windows Server 2008 R2](https://www.microsoft.com/cloud-platform/windows-server-2008).
+> - [SQL Server 2008 and SQL Server 2008 R2](https://www.microsoft.com/sql-server/sql-server-2008).
 
 # [Understand migration approaches](#tab/Approach)
 
