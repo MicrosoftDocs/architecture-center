@@ -138,6 +138,6 @@ Once you've deployed the sample, learn more about [Azure CycleCloud][cyclecloud]
 [cycle-login]: /azure/cyclecloud/quickstart-install-cyclecloud#log-into-the-cyclecloud-application-server
 [cycle-create]: /azure/cyclecloud/quickstart-create-and-run-cluster
 [rdma]: /azure/virtual-machines/windows/sizes-hpc#rdma-capable-instances
-[rdma-custom]: /azure/virtual-machines/linux/classic/rdma-cluster#customize-the-vm
+[rdma-custom]: /azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances
 [pricing]: https://azure.com/e/53030a04a2ab47a289156e2377a4247a
 [cycle-scale]: /azure/cyclecloud/autoscale

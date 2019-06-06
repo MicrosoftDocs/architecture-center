@@ -138,7 +138,7 @@ If you exceed Azure storage scalability and performance targets, your applicatio
 
 ### Scalability targets for virtual machine disks
 
-An Azure infrastructure as a service (IaaS) VM supports attaching a number of data disks, depending on several factors, including the VM size and the type of storage account. If your application exceeds the scalability targets for virtual machine disks, provision additional storage accounts and create the virtual machine disks there. For more information, see [Azure Storage scalability and performance targets](/azure/storage/storage-scalability-targets/#scalability-targets-for-virtual-machine-disks).
+An Azure infrastructure as a service (IaaS) VM supports attaching a number of data disks, depending on several factors, including the VM size and the type of storage account. If your application exceeds the scalability targets for virtual machine disks, provision additional storage accounts and create the virtual machine disks there. For more information, see [Scalability and performance targets for VM disks on Windows](/azure/virtual-machines/windows/disk-scalability-targets).
 
 ### VM size
 

@@ -91,7 +91,7 @@ Recommendations for scaling a web app:
 
 ### Scaling SQL Database
 
-If you need a higher service tier or performance level for SQL Database, you can scale up individual databases with no application downtime. For more information, see [SQL Database options and performance: Understand what's available in each service tier][sql-db-scale].
+If you need a higher service tier or performance level for SQL Database, you can scale up individual databases with no application downtime. For more information, see [Scale single database resources in Azure SQL Database][sql-db-scale].
 
 ## Availability considerations
 
@@ -256,12 +256,12 @@ For more information, see [Deploy resources with Azure Resource Manager template
 [sql-backup]: /azure/sql-database/sql-database-business-continuity
 [sql-db]: /azure/sql-database/
 [sql-db-overview]: /azure/sql-database/sql-database-technical-overview
-[sql-db-scale]: /azure/sql-database/sql-database-service-tiers#scaling-up-or-scaling-down-a-single-database
+[sql-db-scale]: /azure/sql-database/sql-database-single-database-scale
 [sql-db-service-tiers]: /azure/sql-database/sql-database-service-tiers
 [sql-db-v12]: /azure/sql-database/sql-database-features
 [sql-dtu]: /azure/sql-database/sql-database-service-tiers
-[sql-human-error]: /azure/sql-database/sql-database-business-continuity#recover-a-database-after-a-user-or-application-error
-[sql-outage-recovery]: /azure/sql-database/sql-database-business-continuity#recover-a-database-to-another-region-from-an-azure-regional-data-center-outage
+[sql-human-error]: /azure/sql-database/sql-database-business-continuity#recover-a-database-to-the-existing-server
+[sql-outage-recovery]: /azure/sql-database/sql-database-business-continuity#recover-a-database-to-another-region
 [ssl-redirect]: /azure/app-service-web/web-sites-configure-ssl-certificate#bkmk_enforce
 [sql-resource-limits]: /azure/sql-database/sql-database-resource-limits
 [ssl-cert]: /azure/app-service-web/web-sites-purchase-ssl-web-site

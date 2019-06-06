@@ -188,7 +188,7 @@ The following tables summarize the key differences in capabilities.
 
 Read more about securing your data warehouse:
 
-- [Securing your SQL Database](/azure/sql-database/sql-database-security-overview#connection-security)
+- [Securing your SQL Database](/azure/sql-database/sql-database-security-overview#network-security)
 
 - [Secure a database in SQL Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-overview-manage-security)
 

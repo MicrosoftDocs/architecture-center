@@ -130,7 +130,7 @@ The following patterns and guidance may also be relevant to your scenario when i
 <!-- links -->
 
 [monitoring]: /azure/monitoring-and-diagnostics/monitoring-overview-autoscale
-[app-service-autoscale]: /azure/monitoring-and-diagnostics/insights-how-to-scale?toc=%2fazure%2fapp-service-web%2ftoc.json#scaling-based-on-a-pre-set-metric
+[app-service-autoscale]: /azure/azure-monitor/platform/autoscale-best-practices#manual-scaling-is-reset-by-autoscale-min-and-max
 [app-service-plan]: /azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview
 [autoscale-metrics]: /azure/monitoring-and-diagnostics/insights-autoscale-common-metrics
 [cloud-services-autoscale]: /azure/cloud-services/cloud-services-how-to-scale-portal
