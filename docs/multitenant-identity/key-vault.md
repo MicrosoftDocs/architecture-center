@@ -151,9 +151,9 @@ Now assign this user as the subscription owner.
 
     Set the following parameter values:
 
-       * key vault name = The name that you gave the key vault in the previous step.
-       * Surveys app ID = The application ID for the Surveys web application.
-       * Surveys.WebApi app ID = The application ID for the Surveys.WebAPI application.
+   * key vault name = The name that you gave the key vault in the previous step.
+   * Surveys app ID = The application ID for the Surveys web application.
+   * Surveys.WebApi app ID = The application ID for the Surveys.WebAPI application.
 
     Example:
 
