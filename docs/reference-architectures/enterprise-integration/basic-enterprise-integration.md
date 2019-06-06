@@ -193,7 +193,7 @@ For greater reliability and scalability, use message queues and events to decoup
 [apim-backup]: /azure/api-management/api-management-howto-disaster-recovery-backup-restore
 [apim-caching]: /azure/api-management/api-management-howto-cache
 [apim-capacity]: /azure/api-management/api-management-capacity
-[apim-dev-portal]: /azure/api-management/api-management-key-concepts#--developer-portal
+[apim-dev-portal]: /azure/api-management/api-management-key-concepts#developer-portal
 [apim-domain]: /azure/api-management/configure-custom-domain
 [apim-jwt]: /azure/api-management/policies/authorize-request-based-on-jwt-claims
 [apim-logic-app]: /azure/api-management/import-logic-app-as-api
