@@ -62,7 +62,7 @@ The following tables summarize the key differences in capabilities.
 
 ### Uses prebuilt models
 
-|                                                   |             Input type              |                                                                                Key benefit                                                                                |
+| Capability |             Input type              |                                                                                Key benefit                                                                                |
 |---------------------------------------------------|-------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |                Text Analytics API                 |                Text                 |                                                       Evaluate sentiment and topics to understand what users want.                                                        |
 |                Entity Linking API                 |                Text                 |                                               Power your app's data links with named entity recognition and disambiguation.                                               |
@@ -92,7 +92,7 @@ The following tables summarize the key differences in capabilities.
 
 ### Trained with custom data you provide
 
-| | Input type | Key benefit |
+| Capability | Input type | Key benefit |
 | --- | --- | --- |
 | Custom Vision Service | Images (or frames from video) | Customize your own computer vision models. |
 | Custom Speech Service | Speech | Overcome speech recognition barriers like speaking style, background noise, and vocabulary. |

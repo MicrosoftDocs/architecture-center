@@ -542,7 +542,7 @@ For more information about the FMA process, see [Resilience by design for cloud 
 [sql-db-replication]: /azure/sql-database/sql-database-geo-replication-overview/
 [storage-metrics]: https://msdn.microsoft.com/library/dn782843.aspx
 [storage-replication]: /azure/storage/storage-redundancy/
-[Storage.RetryPolicies]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.aspx
+[Storage.RetryPolicies]: /dotnet/api/microsoft.azure.storage.retrypolicies
 [sys.event_log]: https://msdn.microsoft.com/library/dn270018.aspx
 [throttling-pattern]: https://msdn.microsoft.com/library/dn589798.aspx
 [web-jobs]: /azure/app-service-web/web-sites-create-web-jobs/

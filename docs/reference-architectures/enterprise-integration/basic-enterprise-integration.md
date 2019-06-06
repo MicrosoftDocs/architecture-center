@@ -200,7 +200,7 @@ For greater reliability and scalability, use message queues and events to decoup
 [apim-monitor]: /azure/api-management/api-management-howto-use-azure-monitor
 [apim-oauth]: /azure/api-management/api-management-howto-protect-backend-with-aad
 [apim-openapi]: /azure/api-management/import-api-from-oas
-[apim-pbi]: https://aka.ms/apimpbi
+[apim-pbi]: https://azure.microsoft.com/updates/azure-api-management-analytics-powerbi-solution-template/
 [apim-pricing]: https://azure.microsoft.com/pricing/details/api-management/
 [apim-properties]: /azure/api-management/api-management-howto-properties
 [apim-sla]: https://azure.microsoft.com/support/legal/sla/api-management/
