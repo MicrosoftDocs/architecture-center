@@ -644,7 +644,7 @@ As they configure identity and access control, Contoso has already begun to put 
 
 The Azure Policy service evaluates your resources, scanning for those not compliant with the policy definitions you have in place. For example, you might have a policy that only allows certain types of VMs, or requires resources to have a specific tag.
 
-Policies specify a policy definition, and a policy assignment specifies the scope in which a policy should be applied. The scope can range from a management group to a resource group. [Learn](/azure/governance/policy/tutorials/create-and-manage.md) about creating and managing policies.
+Policies specify a policy definition, and a policy assignment specifies the scope in which a policy should be applied. The scope can range from a management group to a resource group. [Learn](/azure/governance/policy/tutorials/create-and-manage) about creating and managing policies.
 
 Contoso wants to get started with a couple of policies:
 

@@ -105,7 +105,7 @@ Contoso and other users must meet the following prerequisites for the assessment
 - Permissions to install Azure Migrate agents on each VM.
 - The VMs should have direct internet connectivity.
   - You can restrict internet access to the [required URLs](/azure/migrate/concepts-collector).
-  - If your VMs don't have internet connectivity, the Azure [Log Analytics Gateway](/azure/azure-monitor/platform/gateway.md) must be installed on them, and agent traffic directed through it.
+  - If your VMs don't have internet connectivity, the Azure [Log Analytics Gateway](/azure/azure-monitor/platform/gateway) must be installed on them, and agent traffic directed through it.
 - The FQDN of the VM running the SQL Server instance, for database assessment.
 - Windows Firewall running on the SQL Server VM should allow external connections on TCP port 1433 (default). This setup allows Data Migration Assistant to connect.
 
@@ -441,7 +441,7 @@ Contoso can now verify machine dependencies and create a group. Then, it runs th
 
 2. To view the assessment, Contoso selects **Manage** > **Assessments**.
 
-Contoso uses the default assessment settings, but you can [customize settings](/azure/migrate/how-to-modify-assessment.md).
+Contoso uses the default assessment settings, but you can [customize settings](/azure/migrate/how-to-modify-assessment).
 
 ### Analyze the VM assessment
 

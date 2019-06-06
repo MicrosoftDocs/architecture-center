@@ -41,19 +41,19 @@ During assessment, additional decisions are required to align to the required go
 
 Governance and compliance assessment requirements are too customer-specific to provide general guidance on the actual steps taken during assessment. However, it is advised that the process include tasks and time allocations for "alignment to compliance/governance requirements". For additional understanding of these requirements see the following links:
 
-For a deeper understanding of governance, review the [Five Disciplines of Cloud Governance overview](/azure/architecture/cloud-adoption/governance/governance-disciplines.md). This section of the Cloud Adoption Framework also includes templates to document the policies, guidance, and requirements for each of the five sections:
+For a deeper understanding of governance, review the [Five Disciplines of Cloud Governance overview](/azure/architecture/cloud-adoption/governance/governance-disciplines). This section of the Cloud Adoption Framework also includes templates to document the policies, guidance, and requirements for each of the five sections:
 
-- [Cost Management](/azure/architecture/cloud-adoption/governance/cost-management/template.md)
-- [Security Baseline](/azure/architecture/cloud-adoption/governance/security-baseline/template.md)
-- [Resource Consistency](/azure/architecture/cloud-adoption/governance/resource-consistency/template.md)
-- [Identity Baseline](/azure/architecture/cloud-adoption/governance/identity-baseline/template.md)
-- [Deployment Acceleration](/azure/architecture/cloud-adoption/governance/deployment-acceleration/template.md)
+- [Cost Management](/azure/architecture/cloud-adoption/governance/cost-management/template)
+- [Security Baseline](/azure/architecture/cloud-adoption/governance/security-baseline/template)
+- [Resource Consistency](/azure/architecture/cloud-adoption/governance/resource-consistency/template)
+- [Identity Baseline](/azure/architecture/cloud-adoption/governance/identity-baseline/template)
+- [Deployment Acceleration](/azure/architecture/cloud-adoption/governance/deployment-acceleration/template)
 
 For guidance on developing governance guidance based on the Cloud Adoption Framework governance model, see [Implementing a cloud governance strategy](/azure/architecture/cloud-adoption/governance/corporate-policy).
 
 ## Optimize and promote process changes
 
-During the optimization and promotion processes, it is advised that the Cloud Governance team invest time to test and validate adherence to governance and compliance standards. Additionally, this is a good time to inject processes for the Cloud Governance team to curate templates which could provide additional [deployment acceleration](/azure/architecture/cloud-adoption/governance/deployment-acceleration/index.md) for future projects.
+During the optimization and promotion processes, it is advised that the Cloud Governance team invest time to test and validate adherence to governance and compliance standards. Additionally, this is a good time to inject processes for the Cloud Governance team to curate templates which could provide additional [deployment acceleration](/azure/architecture/cloud-adoption/governance/deployment-acceleration/index) for future projects.
 
 ### Suggested action during the optimize and promote process
 
