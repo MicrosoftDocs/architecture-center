@@ -3,7 +3,7 @@ title: Implement a hub-spoke network topology in Azure
 titleSuffix: Azure Reference Architectures
 description: Implement a hub-spoke network topology in Azure.
 author: telmosampaio
-ms.date: 10/08/2018
+ms.date: 06/05/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -279,20 +279,43 @@ To test connectivity from the simulated on-premises environment to the spoke VNe
 
 ### Add connectivity between spokes
 
-This step is optional. If you want to allow spokes to connect to each other, you must use a network virtual appliance (NVA) as a router in the hub VNet, and force traffic from spokes to the router when trying to connect to another spoke. To deploy a basic sample NVA as a single VM, along with user-defined routes (UDRs) to allow the two spoke VNets to connect, perform the following steps:
+This step is optional. If you want to allow spokes to connect to each other, use [Azure Firewall](/azure/firewall/) to force traffic from spokes to the router when trying to connect to another spoke. To deploy Azure Firewall, along with user-defined routes (UDRs) to allow the two spoke VNets to connect, perform the following steps:
 
-1. Open the `hub-nva.json` file. Replace the values for `adminUsername` and `adminPassword`.
+1. Add a subnet for Azure Firewall to the hub virtual network.
 
-    ```json
-    "adminUsername": "<user name>",
-    "adminPassword": "<password>",
+    ```bash
+    az network vnet subnet create -g hub-vnet-rg --vnet-name hub-vnet -n AzureFirewallSubnet --address-prefixes 10.0.0.128/26
     ```
-
-2. Run the following command:
+2. Deploy Azure Firewall:
 
    ```bash
-   azbb -s <subscription_id> -g hub-nva-rg -l <location> -p hub-nva.json --deploy
+   az group deployment create -g hub-vnet-rg --template-file hub-firewall.json
    ```
+3. Run the following command to get the privateIPAddress of the firewall created in step 2:
+
+   ```bash
+   az resource show -g hub-vnet-rg -n hub-firewall --resource-type Microsoft.Network/azureFirewalls --query properties.ipConfigurations[0].properties.privateIPAddress
+   ```
+4. Edit the hub-firewall-routes.json file and replace all occurrences of `<azure_firewall_private_ip>` with the IP Address from the previous command. Save hub-firewall-routes.json and then run the following command.
+
+   ```bash
+   azbb -s <subscription_id> -g hub-vnet-rg -l <location> -p hub-firewall-routes.json --deploy
+   ```
+5. Run the following command to disable BGP route propagation for the route tables associated with the spoke subnets:
+
+   ```bash
+   az network route-table update -g hub-vnet-rg -n spoke1-rt --disable-bgp-route-propagation true
+   az network route-table update -g hub-vnet-rg -n spoke2-rt --disable-bgp-route-propagation true
+   ```
+
+To verify connectivity, perform the following steps:
+
+1. Log into the VM named `jb-vm1` in the `onprem-jb-rg` resource group.
+
+1. From this login session, log into the jumpbox VM for spoke-1. The private IP address is 10.1.0.68.
+
+1. Use the `Test-NetConnection` cmdlet (Windows) or ping command (Linux) to test connectivity to 10.2.0.68, which is the jumpbox VM for spoke-2.
+
 
 <!-- links -->
 
