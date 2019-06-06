@@ -89,7 +89,7 @@ The following steps outline the process to use Site Recovery to migrate:
 
 ::: zone target="chromeless"
 
-::: form action="OpenBlade[#create/Microsoft.RecoveryServices]" submitText="Create a Recovery Services vault" :::
+::: form action="Create[#create/Microsoft.RecoveryServices]" submitText="Create a Recovery Services vault" :::
 
 ::: zone-end
 
@@ -128,7 +128,7 @@ The service is now ready to migrate the supported source databases (for example,
 
 ::: zone target="chromeless"
 
-::: form action="OpenBlade[#create/Microsoft.AzureDMS]" submitText="Create an Azure Database Migration Service instance" :::
+::: form action="Create[#create/Microsoft.AzureDMS]" submitText="Create an Azure Database Migration Service instance" :::
 
 ::: zone-end
 
