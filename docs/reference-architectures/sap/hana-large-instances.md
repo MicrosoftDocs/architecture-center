@@ -184,7 +184,7 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 [expressroute]: /azure/architecture/reference-architectures/hybrid-networking/expressroute
 [filter-network]: https://azure.microsoft.com/blog/multiple-vm-nics-and-network-virtual-appliances-in-azure/
 [hli-dr]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#network-considerations-for-disaster-recovery-with-hana-large-instances
-[hli-backup]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#backup-and-restore
+[hli-backup]: /azure/virtual-machines/workloads/sap/hana-backup-restore
 [hli-hadr]: /azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
 [hli-infrastructure]: /azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity
 [hli-overview]: /azure/virtual-machines/workloads/sap/hana-overview-architecture

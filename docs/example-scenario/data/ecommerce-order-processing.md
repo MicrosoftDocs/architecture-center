@@ -110,7 +110,7 @@ Other related resources include:
 [large-pricing]: https://azure.com/e/75207172ece94cf6b5fb354a2252b333
 [docs-cosmos-db-change-feed]: /azure/cosmos-db/change-feed
 [docs-cosmos-db-regional-failover]: /azure/cosmos-db/regional-failover
-[docs-cosmos-db-guarantees]: /azure/cosmos-db/distribute-data-globally#AvailabilityGuarantees
+[docs-cosmos-db-guarantees]: /azure/cosmos-db/high-availability#slas-for-availability
 [docs-cosmos-db-use-cases]: /azure/cosmos-db/use-cases
 [docs-kafka-high-availability]: /azure/hdinsight/kafka/apache-kafka-high-availability
 [docs-event-hubs]: /azure/event-hubs/event-hubs-what-is-event-hubs
