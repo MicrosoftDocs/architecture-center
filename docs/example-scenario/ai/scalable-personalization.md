@@ -1,13 +1,13 @@
 ---
-title: Scalable (automated, content-based) personalization in Azure
+title: Scalable (automated, content-based) personalization on Azure
 description: Use machine learning to automate content-based personalization for customers.
 author: gramhagen
 ms.author: scgraham
 ms.date: 05/31/2019
 ---
-# Scalable personalization in Azure
+# Scalable personalization on Azure
 
-Recommendations are used in a variety of industries, such as retail, news, and media. Recommendations are a main revenue driver for many businesses. With the availability of large amounts of data, you can now provide highly relevant recommendations using machine learning.
+Recommendations are a main revenue driver for many businesses and are used in different kinds of industries, including retail, news, and media. With the availability of large amounts of data, you can now provide highly relevant recommendations using machine learning.
 
 There are two main types of recommendation systems: collaborative filtering and content-based. Collaborative filtering identifies similar patterns in customer behavior and recommends items that other similar customers have interacted with. Content-based recommendation uses information about the items to learn customer preferences and recommends items that share properties with items that a customer has previously interacted with. The approach described in this document focuses on the content-based recommendation system.
 
