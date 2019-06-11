@@ -435,7 +435,7 @@ The following features were discussed in this document. Follow the links to lear
 [DMZ]: /azure/best-practices-network-security
 [ALB]: /azure/load-balancer/load-balancer-overview
 [DDOS]: /azure/virtual-network/ddos-protection-overview
-[PIP]: /azure/virtual-network/resource-groups-networking#public-ip-address
+[PIP]: /azure/virtual-network/virtual-network-public-ip-address
 [AFD]: /azure/frontdoor/front-door-overview
 [AppGW]: /azure/application-gateway/application-gateway-introduction
 [WAF]: /azure/application-gateway/application-gateway-web-application-firewall-overview

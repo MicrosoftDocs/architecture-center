@@ -79,7 +79,7 @@ A hub-spoke topology can also be used without a gateway, if you don't need conne
 
 VNet peering is a non-transitive relationship between two VNets. If you require spokes to connect to each other, consider adding a separate peering connection between those spokes.
 
-However, if you have several spokes that need to connect with each other, you will run out of possible peering connections very quickly due to the [limitation on number of VNets peerings per VNet][vnet-peering-limit]. In this scenario, consider using user defined routes (UDRs) to force traffic destined to a spoke to be sent to an NVA acting as a router at the hub VNet. This will allow the spokes to connect to each other.
+However, if you have several spokes that need to connect with each other, you will run out of possible peering connections very quickly due to the [limitation on number of VNets peerings per VNet][vnet-peering-limit]. In this scenario, consider using user defined routes (UDRs) to force traffic destined to a spoke to be sent to Azure Firewall or an NVA acting as a router at the hub VNet. This will allow the spokes to connect to each other.
 
 You can also configure spokes to use the hub VNet gateway to communicate with remote networks. To allow gateway traffic to flow from spoke to hub, and connect to remote networks, you must:
 
@@ -91,7 +91,7 @@ You can also configure spokes to use the hub VNet gateway to communicate with re
 
 ### Spoke connectivity
 
-If you require connectivity between spokes, consider implementing an NVA for routing in the hub, and using UDRs in the spoke to forward traffic to the hub.
+If you require connectivity between spokes, consider deploying Azure Firewall or an NVA for routing in the hub, and using UDRs in the spoke to forward traffic to the hub. The deployment steps below include an optional step that sets up this configuration.
 
 ![[2]][2]
 
@@ -105,7 +105,6 @@ A deployment for this architecture is available on [GitHub][ref-arch-repo]. It u
 
 The deployment creates the following resource groups in your subscription:
 
-- hub-nva-rg
 - hub-vnet-rg
 - onprem-jb-rg
 - onprem-vnet-rg

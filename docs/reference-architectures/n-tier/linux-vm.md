@@ -134,7 +134,7 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 [managed-disks]: /azure/storage/storage-managed-disks-overview
 [naming-conventions]: ../../best-practices/naming-conventions.md
 [nsg]: /azure/virtual-network/virtual-networks-nsg
-[nsg-default-rules]: /azure/virtual-network/virtual-networks-nsg#default-rules
+[nsg-default-rules]: /azure/virtual-network/security-overview#default-security-rules
 [planned-maintenance]: /azure/virtual-machines/virtual-machines-linux-planned-maintenance
 [premium-storage]: /azure/virtual-machines/linux/premium-storage
 [rbac]: /azure/active-directory/role-based-access-control-what-is
