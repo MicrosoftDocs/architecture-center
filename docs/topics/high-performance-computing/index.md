@@ -146,7 +146,6 @@ Large-scale Batch and HPC workloads have demands for data storage and access tha
 - [Storage Optimized Virtual Machines](/azure/virtual-machines/windows/sizes-storage?context=/azure/architecture/topics/high-performance-computing/context/hpc-context)
 - [Blob, table, and queue storage](/azure/storage/storage-introduction?context=/azure/architecture/topics/high-performance-computing/context/hpc-context)
 - [Azure SMB File storage](/azure/storage/files/storage-files-introduction?context=/azure/architecture/topics/high-performance-computing/context/hpc-context)
-- [Intel Cloud Edition Lustre](https://azuremarketplace.microsoft.com/marketplace/apps?search=Intel%20Cloud%20Edition%20Lustre)
 
 For more information comparing Lustre, GlusterFS, and BeeGFS on Azure, review the [Parallel Files Systems on Azure](https://blogs.msdn.microsoft.com/azurecat/2018/06/11/azurecat-ebook-parallel-virtual-file-systems-on-microsoft-azure/) e-book.
 
@@ -397,7 +396,6 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
 
 There are a number of customers who have seen great success by using Azure for their HPC workloads.  You can find a few of these customer case studies below:
 
-- [ANEO](https://customers.microsoft.com/story/it-provider-finds-highly-scalable-cloud-based-hpc-redu)
 - [AXA Global P&C](https://customers.microsoft.com/story/axa-global-p-and-c)
 - [Axioma](https://customers.microsoft.com/story/axioma-delivers-fintechs-first-born-in-the-cloud-multi-asset-class-enterprise-risk-solution)
 - [d3View](https://customers.microsoft.com/story/big-data-solution-provider-adopts-new-cloud-gains-thou)
