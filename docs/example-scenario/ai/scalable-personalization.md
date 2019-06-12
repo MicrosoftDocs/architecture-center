@@ -32,7 +32,7 @@ This scenario covers the training, evaluation, and deployment of a machine learn
 3. The trained classifier is serialized and stored in the Azure Model Registry. With Azure Model Registry, you can store and organize different versions of the model (for example, based on newer data or different hyperparameters) within an Azure Machine Learning (Azure ML) Workspace.
 4. A serving script is defined using the [MML Spark Serving] library to provide predictions from the trained model.
 5. Azure ML is used to create a Docker image in the [Azure Container Registry] that holds the image with the scoring script and all necessary dependencies for serving predictions.
-6. Azure ML is also used to provision the compute for serving predictions. A Kubernetes cluster is configured using [Azure Kubernetes Service] with the amount of nodes needed to handle expected load. The virtual machine size can be adjusted based on the model's computation and memory requirements.
+6. Azure ML is also used to provision the compute for serving predictions. A Kubernetes cluster is configured using [Azure Kubernetes Service] (AKS) with the number of nodes needed to handle expected load. The virtual machine size can be adjusted based on the model's computation and memory requirements.
 7. The scoring service is deployed as a web service on the AKS cluster. The service provides an endpoint where user and item features can be sent to receive the predicted probability of a click for that user and item.
 
 ### Components
