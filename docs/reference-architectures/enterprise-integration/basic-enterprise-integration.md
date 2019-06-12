@@ -193,14 +193,14 @@ For greater reliability and scalability, use message queues and events to decoup
 [apim-backup]: /azure/api-management/api-management-howto-disaster-recovery-backup-restore
 [apim-caching]: /azure/api-management/api-management-howto-cache
 [apim-capacity]: /azure/api-management/api-management-capacity
-[apim-dev-portal]: /azure/api-management/api-management-key-concepts#a-namedeveloper-portal-a-developer-portal
+[apim-dev-portal]: /azure/api-management/api-management-key-concepts#developer-portal
 [apim-domain]: /azure/api-management/configure-custom-domain
 [apim-jwt]: /azure/api-management/policies/authorize-request-based-on-jwt-claims
 [apim-logic-app]: /azure/api-management/import-logic-app-as-api
 [apim-monitor]: /azure/api-management/api-management-howto-use-azure-monitor
 [apim-oauth]: /azure/api-management/api-management-howto-protect-backend-with-aad
 [apim-openapi]: /azure/api-management/import-api-from-oas
-[apim-pbi]: https://aka.ms/apimpbi
+[apim-pbi]: https://azure.microsoft.com/updates/azure-api-management-analytics-powerbi-solution-template/
 [apim-pricing]: https://azure.microsoft.com/pricing/details/api-management/
 [apim-properties]: /azure/api-management/api-management-howto-properties
 [apim-sla]: https://azure.microsoft.com/support/legal/sla/api-management/
@@ -214,7 +214,7 @@ For greater reliability and scalability, use message queues and events to decoup
 [logic-apps-log-analytics]: /azure/logic-apps/logic-apps-monitor-your-logic-apps-oms
 [logic-apps-monitor]: /azure/logic-apps/logic-apps-monitor-your-logic-apps
 [logic-apps-restrict-ip]: /azure/logic-apps/logic-apps-securing-a-logic-app#restrict-incoming-ip-addresses
-[logic-apps-secure]: /azure/logic-apps/logic-apps-securing-a-logic-app#secure-parameters-and-inputs-within-a-workflow
+[logic-apps-secure]: /azure/logic-apps/logic-apps-securing-a-logic-app#secure-action-parameters-and-inputs
 [logic-apps-sla]: https://azure.microsoft.com/support/legal/sla/logic-apps
 [monitor]: /azure/azure-monitor/overview
 [rbac]: /azure/role-based-access-control/overview

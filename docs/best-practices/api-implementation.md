@@ -709,7 +709,7 @@ You should also create and run performance tests to check that the web API opera
 
 ## Using Azure API Management
 
-On Azure, consider using [Azure API Management](/azure/api-management//services/api-management/) to publish and manage a web API. Using this facility, you can generate a service that acts as a façade for one or more web APIs. The service is itself a scalable web service that you can create and configure by using the Azure portal. You can use this service to publish and manage a web API as follows:
+On Azure, consider using [Azure API Management](/azure/api-management/services/api-management/) to publish and manage a web API. Using this facility, you can generate a service that acts as a façade for one or more web APIs. The service is itself a scalable web service that you can create and configure by using the Azure portal. You can use this service to publish and manage a web API as follows:
 
 1. Deploy the web API to a website, Azure cloud service, or Azure virtual machine.
 

@@ -42,7 +42,7 @@ The following tables summarize the key differences in capabilities.
 
 ### General capabilities
 
-| | Azure HDInsight | Microsoft Cognitive Services |
+| Capability | Azure HDInsight | Microsoft Cognitive Services |
 | --- | --- | --- |
 | Provides pretrained models as a service | No | Yes |
 | REST API | Yes | Yes |
@@ -51,7 +51,7 @@ The following tables summarize the key differences in capabilities.
 
 ### Low-level natural language processing capabilities
 
-| | Azure HDInsight | Microsoft Cognitive Services |  
+| Capability | Azure HDInsight | Microsoft Cognitive Services |  
 | --- | --- | --- |
 | Tokenizer | Yes (Spark NLP) | Yes (Linguistic Analysis API) |
 | Stemmer | Yes (Spark NLP) | No |
@@ -64,7 +64,7 @@ The following tables summarize the key differences in capabilities.
 
 ### High-level natural language processing capabilities
 
-| | Azure HDInsight | Microsoft Cognitive Services |
+| Capability | Azure HDInsight | Microsoft Cognitive Services |
 | --- | --- | --- |
 | Entity/intent identification and extraction | No | Yes (Language Understanding Intelligent Service (LUIS) API) |
 | Topic detection | Yes (Spark NLP) | Yes (Text Analytics API) |

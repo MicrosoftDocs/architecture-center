@@ -861,7 +861,7 @@ Azure Storage services include table and blob storage, files, and storage queues
 
 ### Retry mechanism
 
-Retries occur at the individual REST operation level and are an integral part of the client API implementation. The client storage SDK uses classes that implement the [IExtendedRetryPolicy Interface](/dotnet/api/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy).
+Retries occur at the individual REST operation level and are an integral part of the client API implementation. The client storage SDK uses classes that implement the [IExtendedRetryPolicy Interface](/dotnet/api/microsoft.azure.storage.retrypolicies.iextendedretrypolicy).
 
 There are different implementations of the interface. Storage clients can choose from policies designed for accessing tables, blobs, and queues. Each implementation uses a different retry strategy that essentially defines the retry interval and other details.
 
@@ -915,7 +915,7 @@ context.RequestCompleted += (sender, args) =>
 var stats = await client.GetServiceStatsAsync(null, context);
 ```
 
-In addition to indicating whether a failure is suitable for retry, the extended retry policies return a **RetryContext** object that indicates the number of retries, the results of the last request, whether the next retry will happen in the primary or secondary location (see table below for details). The properties of the **RetryContext** object can be used to decide if and when to attempt a retry. For more information, see [IExtendedRetryPolicy.Evaluate Method](/dotnet/api/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate).
+In addition to indicating whether a failure is suitable for retry, the extended retry policies return a **RetryContext** object that indicates the number of retries, the results of the last request, whether the next retry will happen in the primary or secondary location (see table below for details). The properties of the **RetryContext** object can be used to decide if and when to attempt a retry. For more information, see [IExtendedRetryPolicy.Evaluate Method](/dotnet/api/microsoft.azure.storage.retrypolicies.iextendedretrypolicy.evaluate).
 
 The following tables show the default settings for the built-in retry policies.
 
@@ -948,7 +948,7 @@ The following tables show the default settings for the built-in retry policies.
 
 Consider the following guidelines when accessing Azure storage services using the storage client API:
 
-- Use the built-in retry policies from the Microsoft.WindowsAzure.Storage.RetryPolicies namespace where they are appropriate for your requirements. In most cases, these policies will be sufficient.
+- Use the built-in retry policies from the Microsoft.Azure.Storage.RetryPolicies namespace where they are appropriate for your requirements. In most cases, these policies will be sufficient.
 
 - Use the **ExponentialRetry** policy in batch operations, background tasks, or non-interactive scenarios. In these scenarios, you can typically allow more time for the service to recover&mdash;with a consequently increased chance of the operation eventually succeeding.
 
@@ -969,7 +969,7 @@ Consider starting with the following settings for retrying operations. These set
 
 Retry attempts are logged to a **TraceSource**. You must configure a **TraceListener** to capture the events and write them to a suitable destination log. You can use the **TextWriterTraceListener** or **XmlWriterTraceListener** to write the data to a log file, the **EventLogTraceListener** to write to the Windows Event Log, or the **EventProviderTraceListener** to write trace data to the ETW subsystem. You can also configure autoflushing of the buffer, and the verbosity of events that will be logged (for example, Error, Warning, Informational, and Verbose). For more information, see [Client-side Logging with the .NET Storage Client Library](/rest/api/storageservices/Client-side-Logging-with-the-.NET-Storage-Client-Library).
 
-Operations can receive an **OperationContext** instance, which exposes a **Retrying** event that can be used to attach custom telemetry logic. For more information, see [OperationContext.Retrying Event](/dotnet/api/microsoft.windowsazure.storage.operationcontext.retrying).
+Operations can receive an **OperationContext** instance, which exposes a **Retrying** event that can be used to attach custom telemetry logic. For more information, see [OperationContext.Retrying Event](/dotnet/api/microsoft.azure.storage.operationcontext.retrying).
 
 ### Examples
 

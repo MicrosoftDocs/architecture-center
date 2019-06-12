@@ -186,4 +186,4 @@ Azure Batch also supports the use of low-priority VMs in the node pools, which c
 [batch-overview]: https://azure.microsoft.com/services/batch/
 [batch-containers]: https://github.com/Azure/batch-shipyard
 [azure-arm-templates]: /azure/azure-resource-manager/resource-group-overview#template-deployment
-[batch-plugins]: /azure/batch/batch-rendering-service#options-for-submitting-a-render-job
+[batch-plugins]: /azure/batch/batch-rendering-service#options-for-rendering-on-azure

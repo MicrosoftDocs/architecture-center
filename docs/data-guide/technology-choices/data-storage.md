@@ -95,14 +95,14 @@ The following tables summarize the key differences in capabilities.
 
 ### File storage capabilities
 
-|  | Azure Data Lake Store | Azure Blob Storage containers |
+| Capability | Azure Data Lake Store | Azure Blob Storage containers |
 | --- | --- | --- |
 | Purpose | Optimized storage for big data analytics workloads |General purpose object store for a wide variety of storage scenarios |
 | Use cases | Batch, streaming analytics, and machine learning data such as log files, IoT data, click streams, large datasets | Any type of text or binary data, such as application back end, backup data, media storage for streaming, and general purpose data |
 | Structure | Hierarchical file system | Object store with flat namespace |
-| Authentication | Based on [Azure Active Directory Identities](/azure/active-directory/active-directory-authentication-scenarios) | Based on shared secrets [Account Access Keys](/azure/storage/common/storage-create-storage-account#manage-your-storage-account) and [Shared Access Signature Keys](/azure/storage/common/storage-dotnet-shared-access-signature-part-1), and [role-based access control (RBAC)](/azure/security/security-storage-overview) |
+| Authentication | Based on [Azure Active Directory Identities](/azure/active-directory/active-directory-authentication-scenarios) | Based on shared secrets [Account Access Keys](/azure/storage/common/storage-account-manage#access-keys) and [Shared Access Signature Keys](/azure/storage/common/storage-dotnet-shared-access-signature-part-1), and [role-based access control (RBAC)](/azure/security/security-storage-overview) |
 | Authentication protocol | OAuth 2.0. Calls must contain a valid JWT (JSON web token) issued by Azure Active Directory | Hash-based message authentication code (HMAC). Calls must contain a Base64-encoded SHA-256 hash over a part of the HTTP request. |
-| Authorization | POSIX access control lists (ACLs). ACLs based on Azure Active Directory identities can be set file and folder level. | For account-level authorization use [Account Access Keys](/azure/storage/common/storage-create-storage-account#manage-your-storage-account). For account, container, or blob authorization use [Shared Access Signature Keys](/azure/storage/common/storage-dotnet-shared-access-signature-part-1). |
+| Authorization | POSIX access control lists (ACLs). ACLs based on Azure Active Directory identities can be set file and folder level. | For account-level authorization use [Account Access Keys](/azure/storage/common/storage-account-manage#access-keys). For account, container, or blob authorization use [Shared Access Signature Keys](/azure/storage/common/storage-dotnet-shared-access-signature-part-1). |
 | Auditing | Available.  |Available |
 | Encryption at rest | Transparent, server side | Transparent, server side; Client-side encryption |
 | Developer SDKs | .NET, Java, Python, Node.js | .Net, Java, Python, Node.js, C++, Ruby |
@@ -112,7 +112,7 @@ The following tables summarize the key differences in capabilities.
 
 ### NoSQL database capabilities
 
-|                                    |                                           Azure Cosmos DB                                           |                                                             HBase on HDInsight                                                             |
+| Capability |                                           Azure Cosmos DB                                           |                                                             HBase on HDInsight                                                             |
 |------------------------------------|-----------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 |       Primary database model       |                      Document store, graph, key-value store, wide column store                      |                                                             Wide column store                                                              |
 |         Secondary indexes          |                                                 Yes                                                 |                                                                     No                                                                     |

@@ -146,7 +146,6 @@ Large-scale Batch and HPC workloads have demands for data storage and access tha
 - [Storage Optimized Virtual Machines](/azure/virtual-machines/windows/sizes-storage?context=/azure/architecture/topics/high-performance-computing/context/hpc-context)
 - [Blob, table, and queue storage](/azure/storage/storage-introduction?context=/azure/architecture/topics/high-performance-computing/context/hpc-context)
 - [Azure SMB File storage](/azure/storage/files/storage-files-introduction?context=/azure/architecture/topics/high-performance-computing/context/hpc-context)
-- [Intel Cloud Edition Lustre](https://azuremarketplace.microsoft.com/marketplace/apps/intel.intel-cloud-edition-gs)
 
 For more information comparing Lustre, GlusterFS, and BeeGFS on Azure, review the [Parallel Files Systems on Azure](https://blogs.msdn.microsoft.com/azurecat/2018/06/11/azurecat-ebook-parallel-virtual-file-systems-on-microsoft-azure/) e-book.
 
@@ -268,7 +267,7 @@ CycleCloud allows you to:
 
 The following are examples of cluster and workload managers that can run in Azure infrastructure. Create stand-alone clusters in Azure VMs or burst to Azure VMs from an on-premises cluster.
 
-- [Alces Flight Compute](https://azuremarketplace.microsoft.com/marketplace/apps/alces-flight-limited.alces-flight-compute-solo?tab=Overview)
+- [Alces Flight Compute](https://azuremarketplace.microsoft.com/marketplace/apps?search=Alces%20Flight%20Compute)
 - [TIBCO DataSynapse GridServer](https://azure.microsoft.com/blog/tibco-datasynapse-comes-to-the-azure-marketplace/)
 - [Bright Cluster Manager](http://www.brightcomputing.com/technology-partners/microsoft)
 - [IBM Spectrum Symphony and Symphony LSF](https://azure.microsoft.com/blog/ibm-and-microsoft-azure-support-spectrum-symphony-and-spectrum-lsf/)
@@ -397,7 +396,6 @@ Run custom or commercial HPC applications in Azure. Several examples in this sec
 
 There are a number of customers who have seen great success by using Azure for their HPC workloads.  You can find a few of these customer case studies below:
 
-- [ANEO](https://customers.microsoft.com/story/it-provider-finds-highly-scalable-cloud-based-hpc-redu)
 - [AXA Global P&C](https://customers.microsoft.com/story/axa-global-p-and-c)
 - [Axioma](https://customers.microsoft.com/story/axioma-delivers-fintechs-first-born-in-the-cloud-multi-asset-class-enterprise-risk-solution)
 - [d3View](https://customers.microsoft.com/story/big-data-solution-provider-adopts-new-cloud-gains-thou)

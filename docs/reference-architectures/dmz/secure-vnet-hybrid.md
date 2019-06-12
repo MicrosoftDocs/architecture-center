@@ -245,7 +245,7 @@ In this step, you will connect the two local network gateways.
 [guidance-vpn-gateway-manageability]: ../hybrid-networking/vpn.md#manageability-considerations
 [guidance-vpn-gateway-scalability]: ../hybrid-networking/vpn.md#scalability-considerations
 [guidance-vpn-gateway-security]: ../hybrid-networking/vpn.md#security-considerations
-[ip-forwarding]: /azure/virtual-network/virtual-networks-udr-overview#ip-forwarding
+[ip-forwarding]: /azure/virtual-network/virtual-network-network-interface#enable-or-disable-ip-forwarding
 [ra-expressroute]: ../hybrid-networking/expressroute.md
 [ra-n-tier]: ../virtual-machines-windows/n-tier.md
 [ra-vpn]: ../hybrid-networking/vpn.md

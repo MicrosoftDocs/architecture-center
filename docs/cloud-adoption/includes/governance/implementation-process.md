@@ -13,7 +13,7 @@ In this governance journey, the Identity Management team implements the **[Direc
 - RBAC will be provided by Azure Active Directory (Azure AD), using the directory synchronization or "Same Sign-On" that was implemented during company’s migration to Office 365. For implementation guidance, see [Reference Architecture for Azure AD Integration](/azure/architecture/reference-architectures/identity/azure-ad).
 - The Azure AD tenant will also govern authentication and access for assets deployed to Azure.
 
-In the governance MVP, the governance team will enforce application of the replicated tenant through subscription governance tooling, discussed [later in this article](#subscription-model). In future evolutions, the governance team could also enforce rich tooling in Azure AD to extend this capability.
+In the governance MVP, the governance team will enforce application of the replicated tenant through subscription governance tooling, discussed later in this article. In future evolutions, the governance team could also enforce rich tooling in Azure AD to extend this capability.
 
 ### Security Baseline: Networking
 

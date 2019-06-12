@@ -151,9 +151,9 @@ Now assign this user as the subscription owner.
 
     Set the following parameter values:
 
-       * key vault name = The name that you gave the key vault in the previous step.
-       * Surveys app ID = The application ID for the Surveys web application.
-       * Surveys.WebApi app ID = The application ID for the Surveys.WebAPI application.
+   * key vault name = The name that you gave the key vault in the previous step.
+   * Surveys app ID = The application ID for the Surveys web application.
+   * Surveys.WebApi app ID = The application ID for the Surveys.WebAPI application.
 
     Example:
 
@@ -298,7 +298,7 @@ Replace the entries in [square brackets] and save the secrets.json file.
 [KeyVault]: https://azure.microsoft.com/services/key-vault/
 [key-tags]: https://msdn.microsoft.com/library/azure/dn903623.aspx#BKMK_Keytags
 [Microsoft.Azure.KeyVault]: https://www.nuget.org/packages/Microsoft.Azure.KeyVault/
-[options]: /aspnet/core/fundamentals/configuration#using-options-and-configuration-objects
+[options]: /aspnet/core/fundamentals/configuration/options
 [readme]: ./run-the-app.md
 [Setup-KeyVault]: https://github.com/mspnp/multitenant-saas-guidance/blob/master/scripts/Setup-KeyVault.ps1
 [Surveys]: tailspin.md

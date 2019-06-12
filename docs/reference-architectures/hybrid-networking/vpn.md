@@ -194,6 +194,6 @@ To troubleshoot the connection, see [Troubleshoot a hybrid VPN connection](./tro
 [forced-tunneling]: /azure/vpn-gateway/vpn-gateway-about-forced-tunneling
 [vpn-appliances]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/hybrid-network-architectures.vsdx
-[vpn-appliance-ipsec]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices#ipsec-parameters
+[vpn-appliance-ipsec]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices#ipsec
 [azure-cli]: /cli/azure/install-azure-cli
 [CIDR]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing

@@ -84,7 +84,7 @@ The following tables summarize the key differences in capabilities.
 
 <!-- markdownlint-enable MD033 -->
 
-| | Azure Import/Export service | Azure Data Box |
+| Capability | Azure Import/Export service | Azure Data Box |
 | --- | --- | --- |
 | Form factor | Internal SATA HDDs or SDDs | Secure, tamper-proof, single hardware appliance |
 | Microsoft manages shipping logistics | No | Yes |
@@ -93,9 +93,9 @@ The following tables summarize the key differences in capabilities.
 
 ### Command line tools
 
-**Hadoop/HDInsight:**
+**Hadoop/HDInsight**
 
-| | Distcp | Sqoop | Hadoop CLI |
+| Capability | Distcp | Sqoop | Hadoop CLI |
 | --- | --- | --- | --- |
 | Optimized for big data | Yes | Yes |  Yes |
 | Copy to relational database |  No | Yes | No |
@@ -105,11 +105,11 @@ The following tables summarize the key differences in capabilities.
 | Copy to Data Lake Store | Yes | Yes | Yes |
 | Copy from Data Lake Store | Yes | Yes | No |
 
-**Other:**
+**Other**
 
 <!-- markdownlint-disable MD033 -->
 
-| | Azure CLI | AzCopy | PowerShell | AdlCopy | PolyBase |
+| Capability | Azure CLI | AzCopy | PowerShell | AdlCopy | PolyBase |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Compatible platforms | Linux, OS X, Windows | Linux, Windows | Windows | Linux, OS X, Windows | SQL Server, Azure SQL Data Warehouse |
 | Optimized for big data | No | No | No | Yes <sup>1</sup> | Yes <sup>2</sup> |
@@ -128,7 +128,7 @@ The following tables summarize the key differences in capabilities.
 
 ### Graphical interface and Azure Data Factory
 
-| | Azure Storage Explorer | Azure portal * | Azure Data Factory |
+| Capability | Azure Storage Explorer | Azure portal * | Azure Data Factory |
 | --- | --- | --- | --- |
 | Optimized for big data | No | No | Yes |
 | Copy to relational database | No | No | Yes |

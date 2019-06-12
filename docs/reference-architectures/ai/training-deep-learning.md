@@ -1,9 +1,11 @@
 ---
 title: Distributed training of deep learning models on Azure
-description:  This reference architecture shows how to conduct distributed training of deep learning models across clusters of GPU-enabled VMs using Azure Batch AI.
-author: njray
-ms.date: 01/14/19
+description:  This reference architecture shows how to conduct distributed training of deep learning models across clusters of GPU-enabled VMs using Azure Machine Learning Services.
+author: msalvaris
+ms.date: 06/05/2019
 ms.custom: azcat-ai
+ms.service: architecture-center
+ms.subservice: reference-architecture
 ---
 
 # Distributed training of deep learning models on Azure
@@ -16,7 +18,7 @@ A reference implementation for this architecture is available on [GitHub][github
 
 **Scenario**: Image classification is a widely applied technique in computer vision, often tackled by training a convolutional neural network (CNN). For particularly large models with large datasets, the training process can take weeks or months on a single GPU. In some situations, the models are so large that it's not possible to fit reasonable batch sizes onto the GPU. Using distributed training in these situations can shorten the training time.
 
-In this specific scenario, a [ResNet50 CNN model][resnet] is trained using [Horovod][horovod] on the [Imagenet dataset][imagenet] and on synthetic data. The reference implementation shows how to accomplish this task using three of the most popular deep learning frameworks: TensorFlow, Keras, and PyTorch.
+In this specific scenario, a [ResNet50 CNN model][resnet] is trained using [Horovod][horovod] on the [Imagenet dataset][imagenet] and on synthetic data. The reference implementation shows how to accomplish this task using TensorFlow.
 
 There are several ways to train a deep learning model in a distributed fashion, including data-parallel and model-parallel approaches based on synchronous or asynchronous updates. Currently the most common scenario is data parallel with synchronous updates. This approach is the easiest to implement and is sufficient for most use cases.
 
@@ -30,34 +32,27 @@ The steps for training are:
 
 1. Create scripts that will run on the cluster and train your model, then transfer them to file storage.
 
-1. Write the data to Blob Storage.
+1. Write the data to Premium Blob Storage.
 
-1. Create a Batch AI file server and download the data from Blob Storage onto it.
+1. Create an Azure Machine Learning workspace. This will also create an Azure Container Registry to host your Docker Images.
 
-1. Create the Docker containers for each deep learning framework and transfer them to a container registry (Docker Hub).
+1. Create an Azure Machine Learning GPU Cluster.
 
-1. Create a Batch AI pool that also mounts the Batch AI file server.
+1. Submit jobs. For each job with unique dependencies, a new Docker image is built and pushed to your container registry. During execution, the appropriate Docker image runs and executes your script.
 
-1. Submit jobs. Each pulls in the appropriate Docker image and scripts.
-
-1. Once the job is completed, write all the results to Files storage.
+1. All the results and logs will be written to Blob storage.
 
 ## Architecture
 
 This architecture consists of the following components.
 
-**[Azure Batch AI][batch-ai]** plays the central role in this architecture by scaling resources up and down according to need. Batch AI is a service that helps provision and manage clusters of VMs, schedule jobs, gather results, scale resources, handle failures, and create appropriate storage. It supports GPU-enabled VMs for deep learning workloads. A Python SDK and a command-line interface (CLI) are available for Batch AI.
+**[Azure Machine Learning Compute][aml-compute]** plays the central role in this architecture by scaling resources up and down according to need. AzureML Compute is a service that helps provision and manage clusters of VMs, schedule jobs, gather results, scale resources,and handle failures. It supports GPU-enabled VMs for deep learning workloads. 
 
-> [!NOTE]
-> The Azure Batch AI service is retiring March 2019, and its at-scale training and scoring capabilities are now available in [Azure Machine Learning Service][amls]. This reference architecture will be updated soon to use Machine Learning, which offers a managed compute target called [Azure Machine Learning Compute][aml-compute] for training, deploying, and scoring machine learning models.
+**[Blob storage][azure-blob]** is used to store the logs and results. 
 
-**[Blob storage][azure-blob]** is used to stage the data. This data is downloaded to a Batch AI file server during training.
+**[Premium Blob storage][premium-storage]** is used to store the training data. The premium blob storage is mounted in the nodes using blob fuse. Premium blob offers better performance than standard blob and is recommended for distributed training scenarios. When mounted blob fuse uses caching so that the data is saved locally. This means that after the first epoch subsequent epochs will read from the local storage which is the most performant option.
 
-**[Azure Files][files]** is used to store the scripts, logs, and the final results from the training. File storage works well for storing logs and scripts, but is not as performant as Blob Storage, so it shouldn't be used for data-intensive tasks.
-
-**[Batch AI file server][batch-ai-files]** is a single-node NFS share used in this architecture to store the training data. Batch AI creates an NFS share and mounts it on the cluster. Batch AI file servers are the recommended way to serve data to the cluster with the necessary throughput.
-
-**[Docker Hub][docker]** is used to store the Docker image that Batch AI uses to run the training. Docker Hub was chosen for this architecture because it's easy to use and is the default image repository for Docker users. [Azure Container Registry][acr] can also be used.
+**[Container Registry][acr]** is used to store the Docker image that Machine Learning Compute uses to run the training. 
 
 ## Performance considerations
 
@@ -72,13 +67,13 @@ Azure provides four [GPU-enabled VM types][gpu] suitable for training deep learn
 
 We recommended scaling up your training before scaling out. For example, try a single V100 before trying a cluster of K80s.
 
-The following graph shows the performance differences for different GPU types based on [benchmarking tests][benchmark] carried out using TensorFlow and Horovod on Batch AI. The graph shows throughput of 32 GPU clusters across various models, on different GPU types and MPI versions. Models were implemented in TensorFlow 1.9
+The following graph shows the performance differences for different GPU types based on [benchmarking tests][benchmark] carried out using TensorFlow and Horovod. The graph shows throughput of 32 GPU clusters across various models, on different GPU types and MPI versions. Models were implemented in TensorFlow 1.9
 
 ![Throughput results for TensorFlow models on GPU clusters][2]
 
 Each VM series shown in the previous table includes a configuration with InfiniBand. Use the InfiniBand configurations when you run distributed training, for faster communication between nodes. InfiniBand also increases the scaling efficiency of the training for the frameworks that can take advantage of it. For details, see the Infiniband [benchmark comparison][benchmark].
 
-Although Batch AI can mount Blob storage using the [blobfuse][blobfuse] adapter, we don't recommend using Blob Storage this way for distributed training, because the performance isn't good enough to handle the necessary throughput. Move the data to a Batch AI file server instead, as shown in the architecture diagram.
+Although Machine Learning Compute can mount Blob storage using the [blobfuse][blobfuse] adapter, we don't recommend using Blob Storage this way for distributed training, because the performance isn't good enough for the majority of cases to handle the necessary throughput. Use Premium Blob for the data as shown in the architecture diagram.
 
 ## Scalability considerations
 
@@ -92,17 +87,12 @@ One way to increase scaling efficiency is to increase the batch size. That must 
 
 When training deep learning models, an often-overlooked aspect is where the data is stored. If the storage is too slow to keep up with the demands of the GPUs, training performance can degrade.
 
-Batch AI supports many storage solutions. This architecture uses a Batch AI file server, because it provides the best tradeoff between ease of use and performance. For best performance, load the data locally. However, this can be cumbersome, because all the nodes must download the data from Blob Storage, and with the ImageNet dataset, this can take hours. [Azure Premium Blob Storage][blob] (limited public preview) is another good option to consider.
+Machine Learning Compute supports many storage options. For best performance it is advisable that you download the data locally to each node. However, this can be cumbersome, because all the nodes must download the data from Blob Storage, and with the ImageNet dataset, this can take a considerable amount of time. By default AzureML mounts storage such that it caches the data locally. This means in practice that after the first epoch the data is read from local storage. This combined with Premium Blob Storage offers a good compromise between ease of use and performance.
 
-Do not mount Blob and File storage as data stores for distributed training. They are too slow and will hinder training performance.
+## Data format
+With large datasets it is often advisable to use data formats such as [TFRecords][tfrecords] and [parquet][petastorm] which provide better IO performance than multiple small image files.
 
 ## Security considerations
-
-### Restrict access to Azure Blob Storage
-
-This architecture uses [storage account keys][security-guide] to access the Blob storage. For further control and protection, consider using a shared access signature (SAS) instead. This grants limited access to objects in storage, without needing to hard-code the account keys or save them in plaintext. Using a SAS also helps to ensure that the storage account has proper governance, and that access is granted only to the people intended to have it.
-
-For scenarios with more sensitive data, make sure that all of your storage keys are protected, because these keys grant full access to all input and output data from the workload.
 
 ### Encrypt data at rest and in motion
 
@@ -110,19 +100,13 @@ In scenarios that use sensitive data, encrypt the data at rest &mdash; that is, 
 
 ### Secure data in a virtual network
 
-For production deployments, consider deploying the Batch AI cluster into a subnet of a virtual network that you specify. This allows the compute nodes in the cluster to communicate securely with other virtual machines or with an on-premises network. You can also use [service endpoints][endpoints] with blob storage to grant access from a virtual network or use a single-node NFS inside the virtual network with Batch AI.
+For production deployments, consider deploying the Azure Machine Learning cluster into a subnet of a virtual network that you specify. This allows the compute nodes in the cluster to communicate securely with other virtual machines or with an on-premises network. You can also use [service endpoints][endpoints] with blob storage to grant access from a virtual network.
 
 ## Monitoring considerations
 
 While running your job, it's important to monitor the progress and make sure that things are working as expected. However, it can be a challenge to monitor across a cluster of active nodes.
 
-The Batch AI file servers can be managed through the Azure portal or though the [Azure CLI][cli] and Python SDK. To get a sense of the overall state of the cluster, navigate to **Batch AI** in the Azure portal to inspect the state of the cluster nodes. If a node is inactive or a job fails, the error logs are saved to blob storage, and are also accessible in the Azure Portal under **Jobs**.
-
-Enrich monitoring by connecting logs to [Azure Application Insights][ai] or by running separate processes that poll for the state of the Batch AI cluster and its jobs.
-
-Batch AI automatically logs all stdout/stderr to the associate Blob storage account. Use a storage navigation tool such as [Azure Storage Explorer][storage-explorer] for an easier experience when navigating log files.
-
-It is also possible to stream the logs for each job. For details about this option, see the development steps on [GitHub][github].
+Azure Machine Learning offers many ways to [instrument your experiments][azureml-logging]. The stdout/stderr from your scripts are automatically logged. These logs are automatically synced to your workspace Blob storage. You can either view these files through the Azure portal, or download or stream them using the Python SDK or Azure Machine Learning CLI. If you log your experiments using Tensorboard, these logs are automatically synced and you can access them directly or use the Azure Machine Learning SDK to stream them to a [Tensorboard session][azureml-tensorboard].
 
 ## Deployment
 
@@ -143,17 +127,14 @@ The output from this architecture is a trained model that is saved to blob stora
 [aml-compute]: /azure/machine-learning/service/how-to-set-up-training-targets#amlcompute
 [amls]: /azure/machine-learning/service/overview-what-is-azure-ml
 [azure-blob]: /azure/storage/blobs/storage-blobs-introduction
-[batch-ai]: /azure/batch-ai/overview
-[batch-ai-files]: /azure/batch-ai/resource-concepts#file-server
 [batch-scoring]: /azure/architecture/reference-architectures/ai/batch-scoring-deep-learning
 [benchmark]: https://github.com/msalvaris/BatchAIHorovodBenchmark
 [blob]: https://azure.microsoft.com/en-gb/blog/introducing-azure-premium-blob-storage-limited-public-preview/
 [blobfuse]: https://github.com/Azure/azure-storage-fuse
-[cli]: https://github.com/Azure/BatchAI/blob/master/documentation/using-azure-cli-20.md
 [docker]: https://hub.docker.com/
 [endpoints]: /azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network
 [files]: /azure/storage/files/storage-files-introduction
-[github]: https://github.com/Azure/DistributedDeepLearning/
+[github]: https://github.com/microsoft/DistributedDeepLearning/
 [gpu]: /azure/virtual-machines/windows/sizes-gpu
 [horovod]: https://github.com/uber/horovod
 [imagenet]: http://www.image-net.org/
@@ -161,4 +142,9 @@ The output from this architecture is a trained model that is saved to blob stora
 [resnet]: https://arxiv.org/abs/1512.03385
 [security-guide]: /azure/storage/common/storage-security-guide
 [storage-explorer]: /azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows
-[tutorial]: https://github.com/Azure/DistributedDeepLearning
+[tutorial]: https://github.com/Microsoft/DistributedDeepLearning
+[azureml-logging]: /azure/machine-learning/service/how-to-track-experiments
+[azureml-tensorboard]: https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training-with-deep-learning/tensorboard/tensorboard.ipynb
+[tfrecords]: https://www.tensorflow.org/tutorials/load_data/tf_records
+[petastorm]: https://github.com/uber/petastorm
+[premium-storage]: https://azure.microsoft.com/services/storage/blobs/
