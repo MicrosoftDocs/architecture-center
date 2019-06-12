@@ -25,7 +25,7 @@ This scenario is relevant to the following use cases:
 
 ![Scalable personalization architecture diagram](./media/architecture-scalable-personalization.png)
 
-This scenario covers the training, evaluation, and deployment of a machine learning model for content-based personalization on Apache Spark using [Azure Databricks]. In this case, a model is trained with a supervised classification algorithm on a dataset containing user and item features. The ground truth is implicit binary feedback indicating an interaction between the user and an item. This scenario covers a subset of the steps required for a full an end-to-end recommendation system workload. The broader context of this scenario includes the following:
+This scenario covers the training, evaluation, and deployment of a machine learning model for content-based personalization on Apache Spark using [Azure Databricks]. In this case, a model is trained with a supervised classification algorithm on a dataset containing user and item features. The label for each example is a binary value indicating that the user engaged with (for example, clicked) an item. This scenario covers a subset of the steps required for a full an end-to-end recommendation system workload. The broader context of this scenario includes the following:
 
 1. A generic e-commerce website has a front end that serves rapidly changing content to its users. This website uses cookies and user profiles to track user information that is useful in personalizing the content for that user. Along with user profiles, the website may have information about each of the items it serves to each user.
 2. The sets of distinct user and item data are preprocessed and joined, which results in a mixture of numeric and categorical features to be used for predicting user-item interactions (clicks). This table is uploaded to Azure Blob storage. For demonstration purposes, the [Criteo display advertising challenge dataset](https://labs.criteo.com/2014/02/download-dataset/) is used. This dataset matches the described anonymized table, as it contains a binary label for observed user clicks, 13 numerical features, and an additional 26 categorical features.
@@ -49,7 +49,7 @@ This architecture makes use of the following components:
 
 ### Scalability
 
-For training, you can scale [Azure Databricks] up or down based on the size of the data used and the compute necessary for model training. To scale, you can adjust the total number of cores or amount of memory available to the cluster. Just edit the number or type of [Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) (VMs) used. The Criteo dataset contains 45.8 million rows in this example; it was trained in a few minutes on a cluster with 10 standard **L8s** VMs.
+For training, you can scale [Azure Databricks] up or down based on the size of the data used and the compute necessary for model training. To scale, you can adjust the total number of cores or amount of memory available to the cluster. Just edit the number or type of [Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) (VMs) used. The Criteo dataset contains 45.8 million rows in this example; it was trained in a few minutes on a cluster with 10 standard [L8s](/azure/virtual-machines/linux/sizes-storage#lsv2-series) VMs.
 
 For deployment, you can scale the compute resources based on the expected load for the scoring service and latency requirements. The scoring service uses [MML Spark Serving](https://github.com/Azure/mmlspark/blob/master/docs/mmlspark-serving.md) running separately on each node in the Kubernetes cluster. With this practice, you can seamlessly transfer the feature transformation and model prediction pipeline developed on [Azure Databricks] to the production side. It also removes the need to precompute scores for all possible user and item combinations, which might be difficult if you're using dynamic user features, such as time of day.
 
@@ -57,7 +57,7 @@ For deployment, you can scale the compute resources based on the expected load f
 
 Machine learning tasks are split into two resource components: resources for training, and resources for production deployment. Resources required for training generally don't need high availability, as live production requests don't directly hit these resources. Resources required for serving need to have high availability to serve customer requests.
 
-For training, [Azure Databricks] is available across many [regions](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/regions.html) with a [service level agreement][1] (SLA) to support businesses. For production deployment, [Azure Kubernetes Service] is used to provide broad geographic availability with this [SLA][1].
+Training on [Azure Databricks] can happen on any one of the [regions](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/regions.html) with a [service level agreement][1] (SLA) to support your needs. For production deployment, [Azure Kubernetes Service] is used to provide broad geographic availability with this [SLA][1].
 
 ### Security
 
