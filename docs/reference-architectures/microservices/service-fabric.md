@@ -81,7 +81,7 @@ To access a guest executable through a reverse proxy, make sure you have added t
       <Endpoint Name="MyGuextExeTypeEndpoint" Port="8090" Protocol="http" UriScheme="http" PathSuffix="api" Type="Input"/>
     </Endpoints>
 ```
-If the service has additional routes, specify the route in the **PathSuffix** value. The value should not be prefixed or suffixed with ‘/’. Another way to add the route is to add it in the service name. 
+If the service has additional routes, specify the routes in the **PathSuffix** value. The value should not be prefixed or suffixed with ‘/’. Another way is to add the route in the service name. 
 
 ```
     <Endpoints>
