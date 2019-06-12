@@ -220,11 +220,11 @@ Remote desktop is useful for diagnostic and troubleshooting, but make sure not t
 
 ### Secrets and certificates
 
-Store secrets such as connection string to datastores in Azure Key Vault. The Key Vault must be in the same region as the virtual machine scale set. You will need to:
+Store secrets such as connection strings to datastores in Azure Key Vault. The Key Vault must be in the same region as the virtual machine scale set. You will need to:
 
 - Authenticate the service’s access to the Key Vault. 
  
-    Enabling [managed identity](/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-virtual-machine-scale-sets) on the virtual machine scale set that hosts the service.
+    Enable [managed identity](/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-virtual-machine-scale-sets) on the virtual machine scale set that hosts the service.
 
 - Store your secrets in the Key Vault. 
 
@@ -232,7 +232,7 @@ Store secrets such as connection string to datastores in Azure Key Vault. The Ke
 
 - Access those secrets in your service. 
 
-    Add the Key Vault URI in your appSettings.json. In your service, add the configuration provider that reads from the Key Vault, build the configuration, and access the secret from the built configuration.
+    Add the Key Vault URI in your appSettings.json. In your service, add the configuration provider that reads from the Key Vault, builds the configuration, and accesses the secret from the built configuration.
 
 Here's an example where the Workflow service stores a secret in the Key Vault in the format "CosmosDB--Database". 
 
@@ -288,7 +288,7 @@ To recover from failures and maintain a fully functioning state, the application
 - [Circuit breaker](/azure/architecture/patterns/circuit-breaker): To address faults that might need longer to fix.
 - [Bulkhead pattern](/azure/architecture/patterns/bulkhead): To isolate resources per service. 
 
-This reference implementation uses [Polly](https://github.com/App-vNext/Polly), open source option, to implement all of those patterns. 
+This reference implementation uses [Polly](https://github.com/App-vNext/Polly), an open source option, to implement all of those patterns. 
 
 
 ## Monitoring considerations
