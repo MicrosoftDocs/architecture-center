@@ -74,6 +74,21 @@ If you have existing code that you want to run on Service Fabric, you can run it
 
 With guest executables, you are responsible of maintaining the environment in which it runs. For example, suppose that a guest executable requires Python. If the executable is not self-contained, you need to make sure that the required version of Python is pre-installed in the environment. Service Fabric does not manage the environment. Azure offers multiple mechanisms to set up the environment, including custom virtual machine images and extensions.
 
+To access a guest executable through a reverse proxy, make sure you have added the **UriScheme** attribute to the **Endpoint** element in the guest executable’s service manifest.
+
+```
+    <Endpoints>
+      <Endpoint Name="MyGuextExeTypeEndpoint" Port="8090" Protocol="http" UriScheme="http" PathSuffix="api" Type="Input"/>
+    </Endpoints>
+```
+If the service has additional routes, specify the route in the **PathSuffix** value. The value should not be prefixed or suffixed with ‘/’. Another way to add the route is to add it in the service name. 
+
+```
+    <Endpoints>
+      <Endpoint Name="MyGuextExeTypeEndpoint" Port="8090" Protocol="http" PathSuffix="api" Type="Input"/>
+    </Endpoints>
+```
+
 For more information, see:
 
 - [Package an application](/azure/service-fabric/service-fabric-package-apps)
@@ -205,7 +220,51 @@ Remote desktop is useful for diagnostic and troubleshooting, but make sure not t
 
 ### Secrets and certificates
 
-To access Key Vault secrets from a Service Fabric service, enable [managed identity](/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-virtual-machine-scale-sets) on the virtual machine scale set that hosts the service. Sample code: Use Key Vault from App Service with Managed Service Identity.
+Store secrets such as connection string to datastores in Azure Key Vault. The Key Vault must be in the same region as the virtual machine scale set. You will need to:
+
+- Authenticate the service’s access to the Key Vault. 
+ 
+    Enabling [managed identity](/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-virtual-machine-scale-sets) on the virtual machine scale set that hosts the service.
+
+- Store your secrets in the Key Vault. 
+
+    Add secrets in a format that can be translated to a key-value pair. For example, CosmosDB--AuthKey. When the configuration is built, “--” is converted into “:”.
+
+- Access those secrets in your service. 
+
+    Add the Key Vault URI in your appSettings.json. In your service, add the configuration provider that reads from the Key Vault, build the configuration, and access the secret from the built configuration.
+
+Here's an example where the Workflow service stores a secret in the Key Vault in the format "CosmosDB--Database". 
+
+```
+namespace Fabrikam.Workflow.Service 
+{
+    public class ServiceStartup
+    {
+        public static void ConfigureServices(StatelessServiceContext context, IServiceCollection services)
+        {
+            var preConfig = new ConfigurationBuilder()
+                …
+                .AddJsonFile(context, "appsettings.json");
+               
+            var config = preConfig.Build();
+
+            if (config["AzureKeyVault:KeyVaultUri"] is var keyVaultUri && !string.IsNullOrWhiteSpace(keyVaultUri))
+            {
+                preConfig.AddAzureKeyVault(keyVaultUri);
+                config = preConfig.Build();
+            }
+    }
+}	
+```
+To access the secret, specify the secret name in the built config. 
+
+```
+       if(builtConfig["CosmosDB:Database"] is var database && !string.IsNullOrEmpty(database))
+       {
+            // use the secret. 
+       }
+```
 
 Do not use client certificates to access Service Fabric Explorer. Instead, use Azure Active Directory (Azure AD). Also see, [Azure services that support Azure AD authentication](/azure/active-directory/managed-identities-azure-resources/services-support-managed-identities#azure-services-that-support-azure-ad-authentication).
 
@@ -220,6 +279,17 @@ For more information about securing Service Fabric, see:
 - [Azure Service Fabric security overview](/azure/security/azure-service-fabric-security-overview)
 - [Azure Service Fabric security best practices](/azure/security/azure-service-fabric-security-best-practices)
 - [Azure Service Fabric security checklist](/azure/security/azure-service-fabric-security-checklist)
+
+## Resiliency considerations
+
+To recover from failures and maintain a fully functioning state, the application must implement certain resiliency patterns. Here are some common patterns:
+
+- [Retry pattern](/azure/architecture/patterns/retry): To handle errors that are expected to be transient, such as resources being temporarily unavailable.
+- [Circuit breaker](/azure/architecture/patterns/circuit-breaker): To address faults that might need longer to fix.
+- [Bulkhead pattern](/azure/architecture/patterns/bulkhead): To isolate resources per service. 
+
+This reference implementation uses [Polly](https://github.com/App-vNext/Polly), open source option, to implement all of those patterns. 
+
 
 ## Monitoring considerations
 
@@ -245,12 +315,21 @@ Application telemetry provides data about your service that can help you monitor
 - You can add your own instrumentation by using the [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) class in the SDK and view the data in Application Insights. See [Add custom instrumentation to your application](/azure/service-fabric/service-fabric-tutorial-monitoring-aspnet#add-custom-instrumentation-to-your-application).
 - Log ETW events by using [EventSource](/azure/service-fabric/service-fabric-diagnostics-event-generation-app#eventsource). This option is available by default in a Visual Studio Service Fabric solution.
 
-To view the trace and event logs, use [Application Insights](/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) as one of the sinks for structured logging so that your service can visualize traces and events. Application Insights provides a lot of built-in telemetry: requests, traces, events, exceptions, metrics, dependencies. For information about instrumenting your service for Application Insights, see these articles:
+ Application Insights provides a lot of built-in telemetry: requests, traces, events, exceptions, metrics, dependencies. If your service exposes HTTP endpoints, enable Application Insights by calling **UseApplicationInsights** extension method for Microsoft.AspNetCore.Hosting.IWebHostBuilder. For information about instrumenting your service for Application Insights, see these articles:
 
 - [Tutorial: Monitor and diagnose an ASP.NET Core application on Service Fabric using Application Insights](/azure/service-fabric/service-fabric-tutorial-monitoring-aspnet).
 - [Application Insights for ASP.NET Core](/azure/application-insights/app-insights-asp-net-core)
 - [Application Insights .NET SDK](/azure/application-insights/app-insights-api-custom-events-metrics)
 - [Application Insights SDK for Service Fabric](https://github.com/Microsoft/ApplicationInsights-ServiceFabric)
+
+To view the traces and event logs, use [Application Insights](/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) as one of sinks for structured logging.  Configure Application Insights with your instrumentation key by calling **AddApplicationInsights** extension method. In this example, the instrumentation key is stored as a secret in the Key Vault.
+```
+    .ConfigureLogging((hostingContext, logging) =>
+        {
+            logging.AddApplicationInsights(hostingContext.Configuration ["ApplicationInsights:InstrumentationKey"]);
+        })
+```
+If you service does not expose HTTP endpoints, you need to write a custom extension that sends traces to Application Insights. For an example, see the Workflow service in the reference implementation. 
 
 ASP.NET Core services use the [ILogger interface](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2) for application logging. To make these application logs available in Azure Monitor, send the `ILogger` events to Application Insights. For more information, see [ILogger in an ASP.NET Core application](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/blob/develop/src/ILogger/Readme.md#aspnet-core-application). Application Insights can add correlation properties to ILogger events, which is useful for visualizing distributed tracing.
 
