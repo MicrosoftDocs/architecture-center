@@ -2,7 +2,7 @@
 title: Microservices architecture on Azure Service Fabric
 description: Deploy a microservices architecture on Azure Service Fabric
 author: PageWriter-MSFT
-ms.date: 3/07/2019
+ms.date: 06/13/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
