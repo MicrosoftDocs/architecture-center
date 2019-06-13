@@ -25,14 +25,15 @@ This scenario is relevant to the following use cases:
 
 ![Scalable personalization architecture diagram](./media/architecture-scalable-personalization.png)
 
-This scenario covers the training, evaluation, and deployment of a machine learning model for content-based personalization on Apache Spark using [Azure Databricks]. In this case, a model is trained with a supervised classification algorithm on a dataset containing user and item features. The ground truth is implicit binary feedback indicating an interaction between the user and an item. This scenario covers a subset of the steps required for a full an end-to-end recommendation system workload. The broader context of this scenario includes the following:
+This scenario covers the training, evaluation, and deployment of a machine learning model for content-based personalization on Apache Spark using [Azure Databricks]. In this case, a model is trained with a supervised classification algorithm on a dataset containing user and item features. The label for each example is a binary value indicating that the user engaged with (for example, clicked) an item. This scenario covers a subset of the steps required for a full end-to-end recommendation system workload. The broader context of this scenario is based on a generic e-commerce website with a front end that serves rapidly changing content to its users. This website uses cookies and user profiles to personalize the content for that user. Along with user profiles, the website may have information about every item it serves to each user. Once that data is available, the following steps are executed to build and operationalize a recommendation system:
 
-1. A generic e-commerce website has a front end that serves rapidly changing content to its users. This website uses cookies and user profiles to track user information that is useful in personalizing the content for that user. Along with user profiles, the website may have information about each of the items it serves to each user.
-2. The sets of distinct user and item data are preprocessed and joined, which results in a mixture of numeric and categorical features to be used for predicting user-item interactions (clicks). This table is uploaded to Azure Blob storage. For demonstration purposes, the [Criteo display advertising challenge dataset](https://labs.criteo.com/2014/02/download-dataset/) is used. This dataset matches the described anonymized table, as it contains a binary label for observed user clicks, 13 numerical features, and an additional 26 categorical features.
-3. The [MMLSpark] library provides the ability to train a [LightGBM] classifier on [Azure Databricks] to predict the click probability as a function of the numeric and categorical features that were created in step 2. [LightGBM] is a highly efficient machine learning algorithm, and [MMLSpark] enables distributed training of [LightGBM] models over large datasets.
-4. The trained classifier is serialized and stored in the Azure Model Registry. With Azure Model Registry, you can store and organize different versions of the model (for example, based on newer data or different hyperparameters) within an Azure Machine Learning (Azure ML) Workspace.
-5. Azure ML is used to create a Docker image in the Azure Container Registry that holds the scoring service image.
-6. The scoring service is deployed through Azure ML to a Kubernetes cluster using [Azure Kubernetes Service] (AKS). AKS provides an endpoint to send user and feature data and to receive the predicted probability of a click for that user and item.
+1. The sets of distinct user and item data are preprocessed and joined, which results in a mixture of numeric and categorical features to be used for predicting user-item interactions (clicks). This table is uploaded to [Azure Blob Storage]. For demonstration purposes, the [Criteo display advertising challenge dataset](https://labs.criteo.com/2014/02/download-dataset/) is used. This dataset matches the described anonymized table, as it contains a binary label for observed user clicks, 13 numerical features, and an additional 26 categorical features.
+2. The [MMLSpark] library provides the ability to train a [LightGBM] classifier on [Azure Databricks] to predict the click probability as a function of the numeric and categorical features that were created in the previous step. [LightGBM] is a highly efficient machine learning algorithm, and [MMLSpark] enables distributed training of [LightGBM] models over large datasets.
+3. The trained classifier is serialized and stored in the Azure Model Registry. With Azure Model Registry, you can store and organize different versions of the model (for example, based on newer data or different hyperparameters) within an Azure Machine Learning (Azure ML) Workspace.
+4. A serving script is defined using the [MML Spark Serving] library to provide predictions from the trained model.
+5. Azure ML is used to create a Docker image in the [Azure Container Registry] that holds the image with the scoring script and all necessary dependencies for serving predictions.
+6. Azure ML is also used to provision the compute for serving predictions. A Kubernetes cluster is configured using [Azure Kubernetes Service] (AKS) with the number of nodes needed to handle expected load. The virtual machine size can be adjusted based on the model's computation and memory requirements.
+7. The scoring service is deployed as a web service on the AKS cluster. The service provides an endpoint where user and item features can be sent to receive the predicted probability of a click for that user and item.
 
 ### Components
 
@@ -49,15 +50,15 @@ This architecture makes use of the following components:
 
 ### Scalability
 
-For training, you can scale [Azure Databricks] up or down based on the size of the data used and the compute necessary for model training. To scale, you can adjust the total number of cores or amount of memory available to the cluster. Just edit the number or type of [Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) (VMs) used. The Criteo dataset contains 45.8 million rows in this example; it was trained in a few minutes on a cluster with 10 standard **L8s** VMs.
+For training, you can scale [Azure Databricks] up or down based on the size of the data used and the compute necessary for model training. To scale, you can adjust the total number of cores or amount of memory available to the cluster. Just edit the number or type of [Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) (VMs) used. The Criteo dataset contains 45.8 million rows in this example; it was trained in a few minutes on a cluster with 10 standard [L8s](/azure/virtual-machines/linux/sizes-storage#lsv2-series) VMs.
 
-For deployment, you can scale the compute resources based on the expected load for the scoring service and latency requirements. The scoring service uses [MML Spark Serving](https://github.com/Azure/mmlspark/blob/master/docs/mmlspark-serving.md) running separately on each node in the Kubernetes cluster. With this practice, you can seamlessly transfer the feature transformation and model prediction pipeline developed on [Azure Databricks] to the production side. It also removes the need to precompute scores for all possible user and item combinations, which might be difficult if you're using dynamic user features, such as time of day.
+For deployment, you can scale the compute resources based on the expected load for the scoring service and latency requirements. The scoring service uses [MML Spark Serving] running separately on each node in the Kubernetes cluster. With this practice, you can seamlessly transfer the feature transformation and model prediction pipeline developed on [Azure Databricks] to the production side. It also removes the need to precompute scores for all possible user and item combinations, which might be difficult if you're using dynamic user features, such as time of day.
 
 ### Availability
 
 Machine learning tasks are split into two resource components: resources for training, and resources for production deployment. Resources required for training generally don't need high availability, as live production requests don't directly hit these resources. Resources required for serving need to have high availability to serve customer requests.
 
-For training, [Azure Databricks] is available across many [regions](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/regions.html) with a [service level agreement][1] (SLA) to support businesses. For production deployment, [Azure Kubernetes Service] is used to provide broad geographic availability with this [SLA][1].
+Training on [Azure Databricks] can happen on any one of the [regions](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/regions.html) with a [service level agreement][1] (SLA) to support your needs. For production deployment, [Azure Kubernetes Service] is used to provide broad geographic availability with this [SLA][1].
 
 ### Security
 
@@ -119,5 +120,6 @@ For an in-depth guide to building and scaling a recommender service, see [Build 
 [Azure Machine Learning Service]: https://azure.microsoft.com/services/machine-learning-service/
 [Microsoft Recommenders]: https://github.com/Microsoft/Recommenders
 [MMLSpark]: https://aka.ms/spark
+[MML Spark Serving]: https://github.com/Azure/mmlspark/blob/master/docs/mmlspark-serving.md
 [LightGBM]: https://github.com/Microsoft/LightGBM
 [1]: https://azure.microsoft.com/support/legal/sla/databricks/v1_0/
