@@ -13,7 +13,7 @@ ms.subservice: reference-architecture
 
 This article presents a code walk-through of a serverless application that uses [Azure Functions](/azure/azure-functions/). It describes the design decisions, implementation details, and some of the "gotchas" that you might encounter. 
 
-![GitHub logo](../images/github.png) The source code for this application is available on [GitHub][github].
+![GitHub logo](../_images/github.png) The source code for this application is available on [GitHub][github].
 
 This article assumes a basic level of familiarity with the following technologies:
 
