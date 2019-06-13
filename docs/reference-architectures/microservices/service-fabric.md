@@ -315,14 +315,14 @@ Application telemetry provides data about your service that can help you monitor
 - You can add your own instrumentation by using the [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) class in the SDK and view the data in Application Insights. See [Add custom instrumentation to your application](/azure/service-fabric/service-fabric-tutorial-monitoring-aspnet#add-custom-instrumentation-to-your-application).
 - Log ETW events by using [EventSource](/azure/service-fabric/service-fabric-diagnostics-event-generation-app#eventsource). This option is available by default in a Visual Studio Service Fabric solution.
 
- Application Insights provides a lot of built-in telemetry: requests, traces, events, exceptions, metrics, dependencies. If your service exposes HTTP endpoints, enable Application Insights by calling **UseApplicationInsights** extension method for Microsoft.AspNetCore.Hosting.IWebHostBuilder. For information about instrumenting your service for Application Insights, see these articles:
+ Application Insights provides a lot of built-in telemetry: requests, traces, events, exceptions, metrics, dependencies. If your service exposes HTTP endpoints, enable Application Insights by calling the **UseApplicationInsights** extension method for [Microsoft.AspNetCore.Hosting.IWebHostBuilder](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.hosting.iwebhostbuilder?view=aspnetcore-2.2). For information about instrumenting your service for Application Insights, see these articles:
 
 - [Tutorial: Monitor and diagnose an ASP.NET Core application on Service Fabric using Application Insights](/azure/service-fabric/service-fabric-tutorial-monitoring-aspnet).
 - [Application Insights for ASP.NET Core](/azure/application-insights/app-insights-asp-net-core)
 - [Application Insights .NET SDK](/azure/application-insights/app-insights-api-custom-events-metrics)
 - [Application Insights SDK for Service Fabric](https://github.com/Microsoft/ApplicationInsights-ServiceFabric)
 
-To view the traces and event logs, use [Application Insights](/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) as one of sinks for structured logging.  Configure Application Insights with your instrumentation key by calling **AddApplicationInsights** extension method. In this example, the instrumentation key is stored as a secret in the Key Vault.
+To view the traces and event logs, use [Application Insights](/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) as one of sinks for structured logging.  Configure Application Insights with your instrumentation key by calling the **AddApplicationInsights** extension method. In this example, the instrumentation key is stored as a secret in the Key Vault.
 ```
     .ConfigureLogging((hostingContext, logging) =>
         {
