@@ -1,8 +1,19 @@
+---
+title: Implement a serverless application with Azure Functions
+description: Code walk-through of a serverlesss application using Azure Functions
+author: MikeWasson
+ms.date: 06/13/2019
+ms.author: pnp
+ms.topic: reference-architecture
+ms.service: architecture-center
+ms.subservice: reference-architecture
+---
+
 # Show me the code: Serverless application with Azure Functions
 
 This article presents a code walk-through of a serverless application that uses [Azure Functions](/azure/azure-functions/). It describes the design decisions, implementation details, and some of the "gotchas" that you might encounter. 
 
-![GitHub logo](../_images/github.png) The source code for this application is available on [GitHub][github].
+![GitHub logo](../images/github.png) The source code for this application is available on [GitHub][github].
 
 This article assumes a basic level of familiarity with the following technologies:
 
@@ -17,7 +28,7 @@ You don't need to be an expert in Functions or Event Hubs, but you should unders
 
 ## The scenario
 
-![Diagram of the functional blocks](./_images/functional-diagram.png)
+![Diagram of the functional blocks](./images/functional-diagram.png)
 
 Fabrikam manages a fleet of drones for a drone delivery service. The application consists of two main functional areas:
 
@@ -29,7 +40,7 @@ Fabrikam manages a fleet of drones for a drone delivery service. The application
 
 Here's a screenshot of the web app, showing the result of a query:
 
-![Screenshot of client app](./_images/client-app.png)
+![Screenshot of client app](./images/client-app.png)
 
 ## Designing the application
 
@@ -50,7 +61,7 @@ There are also some operational advantages to using a serverless architecture:
 
 The following diagram shows the high-level architecture of the application:
 
-![Architecture](./_images/architecture.png)
+![Architecture](./images/architecture.png)
 
 Event ingestion:
 
@@ -101,7 +112,7 @@ This class has several dependencies, which are injected into the constructor usi
 
 - The `ITelemetryProcessor` and `IStateChangeProcessor` interfaces define two helper objects. As we'll see, these objects do most of the work.
 
-- The [TelemetryClient](https://docs.microsoft.com/en-us/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) is part of the Application Insights SDK. It is used to send custom application metrics to Application Insights.
+- The [TelemetryClient](/dotnet/api/microsoft.applicationinsights.telemetryclient?view=azure-dotnet) is part of the Application Insights SDK. It is used to send custom application metrics to Application Insights.
 
 Later, we'll look at how to configure the dependency injection. For now, just assume these dependencies exist.
 
@@ -345,7 +356,7 @@ public async Task RunAsync(
 
 Here the `Queue` attribute specifies the output binding, and the `StorageAccount` attribute specifies the name of an app setting that holds the connection string for the storage account.
 
-**Deployment tip:** In the Resource Manager template that creates the storage account, you can automatically populate an app setting with the connection string. The trick is to use the [listkeys](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-functions-resource#listkeys) function.
+**Deployment tip:** In the Resource Manager template that creates the storage account, you can automatically populate an app setting with the connection string. The trick is to use the [listkeys](/azure/azure-resource-manager/resource-group-template-functions-resource#listkeys) function.
 
 Here is the section of the template that creates the storage account for the queue:
 
@@ -561,7 +572,7 @@ The web app uses Azure AD to authenticate users. Because the app is a single-pag
 1. The identity provider redirects back to the web app with an access token.
 1. The web app sends a request to the web API and includes the access token in the Authorization header.
 
-![Implicit flow diagram](./_images/implicit-flow.png)
+![Implicit flow diagram](./images/implicit-flow.png)
 
 A Function application can be configured to authenticate users with zero code. For more information, see [Authentication and authorization in Azure App Service](/azure/app-service/overview-authentication-authorization).
 
