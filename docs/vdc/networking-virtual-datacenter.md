@@ -229,7 +229,7 @@ Perimeter network components provide the following features:
 - [Azure Load Balancer][ALB]
 - [Azure Application Gateway][AppGW] with [web application firewall (WAF)][AppGWWAF]
 - [Public IPs][PIP]
-- [Azure Front Door][AFD] with [web application firewall (AFDWAF)]
+- [Azure Front Door][AFD] with [web application firewall (WAF)][AFDWAF]
 - [Azure Firewall][AzFW]
 
 Usually, the central IT and security teams have responsibility for requirement definition and operation of the perimeter networks.
