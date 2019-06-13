@@ -100,19 +100,13 @@ To better understand the cost of running this scenario on Azure, we provide a [p
 - [Azure Machine Learning service] will be used to deploy the model to AKS with a small three-node cluster using **D3** instances.
 - AKS cluster will autoscale as needed, resulting in two nodes per month being active on average.
 
-To see how pricing differs for your use case, change the variables to match your expected data size and serving load requirements. For larger or smaller training data sizes, the size of the Databricks cluster can be increased or reduced, respectively. To handle larger numbers of concurrent users during model serving, the AKS cluster should be increased. For more information on scaling AKS to support latency and load requirements, review the [operationalization notebook](https://github.com/microsoft/recommenders/blob/master/notebooks/05_operationalize/lightgbm_criteo_o16n.ipynb).
+To see how pricing differs for your use case, change the variables to match your expected data size and serving load requirements. For larger or smaller training data sizes, the size of the Databricks cluster can be increased or reduced, respectively. To handle larger numbers of concurrent users during model serving, the AKS cluster should be increased. For more information on scaling AKS to support latency and load requirements, review the [operationalization notebook](https://aka.ms/recommenders/lgbm-criteo-o16n).
 
 ## Related resources
 
 For an in-depth guide to building and scaling a recommender service, see [Build a real-time recommendation API on Azure](/azure/architecture/reference-architectures/ai/real-time-recommendation). For additional tutorials and examples of recommendation systems, see the [Microsoft Recommenders] GitHub repository.
 
 <!-- links -->
-[calculator]: https://azure.com/e/
-[availability]: /azure/architecture/checklist/availability
-[resource-groups]: /azure/azure-resource-manager/resource-group-overview
-[resiliency]: /azure/architecture/resiliency/
-[security]: /azure/security/
-[scalability]: /azure/architecture/checklist/scalability
 [Azure Blob Storage]: https://azure.microsoft.com/services/storage/blobs/
 [Azure Databricks]: https://azure.microsoft.com/services/databricks/
 [Azure Container Registry]: https://azure.microsoft.com/services/container-registry/
@@ -122,4 +116,4 @@ For an in-depth guide to building and scaling a recommender service, see [Build 
 [MMLSpark]: https://aka.ms/spark
 [MML Spark Serving]: https://github.com/Azure/mmlspark/blob/master/docs/mmlspark-serving.md
 [LightGBM]: https://github.com/Microsoft/LightGBM
-[1]: https://azure.microsoft.com/support/legal/sla/databricks/v1_0/
+[1]: https://azure.microsoft.com/support/legal/sla/summary/
