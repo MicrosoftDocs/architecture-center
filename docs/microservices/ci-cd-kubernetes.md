@@ -98,7 +98,7 @@ Creation of this branch triggers a full CI build that runs all of the previous s
 2. Run `helm package` to package the Helm chart for the service. The chart is also tagged with a version number.
 3. Push the Helm package to Container Registry.
 
-Assuming this build succeeds, it triggers a deployment (CD) process using an Azure Pipelines [release pipeline](/azure/devops/pipelines/release/what-is-release-management). This pipeline has the following steps:
+Assuming this build succeeds, it triggers a deployment (CD) process using an Azure Pipelines [release pipeline](/azure/devops/pipelines/release/). This pipeline has the following steps:
 
 1. Deploy the Helm chart to a QA environment.
 1. An approver signs off before the package moves to production. See [Release deployment control using approvals](/azure/devops/pipelines/release/approvals/approvals).

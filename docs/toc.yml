@@ -224,6 +224,8 @@
       href: example-scenario/ai/movie-recommendations.md
     - name: Newsfeed ingestion
       href: example-scenario/ai/newsfeed-ingestion.md
+    - name: Scalable personalization
+      href: example-scenario/ai/scalable-personalization.md
   - name: Apps
     items:
     - name: Computer-aided engineering
@@ -608,6 +610,11 @@
     href: service-fabric/modernize-app-azure-service-fabric.md
   - name: Migrate from Cloud Services to Service Fabric
     href: service-fabric/migrate-from-cloud-services.md
+
+- name: Show me the code
+  items:
+  - name: Serverless application on Azure
+    href: serverless/index.md
 
 - name: Design Review Framework
   items:

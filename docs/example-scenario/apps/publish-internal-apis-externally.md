@@ -163,7 +163,7 @@ Check out the related scenario on [Migrating legacy web APIs to API Management][
 [appgtwy]: /azure/application-gateway/overview
 [ssl]: /azure/app-service/web-sites-purchase-ssl-web-site
 [ntwkcons]: /azure/app-service/environment/network-info
-[apim-port-nsg]: /azure/api-management/api-management-using-with-vnet#a-namenetwork-configuration-issues-acommon-network-configuration-issues
+[apim-port-nsg]: /azure/api-management/api-management-using-with-vnet#-common-network-configuration-issues
 [apim-policy]: /azure/api-management/api-management-transformation-policies#SetHTTPheader
 [hosted-agent]: /azure/devops/pipelines/agents/v2-windows?view=azure-devops
 [vnet]: /azure/virtual-network/virtual-networks-overview

@@ -97,7 +97,7 @@ Before deploying this example scenario in a production environment, review recom
 [large-pricing]: https://azure.com/e/cbadbca30f8640d6a061f8457a74ba7d
 [cognitive-search]: /azure/search/cognitive-search-concept-intro
 [serverless]: /azure/functions/tutorial-static-website-serverless-api-with-database
-[cv-categories]: /azure/cognitive-services/computer-vision/home#the-86-category-concept
+[cv-categories]: /azure/cognitive-services/computer-vision/category-taxonomy
 [resiliency]: /azure/architecture/resiliency/
 [security]: /azure/security/
 [scalability]: /azure/architecture/checklist/scalability

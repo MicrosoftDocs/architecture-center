@@ -97,7 +97,7 @@ The following tables summarize the key differences in capabilities.
 
 <!-- markdownlint-disable MD033 -->
 
-|                              | Azure SQL Database | SQL Server in an Azure virtual machine | Azure Database for MySQL | Azure Database for PostgreSQL |
+| Capability  | Azure SQL Database | SQL Server in an Azure virtual machine | Azure Database for MySQL | Azure Database for PostgreSQL |
 |------------------------------|--------------------|----------------------------------------|--------------------------|-------------------------------|
 |      Is Managed Service      |        Yes         |                   No                   |           Yes            |              Yes              |
 |       Runs on Platform       |        N/A         |         Windows, Linux, Docker         |           N/A            |              N/A              |
@@ -109,7 +109,7 @@ The following tables summarize the key differences in capabilities.
 
 ### Scalability capabilities
 
-| | Azure SQL Database | SQL Server in an Azure virtual machine| Azure Database for MySQL | Azure Database for PostgreSQL|
+| Capability | Azure SQL Database | SQL Server in an Azure virtual machine| Azure Database for MySQL | Azure Database for PostgreSQL|
 | --- | --- | --- | --- | --- | --- |
 | Maximum database instance size | [4 TB](/azure/sql-database/sql-database-resource-limits) | 256 TB | [1 TB](/azure/mysql/concepts-limits) | [1 TB](/azure/postgresql/concepts-limits) |
 | Supports capacity pools  | Yes | Yes | No | No |
@@ -118,7 +118,7 @@ The following tables summarize the key differences in capabilities.
 
 ### Analytic workload capabilities
 
-| | Azure SQL Database | SQL Server in an Azure virtual machine| Azure Database for MySQL | Azure Database for PostgreSQL|
+| Capability | Azure SQL Database | SQL Server in an Azure virtual machine| Azure Database for MySQL | Azure Database for PostgreSQL|
 | --- | --- | --- | --- | --- | --- |
 | Temporal tables | Yes | Yes | No | No |
 | In-memory (memory-optimized) tables | Yes | Yes | No | No |
@@ -127,7 +127,7 @@ The following tables summarize the key differences in capabilities.
 
 ### Availability capabilities
 
-| | Azure SQL Database | SQL Server in an Azure virtual machine| Azure Database for MySQL | Azure Database for PostgreSQL|
+| Capability | Azure SQL Database | SQL Server in an Azure virtual machine| Azure Database for MySQL | Azure Database for PostgreSQL|
 | --- | --- | --- | --- | --- | --- |
 | Readable secondaries | Yes | Yes | No | No |
 | Geographic replication | Yes | Yes | No | No |
@@ -136,7 +136,7 @@ The following tables summarize the key differences in capabilities.
 
 ### Security capabilities
 
-|                                                                                                             | Azure SQL Database | SQL Server in an Azure virtual machine | Azure Database for MySQL | Azure Database for PostgreSQL |
+| Capability | Azure SQL Database | SQL Server in an Azure virtual machine | Azure Database for MySQL | Azure Database for PostgreSQL |
 |-------------------------------------------------------------------------------------------------------------|--------------------|----------------------------------------|--------------------------|-------------------------------|
 |                                             Row level security                                              |        Yes         |                  Yes                   |           Yes            |              Yes              |
 |                                                Data masking                                                 |        Yes         |                  Yes                   |            No            |              No               |

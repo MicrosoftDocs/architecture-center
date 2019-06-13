@@ -39,9 +39,7 @@ To get started with Azure Migrate follow these steps:
 
 ::: zone target="chromeless"
 
-::: form action="OpenBlade[#blade/Microsoft_Azure_ManagementGroups/HierarchyBlade]" submitText="Go to Azure Migration" :::
-
-::: form action="OpenBlade[#create/Microsoft.AzureMigrate]" submitText="Create new Migration Project" :::
+::: form action="Create[#create/Microsoft.AzureMigrate]" submitText="Create new Migration Project" :::
 
 ::: zone-end
 

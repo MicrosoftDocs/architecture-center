@@ -47,7 +47,7 @@ The following tables summarize the key differences in capabilities.
 
 ### General capabilities
 
-| | Azure Search | Elasticsearch | HDInsight with Solr | SQL Database |
+| Capability | Azure Search | Elasticsearch | HDInsight with Solr | SQL Database |
 | --- | --- | --- | --- | --- |
 | Is managed service | Yes | No | Yes | Yes |  
 | REST API | Yes | Yes | Yes | No |
@@ -56,14 +56,14 @@ The following tables summarize the key differences in capabilities.
 
 ### Manageability capabilities
 
-| | Azure Search | Elasticsearch | HDInsight with Solr | SQL Database |
+| Capability | Azure Search | Elasticsearch | HDInsight with Solr | SQL Database |
 | --- | --- | --- | --- | --- |
 | Updateable schema | No | Yes | Yes | Yes |
 | Supports scale out  | Yes | Yes | Yes | No |
 
 ### Analytic workload capabilities
 
-| | Azure Search | Elasticsearch | HDInsight with Solr | SQL Database |
+| Capability | Azure Search | Elasticsearch | HDInsight with Solr | SQL Database |
 | --- | --- | --- | --- | --- |
 | Supports analytics beyond full text search | No | Yes | Yes | Yes |
 | Part of a log analytics stack | No | Yes (ELK) |  No | No |
@@ -71,7 +71,7 @@ The following tables summarize the key differences in capabilities.
 
 ### Security capabilities
 
-| | Azure Search | Elasticsearch | HDInsight with Solr | SQL Database |
+| Capability | Azure Search | Elasticsearch | HDInsight with Solr | SQL Database |
 | --- | --- | --- | --- | --- |
 | Row-level security | Partial (requires application query to filter by group id) | Partial (requires application query to filter by group id) | Yes | Yes |
 | Transparent data encryption | No | No | No | Yes |  

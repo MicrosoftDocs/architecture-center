@@ -82,16 +82,6 @@ You can use network virtual appliances (NVAs) in Azure to host different types o
 > [!NOTE]
 > The deployment scripts for this reference architecture use an Ubuntu VM with IP forwarding enabled to mimic a network virtual appliance.
 
-## Considerations
-
-### Overcoming VNet peering limits
-
-Make sure you consider the [limitation on number of VNets peerings per VNet][vnet-peering-limit] in Azure. If you decide you need more spokes than the limit will allow, consider creating a hub-spoke-hub-spoke topology, where the first level of spokes also act as hubs. The following diagram shows this approach.
-
-![Hub-spoke-hub-spoke topology in Azure](./images/hub-spokehub-spoke.svg)
-
-Also consider what services are shared in the hub, to ensure the hub scales for a larger number of spokes. For instance, if your hub provides firewall services, consider the bandwidth limits of your firewall solution when adding multiple spokes. You might want to move some of these shared services to a second level of hubs.
-
 ## Deploy the solution
 
 A deployment for this architecture is available on [GitHub][ref-arch-repo]. The deployment creates the following resource groups in your subscription:
