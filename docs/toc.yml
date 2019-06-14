@@ -224,8 +224,6 @@
       href: example-scenario/ai/movie-recommendations.md
     - name: Newsfeed ingestion
       href: example-scenario/ai/newsfeed-ingestion.md
-    - name: Scalable personalization
-      href: example-scenario/ai/scalable-personalization.md
   - name: Apps
     items:
     - name: Computer-aided engineering
@@ -466,7 +464,7 @@
       href: microservices/design/patterns.md
   - name: Operate microservices in production
     items:
-    - name: Logging and monitoring
+    - name: Monitor microservices in Azure Kubernetes Service (AKS)
       href: microservices/logging-monitoring.md
     - name: CI/CD for microservices
       href: microservices/ci-cd.md

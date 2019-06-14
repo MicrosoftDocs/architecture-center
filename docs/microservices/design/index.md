@@ -32,7 +32,7 @@ Before reading these articles, you might start with the following:
 
 To illustrate best practices for a microservices architecture, we created a reference implementation that we call the Drone Delivery application. This implementation runs on Kubernetes using Azure Kubernetes Service (AKS). You can find the reference implementation on [GitHub][drone-ri].
 
-![Architecture of the Drone Delivery application](../images/drone-delivery.png)
+![Architecture of the Drone Delivery application](../images/drone-delivery-impl.png)
 
 ## Scenario
 
