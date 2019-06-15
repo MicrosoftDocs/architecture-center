@@ -8,7 +8,7 @@ ms.topic: guide
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: virtual-network
-ms.date: 11/28/2018
+ms.date: 06/12/2019
 ms.author: jonor
 ---
 
@@ -28,9 +28,7 @@ Customers can choose to access these cloud services either via the internet or w
 
 At its inception, the cloud was essentially a platform for hosting public-facing applications. Enterprises began to understand the value of the cloud and began to move internal line-of-business applications to the cloud. These types of applications brought additional security, reliability, performance, and cost considerations that required additional flexibility in the way cloud services were delivered. This paved the way for new infrastructure and networking services designed to provide this flexibility but also new features for scale, disaster recovery, and other considerations.
 
-## What is a virtual datacenter?
-
-Cloud solutions were first designed to host single, relatively isolated applications in the public spectrum. This approach worked well for a few years. Then the benefits of cloud solutions became apparent, and multiple large-scale workloads were hosted on the cloud. Addressing security, reliability, performance, and cost concerns of deployments in one or more regions became vital throughout the lifecycle of the cloud service.
+Cloud solutions were first designed to host single, relatively isolated applications in the public spectrum. This approach worked well for a few years. Then the benefits of cloud solutions became apparent, and multiple large-scale workloads were hosted on the cloud. Addressing security, reliability, performance, and cost concerns of deployments in one or more regions became vital throughout the life-cycle of the cloud service.
 
 The following cloud deployment diagram shows an example of a security gap in the **red box**. The **yellow box** shows room for optimizing network virtual appliances across workloads.
 
@@ -118,13 +116,15 @@ Deploying ExpressRoute connections usually involves engaging with an ExpressRout
 
 ### Topology
 
-_Hub and spoke_ is a model for designing the network topology for a virtual datacenter implementation.
+*Hub and spoke* is a model for designing the network topology for a virtual datacenter implementation.
 
 [![1]][1]
 
+As shown, two types of hub and spoke design can be used in Azure. For communication, shared resources, and centralized security policy (VNet Hub in the diagram), or a Virtual WAN type (Virtual WAN in the diagram) for large scale branch-to-branch and branch-to-Azure communications.
+
 A hub is the central network zone that controls and inspects ingress or egress traffic between different zones: internet, on-premises, and the spokes. The hub and spoke topology gives the IT department an effective way to enforce security policies in a central location. It also reduces the potential for misconfiguration and exposure.
 
-The hub contains the common service components consumed by the spokes. The following examples are common central services:
+The hub often contains the common service components consumed by the spokes. The following examples are common central services:
 
 - The Windows Active Directory infrastructure, required for user authentication of third parties that access from untrusted networks before they get access to the workloads in the spoke. It includes the related Active Directory Federation Services (AD FS).
 - A DNS service to resolve naming for the workload in the spokes, to access resources on-premises and on the internet if [Azure DNS][DNS] isn't used.
@@ -227,16 +227,16 @@ Perimeter network components provide the following features:
 - [Virtual networks][VNet], [user-defined routes][user-defined-routes], and [network security groups][network-security-groups]
 - [Network virtual appliances][NVA]
 - [Azure Load Balancer][ALB]
-- [Azure Application Gateway][AppGW] and [web application firewall (WAF)][WAF]
+- [Azure Application Gateway][AppGW] with [web application firewall (WAF)][AppGWWAF]
 - [Public IPs][PIP]
-- [Azure Front Door][AFD]
+- [Azure Front Door][AFD] with [web application firewall (WAF)][AFDWAF]
 - [Azure Firewall][AzFW]
 
 Usually, the central IT and security teams have responsibility for requirement definition and operation of the perimeter networks.
 
 [![7]][7]
 
-The preceding diagram shows the enforcement of two perimeters with access to the internet and an on-premises network, both resident in the DMZ and vWAN hubs. In the DMZ hub, the perimeter network to internet can scale up to support large numbers of LOBs, using multiple farms of Web Application Firewalls (WAFs) and/or Azure Firewalls. In the vWAN hub, highly scalable branch to branch and branch to Azure connectivity is accomplished via VPN or ExpressRoute as needed.
+The preceding diagram shows the enforcement of two perimeters with access to the internet and an on-premises network, both resident in the DMZ hub. In the DMZ hub, the perimeter network to internet can scale up to support large numbers of LOBs, using multiple farms of Web Application Firewalls (WAFs) and/or Azure Firewalls. In hub also allows for connectivity via VPN or ExpressRoute as needed.
 
 [**Virtual networks**][VNet]. The hub is typically built on a virtual network with multiple subnets to host the different types of services that filter and inspect traffic to or from the internet via NVAs, WAF, and Azure Application Gateway instances.
 
@@ -437,8 +437,9 @@ The following features were discussed in this document. Follow the links to lear
 [DDOS]: /azure/virtual-network/ddos-protection-overview
 [PIP]: /azure/virtual-network/virtual-network-public-ip-address
 [AFD]: /azure/frontdoor/front-door-overview
+[AFDWAF]: /azure/frontdoor/waf-overview
 [AppGW]: /azure/application-gateway/application-gateway-introduction
-[WAF]: /azure/application-gateway/application-gateway-web-application-firewall-overview
+[AppGWWAF]: /azure/application-gateway/application-gateway-web-application-firewall-overview
 [Monitor]: /azure/monitoring-and-diagnostics/
 [ActLog]: /azure/monitoring-and-diagnostics/monitoring-overview-activity-logs
 [DiagLog]: /azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs
