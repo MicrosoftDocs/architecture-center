@@ -3,7 +3,7 @@ title: Extend on-premises AD FS to Azure
 titleSuffix: Azure Reference Architectures
 description: Implement a secure hybrid network architecture with Active Directory Federation Service authorization in Azure.
 author: telmosampaio
-ms.date: 12/18.2018
+ms.date: 12/18/2018
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -254,7 +254,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 1. From the jumpbox, open a remote desktop session to the VM named `ra-adfs-proxy-vm1`. The private IP address is 10.0.6.4.
 
-1. From this remote desktop session, run the [PowerShell ISE](/powershell/scripting/components/ise/windows-powershell-integrated-scripting-environment--ise-).
+1. From this remote desktop session, run the [PowerShell ISE][psise].
 
 1. In PowerShell, navigate to the following directory:
 
@@ -283,7 +283,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
     At the `Get-Credential` prompt, enter the password that you specified in the deployment parameter file.
 
-1. Run the following command to monitor the progress of the [DSC](/powershell/dsc/overview/overview) configuration:
+1. Run the following command to monitor the progress of the [DSC](/powershell/dsc/overview) configuration:
 
     ```powershell
     Get-DscConfigurationStatus
@@ -303,7 +303,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
 1. From the jumpbox, open a remote desktop session to the VM named `ra-adfs-proxy-vm2`. The private IP address is 10.0.6.5.
 
-1. From this remote desktop session, run the [PowerShell ISE](/powershell/scripting/components/ise/windows-powershell-integrated-scripting-environment--ise-).
+1. From this remote desktop session, run the [PowerShell ISE][psise].
 
 1. Navigate to the following directory:
 
@@ -395,3 +395,4 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 [adfs_certificates]: https://technet.microsoft.com/library/dn781428(v=ws.11).aspx
 [considerations]: ./considerations.md
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx
+[psise]: /powershell/scripting/components/ise/windows-powershell-integrated-scripting-environment--ise-

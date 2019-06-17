@@ -138,7 +138,7 @@ For more detailed implementation guides, review the [reference architecture for 
 [vnet-docs]: /azure/virtual-network/virtual-networks-overview
 [vnetendpoint-docs]: /azure/virtual-network/virtual-network-service-endpoints-overview
 [pci-dss]: /azure/security/blueprints/pcidss-iaaswa-overview
-[dmz]: /azure/virtual-network/virtual-networks-dmz-nsg
+[dmz]: ../../reference-architectures/dmz/secure-vnet-hybrid.md
 [sql-linux]: /sql/linux/sql-server-linux-overview?view=sql-server-linux-2017
 [cloud-witness]: /windows-server/failover-clustering/deploy-cloud-witness
 [small-pricing]: https://azure.com/e/711bbfcbbc884ef8aa91cdf0f2caff72
