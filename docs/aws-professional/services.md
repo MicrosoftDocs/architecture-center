@@ -139,12 +139,13 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | Amazon EC2 Systems Manager | [Azure Monitor](https://azure.microsoft.com/services/monitor/) | Comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. |
 | AWS Personal Health Dashboard | [Azure Resource Health](/azure/resource-health/resource-health-overview) | Provides detailed information about the health of resources as well as recommended actions for maintaining resource health. |
 
-## Messaging
+## Messaging and eventing
 
 | AWS service | Azure service | Description |
 |-------------|---------------|-------------|
 | Simple Queue Service (SQS) | [Azure Queue Storage](https://azure.microsoft.com/services/storage/queues/) | Provides a managed message queueing service for communicating between decoupled application components. |
 | Simple Queue Service (SQS) | [Service Bus](https://azure.microsoft.com/services/service-bus/) | Supports a set of cloud-based, message-oriented middleware technologies including reliable message queuing and durable publish/subscribe messaging. |
+| Simple Notification Service | [Event Grid](https://azure.microsoft.com/services/event-grid/) | A fully-managed event routing service that allows for uniform event consumption using a publish/subscribe model. |
 
 ## Mobile services
 

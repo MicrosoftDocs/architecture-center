@@ -3,7 +3,7 @@ title: Multi-region N-tier application for high availability
 titleSuffix: Azure Reference Architectures
 description: Deploy an application on Azure virtual machines in multiple regions for high availability and resiliency.
 author: MikeWasson
-ms.date: 07/19/2018
+ms.date: 06/18/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -28,7 +28,7 @@ This architecture builds on the one shown in [N-tier application with SQL Server
 
 - **Resource groups**. Create separate [resource groups][resource groups] for the primary region, the secondary region, and for Traffic Manager. This gives you the flexibility to manage each region as a single collection of resources. For example, you could redeploy one region, without taking down the other one. [Link the resource groups][resource-group-links], so that you can run a query to list all the resources for the application.
 
-- **VNets**. Create a separate VNet for each region. Make sure the address spaces do not overlap.
+- **Virtual networks**. Create a separate virtual network for each region. Make sure the address spaces do not overlap.
 
 - **SQL Server Always On Availability Group**. If you are using SQL Server, we recommend [SQL Always On Availability Groups][sql-always-on] for high availability. Create a single availability group that includes the SQL Server instances in both regions.
 
@@ -36,7 +36,7 @@ This architecture builds on the one shown in [N-tier application with SQL Server
     > Also consider [Azure SQL Database][azure-sql-db], which provides a relational database as a cloud service. With SQL Database, you don't need to configure an availability group or manage failover.
     >
 
-- **VPN Gateways**. Create a [VPN gateway][vpn-gateway] in each VNet, and configure a [VNet-to-VNet connection][vnet-to-vnet], to enable network traffic between the two VNets. This is required for the SQL Always On Availability Group.
+- **Virtual network peering**. Peer the two virtual networks to allow data replication from the primary region to the secondary region. For more information, see [Virtual network peering](/azure/virtual-network/virtual-network-peering-overview).
 
 ## Recommendations
 
@@ -106,8 +106,8 @@ To configure the availability group:
 
 - At a minimum, place two domain controllers in each region.
 - Give each domain controller a static IP address.
-- Create a VNet-to-VNet connection to enable communication between the VNets.
-- For each VNet, add the IP addresses of the domain controllers (from both regions) to the DNS server list. You can use the following CLI command. For more information, see [Change DNS servers][vnet-dns].
+- Peer the two virtual networks to enable communication between them.
+- For each virtual network, add the IP addresses of the domain controllers (from both regions) to the DNS server list. You can use the following CLI command. For more information, see [Change DNS servers][vnet-dns].
 
     ```azurecli
     az network vnet update --resource-group <resource-group> --name <vnet-name> --dns-servers "10.0.0.4,10.0.0.6,172.16.0.4,172.16.0.6"
@@ -167,16 +167,12 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 
 <!-- links -->
 
-[hybrid-vpn]: ../hybrid-networking/vpn.md
-[azure-dns]: /azure/dns/dns-overview
-[azure-sla]: https://azure.microsoft.com/support/legal/sla/
 [azure-sql-db]: /azure/sql-database/
 [health-endpoint-monitoring-pattern]: https://msdn.microsoft.com/library/dn589789.aspx
 [azure-cli]: /cli/azure/
 [regional-pairs]: /azure/best-practices-availability-paired-regions
 [resource groups]: /azure/azure-resource-manager/resource-group-overview
 [resource-group-links]: /azure/resource-group-link-resources
-[resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
 [services-by-region]: https://azure.microsoft.com/regions/#services
 [sql-always-on]: https://msdn.microsoft.com/library/hh510230.aspx
 [tablediff]: https://msdn.microsoft.com/library/ms162843.aspx
@@ -187,6 +183,4 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 [traffic-manager]: https://azure.microsoft.com/services/traffic-manager
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
 [vnet-dns]: /azure/virtual-network/manage-virtual-network#change-dns-servers
-[vnet-to-vnet]: /azure/vpn-gateway/vpn-gateway-vnet-vnet-rm-ps
-[vpn-gateway]: /azure/vpn-gateway/vpn-gateway-about-vpngateways
 [wsfc]: https://msdn.microsoft.com/library/hh270278.aspx
