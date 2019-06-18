@@ -60,7 +60,7 @@ High-level steps:
 5. Uncomment the code that enables key vault.
 6. Update the application's user secrets.
 
-### Set up an admin user
+## Set up an admin user
 
 > [!NOTE]
 > To create a key vault, you must use an account which can manage your Azure subscription. Also, any application that you authorize to read from the key vault must be registered in the same tenant as that account.
@@ -91,7 +91,7 @@ Now assign this user as the subscription owner.
 6. Type the email address of the user you want to add as owner.
 7. Select the user and click **Save**.
 
-### Set up a client certificate
+## Set up a client certificate
 
 1. Run the PowerShell script [/Scripts/Setup-KeyVault.ps1][Setup-KeyVault] as follows:
 
@@ -133,7 +133,7 @@ Now assign this user as the subscription owner.
 
     For `[subject]`, use the value that you specified for Subject in the PowerShell script. The thumbprint is listed under "Cert Hash(sha1)". Copy this value. You will use the thumbprint later.
 
-### Create a key vault
+## Create a key vault
 
 1. Run the PowerShell script [/Scripts/Setup-KeyVault.ps1][Setup-KeyVault] as follows:
 
@@ -163,7 +163,7 @@ Now assign this user as the subscription owner.
 
     This script authorizes the web app and web API to retrieve secrets from your key vault. See [Get started with Azure Key Vault](/azure/key-vault/key-vault-get-started/) for more information.
 
-### Add configuration settings to your key vault
+## Add configuration settings to your key vault
 
 1. Run Setup-KeyVault.ps1 as follows:
 
@@ -199,7 +199,7 @@ Now assign this user as the subscription owner.
     .\Setup-KeyVault.ps1 -KeyVaultName mykeyvault -KeyName Data--SurveysConnectionString -KeyValue "Server=(localdb)\MSSQLLocalDB;Database=Tailspin.SurveysDB;Trusted_Connection=True;MultipleActiveResultSets=true"
     ```
 
-### Uncomment the code that enables Key Vault
+## Uncomment the code that enables Key Vault
 
 1. Open the Tailspin.Surveys solution.
 2. In Tailspin.Surveys.Web/Startup.cs, locate the following code block and uncomment it.
@@ -223,7 +223,7 @@ Now assign this user as the subscription owner.
 
     This change enables the web app to use [Client assertion][client-assertion] to get OAuth access tokens. With client assertion, you don't need an OAuth client secret. Alternatively, you could store the client secret in key vault. However, key vault and client assertion both use a client certificate, so if you enable key vault, it's a good practice to enable client assertion as well.
 
-### Update the user secrets
+## Update the user secrets
 
 In Solution Explorer, right-click the Tailspin.Surveys.Web project and select **Manage User Secrets**. In the secrets.json file, delete the existing JSON and paste in the following:
 
