@@ -103,6 +103,12 @@ For general guidance on designing resilient solutions, see [Designing reliable A
 
     Make a note of the *appId* and *password* in the output from this command. You provide these values to the template when you deploy the scenario.
 
+- Find the supported Kubernetes versions for your deployment region by running [az aks get-versions][get-aks-versions]. The following command gets the [CLI default][aks-default-version] version:
+
+    ```azurecli-interactive
+    az aks get-versions -l <region> --query "orchestrators[?default!=null].orchestratorVersion" -o tsv
+    ```
+
 ### Walk-through
 
 To deploy this scenario with an Azure Resource Manager template, perform the following steps.
@@ -116,6 +122,7 @@ To deploy this scenario with an Azure Resource Manager template, perform the fol
    - Enter your service principal app ID and password from the `az ad sp create-for-rbac` command.
    - Provide a username and secure password for the Jenkins instance and Grafana console.
    - Provide an SSH key to secure logins to the Linux VMs.
+   - Enter the Kubernetes verson from the `az aks get-versions` command.
    - Review the terms and conditions, then check **I agree to the terms and conditions stated above**.
    - Select the **Purchase** button.
 
@@ -156,6 +163,8 @@ This scenario used Azure Container Registry and Azure Kubernetes Service to stor
 [azure-pipelines]: /azure/devops/pipelines
 [kubernetes]: https://kubernetes.io/
 [service-fabric]: /azure/service-fabric/
+[get-aks-versions]: /cli/azure/aks?view=azure-cli-latest#az-aks-get-versions
+[aks-default-version]: /azure/aks/supported-kubernetes-versions
 
 [small-pricing]: https://azure.com/e/841f0a75b1ea4802ba1ac8f7918a71e7
 [medium-pricing]: https://azure.com/e/eea0e6d79b4e45618a96d33383ec77ba
