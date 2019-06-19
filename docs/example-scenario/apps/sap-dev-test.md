@@ -88,15 +88,9 @@ Extra Large|64000|M64s|4xP20, 1xP10|[Extra Large](https://azure.com/e/975fb58a96
 
 ## Deployment
 
-Click here to deploy the underlying infrastructure for this scenario.
+Click the link below to deploy the solution.
 
-<!-- markdownlint-disable MD033 -->
-
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fsap-2tier%2Fazuredeploy.json" target="_blank">
-    <img src="https://azuredeploy.net/deploybutton.png"/>
-</a>
-
-<!-- markdownlint-enable MD033 -->
+[![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fsap-2tier%2Fazuredeploy.json)
 
 > [!NOTE]
 > SAP and Oracle are not installed during this deployment. You will need to deploy these components separately.

@@ -98,17 +98,16 @@ You must have an existing Azure account. If you don't have an Azure subscription
 
 To deploy the infrastructure components with a Resource Manager template, perform the following steps.
 
-<!-- markdownlint-disable MD033 -->
+1. Click the link below to deploy the solution.
 
-1. Click the **Deploy to Azure** button:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fcommerce-chatbot.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+    [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fapps%2Fcommerce-chatbot.json)
+    
 2. Wait for the template deployment to open in the Azure portal, then complete the following steps:
    - Choose to **Create new** resource group, then provide a name such as *myCommerceChatBotInfrastructure* in the text box.
    - Select a region from the **Location** drop-down box.
    - Provide a username and secure password for the SQL Server administrator account.
    - Review the terms and conditions, then check **I agree to the terms and conditions stated above**.
    - Select the **Purchase** button.
-
-<!-- markdownlint-enable MD033 -->
 
 It takes a few minutes for the deployment to complete.
 

@@ -72,18 +72,16 @@ For general guidance on designing secure solutions, see the [Azure security docu
 Follow these steps before deploying the Resource Manager template:
 
 1. Create a [service principal][cycle-svcprin] for retrieving the appId, displayName, name, password, and tenant.
-2. Generate an [SSH key pair][cycle-ssh] to sign in securely to the CycleCloud server.
 
-    <!-- markdownlint-disable MD033 -->
+1. Generate an [SSH key pair][cycle-ssh] to sign in securely to the CycleCloud server.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FCycleCloudCommunity%2Fcyclecloud_arm%2Fmaster%2Fazuredeploy.json" target="_blank">
-        <img src="https://azuredeploy.net/deploybutton.png"/>
-    </a>
+1. Click the link below to deploy the solution.
 
-    <!-- markdownlint-enable MD033 -->
+    [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FCycleCloudCommunity%2Fcyclecloud_arm%2Fmaster%2Fazuredeploy.json)
 
-3. [Log into the CycleCloud server][cycle-login] to configure and create a new cluster.
-4. [Create a cluster][cycle-create].
+1. [Log into the CycleCloud server][cycle-login] to configure and create a new cluster.
+
+1. [Create a cluster][cycle-create].
 
 The Avere Cache is an optional solution that can drastically increase read throughput for the application job data. Avere vFXT for Azure solves the problem of running these enterprise HPC applications in the cloud while leveraging data stored on-premises or in Azure Blob storage.
 

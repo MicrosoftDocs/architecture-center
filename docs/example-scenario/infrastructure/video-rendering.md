@@ -114,12 +114,9 @@ The template will deploy:
 - The node pool will be configured to use A2 v2 VMs with Canonical Ubuntu images
 - The node pool will contain zero VMs initially and will require you to manually scale to add VMs
 
-<!-- markdownlint-disable MD033 -->
+Click the link below to deploy the solution.
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fhpc%2Fbatchcreatewithpools.json" target="_blank">
-    <img src="https://azuredeploy.net/deploybutton.png"/>
-</a>
-<!-- markdownlint-enable MD033 -->
+[![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fhpc%2Fbatchcreatewithpools.json)
 
 [Learn more about Resource Manager templates][azure-arm-templates]
 
