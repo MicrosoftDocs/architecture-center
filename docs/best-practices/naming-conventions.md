@@ -104,6 +104,7 @@ In general, avoid having any special characters (`-` or `_`) as the first or las
 |Table name | Storage account |3-63 |Case insensitive |Alphanumeric |`<service short name><context>` |`awesomeservicelogs` |
 |File name | Storage account |3-63 |Lowercase | Alphanumeric |`<variable based on blob usage>` |`<variable based on blob usage>` |
 |Data Lake Store | Global |3-24 |Lowercase | Alphanumeric |`<name>dls` |`telemetrydls` |
+|Managed Disk name | Resource Group | 1-80 | Case insensitive |Alphanumeric, hyphen and underscore but not on character 1|`<disktype>disk<number>`|`OSdisk1`|
 
 ### Networking
 
