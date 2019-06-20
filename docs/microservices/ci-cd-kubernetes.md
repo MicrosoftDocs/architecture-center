@@ -54,20 +54,18 @@ trigger:
   batch: true
   branches:
     include:
+    # for new release to production: release flow strategy
+    - release/delivery/v*
+    - refs/relelase/delivery/v*
     - master
-    - feature/*
-    - topic/*
-
-    exclude:
-    - feature/experimental/*
-    - topic/experimental/*
-
+    - feature/delivery/*
+    - topic/delivery/*
   paths:
-     include:
-     - /src/shipping/delivery/
+    include:
+    - /src/shipping/delivery/
 ```
 
-&#11162; See the [source file](https://github.com/mspnp/microservices-reference-implementation/blob/master/src/shipping/delivery/azure-pipelines-validation.yml).
+&#11162; See the [source file](https://github.com/mspnp/microservices-reference-implementation/blob/master/src/shipping/delivery/azure-pipelines.yml).
 
 Using this approach, each team can have its own build pipeline. Only code that is checked into the `/src/shipping/delivery` folder triggers a build of the Delivery Service. Pushing commits to a branch that matches the filter triggers a CI build. At this point in the workflow, the CI build runs some minimal code verification:
 
@@ -376,7 +374,7 @@ Based on the CI flow described earlier in this article, a build pipeline might c
         az acr helm push $(System.ArtifactsDirectory)/$(repositoryName)-$(Build.SourceBranchName).tgz --name $(AzureContainerRegistry);
     ```
 
-&#11162; See the [source file](https://github.com/mspnp/microservices-reference-implementation/blob/master/src/shipping/delivery/azure-pipelines-ci.yml).
+&#11162; See the [source file](https://github.com/mspnp/microservices-reference-implementation/blob/master/src/shipping/delivery/azure-pipelines.yml).
 
 The output from the CI pipeline is a production-ready container image and an updated Helm chart for the microservice. At this point, the release pipeline can take over. It performs the following steps:
 
