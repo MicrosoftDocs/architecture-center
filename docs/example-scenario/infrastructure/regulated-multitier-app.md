@@ -92,17 +92,16 @@ For general guidance on designing resilient solutions, see [Designing reliable A
 
 To deploy the core infrastructure for this scenario with an Azure Resource Manager template, perform the following steps.
 
-<!-- markdownlint-disable MD033 -->
+1. Click the link below to deploy the solution.
 
-1. Select the **Deploy to Azure** button:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Finfrastructure%2Fregulated-multitier-app.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+    [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Finfrastructure%2Fregulated-multitier-app.json)
+
 2. Wait for the template deployment to open in the Azure portal, then complete the following steps:
    - Choose to **Create new** resource group, then provide a name such as *myWindowsscenario* in the text box.
    - Select a region from the **Location** drop-down box.
    - Provide a username and secure password for the virtual machine scale set instances.
    - Review the terms and conditions, then check **I agree to the terms and conditions stated above**.
    - Select the **Purchase** button.
-
-<!-- markdownlint-enable MD033 -->
 
 It can take 15-20 minutes for the deployment to complete.
 
