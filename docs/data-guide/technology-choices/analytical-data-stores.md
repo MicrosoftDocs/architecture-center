@@ -77,12 +77,14 @@ The following tables summarize the key differences in capabilities.
 | --- | --- | --- | --- | --- | --- | --- |
 | Authentication  | SQL / Azure Active Directory (Azure AD) | SQL / Azure AD | local / Azure AD <sup>1</sup> | local / Azure AD <sup>1</sup> | Azure AD | database users / Azure AD via access control (IAM) |
 | Data encryption at rest | Yes <sup>2</sup> | Yes <sup>2</sup> | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes | Yes |
-| Row-level security | Yes | No | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes (through object-level security in model) | No |
-| Supports firewalls | Yes | Yes | Yes <sup>3</sup> | Yes <sup>3</sup> | Yes | Yes |
-| Dynamic data masking | Yes | No | Yes <sup>1</sup> | Yes * | No | No |
+| Row-level security | Yes | Yes <sup>3</sup> | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes (through object-level security in model) | No |
+| Supports firewalls | Yes | Yes | Yes <sup>4</sup> | Yes <sup>4</sup> | Yes | Yes |
+| Dynamic data masking | Yes | No | Yes <sup>1</sup> | Yes | No | No |
 
 [1] Requires using a [domain-joined HDInsight cluster](/azure/hdinsight/domain-joined/apache-domain-joined-introduction).
 
 [2] Requires using transparent data encryption (TDE) to encrypt and decrypt your data at rest.
 
-[3] When used within an Azure Virtual Network. See [Extend Azure HDInsight using an Azure Virtual Network](/azure/hdinsight/hdinsight-extend-hadoop-virtual-network).
+[3] Filter predicates only. See [Row-Level Security](/sql/relational-databases/security/row-level-security)
+
+[4] When used within an Azure Virtual Network. See [Extend Azure HDInsight using an Azure Virtual Network](/azure/hdinsight/hdinsight-extend-hadoop-virtual-network).

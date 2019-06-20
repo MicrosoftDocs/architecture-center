@@ -84,7 +84,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | Elastic Compute Cloud (EC2) Instances | [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) | Virtual servers allow users to deploy, manage, and maintain OS and server software. Instance types provide combinations of CPU/RAM. Users pay for what they use with the flexibility to change sizes. |
 | AWS Batch | [Azure Batch](https://azure.microsoft.com/services/batch/) | Run large-scale parallel and high-performance computing applications efficiently in the cloud. |
 | AWS Auto Scaling | [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview) | Lets you automatically change the number of VM instances. You set defined metric and thresholds that determine if the platform adds or removes instances. |
-| VMWare Cloud on AWS |  [Azure VMWare by CloudSimple](https://azure.microsoft.com/en-us/services/azure-vmware-cloudsimple/) | Redeploy and extend your VMware-based enterprise workloads to Azure with Azure VMware Solution by CloudSimple. Keep using the VMware tools you already know to manage workloads on Azure without disrupting network, security, or data protection policies. |
+| VMWare Cloud on AWS |  [Azure VMWare by CloudSimple](https://azure.microsoft.com/services/azure-vmware-cloudsimple/) | Redeploy and extend your VMware-based enterprise workloads to Azure with Azure VMware Solution by CloudSimple. Keep using the VMware tools you already know to manage workloads on Azure without disrupting network, security, or data protection policies. |
 
 ### Containers and container orchestrators
 
@@ -129,7 +129,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | AWS IoT | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) | A cloud gateway for managing bidirectional communication with billions of IoT devices, securely and at scale. |
 | AWS Greengrass | [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) | Deploy cloud intelligence directly on IoT devices to run in on-premises scenarios. |
 | Kinesis Firehose, Kinesis Streams | [Event Hubs](https://azure.microsoft.com/services/event-hubs/) | Services that allow the mass ingestion of small data inputs, typically from devices and sensors, to process and route the data. |
-| AWS SiteWise | [Azure Digital Twins](https://azure.microsoft.com/en-us/services/digital-twins/) | Azure Digital Twins is an IoT service that helps you create comprehensive models of physical environments. Create spatial intelligence graphs to model the relationships and interactions between people, places, and devices. Query data from a physical space rather than disparate sensors.
+| AWS SiteWise | [Azure Digital Twins](https://azure.microsoft.com/services/digital-twins/) | Azure Digital Twins is an IoT service that helps you create comprehensive models of physical environments. Create spatial intelligence graphs to model the relationships and interactions between people, places, and devices. Query data from a physical space rather than disparate sensors.
 
 ## Management
 
@@ -183,8 +183,8 @@ Dedicated network | Direct Connect | [ExpressRoute](https://azure.microsoft.com/
 | Multi-Factor Authentication | [Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/) | Safeguard access to data and applications while meeting user demand for a simple sign-in process.  |
 | AWS Directory Service | [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/) | Provides managed domain services such as domain join, group policy, LDAP, and Kerberos/NTLM authentication that are fully compatible with Windows Server Active Directory |
 | Cognito | [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) | A highly available, global, identity management service for consumer-facing applications that scales to hundreds of millions of identities. |
-| AWS Organizations | [Azure Policy](https://azure.microsoft.com/en-us/services/azure-policy/) | Azure Policy is a service in Azure that you use to create, assign, and manage policies. These policies enforce different rules and effects over your resources, so those resources stay compliant with your corporate standards and service level agreements. |
-| AWS Organizations | [Management Groups](https://docs.microsoft.com/en-us/azure/governance/management-groups/) | Azure management groups provide a level of scope above subscriptions. You organize subscriptions into containers called "management groups" and apply your governance conditions to the management groups. All subscriptions within a management group automatically inherit the conditions applied to the management group. Management groups give you enterprise-grade management at a large scale no matter what type of subscriptions you might have.
+| AWS Organizations | [Azure Policy](https://azure.microsoft.com/services/azure-policy/) | Azure Policy is a service in Azure that you use to create, assign, and manage policies. These policies enforce different rules and effects over your resources, so those resources stay compliant with your corporate standards and service level agreements. |
+| AWS Organizations | [Management Groups](https://docs.microsoft.com/azure/governance/management-groups/) | Azure management groups provide a level of scope above subscriptions. You organize subscriptions into containers called "management groups" and apply your governance conditions to the management groups. All subscriptions within a management group automatically inherit the conditions applied to the management group. Management groups give you enterprise-grade management at a large scale no matter what type of subscriptions you might have.
 
 ### Encryption
 
@@ -258,7 +258,8 @@ Dedicated network | Direct Connect | [ExpressRoute](https://azure.microsoft.com/
 | Elastic Beanstalk | [App Service](https://azure.microsoft.com/services/app-service) | Managed hosting platform providing easy to use services for deploying and scaling web applications and services. |
 | API Gateway | [API Management](https://azure.microsoft.com/services/api-management/) | A turnkey solution for publishing APIs to external and internal consumers. |
 | CloudFront | [Azure Content Delivery Network](https://azure.microsoft.com/services/cdn/) | A global content delivery network that delivers audio, video, applications, images, and other files. |
-| Global Accelerator | [Azure Front Door](https://azure.microsoft.com/en-us/services/frontdoor/) | Easily join your distributed microservice architectures into a single global application using HTTP load balancing and path-based routing rules. Automate turning up new regions and scale-out with API-driven global actions, and independent fault-tolerance to your back end microservices in Azure—or anywhere.
+| Global Accelerator | [Azure Front Door](https://azure.microsoft.com/en-us/services/frontdoor/) | Easily join your distributed microservice architectures into a single global application using HTTP load balancing and path-based routing rules. Automate turning up new regions and scale-out with API-driven global actions, and independent fault-tolerance to your back end microservices in Azure—or anywhere. |
+
 
 ## Miscellaneous
 
@@ -269,4 +270,4 @@ Dedicated network | Direct Connect | [ExpressRoute](https://azure.microsoft.com/
 | Gaming | GameLift, GameSparks | [PlayFab](https://playfab.com/) | Managed services for hosting dedicated game servers. |
 | Media transcoding | Elastic Transcoder | [Media Services](https://azure.microsoft.com/services/media-services/) | Services that offer broadcast-quality video streaming services, including various transcoding technologies. |
 | Workflow | Simple Workflow Service (SWF) | [Logic Apps](https://azure.microsoft.com/services/logic-apps/) | Serverless technology for connecting apps, data and devices anywhere, whether on-premises or in the cloud for large ecosystems of SaaS and cloud-based connectors. |
-| Hybrid | Outposts | [Azure Stack](https://azure.microsoft.com/en-us/overview/azure-stack/) | Azure Stack is a hybrid cloud platform that lets you use Azure services from your company's or service provider's datacenter. As a developer, you can build apps on Azure Stack. You can then deploy them to Azure Stack, to Azure, or you can build truly hybrid apps that leverage the connectivity between an Azure Stack cloud and Azure. |
+| Hybrid | Outposts | [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) | Azure Stack is a hybrid cloud platform that lets you use Azure services from your company's or service provider's datacenter. As a developer, you can build apps on Azure Stack. You can then deploy them to Azure Stack, to Azure, or you can build truly hybrid apps that leverage the connectivity between an Azure Stack cloud and Azure. |

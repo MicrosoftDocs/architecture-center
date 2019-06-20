@@ -80,7 +80,7 @@ The following tables summarize the key differences in capabilities.
 <!-- markdownlint-disable MD033 -->
 
 | Capability | Azure Data Lake Analytics | Azure SQL Data Warehouse | HDInsight | Azure Databricks |
-| --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | Is managed service | Yes | Yes | Yes <sup>1</sup> | Yes |
 | Relational data store | Yes | Yes | No | No |
 | Pricing model | Per batch job | By cluster hour | By cluster hour | Databricks Unit<sup>2</sup> + cluster hour |
@@ -99,12 +99,14 @@ The following tables summarize the key differences in capabilities.
 | Query from external relational stores | Yes | No | Yes | No | No | Yes |
 | Authentication  | Azure AD | SQL / Azure AD | No | Azure AD<sup>1</sup> | Azure AD<sup>1</sup> | Azure AD |
 | Auditing  | Yes | Yes | No | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes |
-| Row-level security | No | No | No | Yes <sup>1</sup> | Yes <sup>1</sup> | No |
-| Supports firewalls | Yes | Yes | Yes | Yes <sup>2</sup> | Yes <sup>2</sup> | No |
+| Row-level security | No | Yes<sup>2</sup> | No | Yes <sup>1</sup> | Yes <sup>1</sup> | No |
+| Supports firewalls | Yes | Yes | Yes | Yes <sup>3</sup> | Yes <sup>3</sup> | No |
 | Dynamic data masking | No | No | No | Yes <sup>1</sup> | Yes <sup>1</sup> | No |
 
 <!-- markdownlint-enable MD033 -->
 
 [1] Requires using a [domain-joined HDInsight cluster](/azure/hdinsight/domain-joined/apache-domain-joined-introduction).
 
-[2] Supported when [used within an Azure Virtual Network](/azure/hdinsight/hdinsight-extend-hadoop-virtual-network).
+[2] Filter predicates only. See [Row-Level Security](/sql/relational-databases/security/row-level-security)
+
+[3] Supported when [used within an Azure Virtual Network](/azure/hdinsight/hdinsight-extend-hadoop-virtual-network).
