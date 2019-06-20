@@ -247,7 +247,7 @@ The following patterns and guidance are useful when implementing this pattern:
 
 - [Data Consistency Primer](https://docs.microsoft.com/previous-versions/msp-n-p/dn589800(v=pandp.10)). Explains the issues that are typically encountered due to eventual consistency between the read and write data stores when using the CQRS pattern, and how these issues can be resolved.
 
-- [Data Partitioning Guidance](https://docs.microsoft.com/previous-versions/msp-n-p/dn589795(v=pandp.10)). Describes how the read and write data stores used in the CQRS pattern can be divided into partitions that can be managed and accessed separately to improve scalability, reduce contention, and optimize performance.
+- [Data Partitioning Guidance](../best-practices/data-partitioning.md). Describes best practices for dividing data into partitions that can be managed and accessed separately to improve scalability, reduce contention, and optimize performance.
 
 - [Event Sourcing pattern](./event-sourcing.md). Describes in more detail how Event Sourcing can be used with the CQRS pattern to simplify tasks in complex domains while improving performance, scalability, and responsiveness. As well as how to provide consistency for transactional data while maintaining full audit trails and history that can enable compensating actions.
 
