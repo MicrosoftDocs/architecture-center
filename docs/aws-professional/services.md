@@ -258,7 +258,8 @@ Dedicated network | Direct Connect | [ExpressRoute](https://azure.microsoft.com/
 | Elastic Beanstalk | [App Service](https://azure.microsoft.com/services/app-service) | Managed hosting platform providing easy to use services for deploying and scaling web applications and services. |
 | API Gateway | [API Management](https://azure.microsoft.com/services/api-management/) | A turnkey solution for publishing APIs to external and internal consumers. |
 | CloudFront | [Azure Content Delivery Network](https://azure.microsoft.com/services/cdn/) | A global content delivery network that delivers audio, video, applications, images, and other files. |
-| SiteWise | [Azure Front Door](https://azure.microsoft.com/services/frontdoor/) | Easily join your distributed microservice architectures into a single global application using HTTP load balancing and path-based routing rules. Automate turning up new regions and scale-out with API-driven global actions, and independent fault-tolerance to your back end microservices in Azure—or anywhere.
+| Global Accelerator | [Azure Front Door](https://azure.microsoft.com/en-us/services/frontdoor/) | Easily join your distributed microservice architectures into a single global application using HTTP load balancing and path-based routing rules. Automate turning up new regions and scale-out with API-driven global actions, and independent fault-tolerance to your back end microservices in Azure—or anywhere. |
+
 
 ## Miscellaneous
 
