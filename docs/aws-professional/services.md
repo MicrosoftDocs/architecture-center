@@ -42,6 +42,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | Amazon Lex | [Language Understanding (LUIS)](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) | Allows your applications to understand user commands contextually. |
 | Amazon Polly, Amazon Transcribe | [Speech Services](https://azure.microsoft.com/services/cognitive-services/speech/) | Enables both Speech to Text, and Text into Speech capabilities. |
 | Amazon Rekognition | [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) | [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/): Extract information from images to categorize and process visual data.<br/><br/> [Face](https://azure.microsoft.com/services/cognitive-services/face/): Detect, identy, and analyze faces in photos. <br/><br/> [Emotions](https://azure.microsoft.com/services/cognitive-services/emotion/): Recognize emotions in images. |
+| Alexa Skill Set | [Azure Virtual Assistant](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-virtual-assistant-introduction?view=azure-bot-service-4.0) | The Virtual Assistant Template brings together a number of best practices we've identified through the building of conversational experiences and automates integration of components that we've found to be highly beneficial to Bot Framework developers.
 
 ## Big data and analytics
 
@@ -127,6 +128,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | AWS IoT | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/) | A cloud gateway for managing bidirectional communication with billions of IoT devices, securely and at scale. |
 | AWS Greengrass | [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) | Deploy cloud intelligence directly on IoT devices to run in on-premises scenarios. |
 | Kinesis Firehose, Kinesis Streams | [Event Hubs](https://azure.microsoft.com/services/event-hubs/) | Services that allow the mass ingestion of small data inputs, typically from devices and sensors, to process and route the data. |
+| AWS SiteWise | [Azure Digital Twins](https://azure.microsoft.com/en-us/services/digital-twins/) | Azure Digital Twins is an IoT service that helps you create comprehensive models of physical environments. Create spatial intelligence graphs to model the relationships and interactions between people, places, and devices. Query data from a physical space rather than disparate sensors.
 
 ## Management
 
@@ -253,6 +255,7 @@ Dedicated network | Direct Connect | [ExpressRoute](https://azure.microsoft.com/
 | Elastic Beanstalk | [App Service](https://azure.microsoft.com/services/app-service) | Managed hosting platform providing easy to use services for deploying and scaling web applications and services. |
 | API Gateway | [API Management](https://azure.microsoft.com/services/api-management/) | A turnkey solution for publishing APIs to external and internal consumers. |
 | CloudFront | [Azure Content Delivery Network](https://azure.microsoft.com/services/cdn/) | A global content delivery network that delivers audio, video, applications, images, and other files. |
+| SiteWise | [Azure Front Door](https://azure.microsoft.com/en-us/services/frontdoor/) | Easily join your distributed microservice architectures into a single global application using HTTP load balancing and path-based routing rules. Automate turning up new regions and scale-out with API-driven global actions, and independent fault-tolerance to your back end microservices in Azure—or anywhere.
 
 ## Miscellaneous
 
@@ -263,3 +266,4 @@ Dedicated network | Direct Connect | [ExpressRoute](https://azure.microsoft.com/
 | Gaming | GameLift, GameSparks | [PlayFab](https://playfab.com/) | Managed services for hosting dedicated game servers. |
 | Media transcoding | Elastic Transcoder | [Media Services](https://azure.microsoft.com/services/media-services/) | Services that offer broadcast-quality video streaming services, including various transcoding technologies. |
 | Workflow | Simple Workflow Service (SWF) | [Logic Apps](https://azure.microsoft.com/services/logic-apps/) | Serverless technology for connecting apps, data and devices anywhere, whether on-premises or in the cloud for large ecosystems of SaaS and cloud-based connectors. |
+| Hybrid | Outposts | [Azure Stack](https://azure.microsoft.com/en-us/overview/azure-stack/) | Azure Stack is a hybrid cloud platform that lets you use Azure services from your company's or service provider's datacenter. As a developer, you can build apps on Azure Stack. You can then deploy them to Azure Stack, to Azure, or you can build truly hybrid apps that leverage the connectivity between an Azure Stack cloud and Azure. Learn how to create resources and deploy apps with our quickstarts and tutorials. |
