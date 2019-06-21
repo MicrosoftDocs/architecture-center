@@ -32,15 +32,17 @@ Tailspin is the fictitious company that hosts the Surveys application. Tailspin 
 
 In this step, you'll create an Azure AD directory for Tailspin.
 
-1. Sign into the [Azure portal][portal].
+1. Sign into the [Azure portal][portal] and head to [App registrations][appregistrations].
 
-2. Click **+ Create a Resource** > **Identity** > **Azure Active Directory**.
+2. Click **+ New Registration**.
 
-3. Enter `Tailspin` for the organization name, and enter a domain name. The domain name will have the form `xxxx.onmicrosoft.com` and must be globally unique.
+3. Set **Name** to `Tailspin` for the organization name, and enter a domain name. The domain name will have the form `xxxx.onmicrosoft.com` and must be globally unique.
 
-    ![Create directory dialog box](./images/running-the-app/new-tenant.png)
+4. Set **Supported account types** to **Accounts in any organizational directory and personal Microsoft accounts**.
 
-4. Click **Create**. It may take a few minutes to create the new directory.
+5. Leave **Redirect URI** empty.
+
+6. Choose **Register**. 
 
 To complete the end-to-end scenario, you'll need a second Azure AD directory to represent a customer that signs up for the application. You can use your default Azure AD directory (not Tailspin), or create a new directory for this purpose. In the examples, we use Contoso as the fictitious customer.
 
@@ -323,3 +325,4 @@ Now go back to the app and sign in again. Click **My Surveys**. If the user is a
 
 [portal]: https://portal.azure.com
 [VS2017]: https://www.visualstudio.com/vs/
+[appregistrations]: https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade
