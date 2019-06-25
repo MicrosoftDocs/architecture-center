@@ -1105,6 +1105,18 @@
       items:
       - name: Establish an operational fitness review
         href: cloud-adoption/operations/operational-fitness-review.md
+      - name: Monitoring
+        items:
+        - name: Introduction
+          href: cloud-adoption/operations/monitor/cloud-monitor-guidance-azure-intro.md
+        - name: Platform Overview
+          href: cloud-adoption/operations/monitor/cloud-monitor-guidance-azure-platform-overview.md
+        - name: Monitoring Cloud Apps
+          href: cloud-adoption/operations/monitor/cloud-monitor-guidance-azure-cloud-app-howto.md
+        - name: Data collection
+          href: cloud-adoption/operations/monitor/cloud-monitor-guidance-azure-data-collection.md
+        - name: Alerting
+          href: cloud-adoption/operations/monitor/cloud-monitor-azure-alert.md
   - name: References
     items:
     - name: Decision guides
