@@ -65,7 +65,7 @@ The following tables summarize the key differences in capabilities.
 
 <!-- markdownlint-disable MD033 -->
 
-| | IoT Hub | Event Hubs | Kafka on HDInsight |
+| Capability | IoT Hub | Event Hubs | Kafka on HDInsight |
 | --- | --- | --- | --- |
 | Cloud-to-device communications | Yes | No | No |
 | Device-initiated file upload | Yes | No | No |

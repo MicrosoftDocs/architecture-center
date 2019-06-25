@@ -17,7 +17,7 @@
       topicHref: /azure/architecture/resiliency
     - name: Design Review Checklists
       tocHref: /azure/architecture/checklist/
-      topicHref: /azure/architecture/checklist
+      topicHref: /azure/architecture/checklist/resiliency-per-service
     - name: Manage Identity in Multitenant Applications
       tocHref: /azure/architecture/multitenant-identity/
       tocHref: /azure/architecture/multitenant-identity
@@ -39,7 +39,7 @@
         topicHref: /azure/architecture/cloud-adoption/governance
       - name: Infrastructure
         tocHref: /azure/architecture/cloud-adoption/infrastructure/
-        topicHref: /azure/architecture/cloud-adoption/infrastructure
+        topicHref: /azure/architecture/cloud-adoption/infrastructure/basic-workload
       - name: Operations
         tocHref: /azure/architecture/cloud-adoption/operations/
         topicHref: /azure/architecture/cloud-adoption/operations

@@ -150,7 +150,7 @@ If the primary database fails, perform a manual failover to the secondary databa
 [cosmosdb-geo]: /azure/cosmos-db/distribute-data-globally
 [guidance-web-apps-scalability]: ./scalable-web-app.md
 [health-endpoint-monitoring-pattern]: https://msdn.microsoft.com/library/dn589789.aspx
-[ra-grs]: /azure/storage/storage-redundancy#read-access-geo-redundant-storage
+[ra-grs]: /azure/storage/common/storage-designing-ha-apps-with-ragrs
 [regional-pairs]: /azure/best-practices-availability-paired-regions
 [resource groups]: /azure/azure-resource-manager/resource-group-overview#resource-groups
 [services-by-region]: https://azure.microsoft.com/regions/#services

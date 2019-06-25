@@ -51,7 +51,7 @@ Service Fabric is used by various Microsoft services, including Azure SQL Databa
 
 The following table summarizes some of the important differences between Cloud Services and Service Fabric applications. For a more in-depth discussion, see [Learn about the differences between Cloud Services and Service Fabric before migrating applications][sf-compare-cloud-services].
 
-|        | Cloud Services | Service Fabric |
+| Area | Cloud Services | Service Fabric |
 |--------|---------------|----------------|
 | Application composition | Roles| Services |
 | Density |One role instance per VM | Multiple services in a single node |

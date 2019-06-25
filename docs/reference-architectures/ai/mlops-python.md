@@ -83,15 +83,15 @@ This pipeline covers the following steps:
 
 - **Register model.** The retrained model is registered with the model management service. This service provides version control for the models along with metadata tags so they can be easily reproduced.
 
-- **Create scoring image:** The registered model is packaged together with scoring script and Python dependencies (Conda YAML file) into an operationalization Docker image. The image automatically gets versioned through Azure Container Registry.
-
 ### Release pipeline
 
 This pipeline shows how to operationalize the scoring image and promote it safely across different environments. This pipeline is subdivided into two environments, QA and production:
 
 #### QA environment
 
-- **Container Registry trigger.** Release pipelines get triggered every time a new artifact is available. A new image in Container Registry is treated as a release artifact. In this case, a pipeline is triggered for each new scoring image in the registry.
+- **Model Artifact trigger.** Release pipelines get triggered every time a new artifact is available. A new model registered to Azure Machine Learning Model Management is treated as a release artifact. In this case, a pipeline is triggered for each new model is registered.
+
+- **Create scoring image.** The registered model is packaged together with scoring script and Python dependencies (Conda YAML file) into an operationalization Docker image. The image automatically gets versioned through Azure Container Registry.
 
 - **Deploy on Container Instances.** This service is used to create a non-production environment. The scoring image is also deployed here, and this is mostly used for testing. Container Instances provides an easy and quick way to test the Docker image.
 
@@ -130,7 +130,7 @@ Scale the retraining pipeline up and down depending on the number of nodes in yo
 
 - **Monitor retraining job.** Machine Learning pipelines orchestrate retraining across a cluster of machines and provides an easy way to monitor them. Use the [Azure portal](https://portal.azure.com/), and go to Machine Learning workspace, and look under pipelines section for the logs. Alternatively, these logs are also written to blob and can be read from there as well using tools such as [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
-- **Logging.** The Machine Learning service provides an easy way to log at each step of the machine learning life cycle. The logs are stored in a blob container. For more information, see [Enable logging in Azure Machine Learning service](/azure/machine-learning/service/how-to-enable-logging). For richer monitoring, configure [Application Insights](/azure/machine-learning/service/how-to-enable-app-insights#enable-and-disable-in-the-portal) to use the logs.
+- **Logging.** The Machine Learning service provides an easy way to log at each step of the machine learning life cycle. The logs are stored in a blob container. For more information, see [Enable logging in Azure Machine Learning service](/azure/machine-learning/service/how-to-enable-logging). For richer monitoring, configure [Application Insights](/azure/machine-learning/service/how-to-enable-app-insights#use-portal-to-configure) to use the logs.
 
 - **Security.** All secrets and credentials are stored in [Azure Key Vault](/azure/key-vault/) and accessed in Azure Pipelines using [variable groups](/azure/devops/pipelines/library/variable-groups?view=azure-devops&tabs=yaml#link-secrets-from-an-azure-key-vault).
 
@@ -140,7 +140,7 @@ Azure DevOps is [free](https://azure.microsoft.com/pricing/details/devops/azure-
 
 Compute is the biggest cost driver in this architecture and varies depending on the use case. For experimentation and training, Machine Learning services are free, you pay only for the compute used. While deploying models to Kubernetes Service cluster, Machine Learning adds a small [surcharge](https://azure.microsoft.com/pricing/details/machine-learning-service/) on top of the Kubernetes Service compute cost. Depending on the expected web service load and the defined autoscaling option, you can control this cost. You can use either Azure CLI or Azure Machine Learning Python SDK to programmatically set an autoscaling configuration.
 
-The retraining pipeline also requires a form of compute. This architecture uses Machine Learning Compute, but other [options](/azure/machine-learning/service/concept-azure-machine-learning-architecture#compute-target) are available. As mentioned earlier, training models do not incur the Machine Learning surcharge; you only pay the compute cost. The compute cost depends on the cluster size, node type, and number of nodes. You can estimate the cost for Machine Learning and other services using the Azure [pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service).
+The retraining pipeline also requires a form of compute. This architecture uses Machine Learning Compute, but other [options](/azure/machine-learning/service/concept-azure-machine-learning-architecture#compute-targets) are available. As mentioned earlier, training models do not incur the Machine Learning surcharge; you only pay the compute cost. The compute cost depends on the cluster size, node type, and number of nodes. You can estimate the cost for Machine Learning and other services using the Azure [pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service).
 
 ## Deploy the solution
 

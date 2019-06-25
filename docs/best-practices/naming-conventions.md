@@ -78,7 +78,7 @@ In general, avoid having any special characters (`-` or `_`) as the first or las
 | --- | --- | --- | --- | --- | --- | --- |
 |Resource Group |Subscription |1-90 |Case insensitive |Alphanumeric, underscore, parentheses, hyphen, period (except at end), and Unicode characters that match the regex documented [here](/rest/api/resources/resourcegroups/createorupdate). |`<service short name>-<environment>-rg` |`profx-prod-rg` |
 |Availability Set |Resource Group |1-80 |Case insensitive |Alphanumeric, underscore, and hyphen |`<service-short-name>-<context>-as` |`profx-sql-as` |
-|Tag |Associated Entity |512 (name), 256 (value) |Case insensitive |Alphanumeric, special characters except `<`, `>`, `%`, `&`, `\`, `?`, `/`. See limitations [here](/azure/azure-resource-manager/resource-group-using-tags). |`"key" : "value"` |`"department" : "Central IT"` |
+|Tag |Associated Entity |512 (name), 256 (value) |Case insensitive |Alphanumeric including Unicode characters; special characters except `<`, `>`, `%`, `&`, `\`, `?`, `/`. See limitations [here](/azure/azure-resource-manager/resource-group-using-tags). |`"key" : "value"` |`"department" : "Central IT"` |
 |Web App |Global |1-60 |Case insensitive |Alphanumeric and hyphen |`<app_name>-<source-slot-name>` |`contoso-staging` |
 |API Management |Global |1-50 |Case insensitive |Alphanumeric and hyphen |`<apim-service-name>` |`contoso` |
 
@@ -104,6 +104,7 @@ In general, avoid having any special characters (`-` or `_`) as the first or las
 |Table name | Storage account |3-63 |Case insensitive |Alphanumeric |`<service short name><context>` |`awesomeservicelogs` |
 |File name | Storage account |3-63 |Lowercase | Alphanumeric |`<variable based on blob usage>` |`<variable based on blob usage>` |
 |Data Lake Store | Global |3-24 |Lowercase | Alphanumeric |`<name>dls` |`telemetrydls` |
+|Managed Disk name | Resource Group | 1-80 | Case insensitive |Alphanumeric, hyphen and underscore but not on character 1|`<disktype>disk<number>`|`OSdisk1`|
 
 ### Networking
 

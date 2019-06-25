@@ -132,6 +132,10 @@ The deployment shown here resides in a single Azure region. For a more resilient
 
 To deploy this reference architecture, view the [GitHub readme][readme].
 
+## Next steps
+
+To learn more about the reference implementation, read [Show me the code: Serverless application with Azure Functions](../../serverless/index.md).
+
 <!-- links -->
 
 [cosmosdb]: /azure/cosmos-db/introduction

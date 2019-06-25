@@ -40,7 +40,7 @@ The following tables summarize the key differences in capabilities.
 
 ### General capabilities
 
-| | Azure Data Factory | SQL Server Integration Services (SSIS) | Oozie on HDInsight
+| Capability | Azure Data Factory | SQL Server Integration Services (SSIS) | Oozie on HDInsight
 | --- | --- | --- | --- |
 | Managed | Yes | No | Yes |
 | Cloud-based | Yes | No (local) | Yes |
@@ -50,7 +50,7 @@ The following tables summarize the key differences in capabilities.
 
 ### Pipeline capabilities
 
-| | Azure Data Factory | SQL Server Integration Services (SSIS) | Oozie on HDInsight
+| Capability | Azure Data Factory | SQL Server Integration Services (SSIS) | Oozie on HDInsight
 | --- | --- | --- | --- |
 | Copy data | Yes | Yes | Yes |
 | Custom transformations | Yes | Yes | Yes (MapReduce, Pig, and Hive jobs) |
@@ -65,7 +65,7 @@ The following tables summarize the key differences in capabilities.
 
 ### Scalability capabilities
 
-| | Azure Data Factory | SQL Server Integration Services (SSIS) | Oozie on HDInsight
+| Capability | Azure Data Factory | SQL Server Integration Services (SSIS) | Oozie on HDInsight
 | --- | --- | --- | --- |
 | Scale up | Yes | No | No |
 | Scale out | Yes | No | Yes (by adding worker nodes to cluster) |

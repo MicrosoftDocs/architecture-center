@@ -82,7 +82,7 @@ The following tables summarize the key differences in capabilities.
 
 <!-- markdownlint-disable MD033 -->
 
-| | Power BI | Jupyter Notebooks | Zeppelin Notebooks | Microsoft Azure Notebooks |
+| Capability | Power BI | Jupyter Notebooks | Zeppelin Notebooks | Microsoft Azure Notebooks |
 | --- | --- | --- | --- | --- |
 | Connect to big data cluster for advanced processing | Yes | Yes | Yes | No |
 | Managed service | Yes | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes |

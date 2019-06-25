@@ -34,7 +34,7 @@ Consider these options when you want scripted and programmatic data transfer.
 
 - **Azure CLI**. The [Azure CLI](/azure/hdinsight/hdinsight-upload-data#commandline) is a cross-platform tool that allows you to manage Azure services and upload data to Azure Storage.
 
-- **AzCopy**. Use AzCopy from a [Windows](/azure/storage/common/storage-use-azcopy?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) or [Linux](/azure/storage/common/storage-use-azcopy-linux?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) command-line to easily copy data to and from Azure Blob, File, and Table storage with optimal performance. AzCopy supports concurrency and parallelism, and the ability to resume copy operations when interrupted. It is also faster than most other options. For programmatic access, the [Microsoft Azure Storage Data Movement Library](/azure/storage/common/storage-use-data-movement-library) is the core framework that powers AzCopy. It is provided as a .NET Core library.
+- **AzCopy**. Use AzCopy from a [Windows](/azure/storage/common/storage-use-azcopy?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) or [Linux](/azure/storage/common/storage-use-azcopy-linux?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) command-line to easily copy data to and from Azure Blob, File, and Table storage with optimal performance. AzCopy supports concurrency and parallelism, and the ability to resume copy operations when interrupted. You can also leverage AzCopy to copy data from AWS to Azure. For programmatic access, the [Microsoft Azure Storage Data Movement Library](/azure/storage/common/storage-use-data-movement-library) is the core framework that powers AzCopy. It is provided as a .NET Core library.
 
 - **PowerShell**. The [`Start-AzureStorageBlobCopy` PowerShell cmdlet](/powershell/module/azure.storage/start-azurestorageblobcopy?view=azurermps-5.0.0) is an option for Windows administrators who are used to PowerShell.
 
@@ -84,7 +84,7 @@ The following tables summarize the key differences in capabilities.
 
 <!-- markdownlint-enable MD033 -->
 
-| | Azure Import/Export service | Azure Data Box |
+| Capability | Azure Import/Export service | Azure Data Box |
 | --- | --- | --- |
 | Form factor | Internal SATA HDDs or SDDs | Secure, tamper-proof, single hardware appliance |
 | Microsoft manages shipping logistics | No | Yes |
@@ -93,9 +93,9 @@ The following tables summarize the key differences in capabilities.
 
 ### Command line tools
 
-**Hadoop/HDInsight:**
+**Hadoop/HDInsight**
 
-| | Distcp | Sqoop | Hadoop CLI |
+| Capability | Distcp | Sqoop | Hadoop CLI |
 | --- | --- | --- | --- |
 | Optimized for big data | Yes | Yes |  Yes |
 | Copy to relational database |  No | Yes | No |
@@ -105,11 +105,11 @@ The following tables summarize the key differences in capabilities.
 | Copy to Data Lake Store | Yes | Yes | Yes |
 | Copy from Data Lake Store | Yes | Yes | No |
 
-**Other:**
+**Other**
 
 <!-- markdownlint-disable MD033 -->
 
-| | Azure CLI | AzCopy | PowerShell | AdlCopy | PolyBase |
+| Capability | Azure CLI | AzCopy | PowerShell | AdlCopy | PolyBase |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Compatible platforms | Linux, OS X, Windows | Linux, Windows | Windows | Linux, OS X, Windows | SQL Server, Azure SQL Data Warehouse |
 | Optimized for big data | No | No | No | Yes <sup>1</sup> | Yes <sup>2</sup> |
@@ -128,7 +128,7 @@ The following tables summarize the key differences in capabilities.
 
 ### Graphical interface and Azure Data Factory
 
-| | Azure Storage Explorer | Azure portal * | Azure Data Factory |
+| Capability | Azure Storage Explorer | Azure portal * | Azure Data Factory |
 | --- | --- | --- | --- |
 | Optimized for big data | No | No | Yes |
 | Copy to relational database | No | No | Yes |

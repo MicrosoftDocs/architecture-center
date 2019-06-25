@@ -136,7 +136,7 @@ Review the following resources to learn more about CI/CD and Azure DevOps:
 [download-keyvault-secrets]: /vsts/pipelines/tasks/deploy/azure-key-vault?view=vsts
 [resource-groups]: /azure/azure-resource-manager/resource-group-overview
 [resiliency-app-service]: /azure/architecture/checklist/resiliency-per-service#app-service
-[vsts]: /vsts/?view=vsts#pivot=services
+[vsts]: /azure/devops/
 [continuous-integration]: /azure/devops/what-is-continuous-integration
 [continuous-delivery]: /azure/devops/what-is-continuous-delivery
 [web-apps]: /azure/app-service/app-service-web-overview

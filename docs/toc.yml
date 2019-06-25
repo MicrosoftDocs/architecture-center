@@ -224,8 +224,6 @@
       href: example-scenario/ai/movie-recommendations.md
     - name: Newsfeed ingestion
       href: example-scenario/ai/newsfeed-ingestion.md
-    - name: Scalable personalization
-      href: example-scenario/ai/scalable-personalization.md
   - name: Apps
     items:
     - name: Computer-aided engineering
@@ -466,7 +464,7 @@
       href: microservices/design/patterns.md
   - name: Operate microservices in production
     items:
-    - name: Logging and monitoring
+    - name: Monitor microservices in Azure Kubernetes Service (AKS)
       href: microservices/logging-monitoring.md
     - name: CI/CD for microservices
       href: microservices/ci-cd.md
@@ -606,10 +604,15 @@
       href: multitenant-identity/adfs.md
     - name: Run the Surveys application
       href: multitenant-identity/run-the-app.md
-  - name: Modernizing enterprise applications with Azure Service Fabric
+  - name: Modernize enterprise applications with Azure Service Fabric
     href: service-fabric/modernize-app-azure-service-fabric.md
   - name: Migrate from Cloud Services to Service Fabric
     href: service-fabric/migrate-from-cloud-services.md
+
+- name: Show me the code
+  items:
+  - name: Serverless application on Azure
+    href: serverless/index.md
 
 - name: Design Review Framework
   items:

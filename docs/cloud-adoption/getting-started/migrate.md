@@ -96,7 +96,7 @@ Cultural changes are not directly guided, instead subtle changes to the culture 
 
 ### Common technical efforts associated with this methodology
 
-During implementation of the cloud strategy and plan the IT team will focus a large percentage of their time on the migration of existing digital assets to the cloud. During this effort, minimal code changes as expected, but can often be limited to configuration changes. In many cases, a strong business justification can be made for modernization as part of the cloud migration.
+During implementation of the cloud strategy and plan the IT team will focus a large percentage of their time on the migration of existing digital assets to the cloud. During this effort, minimal code changes are expected, but can often be limited to configuration changes. In many cases, a strong business justification can be made for modernization as part of the cloud migration.
 
 ### Common workload examples
 

@@ -228,7 +228,7 @@ For auditing or compliance purposes, it may be necessary to prohibit direct acce
 
 To maximize security, do not enable a public IP address for your VMs, and use NSGs to ensure that these VMs aren't publicly accessible. VMs should only be available using the internal IP address. These addresses can be made accessible through the ExpressRoute network, enabling on-premises DevOps staff to perform configuration or maintenance.
 
-If you must expose management endpoints for VMs to an external network, use NSGs or access control lists to restrict the visibility of these ports to a whitelist of IP addresses or networks.
+If you must expose management endpoints for VMs to an external network, use NSGs or access control lists to restrict the visibility of these ports to an allowed list of IP addresses or networks.
 
 > [!NOTE]
 > By default, Azure VMs deployed through the Azure portal include a public IP address that provides login access.
@@ -240,29 +240,31 @@ If you must expose management endpoints for VMs to an external network, use NSGs
 
 To deploy the solution, perform the following steps.
 
-<!-- markdownlint-disable MD033 -->
+1. Click the link below.
 
-1. Click the button below:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fhybrid-networking%2Fexpressroute%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+    [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fhybrid-networking%2Fexpressroute%2Fazuredeploy.json)
 
-2. Wait for the link to open in the Azure portal, then follow these steps:
+1. Wait for the link to open in the Azure portal, then follow these steps:
    - The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-hybrid-er-rg` in the text box.
    - Select the region from the **Location** drop down box.
    - Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
    - Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
    - Click the **Purchase** button.
 
-3. Wait for the deployment to complete.
+1. Wait for the deployment to complete.
 
-4. Click the button below:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fhybrid-networking%2Fexpressroute%2Fazuredeploy-expressRouteCircuit.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
+1. Click the link below.
 
-5. Wait for the link to open in the Azure portal, then follow these steps:
+    [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fhybrid-networking%2Fexpressroute%2Fazuredeploy-expressRouteCircuit.json)
+
+1. Wait for the link to open in the Azure portal, then follow these steps:
    - Select **Use existing** in the **Resource group** section and enter `ra-hybrid-er-rg` in the text box.
    - Select the region from the **Location** drop down box.
    - Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
    - Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
    - Click the **Purchase** button.
 
-6. Wait for the deployment to complete.
+1. Wait for the deployment to complete.
 
 <!-- markdownlint-enable MD033 -->
 

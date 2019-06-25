@@ -113,7 +113,7 @@ To begin a governance journey, choose one of the two options below. The options 
 
 ### Business characteristics
 
-|                                            | Small-to-medium enterprise                                                                              | Large enterprise                                                                                               |
+| Characteristic | Small-to-medium enterprise                                                                              | Large enterprise                                                                                               |
 |--------------------------------------------|---------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------|
 | Geography (country or geopolitical region) | Customers or staff reside largely in one geography                                                      | Customers or staff reside in multiple geographies                                                              |
 | Business units affected                    | Single business unit                                                                                    | Multiple business units                                                                                        |
@@ -122,7 +122,7 @@ To begin a governance journey, choose one of the two options below. The options 
 
 ### Current state before adopting cloud governance
 
-|                                             | Small-to-medium enterprise                                                                               | Large enterprise                                                                                                          |
+| State | Small-to-medium enterprise                                                                               | Large enterprise                                                                                                          |
 |---------------------------------------------|----------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
 | Datacenter or third-party hosting providers | Fewer than five datacenters                                                                                  | More than five datacenters                                                                                                   |
 | Networking                                  | No WAN, or 1 &ndash; 2 WAN providers                                                                             | Complex network or global WAN                                                                                             |
@@ -130,7 +130,7 @@ To begin a governance journey, choose one of the two options below. The options 
 
 ### Desired future state after evolving cloud governance
 
-|                                              | Small-to-medium enterprise                                                                        | Large enterprise                                                                                        |
+| State | Small-to-medium enterprise                                                                        | Large enterprise                                                                                        |
 |----------------------------------------------|---------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 | Cost Management – cloud accounting           | Showback model. Billing is centralized through IT.                                                | Chargeback model. Billing could be distributed through IT procurement.                                  |
 | Security Baseline – protected data           | Company financial data and IP. Limited customer data. No third-party compliance requirements.     | Multiple collections of customers’ financial and personal data. May need to consider third-party compliance. |

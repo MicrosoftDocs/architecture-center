@@ -11,7 +11,7 @@ ms.custom: microservices
 
 # Designing interservice communication for microservices
 
-Communication between microservices must be efficient and robust. With lots of small services interacting to complete a single transaction, this can be a challenge. In this article, we look at the tradeoffs between asynchronous messaging versus synchronous APIs. Then we look at some of the challenges in designing resilient interservice communication, and the role that a service mesh can play.
+Communication between microservices must be efficient and robust. With lots of small services interacting to complete a single transaction, this can be a challenge. In this article, we look at the tradeoffs between asynchronous messaging versus synchronous APIs. Then we look at some of the challenges in designing resilient interservice communication.
 
 ## Challenges
 
@@ -91,7 +91,7 @@ Notice that delivery status events are derived from drone location events. For e
 
 ## Using a service mesh
 
-A *service mesh* is a software layer that handles service-to-service communication. Service meshes are designed to address many of the concerns listed in the previous section, and to move responsibility for these concerns away from the microservices themselves and into a shared layer. The service mesh acts as a proxy that intercepts network communication between microservices in the cluster.
+A *service mesh* is a software layer that handles service-to-service communication. Service meshes are designed to address many of the concerns listed in the previous section, and to move responsibility for these concerns away from the microservices themselves and into a shared layer. The service mesh acts as a proxy that intercepts network communication between microservices in the cluster. Currently, the service mesh concept applies mainly to container orchestrators, rather than serverless architectures.
 
 > [!NOTE]
 > Service mesh is an example of the [Ambassador pattern](../../patterns/ambassador.md) &mdash; a helper service that sends network requests on behalf of the application.
