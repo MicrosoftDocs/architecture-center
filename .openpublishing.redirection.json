@@ -338,11 +338,6 @@
          "source_path": "docs/service-fabric/refactor-migrated-app.md",
          "redirect_url": "/azure/architecture/service-fabric/migrate-from-cloud-services",
          "redirect_document_id": true
-      },
-      {
-         "source_path": "docs/example-scenario/ai/scalable-personalization.md",
-         "redirect_url": "/azure/architecture/example-scenario/",
-         "redirect_document_id": true
       }
   ] 
   } 
