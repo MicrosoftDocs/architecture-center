@@ -1,5 +1,5 @@
 ---
-title: Scalable (automated, content-based) personalization on Azure
+title: Scalable personalization on Azure
 description: Use machine learning to automate content-based personalization for customers.
 author: gramhagen
 ms.author: scgraham

@@ -224,6 +224,8 @@
       href: example-scenario/ai/movie-recommendations.md
     - name: Newsfeed ingestion
       href: example-scenario/ai/newsfeed-ingestion.md
+    - name: Scalable personalization
+      href: example-scenario/ai/scalable-personalization.md
   - name: Apps
     items:
     - name: Computer-aided engineering
