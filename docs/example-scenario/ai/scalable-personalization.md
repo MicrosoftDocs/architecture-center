@@ -106,9 +106,10 @@ To better understand the cost of running this scenario on Azure, we provide a [p
 
 To see how pricing differs for your use case, change the variables to match your expected data size and serving load requirements. For larger or smaller training data sizes, the size of the Databricks cluster can be increased or reduced, respectively. To handle larger numbers of concurrent users during model serving, the AKS cluster should be increased. For more information on scaling AKS to support latency and load requirements, review the [operationalization notebook](https://aka.ms/recommenders/lgbm-criteo-o16n).
 
-## Related resources
+## Next steps
 
-For an in-depth guide to building and scaling a recommender service, see [Build a real-time recommendation API on Azure](/azure/architecture/reference-architectures/ai/real-time-recommendation). For additional tutorials and examples of recommendation systems, see the [Microsoft Recommenders] GitHub repository.
+- For an in-depth guide to building and scaling a recommender service, see [Build a real-time recommendation API on Azure](/azure/architecture/reference-architectures/ai/real-time-recommendation). 
+- To see more examples, tutorials, and tools to help you build your own recommendation system visit the [Microsoft Recommenders] GitHub repository.
 
 <!-- links -->
 [Azure Blob Storage]: https://azure.microsoft.com/services/storage/blobs/
