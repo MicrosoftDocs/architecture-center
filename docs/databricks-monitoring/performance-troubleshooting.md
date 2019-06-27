@@ -18,7 +18,7 @@ This article describes how to use monitoring dashboards to find performance bott
 
 To set up the Grafana dashboards shown in this article:
 
-- Configure your Databricks cluster to send telemetry to a Log Analytics workspace, using the Azure Databricks Monitoring Library. For details, see [Configure Azure Databricks to send metrics to Azure Monitor](./configure-cluster.md).
+- Configure your Databricks cluster to send telemetry to a Log Analytics workspace, using the Azure Databricks Monitoring Library. For details, see the [GitHub readme][config-cluster].
 
 - Deploy Grafana in a virtual machine. See [Use dashboards to visualize Azure Databricks metrics](./dashboards.md).
 
@@ -127,3 +127,6 @@ Use the resource consumption metrics to troubleshoot partition skewing and misal
 For example, the following graph shows that the memory used by shuffling on the first two executors is 90X bigger than the other executors:
 
 ![Graph showing percentage metrics](./_images/grafana-shuffle-memory.png)
+
+
+[config-cluster]: https://github.com/mspnp/spark-monitoring/blob/master/README.md
