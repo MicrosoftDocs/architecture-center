@@ -1,7 +1,7 @@
 ---
 author: adamboeglin
 ms.author: adboegli
-ms.date: 05/31/2019
+ms.date: 06/25/2019
 ms.topic: include
 ms.service: architecture-center
 ms.subservice: example-scenario
@@ -80,6 +80,25 @@ ms.subservice: example-scenario
                     <div class="cardText">
                         <h3>Mass ingestion and analysis of news feeds on Azure</h3>
                         <p>Create a pipeline for ingesting and analyzing text, images, sentiment, and other data from RSS news feeds using only Azure services, including Azure Cosmos DB and Azure Cognitive Services.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </a>
+</li>
+<li style="display: flex; flex-direction: column;">
+    <a href="./ai/scalable-personalization.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
+            <div class="cardPadding" style="display: flex;">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="./ai/media/architecture-scalable-personalization.png" alt="Architecture diagram for Scalable personalization on Azure" height="140px" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Scalable personalization on Azure</h3>
+                        <p>Use machine learning to automate content-based personalization for customers.</p>
                     </div>
                 </div>
             </div>
