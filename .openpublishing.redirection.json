@@ -338,6 +338,11 @@
          "source_path": "docs/service-fabric/refactor-migrated-app.md",
          "redirect_url": "/azure/architecture/service-fabric/migrate-from-cloud-services",
          "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/databricks-monitoring/configure-cluster.md",
+         "redirect_url": "/azure/architecture/databricks-monitoring",
+         "redirect_document_id": true
       }
   ] 
   } 
