@@ -140,7 +140,7 @@ Now, Contoso can run an assessment to analyze its on-premises SQL Server databas
     ![Data Migration Assistant - Select source](./media/contoso-migration-assessment/dma-assessment-1.png)
 
     > [!NOTE]
-    > Currently, Data Migration Assistant doesn't support assessment for migrating to an Azure SQL Database Managed Instance. As a workaround, Contoso uses SQL Server on an Azure VM as the supposed target for the assessment.
+    > Currently, Data Migration Assistant doesn't support assessment for migrating to an Azure SQL Database Managed Instance. As a workaround, Contoso uses SQL Server on an Azure VM as the supposed target for the assessment. Currenrly however Data Migration Tool shows "Azure SQL Managed Instance" option.
 
 3. In **Select Target Version**, Contoso selects SQL Server 2017 as the target version. Contoso needs to select this version because it's the version that's used by the SQL Database Managed Instance.
 4. Contoso selects reports to help it discover information about compatibility and new features:
