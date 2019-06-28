@@ -546,8 +546,6 @@
     items:
     - name: Overview
       href: databricks-monitoring/index.md
-    - name: Configure Databricks to send metrics to Azure Monitor
-      href: databricks-monitoring/configure-cluster.md
     - name: Send Databricks application logs to Azure Monitor
       href: databricks-monitoring/application-logs.md
     - name: Use dashboards to visualize Databricks metrics
