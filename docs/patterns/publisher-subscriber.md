@@ -127,3 +127,5 @@ The following patterns and guidance might be relevant when implementing this pat
 - [Observer Pattern](https://en.wikipedia.org/wiki/Observer_pattern). The Publish-Subscribe pattern builds on the Observer pattern by decoupling subjects from observers via asynchronous messaging.
 
 - [Message Broker Pattern](https://en.wikipedia.org/wiki/Message_broker). Many messaging subsystems that support a publish-subscribe model are implemented via a message broker.
+
+- [Publish/Subscribe sample](https://docs.particular.net/samples/pubsub/) using [NServiceBus](https://docs.particular.net/nservicebus/), showing how to leverage the Publisher/Subscriber pattern using a programming model that can be used with Azure Service Bus or other message broker technology.
