@@ -1,17 +1,16 @@
 ---
-title: Cloud Monitoring Guidance – Introduction
-description: Part 1 - Discussing Azure Monitor and System Center Operations Manager
+title: Cloud monitoring guide
+description: Overview of Azure Monitor and System Center Operations Manager
 services: azure-monitor
 keywords: 
 author: mgoedtel
 ms.author: magoedte
 ms.date: 06/26/2019
-ms.topic: conceptual
-ms.service: azure-monitor
-ms.subservice: ""
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
 ---
 
-# Cloud Monitoring Guidance – Introduction
+# Cloud monitoring guide: Introduction
 
 The cloud presents a fundamental shift in the way that enterprises procure and use technology resources. In the past, enterprises assumed ownership and responsibility of all levels of technology from infrastructure to software. Now, the cloud offers the potential to transform the way enterprises use technology by provisioning and consuming resources as needed.
 
@@ -37,17 +36,17 @@ It is important to note that while the first version of this document is focused
 
 ## Audience
 
-The audience for the Azure Monitoring Guide includes enterprise administrators, IT operations, IT security and compliance, application architects, workload development owners, and workload operations owners.
+The audience for the Cloud Monitoring Guide includes enterprise administrators, IT operations, IT security and compliance, application architects, workload development owners, and workload operations owners.
 
 ## How this guide is structured
 
 This article is part of a series that are meant to be read together and in order.
 
-* [Introduction](cloud-monitor-guidance-azure-intro.md)
-* [Monitoring Platforms Overview](cloud-monitor-guidance-azure-platform-overview.md)
-* [How to monitor your cloud apps](cloud-monitor-guidance-azure-cloud-app-howto.md)
-* [Data collection strategy](cloud-monitor-guidance-azure-data-collection.md)
-* [Alerting strategy](cloud-monitor-azure-alert.md)
+* Introduction (this article)
+* [Overview of the Azure monitoring platform](cloud-monitor-guidance-azure-platform-overview.md)
+* [Monitoring Azure cloud applications](cloud-monitor-guidance-azure-cloud-app-howto.md)
+* [Collecting the right data](cloud-monitor-guidance-azure-data-collection.md)
+* [Alerting](cloud-monitor-azure-alert.md)
 
 ## Products and services
 
@@ -64,4 +63,5 @@ A large part of this guide discusses and contrasts Azure Monitor to System Cente
 
 ## Next steps
 
-Read next section - [Monitoring Platforms Overview](cloud-monitor-guidance-azure-platform-overview.md)
+> [!div class="nextstepaction"]
+> [Overview of the Azure monitoring platform](cloud-monitor-guidance-azure-platform-overview.md)

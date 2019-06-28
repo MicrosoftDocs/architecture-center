@@ -6,20 +6,19 @@ keywords:
 author: mgoedtel
 ms.author: magoedte
 ms.date: 06/26/2019
-ms.topic: conceptual
-ms.service: azure-monitor
-ms.subservice: ""
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
 ---
 
-# Cloud Monitoring Guidance – Collecting the right data
+# Cloud monitoring guide: Collecting the right data
 
 This article is part of a series.
 
 * [Introduction](cloud-monitor-guidance-azure-intro.md)
-* [Monitoring Platforms Overview](cloud-monitor-guidance-azure-platform-overview.md)
-* [How to monitor your cloud apps](cloud-monitor-guidance-azure-cloud-app-howto.md)
-* Data collection strategy
-* [Alerting strategy](cloud-monitor-azure-alert.md)
+* [Overview of the Azure monitoring platform](cloud-monitor-guidance-azure-platform-overview.md)
+* [Monitoring Azure cloud applications](cloud-monitor-guidance-azure-cloud-app-howto.md)
+* Collecting the right data
+* [Alerting](cloud-monitor-azure-alert.md)
 
 In order to observe the health and availability of your cloud solution, it is necessary to configure the monitoring tools to collect a level of signals that are based on predictable failure states (the symptoms not the cause of the failure) using metrics and for advanced diagnostics and root cause analysis, use logs.  
 
@@ -46,4 +45,5 @@ Embracing this guiding set of principles gives you near real-time insights as we
 
 ## Next steps
 
-Read next section - [Alerting strategy](cloud-monitor-azure-alert.md)
+> [!div class="nextstepaction"]
+> [Alerting strategy](cloud-monitor-azure-alert.md)

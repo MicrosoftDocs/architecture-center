@@ -6,21 +6,19 @@ keywords:
 author: mgoedtel
 ms.author: magoedte
 ms.date: 06/26/2019
-ms.topic: conceptual
-ms.service: azure-monitor
-ms.subservice: ""
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
 ---
 
-# Cloud Monitoring Guidance – Azure Monitoring platform overview
+# Cloud monitoring guide: Overview of the Azure monitoring platform
 
 This article is part of a series.
 
 * [Introduction](cloud-monitor-guidance-azure-intro.md)
-* Monitoring Platforms Overview
-* [How to monitor your cloud apps](cloud-monitor-guidance-azure-cloud-app-howto.md)
-* [Data collection strategy](cloud-monitor-guidance-azure-data-collection.md)
-* [Alerting strategy](cloud-monitor-azure-alert.md)
-
+* Overview of the Azure monitoring platform
+* [Monitoring Azure cloud applications](cloud-monitor-guidance-azure-cloud-app-howto.md)
+* [Collecting the right data](cloud-monitor-guidance-azure-data-collection.md)
+* [Alerting](cloud-monitor-azure-alert.md)
 
 Microsoft provides a range of monitoring capabilities from two products: System Center Operations Manager for on-premises and Azure Monitor for the cloud. These offerings deliver core monitoring like alerting and service uptime tracking to application and infrastructure health monitoring to performance and failure diagnostics to analytics over log, events, and metrics.  Customers are embracing the latest practices for DevOps agility and cloud innovations to manage their heterogenous environments, but are concerned about their ability to make appropriate and responsible decisions regarding how to monitor those workloads with our offerings.  
 
@@ -197,4 +195,5 @@ Azure Monitor supports several methods to collect monitoring or management data 
 
 ## Next steps
 
-Read next section - [How to monitor your cloud apps](cloud-monitor-guidance-azure-cloud-app-howto.md)
+> [!div class="nextstepaction"]
+> [Monitoring Azure cloud applications](cloud-monitor-guidance-azure-cloud-app-howto.md)

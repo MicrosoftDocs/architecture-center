@@ -1109,9 +1109,9 @@
         items:
         - name: Introduction
           href: cloud-adoption/operations/monitor/cloud-monitor-guidance-azure-intro.md
-        - name: Platform Overview
+        - name: Platform overview
           href: cloud-adoption/operations/monitor/cloud-monitor-guidance-azure-platform-overview.md
-        - name: Monitoring Cloud Apps
+        - name: Monitoring cloud apps
           href: cloud-adoption/operations/monitor/cloud-monitor-guidance-azure-cloud-app-howto.md
         - name: Data collection
           href: cloud-adoption/operations/monitor/cloud-monitor-guidance-azure-data-collection.md

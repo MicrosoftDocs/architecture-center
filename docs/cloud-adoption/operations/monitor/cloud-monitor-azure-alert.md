@@ -6,20 +6,19 @@ keywords:
 author: mgoedtel
 ms.author: magoedte
 ms.date: 06/26/2019
-ms.topic: conceptual
-ms.service: azure-monitor
-ms.subservice: ""
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
 ---
 
-# Cloud Monitoring Guidance – Alerting
+# Cloud monitoring guide: Alerting
 
 This article is part of a series.
 
 * [Introduction](cloud-monitor-guidance-azure-intro.md)
-* [Monitoring Platforms Overview](cloud-monitor-guidance-azure-platform-overview.md)
-* [How to monitor your cloud apps](cloud-monitor-guidance-azure-cloud-app-howto.md)
-* [Data collection strategy](cloud-monitor-guidance-azure-data-collection.md)
-* Alerting strategy
+* [Overview of the Azure monitoring platform](cloud-monitor-guidance-azure-platform-overview.md)
+* [Monitoring Azure cloud applications](cloud-monitor-guidance-azure-cloud-app-howto.md)
+* [Collecting the right data](cloud-monitor-guidance-azure-data-collection.md)
+* Alerting
 
 ## Successful alerting strategy
 
@@ -38,7 +37,7 @@ These questions should be asked when initially developing a monitoring configura
 
 Both Operations Manager and Azure Monitor support alerts based on static or even dynamic thresholds and actions set up on top of them, such as email, SMS, voice calls for simple notifications.  They also support ITSM integration to automate the creation of incident records and escalate to the correct support team, or any other alert management system using a webhook.  When possible, automating recovery actions depending on the situation can be accomplished using System Center Orchestrator, Azure Automation, Azure Logic Apps, or autoscaling in the case of elastic workloads.  While notifying responsible teams is the most common action for alerting, automating corrective actions as needed and where it makes sense, can help streamline the entire incident management process.  Automating these recovery tasks can also reduce the risk of human error, where some may be honest mistakes but still are a concern for service owners and the business.  
 
-## Azure Monitor Alerting
+## Azure Monitor alerting
 
 If you are using the Azure Monitor platform exclusively, the following guidance applies. 
 
@@ -58,13 +57,13 @@ There are six repositories that store monitoring data, depending on the feature 
 
 There are four types of alerts in Azure Monitor, which are somewhat tied to the repository the data is stored in.
 
-1. [Metric alert](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-metric) - Alerts on data in Azure Monitor metrics database. Alerts occur when a monitored value crossed a user-defined threshold. goes beyond a threshold (active) and then again when it returns to “normal” state.  
+1. [Metric alert](/azure/azure-monitor/platform/alerts-metric) - Alerts on data in Azure Monitor metrics database. Alerts occur when a monitored value crossed a user-defined threshold. goes beyond a threshold (active) and then again when it returns to “normal” state.  
 
-2. [Log query alert](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-log-query) – Available to alerts on content in the Application Insights or Azure Logs stores. Can also alert based on cross-workspace queries. 
+2. [Log query alert](/azure/azure-monitor/platform/alerts-log-query) – Available to alerts on content in the Application Insights or Azure Logs stores. Can also alert based on cross-workspace queries. 
 
-3. [Activity Log alert](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-activity-log) – Alert on items in the Activity Log store, with the exception of Service Health data. Activity Log 
+3. [Activity Log alert](/azure/azure-monitor/platform/alerts-activity-log) – Alert on items in the Activity Log store, with the exception of Service Health data. Activity Log 
 
-4. [Service Health alert](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-activity-log-service-notifications?toc=%2fazure%2fservice-health%2ftoc.json) – A special type of alert just for Service Health issues coming from the Activity log store.  
+4. [Service Health alert](/azure/azure-monitor/platform/alerts-activity-log-service-notifications?toc=%2fazure%2fservice-health%2ftoc.json) – A special type of alert just for Service Health issues coming from the Activity log store.  
 
 **Follow these guidelines when considering speed, cost, and storage volume in Azure Monitor.**
 
@@ -76,7 +75,7 @@ Azure Monitor includes support for integrating with other monitoring platforms, 
 
 ### Specialized Azure monitoring offerings
 
-[Management solutions](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/solutions-inventory) generally store their data in the Azure Logs store.  The two exceptions are Azure Monitor for VMs and Azure Monitor for containers, and the following table describes the alerting experience based on the particular data type and where it is stored.
+[Management solutions](/azure/azure-monitor/insights/solutions-inventory) generally store their data in the Azure Logs store.  The two exceptions are Azure Monitor for VMs and Azure Monitor for containers, and the following table describes the alerting experience based on the particular data type and where it is stored.
 
 Solution| Data type | Alert behavior
 :---|:---|:---
@@ -99,7 +98,7 @@ There are some important footnotes to this rule.
 
 * You can send to both stores by running both the extension and the agent on the same VM. Then you can alert quickly, but also use the Guest OS data as part of more complex searches when combined with other telemetry.
 
-**Importing data from on-premises** – If you are trying to query and monitor across machines running in Azure and on premises, you can use the Log Analytics agent to collect guest OS data and then use a feature called [Logs to Metrics](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-metric-logs) to streamline those metrics into the metrics store. This method bypasses part of the ingestion process into the Azure Logs store and thus is available sooner in the metrics database.
+**Importing data from on-premises** – If you are trying to query and monitor across machines running in Azure and on premises, you can use the Log Analytics agent to collect guest OS data and then use a feature called [Logs to Metrics](/azure/azure-monitor/platform/alerts-metric-logs) to streamline those metrics into the metrics store. This method bypasses part of the ingestion process into the Azure Logs store and thus is available sooner in the metrics database.
 
 ### Minimize alerts
 
@@ -114,17 +113,17 @@ If you aren’t using Azure Monitor for VMs, we recommend you explore the follow
 > [!NOTE] 
 > These features apply only to metric alerts; that is, alerts based on data being send to the Azure Monitor metric database. They do not apply to the other types of alerts. As mentioned previously, metric alerts primary concern is alerting speed over cost. If getting an alert in less than 5-minutes is not of primary concern, we suggest you use a log query alert.
 
-* [Dynamic Thresholds](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/alerts-dynamic-thresholds) – Dynamic thresholds look at the activity of the resource over a time period and create upper and lower "normal behavior" thresholds. When the metric being monitored falls outside of these thresholds (either above or below as you specify), you get an alert.
+* [Dynamic Thresholds](/azure/azure-monitor/platform/alerts-dynamic-thresholds) – Dynamic thresholds look at the activity of the resource over a time period and create upper and lower "normal behavior" thresholds. When the metric being monitored falls outside of these thresholds (either above or below as you specify), you get an alert.
 
 * [Multi-signal alerts](https://azure.microsoft.com/en-us/blog/monitor-at-scale-in-azure-monitor-with-multi-resource-metric-alerts/) - You can create a metric alert that uses the combination of two different inputs from two different resource types. So for example, if you want to fire an alert when the CPU of a VM is over 90% and the number of messages in a certain Service Bus queue feeding that VM exceeds a certain amount, you can do that without creating a log query. This only works for two signals. If you have a more complex query with more than two signals, you have fed your metric data into the Azure Monitor Log store and use a log query.
 
-* [Multi-resource alerts](https://azure.microsoft.com/en-us/blog/monitor-at-scale-in-azure-monitor-with-multi-resource-metric-alerts/) – Azure Monitor allows a single metric alert rule that applies to all VM resources. Using this feature can save you time as you do not need to individual create alerts for each VM. Pricing for this type of alert is the same.  If you created 50 alerts for monitoring CPU usage for 50 VMs or 1 alert that monitors CPU usage for all 50 VMs, it costs you the same amount. You can use these types of alerts in combination with dynamic thresholds as well. 
+* [Multi-resource alerts](https://azure.microsoft.com/en-us/blog/monitor-at-scale-in-azure-monitor-with-multi-resource-metric-alerts/) – Azure Monitor allows a single metric alert rule that applies to all VM resources. Using this feature can save you time as you do not need to create individual alerts for each VM. Pricing for this type of alert is the same.  If you created 50 alerts for monitoring CPU usage for 50 VMs or 1 alert that monitors CPU usage for all 50 VMs, it costs you the same amount. You can use these types of alerts in combination with dynamic thresholds as well. 
 
 Used together, these features can save time by minimizing alert notifications and the management of the underlying alerts.
 
 ### Alerts limitations
 
-Be sure to note the [limitations](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#monitor-limits) of how many alerts can be created per subscription, etc. Some, but not all, limits can be increased by calling support.
+Be sure to note the [limitations](/azure/azure-subscription-service-limits#monitor-limits) of how many alerts can be created per subscription, etc. Some, but not all, limits can be increased by calling support.
 
 ### Best query experience
 
