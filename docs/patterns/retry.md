@@ -173,3 +173,4 @@ private bool IsTransient(Exception ex)
 - [Circuit Breaker pattern](./circuit-breaker.md). The Retry pattern is useful for handling transient faults. If a failure is expected to be more long lasting, it might be more appropriate to implement the Circuit Breaker pattern. The Retry pattern can also be used in conjunction with a circuit breaker to provide a comprehensive approach to handling faults.
 - [Retry guidance for specific services](/azure/architecture/best-practices/retry-service-specific)
 - [Connection Resiliency](/ef/core/miscellaneous/connection-resiliency)
+- [Message replay tutorial](https://docs.particular.net/tutorials/message-replay/) using [NServiceBus](https://docs.particular.net/nservicebus/), showing the ability to perform retries within a distributed system built on asynchronous messaging.
