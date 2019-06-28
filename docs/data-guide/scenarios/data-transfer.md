@@ -112,12 +112,12 @@ The following tables summarize the key differences in capabilities.
 | Capability | Azure CLI | AzCopy | PowerShell | AdlCopy | PolyBase |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | Compatible platforms | Linux, OS X, Windows | Linux, Windows | Windows | Linux, OS X, Windows | SQL Server, Azure SQL Data Warehouse |
-| Optimized for big data | No | No | No | Yes <sup>1</sup> | Yes <sup>2</sup> |
+| Optimized for big data | No | Yes | No | Yes <sup>1</sup> | Yes <sup>2</sup> |
 | Copy to relational database | No | No | No | No | Yes |
 | Copy from relational database | No | No | No | No | Yes |
 | Copy to Blob storage | Yes | Yes | Yes | No | Yes |
 | Copy from Blob storage | Yes | Yes | Yes | Yes | Yes |
-| Copy to Data Lake Store | No | No | Yes | Yes |  Yes |
+| Copy to Data Lake Store | No | Yes | Yes | Yes |  Yes |
 | Copy from Data Lake Store | No | No | Yes | Yes | Yes |
 
 <!-- markdownlint-enable MD033 -->

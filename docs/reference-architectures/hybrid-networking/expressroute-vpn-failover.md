@@ -48,7 +48,7 @@ The following recommendations apply for most scenarios. Follow these recommendat
 
 ### VNet and GatewaySubnet
 
-Create the ExpressRoute virtual network gateway and the VPN virtual network gateway in the same VNet. This means that they should share the same subnet named *GatewaySubnet*.
+Create the ExpressRoute virtual network gateway connection and the VPN virtual network gateway connection in the same VNet with a Gateway object already in place. They will both share the same subnet named *GatewaySubnet*.
 
 If the VNet already includes a subnet named *GatewaySubnet*, ensure that it has a /27 or larger address space. If the existing subnet is too small, use the following PowerShell command to remove the subnet:
 
