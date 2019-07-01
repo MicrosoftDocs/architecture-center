@@ -128,6 +128,3 @@ Be sure to note the [limitations](/azure/azure-subscription-service-limits#monit
 ### Best query experience
 
 If you are looking for trends across all your data, then it makes sense to import all your data into Azure Logs, unless it’s already in the Application Insights.  You can create cross-workspace queries across both workspaces so there is no need to move data between them. You can also import Activity Log and Service Health data into your Log Analytics workspace.  While you pay for this ingestion and storage, you now have all your data in one place for analysis and querying, giving you the ability to also create complex query conditions and alert on them. 
-
-## Next steps
-
