@@ -145,7 +145,7 @@ To learn more about the reference implementation, read [Show me the code: Server
 [eh]: /azure/event-hubs/
 [eh-autoscale]: /azure/event-hubs/event-hubs-auto-inflate
 [eh-dr]: /azure/event-hubs/event-hubs-geo-dr
-[eh-throughput]: /azure/event-hubs/event-hubs-features#throughput-units
+[eh-throughput]: /azure/event-hubs/event-hubs-scalability#throughput-units
 [eh-trigger]: /azure/azure-functions/functions-bindings-event-hubs
 [functions]: /azure/azure-functions/functions-overview
 [iot]: /azure/iot-hub/iot-hub-compare-event-hubs
