@@ -1,6 +1,6 @@
 ---
-title: Cloud Monitoring Guidance – Monitoring Azure cloud apps
-description: Part 3 - Choose when to use Azure Monitor or System Center Operations Manager in Microsoft Azure
+title: Cloud monitoring guide – Monitoring Azure cloud apps
+description: Choose when to use Azure Monitor or System Center Operations Manager in Microsoft Azure
 services: azure-monitor
 keywords: 
 author: mgoedtel
@@ -14,11 +14,11 @@ ms.subservice: enterprise-cloud-adoption
 
 This article is part of a series.
 
-* [Introduction](cloud-monitor-guidance-azure-intro.md)
-* [Overview of the Azure monitoring platform](cloud-monitor-guidance-azure-platform-overview.md)
+* [Introduction](./index.md)
+* [Overview of the Azure monitoring platform](./platform-overview.md)
 * Monitoring Azure cloud applications
-* [Collecting the right data](cloud-monitor-guidance-azure-data-collection.md)
-* [Alerting](cloud-monitor-azure-alert.md)
+* [Collecting the right data](./data-collection.md)
+* [Alerting](./alert.md)
 
 The following section includes our recommended monitoring strategy for each of the cloud deployment models, based on the following criteria:
 
@@ -70,7 +70,7 @@ Once availability monitoring is in place, Application Insights offers two core f
 
 **Live app monitoring** is currently only available for .NET/.NET Core and allows instrumenting an application without modifying its internal code. Live app monitoring can be used to quickly add monitoring to an already deployed live application you wrote. It also allows you to perform deep application monitoring against third-party .NET applications where you don’t necessarily have access to the source code. Live app monitoring can collect: 
 
-* Requests & exceptions
+* Requests and exceptions
 * Dependency diagnostic information including SQL Command text
 * System performance counters
 
@@ -127,4 +127,4 @@ Experiences – Dashboards, reports, integrations with IT/DevOps tools… | Curr
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Collecting the right data](cloud-monitor-guidance-azure-data-collection.md)
+> [Collecting the right data](./data-collection.md)

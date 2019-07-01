@@ -1,6 +1,6 @@
 ---
-title:  Cloud Monitoring Guidance – Azure Monitoring platform overview
-description: Part 2 - Choose when to use Azure Monitor or System Center Operations Manager in Microsoft Azure
+title:  Cloud monitoring guide – Azure Monitoring platform overview
+description: Choose when to use Azure Monitor or System Center Operations Manager in Microsoft Azure
 services: azure-monitor
 keywords: 
 author: mgoedtel
@@ -14,11 +14,11 @@ ms.subservice: enterprise-cloud-adoption
 
 This article is part of a series.
 
-* [Introduction](cloud-monitor-guidance-azure-intro.md)
+* [Introduction](./index.md)
 * Overview of the Azure monitoring platform
-* [Monitoring Azure cloud applications](cloud-monitor-guidance-azure-cloud-app-howto.md)
-* [Collecting the right data](cloud-monitor-guidance-azure-data-collection.md)
-* [Alerting](cloud-monitor-azure-alert.md)
+* [Monitoring Azure cloud applications](./cloud-app-howto.md)
+* [Collecting the right data](./data-collection.md)
+* [Alerting](./alert.md)
 
 Microsoft provides a range of monitoring capabilities from two products: System Center Operations Manager for on-premises and Azure Monitor for the cloud. These offerings deliver core monitoring like alerting and service uptime tracking to application and infrastructure health monitoring to performance and failure diagnostics to analytics over log, events, and metrics.  Customers are embracing the latest practices for DevOps agility and cloud innovations to manage their heterogenous environments, but are concerned about their ability to make appropriate and responsible decisions regarding how to monitor those workloads with our offerings.  
 
@@ -58,7 +58,7 @@ At Microsoft Ignite conference in 2018, we announced that Azure Monitor expanded
 * **Azure Insights** (briefly branded Azure Monitor before Ignite 2018) provided core metrics and resource diagnostics logs for only Azure platform resources. It also included alerting and notification based on those metrics. The notification system included the ability to integrate with partner applications through webhooks and ITSM software and later Azure Logic Apps and Automation in addition to common notification methods such as voice, SMS, and email.
 * **Azure Network Watcher** to monitor, diagnose, and view metrics for resources in an Azure virtual network.
 
-![Timeline](media/monitoring-management-guidance-cloud-and-on-premises/timeline.png)
+![Timeline](./media/monitoring-management-guidance-cloud-and-on-premises/timeline.png)
 
 Now that you understand the history, let’s move on to review the fundamental way Operations Manager monitors applications and infrastructure services and understand the advantages Azure Monitor provides as a SaaS monitoring platform for organizations.  
 
@@ -68,14 +68,14 @@ Now that you understand the history, let’s move on to review the fundamental w
 
 Operations Manager requires significant infrastructure to support a management group, which is a basic unit of functionality.  At a minimum, a management group consists of one or more management servers, a SQL Server hosting the operational and reporting data warehouse database, and agents.  The complexity of a management group design depends on a number of factors such as the scope of workloads to monitor, how many devices or computers support the workloads, and if high availability and site resiliency are required.  
 
-![Timeline](media/monitoring-management-guidance-cloud-and-on-premises/operations-manager-management-group-optimized.svg)
+![Timeline](./media/monitoring-management-guidance-cloud-and-on-premises/operations-manager-management-group-optimized.svg)
 
 Each of these components requires infrastructure and software within your corporate network that must be maintained.
 
 ### Azure Monitor
 Azure Monitor is a SaaS service where all the infrastructure supporting it is running in the Azure cloud and is managed by us. It is designed to do monitoring, analytics, and diagnostics at scale and is available in all national clouds.  Core parts of the infrastructure - collectors, metrics and logs store, and analytics are necessary to support Azure Monitor.  
 
-![Timeline](media/monitoring-management-guidance-cloud-and-on-premises/azure-monitor-greyed-optimized.svg)
+![Timeline](./media/monitoring-management-guidance-cloud-and-on-premises/azure-monitor-greyed-optimized.svg)
 
 ## Data collection
 
@@ -85,7 +85,7 @@ Azure Monitor is a SaaS service where all the infrastructure supporting it is ru
 
 Operations Manager only collects data directly from agents installed on [Windows computers](https://docs.microsoft.com//system-center/scom/plan-planning-agent-deployment?view=sc-om-1807#windows-agent). It can accept data from the Operations Manager SDK, but this setup is typically used for partners extending the product with custom applications and typically not used to collect monitoring data. It collects data from other sources such [Linux computers](https://docs.microsoft.com/system-center/scom/plan-planning-agent-deployment?view=sc-om-1807#linuxunix-agent) and network devices by using special modules that run on the Windows agent remotely accessing these other devices.
 
-![Timeline](media/monitoring-management-guidance-cloud-and-on-premises/data-collection-opsman-agents-optimized.svg)
+![Timeline](./media/monitoring-management-guidance-cloud-and-on-premises/data-collection-opsman-agents-optimized.svg)
 
 The Operations Manager agent can collect from multiple data sources on the local computer such as event log, custom logs, and performance counters.  It can also run scripts, which can collect data from the local computer or from external sources. You can write custom scripts to collect data that can’t be collected with other means or from a variety of remote devices that can’t otherwise be monitored.
 
@@ -101,7 +101,7 @@ For example, a monitor might sample a performance counter every few minutes. If 
 
 Because workflows are isolated from each other and work from the individual sources of data, Operations Manager has challenges correlating data between multiple sources. It’s also difficult to react to data once it’s been collected. You can run workflows that access the Operations Manager database, but this scenario isn’t common and it typically used for a limited number of special purpose workflows.
 
-![Timeline](media/monitoring-management-guidance-cloud-and-on-premises/operations-manager-management-group-optimized.svg)
+![Timeline](./media/monitoring-management-guidance-cloud-and-on-premises/operations-manager-management-group-optimized.svg)
 
 ### Azure Monitor
 
@@ -196,4 +196,4 @@ Azure Monitor supports several methods to collect monitoring or management data 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Monitoring Azure cloud applications](cloud-monitor-guidance-azure-cloud-app-howto.md)
+> [Monitoring Azure cloud applications](./cloud-app-howto.md)

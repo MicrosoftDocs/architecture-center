@@ -16,7 +16,7 @@ The cloud presents a fundamental shift in the way that enterprises procure and u
 
 While the cloud offers nearly unlimited flexibility in terms of design choices, enterprises seek proven and consistent methodology for the adoption of cloud technologies.  Each enterprise has different goals and timelines for cloud adoption, making a one-size-fits-all approach to adoption nearly impossible.
 
-![Cloud adoption strategies](media/monitoring-management-guidance-cloud-and-on-premises/introduction-cloud-adoption.png)
+![Cloud adoption strategies](./media/monitoring-management-guidance-cloud-and-on-premises/introduction-cloud-adoption.png)
 
 This digital transformation is also enabling an opportunity to modernize your infrastructure, workloads, and applications. Depending on business strategy and objectives, adopting a hybrid cloud model is likely part of the migration journey from on-premises to fully operating in the cloud. During this transformative journey, IT teams are challenged to not only adopt and realize rapid value from the cloud, but also understand how to effectively monitor the application or service migrating to Azure and continue delivering effective IT operations/DevOps.  
 
@@ -43,10 +43,10 @@ The audience for the Cloud Monitoring Guide includes enterprise administrators, 
 This article is part of a series that are meant to be read together and in order.
 
 * Introduction (this article)
-* [Overview of the Azure monitoring platform](cloud-monitor-guidance-azure-platform-overview.md)
-* [Monitoring Azure cloud applications](cloud-monitor-guidance-azure-cloud-app-howto.md)
-* [Collecting the right data](cloud-monitor-guidance-azure-data-collection.md)
-* [Alerting](cloud-monitor-azure-alert.md)
+* [Overview of the Azure monitoring platform](./platform-overview.md)
+* [Monitoring Azure cloud applications](./cloud-app-howto.md)
+* [Collecting the right data](./data-collection.md)
+* [Alerting](./alert.md)
 
 ## Products and services
 
@@ -64,4 +64,4 @@ A large part of this guide discusses and contrasts Azure Monitor to System Cente
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Overview of the Azure monitoring platform](cloud-monitor-guidance-azure-platform-overview.md)
+> [Overview of the Azure monitoring platform](./platform-overview.md)
