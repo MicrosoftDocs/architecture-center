@@ -1,5 +1,6 @@
 ---
 title:  Cloud monitoring guide – Azure Monitoring platform overview
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Choose when to use Azure Monitor or System Center Operations Manager in Microsoft Azure
 services: azure-monitor
 keywords: 
@@ -12,24 +13,16 @@ ms.subservice: enterprise-cloud-adoption
 
 # Cloud monitoring guide: Overview of the Azure monitoring platform
 
-This article is part of a series.
-
-* [Introduction](./index.md)
-* Overview of the Azure monitoring platform
-* [Monitoring Azure cloud applications](./cloud-app-howto.md)
-* [Collecting the right data](./data-collection.md)
-* [Alerting](./alert.md)
-
 Microsoft provides a range of monitoring capabilities from two products: System Center Operations Manager for on-premises and Azure Monitor for the cloud. These offerings deliver core monitoring like alerting and service uptime tracking to application and infrastructure health monitoring to performance and failure diagnostics to analytics over log, events, and metrics.  Customers are embracing the latest practices for DevOps agility and cloud innovations to manage their heterogenous environments, but are concerned about their ability to make appropriate and responsible decisions regarding how to monitor those workloads with our offerings.  
 
-This section will describe and compare the current offerings available and outline our recommended strategy based on the following factors:
+This article describes and compare the current offerings available and outline our recommended strategy based on the following factors:
 
 * Your current investment in Operations Manager or other monitoring platform on your corporate network and whether it’s tightly integrated with your IT operations processes.
 * Your migration approach to Azure. This approach could be a staged one extending your corporate network to Azure or redesigning applications and services to run natively in Azure using a combination of IaaS and PaaS resources.  
 
 Our strategy includes support for monitoring infrastructure (compute, storage, and server workloads), application (end-user, exceptions, and client), and network resources to deliver a complete service-oriented monitoring perspective.
 
-Now every journey has a story, so before we dive into the detailed overview, let’s start with a brief retrospective look at where it all began when we entered the monitoring field and how our strategy has evolved over time.
+Every journey has a story, so before we dive into the detailed overview, let’s start with a brief retrospective look at where it all began when we entered the monitoring field and how our strategy has evolved over time.
 
 ## Story of System Center Operations Manager
 
@@ -62,7 +55,7 @@ At Microsoft Ignite conference in 2018, we announced that Azure Monitor expanded
 
 Now that you understand the history, let’s move on to review the fundamental way Operations Manager monitors applications and infrastructure services and understand the advantages Azure Monitor provides as a SaaS monitoring platform for organizations.  
 
-## Infrastructure Requirements
+## Infrastructure requirements
 
 ### Operations Manager
 
@@ -105,7 +98,7 @@ Because workflows are isolated from each other and work from the individual sour
 
 ### Azure Monitor
 
-#### Data Sources
+#### Data sources
 
 Azure Monitor collects data from a variety of sources, including Azure infrastructure and platform resources, agents on Windows and Linux computers, and monitoring data collected in Azure storage. Any REST client can write log data to Azure Monitor using an API, and you can define custom metrics for your web applications. Some metric data can be routed to different locations depending on its usage – fast-as-possible alerting or long-term trend analysis searched in conjunction with other log data.  
 
@@ -122,7 +115,7 @@ All data collected by Azure Monitor is stored as either logs or metrics, and dif
 
 Because Azure Monitor separates data collection from actions against that data, it may not be able to provide near real time alerting in many cases. All log data must be retrieved using a log query which is scheduled in alerts. This behavior allows Azure Monitor to easily correlate data from all monitored sources, and you can interactively analyze data in a variety of ways.
 
-## Health Monitoring
+## Health monitoring
 
 ### Operations Manager
 

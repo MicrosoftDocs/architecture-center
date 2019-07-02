@@ -1,5 +1,6 @@
 ---
 title: Cloud monitoring guide – Collecting the right data
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Choose when to use Azure Monitor or System Center Operations Manager in Microsoft Azure
 services: azure-monitor
 keywords: 
@@ -12,15 +13,9 @@ ms.subservice: enterprise-cloud-adoption
 
 # Cloud monitoring guide: Collecting the right data
 
-This article is part of a series.
+This article describes some considerations for collecting monitoring data in a cloud application. 
 
-* [Introduction](./index.md)
-* [Overview of the Azure monitoring platform](./platform-overview.md)
-* [Monitoring Azure cloud applications](./cloud-app-howto.md)
-* Collecting the right data
-* [Alerting](./alert.md)
-
-In order to observe the health and availability of your cloud solution, it is necessary to configure the monitoring tools to collect a level of signals that are based on predictable failure states (the symptoms not the cause of the failure) using metrics and for advanced diagnostics and root cause analysis, use logs.  
+To observe the health and availability of your cloud solution, you must configure the monitoring tools to collect a level of signals that are based on predictable failure states (the symptoms not the cause of the failure) using metrics and for advanced diagnostics and root cause analysis, use logs.  
 
 Plan for monitoring and migration thoughtfully starting by including the monitoring service owner, the manager of operations, and other related personas during the planning phase, and continue engaging them throughout the development and release cycle. Their focus will be to develop a monitoring configuration that is based on the following criteria:
 

@@ -1,5 +1,6 @@
 ---
 title: Cloud monitoring guide
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Overview of Azure Monitor and System Center Operations Manager
 services: azure-monitor
 keywords: 

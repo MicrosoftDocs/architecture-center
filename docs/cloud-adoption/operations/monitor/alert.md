@@ -1,5 +1,6 @@
 ---
 title: Cloud monitoring guide – Alerting
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Choose when to use Azure Monitor or System Center Operations Manager in Microsoft Azure
 services: azure-monitor
 keywords: 
@@ -12,26 +13,18 @@ ms.subservice: enterprise-cloud-adoption
 
 # Cloud monitoring guide: Alerting
 
-This article is part of a series.
-
-* [Introduction](./index.md)
-* [Overview of the Azure monitoring platform](./platform-overview.md)
-* [Monitoring Azure cloud applications](./cloud-app-howto.md)
-* [Collecting the right data](./data-collection.md)
-* Alerting
+For years, IT organizations have struggled to combat alert fatigue created by the monitoring tools deployed in the enterprise. Many systems generate a high volume of alerts often considered meaningless, while others are relevant but are either overlooked or ignored.  As a result, IT and developer operations have struggled to meet service-level quality promised to the internal or external customer.  It is essential to understand the state of your infrastructure and applications to ensure reliability and identify causes quickly to minimize service degradation and disruption or decrease impact of or reduce number of incidents.  
 
 ## Successful alerting strategy
-
-For years, IT organizations have struggled to combat alert fatigue created by the monitoring tools deployed in the enterprise. Many systems generate a high volume of alerts often considered meaningless, while others are relevant but are either overlooked or ignored.  As a result, IT and developer operations have struggled to meet service-level quality promised to the internal or external customer.  It is essential to understand the state of your infrastructure and applications to ensure reliability and identify causes quickly to minimize service degradation and disruption or decrease impact of or reduce number of incidents.  
 
 *You can’t fix what you don’t know is broken.*
 
 Alerting on what matters is critical, it is underpinned by collecting and measuring the right metrics and logs, as well a monitoring tool that is capable of storing, aggregating, visualizing, analyzing, and initiating an automated response when conditions are met.  Improving observability of your services and applications can only be accomplished if you fully understand its composition in order to map/translate that into a detailed monitoring configuration to be applied by the monitoring platform, including the predictable failure states (the symptoms not the cause of the failure) that make sense to alert on.  Consider the following principles for determining if a symptom is an appropriate candidate to alert on:
 
-1. **Does it matter?** - Is the issue symptomatic of a real problem or issue influencing overall health of the application?  Do I care if the CPU utilization is high on the resource or that a particular SQL query running on a SQL database instance on that resource is consuming high CPU utilization over a sustained period?  Being the CPU utilization condition is a real issue, you should alert on it but not notify the team because it doesn’t help point to what is causing the condition in the first place.  Alerting and notifying on the SQL query process utilization issue is both relevant and actionable.  
-2. **Is it urgent?** -  Is the issue real and does it need urgent attention?  If so, the team responsible should be immediately notified.   
-3. **Are my customers affected?** - Are users of the service or application impacted as a result of the issue?
-4. **Are other dependent systems affected?** - Are there alerts from dependencies that are interrelated that could possibly be correlated to avoid notifying different teams all working on the same problem?  
+- **Does it matter?** - Is the issue symptomatic of a real problem or issue influencing overall health of the application?  Do I care if the CPU utilization is high on the resource or that a particular SQL query running on a SQL database instance on that resource is consuming high CPU utilization over a sustained period?  Being the CPU utilization condition is a real issue, you should alert on it but not notify the team because it doesn’t help point to what is causing the condition in the first place.  Alerting and notifying on the SQL query process utilization issue is both relevant and actionable.  
+- **Is it urgent?** -  Is the issue real and does it need urgent attention?  If so, the team responsible should be immediately notified.   
+- **Are my customers affected?** - Are users of the service or application impacted as a result of the issue?
+- **Are other dependent systems affected?** - Are there alerts from dependencies that are interrelated that could possibly be correlated to avoid notifying different teams all working on the same problem?  
 
 These questions should be asked when initially developing a monitoring configuration. The assumptions should be tested and validated in a pre-production environment, and then deployed into production. Monitoring configurations are derived from known failure modes, test results of simulated failures, and experience from different members of the team.  After release, observed learnings such as high alert volume, issues unnoticed by monitoring but noticed by end users, what was the best actions to have taken, etc. should be evaluated, change identified, agreed upon, and implemented to improve service delivery as part of an ongoing continuous monitoring improvement process.  It’s not just about evaluating alert noise or missed alerts, but also effectiveness of how you are monitoring the workload, effectiveness of your alert policies and process, and overall culture to determine if you are improving.
 
@@ -43,29 +36,29 @@ If you are using the Azure Monitor platform exclusively, the following guidance 
 
 There are six repositories that store monitoring data, depending on the feature and configuration you are using.
 
-1. **Azure Monitor metrics database** -  A time-series database used primarily for Azure Monitor platform metrics, but also has Application Insights metric data mirrored into it. Information entering this database has the fastest alert times. 
+- **Azure Monitor metrics database** -  A time-series database used primarily for Azure Monitor platform metrics, but also has Application Insights metric data mirrored into it. Information entering this database has the fastest alert times. 
 
-2. **Application Insights logs store** – A database which stores most Application Insights telemetry in log form. 
+- **Application Insights logs store** – A database which stores most Application Insights telemetry in log form. 
 
-3. **Azure Monitor logs store** – Primary store for Azure Log data. Other tools can route data to it and can be analyzed in Azure Monitor logs.  Log alert queries have higher latency due to ingestion and indexing latency, which is generally in the five to ten-minute range, but can be higher under certain circumstances.   
+- **Azure Monitor logs store** – Primary store for Azure Log data. Other tools can route data to it and can be analyzed in Azure Monitor logs.  Log alert queries have higher latency due to ingestion and indexing latency, which is generally in the five to ten-minute range, but can be higher under certain circumstances.   
 
-4. **Activity log store** – Used for all activity log and service health events. Dedicated alerting is possible. Holds subscription level events that occur on objects in your subscription as seen from the outside of those objects. For example when policy is set, a resource accessed or deleted. 
+- **Activity log store** – Used for all activity log and service health events. Dedicated alerting is possible. Holds subscription level events that occur on objects in your subscription as seen from the outside of those objects. For example when policy is set, a resource accessed or deleted. 
 
-5. **Azure Storage** – General-purpose storage supported by Azure Diagnostics extension and other monitoring tools that is a low-cost option for long-term retention of monitoring telemetry. Alerting is not supported from data stored in this service. 
+- **Azure Storage** – General-purpose storage supported by Azure Diagnostics extension and other monitoring tools that is a low-cost option for long-term retention of monitoring telemetry. Alerting is not supported from data stored in this service. 
 
-6. **Event Hubs** – Generally used to stream data into on-premises or other partners monitoring/ITSM tools. 
+- **Event Hubs** – Generally used to stream data into on-premises or other partners monitoring/ITSM tools. 
 
 There are four types of alerts in Azure Monitor, which are somewhat tied to the repository the data is stored in.
 
-1. [Metric alert](/azure/azure-monitor/platform/alerts-metric) - Alerts on data in Azure Monitor metrics database. Alerts occur when a monitored value crossed a user-defined threshold. goes beyond a threshold (active) and then again when it returns to “normal” state.  
+- [Metric alert](/azure/azure-monitor/platform/alerts-metric) - Alerts on data in Azure Monitor metrics database. Alerts occur when a monitored value crossed a user-defined threshold. goes beyond a threshold (active) and then again when it returns to “normal” state.  
 
-2. [Log query alert](/azure/azure-monitor/platform/alerts-log-query) – Available to alerts on content in the Application Insights or Azure Logs stores. Can also alert based on cross-workspace queries. 
+- [Log query alert](/azure/azure-monitor/platform/alerts-log-query) – Available to alerts on content in the Application Insights or Azure Logs stores. Can also alert based on cross-workspace queries. 
 
-3. [Activity Log alert](/azure/azure-monitor/platform/alerts-activity-log) – Alert on items in the Activity Log store, with the exception of Service Health data. Activity Log 
+- [Activity Log alert](/azure/azure-monitor/platform/alerts-activity-log) – Alert on items in the Activity Log store, with the exception of Service Health data. Activity Log 
 
-4. [Service Health alert](/azure/azure-monitor/platform/alerts-activity-log-service-notifications?toc=%2fazure%2fservice-health%2ftoc.json) – A special type of alert just for Service Health issues coming from the Activity log store.  
+- [Service Health alert](/azure/azure-monitor/platform/alerts-activity-log-service-notifications?toc=%2fazure%2fservice-health%2ftoc.json) – A special type of alert just for Service Health issues coming from the Activity log store.  
 
-**Follow these guidelines when considering speed, cost, and storage volume in Azure Monitor.**
+Follow these guidelines when considering speed, cost, and storage volume in Azure Monitor.
 
 ### Alerting through partner tools  
 
@@ -92,7 +85,7 @@ There are some important footnotes to this rule.
 
 **Guest OS telemetry** has a number of paths to get into the system.
 
-* The fastest way to alert on this data is to import it as custom metrics using the Azure Diagnostics extension and then use a metric alert. However, custom metrics are currently in preview and are [more expensive than other options](https://azure.microsoft.com/en-us/pricing/details/monitor/). 
+* The fastest way to alert on this data is to import it as custom metrics using the Azure Diagnostics extension and then use a metric alert. However, custom metrics are currently in preview and are [more expensive than other options](https://azure.microsoft.com/pricing/details/monitor/). 
 
 * The cheapest but slowest method is to send it to Azure Logs Kusto store.  Running the Log Analytics agent on the VM is the best way to get all Guest OS metric and log data into this store.  
 
@@ -115,9 +108,9 @@ If you aren’t using Azure Monitor for VMs, we recommend you explore the follow
 
 * [Dynamic Thresholds](/azure/azure-monitor/platform/alerts-dynamic-thresholds) – Dynamic thresholds look at the activity of the resource over a time period and create upper and lower "normal behavior" thresholds. When the metric being monitored falls outside of these thresholds (either above or below as you specify), you get an alert.
 
-* [Multi-signal alerts](https://azure.microsoft.com/en-us/blog/monitor-at-scale-in-azure-monitor-with-multi-resource-metric-alerts/) - You can create a metric alert that uses the combination of two different inputs from two different resource types. So for example, if you want to fire an alert when the CPU of a VM is over 90% and the number of messages in a certain Service Bus queue feeding that VM exceeds a certain amount, you can do that without creating a log query. This only works for two signals. If you have a more complex query with more than two signals, you have fed your metric data into the Azure Monitor Log store and use a log query.
+* [Multi-signal alerts](https://azure.microsoft.com/blog/monitor-at-scale-in-azure-monitor-with-multi-resource-metric-alerts/) - You can create a metric alert that uses the combination of two different inputs from two different resource types. So for example, if you want to fire an alert when the CPU of a VM is over 90% and the number of messages in a certain Service Bus queue feeding that VM exceeds a certain amount, you can do that without creating a log query. This only works for two signals. If you have a more complex query with more than two signals, you have fed your metric data into the Azure Monitor Log store and use a log query.
 
-* [Multi-resource alerts](https://azure.microsoft.com/en-us/blog/monitor-at-scale-in-azure-monitor-with-multi-resource-metric-alerts/) – Azure Monitor allows a single metric alert rule that applies to all VM resources. Using this feature can save you time as you do not need to create individual alerts for each VM. Pricing for this type of alert is the same.  If you created 50 alerts for monitoring CPU usage for 50 VMs or 1 alert that monitors CPU usage for all 50 VMs, it costs you the same amount. You can use these types of alerts in combination with dynamic thresholds as well. 
+* [Multi-resource alerts](https://azure.microsoft.com/blog/monitor-at-scale-in-azure-monitor-with-multi-resource-metric-alerts/) – Azure Monitor allows a single metric alert rule that applies to all VM resources. Using this feature can save you time as you do not need to create individual alerts for each VM. Pricing for this type of alert is the same.  If you created 50 alerts for monitoring CPU usage for 50 VMs or 1 alert that monitors CPU usage for all 50 VMs, it costs you the same amount. You can use these types of alerts in combination with dynamic thresholds as well. 
 
 Used together, these features can save time by minimizing alert notifications and the management of the underlying alerts.
 
