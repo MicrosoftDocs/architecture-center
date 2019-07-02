@@ -340,8 +340,8 @@
          "redirect_document_id": true
       },
       {
-         "source_path": "docs/example-scenario/ai/scalable-personalization.md",
-         "redirect_url": "/azure/architecture/example-scenario/",
+         "source_path": "docs/databricks-monitoring/configure-cluster.md",
+         "redirect_url": "/azure/architecture/databricks-monitoring",
          "redirect_document_id": true
       }
   ] 

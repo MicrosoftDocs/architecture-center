@@ -13,6 +13,8 @@ ms.custom: microservices
 
 This reference architecture shows a microservices architecture deployed to Azure Service Fabric. It shows a basic cluster configuration that can be the starting point for most deployments.
 
+![GitHub logo](../../_images/github.png) A reference implementation of this architecture is available on [GitHub][ri].
+
 ![Service Fabric reference architecture](./_images/ra-sf-arch.png)
 
 > [!NOTE]
@@ -103,6 +105,8 @@ Azure API Management is recommended for most scenarios, but [Træfik](https://do
 - API Management exposes a public IP address and routes traffic to your services. It runs in a dedicated subnet in the same virtual network as the Service Fabric cluster.  It can access services in a node type that is exposed through a load balancer with a private IP address. This option is only available in the Premium and Developer tiers of API Management. For production workloads, use the Premium tier. Pricing information is described in [API Management pricing](https://azure.microsoft.com/pricing/details/api-management/). For more information, see Service Fabric with [Azure API Management overview](/azure/service-fabric/service-fabric-api-management-overview).
 - Træfik supports features such as routing, tracing, logs, and metrics. Træfik runs as a stateless service in the Service Fabric cluster. Service versioning can be supported through routing. For information on how to set up Træfik for service ingress and as the reverse proxy within the cluster, see [Azure Service Fabric Provider](https://docs.traefik.io/configuration/backends/servicefabric/). For more information about using Træfik with Service Fabric, see [Intelligent routing on Service Fabric with Træfik](https://blogs.msdn.microsoft.com/azureservicefabric/2018/04/05/intelligent-routing-on-service-fabric-with-traefik/) (blog post).
 
+Træfik, unlike Azure API Management, does not have functionality to resolve the partition of a stateful service (with more than one partition) to which a request is routed. For more information, see [Add a matcher for partitioning services](https://github.com/containous/traefik/issues/3224).
+
 Other API management options include [Azure Application Gateway](/azure/application-gateway/) and [Azure Front Door](/azure/frontdoor/). These services can be used in conjunction with API Management to perform tasks such as routing, SSL termination, and firewall.
 
 ### Interservice communication
@@ -161,7 +165,7 @@ Stateless and stateful services apply different approaches to scaling.
 
 For a stateful service, scaling is controlled by the number of partitions, the size of each partition, and the number of partitions/replicas running on a given machine.
 
-- If you are creating partitioned services, we recommend having a high number of partitions that are small in size. If more nodes are added, Service Fabric distributes the workloads onto the new machines by default. For example, if there are 5 nodes and 10 partitions, by default Service Fabric will place two primary replicas on each node. If you scale out the nodes, you can achieve greater performance, because the work is evenly distributed across more resources. For information about scenarios that take advantage of this strategy, see [Scaling in Service Fabric](/azure/service-fabric/service-fabric-concepts-scalability).
+- If you are creating partitioned services, make sure each node gets adequate replicas for even distribution of the workload without causing resource contentions. If more nodes are added, Service Fabric distributes the workloads onto the new machines by default. For example, if there are 5 nodes and 10 partitions, by default Service Fabric will place two primary replicas on each node. If you scale out the nodes, you can achieve greater performance, because the work is evenly distributed across more resources. For information about scenarios that take advantage of this strategy, see [Scaling in Service Fabric](/azure/service-fabric/service-fabric-concepts-scalability).
 - Adding or removing partitions is not well supported. Another option commonly used to scale is to dynamically create or delete services or whole application instances. An example of that pattern is described in [Scaling by creating or removing new named services](/azure/service-fabric/service-fabric-concepts-scalability#scaling-by-creating-or-removing-new-named-services).
 
 For more information, see:
@@ -389,6 +393,12 @@ Application Insights and Log Analytics support an [extensive query language](/az
 Use Azure Monitor alerts to notify sysadmins when certain conditions occur in specific resources. The notification could be an email, Azure function, call a web hook, and so on. For more information, see [Alerts in Azure Monitor](/azure/azure-monitor/platform/alerts-overview).
 
 [Log search alert rules](/azure/azure-monitor/platform/alerts-unified-log) allow you to define and run a Kusto query against a Log Analytics workspace at regular intervals. An alert is created if the query result matches a certain condition.
+
+## Deploy the solution
+To deploy the reference implementation for this architecture, follow the steps in the [GitHub repo][ri-deploy].
+
+[ri]: https://github.com/mspnp/microservices-reference-implementation-servicefabric
+[ri-deploy]: https://github.com/mspnp/microservices-reference-implementation-servicefabric/blob/master/deployment.md
 
 ## Next steps
 

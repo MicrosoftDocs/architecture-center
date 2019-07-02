@@ -37,8 +37,8 @@ Read and write workloads are often asymmetrical, with very different performance
 
 CQRS addresses separates reads and writes into separate models, using **commands** to update data, and **queries** to read data.
 
-- Commands should be task based, rather than data centric. ("Book hotel room," not "set ReservationStatus to Reserved.") Commands may be placed on a queue for asynchronous processing, rather than being processed synchronously.
-
+- Commands should be task based, rather than data centric. ("Book hotel room", not "set ReservationStatus to Reserved"). 
+- Commands may be placed on a queue for asynchronous processing, rather than being processed synchronously.
 - Queries never modify the database. A query returns a DTO that does not encapsulate any domain knowledge.
 
 The models can then be isolated, as shown in the following diagram, although that's not an absolute requirement.

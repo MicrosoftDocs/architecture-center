@@ -45,7 +45,7 @@ We recommend using [Azure Monitor][azure-monitor] to collect and view metrics fo
 
 - Use [Application Insights](/azure/application-insights/app-insights-overview) to collect application metrics. Application Insights is an extensible Application Performance Management (APM) service. To use it, you install an instrumentation package in your application. This package monitors the app and sends telemetry data to the Application Insights service. It can also pull telemetry data from the host environment. The data is then sent to Azure Monitor. Application Insights also provides built-in correlation and dependency tracking (see [Distributed tracing](#distributed-tracing), below).
 
-Application Insights has a maximum throughput measured in events/second, and it throttles if the data rate exceeds the limit. For details, see [Application Insights limits](/azure/azure-subscription-service-limits#application-insights-limits). Create different Application Insights instances per environment, so that dev/test environments don't compete against the production telemetry for quota.
+Application Insights has a maximum throughput measured in events/second, and it throttles if the data rate exceeds the limit. For details, see [Application Insights limits](/azure/azure-subscription-service-limits#application-insights). Create different Application Insights instances per environment, so that dev/test environments don't compete against the production telemetry for quota.
 
 A single operation may generate several telemetry events, so if the application experiences a high volume of traffic, it is likely to get throttled. To mitigate this problem, you can perform sampling to reduce the telemetry traffic. The tradeoff is that your metrics will be less precise. For more information, see [Sampling in Application Insights](/azure/application-insights/app-insights-sampling). You can also reduce the data volume by pre-aggregating metrics &mdash; that is, calculating statistical values such as average and standard deviation, and sending those values instead of the raw telemetry. The following blog post describes an approach to using Application Insights at scale: [Azure Monitoring and Analytics at Scale](https://blogs.msdn.microsoft.com/azurecat/2017/05/11/azure-monitoring-and-analytics-at-scale/).
 
@@ -103,7 +103,7 @@ Advantages of this approach include:
 
 Considerations:
 
-- Application Insights throttles the telemetry if the data rate exceeds a maximum limit; for details, see [Application Insights limits](/azure/azure-subscription-service-limits#application-insights-limits). A single operation may generate several telemetry events, so if the application experiences a high volume of traffic, it is likely to get throttled.
+- Application Insights throttles the telemetry if the data rate exceeds a maximum limit; for details, see [Application Insights limits](/azure/azure-subscription-service-limits#application-insights). A single operation may generate several telemetry events, so if the application experiences a high volume of traffic, it is likely to get throttled.
 - Because Application Insights batches data, it's possible to lose a batch if a process crashes with an unhandled exception.
 - Application Insights is billed based on data volume. For more information, see [Manage pricing and data volume in Application Insights](/azure/application-insights/app-insights-pricing).
 
