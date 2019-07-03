@@ -219,6 +219,7 @@ Collecting and analyzing telemetry that provides line of sight into the activiti
 - **Diagnostic logs** are emitted by an Azure service and provide rich, frequent data about the operation of that service.
 
 This information can be viewed and acted on at multiple levels and are continually being improved. Azure provides **shared**, **core**, and **deep** monitoring capabilities of Azure resources through the services outlined in the diagram below.
+
 ![monitoring](./_images/monitoring.png)
 
 ### Shared capabilities
