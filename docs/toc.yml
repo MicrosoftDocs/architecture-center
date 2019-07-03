@@ -1105,6 +1105,18 @@
       items:
       - name: Establish an operational fitness review
         href: cloud-adoption/operations/operational-fitness-review.md
+      - name: Monitoring
+        items:
+        - name: Introduction
+          href: cloud-adoption/operations/monitor/index.md
+        - name: Platform overview
+          href: cloud-adoption/operations/monitor/platform-overview.md
+        - name: Monitoring cloud apps
+          href: cloud-adoption/operations/monitor/cloud-app-howto.md
+        - name: Data collection
+          href: cloud-adoption/operations/monitor/data-collection.md
+        - name: Alerting
+          href: cloud-adoption/operations/monitor/alert.md
   - name: References
     items:
     - name: Decision guides
