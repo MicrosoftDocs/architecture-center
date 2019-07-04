@@ -13,7 +13,7 @@ Traditionally seen as an IT function, user acceptance testing during a business 
 > [!NOTE]
 > When available, automated testing is a much more effective and efficient means of testing any system. However, cloud migrations often focus most heavily on legacy systems or at least stable production systems. Often, those systems aren't managed by thorough and well-maintained automated tests. This article assumes that no such tests are available at the time of migration.
 
-Second to automated testing would be testing of the process and technology changes by power users. Power users are the people that commonly execute a real-world process that requires interactions with a technology tool or set of tools. They could be represented by an external customer using an e-commerce site to acquire goods or services. Power users could also be represented by a group of employees executing a business process, such as a call center servicing customers and recording their experiences.
+Second to automated testing is testing of the process and technology changes by power users. Power users are the people that commonly execute a real-world process that requires interactions with a technology tool or set of tools. They could be represented by an external customer using an e-commerce site to acquire goods or services. Power users could also be represented by a group of employees executing a business process, such as a call center servicing customers and recording their experiences.
 
 The goal of business testing is to solicit validation from power users to certify that the new solution performs in line with expectations and does not impede business processes. If that goal isn't met, the business testing serves as a feedback loop that can help define why and how the workload isn't meeting expectations.
 
@@ -31,7 +31,7 @@ At times, IT may employ analysts or product owners who can serve as proxies for 
 
 ## IT activities during business testing
 
-IT serves as one of the recipients of the business testing output. The feedback loops exposed during business testing eventually become work items that define technical change or process change. As a recipient, IT is expected to aid in facilitation, collection of feedback, and management of resultant technical actions. The activities IT performs during business testing are commonly as follows:
+IT serves as one of the recipients of the business testing output. The feedback loops exposed during business testing eventually become work items that define technical change or process change. As a recipient, IT is expected to aid in facilitation, collection of feedback, and management of resultant technical actions. The typical activities IT performs during business testing include:
 
 - Provide structure and logistics for business testing.
 - Aid in facilitation during testing.

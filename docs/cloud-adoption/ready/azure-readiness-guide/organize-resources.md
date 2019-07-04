@@ -11,18 +11,18 @@ ms.custom: "fasttrack-edit"
 
 # Organize your Azure resources
 
-Use the following features and best practices to secure resources that are critical to your system. Tag resources so you can track them by values that make sense to your organization.
+Organizing your cloud-based resources is critical to securing, managing, and tracking the costs related to your workloads. This organization can include the use of management hierarchies within the Azure platform, implementing well thought-out naming conventions, and applying resource tagging.  
 
 <!-- markdownlint-disable MD024 MD025 -->
 
 # [Azure management groups and hierarchy](#tab/AzureManagmentGroupsAndHierarchy)
 
-The organizing structure for resources in Azure has four levels: management groups, subscriptions, resource groups, and resources. The following image shows the relationship of these levels.
+Azure provides four levels of management scope: management groups, subscriptions, resource groups, and resources. The following image shows the relationship of these levels.
 
    ![Diagram that shows relationship of management hierarchy](./media/organize-resources/scope-levels.png)
 
-- **Management groups:** These are containers that help you manage access, policy, and compliance for multiple subscriptions. All subscriptions in a management group automatically inherit the conditions applied to the management group.
-- **Subscriptions:** A subscription groups together user accounts and the resources that have been created by those user accounts. For each subscription, there are limits or quotas on the amount of resources you can create and use. Organizations can use subscriptions to manage costs and the resources that are created by users, teams, or projects.
+- **Management groups:** These groups are containers that help you manage access, policy, and compliance for multiple subscriptions. All subscriptions in a management group automatically inherit the conditions applied to the management group.
+- **Subscriptions:** A subscription groups together user accounts and the resources that have been created by those user accounts. Each subscription has limits or quotas on the amount of resources you can create and use. Organizations can use subscriptions to manage costs and the resources that are created by users, teams, or projects.
 - **Resource groups:** A resource group is a logical container into which Azure resources like web apps, databases, and storage accounts are deployed and managed.
 - **Resources:** Resources are instances of services that you create, like virtual machines, storage, or SQL databases.
 
@@ -31,6 +31,8 @@ The organizing structure for resources in Azure has four levels: management grou
 You can apply management settings, like policies and role-based access controls, at any of the management levels. The level you select determines how widely the setting is applied. Lower levels inherit settings from higher levels. For example, when you apply a policy to a subscription, that policy is also applied to all resource groups and resources in that subscription.
 
 Usually, it makes sense to apply critical settings at higher levels and project-specific requirements at lower levels. For example, you may want to make sure all resources for your organization are deployed to certain regions. To do that, apply a policy to the subscription that specifies the allowed locations. As other users in your organization add new resource groups and resources, the allowed locations are automatically enforced. Learn more about policies in the governance, security, and compliance section of this guide.
+
+If you only have a few subscriptions, it is relatively simple to manage them independently. However, if the number of subscriptions you’re using increases, you should consider creating a management group hierarchy to simplify the management of your subscriptions and resources. The Cloud Adoption Framework's article [scaling with multiple Azure subscriptions](../considerations/scaling-subscriptions.md) offers additional guidance on managing multiple subscriptions.
 
 As you plan your compliance strategy, we recommend you work with people in your organization with these roles: security and compliance, IT administration, enterprise architect, networking, finance, and procurement.
 
@@ -68,6 +70,8 @@ Create a resource group to hold resources like web apps, databases, and storage 
 
 To learn more, see:
 
+- [Azure fundamentals](../considerations/fundamental-concepts.md)
+- [Scaling with multiple Azure subscriptions](../considerations/scaling-subscriptions.md)
 - [Understanding resource access management in Azure](../../getting-started/azure-resource-access.md)
 - [Organize your resources with Azure Management Groups](/azure/azure-resource-manager/management-groups-overview)
 - [Subscription service limits](/azure/azure-subscription-service-limits)
@@ -111,11 +115,13 @@ Create a resource group to hold resources like web apps, databases, and storage 
 
 # [Naming standards](#tab/NamingStandards)
 
-A good naming standard helps identify resources in the portal, on a bill, and in scripts. You may already have naming standards for your on-premises infrastructure. When adding Azure to your environment, you should extend those naming standards to your Azure resources. Naming standards help you manage your environment more efficiently at all levels. You can use Azure Policy as a tool to enforce naming standards across your entire Azure environment.
+A good naming standard helps identify resources in the portal, on a bill, and in scripts. Your naming strategy should include business and operational details as components of resource names. The business-related side of this strategy should ensure resource names include the organizational information needed to identify the teams using a resource along with the business owners responsible for resource costs. The operational side should ensure names include information that IT teams use to identify the workload, application, environment, criticality, and other information useful for managing resources.
+
+Different resource types may have different length limits and allowable characters, many of which are listed in the Azure best practices' [naming conventions article](/azure/architecture/best-practices/naming-conventions). For more information and detailed recommendations aimed specifically at supporting enterprise cloud adoption efforts, review the Cloud Adoption Framework's [guidance on naming and tagging](../considerations/name-and-tag.md).
+
+The following table includes naming patterns for a few sample types of Azure resources.
 
 ::: zone target="docs"
-
-We recommend you review and adopt the [Patterns and Practices guidance](/azure/architecture/best-practices/naming-conventions).
 
 >[!TIP]
 >Avoid using any special characters (`-` or `_`) as the first or last character in any name. These characters cause most validation rules to fail.
@@ -130,9 +136,9 @@ We recommend you review and adopt the [Patterns and Practices guidance](/azure/a
 
 # [Resource tags](#tab/ResourceTags)
 
-Tags are useful to quickly identify your resources and resource groups. You apply tags to your Azure resources to logically organize them by categories. Each tag consists of a name and a value. For example, you can apply the name "Environment" and the value "Production" to all the resources in production.
+Tags are useful to quickly identify your resources and resource groups. You apply tags to your Azure resources to logically organize them by categories. Each tag consists of a name and a value. For example, you can apply the name "Environment" and the value "Production" to all the resources in production. Tags should include context about the resource's associated workload or application, operational requirements, and ownership information.
 
-After you apply tags, you can retrieve all the resources in your subscription with that tag name and value. Tags let you retrieve related resources from different resource groups which is helpful for organizing resources for billing or management.
+After you apply tags, you can retrieve all the resources in your subscription with that tag name and value. When organizing resources for billing or management, tags can help you retrieve related resources from different resource groups.
 
 You can also use tags for many other things. Common uses include:
 
@@ -141,6 +147,8 @@ You can also use tags for many other things. Common uses include:
 - **Billing:** Tags can appear on your invoice. You can use them to help segment your bill by using tags like "CostCenter" or "BillTo".
 
 Each resource or resource group can have a maximum of 15 tag name/value pairs. However, this limitation only applies to tags directly applied to the resource group or resource.
+
+Review the Cloud Adoption Framework's [guidance on tagging](../considerations/name-and-tag.md) for more detailed tagging recommendations and examples.
 
 ::: zone target="docs"
 

@@ -18,9 +18,9 @@ When changing any technical system, complexity and interdependency inject risk i
 
 ## INVEST in workloads
 
-The term *workload* appears throughout the Cloud Adoption Framework. A workload is a unit of application functionality that can be migrated to the cloud. It could be a single application, a layer of an application, or a collection of an application. The definition is flexible and may change at various phrases of migration. The Cloud Adoption Framework uses the term *INVEST* to define a workload.
+The term _workload_ appears throughout the Cloud Adoption Framework. A workload is a unit of application functionality that can be migrated to the cloud. It could be a single application, a layer of an application, or a collection of an application. The definition is flexible and may change at various phrases of migration. The Cloud Adoption Framework uses the term _invest_ to define a workload.
 
-INVEST is a common acronym in many agile methodologies for writing user stories or product backlog items, both of which are units of output in agile project management tools. The measurable unit of output in a migration is a migrated workload. The Cloud Adoption Framework modifies the INVEST acronym a bit to create a construct for defining workloads, as follows:
+INVEST is a common acronym in many agile methodologies for writing user stories or product backlog items, both of which are units of output in agile project management tools. The measurable unit of output in a migration is a migrated workload. The Cloud Adoption Framework modifies the INVEST acronym a bit to create a construct for defining workloads:
 
 - **Independent:** A workload should not have any inaccessible dependencies. For a workload to be considered migrated, all dependencies should be accessible and included in the migration effort.
 - **Negotiable:** As additional discovery is performed, the definition of a workload changes. The architects planning the migration could negotiate factors regarding dependencies. Examples of negotiation points could include prerelease of features, making features accessible over a hybrid network, or packaging all dependencies in a single release.
@@ -29,7 +29,7 @@ INVEST is a common acronym in many agile methodologies for writing user stories 
 - **Small:** The goal is to package workloads in a single sprint. However, this may not always be feasible. Instead, teams are encouraged to plan sprints and releases to minimize the time required to move a workload to production.
 - **Testable:** There should always be a defined means of testing or validating completion of the migration of a workload.
 
-This acronym is not intended as a basis for rigid adherence but should help guide the definition of the term workload.
+This acronym is not intended as a basis for rigid adherence but should help guide the definition of the term _workload_.
 
 ## Migration backlog: Aligning business priorities and timing
 
@@ -56,7 +56,7 @@ In any migration backlog, the change management team should strive to obtain the
 
 ## Release backlog: Aligning business change and technical coordination
 
-In the context of a migration, a *release* is an activity that deploys one or more workloads into production. A release generally covers several iterations or technical work. However, it represents a single iteration of business change. After one or more workloads have been prepared for production promotion, a release occurs. The decision to package a release is made when the workloads migrated represent enough business value to justify injecting change into a business environment. Releases are executed in conjunction with a [business change plan](../optimize/business-change-plan.md), after [business testing](../optimize/business-test.md) has been completed. The Cloud Strategy team is responsible for planning and overseeing the execution of a release to ensure that the desired business change is released.
+In the context of a migration, a _release_ is an activity that deploys one or more workloads into production. A release generally covers several iterations or technical work. However, it represents a single iteration of business change. After one or more workloads have been prepared for production promotion, a release occurs. The decision to package a release is made when the workloads migrated represent enough business value to justify injecting change into a business environment. Releases are executed in conjunction with a [business change plan](../optimize/business-change-plan.md), after [business testing](../optimize/business-test.md) has been completed. The Cloud Strategy team is responsible for planning and overseeing the execution of a release to ensure that the desired business change is released.
 
 A *release backlog* is the future state plan that defines a coming release. Release backlog is the pivot point between business change management (*migration backlog*) and technical change management (*sprint backlog*). A release backlog consists of a list of workloads from the migration backlog that align to a specific subset of business outcome realization. Definition and submission of a release backlog to the Cloud Adoption team serve as a trigger for deeper analysis and migration planning. After the Cloud Adoption team has verified the technical details associated with a release, it can choose to commit to the release, establishing a release timeline based on current knowledge.
 

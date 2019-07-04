@@ -8,7 +8,7 @@ ms.date: 04/04/2019
 
 # Examples of customer engagement outcomes
 
-As discussed in the [business outcomes overview](./index.md), there are several potential business outcomes that can serve as the foundation for any transformation journey conversation with the business. This article focuses on a common business measure: customer engagement. Understanding the needs of customers and the ecosystem around customers helps with articulating the business outcomes that are the target of a business's transformation journey.
+As discussed in the [business outcomes overview](./index.md), several potential business outcomes can serve as the foundation for any transformation journey conversation with the business. This article focuses on a common business measure: customer engagement. Understanding the needs of customers and the ecosystem around customers helps with articulating the business outcomes that are the target of a business's transformation journey.
 
 During cloud-enabled data innovation efforts, customer engagement is assumed. Aggregating data, testing theories, advancing insights, and informing cultural change; each of these disruptive functions requires a high degree of customer engagement. During a cloud-enabled application innovation effort, this type of customer engagement is a maturation goal.
 
@@ -28,3 +28,10 @@ During customer-obsessed transformations, like a cloud-enabled application innov
 > "Now, a developer can sit down at his machine, have an idea, spin up a web service or an Azure instance, test out his idea, point it at test data, and get the concept going. In the time that it would have taken to provision just the stuff to do a test, we can actually write the functionality."
 > Wayne Wise: Vice President of Software Development
 > ExakTime
+
+## Next steps
+
+Learn more about [performance outcomes](./performance-outcomes.md).
+
+> [!div class="nextstepaction"]
+> [Performance outcomes](./performance-outcomes.md)

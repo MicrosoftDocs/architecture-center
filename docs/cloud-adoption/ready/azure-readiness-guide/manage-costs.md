@@ -10,11 +10,13 @@ ms.custom: "fasttrack-edit"
 ---
 # Manage costs and billing for your Azure resources
 
-Cost control is critical to maximize the value of your cloud investment. Use the following sections to learn how to manage costs for your Azure resources.
+Cost management is the process of effectively planning and controlling costs involved in your business. Cost management tasks are normally performed by finance, management, and app teams. The Azure Cost Management service can help you plan with cost in mind. It can also help to you analyze costs effectively and take action to optimize cloud spending.
+
+For more information on integrating cloud cost management processes throughout your organization, see the Cloud Adoption Framework's article on [tracking costs across business units, environments, or projects](../azure-best-practices/track-costs.md).
 
 ## Manage your costs with Azure Cost Management
 
-Azure provides a few ways to help you predict and manage costs:
+Azure Cost Management provides a few ways to help you predict and manage costs:
 
 - **Analyze cloud costs** helps you explore and analyze your costs. You can view aggregated cost for your account or view accumulated costs over time.
 - **Monitor with budgets** allows you to create a budget and then configure alerts to warn you when you are close to exceeding it.
@@ -54,7 +56,11 @@ To view your support requests and their status:
 
 ## Learn more
 
-To learn more, see [Azure billing and cost management documentation](/azure/billing/)
+To learn more, see:
+
+- [Azure billing and cost management documentation](/azure/billing)
+- [Cloud Adoption Framework: Tracking costs across business units, environments, or projects](../azure-best-practices/track-costs.md).
+- [Cloud Adoption Framework: Cost management governance discipline](../../governance/cost-management/index.md).
 
 ::: zone-end
 

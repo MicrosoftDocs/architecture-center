@@ -7,7 +7,7 @@ ms.date: 04/04/2019
 
 # Prerequisites for migration
 
-Prior to beginning any migrations, your migration target *environment* must be prepared for the coming changes. In this case, environment refers to the technical foundation in the cloud. Environment also means the business environment and mindset driving the migration. Likewise, the environment includes the culture of the teams executing the changes and those receiving the output. Lack of preparation for these changes is the most common reason for failure of migrations. This article series will walk you through suggested prerequisites to prepare the environment.
+Prior to beginning any migrations, your migration target _environment_ must be prepared for the coming changes. In this case, environment refers to the technical foundation in the cloud. Environment also means the business environment and mindset driving the migration. Likewise, the environment includes the culture of the teams executing the changes and those receiving the output. Lack of preparation for these changes is the most common reason for failure of migrations. This series of articles walks you through suggested prerequisites to prepare the environment.
 
 ## Objective
 
@@ -49,7 +49,7 @@ In addition to the high-level accountability, there are actions that an individu
 - **Business prioritization.** Make business decisions regarding the workloads to be migrated and general timing constraints. For more information, see [Cloud migration business motivations](../../../business-strategy/motivations-why-are-we-moving-to-the-cloud.md).
 - **Change management readiness.** Establish and communicate the plan for tracking technical change during migration. More information on this topic will be available in Q3 2019.
 - **Business user alignment.** Establish a plan for readying the business user community for migration execution. More information on this topic will be available in Q3 2019.
-- **Digital estate inventory and analysis.** Execution of the tools required to inventory and analyze the digital estate. See the the Cloud Adoption Framework discussion of the [digital estate](../../../digital-estate/index.md) for more information.
+- **Digital estate inventory and analysis.** Execution of the tools required to inventory and analyze the digital estate. See the Cloud Adoption Framework discussion of the [digital estate](../../../digital-estate/index.md) for more information.
 - **Cloud readiness.** Evaluate the target deployment environment to ensure that it complies with requirements of the first few workload candidates. See the [Azure readiness guide](../../../ready/azure-readiness-guide/index.md) for more information.
 
 The remaining articles in this series help with the execution of each.

@@ -37,9 +37,9 @@ Azure Migrate provides the following functionality:
 
 1. Search for Azure Migrate under **All services**. Select **Azure Migrate** to continue.
 1. Click Add a tool to start your migration project.
-1. Select the subscription, resource group and geography to host the migration.
+1. Select the subscription, resource group, and geography to host the migration.
 1. Click **Select assessment tool**, and select **Azure Migrate: Server Assessment**. Click **Next**.
-1. Click **Review + add tool(s)**, and verify the configuration. Click **Add tool(s)** to initate the job to create the migration project and register the selected solutions.
+1. Click **Review + add tool(s)**, and verify the configuration. Click **Add tool(s)** to initiate the job to create the migration project and register the selected solutions.
 
 <!-- TODO: TBA -->
 
@@ -54,7 +54,7 @@ The Azure Site Recovery service can manage the migration of on-premises resource
 The following steps outline the process to use Site Recovery to migrate:
 
 > [!TIP]
-> Depending on your scenario, these steps may differ slightly. For more details, see the [Migrate on-premises machines to Azure](/azure/site-recovery/migrate-tutorial-on-premises-azure) article.
+> Depending on your scenario, these steps may differ slightly. For more information, see the [Migrate on-premises machines to Azure](/azure/site-recovery/migrate-tutorial-on-premises-azure) article.
 
 ### Prepare Azure Site Recovery service
 
@@ -82,7 +82,7 @@ The following steps outline the process to use Site Recovery to migrate:
 1. In **Settings > Replicated items** select the machine > **Failover**.
 1. In **Failover** select a **Recovery Point** to fail over to. Select the latest recovery point.
 1. Configure any encryption key settings as required.
-1. Select **Shut down machine before beginning failover**. Site Recovery will attempt to shutdown virtual machines before triggering the failover. Failover continues even if shutdown fails. You can follow the failover progress on the Jobs page.
+1. Select **Shut down machine before beginning failover**. Site Recovery will attempt to shut down virtual machines before triggering the failover. Failover continues even if shutdown fails. You can follow the failover progress on the Jobs page.
 1. Check that the Azure VM appears in Azure as expected.
 1. In **Replicated items**, right-click the VM and choose **Complete Migration**.
 1. Perform any post-migration steps as required (see relevant information in this guide).
@@ -153,7 +153,7 @@ The Data Migration Assistant (DMA) helps you upgrade to a modern data platform b
 
 To get started with the Data Migration Assistant follow these steps.
 
-1. Download and Install the Data Migration Assistant from the [Microsoft Download Center](https://www.microsoft.com/en-us/download/details.aspx?id=53595).
+1. Download and Install the Data Migration Assistant from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53595).
 1. Create an assessment by clicking the **New (+)** icon and select the **Assessment** project type.
 1. Set the source and target server type. Click **Create**.
 1. Configure the assessment options as required (recommend all defaults).
@@ -161,7 +161,7 @@ To get started with the Data Migration Assistant follow these steps.
 1. Click **Next** to start the assessment.
 1. View results within the Data Migration Assistant tool set.
 
-For an enterprise we recommend following the approach outlined in [Assess an enterprise and consolidate assessment reports with DMA](/sql/dma/dma-consolidatereports) to assess multiple servers, combine the reports and then use provided Power BI reports to analyze the results.
+For an enterprise, we recommend following the approach outlined in [Assess an enterprise and consolidate assessment reports with DMA](/sql/dma/dma-consolidatereports) to assess multiple servers, combine the reports and then use provided Power BI reports to analyze the results.
 
 For more information, including detailed usage steps, see:
 
@@ -183,9 +183,9 @@ Database Experimentation Assistant (DEA) is a new A/B testing solution for SQL S
 
 The Database Experimentation Assistant contains the following workflow activities:
 
-> - **Capture:** The first step of SQL Server A/B testing is to capture a trace on your source server. The source server usually is the production server.
-> - **Replay:** The second step of SQL Server A/B testing is to replay the trace file that was captured to your target servers. Then, collect extensive traces from the replays for analysis.
-> - **Analysis:** The final step is to generate an analysis report by using the replay traces. The analysis report can help you gain insight about the performance implications of the proposed change.
+- **Capture:** The first step of SQL Server A/B testing is to capture a trace on your source server. The source server usually is the production server.
+- **Replay:** The second step of SQL Server A/B testing is to replay the trace file that was captured to your target servers. Then, collect extensive traces from the replays for analysis.
+- **Analysis:** The final step is to generate an analysis report by using the replay traces. The analysis report can help you gain insight about the performance implications of the proposed change.
 
 For more information, see:
 
@@ -199,13 +199,13 @@ Several third-party migration tools and ISV services can assist you with the mig
 
 Cloudamize is an ISV service that covers all phases of the migration strategy.
 
-[Learn more](https://www.cloudamize.com/)
+[Learn more](https://www.cloudamize.com)
 
 ## Zerto
 
 Zerto provides virtual replication handling both Microsoft Hyper-V and VMware vSphere environments.
 
-[Learn more](https://www.zerto.com/solutions/use-cases/data-center-migration-software/)
+[Learn more](https://www.zerto.com/solutions/use-cases/data-center-migration-software)
 
 ## Carbonite
 
@@ -215,28 +215,28 @@ Carbonite provides server and data migration solutions to migrate workloads to, 
 
 ## Movere
 
-Movere is a discovery solution that provides the data and insights needed to plan cloud migrations and continuously optimize, monitor and analyze IT environments with confidence.
+Movere is a discovery solution that provides the data and insights needed to plan cloud migrations and continuously optimize, monitor, and analyze IT environments with confidence.
 
-[Learn more](https://www.movere.io/)
+[Learn more](https://www.movere.io)
 
-Visit the [Azure Migration Center](https://azure.microsoft.com/en-us/migration/support/) to discover organizations offering ready-to-use partner technology solutions to fit your migration scenarios and learn more about additional third-party migration tools and support services.
+Visit the [Azure Migration Center](https://azure.microsoft.com/migration/support) to discover organizations offering ready-to-use partner technology solutions to fit your migration scenarios and learn more about additional third-party migration tools and support services.
 
 # [Project management tools](#tab/project-management-tools)
 
 Projects that aren't tracked and managed are more likely to run into problems. To ensure a successful outcome, we think it's important that you use a project management tool. There are many different tools available and project managers in your organization may already have a favorite. Microsoft offers the following project management tools, which can work together to provide broader capabilities:
 
-- [Microsoft Planner](https://tasks.office.com/): A simple, visual way to organize teamwork.
+- [Microsoft Planner](https://tasks.office.com): A simple, visual way to organize teamwork.
 - [Microsoft Project](https://products.office.com/project/project-and-portfolio-management-software): Project and Portfolio Management, Resource Capacity Management, Financial Management, Timesheet and Schedule Management.
 - [Microsoft Teams](https://products.office.com/microsoft-teams): Team collaboration and communication tool. Teams also integrates Planner and other tools to improve collaboration.
-- [Azure DevOps](https://dev.azure.com): Using Azure DevOps, you can manage your infrastructure as code or simply use the work items and boards to perform project management. As you mature, your organization can take advantage of the CI/CD capabilities.
+- [Azure DevOps](https://dev.azure.com): Using Azure DevOps, you can manage your infrastructure as code or use the work items and boards to perform project management. As you mature, your organization can take advantage of the CI/CD capabilities.
 
-These are certainly not the only tools available. Many other third-party tools are widely used in the project management community.
+These are not the only tools available. Many other third-party tools are widely used in the project management community.
 
 ## Set up for DevOps
 
-As you migrate into cloud technologies this presents a great opportunity to set up your organization for DevOps and CI/CD. Even if your organization is only managing infrastructure, as you begin to manage your infrastructure as code and use the industry patterns and practices for DevOps you can begin to increase your agility through CI/CD pipelines, therefore allowing you to adapt to change, growth, release and even recovery scenarios faster.
+As you migrate into cloud technologies this presents a great opportunity to set up your organization for DevOps and CI/CD. Even if your organization is only managing infrastructure, as you begin to manage your infrastructure as code and use the industry patterns and practices for DevOps you can begin to increase your agility through CI/CD pipelines, therefore allowing you to adapt to change, growth, release, and even recovery scenarios faster.
 
-[Azure DevOps](https://dev.azure.com) provides all of the required functionality and integration with Azure, On-premises or even other clouds. Find out more [here](https://azure.microsoft.com/services/devops/). For a guided training click [here](https://microsoft.github.io/PartsUnlimited/pandp/200.1x-PandP-CICDQuickstartwithVSTS.html).
+[Azure DevOps](https://dev.azure.com) provides all of the required functionality and integration with Azure, On-premises, or even other clouds. Find out more [here](https://azure.microsoft.com/services/devops). For a guided training, see [CI and CD with Azure DevOps - Quickstart](https://microsoft.github.io/PartsUnlimited/pandp/200.1x-PandP-CICDQuickstartwithVSTS.html).
 
 # [Cost management](#tab/ManageCost)
 

@@ -10,29 +10,33 @@ ms.topic: landing-page
 
 # Cloud migration in the Cloud Adoption Framework
 
-Cloud migration is the process of moving existing digital assets to a cloud platform. Existing assets are replicated to the cloud with minimal modifications. Once an application or workload becomes operational in the cloud, users are transitioned from the existing solution to the cloud solution. Cloud migration is one way to effectively balance a cloud portfolio. This is often the fastest and most agile approach in the short term. Conversely, some benefits of the cloud may not be realized without additional future modification. Enterprises and mid-market customers use this approach to accelerate the pace of change, avoid planned capital expenditures, and reduce ongoing operational costs.
+Any enterprise-scale [cloud adoption plan](../plan/index.md), will include workloads which do not warrant significant investments in the creation of new business logic. Those workloads could be moved to the cloud through any number of approaches; Lift & Shift, Lift & Optimize, or Modernize. Each of which is considered a migration. The following exercises will help establish the iterative processes to assess, migrate, optimize, secure and manage those workloads.
 
-## Creating a balanced cloud portfolio
+## Iterative migration process
 
-Any balanced technology portfolio has a mixture of assets in various states. Some applications are scheduled for retirement and given minimal support. Other applications or assets are supported in a maintenance state, but the features of those solutions are stable. For newer business processes, changing market conditions will likely spur ongoing feature enhancements or modernization. When opportunities to drive new revenue streams arise, new applications or assets are introduced into the environment. At each stage of an asset's lifecycle, the impact any investment has on revenue and profit will change. The later the lifecycle stage, the less likely a new feature or modernization effort will yield a strong return on investment.
+At its core, migration to the cloud consists of four simple phases: Assess, Migrate, Optimize, and Secure & Manage. This section of CAF teaches readers to maximize the return from each phase of the process and align those phases with your cloud adoption plan. The following graphic illustrates those phases in an iterative approach:
 
-The cloud provides various adoption mechanisms, each with similar degrees of investment and return. Building cloud-native applications can significantly reduce operating expenses. Once a cloud-native application is released, development of new features and solutions can iterate faster. Modernizing an application can yield similar benefits by removing legacy constraints associated with on-premises development models. Unfortunately, these two approaches are labor-intensive and depend on the size, skill, and experience of software development teams. Often, labor is misaligned&mdash;people with the skills and talent to modernize applications would rather build new applications. In a labor-constrained market, large-scale modernization projects can suffer from an employee satisfaction and talent issue. In a balanced portfolio, this approach should be reserved for applications that would receive significant feature enhancements if they remained on-premises.
+![Cloud Adoption Framework migration model](../_images/operational-transformation-migrate.png)
 
-## Cloud migration guides
+## Getting started
 
-To start down an adoption path, choose one of the following guides. Each guide provides a series of best practices based on a specific reference experience and customer feedback. Readers unfamiliar with the incremental approach of the Cloud Adoption Framework migration model should review the high-level migration theory introduction below before adopting either guide.
+To prepare you for this phase of the cloud adoption lifecycle, the framework suggests the following five exercises:
 
 <!-- markdownlint-disable MD033 -->
-
-<ul class="panelContent cardsZ">
+<ul class="panelContent cardsF">
     <li style="display: flex; flex-direction: column;">
-        <a href="./azure-migration-guide/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-            <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-                <div class="cardPadding" style="display: flex;">
-                    <div class="card">
-                        <div class="cardText">
-                            <h3>Azure migration guide</h3>
-                            <p>A guide for a migration journey involving a single cloud adoption team and fewer than 1,000 virtual machines.</p>
+        <a href="./azure-migration-guide/prerequisites.md?tabs=Checklist">
+            <div class="cardSize">
+                <div class="cardPadding" style="padding-bottom:10px;">
+                    <div class="card" style="padding-bottom:10px;">
+                        <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img alt="" src="../_images/icons/1.png" data-linktype="external">
+                            </div>
+                        </div>
+                        <div class="cardText" style="padding-left:0px;">
+                            <h3>Migration prerequisite</h3>
+                            Validate that a landing zone has been deployed and is ready to host the first few workloads that will be migrated to Azure. If a cloud adoption strategy and cloud adoption plan have not been created, validate that both efforts are in progress.
                         </div>
                     </div>
                 </div>
@@ -40,13 +44,75 @@ To start down an adoption path, choose one of the following guides. Each guide p
         </a>
     </li>
     <li style="display: flex; flex-direction: column;">
-        <a href="./expanded-scope/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-            <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-                <div class="cardPadding" style="display: flex;">
-                    <div class="card">
-                        <div class="cardText">
-                            <h3>Expanded scope for cloud migration</h3>
-                            <p>When the Azure migration guide is too basic for your scenario, the expanded scope scenario guides provide more intermediate guidance through the migration process.</p>
+        <a href="./azure-migration-guide/index.md">
+            <div class="cardSize">
+                <div class="cardPadding" style="padding-bottom:10px;">
+                    <div class="card" style="padding-bottom:10px;">
+                        <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img alt="" src="../_images/icons/2.png" data-linktype="external">
+                            </div>
+                        </div>
+                        <div class="cardText" style="padding-left:0px;">
+                            <h3>Migrate your first workload</h3>
+                            Leverage the Azure Migration Guide to guide the migration of your first workload. This will help you become familiar with the tools and approaches needed to scale adoption efforts.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li style="display: flex; flex-direction: column;">
+        <a href="./expanded-scope/index.md">
+            <div class="cardSize">
+                <div class="cardPadding" style="padding-bottom:10px;">
+                    <div class="card" style="padding-bottom:10px;">
+                        <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img alt="" src="../_images/icons/3.png" data-linktype="external">
+                            </div>
+                        </div>
+                        <div class="cardText" style="padding-left:0px;">
+                            <h3>Expanded migration scenarios</h3>
+                            Leverage the expanded scope checklist to identify scenarios which would require modifications to your future state architecture, migration processes, landing zone configurations, or migration tooling decisions.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li style="display: flex; flex-direction: column;">
+        <a href="./azure-best-practices/index.md">
+            <div class="cardSize">
+                <div class="cardPadding" style="padding-bottom:10px;">
+                    <div class="card" style="padding-bottom:10px;">
+                        <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img alt="" src="../_images/icons/4.png" data-linktype="external">
+                            </div>
+                        </div>
+                        <div class="cardText" style="padding-left:0px;">
+                            <h3>Best Practices</h3>
+                            Validate any modifications against the best practices section to ensure proper implementation of expanded scope or workload/architecture specific migration approaches.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li style="display: flex; flex-direction: column;">
+        <a href="./migration-considerations/index.md">
+            <div class="cardSize">
+                <div class="cardPadding" style="padding-bottom:10px;">
+                    <div class="card" style="padding-bottom:10px;">
+                        <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img alt="" src="../_images/icons/5.png" data-linktype="external">
+                            </div>
+                        </div>
+                        <div class="cardText" style="padding-left:0px;">
+                            <h3>Process Improvements</h3>
+                            Migration is a process heavy activity. As migration efforts scale, leverage the migration considerations section to evaluate and mature various aspects of your processes.
                         </div>
                     </div>
                 </div>
@@ -54,8 +120,13 @@ To start down an adoption path, choose one of the following guides. Each guide p
         </a>
     </li>
 </ul>
-
 <!-- markdownlint-enable MD033 -->
+
+## Creating a balanced cloud portfolio
+
+Any balanced technology portfolio has a mixture of assets in various states. Some applications are scheduled for retirement and given minimal support. Other applications or assets are supported in a maintenance state, but the features of those solutions are stable. For newer business processes, changing market conditions will likely spur ongoing feature enhancements or modernization. When opportunities to drive new revenue streams arise, new applications or assets are introduced into the environment. At each stage of an asset's lifecycle, the impact any investment has on revenue and profit will change. The later the lifecycle stage, the less likely a new feature or modernization effort will yield a strong return on investment.
+
+The cloud provides various adoption mechanisms, each with similar degrees of investment and return. Building cloud-native applications can significantly reduce operating expenses. Once a cloud-native application is released, development of new features and solutions can iterate faster. Modernizing an application can yield similar benefits by removing legacy constraints associated with on-premises development models. Unfortunately, these two approaches are labor-intensive and depend on the size, skill, and experience of software development teams. Often, labor is misaligned&mdash;people with the skills and talent to modernize applications would rather build new applications. In a labor-constrained market, large-scale modernization projects can suffer from an employee satisfaction and talent issue. In a balanced portfolio, this approach should be reserved for applications that would receive significant feature enhancements if they remained on-premises.
 
 ## Establishing an end state
 

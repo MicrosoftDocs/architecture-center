@@ -311,7 +311,7 @@ They create the pipeline:
 
     ![Run script](./media/contoso-migration-rebuild/back-pipe10.png)
 
-10. They add arguments to the script. the script will delete all cluster content (except **ingress** and **ingress controller**), and deploy the microservices.
+10. They add arguments to the script. The script will delete all cluster content (except **ingress** and **ingress controller**), and deploy the microservices.
 
     ![Script arguments](./media/contoso-migration-rebuild/back-pipe11.png)
 
@@ -398,7 +398,7 @@ Contoso admins provision the web app using the Azure portal.
 
 3. After they're done, they browse to the address of the app to check it's been created successfully.
 
-4. Now, in the Azure portal they create a staging slot for the code. the pipeline will deploy to this slot. This ensures that code isn't put into production until admins perform a release.
+4. Now, in the Azure portal they create a staging slot for the code. The pipeline will deploy to this slot. This ensures that code isn't put into production until admins perform a release.
 
     ![Web app staging slot](media/contoso-migration-rebuild/web-app3.png)
 

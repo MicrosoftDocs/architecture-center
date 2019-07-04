@@ -16,9 +16,10 @@ Throughout this framework, enablement is a core theme. The following checklist c
 
 - **Plan:** Establishing clear [business outcomes](../business-strategy/business-outcomes/index.md), a defined [digital estate plan](../digital-estate/index.md), and well understood [adoption backlogs](../migrate/migration-considerations/prerequisites/migration-backlog-review.md).
 - **Ready:** Ensure the readiness of staff through [skills and learning plans](../ready/technical-skills.md).
-- **Adopt:** Ensure proper implementation of desired changes, across IT and business processes, to achieve business outcomes.
+- **Operate:** Define a manageable operating model to guide activities during and long after adoption.
+  - **[Organize](../organization/index.md):** Align people and teams to deliver proper cloud operations and adoption.
   - **Govern:** Align proper [governance disciplines](../governance/index.md) to consistently apply cost management, risk mitigation, compliance, and security baselines across all cloud adoption.
-  - **Operate:** Ongoing [operations](../operations/index.md) of the IT portfolio to minimize interruptions to business processes and ensure stability of the IT portfolio.
+  - **Manage:** Ongoing [operations](../operations/index.md) of the IT portfolio to minimize interruptions to business processes and ensure stability of the IT portfolio.
   - **Support:** Align proper [partnership and support options](../migrate/migration-considerations/assess/partnership-options.md).
 
 ## Additional tools
