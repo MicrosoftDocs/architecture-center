@@ -147,5 +147,5 @@ The following tables summarize the key differences in capabilities.
 | Capability | Azure Analysis Services | SQL Server Analysis Services | SQL Server with Columnstore Indexes | Azure SQL Database with Columnstore Indexes |
 |--------------------------------------------------|-------------------------|------------------------------|-------------------------------------|---------------------------------------------|
 | Redundant regional servers for high availability |           Yes           |              No              |                 Yes                 |                     Yes                     |
-|             Supports query scale out             |           Yes           |              No              |                 Yes                 |                     No                      |
-|          Dynamic scalability (scale up)          |           Yes           |              No              |                 Yes                 |                     No                      |
+|             Supports query scale out             |           Yes           |              No              |                 Yes                 |                     Yes                      |
+|          Dynamic scalability (scale up)          |           Yes           |              No              |                 Yes                 |                     Yes                      |
