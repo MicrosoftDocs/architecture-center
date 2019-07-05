@@ -37,12 +37,12 @@ When a datacenter is properly maintained, patched, and updated, there is likely 
 While remediation for smaller workloads can be straightforward, which is one of the reasons it's recommended you choose smaller workload for your initial migration. However, as your migration efforts mature and you begin to tackle larger workloads, remediation can be a time consuming and costly process. For example, remediation efforts for a Windows Server 2003 migration involving a 5,000+ VM pool of assets can delay a migration by months. When such large-scale remediation is required, the following questions can help guide decisions:
 
 - Have all workloads affected by the remediation been identified and notated in the migration backlog?
-- Of the workloads that are not affected, will a migration produce a similar return on investment (ROI)?
+- For workloads that are not affected, will a migration produce a similar return on investment (ROI)?
 - Can the affected assets be remediated in alignment with the original migration timeline? What impact would timeline changes have on ROI?
-- Is it economically feasible to remediate the assets in parallel to migration effort?
+- Is it economically feasible to remediate the assets in parallel with migration efforts?
 - Is there sufficient bandwidth on staff to remediate and migrate? Should a partner be engaged to execute one or both tasks?
 
-If these questions don't produce favorable answers, a few alternative approaches moving beyond a basic IaaS rehosting strategy may be worth considering:
+If these questions don't yield favorable answers, a few alternative approaches that move beyond a basic IaaS rehosting strategy may be worth considering:
 
 - **Containerization.** Some assets can be hosted in a containerized environment without remediation. This could produce less-than-favorable performance and doesn't resolve security or compliance issues.
 - **Automation.** Depending on the workload and remediation requirements, it may be more profitable to script the deployment to new assets using a DevOps approach.

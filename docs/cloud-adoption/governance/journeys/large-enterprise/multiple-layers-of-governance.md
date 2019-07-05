@@ -45,8 +45,8 @@ Tools like management groups allow corporate IT to create a hierarchy structure 
 
 The important aspect of each of these tools is the ability to apply multiple blueprints to a hierarchy. This allows governance to be a layered process. The following is one example of this hierarchical application of governance:
 
-- Corporate IT: Corporate IT creates a set of standards and policies that apply to all cloud adoption. This is materialized in a "Baseline" blueprint. Corporate IT then owns the management group hierarchy, ensuring that a version of the baseline is applied to all subscriptions in the hierarchy.
-- Regional or Business Unit IT: Various IT teams can apply an additional layer of governance by creating their own blueprint. Those blueprints would create additive policies and standards. Once developed, Corporate IT could apply those blueprints to the applicable nodes within the management group hierarchy.
-- Cloud adoption teams: Detailed decisions and implementation about applications or workloads can be made by each cloud adoption team, within the context of governance requirements. At times the team can also request additional Azure Resource Consistency templates to accelerate adoption efforts.
+- **Corporate IT:** Corporate IT creates a set of standards and policies that apply to all cloud adoption. This is materialized in a "Baseline" blueprint. Corporate IT then owns the management group hierarchy, ensuring that a version of the baseline is applied to all subscriptions in the hierarchy.
+- **Regional or Business Unit IT:** Various IT teams can apply an additional layer of governance by creating their own blueprint. Those blueprints would create additive policies and standards. Once developed, Corporate IT could apply those blueprints to the applicable nodes within the management group hierarchy.
+- **Cloud adoption teams:** Detailed decisions and implementation about applications or workloads can be made by each cloud adoption team, within the context of governance requirements. At times the team can also request additional Azure Resource Consistency templates to accelerate adoption efforts.
 
 The details regarding governance implementation at each level will require coordination between each team. The governance MVP and governance evolutions outlined in this journey can aid in aligning that coordination.

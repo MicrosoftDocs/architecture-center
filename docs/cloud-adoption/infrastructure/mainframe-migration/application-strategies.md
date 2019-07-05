@@ -29,7 +29,7 @@ Azure cloud services can emulate traditional mainframe environments, enabling yo
 
 ### OLTP systems
 
-Many mainframes have OLTP systems that process thousands or millions of updates for huge numbers of users. These applications often use transaction processing and screen-form handling software, such as customer information control system (CICS), information management systes (IMS), and terminal interface processor (TIP).
+Many mainframes have OLTP systems that process thousands or millions of updates for huge numbers of users. These applications often use transaction processing and screen-form handling software, such as customer information control system (CICS), information management systems (IMS), and terminal interface processor (TIP).
 
 When moving OLTP applications to Azure, emulators for mainframe transaction processing (TP) monitors are available to run as infrastructure as a service (IaaS) using virtual machines (VMs) on Azure. The screen handling and form functionality can also be implemented by web servers. This approach can be combined with database APIs, such as ActiveX data objects (ADO), open database connectivity (ODBC), and Java database connectivity (JDBC) for data access and transactions.
 
@@ -83,7 +83,7 @@ Use:
 
 Use:
 
-- [Azure Premium SSD](/azure/virtual-machines/windows/premium-storage) or [Azure Ultra SSD](/azure/virtual-machines/windows/disks-ultra-ssd) for maximum available IOPS.
+- [Azure premium SSD](/azure/virtual-machines/windows/premium-storage) or [Azure ultra SSD](/azure/virtual-machines/windows/disks-ultra-ssd) for maximum available IOPS.
 
 - Striping with multiple disks for more IOPS per storage size.
 
@@ -129,19 +129,13 @@ The IBM data tier includes several key components that you must also migrate. Fo
 
 Database migration also includes these components:
 
-- Database manager: Provides access to data in the database. The database manager runs in its own partition in a z/OS environment.
-
-- Application requester: Accepts requests from applications before passing them to an application server.
-
-- Online resource adapter: Includes application requester components for use in CICS transactions.
-
-- Batch resource adapter: Implements application requester components for z/OS batch applications.
-
-- Interactive SQL (ISQL): Runs as a CICS application and interface enabling users to enter SQL statements or operator commands.
-
-- CICS application: Runs under the control of CICS, using available resources and data sources in CICS.
-
-- Batch application: Runs process logic without interactive communication with users to, for example, produce bulk data updates or generate reports from a database.
+- **Database manager:** Provides access to data in the database. The database manager runs in its own partition in a z/OS environment.
+- **Application requester:** Accepts requests from applications before passing them to an application server.
+- **Online resource adapter:** Includes application requester components for use in CICS transactions.
+- **Batch resource adapter:** Implements application requester components for z/OS batch applications.
+- **Interactive SQL (ISQL):** Runs as a CICS application and interface enabling users to enter SQL statements or operator commands.
+- **CICS application:** Runs under the control of CICS, using available resources and data sources in CICS.
+- **Batch application:** Runs process logic without interactive communication with users to, for example, produce bulk data updates or generate reports from a database.
 
 ## Optimize scale and throughput for Azure
 

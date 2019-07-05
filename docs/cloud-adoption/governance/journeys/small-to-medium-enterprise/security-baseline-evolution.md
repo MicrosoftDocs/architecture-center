@@ -120,7 +120,7 @@ The governance MVP design will evolve to include new Azure policies and an imple
 
 Adding the above processes and changes to the governance MVP will help to remediate many of the risks associated with security governance. Together, they add the network, identity, and security monitoring tools needed to protect data.
 
-## Next Steps
+## Next steps
 
 As cloud adoption continues to evolve and deliver additional business value, risks and cloud governance needs also evolve. For the fictional company in this journey, the next step is to support mission-critical workloads. This is the point when Resource Consistency controls are needed.
 

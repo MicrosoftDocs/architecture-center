@@ -44,7 +44,7 @@ Workloads will require varying levels of detailed review and promotion processes
 
 ## Next steps
 
-Promotion of a workload signals the completion of a release. However, in parallel to migration, retired assets need to be [decommissioned](./decommission.md) taking them out of service.
+Promotion of a workload signals the completion of a release. However, in parallel with migration, retired assets need to be [decommissioned](./decommission.md) taking them out of service.
 
 > [!div class="nextstepaction"]
 > [Decommission retired assets](./decommission.md)

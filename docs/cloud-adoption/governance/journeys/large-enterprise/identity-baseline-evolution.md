@@ -17,7 +17,7 @@ This article evolves the narrative by adding Identity Baseline controls to the g
 
 The business justification for the cloud migration of the two datacenters was approved by the CFO. During the technical feasibility study, several roadblocks were discovered:
 
-- Protected data and mission-critical applications represent 25% of the workloads in the two datacenters. Neither can be eliminated until the current governance policies regarding PII and mission-critical applications have been modernized.
+- Protected data and mission-critical applications represent 25% of the workloads in the two datacenters. Neither can be eliminated until the current governance policies regarding sensitive personal data and mission-critical applications have been modernized.
 - 7% of the assets in those datacenters are not cloud-compatible. They will be moved to an alternate datacenter before termination of the datacenter contract.
 - 15% of the assets in the datacenter (750 virtual machines) have a dependency on legacy authentication or third-party multi-factor authentication.
 - The VPN connection that connects existing datacenters and Azure does not offer sufficient data transmission speeds or latency to migrate the volume of assets within the two-year timeline to retire the datacenter.
@@ -34,7 +34,8 @@ The IT team has approval to move forward with the CIO and CFO's plans to retire 
 
 ### Evolution of the future state
 
-The new future state plans require a more robust Identity Baseline solution to migrate the 750 virtual machines with legacy authentication requirements. Beyond these two datacenters, similar percentages of assets in other datacenters are expected to be affected by this challenge.
+The new future state plans require a more robust Identity Baseline solution to migrate the 750 virtual machines with legacy authentication requirements. Beyond these two datacenters, this challenge is expected to affect similar percentages of assets in other datacenters.
+
 The future state now also requires a connection from the cloud provider to the company’s MPLS/leased-line solution.
 
 The changes to current and future state expose new risks that will require new policy statements.
@@ -68,7 +69,7 @@ The governance MVP design evolves to include new Azure policies and an implement
 
 Here are the new best practices:
 
-1. DMZ blueprint: The on-premises side of the DMZ should be configured to allow communication between the following solution and the on-premises Active Directory servers. This best practice requires a DMZ to enable Active Directory Domain Services across network boundaries.
+1. Secure hybrid VNet blueprint: The on-premises side of the hybrid network should be configured to allow communication between the following solution and the on-premises Active Directory servers. This best practice requires a DMZ to enable Active Directory Domain Services across network boundaries.
 2. Azure Resource Manager templates:
     1. Define an NSG to block external traffic and whitelist internal traffic.
     1. Deploy two Active Directory virtual machines in a load-balanced pair based on a golden image. On first boot, that image runs a PowerShell script to join the domain and register with domain services. For more information, see [Extend Active Directory Domain Services (AD DS) to Azure](../../../../reference-architectures/identity/adds-extend-domain.md).

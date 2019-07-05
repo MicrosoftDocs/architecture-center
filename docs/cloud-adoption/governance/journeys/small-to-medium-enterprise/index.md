@@ -35,7 +35,7 @@ Every application should be deployed in the proper area of the management group,
 1. A management group for each type of environment (such as Production, Development, and Test).
 2. A subscription for each "application categorization".
 3. A separate resource group for each application.
-4. [Consistent nomenclature](../../../ready/considerations/naming-and-tagging.md) should be applied at each level of this grouping hierarchy.
+4. [Consistent nomenclature](../../../ready/considerations/name-and-tag.md) should be applied at each level of this grouping hierarchy.
 
 Here is an example of this pattern in use:
 
@@ -43,7 +43,7 @@ Here is an example of this pattern in use:
 
 These patterns provide room for growth without complicating the hierarchy unnecessarily.
 
-[!INCLUDE [governance-of-resources](../../../includes/governance/governance-of-resources.md)]
+[!INCLUDE [governance-of-resources](../../../../../includes/caf-governance-of-resources.md)]
 
 ## Governance evolutions
 

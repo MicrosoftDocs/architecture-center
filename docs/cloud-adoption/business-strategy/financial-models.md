@@ -66,7 +66,7 @@ This category is one of the largest earnings areas when considering a cloud migr
 
 ### Cost avoidance
 
-When an operating expenditure is expected, but not yet in an approved budget, it may not fit into a cost reduction category. For instance, if VMware and Microsoft licenses need to be renegotiated and paid next year, they aren't fully qualified costs yet. Reductions in those expected costs would be treated like operational costs for the sake of cost delta calculations. Informally, however, they should be referred to as "cost avoidance," until negotiation and budget approval is complete.
+When an operating expenditure is expected, but not yet in an approved budget, it may not fit into a cost reduction category. For instance, if VMware and Microsoft licenses need to be renegotiated and paid next year, they aren't fully qualified costs yet. Reductions in those expected costs are treated like operational costs for the sake of cost delta calculations. Informally, however, they should be referred to as "cost avoidance" until negotiation and budget approval is complete.
 
 ### Soft cost reductions
 
@@ -88,7 +88,7 @@ If a refresh cycle is approved and budgeted, the cloud transformation could help
 
 ## Next steps
 
-Read some example fiscal outcomes in the context of a cloud transformation.
+Learn more about [cloud accounting](./cloud-accounting.md) models.
 
 > [!div class="nextstepaction"]
-> [Examples of fiscal outcomes](./business-outcomes/fiscal-outcomes.md)
+> [Cloud accounting](./cloud-accounting.md)

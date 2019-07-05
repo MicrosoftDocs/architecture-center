@@ -8,7 +8,7 @@ ms.date: 04/04/2019
 
 # Examples of performance outcomes
 
-As discussed in [business outcomes](index.md), there are several potential business outcomes that can serve as the foundation for any transformation journey conversation with the business. In this article we will focus on a common business measure: performance.
+As discussed in [business outcomes](index.md), several potential business outcomes can serve as the foundation for any transformation journey conversation with the business. In this article we will focus on a common business measure: performance.
 
 In today's technological society, customers assume that applications will perform well and always be available. When this expectation isn't met, it causes reputation damage that can be costly and long-lasting.
 
@@ -28,3 +28,10 @@ Cloud computing makes data backup, disaster recovery, and business continuity ea
 One of IT’s crucial functions is ensuring that corporate data is never lost and applications stay available despite server crashes, power outages, or natural disasters. Keep your data safe and recoverable by backing it up to Azure. Azure Backup is a simple solution that decreases your infrastructure costs while giving you enhanced security mechanisms to protect your data against ransomware. With one solution, you can protect workloads running in Azure and on-premises across Linux, Windows, VMware, and Hyper-V. Ensure business continuity by keeping your applications running in Azure. Azure Site Recovery makes it simple for you to test disaster recovery by replicating applications between Azure regions. You can also replicate on-premises VMware and Hyper-V virtual machines and physical servers to Azure to stay available if the primary site goes down. Recover workloads to the primary site when it’s up and running again.
 
 - **Example:** An oil and gas company used Azure technologies to implement a full site recovery. The company chose not to fully embracing the cloud for day to day operations, but the DRBC features of cloud still protected their datacenter. As a hurricane formed hundreds of miles away, their implementation partner started recovering the site to Azure. Before the storm touched down, all mission-critical assets were running in Azure, preventing any downtime.
+
+## Next steps
+
+Learn how to [use the business outcome template](./how-to-use-the-business-outcome-template.md).
+
+> [!div class="nextstepaction"]
+> [Use the business outcome template](./how-to-use-the-business-outcome-template.md)

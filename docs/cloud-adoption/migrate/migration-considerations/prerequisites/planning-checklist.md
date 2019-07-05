@@ -14,7 +14,7 @@ The following checklist aligns with the guidance found in the [Ready section](..
 
 ## Effort type assumption
 
-This article and checklist assume a *rehost* or *cloud transition* approach to cloud migration.
+This article and checklist assume a _rehost_ or _cloud transition_ approach to cloud migration.
 
 ## Governance alignment
 

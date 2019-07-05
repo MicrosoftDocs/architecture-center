@@ -250,7 +250,7 @@ Now imagine you have an Azure deployment (for example, Azure App Service) in bot
 
 - You want users in each office to access their nearest Azure services for an optimal experience.
 - Thus you want to connect users in Los Angeles to Azure US West and users in New York to Azure US East.
-- This works for east coast users, but not for the west. The problem is as follows:
+- This works for East Coast users, but not for those on the West Coast. The problem is:
   - On each ExpressRoute circuit, we advertise both prefixes in Azure US East (23.100.0.0/16) and Azure US West (13.100.0.0/16).
   - Without knowing which prefix is from which region, prefixes aren't treated differently.
   - Your WAN network can assume that both prefixes are closer to US East than US West, and thus route users from both offices to the ExpressRoute circuit in US East, providing a suboptimal experience for users in the Los Angeles office.

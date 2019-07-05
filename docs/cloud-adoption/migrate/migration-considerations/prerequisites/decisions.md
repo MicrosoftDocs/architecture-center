@@ -32,7 +32,7 @@ If market share and customer experience are your primary drivers, this may not b
 
 ### Acting on data innovations
 
-If data, experimentation, research and development (R&D), or new products are your priority for the next six months or so, this may not be the best section of the Cloud Adoption Framework to guide the teams' efforts. Any data innovation effort could benefit from guidance regarding the migration of existing source data. However, the broader focus of that effort would be on the ingress and integration of additional data sources. Extending that guidance with predictions and new experiences is much more important than the migration of IaaS assets.
+If data, experimentation, research and development (R&D), or new products are your priority for the next six months or so, this may not be the best section of the Cloud Adoption Framework to guide your teams' efforts. Any data innovation effort could benefit from guidance regarding the migration of existing source data. However, the broader focus of that effort would be on the ingress and integration of additional data sources. Extending that guidance with predictions and new experiences is much more important than the migration of IaaS assets.
 
 ## Balancing the portfolio
 

@@ -11,6 +11,9 @@ ms.subservice: enterprise-cloud-adoption
 ---
 # Examples of implementing Azure enterprise scaffold
 
+> [!NOTE]
+> Azure enterprise scaffolding has been integrated into the Microsoft Cloud Adoption Framework. The content in this article is now represented in the [Ready](../ready/index.md) section of the new framework. This article will be deprecated some time in early 2020. To begin using the new process, see the [Ready overview](../ready/index.md), [creating your first landing zone](../ready/azure-readiness-guide/migration-landing-zone.md), and/or [landing zone considerations](../ready/considerations/index.md).
+
 This article provides examples of how an enterprise can implement the recommendations for an [Azure enterprise scaffold](azure-scaffold.md). It uses a fictional company named Contoso to illustrate best practices for common scenarios.
 
 ## Background

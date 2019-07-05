@@ -1,15 +1,14 @@
 ---
 title: "Rationalize the digital estate"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
-ms.custom: governance
 description: Evaluate your digital assets to determine how best to host them in the cloud.
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 12/10/2018
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
 ---
 
 # Rationalize the digital estate
@@ -78,7 +77,7 @@ In a traditional on-premises environment, hosting small, unused assets seldom ca
 
 However, when moving to a cloud accounting model, retiring assets can produce significant savings in annual operating costs and up-front migration efforts.
 
-It is not uncommon for organizations to retire 20% or more of their digital estate after completing a quantitative analysis. Further qualitative analysis is suggested before deciding on such an action. Once confirmed, the retirement of those assets can produce the first ROI victory in the cloud migration. In many cases, this is one of the biggest cost saving factors. As such, it's suggested that the Cloud Strategy team oversee the validation and retirement of assets, in parallel to the build phase of the migration process, to allow for an early financial win.
+It is not uncommon for organizations to retire 20% or more of their digital estate after completing a quantitative analysis. Further qualitative analysis is suggested before deciding on such an action. Once confirmed, the retirement of those assets can produce the first ROI victory in the cloud migration. In many cases, this is one of the biggest cost saving factors. As such, it's suggested that the Cloud Strategy team oversee the validation and retirement of assets, in parallel with the build phase of the migration process, to allow for an early financial win.
 
 ### Program adjustments
 
@@ -110,7 +109,7 @@ The first workload is often deployed in an experimental environment with no oper
 
 ### Qualitative analysis
 
-The Cloud Adoption and Cloud Strategy teams can work together to analyze this small workload. This colaboration creates a controlled opportunity to create and test qualitative analysis criteria. The smaller population creates an opportunity to survey the affected users, to complete a detailed qualitative analysis in a week or less. For common qualitative analysis factors, see the specific rationalization target in the [5 Rs of rationalization](5-rs-of-rationalization.md).
+The Cloud Adoption and Cloud Strategy teams can work together to analyze this small workload. This collaboration creates a controlled opportunity to create and test qualitative analysis criteria. The smaller population creates an opportunity to survey the affected users, to complete a detailed qualitative analysis in a week or less. For common qualitative analysis factors, see the specific rationalization target in the [5 Rs of rationalization](5-rs-of-rationalization.md).
 
 ### Migration
 
