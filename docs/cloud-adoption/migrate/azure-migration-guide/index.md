@@ -60,7 +60,7 @@ This guide helps answer these questions. It suggests the tasks and features to c
 
 ::: zone target="docs"
 
-To learn more about organizing and structuring your subscriptions, managing your deployed resources, and complying with your corporate policy requirements, see [Governance in Azure](/azure/security/governance-in-azure/).
+To learn more about organizing and structuring your subscriptions, managing your deployed resources, and complying with your corporate policy requirements, see [Governance in Azure](/azure/security/governance-in-azure).
 
 ::: zone-end
 

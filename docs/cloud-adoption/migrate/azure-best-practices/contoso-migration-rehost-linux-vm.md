@@ -292,7 +292,7 @@ Now Contoso admins can start replicating the **OSTICKETWEB** VM.
 
      ![Mobility service](./media/contoso-migration-rehost-linux-vm/linux-mobility.png)
 
-6. in **Replication settings** > **Configure replication settings**, they check that the correct replication policy is applied, and select **Enable Replication**.
+6. In **Replication settings** > **Configure replication settings**, they check that the correct replication policy is applied, and select **Enable Replication**.
 
 7. They track replication progress in **Jobs**. After the **Finalize Protection** job runs, the machine is ready for failover.
 

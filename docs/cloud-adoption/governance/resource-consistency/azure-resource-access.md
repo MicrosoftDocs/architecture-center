@@ -19,7 +19,7 @@ Begin by taking a closer look at how resources are deployed in Azure.
 
 ## What is an Azure resource?
 
-In Azure, the term **resource** refers to an entity managed by Azure. For example, virtual machines, virtual networks, and storage accounts are all referred to as Azure resources.
+In Azure, the term _resource_ refers to an entity managed by Azure. For example, virtual machines, virtual networks, and storage accounts are all referred to as Azure resources.
 
 ![Diagram of a resource](../../_images/governance-1-9.png)
 *Figure 1. A resource.*

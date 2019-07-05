@@ -23,7 +23,7 @@ The high-level process for the digital transformation is:
 2. Members of the cloud strategy team learn what's new and different about cloud technologies.
 3. The cloud strategy team prepares the enterprise by building the business case for digital transformation - enumerates all the current gaps in business strategy and determines the high-level solutions to eliminate them.
 4. Align high-level solutions with business groups. Identify stakeholders in each business group to own the design and implementation for each solution.
-5. Translate existing roles, skills and process to include cloud roles, skills, and process.
+5. Adapt existing roles, skills and processes to include cloud roles, skills, and processes.
 
 <!--6. Develop processes for operating in the cloud to make solutions more robust in terms of availability, resiliency, and security.
 1. Optimize solutions for performance, scalability, and cost efficiency.-->
@@ -54,17 +54,17 @@ For advanced learning, the governance team should review the concepts and design
 
 ## Step 3: Identify gaps in business strategy
 
-The next step is for the cloud strategy team to enumerate the business problems that require a digital transformation solution. For example, an enterprise may have an existing on-premises datacenter with end-of-life hardware that requires replacement. In another example, an enterprise may be experiencing difficulty with time-to-market for new features and services and may be falling behind to competition. These gaps represent the *goals* of your enterprise's digital transformation.
+The next step is for the Cloud Strategy team to enumerate the business problems that require a digital transformation solution. For example, an enterprise may have an existing on-premises datacenter with end-of-life hardware that requires replacement. In another example, an enterprise may be experiencing difficulty with time-to-market for new features and services and may be falling behind to competition. These gaps represent the _goals_ of your enterprise's digital transformation.
 
 Gaps in business strategy can be classified into the following categories:
 
-|Category|Description|
-|-----|-----|
-|Cost management|Represents a gap in the way the Enterprise pays for technology.|
-|Governance|Represents a gap in the processes used by the Enterprise to protect its assets from improper usage that might result in cost overruns, security issues, or compliance issues. |
-|Compliance|Represents a gap in the way the enterprise adheres to its own internal processes and policies as well as external laws, regulations, and standards. |
-|Security|Represents a gap in the way the enterprise protects its technology and data assets from external threats. |
-|Data governance|Represents a gap in the way an enterprise manages its data, especially customer data. For example, new General Data Protection Regulation (GDPR) in the European Union has strict requirements for the protection of customer data that may require new hardware and software.|
+| Category | Description |
+| --- | --- |
+| Cost management | Represents a gap in how the enterprise pays for technology. |
+| Governance | Represents a gap in the processes used by the enterprise to protect its assets from improper usage that could result in cost overruns, security issues, or compliance issues. |
+| Compliance | Represents a gap in how the enterprise adheres to its own internal processes and policies as well as external laws, regulations, and standards. |
+| Security | Represents a gap in the way the enterprise protects its technology and data assets from external threats. |
+| Data governance | Represents a gap in how an enterprise manages its data, especially customer data. For example, the General Data Protection Regulation (GDPR) in the European Union has strict requirements for the protection of customer data that may require new hardware and software. |
 
 Once your enterprise has classified all business strategy gaps into these categories, the next step is to determine a high-level solution for each problem.
 
@@ -84,15 +84,15 @@ The output of this process is a stack-ranked list of high-level solutions aligne
 
 Now that the goals of the digital transformation have been enumerated, prioritized, and high-level solutions proposed, the next step is for the cloud strategy team to align each of the high-level solutions with design and implementation teams in each of the business groups.
 
-The teams take the prioritized lists and work through each high-level solution to design each solution. The design process will involve the specification of new infrastructure and new workloads. There may also be changes to the roles of the people and the processes they follow. It's also important at this stage for each of the design teams to include both the governance and security teams for review of each design. Each design must fall within with the policies and procedures defined by the governance and security teams, and these teams must be included in the final signoff of each design.
+The teams take the prioritized lists and work through each high-level solution to design each solution. The design process will involve the specification of new infrastructure and new workloads. There may also be changes to the roles of the people and the processes they follow. It's also important at this stage for each of the design teams to include both the governance and security teams for review of each design. Each design must fall within with the policies and procedures defined by the governance and security teams, and these teams must be included in the final approval of each design.
 
 ![Cloud Strategy team delivers high-level solutions to design and implementation teams.](../_images/getting-started-overview-3.png)
 
-The design of each solution is a nontrivial task and as designs are created, must be considered in context with other solution designs from other teams. For example, if several of the designs result in a migration of existing on-premises applications and services to the cloud, it may be more efficient to group these together and design an overall migration strategy. In another example, it may not be possible to migrate some existing on-premises applications and services and the solution may be to replace them with either new development or third-party services. In this case, it may be more efficient to group these together and determine the overlap between them to determine if a third-party service can be used for more than one solution.
+The design of each solution is a nontrivial task. As designs are created, they must be considered in the context of other solution designs from other teams. For example, if several of the designs result in a migration of existing on-premises applications and services to the cloud, it may be more efficient to group these together and design an overall migration strategy. In another example, it may not be possible to migrate some existing on-premises applications and services and the solution may be to replace them with either new development or third-party services. In this case, it may be more efficient to group these together and determine the overlap between them to determine if a third-party service can be used for more than one solution.
 
 Once the design of the solution is complete, the team moves on to the implementation phase for each design. The implementation phase for each solution design can be run using standard project management processes.
 
-## Step 5: Translate existing roles, skills, and process for the cloud
+## Step 5: Adapt existing roles, skills, and process for the cloud
 
 At each evolutionary phase during the history of the IT industry, the most notable industry changes are often marked by changes in staff roles. During the transition from mainframes to the client/server model, the role of the computer operator largely disappeared, replaced by the system administrator. When the age of virtualization arrived, the requirement for individuals working with physical servers diminished, replaced with a need for virtualization specialists. Similarly, as institutions shift to cloud computing, roles will likely change again. For example, datacenter specialists might be replaced with cloud financial analysts. Even in cases where IT job titles have not changed, the daily work roles have evolved significantly.
 
@@ -112,7 +112,7 @@ Another aspect of working through the issues with your enterprise's digital tran
 
 Begin by enumerating the new responsibilities that accompany the digital transformation, with an emphasis on new responsibilities and current responsibilities to be retired. Identify the area that is aligned with each responsibility. For new responsibilities, determine how closely aligned it is with the area. Some responsibilities may span several areas, and this represents an opportunity for better alignment that should be captured as a concern. In the case where no area is identified as being responsible, capture this as a gap.
 
-Next, identify the skills necessary to support the responsibility. Determine if your enterprise has existing resources with these skills. If there are no existing resources, determine what training programs or talent acquisition is necessary. Determine the time frame by which the responsibility must be supported to keep your digital transformation on track.
+Next, identify the skills necessary to support the responsibility. Determine if your enterprise has existing resources with these skills. If no existing resources are available, determine what training programs or talent acquisition is necessary. Determine the time frame by which the responsibility must be supported to keep your digital transformation on track.
 
 Finally, identify the roles that will execute these skills. Some of your existing workforce will assume parts of the role, and in other cases an entirely new role may be necessary.
 
@@ -120,9 +120,9 @@ Finally, identify the roles that will execute these skills. Some of your existin
 
 The skills necessary to fill the gaps in your organization's digital transformation will typically not be confined to a single role, or even a single department. Skills will have relationships and dependencies that can span a single role or multiple roles, and those roles may exist in several departments. For example, a workload owner may require someone in an IT role to provision core resources such as subscriptions and resource groups.
 
-These dependencies represent new processes that your organization implements to manage the workflow between roles. In the above example, there are several different types of process that can support the relationship between the workload owner and the IT role. For example, a workflow tool can be created to manage the process, or, a simple email template can be used.
+These dependencies represent new processes that your organization implements to manage the workflow between roles. In the above example, several different types of process can support the relationship between the workload owner and the IT role. For example, a workflow tool can be created to manage the process, or, a simple email template can be used.
 
-Track these dependencies and make note of the processes that will support them, and whether or not the process currently exists. For process that require tooling, ensure that the timeline for deploying any tools aligns with the overall digital transformation schedule.
+Track these dependencies and make note of the processes that will support them, and whether or not the process currently exists. For processes that require tooling, ensure that the timeline for deploying any tools aligns with the overall digital transformation schedule.
 
 ## Next steps
 

@@ -1,64 +1,61 @@
 ---
-title: "Why are we moving to the cloud?"
+title: "Motivations: Why are we moving to the cloud?"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Cloud accounting and moving to the cloud
 author: BrianBlanchard
-ms.date: 04/04/2019
+ms.author: brblanch
+ms.date: 5/19/2019
+ms.topic: article
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
 ---
 
 <!-- markdownlint-disable MD026 -->
 
-# Why are we moving to the cloud?
+# Motivations: Why are we moving to the cloud?
 
-"Why are we moving to the cloud?" is a common question for business and technical stakeholders alike.
-If the answer is "Our board (or CIO, or C-suite) told us to move to the cloud", it is unlikely that the business will experience the desired outcomes.
+"Why are we moving to the cloud?" is a common question for business and technical stakeholders alike. If the answer is, "Our board (or CIO, or C-level executives) told us to move to the cloud," then it's unlikely that the business will achieve the desired outcomes.
 
-In this article, we will discuss a few motivations behind cloud migration that could produce more significant business outcomes. These options are designed to help facilitate a conversation regarding motivations and ultimately business outcomes.
+This article discusses a few motivations behind cloud migration that can produce more significant business outcomes. These options help facilitate a conversation about motivations and, ultimately, business outcomes.
 
-## Common motivations for cloud transformation
+## Motivations
 
-Common motivations for cloud adoption include:
+Business transformations which are supported by cloud adoption can be driven by a number of motivations. It's very likely that several of the motivations are applicable. The goal with this list is to capture which motivations are relevant. From there, business outcomes will help measure priorities and potential impacts of those relevant motivations. In this article, it is advised that the cloud adoption team meet with various executives and business leaders using the list below to understand which of these motivations are impacted by the cloud adoption effort.
+<!-- markdownlint-disable MD033 -->
 
-- Unclear direction from board or others at an executive level.
-- Critical business events, such as:
-  - Datacenter exit.
-  - Mergers, acquisitions, or divestiture.
-  - Reductions in capital expenses.
-  - End of support for mission-critical technologies.
-- Cost savings.
-- Reduction in vendor or technical complexity.
-- Optimization of internal operations.
-- Increasing business agility.
-- Preparation for new technical capabilities.
-- Building new technical capabilities.
-- Scaling to meet market demands.
-- Scaling to meet geographic demands.
-- Improving customer experiences and engagements.
-- Transforming products or services.
+| Critical Business Events | Migration Motivations | Innovation Motivations |
+|---|---|---|
+| Datacenter exit<br/><br/>Mergers, acquisition, or divestiture<br/><br/>Reductions in capital expenses<br/><br/>End of support for mission-critical technologies<br/><br/>Response to regulatory compliance changes<br/><br/>Meet new data sovereignty requirements<br/><br/>Reduce disruptions and improve IT stability | Cost savings<br/><br/>Reduction in vendor or technical complexity<br/><br/>Optimization of internal operations<br/><br/>Increase business agility<br/><br/>Prepare for new technical capabilities<br/><br/>Scale to meet market demands<br/><br/>Scale to meet geographic demands | Prepare for new technical capabilities<br/><br/>Build new technical capabilities<br/><br/>Scale to meet market demands<br/><br/>Scale to meet geographic demands<br/><br/>Improve customer experiences and engagements<br/><br/>Transform products or services<br/><br/>Disrupt the market with new products or services |
 
-There are technical strategies to execute against each of these motivations. However, the further down the list a specific motivation is, the more likely the business is to experience positive business outcomes as a result of the transformation efforts. This is expanded on in the next section on evolving the IT worldview.
+## Motivation classification
 
-## Business outcome-driven adoption strategies
+Motivations will likely be in multiple categories. In the process of building the list of motivations, trends will likely emerge. Further the list itself will likely reflect those trends. Motivations typically lean further towards one motivation classification than others. Use the predominant classification to help guide the development of the cloud adoption strategy.
 
-**Migrate:** The motivations near the top of the list above are the most common (but not necessarily the most significant) reasons for adopting the cloud. These are important outcomes to achieve, but are most effectively used as a means of transitioning to other more effective worldviews in the future. This important first step to cloud adoption is often called a cloud migration, this framework refers to the strategy behind execution of such a migration by the verb [Migrate](../getting-started/migrate.md).
+When responding to critical business events is the highest priority, it is important to engage in [cloud implementation](../getting-started/migrate.md#cloud-implementation) early, often in parallel with strategy and planning efforts. Taking such an approach requires a growth mindset and a willingness to iterate and evolve processes, based on direct lessons learned.
 
-The motivations that align well with a migrate strategy are listed below. The motives at the top of the list are likely to have significantly less business impact than those that fall closer to the bottom of the list.
+When migration motivations are a priority, [strategy and planning](../getting-started/migrate.md#cloud-strategy-and-planning) will play a vital role early in the process. However, it is highly suggested that [implementation](../getting-started/migrate.md#cloud-implementation) of the first workload is conducted in parallel with planning, to help the team understand and plan for any learning curves associated with the cloud.
 
-- Unclear direction from board or others at an executive level.
-- Critical business events, such as:
-  - Datacenter exit.
-  - Mergers, acquisitions, or divestiture.
-  - Reductions in capital expenses.
-  - End of support for mission-critical technologies.
+When innovation motivations are the highest priority, strategy and planning will require additional investments early in the process to ensure balance in the portfolio and wise alignment of the investment made during cloud. See [Understand the innovation journey](../getting-started/innovate.md) for further guidance for realizing innovation motivations.
+
+Preparing all participants across the migration effort with an awareness of the motivations will ensure wiser decisions. The following migration methodology outlines how Microsoft suggests customers guide those decisions in a consistent methodology.
+
+## Motivation-driven strategies
+
+**Migrate:** The motivations near the top of the list above are the most common (but not necessarily the most significant) reasons for adopting the cloud. These are important outcomes to achieve, but they are most effectively used to transition to other more useful worldviews. This important first step to cloud adoption is often called a cloud migration; this framework refers to the strategy for executing a cloud migration by using the term [Migrate](../getting-started/migrate.md).
+
+Some motivations align well with a migrate strategy. The motives at the top of this list will likely have significantly less business impact than those toward the bottom of the list.
+
 - Cost savings.
 - Reduction in vendor or technical complexity.
 - Optimization of internal operations.
 - Increasing business agility.
 - Preparing for new technical capabilities.
+- Scaling to meet market demands.
+- Scaling to meet geographic demands.
 
-**Innovate:** Data is the new commodity. Modern apps are the supply chain that drives that data into various experiences. In today's business market, it's hard to find a transformative product or service that isn't built on top of data, insights, and customer experiences. The motivations that fall later in the list align to a technology strategy that this framework refers to as [Innovate](../getting-started/innovate.md).
+**Innovate:** Data is the new commodity. Modern apps are the supply chain that drives that data into various experiences. In today's business market, it's hard to find a transformative product or service that isn't built on top of data, insights, and customer experiences. The motivations that appear lower in the list align to a technology strategy referred to in this framework as [Innovate](../getting-started/innovate.md).
 
-The following are a list of the motivations that would make an IT organization focus more on an innovate strategy than a migrate strategy.
+The following list includes motivations that cause an IT organization to focus more on an innovate strategy than a migrate strategy.
 
 - Increasing business agility.
 - Preparing for new technical capabilities.
@@ -68,6 +65,10 @@ The following are a list of the motivations that would make an IT organization f
 - Improving customer experiences and engagements.
 - Transforming products or services.
 
-## Guiding transformation conversations
+## Next steps
 
-To guide transformation conversations, see [business outcomes](business-outcomes/index.md) that serve as a model for facilitating the business conversations needed to drive document motives and the supporting metrics, in alignment with the business strategy.
+To guide transformation conversations, see [business outcomes](./business-outcomes/index.md) that serve as a model for facilitating the business conversations needed to drive document motives and the supporting metrics, in alignment with the business strategy.
+Read an overview of business outcomes commonly associated with a transformation journey.
+
+> [!div class="nextstepaction"]
+> [Overview of business outcomes](./business-outcomes/index.md)

@@ -33,7 +33,7 @@ This implementation can also be described using a simple checklist:
 
 1. Solicit decisions regarding core dependencies: Identity, Network, and Encryption.
 2. Determine the pattern to be used during corporate policy enforcement.
-3. Determine the appropriate governance patterns for the Resource Consistency, Resource Tagging, and Loging and Reporting disciplines.
+3. Determine the appropriate governance patterns for the Resource Consistency, Resource Tagging, and Logging and Reporting disciplines.
 4. Implement the governance tools aligned to the chosen policy enforcement pattern to apply the dependent decisions and governance decisions.
 
 [!INCLUDE [implementation-process](../../../includes/governance/implementation-process.md)]
@@ -66,7 +66,11 @@ Resource consistency decisions determine the tools, processes, and effort requir
 
 Resource tagging decisions determine how metadata is applied to Azure resources within a subscription to support operations, management, and accounting purposes. In this narrative, the **[Classification](../../../decision-guides/resource-tagging/index.md#resource-tagging-patterns)** pattern has been chosen as the default model for resource tagging.
 
-- Deployed assets should be tagged with the following values: Data Classification, Criticality, SLA, and Environment.
+- Deployed assets should be tagged with:
+  - Data Classification
+  - Criticality
+  - SLA
+  - Environment
 - These four values will drive governance, operations, and security decisions.
 - If this governance journey is being implemented for a business unit or team within a larger corporation, tagging should also include metadata for the billing unit.
 

@@ -1,20 +1,32 @@
 ---
-title: "The 5 Rs of rationalization"
+title: "Cloud rationalization"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
-ms.custom: governance
 description: Review the options available for rationalizing a digital estate.
 author: BrianBlanchard
 ms.date: 12/10/2018
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
 ---
 
-# The 5 Rs of rationalization
+# Cloud rationalization
 
 Cloud rationalization is the process of evaluating assets to determine the best way to migrate or modernize each asset in the cloud. For more information about the process of rationalization, see [What is a digital estate?](index.md)
+
+## Rationalization context
+
+The 5 Rs of rationalization listed in this article are a great way to label a potential future state for any workload being considered a cloud candidate. However, this labeling process should be put into proper context before attempting to rationalize an environment. Reviewing the following myths to provide that context:
+
+- **Myth: It's easy to make rationalization decisions early in the process.** Accurate rationalization requires a deep knowledge of the workload and associated assets (apps, VMs, and data). Most importantly, accurate rationalization decisions take time. This is best accomplished using an [incremental rationalization process](./rationalize.md#incremental-rationalization).
+
+- **Myth: Cloud adoption has to wait for all workloads to be rationalized.** Rationalizing an entire IT portfolio or even a single datacenter can delay the realization of business value by months or even years. Full rationalization should be avoided when possible. Instead, use the [power of 10 approach to release planning](./rationalize.md#release-planning) to make wise decisions regarding the next 10 workloads slated for cloud adoption.
+
+- **Myth: Business justification has to wait for all workloads to be rationalized.** To develop a business justification for a cloud adoption effort, make a few simple assumptions at the portfolio level. When motivations are aligned to innovation, assume rearchitecture. When motivations are aligned to migration, assume rehost. These assumptions can accelerate the business justification process. Assumptions are then challenged and budgets refined during the assess phase of each workload's adoption cycles.
+
+Now review the following 5 Rs of rationalization to familiarize yourself with the long-term process. While developing your cloud adoption plan, choose the option that best aligns with your motivations, business outcomes, and current state environment. The goal in digital estate rationalization is to set a baseline, not to rationalize every workload.
+
+## The 5 Rs of rationalization
 
 The "5 Rs of rationalization" listed here describe the most common options for rationalization.
 

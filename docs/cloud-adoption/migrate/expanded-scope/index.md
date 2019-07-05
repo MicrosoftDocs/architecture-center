@@ -22,7 +22,7 @@ The following checklist outlines the common areas of complexity which could requ
 - **Culture-driven scope changes:**
   - Change management and approval processes *(Coming Q3 2019)*
   - Executive readiness *(Coming Q3 2019)*
-  - [Skills readiness](./skills-readiness.md)
+  - [Skills readiness](./suggested-skills.md)
   - Aligning support (Partner, services, and support) *(Coming Q3 2019)*
 - **Technical strategy-driven scope changes:**
   - Existing datacenter constraints *(Coming Q3 2019)*

@@ -1,6 +1,6 @@
 ---
 title: "Mainframe migration: Make the switch from mainframes to Azure"
-description: Migrate applications from mainframe environments to Azure, a proven, highly available, and scalable infrastructure for systems that currently run on mainframes.
+description: Migrate applications from mainframe environments to Azure for systems that currently run on mainframes.
 author: njray
 ms.date: 12/26/2018
 ---
@@ -15,7 +15,7 @@ This section provides technical guidance for making the switch from a mainframe 
 
 ## MIPS vs. vCPUs
 
-There is no universal mapping formula that exists for determining the amount of virtual central processing units (vCPUs) needed to run mainframe workloads. However, the metric of a million instructions per second (MIPS) is often mapped to vCPUs on Azure. MIPS measures the overall compute power of a mainframe by providing a constant value of the number of cycles per second for a given machine.
+There is no universal mapping formula that exists for determining the number of virtual central processing units (vCPUs) needed to run mainframe workloads. However, the metric of a million instructions per second (MIPS) is often mapped to vCPUs on Azure. MIPS measures the overall compute power of a mainframe by providing a constant value of the number of cycles per second for a given machine.
 
 A small organization might require less than 500 MIPS, while a large organization typically uses more than 5,000 MIPS. At $1,000 per single MIPS, a large organization spends approximately $5 million annually to deploy a 5,000-MIPS infrastructure. The annual cost estimate for a typical Azure deployment of this scale is approximately one-tenth the cost of a MIPS infrastructure. For details, see Table 4 in the [Demystifying Mainframe-to-Azure.
 Migration](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration)
@@ -34,7 +34,7 @@ This guide estimates 200 MIPS per vCPU for online processing and 100 MIPS per vC
 
 ## High availability and failover
 
-Mainframe systems often offer five 9s availability (99.999 percent) when mainframe coupling and Parallel Sysplex are used. Yet system operators still need to schedule downtime for maintenance and initial program loads (IPLs). The actual availability approaches two or three 9s, on par with high end, Intel-based servers.
+Mainframe systems often offer five 9s availability (99.999 percent) when mainframe coupling and Parallel Sysplex are used. Yet system operators still need to schedule downtime for maintenance and initial program loads (IPLs). The actual availability approaches two or three 9s, comparable to high end, Intel-based servers.
 
 By comparison, Azure offers commitment-based service level agreements (SLAs), where multiple 9s availability is the default, optimized with local or geo-based replication of services.
 
@@ -44,9 +44,9 @@ When you use Azure platform as a service (PaaS) resources, such as [Azure SQL Da
 
 ## Scalability
 
-Mainframes typically scale up, while cloud environments scale out. Mainframes can scale out with the use of a coupling facility (CF), but the high costs of hardware and storage makes mainframes very expensive to scale out.
+Mainframes typically scale up, while cloud environments scale out. Mainframes can scale out with the use of a coupling facility (CF), but the high cost of hardware and storage makes mainframes expensive to scale out.
 
-In addition, a CF offers tightly coupled compute, whereas the scale-out features of Azure are loosely coupled. The cloud can scale up or down to match exact user specifications, with compute power, storage, and services scaling on demand under a usage-based billing model.
+A CF also offers tightly coupled compute, whereas the scale-out features of Azure are loosely coupled. The cloud can scale up or down to match exact user specifications, with compute power, storage, and services scaling on demand under a usage-based billing model.
 
 ## Backup and recovery
 
@@ -58,13 +58,12 @@ Automated geo-redundancy is also available through the mainframe coupling facili
 
 Part of understanding how mainframes work involves decoding various overlapping terms. For example, central storage, real memory, real storage, and main storage all generally refer to storage attached directly to the mainframe processor.
 
-Mainframe hardware includes processors and many other devices, such as direct access storage devices (DASDs), magnetic tape drives, and several types of user consoles. Tapes and DASDs are used for system functions and by user programs.
+Mainframe hardware includes processors and many other devices, such as direct-access storage devices (DASDs), magnetic tape drives, and several types of user consoles. Tapes and DASDs are used for system functions and by user programs.
 
 Types of physical storage for mainframes include:
 
-- Central storage: Located directly on the mainframe processor, this is also known as processor or real storage.
-
-- Auxiliary storage: Located separately from the mainframe, this type includes storage on DASDs and is also known as paging storage.
+- **Central storage:** Located directly on the mainframe processor, this is also known as processor or real storage.
+- **Auxiliary storage:** Located separately from the mainframe, this type includes storage on DASDs and is also known as paging storage.
 
 The cloud offers a range of flexible, scalable options, and you will pay only for those options that you need. [Azure Storage](/azure/storage/common/storage-introduction) offers a massively scalable object store for data objects, a file system service for the cloud, a reliable messaging store, and a NoSQL store. For VMs, managed and unmanaged disks provide persistent, secure disk storage.
 

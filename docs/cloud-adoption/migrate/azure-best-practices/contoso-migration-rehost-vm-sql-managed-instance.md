@@ -208,7 +208,7 @@ Contoso considers these factors:
 
     ![Route table prefix](media/contoso-migration-rehost-vm-sql-managed-instance/mi-route-table-prefix.png)
 
-3. they associate the route table with the **SQLMI-DB-EUS2** subnet (in the **VNET-SQLMI-EUS2** network).
+3. They associate the route table with the **SQLMI-DB-EUS2** subnet (in the **VNET-SQLMI-EUS2** network).
 
     ![Route table subnet](media/contoso-migration-rehost-vm-sql-managed-instance/mi-route-table-subnet.png)
 
@@ -474,7 +474,7 @@ Contoso admins need to create an Azure Database Migration Service project, and t
 
     ![Database Migration Service - Source details](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-wizard-source.png)
 
-2. they select the database to migrate (**SmartHotel.Registration**):
+2. They select the database to migrate (**SmartHotel.Registration**):
 
     ![Database Migration Service - Select source databases](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-wizard-sourcedb.png)
 
@@ -515,7 +515,7 @@ Before migrating WEBVM, a test failover helps ensure that everything works as ex
     a. A prerequisites check runs to make sure that all the conditions required for migration are in place.
     b. Failover processes the data so that an Azure VM can be created. If the latest recovery point is selected, a recovery point is created from the data.
     c. Azure VM is created by using the data processed in the preceding step.
-4. When the failover is finished, the replica Azure VM appears in the Azure portal. they verify that everything is working properly: the VM is the appropriate size, it's connected to the correct network, and it's running.
+4. When the failover is finished, the replica Azure VM appears in the Azure portal. They verify that everything is working properly: the VM is the appropriate size, it's connected to the correct network, and it's running.
 5. After verifying the test failover, they clean up the failover, and record any observations.
 
 ### Migrate the VM

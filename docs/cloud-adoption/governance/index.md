@@ -6,13 +6,98 @@ ms.custom: governance
 ms.date: 02/11/2019
 description: Governance in the Microsoft Cloud Adoption Framework for Azure
 author: BrianBlanchard
+layout: LandingPage
+ms.topic: landing-page
 ---
 
 # Governance in the Microsoft Cloud Adoption Framework for Azure
 
 The cloud creates new paradigms regarding the technologies that support the business. These new paradigms also cause shifts in how those technologies are adopted, managed, and governed. When entire datacenters can be destroyed and re-created with one line of code executed from an unattended process, we have to rethink traditional approaches. This is equally true when it comes to governance.
 
-For organizations with existing policies governing on-premises IT environments, cloud governance should complement those policies. However, the level of corporate policy integration between on-premises and the cloud will vary depending on cloud governance maturity and digital estate in the cloud. As the cloud estate evolves over time, so will cloud governance processes and policies.
+## Getting started with cloud governance
+
+Cloud governance is an iterative process. For organizations with existing policies governing on-premises IT environments, cloud governance should complement those policies. However, the level of corporate policy integration between on-premises and the cloud will vary depending on cloud governance maturity and digital estate in the cloud. As the cloud estate evolves over time, so will cloud governance processes and policies. The following exercises will help you get started on an incremental growth journey.
+
+<ul class="panelContent cardsF">
+    <li style="display: flex; flex-direction: column;">
+        <a href="./journeys/index.md">
+            <div class="cardSize">
+                <div class="cardPadding" style="padding-bottom:10px;">
+                    <div class="card" style="padding-bottom:10px;">
+                        <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img alt="" src="../_images/icons/1.png" data-linktype="external">
+                            </div>
+                        </div>
+                        <div class="cardText" style="padding-left:0px;">
+                            <h3>Methodology</h3>
+                            Establish a basic understanding of the methodology driving cloud governance within the Cloud Adoption Framework.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li style="display: flex; flex-direction: column;">
+        <a href="https://cafbaseline.com/">
+            <div class="cardSize">
+                <div class="cardPadding" style="padding-bottom:10px;">
+                    <div class="card" style="padding-bottom:10px;">
+                        <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img alt="" src="../_images/icons/2.png" data-linktype="external">
+                            </div>
+                        </div>
+                        <div class="cardText" style="padding-left:0px;">
+                            <h3>Benchmark</h3>
+                            Assess your current state and future state to establish a vision for applying the framework
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li style="display: flex; flex-direction: column;">
+        <a href="./getting-started.md">
+            <div class="cardSize">
+                <div class="cardPadding" style="padding-bottom:10px;">
+                    <div class="card" style="padding-bottom:10px;">
+                        <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img alt="" src="../_images/icons/3.png" data-linktype="external">
+                            </div>
+                        </div>
+                        <div class="cardText" style="padding-left:0px;">
+                            <h3>Initial governance best practice</h3>
+                            Begin your governance journey with a small, easily implemented set of governance tools. This initial best practice is called a Minimally Viable Product (MVP).
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li style="display: flex; flex-direction: column;">
+        <a href="./best-practices.md">
+            <div class="cardSize">
+                <div class="cardPadding" style="padding-bottom:10px;">
+                    <div class="card" style="padding-bottom:10px;">
+                        <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img alt="" src="../_images/icons/4.png" data-linktype="external">
+                            </div>
+                        </div>
+                        <div class="cardText" style="padding-left:0px;">
+                            <h3>Governance maturity</h3>
+                            Throughout implementation of the cloud adoption plan, iteratively add governance controls to address tangible risks.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+</ul>
+
+## Objective of this content
 
 The guidance in this section of the Cloud Adoption Framework is designed for two purposes:
 
@@ -31,7 +116,7 @@ The Cloud Architect serves as the thought leader and facilitator to bring these 
 
 ## Using this guide
 
-For readers who wish to follow this guide from beginning to end, this content will aid in developing a robust cloud governance strategy in parallel to cloud implementation. The guidance walks the reader through the theory and implementation of such a strategy.
+For readers who wish to follow this guide from beginning to end, this content will aid in developing a robust cloud governance strategy in parallel with cloud implementation. The guidance walks the reader through the theory and implementation of such a strategy.
 
 For a crash course on the theory and quick access to Azure implementation, get started with the [Overview of actionable governance journeys](./journeys/index.md). Through this guidance, the reader can start small and evolve their governance needs in parallel with cloud adoption efforts.
 

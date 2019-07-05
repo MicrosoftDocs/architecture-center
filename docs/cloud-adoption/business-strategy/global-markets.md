@@ -24,7 +24,7 @@ It is important to understand which business units operate in foreign countries,
 
 ## Employee usage patterns
 
-It is important to understand how global users access applications that are not hosted in the same country as the user. Often time global WANs (Wide Area Networks) route users based on existing networking agreements. In a traditional on-premises world, some constraints limit WAN design. Those constraints can lead to poor user experiences, if not properly understood prior to cloud adoption.
+It is important to understand how global users access applications that are not hosted in the same country as the user. Often time global WANs (Wide Area Networks) route users based on existing networking agreements. In a traditional on-premises world, some constraints limit WAN design. Those constraints can lead to poor user experiences if not properly understood before cloud adoption.
 
 In a cloud model, commodity internet opens up many new options as well. Communicating the spread of employees across multiple geographies can help the Cloud Adoption team design WAN solutions that create positive user experiences **and** potential reduce networking costs.
 

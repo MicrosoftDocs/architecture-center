@@ -1,15 +1,14 @@
 ---
 title: "Examples of fiscal outcomes"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
-ms.custom: governance
 description: Examples of fiscal outcomes
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 04/04/2019
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
 ---
 
 # Examples of fiscal outcomes
@@ -29,7 +28,7 @@ The remainder of this article explains these fiscal outcomes in the context of a
 
 ### New revenue streams
 
-The cloud allows for opportunities to deliver new products to customers or deliver existing products in a new way. New revenue streams are innovative, entrepreneurial, and exciting for many people in the business world. New revenue streams are also prone failure and are seen in many companies as high risk. When they are proposed by IT, there is a high likelihood of push back. To add credibility to these outcomes, partner with business leader who is a proven innovator. Validation of the revenue stream early in the process helps avoid roadblocks from the business.
+The cloud allows for opportunities to deliver new products to customers or deliver existing products in a new way. New revenue streams are innovative, entrepreneurial, and exciting for many people in the business world. New revenue streams are also prone to failure and are considered by many companies to be high risk. When proposed by IT, there will likely be pushback. To add credibility to these outcomes, partner with business leader who is a proven innovator. Validation of the revenue stream early in the process helps avoid roadblocks from the business.
 
 - **Example:** A company has been selling books for over a hundred years. An employee of the company realizes that the content can be delivered electronically and creates a device that can be sold in the bookstore, which allows the same books to be downloaded directly, driving $X in new book sales.
 
@@ -74,8 +73,8 @@ Before discussing cost outcomes, it is important to understand the two primary c
 
 The following terms will help you understand differences between capital expenses and operating expenses during business discussions about a transformation journey.
 
-- **Capital** is the money or assets owned by a business to contribute to a particular purpose, such as, increase server capacity or building an application.
-- **Capital expenditures** generate benefits over a long period. These expenditures are generally nonrecurring and results in the acquisition of permanent assets. Building an application could qualify as a capital expenditure.
+- **Capital** is the money and assets owned by a business to contribute to a particular purpose, such as increasing server capacity or building an application.
+- **Capital expenditures** generate benefits over a long period. These expenditures are generally nonrecurring and result in the acquisition of permanent assets. Building an application could qualify as a capital expenditure.
 - **Operating expenditures** are ongoing costs of doing business. Consuming cloud services in a pay-as-you-go model could qualify as an operating expenditure.
 - An **asset** is an economic resource that can be owned or controlled to produce value. Servers, data lakes, and applications can all be considered assets.
 - **Depreciation** is how the value of an asset decreases over time. More relevant to the capital expense versus operating expense conversation, it is how the costs of an asset are allocated across the periods in which they are used. For instance, if you build an application this year but it is expected to have an average shelf-life of five years (like most commercial apps), then the cost of the dev team and necessary tools required to create and deploy the code base would be depreciated evenly over five years.
@@ -88,3 +87,10 @@ However, before associating any transformation journey with this type of capital
 If an operating expense model is desirable, the following example could be a viable business outcome:
 
 - **Example:** The company’s datacenter is currently depreciating at _$x_ per year for the next three years. It is expected to require an additional _$y_ to refresh the hardware next years. We can convert the capital expenses to an operating expense model at an even rate of _$z_ per month, allowing for better management and accountability of the operating costs of technology.
+
+## Next steps
+
+Learn more about [agility outcomes](./agility-outcomes.md).
+
+> [!div class="nextstepaction"]
+> [Agility outcomes](./agility-outcomes.md)

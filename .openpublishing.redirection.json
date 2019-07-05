@@ -159,8 +159,16 @@
      }, 
      {
         "source_path": "docs/cloud-adoption-guide/adoption-intro/overview.md",
-        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/overview"
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/migrate"
      }, 
+     {
+        "source_path": "docs/cloud-adoption/getting-started/overview.md",
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/migrate"
+     },
+     {
+        "source_path": "docs/cloud-adoption/getting-started/index.md",
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/migrate"
+     },
      {
         "source_path": "docs/cloud-adoption-guide/adoption-intro/resource-group-explainer.md",
         "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
@@ -196,7 +204,7 @@
      }, 
      {
         "source_path": "docs/cloud-adoption-guide/intermediate-stage/overview.md",
-        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/overview"
+        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/migrate"
      }, 
      {
         "source_path": "docs/cloud-adoption-guide/index.md",
@@ -331,12 +339,22 @@
          "redirect_document_id": true
       },
       {
+         "source_path": "docs/cloud-adoption/ready/considerations/naming-and-tagging.md",
+         "redirect_url": "/azure/architecture/cloud-adoption/ready/considerations/name-and-tag",
+         "redirect_document_id": true
+      },
+      {
          "source_path": "docs/microservices/ingestion-workflow.md",
          "redirect_url": "/azure/architecture/microservices/design/api-design"
       },
       {
          "source_path": "docs/service-fabric/refactor-migrated-app.md",
          "redirect_url": "/azure/architecture/service-fabric/migrate-from-cloud-services",
+         "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/cloud-adoption/migrate/expanded-scope/skills-readiness.md",
+         "redirect_url": "/azure/architecture/cloud-adoption/migrate/",
          "redirect_document_id": true
       },
       {

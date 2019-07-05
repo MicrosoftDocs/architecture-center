@@ -1,3 +1,3 @@
 ---
-redirect_url: operational-fitness-review
+redirect_url: ./operational-fitness-review
 ---

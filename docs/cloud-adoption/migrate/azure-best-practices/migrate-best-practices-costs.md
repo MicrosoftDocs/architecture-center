@@ -56,7 +56,7 @@ To forecast your monthly bill for migrated workloads, there are several tools yo
 
 ## Best practice: Right-size VMs
 
-You can choose various options when you deploy Azure VMs to support workloads. Each VM type has specific features and different combinations of CPU, memory, and disks. VMs are grouped as follows.
+You can choose various options when you deploy Azure VMs to support workloads. Each VM type has specific features and different combinations of CPU, memory, and disks. VMs are grouped as shown below:
 
 **Type** | **Details** | **Use**
 --- | --- | ---
@@ -206,7 +206,7 @@ Best practices in this section include using Azure Cost Management for cost budg
 
 ## Best practice: Use Azure Cost Management
 
-Microsoft provides Azure Cost Management to help you track spending, as follows:
+Microsoft provides Azure Cost Management to help you track spending:
 
 - Helps you to monitor and control Azure spending, and optimize use of resources.
 - Reviews your entire subscription and all of its resources, and makes recommendations.

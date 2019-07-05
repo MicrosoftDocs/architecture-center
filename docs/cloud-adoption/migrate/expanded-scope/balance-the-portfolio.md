@@ -28,7 +28,7 @@ The following table can help document and share desired business outcomes. It's 
 |Improve Customer Experience     |Customer Satisfaction (CSAT)         |10% improvement         |12 months         |#4         |
 
 > [!IMPORTANT]
-> The above table is a fictional example and should not used to set priorities. In many cases, this table could considered an anti-pattern by placing cost savings above customer experiences.
+> The above table is a fictional example and should not used to set priorities. In many cases, this table could considered an antipattern by placing cost savings above customer experiences.
 
 The above table could accurately represent the priorities of the cloud strategy team and cloud adoption team overseeing a cloud migration. Due to short-term constraints, this team is placing a higher emphasis on IT cost reduction and prioritizing a datacenter exit as a means to achieve the desired IT cost reductions. However, by documenting the competing priorities in this table, the Cloud Adoption team is empowered to help the Cloud Strategy team identify opportunities to better align implementation of the overarching portfolio strategy.
 
@@ -86,7 +86,7 @@ To reduce complexity, it is advised that the reader follow a traditional approac
   - If a workload isn't strategic but is compatible with modern, cloud-based application hosting platforms, then it may be wise to perform minor refactoring on the application to deploy it as a modern app. This can contribute to the overall savings by reducing the overall IaaS and OS licensing requirements of the cloud migration.
   - If a workload is a third-party application and that workload's data isn't planned for use in a downstream innovation, then it may be best to leave as a rehost option on the backlog.
 
-These questions should not be the extend of the qualitative analysis completed for each workload, but they are intended to guide a conversation that helps address the complexity of an imbalanced portfolio.
+These questions should not be the extent of the qualitative analysis completed for each workload, but they are intended to guide a conversation that helps address the complexity of an imbalanced portfolio.
 
 ## Migrate process changes
 
@@ -96,7 +96,7 @@ During migration, portfolio balancing activities can have a negative impact on m
 
 Portfolio rationalization requires diversity of technical effort. It is tempting for cloud adoption teams to match that portfolio diversity within migration efforts. Business stakeholders of ask for a single cloud adoption team to address the entire migration backlog. This is seldom an advisable approach, in many cases this can be counter productive.
 
-It is advised that these diverse efforts are segmented across two or more cloud adoption teams. Using a two team model as an example mode of execution, Team 1 would be the Migration Team and Team 2 would be the Innovation Team. For larger efforts, these teams could be further segmented to address other approaches like Replace/PaaS efforts or Minor Refactoring. The following outlines the skills and roles needed to Rehost, Refactor, or Minor Refactoring:
+It is advised that these diverse efforts are segmented across two or more cloud adoption teams. Using a two team model as an example mode of execution, Team 1 is the Migration Team and Team 2 is the Innovation Team. For larger efforts, these teams could be further segmented to address other approaches like Replace/PaaS efforts or Minor Refactoring. The following outlines the skills and roles needed to Rehost, Refactor, or Minor Refactoring:
 
 **Rehost:** Rehost requires team members to implement infrastructure focused changes. Generally using a tool like Azure Site Recovery to migrate VMs or other assets to Azure. This work aligns well to datacenter admins or IT implementors. The Cloud Migration team is well structured to deliver this work at high scale. This is the fastest approach to migrate existing assets in most scenarios.
 

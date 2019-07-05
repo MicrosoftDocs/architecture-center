@@ -106,6 +106,6 @@ The details of the process and meeting should be adapted to fit your specific ne
 - [10 design principles for Azure applications](../../guide/design-principles/index.md).
     This section of the Azure Application Architecture guide discusses a set of design principles to make your application more scalable, resilient, and manageable.
 - [Designing resilient applications for Azure](../../resiliency/index.md).
-    This guide starts with a definition of the term resiliency and related concepts. Then it describes a process for achieving resiliency, using a structured approach over the lifetime of an application, from design and implementation to deployment and operations.
+    This guide starts with a definition of the term _resiliency_ and related concepts. Then it describes a process for achieving resiliency, using a structured approach over the lifetime of an application, from design and implementation to deployment and operations.
 - [Cloud design patterns](../../patterns/index.md).
     These design patterns are useful for engineering teams when building applications on the pillars of software quality.

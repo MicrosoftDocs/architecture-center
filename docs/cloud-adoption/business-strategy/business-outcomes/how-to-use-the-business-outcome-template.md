@@ -47,4 +47,11 @@ Discovery is a fundamental tenet of enterprise architecture. If discovery is lim
 
 **KPIs:** How will this change be measured? How does the business know if they are successful? How frequently will this KPI be observed? Understanding each KPI helps enable incremental change and experimentation.
 
-**Capabilities:** When defining any transformation journey, how will technical capabilities accelerate realization of the Business Outcome? What applications must be included in the transformation to achieve business objectives? How do different applications or workloads get prioritized to deliver on capabilities? How do parts of the solution need to be expanded or rearchitected to meet each of the outcomes? Can execution approaches (or timelines) be rearranged to prioritized high-impact business outcomes?
+**Capabilities:** When defining any transformation journey, how will technical capabilities accelerate realization of the business outcome? What applications must be included in the transformation to achieve business objectives? How do different applications or workloads get prioritized to deliver on capabilities? How do parts of the solution need to be expanded or rearchitected to meet each of the outcomes? Can execution approaches (or timelines) be rearranged to prioritized high-impact business outcomes?
+
+## Next steps
+
+Learn about [aligning your technical efforts](../learning-metrics.md) to meaningful learning metrics.
+
+> [!div class="nextstepaction"]
+> [Align your technical efforts](../learning-metrics.md)
