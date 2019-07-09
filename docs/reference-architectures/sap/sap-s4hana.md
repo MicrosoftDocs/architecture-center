@@ -23,7 +23,7 @@ This reference architecture shows a set of proven practices for running S/4HANA 
 
 ## Architecture
 
-This reference architecture describes a enterprise-grade, production-level system. To suit your business needs, this configuration can be reduced to a single virtual machine. However, the following components are required:
+This reference architecture describes an enterprise-grade, production-level system. To suit your business needs, this configuration can be reduced to a single virtual machine. However, the following components are required:
 
 **Virtual network**. The [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview) service securely connects Azure resources to each other. In this architecture, the virtual network connects to an on-premises environment through a gateway deployed in the hub of a [hub-spoke topology](../hybrid-networking/hub-spoke.md). The spoke is the virtual network used for the SAP applications.
 
@@ -82,7 +82,7 @@ DRBD (Distributed Replicated Block Device) is used for replication between the n
 
 Availability sets distribute servers to different physical infrastructure and update groups to improve service availability. Put virtual machines that perform the same role into an availability sets to help guard against downtime caused by Azure infrastructure maintenance and to meet [SLAs](https://azure.microsoft.com/support/legal/sla/virtual-machines). Two or more virtual machines per availability set is recommended.
 
-All virtual machines in a set must perform the same role. Do not mix servers of different roles in the same availability set. For example, don't place a ASCS node in the same availability set with the application server.
+All virtual machines in a set must perform the same role. Do not mix servers of different roles in the same availability set. For example, don't place an ASCS node in the same availability set with the application server.
 
 ### NICs
 

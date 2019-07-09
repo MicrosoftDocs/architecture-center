@@ -32,7 +32,7 @@ Introduce an asynchronous messaging subsystem that includes the following:
 
 - One output messaging channel per consumer. The consumers are known as *subscribers*.
 
-- A mechanism for copying each message from the input channel to the output channels for all subscribers interested in that message. This operation is typically handled by a intermediary such as a message broker or event bus.
+- A mechanism for copying each message from the input channel to the output channels for all subscribers interested in that message. This operation is typically handled by an intermediary such as a message broker or event bus.
 
 The following diagram shows the logical components of this pattern:
 
