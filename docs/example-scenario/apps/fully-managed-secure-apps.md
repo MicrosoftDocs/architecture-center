@@ -103,7 +103,7 @@ Another point to consider is regarding DNS. In order to allow applications withi
 ### Scalability
 
 - Understand how [scale works][docs-azure-scale-ase] in ASE.
-- Review best rractices for [cloud apps autoscale][design-best-practice-cloud-apps-autoscale].
+- Review best practices for [cloud apps autoscale][design-best-practice-cloud-apps-autoscale].
 - When building a cloud application, be aware of the [typical design patterns for scalability][design-patterns-scalability].
 - Review the scalability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
 - For other scalability topics, see the [scalability checklist][scalability] available in the Azure Architecture Center.

@@ -239,7 +239,7 @@ SourceAddress    : 10.0.0.132
 TcpTestSucceeded : True
 ```
 
-If it fails, use the Azure Portal to restart the VM named `ra-sp-sql-vm2`. After the VM restarts, run the `Test-NetConnection` command again. You may need to wait about a minute after the VM restarts for the connection to succeed.
+If it fails, use the Azure portal to restart the VM named `ra-sp-sql-vm2`. After the VM restarts, run the `Test-NetConnection` command again. You may need to wait about a minute after the VM restarts for the connection to succeed.
 
 Now complete the deployment as follows.
 
