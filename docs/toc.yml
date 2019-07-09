@@ -1277,11 +1277,11 @@
         items:
         - name: Introduction to Azure Server Management
           href: cloud-adoption/operations/azure-server-management/index.md
-        - name: Prerequisites
+        - name: Getting ready for cloud operations
           href: cloud-adoption/operations/azure-server-management/prerequisites.md
         - name: Getting started with cloud operations
           items:
-          - name: Getting started overview
+          - name: Overview
             href: cloud-adoption/operations/azure-server-management/onboarding-overview.md
           - name: Configure the service for a single VM
             href: cloud-adoption/operations/azure-server-management/onboard-single-vm.md
@@ -1293,7 +1293,7 @@
             href: cloud-adoption/operations/azure-server-management/setup-alerts.md
         - name: Ongoing cloud operations
           items:
-          - name: Ongoing management & security overview
+          - name: Overview
             href: cloud-adoption/operations/azure-server-management/ongoing-management-overview.md
           - name: Enable guest configuration policy
             href: cloud-adoption/operations/azure-server-management/guest-configuration-policy.md
@@ -1303,7 +1303,7 @@
             href: cloud-adoption/operations/azure-server-management/update-schedules.md
           - name: Common policies in Azure
             href: cloud-adoption/operations/azure-server-management/common-policies.md
-        - name: Toolchain
+        - name: Review of tools and services
           href: cloud-adoption/operations/azure-server-management/tools-services.md
       - name: Monitoring
         items:
