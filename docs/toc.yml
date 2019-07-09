@@ -1273,8 +1273,6 @@
       items:
       - name: Overview
         href: cloud-adoption/operations/index.md
-      - name: Establish an operational fitness review
-        href: cloud-adoption/operations/operational-fitness-review.md
       - name: Azure Server Management
         items:
         - name: Overview
@@ -1315,6 +1313,8 @@
           href: cloud-adoption/operations/monitor/data-collection.md
         - name: Alerting
           href: cloud-adoption/operations/monitor/alert.md
+      - name: Establish an operational fitness review
+        href: cloud-adoption/operations/operational-fitness-review.md
   - name: References
     items:
     - name: Decision guides
