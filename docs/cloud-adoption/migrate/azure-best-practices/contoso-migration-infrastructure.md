@@ -775,8 +775,8 @@ The NSGs associated with the ASGs will be configured with least privilege to ens
 **Action** | **Name** | **Source** | **Target** | **Port**
 --- | --- | --- | --- | ---
 Allow | AllowiInternetToFE | VNET-HUB-EUS1/IB-TrustZone | APP1-FE 80, 443
-Allow | AllowWebToApp | APP1-FE | APP1-DB | 1433
-Allow | AllowAppToDB | APP1-APP | Any | Any
+Allow | AllowWebToApp | APP1-FE | APP1-APP | 80, 443
+Allow | AllowAppToDB | APP1-APP | APP1-DB | 1433
 Deny | DenyAllInbound | Any | Any | Any
 
 ### Encrypt data
