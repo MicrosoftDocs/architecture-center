@@ -20,7 +20,7 @@ Cloud adoption is a catalyst to enable business value. However, real business va
 Modern operations management solutions create a multi-cloud view of operations. Assets managed through the following best practices may live in the cloud, in an existing data center, or even in a competing cloud provider. Currently, the framework includes two reference best practices to guide operations management maturity in the cloud:
 
 * [Azure Server Management](./azure-server-management/): On-boarding guide to incorporate the cloud-native tools and services needed to manage operations.
-* [Hybrid monitoring](./monitor): Many customers have already made a substantial investment in System Center Operations Manager. For those customers this guide to hybrid monitoring helps to compare and contrast the cloud-native reporting tools with Operations Manager tooling. This comparison will make it easier to decide which tools to leverage for operational management.
+* [Hybrid monitoring](./monitor): Many customers have already made a substantial investment in System Center Operations Manager. For those customers, this guide to hybrid monitoring helps to compare and contrast the cloud-native reporting tools with Operations Manager tooling. This comparison will make it easier to decide which tools to leverage for operational management.
 
 ## Cloud Operations
 
@@ -43,4 +43,4 @@ Both of these best practices build towards a future state methodology for operat
 * Platform operations: All IT environments contain common platforms. Those platforms could include data stores like SQL Server or HDInsights. Other common platforms could include container solutions like kubernetes or AKS. Regardless of the platforms, the platform operations maturity focuses on customizing operations based on how those common platforms are deployed, configured, and leveraged by workloads.
 * Workload operations: At the highest level of operational maturity, cloud operations teams are able tune operations for workloads that are crucial to the success of the business. For those high-criticality workloads, available data can aid in automating remediation, sizing, or protection of workloads based on their utilization.
 
-This section of the cloud adoption framework will build on each of this topics to mature cloud operations within your organization.
+This section of the cloud adoption framework will build on each of these topics to mature cloud operations within your organization.
