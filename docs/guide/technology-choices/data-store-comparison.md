@@ -164,7 +164,7 @@ The following sections compare various data store models in terms of workload pr
             <li>Operations data</li>
             <li>Inventory management</li>
             <li>Transaction history data</li>
-            <li>Materialized view of other NoSQL stores. Replaces file/BLOB indexing.</li>
+            <li>Materialized view of other NoSQL stores. Replaces file and Blob indexing.</li>
         </ul>
     </td>
 </tr>
@@ -188,7 +188,7 @@ The following sections compare various data store models in terms of workload pr
     <td>
         <ul>
             <li>Data size tends to be large.</li>
-            <li>Each key is associated with a single value, which is an unmanaged data BLOB.</li>
+            <li>Each key is associated with a single value, which is an unmanaged data Blob.</li>
             <li>There is no schema enforcement.</li>
             <li>No relationships between entities.</li>
         </ul>
