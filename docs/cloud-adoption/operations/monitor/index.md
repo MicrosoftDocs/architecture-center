@@ -60,7 +60,7 @@ A selection of software and services are available to monitor and manage a varie
 
 A large part of this guide discusses and contrasts Azure Monitor to System Center Operations Manager.
 
-## Next steps
+## Next step
 
 > [!div class="nextstepaction"]
 > [Overview of the Azure monitoring platform](./platform-overview.md)
