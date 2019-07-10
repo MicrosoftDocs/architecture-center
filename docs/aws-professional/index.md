@@ -1,8 +1,8 @@
 ---
 title: Azure for Amazon Web Services (AWS) Professionals
 titleSuffix: Azure Architecture Center
-description: Understand the basics of Microsoft Azure accounts, platform, and services. Also learn key similarities and differences between the AWS and Azure platforms. Leverage your AWS experience in Azure.
-keywords: AWS experts, Azure comparison, AWS comparison, difference between azure and aws, azure and aws
+description: Understand the basics of Microsoft Azure accounts, platform, and services. Also learn key similarities and differences between the AWS and Azure platforms. Take advantage of your AWS experience in Azure.
+keywords: AWS experts, Azure comparison, AWS comparison, difference between Azure and AWS, Azure and AWS
 author: lbrader
 ms.date: 09/19/2018
 ms.topic: article
@@ -27,7 +27,7 @@ Azure and AWS built their capabilities independently over time so that each has 
 
 Like AWS, Microsoft Azure is built around a core set of compute, storage, database, and networking services. In many cases, both platforms offer a basic equivalence between the products and services they offer. Both AWS and Azure allow you to build highly available solutions based on Windows or Linux hosts. So, if you're used to development using Linux and OSS technology, both platforms can do the job.
 
-While the capabilities of both platforms are similar, the resources that provide those capabilities are often organized differently. Exact one-to-one relationships between the services required to build a solution are not always clear. There are also cases where a particular service might be offered on one platform, but not the other. See [charts of comparable Azure and AWS services](./services.md).
+While the capabilities of both platforms are similar, the resources that provide those capabilities are often organized differently. Exact one-to-one relationships between the services required to build a solution are not always clear. In other cases, a particular service might be offered on one platform, but not the other. See [charts of comparable Azure and AWS services](./services.md).
 
 ## Accounts and subscriptions
 
@@ -47,7 +47,7 @@ Subscriptions are assigned three types of administrator accounts:
 
 - **Account Administrator**. The subscription owner and the account billed for the resources used in the subscription. The account administrator can only be changed by transferring ownership of the subscription.
 
-- **Service Administrator**. This account has rights to create and manage resources in the subscription, but is not responsible for billing. By default, the account administrator and service administrator are assigned to the same account. The account administrator can assign a separate user to the service administrator account for managing the technical and operational aspects of a subscription. There is only one service administrator per subscription.
+- **Service Administrator**. This account has rights to create and manage resources in the subscription, but is not responsible for billing. By default, the account administrator and service administrator are assigned to the same account. The account administrator can assign a separate user to the service administrator account for managing the technical and operational aspects of a subscription. Only one service administrator is assigned per subscription.
 
 - **Co-administrator**. There can be multiple co-administrator accounts assigned to a subscription. Co-administrators cannot change the service administrator, but otherwise have full control over subscription resources and users.
 
@@ -87,7 +87,7 @@ Azure offers several ways to manage your resources:
     The Azure Resource Manager REST API provides programmatic access to most of the features available in the Azure portal.
 
 - [Command Line](/azure/azure-resource-manager/cli-azure-resource-manager).
-    The Azure CLI 2.0 tool provides a command-line interface capable of creating and managing Azure resources. Azure CLI is available for [Windows, Linux, and Mac OS](https://aka.ms/azurecli2).
+    The Azure CLI provides a command-line interface capable of creating and managing Azure resources. The Azure CLI is available for [Windows, Linux, and Mac OS](https://docs.microsoft.com/cli/azure).
 
 - [PowerShell](/azure/azure-resource-manager/powershell-azure-resource-manager).
     The Azure modules for PowerShell allow you to execute automated management tasks using a script. PowerShell is available for [Windows, Linux, and Mac OS](https://github.com/PowerShell/PowerShell).
@@ -107,11 +107,11 @@ The syntax and structure of these interfaces are different from their AWS equiva
 
 ## Regions and zones (high availability)
 
-Failures can vary in the scope of their impact. Some hardware failures, such as a failed disk, may affect a single host machine. A failed network switch could affect a whole server rack. Less common are failures that disrupt a whole data center, such as loss of power in a data center. Rarely, an entire region could become unavailable.
+Failures can vary in the scope of their impact. Some hardware failures, such as a failed disk, may affect a single host machine. A failed network switch could affect a whole server rack. Less common are failures that disrupt a whole datacenter, such as loss of power in a datacenter. Rarely, an entire region could become unavailable.
 
-One of the main ways to make an application resilient is through redundancy. But you need to plan for this redundancy when you design the application. Also, the level of redundancy that you need depends on your business requirements&mdash;not every application needs redundancy across regions to guard against a regional outage. In general, there is a tradeoff between greater redundancy and reliability versus higher cost and complexity.
+One of the main ways to make an application resilient is through redundancy. But you need to plan for this redundancy when you design the application. Also, the level of redundancy that you need depends on your business requirements&mdash;not every application needs redundancy across regions to guard against a regional outage. In general, a tradeoff exists between greater redundancy and reliability versus higher cost and complexity.
 
-In AWS, a region is divided into two or more Availability Zones. An Availability Zone corresponds with a physically isolated datacenter in the geographic region. Azure has a number of features to make an application redundant at every level of failure, including **availability sets**, **availability zones**, and **paired regions**.
+In AWS, a region is divided into two or more Availability Zones. An Availability Zone corresponds with a physically isolated datacenter in the geographic region. Azure has numerous features for providing application redundancy at every level of potential failure, including **availability sets**, **availability zones**, and **paired regions**.
 
 ![Redundancy](../resiliency/images/redundancy.svg)
 
@@ -143,7 +143,7 @@ An [Availability Zone](/azure/availability-zones/az-overview) is a physically se
 
 To protect an application against a regional outage, you can deploy the application across multiple regions, using [Azure Traffic Manager][traffic-manager] to distribute internet traffic to the different regions. Each Azure region is paired with another region. Together, these form a [regional pair][paired-regions]. With the exception of Brazil South, regional pairs are located within the same geography in order to meet data residency requirements for tax and law enforcement jurisdiction purposes.
 
-Unlike Availability Zones, which are physically separate datacenters but may be in relatively nearby geographic areas, paired regions are typically separated by at least 300 miles. This is intended to ensure larger scale disasters only affect one of the regions in the pair. Neighboring pairs can be set to sync database and storage service data, and are configured so that platform updates are rolled out to only one region in the pair at a time.
+Unlike Availability Zones, which are physically separate datacenters but may be in relatively nearby geographic areas, paired regions are typically separated by at least 300 miles. This design ensures that large-scale disasters only affect one of the regions in the pair. Neighboring pairs can be set to sync database and storage service data, and are configured so that platform updates are rolled out to only one region in the pair at a time.
 
 Azure [geo-redundant storage](/azure/storage/common/storage-redundancy-grs) is automatically backed up to the appropriate paired region. For all other resources, creating a fully redundant solution using paired regions means
 creating a full copy of your solution in both regions.
@@ -170,7 +170,7 @@ The following sections provide a brief explanation of how commonly used features
 
 #### EC2 Instances and Azure virtual machines
 
-Although AWS instance types and Azure virtual machine sizes are categorized similarly, there are differences in the RAM, CPU, and storage capabilities.
+Although AWS instance types and Azure virtual machine sizes are categorized similarly, the RAM, CPU, and storage capabilities differ.
 
 - [Amazon EC2 Instance Types](https://aws.amazon.com/ec2/instance-types/)
 

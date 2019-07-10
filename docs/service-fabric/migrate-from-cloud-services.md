@@ -158,7 +158,7 @@ There is one .csdef file for the entire application. You can have multiple .cscf
 
 Service Fabric has a similar division between a service *definition* and service *settings*, but the structure is more granular. To understand Service Fabric's configuration model, it helps to understand how a Service Fabric application is packaged. Here is the structure:
 
-```
+```text
 Application package
   - Service packages
     - Code package
@@ -231,7 +231,7 @@ To implement this approach:
 1. When you create the cluster, define two or more node types.
 2. For each service, use [placement constraints][sf-placement-constraints] to assign the service to a node type.
 
-When you deploy to Azure, each node type is deployed to a separate virtual machine scale set. The Service Fabric cluster spans all node types. For more information, see [The relationship between Service Fabric node types and Virtual Machine Scale Sets][sf-node-types].
+When you deploy to Azure, each node type is deployed to a separate virtual machine scale set. The Service Fabric cluster spans all node types. For more information, see [The relationship between Service Fabric node types and virtual machine scale sets][sf-node-types].
 
 > If a cluster has multiple node types, one node type is designated as the *primary* node type. Service Fabric runtime services, such as the Cluster Management Service, run on the primary node type. Provision at least 5 nodes for the primary node type in a production environment. The other node type should have at least 2 nodes.
 
