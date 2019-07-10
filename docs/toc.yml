@@ -1273,34 +1273,36 @@
       items:
       - name: Overview
         href: cloud-adoption/operations/index.md
-      - name: Establish an operational fitness review
-        href: cloud-adoption/operations/operational-fitness-review.md
       - name: Azure Server Management
         items:
-        - name: Overview
+        - name: Introduction to Azure Server Management
           href: cloud-adoption/operations/azure-server-management/index.md
-        - name: Prerequisites
+        - name: Getting ready for cloud operations
           href: cloud-adoption/operations/azure-server-management/prerequisites.md
-        - name: Getting started
-          href: cloud-adoption/operations/azure-server-management/onboarding-overview.md
-        - name: Configure the service for a single VM
-          href: cloud-adoption/operations/azure-server-management/onboard-single-vm.md
-        - name: Configure the service for an entire subscription
-          href: cloud-adoption/operations/azure-server-management/onboard-at-scale.md
-        - name: Configure at scale with automation 
-          href: cloud-adoption/operations/azure-server-management/onboarding-automation.md
-        - name: Set up basic alerts
-          href: cloud-adoption/operations/azure-server-management/setup-alerts.md
-        - name: Ongoing management and security
-          href: cloud-adoption/operations/azure-server-management/ongoing-management-overview.md
-        - name: Enable Guest Configuration Policy
-          href: cloud-adoption/operations/azure-server-management/guest-configuration-policy.md
-        - name: Critical changes (tracking and alerting)
-          href: cloud-adoption/operations/azure-server-management/enable-tracking-alerting.md
-        - name: Update schedules
-          href: cloud-adoption/operations/azure-server-management/update-schedules.md
-        - name: Common policies in Azure
-          href: cloud-adoption/operations/azure-server-management/common-policies.md
+        - name: Getting started with cloud operations
+          items:
+          - name: Overview
+            href: cloud-adoption/operations/azure-server-management/onboarding-overview.md
+          - name: Configure the service for a single VM
+            href: cloud-adoption/operations/azure-server-management/onboard-single-vm.md
+          - name: Configure the service for an entire subscription
+            href: cloud-adoption/operations/azure-server-management/onboard-at-scale.md
+          - name: Configure at scale with automation 
+            href: cloud-adoption/operations/azure-server-management/onboarding-automation.md
+          - name: Set up basic alerts
+            href: cloud-adoption/operations/azure-server-management/setup-alerts.md
+        - name: Ongoing cloud operations
+          items:
+          - name: Overview
+            href: cloud-adoption/operations/azure-server-management/ongoing-management-overview.md
+          - name: Enable guest configuration policy
+            href: cloud-adoption/operations/azure-server-management/guest-configuration-policy.md
+          - name: Critical changes (tracking and alerting)
+            href: cloud-adoption/operations/azure-server-management/enable-tracking-alerting.md
+          - name: Update schedules
+            href: cloud-adoption/operations/azure-server-management/update-schedules.md
+          - name: Common policies in Azure
+            href: cloud-adoption/operations/azure-server-management/common-policies.md
         - name: Review of tools and services
           href: cloud-adoption/operations/azure-server-management/tools-services.md
       - name: Monitoring
@@ -1315,6 +1317,8 @@
           href: cloud-adoption/operations/monitor/data-collection.md
         - name: Alerting
           href: cloud-adoption/operations/monitor/alert.md
+      - name: Establish an operational fitness review
+        href: cloud-adoption/operations/operational-fitness-review.md
   - name: References
     items:
     - name: Decision guides
