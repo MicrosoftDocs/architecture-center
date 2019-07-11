@@ -48,7 +48,7 @@ If you need help from Microsoft Support while using Azure, follow these steps to
 
 ::: zone-end
 
-::: zone-target="docs"
+::: zone target="docs"
 
 To view your support requests, follow these steps:
 
@@ -68,7 +68,7 @@ To view your support requests, follow these steps:
 
 Need support engineer assistance for deep technical guidance?
 
-::: zone-target="docs"
+::: zone target="docs"
 
 1. Select **Help + support** in the [Azure portal](https://portal.azure.com).
 1. Select **Support Plans** to review the plans available to you.
