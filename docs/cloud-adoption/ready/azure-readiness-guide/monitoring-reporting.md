@@ -15,13 +15,13 @@ Azure offers many services that together provide a comprehensive solution for co
 
 # [Azure Monitor](#tab/AzureMonitor)
 
-Azure Monitor provides a single unified hub for all monitoring and diagnostics data in Azure. You can use it to get visibility across your resources, find and fix problems, optimize performance, and understand customer behavior.
+Azure Monitor provides a single unified hub for all monitoring and diagnostics data in Azure. You can use it to get visibility across your resources. With Azure Monitor, you can find and fix problems and optimize performance. You also can understand customer behavior.
 
-- **Monitor and visualize metrics.** Metrics are numerical values available from Azure resources that help you understand the health of your systems. Customize charts for your dashboards and use workbooks for reporting.
+- **Monitor and visualize metrics.** Metrics are numerical values available from Azure resources that help you understand the health of your systems. Customize charts for your dashboards, and use workbooks for reporting.
 
-- **Query and analyze logs.** Logs include activity logs and diagnostic logs from Azure. Collect additional logs from other monitoring and management solutions for your cloud or on-premises resources. **Log Analytics** provides a central repository to aggregate all this data. From there, you can run queries to help troubleshoot issues or to visualize data.
+- **Query and analyze logs.** Logs include activity logs and diagnostic logs from Azure. Collect additional logs from other monitoring and management solutions for your cloud or on-premises resources. Log Analytics provides a central repository to aggregate all this data. From there, you can run queries to help troubleshoot issues or to visualize data.
 
-- **Set up alerts and actions.** Alerts proactively notify you of critical conditions. Corrective actions can be taken based on triggers from metrics, logs, or service health issues. You can set up different notifications and actions, and send data to your IT service management tools.
+- **Set up alerts and actions.** Alerts proactively notify you of critical conditions. Corrective actions can be taken based on triggers from metrics, logs, or service health issues. You can set up different notifications and actions and send data to your IT service management tools.
 
 ::: zone target="docs"
 
@@ -52,7 +52,9 @@ To learn more, see [Azure Monitor documentation](/azure/monitoring-and-diagnosti
 
 # [Azure Service Health](#tab/AzureServiceHealth)
 
-Azure Service Health provides a personalized view of the health of the Azure services and regions you're using. Information about active issues is posted to Service Health to help you understand the impact to your resources. Regular updates keep you informed as the issue is resolved. We also publish planned maintenance events to Service Health so you'll know about changes that could affect the availability of your resources. Set up Service Health alerts to be notified when service issues, planned maintenance, or other changes may affect the Azure services and regions you use.
+Azure Service Health provides a personalized view of the health of the Azure services and regions you use. Information about active issues is posted to Service Health to help you understand the impact to your resources. Regular updates keep you informed as the issue is resolved. 
+
+Planned maintenance events to Service Health are published so that you know about changes that could affect the availability of your resources. Set up Service Health alerts to be notified when service issues, planned maintenance, or other changes might affect the Azure services and regions you use.
 
 Azure Service Health includes:
 
@@ -88,12 +90,12 @@ To learn more, see the [Azure Service Health documentation](/azure/service-healt
 
 # [Azure Advisor](#tab/AzureAdvisor)
 
-Azure Advisor is a free, personalized cloud consultant that helps you follow and implement best practices for Azure deployments. It analyzes your resource configuration and usage telemetry and then recommends solutions that can help optimize your environment. The recommendations are divided into four categories:
+Azure Advisor is a free, personalized cloud consultant that helps you follow and implement best practices for Azure deployments. It analyzes your resource configuration and usage telemetry and recommends solutions that can help optimize your environment. The recommendations are divided into four categories:
 
-- **High availability:** To improve the continuity of your business-critical applications. Recommendations may include adding virtual machines to an availability set or adding geo-redundant endpoints.
-- **Security:** To detect threats and vulnerabilities that might lead to security breaches. Recommendations may include applying disk encryption or enabling network security groups.
-- **Performance:** To improve the speed of your applications. Recommendations may include boosting SQL query performance by creating indexes or reconfiguring your traffic manager settings.
-- **Cost:** To optimize and reduce your overall Azure spending. Recommendations may include resizing or shutting down underused virtual machines or switching to Azure reservations to lower total cost of ownership.
+- **High availability:** To improve the continuity of your business-critical applications. Recommendations might include adding virtual machines to an availability set or adding geo-redundant endpoints.
+- **Security:** To detect threats and vulnerabilities that might lead to security breaches. Recommendations might include applying disk encryption or enabling network security groups.
+- **Performance:** To improve the speed of your applications. Recommendations might include boosting SQL query performance by creating indexes or reconfiguring your traffic manager settings.
+- **Cost:** To optimize and reduce your overall Azure spending. Recommendations might include resizing or shutting down underused virtual machines or switching to Azure reservations to lower total cost of ownership.
 
 Recommendations in Advisor are based on the resources you deploy and the actions you take in Azure. You can check Advisor regularly for the latest recommendations.
 
@@ -117,19 +119,19 @@ To learn more, see [Azure Advisor documentation](/azure/advisor).
 
 # [Azure Security Center](#tab/AzureSecurityCenter)
 
-Azure Security Center also plays an important part in your monitoring strategy. It can help you monitor the security of your machines, networks, storage, data services, and applications. It provides advanced threat detection by using machine learning and behavioral analytics to help identify active threats targeting your Azure resources. It also provides threat protection that blocks malware or other unwanted code, and reduces the surface area exposed to brute force and other network attacks.
+Azure Security Center also plays an important part in your monitoring strategy. It can help you monitor the security of your machines, networks, storage, data services, and applications. Security Center provides advanced threat detection by using machine learning and behavioral analytics to help identify active threats targeting your Azure resources. It also provides threat protection that blocks malware or other unwanted code, and reduces the surface area exposed to brute force and other network attacks.
 
-When Security Center identifies a threat, it triggers a security alert with steps you need to take to respond to an attack and provides a report with information about the threat that was detected.
+When Security Center identifies a threat, it triggers a security alert with steps you need to take to respond to an attack. It also provides a report with information about the threat that was detected.
 
-Azure Security Center is offered in two tiers: Free and Standard. Features like security recommendations are available for free. The Standard tier provides additional protection like advanced threat detection and protection across hybrid cloud workloads.
+Azure Security Center is offered in two tiers: free and standard. Features like security recommendations are available for free. The standard tier provides additional protection like advanced threat detection and protection across hybrid cloud workloads.
 
 ::: zone target="chromeless"
 
 ## Action
 
-**Try Standard tier for free for your first 60 days.**
+**Try standard tier for free for your first 60 days.**
 
-After you turn on and set up security policies for a subscription’s resources, you can view the security state of your resources and any issues in the Prevention section. You can also view a list of those issues on the Recommendations tile.
+After you turn on and set up security policies for a subscription’s resources, you can view the security state of your resources and any issues in the **Prevention** section. You can also view a list of those issues on the **Recommendations** tile.
 
 ::: form action="OpenBlade[#blade/Microsoft_Azure_Security/SecurityMenuBlade/SecurityMenuBlade/0]" submitText="Explore Azure Security Center" :::
 
