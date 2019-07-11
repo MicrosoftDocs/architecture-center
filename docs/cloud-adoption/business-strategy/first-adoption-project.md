@@ -1,7 +1,7 @@
 ---
 title: "First cloud adoption project"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: Learn about executing you first cloud adoption project.
+description: Learn about implementing your first cloud adoption project.
 author: BrianBlanchard
 ms.author: brblanch
 ms.date: 5/19/2019
@@ -14,9 +14,9 @@ ms.subservice: enterprise-cloud-adoption
 
 # First cloud adoption project
 
-There is a learning curve and a time commitment associated with cloud adoption planning. Even for experienced teams, proper planning takes time&mdash;time to align stakeholders, time to collect and analyze data, time to validate long-term decisions, and time to align people, processes, and technology. In the most productive adoption efforts, planning evolves in parallel with adoption, improving with each release and with each workload migration to the cloud. It is important to understand the difference between a cloud adoption plan and a cloud adoption strategy. To facilitate and guide the execution of the cloud adoption plan, a well-defined strategy is an essential requirement.
+There's a learning curve and a time commitment associated with cloud adoption planning. Even for experienced teams, proper planning takes time: time to align stakeholders, time to collect and analyze data, time to validate long-term decisions, and time to align people, processes, and technology. In the most productive adoption efforts, planning evolves in parallel with adoption, improving with each release and with each workload migration to the cloud. It's important to understand the difference between a cloud adoption plan and a cloud adoption strategy. You need a well-defined strategy to facilitate and guide the implementation of a cloud adoption plan.
 
-The Cloud Adoption Framework outlines the processes across cloud adoption and operation of workloads hosted in the cloud. Each of the processes across _strategy_, _plan_, _ready_, _adopt_, and _operate_ will require slight expansions of technical, business, and operational skills. Some of those skills can come from directed learning. However, many of those skills are most effectively acquired through hands-on experiences.
+The Cloud Adoption Framework for Azure outlines the processes for cloud adoption and the operation of workloads hosted in the cloud. Each of the processes across the *strategy*, *plan*, *ready*, *adopt*, and *operate* phases require slight expansions of technical, business, and operational skills. Some of those skills can come from directed learning. But many of those skills are most effectively acquired through hands-on experience.
 
 Starting a first adoption process in parallel with the development of the plan provides multiple benefits:
 
