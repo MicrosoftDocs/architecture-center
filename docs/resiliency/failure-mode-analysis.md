@@ -69,7 +69,7 @@ Application_End logging will catch the app domain shutdown (soft process crash) 
 
 ### A bad update was deployed.
 
-**Detection**. Monitor the application health through the Azure Portal (see [Monitor Azure web app performance][app-insights-web-apps]) or implement the [health endpoint monitoring pattern][health-endpoint-monitoring-pattern].
+**Detection**. Monitor the application health through the Azure portal (see [Monitor Azure web app performance][app-insights-web-apps]) or implement the [health endpoint monitoring pattern][health-endpoint-monitoring-pattern].
 
 **Recovery:**. Use multiple [deployment slots][app-service-slots] and roll back to the last-known-good deployment. For more information, see [Basic web application][ra-web-apps-basic].
 
