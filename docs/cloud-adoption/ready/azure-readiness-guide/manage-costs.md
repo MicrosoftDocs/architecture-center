@@ -12,7 +12,7 @@ ms.custom: "fasttrack-edit"
 
 Cost management is the process of effectively planning and controlling costs involved in your business. Cost management tasks are typically performed by finance, management, and app teams. The Azure Cost Management service can help you plan with cost in mind. It can also help you to analyze costs effectively and take action to optimize cloud spending.
 
-For more information on how to integrate cloud cost management processes throughout your organization, see the Cloud Adoption Framework article on [tracking costs across business units, environments, or projects](../azure-best-practices/track-costs.md).
+For more information on how to integrate cloud cost management processes throughout your organization, see the Cloud Adoption Framework for Azure article on how to [track costs across business units, environments, or projects](../azure-best-practices/track-costs.md).
 
 ## Manage your costs with Azure Cost Management
 
@@ -51,7 +51,7 @@ To submit a new support request:
 
 To view your support requests and their status:
 
-1. Go to [Help + Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+1. Go to [Help + Support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 1. Select **All support requests**.
 
 ## Learn more
@@ -59,8 +59,8 @@ To view your support requests and their status:
 To learn more, see:
 
 - [Azure billing and cost management documentation](/azure/billing)
-- [Cloud Adoption Framework: Tracking costs across business units, environments, or projects](../azure-best-practices/track-costs.md).
-- [Cloud Adoption Framework: Cost management governance discipline](../../governance/cost-management/index.md).
+- [Cloud Adoption Framework: Track costs across business units, environments, or projects](../azure-best-practices/track-costs.md)
+- [Cloud Adoption Framework: Cost management governance discipline](../../governance/cost-management/index.md)
 
 ::: zone-end
 
@@ -82,7 +82,7 @@ To learn more, see:
 
 **Billing and subscription support:**
 
-We offer 24x7 access for billing and subscription support to Azure customers. If you need assistance to understand Azure usage, create a support request.
+We offer 24-hour access every day for billing and subscription support to Azure customers. If you need assistance to understand Azure usage, create a support request.
 
 **Create a support request:**
 
