@@ -116,7 +116,7 @@ Create a resource group to hold resources like web apps, databases, and storage 
 
 # [Naming standards](#tab/NamingStandards)
 
-A good naming standard helps to identify resources in the Azure portal, on a bill, and in scripts. Your naming strategy should include business and operational details as components of resource names. 
+A good naming standard helps to identify resources in the Azure portal, on a bill, and in scripts. Your naming strategy should include business and operational details as components of resource names: 
 
 - The business-related side of this strategy should ensure that resource names include the organizational information that's needed to identify the teams. Use a resource along with the business owners who are responsible for resource costs. 
 
