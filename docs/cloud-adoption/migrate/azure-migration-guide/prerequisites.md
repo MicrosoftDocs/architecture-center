@@ -56,7 +56,7 @@ The focus of this migration journey is to achieve:
 
 The strategy and tools you use to migrate an application to Azure will largely depend on your business motivations, technology requirements, and timelines, as well as a deep understanding of the actual workload and assets (infrastructure, apps, and data) being migrated.
 
-Before determining your cloud migration strategy, analyze candidate applications to identify their compatibility with cloud-hosting technologies. Use the Cloud Adoption Framework's [migration tool decision guide](../../decision-guides/migrate-decision-guide/index.md) to help you get started with this process.
+Before determining your cloud migration strategy, analyze candidate applications to identify their compatibility with cloud-hosting technologies. Use the Cloud Adoption Framework's [migration tools decision guide](../../decision-guides/migrate-decision-guide/index.md) to help you get started with this process.
 
 An IaaS-focused migration, where servers (along with their associated applications and data) are rehosted in the cloud using virtual machines (VMs), is often the most straightforward approach to move workloads to the cloud. However, consider that correctly configuring, securing, and maintaining VMs can require more time and IT expertise compared to using PaaS services in Azure. If you're considering Azure Virtual Machines, make sure that you take into account the ongoing maintenance effort required to patch, update, and manage your VM environment.
 
@@ -64,8 +64,7 @@ When assessing workloads for migration, identify applications that would not req
 
 ## Learn more
 
-- [Cloud Adoption Framework migration considerations](../migration-considerations/prerequisites/index.md)
-- [Cloud Adoption Framework migration tool decision guide](../../decision-guides/migrate-decision-guide/index.md)
+- [Cloud Adoption Framework migration tools decision guide](../../decision-guides/migrate-decision-guide/index.md)
 - [The Five Rs of rationalization](../../digital-estate/5-rs-of-rationalization.md)
 
 # [Planning checklist](#tab/Checklist)
@@ -98,7 +97,7 @@ Assuming you choose a rehost approach to migration, the following activities wil
 ## Learn more
 
 - [The 5 Rs of rationalization](../../digital-estate/5-rs-of-rationalization.md)
-- [Migration tool decision guide](../../decision-guides/migrate-decision-guide/index.md)
+- [Migration tools decision guide](../../decision-guides/migrate-decision-guide/index.md)
 - [Cloud Adoption Framework planning checklist](../migration-considerations/prerequisites/planning-checklist.md)
 
 ::: zone-end
