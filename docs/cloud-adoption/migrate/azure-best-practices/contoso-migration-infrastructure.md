@@ -204,11 +204,11 @@ To facilitate integration, Contoso uses the [Azure AD Connect tool](/azure/activ
 
     ![Azure AD Connect Wizard](./media/contoso-migration-infrastructure/ad-connect-wiz1.png)
 
-3. In **Connect to Azure AD**, they specify the credentials for connecting to the Azure AD (in the form CONTOSO\admin or contoso.com\admin).
+3. In **Connect to Azure AD**, they specify the credentials for connecting to the Azure AD (in the form admin@contoso.com or admin@contoso.onmicrosoft.com).
 
     ![Azure AD Connect Wizard](./media/contoso-migration-infrastructure/ad-connect-wiz2.png)
 
-4. In **Connect to AD DS**, they specify credentials for the on-premises Active Directory.
+4. In **Connect to AD DS**, they specify credentials for the on-premises Active Directory (in the form CONTOSO\admin or contoso.com\admin).
 
      ![Azure AD Connect Wizard](./media/contoso-migration-infrastructure/ad-connect-wiz3.png)
 
@@ -775,8 +775,8 @@ The NSGs associated with the ASGs will be configured with least privilege to ens
 **Action** | **Name** | **Source** | **Target** | **Port**
 --- | --- | --- | --- | ---
 Allow | AllowiInternetToFE | VNET-HUB-EUS1/IB-TrustZone | APP1-FE 80, 443
-Allow | AllowWebToApp | APP1-FE | APP1-DB | 1433
-Allow | AllowAppToDB | APP1-APP | Any | Any
+Allow | AllowWebToApp | APP1-FE | APP1-APP | 80, 443
+Allow | AllowAppToDB | APP1-APP | APP1-DB | 1433
 Deny | DenyAllInbound | Any | Any | Any
 
 ### Encrypt data

@@ -20,7 +20,7 @@ During cloud migration efforts, all members of the cloud adoption teams and Clou
 
 [Administrators](/learn/browse/?roles=administrator) have access to modules that focus on Azure fundamentals, configuring containers, or even advanced administration in the cloud.
 
-[Developers](/learn/browse/?roles=developer&term=infrastructure) play an important role in the migration of assets to the cloud. Learn about ways to help during architecture, governance, modernization activities.
+[Developers](/learn/browse/?roles=developer&term=infrastructure) play an important role in the migration of assets to the cloud. Learn about ways to help during architecture, governance, modernization activities. For developer learning modules beyond infrastructure readiness, [browse all Azure related developer modules](/learn/browse/?roles=developer&products=azure).
 
 In various sections of the Cloud Adoption Framework, specific learning paths and modules are identified to aid the team in making decisions and solving complex adoption problems.
 
