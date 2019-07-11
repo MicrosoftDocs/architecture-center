@@ -13,52 +13,56 @@ ms.subservice: enterprise-cloud-adoption
 
 # Cloud monitoring guide: Alerting
 
-For years, IT organizations have struggled to combat alert fatigue created by the monitoring tools deployed in the enterprise. Many systems generate a high volume of alerts often considered meaningless, while others are relevant but are either overlooked or ignored.  As a result, IT and developer operations have struggled to meet service-level quality promised to the internal or external customer.  It is essential to understand the state of your infrastructure and applications to ensure reliability and identify causes quickly to minimize service degradation and disruption or decrease impact of or reduce number of incidents.  
+For years, IT organizations have struggled to combat alert fatigue created by the monitoring tools deployed in the enterprise. Many systems generate a high volume of alerts often considered meaningless, while others are relevant but are either overlooked or ignored. As a result, IT and developer operations have struggled to meet the service-level quality promised to internal or external customers. It's essential to understand the state of your infrastructure and applications to ensure reliability. You need to identify causes quickly, to minimize service degradation and disruption, or decrease the impact of or reduce the number of incidents.  
 
 ## Successful alerting strategy
 
 *You can’t fix what you don’t know is broken.*
 
-Alerting on what matters is critical, it is underpinned by collecting and measuring the right metrics and logs, as well a monitoring tool that is capable of storing, aggregating, visualizing, analyzing, and initiating an automated response when conditions are met.  Improving observability of your services and applications can only be accomplished if you fully understand its composition in order to map/translate that into a detailed monitoring configuration to be applied by the monitoring platform, including the predictable failure states (the symptoms not the cause of the failure) that make sense to alert on.  Consider the following principles for determining if a symptom is an appropriate candidate to alert on:
+Alerting on what matters is critical. It's underpinned by collecting and measuring the right metrics and logs. You also need a monitoring tool capable of storing, aggregating, visualizing, analyzing, and initiating an automated response when conditions are met. Improving the observability of your services and applications can only be accomplished if you fully understand its composition. You map that composition into a detailed monitoring configuration to be applied by the monitoring platform. This includes the predictable failure states (the symptoms not the cause of the failure) that make sense to alert for.
 
-- **Does it matter?** - Is the issue symptomatic of a real problem or issue influencing overall health of the application?  Do I care if the CPU utilization is high on the resource or that a particular SQL query running on a SQL database instance on that resource is consuming high CPU utilization over a sustained period?  Being the CPU utilization condition is a real issue, you should alert on it but not notify the team because it doesn’t help point to what is causing the condition in the first place.  Alerting and notifying on the SQL query process utilization issue is both relevant and actionable.  
-- **Is it urgent?** -  Is the issue real and does it need urgent attention?  If so, the team responsible should be immediately notified.   
-- **Are my customers affected?** - Are users of the service or application impacted as a result of the issue?
-- **Are other dependent systems affected?** - Are there alerts from dependencies that are interrelated that could possibly be correlated to avoid notifying different teams all working on the same problem?  
+Consider the following principles for determining if a symptom is an appropriate candidate for alerting:
 
-These questions should be asked when initially developing a monitoring configuration. The assumptions should be tested and validated in a pre-production environment, and then deployed into production. Monitoring configurations are derived from known failure modes, test results of simulated failures, and experience from different members of the team.  After release, observed learnings such as high alert volume, issues unnoticed by monitoring but noticed by end users, what was the best actions to have taken, etc. should be evaluated, change identified, agreed upon, and implemented to improve service delivery as part of an ongoing continuous monitoring improvement process.  It’s not just about evaluating alert noise or missed alerts, but also effectiveness of how you are monitoring the workload, effectiveness of your alert policies and process, and overall culture to determine if you are improving.
+- **Does it matter?** Is the issue symptomatic of a real problem or issue influencing overall health of the application? For example, do you care if the CPU utilization is high on the resource? Or that a particular SQL query running on a SQL database instance on that resource is consuming high CPU utilization over a sustained period? Because the CPU utilization condition is a real issue, you should alert on it. But you don't need to notify the team, because it doesn’t help point to what is causing the condition in the first place. Alerting and notifying on the SQL query process utilization issue is both relevant and actionable.  
+- **Is it urgent?** Is the issue real, and does it need urgent attention? If so, the team responsible should be immediately notified.   
+- **Are your customers affected?** Are users of the service or application impacted as a result of the issue?
+- **Are other dependent systems affected?** Are there alerts from dependencies that are interrelated, and that could possibly be correlated to avoid notifying different teams all working on the same problem?  
 
-Both Operations Manager and Azure Monitor support alerts based on static or even dynamic thresholds and actions set up on top of them, such as email, SMS, voice calls for simple notifications.  They also support ITSM integration to automate the creation of incident records and escalate to the correct support team, or any other alert management system using a webhook.  When possible, automating recovery actions depending on the situation can be accomplished using System Center Orchestrator, Azure Automation, Azure Logic Apps, or autoscaling in the case of elastic workloads.  While notifying responsible teams is the most common action for alerting, automating corrective actions as needed and where it makes sense, can help streamline the entire incident management process.  Automating these recovery tasks can also reduce the risk of human error, where some may be honest mistakes but still are a concern for service owners and the business.  
+Ask these questions when you're initially developing a monitoring configuration. Test and validate the assumptions in a pre-production environment, and then deploy into production. Monitoring configurations are derived from known failure modes, test results of simulated failures, and experience from different members of the team.
+
+After the release of your monitoring configuration, you can learn a lot about what's working and what's not. Consider high alert volume, issues unnoticed by monitoring but noticed by end users, and what were the best actions to have taken as part of this evaluation. Identify changes to implement to improve service delivery, as part of an ongoing, continuous monitoring improvement process. It’s not just about evaluating alert noise or missed alerts, but also the effectiveness of how you're monitoring the workload. It's about the effectiveness of your alert policies, process, and overall culture to determine if you're improving.
+
+Both System Center Operations Manager and Azure Monitor support alerts based on static or even dynamic thresholds and actions set up on top of them. Examples include alerts for email, SMS, and voice calls for simple notifications. Both of these services also support ITSM integration, to automate the creation of incident records and escalate to the correct support team, or any other alert management system using a webhook.
+
+When possible, you can use any of several services to automate recovery actions. These include System Center Orchestrator, Azure Automation, Azure Logic Apps, or autoscaling in the case of elastic workloads. While notifying responsible teams is the most common action for alerting, automating corrective actions might also be appropriate. This can help streamline the entire incident management process.  Automating these recovery tasks can also reduce the risk of human error.  
 
 ## Azure Monitor alerting
 
-If you are using the Azure Monitor platform exclusively, the following guidance applies. 
+If you're using Azure Monitor exclusively, the following guidance applies. Follow these guidelines when considering speed, cost, and storage volume in Azure Monitor. 
 
-There are six repositories that store monitoring data, depending on the feature and configuration you are using.
+There are six repositories that store monitoring data, depending on the feature and configuration you're using.
 
-- **Azure Monitor metrics database** -  A time-series database used primarily for Azure Monitor platform metrics, but also has Application Insights metric data mirrored into it. Information entering this database has the fastest alert times. 
+- **Azure Monitor metrics database.** A time-series database used primarily for Azure Monitor platform metrics, but also has Application Insights metric data mirrored into it. Information entering this database has the fastest alert times. 
 
-- **Application Insights logs store** – A database which stores most Application Insights telemetry in log form. 
+- **Application Insights logs store.** A database that stores most Application Insights telemetry in log form. 
 
-- **Azure Monitor logs store** – Primary store for Azure Log data. Other tools can route data to it and can be analyzed in Azure Monitor logs.  Log alert queries have higher latency due to ingestion and indexing latency, which is generally in the five to ten-minute range, but can be higher under certain circumstances.   
+- **Azure Monitor logs store.** The primary store for Azure log data. Other tools can route data to it and can be analyzed in Azure Monitor logs. Log alert queries have higher latency due to ingestion and indexing. This latency is generally 5-10 minutes, but can be higher under certain circumstances.   
 
-- **Activity log store** – Used for all activity log and service health events. Dedicated alerting is possible. Holds subscription level events that occur on objects in your subscription as seen from the outside of those objects. For example when policy is set, a resource accessed or deleted. 
+- **Activity log store.** Used for all activity log and service health events. Dedicated alerting is possible. Holds subscription level events that occur on objects in your subscription, as seen from the outside of those objects. For example, when a policy is set, or a resource is accessed or deleted. 
 
-- **Azure Storage** – General-purpose storage supported by Azure Diagnostics extension and other monitoring tools that is a low-cost option for long-term retention of monitoring telemetry. Alerting is not supported from data stored in this service. 
+- **Azure Storage.** General-purpose storage supported by Azure Diagnostics and other monitoring tools. It's a low-cost option for long-term retention of monitoring telemetry. Alerting isn't supported from data stored in this service. 
 
-- **Event Hubs** – Generally used to stream data into on-premises or other partners monitoring/ITSM tools. 
+- **Event Hubs.** Generally used to stream data into on-premises or other partners' monitoring/ITSM tools. 
 
 There are four types of alerts in Azure Monitor, which are somewhat tied to the repository the data is stored in.
 
-- [Metric alert](/azure/azure-monitor/platform/alerts-metric) - Alerts on data in Azure Monitor metrics database. Alerts occur when a monitored value crossed a user-defined threshold. goes beyond a threshold (active) and then again when it returns to “normal” state.  
+- [Metric alert](/azure/azure-monitor/platform/alerts-metric). Alerts on data in the Azure Monitor metrics database. Alerts occur when a monitored value crosses a user-defined threshold,  and then again when it returns to “normal” state.  
 
-- [Log query alert](/azure/azure-monitor/platform/alerts-log-query) – Available to alerts on content in the Application Insights or Azure Logs stores. Can also alert based on cross-workspace queries. 
+- [Log query alert](/azure/azure-monitor/platform/alerts-log-query). Available to alerts on content in the Application Insights or Azure Logs stores. Can also alert based on cross-workspace queries. 
 
-- [Activity Log alert](/azure/azure-monitor/platform/alerts-activity-log) – Alert on items in the Activity Log store, with the exception of Service Health data. Activity Log 
+- [Activity log alert](/azure/azure-monitor/platform/alerts-activity-log). Alerts on items in the Activity log store, with the exception of Service Health data. 
 
-- [Service Health alert](/azure/azure-monitor/platform/alerts-activity-log-service-notifications?toc=%2fazure%2fservice-health%2ftoc.json) – A special type of alert just for Service Health issues coming from the Activity log store.  
-
-Follow these guidelines when considering speed, cost, and storage volume in Azure Monitor.
+- [Service Health alert](/azure/azure-monitor/platform/alerts-activity-log-service-notifications?toc=%2fazure%2fservice-health%2ftoc.json). A special type of alert, just for Service Health issues coming from the Activity log store.  
 
 ### Alerting through partner tools  
 
