@@ -1,6 +1,6 @@
 ---
 title: Manage costs and billing for your Azure resources
-description: Learn how to set up budgets, payments, and understand invoices for your Azure resources.
+description: Learn how to set up budgets, make payments, and understand invoices for your Azure resources.
 author: dchimes
 ms.author: kfollis
 ms.date: 04/09/2019
@@ -10,16 +10,16 @@ ms.custom: "fasttrack-edit"
 ---
 # Manage costs and billing for your Azure resources
 
-Cost management is the process of effectively planning and controlling costs involved in your business. Cost management tasks are normally performed by finance, management, and app teams. The Azure Cost Management service can help you plan with cost in mind. It can also help to you analyze costs effectively and take action to optimize cloud spending.
+Cost management is the process of effectively planning and controlling costs involved in your business. Cost management tasks are typically performed by finance, management, and app teams. The Azure Cost Management service can help you plan with cost in mind. It can also help you to analyze costs effectively and take action to optimize cloud spending.
 
-For more information on integrating cloud cost management processes throughout your organization, see the Cloud Adoption Framework's article on [tracking costs across business units, environments, or projects](../azure-best-practices/track-costs.md).
+For more information on how to integrate cloud cost management processes throughout your organization, see the Cloud Adoption Framework article on [tracking costs across business units, environments, or projects](../azure-best-practices/track-costs.md).
 
 ## Manage your costs with Azure Cost Management
 
 Azure Cost Management provides a few ways to help you predict and manage costs:
 
 - **Analyze cloud costs** helps you explore and analyze your costs. You can view aggregated cost for your account or view accumulated costs over time.
-- **Monitor with budgets** allows you to create a budget and then configure alerts to warn you when you are close to exceeding it.
+- **Monitor with budgets** allows you to create a budget and then configure alerts to warn you when you're close to exceeding it.
 - **Optimize with recommendations** helps identify idle and underused resources so you can take action to reduce waste.
 - **Manage invoices and payments** gives you visibility to your cloud investment.
 
