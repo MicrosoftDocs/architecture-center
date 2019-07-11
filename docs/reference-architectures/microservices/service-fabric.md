@@ -78,14 +78,15 @@ With guest executables, you are responsible of maintaining the environment in wh
 
 To access a guest executable through a reverse proxy, make sure you have added the **UriScheme** attribute to the **Endpoint** element in the guest executable’s service manifest.
 
-```
+```xml
     <Endpoints>
       <Endpoint Name="MyGuextExeTypeEndpoint" Port="8090" Protocol="http" UriScheme="http" PathSuffix="api" Type="Input"/>
     </Endpoints>
 ```
-If the service has additional routes, specify the routes in the **PathSuffix** value. The value should not be prefixed or suffixed with ‘/’. Another way is to add the route in the service name. 
 
-```
+If the service has additional routes, specify the routes in the **PathSuffix** value. The value should not be prefixed or suffixed with ‘/’. Another way is to add the route in the service name.
+
+```xml
     <Endpoints>
       <Endpoint Name="MyGuextExeTypeEndpoint" Port="8090" Protocol="http" PathSuffix="api" Type="Input"/>
     </Endpoints>
@@ -226,22 +227,22 @@ Remote desktop is useful for diagnostic and troubleshooting, but make sure not t
 
 Store secrets such as connection strings to datastores in Azure Key Vault. The Key Vault must be in the same region as the virtual machine scale set. You will need to:
 
-- Authenticate the service’s access to the Key Vault. 
- 
+- Authenticate the service’s access to the Key Vault.
+
     Enable [managed identity](/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-virtual-machine-scale-sets) on the virtual machine scale set that hosts the service.
 
-- Store your secrets in the Key Vault. 
+- Store your secrets in the Key Vault.
 
     Add secrets in a format that can be translated to a key-value pair. For example, CosmosDB--AuthKey. When the configuration is built, “--” is converted into “:”.
 
-- Access those secrets in your service. 
+- Access those secrets in your service.
 
     Add the Key Vault URI in your appSettings.json. In your service, add the configuration provider that reads from the Key Vault, builds the configuration, and accesses the secret from the built configuration.
 
-Here's an example where the Workflow service stores a secret in the Key Vault in the format "CosmosDB--Database". 
+Here's an example where the Workflow service stores a secret in the Key Vault in the format "CosmosDB--Database".
 
-```
-namespace Fabrikam.Workflow.Service 
+```c#
+namespace Fabrikam.Workflow.Service
 {
     public class ServiceStartup
     {
@@ -250,7 +251,7 @@ namespace Fabrikam.Workflow.Service
             var preConfig = new ConfigurationBuilder()
                 …
                 .AddJsonFile(context, "appsettings.json");
-               
+
             var config = preConfig.Build();
 
             if (config["AzureKeyVault:KeyVaultUri"] is var keyVaultUri && !string.IsNullOrWhiteSpace(keyVaultUri))
@@ -259,14 +260,15 @@ namespace Fabrikam.Workflow.Service
                 config = preConfig.Build();
             }
     }
-}	
+}
 ```
-To access the secret, specify the secret name in the built config. 
 
-```
+To access the secret, specify the secret name in the built config.
+
+```c#
        if(builtConfig["CosmosDB:Database"] is var database && !string.IsNullOrEmpty(database))
        {
-            // use the secret. 
+            // Use the secret.
        }
 ```
 
@@ -290,10 +292,9 @@ To recover from failures and maintain a fully functioning state, the application
 
 - [Retry pattern](/azure/architecture/patterns/retry): To handle errors that are expected to be transient, such as resources being temporarily unavailable.
 - [Circuit breaker](/azure/architecture/patterns/circuit-breaker): To address faults that might need longer to fix.
-- [Bulkhead pattern](/azure/architecture/patterns/bulkhead): To isolate resources per service. 
+- [Bulkhead pattern](/azure/architecture/patterns/bulkhead): To isolate resources per service.
 
-This reference implementation uses [Polly](https://github.com/App-vNext/Polly), an open source option, to implement all of those patterns. 
-
+This reference implementation uses [Polly](https://github.com/App-vNext/Polly), an open-source option, to implement all of those patterns.
 
 ## Monitoring considerations
 
@@ -327,15 +328,17 @@ Application telemetry provides data about your service that can help you monitor
 - [Application Insights SDK for Service Fabric](https://github.com/Microsoft/ApplicationInsights-ServiceFabric)
 
 To view the traces and event logs, use [Application Insights](/azure/service-fabric/service-fabric-diagnostics-event-analysis-appinsights) as one of sinks for structured logging.  Configure Application Insights with your instrumentation key by calling the **AddApplicationInsights** extension method. In this example, the instrumentation key is stored as a secret in the Key Vault.
-```
+
+```c#
     .ConfigureLogging((hostingContext, logging) =>
         {
             logging.AddApplicationInsights(hostingContext.Configuration ["ApplicationInsights:InstrumentationKey"]);
         })
 ```
-If you service does not expose HTTP endpoints, you need to write a custom extension that sends traces to Application Insights. For an example, see the Workflow service in the reference implementation. 
 
-ASP.NET Core services use the [ILogger interface](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2) for application logging. To make these application logs available in Azure Monitor, send the `ILogger` events to Application Insights. For more information, see [ILogger in an ASP.NET Core application](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/blob/develop/src/ILogger/Readme.md#aspnet-core-application). Application Insights can add correlation properties to ILogger events, which is useful for visualizing distributed tracing.
+If your service does not expose HTTP endpoints, you need to write a custom extension that sends traces to Application Insights. For an example, see the Workflow service in the reference implementation.
+
+ASP.NET Core services use the [ILogger interface](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2) for application logging. To make these application logs available in Azure Monitor, send the `ILogger` events to Application Insights. For more information, see [ILogger in an ASP.NET Core application](https://github.com/Microsoft/ApplicationInsights-dotnet-logging/blob/develop/src/ILogger/Readme.md#aspnet-core-application). Application Insights can add correlation properties to ILogger events, useful for visualizing distributed tracing.
 
 For more information, see:
 
