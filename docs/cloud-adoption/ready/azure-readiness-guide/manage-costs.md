@@ -38,7 +38,7 @@ Azure Cost Management provides a few ways to help you predict and manage costs:
 
 ## Billing and subscription support
 
-We offer 24x7 access for billing and subscription support to Azure customers. If you need assistance to understand Azure usage, create a support request.
+We offer 24-hour access every day for billing and subscription support to Azure customers. If you need assistance to understand Azure usage, create a support request.
 
 ### Create a support request
 
