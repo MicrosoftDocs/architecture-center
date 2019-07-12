@@ -17,7 +17,7 @@ The cloud introduces many technical changes as well as opportunities to stream t
 
 The cloud presents the opportunity to learn new skills; however, your current architects should be able to directly apply their experiences and subject matter expertise. Cloud platform expertise is usually delivered by a select group of architects who focus on learning about the cloud platform. These architects then aid others in decision making and the proper application of controls to cloud environments.
 
-## Possible sources for cloud expertise
+## Possible sources for cloud platform expertise
 
 The skills needed to provide full platform capabilities could be provided by:
 
@@ -33,7 +33,7 @@ The skills needed to provide full platform capabilities could be provided by:
 
 ## Key responsibilities
 
-Cloud platform expertise duties center around the creation and support of your cloud platform (or landing zones).
+Cloud platform duties center around the creation and support of your cloud platform or landing zones.
 
 The following tasks are typically executed on a regular basis:
 
