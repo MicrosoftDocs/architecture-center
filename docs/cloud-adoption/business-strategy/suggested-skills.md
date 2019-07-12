@@ -69,11 +69,11 @@ Depending on the motivations and desired business outcomes of a cloud adoption e
 
 ## Deeper skills exploration
 
-Beyond these initial options for developing skills, a variety of learning options are available.
+Beyond these initial options for developing skills, a variety of learning options is available.
 
 ### Typical mappings of cloud IT roles
 
-Microsoft and partners offer a variety of options to help all audiences develop their skills with Azure services:
+Microsoft and partners offer different options to help all audiences develop their skills with Azure services:
 
 - [Microsoft Virtual Academy](https://mva.microsoft.com/product-training/microsoft-azure). Offers training from the people who helped build Azure. From a basic overview to deep technical training, these courses help IT implementers learn how to use Azure for their business.
 - [Microsoft IT Pro Cloud Essentials](https://www.microsoft.com/azureessentials). Provides a free annual subscription that includes cloud services, education, and support benefits. IT Pro Cloud Essentials provides IT implementers with hands-on experience, targeted educational opportunities, and access to experts in areas that matter most to increase knowledge and create a path to career advancement.

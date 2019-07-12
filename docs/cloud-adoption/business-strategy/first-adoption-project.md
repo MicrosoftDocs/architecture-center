@@ -32,7 +32,7 @@ Your first adoption project should align with your [motivations](./motivations-w
 
 ## First project expectations
 
-Your team's first adoption project is likely to result in a production deployment of some kind. But this isn't always the case. You need to establish proper expectations early. Here are a few wise expectations to set:
+Your team's first adoption project is likely to result in a production deployment of some kind. But this isn't always the case. Establish proper expectations early. Here are a few wise expectations to set:
 
 - This project is a source of learning.
 - This project might result in production deployments, but it will probably require additional effort first.
@@ -42,7 +42,7 @@ Your team's first adoption project is likely to result in a production deploymen
 
 To support the preceding criteria, this list provides an example of a first project for each motivation category:
 
-- **Critical business events:** When a critical business event is the primary motivation, implementation of a tool like [Azure Site Recovery](../migrate/azure-migration-guide/migrate.md?tabs=Tools#azure-site-recovery) might be a good first project. During migration, you can use this tool to quickly migrate datacenter assets. But during the first project, it could be used purely as a disaster recovery tool, reducing dependencies on disaster recovery assets within the datacenter.
+- **Critical business events:** When a critical business event is the primary motivation, implementation of a tool like [Azure Site Recovery](../migrate/azure-migration-guide/migrate.md?tabs=Tools#azure-site-recovery) might be a good first project. During migration, you can use this tool to quickly migrate datacenter assets. But during the first project, you could use it purely as a disaster recovery tool, reducing dependencies on disaster recovery assets within the datacenter.
 
 - **Migration motivations:** When migration is the primary motivation, it's wise to start with the migration of a noncritical workload. The [Azure readiness guide](../ready/azure-readiness-guide/index.md) and the [Azure migration guide](../migrate/azure-migration-guide/index.md) can provide guidance for the migration of your first workload.
 

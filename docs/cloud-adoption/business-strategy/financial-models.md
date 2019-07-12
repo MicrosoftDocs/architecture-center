@@ -89,7 +89,7 @@ At some companies, soft costs like reductions in operational complexity or reduc
 
 Time savings for staff are often included under soft-cost reduction. When those time savings map to actual reduction of IT salary or staffing, they could be calculated separately as headcount reductions.
 
-That said, the skills needed on-premises generally map to a similar (or higher level) set of skills needed in the cloud. So people don't generally get laid off after a cloud migration.
+That said, the skills needed on-premises generally map to a similar (or higher level) set of skills needed in the cloud. So people aren't generally laid off after a cloud migration.
 
 An exception occurs when operational capacity is provided by a third party or managed services provider (MSP). If IT systems are managed by a third party, the operating costs could be replaced by a cloud-native solution or cloud-native MSP. A cloud-native MSP is likely to operate more efficiently and potentially at a lower cost. If that's the case, operational cost reductions belong in the hard-cost calculations.
 
