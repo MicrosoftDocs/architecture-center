@@ -23,7 +23,7 @@ The skills needed to provide cloud automation capabilities could be provided by:
 - Developers with DevOps and infrastructure expertise.
 - IT engineers with DevOps and automation expertise.
 
-Commonly, these subject matter experts are already providing capabilities in other areas such as cloud adoption, cloud governance, or cloud platform. After they demonstrate proficiency at automating complex workloads, you can recruit these experts to deliver automation value.
+These subject matter experts might be providing capabilities in other areas such as cloud adoption, cloud governance, or cloud platform. After they demonstrate proficiency at automating complex workloads, you can recruit these experts to deliver automation value.
 
 ## Mindset
 
@@ -35,7 +35,7 @@ Before you admit a team member to this group, they should demonstrate three key 
 
 ## Key responsibilities
 
-The primary duty of cloud automation is to own and advance the solution catalog. The solution catalog is a collection of prebuilt solutions or automation templates. These solutions can rapidly deploy various platforms as required to support needed workloads. Think of the solutions in the catalog as building blocks that accelerate cloud adoption and reduce the time to market during migration or innovation efforts.
+The primary duty of cloud automation is to own and advance the solution catalog. The solution catalog is a collection of prebuilt solutions or automation templates. These solutions can rapidly deploy various platforms as required to support needed workloads. These solutions are building blocks that accelerate cloud adoption and reduce the time to market during migration or innovation efforts.
 
 Examples of solutions in the catalog include:
 

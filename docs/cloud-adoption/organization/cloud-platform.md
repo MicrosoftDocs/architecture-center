@@ -13,9 +13,9 @@ ms.custom: organize
 
 # Cloud platform capabilities
 
-The cloud introduces many technical changes as well as opportunities to stream technical solutions. However, general IT principles and business needs stay the same. If your business works with sensitive data, that data must still be protected. If your IT platform depends on a local area network, there's a good chance that you'll need network definitions in the cloud. If users need to access applications and data, they'll also want their current identities to access relevant cloud resources.
+The cloud introduces many technical changes as well as opportunities to stream technical solutions. However, general IT principles and business needs stay the same. You still need to protect sensitive business data. If your IT platform depends on a local area network, there's a good chance that you'll need network definitions in the cloud. Users who need to access applications and data will want their current identities to access relevant cloud resources.
 
-The cloud presents the opportunity to learn new skills; however, your current architects should be able to directly apply their experiences and subject matter expertise. Cloud platform expertise is usually delivered by a select group of architects who focus on learning about the cloud platform. These architects then aid others in decision making and the proper application of controls to cloud environments.
+While the cloud presents the opportunity to learn new skills, your current architects should be able to directly apply their experiences and subject matter expertise. Cloud platform capabilities are usually provided by a select group of architects who focus on learning about the cloud platform. These architects then aid others in decision making and the proper application of controls to cloud environments.
 
 ## Possible sources for cloud platform expertise
 
@@ -67,7 +67,7 @@ Cloud platform expertise usually comes from a working team. Expect participants 
 
 ## Next steps
 
-As your cloud platform becomes better defined, aligning [cloud automation capabilities](./cloud-automation.md) can accelerate adoption and establish best practices while reducing business and technical risks.
+As your cloud platform becomes better defined, aligning [cloud automation capabilities](./cloud-automation.md) can accelerate adoption. It can also help establish best practices while reducing business and technical risks.
 
 > [!div class="nextstepaction"]
 > [Align cloud automation capabilities](./cloud-automation.md)
