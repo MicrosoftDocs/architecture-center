@@ -19,9 +19,9 @@ During cloud adoption efforts, cloud automation capabilities will unlock the pot
 
 The skills needed to provide cloud automation capabilities could be provided by:
 
-- DevOps engineers.
-- Developers with DevOps and infrastructure expertise.
-- IT engineers with DevOps and automation expertise.
+- DevOps engineers
+- Developers with DevOps and infrastructure expertise
+- IT engineers with DevOps and automation expertise
 
 These subject matter experts might be providing capabilities in other areas such as cloud adoption, cloud governance, or cloud platform. After they demonstrate proficiency at automating complex workloads, you can recruit these experts to deliver automation value.
 
@@ -39,11 +39,11 @@ The primary duty of cloud automation is to own and advance the solution catalog.
 
 Examples of solutions in the catalog include:
 
-- A script to deploy a containerized application.
-- A Resource Manager template to deploy a SQL HA AO cluster.
-- Sample code to build a deployment pipeline using Azure DevOps.
-- A DevTest Labs instance of the corporate ERP for development purposes.
-- Automated deployment of a self-service environment commonly requested by business users.
+- A script to deploy a containerized application
+- A Resource Manager template to deploy a SQL HA AO cluster
+- Sample code to build a deployment pipeline using Azure DevOps
+- A DevTest Labs instance of the corporate ERP for development purposes
+- Automated deployment of a self-service environment commonly requested by business users
 
 The solutions in the solution catalog aren't deployment pipelines for a workload. Instead, you might use automation scripts in the catalog to quickly create a deployment pipeline. You might also use a solution in the catalog to quickly provision platform components to support workload tasks like automated deployment, manual deployment, or migration.
 
@@ -57,7 +57,7 @@ These following tasks are typically executed by cloud automation on a regular ba
   - [motivations for cloud adoption](../business-strategy/motivations-why-are-we-moving-to-the-cloud.md)
   - [business risks](../governance/policy-compliance/risk-tolerance.md)
   - [rationalization of the digital estate](../digital-estate/overview.md)
-- Monitor adoption plans and progress against the [prioritized migration backlog](../migrate/migration-considerations/assess/release-iteration-backlog.md)
+- Monitor adoption plans and progress against the [prioritized migration backlog](../migrate/migration-considerations/assess/release-iteration-backlog.md).
 - Identify opportunities to accelerate cloud adoption, reduce effort through automation, and improve security, stability, and consistency.
 - Prioritize a backlog of solutions for the solution catalog that delivers the most value given other strategic inputs.
 
