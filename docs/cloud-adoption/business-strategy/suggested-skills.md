@@ -22,7 +22,7 @@ The following sections provide learning paths to develop each of these skills.
 
 ## Establish the vision
 
-The success of any cloud adoption effort is defined by the business vision. When the technical team doesn't understand the motives and desired outcomes, it's hard for them to guide their efforts toward business success. See these articles for information about documenting and articulating the business vision for the technical team to drive better decisions:
+The success of any cloud adoption effort is defined by the business vision. When the technical team doesn't understand the motives and desired outcomes, it's hard for them to guide their efforts toward business success. See these articles for information about documenting and articulating the business vision for the technical team:
 
 - [Adoption motivations](./motivations-why-are-we-moving-to-the-cloud.md). Document and articulate the reasons behind the technical effort.
 - [Business outcomes](./business-outcomes/index.md). Clearly articulate what's expected of the technical team in terms of business changes.
@@ -30,7 +30,7 @@ The success of any cloud adoption effort is defined by the business vision. When
 
 ## Build the business justification
 
-Justifying the investment to adopt the cloud can require deeper analysis and an understanding of the organization's accounting practices. The articles on business justification can help you develop these skills:
+Justifying the investment to adopt the cloud can require deeper analysis and an understanding of your organization's accounting practices. The articles on business justification can help you develop these skills:
 
 - [Cloud migration business case](./cloud-migration-business-case.md). Establish a business case for cloud migration.
 
@@ -47,7 +47,7 @@ Convert the business case and rationalized digital estate into an actionable mig
 
 ## Business planning skills
 
-During the Ready phase, technical staff create a migration landing zone capable of hosting, operating, and governing workloads that have been migrated to the cloud. These learning paths can help you develop the necessary skills:
+During the Ready phase, technical staff creates a migration landing zone capable of hosting, operating, and governing workloads that have been migrated to the cloud. These learning paths can help you develop the necessary skills:
 
 - [Create an Azure account](/learn/modules/create-an-azure-account). The first step to using Azure is to create an account. Your account holds the Azure services you provision and handles your personal settings, like identity, billing, and preferences.
 - [Azure portal](/learn/modules/tour-azure-portal). Tour the Azure portal features and services, and customize the portal.
@@ -55,14 +55,14 @@ During the Ready phase, technical staff create a migration landing zone capable 
 - [Introduction to security in Azure](/learn/modules/intro-to-security-in-azure). Learn the basic concepts for protecting your infrastructure and data when you work in the cloud. Understand what responsibilities are yours and what Azure takes care of for you.
 - [Manage resources in Azure](/learn/paths/manage-resources-in-azure). Learn how to work with the Azure command line and web portal to create, manage, and control cloud-based resources.
 - [Create a VM](/learn/modules/create-windows-virtual-machine-in-azure). Create a virtual machine by using the Azure portal.
-- [Azure networking](/learn/modules/intro-to-azure-networking). Learn Azure networking basics and how Azure networking helps you improve resiliency and reduce latency.
+- [Azure networking](/learn/modules/intro-to-azure-networking). Learn the basics of Azure networking and how Azure networking helps you improve resiliency and reduce latency.
 - [Azure compute options](/learn/modules/intro-to-azure-compute). Learn about the Azure compute services.
 - [Secure resources with RBAC](/learn/modules/secure-azure-resources-with-rbac). Use RBAC to secure resources.
 - [Data storage options](/learn/modules/intro-to-data-in-azure/index). Learn about the benefits of Azure data storage.
 
 ## Organizational skills
 
-Depending on the motivations and desired business outcomes of a cloud adoption effort, leaders might need to establish new organizational structures or virtual teams (v-teams) to facilitate various functions. These articles will help you develop the skills necessary to structure those teams in accordance with desired outcomes:
+Depending on the motivations and desired business outcomes of a cloud adoption effort, leaders might need to establish new organizational structures or virtual teams (v-teams) to facilitate various functions. These articles will help you develop the skills necessary to structure those teams to meet desired outcomes:
 
 - [Initial organizational alignment](../organization/index.md). Overview of organizational alignment and various team structures to facilitate specific goals.
 - [Breaking down silos and fiefdoms](../organization/fiefdoms-silos.md). Understanding two common organizational antipatterns and ways to guide a team to productive collaboration.
@@ -73,7 +73,7 @@ Beyond these initial options for developing skills, a variety of learning option
 
 ### Typical mappings of cloud IT roles
 
-Microsoft and partners offer different options to help all audiences develop their skills with Azure services:
+Microsoft and partners offer various options to help all audiences develop their skills with Azure services:
 
 - [Microsoft Virtual Academy](https://mva.microsoft.com/product-training/microsoft-azure). Offers training from the people who helped build Azure. From a basic overview to deep technical training, these courses help IT implementers learn how to use Azure for their business.
 - [Microsoft IT Pro Cloud Essentials](https://www.microsoft.com/azureessentials). Provides a free annual subscription that includes cloud services, education, and support benefits. IT Pro Cloud Essentials provides IT implementers with hands-on experience, targeted educational opportunities, and access to experts in areas that matter most to increase knowledge and create a path to career advancement.

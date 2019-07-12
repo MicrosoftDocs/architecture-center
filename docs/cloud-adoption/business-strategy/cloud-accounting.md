@@ -42,9 +42,9 @@ Cloud transformations include solutions to these and other consequences associat
 
 ## Showback or awareness-back
 
-For larger enterprises, a showback or awareness-back model is a safer first step in the transition from cost center to value center. This model doesn't affect financial accounting. In fact, the P&Ls of each organization aren't changed. The biggest shift is in mindset and awareness. In a showback or awareness-back model, IT manages the centralized, consolidated buying power as an agent for the business. In reports back to the business, IT attributes any direct costs to the relevant business unit, which reduces the perceived budget directly consumed by IT. IT also plans budgets based on the needs of the associated business units, allowing IT to more accurately account for costs associated to purely IT initiatives.
+For larger enterprises, a showback or awareness-back model is a safer first step in the transition from cost center to value center. This model doesn't affect financial accounting. In fact, the P&Ls of each organization don't change. The biggest shift is in mindset and awareness. In a showback or awareness-back model, IT manages the centralized, consolidated buying power as an agent for the business. In reports back to the business, IT attributes any direct costs to the relevant business unit, which reduces the perceived budget directly consumed by IT. IT also plans budgets based on the needs of the associated business units, which allows IT to more accurately account for costs associated to purely IT initiatives.
 
-This model provides balance between a true chargeback model and more traditional models of IT accounting.
+This model provides a balance between a true chargeback model and more traditional models of IT accounting.
 
 ## Impact of cloud accounting models
 

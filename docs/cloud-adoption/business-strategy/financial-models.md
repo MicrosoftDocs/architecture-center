@@ -26,7 +26,7 @@ In the next sections, we'll walk through the data you'll need to calculate the i
 
 Initial investment is the capital expense and operating expense required to complete a transformation. The classification of costs can vary depending on accounting models and CFO preference. But this category would include items like professional services to transform, software licenses used only during the transformation, the cost of cloud services during the transformation, and potentially the cost of salaried employees during the transformation.
 
-Add these costs together to create an estimate of the initial investment.
+Add these costs to create an estimate of the initial investment.
 
 ## Calculating the gain from investment
 
@@ -44,7 +44,7 @@ Revenue deltas should be forecast in partnership with business stakeholders. Aft
 
 ## Cost deltas
 
-Cost deltas are the amount of increase or decrease that will come as a result of the transformation. Independent variables can affect cost deltas. Earnings are largely based on hard costs like capital expense reductions, cost avoidance, operational cost reductions, and depreciation reductions. The following sections describe some cost deltas to consider.
+Cost deltas are the amount of increase or decrease that will be caused by the transformation. Independent variables can affect cost deltas. Earnings are largely based on hard costs like capital expense reductions, cost avoidance, operational cost reductions, and depreciation reductions. The following sections describe some cost deltas to consider.
 
 ### Depreciation reduction or acceleration
 
@@ -52,11 +52,11 @@ For guidance on depreciation, speak with the CFO or finance team. The following 
 
 When capital is invested in the acquisition of an asset, that investment could be used for financial or tax purposes to produce ongoing benefits over the expected lifespan of the asset. Some companies see depreciation as a positive tax advantage. Others see it as a committed, ongoing expense similar to other recurring expenses attributed to the annual IT budget.
 
-Speak with the finance office to see if elimination of depreciation is possible and if it would make a positive contribution to cost deltas.
+Speak with the finance office to find out if elimination of depreciation is possible and if it would make a positive contribution to cost deltas.
 
 ### Physical asset recovery
 
-In some cases, retired assets can be sold as a source of revenue. Often, this revenue is lumped into cost reduction for simplicity. But it's truly an increase in revenue and can be taxed as such. Speak with the finance office to understand the viability of this option and how to account for the resulting revenue.
+In some cases, retired assets can be sold as a source of revenue. This revenue is often lumped into cost reduction for simplicity. But it's truly an increase in revenue and can be taxed as such. Speak with the finance office to understand the viability of this option and how to account for the resulting revenue.
 
 ### Operational cost reductions
 
@@ -75,7 +75,7 @@ Recurring expenses required to operate a business are often called operating exp
 - Business continuity and disaster recovery (BCDR) services.
 - Other expenses that don't require capital expense approvals.
 
-This category provides one of the highest earning deltas. When you're considering a cloud migration, time invested in making this list exhaustive is rarely wasted. Ask questions of the CIO and finance team to ensure all operational costs are accounted for.
+This category provides one of the highest earning deltas. When you're considering a cloud migration, time invested in making this list exhaustive is rarely wasted. Ask the CIO and finance team questions to ensure all operational costs are accounted for.
 
 ### Cost avoidance
 
@@ -83,13 +83,13 @@ When an operating expenditure is expected but not yet in an approved budget, it 
 
 ### Soft-cost reductions
 
-At some companies, soft costs like reductions in operational complexity or reductions in full-time staff for operating a datacenter could also be included. But including soft costs might not be a good idea. When you include soft-cost reductions, you insert an undocumented assumption that the reduction will create tangible cost savings. Technology projects rarely result in actual soft-cost recovery.
+At some companies, soft costs like reductions in operational complexity or reductions in full-time staff for operating a datacenter could also be included in cost deltas. But including soft costs might not be a good idea. When you include soft-cost reductions, you insert an undocumented assumption that the reduction will create tangible cost savings. Technology projects rarely result in actual soft-cost recovery.
 
 ### Headcount reductions
 
 Time savings for staff are often included under soft-cost reduction. When those time savings map to actual reduction of IT salary or staffing, they could be calculated separately as headcount reductions.
 
-That said, the skills needed on-premises generally map to a similar (or higher level) set of skills needed in the cloud. So people aren't generally laid off after a cloud migration.
+That said, the skills needed on-premises generally map to a similar (or higher-level) set of skills needed in the cloud. So people aren't generally laid off after a cloud migration.
 
 An exception occurs when operational capacity is provided by a third party or managed services provider (MSP). If IT systems are managed by a third party, the operating costs could be replaced by a cloud-native solution or cloud-native MSP. A cloud-native MSP is likely to operate more efficiently and potentially at a lower cost. If that's the case, operational cost reductions belong in the hard-cost calculations.
 

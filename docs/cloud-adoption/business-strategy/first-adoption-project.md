@@ -28,7 +28,7 @@ Starting a first adoption process in parallel with the development of the plan p
 
 ## First project criteria
 
-Your first adoption project should align with your [motivations](./motivations-why-are-we-moving-to-the-cloud.md) behind cloud adoption. Whenever possible, your first project should also demonstrate progress towards a defined [business outcome](./business-outcomes/how-to-use-the-business-outcome-template.md).
+Your first adoption project should align with your [motivations](./motivations-why-are-we-moving-to-the-cloud.md) for cloud adoption. Whenever possible, your first project should also demonstrate progress toward a defined [business outcome](./business-outcomes/how-to-use-the-business-outcome-template.md).
 
 ## First project expectations
 
@@ -51,7 +51,7 @@ To support the preceding criteria, this list provides an example of a first proj
 Additional examples of first adoption projects include:
 
 - **Disaster recovery and business continuity (DRBC):** Beyond Azure Site Recovery, you can implement multiple DRBC strategies as a first project.
-- **Nonproduction:** Deployment of a nonproduction instance of a workload.
+- **Nonproduction:** Deploy a nonproduction instance of a workload.
 - **Archive:** Cold storage can place a strain on datacenter resources. Moving that data to the cloud is a solid quick win.
 - **End of support (EOS):** Migrating assets that have reached the end of support is another quick win that builds technical skills. It could also provide some cost avoidance from expensive support contracts or licensing costs.
 - **Virtual Desktop Interface (VDI):** Creating virtual desktops for remote employees can provide a quick win. In some cases, this first adoption project could also reduce dependence on expensive private networks in favor of commodity public internet connectivity.
@@ -61,7 +61,7 @@ Additional examples of first adoption projects include:
 
 ## Next steps
 
-After your first cloud adoption project has begun, the cloud strategy team can turn their attention to the longer-term [cloud adoption plan](../plan/index.md).
+After the first cloud adoption project has begun, the cloud strategy team can turn their attention to the longer-term [cloud adoption plan](../plan/index.md).
 
 > [!div class="nextstepaction"]
 > [Build your cloud adoption plan](../plan/index.md)
