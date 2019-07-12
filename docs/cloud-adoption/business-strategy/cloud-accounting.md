@@ -28,13 +28,13 @@ In a Central IT accounting model, the IT team marks up the services provided to 
 
 ## Chargeback
 
-One of the common first steps in changing IT's reputation as a cost center is implementing a chargeback model of accounting. This is especially common in smaller enterprises or highly efficient IT organizations. In the chargeback model, any IT costs that are associated with a specific business unit are treated like an operating expense in that business unit's budget. This reduces the cumulative cost effects on IT, allowing business values to show more clearly.
+One of the common first steps in changing IT's reputation as a cost center is implementing a chargeback model of accounting. This model is especially common in smaller enterprises or highly efficient IT organizations. In the chargeback model, any IT costs that are associated with a specific business unit are treated like an operating expense in that business unit's budget. This practice reduces the cumulative cost effects on IT, allowing business values to show more clearly.
 
 In a legacy on-premises model, chargeback is difficult to realize because someone still has to carry the large capital expenses and depreciation. The ongoing conversion from capital expenditures to operating expenses associated with usage is a difficult accounting exercise. This difficulty is a major reason for the creation of the traditional IT accounting model and the Central IT accounting model. The operating expenses model of cloud cost accounting is almost required if you want to efficiently deliver a chargeback model.
 
 But you shouldn't implement this model without considering the implications. Here are a few consequences that are unique to a chargeback model:
 
-- Chargeback results in a massive reduction of the overall IT budget. For IT organizations that are inherently inefficient or require extensive complex technical skills in operations or maintenance, this model can expose those expenses in an unhealthy way.
+- Chargeback results in a massive reduction of the overall IT budget. For IT organizations that are inefficient or require extensive complex technical skills in operations or maintenance, this model can expose those expenses in an unhealthy way.
 - Loss of control is a common consequence. In highly political environments, chargeback can result in loss of control and staff being reallocated to the business. This could create significant inefficiencies and reduce IT's ability to consistently meet SLAs or project requirements.
 - Difficulty accounting for shared services is another common consequence. If the organization has grown through acquisition and is carrying technical debt as a result, it's likely that a high percentage of shared services must be maintained to keep all systems working together effectively.
 

@@ -33,16 +33,16 @@ Cloud migrations can generate early return on investment (ROI) from cloud transf
 
 - When a business sees capital assets as a driver for business valuation, capital expense reductions could be a negative outcome. Though it's not a universal standard, this sentiment is most commonly seen in the retail, manufacturing, and construction industries.
 - A private equity firm or a company that's seeking capital influx might consider operating expense increases as a negative outcome.
-- If a business is focused heavily on improving sales margins or reducing cost of goods sold (COGS), operating expenses could be a negative outcome.
+- If a business focusses heavily on improving sales margins or reducing cost of goods sold (COGS), operating expenses could be a negative outcome.
 
-Businesses are more likely to see operating expense as more favorable than capital expense. For example, this approach can be well received by businesses that are attempting to improve cash flow, reduce capital investments, or decrease asset holdings.
+Businesses are more likely to see operating expense as more favorable than capital expense. For example, this approach might be well received by businesses that are trying to improve cash flow, reduce capital investments, or decrease asset holdings.
 
-Before providing a business justification that focuses on a conversion from capital expense to operating expense, understand which is better for your business. Accounting and procurement can often help best align the message to financial objectives.
+Before you provide a business justification that focuses on a conversion from capital expense to operating expense, understand which is better for your business. Accounting and procurement can often help best align the message to financial objectives.
 
 **Myth: Moving to the cloud is like flipping a switch.** Migrations are a manually intense technical transformation. When developing a business justification, especially justifications that are time sensitive, consider the following aspects that could increase the time it takes to migrate assets:
 
 - **Bandwidth limitations:** The amount of bandwidth between the current datacenter and the cloud provider will drive timelines during migration.
-- **Testing timelines:** Testing applications to certify readiness and performance can be time consuming. Aligning power users and testing processes is critical.
+- **Testing timelines:** Testing applications to ensure readiness and performance can be time consuming. Aligning power users and testing processes is critical.
 - **Migration timelines:** The amount of time and effort required to implement the migration can increase costs and cause delays. Allocating employees or contracting partners can also delay the process. The plan should account for these allocations.
 
 Technical and cultural impediments can slow cloud adoption. When time is an important aspect of the business justification, the best mitigation is proper planning. Two suggested approaches during planning can help mitigate timeline risks:
@@ -50,7 +50,7 @@ Technical and cultural impediments can slow cloud adoption. When time is an impo
 - Invest the time and energy in understanding technical adoption constraints. Though pressure to move quickly might be high, it's important to account for realistic timelines.
 - If culture or people impediments arise, they'll have more serious effects than the technical constraints. Cloud adoption creates change, which produces the desired transformation. Unfortunately, people sometimes fear change and might need additional support to align with the plan. Identify key people on the team who are opposed to change and engage them early.
 
-To maximize readiness and mitigation of timeline risks, prepare executive stakeholders by firmly aligning business value and business outcomes. Help those stakeholders understand the changes that will come with the transformation. Be clear and set realistic expectations from the beginning. When people or technology slow the process, it will be easier to enlist executive support.
+To maximize readiness and mitigation of timeline risks, prepare executive stakeholders by firmly aligning business value and business outcomes. Help those stakeholders understand the changes that will come with the transformation. Be clear and set realistic expectations from the beginning. When people or technologies slow the process, it will be easier to enlist executive support.
 
 ## Building the business justification
 
@@ -97,7 +97,7 @@ If the ROI for a cloud migration doesn't match your expectations, you might want
 
 But it's important to understand that a cost savings isn't always possible. Some applications cost more to operate in the cloud than on-premises. These applications can significantly skew results in an analysis.
 
-When the ROI is below 20%, consider a [digital estate planning](../digital-estate/index.md) exercise, paying specific attention to [rationalization](../digital-estate/rationalize.md). During quantitative analysis, perform a review of each application to find workloads that skew the results. It could be wise to remove those workloads from the plan. If usage data is available, consider reducing the size of VMs to match usage.
+When the ROI is below 20%, consider a [digital estate planning](../digital-estate/index.md) exercise, paying specific attention to [rationalization](../digital-estate/rationalize.md). During quantitative analysis, review each application to find workloads that skew the results. It could be wise to remove those workloads from the plan. If usage data is available, consider reducing the size of VMs to match usage.
 
 If the ROI is still misaligned, seek help from your Microsoft sales representative or [engage an experienced partner](https://azure.microsoft.com/migration/support).
 
