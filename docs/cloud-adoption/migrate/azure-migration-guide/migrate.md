@@ -32,14 +32,14 @@ Azure Migrate provides the following functionality:
 1. Extensible approach with ISV integration (such as Cloudamize).
 
 > [!TIP]
-> To complete the following steps ensure you have [signed up for Azure Migrate v2 preview](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR3jsP9XEFE1ClBlDcwuVgRZUODNERjNTVjJSUVRBVllMNzhRVDFESVozRS4u). You also need to perform these steps in the preview enabled portal using [https://aka.ms/migrate/preview](https://aka.ms/migrate/preview).
+> To complete the following steps ensure you have [signed up for Azure Migrate v2 preview](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR3jsP9XEFE1ClBlDcwuVgRZUODNERjNTVjJSUVRBVllMNzhRVDFESVozRS4u). Use this alternative URL to open the preview-enabled portal [https://aka.ms/migrate/preview](https://aka.ms/migrate/preview).
 >
 
 1. Search for Azure Migrate under **All services**. Select **Azure Migrate** to continue.
-1. Click Add a tool to start your migration project.
+1. Select **Add a tool** to start your migration project.
 1. Select the subscription, resource group, and geography to host the migration.
-1. Click **Select assessment tool**, and select **Azure Migrate: Server Assessment**. Click **Next**.
-1. Click **Review + add tool(s)**, and verify the configuration. Click **Add tool(s)** to initiate the job to create the migration project and register the selected solutions.
+1. Select **Select assessment tool** > **Azure Migrate: Server Assessment** >  **Next**.
+1. Select **Review + add tool(s)**, and verify the configuration. Click **Add tool(s)** to initiate the job to create the migration project and register the selected solutions.
 
 <!-- TODO: TBA -->
 
@@ -59,12 +59,12 @@ The following steps outline the process to use Site Recovery to migrate:
 ### Prepare Azure Site Recovery service
 
 1. In the Azure portal, select **+Create a resource > Management Tools > Backup and Site Recovery**.
-1. If you have not yet created a recovery vault, complete the wizard to create a **Recovery Services vault** resource.
-1. In the Resource menu, select **Site Recovery > Prepare Infrastructure > Protection goal**.
+1. If you haven't yet created a recovery vault, complete the wizard to create a **Recovery Services vault** resource.
+1. In the **Resource** menu, select **Site Recovery > Prepare Infrastructure > Protection goal**.
 1. In **Protection goal**, select what you want to migrate.
-    1. **VMware:** Select To Azure > Yes, with VMware vSphere Hypervisor.
-    1. **Physical machine:** Select To Azure > Not virtualized/Other.
-    1. **Hyper-V:** Select To Azure > Yes, with Hyper-V. If Hyper-V VMs are managed by VMM, select Yes.
+    1. **VMware:** Select **To Azure > Yes, with VMware vSphere Hypervisor**.
+    1. **Physical machine:** Select **To Azure > Not virtualized/Other**.
+    1. **Hyper-V:** Select **To Azure > Yes, with Hyper-V**. If Hyper-V VMs are managed by VMM, select **Yes**.
 
 ### Configure migration settings
 

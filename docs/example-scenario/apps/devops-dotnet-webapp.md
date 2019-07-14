@@ -37,7 +37,7 @@ The data flows through the scenario as follows:
 4. Continuous deployment within Azure Pipelines triggers an automated deployment of application artifacts *with environment-specific configuration values*.
 5. The artifacts are deployed to Azure App Service.
 6. Azure Application Insights collects and analyzes health, performance, and usage data.
-7. Developers monitor and mange health, performance, and usage information.
+7. Developers monitor and manage health, performance, and usage information.
 8. Backlog information is used to prioritize new features and bug fixes using Azure Boards.
 
 ### Components
