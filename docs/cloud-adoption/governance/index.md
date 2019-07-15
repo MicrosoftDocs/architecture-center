@@ -69,7 +69,7 @@ Cloud governance is an iterative process. For organizations with existing polici
                         </div>
                         <div class="cardText" style="padding-left:0px;">
                             <h3>Initial governance best practice</h3>
-                            Begin your governance journey with a small, easily implemented set of governance tools. This initial best practice is called a minimum viable product (MVP).
+                            Begin your governance journey with a small, easily implemented set of governance tools. This initial best practice is called a minimally viable product (MVP).
                         </div>
                     </div>
                 </div>

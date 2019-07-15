@@ -25,7 +25,7 @@ For some customers, current operating models can scale to support their desire t
 
 ## Next steps
 
-Governance is often the first step that customers' take toward an operating model for the cloud.
+Governance is often the first step that customers take toward an operating model for the cloud.
 
 > [!div class="nextstepaction"]
 > [Get started with governance](../governance/index.md)
