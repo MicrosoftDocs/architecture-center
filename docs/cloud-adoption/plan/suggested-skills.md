@@ -31,4 +31,4 @@ Cloud Adoption Framework for Azure guides readers through the full adoption life
   - **Govern:** Gain the skills needed to govern the cloud environment.
   - **Manage:** Gain the skills needed to manage a cloud environment.
 
-Each of the previous learning paths shares learning opportunities across multiple media types to maximize knowledge acquisition.
+Each of the previous learning paths shares opportunities across multiple media types to maximize knowledge acquisition.
