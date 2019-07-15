@@ -12,7 +12,7 @@ ms.subservice: enterprise-cloud-adoption
 
 # Getting started on a skills readiness path
 
-IT staff members might feel anxious about their roles and positions as they realize that a different set of skills is needed to support cloud solutions. Agile employees who explore and learn new cloud technologies don’t need to have that fear. They can lead the adoption of cloud services by helping the organization understand and embrace the associated changes.
+IT staff members might feel anxious about their roles and positions as they realize a different set of skills is needed to support cloud solutions. Agile employees who explore and learn new cloud technologies don’t need to have that fear. They can lead the adoption of cloud services by helping the organization understand and embrace the associated changes.
 
 ![Mapping of skills to IT roles in a cloud hosted environment](../_images/skills-guidance.png)
 *Figure 1. Mapping of skills to IT roles in a cloud-hosted environment*
@@ -31,4 +31,4 @@ Cloud Adoption Framework for Azure guides readers through the full adoption life
   - **Govern:** Gain the skills needed to govern the cloud environment.
   - **Manage:** Gain the skills needed to manage a cloud environment.
 
-Each of the preceding learning paths share learning opportunities across multiple media types to maximize knowledge acquisition.
+Each of the previous learning paths shares learning opportunities across multiple media types to maximize knowledge acquisition.
