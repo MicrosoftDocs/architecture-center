@@ -371,11 +371,11 @@ NIC4 | AsgDb
 
 <!--markdownlint-disable MD033 -->
 
-    **Rule name** | **Purpose** | **Details**
-    --- | --- | ---
-    Allow-HTTP-Inbound-Internet | Allow traffic from the internet to the web servers. Inbound traffic from the internet is denied by the DenyAllInbound default security rule, so no additional rule is needed for the AsgLogic or AsgDb application security groups. | Priority: 100<br/><br/> Source: internet<br/><br/> Source port: *<br/><br/> Destination: AsgWeb<br/><br/> Destination port: 80<br/><br/> Protocol: TCP<br/><br/> Access: Allow.
-    Deny-Database-All | AllowVNetInBound default security rule allows all communication between resources in the same VNet, this rule is needed to deny traffic from all resources. | Priority: 120<br/><br/> Source: *<br/><br/> Source port: *<br/><br/> Destination: AsgDb<br/><br/> Destination port: 1433<br/><br/> Protocol: All<br/><br/> Access: Deny.
-    Allow-Database-BusinessLogic | Allow traffic from the AsgLogic application security group to the AsgDb application security group. The priority for this rule is higher than the Deny-Database-All rule, and is processed before that rule, so traffic from the AsgLogic application security group is allowed, and all other traffic is blocked. | Priority: 110<br/><br/> Source: AsgLogic<br/><br/> Source port: *<br/><br/> Destination: AsgDb<br/><br/> Destination port: 1433<br/><br/> Protocol: TCP<br/><br/> Access: Allow.
+**Rule name** | **Purpose** | **Details**
+--- | --- | ---
+Allow-HTTP-Inbound-Internet | Allow traffic from the internet to the web servers. Inbound traffic from the internet is denied by the DenyAllInbound default security rule, so no additional rule is needed for the AsgLogic or AsgDb application security groups. | Priority: 100<br/><br/> Source: internet<br/><br/> Source port: *<br/><br/> Destination: AsgWeb<br/><br/> Destination port: 80<br/><br/> Protocol: TCP<br/><br/> Access: Allow.
+Deny-Database-All | AllowVNetInBound default security rule allows all communication between resources in the same VNet, this rule is needed to deny traffic from all resources. | Priority: 120<br/><br/> Source: *<br/><br/> Source port: *<br/><br/> Destination: AsgDb<br/><br/> Destination port: 1433<br/><br/> Protocol: All<br/><br/> Access: Deny.
+Allow-Database-BusinessLogic | Allow traffic from the AsgLogic application security group to the AsgDb application security group. The priority for this rule is higher than the Deny-Database-All rule, and is processed before that rule, so traffic from the AsgLogic application security group is allowed, and all other traffic is blocked. | Priority: 110<br/><br/> Source: AsgLogic<br/><br/> Source port: *<br/><br/> Destination: AsgDb<br/><br/> Destination port: 1433<br/><br/> Protocol: TCP<br/><br/> Access: Allow.
 
 <!--markdownlint-enable MD033 -->
 
