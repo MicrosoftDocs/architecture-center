@@ -12,23 +12,23 @@ ms.subservice: enterprise-cloud-adoption
 
 # Getting started on a skills readiness path
 
-IT staff members may feel anxious about their roles and positions as they realize that a different set of skills is needed for the support of cloud solutions. Agile employees who explore and learn new cloud technologies don’t need to have that fear. They can lead the adoption of cloud services by helping the organization understand and embrace the associated changes.
+IT staff members might feel anxious about their roles and positions as they realize that a different set of skills is needed to support cloud solutions. Agile employees who explore and learn new cloud technologies don’t need to have that fear. They can lead the adoption of cloud services by helping the organization understand and embrace the associated changes.
 
 ![Mapping of skills to IT roles in a cloud hosted environment](../_images/skills-guidance.png)
-*Figure 1. Mapping of skills to IT roles in a cloud hosted environment*
+*Figure 1. Mapping of skills to IT roles in a cloud-hosted environment*
 
-The Cloud Adoption Framework guides readers through the full adoption lifecycle. Throughout this framework, readers will be provided opportunities to build necessary skills. However, to help get started on this journey, those skills readiness articles are included in the following outline for easier access. Each of the following links maps to the skills required to be successful in each of those adoption phases.
+Cloud Adoption Framework for Azure guides readers through the full adoption life cycle. Throughout this framework, readers are provided opportunities to build necessary skills. To help readers get started on this journey, those skills-readiness articles are included in the following outline for easier access. Each of the following links maps to the skills required to be successful in each of those adoption phases.
 
-- **[Strategy](../business-strategy/suggested-skills.md):** Develop the skills needed to prepare an actionable migration plan, including business justification and other required business planning skills.
-- **[Plan](./suggested-skills.md):** Develop the skills needed to prepare an actionable migration plan, including business justification and other required business planning skills.
+- **[Strategy](../business-strategy/suggested-skills.md):** Develop the skills needed to prepare an actionable migration plan. This plan includes business justification and other required business-planning skills.
+- **[Plan](./suggested-skills.md):** Develop the skills needed to prepare an actionable migration plan. This plan includes business justification and other required business-planning skills.
 - **[Ready](../ready/suggested-skills.md):** Develop the skills needed to prepare the business, culture, people, and environment for coming changes.
 
 - **Adopt:** Adoption skills are aligned to various technical efforts:
   - **[Migrate](../migrate/expanded-scope/suggested-skills.md):** Gain the skills required to implement the cloud migration plan.
   - **Innovate:** Gain the skills needed to deliver innovative new solutions.
 
-- **Operate:** Skills related to the operating model for cloud adoption are aligned to various skilling opportunities:
+- **Operate:** Skills related to the operating model for cloud adoption are aligned to various opportunities to gain skills:
   - **Govern:** Gain the skills needed to govern the cloud environment.
   - **Manage:** Gain the skills needed to manage a cloud environment.
 
-Each of the above learning paths will share learning opportunities across multiple different media types to maximize knowledge acquisition.
+Each of the preceding learning paths share learning opportunities across multiple media types to maximize knowledge acquisition.
