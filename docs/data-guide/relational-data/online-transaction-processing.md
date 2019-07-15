@@ -10,7 +10,7 @@ ms.subservice: cloud-fundamentals
 
 # Online transaction processing (OLTP)
 
-The management of transactional data using computer systems is referred to as Online Transaction Processing (OLTP). OLTP systems record business interactions as they occur in the day-to-day operation of the organization, and support querying of this data to make inferences.
+The management of transactional data using computer systems is referred to as online transaction processing (OLTP). OLTP systems record business interactions as they occur in the day-to-day operation of the organization, and support querying of this data to make inferences.
 
 ## Transactional data
 
