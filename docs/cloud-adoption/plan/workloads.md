@@ -53,7 +53,7 @@ After the work items for the workload template are loaded, follow these steps to
 
 Repeat steps 1 through 5 for each of the workloads in the Power of 10 list.
 
-## Defining workloads
+## Define workloads
 
 After initial priorities have been defined and workloads have been added to the plan, each of the workloads can be defined via deeper qualitative analysis. Before including any workload in the cloud adoption plan, try to provide the following data points for each workload.
 

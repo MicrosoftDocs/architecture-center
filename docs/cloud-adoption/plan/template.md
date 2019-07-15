@@ -50,7 +50,7 @@ The clearest view of the cloud adoption plan comes from the **Epics** backlog vi
 > [!NOTE]
 > The current state of the cloud adoption plan focuses heavily on migration efforts. Tasks related to governance, innovation, or operations must be populated manually.
 
-## Aligning the cloud adoption plan
+## Align the cloud adoption plan
 
 The overview pages for the strategy and planning phases of the cloud adoption lifecycle each reference the [Cloud Adoption Framework strategy and planning template](https://archcenter.blob.core.windows.net/cdn/fusion/readiness/Microsoft-Cloud-Adoption-Framework-Strategy-and-Plan-Template.docx). That template organizes the decisions and data points that will align the template for the cloud adoption plan with your specific plans for adoption. If you haven't done so already, you might want to complete the exercises related to [strategy](../business-strategy/index.md) and [planning](../plan/index.md) before aligning your new project.
 
