@@ -24,7 +24,7 @@ To create a balance between speed and control, we recommend that a minimum of tw
 
 ![Cloud adoption with a cloud center of excellence](../_images/ready/org-ready-best-practice.png)
 
-It's fairly intuitive that cloud adoption tasks require people to execute those tasks. So, few people are surprised that a cloud adoption team is a requirement. However, people who are new to the cloud may not fully appreciate the importance of a cloud governance team. This challenge often occurs early in adoption cycles. The cloud governance team provides the necessary checks and balances to ensure that cloud adoption doesn't expose the business to any new risks. When risks must be taken, this team ensures that proper processes and controls are implemented to mitigate or govern those risks.
+It's fairly intuitive that cloud adoption tasks require people to execute those tasks. So, few people are surprised that a cloud adoption team is a requirement. However, those who are new to the cloud may not fully appreciate the importance of a cloud governance team. This challenge often occurs early in adoption cycles. The cloud governance team provides the necessary checks and balances to ensure that cloud adoption doesn't expose the business to any new risks. When risks must be taken, this team ensures that proper processes and controls are implemented to mitigate or govern those risks.
 
 To learn more about cloud adoption, cloud governance, and other such capabilities, see the brief section on [understanding required cloud capabilities](../organization/index.md?#understand-required-cloud-capabilities).
 

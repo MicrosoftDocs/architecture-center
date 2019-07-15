@@ -1,7 +1,7 @@
 ---
 title: "Deploy the cloud adoption plan to Azure DevOps"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: Deploy the cloud adoption plan template
+description: Deploy the template for the cloud adoption plan
 author: BrianBlanchard
 ms.author: brblanch
 ms.date: 07/01/2019
@@ -12,7 +12,7 @@ ms.subservice: enterprise-cloud-adoption
 
 # Cloud adoption plan and Azure DevOps
 
-Azure DevOps is the set of cloud-based tools for Azure customers who manage iterative projects. It also includes tools for managing deployment pipelines and other important aspects of DevOps. In this article, you'll learn how to quickly deploy a backlog to Azure DevOps from the cloud adoption plan template of the Cloud Adoption Framework for Azure. This template aligns cloud adoption efforts to a standardized process based on the guidance in the framework.
+Azure DevOps is the set of cloud-based tools for Azure customers who manage iterative projects. It also includes tools for managing deployment pipelines and other important aspects of DevOps. In this article, you'll learn how to quickly deploy a backlog to Azure DevOps from the template for a cloud adoption plan that's part of the Cloud Adoption Framework for Azure. This template aligns cloud adoption efforts to a standardized process based on the guidance in the framework.
 
 ## Create your cloud adoption plan
 
@@ -21,7 +21,7 @@ To deploy the cloud adoption plan, open the [Azure DevOps Demo Generator](https:
 1. Verify that the **Selected Template** field is set to **Cloud Adoption Plan**. If it isn't, select **Choose template** to choose the right template.
 2. Select your Azure DevOps organization from the **Select Organization** drop-down list box.
 3. Enter a name for your new project. The cloud adoption plan will have this name when it's deployed to your Azure DevOps tenant.
-4. Select **Create Project** to create a new project in your tenant, based on the cloud adoption plan template. A progress bar will show your progress towards deploying the project. 
+4. Select **Create Project** to create a new project in your tenant, based on the plan template. A progress bar show your progress towards deploying the project.
 5. When deployment is finished, select **Navigate to project** to see your new project.
 
 After your project has been created, continue through this article series to see how you can modify the template to align to your cloud adoption plan.
@@ -30,7 +30,7 @@ For additional support and guidance on this tool, see [Azure DevOps Services Dem
 
 ## Bulk edit the cloud adoption plan
 
-When the cloud adoption plan project has been deployed, you can use Microsoft Excel to modify it. It's much easier to create new workloads or assets in the plan by using Excel than by using the Azure DevOps browser experience.
+When the plan project has been deployed, you can use Microsoft Excel to modify it. It's much easier to create new workloads or assets in the plan by using Excel than by using the Azure DevOps browser experience.
 
 To prepare your workstation for bulk editing, see [Bulk add or modify work items with Excel](https://docs.microsoft.com/azure/devops/boards/backlogs/office/bulk-add-modify-work-items-excel?view=azure-devops).
 
@@ -52,11 +52,11 @@ The clearest view of the cloud adoption plan comes from the **Epics** backlog vi
 
 ## Aligning the cloud adoption plan
 
-The overview pages for the strategy and planning phases of the cloud adoption lifecycle each reference the [Cloud Adoption Framework strategy and planning template](https://archcenter.blob.core.windows.net/cdn/fusion/readiness/Microsoft-Cloud-Adoption-Framework-Strategy-and-Plan-Template.docx). That template organizes the decisions and data points that will align the cloud adoption plan template with your specific plans for adoption. If you haven't done so already, you might want to complete the exercises related to [strategy](../business-strategy/index.md) and [planning](../plan/index.md) before aligning your new project.
+The overview pages for the strategy and planning phases of the cloud adoption lifecycle each reference the [Cloud Adoption Framework strategy and planning template](https://archcenter.blob.core.windows.net/cdn/fusion/readiness/Microsoft-Cloud-Adoption-Framework-Strategy-and-Plan-Template.docx). That template organizes the decisions and data points that will align the template for the cloud adoption plan with your specific plans for adoption. If you haven't done so already, you might want to complete the exercises related to [strategy](../business-strategy/index.md) and [planning](../plan/index.md) before aligning your new project.
 
 The following articles support alignment of the cloud adoption plan:
 
-- [Workloads](./workloads.md): Align features within the cloud migration epic to capture each workload to be migrated or modernized. Add and modify those features to capture the effort to migrate your top 10 workloads.
+- [Workloads](./workloads.md): Align features within the cloud-migration epic to capture each workload to be migrated or modernized. Add and modify those features to capture the effort to migrate your top 10 workloads.
 - [Assets](./assets.md): Each asset (VM, application, or data) is represented by the user stories under each workload. Add and modify those user stories to align with your digital estate.
 - [Rationalization](./review-rationalization.md): As each workload is defined, the initial assumptions about that workload can be challenged. This might result in changes to the tasks under each asset.
 - [Create release plans](./iteration-paths.md): Iteration paths establish release plans by aligning efforts with various releases and iterations.
@@ -66,7 +66,7 @@ These five articles help with each of the alignment tasks required to start mana
 
 ## Next steps
 
-Start aligning your cloud adoption plan project by [defining and prioritizing workloads](./workloads.md).
+Start aligning your plan project by [defining and prioritizing workloads](./workloads.md).
 
 > [!div class="nextstepaction"]
 > [Define and prioritize workloads](./workloads.md)
