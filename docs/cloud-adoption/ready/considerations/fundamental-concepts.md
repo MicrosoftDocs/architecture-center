@@ -34,7 +34,7 @@ An Azure subscription serves several purposes:
 
 - **A legal agreement.** Each subscription is associated with an [Azure offer](https://azure.microsoft.com/support/legal/offer-details) (such as a Free Trial or Pay-As-You-Go). Each offer has a specific rate plan, benefits, and associated terms and conditions. You choose an Azure offer when you create a subscription.
 - **A payment agreement.** When you create a subscription, you provide payment information for that subscription such as a credit card number. Each month, the costs incurred by the resources deployed to that subscription are calculated and billed via that payment method.
-- **A boundary of scale.** Scale limits are defined that a subscription’s resources cannot exceed. For example, there is limit to the number of virtual in a single subscription.
+- **A boundary of scale.** Scale limits are defined that a subscription’s resources cannot exceed. For example, there is limit to the number of virtual machines in a single subscription.
 - **An administrative boundary.** A subscription can act as a boundary for administration, security, and policy. Azure also provides other mechanisms to meet these needs, such as management groups, resource groups, and role-based access control.
 
 ## Considerations when creating an Azure subscription
