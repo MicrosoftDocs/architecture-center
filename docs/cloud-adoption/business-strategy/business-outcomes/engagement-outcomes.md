@@ -23,6 +23,7 @@ During customer-obsessed transformations, like a cloud-enabled application innov
 - **Example**: A services company that provides business-to-business (B2B) services is attempting to hold on to market share in a competitive market. Customers who've left for a competing service provider have stated that their overly complex technical solution interferes with their business processes and is the primary reason for leaving. In this case, cycle time is imperative. Today, it takes 12 months for a feature to go from request to release. If it's prioritized by the executive team, that cycle can be reduced to six to nine months. Through a cloud-enabled application innovation effort, cloud-native application models and Azure DevOps integration, the team was able to cut cycle time down to one month, allowing the business and application development teams to interact more directly with customers.
 
 > **ExakTime**
+>
 > Labor management breaks free of on-premises constraints with cloud technology. With Microsoft Azure, ExakTime is moving toward streamlined agile product development, while the company’s clients enjoy a more robust and easier-to-use product, full of new features.
 >
 > "Now, a developer can sit down at his machine, have an idea, spin up a web service or an Azure instance, test out his idea, point it at test data, and get the concept going. In the time that it would have taken to provision just the stuff to do a test, we can actually write the functionality."  
