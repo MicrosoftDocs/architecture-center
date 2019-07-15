@@ -14,15 +14,7 @@
           "**/*.liquid.md",
           "**/_css/**",
           "**/_includes/**",
-          "**/_bread/**",
           "**/_themes/**"
-        ]
-      },
-      {
-        "src": "_bread",
-        "dest": "bread",
-        "files": [
-          "**/*.yml"
         ]
       }
     ],
