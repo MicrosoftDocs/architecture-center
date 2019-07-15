@@ -62,6 +62,7 @@ This pattern may not be suitable:
 
 ## Related guidance
 
+- [Pattern: Backends For Frontends](https://samnewman.io/patterns/architectural/bff/)
 - [Gateway Aggregation pattern](./gateway-aggregation.md)
 - [Gateway Offloading pattern](./gateway-offloading.md)
 - [Gateway Routing pattern](./gateway-routing.md)
