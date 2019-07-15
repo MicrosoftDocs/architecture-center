@@ -12,7 +12,7 @@ ms.subservice: enterprise-cloud-adoption
 
 # Azure server management tools and services
 
-As discussed in the [overview](/azure/architecture/cloud-adoption/operations/azure-server-management/) of this guidance, the Azure server management services suite covers the following areas:
+As is discussed in the [overview](/azure/architecture/cloud-adoption/operations/azure-server-management/) of this section, the Azure server management services suite covers these areas:
 
 - [Migrate](#migrate)
 - [Secure](#secure)
@@ -21,15 +21,15 @@ As discussed in the [overview](/azure/architecture/cloud-adoption/operations/azu
 - [Configure](#configure)
 - [Govern](#governance)
 
-The following sections briefly describe these different management areas and provide links to detailed content about the main Azure services that support them.
+The following sections briefly describe these management areas and provide links to detailed content about the main Azure services that support them.
 
 ## Migrate
 
-Migration services can help you migrate your workloads into Azure. In order to provide the best guidance, it starts with measuring on-premises server performance, and assesses migration suitability. Once the Azure Migrate service has completed the assessment, you can use [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) and [Azure Database Migration Service](/azure/dms/dms-overview) to migrate your on-premises machines to Azure.
+Migration services can help you migrate your workloads into Azure. To provide the best guidance, the Azure Migrate service starts by measuring on-premises server performance and assessing suitability for migration. After Azure Migrate completes the assessment, you can use [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) and [Azure Database Migration Service](/azure/dms/dms-overview) to migrate your on-premises machines to Azure.
 
 ## Secure
 
-[Azure Security Center](/azure/security-center/security-center-intro) is a comprehensive security management application. By onboarding to Security Center, you can quickly get an assessment on the security and regulatory compliance status of your environment. Instructions for onboarding Azure Security Center to your servers is included in the article [Configure Azure management services for a subscription](./onboard-at-scale.md#azure-security-center) .
+[Azure Security Center](/azure/security-center/security-center-intro) is a comprehensive security management application. By onboarding to Security Center, you can quickly get an assessment of the security and regulatory compliance status of your environment. Instructions for onboarding Azure Security Center to your servers is included in the article [Configure Azure management services for a subscription](./onboard-at-scale.md#azure-security-center).
 
 ## Protect
 
