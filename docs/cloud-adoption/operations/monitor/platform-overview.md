@@ -20,7 +20,7 @@ Many organizations are embracing the latest practices for DevOps agility and clo
 This article compares the current offerings available, and outlines our recommended strategy based on the following factors:
 
 * Your current investment in Operations Manager or other monitoring platforms on your corporate network, and whether it’s tightly integrated with your IT operations processes.
-* Your migration approach to Azure. This approach could be a staged one, extending your corporate network to Azure, or redesigning applications and services to run natively in Azure by using a combination of IaaS and PaaS resources.  
+* Your migration approach to Azure. This approach can be a staged one, extending your corporate network to Azure, or redesigning applications and services to run natively in Azure by using a combination of IaaS and PaaS resources.  
 
 Our strategy includes support for monitoring infrastructure (compute, storage, and server workloads), application (end-user, exceptions, and client), and network resources to deliver a complete, service-oriented monitoring perspective.
 
@@ -37,14 +37,14 @@ As an extensible platform, Operations Manager is supported by a broad ecosystem 
 * Management packs to monitor non-Microsoft applications, vendor hardware, and other technologies, to deliver full-stack monitoring or to automate and extend features of Operations Manager. 
 * Visualization products that include advanced dashboarding capabilities and engaging data visualizations. These help to easily analyze the data on any browser or device in the enterprise.
 * Integration with other ITSM products or orchestration tools, to support incident recording, configuration management, and incident autoremediation.
-* Custom code to automate and extend Operations Manager,by using published APIs. 
+* Custom code to automate and extend Operations Manager, by using published APIs. 
 
 ## Story of Azure Monitor
 
 
 ![Timeline](./media/monitoring-management-guidance-cloud-and-on-premises/timeline-v2-opt.svg)
 
-When Azure cloud was released in 2010, monitoring of cloud services was provided with the Azure Diagnostics agent, which delivered a way to collect diagnostic data from Azure compute and platform resources. In addition to viewing this data in the Azure portal, you could use Azure Storage to view the data with one of several available tools, such as Server Explorer in Visual Studio and Azure Storage Explorer.
+When Azure cloud was released in 2010, monitoring of cloud services was provided with the Azure Diagnostics agent, which delivered a way to collect diagnostic data from Azure compute and platform resources. In addition to viewing this data in the Azure portal, you can use Azure Storage to view the data with one of several available tools, such as Server Explorer in Visual Studio and Azure Storage Explorer.
 
 This capability was considered a general monitoring tool. It lacked many features that were available in enterprise-class monitoring platforms, and it wasn’t consistent between each service that supported this method. In addition, as new Azure services were released, each provided its own monitoring method. Azure services lacked an overall, common monitoring methodology and framework. For these reasons, we began working on Azure Insights. It provided a common framework to collect platform metrics and logs from any Azure service that started using the framework.  
 
@@ -98,7 +98,7 @@ Management packs can contain hundreds of workflows, and a single agent simultane
 
 For example, a monitor might sample a performance counter every few minutes. If that counter exceeds a threshold, it immediately sets the health state of its target object, which immediately triggers an alert. A scheduled rule might watch for a particular event to be created, and immediately fire an alert when that event is created in the local event log.
 
-Because workflows are isolated from each other and work from the individual sources of data, Operations Manager has challenges correlating data between multiple sources. It’s also difficult to react to data once it’s been collected. You can run workflows that access the Operations Manager database, but this scenario isn’t common and it's typically used for a limited number of special purpose workflows.
+Because workflows are isolated from each other and work from the individual sources of data, Operations Manager has challenges correlating data between multiple sources. It’s also difficult to react to data after it’s been collected. You can run workflows that access the Operations Manager database, but this scenario isn’t common and it's typically used for a limited number of special purpose workflows.
 
 ![Diagram of Operations Manager Management Group](./media/monitoring-management-guidance-cloud-and-on-premises/operations-manager-management-group-optimized.svg)
 
