@@ -79,7 +79,7 @@ Azure offers multiple products and services that provide different storage capab
 | Move file data to the cloud but continue to primarily access the data from on-premises. | [Azure Files](/azure/storage/files/storage-files-planning) <br/><br/> [Azure File Sync](/azure/storage/files/storage-sync-files-planning) | |
 | "Burst compute" - NFS/SMB read-heavy file-based workloads with data assets residing on-premises while computation runs in the cloud. | [Avere vFXT for Azure](/azure/avere-vfxt/avere-vfxt-overview) | IaaS scale-out NFS/SMB file caching |
 | Move an on-premises application that uses local disk or iSCSI. | [Azure Disk Storage](/azure/virtual-machines/windows/managed-disks-overview) | |
-| Migrate a container-based application with persistent volumes. | [Azure Disk Storage](/azure/virtual-machines/windows/managed-disks-overviews) <br/><br/> [Azure Files](/azure/storage/files/storage-files-planning) | |
+| Migrate a container-based application with persistent volumes. | [Azure Disk Storage](/azure/virtual-machines/windows/managed-disks-overview) <br/><br/> [Azure Files](/azure/storage/files/storage-files-planning) | |
 | Move file shares to the cloud that are not Windows Server or NetApp. | [Azure Files](/azure/storage/files/storage-files-planning) <br/><br/> [Azure NetApp Files](/azure/azure-netapp-files/azure-netapp-files-introduction) | Protocol Support Regional Availability Performance Requirements Snapshot and Clone Capabilities Price Sensitivity |
 | Transfer terabytes to petabytes of data from on-premises to Azure. | [Data Box Edge](/azure/databox-online/data-box-edge-overview) | |
 | Process data before transferring to Azure. | [Data Box Edge](/azure/databox-online/data-box-edge-overview) | |
