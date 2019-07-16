@@ -1,5 +1,5 @@
 ---
-title: "Tracking costs across business units, environments, or projects"
+title: "Track costs across business units, environments, or projects"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Tracking costs across business units, environments, or projects
 author: BrianBlanchard
@@ -10,7 +10,7 @@ ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ---
 
-# Tracking costs across business units, environments, or projects
+# Track costs across business units, environments, or projects
 
 [Building a cost-conscious organization](../../organization/cost-conscious-organization.md) requires visibility and properly defined access (or scope) to cost-related data. This best-practice article outlines decisions and implementation approaches to creating tracking mechanisms.
 

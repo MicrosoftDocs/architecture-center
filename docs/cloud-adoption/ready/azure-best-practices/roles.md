@@ -13,7 +13,7 @@ tags: azure-resource-manager
 ms.custom: virtual-network
 ---
 
-# Using role-based access control
+# Role-based access control
 
 Group-based access rights and privileges are a good practice. Dealing with groups rather than individual users simplifies maintenance of access policies, provides consistent access management across teams, and reduces configuration errors. Assigning users to and removing users from appropriate groups helps keep current the privileges of a specific user. Azure [role-based access control (RBAC)](/azure/role-based-access-control/overview) offers fine-grained access management for resources organized around user roles.
 
