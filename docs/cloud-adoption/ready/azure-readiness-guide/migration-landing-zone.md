@@ -14,7 +14,7 @@ ms.custom: "fasttrack-edit"
 
 *Migration landing zone* is a term used to describe an environment that has been provisioned and prepared to host workloads being migrated from an on-premises environment into Azure. A migration landing zone is the final deliverable of the Azure readiness guide. This article ties together all of the readiness subjects discussed in this guide and applies the decisions made to the deployment of your first migration landing zone.
 
-The following sections outline a landing zone commonly used to establish an environment that's suitable for use during a migration. The environment or landing zone described in this article is also captured in an Azure blueprint. You can use the Cloud Adoption Framework for Azure migrate landing zone blueprint to deploy the defined environment with a single click.
+The following sections outline a landing zone commonly used to establish an environment that's suitable for use during a migration. The environment or landing zone described in this article is also captured in an Azure blueprint. You can use the Cloud Adoption Framework migrate landing zone blueprint to deploy the defined environment with a single click.
 
 ## Purpose of the blueprint
 

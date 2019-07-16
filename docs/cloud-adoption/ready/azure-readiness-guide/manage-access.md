@@ -20,7 +20,7 @@ When you plan your access control strategy, grant users the least privilege requ
 
 When you plan your access control methodology, we recommend that you work with people in your organizations with the following roles: security and compliance, IT administration, and enterprise architect.
 
-The Cloud Adoption Framework for Azure offers additional guidance on how to [use role-based access control](../azure-best-practices/roles.md) as part of your cloud adoption efforts.
+The Cloud Adoption Framework offers additional guidance on how to [use role-based access control](../azure-best-practices/roles.md) as part of your cloud adoption efforts.
 
 ::: zone target="chromeless"
 

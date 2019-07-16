@@ -12,7 +12,7 @@ ms.topic: landing-page
 
 # Ensure the environment is prepared for the cloud adoption plan
 
-Before adoption can begin, you must create a landing zone to host the workloads that you plan to build in the cloud or migrate to the cloud. This section of the Cloud Adoption Framework for Azure guides you through the creation of a landing zone.
+Before adoption can begin, you must create a landing zone to host the workloads that you plan to build in the cloud or migrate to the cloud. This section of the framework guides you through the creation of a landing zone.
 
 ## Landing zone exercises
 

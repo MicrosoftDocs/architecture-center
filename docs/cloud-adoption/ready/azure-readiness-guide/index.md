@@ -13,7 +13,7 @@ ms.custom: "fasttrack-edit"
 
 ::: zone target="docs"
 > [!NOTE]
-> This guide provides a starting point for readiness guidance in the Cloud Adoption Framework for Azure and is also available in the Azure Quickstart Center. See the tip in the article for a link.
+> This guide provides a starting point for readiness guidance in the Cloud Adoption Framework and is also available in the Azure Quickstart Center. See the tip in the article for a link.
 
 ::: zone-end
 
