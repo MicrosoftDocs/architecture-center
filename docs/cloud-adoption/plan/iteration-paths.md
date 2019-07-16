@@ -16,7 +16,9 @@ Agile and other iterative methodologies are built on the concepts of iterations 
 
 ## Establish iterations
 
-In an iterative approach to technical implementation, you plan technical efforts around recurring time blocks. Iterations tend to be one-week to six-week time blocks. Consensus suggests that two weeks is the average iteration duration for most cloud adoption teams. But the choice of iteration duration depends on the type of technical effort, the administrative overhead, and the team's preference. To begin aligning efforts to a timeline, we suggest that you define a set of iterations that last 6 to 12 months.
+In an iterative approach to technical implementation, you plan technical efforts around recurring time blocks. Iterations tend to be one-week to six-week time blocks. Consensus suggests that two weeks is the average iteration duration for most cloud adoption teams. But the choice of iteration duration depends on the type of technical effort, the administrative overhead, and the team's preference.
+
+To begin aligning efforts to a timeline, we suggest that you define a set of iterations that last 6 to 12 months.
 
 ## Understand velocity
 
@@ -32,7 +34,9 @@ Initially, you plan iterations by evaluating the technical tasks based on the pr
 
 During iteration planning, the cloud adoption teams validate and refine estimates. They do so until they have aligned all available velocity to specific tasks. This process continues for each prioritized workload until all efforts align to a forecasted iteration.
 
-In this process, the team validates the tasks assigned to the next sprint. The team updates its estimates based on the team's conversation about each task. The team then adds each estimated task to the next sprint until the available velocity is met. Finally, the team estimates additional tasks and adds them to the next iteration. The team does so until the velocity of that iteration is also exhausted. This process continues until all tasks are assigned to an iteration.
+In this process, the team validates the tasks assigned to the next sprint. The team updates its estimates based on the team's conversation about each task. The team then adds each estimated task to the next sprint until the available velocity is met. Finally, the team estimates additional tasks and adds them to the next iteration. The team performs these steps until the velocity of that iteration is also exhausted.
+
+The preceding process continues until all tasks are assigned to an iteration.
 
 **Example:** Let's build on the previous example. Assume each workload migration requires 40 tasks. Also assume you estimate each task to take an average of one hour. The combined estimation is approximately 40 hours per workload migration. If these estimates remain consistent for all 10 of the prioritized workloads, those workloads will take 400 hours.
 
@@ -43,7 +47,9 @@ The velocity defined in the previous example suggests that the migration of the 
 
 ## Release planning
 
-Within cloud adoption, a release is defined as a collection of deliverables that produce enough business value to justify the risk of disruption to business processes. Releasing any workload-related changes into a production environment creates some changes to business processes. Ideally, these changes are seamless, and the business sees the value of the changes with no significant disruptions to service. But the risk of business disruption is present with any change and shouldn't be taken lightly.
+Within cloud adoption, a release is defined as a collection of deliverables that produce enough business value to justify the risk of disruption to business processes.
+
+Releasing any workload-related changes into a production environment creates some changes to business processes. Ideally, these changes are seamless, and the business sees the value of the changes with no significant disruptions to service. But the risk of business disruption is present with any change and shouldn't be taken lightly.
 
 To ensure a change is justified by its potential return, the cloud strategy team should participate in release planning. Once tasks are aligned to sprints, the team can determine a rough timeline of when each workload will be ready for production release. The cloud strategy team would review the timing of each release. The team would then identify the inflection point between risk and business value.
 
