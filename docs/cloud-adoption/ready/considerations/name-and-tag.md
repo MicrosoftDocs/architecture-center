@@ -53,7 +53,7 @@ Resource names have length limits. Balancing the context embedded in a name with
 
 When you construct your naming convention, identify the key pieces of information that you want to reflect in a resource name. Different information is relevant for different resource types. The following list provides examples of information that are useful when you construct resource names.
 
->[!NOTE] Keep the length of naming components short to prevent exceeding resource name length limits.
+Keep the length of naming components short to prevent exceeding resource name length limits.
 
 | Naming component | Description | Examples |
 | --- | --- | --- |
