@@ -10,7 +10,7 @@ ms.date: 04/04/2019
 
 # What is cloud accounting?
 
-The cloud changes how IT accounts for costs, as is described in [Creating a financial model for cloud transformation](financial-models.md). Various IT accounting models are much easier to support because of how the cloud allocates costs. So it's important to understand how to account for cloud costs before you begin a cloud transformation. This article outlines the most common cloud accounting models for IT.
+The cloud changes how IT accounts for costs, as is described in [Creating a financial model for cloud transformation](financial-models.md). Various IT accounting models are much easier to support because of how the cloud allocates costs. So it's important to understand how to account for cloud costs before you begin a cloud transformation journey. This article outlines the most common cloud accounting models for IT.
 
 ## Traditional IT accounting (cost center model)
 
