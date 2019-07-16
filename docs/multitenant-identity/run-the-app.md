@@ -188,7 +188,7 @@ Now repeat the same steps for the Surveys app, except do not add an entry for `k
 
 The Surveys application uses Redis to cache OAuth 2 access tokens. To create the cache:
 
-1. Go to [Azure Portal](https://portal.azure.com) and click **+ Create a Resource** > **Databases** > **Redis Cache**.
+1. Go to the [Azure portal](https://portal.azure.com) and click **+ Create a Resource** > **Databases** > **Redis Cache**.
 
 2. Fill in the required information, including DNS name, resource group, location, and pricing tier. You can create a new resource group or use an existing resource group.
 

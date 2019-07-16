@@ -220,7 +220,7 @@ At this point, verify that you can make a TCP connection from the web front end 
 
 2. Click `Connect` to open a remote desktop session to the VM. Use the password that you specified in the `azure1.json` parameter file.
 
-3. From the Remote Desktop session, log into 10.0.5.4. This is the IP address of the VM named `ra-sp-app-vm1`.
+3. From the Remote Desktop session, sign in to 10.0.5.4. This is the IP address of the VM named `ra-sp-app-vm1`.
 
 4. Open a PowerShell console in the VM, and use the `Test-NetConnection` cmdlet to verify that you can connect to the load balancer.
 
@@ -239,7 +239,7 @@ SourceAddress    : 10.0.0.132
 TcpTestSucceeded : True
 ```
 
-If it fails, use the Azure Portal to restart the VM named `ra-sp-sql-vm2`. After the VM restarts, run the `Test-NetConnection` command again. You may need to wait about a minute after the VM restarts for the connection to succeed.
+If it fails, use the Azure portal to restart the VM named `ra-sp-sql-vm2`. After the VM restarts, run the `Test-NetConnection` command again. You may need to wait about a minute after the VM restarts for the connection to succeed.
 
 Now complete the deployment as follows.
 
@@ -271,9 +271,9 @@ Now complete the deployment as follows.
 
 4. When the remote connection to the VM is established, open a browser in the VM and navigate to `http://portal.contoso.local`.
 
-5. In the **Windows Security** box, log on to the SharePoint portal using `contoso.local\testuser` for the user name.
+5. In the **Windows Security** box, sign in to the SharePoint portal using `contoso.local\testuser` for the user name.
 
-This logon tunnels from the Fabrikam.com domain used by the on-premises network to the contoso.local domain used by the SharePoint portal. When the SharePoint site opens, you'll see the root demo site.
+This sign-in tunnels from the Fabrikam.com domain used by the on-premises network to the contoso.local domain used by the SharePoint portal. When the SharePoint site opens, you'll see the root demo site.
 
 **_Contributors to this reference architecture_** &mdash; Joe Davies, Bob Fox, Neil Hodgkinson, Paul Stork
 
