@@ -16,6 +16,8 @@ This reference architecture shows recommended practices for tuning the hyperpara
 
 ## Scenarios
 
+**Scenario1: FAQ matching.** The problem addressed here is Frequently Asked Question (FAQ) matching. This scenario uses a subset of Stack Overflow question data that includes original questions tagged as JavaScript, their duplicate questions, and their answers. It tunes a scikit-learn pipeline to predict the probability that a duplicate question matches one of the original questions.
+
 **Scenario 1: FAQ matching.** The problem addressed here is Frequently Asked Question (FAQ) matching. This scenario uses a subset of Stack Overflow question data that includes original questions tagged as JavaScript, their duplicate questions, and their answers. It tunes a scikit-learn pipeline to predict the probability that a duplicate question matches one of the original questions.
 
 Processing in this [pipeline][pipeline] scenario involves the following steps:
@@ -34,7 +36,7 @@ Processing in this [pipeline][pipeline] scenario involves the following steps:
 
 See also considerations for training [deep learning models][training-deep-learning] with GPUs.
 
-**Scenario 2: Out of stock detection.** This scenario shows how to tune an object detection Mask RCNN model that can be deployed as a web service to provide predictions for empty spaces on store shelves. Images similar to retailer store shelves filled with products are used to predict empty spaces to help detect out of stock products by potentially marrying these perdictions with other sources of information such as planograms and databases. In this scenario, only empty space prediction is covered. The dataset used is distributed under the [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) license.
+**Scenario2: Out of stock detection.** This scenario shows how to tune an object detection Mask RCNN model that can be deployed as a web service to provide predictions for empty spaces on store shelves. Images similar to retailer store shelves filled with products are used to predict empty spaces to help detect out of stock products by potentially marrying these perdictions with other sources of information such as planograms and databases. In this scenario, only empty space prediction is covered. The dataset used is distributed under the [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) license.
 
 
 Processing in this scenario involves the following steps:
