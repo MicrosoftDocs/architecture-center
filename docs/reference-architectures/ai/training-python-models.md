@@ -14,9 +14,9 @@ This reference architecture shows recommended practices for tuning the hyperpara
 
 ![Architecture diagram][0]
 
-**Scenario:** The problem addressed here is Frequently Asked Question (FAQ) matching. This scenario uses a subset of Stack Overflow question data that includes original questions tagged as JavaScript, their duplicate questions, and their answers. It tunes a scikit-learn pipeline to predict the probability that a duplicate question matches one of the original questions.
+**Scenario:** The problem addressed here is Frequently Asked Question (FAQ) matching. This scenario uses a subset of Stack Overflow question data that includes original questions tagged as JavaScript, their duplicate questions, and their answers. It trains a [scikit-learn model][scikit-sample] to predict the probability that a duplicate question matches one of the original questions.
 
-Processing in this scenario involves the following steps:
+Processing in this [pipeline][pipeline] scenario involves the following steps:
 
 1. The training Python script is submitted to the [Azure Machine Learning service][aml].
 
@@ -24,11 +24,11 @@ Processing in this scenario involves the following steps:
 
 1. That script retrieves training and testing data from [Azure Storage][storage].
 
-1. The script learns a model from the training data using its combination of training parameters.
+1. The script trains a model from the training data using its combination of training parameters.
 
 1. The model's performance is evaluated on the testing data, and is written to Azure Storage.
 
-1. The best performing model is registered with the Azure Machine Learning service.
+1. The best performing model is [registered][mlops] with the Azure Machine Learning service.
 
 See also considerations for training [deep learning models][training-deep-learning] with GPUs.
 
@@ -103,7 +103,7 @@ To operationalize the model, see [Machine learning operationalization (MLOps) fo
 [acr]: /azure/container-registry/container-registry-intro
 [ai]: /azure/application-insights/app-insights-overview
 [aml]: /azure/machine-learning/service/overview-what-is-azure-ml
-[aml-compute]: /azure/machine-learning/service/how-to-set-up-training-targets
+[aml-compute]: /azure/machine-learning/service/concept-compute-target
 [amls]: /azure/machine-learning/service/overview-what-is-azure-ml
 [blob]: /azure/storage/blobs/storage-blobs-introduction
 [dsvm]: /azure/machine-learning/data-science-virtual-machine/overview
@@ -112,8 +112,11 @@ To operationalize the model, see [Machine learning operationalization (MLOps) fo
 [hyperparameter]: /azure/machine-learning/service/how-to-tune-hyperparameters
 [jupyter]: http://jupyter.org/widgets
 [lightgbm]: https://github.com/Microsoft/LightGBM
+[mlops]: /azure/machine-learning/service/concept-model-management-and-deployment
+[pipeline]: /azure/machine-learning/service/concept-ml-pipelines
 [scaling]: /azure/virtual-machine-scale-sets/overview
 [scikit]: https://pypi.org/project/scikit-learn/
+[scikit-sample]:/azure/machine-learning/service/how-to-train-scikit-learn
 [storage]: /azure/storage/common/storage-introduction
 [storage-security]: /azure/storage/common/storage-security-guide
 [target]: /azure/machine-learning/service/how-to-auto-train-remote
