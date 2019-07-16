@@ -11,7 +11,7 @@ ms.custom: "fasttrack-edit"
 
 # Organize your Azure resources
 
-Organizing your cloud-based resources is critical to helping you secure, manage, and track the costs related to your workloads. To organize your resources, you can use the management hierarchies within the Azure platform, implement well-thought-out naming conventions, and apply resource tagging. 
+Organizing your cloud-based resources is critical to securing, managing, and tracking the costs related to your workloads. To organize your resources, use the management hierarchies within the Azure platform, implement well-thought-out naming conventions, and apply resource tagging.
 
 <!-- markdownlint-disable MD024 MD025 -->
 
@@ -32,7 +32,7 @@ You can apply management settings, like policies and role-based access controls,
 
 Usually, it makes sense to apply critical settings at higher levels and project-specific requirements at lower levels. For example, you might want to make sure all resources for your organization are deployed to certain regions. To do that, apply a policy to the subscription that specifies the allowed locations. As other users in your organization add new resource groups and resources, the allowed locations are automatically enforced. Learn more about policies in the governance, security, and compliance section of this guide.
 
-If you have only a few subscriptions, it's relatively simple to manage them independently. If the number of subscriptions you use increases, consider creating a management group hierarchy to simplify the management of your subscriptions and resources. For more information on how to manage multiple subscriptions, see the Cloud Adoption Framework for Azure article [scaling with multiple Azure subscriptions](../considerations/scaling-subscriptions.md).
+If you have only a few subscriptions, it's relatively simple to manage them independently. If the number of subscriptions you use increases, consider creating a management group hierarchy to simplify the management of your subscriptions and resources. For more information on how to manage multiple subscriptions, see [scaling with multiple Azure subscriptions](../considerations/scaling-subscriptions.md).
 
 As you plan your compliance strategy, work with people in your organization with these roles: security and compliance, IT administration, enterprise architect, networking, finance, and procurement.
 
@@ -46,7 +46,7 @@ You can create a management group, additional subscriptions, or resource groups.
 
 Create a management group to help you manage access, policy, and compliance for multiple subscriptions.
 
-1. Go to [Management Groups](https://portal.azure.com/#blade/Microsoft_Azure_ManagementGroups/HierarchyBlade).
+1. Go to [Management groups](https://portal.azure.com/#blade/Microsoft_Azure_ManagementGroups/HierarchyBlade).
 2. Select **Add management group**.
 
 ### Create a subscription
@@ -60,7 +60,7 @@ Use subscriptions to manage costs and resources that are created by users, teams
 
 Create a resource group to hold resources like web apps, databases, and storage accounts that share the same lifecycle, permissions, and policies.
 
-1. Go to [Resource Groups](https://portal.azure.com/#create/Microsoft.ResourceGroup).
+1. Go to [Resource groups](https://portal.azure.com/#create/Microsoft.ResourceGroup).
 1. Select **Add**.
 1. Select the **Subscription** that you want your resource group created under.
 1. Enter a name for the **Resource group**.
@@ -104,7 +104,7 @@ Use subscriptions to manage costs and resources that are created by users, teams
 
 Create a resource group to hold resources like web apps, databases, and storage accounts that share the same lifecycle, permissions, and policies.
 
-1. Go to **Resource Groups**.
+1. Go to **Resource groups**.
 1. Select **Add**.
 1. Select the **Subscription** that you want your resource group created under.
 1. Enter a name for the **Resource group**.

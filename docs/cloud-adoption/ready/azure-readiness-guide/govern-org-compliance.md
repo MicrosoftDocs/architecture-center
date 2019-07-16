@@ -54,7 +54,7 @@ To learn more, see:
 
 # [Azure Blueprints](#tab/AzureBlueprints)
 
-Azure Blueprints enables cloud architects and central information technology groups to define a repeatable set of Azure resources that implements and adheres to an organization's standards, patterns, and requirements. Azure Blueprints makes it possible for development teams to rapidly build and stand up new environments and trust that they built within organizational compliance. They can use a set of built-in components, like networking, to speed up development and delivery.
+Azure Blueprints enables cloud architects and central information technology groups to define a repeatable set of Azure resources that implements and adheres to an organization's standards, patterns, and requirements. Azure Blueprints makes it possible for development teams to rapidly build and stand up new environments and trust that they're building within organizational compliance using a set of built-in components--such as networking--to speed up development and delivery.
 
 Blueprints are a declarative way to orchestrate the deployment of various resource templates and other artifacts like:
 
