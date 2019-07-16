@@ -8,9 +8,9 @@ ms.date: 04/04/2019
 
 # Examples of agility outcomes
 
-As discussed in the [business outcomes overview](./index.md), several potential business outcomes can serve as the foundation for any transformation journey conversation with the business. This article focuses on the timeliest business measure: business agility. Understanding the company's market position and competitive landscape helps articulate the business outcomes that are the target of a business's transformation journey.
+As discussed in the [business outcomes overview](./index.md), several potential business outcomes can serve as the foundation for any transformation journey conversation with the business. This article focuses on the timeliest business measure: business agility. Understanding your company's market position and competitive landscape can help you articulate the business outcomes that are the target of the business's transformation journey.
 
-Traditionally, chief investment officers (CIOs) and IT teams were considered a source of stability in core mission-critical processes. This is still true. Few businesses can function well when their IT platform is unstable. However, in today's business world much more is expected. IT can expand beyond a simple cost center by partnering with the business to provide market advantages. Many CIOs and executives assume that stability is simply a baseline for IT. For these leaders, business agility is the measure of IT's contribution to the business.
+Traditionally, chief investment officers (CIOs) and IT teams were considered a source of stability in core mission-critical processes. This is still true. Few businesses can function well when their IT platform is unstable. However, in today's business world, much more is expected. IT can expand beyond a simple cost center by partnering with the business to provide market advantages. Many CIOs and executives assume that stability is simply a baseline for IT. For these leaders, business agility is the measure of IT's contribution to the business.
 
 <!-- markdownlint-disable MD026 -->
 
@@ -18,7 +18,7 @@ Traditionally, chief investment officers (CIOs) and IT teams were considered a s
 
 Markets change at a faster pace today than ever before. As of 2015, only 57 companies were still in the Fortune 500 61 years later&mdash;an 88.6 percent turnover rate. This represents market change at a previously unheard-of rate. IT agility or even business agilities are unlikely to affect an organization listing on the Fortune 500, but these figures help us understand the pace at which markets continue to change.
 
-For incumbents and upstarts alike, business agility can be the difference between success or failure of a business initiative. Quickly adapting to market changes can help ring fence existing customers or claim market share from competitors. The following agility-related outcomes can help communicate the value of the cloud during a transformation.
+For incumbents and upstarts alike, business agility can be the difference between success or failure of a business initiative. Quickly adapting to market changes can help ring-fence existing customers or claim market share from competitors. The agility-related outcomes in the next sections can help communicate the value of the cloud during a transformation.
 
 ## Time-to-market outcome
 
@@ -40,7 +40,7 @@ Healthcare system transforms online services into a friendly digital experience.
 
 When business demands new IT services or scale to existing services, acquisition and provision of new hardware or virtual resources can take weeks. After cloud migration, IT can more easily enable self-service provisioning, allowing the business to scale in hours.
 
-- **Example**: A consumer packaged goods company requires the creation and tear-down of hundreds of database clusters per year to fulfill operational demands of the business. The on-premises virtual hosts can provision quickly, but the process of recovering virtual assets is slow and requires significant time from the team. As such, the legacy on-premises environment suffers from bloat and can seldom keep up with demand. After cloud migration, IT can more easily provide scripted self-provisioning of resources, with a chargeback approach to billing. Together, this allows the business to move as quickly as they need, but still be accountable for the cost of the resources they demand. Doing so in the cloud limits deployments only to the business's budget.
+- **Example**: A consumer packaged goods company requires the creation and tear-down of hundreds of database clusters per year to fulfill operational demands of the business. The on-premises virtual hosts can provision quickly, but the process of recovering virtual assets is slow and requires significant time from the team. As such, the legacy on-premises environment suffers from bloat and can seldom keep up with demand. After cloud migration, IT can more easily provide scripted self-provisioning of resources, with a chargeback approach to billing. Together, this allows the business to move as quickly as they need, but still be accountable for the cost of the resources they demand. Doing so in the cloud limits deployments to the business's budget only.
 
 ## Next steps
 
