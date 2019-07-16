@@ -56,9 +56,9 @@ For your file server data, another service to consider is [Azure File Sync](http
 Several services fit into this category. They can help you to automate operational tasks, manage server configurations, measure update compliance, schedule updates, and detect changes to your servers. These services are core to supporting ongoing operations.
 
 - [Update Management](https://docs.microsoft.com/azure/automation/automation-update-management#viewing-update-assessments) automates the deployment of patches across your environment, including deployment to operating system instances running outside of Azure. It supports both Windows and Linux operating systems and tracks key OS vulnerabilities and nonconformance caused by missing patches.
-- [Change Tracking and Inventory](https://docs.microsoft.com/azure/automation/change-tracking) provides insight into the software that is running in your environment and surfaces any changes that have occurred.
-- [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) provides the ability to run Python and PowerShell scripts or runbooks to automate tasks across your environment. With the [Hybrid Runbook Worker](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker), it allows you to extend your runbooks to your on-premises resources as well.
-- [Azure Automation State Configuration](https://docs.microsoft.com/azure/automation/automation-dsc-overview) provides the ability to push PowerShell Desired State Configurations (DSC) directly from Azure. In turn, DSC provides the ability to monitor and preserve in-guest operating system and workload configurations.
+- [Change Tracking and Inventory](https://docs.microsoft.com/azure/automation/change-tracking) provides insight into the software that's running in your environment and surfaces any changes that have occurred.
+- [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) enables you to run Python and PowerShell scripts or runbooks to automate tasks across your environment. When you use it with the [Hybrid Runbook Worker](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker), you can extend your runbooks to your on-premises resources as well.
+- [Azure Automation State Configuration](https://docs.microsoft.com/azure/automation/automation-dsc-overview) enables you to push PowerShell Desired State Configurations (DSC) directly from Azure. In turn, DSC allows you to monitor and preserve in-guest operating system and workload configurations.
 
 ## Govern
 
