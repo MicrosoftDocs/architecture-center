@@ -12,7 +12,7 @@ ms.subservice: enterprise-cloud-adoption
 
 # Enable tracking and alerting for critical changes
 
-Azure Change Tracking and Inventory provides alerts on the configuration state of your hybrid environment and any changes to that environment. You can monitor critical file, service, software, and registry changes that might affect your deployed servers.
+Azure Change Tracking and Inventory provides alerts on the configuration state of your hybrid environment and on any changes to that environment. You can monitor critical file, service, software, and registry changes that might affect your deployed servers.
 
 By default, the Azure Automation inventory service doesn't monitor files or registry settings. The solution does provide a list of registry keys that we recommend for monitoring. To see this list, go to your Automation account in the Azure portal and select **Inventory** > **Edit Settings**:
 
@@ -20,7 +20,7 @@ By default, the Azure Automation inventory service doesn't monitor files or regi
 
 For more information about each registry key, see [Registry key change tracking](/azure/automation/automation-change-tracking#registry-key-change-tracking). You can evaluate and then enable each key by selecting it. The setting is applied to all VMs enabled in the current workspace.
 
-You can also track critical file changes. For example, you might want to track the C:\windows\system32\drivers\etc\hosts file because the OS uses it to map host names to IP addresses. Any changes to this file could cause connectivity issues or redirect traffic to dangerous websites.
+You can also track critical file changes. For example, you might want to track the C:\windows\system32\drivers\etc\hosts file because the OS uses it to map host names to IP addresses. Any changes to this file could cause connectivity problems or redirect traffic to dangerous websites.
 
 To enable file content tracking for the hosts file, follow the steps in [Enable file content tracking](/azure/automation/change-tracking-file-contents#enable-file-content-tracking).
 
@@ -32,15 +32,15 @@ ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and Fil
 
 ![Screenshot of the Log Analytics query editor in the Azure portal](./media/change-tracking2.png)
 
-This query searches for changes to the contents of files that have a path that contains the word “hosts”. You can also search for a specific file by changing the path parameter. (For example, `FileSystemPath ==  "c:\\windows\\system32\\drivers\\etc\\hosts"`.)
+This query searches for changes to the contents of files that have a path that contains the word “hosts.” You can also search for a specific file by changing the path parameter. (For example, `FileSystemPath ==  "c:\\windows\\system32\\drivers\\etc\\hosts"`.)
   
 After the query returns the results, select **New alert rule** to open the alert rule editor. You can also get to this editor via Azure Monitor in the Azure portal.
 
-In the alert rule editor, review the query and change the alert logic if you need to. In this case, we want the alert to be raised if any changes are detected for any machine in the environment.
+In the alert rule editor, review the query and change the alert logic if you need to. In this case, we want the alert to be raised if any changes are detected on any machine in the environment.
 
 ![Screenshot of the Log Analytics alert rule editor in the Azure portal](./media/change-tracking3.png)
 
-After you set the condition logic, you can assign action groups to perform actions in response to the alert. In this example, when the alert is raised, emails are sent and an ITSM ticket is created. You can take many other useful actions, such as triggering an Azure function, an Azure Automation runbook, a webhook, or a logic app.
+After you set the condition logic, you can assign action groups to perform actions in response to the alert. In this example, when the alert is raised, emails are sent and an ITSM ticket is created. You can take many other useful actions, like triggering an Azure function, an Azure Automation runbook, a webhook, or a logic app.
 
 ![Screenshot of the sample alert rule summary in the Azure portal](./media/change-tracking4.png)
 
@@ -52,7 +52,7 @@ Here are some other common scenarios for tracking and alerting that you might wa
 
 ### Driver file changed
 
-Detect if driver files have been changed, added, or removed. Useful for tracking changes to critical system files.
+Detect if driver files are changed, added, or removed. Useful for tracking changes to critical system files.
 
   ```kusto
   ConfigurationChange | where ConfigChangeType == "Files" and FileSystemPath contains " c:\\windows\\system32\\drivers\\"
@@ -60,7 +60,7 @@ Detect if driver files have been changed, added, or removed. Useful for tracking
 
 ### Specific service stopped
 
-Useful for tracking changes to system critical services.
+Useful for tracking changes to system-critical services.
 
   ```kusto
   ConfigurationChange | where SvcState == "Stopped" and SvcName contains "w3svc"

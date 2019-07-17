@@ -12,7 +12,7 @@ ms.subservice: enterprise-cloud-adoption
 
 # Set up basic alerts
 
-A key part of managing resources is getting notified when problems occur. Alerts proactively notify you of critical conditions. They can be based on triggers from metrics, logs, or service health issues. As part of onboarding the Azure server management services, you'll want to set up alerts and notifications that can help keep your IT teams aware of any problems.
+A key part of managing resources is getting notified when problems occur. Alerts proactively notify you of critical conditions. They can be based on triggers from metrics, logs, or service health issues. As part of onboarding the Azure server management services, you can set up alerts and notifications that can help keep your IT teams aware of any problems.
 
 ## Azure Monitor alerts
 
@@ -24,7 +24,7 @@ Azure Monitor offers [alerting](https://docs.microsoft.com/azure/azure-monitor/p
 - Health of the underlying Azure platform.
 - Tests for website availability.
 
-See the [list of Azure Monitor data sources](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources) for a more detailed description of the sources of monitoring data collected by this service.
+See the [list of Azure Monitor data sources](https://docs.microsoft.com/azure/azure-monitor/platform/data-sources) for a more detailed description of the sources of monitoring data that's collected by this service.
 
 For details on manually creating and managing alerts by using the portal, see the [Azure Monitor documentation](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric).
 

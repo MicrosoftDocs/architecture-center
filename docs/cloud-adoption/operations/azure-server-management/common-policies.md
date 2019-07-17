@@ -46,7 +46,7 @@ $policyParam = '{"listOfAllowedLocations":{"value":["eastus","westus"]}}'
 New-AzPolicyAssignment -Name "Allowed Location" -DisplayName "Allowed locations for resource creation" -Scope $scope -PolicyDefinition $AllowedLocationPolicy -Location eastus -PolicyParameter $policyparam
 ```
 
-You can use this same script to apply the other policies discussed in this article. Just replace the GUID in the line setting `$AllowedLocationPolicy` with the GUID of the with policy that you want to apply.
+You can use this same script to apply the other policies discussed in this article. Just replace the GUID in the line that sets `$AllowedLocationPolicy` with the GUID of the policy that you want to apply.
 
 ### Block certain resource types
 

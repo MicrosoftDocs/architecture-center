@@ -42,7 +42,7 @@ You can use the following example PowerShell script to deploy these policies:
  Before you run this script, you'll need to sign in by using the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.1.0) cmdlet. When you run the script, you'll need to provide the name of the subscription you want to apply the policies to.
 
 ```powershell
-#Assign Guest Configuration policy
+#Assign Guest Configuration policy.
 param (
     [Parameter(Mandatory=$true)]
     [string]$SubscriptionName

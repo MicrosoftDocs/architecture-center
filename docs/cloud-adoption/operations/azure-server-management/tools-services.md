@@ -29,7 +29,7 @@ Migration services can help you migrate your workloads into Azure. To provide th
 
 ## Secure
 
-[Azure Security Center](/azure/security-center/security-center-intro) is a comprehensive security management application. By onboarding to Security Center, you can quickly get an assessment of the security and regulatory compliance status of your environment. For instructions on onboarding your servers to Azure Security Center, see the article [Configure Azure management services for a subscription](./onboard-at-scale.md#azure-security-center).
+[Azure Security Center](/azure/security-center/security-center-intro) is a comprehensive security management application. By onboarding to Security Center, you can quickly get an assessment of the security and regulatory compliance status of your environment. For instructions on onboarding your servers to Azure Security Center, see [Configure Azure management services for a subscription](./onboard-at-scale.md#azure-security-center).
 
 ## Protect
 
@@ -39,16 +39,16 @@ When you build data protection strategies, you should first consider breaking do
 
 The most basic data protection is backup. To speed up the recovery process in case of server loss, you should back up not just data but also server configurations. Backup is an effective mechanism to handle accidental data deletion and ransomware attacks. [Azure Backup](https://docs.microsoft.com/azure/backup) can help you protect your data on Azure and on-premises servers running Windows or Linux. For details about this service's capabilities and how-to guides, see the [Azure Backup documentation](https://docs.microsoft.com/azure/backup/backup-overview).
 
-Recovery via backup can take a long time. The industry standard is usually one day. If a workload requires business continuity for hardware failures or datacenter outage, consider using data replication. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) provides continuous replication of your VMs, a solution that provides bare-minimum data loss. Site Recovery also supports a variety of replication scenarios, like replication of Azure VMs between two Azure regions, between servers on-premises, and between on-premises and Azure. For more information, see the [complete Azure Site Recovery replication matrix](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview#what-can-i-replicate).
+Recovery via backup can take a long time. The industry standard is usually one day. If a workload requires business continuity for hardware failures or datacenter outage, consider using data replication. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) provides continuous replication of your VMs, a solution that provides bare-minimum data loss. Site Recovery also supports several replication scenarios, like replication of Azure VMs between two Azure regions, between servers on-premises, and between on-premises and Azure. For more information, see the [complete Azure Site Recovery replication matrix](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview#what-can-i-replicate).
 
 For your file server data, another service to consider is [Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning). This service lets you centralize your organization's file shares in Azure Files while preserving the flexibility, performance, and compatibility of an on-premises file server. To use this service, follow the instructions for deploying Azure File Sync.
 
 ## Monitor
 
-[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) provides a view into a variety of resources, like applications, containers, and virtual machines. It also collects data from several sources.
+[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) provides a view into various resources, like applications, containers, and virtual machines. It also collects data from several sources.
 
 - Azure Monitor for VMs ([insights](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)) provides an in-depth view of virtual machine health, performance trends, and dependencies. The service monitors the health of the operating systems of your Azure virtual machines, virtual machine scale sets, and machines in your on-premises environment.
-- Log Analytics ([logs](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#logs)) is a feature of Azure Monitor. Its role is central to the overall Azure management story. It serves as the data store for log analysis and for numerous other Azure services. It offers a rich query language and an analytics engine that provides insights into the operation of your applications and resources.
+- Log Analytics ([logs](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#logs)) is a feature of Azure Monitor. Its role is central to the overall Azure management story. It serves as the data store for log analysis and for many other Azure services. It offers a rich query language and an analytics engine that provides insights into the operation of your applications and resources.
 - [Azure Activity Log](https://docs.microsoft.com/azure/azure-monitor/platform/activity-logs-overview) is also a feature of Azure Monitor. It provides insight into subscription-level events that occur in Azure.
 
 ## Configure
@@ -62,7 +62,7 @@ Several services fit into this category. They can help you to automate operation
 
 ## Govern
 
-Adopting and moving to the cloud creates new management challenges and requires a different mindset as you shift from an operational management burden to monitoring and governance. The Cloud Adoption Framework for Azure starts with [governance](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/overview). It explains how to migrate to the cloud, what the journey will look like, who should be involved.
+Adopting and moving to the cloud creates new management challenges and requires a different mindset as you shift from an operational management burden to monitoring and governance. The Cloud Adoption Framework for Azure starts with [governance](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/overview). It explains how to migrate to the cloud, what the journey will look like, and who should be involved.
 
 The governance design for small-to-medium businesses often differs from governance design for large enterprises. To learn more about governance best practices for a small or medium-sized business, see [Small-to-medium enterprise governance guide](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/journeys/small-to-medium-enterprise/overview). To learn more about governance best practices for a large enterprise, see [Large enterprise governance guide](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/journeys/large-enterprise/overview).
 
