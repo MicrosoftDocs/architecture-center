@@ -107,7 +107,7 @@ Microsoft Azure Application Gateway is a dedicated virtual appliance providing a
 [perimeter-network]: /azure/best-practices-network-security
 [ALB]: /azure/load-balancer/load-balancer-overview
 [DDOS]: /azure/virtual-network/ddos-protection-overview
-[PIP]: /azure/virtual-network/resource-groups-networking#public-ip-address
+[PIP]: /azure/virtual-network/virtual-network-public-ip-address
 [AFD]: /azure/frontdoor/front-door-overview
 [AFDWAF]: /azure/frontdoor/waf-overview
 [AppGW]: /azure/application-gateway/application-gateway-introduction
