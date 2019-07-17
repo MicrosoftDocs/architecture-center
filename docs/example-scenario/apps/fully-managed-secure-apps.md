@@ -86,7 +86,7 @@ While provisioning the ASE, consider the following limitations when choosing a d
 
 Additionally, the custom domain name used for apps and the domain name used by the ILB ASE cannot overlap. For an ILB ASE with the domain name contoso.com, you can't use custom domain names for your apps like:
 
-- www.contoso.com
+- www\.contoso.com
 - abcd.def.contoso.com
 - abcd.contoso.com
 

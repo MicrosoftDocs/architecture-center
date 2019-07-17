@@ -38,7 +38,7 @@ This guide walks you through the basics of migrating applications and resources 
 When you migrate to Azure, you may migrate your applications as-is using IaaS-based virtual machine solutions (known as a "rehost" or "lift and shift" migration), or you may have the flexibility to use managed services and other cloud-native features to modernize your applications. See the **Migration options** tab for more information on these choices. As you develop your migration strategy, you might consider:
 
 - Will my migrating applications work in the cloud?
-- What is the best strategy (with regard to technology, tools, and migrations) for my application? (See the Microsoft Cloud Adoption Framework's [Migration tool decision guide](../../decision-guides/migrate-decision-guide/index.md) for more information.)
+- What is the best strategy (with regard to technology, tools, and migrations) for my application? See the Microsoft Cloud Adoption Framework's [Migration tools decision guide](../../decision-guides/migrate-decision-guide/index.md) for more information.
 - How do I minimize downtime during the migration?
 - How do I control costs?
 - How do I track resource costs and bill them accurately?
@@ -97,6 +97,16 @@ You can perform a cloud migration several ways. Some are better suited to differ
 - **Rebuild:** In some scenarios, the changes required to migrate an application can be too large to justify further investment, and the solution must be rebuilt.
 - **Replace:** Solutions are generally implemented using the best technology and techniques available at the time. In some cases, modern software as a service (SaaS) applications can meet all of the functionality provided by the hosted application. In these scenarios, a workload could be scheduled for future replacement, thus removing it from consideration as part of the migration.
 
+::: zone target="chromeless"
+
+These methods are not mutually exclusive&mdash;for example, while your initial migration might use a **rehost** model, you may choose to implement **refactor** or **rearchitect** as part of the post-migration optimization phase. This is revisited in the **Optimize and transform** section of this guide.
+
+::: zone-end
+
+::: zone target="docs"
+
 These methods are not mutually exclusive&mdash;for example, while your initial migration might use a **rehost** model, you may choose to implement **refactor** or **rearchitect** as part of the post-migration optimization phase. This is revisited in the [Optimize and transform](optimize-and-transform.md) section of this guide.
+
+::: zone-end
 
 ![Infographic of the migration options](../../_images/migration/migration-options.png)
