@@ -26,7 +26,11 @@ The following sample policy statements address common business risks related to 
 
 **Policy statement:** The following policies will be implemented:
 
-- Deployed assets should be tagged with the following values: cost, criticality, SLA, and environment.
+- Deployed assets should be tagged with the following values:
+  - Cost
+  - Criticality
+  - SLA
+  - Environment
 - Governance tooling must validate tagging related to cost, criticality, SLA, application, and environment. All values must align to predefined values managed by the governance team.
 
 **Potential design options:** In Azure, [standard name-value metadata tags](/azure/azure-resource-manager/resource-group-using-tags) are supported on most resource types. [Azure Policy](/azure/governance/policy/overview) is used to enforce specific tags as part of resource creation.

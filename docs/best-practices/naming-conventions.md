@@ -79,15 +79,16 @@ In general, avoid having any special characters (`-` or `_`) as the first or las
 |Resource Group |Subscription |1-90 |Case insensitive |Alphanumeric, underscore, parentheses, hyphen, period (except at end), and Unicode characters that match the regex documented [here](/rest/api/resources/resourcegroups/createorupdate). |`<service short name>-<environment>-rg` |`profx-prod-rg` |
 |Availability Set |Resource Group |1-80 |Case insensitive |Alphanumeric, underscore, and hyphen |`<service-short-name>-<context>-as` |`profx-sql-as` |
 |Tag |Associated Entity |512 (name), 256 (value) |Case insensitive |Alphanumeric including Unicode characters; special characters except `<`, `>`, `%`, `&`, `\`, `?`, `/`. See limitations [here](/azure/azure-resource-manager/resource-group-using-tags). |`"key" : "value"` |`"department" : "Central IT"` |
-|Web App |Global |1-60 |Case insensitive |Alphanumeric and hyphen |`<app_name>-<source-slot-name>` |`contoso-staging` |
-|API Management |Global |1-50 |Case insensitive |Alphanumeric and hyphen |`<apim-service-name>` |`contoso` |
+|Web App |Global |1-60 |Case insensitive |0-9, a-z, A-Z and - |`<app_name>-<source-slot-name>` |`contoso-staging` |
+|API Management |Global |1-50 |Case insensitive |0-9, a-z, A-Z and - |`<apim-service-name>` |`contoso` |
+|Key Vault | Global | 3-24 | Case insensitive | 0-9, a-z, A-Z and - | `<service short name>-<environment>-kv` | `myapp-prod-kv` |
 
 ### Compute
 
 | Entity | Scope | Length | Casing | Valid Characters | Suggested Pattern | Example |
 | --- | --- | --- | --- | --- | --- | --- |
-|Virtual Machine |Resource Group |1-15 (Windows), 1-64 (Linux) |Case insensitive |Alphanumeric and hyphen |`<name>-<role>-vm<number>` |`profx-sql-vm1` |
-|Function App | Global |1-60 |Case insensitive |Alphanumeric and hyphen |`<name>-func` |`calcprofit-func` |
+|Virtual Machine |Resource Group |1-15 (Windows), 1-64 (Linux) |Case insensitive |0-9, a-z, A-Z and - |`<name>-<role>-vm<number>` |`profx-sql-vm1` |
+|Function App | Global |1-60 |Case insensitive |0-9, a-z, A-Z and - |`<name>-func` |`calcprofit-func` |
 
 > [!NOTE]
 > Virtual machines in Azure have two distinct names: virtual machine name, and host name. When you create a VM in the portal, the same name is used for both the host name, and the virtual machine resource name. The restrictions above are for the host name. The actual resource name can have up to 64 characters.
@@ -98,9 +99,9 @@ In general, avoid having any special characters (`-` or `_`) as the first or las
 | --- | --- | --- | --- | --- | --- | --- |
 |Storage account name (data) |Global |3-24 |Lowercase |Alphanumeric |`<globally unique name><number>` (use a function to calculate a unique guid for naming storage accounts) |`profxdata001` |
 |Storage account name (disks) |Global |3-24 |Lowercase |Alphanumeric |`<vm name without hyphens>st<number>` |`profxsql001st0` |
-| Container name |Storage account |3-63 |Lowercase |Alphanumeric and hyphen |`<context>` |`logs` |
+| Container name |Storage account |3-63 |Lowercase |0-9, a-z, A-Z and - |`<context>` |`logs` |
 |Blob name | Container |1-1024 |Case sensitive |Any URL characters |`<variable based on blob usage>` |`<variable based on blob usage>` |
-|Queue name |Storage account |3-63 |Lowercase |Alphanumeric and hyphen |`<service short name>-<context>-<num>` |`awesomeservice-messages-001` |
+|Queue name |Storage account |3-63 |Lowercase |0-9, a-z, A-Z and - |`<service short name>-<context>-<num>` |`awesomeservice-messages-001` |
 |Table name | Storage account |3-63 |Case insensitive |Alphanumeric |`<service short name><context>` |`awesomeservicelogs` |
 |File name | Storage account |3-63 |Lowercase | Alphanumeric |`<variable based on blob usage>` |`<variable based on blob usage>` |
 |Data Lake Store | Global |3-24 |Lowercase | Alphanumeric |`<name>dls` |`telemetrydls` |
@@ -178,7 +179,7 @@ Especially in larger topologies, carefully naming virtual machines streamlines i
 There are two primary use cases for storage accounts: backing disks for VMs, and storing data in blobs, queues and tables. Storage accounts used for VM disks should follow the naming convention of associating them with the parent VM name (and with the potential need for multiple storage accounts for high-end VM SKUs, also apply a number suffix).
 
 > [!TIP]
-> Storage accounts&mdash;whether for data or disks&mdash;should follow a naming convention that allows for multiple storage accounts to be leveraged (that is, always using a numeric suffix).
+> Storage accounts&mdash;whether for data or disks&mdash;should follow a naming convention that allows for multiple storage accounts to be used (that is, always using a numeric suffix).
 
 It's possible to configure a custom domain name for accessing blob data in your Azure Storage account. The default endpoint for the Blob service is `https://<name>.blob.core.windows.net`.
 

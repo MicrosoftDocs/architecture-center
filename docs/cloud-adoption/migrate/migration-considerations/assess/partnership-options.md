@@ -79,7 +79,7 @@ The main phases of a typical FastTrack for Azure engagement are:
 
 ## Azure Support
 
-If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). If your support request requires deep technical guidance, visit [Azure Support Plans](https://azure.microsoft.com/support/plans/) to align the best plan for your needs.
+If you have questions or need help, [create a support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). If your support request requires deep technical guidance, visit [Azure Support Plans](https://azure.microsoft.com/support/plans) to align the best plan for your needs.
 
 ## Azure Solutions Partner
 

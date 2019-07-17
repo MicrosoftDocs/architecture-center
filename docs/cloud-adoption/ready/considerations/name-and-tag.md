@@ -1,17 +1,19 @@
 ---
 title: "Ready: Recommended naming and tagging conventions"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
+description: This article provides detailed resource naming and tagging recommendations aimed specifically at supporting enterprise cloud adoption efforts.
+author: BrianBlanchard
+ms.author: brblanch
+ms.date: 04/01/2019
+ms.topic: guide
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ms.custom: readiness
-ms.date: 04/01/2019
-description: Large enterprise – Additional technical details regarding governance MVP
-author: BrianBlanchard
 ---
 
 # Ready: Recommended naming and tagging conventions
 
-Organizing cloud-based assets in ways that both aid operational management and support accounting requirements is a common challenge facing large cloud adoption efforts. Applying well-defined naming and metadata tagging conventions to cloud-hosted resources allows IT staff to quickly find and manage resources, while also helping to align cloud usage costs with business teams using chargeback and showback accounting mechanisms.
+Organizing cloud-based assets in ways that both aid operational management and support accounting requirements is a common challenge facing large cloud adoption efforts. Applying well-defined naming and metadata tagging conventions to cloud-hosted resources allows IT staff to quickly find and manage resources while also helping to align cloud usage costs with business teams using chargeback and showback accounting mechanisms.
 
 The Azure Architecture Center's [naming conventions for Azure resources](/azure/architecture/best-practices/naming-conventions) guidance provides general recommendations on naming conventions as well as discussions of naming limitations and platform rules. The discussion below extends that generic guidance with more detailed recommendations aimed specifically at supporting enterprise cloud adoption efforts.
 
@@ -26,7 +28,7 @@ Resource names can be difficult to change, so establishing a comprehensive namin
 
 ## Naming and tagging resources
 
-Naming and tagging strategy should include business and operational details as components of resource names and metadata tags. The business-related side of this strategy should ensure resource names and tags include the organizational information needed to identify the teams using a resource along with the business owners responsible for resource costs. The operational side should ensure names and tags include information that IT teams use to identify the workload, application, environment, criticality, and other information useful for managing resources.
+Naming and tagging strategy should include business and operational details as components of resource names and metadata tags. The business-related side of this strategy should ensure that resource names and tags include the organizational information needed to identify the teams using a resource along with the business owners responsible for resource costs. The operational side should ensure that names and tags include information that IT teams use to identify the workload, application, environment, criticality, and other information useful for managing resources.
 
 ### Resource naming
 
@@ -50,22 +52,22 @@ When constructing your naming convention, you need to identify the key pieces of
 
 Note: Keep the length of naming components short to prevent exceeding resource name length limits.
 
-| Naming component           | Description                                                                                                                                                                                          | Examples                                         |
-|----------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------|
-| Business unit              | Top-level division of your company that owns the subscription or workload the resource belongs to. In smaller organizations, this may represent a single corporate top-level organizational element. | *fin*, *mktg*, *product*, *it*, *corp*           |
-| Subscription type          | Summary description of the purpose of the subscription containing the resource. Often broken down by deployment environment type or specific workloads.                                              | *prod,* s*hared, client*                         |
-| Application / Service name | Name of the application, workload, or service that the resource is a part of.                                                                                                                        | *navigator*, *emissions*, *sharepoint*, *hadoop* |
-| Deployment environment     | The stage of the workload's development lifecycle that the resource is supporting.                                                                                                                   | *prod, dev, qa, stage, test*                     |
-| Region                     | Azure region where the resource is deployed.                                                                                                                                                         | *westus, eastus2, westeurope, usgovia*           |
+| Naming component | Description | Examples |
+| --- | --- | --- |
+| Business unit | Top-level division of your company that owns the subscription or workload the resource belongs to. In smaller organizations, this may represent a single corporate top-level organizational element. | *fin*, *mktg*, *product*, *it*, *corp* |
+| Subscription type | Summary description of the purpose of the subscription containing the resource. Often broken down by deployment environment type or specific workloads. | *prod,* s*hared, client* |
+| Application or service name | Name of the application, workload, or service that the resource is a part of. | *navigator*, *emissions*, *sharepoint*, *hadoop* |
+| Deployment environment | The stage of the development lifecycle for the workload that the resource is supporting. | *prod, dev, qa, stage, test* |
+| Region | The Azure region where the resource is deployed. | *westus, eastus2, westeurope, usgovia* |
 
-#### Recommended resource type prefixes
+#### Recommended resource-type prefixes
 
 Each workload can consist of many individual resources and services. Incorporating resource type prefixes into your resource names makes visually identifying application or service components much easier.
 
 The following list provides recommended Azure resource type prefixes to use when defining your naming conventions.
 
 | Resource type                       | Resource name prefix |
-|-------------------------------------|----------------------|
+| ----------------------------------- | -------------------- |
 | Resource group                      | rg-                  |
 | Virtual network                     | vnet-                |
 | Virtual network gateway             | vnet-gw-             |
@@ -109,24 +111,24 @@ The following list provides recommended Azure resource type prefixes to use when
 
 ### Metadata tags
 
-Applying metadata tags to your cloud resources allows you to include information about those assets that couldn't be included in the resource name, and also allows you to perform more sophisticated filtering and reporting on resources. These tags should include context about the resource's associated workload or application, operational requirements, and ownership information, which can be used by IT or business teams to find resources or generate reports about resource usage and billing.
+Applying metadata tags to your cloud resources allows you to include information about those assets that couldn't be included in the resource name and allows you to perform more sophisticated filtering and reporting on resources. These tags should include context about the resource's associated workload or application, operational requirements, and ownership information, which can be used by IT or business teams to find resources or generate reports about resource usage and billing.
 
-What tags you apply to resources, and what tags are required versus optional, will differ between organizations. The list below provides examples of common tags capturing important context and information about a resource that you can use as a starting point for establishing your own tagging conventions.
+What tags you apply to resources and what tags are required versus optional will differ between organizations. The list below provides examples of common tags capturing important context and information about a resource that you can use as a starting point for establishing your own tagging conventions.
 
 | Tag Name                  | Description                                                                                                                                                                                                    | Key               | Example Value                                   |
 |---------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------|-------------------------------------------------|
 | Application Name          | Name of the application, service, or workload the resource is associated with.                                                                                                                                 | *ApplicationName* | *{app name}*                                    |
 | Approver Name             | Person responsible for approving costs related to this resource.                                                                                                                                               | *Approver*        | *{email}*                                       |
-| Budget required/approved  | Money allocated for this application, service, or workload.                                                                                                                                                     | *BudgetAmount*    | *{\$}*                                          |
-| Business Unit             | Top-level division of your company that owns the subscription or workload the resource belongs to. In smaller organizations, this may represent a single corporate or shared top-level organizational element. | *BusinessUnit*    | *FINANCE, MARKETING,{Product Name},CORP, SHARED* |
+| Budget required/approved  | Money allocated for this application, service, or workload.                                                                                                                                                    | *BudgetAmount*    | *{\$}*                                          |
+| Business Unit             | Top-level division of your company that owns the subscription or workload the resource belongs to. In smaller organizations, this may represent a single corporate or shared top-level organizational element. | *BusinessUnit*    | *FINANCE, MARKETING,{Product Name}, CORP, SHARED* |
 | Cost Center               | Accounting cost center associated with this resource.                                                                                                                                                          | *CostCenter*      | *{number}*                                      |
-| Disaster Recovery         | Business criticality of this application, workload, or service.                                                                                                                                                | *DR*              | *Mission-critical, Critical, Essential*         |
-| End Date of the Project   | Date when this application, workload, or service is scheduled for retirement.                                                                                                                                     | *EndDate*         | *{date}*                                        |
-| Environment               | Deployment environment of this application, workload, or service.                                                                                                                                              | *Env*             | *Prod, Dev, QA, Stage, Test*                    |
+| Disaster Recovery         | Business criticality of the application, workload, or service.                                                                                                                                                | *DR*              | *Mission-critical, Critical, Essential*         |
+| End Date of the Project   | Date when the application, workload, or service is scheduled for retirement.                                                                                                                                  | *EndDate*         | *{date}*                                        |
+| Environment               | Deployment environment of the application, workload, or service.                                                                                                                                              | *Env*             | *Prod, Dev, QA, Stage, Test*                    |
 | Owner Name                | Owner of the application, workload, or service.                                                                                                                                                                | *Owner*           | *{email}*                                       |
 | Requester Name            | User that requested the creation of this application.                                                                                                                                                          | *Requestor*       | *{email}*                                       |
-| Service Class             | Service Level Agreement level of this application, workload, or service.                                                                                                                                       | *ServiceClass*    | *Dev, Bronze, Silver, Gold*                     |
-| Start Date of the project | Date when this application, workload, or service was first deployed.                                                                                                                                           | *StartDate*       | *{date}*                                        |
+| Service Class             | Service Level Agreement level of the application, workload, or service.                                                                                                                                       | *ServiceClass*    | *Dev, Bronze, Silver, Gold*                     |
+| Start Date of the project | Date when the application, workload, or service was first deployed.                                                                                                                                           | *StartDate*       | *{date}*                                        |
 
 ## Sample naming convention
 
@@ -231,17 +233,3 @@ The following section provides examples of naming schemes for common Azure resou
 | Event Hub                          | Global         | evh-\<App Name\>-\<Environment\>   | <ul><li>evh-navigator-prod </li><li>evh-emissions-dev</li></ul>     |
 | Notification Hub                   | Resource group | anh-\<App Name\>-\<Environment\>   | <ul><li>evh-navigator-prod </li><li>evh-emissions-dev</li></ul>     |
 | Notification Hub Namespace         | Global         | anhns-\<App Name\>-\<Environment\> | <ul><li>anhns-navigator-prod </li><li>anhns-emissions-dev</li></ul> |
-
-<!-- update once primitives document is complete
-
-## Next steps
-
-Review the [Azure primitives document](./xx-primitives.md) to understand core concepts relating to the Azure platform and the features, products, and services you will need to deploy workloads to the cloud.
-
-> [!div class="nextstepaction"]
-> [Azure primitives](./xx-primitives.md)
--->
-
-## Next steps
-
-For next steps and the most recent status regarding the Ready model in the Cloud Adoption Framework, see the [overview page](../index.md).

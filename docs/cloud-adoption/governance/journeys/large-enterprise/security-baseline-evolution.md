@@ -15,7 +15,7 @@ This article evolves the narrative by adding security controls that support movi
 
 ## Evolution of the narrative
 
-The CIO has spent months collaborating with colleagues and the company’s legal staff. A management consultant with expertise in cybersecurity was engaged to help the existing IT Security and IT Governance teams draft a new policy regarding protected data. The group was able to foster board support to replace the existing policy, allowing PII and financial data to be hosted by approved cloud providers. This required adopting a set of security requirements and a governance process to verify and document adherence to those policies.
+The CIO has spent months collaborating with colleagues and the company’s legal staff. A management consultant with expertise in cybersecurity was engaged to help the existing IT Security and IT Governance teams draft a new policy regarding protected data. The group was able to foster board support to replace the existing policy, allowing sensitive personal and financial data to be hosted by approved cloud providers. This required adopting a set of security requirements and a governance process to verify and document adherence to those policies.
 
 For the past 12 months, the cloud adoption teams have cleared most of the 5,000 assets from the two datacenters to be retired. The 350 incompatible assets were moved to an alternate datacenter. Only the 1,250 virtual machines that contain protected data remain.
 
@@ -35,7 +35,7 @@ Since then, some things have changed that will affect governance:
 - The application development team has implemented a continuous integration and continuous deployment (CI/CD) pipeline to deploy a cloud-native application with an improved user experience. That application doesn’t interact with protected data yet, so it’s not production ready.
 - The Business Intelligence team within IT actively curates data in the cloud from logistics, inventory, and third-party data. This data is being used to drive new predictions, which could shape business processes. However, those predictions and insights are not actionable until customer and financial data can be integrated into the data platform.
 - The IT team is progressing on the CIO and CFO's plans to retire two datacenters. Almost 3,500 of the assets in the two datacenters have been retired or migrated.
-- The policies regarding PII and financial data have been modernized. However, the new corporate policies are contingent on the implementation of related security and governance policies. Teams are still stalled.
+- The policies regarding sensitive personal and financial data have been modernized. However, the new corporate policies are contingent on the implementation of related security and governance policies. Teams are still stalled.
 
 ### Evolution of the future state
 
@@ -46,7 +46,7 @@ Since then, some things have changed that will affect governance:
 
 ## Evolution of tangible risks
 
-**Data breach:** There is an inherent increase in liabilities related to data breaches when adopting any new data platform. Technicians adopting cloud technologies have increased responsibilities to implement solutions which can decrease this risk. A robust security and governance strategy must be implemented to ensure those technicians fulfill those responsibilities.
+**Data breach:** There is an inherent increase in liabilities related to data breaches when adopting any new data platform. Technicians adopting cloud technologies have increased responsibilities to implement solutions that can decrease this risk. A robust security and governance strategy must be implemented to ensure those technicians fulfill those responsibilities.
 
 This business risk can be expanded into a few technical risks:
 
@@ -72,7 +72,7 @@ The following changes to policy will help remediate the new risks and guide impl
 3. All protected data must be encrypted when at rest.
 4. Elevated permissions in any segment containing protected data should be an exception. Any such exceptions will be recorded with the Cloud Governance team and audited regularly.
 5. Network subnets containing protected data must be isolated from any other subnets. Network traffic between protected data subnets will be audited regularly.
-6. No subnet containing protected data can be directly accessed over the public internet or across datacenters. Access to those subnets must be routed through intermediate subnets. All access into those subnets must come through a firewall solution that can perform packet scanning and blocking functions.
+6. No subnet containing protected data can be directly accessed over the public internet or across datacenters. Access to these subnets must be routed through intermediate subnets. All access into these subnets must come through a firewall solution that can perform packet scanning and blocking functions.
 7. Governance tooling must audit and enforce network configuration requirements defined by the Security Management team.
 8. Governance tooling must limit VM deployment to approved images only.
 9. Whenever possible, node configuration management should apply policy requirements to the configuration of any guest operating system. Node configuration management should respect the existing investment in Group Policy Object (GPO) for resource configuration.
@@ -115,7 +115,7 @@ The new best practices fall into two categories: Corporate IT (hub) and Cloud Ad
     4. Apply the `corporate-it-subscription-blueprint` blueprint to each regional instance.
     5. This will establish a hub for each business unit in each region. Note: Further cost savings could be achieved, but sharing hubs across business units in each region.
 6. Integrate group policy objects (GPO) through Desired State Configuration (DSC):
-    1. Convert GPO to DSC – The [Microsoft Baseline Management project](https://github.com/Microsoft/BaselineManagement) in Github can accelerate this effort. * Be sure to store DSC in the repository in parallel with Resource Manager templates.
+    1. Convert GPO to DSC – The [Microsoft Baseline Management project](https://github.com/Microsoft/BaselineManagement) in GitHub can accelerate this effort. * Be sure to store DSC in the repository in parallel with Resource Manager templates.
     2. Deploy Azure Automation State Configuration to any instances of the Corporate IT subscription. Azure Automation can be used to apply DSC to VMs deployed in supported subscriptions within the management group.
     3. The current roadmap plans to enable custom guest configuration policies. When that feature is released, the use of Azure Automation in this best practice will no longer be required.
 

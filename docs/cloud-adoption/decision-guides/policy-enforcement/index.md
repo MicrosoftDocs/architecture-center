@@ -11,7 +11,7 @@ author: rotycenh
 
 # Policy enforcement decision guide
 
-Defining organizational policy is not effective unless there is a way to enforce it across your organization. A key aspect to planning any cloud migration is determining how best to combine tools provided by the cloud platform with your existing IT processes to maximize policy compliance across your entire cloud estate.
+Defining organizational policy is not effective unless it can be enforced across your organization. A key aspect of planning any cloud migration is determining how best to combine tools provided by the cloud platform with your existing IT processes to maximize policy compliance across your entire cloud estate.
 
 ![Plotting policy enforcement options from least to most complex, aligned with jump links below](../../_images/discovery-guides/discovery-guide-policy-enforcement.png)
 
@@ -50,7 +50,7 @@ In Azure, you can apply configuration settings and resource creation rules at th
 
 As your cloud estate grows to span many subscriptions that require enforcement, you will need to focus on a cloud estate-wide enforcement strategy to ensure policy consistency.
 
-Your [subscription design](../subscriptions/index.md) will need to account for policy as it relates to your organizational structure. In addition to helping support complex organization within your subscription design, [Azure management groups](../subscriptions/index.md#management-groups) can be used to assign Azure Policy rules across multiple subscriptions.
+Your [subscription design](../subscriptions/index.md) will need to account for policy as it relates to your organizational structure. In addition to helping support complex organization within your subscription design, [Azure management groups](../../ready/considerations/scaling-subscriptions.md#managing-multiple-subscriptions) can be used to assign Azure Policy rules across multiple subscriptions.
 
 ## Automated enforcement
 

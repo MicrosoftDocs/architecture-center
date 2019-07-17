@@ -19,10 +19,10 @@ Using a hybrid cloud solution allows organizations to scale computing resources.
 
 A true hybrid cloud solution must provide four components, each of which brings significant benefits, including:
 
-- Common identity for on-premises and cloud applications: This improves user productivity by giving users single sign-on (SSO) to all their applications. It also ensures consistency as applications and users cross network/cloud boundaries.
-- Integrated management and security across your hybrid cloud: This provides you with a cohesive way to monitor, manage, and secure the environment, enabling increased visibility and control.
-- A consistent data platform for the datacenter and the cloud: This creates data portability, combined with seamless access to on-premises and cloud data services for deep insight into all data sources.
-- Unified development and DevOps across the cloud and on-premises datacenters: This allows you to move applications between the two environments as needed, improving developer productivity, as both places now have the same development environment.
+- **Common identity for on-premises and cloud applications:** This improves user productivity by giving users single sign-on (SSO) to all their applications. It also ensures consistency as applications and users cross network/cloud boundaries.
+- **Integrated management and security across your hybrid cloud:** This provides you with a cohesive way to monitor, manage, and secure the environment, enabling increased visibility and control.
+- **A consistent data platform for the datacenter and the cloud:** This creates data portability, combined with seamless access to on-premises and cloud data services for deep insight into all data sources.
+- **Unified development and DevOps across the cloud and on-premises datacenters:** This allows you to move applications between the two environments as needed, improving developer productivity because both locations now have the same development environment.
 
 Examples of these components from an Azure perspective include:
 

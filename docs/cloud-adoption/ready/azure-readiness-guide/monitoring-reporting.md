@@ -15,11 +15,11 @@ Azure offers many services that together provide a comprehensive solution for co
 
 # [Azure Monitor](#tab/AzureMonitor)
 
-Azure Monitor provides a single unified hub for all monitoring and diagnostics data in Azure. Use it to get visibility across your resources, find and fix problems, optimize performance, and understand customer behavior.
+Azure Monitor provides a single unified hub for all monitoring and diagnostics data in Azure. You can use it to get visibility across your resources, find and fix problems, optimize performance, and understand customer behavior.
 
 - **Monitor and visualize metrics.** Metrics are numerical values available from Azure resources that help you understand the health of your systems. Customize charts for your dashboards and use workbooks for reporting.
 
-- **Query and analyze logs.** Logs include activity logs and diagnostic logs from Azure. Collect additional logs from other monitoring and management solutions for your cloud or on-premises resources. Use **Log Analytics** as the central repository to aggregate all this data. From there, you can run queries to help troubleshoot issues or to visualize data.
+- **Query and analyze logs.** Logs include activity logs and diagnostic logs from Azure. Collect additional logs from other monitoring and management solutions for your cloud or on-premises resources. **Log Analytics** provides a central repository to aggregate all this data. From there, you can run queries to help troubleshoot issues or to visualize data.
 
 - **Set up alerts and actions.** Alerts proactively notify you of critical conditions. Corrective actions can be taken based on triggers from metrics, logs, or service health issues. You can set up different notifications and actions, and send data to your IT service management tools.
 
@@ -38,7 +38,7 @@ To explore Azure Monitor, go to the [Azure portal](https://portal.azure.com/#bla
 
 ## Learn more
 
-To learn more, see [Azure Monitor documentation](/azure/monitoring-and-diagnostics/).
+To learn more, see [Azure Monitor documentation](/azure/monitoring-and-diagnostics).
 
 ::: zone-end
 
@@ -82,7 +82,7 @@ To set up a Service Health alert, go to the [Azure portal](https://portal.azure.
 
 ## Learn more
 
-To learn more, see the [Azure Service Health documentation](/azure/service-health/).
+To learn more, see the [Azure Service Health documentation](/azure/service-health).
 
 ::: zone-end
 
@@ -95,7 +95,7 @@ Azure Advisor is a free, personalized cloud consultant that helps you follow and
 - **Performance:** To improve the speed of your applications. Recommendations may include boosting SQL query performance by creating indexes or reconfiguring your traffic manager settings.
 - **Cost:** To optimize and reduce your overall Azure spending. Recommendations may include resizing or shutting down underused virtual machines or switching to Azure reservations to lower total cost of ownership.
 
-Recommendations in Advisor are based on the resources you deploy and the actions you take in Azure. Check Advisor regularly for the latest recommendations.
+Recommendations in Advisor are based on the resources you deploy and the actions you take in Azure. You can check Advisor regularly for the latest recommendations.
 
 ::: zone target="chromeless"
 
@@ -111,13 +111,13 @@ To explore Azure Advisor, go to the [Azure portal](https://portal.azure.com/#bla
 
 ## Learn more
 
-To learn more, see [Azure Advisor documentation](/azure/advisor/).
+To learn more, see [Azure Advisor documentation](/azure/advisor).
 
 ::: zone-end
 
 # [Azure Security Center](#tab/AzureSecurityCenter)
 
-Azure Security Center also plays an important part in your monitoring strategy. It helps you monitor the security of your machines, networks, storage, data services, and applications. It provides advanced threat detection by using machine learning and behavioral analytics to help identify active threats targeting your Azure resources. It also provides threat protection that blocks malware or other unwanted code, and reduces the surface area exposed to brute force and other network attacks.
+Azure Security Center also plays an important part in your monitoring strategy. It can help you monitor the security of your machines, networks, storage, data services, and applications. It provides advanced threat detection by using machine learning and behavioral analytics to help identify active threats targeting your Azure resources. It also provides threat protection that blocks malware or other unwanted code, and reduces the surface area exposed to brute force and other network attacks.
 
 When Security Center identifies a threat, it triggers a security alert with steps you need to take to respond to an attack and provides a report with information about the threat that was detected.
 
@@ -141,6 +141,6 @@ To explore Azure Security Center, go to the [Azure portal](https://portal.azure.
 
 ## Learn more
 
-To learn more, see [Azure Security Center documentation](/azure/security-center/).
+To learn more, see [Azure Security Center documentation](/azure/security-center).
 
 ::: zone-end

@@ -38,7 +38,7 @@ COM established a scope comprised of the following components:
 The high-level scopes of the Cloud Operating Model and the Cloud Adoption Framework are similar. Business, culture, and technology are reflected throughout the guidance and each methodology within the Cloud Adoption Framework.
 
 > [!NOTE]
-> There are two significant points of clarity with the Cloud Adoption Framework's scope. In the Cloud Adoption Framework, business strategy goes beyond the documentation of cloud costs; it is about understanding motivations, desired outcomes, returns, and cloud costs to create actionable plans and clear business justifications. In the Cloud Adoption Framework, people strategy goes beyond training to include approaches that create demonstrable cultural maturity. A few areas on the roadmap include demonstrations of the impact of Agile management, DevOps integration, customer empathy and obsession, and lean product development approaches.
+> The Cloud Adoption Framework's scope has two significant points of clarity. In the Cloud Adoption Framework, business strategy goes beyond the documentation of cloud costs&mdash;it is about understanding motivations, desired outcomes, returns, and cloud costs to create actionable plans and clear business justifications. In the Cloud Adoption Framework, people strategy goes beyond training to include approaches that create demonstrable cultural maturity. A few areas on the roadmap include demonstrations of the impact of Agile management, DevOps integration, customer empathy and obsession, and lean product development approaches.
 
 ## Structure
 

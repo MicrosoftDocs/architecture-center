@@ -8,7 +8,7 @@ ms.date: 04/04/2019
 
 # Examples of global reach outcomes
 
-As discussed in [business outcomes](index.md), there are several potential business outcomes that can serve as the foundation for any transformation journey conversation with the business. This article focuses on a common business measure: Reach. Understanding the company’s globalization strategy will help to better articulate the business outcomes that are the target of a business's transformation journey.
+As discussed in [business outcomes](index.md), several potential business outcomes can serve as the foundation for any transformation journey conversation with the business. This article focuses on a common business measure: reach. Understanding the company’s globalization strategy will help to better articulate the business outcomes that are the target of a business's transformation journey.
 
 Across the Fortune 500 and smaller enterprises, globalization of services and customer base has been a focus for over three decades. As the world shrinks, it is increasingly likely for any business to engage in global commerce. Supporting global operations is challenging and costly. Hosting datacenters around the world can consume more than 80% of an annual IT budget. By themselves, wide area networks using private lines to connect those datacenters can cost millions of dollars per year.
 
@@ -25,3 +25,10 @@ Expanding into a new market can be one of the most valuable business outcomes du
 Operating in new markets introduces additional governance constraints. GDPR is one example of governance criteria that could cause significant financial recourse. Azure provides compliance offerings that help customers meet compliance obligations across regulated industries and global markets. For more information, see the [overview of Microsoft Azure compliance](https://aka.ms/AzureCompliance).
 
 - **Example:** A US-based utilities provider was awarded a contract to provide utilities in Canada. Canadian data sovereignty law requires that Canadian data stay in Canada. This company had been working their way through a cloud-enabled application innovation effort for years. As a result, their software was able to be deployed through fully scripted DevOps processes. With a few minor changes to the code base, they were able to deploy a working copy of the code to an Azure datacenter in Canada, meeting data sovereignty compliance and keeping the customer.
+
+## Next steps
+
+Learn more about [customer engagement outcomes](./engagement-outcomes.md).
+
+> [!div class="nextstepaction"]
+> [Customer engagement outcomes](./engagement-outcomes.md)

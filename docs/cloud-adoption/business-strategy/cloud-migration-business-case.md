@@ -1,15 +1,14 @@
 ---
 title: "Build a business justification for cloud migration"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
-ms.custom: governance
 description: Considerations for building a business justification for cloud migration.
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 12/10/2018
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
 ---
 
 # Build a business justification for cloud migration
@@ -42,11 +41,11 @@ Before providing a business justification that focuses on a conversion from capi
 
 **Myth: Moving to the cloud is like flipping a switch.** Migrations are a manually intense technical transformation. When developing a business justification, especially justifications that are time sensitive, consider the following aspects that could increase the time it takes to migrate assets:
 
-- Bandwidth limitations: The amount of bandwidth between the current datacenter and the Cloud provider will drive timelines during migration.
-- Business testing timelines: Testing applications with the business to certify readiness and performance can be time consuming. Aligning power users and testing processes is critical.
-- Migration execution timelines: The amount of time and human effort required to execute the migration can increase costs and delay timelines. Allocating employees or contracting partners can also delay the process and should be accounted for in the plan.
+- **Bandwidth limitations:** The amount of bandwidth between the current datacenter and the Cloud provider will drive timelines during migration.
+- **Business testing timelines:** Testing applications with the business to certify readiness and performance can be time consuming. Aligning power users and testing processes is critical.
+- **Migration execution timelines:** The amount of time and human effort required to execute the migration can increase costs and delay timelines. Allocating employees or contracting partners can also delay the process and should be accounted for in the plan.
 
-Technical and cultural impediments can slow cloud adoption. When time is an important aspect of the business justification, the best mitigation is proper planning. There are two suggested approaches during planning that can help mitigate timeline risks.
+Technical and cultural impediments can slow cloud adoption. When time is an important aspect of the business justification, the best mitigation is proper planning. Two suggested approaches during planning can help mitigate timeline risks:
 
 - First, invest the time and energy in understanding technical adoption constraints. While pressure to move quickly may be high, it is important to account for realistic execution timelines.
 - Second, if culture or people impediments arise, they will have more serious effects than the technical constraints. Cloud adoption creates change, producing the desired transformation. Unfortunately, people sometimes fear change and may need additional support to align with the plan. Identify key people on the team that are opposed to change and engage them early.
@@ -96,7 +95,7 @@ Other examples of costs that may be reduced by a cloud migration:
 
 If the ROI for a cloud migration doesn't match expectations, it may be valuable to revisit the common myths listed at the beginning of this article.
 
-However, it's important to understand that a cost savings outcome is not always possible. There are applications that cost more to operate in the cloud than on-premises. These applications can significantly skew results in an analysis.
+However, it's important to understand that a cost savings outcome is not always possible. Some applications cost more to operate in the cloud than on-premises. These applications can significantly skew results in an analysis.
 
 When the ROI is below 20%, consider a [digital estate planning](../digital-estate/index.md) exercise, with specific attention to [rationalization](../digital-estate/rationalize.md). During quantitative analysis, perform a review of each application to find workloads that skew the results. It could be wise to remove those workloads from the plan. If usage data is available, consider reducing the size of VMs to match usage.
 

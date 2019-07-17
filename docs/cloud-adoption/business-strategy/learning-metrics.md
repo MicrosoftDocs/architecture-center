@@ -28,12 +28,11 @@ The challenge with customer behavior metrics is that they can be influenced easi
 
 **Data innovation:** Changing an industry, disrupting markets, and transforming products/services can each take years. In a cloud enabled data innovation effort, experimentation is key to measuring success. Be transparent and share prediction metrics like percent probability, number of failed experiments, amount of data trained. Failures will accumulate faster than successes. Sadly, these metrics can be discouraging. It is important that the executive team understands the time and investment needed to properly train data and make accurate predictions.
 
-Conversely, there are positive indicators that are often associated with data driven learning; centralization of data, data ingress, and democratization of data. While the team is learning about the customer of tomorrow, real results can be produced today. Supporting learning metrics could include things like: Number of models available in the cloud, number of partner data sources consumed, devices producing ingress data, volume of ingress data. Even more valuable metrics would be the number of dashboards created from consolidated data sources. The number of current state business processes affected by new data sources. By sharing new data sources openly, the business can engage the data using model reporting tools like Power BI to produce incremental insights and drive change in the current business.
+Conversely, some positive indicators are often associated with data-driven learning; centralization of data, data ingress, and democratization of data. While the team is learning about the customer of tomorrow, real results can be produced today. Supporting learning metrics could include things like: Number of models available in the cloud, number of partner data sources consumed, devices producing ingress data, volume of ingress data. An even more valuable metrics is the number of dashboards created from consolidated data sources. The number of current state business processes affected by new data sources. By sharing new data sources openly, the business can engage the data using model reporting tools like Power BI to produce incremental insights and drive change in the current business.
 
 ## Next steps
 
-Once learning metrics are aligned, the team is ready to begin [assessing the digital estate](../digital-estate/index.md) against those metrics.
-The result will be a [transformation backlog or migration backlog](../migrate/migration-considerations/prerequisites/technical-complexity.md).
+Once learning metrics are aligned, the team is ready to begin [assessing the digital estate](../digital-estate/index.md) against those metrics. The result will be a [transformation backlog or migration backlog](../migrate/migration-considerations/prerequisites/technical-complexity.md).
 
 > [!div class="nextstepaction"]
 > [Assess the digital estate](../digital-estate/index.md)

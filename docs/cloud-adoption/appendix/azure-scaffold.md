@@ -12,6 +12,9 @@ ms.subservice: enterprise-cloud-adoption
 
 # Azure enterprise scaffold: Prescriptive subscription governance
 
+> [!NOTE]
+> Azure enterprise scaffolding has been integrated into the Microsoft Cloud Adoption Framework. The content in this article is now represented in the [Ready](../ready/index.md) section of the new framework. This article will be deprecated some time in early 2020. To begin using the new process, see the [Ready overview](../ready/index.md), [creating your first landing zone](../ready/azure-readiness-guide/migration-landing-zone.md), and/or [landing zone considerations](../ready/considerations/index.md).
+
 Enterprises are increasingly adopting the public cloud for its agility and flexibility. They rely on the cloud's strengths to generate revenue and optimize resource usage for the business. Microsoft Azure provides a multitude of services and capabilities that enterprises assemble like building blocks to address a wide array of workloads and applications.
 
 Deciding to use Microsoft Azure is only the first step to achieving the benefit of the cloud. The second step is understanding how the enterprise can effectively use Azure and identify the baseline capabilities that need to be in place to address questions like:
@@ -30,7 +33,7 @@ When moving to Azure, you must address the topic of governance early to ensure t
 
 When creating a building, scaffolding is used to create the basis of a structure. The scaffold guides the general outline and provides anchor points for more permanent systems to be mounted. An enterprise scaffold is the same: a set of flexible controls and Azure capabilities that provide structure to the environment, and anchors for services built on the public cloud. It provides the builders (IT and business groups) a foundation to create and attach new services keeping speed of delivery in mind.
 
-The scaffold is based on practices we have gathered from many engagements with clients of various sizes. Those clients range from small organizations developing solutions in the cloud to large multinational enterprises and independent software vendors who are migrating workloads and developing cloud-native solutions. The enterprise scaffold is "purpose-built" to be flexible to support both traditional IT workloads and agile workloads; such as, developers creating software as a service (SaaS) applications based on Azure platform capabilities.
+The scaffold is based on practices we have gathered from many engagements with clients of various sizes. Those clients range from small organizations developing solutions in the cloud to large multinational enterprises and independent software vendors who are migrating workloads and developing cloud-native solutions. The enterprise scaffold is "purpose-built" to be flexible to support both traditional IT workloads and agile workloads, such as developers creating software as a service (SaaS) applications based on Azure platform capabilities.
 
 The enterprise scaffold is intended to be the foundation of each new subscription within Azure. It enables administrators to ensure workloads meet the minimum governance requirements of an organization without preventing business groups and developers from quickly meeting their own goals. Our experience shows that this greatly speeds, rather than impedes, public cloud growth.
 
@@ -131,7 +134,7 @@ Policies and initiatives are even more powerful when used with the management gr
 
 ### Common uses of Resource Manager policies
 
-Policies and initiatives are a powerful tool in the Azure toolkit. Policies allow companies to provide controls for "Traditional IT" workloads that enable the stability that is needed for line-of-business applications while also allowing "Agile" workloads; such as, developing customer applications without exposing the enterprise to additional risk. The most common patterns for policies are:
+Policies and initiatives are a powerful tool in the Azure toolkit. Policies allow companies to provide controls for "Traditional IT" workloads that enable the stability that is needed for line-of-business applications while also allowing "Agile" workloads&mdash;for example, developing customer applications without exposing the enterprise to additional risk. The most common patterns for policies are:
 
 - **Geo compliance and data sovereignty.** Azure has an ever-growing list of regions across the world. Enterprises often need to ensure that resources in a specific scope remain in a geographic region to address regulatory requirements.
 - **Avoid exposing servers publicly.** Azure Policy can prohibit the deployment of certain resource types. It's common to create a policy to deny the creation of a public IP within a specific scope, avoiding unintended exposure of a server to the internet.
@@ -193,7 +196,7 @@ As your organization adds core services to subscriptions, it becomes increasingl
 
 ### Secure DevOps Toolkit
 
-The Secure DevOps Kit for Azure (AzSK) is a collection of scripts, tools, extensions, automations, etc. originally created by Microsoft's own IT team and [released as open source via GitHub](https://github.com/azsk/DevOpsKit-docs). AzSK caters to the end-to-end Azure subscription and resource security needs for teams using extensive automation and smoothly integrating security into native DevOps workflows helping accomplish secure DevOps with these six focus areas:
+The Secure DevOps Kit for Azure (AzSK) is a collection of scripts, tools, extensions, and automations originally created by Microsoft's own IT team and [released as open source via GitHub](https://github.com/azsk/DevOpsKit-docs). AzSK caters to the end-to-end Azure subscription and resource security needs for teams using extensive automation and smoothly integrating security into native DevOps workflows helping accomplish secure DevOps with these six focus areas:
 
 - Secure the subscription
 - Enable secure development
@@ -219,6 +222,7 @@ Collecting and analyzing telemetry that provides line of sight into the activiti
 - **Diagnostic logs** are emitted by an Azure service and provide rich, frequent data about the operation of that service.
 
 This information can be viewed and acted on at multiple levels and are continually being improved. Azure provides **shared**, **core**, and **deep** monitoring capabilities of Azure resources through the services outlined in the diagram below.
+
 ![monitoring](./_images/monitoring.png)
 
 ### Shared capabilities

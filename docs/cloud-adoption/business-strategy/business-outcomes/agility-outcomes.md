@@ -8,7 +8,7 @@ ms.date: 04/04/2019
 
 # Examples of agility outcomes
 
-As discussed in the [business outcomes overview](./index.md), there are several potential business outcomes that can serve as the foundation for any transformation journey conversation with the business. This article focuses on the timeliest business measures: business agility. Understanding the company's market position and competitive landscape helps articulate the business outcomes that are the target of a business's transformation journey.
+As discussed in the [business outcomes overview](./index.md), several potential business outcomes can serve as the foundation for any transformation journey conversation with the business. This article focuses on the timeliest business measures: business agility. Understanding the company's market position and competitive landscape helps articulate the business outcomes that are the target of a business's transformation journey.
 
 Traditionally, CIOs and IT teams were considered a source of stability in core mission-critical processes. This is still true. Few businesses can function well when their IT platform is unstable. However, in today's business world much more is expected. IT can expand beyond a simple cost center by partnering with the business to provide market advantages. Many CIOs and executives assume that stability is simply a baseline for IT. For these leaders, business agility is the measure of IT's contribution to the business.
 
@@ -40,3 +40,10 @@ Healthcare system transforms online services into a friendly digital experience.
 When business demands new IT services or scale to existing services, acquisition and provision of new hardware or virtual resources can take weeks. After cloud migration, IT can more easily enable self-service provisioning, allowing the business to scale in hours.
 
 - **Example:** A consumer packaged goods company requires the creation and tear-down of hundreds of database clusters per year to fulfill operational demands of the business. The on-premises virtual hosts can provision quickly, but the process of recovering virtual assets is slow and requires significant time from the team. As such, the legacy on-premises environment suffers from bloat and can seldom keep up with demand. After cloud migration, IT can more easily provide scripted self-provisioning of resources, with a chargeback approach to billing. Together, this allows the business to move as quickly as they need, but still be accountable for the cost of the resources they demand. Doing so in the cloud, limits deployments only to the business's budget.
+
+## Next steps
+
+Learn more about [reach outcomes](./reach-outcomes.md).
+
+> [!div class="nextstepaction"]
+> [Reach outcomes](./reach-outcomes.md)

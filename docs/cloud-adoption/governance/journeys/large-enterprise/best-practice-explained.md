@@ -17,7 +17,7 @@ In this article, we discuss the high-level strategies that are required to creat
 
 ## Governance MVP (Cloud Adoption Foundation)
 
-Rapid adoption of governance and corporate policy is achievable, thanks to a few simple principles and cloud-based governance tooling. These are the first of the three governance disciplines to approach in any governance process. Each discpline will be explained further on in this article.
+Rapid adoption of governance and corporate policy is achievable, thanks to a few simple principles and cloud-based governance tooling. These are the first of the three governance disciplines to approach in any governance process. Each discipline will be explained further on in this article.
 
 To establish the starting point, this article will discuss the high-level strategies behind Identity Baseline, Security Baseline, and Deployment Acceleration that are required to create a governance MVP, which will serve as the foundation for all adoption.
 
@@ -64,7 +64,16 @@ Resource consistency decisions determine the tools, processes, and effort requir
 
 Resource tagging decisions determine how metadata is applied to Azure resources within a subscription to support operations, management, and accounting purposes. In this narrative, the **[Accounting](../../../decision-guides/resource-tagging/index.md#resource-tagging-patterns)** pattern has been chosen as the default model for resource tagging.
 
-- Deployed assets should be tagged with values for the following: Department/Billing Unit, Geography, Data Classification, Criticality, SLA, Environment, Application Archetype, Application, and Application Owner.
+- Deployed assets should be tagged with values for:
+  - Department/Billing Unit
+  - Geography
+  - Data Classification
+  - Criticality
+  - SLA
+  - Environment
+  - Application Archetype
+  - Application
+  - Application Owner
 - These values along with the Azure management group and subscription associated with a deployed asset will drive governance, operations, and security decisions.
 
 ### Logging and reporting

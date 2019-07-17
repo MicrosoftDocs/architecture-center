@@ -45,9 +45,9 @@ Violations of identity policy can result in unauthorized access to sensitive dat
 
 The following triggers and enforcement actions provide examples you can reference when planning how to use monitoring data to resolve policy violations:
 
-- Suspicious activity detected: User logins detected from anonymous proxy IP addresses, unfamiliar locations, or successive logins from impossibly distant geographical locations may indicate a potential account breach or malicious access attempt. Login will be blocked until user identity can be verified and password reset.
-- Leaked user credentials: Accounts that have their username and password leaked to the internet will be disabled until user identity can be verified and password reset.
-- Insufficient access controls detected: Any protected assets where access restrictions do not meet security requirements will have access blocked until the resource is brought into compliance.
+- **Suspicious activity detected:** User logins detected from anonymous proxy IP addresses, unfamiliar locations, or successive logins from impossibly distant geographical locations may indicate a potential account breach or malicious access attempt. Login will be blocked until user identity can be verified and password reset.
+- **Leaked user credentials:** Accounts that have their username and password leaked to the internet will be disabled until user identity can be verified and password reset.
+- **Insufficient access controls detected:** Any protected assets where access restrictions do not meet security requirements will have access blocked until the resource is brought into compliance.
 
 ## Next steps
 

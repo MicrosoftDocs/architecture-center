@@ -11,7 +11,7 @@ ms.custom: "fasttrack-edit"
 
 # Governance, security, and compliance in Azure
 
-Use **Azure Policy** and **Azure Security Center** to help enforce and automate your governance decisions. As you plan your compliance strategy, we recommend you work with people in your organizations with the roles: security, compliance, and enterprise architect.
+As you establish corporate policy and plan your governance strategies, you can use tools and services like **Azure Policy**, **Azure Blueprints**, and **Azure Security Center** to begin enforcing and automating your organization's governance decisions. It's also recommended that before you start your governance planning, you use the [Governance Benchmark tool](http://aka.ms/caf/gov/assess) to identify potential gaps in your organization's cloud governance approach. For more information on developing governance processes, see the [Cloud Adoption Framework's governance guidance](../../governance/index.md).
 
 # [Azure Policy](#tab/AzurePolicy)
 
@@ -22,7 +22,7 @@ Common policies you should consider:
 - Enforce tagging for resources and resource groups.
 - Restrict regions for deployed resources.
 - Restrict expensive SKUs for specific resources.
-- Audit use of important optional features like Azure managed disks.
+- Audit use of important optional features like Azure-managed disks.
 
 ::: zone target="chromeless"
 
@@ -45,7 +45,49 @@ To apply a policy to a resource group:
 
 ## Learn more
 
-To learn more, see [Azure Policy](/azure/azure-policy/).
+To learn more, see:
+
+- [Azure Policy](/azure/azure-policy).
+- [Cloud Adoption Framework: Policy enforcement decision guide](../../decision-guides/policy-enforcement/index.md)
+
+::: zone-end
+
+# [Azure Blueprints](#tab/AzureBlueprints)
+
+The Azure Blueprints service enables cloud architects and central information technology groups to define a repeatable set of Azure resources that implements and adheres to an organization's standards, patterns, and requirements. Azure Blueprints makes it possible for development teams to rapidly build and stand up new environments with trust they're building within organizational compliance using a set of built-in components -- such as networking -- to speed up development and delivery.
+
+Blueprints are a declarative way to orchestrate the deployment of various resource templates and other artifacts such as:
+
+- Role Assignments
+- Policy Assignments
+- Azure Resource Manager templates
+- Resource Groups
+
+::: zone target="chromeless"
+
+## Action
+
+Get started by creating a blueprint to configure role and policy assignments for the subscription.
+
+::: form action="OpenBlade[#blade/Microsoft_Azure_Policy/BlueprintsMenuBlade/GetStarted]" submitText="Create a blueprint" :::
+
+::: zone-end
+
+::: zone target="docs"
+
+## Create a blueprint
+
+To create a blueprint:
+
+1. Go to [Blueprints - Getting started](https://portal.azure.com/#blade/Microsoft_Azure_Policy/BlueprintsMenuBlade/GetStarted).
+1. In the **Create a Blueprint** section, select **Create**.
+
+## Learn more
+
+To learn more, see:
+
+- [Azure Blueprints](/azure/governance/blueprints).
+- [Cloud Adoption Framework: Resource consistency decision guide](../../decision-guides/resource-consistency/index.md)
 
 ::: zone-end
 
@@ -71,9 +113,10 @@ To explore Azure Security Center, go to the [Azure portal](https://portal.azure.
 
 To learn more, see:
 
-- [Azure Security Center](/azure/security-center/)
+- [Azure Security Center](/azure/security-center)
 - [Just-in-time VM access](/azure/security-center/security-center-just-in-time#how-does-just-in-time-access-work)
-- [Standard vs. free pricing tier](https://azure.microsoft.com/pricing/details/security-center/)
+- [Standard vs. free pricing tier](https://azure.microsoft.com/pricing/details/security-center)
+- [Cloud Adoption Framework: Security Baseline governance discipline](../../governance/security-baseline/index.md)
 
 ::: zone-end
 

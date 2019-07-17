@@ -13,7 +13,7 @@ author: rotycenh
 
 A cloud-native virtual network is a required when deploying IaaS resources such as virtual machines to a cloud platform. Access to virtual networks from external sources, similar to the web, need to be explicitly provisioned. These types of virtual networks support the creation of subnets, routing rules, and virtual firewall and traffic management devices.
 
-A cloud-native virtual network has no dependencies on your organization's on-premises or other non-cloud resources to support the cloud-hosted workloads. All required resources are provisioned either in the virtual network itself or by using managed PaaS offerings.
+A cloud-native virtual network has no dependencies on your organization's on-premises or other noncloud resources to support the cloud-hosted workloads. All required resources are provisioned either in the virtual network itself or by using managed PaaS offerings.
 
 ## Cloud-native assumptions
 
@@ -30,7 +30,7 @@ Additional issues your cloud adoption teams should consider when discussing a cl
 - Existing workloads designed to run in an on-premises datacenter may need extensive modification to take advantage of cloud-based functionality, such as storage or authentication services.
 - Cloud-native networks are managed solely through the cloud platform management tools, and therefore may lead to management and policy divergence from your existing IT standards as time goes on.
 
-## Learn more
+## Next steps
 
 For more information about cloud-native virtual networking in Azure, see:
 
