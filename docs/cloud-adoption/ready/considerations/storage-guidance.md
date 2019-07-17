@@ -20,7 +20,7 @@ Storage capabilities are critical for supporting workloads and services that are
 
 For each of the applications or services you'll deploy to your landing zone environment, use the following decision tree as a starting point to help you determine your storage resources requirements:
 
-![Azure storage decision tree](../../_images/ready/storage-decision-tree.png)
+[ ![Azure storage decision tree](../../_images/ready/storage-decision-tree.png) ](../../_images/ready/storage-decision-tree.png)#lightbox
 
 ### Key questions
 

@@ -12,15 +12,15 @@ ms.subservice: enterprise-cloud-adoption
 
 # Networking design decisions
 
-As part of your cloud adoption preparations, designing and implementing Azure networking capabilities is critical to properly supporting your workloads and services that will be hosted in the cloud. Azure networking products and services support a wide variety of networking capabilities. How you structure these services and the networking architectures you choose depends on a combination of your organization's workload, governance, and connectivity requirements.
+As part of your cloud adoption, designing and implementing Azure networking capabilities is critical to properly supporting your workloads and services that will be hosted in the cloud. Azure networking products and services support a wide variety of networking capabilities. How you structure these services and the networking architectures you choose depend on a combination of your organization's workload, governance, and connectivity requirements.
 
 ## Identify workload networking requirements
 
-As part of your landing zone evaluation and preparation, you will want to identify the networking capabilities that your landing zone will need to support. This process involves assessing each of the applications and services that make up your workloads for connectivity network control requirements. After you identify and document these requirements, you can create policies for your landing zone to control the allowed networking resources and configuration based on your workload needs.
+As part of your landing zone evaluation and preparation, you will want to identify the networking capabilities that your landing zone needs to support. This process involves assessing each of the applications and services that make up your workloads for connectivity network control requirements. After you identify and document these requirements, you can create policies for your landing zone to control the allowed networking resources and configuration based on your workload needs.
 
-For each of the applications or services you'll deploy to your landing zone environment, use the following decision tree as a starting point to determine the networking tools or services to use:
+For each of the applications or services you'll deploy to your landing zone environment, use the following decision tree as a starting point to help you determine the networking tools or services to use:
 
-![Azure networking services decision tree](../../_images/ready/network-decision-tree.png)
+[ ![Azure networking services decision tree](../../_images/ready/network-decision-tree.png) ](../../_images/ready/network-decision-tree.png)#lightbox
 
 ### Key questions
 

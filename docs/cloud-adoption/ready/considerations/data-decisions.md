@@ -20,7 +20,7 @@ As part of your landing zone evaluation and preparation, you need to identify th
 
 For each of the applications or services you'll deploy to your landing zone environment, use the following decision tree as a starting point to help you determine the appropriate data store services to use:
 
-![Azure database services decision tree](../../_images/ready/data-decision-tree.png)
+[ ![Azure database services decision tree](../../_images/ready/data-decision-tree.png) ](../../_images/ready/data-decision-tree.png)#lightbox
 
 ### Key questions
 
@@ -45,15 +45,15 @@ The following table illustrates a few common use scenario requirements and the r
 
 | **Scenario** | **Data service** |
 |-----|-----|
-| You need a globally distributed, multi-model database with support for NoSQL choices. | [Azure Cosmos DB](/azure/cosmos-db/introduction) |
-| You need a fully managed relational database that provisions quickly, scales on the fly, and includes built-in intelligence and security. | [Azure SQL Database](/azure/sql-database/sql-database-technical-overview) |
-| You need a fully managed, scalable MySQL relational database that has high availability and security built in at no extra cost. | [Azure Database for MySQL](/azure/mysql/overview) |
-| You need a fully managed, scalable PostgreSQL relational database that has high availability and security built in at no extra cost. | [Azure Database for PostgreSQL](/azure/postgresql/overview) |
-| You plan to host enterprise SQL Server apps in the cloud with full control over the server OS. | [SQL Server on Virtual Machines](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview) |
-| You need a fully managed elastic data warehouse that has security at every level of scale at no extra cost. | [SQL Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) |
-| You need data lake storage resources that are capable of supporting Hadoop clusters or HDFS data. | [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) |
-| You need high throughput and consistent. low-latency  access for your data to support fast, scalable applications. | [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) |
-| You need a fully managed, scalable MariaDB relational database that has high availability and security built in at no extra cost. | [Azure Database for MariaDB](/azure/mariadb/overview) |
+| I need a globally distributed, multi-model database with support for NoSQL choices. | [Azure Cosmos DB](/azure/cosmos-db/introduction) |
+| I need a fully managed relational database that provisions quickly, scales on the fly, and includes built-in intelligence and security. | [Azure SQL Database](/azure/sql-database/sql-database-technical-overview) |
+| I need a fully managed, scalable MySQL relational database that has high availability and security built in at no extra cost. | [Azure Database for MySQL](/azure/mysql/overview) |
+| I need a fully managed, scalable PostgreSQL relational database that has high availability and security built in at no extra cost. | [Azure Database for PostgreSQL](/azure/postgresql/overview) |
+| I plan to host enterprise SQL Server apps in the cloud and have full control over the server OS. | [SQL Server on Virtual Machines](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview) |
+| I need a fully managed elastic data warehouse that has security at every level of scale at no extra cost. | [SQL Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) |
+| I need data lake storage resources that are capable of supporting Hadoop clusters or HDFS data. | [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) |
+| I need high throughput and consistent, low-latency access for my data to support fast, scalable applications. | [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) |
+| I need a fully managed, scalable MariaDB relational database that has high availability and security built in at no extra cost. | [Azure Database for MariaDB](/azure/mariadb/overview) |
 
 ## Regional availability
 

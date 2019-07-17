@@ -46,15 +46,15 @@ The following table illustrates a few common use scenarios and the recommended c
 
 | **Scenario** | **Compute service** |
 | --- | --- |
-| Provision Linux and Windows virtual machines in seconds with the configurations of your choice. | [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) |
-| Achieve high availability by autoscaling to create thousands of VMs in minutes. | [Virtual machine scale sets](https://azure.microsoft.com/services/virtual-machine-scale-sets) |
-| Simplify the deployment, management, and operations of Kubernetes. | [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) |
-| Accelerate app development by using an event-driven serverless architecture. | [Azure Functions](https://azure.microsoft.com/services/functions) |
-| Develop microservices and orchestrate containers on Windows and Linux. | [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric) |
-| Quickly create cloud apps for web and mobile by using a fully managed platform. | [Azure App Service](https://azure.microsoft.com/services/app-service) |
-| Containerize apps and easily run containers by using a single command. | [Azure Container Instances](https://azure.microsoft.com/services/container-instances) |
-| Cloud-scale job scheduling and compute management with the ability to scale to tens, hundreds, or thousands of virtual machines. | [Azure Batch](https://azure.microsoft.com/services/batch) |
-| Create highly available, scalable cloud applications and APIs that help you focus on apps instead of hardware. | [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services) |
+| I need to provision Linux and Windows virtual machines in seconds with the configurations of my choice. | [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) |
+| I need to achieve high availability by autoscaling to create thousands of VMs in minutes. | [Virtual machine scale sets](https://azure.microsoft.com/services/virtual-machine-scale-sets) |
+| I want to simplify the deployment, management, and operations of Kubernetes. | [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service) |
+| I need to accelerate app development by using an event-driven serverless architecture. | [Azure Functions](https://azure.microsoft.com/services/functions) |
+| I need to develop microservices and orchestrate containers on Windows and Linux. | [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric) |
+| I want to quickly create cloud apps for web and mobile by using a fully managed platform. | [Azure App Service](https://azure.microsoft.com/services/app-service) |
+| I want to containerize apps and easily run containers by using a single command. | [Azure Container Instances](https://azure.microsoft.com/services/container-instances) |
+| I need cloud-scale job scheduling and compute management with the ability to scale to tens, hundreds, or thousands of virtual machines. | [Azure Batch](https://azure.microsoft.com/services/batch) |
+| I need to create highly available, scalable cloud applications and APIs that can help me focus on apps instead of hardware. | [Azure Cloud Services](https://azure.microsoft.com/services/cloud-services) |
 
 ## Regional availability
 
