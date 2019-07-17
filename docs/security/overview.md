@@ -77,7 +77,7 @@ the particular service, while addressing others will remain the customer’s
 responsibility. To ensure that the proper security controls are provided, a
 careful evaluation of the services and technology choices becomes necessary.
 
-![Shared Responsibility and Key Strategies](\_images\shared-resp.png)
+![Shared Responsibility and Key Strategies](_images/shared-resp.png)
 
 **Shared Responsibility and Key Strategies**
 
