@@ -55,7 +55,7 @@ Azure networking is composed of multiple products and services that provide diff
 | Add private network connectivity to access Microsoft cloud services from your corporate networks, as if they were on-premises and residing in your own datacenter. | [ExpressRoute](/azure/expressroute) |
 | Monitor and diagnose conditions at a network scenario level. | [Network Watcher](/azure/network-watcher) |
 | Native firewall capabilities, with built-in high availability, unrestricted cloud scalability, and zero maintenance. | [Azure Firewall](/azure/firewall) |
-| Connect business offices, retail locations, and sites securely by using Azure Virtual WAN, a unified wide-area network portal powered by Azure and the Microsoft global network. | [Virtual WAN](/azure/virtual-wan) |
+| Connect business offices, retail locations, and sites securely by using Azure Virtual WAN, a unified wide-area network portal powered by Azure, and the Microsoft global network. | [Virtual WAN](/azure/virtual-wan) |
 | Scalable, security-enhanced delivery point for global microservices-based web applications. | [Azure Front Door Service](/azure/frontdoor) |
 
 ## Choose a networking architecture
