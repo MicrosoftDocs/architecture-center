@@ -20,13 +20,13 @@ There are five essential categories of nonfunctional requirements, which are cal
 - Management
 - Security
 
-Having a process for operational fitness review ensures that your mission-critical workloads meet the expectations of your business with respect to the quality pillars.
+A process for operational fitness review ensures that your mission-critical workloads meet the expectations of your business with respect to the quality pillars.
 
-For this reason, your enterprise should undertake an operational fitness review process to fully understand the issues that result from running the workload in a production environment, determine how to remediate those issues, and resolve them. This article outlines a high-level process for operational fitness review that your enterprise can use to achieve this goal.
+Your enterprise should create a process for operational fitness review to fully understand the problems that result from running workloads in a production environment, determine how to remediate those problems, and resolve them. This article outlines a high-level process for operational fitness review that your enterprise can use to achieve this goal.
 
 ## Operational fitness at Microsoft
 
-From the outset, the development of the Azure platform has been a continuous development and integration project undertaken by many teams across Microsoft. It would be difficult to ensure quality and consistency for a project of such size and complexity without a robust process for enumerating and implementing the fundamental nonfunctional requirements on a regular basis.
+From the outset, the development of the Azure platform has been a continuous project undertaken by many teams across Microsoft. It is difficult to ensure quality and consistency for a project of such size and complexity. A robust process is needed to enumerate and implement fundamental nonfunctional requirements on a regular basis.
 
 The processes that Microsoft follows form the basis for the processes outlined in this document.
 
@@ -36,18 +36,18 @@ As you learned in [Getting started](../../cloud-adoption/getting-started/index.m
 
 During this process, the focus is often on the features of the service: the set of _functional_ requirements that you want the service to perform. For example, a product-delivery service requires features for determining the source and destination locations of the product, tracking the product during delivery, customer notifications, and others.
 
-In contrast, the _nonfunctional_ requirements relate to properties such as the service's [availability](../../checklist/availability.md), [resiliency](../../resiliency/index.md), and [scalability](../../checklist/scalability.md). These properties differ from the functional requirements because they don't directly affect the final function of any particular feature in the service. However, nonfunctional requirements do relate to the performance and continuity of the service.
+The _nonfunctional_ requirements, in contrast, relate to properties such as the service's [availability](../../checklist/availability.md), [resiliency](../../resiliency/index.md), and [scalability](../../checklist/scalability.md). These properties differ from the functional requirements because they don't directly affect the final function of any particular feature in the service. However, nonfunctional requirements do relate to the performance and continuity of the service.
 
-Some nonfunctional requirements can be specified in terms of a service-level agreement (SLA). For example, for service continuity, an availability requirement for the service can be expressed as a percentage: "Available 99.99% of the time". Other nonfunctional requirements may be more difficult to define and may change as production needs evolve. For example, a consumer-oriented service might face unanticipated throughput requirements after a surge of popularity.
+Some nonfunctional requirements can be specified in terms of a service-level agreement (SLA). For service continuity, as an example, an availability requirement for the service can be expressed as a percentage: "Available 99.99% of the time". Other nonfunctional requirements may be more difficult to define and may change as production needs evolve. For example, a consumer-oriented service might face unanticipated throughput requirements after a surge of popularity.
 
 > [!NOTE]
 > Requirements for resiliency are explored in more depth in [Designing reliable Azure applications](../../reliability/index.md#define-requirements). That article includes explanations of concepts like recovery-point objective (RPO), recovery-time objective (RTO), SLA, and others.
 
-## Operational fitness review process
+## Process for operational fitness review
 
-The key to maintaining the performance and continuity of an enterprise's services is to implement an _operational fitness review_ process.
+The key to maintaining the performance and continuity of an enterprise's services is to implement a process for operational fitness review.
 
-![An overview of the operational fitness review process](_images/ofr-flow.png)
+![An overview of the process for operational fitness review](_images/ofr-flow.png)
 
 At a high level, the process has two phases. In the *prerequisites phase*, the requirements are established and mapped to supporting services. This phase occurs infrequently: perhaps annually or when new operations are introduced. The output of the prerequisites phase is used in the *flow phase*. The flow phase occurs more frequently: we recommend monthly.
 
@@ -73,53 +73,53 @@ It's important to emphasize that these metrics should directly reflect business 
 
 ### Service-review phase
 
-The service-review phase is the core of the operational fitness review process.
+The service-review phase is the core of the operational fitness review. It involves these steps:
 
-1. **Measure service metrics**. Using the scorecard metrics, the services should be monitored to ensure that they meet the business expectations. In other words, service monitoring is essential. If you aren't able to monitor a set of services with respect to the nonfunctional requirements, then the corresponding scorecard metrics should be considered red. In this case, the first step for remediation is to implement the appropriate service monitoring. For example, if the business expects a service to operate with 99.99% availability, but there is no production telemetry in place to measure the availability, you should assume that you're not meeting the requirement.
+1. **Measure service metrics**. Use the scorecard metrics to monitor the services, to ensure that the services meet the business expectations. In other words, service monitoring is essential. If you can't monitor a set of services with respect to the nonfunctional requirements, consider the corresponding scorecard metrics to be red. In this case, the first step for remediation is to implement the appropriate service monitoring. For example, if the business expects a service to operate with 99.99% availability, but there is no production telemetry in place to measure availability, assume that you're not meeting the requirement.
 
-2. **Plan remediation**. For each service operation with metrics that fall below an acceptable threshold, determine the cost of remediating the service to bring operation to an acceptable metric. If the cost of remediating the service is greater than the expected revenue generation of the service, move on to consider the intangible costs, such as customer experience. For example, if customers have difficulty placing a successful order using the service, they might choose a competitor instead.
+2. **Plan remediation**. For each service operation for which metrics fall below an acceptable threshold, determine the cost of remediating the service to bring operation to an acceptable level. If the cost of remediating the service is greater than the expected revenue generation of the service, move on to consider the intangible costs, such as customer experience. For example, if customers have difficulty placing a successful order by using the service, they might choose a competitor instead.
 
-3. **Implement remediation**. After the business owners and engineering converge on a plan, it should be implemented. The status of the implementation should be reported whenever scorecard metrics are reviewed.
+3. **Implement remediation**. After the business owners and engineering agree on a plan, implement it. Report the status of the implementation whenever your review scorecard metrics.
 
-This process is iterative, and ideally your enterprise should have a team dedicated to owning it. This team should meet regularly to review existing remediation projects, kick off the fundamentals review of new workloads, and track the enterprise's overall scorecard. The team should have the authority to ensure accountability for remediation teams that are behind schedule or fail to meet metrics.
+This process is iterative, and ideally your enterprise has a team dedicated to it. This team should meet regularly to review existing remediation projects, kick off the fundamental review of new workloads, and track the enterprise's overall scorecard. The team should also have the authority to hold remediation teams accountable if they're behind schedule or fail to meet metrics.
 
 ## Structure of the operational fitness review team
 
 The operational fitness review team is composed of the following roles:
 
-- **Business owner**. This role provides knowledge of the business to identify and prioritize each mission-critical business operation. This role also compares the mitigation cost to the business impact and drives the final decision on remediation.
+- **Business owner**: Provides knowledge of the business to identify and prioritize each mission-critical business operation. This role also compares the mitigation cost to the business impact and drives the final decision on remediation.
 
-- **Business advocate**. This role is responsible for breaking down business operations into discreet parts and mapping those parts to on-premises and cloud services and infrastructure. The role requires deep knowledge of the technology associated with each business operation.
+- **Business advocate**: Breaks down business operations into discreet parts and maps those parts to services and infrastructure, whether on-premises or in the cloud. The role requires deep knowledge of the technology associated with each business operation.
 
-- **Engineering owner**. This role is responsible for implementing the services associated with the business operation. These individuals may participate in the design, implementation, and deployment of any solutions for solving nonfunctional requirement issues uncovered by the operational fitness review team.
+- **Engineering owner**: Implements the services associated with the business operation. These individuals may participate in the design, implementation, and deployment of any solutions for nonfunctional requirement problems that are uncovered by the operational fitness review team.
 
-- **Service owner**. This role is responsible for operating the business's applications and services. These individuals collect logging and usage data for these applications and services. This data is used both to identify issues and verify fixes once deployed.
+- **Service owner**. Operates the business's applications and services. These individuals collect logging and usage data for these applications and services. This data is used both to identify problems and to verify fixes after they're deployed.
 
 ## Operational fitness review meeting
 
-We recommend that your operational fitness review team meets on a regular basis. For example, the team could meet on a monthly cadence and report status and metrics to senior leadership on a quarterly basis.
+We recommend that your operational fitness review team meet on a regular basis. For example, the team could meet monthly and then report status and metrics to senior leadership on a quarterly basis.
 
-The details of the process and meeting should be adapted to fit your specific needs. We recommend the following tasks as a starting point:
+Adapt the details of the process and meeting to fit your specific needs. We recommend the following tasks as a starting point:
 
-1. The business owner and business advocate enumerate and determine the nonfunctional requirements for each business operation, with input from the engineering and service owners. For business operations that have been previously identified, the priority is reviewed and verified. For new business operations, a priority in the existing list is assigned.
+1. The business owner and business advocate enumerate and determine the nonfunctional requirements for each business operation, with input from the engineering and service owners. For business operations that have been identified previously, the priority is reviewed and verified. For new business operations, a priority is assigned in the existing list.
 
-2. The engineering and service owners map the **current state** of business operations to the corresponding on-premises and cloud services. The mapping is composed of a list of the components in each service, oriented as a dependency tree. Once the list and dependency tree are generated, the **critical paths** through the tree are determined.
+2. The engineering and service owners map the current state of business operations to the corresponding on-premises and cloud services. The mapping is a list of the components in each service, oriented as a dependency tree. After the list and dependency tree have been generated, the critical paths through the tree are determined.
 
-3. The engineering and service owners review the current state of operational logging and monitoring for the services listed in the previous step. Robust logging and monitoring are critical, in order to identify service components that contribute to a failure to meet nonfunctional requirements. If sufficient logging and monitoring aren't in place, a plan must be created and implemented to put them in place.
+3. The engineering and service owners review the current state of operational logging and monitoring for the services listed in the previous step. Robust logging and monitoring are critical: they identify service components that contribute to a failure to meet nonfunctional requirements. If sufficient logging and monitoring aren't in place, a plan must be created and implemented to put them in place.
 
-4. Scorecard metrics are created for new business operation. The scorecard is composed of the list of constituent components for each service identified in step 2. It's aligned with the nonfunctional requirements and a measure of how well the component meets the requirement.
+4. Scorecard metrics are created for new business operations. The scorecard consists of the list of constituent components for each service identified in step 2. It's aligned with the nonfunctional requirements and includes a measure of how well each component meets the requirements.
 
-5. For those constituent components that fail to meet nonfunctional requirements, a high-level solution is designed and an engineering owner is assigned. At this point, the business owner and business advocate should establish a budget for the remediation work, based on the expected revenue of the business operation.
+5. For constituent components that fail to meet nonfunctional requirements, a high-level solution is designed and an engineering owner is assigned. At this point, the business owner and business advocate establish a budget for the remediation work, based on the expected revenue of the business operation.
 
-6. Finally, a review is conducted of the ongoing remediation work. Each of the scorecard metrics for work in progress is reviewed against the expected metrics. For constituent components that are meeting metrics, the service owner presents logging and monitoring data to confirm that the metric is met. For those constituent components that aren't meeting metrics, each engineering owner explains the issues that are preventing metrics from being reached and any new designs for remediation.
+6. Finally, a review is conducted of the ongoing remediation work. Each of the scorecard metrics for work in progress is reviewed against the expected criteria. For constituent components that meet metric criteria, the service owner presents logging and monitoring data to confirm that the criteria are met. For those constituent components that don't meet metric criteria, each engineering owner explains the problems that are preventing criteria from being met and presents any new designs for remediation.
 
 ## Recommended resources
 
 - [Pillars of software quality](../../guide/pillars.md).
-    This section of the Azure Application Architecture guide describes the five pillars of software quality: Scalability, availability, resiliency, management, and security.
-- [10 design principles for Azure applications](../../guide/design-principles/index.md).
-    This section of the Azure Application Architecture guide discusses a set of design principles to make your application more scalable, resilient, and manageable.
+    This section of the Azure Application Architecture Guide describes the five pillars of software quality: scalability, availability, resiliency, management, and security.
+- [Ten design principles for Azure applications](../../guide/design-principles/index.md).
+    This section of the Azure Application Architecture Guide discusses a set of design principles to make your application more scalable, resilient, and manageable.
 - [Designing resilient applications for Azure](../../resiliency/index.md).
-    This guide starts with a definition of the term _resiliency_ and related concepts. Then it describes a process for achieving resiliency, using a structured approach over the lifetime of an application, from design and implementation to deployment and operations.
+    This guide starts with a definition of the term _resiliency_ and related concepts. Then, it describes a process for achieving resiliency by using a structured approach over the lifetime of an application, from design and implementation to deployment and operations.
 - [Cloud design patterns](../../patterns/index.md).
     These design patterns are useful for engineering teams when building applications on the pillars of software quality.
