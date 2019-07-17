@@ -44,19 +44,19 @@ Azure networking is composed of multiple products and services that provide diff
 
 | **Scenario** | **Networking product or service** |
 | --- | --- |
-| Provide the networking infrastructure to connect everything, from virtual machines to incoming VPN connections. | [Virtual Network](/azure/virtual-network) |
-| Balance inbound and outbound connections and requests to your applications or services. | [Load Balancer](/azure/load-balancer) |
-| Optimize delivery from application server farms while increasing application security with a web application firewall. | [Application Gateway](/azure/application-gateway) <br/>[Azure Front Door Service](/azure/frontdoor) |
-| Securely use the internet to access Azure Virtual Networks with high-performance VPN gateways. | [VPN Gateway](/azure/vpn-gateway) |
-| Ensure ultra-fast DNS responses and ultra-high availability for all your domain needs. | [Azure DNS](/azure/dns) |
-| Accelerate the delivery of high-bandwidth content to customers worldwide, from applications and stored content to streaming video. | [Content Delivery Network](/azure/cdn) |
-| Protect your Azure applications from the impacts of DDoS attacks. | [Azure DDoS Protection](/azure/virtual-network/ddos-protection-overview) |
-| Distribute traffic optimally to services across global Azure regions, while providing high availability and responsiveness. | [Traffic Manager](/azure/traffic-manager)<br/>[Azure Front Door Service](/azure/frontdoor) |
-| Add private network connectivity to access Microsoft cloud services from your corporate networks, as if they were on-premises and residing in your own datacenter. | [ExpressRoute](/azure/expressroute) |
-| Monitor and diagnose conditions at a network scenario level. | [Network Watcher](/azure/network-watcher) |
-| Native firewall capabilities, with built-in high availability, unrestricted cloud scalability, and zero maintenance. | [Azure Firewall](/azure/firewall) |
-| Connect business offices, retail locations, and sites securely by using Azure Virtual WAN, a unified wide-area network portal powered by Azure, and the Microsoft global network. | [Virtual WAN](/azure/virtual-wan) |
-| Scalable, security-enhanced delivery point for global microservices-based web applications. | [Azure Front Door Service](/azure/frontdoor) |
+| I need the networking infrastructure to connect everything, from virtual machines to incoming VPN connections. | [Virtual Network](/azure/virtual-network) |
+| I need to balance inbound and outbound connections and requests to my applications or services. | [Load Balancer](/azure/load-balancer) |
+| I want to optimize delivery from application server farms while increasing application security with a web application firewall. | [Application Gateway](/azure/application-gateway) <br/>[Azure Front Door Service](/azure/frontdoor) |
+| I need to securely use the internet to access Azure Virtual Network by using high-performance VPN gateways. | [Azure VPN Gateway](/azure/vpn-gateway) |
+| I want to ensure ultra-fast DNS responses and ultra-high availability for all my domain needs. | [Azure DNS](/azure/dns) |
+| I need to accelerate the delivery of high-bandwidth content to customers worldwide, from applications and stored content to streaming video. | [Azure Content Delivery Network](/azure/cdn) |
+| I need to protect my Azure applications from DDoS attacks. | [Azure DDoS Protection](/azure/virtual-network/ddos-protection-overview) |
+| I need to distribute traffic optimally to services across global Azure regions, while providing high availability and responsiveness. | [Azure Traffic Manager](/azure/traffic-manager)<br/>[Azure Front Door Service](/azure/frontdoor) |
+| I need to add private network connectivity to access Microsoft cloud services from my corporate networks, as if they were on-premises and residing in my own datacenter. | [ExpressRoute](/azure/expressroute) |
+| I want to monitor and diagnose conditions at a network-scenario level. | [Network Watcher](/azure/network-watcher) |
+| I  need native firewall capabilities, with built-in high availability, unrestricted cloud scalability, and zero maintenance. | [Azure Firewall](/azure/firewall) |
+| I need to connect business offices, retail locations, and sites securely by using Azure Virtual WAN, a unified wide-area network portal powered by Azure, and the Microsoft global network. | [Azure Virtual WAN](/azure/virtual-wan) |
+| I need a scalable, security-enhanced delivery point for global microservices-based web applications. | [Azure Front Door Service](/azure/frontdoor) |
 
 ## Choose a networking architecture
 
@@ -66,20 +66,20 @@ The following table summarizes the primary scenarios that these patterns support
 
 | **Scenario** | **Suggested architecture**
 | --- | --- |
-| All of the Azure-hosted workloads deployed to your landing zone will be purely PaaS-based, won't require a virtual network, and aren't part of a wider cloud adoption effort that will include IaaS resources. | [PaaS-only](../../decision-guides/software-defined-network/paas-only.md) |
+| All of the Azure-hosted workloads deployed to your landing zone will be entirely PaaS-based, won't require a virtual network, and aren't part of a wider cloud adoption effort that will include IaaS resources. | [PaaS-only](../../decision-guides/software-defined-network/paas-only.md) |
 | Your Azure-hosted workloads will deploy IaaS-based resources like virtual machines or otherwise require a virtual network, but don't require connectivity to your on-premises environment. | [Cloud-native](../../decision-guides/software-defined-network/cloud-native.md) |
 | Your Azure-hosted workloads require limited access to on-premises resources, but you're required to treat cloud connections as untrusted. | [Cloud DMZ](../../decision-guides/software-defined-network/cloud-dmz.md) |
 | Your Azure-hosted workloads require limited access to on-premises resources, and you plan to implement mature security policies and secure connectivity between the cloud and your on-premises environment. | [Hybrid](../../decision-guides/software-defined-network/hybrid.md) |
 | You need to deploy and manage a large number of VMs and workloads, potentially exceeding [Azure subscription limits](/azure/azure-subscription-service-limits), you need to share services across subscriptions, or you need a more segmented structure for role, application, or permission segregation. | [Hub and spoke](../../decision-guides/software-defined-network/hub-spoke.md) |
-| You have many branch offices to connect to each other and to Azure. | [Virtual WAN](/azure/virtual-wan/virtual-wan-about) |
+| You have many branch offices that need to connect to each other and to Azure. | [Virtual WAN](/azure/virtual-wan/virtual-wan-about) |
 
 ### Azure Virtual Datacenter
 
-In addition to these architecture patterns, if your enterprise IT group manages large cloud environments, consider consulting the [Azure Virtual Datacenter guidance](../../../vdc/index.md) when you design your Azure-based cloud infrastructure. Azure Virtual Datacenter provides a combined approach to networking, security, management, and infrastructure for organizations that meet the following criteria:
+In addition to these architecture patterns, if your enterprise IT group manages large cloud environments, consider consulting the [Azure Virtual Datacenter guidance](../../../vdc/index.md) when you design your Azure-based cloud infrastructure. Azure Virtual Datacenter provides a combined approach to networking, security, management, and infrastructure if your organization meets the following criteria:
 
 - Your enterprise is subject to regulatory compliance requirements that require centralized monitoring and audit capabilities.
 - Your cloud estate will consist of more than 10,000 IaaS VMs or an equivalent scale of PaaS services.
-- You need to enable agile deployment capabilities for workloads in support of developer and operations teams, while maintaining common policy and governance compliance and central IT control over core services.
+- You need to enable agile deployment capabilities for workloads to support developer and operations teams while maintaining common policy and governance compliance and central IT control over core services.
 - Your industry depends on a complex platform that requires deep domain expertise (for example, finance, oil and gas, or manufacturing).
 - Your existing IT governance policies require tighter parity with existing features, even during early-stage adoption.
 
@@ -88,5 +88,5 @@ In addition to these architecture patterns, if your enterprise IT group manages 
 As part of your networking design process, see the following articles:
 
 - **[Virtual network planning](/azure/virtual-network/virtual-network-vnet-plan-design-arm?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json)**. Learn how to plan for virtual networks based on your isolation, connectivity, and location requirements.
-- **[Azure best practices for network security](/azure/security/azure-security-network-security-best-practices?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json)**. Discusses a collection of Azure best practices to enhance your network security.
-- **[Best practices for networking when migrating workloads to Azure](/azure/migrate/migrate-best-practices-networking?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json)**. Provides additional guidance about how to implement Azure networking to support IaaS-based and PaaS-based workloads.
+- **[Azure best practices for network security](/azure/security/azure-security-network-security-best-practices?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json)**. Describes a collection of Azure best practices to enhance your network security.
+- **[Best practices for networking when you migrate workloads to Azure](/azure/migrate/migrate-best-practices-networking?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json)**. Provides additional guidance about how to implement Azure networking to support IaaS-based and PaaS-based workloads.
