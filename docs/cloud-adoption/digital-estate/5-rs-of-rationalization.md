@@ -16,19 +16,19 @@ Cloud rationalization is the process of evaluating assets to determine the best 
 
 ## Rationalization context
 
-The 5 Rs of rationalization listed in this article are a great way to label a potential future state for any workload that's being considered as a cloud candidate. However, this labeling process should be put into the correct context before you attempt to rationalize an environment. Review the following myths to provide that context:
+The five Rs of rationalization listed in this article are a great way to label a potential future state for any workload that's being considered as a cloud candidate. However, this labeling process should be put into the correct context before you attempt to rationalize an environment. Review the following myths to provide that context:
 
 - **Myth: It's easy to make rationalization decisions early in the process.** Accurate rationalization requires a deep knowledge of the workload and associated assets (apps, VMs, and data). Most importantly, accurate rationalization decisions take time. We recommend using an [incremental rationalization process](./rationalize.md#incremental-rationalization).
 
-- **Myth: Cloud adoption has to wait for all workloads to be rationalized.** Rationalizing an entire IT portfolio or even a single datacenter can delay the realization of business value by months or even years. Full rationalization should be avoided when possible. Instead, use the [power of 10 approach to release planning](./rationalize.md#release-planning) to make wise decisions regarding the next 10 workloads that are slated for cloud adoption.
+- **Myth: Cloud adoption has to wait for all workloads to be rationalized.** Rationalizing an entire IT portfolio or even a single datacenter can delay the realization of business value by months or even years. Full rationalization should be avoided when possible. Instead, use the [power of 10 approach to release planning](./rationalize.md#release-planning) to make wise decisions about the next 10 workloads that are slated for cloud adoption.
 
-- **Myth: Business justification has to wait for all workloads to be rationalized.** To develop a business justification for a cloud adoption effort, make a few simple assumptions at the portfolio level. When motivations are aligned to innovation, assume rearchitecture. When motivations are aligned to migration, assume rehost. These assumptions can accelerate the business justification process. Assumptions are then challenged and budgets refined during the assessment phase of each workload's adoption cycles.
+- **Myth: Business justification has to wait for all workloads to be rationalized.** To develop a business justification for a cloud adoption effort, make a few basic assumptions at the portfolio level. When motivations are aligned to innovation, assume rearchitecture. When motivations are aligned to migration, assume rehost. These assumptions can accelerate the business justification process. Assumptions are then challenged and budgets refined during the assessment phase of each workload's adoption cycles.
 
-Now review the following 5 Rs of rationalization to familiarize yourself with the long-term process. While developing your cloud adoption plan, choose the option that best aligns with your motivations, business outcomes, and current state environment. The goal in digital estate rationalization is to set a baseline, not to rationalize every workload.
+Now review the following five Rs of rationalization to familiarize yourself with the long-term process. While developing your cloud adoption plan, choose the option that best aligns with your motivations, business outcomes, and current state environment. The goal in digital estate rationalization is to set a baseline, not to rationalize every workload.
 
-## The 5 Rs of rationalization
+## The fuse Rs of rationalization
 
-The "5 Rs of rationalization" that are listed here describe the most common options for rationalization.
+The "Five Rs of rationalization" that are listed here describe the most common options for rationalization.
 
 ## Rehost
 
@@ -80,7 +80,7 @@ Qualitative analysis factors:
 
 ## Rearchitect
 
-Some aging applications aren't compatible with cloud providers because of the architectural decisions that were made when the application was built. In these cases, the application might need to be rearchitected prior to transformation.
+Some aging applications aren't compatible with cloud providers because of the architectural decisions that were made when the application was built. In these cases, the application might need to be rearchitected before transformation.
 
 In other cases, applications that are cloud-compatible, but not cloud-native, might create cost efficiencies and operational efficiencies by rearchitecting the solution to be a cloud-native application.
 
@@ -105,7 +105,7 @@ Qualitative analysis factors:
 
 ## Rebuild
 
-In some scenarios, the delta that must be overcome to carry an application forward can be too large to justify further investment. This is especially true for applications that used to meet the needs of a business but are now unsupported or misaligned with the current business processes. In this case, a new code base is created to align with a [cloud-native](https://azure.microsoft.com/overview/cloudnative) approach.
+In some scenarios, the delta that must be overcome to carry an application forward can be too large to justify further investment. This is especially true for applications that previously meet the needs of a business but are now unsupported or misaligned with the current business processes. In this case, a new code base is created to align with a [cloud-native](https://azure.microsoft.com/overview/cloudnative) approach.
 
 Common drivers could include:
 
@@ -152,7 +152,7 @@ Qualitative analysis factors:
 
 ## Next steps
 
-Collectively, these 5 Rs of rationalization can be applied to a digital estate to make rationalization decisions regarding the future state of each application.
+Collectively, these Five Rs of rationalization can be applied to a digital estate to make rationalization decisions about the future state of each application.
 
 > [!div class="nextstepaction"]
 > [What is a digital estate?](index.md)
