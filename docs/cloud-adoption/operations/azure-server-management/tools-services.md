@@ -58,17 +58,17 @@ Several services fit into this category. They can help you to automate operation
 - [Update Management](https://docs.microsoft.com/azure/automation/automation-update-management#viewing-update-assessments) automates the deployment of patches across your environment, including deployment to operating system instances running outside of Azure. It supports both Windows and Linux operating systems and tracks key OS vulnerabilities and nonconformance caused by missing patches.
 - [Change Tracking and Inventory](https://docs.microsoft.com/azure/automation/change-tracking) provides insight into the software that's running in your environment and surfaces any changes that have occurred.
 - [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) enables you to run Python and PowerShell scripts or runbooks to automate tasks across your environment. When you use it with the [Hybrid Runbook Worker](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker), you can extend your runbooks to your on-premises resources as well.
-- [Azure Automation State Configuration](https://docs.microsoft.com/azure/automation/automation-dsc-overview) enables you to push PowerShell Desired State Configurations (DSC) directly from Azure. In turn, DSC allows you to monitor and preserve in-guest operating system and workload configurations.
+- [Azure Automation State Configuration](https://docs.microsoft.com/azure/automation/automation-dsc-overview) enables you to push PowerShell Desired State Configuration (DSC) configurations directly from Azure. In turn, DSC allows you to monitor and preserve in-guest operating system and workload configurations.
 
 ## Govern
 
-Adopting and moving to the cloud creates new management challenges and requires a different mindset shifting from an operational management burden to monitoring and governance. The Cloud Adoption Framework starts with [governance](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/overview) and explains what, how, and who should be involved in the journey to the cloud.
+Adopting and moving to the cloud creates new management challenges and requires a different mindset as you shift from an operational management burden to monitoring and governance. The Cloud Adoption Framework for Azure starts with [governance](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/overview). It explains how to migrate to the cloud, what the journey will look like, who should be involved.
 
-The governance design for small-to-medium businesses often differs from governance design for large enterprises. To learn more about governance best practices for a small- or medium-sized business, see [Small-to-medium enterprise governance guide](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/journeys/small-to-medium-enterprise/overview). To learn more about the governance best practices for a large enterprise, see [Large enterprise governance guide](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/journeys/large-enterprise/overview).
+The governance design for small-to-medium businesses often differs from governance design for large enterprises. To learn more about governance best practices for a small or medium-sized business, see [Small-to-medium enterprise governance guide](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/journeys/small-to-medium-enterprise/overview). To learn more about governance best practices for a large enterprise, see [Large enterprise governance guide](https://docs.microsoft.com/azure/architecture/cloud-adoption/governance/journeys/large-enterprise/overview).
 
 ## Billing information
 
-Official pricing for Azure management services is listed below:
+To learn about pricing for Azure management services, go to these pages:
 
 - [Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery)
 
@@ -91,4 +91,4 @@ Official pricing for Azure management services is listed below:
 - [Azure File Sync service](https://azure.microsoft.com/pricing/details/storage/blobs)
 
 > [!NOTE]
-> While the Azure Update Management solution is free, there is a small cost related to data ingestion. As a rule of thumb, the first 5 GB (per month) of data ingestion is free. We generally observe that each machine uses about 25 MB per month, which covers about 200 machines for free per month. Additional server will cost about 10 cents each.
+> The Azure Update Management solution is free, but there's a small cost related to data ingestion. As a rule of thumb, the first 5 GB per month of data ingestion is free. We generally observe that each machine uses about 25 MB per month. So about 200 machines per month are covered for free. Additional servers will cost about 10 cents each.
