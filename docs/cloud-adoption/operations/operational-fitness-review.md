@@ -83,21 +83,21 @@ The service-review phase is the core of the operational fitness review. It invol
 
 This process is iterative, and ideally your enterprise has a team dedicated to it. This team should meet regularly to review existing remediation projects, kick off the fundamental review of new workloads, and track the enterprise's overall scorecard. The team should also have the authority to hold remediation teams accountable if they're behind schedule or fail to meet metrics.
 
-## Structure of the operational fitness review team
+## Structure of the review team
 
-The operational fitness review team is composed of the following roles:
+The team responsible for operational fitness review is composed of the following roles:
 
 - **Business owner**: Provides knowledge of the business to identify and prioritize each mission-critical business operation. This role also compares the mitigation cost to the business impact and drives the final decision on remediation.
 
 - **Business advocate**: Breaks down business operations into discreet parts and maps those parts to services and infrastructure, whether on-premises or in the cloud. The role requires deep knowledge of the technology associated with each business operation.
 
-- **Engineering owner**: Implements the services associated with the business operation. These individuals may participate in the design, implementation, and deployment of any solutions for nonfunctional requirement problems that are uncovered by the operational fitness review team.
+- **Engineering owner**: Implements the services associated with the business operation. These individuals may participate in the design, implementation, and deployment of any solutions for nonfunctional requirement problems that are uncovered by the review team.
 
 - **Service owner**. Operates the business's applications and services. These individuals collect logging and usage data for these applications and services. This data is used both to identify problems and to verify fixes after they're deployed.
 
-## Operational fitness review meeting
+## Review meeting
 
-We recommend that your operational fitness review team meet on a regular basis. For example, the team could meet monthly and then report status and metrics to senior leadership on a quarterly basis.
+We recommend that your review team meet on a regular basis. For example, the team could meet monthly and then report status and metrics to senior leadership on a quarterly basis.
 
 Adapt the details of the process and meeting to fit your specific needs. We recommend the following tasks as a starting point:
 
