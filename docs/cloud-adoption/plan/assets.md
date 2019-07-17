@@ -37,7 +37,7 @@ Azure Migrate provides a set of grouping functions that can speed up the aggrega
 
 The Azure Migrate documentation provides guidance on [how to group machines based on dependencies](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies).
 
-## CMDB
+## Configuration-management database
 
 Some organizations have a well-maintained configuration-management database (CMDB) within their existing operations-management tooling. They could use the CMDB alternatively to provide the input data points discussed earlier.
 
