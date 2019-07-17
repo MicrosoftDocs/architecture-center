@@ -45,3 +45,4 @@ The following articles can help you make governance-related decisions about your
 - **Using role-based access control**. Azure [role-based access control (RBAC)](../azure-best-practices/roles.md) offers fine-grained, group-based access management for resources that are organized around user roles.
 - **Policy decisions**. Azure Blueprint samples provide premade compliance blueprints, each with predefined policy initiatives. Policy decisions help inform a selection of the best blueprint or policy initiative based on your requirements and constraints.
 - **[Create hybrid cloud consistency](../../infrastructure/misc/hybrid-consistency.md)**. Create hybrid cloud solutions that give your organization the benefits of cloud innovation while maintaining many of the conveniences of on-premises management.
+
