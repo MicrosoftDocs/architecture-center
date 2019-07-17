@@ -1,7 +1,6 @@
 ---
 title: How do you keep your organization's risk down
-description: Applying good security practices and principles should be an ongoing task rather
-than a static absolute state.
+description: Applying good security practices and principles should be an ongoing task rather than a static absolute state.
 author: PageWriter-MSFT
 ms.date: 07/15/2019
 ms.topic: article

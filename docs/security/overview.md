@@ -1,7 +1,6 @@
 ---
 title: Security’s Role
-description: This document is intended to guide your architecture and design processes for
-both the use of Azure as well as individual workloads.
+description: This document is intended to guide your architecture and design processes for both the use of Azure as well as individual workloads.
 author: PageWriter-MSFT
 ms.date: 07/15/2019
 ms.topic: article

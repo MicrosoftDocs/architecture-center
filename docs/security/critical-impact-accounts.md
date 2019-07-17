@@ -22,7 +22,7 @@ can get them access to most or all of the data.
 As an example, Microsoft makes significant investments in protection and
 training of administrators for our cloud systems and IT systems:
 
-![A screenshot of a cell phone Description automatically generated](_images\ms-protecting-ms.png)
+![A screenshot of a cell phone Description automatically generated](_images/ms-protecting-ms.png)
 
 Microsoft’s recommended core strategy for administrative privileges include:
 

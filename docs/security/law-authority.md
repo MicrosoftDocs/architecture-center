@@ -1,8 +1,6 @@
 ---
 title: What do the law, authorities, and regulators require?
-description: Governments and other organizations frequently publish standards to help define
-good security practices (due diligence) so that organizations can avoid being
-negligent in security.
+description: Governments and other organizations frequently publish standards to help define good security practices (due diligence) so that organizations can avoid being negligent in security.
 author: PageWriter-MSFT
 ms.date: 07/15/2019
 ms.topic: article

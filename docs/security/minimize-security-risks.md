@@ -1,8 +1,6 @@
 ---
 title: Administration
-description: Administration is the practice of monitoring, maintaining, and operating
-Information Technology (IT) systems to meet service levels that the business
-requires. 
+description: Administration is the practice of monitoring, maintaining, and operating Information Technology (IT) systems to meet service levels that the business requires. 
 author: PageWriter-MSFT
 ms.date: 07/09/2019
 ms.topic: article

@@ -244,7 +244,7 @@ like overpermissioning, reducing your overall risk.
 Microsoft recommends starting from this Microsoft reference model (figures \#\#
 and \#\#) and adapting to your organization.
 
-![](_images\ref-perms.png)
+![](_images/ref-perms.png)
 
 **Core Services Reference Permissions –** This segment hosts shared services
 utilized across the organization. These shared services typically include
@@ -286,7 +286,7 @@ resources, you can assign these permissions to those roles .
 emergencies (and initial setup if required). Do not use this role for daily
 tasks. See REF - Emergency Access (‘Break Glass’ Accounts) for more details.
 
-![A screenshot of a cell phone Description automatically generated](_images\ref-segment.png)
+![A screenshot of a cell phone Description automatically generated](_images/ref-segment.png)
 
 **Segment reference permissions** – This segment permission design provides
 consistency while allowing flexibility to accommodate the range of

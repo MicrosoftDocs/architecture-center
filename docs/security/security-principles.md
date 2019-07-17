@@ -1,8 +1,6 @@
 ---
 title: Security Design Principles
-description: These principles support these three key strategies and describe a securely
-architected system hosted on cloud or on-premises datacenters (or a combination
-of both). 
+description: These principles support these three key strategies and describe a securely architected system hosted on cloud or on-premises datacenters (or a combination of both). 
 author: PageWriter-MSFT
 ms.date: 07/15/2019
 ms.topic: article
