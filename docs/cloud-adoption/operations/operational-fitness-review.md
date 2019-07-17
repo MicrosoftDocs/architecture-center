@@ -26,9 +26,9 @@ Your enterprise should create a process for operational fitness review to fully 
 
 ## Operational fitness at Microsoft
 
-From the outset, the development of the Azure platform has been a continuous project undertaken by many teams across Microsoft. It is difficult to ensure quality and consistency for a project of such size and complexity. A robust process is needed to enumerate and implement fundamental nonfunctional requirements on a regular basis.
+From the outset, the development of the Azure platform has been a continuous project undertaken by many teams across Microsoft. It's difficult to ensure quality and consistency for a project of such size and complexity. A robust process is needed to enumerate and implement fundamental nonfunctional requirements on a regular basis.
 
-The processes that Microsoft follows form the basis for the processes outlined in this document.
+The processes that Microsoft follows form the basis for the processes outlined in this article.
 
 ## Understand the problem
 
@@ -38,7 +38,7 @@ During this process, the focus is often on the features of the service: the set 
 
 The _nonfunctional_ requirements, in contrast, relate to properties such as the service's [availability](../../checklist/availability.md), [resiliency](../../resiliency/index.md), and [scalability](../../checklist/scalability.md). These properties differ from the functional requirements because they don't directly affect the final function of any particular feature in the service. However, nonfunctional requirements do relate to the performance and continuity of the service.
 
-Some nonfunctional requirements can be specified in terms of a service-level agreement (SLA). For service continuity, as an example, an availability requirement for the service can be expressed as a percentage: "Available 99.99% of the time". Other nonfunctional requirements may be more difficult to define and may change as production needs evolve. For example, a consumer-oriented service might face unanticipated throughput requirements after a surge of popularity.
+Some nonfunctional requirements can be specified in terms of a service-level agreement (SLA). For service continuity, as an example, an availability requirement for the service can be expressed as a percentage: "Available 99.99% of the time". Other nonfunctional requirements might be more difficult to define and might change as production needs evolve. For example, a consumer-oriented service might face unanticipated throughput requirements after a surge of popularity.
 
 > [!NOTE]
 > Requirements for resiliency are explored in more depth in [Designing reliable Azure applications](../../reliability/index.md#define-requirements). That article includes explanations of concepts like recovery-point objective (RPO), recovery-time objective (RTO), SLA, and others.
@@ -91,7 +91,7 @@ The team responsible for operational fitness review is composed of the following
 
 - **Business advocate**: Breaks down business operations into discreet parts and maps those parts to services and infrastructure, whether on-premises or in the cloud. The role requires deep knowledge of the technology associated with each business operation.
 
-- **Engineering owner**: Implements the services associated with the business operation. These individuals may participate in the design, implementation, and deployment of any solutions for nonfunctional requirement problems that are uncovered by the review team.
+- **Engineering owner**: Implements the services associated with the business operation. These individuals might participate in the design, implementation, and deployment of any solutions for nonfunctional requirement problems that are uncovered by the review team.
 
 - **Service owner**. Operates the business's applications and services. These individuals collect logging and usage data for these applications and services. This data is used both to identify problems and to verify fixes after they're deployed.
 
