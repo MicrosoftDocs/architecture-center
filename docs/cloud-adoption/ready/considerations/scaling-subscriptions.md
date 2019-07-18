@@ -12,7 +12,7 @@ ms.subservice: enterprise-cloud-adoption
 
 # Scaling with multiple Azure subscriptions
 
-Organizations often need more than one Azure subscription. For example, subscription resource limits and other governance considerations might necessitate additional subscriptions. Having a strategy for scaling your subscriptions is important.
+Organizations often need more than one Azure subscription. For example, subscription resource limits and other governance considerations might require additional subscriptions. Having a strategy for scaling your subscriptions is important.
 
 ## Production and preproduction workloads
 
@@ -23,9 +23,9 @@ When deploying your first production workload in Azure, you should start with at
 We recommend this approach for several reasons:
 
 - Azure has specific subscription offerings for dev/test workloads. These offerings provide discounted rates on Azure services and licensing.
-- Your production and preproduction environments will likely have different sets of Azure policies. By using separate subscriptions, you can apply distinct policy sets at the subscription level.
-- You might want to allow certain types of Azure resources in a dev/test subscription for exploration and testing. With a separate dev/test subscription, you can use these types without making them available in your production environment.
-- You can use dev/test subscriptions as isolated sandbox environments. Such isolation allows admins and developers to rapidly build up and tear down entire sets of Azure resources. This isolation can also help with data protection and security.
+- Your production and preproduction environments will likely have different sets of Azure policies. Using separate subscriptions makes it simple to apply each distinct policy set at the subscription level.
+- You might want to allow certain types of Azure resources in a dev/test subscription for exploration and testing. With a separate subscription, you can use these resource types without making them available in your production environment.
+- You can use dev/test subscriptions as isolated sandbox environments. Such sandboxes allows admins and developers to rapidly build up and tear down entire sets of Azure resources. This isolation can also help with data protection and security.
 - Acceptable cost thresholds will likely vary between production and dev/test subscriptions.
 
 ## Other reasons for multiple subscriptions
@@ -40,23 +40,23 @@ Other situations might require additional subscriptions. Keep the following in m
 
 - Each subscription can have its own policies for supported regions.
 
-- Subscriptions in public cloud regions and sovereign cloud regions have different limitations. These limitations are often driven by different data-classification levels between environments.
+- Subscriptions in public cloud regions and sovereign cloud regions have different limitations,which are often driven by different data-classification levels between environments.
 
 - If you completely segregate different sets of users for security or compliance reasons, you might require separate subscriptions. For example, national government organizations might need to limit a subscription’s access to citizens only.
 
 - Different subscriptions might have different types of offerings, each with its own terms and benefits.
 
-- There might be trust issues between the owners of a subscription and the owner of resources to be deployed. Using a subscription with different ownership can mitigate these issues.
+- Trust issues might exist between the owners of a subscription and the owner of resources to be deployed. Using another subscription with different ownership can mitigate these issues.
 
-- Strict financial or geopolitical controls might require separate financial arrangements for specific subscriptions.  Possible reasons include considerations of data sovereignty, companies having multiple subsidiaries, and business units in different countries having separate accounting and billing.
+- Rigid financial or geopolitical controls might require separate financial arrangements for specific subscriptions. These concerns might include considerations of data sovereignty, companies having multiple subsidiaries, or business units in different countries having separate accounting and billing.
 
 - Azure resources created using the classic deployment model should be isolated in their own subscription. The security for classic resources differs from that of resources deployed via Azure Resource Manager. Azure policies can’t be applied to classic resources.
 
-  Also, service admins using classic resources have the same permissions as role-based access control (RBAC) owners of a subscription. Because of these permissions, it's difficult to sufficiently narrow classic service admins' access in a subscription that mixes classic resources and Resource Manager resources.
+  Service admins using classic resources have the same permissions as role-based access control (RBAC) owners of a subscription. It's difficult to sufficiently narrow these service admins' access in a subscription that mixes classic resources and Resource Manager resources.
 
-You might also create additional subscriptions for other business or technical reasons specific to your organization. There might be some additional costs for data flow between subscriptions. But this is a relatively low-cost option that some organizations use to separate different workloads.
+You might also create additional subscriptions for other business or technical reasons specific to your organization. There might be some additional costs for data ingress and egress between subscriptions. But this is a relatively low-cost option that some organizations use to separate different workloads.
 
-You can move many types of resources from one subscription to another. You can also use automated deployments to migrate resources to another subscription. For more information, see [Move Azure resources to another resource group or subscription](/azure/azure-resource-manager/resource-group-move-resources).
+You can move many types of resources from one subscription to another or use automated deployments to migrate resources to another subscription. For more information, see [Move Azure resources to another resource group or subscription](/azure/azure-resource-manager/resource-group-move-resources).
 
 ## Managing multiple subscriptions
 
@@ -72,11 +72,11 @@ By relying on this inheritance model, you can arrange the subscriptions in your 
 
 ![The four scope levels for organizing your Azure resources](/azure/architecture/cloud-adoption/ready/azure-readiness-guide/media/organize-resources/scope-levels.png)
 
-Any access or policy assignment on the root management group applies to all resources in the directory. Items defined at this scope should be carefully considered. Assignments at this scope should include only the ones you need.
+Any access or policy assignment on the root management group applies to all resources in the directory. Carefully consider which items you define at this scope. Include only the assignments you must have.
 
-When you initially define your management-group hierarchy, you first create the root management group. You then move all existing subscriptions in the directory into the root management group. New subscriptions are always created in the root management group. After their creation, you can move them to another management group.
+When you initially define your management-group hierarchy, you first create the root management group. You then move all existing subscriptions in the directory into the root management group. New subscriptions are always created in the root management group. You then can move them to another management group.
 
-When you move a subscription to an existing management group, it inherits the policies and role assignments from the management-group hierarchy above it. Once you have multiple subscriptions for your Azure workloads, you should create additional subscriptions to contain Azure services that are shared by the other subscriptions.
+When you move a subscription to an existing management group, it inherits the policies and role assignments from the management-group hierarchy above it. Once you have established multiple subscriptions for your Azure workloads, you should create additional subscriptions to contain Azure services that other subscriptions share.
 
 ![Example of a management-group hierarchy](../../_images/ready/management-group-hierarchy.png)
 
@@ -87,7 +87,7 @@ For more information, see [Organizing your resources with Azure management group
 - Identify who will be responsible for creating new subscriptions.
 - Decide which resources will be in a subscription by default.
 - Decide what all standard subscriptions should look like. Considerations include RBAC access, policies, tags, and infrastructure resources.
-- If possible, [use a service principal](/azure/azure-resource-manager/grant-access-to-create-subscription) to create new subscriptions. Define a security group that  requests new subscriptions via an automated workflow.
+- If possible, [use a service principal](/azure/azure-resource-manager/grant-access-to-create-subscription) to create new subscriptions. Define a security group that can request new subscriptions via an automated workflow.
 - If you are an Enterprise Agreement (EA) customer, ask Azure support to block creation of non-EA subscriptions for your organization.
 
 ## Related resources
