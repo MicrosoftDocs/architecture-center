@@ -16,7 +16,7 @@ Cloud rationalization is the process of evaluating assets to determine the best 
 
 ## Rationalization context
 
-The five Rs of rationalization listed in this article are a great way to label a potential future state for any workload that's being considered as a cloud candidate. However, this labeling process should be put into the correct context before you attempt to rationalize an environment. Review the following myths to provide that context:
+The "five Rs of rationalization" listed in this article are a great way to label a potential future state for any workload that's being considered as a cloud candidate. However, this labeling process should be put into the correct context before you attempt to rationalize an environment. Review the following myths to provide that context:
 
 - **Myth: It's easy to make rationalization decisions early in the process.** Accurate rationalization requires a deep knowledge of the workload and associated assets (apps, VMs, and data). Most importantly, accurate rationalization decisions take time. We recommend using an [incremental rationalization process](./rationalize.md#incremental-rationalization).
 
@@ -26,15 +26,15 @@ The five Rs of rationalization listed in this article are a great way to label a
 
 Now review the following five Rs of rationalization to familiarize yourself with the long-term process. While developing your cloud adoption plan, choose the option that best aligns with your motivations, business outcomes, and current state environment. The goal in digital estate rationalization is to set a baseline, not to rationalize every workload.
 
-## The fuse Rs of rationalization
+## The five Rs of rationalization
 
-The "Five Rs of rationalization" that are listed here describe the most common options for rationalization.
+The five Rs of rationalization that are listed here describe the most common options for rationalization.
 
 ## Rehost
 
 Also known as a "lift and shift" migration, a rehost effort moves a current state asset to the chosen cloud provider, with minimal change to overall architecture.
 
-Common drivers could include:
+Common drivers might include:
 
 - Reducing capital expense
 - Freeing up datacenter space
@@ -59,7 +59,7 @@ Platform as a service (PaaS) options can reduce the operational costs that are a
 
 "Refactor" also refers to the application development process of refactoring code to enable an application to deliver on new business opportunities.
 
-Common drivers could include:
+Common drivers might include:
 
 - Faster and shorter updates
 - Code portability
@@ -82,9 +82,9 @@ Qualitative analysis factors:
 
 Some aging applications aren't compatible with cloud providers because of the architectural decisions that were made when the application was built. In these cases, the application might need to be rearchitected before transformation.
 
-In other cases, applications that are cloud-compatible, but not cloud-native, might create cost efficiencies and operational efficiencies by rearchitecting the solution to be a cloud-native application.
+In other cases, applications that are cloud-compatible, but not cloud-native, might create cost efficiencies and operational efficiencies by rearchitecting the solution into a cloud-native application.
 
-Common drivers could include:
+Common drivers might include:
 
 - Application scale and agility
 - Easier adoption of new cloud capabilities
@@ -105,9 +105,9 @@ Qualitative analysis factors:
 
 ## Rebuild
 
-In some scenarios, the delta that must be overcome to carry an application forward can be too large to justify further investment. This is especially true for applications that previously meet the needs of a business but are now unsupported or misaligned with the current business processes. In this case, a new code base is created to align with a [cloud-native](https://azure.microsoft.com/overview/cloudnative) approach.
+In some scenarios, the delta that must be overcome to carry an application forward can be too large to justify further investment. This is especially true for applications that previously met the needs of a business but are now unsupported or misaligned with the current business processes. In this case, a new code base is created to align with a [cloud-native](https://azure.microsoft.com/overview/cloudnative) approach.
 
-Common drivers could include:
+Common drivers might include:
 
 - Accelerate innovation
 - Build apps faster
@@ -128,12 +128,12 @@ Qualitative analysis factors:
 
 ## Replace
 
-Solutions are typically implemented using the best technology and approach available at the time. In some cases, software as a service (SaaS) applications can provide all the functionality that's required of the hosted application. In these scenarios, a workload could be scheduled for future replacement, effectively removing it from the transformation effort.
+Solutions are typically implemented by using the best technology and approach available at the time. Sometimes software as a service (SaaS) applications can provide all the necessary functionality for the hosted application. In these scenarios, a workload can be scheduled for future replacement, effectively removing it from the transformation effort.
 
-Common drivers could include:
+Common drivers might include:
 
 - Standardizing around industry-best practices
-- Accelerating adoption of business process driven approaches
+- Accelerating adoption of business process-driven approaches
 - Reallocating development investments into applications that create competitive differentiation or advantages
 
 Quantitative analysis factors:
@@ -152,7 +152,7 @@ Qualitative analysis factors:
 
 ## Next steps
 
-Collectively, these Five Rs of rationalization can be applied to a digital estate to make rationalization decisions about the future state of each application.
+Collectively, you can apply these five Rs of rationalization to a digital estate to help you make rationalization decisions about the future state of each application.
 
 > [!div class="nextstepaction"]
 > [What is a digital estate?](index.md)
