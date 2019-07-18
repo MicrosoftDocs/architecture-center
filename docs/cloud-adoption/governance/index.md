@@ -102,13 +102,13 @@ Cloud governance is an iterative process. For organizations with existing polici
 The guidance in this section of the Cloud Adoption Framework is designed for two purposes:
 
 - Provide examples of actionable customer journeys that represent common experiences that customers often encounter. Each of these examples encapsulates business risks, corporate policies for risk mitigation, and design guidance to implement technical solutions. By necessity, the design guidance is specific to Azure. All other guidance in these journeys could be applied as part of a cloud-agnostic or multicloud approach.
-- Help readers create personalized governance solutions that can meet a variety of business needs. These needs include the governance of multiple public clouds through detailed guidance on the development of corporate policies, processes, and tooling.
+- Help you create personalized governance solutions that can meet a variety of business needs. These needs include the governance of multiple public clouds through detailed guidance on the development of corporate policies, processes, and tooling.
 
 This content is intended for the cloud governance team. It's also relevant to cloud architects who need to develop a strong foundation in cloud governance.
 
 ## Intended audience
 
-The content in the Cloud Adoption Framework affects the business, technology, and culture of enterprises. This section of the Cloud Adoption Framework interacts heavily with IT security, IT governance, finance, line-of-business leaders, networking, identity, and cloud adoption teams. Various co-dependencies on these personas require a facilitative approach by the cloud architects using this guidance. Facilitation with these teams might be a one-time effort. In some cases, it results in recurring interactions with these other personas.
+The content in the Cloud Adoption Framework affects the business, technology, and culture of enterprises. This section of the Cloud Adoption Framework interacts heavily with IT security, IT governance, finance, line-of-business leaders, networking, identity, and cloud adoption teams. Various co-dependencies on these personel require a facilitative approach by the cloud architects using this guidance. Facilitation with these teams might be a one-time effort. In some cases, it results in recurring interactions with these other personel.
 
 The cloud architect serves as the thought leader and facilitator to bring these audiences together. The content in this collection of guides is designed to help the cloud architect facilitate the right conversation, with the right audience, to drive necessary decisions. Business transformation that's empowered by the cloud depends on the cloud architect to help guide decisions throughout the business and IT.
 

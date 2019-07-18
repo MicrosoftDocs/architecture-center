@@ -13,11 +13,13 @@ ms.custom: com
 
 # Operating model for the cloud
 
-Cloud adoption defines what we do or how we use the cloud during transformation projects that realize the desired business value. The operating model is who we are or how we function on a daily basis while cloud adoption is being delivered and long after.
+Cloud adoption defines what you do or how you use the cloud during transformation projects that realize the desired business value. The operating model is who you are or how you function on a daily basis while cloud adoption is being delivered and long after.
 
 ## Establish an operating model
 
-For some customers, current operating models can scale to support their desire to adopt the cloud. Other customers have reported nontechnical blockers to cloud adoption that could be solved by a modern operating model. This section of the Cloud Adoption Framework for Azure is designed to help customers by presenting an actionable operating model to guide nontechnical decisions. This operating model consists of three methodologies that can aid in creation of your own cloud operating model:
+Current operating models can scale to support your desire to adopt the cloud. A modern operating model can help you solve nontechnical blockers to cloud adoption.
+
+This section of the Cloud Adoption Framework is designed to help you by presenting an actionable operating model to guide nontechnical decisions. This operating model consists of three methodologies that can aid in creation of your own cloud operating model:
 
 - [Govern](../governance/index.md): Ensure consistency across adoption efforts. Align to governance or compliance requirements to maintain a well-managed cross-cloud environment.
 - [Organize](../organization/index.md): Align the organization to ensure success across the operating model and various cloud adoption efforts.
@@ -25,7 +27,7 @@ For some customers, current operating models can scale to support their desire t
 
 ## Next steps
 
-Governance is often the first step that customers take toward an operating model for the cloud.
+Governance is often the first step that you take toward an operating model for the cloud.
 
 > [!div class="nextstepaction"]
 > [Get started with governance](../governance/index.md)
