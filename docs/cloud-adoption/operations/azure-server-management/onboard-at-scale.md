@@ -66,7 +66,7 @@ After completing the wizard, the policy assignment will be deployed to the envir
 > [!NOTE]
 > Create the required [Log Analytics workspace and Azure Automation account](./prerequisites.md#create-a-workspace-and-automation-account) before onboarding servers to Azure management services.
 
-For on-premises servers, you'll need to download and install the [Log Analytics agent and the Microsoft Dependency agent](/azure/azure-monitor/insights/vminsights-onboard#enable-for-a-hybrid-environment) manually and configure them to connect to the correct workspace. You can do so by specifying the Workspace ID and key information, which can be found by going to your Log Analytics workspace in the Azure portal and selecting **Settings** > **Advanced settings**.
+For on-premises servers, you'll need to download and install the [Log Analytics agent and the Microsoft Dependency agent](/azure/azure-monitor/insights/vminsights-enable-hybrid-cloud) manually and configure them to connect to the correct workspace. You can do so by specifying the Workspace ID and key information, which can be found by going to your Log Analytics workspace in the Azure portal and selecting **Settings** > **Advanced settings**.
 
 ![Screenshot of Log Analytics workspace advanced settings in the Azure portal](./media/onboarding-on-premises.png)
 
