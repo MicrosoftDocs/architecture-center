@@ -20,7 +20,7 @@ As part of your landing zone evaluation and preparation, you need to identify th
 
 For each application or service you'll deploy to your landing zone environment, use the following decision tree as a starting point to help you determine the networking tools or services to use:
 
-[ ![Azure networking services decision tree](../../_images/ready/network-decision-tree.png) ](../../_images/ready/network-decision-tree.png#lightbox)
+![Azure networking services decision tree](../../_images/ready/network-decision-tree.png)
 
 ### Key questions
 

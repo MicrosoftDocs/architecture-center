@@ -20,7 +20,7 @@ This image shows the major considerations for implementing any landing zone depl
 
 ## Hosting considerations
 
-All landing zones provide structure for hosting options. The structure is created explicitly through governance controls or organically through the adoption of services within the landing zone. The following articles can help you make decisions that will be reflected in the blueprint or other automation scripts that create your landing zone.
+All landing zones provide structure for hosting options. The structure is created explicitly through governance controls or organically through the adoption of services within the landing zone. The following articles can help you make decisions that will be reflected in the blueprint or other automation scripts that create your landing zone:
 
 - **[Compute decisions](./compute-decisions.md)**. To minimize operational complexity, align compute options with the purpose of the landing zone. This decision can be enforced by using automation toolchains, like Azure Policy initiatives and landing zone blueprints.
 - **[Storage decisions](./storage-guidance.md)**. Choose the right Azure Storage solution to support your workload requirements.

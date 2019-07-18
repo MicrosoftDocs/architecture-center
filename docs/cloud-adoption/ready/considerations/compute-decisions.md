@@ -20,7 +20,7 @@ As part of your landing zone evaluation and preparation, you need to identify al
 
 For each application or service you'll deploy to your landing zone environment, use the following decision tree as a starting point to help you determine your compute services requirements:
 
-[ ![Azure compute services decision tree](../../_images/ready/compute-decision-tree.png) ](../../_images/ready/compute-decision-tree.png#lightbox)
+![Azure compute services decision tree](../../_images/ready/compute-decision-tree.png)
 
 > [!NOTE]
 > Learn more about how to assess compute options for each of your applications or services in the [Azure application architecture guide](/azure/architecture/guide/technology-choices/compute-overview).

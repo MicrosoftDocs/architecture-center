@@ -20,7 +20,7 @@ As part of your landing zone evaluation and preparation, you need to identify th
 
 For each application or service you'll deploy to your landing zone environment, use the following decision tree as a starting point to help you determine the appropriate data store services to use:
 
-[ ![Azure database services decision tree](../../_images/ready/data-decision-tree.png) ](../../_images/ready/data-decision-tree.png#lightbox)
+![Azure database services decision tree](../../_images/ready/data-decision-tree.png)
 
 ### Key questions
 
