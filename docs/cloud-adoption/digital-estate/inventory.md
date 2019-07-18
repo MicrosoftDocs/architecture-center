@@ -17,15 +17,15 @@ Developing an inventory is the first step in [digital estate planning](index.md)
 
 The inventory that supports a digital estate changes depending on the desired digital transformation and corresponding transformation journey.
 
-- **Cloud migration:** During a cloud migration, we often recommend that the inventory is collected from scanning tools that can create a centralized list of all VMs and servers. Some tools can also create network mappings and dependencies, which help define workload alignment.
+- **Cloud migration:**  We often recommend that during a cloud migration,the inventory is collected from scanning tools that can create a centralized list of all VMs and servers. Some tools can also create network mappings and dependencies, which help define workload alignment.
 
 - **Application innovation:** Inventory during a cloud-enabled application innovation effort begins with the customer. Mapping the customer experience from start to finish is a good place to begin. Aligning that map to applications, APIs, data, and other assets creates a detailed inventory for analysis.
 
-- **Data innovation:** Cloud-enabled data innovation efforts focus on the product or service. From there, an inventory includes a mapping of the opportunities for disrupting the market, as well as the capabilities needed.
+- **Data innovation:** Cloud-enabled data innovation efforts focus on the product or service. An inventory also includes a mapping of the opportunities for disrupting the market, as well as the capabilities needed.
 
 ## Accuracy and completeness of an inventory
 
-An inventory is seldom fully complete in its first iteration. We strongly recommend that various members of the cloud strategy team align stakeholders and power users to validate the inventory. When possible, use additional tools like network and dependency analysis to identify assets that are being sent traffic, but that are not in the inventory.
+An inventory is rarely complete in its first iteration. We strongly recommend the cloud strategy team aligns stakeholders and power users to validate the inventory. When possible, use additional tools like network and dependency analysis to identify assets that are being sent traffic, but that are not in the inventory.
 
 ## Next steps
 
