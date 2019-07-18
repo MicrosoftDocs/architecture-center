@@ -18,16 +18,16 @@ Determining the compute requirements for hosting your workloads is a key conside
 
 As part of your landing zone evaluation and preparation, you need to identify all compute resources that your landing zone will need to support. This process involves assessing each of the applications and services that make up your workloads to determine your compute and hosting requirements. After you identify and document your requirements, you can create policies for your landing zone to control what resource types are allowed based on your workload needs.
 
-For each of the applications or services you'll deploy to your landing zone environment, use the following decision tree as a starting point to help you determine your compute services requirements:
+For each application or service you'll deploy to your landing zone environment, use the following decision tree as a starting point to help you determine your compute services requirements:
 
 [ ![Azure compute services decision tree](../../_images/ready/compute-decision-tree.png) ](../../_images/ready/compute-decision-tree.png#lightbox)
 
-### Key questions
-
-Answer the following questions about your workloads to help you make decisions based on the compute requirements decision tree.
-
 > [!NOTE]
 > Learn more about how to assess compute options for each of your applications or services in the [Azure application architecture guide](/azure/architecture/guide/technology-choices/compute-overview).
+
+### Key questions
+
+Answer the following questions about your workloads to help you make decisions based on the Azure compute services decision tree:
 
 - **Are you building net new applications and services or migrating from existing on-premises workloads?** Developing new applications as part of your cloud adoption efforts allows you to take full advantage of modern cloud-based hosting technologies from the design phase on.
 - **If you're migrating existing workloads, can they take advantage of modern cloud technologies?** Migrating on-premises workloads requires analysis: Can you easily optimize existing applications and services to take advantage of modern cloud technologies or will a *lift-and-shift* approach work better for your workloads?

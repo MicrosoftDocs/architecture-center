@@ -16,15 +16,15 @@ When you prepare your landing zone environment for your cloud adoption, you need
 
 ## Identify data services requirements
 
-As part of your landing zone evaluation and preparation, you need to identify the data stores that your landing zone needs to support. The process involves assessing each of the applications and services that make up your workloads for their data storage and access requirements. After you identify and document these requirements, you can create policies for your landing zone to control allowed resource types based on your workload needs.
+As part of your landing zone evaluation and preparation, you need to identify the data stores that your landing zone needs to support. The process involves assessing each of the applications and services that make up your workloads to determine their data storage and access requirements. After you identify and document these requirements, you can create policies for your landing zone to control allowed resource types based on your workload needs.
 
-For each of the applications or services you'll deploy to your landing zone environment, use the following decision tree as a starting point to help you determine the appropriate data store services to use:
+For each application or service you'll deploy to your landing zone environment, use the following decision tree as a starting point to help you determine the appropriate data store services to use:
 
-[ ![Azure database services decision tree](../../_images/ready/data-decision-tree.png) ](../../_images/ready/data-decision-tree.png)#lightbox
+[ ![Azure database services decision tree](../../_images/ready/data-decision-tree.png) ](../../_images/ready/data-decision-tree.png#lightbox)
 
 ### Key questions
 
-Answer the following questions about your workloads to help you make decisions based on the data requirements decision tree:
+Answer the following questions about your workloads to help you make decisions based on the Azure database services decision tree:
 
 - **Do you need full control or ownership of your database software or host OS?** Some scenarios require you to have a high degree of control or ownership of the software configuration and host servers for your database workloads. In these scenarios, you can deploy custom infrastructure as a service (IaaS) virtual machines to fully control the deployment and configuration of data services. If you don't have these requirements, platform as a service (PaaS)-managed database services might reduce your management and operations costs.
 - **Will your workloads use a relational database technology?** If so, what technology do you plan to use? Azure provides managed PaaS database capabilities for [Azure SQL Database](/azure/sql-database/sql-database-technical-overview), [MySQL](/azure/mysql/overview), [PostgreSQL](/azure/postgresql/overview), and [MariaDB](/azure/mariadb/overview).
