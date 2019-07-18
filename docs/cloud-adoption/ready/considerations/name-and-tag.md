@@ -202,8 +202,8 @@ The following section provides examples of naming schemes for common Azure resou
 
 | Asset type                              | Scope  | Format                                                                        | Examples                                   |
 |-----------------------------------------|--------|-------------------------------------------------------------------------------|--------------------------------------------|
-| Azure storage account - general use     | Global | st\<storage name\>\<\#\#\#\>                                                  | <ul><li>stnavigatordata001 </li><li>stemissionsoutput001</li></ul>    |
-| Azure storage account - diagnostic logs | Global | stdiag\<first 2 letters of subscription name and number\>\<region\>\<\#\#\#\> | <ul><li>stdiagsh001eastus2001 </li><li>stdiagsh001westus001</li></ul> |
+| Azure Storage account - general use     | Global | st\<storage name\>\<\#\#\#\>                                                  | <ul><li>stnavigatordata001 </li><li>stemissionsoutput001</li></ul>    |
+| Azure Storage account - diagnostic logs | Global | stdiag\<first 2 letters of subscription name and number\>\<region\>\<\#\#\#\> | <ul><li>stdiagsh001eastus2001 </li><li>stdiagsh001westus001</li></ul> |
 | Azure StorSimple                              | Global | ssimp\<App Name\>\<Environment\>                                              | <ul><li>ssimpnavigatorprod </li><li>ssimpemissionsdev</li></ul>       |
 
 ### AI + Machine Learning
