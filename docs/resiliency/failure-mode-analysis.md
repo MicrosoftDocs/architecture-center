@@ -124,7 +124,7 @@ The default retry policy uses exponential back-off. To use a different retry pol
 
 **Recovery:**
 
-- Each [Cassandra client](https://wiki.apache.org/cassandra/ClientOptions) has its own retry policies and capabilities. For more information, see [Cassandra error handling done right][cassandra-error-handling].
+- Each [Cassandra client](https://cwiki.apache.org/confluence/display/CASSANDRA2/ClientOptions) has its own retry policies and capabilities. For more information, see [Cassandra error handling done right][cassandra-error-handling].
 - Use a rack-aware deployment, with data nodes distributed across the fault domains.
 - Deploy to multiple regions with local quorum consistency. If a non-transient failure occurs, fail over to another region.
 
