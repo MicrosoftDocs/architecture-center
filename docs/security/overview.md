@@ -8,7 +8,7 @@ ms.service: architecture-center
 ms.subservice: cloud-design-principles
 ---
 
-# Security’s Role
+# Role of security
 
 Security is one of the most important aspects of any architecture. Security
 provides confidentiality, integrity, and availability assurances against
@@ -28,7 +28,7 @@ are now freely exploiting vulnerabilities in system configurations, operational
 practices, and the social habits of the systems’ users. As systems’ complexity,
 connectedness, and the variety of users increase, attackers have more
 opportunities to identify unprotected edge cases and to “hack” systems into
-doing things they were notn’t designed to do.
+doing things they were not designed to do.
 
 One overarching lesson this history teaches us is that the security of complex
 systems depends on understanding the:
@@ -88,7 +88,7 @@ As part of your architecture design, you should consider all relevant areas that
 affect the success of your application. While this article is concerned
 primarily with security principles, you should also prioritize other
 requirements of a well-designed system including your applications’
-availability, scalability, costs and operational characteristics (trading off
+availability, scalability, costs, and operational characteristics (trading off
 one over the other as necessary). It is important to note that consistently
 sacrificing security for gains in the other areas is not advisable as security
 risks tend to increase dynamically over time. [Will retrofit with more
@@ -117,7 +117,7 @@ This results in three key strategies
     resources, enabling technology like Azure Security Center to quickly and
     accurately measure the patch state of all servers.
 
--   **“Trust but Verify” each cloud provider** – for the elements which are
+-   **“Trust but Verify” each cloud provider** – for the elements, which are
     under the control of the cloud provider. You should ensure the security
     practices and regulatory compliance of each cloud provider (large and small)
     meet your requirements.

@@ -24,18 +24,17 @@ use the best possible data sources available, which can come from:
     risks. These types of systems sometimes have clearly defined actionable best
     practices like the ones that are included in this document.
 
--   **Threat Modelling** – Newly defined systems such as applications in
+-   **Threat Modeling** – Newly defined systems such as applications in
     development (or modifications to them) don’t have real world data on the top
     vectors attackers would target, so you must rely more on a model of possible
-    and likely vectors to guide risk mitigation. Threat modelling is a
+    and likely vectors to guide risk mitigation. Threat modeling is a
     structured process to applying security expertise that models the possible
     attack vectors and prioritize the most likely/damaging threats, allowing you
-    to prioritize risk mitigate efforts. Threat modelling can also be applied to
+    to prioritize risk mitigate efforts. Threat modeling can also be applied to
     existing systems or a combination of systems.
 
 This document focuses on sharing clearly defined good security practices as well
-as guidance on applying threat modelling to your applications and architectures
-(in the REF - Applications and Services section).
+as guidance on applying [threat modeling to your applications and architectures](applications-services.md#advanced-threat-modelling-techniques).
 
 For more information on current attacks, see the [Microsoft Security
 Intelligence (SIR) report](https://www.microsoft.com/sir).

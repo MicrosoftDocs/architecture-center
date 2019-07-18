@@ -8,9 +8,9 @@ ms.service: architecture-center
 ms.subservice: cloud-design-principles
 ---
 
-# Security Operations
+# Security operations
 
-Security operations maintains and restores the security assurances of the system
+Security operations maintain and restores the security assurances of the system
 as live adversaries attack it. The day to day tasks of security operations are
 described well by the NIST Cybersecurity Framework functions of Detect, Respond,
 and Recover.
@@ -34,12 +34,11 @@ The most significant security risk most organizations face is from human attack
 operators (of varying skill levels). This is because risk from
 automated/repeated attacks have been mitigated significantly for most
 organizations by signature and machine learning based approaches built into
-anti-malware (though there are notable exceptions like Wannacrypt and NotPetya
-which moved faster than these defenses).
+anti-malware (though there are notable exceptions like Wannacrypt and NotPetya, which moved faster than these defenses).
 
 While human attack operators are challenging to face because of their
 adaptability (vs. automated/repeated logic), they are operating at the same
-“human speed” as defenders, which helps level the playing field.
+“human speed” as defenders, which help level the playing field.
 
 Security Operations (sometimes referred to as a Security Operations Center
 (SOC)) has a critical role to play in limiting the time and access an attacker
@@ -47,13 +46,13 @@ can get to valuable systems and data. Each minute that an attacker has in the
 environment allows them to continue to conduct attack operations and access
 sensitive/valuable systems.
 
-#### Objective and Metrics
+## Objective and metrics
 
 The metrics you measure will have a significant effect on the behaviors and
 outcomes of security operations. Focusing on the right measurements will help
 drive continuous improvement in the right areas that meaningfully reduce risk.
 
-To ensure that security operations is effectively containing attackers access,
+To ensure that security operations are effectively containing attackers access,
 the objectives should focus on
 
 -   Reducing **time to acknowledge** an alert to ensure that detected
@@ -70,12 +69,12 @@ the objectives should focus on
 -   Increase focus on **proactively hunting** for adversaries as your program
     matures and reactive incidents get under control. This is focused on
     reducing the time that a higher skilled adversary can operate in the
-    environment (e.g. skilled enough to evade reactive alerts).
+    environment (for example, skilled enough to evade reactive alerts).
 
 For more information on how Microsoft’s SOC uses these metrics, see
-<https://aka.ms/ITSOC>
+https://aka.ms/ITSOC.
 
-#### Hybrid Enterprise View
+## Hybrid enterprise view
 
 Security operations should ensure their tooling, processes, and analyst
 skillsets enable visibility across the full span of their hybrid estate.
@@ -91,7 +90,7 @@ on-premises resources using identity or other means. This enterprise-wide view
 will enable security operations teams to rapidly detect, respond, and recover
 from attacks, reducing organizational risk.
 
-#### Leverage Native Detections and Controls
+## Leverage native detections and controls
 
 You should favor the use of security detections and controls built into the
 cloud platform before creating custom detections using event logs from the
@@ -105,8 +104,8 @@ Because many organizations may use multiple cloud platforms and need a unified
 view across the enterprise, you should ensure these native detections and
 controls feed a centralize SIEM or other tool. We don’t recommend trying to
 substitute generalized log analysis tools and queries instead of native
-detections and controls. These tools can offer a lot of value for proactive
-hunting activities, but getting to a high quality alert with these tools
+detections and controls. These tools can offer numerous values for proactive
+hunting activities, but getting to a high-quality alert with these tools
 requires application of deep expertise and time that could be better spent on
 hunting and other activities.
 
@@ -126,7 +125,7 @@ Splunk, or QRadar), you should leverage native detections and controls such as
     the asset type such as an Endpoint Detection and Response (EDR) solution,
     Identity tools, and Azure Sentinel.
 
-#### Prioritize Alert and Log Integration
+## Prioritize alert and log integration
 
 Ensure that you are integrating critical security alerts and logs into SIEMs
 without introducing a high volume of low value data.
@@ -140,13 +139,12 @@ operations activities:
 -   **Alerts** (detections from existing tools or data required for generating
     custom alerts)
 
--   **Investigation** of an incident (e.g. required for common queries)
+-   **Investigation** of an incident (for example, required for common queries)
 
 -   Proactive **hunting** activities
 
 Integrating more data can allow you to enrich alerts with additional context
 that enable rapid response and remediation (filter false positives, and elevate
 true positives, etc.), but collection is not detection. If you don’t have a
-reasonable expectation that the data will provide value (e.g. high volume of
-firewall deny events), you may deprioritize integration of these events.
+reasonable expectation that the data will provide value (for example, high volume of firewall denies events), you may deprioritize integration of these events.
 

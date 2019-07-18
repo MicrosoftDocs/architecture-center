@@ -8,12 +8,12 @@ ms.service: architecture-center
 ms.subservice: cloud-design-principles
 ---
 
-## Applications and Services
+# Applications and services
 
 Applications and the data associated with them ultimately act as the primary
 store of business value on a cloud platform. While the platform components like
 identity and storage are critical elements of the security environment,
-applications play an outsized role in risks to the business because:
+applications play an outsize role in risks to the business because:
 
 -   **Business Processes** are encapsulated and executed by applications and
     services need to be available and provided with high integrity
@@ -35,7 +35,7 @@ applications
     middleware, and other components.
 
 -   **Modern** Platform as a Service (PaaS) applications don’t require the
-    application owner to manage and secure the underlying sever operating
+    application owner to manage and secure the underlying server operating
     systems (OSes) and are sometimes fully “Serverless” and built primarily
     using functions as a service.
 
@@ -54,11 +54,11 @@ component types:
 -   **Application Code** – This is the logic that defines the custom application
     that you write. The security of this code is the application owners’
     responsibility in all generations of application architecture (including any
-    open source snippets or components included in the code). Securing the code
+    open-source snippets or components included in the code). Securing the code
     requires identifying and mitigating risks from the design and implementation
     of the application as well as assessing supply chain risk of included
     components. Note that the evolution of applications into [microservices
-    architectures](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-overview-microservices)
+    architectures](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview-microservices)
     will break various aspects of application code into smaller services vs. a
     single monolithic codebase.
 
@@ -77,7 +77,7 @@ component types:
 
 -   **Application Hosting Platform** – This is the computing environment where
     the application actually executes and runs. In an enterprise with
-    applications hosted on premises, in Azure and in 3rd party clouds like
+    applications hosted on premises, in Azure and in third-party clouds like
     Amazon Web Services (AWS), this could take many forms with significant
     variations on who is responsible for security:
 
@@ -92,7 +92,7 @@ component types:
         services) varies:
 
         -   **On premises** - The application owner (or their organization) is
-            responsible for maintenance and security
+            responsible for maintenance and security.
 
         -   **IaaS** – The cloud provider is responsible for maintenance and
             security of the underlying infrastructure and the application
@@ -111,17 +111,17 @@ component types:
         These containerized applications fit into either the legacy or modern
         models above depending on whether they are run on a container service by
         the cloud provider (Modern Applications) or on a server managed by the
-        organization (on premises or in IaaS). See the REF - Container security
-        section for more details
+        organization (on premises or in IaaS). See the [container security
+        section](#follow-best-practices-for-container-security) below for more details.
 
-#### Identify and Classify Business Critical Applications
+## Identify and classify business critical applications
 
 Ensure you have identified and classified the applications in your portfolio
 that are critical to business functions.
 
 Enterprise organizations typically have a large application portfolio, so
-prioritizing where to invest time and effort into manual and resource intensive
-tasks (like threat modelling) can increase the effectiveness of your security
+prioritizing where to invest time and effort into manual and resource-intensive
+tasks (like threat modeling) can increase the effectiveness of your security
 program.
 
 Identify applications that have a high potential impact and/or a high potential
@@ -132,7 +132,7 @@ exposure to risk.
     more of:
 
     -   **Business critical data** – Applications that process or store
-        information which would cause significant negative business or mission
+        information, which would cause significant negative business or mission
         impact if an assurance of confidentiality, integrity, or availability is
         lost.
 
@@ -143,7 +143,7 @@ exposure to risk.
 
     -   **Business critical availability** – Applications whose functionality is
         critical to organizations business mission such as production lines
-        generating revenue, devices or services critical to life and safety, and
+        generating revenue, devices, or services critical to life and safety, and
         other critical functions.
 
     -   **Significant Access** – Applications which have access to systems with
@@ -160,12 +160,12 @@ exposure to risk.
     frequently target them because they know these legacy applications often
     have vulnerabilities that are difficult to fix.
 
-#### Adopt the DevOps approach 
+## Adopt the DevOps approach 
 
 Organizations should shift from a ‘Waterfall’ development cycle to DevOps
 lifecycle of continuous integration, continuous delivery (CI/CD) for
 applications as fast as is practical. DevOps is the union of people, processes,
-and tools that enables continuous delivery of value to end-users. The
+and tools that enable continuous delivery of value to end users. The
 contraction of Dev and Ops refers to combining the development and operations
 disciplines into multi-disciplinary teams that work together with shared and
 efficient practices and tools.
@@ -174,9 +174,8 @@ The DevOps model increases the organization’s ability to rapidly address
 security concerns without waiting for a longer planning and testing cycle of a
 waterfall model.
 
-**How** – is there some Microsoft guidance we can point them to?
 
-#### Follow DevOps Security Guidance
+## Follow DevOps security guidance
 
 Organizations should leverage guidance and automation for securing applications
 on the cloud rather than starting from zero.
@@ -192,7 +191,7 @@ security posture with less expenditure of effort and resources.
     DevOps Pipeline security  
     <https://www.owasp.org/index.php/OWASP_AppSec_Pipeline#tab=Main>
 
-#### Use Cloud services instead of custom implementations
+## Use Cloud services instead of custom implementations
 
 Developers should use services available from your cloud provider for
 well-established functions like databases, encryption, identity directory, and
@@ -217,7 +216,7 @@ security impact:
     AD](https://docs.microsoft.com/en-us/azure/active-directory/)), [Azure AD
     B2B](https://docs.microsoft.com/en-us/azure/active-directory/b2b/), [Azure
     AD B2C](https://docs.microsoft.com/en-us/azure/active-directory-b2c/), or
-    3rd party solutions to authenticate and grant permission to users, partners,
+    third-party solutions to authenticate and grant permission to users, partners,
     customers, applications, services, and other entities.
 
 -   **Data Protection** – Developers should use established capabilities from
@@ -243,7 +242,7 @@ security impact:
     service to centrally manage application settings and feature flags, which
     helps mitigate this risk.
 
-#### Use Native Security capabilities in application services
+## Use Native Security capabilities in application services
 
 Use native security capabilities built into cloud services instead of adding
 external security components (for data encryption, network traffic filtering,
@@ -262,7 +261,7 @@ doesn’t keep up with the cloud service).
 -   Native security capabilities of each service  
     <https://docs.microsoft.com/en-us/azure/security/common-security-attributes>
 
-#### Prefer Identity Authentication over Keys
+## Prefer Identity Authentication over Keys
 
 Always authenticate with identity services rather than cryptographic keys when
 available.
@@ -270,7 +269,7 @@ available.
 Managing keys securely with application code is difficult and regularly leads to
 mistakes like accidentally publishing sensitive access keys to code repositories
 like GitHub. Identity systems offer secure and usable experience for access
-control with built in sophisticated mechanisms for key rotation, monitoring for
+control with built-in sophisticated mechanisms for key rotation, monitoring for
 anomalies, and more. Most organizations also have skilled teams dedicated to
 managing identity systems and few (if any) people actively managing key security
 systems.
@@ -287,7 +286,7 @@ identities](https://docs.microsoft.com/en-us/azure/active-directory/managed-iden
 to assign identities to resources like VMs and App Services so that developers
 don’t have to manage identities within the application.
 
-#### Application Code (Bottom Up) - Reduce security bug volume and impact
+## Application code (bottom up) - reduce security bug volume and impact
 
 ![](_images/app-code.png)
 
@@ -313,29 +312,29 @@ based on Microsoft’s [Security Development
 Lifecycle](https://www.microsoft.com/SDL) to mitigate common risks with input
 and output validation, perform fuzz testing, attack surface reviews, and more.
 
-#### Application Code (Top Down)- Threat Modelling Application Architecture
+## Application code (top down)- threat modeling application architecture
 
 ![](_images/app-code2.png)
 
-Perform threat modelling on your business-critical applications to discover and
+Perform threat modeling on your business-critical applications to discover and
 mitigate potential risks to your organization.
 
-Threat modelling identifies risks to the application itself as well as risks
+Threat modeling identifies risks to the application itself as well as risks
 that application may pose to your enterprise (particularly when evaluating
 individual applications in a larger system).
 
-Threat modelling can be used at any stage of application development or
+Threat modeling can be used at any stage of application development or
 production, but it is uniquely effective for the design stages of new
 functionality because no real-world data yet exists for that application.
 
-Because threat modelling is a skill intensive exercise, we recommend taking
+Because threat modeling is a skill intensive exercise, we recommend taking
 measures to minimize time investment while maximizing security value:
 
-1.  **Prioritize by risk** - Apply threat modelling first to business-critical
-    applications that would have an outsized impact on the business if
+1.  **Prioritize by risk** - Apply threat modeling first to business-critical
+    applications that would have an outsize impact on the business if
     compromised
 
-2.  **Limit Scope -** Perform threat modelling in progressive stages of detail
+2.  **Limit Scope -** Perform threat modeling in progressive stages of detail
     to quickly identify quick wins and actionable mitigations before spending a
     lot of manual effort:
 
@@ -360,24 +359,24 @@ measures to minimize time investment while maximizing security value:
             composed and how each element of it interacts with each other
 
 3.  **Align with Development lifecycle –** Optimize your efforts by aligning
-    threat modelling activities with your application development lifecycles.
+    threat modeling activities with your application development lifecycles.
 
-    1.  **Waterfall** – ensure major projects should include threat modelling
+    1.  **Waterfall** – ensure major projects should include threat modeling
         during the design process and during significant updates to the
         application.
 
-    2.  **DevOps** –Trigger threat modelling activities at a frequency that adds
+    2.  **DevOps** –Trigger threat modeling activities at a frequency that adds
         security value without over-burdening the development teams. Good
         integration points are during the introduction of significant features
         or changes to the application and a regular recurring calendar schedule
-        (e.g. every quarter for business-critical applications).
+        (for example, every quarter for business-critical applications).
 
     3.  **Legacy applications –** These applications typically lack support,
         source code access, and/or expertise in the organization, so perform
-        threat modelling on a best effort basis with what application
+        threat modeling on a best effort basis with what application
         knowledge/expertise you have available.
 
-##### Simple Questions Method 
+### Simple questions method 
 
 >   This simple questioning method is designed to get security professionals and
 >   developers started on threat modelling before moving on to a more advanced
@@ -429,13 +428,13 @@ measures to minimize time investment while maximizing security value:
 >   this method, you can look to grow your ability to threat model by
 >   progressing to advanced threat modelling techniques.
 
-##### Advanced Threat Modelling Techniques
+### Advanced threat modeling techniques
 
 >   A more comprehensive threat model can identify more potential risks, two
 >   popular techniques are STRIDE and OWASP
 
 -   **Microsoft** Security Development Lifecycle has documented a process of
-    threat modelling in and released a free tool to assist with this process
+    threat modeling in and released a free tool to assist with this process
 
     -   This method evaluates application components and
         connections/relationships against potential risks (which map to the
@@ -457,11 +456,11 @@ measures to minimize time investment while maximizing security value:
         level architectural specific application components.
 
 -   **OWASP –** The Open Web Application Security Project (OWASP) has documented
-    a threat modelling approach for applications (which refers to STRIDE and
+    a threat modeling approach for applications (which refers to STRIDE and
     other methods)  
     <https://www.owasp.org/index.php/Application_Threat_Modeling>
 
-#### Use Web Application Firewalls
+## Use Web Application Firewalls
 
 Web application firewalls (WAFs) mitigate the risk of an attacker being able to
 exploit commonly seen security vulnerabilities for applications. While not
@@ -478,7 +477,7 @@ appropriate for both
     VOLUME AND IMPACT” best practice).
 
 -   Organizations who have invested in application security as WAFs provide a
-    valuable additional defense in depth mitigation. WAFs in this case act as a
+    valuable additional defense in-depth mitigation. WAFs in this case act as a
     final safety mechanism in case a security bug was missed by security
     practices in the development lifecycle.
 
@@ -487,7 +486,7 @@ Gateway](https://azure.microsoft.com/en-us/services/application-gateway/) and
 many vendors offer these capabilities as standalone security appliances or as
 part of next generation firewalls.
 
-#### Follow Best Practices for Container Security
+## Follow best practices for container security
 
 Applications hosted in containers should follow general application best
 practices as well as some specific guidelines to manage this new application
@@ -512,7 +511,7 @@ learned and best practices have become clear:
     release, there are still a lot of risks that have to be mitigated.
 
 -   **Validate container + container supply chain**  
-    Just as you should validate the security of any open source code added to
+    Just as you should validate the security of any open-source code added to
     your applications, you should also validate containers you add to your
     applications.
 

@@ -8,7 +8,7 @@ ms.service: architecture-center
 ms.subservice: cloud-design-principles
 ---
 
-# Identity and Access Management
+# Identity and access management
 
 In cloud-focused architecture, identity provides the basis of a large percentage
 of security assurances. While legacy IT infrastructure often heavily relied on
@@ -30,9 +30,9 @@ additional security features that legacy identity services cannot because they
 can apply threat intelligence from their visibility into a large volume of
 access requests and threats across many customers.
 
-#### Single Enterprise Directory
+## Single enterprise directory
 
-Establish a single enterprise directory for managing identities of full time
+Establish a single enterprise directory for managing identities of full-time
 employees and enterprise resources
 
 A single authoritative source for identities increases clarity and consistency
@@ -44,30 +44,29 @@ in one place and have confidence that their change will take effect everywhere.
 For Azure, designate a single Azure Active Directory (Azure AD) instance
 directory as the authoritative source for corporate/organizational accounts.
 
-#### Synchronize Identity Systems
+## Synchronize identity systems
 
 Synchronize your cloud identity with your existing identity systems
 
 Consistency of identities across cloud and on-premises will reduce human errors
-and resulting security risk. Teams managing resources in both environment needs
+and resulting security risk. Teams managing resources in both environment need
 a consistent authoritative source to achieve security assurances.
 
 For Azure, synchronize Azure AD with your existing authoritative on premises
-Active Directory using [Azure AD
-connect](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect)v.
+Active Directory using [Azure AD connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect)v.
 This is also required for an Office 365 migration, so it is often already done
 before Azure migration and development projects begin. Note that administrator
 accounts should be excepted from synchronization as described in REF DON’T
 SYNCHRONIZE ON-PREMISES ADMIN ACCOUNTS TO CLOUD IDENTITY PROVIDERS and REF -
 critical impact account dependencies
 
-#### Use Cloud Provider Identity Source for Third Parties
+## Use cloud provider identity source for third parties
 
 Use cloud identity services designed to host non-employee accounts rather than
 including vendors, partners, and customers in a corporate directory.
 
 This reduces risk by granting the appropriate level of access to external
-entities instead of the full default permissions given to full time employees.
+entities instead of the full default permissions given to full-time employees.
 This least privilege approach and clear clearly differentiation of external
 accounts from company staff makes it easier to prevent and detect attacks coming
 in from these vectors. Additionally, management of these identities is done by
@@ -89,19 +88,17 @@ identity and permission model used by Azure and Office 365
 [Do we want to keep this (resolves to 2 degrees of indirection!) or pull some
 examples from the MS-approved identity providers?]
 
-#### Passwordless Or Multi-factor Authentication For Admins
+## Passwordless Or multi-factor authentication for admins
 
 All users should be converted to use passwordless authentication or multi-factor
 authentication (MFA) over time. The details of this recommendation are in the
 administration section REF PASSWORDLESS OR MULTI-FACTOR AUTHENTICATION FOR
-ADMINS. The same recommendation apply to all users, but should be applied first
+ADMINS. The same recommendation applies to all users, but should be applied first
 and strongest to accounts with administrative privileges.
 
-You can also reduce use of passwords by applications using [Managed
-Identities](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)
-to grant access to resources in Azure
+You can also reduce use of passwords by applications using [Managed Identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) to grant access to resources in Azure
 
-#### Block Legacy Authentication
+## Block legacy authentication
 
 Disable insecure legacy protocols for internet-facing services.
 
@@ -115,7 +112,7 @@ attack countermeasures, such as account lockouts or back-off timers. Services
 running on Microsoft’s cloud that block legacy protocols have observed a 66%
 reduction in successful account compromises.
 
-For Azure and other Azure AD based accounts, configure Conditional Access to
+For Azure and other Azure AD-based accounts, configure Conditional Access to
 block legacy protocols.
 
 Disabling legacy authentication can be difficult, as some users may not want to
@@ -128,7 +125,7 @@ aren’t using legacy protocols. Finally, give plenty of notice and guidance to
 users on how to upgrade before blocking legacy authentication for all users on
 all services at a protocol level.
 
-#### Don’t Synchronize On-Premises Admin Accounts to Cloud Identity Providers
+## Don’t synchronize on-premises admin accounts to cloud identity providers
 
 Don’t synchronize accounts with the highest privilege access to on premises
 resources as you synchronize your enterprise identity systems with cloud
@@ -147,7 +144,7 @@ This is related to the REF - critical impact account dependencies guidance in
 the administration section that mitigates the inverse risk of pivoting from
 on-premises to cloud assets
 
-#### Use Modern Password Protection Offerings
+## Use modern password protection offerings
 
 Provide modern and effective protections for accounts that cannot go
 passwordless (link to REF PASSWORDLESS OR MULTI-FACTOR AUTHENTICATION FOR
@@ -181,38 +178,32 @@ organizations that had not synchronized passwords).
 
 For Azure, enable modern protections in Azure AD by
 
-1.  Configure Azure AD Connect to synchronize password hashes and
-
->   <https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization>
+1.  [Configure Azure AD Connect to synchronize password hashes](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization)
 
 1.  Choose whether to automatically remediate these issues or manually remediate
     them based on a report:
 
     1.  **Automatic Enforcement -** Automatically remediate high risk passwords
-        with Conditional Access (leveraging Azure AD Identity Protection risk
-        assessments)  
-        <https://docs.microsoft.com/en-us/azure/active-directory/identity-protection/overview>
+        with Conditional Access [leveraging Azure AD Identity Protection risk
+        assessments](https://docs.microsoft.com/en-us/azure/active-directory/identity-protection/overview)
 
     2.  **Report & Manually Remediate -** View reports and manually remediate
         accounts
 
         -   **Azure AD reporting** - Risk events are part of Azure AD's security
-            reports. For more information, see the [users at risk security
-            report](https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/concept-user-at-risk)
-            and the [risky sign-ins security
-            report](https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/concept-risky-sign-ins).
+            reports. For more information, see the [users at risk security report](https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/concept-user-at-risk)
+            and the [risky sign-ins security report](https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/concept-risky-sign-ins).
 
         -   **Azure AD Identity Protection** - Risk events are also part of the
-            reporting capabilities of [Azure Active Directory Identity
-            Protection](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-identityprotection).
+            reporting capabilities of [Azure Active Directory Identity Protection](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-identityprotection).
 
 Use the Identity Protection risk events API to gain programmatic access to
 security detections using Microsoft Graph.
 
-#### Use Cross-Platform Credential Management
+## Use cross-platform credential management
 
 Use a single identity provider for authenticating all platforms (Windows, Linux,
-and others) and cloud services
+and others) and cloud services.
 
 A single identity provider for all enterprise assets will simplify management
 and security, minimizing the risk of oversights or human mistakes. Deploying
@@ -223,16 +214,12 @@ retaining passwords after termination.
 
 For example, Azure Active Directory can be used to authenticate Windows,
 [Linux](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/login-using-aad),
-Azure, Office 365, [Amazon Web Services
-(AWS)](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/amazon-web-service-tutorial),
-[Google
-Services](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/google-apps-tutorial),
-(remote access to) [legacy on-premises
-applications](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/application-proxy),
-and 3rd party [Software as a Service
-providers](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/tutorial-list).
+Azure, Office 365, [Amazon Web Services (AWS)](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/amazon-web-service-tutorial),
+[Google Services](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/google-apps-tutorial),
+(remote access to) [legacy on-premises applications](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/application-proxy),
+and third-party [Software as a Service providers](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/tutorial-list).
 
-#### Enforce Conditional Access for USERS (Zero Trust)
+## Enforce conditional access for USERS (Zero Trust)
 
 Authentication for all users should include measurement and enforcement of key
 security attributes to support a Zero Trust strategy. The details of this
@@ -240,11 +227,10 @@ recommendation are in the administration section REF ENFORCE CONDITIONAL ACCESS
 FOR ADMINS. The same recommendation applies to all users, but should be applied
 first to accounts with administrative privileges.
 
-You can also reduce use of passwords by applications using [Managed
-Identities](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)
-to grant access to resources in Azure
+You can also reduce use of passwords by applications using [Managed Identities](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)
+to grant access to resources in Azure.
 
-#### Attack Simulation for Users
+## Attack simulation for users
 
 Regularly simulate attacks against users to educate and empower them.
 
@@ -252,17 +238,16 @@ People are a critical part of your defense, so ensure they have the knowledge
 and skills to avoid and resist attacks will reduce your overall organizational
 risk.
 
-You can use [Office 365 Attack
-Simulation](https://docs.microsoft.com/en-us/office365/securitycompliance/attack-simulator)
-capabilities or any number of 3rd party offerings [the open source Metasploit
+You can use [Office 365 Attack Simulation](https://docs.microsoft.com/en-us/office365/securitycompliance/attack-simulator)
+capabilities or any number of third-party offerings [the open-source Metasploit
 Framework and Trustedsec’s Social Engineer Toolkit, potentially supplemented
 with Maltego – *this is a bit bold as a statement as these tools can be used in
 real-world attacks as well. However, it shows commitment to OSS and our
-objective stance towards the security landscape*]
+objective stance towards the security landscape*].
 
-## Implementing Identity Best Practices in Azure
+## Implementing Identity best practices in Azure
 
-### Each of the recommendations from this section can be implemented using Azure Active Directory. See the below articles for more information about how to use these features. 
+Each of the recommendations from this section can be implemented using Azure Active Directory. See the below articles for more information about how to use these features. 
 
 ### Single Enterprise Directory 
 
@@ -296,4 +281,4 @@ https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/conce
 
 ### Use Cross-Platform Credential Management
 
-<https://docs.microsoft.com/en-us/azure/virtual-machines/linux/login-using-aad>
+https://docs.microsoft.com/en-us/azure/virtual-machines/linux/login-using-aad

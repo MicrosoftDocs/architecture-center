@@ -22,7 +22,7 @@ strategic directions:
 
 -   Tactically **containing attacker access**.
 
-### Resilience
+## Resilience
 
 Building cybersecurity resilience into your organization requires balancing
 investments across the security lifecycle, diligently applying maintenance
@@ -36,16 +36,16 @@ faces. The functions of the map well to these dual goals:
 
 -   **Identify/Protect –** Understanding your posture, your attackers, and
     invest in establishing and improving controls to prevent attacks on data and
-    systems over time. A defense in depth approach can further mitigate risk
+    systems over time. A defense in-depth approach can further mitigate risk
     including supplemental controls designed to handle the potential failure of
-    primary control (e.g. assuming network controls will fail and implementing
+    primary control (for example, assuming network controls will fail and implementing
     endpoint and data security protections)
 
 -   **Detect/Respond/Recovery –** Stay vigilant so that when attackers do get
     access to systems and data, you can rapidly detect them and restore normal
     operations and security assurances
 
-### Increasing Attacker Cost
+## Increasing attacker cost
 
 Cybersecurity attacks are planned and conducted by human attackers that must
 manage their return on investment into attacks (return could include profit
@@ -71,7 +71,7 @@ This is a general mindset with many possible applications, but two concrete
 applications of this are:
 
 -   **Investment criteria** - As you consider various security investments,
-    evaluate whether the potential investments lower attacker cost overall (e.g.
+    evaluate whether the potential investments lower attacker cost overall (for example,
     does this security investment force an attacker to build or buy a more
     expensive option? Does it eliminate one of many cheap options on the
     attacker menu? Or does it only eliminate an expensive/rare attack method?)
@@ -81,7 +81,7 @@ applications of this are:
     cataloging the lowest cost methods to get to business critical data so you
     can eliminate those first.
 
-### Containing Attacker Access
+## Containing attacker access
 
 The actual security risk for an organization is heavily influenced by how
 much access an adversary can or does obtain to valuable systems and data.

@@ -8,7 +8,7 @@ ms.service: architecture-center
 ms.subservice: cloud-design-principles
 ---
 
-# Storage, Data, and Encryption
+# Storage, data, and encryption
 
 
 Protecting data at rest is required to maintain confidentiality, integrity, and
@@ -31,7 +31,7 @@ Storage in Azure includes a number of native security design attributes
 
 -   Data will remain only in the region you choose
 
--   The system maintains 3 synchronous copies of data in the region you choose.
+-   The system maintains three synchronous copies of data in the region you choose.
 
 -   Detailed activity logging is available on an opt-in basis.
 
@@ -39,9 +39,9 @@ Additional security features can be configured such as a storage firewall to
 provide an additional layer of access control as well as storage threat
 protection to detect anomalous access and activities.
 
-Encryption is a powerful tool for security, but its critical to understand its
+Encryption is a powerful tool for security, but it's critical to understand its
 limits in protecting data. Much like a safe, encryption restricts access to only
-those with possession of a small item (a mathematical key). While its easier to
+those with possession of a small item (a mathematical key). While it's easier to
 protect possession of keys than larger datasets, it is imperative that you
 provide the appropriate protections for the keys. Protecting cryptographic keys
 is not a natural intuitive human process (especially because electronic data
@@ -53,7 +53,7 @@ we have identified the layers that are most important to implement (high
 potential for data to move to another storage medium) and are easiest to
 implement (near zero overhead).
 
-### Use Identity Based Storage Access Controls
+## Use Identity based storage access controls
 
 Cloud service providers make multiple methods of access control over storage
 resources available. Examples include shared keys, shared signatures, anonymous
@@ -65,11 +65,9 @@ over storage resources.
 
 We recommend that you use an identity-based option for storage access control.
 
-An example of this is [Azure Active Directory Authentication to Azure blob and
-queue
-services](https://docs.microsoft.com/en-us/rest/api/storageservices/authenticate-with-azure-active-directory).
+An example of this is [Azure Active Directory Authentication to Azure blob and queue services](https://docs.microsoft.com/en-us/rest/api/storageservices/authenticate-with-azure-active-directory).
 
-### Encrypt Virtual Disk Files
+## Encrypt virtual disk files
 
 Virtual machines use virtual disk files as virtual storage volumes and exist in
 a cloud service provider’s blob storage system. These files can be moved from
@@ -84,7 +82,7 @@ want to have a backup mechanism to secure the virtual disk files.
 
 You can encrypt the virtual disk files to help prevent attackers from gaining
 access to the contents of the disk files in the event that an attacker is able
-to download the files. When attackers attempt to mount an encrypted disk files,
+to download the files. When attackers attempt to mount an encrypted disk file,
 they will not be able to because of the encryption.
 
 We recommend that you enable virtual disk encryption.
@@ -92,10 +90,10 @@ We recommend that you enable virtual disk encryption.
 An example of virtual disk encryption is [Azure Disk
 Encryption](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption-overview).
 
-### Enable Platform Encryption Services
+## Enable platform encryption services
 
 All public cloud service providers enable encryption that is done automatically
-using provider managed keys on their platform. In many cases, this is done for
+using provider-managed keys on their platform. In many cases, this is done for
 the customer and no user interaction is required. In other cases, the provider
 makes this an option that the customer can choose to use or not to use.
 
@@ -105,6 +103,4 @@ by the cloud service provider.
 We recommend that for each service that supports service provider encryption
 that you enable that option.
 
-An example of service-specific service provider encryption is [Azure Storage
-Service
-encryption](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption).
+An example of service-specific service provider encryption is [Azure Storage Service encryption](https://docs.microsoft.com/en-us/azure/storage/common/storage-service-encryption).

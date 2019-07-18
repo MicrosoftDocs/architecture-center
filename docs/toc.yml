@@ -642,29 +642,29 @@
       href: resiliency/recovery-data-corruption.md
   - name: Secure your Azure applications 
     items: 
-    - name: Security's Role
+    - name: Role of security
       href: security/overview.md
-    - name: Security Design Principles
+    - name: Security design principles
       href: security/minimize-security-risks.md
-    - name: What types of attack should the architecture resist
+    - name: Types of attacks to resist
       href: security/arch-type.md
-    - name: What do the law, authorities, and regulators require
+    - name: Legal requirements
       href: security/law-authority.md
-    - name: How do you keep your organization's risk down
+    - name: Keep risks to organization down
       href: security/resilience.md            
     - name: Governance, risk, and compliance
       href: security/governance.md
-    - name: Identity and Access Management
+    - name: Identity and access management
       href: security/identity.md      
     - name: Network security and containment
       href: security/network-security-and-containment.md
-    - name: Storage, Data, and Encryption
+    - name: Storage, data, and encryption
       href: security/storage-data-encryption.md
-    - name: Applications and Services
+    - name: Applications and services
       href: security/applications-services.md
     - name: Administration
       href: security/critical-impact-accounts.md
-    - name: Security Operations
+    - name: Security operations
       href: security/security-operations.md
       
   - name: DevOps checklist

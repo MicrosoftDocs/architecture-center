@@ -8,7 +8,7 @@ ms.service: architecture-center
 ms.subservice: cloud-design-principles
 ---
 
-# Security Design Principles
+# Security design principles
 
 
 These principles support these three key strategies and describe a securely
@@ -41,14 +41,14 @@ recommended which maps to one of more of these principles:
     focused on the way attackers see your environment, which is often not the
     way IT and application teams see it. Inform your security design and test it
     with *penetration testing* to simulate one time attacks and *red teams* to
-    simulate long term persistent attack groups*.* Design your enterprise
+    simulate long-term persistent attack groups*.* Design your enterprise
     segmentation strategy and other security controls to **contain** attacker
     lateral movement within your environment. Actively measure and reduce the
     potential **Attack Surface** that attackers target for exploitation for
     resources within the environment.
 
 -   **Leverage Native Controls –** Favor native security controls built into
-    cloud services over external controls from 3rd parties. Native security
+    cloud services over external controls from third parties. Native security
     controls are maintained and supported by the service provider, eliminating
     or reducing effort required to integrate external security tooling and
     update those integrations over time.
@@ -110,7 +110,7 @@ recommended which maps to one of more of these principles:
         the least amount of privileged required to accomplish their assigned
         tasks by access permissions and by time. This helps mitigate the damage
         of an external attacker who gains access to the account and/or an
-        internal employee that inadvertently or deliberately (e.g. insider
+        internal employee that inadvertently or deliberately (for example, insider
         attack) compromises security assurances.
 
 -   **Baseline and Benchmark –** To ensure your organization considers current
@@ -131,7 +131,7 @@ recommended which maps to one of more of these principles:
     integrity can be sufficiently validated. Access requests should be granted
     conditionally based on the requestors trust level and the target resource’s
     sensitivity. Reasonable attempts should be made to offer means to increase
-    trust validation (e.g. request multi-factor authentication) and remediate
+    trust validation (for example, request multi-factor authentication) and remediate
     known risks (change known-leaked password, remediate malware infection) to
     support productivity goals.
 

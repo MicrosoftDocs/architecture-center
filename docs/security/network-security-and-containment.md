@@ -20,7 +20,7 @@ controls to protect resources rather than network-based access controls.
 These do diminish the role of network security controls, but do not eliminate it
 entirely. While network security is no longer the primary focus for securing
 cloud-based assets, it is still a top priority for the large portfolio of legacy
-assets (which were built with the assumption that a network firewall based
+assets (which were built with the assumption that a network firewall-based
 perimeter was in place). Many attackers still employ scanning and exploit
 methods across public cloud provider IP ranges, successfully penetrating
 defenses for those who don’t follow basic network security hygiene. Network
@@ -39,7 +39,7 @@ practice recommendations:
 
 -   Define an Internet Edge Strategy
 
-#### Centralize Network Management and security
+## Centralize network management and security
 
 Centralize the organizational responsibility for management and security of core
 networking functions such as cross-premises links, virtual networking,
@@ -55,11 +55,10 @@ the same level of network management and security knowledge and sophistication,
 organizations benefit from leveraging a centralized network team’s expertise and
 tooling.
 
-[Azure Security
-Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-network-recommendations)
+[Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-network-recommendations)
 can be used to help centralize the management of network security.
 
-#### Align network segmentation with Enterprise Segmentation strategy
+## Align network segmentation with enterprise segmentation strategy
 
 Align your network segmentation model with the enterprise segmentation model for
 your organization (defined in Governance, Risk, and Compliance section).
@@ -76,7 +75,7 @@ section X for examples how network and administrative segmentation models align.
 
 ![](_images/ref-entp-design-az-network-security.png)
 
-#### Evolve security beyond network controls
+## Evolve security beyond network controls
 
 Ensure technical controls can effectively prevent, detect, and respond to
 threats outside the networks you control.
@@ -102,7 +101,7 @@ application, identity, and other control types.
     block traffic to mitigate risk of adversaries crossing segmentation
     boundaries.
 
-#### Build a Security Containment Strategy
+## Build a security containment strategy
 
 Create a risk containment strategy that blends proven approaches including:
 
@@ -130,7 +129,7 @@ inadequate and security organizations need to evolve their methods.
 
 -   An important network security design decision is to use or not use
     host-based firewalls. Host-based firewalls support a comprehensive defense
-    in depth strategy. However, to be of most use they require significant
+    in-depth strategy. However, to be of most use they require significant
     management overhead. If your organization has found them effective in
     helping you protect and discover threats in the past, you might consider
     using them for your cloud-based assets. If you discover that they have not
@@ -151,15 +150,15 @@ destination resource needs to provide the necessary access controls.
 -   Azure Web Application Firewall and the Azure Firewall can be used for more
     advanced network access controls that require application layer support.
 
--   Local Admin Password Solution (LAPS) or a 3rd party Privileged Access
+-   Local Admin Password Solution (LAPS) or a third-party Privileged Access
     Management can set strong local admin passwords and just in time access to
     them
 
-Additionally, 3rd parties offer microsegmentation approaches that may enhance
+Additionally, third parties offer microsegmentation approaches that may enhance
 your network controls by applying zero trust principles to networks you control
 with legacy assets on them.
 
-#### Define an Internet Edge Strategy
+## Define an internet edge strategy
 
 Choose whether to use native cloud service provider controls or virtual network
 appliances for Internet edge security.
@@ -199,7 +198,7 @@ firewall solutions don’t provide sufficient return on investment, you may
 consider using the native capabilities that are designed to be easy to configure
 and scale.
 
-#### Discontinue Legacy Network Security Technology
+## Discontinue legacy network security technology
 
 Discontinue the use of signature-based Network Intrusion Detection/Network
 Intrusion Prevention (NIDS/NIPS) Systems and Network Data Leakage/Loss
@@ -227,7 +226,7 @@ organizational experience is that these technologies have had a palpable impact
 on preventing and detecting real attacks, you can consider porting them to your
 cloud environment.
 
-#### Design Virtual Network Subnet Security 
+## Design virtual network subnet security 
 
 Design virtual networks and subnets for growth.
 
@@ -254,11 +253,9 @@ However, the exception to this is if you want to use security groups only for
 network logging. We do not recommend this, but it is an option if you have
 another network access control solution in place.
 
-[Azure Virtual Network
-subnets](https://docs.microsoft.com/en-us/office365/enterprise/designing-networking-for-microsoft-azure-iaas)
-can be designed in this way.
+[Azure Virtual Network subnets](https://docs.microsoft.com/en-us/office365/enterprise/designing-networking-for-microsoft-azure-iaas) can be designed in this way.
 
-#### Mitigate DDoS Attacks
+## Mitigate DDoS attacks
 
 Enable Distributed Denial of Service (DDoS) mitigations for all
 business-critical web application and services.
@@ -266,15 +263,14 @@ business-critical web application and services.
 DDoS attacks are prevalent and are easily carried out by unsophisticated
 attackers. There are even “DDoS as a service” options on the dark net. DDoS
 attacks can be very debilitating and completely block access to your services
-and even take the services down, depending on the type of DDoS attack.
+and even take down the services, depending on the type of DDoS attack.
 
 The major cloud service providers offer DDoS protection of services of varying
 effectiveness and capacity. The cloud service providers typically provide two
 DDoS protection options:
 
 -   DDoS protection at the cloud network fabric level – all customers of the
-    cloud service provider benefit from these protections. The protection is
-    usually focus at the network (layer 3) level.
+    cloud service provider benefit from these protections. The protection is usually focused at the network (layer 3) level.
 
 -   DDoS protection at higher levels that profile your services – this kind of
     protection will baseline your deployments and then use machine learning
@@ -287,7 +283,7 @@ downtime will have negative impact on the business.
 An example of advanced DDoS protection is the [Azure DDoS Protection
 Service](https://docs.microsoft.com/en-us/azure/virtual-network/ddos-protection-overview).
 
-#### Decide Upon an Internet Ingress/egress Policy
+## Decide upon an internet ingress/egress policy
 
 Choose to route traffic destined for the Internet through on-premises security
 devices or allow Internet connectivity through cloud-based network security
@@ -309,7 +305,7 @@ The recommended approach for production enterprise use is to allow cloud
 resources to initiate and respond to Internet request directly through cloud
 network security devices defined by your internet edge strategy (LINK)
 
-The direct Internet approach fits the Nth datacenter paradigm (e.g. Azure
+The direct Internet approach fits the Nth datacenter paradigm (for example, Azure
 datacenters are a natural part of my enterprise). This approach scales much
 better for an enterprise deployment as it removes hops that add load, latency,
 and cost.
@@ -318,32 +314,27 @@ We recommend that you avoid [forced
 tunneling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-forced-tunneling)
 for the reasons noted above.
 
-#### Enable Enhanced Network Visibility
+## Enable enhanced network visibility
 
 You should enable enhanced network visibility by integrating network logs into a
-Security information and event management (SIEM) like Azure Sentinel or a 3rd
+Security information and event management (SIEM) like Azure Sentinel or a third
 partner solution such as Splunk, QRadar, or ArcSight ESM.
 
 Integrating logs from your network devices, and even raw network traffic itself,
 will provide you greater visibility over potential security threats flowing over
 the wire. This log information can be integrated in advanced SIEM solutions or
-other analytics platforms. The modern machine learning based analytics platforms
-supports ingestion of extremely large amounts of information and can analyze
+other analytics platforms. The modern machine learning based analytics platforms support ingestion of extremely large amounts of information and can analyze
 large datasets very quickly. In addition, these solutions can be tuned to
 significantly reduce false positive alerts.
 
 Examples of network logs that provide visibility include:
 
--   Security group logs – [flow
-    logs](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+-   Security group logs – [flow logs](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
     and diagnostic logs
 
--   [Web application firewall
-    logs](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-diagnostics)
+-   [Web application firewall logs](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-diagnostics)
 
--   [Virtual network
-    taps](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-tap-overview)
+-   [Virtual network taps](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-tap-overview)
     and their equivalents
 
--   [Azure Network
-    Watcher](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview)
+-   [Azure Network Watcher](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview)
