@@ -50,7 +50,7 @@ The following table illustrates a few common use scenario requirements and the r
 | I need a fully managed, scalable MySQL relational database that has high availability and security built in at no extra cost. | [Azure Database for MySQL](/azure/mysql/overview) |
 | I need a fully managed, scalable PostgreSQL relational database that has high availability and security built in at no extra cost. | [Azure Database for PostgreSQL](/azure/postgresql/overview) |
 | I plan to host enterprise SQL Server apps in the cloud and have full control over the server OS. | [SQL Server on Virtual Machines](/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-iaas-overview) |
-| I need a fully managed elastic data warehouse that has security at every level of scale at no extra cost. | [SQL Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) |
+| I need a fully managed elastic data warehouse that has security at every level of scale at no extra cost. | [Azure SQL Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) |
 | I need data lake storage resources that are capable of supporting Hadoop clusters or HDFS data. | [Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) |
 | I need high throughput and consistent, low-latency access for my data to support fast, scalable applications. | [Azure Cache for Redis](/azure/azure-cache-for-redis/cache-overview) |
 | I need a fully managed, scalable MariaDB relational database that has high availability and security built in at no extra cost. | [Azure Database for MariaDB](/azure/mariadb/overview) |
