@@ -13,7 +13,7 @@ ms.custom: governance
 
 # Approaches to digital estate planning
 
-Digital estate planning can take several forms depending on the desired outcomes and size of the existing estate.There are various approaches that you can take. It's important to set expectations regarding the approach early in planning cycles. Unclear expectations often lead to delays associated with additional inventory-gathering exercises. This article outlines three approaches to analysis.
+Digital estate planning can take several forms depending on the desired outcomes and size of the existing estate. There are various approaches that you can take. It's important to set expectations regarding the approach early in planning cycles. Unclear expectations often lead to delays associated with additional inventory-gathering exercises. This article outlines three approaches to analysis.
 
 ## Workload-driven approach
 

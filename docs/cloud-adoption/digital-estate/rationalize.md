@@ -13,7 +13,7 @@ ms.custom: governance
 
 # Rationalize the digital estate
 
-Cloud rationalization is the process of evaluating assets to determine the best approach to hosting them in the cloud. After you've determined an [approach](approach.md) and aggregated an [inventory](inventory.md), cloud rationalization can begin. The [five Rs of rationalization](5-rs-of-rationalization.md) discusses the most common rationalization options.
+Cloud rationalization is the process of evaluating assets to determine the best approach to hosting them in the cloud. After you've determined an [approach](approach.md) and aggregated an [inventory](inventory.md), cloud rationalization can begin. [Cloud rationalization](rationalize.md) discusses the most common rationalization options.
 
 ## Traditional view of rationalization
 
@@ -35,19 +35,19 @@ If this effort is time consuming and daunting for a 50-VM digital estate, imagin
 
 While full rationalization is the end state and a great direction to move in, it seldom produces a high ROI (return on investment) relative to the time and energy that's required.
 
-When rationalization is essential to financial decisions, it's worth considering a professional services organization that specializes in cloud rationalization to accelerate the process. Even then, full rationalization can be a costly and time-consuming effort that could delay transformation or business outcomes.
+When rationalization is essential to financial decisions, it's worth considering a professional services organization that specializes in cloud rationalization to accelerate the process. Even then, full rationalization can be a costly and time-consuming effort that delays transformation or business outcomes.
 
 The rest of this article describes an alternative approach, known as incremental rationalization.
 
 ## Incremental rationalization
 
-The complete rationalization of a large digital estate is prone to risk and can suffer delays because of its complexity. The assumption behind the incremental approach is that delayed decisions stagger the load on the business to reduce the risk of roadblocks. Over time, this approach creates an organic model for developing the processes and experience required to make qualified rationalization decisions and do so more efficiently.
+The complete rationalization of a large digital estate is prone to risk and can suffer delays because of its complexity. The assumption behind the incremental approach is that delayed decisions stagger the load on the business to reduce the risk of roadblocks. Over time, this approach creates an organic model for developing the processes and experience required to make qualified rationalization decisions more efficiently.
 
 ### Inventory: Reduce discovery data points
 
 Few organizations invest the time, energy, and expense in maintaining an accurate, real-time inventory of the full digital estate. Loss, theft, refresh cycles, and employee on-boarding often justify detailed asset tracking of end-user devices. However, the ROI of maintaining an accurate server and application inventory in a traditional, on-premises datacenter is often low. Most IT organizations have other more pressing issues to address than tracking the usage of fixed assets in a datacenter.
 
-In a cloud transformation, inventory directly correlates to operating costs. Accurate inventory data is required for proper planning. Unfortunately, current environmental scanning options can delay decisions by weeks or months, to scan and catalog the full inventory. Fortunately, there are a few tricks to accelerating data collection.
+In a cloud transformation, inventory directly correlates to operating costs. Accurate inventory data is required for proper planning. Unfortunately, current environmental scanning options can delay decisions by weeks or months. Fortunately, there are a few tricks for accelerating data collection.
 
 Agent-based scanning is the most frequently cited delay. The robust data that's required for a traditional rationalization can often only be collected with an agent running on each asset. This dependency on agents often slows progress, because it can require feedback from security, operations, and administration functions.
 
@@ -55,7 +55,7 @@ In an incremental rationalization process, an agent-less solution could be used 
 
 ### Quantitative analysis: Streamline decisions
 
-Regardless of the approach to inventory discovery, quantitative analysis can drive initial decisions and assumptions. This is especially true when trying to identify the first workload or when the goal of rationalization is a high-level cost comparison. In an incremental rationalization process, the cloud strategy and cloud adoption teams limit the [Five Rs of rationalization](5-rs-of-rationalization.md) to two concise decisions and only apply those quantitative factors. This streamlines the analysis and reduces the amount of initial data that's required to drive change.
+Regardless of the approach to inventory discovery, quantitative analysis can drive initial decisions and assumptions. This is especially true when trying to identify the first workload or when the goal of rationalization is a high-level cost comparison. In an incremental rationalization process, the cloud strategy and cloud adoption teams limit the [five Rs of rationalization](5-rs-of-rationalization.md) to two concise decisions and only apply those quantitative factors. This streamlines the analysis and reduces the amount of initial data that's required to drive change.
 
 For example, if an organization is in the midst of an IaaS migration to the cloud, you can assume that most workloads will either be retired or rehosted.
 
@@ -69,7 +69,7 @@ For example, if the options are limited to rehosting or retiring, the business n
 
 This streamlined approach produces baselines, financial plans, strategy, and direction. In later activities, each asset goes through further rationalization and qualitative analysis to evaluate other options. All assumptions that you make in this initial rationalization are tested before
 
-## Challenging assumptions
+## Challenge assumptions
 
 The outcome of the prior section is a rough rationalization that's full of assumptions. Next, it's time to challenge some of those assumptions.
 
@@ -85,7 +85,7 @@ It's not uncommon for organizations to retire 20% or more of their digital estat
 
 A company seldom embarks on just one transformation journey. The choice between cost reduction, market growth, and new revenue streams is rarely a binary decision. As such, we recommend that the cloud strategy team work with IT to identify assets on parallel transformation efforts that are outside of the scope of the primary transformation journey.
 
-In the IaaS migration example  that'sused in this article:
+In the IaaS migration example  that's used in this article:
 
 - Ask the DevOps team to identify assets that are already part of a deployment automation and remove those assets from the core migration plan.
 
@@ -101,13 +101,13 @@ Implementing the first workload is key to testing and learning. It's the first o
 
 ### Business criteria
 
-Identify a workload that is supported by a member of the cloud strategy team’s business unit to ensure business transparency. Preferably choose one in which the team has a vested stake and strong motivation to move to the cloud.
+To ensure business transparency, identify a workload that is supported by a member of the cloud strategy team’s business unit. Preferably choose one in which the team has a vested stake and strong motivation to move to the cloud.
 
 ### Technical criteria
 
 Select a workload that has minimum dependencies and can be moved as a small group of assets. We recommend that you select a workload with a defined testing path to make validation easier.
 
-The first workload is often deployed in an experimental environment with no operational or governance capacity. It's important to select a workload that does not interact with secure data.
+The first workload is often deployed in an experimental environment with no operational or governance capacity. It's important to select a workload that doesn't interact with secure data.
 
 ### Qualitative analysis
 
@@ -137,7 +137,7 @@ The cloud adoption and cloud strategy teams can work together on the qualitative
 
 ### Mature the process
 
-After the two teams agree on the qualitative analysis criteria, assessment can become a task within each iteration. Reaching consensus on assessment criteria usually requires 2 to 3 releases.
+After the two teams agree on the qualitative analysis criteria, assessment can become a task within each iteration. Reaching consensus on assessment criteria usually requires two to three releases.
 
 After the assessment has moved into the incremental execution process of migration, the cloud adoption team can iterate faster on assessment and architecture. At this stage, the cloud strategy team is also abstracted, which reduces the drain on their time. This also enables the cloud strategy team to focus on prioritizing the applications that are not yet in a specific release, which ensures tight alignment with changing market conditions.
 

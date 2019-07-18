@@ -23,14 +23,14 @@ The measurement of a digital estate changes depending on the desired business ou
 
 - **Infrastructure migrations.** When an organization is inward-facing and seeks to optimize costs, operational processes, agility, or other aspects of their operations, the digital estate focuses on VMs, servers, and workloads.
 
-- **Application innovation.** For customer-obsfocused transformations, the lens is a bit different. The focus should be placed on the applications, APIs, and transactional data that supports the customers. VMs and network appliances often receive less focus.
+- **Application innovation.** For customer-focused transformations, the lens is a bit different. The focus should be placed on the applications, APIs, and transactional data that supports the customers. VMs and network appliances often receive less focus.
 
 - **Data-driven innovation.** In today's digitally driven market, it's difficult to launch a new product or service without a strong foundation in data. During cloud-enabled data innovation efforts, the focus is more on the silos of data across the organization.
 
 After an organization understands the most important form of transformation, digital estate planning becomes much easier to manage.
 
 > [!TIP]
-> Each type of transformation can be measured with any of the three views. Companies commonly complete all three transformations in parallel. We strongly recommend that the leadership and cloud strategy team be firmly aligned regarding the transformation that is most important for business success. That understanding serves as the basis for common language and metrics across multiple initiatives.
+> Each type of transformation can be measured with any of the three views. Companies commonly complete all three transformations in parallel. We strongly recommend that the leadership and cloud strategy team agree regarding the transformation that is most important for business success. That understanding serves as the basis for common language and metrics across multiple initiatives.
 
 ## How can a financial model be updated to reflect the digital estate?
 
