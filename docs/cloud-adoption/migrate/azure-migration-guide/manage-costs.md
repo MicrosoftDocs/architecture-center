@@ -66,7 +66,7 @@ _Figure 1. Image of the Cost Details view of an assessment in Azure Migrate_
 
 ## Additional resources
 
-- [Creating and viewing assessments with Azure Migrate](/azure/migrate/tutorial-assessment-vmware#create-and-view-an-assessment)
+- [Set up and review an assessment with Azure Migrate](/azure/migrate/tutorial-assess-vmware#set-up-an-assessment)
 - For a more comprehensive plan on cost management across larger numbers of assets (infrastructure, apps, and data), see the [Cloud Adoption Framework governance model](../../governance/journeys/index.md). In particular, guidance on the [Cost Management discipline](../../governance/cost-management/index.md) and the [Cost Management evolution in the large enterprise guide](../../governance/journeys/large-enterprise/cost-management-evolution.md).
 
 # [Estimate and optimize VM costs during and after migration](#tab/EstimateOptimize)

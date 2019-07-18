@@ -116,7 +116,7 @@ Used together, these features can save time by minimizing alert notifications an
 
 ### Alerts limitations
 
-Be sure to note the [limitations](/azure/azure-subscription-service-limits#monitor-limits) of how many alerts can be created per subscription, etc. Some, but not all, limits can be increased by calling support.
+Be sure to note the [limitations](/azure/azure-subscription-service-limits#azure-monitor-limits) of how many alerts can be created per subscription, etc. Some, but not all, limits can be increased by calling support.
 
 ### Best query experience
 
