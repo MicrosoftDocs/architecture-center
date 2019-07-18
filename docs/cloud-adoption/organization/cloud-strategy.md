@@ -15,7 +15,7 @@ ms.custom: organize
 
 Successful cloud adoption should align to defined motivations and business outcomes. When those outcomes impact business functions, it's a good idea to establish a team made up of business leaders from across the organization. To unite various leaders, we recommend that the executive leadership create a cloud strategy team. The goal of the cloud strategy team is to produce tangible business results that are enabled by cloud technologies. This team ensures that cloud adoption efforts progress in alignment with business outcomes.
 
-In the absence of a defined cloud strategy team,someone must still provide the capability to align technical activities to business outcomes. That same person or group should also manage change across the project. This section defines this capability in more detail.
+In the absence of a defined cloud strategy team, someone must still provide the capability to align technical activities to business outcomes. That same person or group should also manage change across the project. This section defines this capability in more detail.
 
 ## Possible sources for this capability
 
