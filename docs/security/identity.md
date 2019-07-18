@@ -53,7 +53,7 @@ and resulting security risk. Teams managing resources in both environment need
 a consistent authoritative source to achieve security assurances.
 
 For Azure, synchronize Azure AD with your existing authoritative on premises
-Active Directory using [Azure AD connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect)v.
+Active Directory using [Azure AD connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
 This is also required for an Office 365 migration, so it is often already done
 before Azure migration and development projects begin. Note that administrator
 accounts should be excepted from synchronization as described in [Don’t synchronize on-premises admin accounts to cloud identity providers](/azure/architecture/security/identity.md#dont-synchronize-on-premises-admin-accounts-to-cloud-identity-providers) and 
