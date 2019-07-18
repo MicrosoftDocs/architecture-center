@@ -67,7 +67,7 @@ cloud is frequently much better than that of applications hosted
 on-premises.
 
 **Shared Responsibility Model -** As computing environments move from
-customer-controlled datacenters to cloud datacenters, the responsibility of
+customer-controlled datacenters to the cloud, the responsibility of
 security also shifts. Security of the operational environment is now a
 concern shared by both cloud providers and customers. By shifting these
 responsibilities to a cloud service like Azure, organizations can reduce
