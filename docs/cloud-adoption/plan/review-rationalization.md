@@ -17,7 +17,7 @@ During initial strategy and planning phases, we suggest you apply an [incrementa
 > [!IMPORTANT]
 > Further validation of the rationalization decisions will occur during the assessment phase of migration. This validation focuses on business review of the rationalization to align resources appropriately.
 
-To validate rationalization decisions, use the following questions to help a conversation with the business. The questions are grouped by the likely rationalization alignment.
+To validate rationalization decisions, use the following questions to facilitate a conversation with the business. The questions are grouped by the likely rationalization alignment.
 
 ## Innovation indicators
 
@@ -29,7 +29,7 @@ If the joint review of the following questions results in a "Yes" answer, a work
 - Is there a proposed or approved investment aimed at taking advantage of the data associated with this workload?
 - Can the effect of the market differentiation or new offerings be quantified? If so, does that return justify the increased cost of innovation during cloud adoption?
 
-The following two questions aid in including high-level technical scenarios into the rationalization review. Answering "Yes" to either could identify ways of accounting for or reducing the cost associated with innovation.
+The following two questions can help you include high-level technical scenarios in the rationalization review. Answering "Yes" to either could identify ways of accounting for or reducing the cost associated with innovation.
 
 - Will the data structures or business logic change during the course of cloud adoption?
 - Is an existing deployment pipeline used to deploy this workload to production?

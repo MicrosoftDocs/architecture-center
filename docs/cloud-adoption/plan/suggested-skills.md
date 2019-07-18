@@ -17,10 +17,10 @@ IT staff members might feel anxious about their roles and positions as they real
 ![Mapping of skills to IT roles in a cloud hosted environment](../_images/skills-guidance.png)
 *Figure 1. Mapping of skills to IT roles in a cloud-hosted environment*
 
-Cloud Adoption Framework for Azure guides readers through the full adoption life cycle. Throughout this framework, readers are provided opportunities to build necessary skills. To help readers get started on this journey, those skills-readiness articles are included in the following outline for easier access. Each of the following links maps to the skills required to be successful in each of those adoption phases.
+Cloud Adoption Framework guides readers through the full adoption life cycle. Throughout this framework, readers are provided opportunities to build necessary skills. To help you get started on this journey, skills-readiness articles are included in the following outline for easier access. Each of the following links maps to the skills required to be successful in each of those adoption phases.
 
-- **[Strategy](../business-strategy/suggested-skills.md):** Develop the skills needed to prepare an actionable migration plan. This plan includes business justification and other required business-planning skills.
-- **[Plan](./suggested-skills.md):** Develop the skills needed to prepare an actionable migration plan. This plan includes business justification and other required business-planning skills.
+- **[Strategy](../business-strategy/suggested-skills.md):** Develop the skills needed to prepare an actionable migration plan. This includes business justification and other required business-planning skills.
+- **[Plan](./suggested-skills.md):** Develop the skills needed to prepare an actionable migration plan. This includes business justification and other required business-planning skills.
 - **[Ready](../ready/suggested-skills.md):** Develop the skills needed to prepare the business, culture, people, and environment for coming changes.
 
 - **Adopt:** Adoption skills are aligned to various technical efforts:
