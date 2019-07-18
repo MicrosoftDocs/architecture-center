@@ -43,7 +43,7 @@ This example includes a high availability configuration for an Oracle database, 
 
 - [Virtual Networks](/azure/virtual-network/virtual-networks-overview) are used in this scenario to create a virtual hub-and-spoke topology in Azure.
 
-- [Virtual Machines](/azure/virtual-machines/windows/overview) provide the compute resources for each tier of the solution. Each cluster of virtual machines is configured as an [availability set](/azure/virtual-machines/windows/regions-and-availability#availability-sets).
+- [Virtual Machines](/azure/virtual-machines/windows/overview) provide the compute resources for each tier of the solution. Each cluster of virtual machines is configured as an [availability set](/azure/virtual-machines/windows/availability#availability-sets).
 
 - [ExpressRoute](/azure/expressroute/expressroute-introduction) extends your on-premises network into the Microsoft cloud through a private connection established by a connectivity provider.
 
