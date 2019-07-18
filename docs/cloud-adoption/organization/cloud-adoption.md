@@ -33,7 +33,7 @@ Cloud adoption teams should consist of an average team size of six people for op
 
 ## Key responsibilities
 
-The primary need from any cloud adoption capability is the timely, high-quality implementation of the technical solutions outlined in the adoption plan, in alignment with governance requirements and business outcomes, taking advantage of technology, tools,and automation solutions made available to the team.
+The primary need from any cloud adoption capability is the timely, high-quality implementation of the technical solutions outlined in the adoption plan, in alignment with governance requirements and business outcomes, taking advantage of technology, tools, and automation solutions made available to the team.
 
 **Early planning tasks:**
 
