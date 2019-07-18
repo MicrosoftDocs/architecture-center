@@ -70,8 +70,7 @@ to a straightforward and unified security strategy, which helps reduce the
 number of errors due to human error and inability to increase reliability
 through automation.
 
-Please compare REF - figure X with the Administrative Model seen in REF -
-section X for examples how network and administrative segmentation models align.
+Please compare images in [Network security and containment](/azure/architecture/security/governance.md#define-a-segmentation-strategy).
 
 ![](_images/ref-entp-design-az-network-security.png)
 

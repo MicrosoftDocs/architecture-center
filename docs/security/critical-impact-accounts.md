@@ -164,9 +164,7 @@ their workstations with caution.
     -   *Native Azure AD Accounts -* Create Native Azure AD Accounts that are
         not synchronized with on-premises Active Directory.
 
-    -   *Synchronize from On Premises Active Directory (Not Recommended see REF
-        DON’T SYNCHRONIZE ON-PREMISES ADMIN ACCOUNTS TO CLOUD IDENTITY
-        PROVIDERS)-* Leverage existing accounts hosted in the on premises active
+    -   *Synchronize from On Premises Active Directory (See [Critical impact admin dependencies – account/workstation](/azure/architecture/security/critical-impact-accounts.md#critical-impact-admin-dependencies--accountworkstation))-* Leverage existing accounts hosted in the on premises active
         directory.
 
 -   **Workstations** – Choose how to manage and secure the workstations used by
@@ -189,7 +187,7 @@ Web Services (AWS), ServiceNow, and so on. Attackers can also use workstations
 joined to those on-premises domains to gain access to accounts and services
 managed from them.
 
-This is related to the “REF Don’t synchronize on-premises admin accounts” to
+This is related to the [Critical impact admin dependencies – account/workstation](/azure/architecture/security/critical-impact-accounts.md#critical-impact-admin-dependencies--accountworkstation) to
 cloud identity providers guidance in the administration section that mitigates
 the inverse risk of pivoting from cloud assets to on-premises assets.
 
@@ -263,7 +261,7 @@ fragile. These factors all negatively impact security.
 Disable or delete administrative accounts when employees leave the organization
 or move on to different roles.
 
-See REF REGULARLY REVIEW CRITICAL ACCESS for more details
+See [Regularly review critical access](/azure/architecture/security/governance.md#regularly-review-critical-access)
 
 ## Simulate attack for critical impact accounts
 
