@@ -150,7 +150,9 @@ creating a full copy of your solution in both regions.
 
 ### See also
 
-- [Regions and availability for virtual machines in Azure](/azure/virtual-machines/linux/regions-and-availability)
+- [Regions for virtual machines in Azure](/azure/virtual-machines/linux/regions)
+
+- [Availability options for virtual machines in Azure](/azure/virtual-machines/linux/availability)
 
 - [High availability for Azure applications](../resiliency/high-availability-azure-applications.md)
 
