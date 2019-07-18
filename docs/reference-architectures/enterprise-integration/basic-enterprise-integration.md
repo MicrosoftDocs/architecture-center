@@ -214,7 +214,7 @@ For greater reliability and scalability, use message queues and events to decoup
 [logic-apps-log-analytics]: /azure/logic-apps/logic-apps-monitor-your-logic-apps-oms
 [logic-apps-monitor]: /azure/logic-apps/logic-apps-monitor-your-logic-apps
 [logic-apps-restrict-ip]: /azure/logic-apps/logic-apps-securing-a-logic-app#restrict-incoming-ip-addresses
-[logic-apps-secure]: /azure/logic-apps/logic-apps-securing-a-logic-app#secure-action-parameters-and-inputs
+[logic-apps-secure]: /azure/logic-apps/logic-apps-securing-a-logic-app#access-to-parameter-inputs
 [logic-apps-sla]: https://azure.microsoft.com/support/legal/sla/logic-apps
 [monitor]: /azure/azure-monitor/overview
 [rbac]: /azure/role-based-access-control/overview
