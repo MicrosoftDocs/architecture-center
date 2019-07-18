@@ -235,11 +235,7 @@ and skills to avoid and resist attacks will reduce your overall organizational
 risk.
 
 You can use [Office 365 Attack Simulation](https://docs.microsoft.com/en-us/office365/securitycompliance/attack-simulator)
-capabilities or any number of third-party offerings [the open-source Metasploit
-Framework and Trustedsec’s Social Engineer Toolkit, potentially supplemented
-with Maltego – *this is a bit bold as a statement as these tools can be used in
-real-world attacks as well. However, it shows commitment to OSS and our
-objective stance towards the security landscape*].
+capabilities or any number of third-party offerings.
 
 ## Implementing Identity best practices in Azure
 
