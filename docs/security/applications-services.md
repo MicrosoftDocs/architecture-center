@@ -344,7 +344,7 @@ measures to minimize time investment while maximizing security value:
 
     2.  **Progressively evaluate Application Design** – as resource and
         expertise are available, move to a more advanced analysis using the
-        STRIDE method [Advanced threat modeling techniques](#application-code-top-down--threat-modeling-application-architecture) or
+        STRIDE method [Advanced threat modeling techniques](#top-down-approach-through-threat-modeling) or
         another similar one already used by your team. Start with the
         architecture level design and progressively increase detail as time and
         resources allow:
@@ -380,7 +380,7 @@ measures to minimize time investment while maximizing security value:
 
 >   This simple questioning method is designed to get security professionals and
 >   developers started on threat modelling before moving on to a more advanced
->   method like STRIDE or OWASP’s method (see, [Top down approach through threat modeling](#application-code-top-down--threat-modeling-application-architecture)).
+>   method like STRIDE or OWASP’s method (see, [Top down approach through threat modeling](#top-down-approach-through-threat-modeling)).
 
 >   For each application or component, ask and answer these questions
 
@@ -473,7 +473,7 @@ appropriate for both
 -   Organizations without a strong application security program as it’s a
     critical safety measure (much like a parachute in a plane). Note that this
     shouldn’t be the only planned safety mechanism to reduce the volume and
-    severity of security bugs in your applications. For details, see [Reduce security bug volume and impact](#application-code-bottom-up---reduce-security-bug-volume-and-impact).
+    severity of security bugs in your applications. For details, see [Reduce security bug volume and impact](#bottom-up-approach-to-reduce-security-bug-volume-and-impact).
 
 -   Organizations who have invested in application security as WAFs provide a
     valuable additional defense in-depth mitigation. WAFs in this case act as a
