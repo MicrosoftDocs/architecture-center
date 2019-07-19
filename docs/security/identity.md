@@ -82,7 +82,7 @@ identity and permission model used by Azure and Office 365
     – Partners
 
 -   [Azure AD B2C](https://docs.microsoft.com/en-us/azure/active-directory-b2c/)
-    - Customers/citizens
+    – Customers/citizens
 
 ## Passwordless Or multi-factor authentication for admins
 
