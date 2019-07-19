@@ -19,21 +19,21 @@ During the *ready* phase of a migration, the objective is to prepare for the jou
 
 Depending on the motivations and business outcomes that are associated with a cloud-adoption effort, leaders may need to establish new organizational structures or virtual teams (v-teams) to facilitate various functions. The following articles can help your organization develop the necessary skills to structure those teams to meet the desired outcomes:
 
-- [Initial organization alignment](./index.md): An overview of organizational alignment and various team structures to help meet specific goals.
-- [Breaking down silos and fiefdoms](./fiefdoms-silos.md): Learn about two common organizational *antipatterns* and ways to guide the team to productive collaboration.
+- [Initial organization alignment](./index.md): An overview of alignment and team structures to help meet specific goals.
+- [Breaking down silos and fiefdoms](./fiefdoms-silos.md): Learn about two common organizational *antipatterns* and ways to guide the teams to productive collaboration.
 
 ## Environmental (technical) readiness learning paths
 
-During the ready phase, technical staff have to create a migration landing zone to host, operate, and govern workloads that are migrated to the cloud. Developing the necessary skills can be accelerated by using the following learning paths:
+During the ready phase, technical staff have to create a migration landing zone to host, operate, and govern workloads that they migrate to the cloud. Use the following paths to accelerate development of the necessary skills:
 
 - [Create an Azure account](/learn/modules/create-an-azure-account): The first step to using Azure is to create an account. Your account holds the Azure services that you provision and handles your personal settings, like identity, billing, and preferences.
 - [Azure portal](/learn/modules/tour-azure-portal): Tour the Azure portal features and services, and customize the portal.
 - [Introduction to Azure](/learn/modules/welcome-to-azure): Get started with Azure. Create and configure your first virtual machine in the cloud.
-- [Introduction to security in Azure](/learn/modules/intro-to-security-in-azure): Discuss the basic concepts to protect your infrastructure and data in the cloud. Understand what responsibilities are yours and what Azure takes care of for you.
+- [Introduction to security in Azure](/learn/modules/intro-to-security-in-azure): Learn the basic concepts to protect your infrastructure and data in the cloud. Understand what responsibilities are yours and what Azure handles.
 - [Manage resources in Azure](/learn/paths/manage-resources-in-azure): Learn how to work through the Azure CLI and web portal to create, manage, and control cloud-based resources.
 - [Create a VM](/learn/modules/create-windows-virtual-machine-in-azure): Use the Azure portal to create a virtual machine.
-- [Azure network services](/learn/modules/intro-to-azure-networking): Learn Azure networking basics and how Azure network services help improve resiliency and reduce latency.
-- [Azure Compute Options](/learn/modules/intro-to-azure-compute): Review the Azure compute services.
+- [Azure network services](/learn/modules/intro-to-azure-networking): Learn Azure networking basics and how to improve resiliency and reduce latency.
+- [Azure compute options](/learn/modules/intro-to-azure-compute): Review the Azure compute services.
 - [Secure resources with RBAC](/learn/modules/secure-azure-resources-with-rbac): Use role-based access control (RBAC) to secure resources.
 - [Azure Storage options](/learn/modules/intro-to-data-in-azure/index): Learn about the benefits of Azure data storage.
 
@@ -45,19 +45,18 @@ During the ready phase, architects have to design solutions that span all Azure 
 
 ## Deeper skills exploration
 
-A variety of additional learning options are also available.
+The following information describes resources for additional learning.
 
 ### Typical mappings of cloud IT roles
 
-Microsoft and its partners offer a variety of options for all audiences to develop their skills for using Microsoft Azure services.
+Microsoft and its partners offer options to help all audiences develop their skills for using Microsoft Azure services.
 
 - [Microsoft Virtual Academy](https://mva.microsoft.com/product-training/microsoft-azure): Offers training from the people who helped build Azure. From a basic overview to deep technical training, IT staff learn how to apply Azure to their business.
-- [Microsoft IT Pro Cloud Essentials](https://www.microsoft.com/azureessentials): Provides a free annual subscription that includes cloud services, education, and support benefits. IT Pro Cloud Essentials provides IT implementers with practical experience, targeted educational opportunities, and access to experts in the areas that matter most to increase knowledge and create a path to career advancement.
-- [Microsoft IT Pro Career Center](https://www.microsoft.com/itpro): A free online resource to help map your cloud career path. Learn from industry experts about your cloud role and the skills you need. Follow a learning curriculum at your own pace to build the skills you need to stay relevant.
+- [Microsoft IT Pro Career Center](https://www.microsoft.com/itpro): A free online resource to help map your cloud career path. Learn from industry experts about your cloud role and the skills you need. Follow a learning curriculum at your own pace to build the skills that you need to stay relevant.
 
 We recommend that you turn your knowledge of Azure into official recognition with [Microsoft Azure certification training and exams](https://www.microsoft.com/learning/azure-certification.aspx).
 
-## Microsoft Learn
+### Microsoft Learn
 
 Microsoft Learn is a new approach to learning. Readiness for the new responsibilities that come with cloud adoption doesn't come easily. Microsoft Learn provides a rewarding approach to hands-on learning that helps you achieve your goals faster. Earn points, reach new levels, and achieve more.
 

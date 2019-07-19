@@ -24,14 +24,14 @@ This article provides an example of a *responsible, accountable, consulted, and 
 
 To track organization structure decisions over time, download and modify the [RACI spreadsheet template](https://archcenter.blob.core.windows.net/cdn/fusion/management/raci-template.xlsx).
 
-The following examples specify these RACI constructs:
+The examples in this article specify these RACI constructs:
 
 - The one team that's *accountable* for a function
-- Teams that are *responsible* for the outcomes
-- Teams that should be *consulted* during planning
-- Teams that should be *informed* when work is completed
+- The teams that are *responsible* for the outcomes
+- The teams that should be *consulted* during planning
+- The teams that should be *informed* when work is completed
 
-The last row of each table contains a link to the most-aligned cloud capability for additional information.
+The last row of each table except the first one contains a link to the most-aligned cloud capability for additional information.
 
 ## Cloud adoption team only
 
@@ -95,7 +95,7 @@ The last row of each table contains a link to the most-aligned cloud capability 
 
 ## Next steps
 
-To track organization structure decisions over time, download and modify the [RACI spreadsheet template](https://archcenter.blob.core.windows.net/cdn/fusion/management/raci-template.xlsx). Copy, paste, and modify the most closely aligned sample from the RACI matrices in this article.
+To track organization-structure decisions over time, download and modify the [RACI spreadsheet template](https://archcenter.blob.core.windows.net/cdn/fusion/management/raci-template.xlsx). Copy and modify the most closely aligned sample from the RACI matrices in this article.
 
 > [!div class="nextstepaction"]
 > [Download the RACI spreadsheet template](https://archcenter.blob.core.windows.net/cdn/fusion/management/raci-template.xlsx)
