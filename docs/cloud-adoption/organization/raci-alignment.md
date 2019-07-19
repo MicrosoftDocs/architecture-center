@@ -13,7 +13,7 @@ ms.custom: organize
 
 # Develop a cross-team RACI diagram
 
-This article provides an example of a "responsible, accountable, consulted, and informed" (RACI) matrix for the organizational structures that are described at [Establish team structures](./organization-structures.md):
+This article provides an example of a *responsible, accountable, consulted, and informed* (RACI) matrix for the organizational structures that are described at [Establish team structures](./organization-structures.md):
 
 - [Cloud adoption team only](#cloud-adoption-team-only)
 - [MVP best practice](#best-practice-minimum-viable-product-mvp)
@@ -24,9 +24,9 @@ This article provides an example of a "responsible, accountable, consulted, and 
 
 To track organization structure decisions over time, download and modify the [RACI spreadsheet template](https://archcenter.blob.core.windows.net/cdn/fusion/management/raci-template.xlsx).
 
-Each of the following examples provides a table that outlines these RACI constructs:
+The following examples specify these RACI constructs:
 
-- The one team that is *accountable* for a function
+- The one team that's *accountable* for a function
 - Teams that are *responsible* for the outcomes
 - Teams that should be *consulted* during planning
 - Teams that should be *informed* when work is completed
@@ -99,5 +99,3 @@ To track organization structure decisions over time, download and modify the [RA
 
 > [!div class="nextstepaction"]
 > [Download the RACI spreadsheet template](https://archcenter.blob.core.windows.net/cdn/fusion/management/raci-template.xlsx)
-
-
