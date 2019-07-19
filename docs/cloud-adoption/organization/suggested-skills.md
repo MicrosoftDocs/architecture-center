@@ -20,7 +20,7 @@ During the *ready* phase of a migration, the objective is to prepare for the jou
 Depending on the motivations and business outcomes that are associated with a cloud-adoption effort, leaders may need to establish new organizational structures or virtual teams (v-teams) to facilitate various functions. The following articles can help your organization develop the necessary skills to structure those teams to meet the desired outcomes:
 
 - [Initial organization alignment](./index.md): An overview of alignment and team structures to help meet specific goals.
-- [Breaking down silos and fiefdoms](./fiefdoms-silos.md): Learn about two common organizational *antipatterns* and ways to guide the teams to productive collaboration.
+- [Break down silos and fiefdoms](./fiefdoms-silos.md): Learn about two common organizational *antipatterns* and ways to guide the teams to productive collaboration.
 
 ## Environmental (technical) readiness learning paths
 
