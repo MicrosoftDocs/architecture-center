@@ -84,9 +84,6 @@ identity and permission model used by Azure and Office 365
 -   [Azure AD B2C](https://docs.microsoft.com/en-us/azure/active-directory-b2c/)
     - Customers/citizens
 
-[Do we want to keep this (resolves to 2 degrees of indirection!) or pull some
-examples from the MS-approved identity providers?]
-
 ## Passwordless Or multi-factor authentication for admins
 
 All users should be converted to use passwordless authentication or multi-factor
