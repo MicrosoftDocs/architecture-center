@@ -8,7 +8,7 @@ ms.service: architecture-center
 ms.subservice: cloud-design-principles
 ---
 
-## What do the law, authorities, and regulators require?
+# What do the law, authorities, and regulators require?
 
 Governments and other organizations frequently publish standards to help define
 good security practices (due diligence) so that organizations can avoid being
