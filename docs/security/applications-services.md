@@ -380,7 +380,7 @@ measures to minimize time investment while maximizing security value:
 
 >   This simple questioning method is designed to get security professionals and
 >   developers started on threat modelling before moving on to a more advanced
->   method like STRIDE or OWASP’s method (references below).
+>   method like STRIDE or OWASP’s method (see, [Application code (top down)- threat modeling application architecture](#application-code-top-down--threat-modeling-application-architecture)).
 
 >   For each application or component, ask and answer these questions
 
