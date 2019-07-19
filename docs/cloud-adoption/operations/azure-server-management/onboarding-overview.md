@@ -15,7 +15,7 @@ ms.subservice: enterprise-cloud-adoption
 When you are familiar with the [tools](./tools-services.md) and [planning](./prerequisites.md) involved in Azure management services, you're ready for the second phase, which provides step-by-step guidance for onboarding these services for use with your Azure resources. Start by evaluating this onboarding process before adopting it broadly in your environment.<!--edit (v-gmoor): What other words describe the meaning of "onboarding" in this context? Both the WSG and Cloud style proscribe using "onboard" to mean something other than orienting new employees. According to style guidelines, we need replacements in the text and in the title. -->
 
 > [!NOTE]
-> The automation approaches discussed in later sections of this guidance are targeted at greenfield deployments that do not already have servers deployed to the cloud. They require that you have the Owner role on a subscription to create all the required resources and policies. If you already have Log Analytics workspace and Automation account resources created, we recommend that you pass these resources in the appropriate parameters when launching the example automation scripts.
+> The automation approaches discussed in later sections of this guidance are targeted at <!--edit (v-gmoor): 'greenfield' seems common, but it's not global English.-->deployments that do not already have servers deployed to the cloud. They require that you have the Owner role on a subscription to create all the required resources and policies. If you already have Log Analytics workspace and Automation account resources created, we recommend that you pass these resources in the appropriate parameters when launching the example automation scripts.
 
 ## Onboarding processes
 
