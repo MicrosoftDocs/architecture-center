@@ -1,7 +1,7 @@
 ---
 title: Training of Python scikit-learn and deep learning models on Azure
 description:  This reference architecture shows recommended practices for tuning the hyperparameters (training parameters) of a scikit-learn Python model.
-author: njray
+author: fboylu
 ms.date: 07/17/19
 ms.service: architecture-center
 ms.subservice: reference-architecture
