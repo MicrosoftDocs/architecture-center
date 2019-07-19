@@ -103,7 +103,7 @@ In general, avoid having any special characters (`-` or `_`) as the first or las
 |Blob name | Container |1-1024 |Case sensitive |Any URL characters |`<variable based on blob usage>` |`<variable based on blob usage>` |
 |Queue name |Storage account |3-63 |Lowercase |0-9, a-z, A-Z and - |`<service short name>-<context>-<num>` |`awesomeservice-messages-001` |
 |Table name | Storage account |3-63 |Case insensitive |Alphanumeric |`<service short name><context>` |`awesomeservicelogs` |
-|File name | Storage account |3-63 |Lowercase | Alphanumeric |`<variable based on blob usage>` |`<variable based on blob usage>` |
+|File share name | Storage account |3-63 |Lowercase | 0-9, a-z, A-Z and - |`<variable based on file share usage>` |`<variable based on file share usage>` |
 |Data Lake Store | Global |3-24 |Lowercase | Alphanumeric |`<name>dls` |`telemetrydls` |
 |Managed Disk name | Resource Group | 1-80 | Case insensitive |Alphanumeric, hyphen and underscore but not on character 1|`<disktype>disk<number>`|`OSdisk1`|
 
