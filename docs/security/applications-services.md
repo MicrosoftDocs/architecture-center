@@ -286,7 +286,7 @@ identities](https://docs.microsoft.com/en-us/azure/active-directory/managed-iden
 to assign identities to resources like VMs and App Services so that developers
 don’t have to manage identities within the application.
 
-## Application code (bottom up) - reduce security bug volume and impact
+## Bottom up approach to reduce security bug volume and impact
 
 ![](_images/app-code.png)
 
@@ -312,7 +312,7 @@ based on Microsoft’s [Security Development
 Lifecycle](https://www.microsoft.com/SDL) to mitigate common risks with input
 and output validation, perform fuzz testing, attack surface reviews, and more.
 
-## Application code (top down)- threat modeling application architecture
+## Top down approach through threat modeling
 
 ![](_images/app-code2.png)
 
@@ -380,7 +380,7 @@ measures to minimize time investment while maximizing security value:
 
 >   This simple questioning method is designed to get security professionals and
 >   developers started on threat modelling before moving on to a more advanced
->   method like STRIDE or OWASP’s method (see, [Application code (top down)- threat modeling application architecture](#application-code-top-down--threat-modeling-application-architecture)).
+>   method like STRIDE or OWASP’s method (see, [Top down approach through threat modeling](#application-code-top-down--threat-modeling-application-architecture)).
 
 >   For each application or component, ask and answer these questions
 
