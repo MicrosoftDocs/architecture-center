@@ -228,7 +228,7 @@ security impact:
     own.
 
 -   **Key management** – Ideally use identity for authentication rather than
-    directly handling keys (see PREFER IDENTITY AUTHENTICATION OVER KEYS below).
+    directly handling keys (see [Prefer Identity Authentication over Keys](#prefer-identity-authentication-over-keys)).
     For situations where accessing services that require access to keys,
     leverage a key management service like [Azure Key
     Vault](https://docs.microsoft.com/en-us/azure/key-vault/) or AWS [Key
@@ -338,14 +338,14 @@ measures to minimize time investment while maximizing security value:
     to quickly identify quick wins and actionable mitigations before spending a
     lot of manual effort:
 
-    1.  **Start with simple questions** method (LINK REF – SIMPLE QUESTIONS
+    1.  **Start with simple questions** method (See [Simple questions method](#simple-questions-method)
         METHOD) documented below to quickly get insight into risks and whether
         basic protections are in place
 
     2.  **Progressively evaluate Application Design** – as resource and
         expertise are available, move to a more advanced analysis using the
-        STRIDE method LINK REF – ADVANCED THREAT MODELLING TECHNIQUES (or
-        another similar one already used by your team). Start with the
+        STRIDE method [Advanced threat modeling techniques](#application-code-top-down--threat-modeling-application-architecture) or
+        another similar one already used by your team. Start with the
         architecture level design and progressively increase detail as time and
         resources allow:
 
@@ -473,8 +473,7 @@ appropriate for both
 -   Organizations without a strong application security program as it’s a
     critical safety measure (much like a parachute in a plane). Note that this
     shouldn’t be the only planned safety mechanism to reduce the volume and
-    severity of security bugs in your applications (REF “REDUCE SECURITY BUG
-    VOLUME AND IMPACT” best practice).
+    severity of security bugs in your applications. For details, see [Reduce security bug volume and impact](#application-code-bottom-up---reduce-security-bug-volume-and-impact).
 
 -   Organizations who have invested in application security as WAFs provide a
     valuable additional defense in-depth mitigation. WAFs in this case act as a
