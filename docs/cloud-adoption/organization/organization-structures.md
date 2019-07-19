@@ -22,13 +22,13 @@ As adoption needs grow, so does the need to create balance and structure. This a
 Organizational structures tend to move through a common maturity model outlined below:
 
 1. [Cloud adoption team only](#cloud-adoption-team-only)
-2. [MVP best practice**](#best-practice-minimum-viable-product-mvp) - Best practice: minimum viable product (MVP)
+2. [MVP best practice**](#best-practice-minimum-viable-product) - Best practice: minimum viable product (MVP)
 3. [Cloud center of excellence](#cloud-center-of-excellence)
 4. [Strategic alignment](#strategic-alignment)
 5. [Operational alignment](#strategic-alignment)
 6. [Fully staffed best practice](#best-practice-fully-staffed)
 
-Most companies start with little more than a cloud adoption team. But we recommend that you establish an organizational structure that more closely resembles the [MVP best practice](#best-practice-minimum-viable-product-mvp) structure.
+Most companies start with little more than a cloud adoption team. But we recommend that you establish an organizational structure that more closely resembles the [MVP best practice](#best-practice-minimum-viable-product) structure.
 
 ## Cloud adoption team only
 
@@ -39,7 +39,7 @@ The nucleus of all cloud adoption efforts is the *cloud adoption team*. This tea
 For small or early-adoption efforts, this team might be as small as one person. In larger and late-stage efforts, it's common to have several cloud adoption teams, each with about six engineers. Regardless of size or tasks, the consistent aspect of any cloud adoption team is that they serve as the mechanism for on-boarding solutions into the cloud. For some organizations, this may be a sufficient organizational structure. The [cloud adoption team](./cloud-adoption.md) article provides more insight into the structure, composition, and function of the cloud adoption team.
 
 > [!WARNING]
-> Operating with *only* a cloud adoption team (or multiple cloud adoption teams) is considered an *antipattern* and should be avoided. At minimum, consider the [MVP best practice](#best-practice-minimum-viable-product-mvp).
+> Operating with *only* a cloud adoption team (or multiple cloud adoption teams) is considered an *antipattern* and should be avoided. At minimum, consider the [MVP best practice](#best-practice-minimum-viable-product).
 
 ## Best practice: minimum viable product
 
@@ -56,19 +56,19 @@ The next sections describe a fully staffed, best-practice organizational structu
 
 ## Cloud center of excellence
 
-One of the first signs of maturity in adoption efforts is a desire to move beyond governance to a *cloud center of excellence* structure. Such a structure is similar to the [MVP best practice](#best-practice-minimum-viable-product-mvp) organizational structure. But there's one fundamental difference between a cloud center of excellence model and the MVP best practice. The capabilities of the governance team are realigned to accelerate adoption and innovation.
+One of the first signs of maturity in adoption efforts is a desire to move beyond governance to a *cloud center of excellence* structure. Such a structure is similar to the [MVP best practice](#best-practice-minimum-viable-product) organizational structure. But there's one fundamental difference between a cloud center of excellence model and the MVP best practice. The capabilities of the governance team are realigned to accelerate adoption and innovation.
 
 ![Cloud adoption with a cloud center of excellence](../_images/ready/org-ready-fully-staffed.png)
 
 ## Strategic alignment
 
-When the motivations that drive cloud adoption are aligned to business outcomes, it's important to add a defined cloud strategy team, as the following image illustrates. This model works well as an addition to the [MVP best practice](#best-practice-minimum-viable-product-mvp) or [cloud center of excellence](#cloud-center-of-excellence) model.
+When the motivations that drive cloud adoption are aligned to business outcomes, it's important to add a defined cloud strategy team, as the following image illustrates. This model works well as an addition to the [MVP best practice](#best-practice-minimum-viable-product) or [cloud center of excellence](#cloud-center-of-excellence) model.
 
 ![Add a defined cloud strategy team](../_images/ready/org-ready-strategy-aligned.png)
 
 ## Operational alignment
 
-When stable IT operations are required to achieve business outcomes, it's important to add a defined cloud operations team, as the following images shows. This model works well as an addition to the [MVP best practice](#best-practice-minimum-viable-product-mvp), [cloud center of excellence](#cloud-center-of-excellence), or [strategic alignment](#strategic-alignment) models.
+When stable IT operations are required to achieve business outcomes, it's important to add a defined cloud operations team, as the following images shows. This model works well as an addition to the [MVP best practice](#best-practice-minimum-viable-product), [cloud center of excellence](#cloud-center-of-excellence), or [strategic alignment](#strategic-alignment) models.
 
 ![Add a defined cloud operations team](../_images/ready/org-ready-operations-aligned.png)
 
