@@ -115,17 +115,15 @@ lead to human and automation errors that create security risk.
 Designate groups (or individual roles) that will be responsible for these key
 functions:
 
+|Group or individual role| Responsibility|
+|---|---|
 | **Network Security**                 | *Typically existing network security team* Configuration and maintenance of Azure Firewall, Network Virtual Appliances (and associated routing), WAFs, NSGs, ASGs, etc.                              |
-|--------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **Network Management**               | *Typically existing network operations team* Enterprise-wide virtual network and subnet allocation                                                                                                   |
 | **Server Endpoint Security**         | *Typically IT operations, security, or jointly* Monitor and remediate server security (patching, configuration, endpoint security, etc.)                                                             |
 | **Incident Monitoring and Response** | *Typically security operations team* Investigate and remediate security incidents in Security Information and Event Management (SIEM) or source console:                                             |
 | **Policy Management**                | *Typically GRC team + Architecture* Set Direction for use of Role Based Access Control (RBAC), Azure Security Center, Administrator protection strategy, and Azure Policy to govern Azure resources |
 | **Identity Security and Standards**  | *Typically Security Team + Identity Team Jointly* Set direction for Azure AD directories, PIM/PAM usage, MFA, password/synchronization configuration, Application Identity Standards                 |
 
--   Azure Security Center
-
--   Azure AD Identity Protection
 
 ## Enterprise segmentation strategy
 
@@ -139,9 +137,7 @@ A clear and simple segmentation strategy helps contain risk while enabling
 productivity and business operations.
 
 An enterprise segmentation strategy is defined higher than a traditional
-*“network segmentation”* security strategy. Traditional s
-
-Segmentation approaches for on premises environments frequently failed to achieve
+*“network segmentation”* security strategy. Traditional segmentation approaches for on premises environments frequently failed to achieve
 their goals because they were developed “bottom-up” by different technical teams
 and were not aligned well with business use cases and application workloads.
 This resulted in overwhelming complexity that generates support issues and often
@@ -165,15 +161,15 @@ on-premises network generation segmentation strategies.
 Microsoft recommendation for prioritizing initiatives on containment and
 segmentation (based on Zero Trust principles) is to
 
--   Ensure alignment of technical teams to a single enterprise segmentation
+1.   Ensure alignment of technical teams to a single enterprise segmentation
     strategy
 
--   Invest in broadening containment by establishing a modern perimeter based on
+2.   Invest in broadening containment by establishing a modern perimeter based on
     zero trust principles focused on identity, device, applications, and other
     signals (to overcome limitation of network controls to protect new resources
     and attack types)
 
--   Bolster network controls for legacy applications by exploring micro
+3.   Bolster network controls for legacy applications by exploring micro
     segmentation strategies
 
 A good enterprise segmentation strategy meets these criteria:
@@ -238,12 +234,12 @@ by increasing it provides clarity for your technical teams implementing these
 permissions. This clarity makes it easier to detect and correct human errors
 like overpermissioning, reducing your overall risk.
 
-Microsoft recommends starting from this Microsoft reference model (figures \#\#
-and \#\#) and adapting to your organization.
+Microsoft recommends starting from these Microsoft reference models and adapting to your organization.
 
 ![](_images/ref-perms.png)
 
-**Core Services Reference Permissions**- This segment hosts shared services
+### Core Services Reference Permissions
+This segment hosts shared services
 utilized across the organization. These shared services typically include
 Active Directory Domain Services, DNS/DHCP, System Management Tools hosted
 on Azure Infrastructure as a Service (IaaS) virtual machines.
@@ -256,7 +252,7 @@ mitigations, and advise organizational stakeholders who accept the risk. See
 
 **Policy management across some or all resources** – To monitor and enforce
 compliance with external (or internal) regulations, standards, and security
-policy assign appropriate permission to those roles. The roles and
+policy, assign appropriate permission to those roles. The roles and
 permissions you choose will depend on the organizational culture and
 expectations of the policy program. See [Microsoft Cloud Adoption Framework for Azure](/azure/architecture/cloud-adoption/governance/security-baseline/index).
 
@@ -283,7 +279,9 @@ tasks. See [Emergency Access (‘Break Glass’ Accounts)](/azure/architecture/s
 
 ![A screenshot of a cell phone Description automatically generated](_images/ref-segment.png)
 
-**Segment reference permissions** – This segment permission design provides
+### Segment reference permissions
+
+This segment permission design provides
 consistency while allowing flexibility to accommodate the range of
 organizational models from a single centralized IT group to mostly
 independent IT and DevOps teams.
@@ -331,9 +329,9 @@ and application team.
 
 **Service Admin (Break Glass Account)** – Use the service admin role only for emergencies (and initial setup if required). Do not use this role for daily tasks. See [Emergency Access (‘Break Glass’ Accounts)](/azure/architecture/security/critical-impact-accounts.md#enforce-conditional-access-for-admins-zero-trust) for more details.
 
-*–* (Identical to Core Services)
 
-Permission Guidance and Tips
+
+### Permission Guidance and Tips
 
 -   To drive consistency and ensure application to future subscriptions,
     permissions should be assigned at management group for the segment rather
@@ -352,9 +350,7 @@ Permission Guidance and Tips
 Structure management groups into a simple design that guides the enterprise
 segmentation model.
 
-Management groups offer the ability to consistently and efficiently manage
-resources (including across multiple subscriptions as needed), but they are
-flexible and could become an overly complex design. Complexity creates confusion
+Management groups offer the ability to consistently and efficiently manage resources (including multiple subscriptions as needed). However, because of their flexibility, it's possible to create an overly complex design. Complexity creates confusion
 and negatively impacts both operations and security (as illustrated by overly
 complex Organizational Unit (OU) and Group Policy Object (GPO) designs for
 Active Directory).
@@ -367,8 +363,7 @@ simple [enterprise segmentation strategy](/azure/architecture/security/governanc
 Use the Root Management Group (MG) for enterprise consistency, but test changes
 carefully to minimize risk of operational disruption.
 
-The root management group enables you to ensure consistency across the
-enterprise by applying policies, permissions, tags, across all subscriptions.
+The root management group enables you to ensure consistency across the enterprise by applying policies, permissions, and tags across all subscriptions.
 Care must be taken when planning and implementing assignments to the root
 management group because this can affect every resource on Azure and potentially
 cause downtime or other negative impacts on productivity in the event of errors
@@ -406,14 +401,14 @@ Ensure policy and processes enable (and require) rapid application of security
 updates to virtual machines.
 
 Attackers constantly scan public cloud IP ranges for open management ports and
-attempt “easy” attacks like common passwords and known unpatched vulnerabilities.
+attempt “easy” attacks like common passwords and unpatched vulnerabilities.
 
 Enable [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-apply-system-updates)
 to identify missing security updates & apply them.
 
 [Local Admin Password Solution (LAPS)](https://www.microsoft.com/en-us/download/details.aspx?id=46899) or a third party Privileged Access Management can set strong local admin passwords and just in time access to them.
 
-#### Remove Virtual Machine (VM) direct internet connectivity
+## Remove Virtual Machine (VM) direct internet connectivity
 
 Ensure policy and processes require restricting and monitoring direct internet
 connectivity by virtual machines
@@ -443,7 +438,7 @@ This can be accomplished with one or more methods in Azure:
     access](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time)
     in Azure Security Center
 
-## Incident notification
+## Assign incident notification contact
 
 Ensure a security contact receives Azure incident notifications from Microsoft
 (typically a notification that your resource is compromised and/or attacking
@@ -458,23 +453,11 @@ via an internal process)
 
 ## Regularly review critical access
 
-Regularly review which people are assigned privileges with a business critical
-impact.
+Regularly review roles that are assigned privileges with a business-critical impact. 
 
-Access requirements change over time, but technical privileges typically only
-grow (which accrues significant risk for the organization). Without a process to
-ensure that accounts are removed from permissions as roles change, permissions
-naturally accumulate, and persist for long periods of time, creating
-organizational risk. In some cases, organizations have found accounts in
-administrative groups for personnel that have retired from the company or passed
-away many years prior.
+Set up a recurring review pattern to ensure that accounts are removed from permissions as roles change.
+You can conduct the review manually or through an automated process by using tools such as Azure AD access reviews.
 
-Set up a recurring review pattern as a(n).
-
-Manual Process.
-
-Automated Process using Azure AD access reviews or a third party tool for all
-groups with critical business impact.
 
 ## Discover and remediate common risks 
 

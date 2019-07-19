@@ -59,8 +59,6 @@ recommended which maps to one of more of these principles:
     on identity systems for controlling access rather than relying on network
     controls or direct use of cryptographic keys.
 
--   **Ensure**
-
 -   **Accountability** – Designate clear ownership of assets and security
     responsibilities and ensure actions are traceable for nonrepudiation. You
     should also ensure entities have been granted the least privilege required

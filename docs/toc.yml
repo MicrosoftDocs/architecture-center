@@ -645,12 +645,12 @@
     - name: Role of security
       href: security/overview.md
     - name: Security design principles
-      href: security/minimize-security-risks.md
+      href: security/security-principles.md
     - name: Types of attacks to resist
       href: security/arch-type.md
-    - name: Legal requirements
+    - name: Regulatory Compliance
       href: security/law-authority.md
-    - name: Keep risks to organization down
+    - name: Reduce organizational risk
       href: security/resilience.md            
     - name: Governance, risk, and compliance
       href: security/governance.md

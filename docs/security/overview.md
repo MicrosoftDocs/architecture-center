@@ -112,7 +112,7 @@ This results in three key strategies
     patches has always been extremely challenging because of discoverability.
     Software defined datacenters allow easy and rapid discovery of all
     resources, enabling technology like Azure Security Center to quickly and
-    accurately measure the patch state of all servers.
+    accurately measure the patch state of all servers and remediate them.
 
 -   **“Trust but Verify” each cloud provider** – for the elements, which are
     under the control of the cloud provider. You should ensure the security

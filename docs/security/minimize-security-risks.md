@@ -43,7 +43,7 @@ the available controls to reduce risk
         detective controls to reduce risks such as isolating administrator
         accounts from the most common risks (phishing and general web browsing),
         simplifying and optimizing their workflow, increasing assurance of
-        authentication decisions, identifying anomalies from normal baseline
+        authentication decisions, and identifying anomalies from normal baseline
         behavior that can be blocked or investigated
 
 Microsoft has captured and documented best practices for protecting
