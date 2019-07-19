@@ -40,8 +40,8 @@ Microsoft’s recommended core strategy for administrative privileges include:
 2.  **Mitigate the remaining risks** – Use a combination of preventive and
     detective controls:
 
-    1.  Isolate administrator accounts from the most common risks (phishing and
-        general web browsing).
+    1.  Isolate administrator accounts from the most common risks phishing and
+        general web browsing.
 
     2.  Simplify and optimize administrator workflow.
 
@@ -82,8 +82,8 @@ business continuity if an administrator is unavailable:
 Make sure that all critical impact admins are managed in an enterprise
 directory.
 
-Remove any consumer accounts (such as Microsoft accounts like \@Hotmail.com,
-\@live.com, \@outlook.com, etc.) from administrative roles. Consumer accounts
+Remove any consumer accounts such as Microsoft accounts like \@Hotmail.com,
+\@live.com, \@outlook.com, etc. from administrative roles. Consumer accounts
 don’t provide sufficient security visibility and control to ensure compliance
 with your organization’s policies and regulatory requirements.
 
@@ -95,8 +95,8 @@ productivity tasks.
 
 Create a separate administrative account for all users that have a role
 requiring critical privileges. Block productivity tools like Office 365 email
-(remove license). If possible, block arbitrary web browsing (with proxy and/or
-application controls) while allowing exceptions for required for administrative
+remove license. If possible, block arbitrary web browsing with proxy and/or
+application controls while allowing exceptions for required for administrative
 tasks.
 
 Phishing and web browser attacks are most common attack vectors to compromise
@@ -122,7 +122,7 @@ can use the account. Temporary privileges force attackers either work within the
 limited times the admin is already using the account or to initiate privilege
 elevation.
 
-## Emergency access (‘Break Glass’ accounts)
+## Emergency access  or ‘Break Glass’ accounts 
 
 Have a mechanism for obtaining administrative access for circumstances when all means are unavailable.
 
@@ -135,7 +135,7 @@ and ensure that security operations monitor these accounts.
 Ensure critical impact admins use a workstation with elevated security
 protections and monitoring
 
-Attack vectors that use browsing and email (like phishing) are cheap and common.
+Attack vectors that use browsing and email like phishing are cheap and common.
 Isolate critical impact admins from these risks to prevent situations where a
 compromised critical account is used to materially damage your business or
 mission.
@@ -161,21 +161,21 @@ their workstations with caution.
 
 -   **User accounts** – Choose where to host the critical impact accounts:
 
-    -   *Native Azure AD Accounts -* Create Native Azure AD Accounts that are
+    -   Native Azure AD Accounts -* Create Native Azure AD Accounts that are
         not synchronized with on-premises Active Directory.
 
-    -   *Synchronize from On Premises Active Directory (See [Critical impact admin dependencies – account/workstation](/azure/architecture/security/critical-impact-accounts.md#critical-impact-admin-dependencies--accountworkstation))-* Leverage existing accounts hosted in the on premises active
+    -   Synchronize from On Premises Active Directory (See [Critical impact admin dependencies – account/workstation](/azure/architecture/security/critical-impact-accounts.md#critical-impact-admin-dependencies--accountworkstation))- Leverage existing accounts hosted in the on premises active
         directory.
 
 -   **Workstations** – Choose how to manage and secure the workstations used by
     critical admin accounts:
 
-    -   *Native cloud management and security (Recommended) -* Join workstations
+    -   Native cloud management and security (Recommended) - Join workstations
         to Azure AD & Manage/Patch them with Intune or other cloud services.
         Protect and monitor with Microsoft Defender ATP or another cloud service
         (not managed by on-premises accounts).
 
-    -   *Manage with existing systems -* Join existing AD domain and leverage
+    -   Manage with existing systems - Join existing AD domain and leverage
         existing management/security controls.
 
 To contain the risk from a major incident on-premises resources leaking into
@@ -212,7 +212,7 @@ the point where passwords alone cannot reliably protect an account. This is well
 documented in a Microsoft Ignite Session
 <https://channel9.msdn.com/events/Ignite/Microsoft-Ignite-Orlando-2017/BRK3016>
 
-## Enforce conditional access for ADMINS (Zero Trust)
+## Enforce conditional access for Admins - Zero Trust
 
 Support a Zero Trust strategy. Include measurement and enforcement of key
 security attributes for authentication of accounts for all admins and other

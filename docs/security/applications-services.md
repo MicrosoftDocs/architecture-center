@@ -21,8 +21,8 @@ applications play an outsize role in risks to the business because:
 -   **Business Data** is stored and processed by application workloads and
     requires high assurances of confidentiality, integrity, and availability.
 
-This section focuses on applications written by your organization (or by others
-on behalf of your organization) vs. SaaS or commercially available applications
+This section focuses on applications written by your organization or by others
+on behalf of your organization vs. SaaS or commercially available applications
 installed on IaaS VMs.
 
 ![Diagram of Application Models](_images/appmodels.png)
@@ -45,16 +45,16 @@ applications
 
 -   **Hybrid** – While hybrid applications can take many forms, the most common
     is an “IaaS plus” state where legacy applications are transitioning to a
-    modern architecture with modern services replacing legacy components (or
-    being added a legacy application).
+    modern architecture with modern services replacing legacy components or
+    being added a legacy application.
 
 Securing an application requires security assurances for three different
 component types:
 
 -   **Application Code** – This is the logic that defines the custom application
     that you write. The security of this code is the application owners’
-    responsibility in all generations of application architecture (including any
-    open-source snippets or components included in the code). Securing the code
+    responsibility in all generations of application architecture including any
+    open-source snippets or components included in the code. Securing the code
     requires identifying and mitigating risks from the design and implementation
     of the application as well as assessing supply chain risk of included
     components. Note that the evolution of applications into [microservices
@@ -72,8 +72,8 @@ component types:
 
     -   **Application Owner** - The application owner is responsible for
         security implications of the configuration and operation of the service
-        instance(s) used by the application (including any data stored and
-        processed on the service).
+        instance(s) used by the application including any data stored and
+        processed on the service.
 
 -   **Application Hosting Platform** – This is the computing environment where
     the application actually executes and runs. In an enterprise with
@@ -85,13 +85,13 @@ component types:
         any middleware) hosted on physical or virtualized hardware. The virtual
         hardware can be hosted on premises or on Infrastructure as a Service
         (IaaS) VMs. This operating system and installed middleware/other
-        components are operated and secured by the application owner (or their
-        infrastructure team(s)).  
+        components are operated and secured by the application owner or their
+        infrastructure team(s).  
         The responsibility for the physical hardware and OS virtualization
         components (virtualization hosts, operating systems, and management
         services) varies:
 
-        -   **On premises** - The application owner (or their organization) is
+        -   **On premises** - The application owner or their organization is
             responsible for maintenance and security.
 
         -   **IaaS** – The cloud provider is responsible for maintenance and
@@ -121,7 +121,7 @@ that are critical to business functions.
 
 Enterprise organizations typically have a large application portfolio, so
 prioritizing where to invest time and effort into manual and resource-intensive
-tasks (like threat modeling) can increase the effectiveness of your security
+tasks like threat modeling can increase the effectiveness of your security
 program.
 
 Identify applications that have a high potential impact and/or a high potential
@@ -156,7 +156,7 @@ exposure to risk.
 
 -   **High exposure to attacks** – Applications that are easily accessible to
     attackers such as web applications on the open internet. Legacy applications
-    can also be higher exposure as attackers (and penetration testers)
+    can also be higher exposure as attackers and penetration testers
     frequently target them because they know these legacy applications often
     have vulnerabilities that are difficult to fix.
 
@@ -203,8 +203,8 @@ in those areas. Using these services also frees your developer resources from
 reinventing the proverbial wheel so that they can focus development time on your
 unique requirements for your business. This practice should be followed to avoid
 risk during new application development as well as to reduce risk in existing
-applications (either during planned update cycle or with a security-focused
-application update).
+applications either during planned update cycle or with a security-focused
+application update.
 
 Several capabilities that should be prioritized first because of potential
 security impact:
@@ -220,7 +220,7 @@ security impact:
     customers, applications, services, and other entities.
 
 -   **Data Protection** – Developers should use established capabilities from
-    cloud providers (such as native encryption in cloud services) to encrypt and
+    cloud providers such as native encryption in cloud services to encrypt and
     protect data. The security world is littered with examples of failed
     attempts to protect data or passwords that didn’t stand up to real world
     attacks. If direct use of cryptography is required, developers should call
@@ -251,9 +251,9 @@ threat detection, and other functions).
 Native security controls are maintained and supported by the service provider,
 eliminating or reducing effort required to integrate external security tooling
 and update those integrations over time. Cloud services evolve rapidly, which
-greatly increases the burden of maintaining an external tool (and increases risk
+greatly increases the burden of maintaining an external tool and increases risk
 of losing security visibility and protections from these tools if the tool
-doesn’t keep up with the cloud service).
+doesn’t keep up with the cloud service.
 
 -   List of Azure Services  
     <https://azure.microsoft.com/en-us/services/>
@@ -286,7 +286,7 @@ identities](https://docs.microsoft.com/en-us/azure/active-directory/managed-iden
 to assign identities to resources like VMs and App Services so that developers
 don’t have to manage identities within the application.
 
-## Bottom up approach to reduce security bug volume and impact
+## Bottom-up approach to reduce security bug volume and impact
 
 ![](_images/app-code.png)
 
@@ -301,7 +301,7 @@ discover, evaluate, and correct them to avoid damage to the organization’s
 reputation, revenue, or margins. It is easier and cheaper to resolve these
 earlier in the development lifecycle than it is to correct them after
 application has completed testing, is in production use, or has been breached
-(frequently called “shift left” or “push left” principle).
+frequently called “shift left” or “push left” principle.
 
 Mitigating application risk is achieved by integrating security practices and
 tools into the development lifecycle, often called a secure development
@@ -312,7 +312,7 @@ based on Microsoft’s [Security Development
 Lifecycle](https://www.microsoft.com/SDL) to mitigate common risks with input
 and output validation, perform fuzz testing, attack surface reviews, and more.
 
-## Top down approach through threat modeling
+## Top-down approach through threat modeling
 
 ![](_images/app-code2.png)
 
@@ -320,8 +320,8 @@ Perform threat modeling on your business-critical applications to discover and
 mitigate potential risks to your organization.
 
 Threat modeling identifies risks to the application itself as well as risks
-that application may pose to your enterprise (particularly when evaluating
-individual applications in a larger system).
+that application may pose to your enterprise particularly when evaluating
+individual applications in a larger system.
 
 Threat modeling can be used at any stage of application development or
 production, but it is uniquely effective for the design stages of new
@@ -338,8 +338,7 @@ measures to minimize time investment while maximizing security value:
     to quickly identify quick wins and actionable mitigations before spending a
     lot of manual effort:
 
-    1.  **Start with simple questions** method (See [Simple questions method](#simple-questions-method)
-        METHOD) documented below to quickly get insight into risks and whether
+    1.  **Start with simple questions** method (See [Simple questions method](#simple-questions-method)) documented below to quickly get insight into risks and whether
         basic protections are in place
 
     2.  **Progressively evaluate Application Design** – as resource and
@@ -369,7 +368,7 @@ measures to minimize time investment while maximizing security value:
         security value without over-burdening the development teams. Good
         integration points are during the introduction of significant features
         or changes to the application and a regular recurring calendar schedule
-        (for example, every quarter for business-critical applications).
+        for example, every quarter for business-critical applications.
 
     3.  **Legacy applications –** These applications typically lack support,
         source code access, and/or expertise in the organization, so perform
@@ -380,46 +379,46 @@ measures to minimize time investment while maximizing security value:
 
 >   This simple questioning method is designed to get security professionals and
 >   developers started on threat modelling before moving on to a more advanced
->   method like STRIDE or OWASP’s method (see, [Top down approach through threat modeling](#top-down-approach-through-threat-modeling)).
+>   method like STRIDE or OWASP’s method (see, [Top-down approach through threat modeling](#top-down-approach-through-threat-modeling)).
 
 >   For each application or component, ask and answer these questions
 
 -   Are you authenticating connections using Azure AD, TLS (with mutual
     authentication), or another modern security protocol approved by your
-    security team? (This protects against unauthorized access to the application
-    and data)
+    security team? This protects against unauthorized access to the application
+    and data
 
     -   Between users and the application (if applicable)
 
     -   Between different application components and services (if applicable)
 
 -   Do you limit which accounts have access to write or modify data in the
-    application to only those required to do so? (This reduces risk of
-    unauthorized data tampering/alteration)
+    application to only those required to do so? This reduces risk of
+    unauthorized data tampering/alteration
 
 -   Is the application activity logged and fed into a Security Information and
-    Event Management (SIEM) via Azure Monitor or a similar solution? (This helps
-    the security team detect attacks and quickly investigate them)
+    Event Management (SIEM) via Azure Monitor or a similar solution? This helps
+    the security team detect attacks and quickly investigate them.
 
 -   Is business-critical data protected with encryption that has been approved
-    by the security team? (This helps protect against unauthorized copying of
-    data while at rest)
+    by the security team? This helps protect against unauthorized copying of
+    data while at rest.
 
--   Is inbound and outbound network traffic encrypted using TLS? (This helps
-    protect against unauthorized copying of data while in transit)
+-   Is inbound and outbound network traffic encrypted using TLS? This helps
+    protect against unauthorized copying of data while in transit.
 
 -   Is the application protected against Distributed Denial of Service (DDoS)
-    attacks using services like Azure DDoS protection, Akamai, or similar? (This
+    attacks using services like Azure DDoS protection, Akamai, or similar? This
     protects against attacks designed to overload the application so it can’t be
-    used)
+    used
 
 -   Does the application store any logon credentials or keys to access other
-    applications, databases, or services? (This helps identify whether an attack
-    can use your application to attack other systems)
+    applications, databases, or services? This helps identify whether an attack
+    can use your application to attack other systems.
 
 -   Do the application controls allow you to fulfill security and privacy
-    requirements like the EU’s General Data Protection Regulation (GDPR)? (This
-    helps protect user’s private data and avoid compliance fines)
+    requirements like the EU’s General Data Protection Regulation (GDPR)? This
+    helps protect user’s private data and avoid compliance fines.
 
 >   **Important:** Security is a complex topic and the potential risks are
 >   limited only by the imagination of smart motivated attackers. These
@@ -437,8 +436,8 @@ measures to minimize time investment while maximizing security value:
     threat modeling in and released a free tool to assist with this process
 
     -   This method evaluates application components and
-        connections/relationships against potential risks (which map to the
-        STRIDE mnemonic)
+        connections/relationships against potential risks, which map to the
+        STRIDE mnemonic:
 
         -   Spoofing
 
@@ -456,8 +455,8 @@ measures to minimize time investment while maximizing security value:
         level architectural specific application components.
 
 -   **OWASP –** The Open Web Application Security Project (OWASP) has documented
-    a threat modeling approach for applications (which refers to STRIDE and
-    other methods)  
+    a threat modeling approach for applications, which refers to STRIDE and
+    other methods
     <https://www.owasp.org/index.php/Application_Threat_Modeling>
 
 ## Use Web Application Firewalls
@@ -467,11 +466,11 @@ exploit commonly seen security vulnerabilities for applications. While not
 perfect, WAFs provide a basic minimum level of security for web applications.
 
 WAFs are an important mitigation as attackers target web applications for an
-ingress point into an organization (similar to a client endpoint). WAFs are
+ingress point into an organization similar to a client endpoint. WAFs are
 appropriate for both
 
 -   Organizations without a strong application security program as it’s a
-    critical safety measure (much like a parachute in a plane). Note that this
+    critical safety measure(much like a parachute in a plane. Note that this
     shouldn’t be the only planned safety mechanism to reduce the volume and
     severity of security bugs in your applications. For details, see [Reduce security bug volume and impact](#bottom-up-approach-to-reduce-security-bug-volume-and-impact).
 
@@ -529,7 +528,7 @@ learned and best practices have become clear:
     developer to request and rapidly get security validation of new containers
     to encourage developers to use this process vs. working around it.
 
--   **Don’t run containers as root (or administrator) unless explicitly
+-   **Don’t run containers as root or administrator unless explicitly
     required**  
     Early versions of containers required root privileges (which makes attacks
     easier), but this is no longer required with current versions.
