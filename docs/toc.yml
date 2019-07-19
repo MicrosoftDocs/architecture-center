@@ -296,7 +296,7 @@
       items:
       - name: Training and scoring Python models
         items:
-        - name: Training of Python scikit-learn models
+        - name: Training of Python and deep learning models
           href: reference-architectures/ai/training-python-models.md
         - name: Distributed training of deep learning models
           href: reference-architectures/ai/training-deep-learning.md
