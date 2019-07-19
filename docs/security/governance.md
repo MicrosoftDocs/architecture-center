@@ -34,9 +34,7 @@ unintentional or malicious? A commonly forgotten but extremely important
 consideration within risk is addressing Disaster Recovery and Business
 Continuity.
 
-**Compliance** – Is there specific industry, government, or regulatory
-standards such as ISO27001, NIST, PCI-DSS, GDPR that dictate or provide
-guidance that an organization’s security controls and practices must meet?
+**Compliance** – Are there specific industry, government, or regulatory requirements that dictate or provide recommendation on criteria that your organization’s security controls must meet? Examples of such standards, organizations, controls, and legislation are [ISO27001]( https://www.iso.org/isoiec-27001-information-security.html), [NIST]( https://www.nist.gov/), [PCI-DSS]( https://www.pcicomplianceguide.org/faq/), [GDPR]( https://eugdpr.org/).
 
 The collective role of organization(s) is to manage the security standards of
 the organization through their lifecycle:
