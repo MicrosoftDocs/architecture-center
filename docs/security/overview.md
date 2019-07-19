@@ -46,7 +46,7 @@ adopting a mindset of assuming failure of security controls so that you design
 compensating controls that limit risk and damage in the event a primary control
 fails. Assuming failures is sometimes referred to as “assume breach” or “assume
 compromise” and is closely related to the “Zero Trust” approach of continuously
-validating security assurances. The “Zero Trust” approach is described in the [security principles](/azure/architecture/security/minimize-security-risks.md#enforce-conditional-access-for-admins-zero-trust) section in more detail.
+validating security assurances. The “Zero Trust” approach is described in the [Security Design Principles](/azure/architecture/security/minimize-security-risks.md#enforce-conditional-access-for-admins-zero-trust) section in more detail.
 
 Cloud architectures can help simplify the complex task of securing an enterprise
 estate through specialization and shared responsibilities:
