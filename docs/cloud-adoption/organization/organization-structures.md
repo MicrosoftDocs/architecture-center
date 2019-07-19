@@ -77,7 +77,7 @@ At the other end of the spectrum, the following graphic outlines a fully staffed
 
 ![Fully staffed best practice organizational structure](../_images/ready/org-ready-fully-staffed.png)
 
-It's impractical to maintain a fully staffed, best-practice organizational structure for long. For most companies, this model quickly creates diminishing returns when it's used to shape a traditional org chart. But it's common for large companies to define virtual teams (v-teams) in an effort to align available skills with defined capabilities. A scaled-out v-team model, like the image above or the RACI chart cited in the next section, is more sustainable.
+It's impractical to maintain a fully staffed, best-practice organizational structure for long. For most companies, this model quickly creates diminishing returns when it's used to shape a traditional org chart. But it's common for large companies to define virtual teams (v-teams) in an effort to align available skills with defined capabilities. A scaled-out v-team model, like the image above or the RACI charts cited in the next section, is more sustainable.
 
 ## Next steps
 

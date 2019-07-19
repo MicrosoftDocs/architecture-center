@@ -62,12 +62,12 @@ Microsoft Learn is a new approach to learning. Readiness for the new responsibil
 
 The following are a few examples of role-specific learning paths on Microsoft Learn:
 
-[Business users](/learn/browse/?roles=business-user) may experience a steep learning curve when they help plan, test, and adopt cloud-based technology. Microsoft Learn modules focus on adopting cloud models and tools for better managing business through cloud-based services.
+- [Business users](/learn/browse/?roles=business-user) may experience a steep learning curve when they help plan, test, and adopt cloud-based technology. Microsoft Learn modules focus on adopting cloud models and tools for better managing business through cloud-based services.
 
-[Solution architects](/learn/browse/?roles=solution-architect) can access hundreds of modules and learning paths. The available topics range from core infrastructure services to advanced data transformation.
+- [Solution architects](/learn/browse/?roles=solution-architect) can access hundreds of modules and learning paths. The available topics range from core infrastructure services to advanced data transformation.
 
-[Administrators](/learn/browse/?roles=administrator) have access to modules that focus on Azure fundamentals, configuring containers, and even advanced administration in the cloud.
+- [Administrators](/learn/browse/?roles=administrator) have access to modules that focus on Azure fundamentals, configuring containers, and even advanced administration in the cloud.
 
-[Developers](/learn/browse/?roles=developer&term=infrastructure) can use Learn resources to help during architecture, governance, modernization activities.
+- [Developers](/learn/browse/?roles=developer&term=infrastructure) can use Learn resources to help during architecture, governance, modernization activities.
 
 For additional learning paths, browse the [Learn catalog](/learn/browse/). Use the Roles filter to align learning paths with your role.
