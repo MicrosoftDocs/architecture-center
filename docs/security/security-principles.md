@@ -40,8 +40,8 @@ recommended which maps to one of more of these principles:
 -   **Design for Attackers –** Your security design and prioritization should be
     focused on the way attackers see your environment, which is often not the
     way IT and application teams see it. Inform your security design and test it
-    with *penetration testing* to simulate one time attacks and *red teams* to
-    simulate long-term persistent attack groups*.* Design your enterprise
+    with **penetration testing** to simulate one time attacks and **red teams** to
+    simulate long-term persistent attack groups. Design your enterprise
     segmentation strategy and other security controls to **contain** attacker
     lateral movement within your environment. Actively measure and reduce the
     potential **Attack Surface** that attackers target for exploitation for
