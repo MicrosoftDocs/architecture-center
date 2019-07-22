@@ -135,7 +135,7 @@ Here's how Contoso performs its assessment:
 Now, Contoso can run an assessment to analyze its on-premises SQL Server database for the SmartHotel360 app.
 
 1. In Data Migration Assistant, Contoso selects **New** > **Assessment**, and then gives the assessment a project name.
-2. For **Source server type**, Contoso selects **SQL Server on Azure Virtual Machines**.
+2. For **Source server type**, Contoso selects **SQL Server** and for **Target Server type**, Contoso selects **SQL Server on Azure Virtual Machines**
 
     ![Data Migration Assistant - Select source](./media/contoso-migration-assessment/dma-assessment-1.png)
 
@@ -269,7 +269,7 @@ Before deploying the VM, Contoso checks that the OVA file is secure:
     **Example:**
 
     ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. The generated hash should match the hash values listed [here](/azure/migrate/tutorial-assessment-vmware#continuous-discovery).
+3. The generated hash should match the hash values listed in the [Verify security](/azure/migrate/tutorial-assess-vmware#verify-security) section of the [Assess VMWare VMs for migration](/azure/migrate/tutorial-assess-vmware) tutorial.
 
 ### Create the collector appliance
 
