@@ -1,5 +1,5 @@
 ---
-title: Security in Applications | Microsoft Docs
+title: Application security in Azure | Microsoft Docs
 description: How to secure your applications and services in Azure 
 author: dsk-2015
 ms.date: 07/08/2019
@@ -25,7 +25,7 @@ This section focuses on applications written by your organization (or by others
 on behalf of your organization) vs. SaaS or commercially available applications
 installed on IaaS VMs.
 
-![Diagram of Application Models](_images/appmodels.png)
+![Diagram of Application Models](images/appmodels.png)
 
 Modern cloud platforms like Azure can host both legacy and modern generations of
 applications
@@ -137,9 +137,8 @@ exposure to risk.
         lost.
 
     -   **Regulated data** – Applications that handle monetary instruments and
-        sensitive personal information regulated by standards like payment card
-        industry (PCI), General Data Protection Regulation (GDPR), and Health
-        Information Portability and Accountability Act (HIPAA).
+        sensitive personal information regulated by standards. For example, payment card
+        industry (PCI) and Health Information Portability and Accountability Act (HIPAA).
 
     -   **Business critical availability** – Applications whose functionality is
         critical to organizations business mission such as production lines
@@ -213,9 +212,9 @@ security impact:
     complex to develop and critically important to security assurances. Avoid
     using homegrown authentication solutions and favor mature capabilities like
     Azure Active Directory ([Azure
-    AD](https://docs.microsoft.com/en-us/azure/active-directory/)), [Azure AD
-    B2B](https://docs.microsoft.com/en-us/azure/active-directory/b2b/), [Azure
-    AD B2C](https://docs.microsoft.com/en-us/azure/active-directory-b2c/), or
+    AD](https://docs.microsoft.com/azure/active-directory/)), [Azure AD
+    B2B](https://docs.microsoft.com/azure/active-directory/b2b/), [Azure
+    AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/), or
     third-party solutions to authenticate and grant permission to users, partners,
     customers, applications, services, and other entities.
 
@@ -231,7 +230,7 @@ security impact:
     directly handling keys (see PREFER IDENTITY AUTHENTICATION OVER KEYS below).
     For situations where accessing services that require access to keys,
     leverage a key management service like [Azure Key
-    Vault](https://docs.microsoft.com/en-us/azure/key-vault/) or AWS [Key
+    Vault](https://docs.microsoft.com/azure/key-vault/) or AWS [Key
     Management Service](https://aws.amazon.com/kms/) to manage and secure these
     keys rather than attempting to safely handle keys in application code. You
     can use [CredScan](https://secdevtools.azurewebsites.net/helpcredscan.html)
@@ -256,10 +255,10 @@ of losing security visibility and protections from these tools if the tool
 doesn’t keep up with the cloud service).
 
 -   List of Azure Services  
-    <https://azure.microsoft.com/en-us/services/>
+    <https://azure.microsoft.com/services/>
 
 -   Native security capabilities of each service  
-    <https://docs.microsoft.com/en-us/azure/security/common-security-attributes>
+    <https://docs.microsoft.com/azure/security/common-security-attributes>
 
 ## Prefer Identity Authentication over Keys
 
@@ -275,20 +274,20 @@ managing identity systems and few (if any) people actively managing key security
 systems.
 
 For services that offer the Azure AD authentication like [Azure
-Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-security-attributes),
+Storage](https://docs.microsoft.com/azure/storage/common/storage-security-attributes),
 [Azure App
-Service](https://docs.microsoft.com/en-us/azure/app-service/app-service-security-attributes),
+Service](https://docs.microsoft.com/azure/app-service/app-service-security-attributes),
 [Azure
-Backup](https://docs.microsoft.com/en-us/azure/backup/backup-security-attributes),
+Backup](https://docs.microsoft.com/azure/backup/backup-security-attributes),
 use it for authentication and authorization. To further simplify using
 identities for developers, you can also take advantage of [managed
-identities](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/)
+identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/)
 to assign identities to resources like VMs and App Services so that developers
 don’t have to manage identities within the application.
 
 ## Application code (bottom up) - reduce security bug volume and impact
 
-![](_images/app-code.png)
+![](images/app-code.png)
 
 Reduce the count and potential severity of security bugs in your application by
 implementing security practices and tools during the development lifecycle.
@@ -307,14 +306,14 @@ Mitigating application risk is achieved by integrating security practices and
 tools into the development lifecycle, often called a secure development
 lifecycle (SDL or SDLC). Microsoft has published a number of recommendations in
 a whitepaper entitled [Develop Secure Apps on
-Azure](https://docs.microsoft.com/en-us/azure/security/abstract-develop-secure-apps)
+Azure](https://docs.microsoft.com/azure/security/abstract-develop-secure-apps)
 based on Microsoft’s [Security Development
 Lifecycle](https://www.microsoft.com/SDL) to mitigate common risks with input
 and output validation, perform fuzz testing, attack surface reviews, and more.
 
 ## Application code (top down)- threat modeling application architecture
 
-![](_images/app-code2.png)
+![](images/app-code2.png)
 
 Perform threat modeling on your business-critical applications to discover and
 mitigate potential risks to your organization.
@@ -418,8 +417,7 @@ measures to minimize time investment while maximizing security value:
     can use your application to attack other systems)
 
 -   Do the application controls allow you to fulfill security and privacy
-    requirements like the EU’s General Data Protection Regulation (GDPR)? (This
-    helps protect user’s private data and avoid compliance fines)
+    requirements for the localities you operate in? (This helps protect user’s private data and avoid compliance fines)
 
 >   **Important:** Security is a complex topic and the potential risks are
 >   limited only by the imagination of smart motivated attackers. These
@@ -482,7 +480,7 @@ appropriate for both
     practices in the development lifecycle.
 
 Microsoft includes WAF capabilities in [Azure Application
-Gateway](https://azure.microsoft.com/en-us/services/application-gateway/) and
+Gateway](https://azure.microsoft.com/services/application-gateway/) and
 many vendors offer these capabilities as standalone security appliances or as
 part of next generation firewalls.
 

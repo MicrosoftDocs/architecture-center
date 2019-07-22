@@ -1,5 +1,5 @@
 ---
-title: Security Design Principles
+title: Security design principles in Azure | Microsoft Docs
 description: These principles support these three key strategies and describe a securely architected system hosted on cloud or on-premises datacenters (or a combination of both). 
 author: PageWriter-MSFT
 ms.date: 07/15/2019
@@ -61,12 +61,12 @@ recommended which maps to one of more of these principles:
 
 -   **Ensure**
 
--   **Accountability** – Designate clear ownership of assets and security
+-   **Accountability -** Designate clear ownership of assets and security
     responsibilities and ensure actions are traceable for nonrepudiation. You
     should also ensure entities have been granted the least privilege required
     (to a manageable level of granularity).
 
--   **Embrace Automation** – Automation of tasks decreases the chance of human
+-   **Embrace Automation -** Automation of tasks decreases the chance of human
     error that can create risk, so both IT operations and security best
     practices should be automated as much as possible to reduce human errors
     (while ensuring skilled humans govern and audit the automation).

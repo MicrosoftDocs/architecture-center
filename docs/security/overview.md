@@ -1,5 +1,5 @@
 ---
-title: Security’s Role
+title: Security in Azure | Microsoft Docs
 description: This document is intended to guide your architecture and design processes for both the use of Azure as well as individual workloads.
 author: PageWriter-MSFT
 ms.date: 07/15/2019
@@ -77,7 +77,7 @@ the particular service, while addressing others will remain the customer’s
 responsibility. To ensure that the proper security controls are provided, a
 careful evaluation of the services and technology choices becomes necessary.
 
-![Shared Responsibility and Key Strategies](_images/shared-resp.png)
+![Shared Responsibility and Key Strategies](images/shared-resp.png)
 
 **Shared Responsibility and Key Strategies**
 
