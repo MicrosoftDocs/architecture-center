@@ -18,7 +18,7 @@ In this article, you'll learn how to quickly deploy a backlog to Azure DevOps by
 
 ## Create your cloud adoption plan
 
-To deploy the cloud adoption plan, open the [Azure DevOps Demo Generator](https://aka.ms/adopt/plan/generator). This tool will deploy the template to your Azure DevOps Tenant. Using the tool requires the following steps:
+To deploy the cloud adoption plan, open the [Azure DevOps Demo Generator](https://aka.ms/adopt/plan/generator). This tool will deploy the template to your Azure DevOps tenant. Using the tool requires the following steps:
 
 1. Verify that the **Selected Template** field is set to **Cloud Adoption Plan**. If it isn't, select **Choose template** to choose the right template.
 2. Select your Azure DevOps organization from the **Select Organization** drop-down list box.
