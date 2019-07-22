@@ -39,7 +39,7 @@ Azure Policy has a built-in [policy initiative](/azure/governance/policy/overvie
 
 To assign the policies listed in the preceding section:
 
-1. In the Azure portal, navigate to **Azure Policy > Assignments > Assign initiative**.
+1. In the Azure portal, go to **Azure Policy** > **Assignments** > **Assign initiative**.
 
     ![Screenshot of the portal's policy interface](./media/onboarding-at-scale1.png)
 
@@ -96,13 +96,13 @@ To cover all existing servers, as well as future servers, you need to remove the
 
 ### Change Tracking and Inventory solutions
 
-To Onboard the Change Tracking and Inventory solutions, follow the same steps as for Update Management. For more information about onboarding these solutions from your Automation account, see [Onboard Update Management, Change Tracking, and Inventory solutions](/azure/automation/automation-onboard-solutions-from-automation-account).
+To onboard the Change Tracking and Inventory solutions, follow the same steps as for Update Management. For more information about onboarding these solutions from your Automation account, see [Onboard Update Management, Change Tracking, and Inventory solutions](/azure/automation/automation-onboard-solutions-from-automation-account).
 
 The Change Tracking solution is free for Azure VMs and costs $6 per node per month for on-premises servers. This cost covers Change Tracking, Inventory, and Desired State Configuration. If you would like to enroll only specific on-premises servers, you can opt in those servers. We recommend that you onboard all your production servers.
 
 #### Opt in via the Azure portal
 
-1. Navigate to the Automation account that has Change Tracking and Inventory enabled.
+1. Go to the Automation account that has Change Tracking and Inventory enabled.
 2. Select **Change tracking**.
 3. Select **Manage machines** on the upper-right pane.
 4. Select **Enable on selected machines**, and select the machines to be enabled. Then select **Enable** to enable the solution for those machines.
@@ -115,7 +115,7 @@ Alternatively, you can configure the scope configuration to opt in on-premises s
 
 To create or modify the saved search, use the following steps:
 
-1. Navigate to the Log Analytics workspace that is linked to your Automation account that you configured in the preceding steps.
+1. Go to the Log Analytics workspace that is linked to your Automation account that you configured in the preceding steps.
 
 2. Under **General**, select **Saved searches**.
 
@@ -132,7 +132,7 @@ To create or modify the saved search, use the following steps:
     > [!NOTE] 
     > The server name must exactly match the value included in the expression, and it shouldn't contain a domain name suffix.
 
-5. Click **Save**.
+5. Select **Save**.
 
 6. By default, the Scope Configuration is linked to the **MicrosoftDefaultComputerGroup** saved search and will be automatically updated.
 
@@ -143,7 +143,7 @@ To create or modify the saved search, use the following steps:
 To add this solution:
 
 1. In the Azure portal, open **All services** and select **Management + Governance** > **Solutions**.
-2. In the **Solutions** view, choose **Add**.
+2. In the **Solutions** view, select **Add**.
 3. Search for **Activity Log Analytics** and select it.
 4. Select **Create**.
 
@@ -156,7 +156,7 @@ The Azure Log Analytics Agent Health solution gives you insight into the health,
 To add this solution:
 
 1. In the Azure portal, open **All services** and select **Management + Governance** > **Solutions**.
-2. In the **Solutions** view, choose **Add**.
+2. In the **Solutions** view, select **Add**.
 3. Search for **Azure Log Analytics agent health** and select it.
 4. Select **Create**.
 
@@ -168,10 +168,10 @@ After creation is complete, the workspace resource instance displays **AgentHeal
 
 The Antimalware Assessment solution helps you identify servers that are infected or at increased risk of infection by malware.
 
-To add this solultion:
+To add this solution:
 
 1. In the Azure portal, open **All services** and select **Management + Governance** > **Solutions**.
-2. In the **Solutions** view, choose **Add**.
+2. In the **Solutions** view, select **Add**.
 3. Search for **Antimalware Assessment** and select it.
 4. Select **Create**.
 
@@ -189,13 +189,13 @@ In this guidance, we recommend that you onboard all the servers to the Azure Sec
 
 To enable the Azure Security Center Free tier, use the following steps:
 
-1. Navigate to the **Security Center** portal page.
+1. Go to the **Security Center** portal page.
 2. Select **Security policy** under **POLICY & COMPLIANCE**.
 3. Find the Log Analytics workspace resource that you have created in the rightmost pane.
-4. Click on **Edit settings >** for that workspace.
+4. Select **Edit settings >** for that workspace.
 5. Select **Pricing tier**.
 6. Choose the **Free** option.
-7. Click on **Save**.
+7. Select **Save**.
 
 ## Next steps
 
