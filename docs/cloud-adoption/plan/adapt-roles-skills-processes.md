@@ -12,39 +12,44 @@ ms.subservice: enterprise-cloud-adoption
 
 # Adapt existing roles, skills, and processes for the cloud
 
-At each evolutionary phase during the IT industry's history, the most notable changes are often marked by changes in staff roles. For instance, during the transition from mainframe computing to client/server computing, the role of the computer operator largely disappeared, replaced by the system administrator. When virtualization arrived, the requirement for individuals working with physical servers was replaced with a need for virtualization specialists. Similarly, as institutions shift to cloud computing, roles will likely change. For example, datacenter specialists might be replaced with cloud administrators or cloud architects. In some cases, though IT job titles have not changed, the daily work of these roles have evolved significantly.
+At each evolutionary phase of the IT industry's history, the most notable changes have often been marked by changes in staff roles. One example is the transition from mainframe computing to client/server computing. The role of the computer operator during this transition has largely disappeared, replaced by the system administrator role. When virtualization arrived, the requirement for individuals working with physical servers was replaced with a need for virtualization specialists.
 
-IT staff members may feel anxious about their roles and positions as they realize that a different set of skills is needed to support cloud solutions. But agile employees who explore and learn new cloud technologies shouldn't fear. They can lead the adoption of cloud services and help the organization understand and embrace the associated changes. For guidance on building a new skill set, see the [Skills readiness path](./suggested-skills.md)
+Roles will likely change as institutions similarly shift to cloud computing. For example, datacenter specialists might be replaced with cloud administrators or cloud architects. In some cases, though IT job titles haven't changed, the daily work of these roles has evolved significantly.
+
+IT staff members might feel anxious about their roles and positions because they realize that they need a different set of skills to support cloud solutions. But agile employees who explore and learn new cloud technologies shouldn't fear. They can lead the adoption of cloud services and help the organization learn and embrace the associated changes.
+
+For guidance on building a new skill set, see the [Skills readiness path](./suggested-skills.md).
 
 ## Capturing concerns
 
-As the organization prepares for a cloud adoption effort, each team should document any staff concerns as they arise by identifying:
+As the organization prepares for a cloud adoption effort, each team should document staff concerns as they arise by identifying:
 
-- The type of concern. For example, workers may be resistant to the changes in job duties that accompany the adoption effort.
-- The impact if the concern is not addressed. For example, resistance to adoption may result in workers being slow to execute the required changes.
-- The area equipped to address the concern. For example, if workers in the IT department are reluctant to acquire new skills, the IT stakeholder's area is best equipped to address this concern. Identifying the area may be clear for some concerns, and in these cases you may need to escalate to executive leadership.
-- IT staff members commonly have concerns about acquiring the necessary training to support expanded functions and new duties. Understanding the training preferences of the team will help prepare a plan and allow for these concerns to be adequately addressed.
+- The type of concern. For example, workers might be resistant to the changes in job duties that come with the adoption effort.
+- The impact if the concern isn't addressed. For example, resistance to adoption might result in workers being slow to execute the required changes.
+- The area equipped to address the concern. For example, if workers in the IT department are reluctant to acquire new skills, the IT stakeholder's area is best equipped to address this concern. Identifying the area might be clear for some concerns. In these cases, you might need to escalate to executive leadership.
+
+IT staff members commonly have concerns about acquiring the training needed to support expanded functions and new duties. Learning the training preferences of the team helps you prepare a plan. It also allows you to address these concerns.
 
 ## Identify gaps
 
-Identifying gaps is another important aspect of organization readiness. A _gap_ is a role, skill, or process required for your digital transformation that does not currently exist in your enterprise.
+Identifying gaps is another important aspect of organization readiness. A _gap_ is a role, skill, or process that is required for your digital transformation but doesn't currently exist in your enterprise.
 
-1. Enumerate the responsibilities that accompany the digital transformation, emphasizing new responsibilities and existing responsibilities to be retired.
-2. Identify the area that is aligned with each responsibility. For new responsibilities, determine how closely aligned it is with the area. Some responsibilities may span several areas, and this crossover represents an opportunity for better alignment that should be documented as a concern. In the case where no area is identified as being responsible, document this gap.
-3. Identify the skills necessary to support the responsibility and determine if your enterprise has existing resources with these skills. If there are no existing resources, determine the training programs or talent acquisition necessary to fill the gap. Determine the timeframe by which the responsibility must be supported to keep your digital transformation on track.
-4. Identify the roles that will execute these skills. Some of your existing workforce will assume parts of the role, and in other cases an entirely new role may be necessary.
+1. Enumerate the responsibilities that come with the digital transformation. Emphasize new responsibilities and existing responsibilities to be retired.
+1. Identify the area that aligns with each responsibility. For each new responsibility, check how closely it aligns with the area. Some responsibilities might span several areas. This crossover represents an opportunity for better alignment that you should document as a concern. In the case where no area is identified as being responsible, document this gap.
+1. Identify the skills necessary to support each responsibility, and check if your enterprise has existing resources with those skills. Where there are no existing resources, determine the training programs or talent acquisition necessary to fill the gaps. Also determine the deadline by which you must support each responsibility to keep your digital transformation on schedule.
+1. Identify the roles that will execute these skills. Some of your existing workforce will assume parts of the roles. In other cases, entirely new roles might be necessary.
 
 ## Partner across teams
 
-The skills necessary to fill the gaps in your organization's digital transformation are typically not be confined to a single role, or even a single department. Skills will have relationships and dependencies that can span a single role or multiple roles, and those roles may exist in several departments. For example, a workload owner may require someone in an IT role to provision core resources such as subscriptions and resource groups.
+The skills necessary to fill the gaps in your organization's digital transformation are typically not confined to a single role or even a single department. Skills will have relationships and dependencies that can span a single role or multiple roles. Those roles might exist in several departments. For example, a workload owner might require someone in an IT role to provision core resources like subscriptions and resource groups.
 
-These dependencies represent new processes that your organization implements to manage the workflow between roles. In the above example, there are several different types of process that can support the relationship between the workload owner and the IT role. For example, a workflow tool can be created to manage the process, or, a simple email template can be used.
+These dependencies represent new processes that your organization implements to manage the workflow among roles. The preceding example shows several types of processes that support the relationship between the workload owner and the IT role. For instance, you can create a workflow tool to manage the process or use an email template.
 
-Track these dependencies and make note of the processes that will support them, and whether or not the process currently exists. For processes that require tooling, ensure that the timeline for deploying any tools aligns with the overall digital transformation schedule.
+Track these dependencies and make note of the processes that will support them. Also note whether the processes currently exist. For processes that require tooling, ensure that the timeline for deploying any tools aligns with the overall digital-transformation schedule.
 
 ## Next steps
 
-Ensuring proper support for the translated roles is a team effort. To begin acting on this guidance, review the [organizational readiness intro](./index.md) for help with identifying the right team structures and participants to take action.
+Ensuring proper support for the translated roles is a team effort. To begin acting on this guidance, review the [organizational readiness intro](./index.md) for help with identifying the right team structures and participants.
 
 > [!div class="nextstepaction"]
 > [Identify the right team structures](./index.md)
