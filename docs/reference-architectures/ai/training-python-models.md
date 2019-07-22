@@ -18,8 +18,6 @@ This reference architecture shows recommended practices for tuning the hyperpara
 
 **Scenario 1: FAQ matching.** The problem addressed here is Frequently Asked Question (FAQ) matching. This scenario uses a subset of Stack Overflow question data that includes original questions tagged as JavaScript, their duplicate questions, and their answers. It tunes a scikit-learn pipeline to predict the probability that a duplicate question matches one of the original questions.
 
-**Scenario 1: FAQ matching.** The problem addressed here is Frequently Asked Question (FAQ) matching. This scenario uses a subset of Stack Overflow question data that includes original questions tagged as JavaScript, their duplicate questions, and their answers. It tunes a scikit-learn pipeline to predict the probability that a duplicate question matches one of the original questions.
-
 Processing in this [pipeline][pipeline] scenario involves the following steps:
 
 1. The training Python script is submitted to the [Azure Machine Learning service][aml].
