@@ -30,7 +30,7 @@ For simplicity, we've categorized this guidance into three stages:
 
 Azure management services offer the following benefits:
 
-- **Native to Azure.** Management services are built into and natively integrated with the Azure Resource Manager. These services are continuously improved to provide new features and capabilities.
+- **Native to Azure.** Management services are built into and natively integrated with Azure Resource Manager. These services are continuously improved to provide new features and capabilities.
 - **Windows and Linux**. Windows and Linux machines have the same consistent management experience.
 - **Hybrid.** The management services cover Azure IaaS virtual machines as well as physical and virtual servers that are hosted on-premises or in other hosting environments.
 - **Security.** Microsoft devotes substantial resources to all forms of security. This investment not only protects the Azure cloud infrastructure, but also extends the resulting technologies and expertise to protect customers' resources wherever they reside.

@@ -16,7 +16,7 @@ To improve the efficiency of deploying Azure server management services, conside
 
 ## Onboarding by using Automation
 
-This guidance has a supporting GitHub repository of sample code, [CloudAdoptionFramework](https://aka.ms/CAF/manage/automation-samples), which provides example scripts and templates to help you automate the deployment of Azure server management services.
+This guidance has a supporting GitHub repository of sample code, [CloudAdoptionFramework](https://aka.ms/CAF/manage/automation-samples), which provides example scripts and Azure Resource Manager templates to help you automate the deployment of Azure server management services.
 
 These sample files illustrate how to use Azure PowerShell cmdlets to automate the following tasks:
 

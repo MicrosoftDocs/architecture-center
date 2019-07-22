@@ -84,7 +84,7 @@ After you've decided how best to place and organize workspace and account pairs,
 To create a Log Analytics workspace through the Azure portal, see [Create a workspace](/azure/azure-monitor/learn/quick-create-workspace#create-a-workspace). Next, create a matching Automation account for each workspace by following the steps in [Create an Azure Automation account](/azure/automation/automation-quickstart-create-account).
 
 > [!NOTE]
-> When creating an Automation account through the Azure portal, the default behavior attempts to create Run As accounts for both Resource Manager and the classic deployment model resources. If you don't have classic VMs in your environment and you are not the co-administrator on the subscription, the portal will create a Run As account for Resource Manager, but it will generate an error when deploying the classic Run As account. If you don't intend to support classic resources, you can ignore this error.
+> When creating an Automation account through the Azure portal, the default behavior attempts to create Run As accounts for both Azure Resource Manager and the classic deployment model resources. If you don't have classic VMs in your environment and you are not the co-administrator on the subscription, the portal will create a Run As account for Resource Manager, but it will generate an error when deploying the classic Run As account. If you don't intend to support classic resources, you can ignore this error.
 >
 > You can also create Run As accounts using [PowerShell](/azure/automation/manage-runas-account#create-run-as-account-using-powershell).
 
