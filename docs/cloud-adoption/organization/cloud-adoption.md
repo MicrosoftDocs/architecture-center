@@ -39,7 +39,7 @@ The primary need from any cloud adoption capability is the timely, high-quality 
 
 - Execute the [rationalization of the digital estate](../digital-estate/overview.md)
 - Review, validate, and advance the [prioritized migration backlog](../migrate/migration-considerations/assess/release-iteration-backlog.md)
-- Begin execution of the [first workload](../digital-estate/rationalize.md#selecting-the-first-workload) as a learning opportunity
+- Begin execution of the [first workload](../digital-estate/rationalize.md#select-the-first-workload) as a learning opportunity
 
 **Ongoing monthly tasks:**
 
