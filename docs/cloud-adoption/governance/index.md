@@ -108,7 +108,7 @@ This content is intended for the cloud governance team. It's also relevant to cl
 
 ## Intended audience
 
-The content in the Cloud Adoption Framework affects the business, technology, and culture of enterprises. This section of the Cloud Adoption Framework interacts heavily with IT security, IT governance, finance, line-of-business leaders, networking, identity, and cloud adoption teams. Various co-dependencies on these personel require a facilitative approach by the cloud architects using this guidance. Facilitation with these teams might be a one-time effort. In some cases, it results in recurring interactions with these other personel.
+The content in the Cloud Adoption Framework affects the business, technology, and culture of enterprises. This section of the Cloud Adoption Framework interacts heavily with IT security, IT governance, finance, line-of-business leaders, networking, identity, and cloud adoption teams. Various co-dependencies on these personnel require a facilitative approach by the cloud architects using this guidance. Facilitation with these teams might be a one-time effort. In some cases, it results in recurring interactions with these other personnel.
 
 The cloud architect serves as the thought leader and facilitator to bring these audiences together. The content in this collection of guides is designed to help the cloud architect facilitate the right conversation, with the right audience, to drive necessary decisions. Business transformation that's empowered by the cloud depends on the cloud architect to help guide decisions throughout the business and IT.
 
