@@ -37,7 +37,7 @@ This capability helps guide critical prioritization and discovery efforts during
 
 ## Key responsibilities
 
-The primary duty of the cloud strategy capability is to validate and maintain alignment between business priorities and cloud adoption efforts. The second duty associated with this capability is change management across the adoption efforts. The following is a series of tasks that assist in fulfilling those duties.
+The primary focus of the cloud strategy is to validate and maintain alignment between business priorities and cloud adoption efforts. Secondarily, you should focus on change management across the adoption efforts. The following tasks assist in achieving this capability.
 
 ### Early planning tasks
 
