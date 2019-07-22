@@ -16,7 +16,7 @@ Onboarding the Azure management services to your servers involves two tasks: dep
   
 - [Deploying required agents to Azure VMs using Azure Policy](#deploy-extensions-to-azure-vms-using-azure-policy)
 - [Deploying required agents to on-premises servers](#install-required-agents-on-on-premises-servers)
-- [Enabling and configuring solutions](#enable-and-configure-services)
+- [Enable and configuring solutions](#enable-and-configure-solutions)
 
 > [!NOTE]
 > Create the required [Log Analytics workspace and Azure Automation account](./prerequisites.md#create-a-workspace-and-automation-account) before onboarding virtual machines to Azure management services.
