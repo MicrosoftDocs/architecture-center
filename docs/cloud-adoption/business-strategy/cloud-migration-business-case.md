@@ -33,7 +33,7 @@ Cloud migrations can generate early return on investment (ROI) from cloud transf
 
 - When a business sees capital assets as a driver for business valuation, capital expense reductions could be a negative outcome. Though it's not a universal standard, this sentiment is most commonly seen in the retail, manufacturing, and construction industries.
 - A private equity firm or a company that's seeking capital influx might consider operating expense increases as a negative outcome.
-- If a business focusses heavily on improving sales margins or reducing cost of goods sold (COGS), operating expenses could be a negative outcome.
+- If a business focuses heavily on improving sales margins or reducing cost of goods sold (COGS), operating expenses could be a negative outcome.
 
 Businesses are more likely to see operating expense as more favorable than capital expense. For example, this approach might be well received by businesses that are trying to improve cash flow, reduce capital investments, or decrease asset holdings.
 
