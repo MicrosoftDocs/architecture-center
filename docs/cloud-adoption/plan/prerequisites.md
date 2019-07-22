@@ -1,6 +1,6 @@
 ---
 title: "Prerequisites checklist for an effective cloud adoption plan"
-titleSuffix: Microsoft Cloud Adoption Framework for Azure
+titleSuffix: Microsoft Cloud Adoption Framework
 description: Prerequisites checklist for an effective cloud adoption plan
 author: BrianBlanchard
 ms.author: brblanch
@@ -16,7 +16,7 @@ A plan is only as effective as the data that's put into it. For a cloud adoption
 
 ## Strategic inputs
 
-Accurate strategic inputs ensure that the work being done contributes to achievement of business outcomes. The [strategy section of the Cloud Adoption Framework for Azure](../business-strategy/index.md) provides a series of exercises to develop a clear strategy. The outputs of those exercises feed the cloud adoption plan. Before developing the plan, ensure that the following items are well defined as a result of those exercises:
+Accurate strategic inputs ensure that the work being done contributes to achievement of business outcomes. The [strategy section of the Cloud Adoption Framework](../business-strategy/index.md) provides a series of exercises to develop a clear strategy. The outputs of those exercises feed the cloud adoption plan. Before developing the plan, ensure that the following items are well defined as a result of those exercises:
 
 - **Clear motivations**: Why are we adopting the cloud?
 - **Defined business outcomes**: What results do we expect to see from adopting the cloud?
