@@ -205,10 +205,10 @@ To test connectivity from the simulated on-premises environment to the hub VNet 
 
 3. From a Linux prompt, run `ssh` to connect to the simulated on-premises environment. Use the password that you specified in the `onprem.json` parameter file.
 
-4. Use the `ping` command to test connectivity to the jumpbox VM in the hub VNet:
+4. Use the `nc` command to test connectivity to the jumpbox VM in the hub VNet:
 
    ```shell
-   ping 10.0.0.68
+   nc -vzw 1 10.0.0.68 22
    ```
 
 ### Deploy the spoke VNets
@@ -269,11 +269,11 @@ To test connectivity from the simulated on-premises environment to the spoke VNe
 
 3. From a Linux prompt, run `ssh` to connect to the simulated on-premises environment. Use the password that you specified in the `onprem.json` parameter file.
 
-4. Use the `ping` command to test connectivity to the jumpbox VMs in each spoke:
+4. Use the `nc` command to test connectivity to the jumpbox VMs in each spoke:
 
    ```bash
-   ping 10.1.0.68
-   ping 10.2.0.68
+   nc -vzw 1 10.1.0.68 22
+   nc -vzw 1 10.2.0.68 22
    ```
 
 ### Add connectivity between spokes
@@ -313,7 +313,7 @@ To verify connectivity, perform the following steps:
 
 1. From this login session, log into the jumpbox VM for spoke-1. The private IP address is 10.1.0.68.
 
-1. Use the `Test-NetConnection` cmdlet (Windows) or ping command (Linux) to test connectivity to 10.2.0.68, which is the jumpbox VM for spoke-2.
+1. Use the `Test-NetConnection` cmdlet (Windows) or `nc` command (Linux) to test connectivity to 10.2.0.68, which is the jumpbox VM for spoke-2.
 
 
 <!-- links -->

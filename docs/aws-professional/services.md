@@ -2,7 +2,7 @@
 title: AWS to Azure services comparison
 titleSuffix: Azure Architecture Center
 description: Compare Azure cloud services to Amazon Web Services (AWS) for multicloud solutions or migration to Azure. 
-keywords: cloud services comparison, cloud services compared, multicloud, compare azure aws, compare azure and aws, compare aws and azure, IT capabilities
+keywords: cloud services comparison, cloud services compared, multicloud, compare Azure AWS, compare Azure and AWS, compare AWS and Azure, IT capabilities
 author: JasRobe
 ms.author: pnp
 ms.date: 05/07/2019
@@ -50,7 +50,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| Redshift | [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/) | Cloud-based Enterprise Data Warehouse (EDW) that leverages Massively Parallel Processing (MPP) to quickly run complex queries across petabytes of data. |
+| Redshift | [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/) | Cloud-based Enterprise Data Warehouse (EDW) that uses Massively Parallel Processing (MPP) to quickly run complex queries across petabytes of data. |
 
 ### Big data processing
 
@@ -83,8 +83,8 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | ----------- | ------------- | ----------- |
 | Elastic Compute Cloud (EC2) Instances | [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) | Virtual servers allow users to deploy, manage, and maintain OS and server software. Instance types provide combinations of CPU/RAM. Users pay for what they use with the flexibility to change sizes. |
 | AWS Batch | [Azure Batch](https://azure.microsoft.com/services/batch/) | Run large-scale parallel and high-performance computing applications efficiently in the cloud. |
-| AWS Auto Scaling | [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview) | Lets you automatically change the number of VM instances. You set defined metric and thresholds that determine if the platform adds or removes instances. |
-| VMWare Cloud on AWS |  [Azure VMWare by CloudSimple](https://azure.microsoft.com/services/azure-vmware-cloudsimple/) | Redeploy and extend your VMware-based enterprise workloads to Azure with Azure VMware Solution by CloudSimple. Keep using the VMware tools you already know to manage workloads on Azure without disrupting network, security, or data protection policies. |
+| AWS Auto Scaling | [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview) | Allows you to automatically change the number of VM instances. You set defined metric and thresholds that determine if the platform adds or removes instances. |
+| VMware Cloud on AWS | [Azure VMware by CloudSimple](https://azure.microsoft.com/services/azure-vmware-cloudsimple/) | Redeploy and extend your VMware-based enterprise workloads to Azure with Azure VMware Solution by CloudSimple. Keep using the VMware tools you already know to manage workloads on Azure without disrupting network, security, or data protection policies. |
 
 ### Containers and container orchestrators
 
@@ -105,9 +105,9 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 | Type | AWS Service | Azure Service | Description |
 | -----| ----------- | ------------- | ----------- |
-| Relational database | RDS | [SQL Database](https://azure.microsoft.com/services/sql-database/)<br/><br/>[Azure Database for MySQL](https://azure.microsoft.com/services/mysql/)<br/><br/>[Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/) | Relational database-as-a-service (DBaaS) where the database resilience, scale, and maintenance are primarily handled by the platform. |
+| Relational database | RDS | [SQL Database](https://azure.microsoft.com/services/sql-database/)<br/><br/>[Azure Database for MySQL](https://azure.microsoft.com/services/mysql/)<br/><br/>[Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/) | Managed relational database service where resiliency, scale, and maintenance are primarily handled by the platform. |
 | NoSQL / Document | DynamoDB and SimpleDB | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) | A globally distributed, multi-model database that natively supports multiple data models: key-value, documents, graphs, and columnar. |
-| Caching | ElastiCache | [Azure Redis Cache](https://azure.microsoft.com/services/cache/) | An in-memory–based, distributed caching service that provides a high-performance store typically used to offload nontransactional work from a database. |
+| Caching | ElastiCache | [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) | An in-memory–based, distributed caching service that provides a high-performance store typically used to offload nontransactional work from a database. |
 | Database migration | AWS Database Migration Service | [Azure Database Migration Service](https://azure.microsoft.com/campaigns/database-migration/) | Migration of database schema and data from one database format to a specific database technology in the cloud. |
 
 ## DevOps and application monitoring
@@ -118,7 +118,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 | CodeDeploy <br/><br/>CodeCommit <br/><br/>CodePipeline | [Azure DevOps](https://azure.microsoft.com/services/devops/) | A cloud service for collaborating on code development. |
 | AWS Developer Tools | [Azure Developer Tools](https://azure.microsoft.com/tools/) | Collection of tools for building, debugging, deploying, diagnosing, and managing multiplatform scalable apps and services. |
 | AWS CodeBuild | [Azure DevOps](https://azure.microsoft.com/services/devops/) | Fully managed build service that supports continuous integration and deployment. |
-| Command Line Interface | [Azure Command Line Interface (CLI)](/cli/azure/install-azure-cli) <br/><br/>[Azure PowerShell](/powershell/azure/overview) | Built on top of the native REST API across all cloud services, various programming language-specific wrappers provide easier ways to create solutions. |
+| Command Line Interface | [Azure CLI](/cli/azure/install-azure-cli) <br/><br/>[Azure PowerShell](/powershell/azure/overview) | Built on top of the native REST API across all cloud services, various programming language-specific wrappers provide easier ways to create solutions. |
 | OpsWorks (Chef-based) | [Azure Automation](https://azure.microsoft.com/services/automation/) | Configures and operates applications of all shapes and sizes, and provides templates to create and manage a collection of resources. |
 | CloudFormation | [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/) <br/><br/>[VM extensions](/azure/virtual-machines/extensions/features-windows?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Ftoc.json) <br/><br/>[Azure Automation](https://azure.microsoft.com/services/automation/) | Provides a way for users to automate the manual, long-running, error-prone, and frequently repeated IT tasks. |
 
@@ -148,7 +148,7 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 |-------------|---------------|-------------|
 | Simple Queue Service (SQS) | [Azure Queue Storage](https://azure.microsoft.com/services/storage/queues/) | Provides a managed message queueing service for communicating between decoupled application components. |
 | Simple Queue Service (SQS) | [Service Bus](https://azure.microsoft.com/services/service-bus/) | Supports a set of cloud-based, message-oriented middleware technologies including reliable message queuing and durable publish/subscribe messaging. |
-| Simple Notification Service | [Event Grid](https://azure.microsoft.com/services/event-grid/) | A fully-managed event routing service that allows for uniform event consumption using a publish/subscribe model. |
+| Simple Notification Service | [Event Grid](https://azure.microsoft.com/services/event-grid/) | A fully managed event routing service that allows for uniform event consumption using a publish/subscribe model. |
 
 ## Mobile services
 
@@ -179,12 +179,12 @@ Dedicated network | Direct Connect | [ExpressRoute](https://azure.microsoft.com/
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
 | Identity and Access Management (IAM) | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) | Allows users to securely control access to services and resources while offering data security and protection. Create and manage users and groups, and use permissions to allow and deny access to resources. |
-| AWS Organizations | [Azure Subscription and Service Management + Azure RBAC](/azure/azure-subscription-service-limits) | Security policy and role management for working with multiple accounts. |
-| Multi-Factor Authentication | [Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/) | Safeguard access to data and applications while meeting user demand for a simple sign-in process.  |
-| AWS Directory Service | [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/) | Provides managed domain services such as domain join, group policy, LDAP, and Kerberos/NTLM authentication that are fully compatible with Windows Server Active Directory |
+| AWS Organizations | [Azure Subscription Management + Azure RBAC](/azure/azure-subscription-service-limits) | Security policy and role management for working with multiple accounts. |
+| Multi-Factor Authentication | [Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/) | Safeguard access to data and applications while meeting user demand for a simple sign-in process. |
+| AWS Directory Service | [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/) | Provides managed domain services such as domain join, group policy, LDAP, and Kerberos/NTLM authentication that are fully compatible with Windows Server Active Directory. |
 | Cognito | [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) | A highly available, global, identity management service for consumer-facing applications that scales to hundreds of millions of identities. |
 | AWS Organizations | [Azure Policy](https://azure.microsoft.com/services/azure-policy/) | Azure Policy is a service in Azure that you use to create, assign, and manage policies. These policies enforce different rules and effects over your resources, so those resources stay compliant with your corporate standards and service level agreements. |
-| AWS Organizations | [Management Groups](https://docs.microsoft.com/azure/governance/management-groups/) | Azure management groups provide a level of scope above subscriptions. You organize subscriptions into containers called "management groups" and apply your governance conditions to the management groups. All subscriptions within a management group automatically inherit the conditions applied to the management group. Management groups give you enterprise-grade management at a large scale no matter what type of subscriptions you might have.
+| AWS Organizations | [Management Groups](https://docs.microsoft.com/azure/governance/management-groups/) | Azure management groups provide a level of scope above subscriptions. You organize subscriptions into containers called "management groups" and apply your governance conditions to the management groups. All subscriptions within a management group automatically inherit the conditions applied to the management group. Management groups give you enterprise-grade management at a large scale, no matter what type of subscriptions you have. |
 
 ### Encryption
 
@@ -251,7 +251,7 @@ Dedicated network | Direct Connect | [ExpressRoute](https://azure.microsoft.com/
 | AWS Import/Export Disk | [Import/Export](/azure/storage/common/storage-import-export-service) | A data transport solution that uses secure disks and appliances to transfer large amounts of data. Also offers data protection during transit. |
 | AWS Import/Export Snowball, Snowball Edge, Snowmobile | [Azure Data Box](https://azure.microsoft.com/services/storage/databox/) | Petabyte- to exabyte-scale data transport solution that uses secure data storage devices to transfer large amounts of data to and from Azure. |
 
-## Web apps
+## Web applications
 
 | AWS service | Azure service | Description |
 |------|-------------|---------------|-------------|
@@ -270,4 +270,4 @@ Dedicated network | Direct Connect | [ExpressRoute](https://azure.microsoft.com/
 | Gaming | GameLift, GameSparks | [PlayFab](https://playfab.com/) | Managed services for hosting dedicated game servers. |
 | Media transcoding | Elastic Transcoder | [Media Services](https://azure.microsoft.com/services/media-services/) | Services that offer broadcast-quality video streaming services, including various transcoding technologies. |
 | Workflow | Simple Workflow Service (SWF) | [Logic Apps](https://azure.microsoft.com/services/logic-apps/) | Serverless technology for connecting apps, data and devices anywhere, whether on-premises or in the cloud for large ecosystems of SaaS and cloud-based connectors. |
-| Hybrid | Outposts | [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) | Azure Stack is a hybrid cloud platform that lets you use Azure services from your company's or service provider's datacenter. As a developer, you can build apps on Azure Stack. You can then deploy them to Azure Stack, to Azure, or you can build truly hybrid apps that leverage the connectivity between an Azure Stack cloud and Azure. |
+| Hybrid | Outposts | [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) | Azure Stack is a hybrid cloud platform that enables you to run Azure services in your company's or service provider's datacenter. As a developer, you can build apps on Azure Stack. You can then deploy them to either Azure Stack or Azure, or you can build truly hybrid apps that take advantage of connectivity between an Azure Stack cloud and Azure. |

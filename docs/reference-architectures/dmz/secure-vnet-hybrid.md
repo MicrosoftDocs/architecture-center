@@ -185,7 +185,7 @@ A deployment for a reference architecture that implements these recommendations 
 
 In this step, you will connect the two local network gateways.
 
-1. In the Azure Portal, navigate to the resource group that you created.
+1. In the Azure portal, navigate to the resource group that you created.
 
 2. Find the resource named `ra-vpn-vgw-pip` and copy the IP address shown in the **Overview** blade.
 
@@ -209,7 +209,7 @@ In this step, you will connect the two local network gateways.
 
 ### Verify that network traffic reaches the web tier
 
-1. In the Azure Portal, navigate to the resource group that you created.
+1. In the Azure portal, navigate to the resource group that you created.
 
 2. Find the resource named `int-dmz-lb`, which is the load balancer in front of the private DMZ. Copy the private IP address from the **Overview** blade.
 

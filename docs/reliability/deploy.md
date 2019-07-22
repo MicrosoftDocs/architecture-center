@@ -22,7 +22,7 @@ The most reliable deployment processes are automated and *idempotent* &mdash; th
 
 - To automate provisioning of Azure resources, you can use [Terraform](/azure/virtual-machines/windows/infrastructure-automation#terraform),
     [Ansible](/azure/virtual-machines/windows/infrastructure-automation#ansible), [Chef](/azure/virtual-machines/windows/infrastructure-automation#chef), [Puppet](/azure/virtual-machines/windows/infrastructure-automation#puppet),
-    [Azure PowerShell](/powershell/azure/overview), [Azure command-line interface (CLI)](/cli/azure), or [Azure Resource Manager templates](/azure/azure-resource-manager/resource-group-overview#template-deployment).
+    [Azure PowerShell](/powershell/azure/overview), [Azure CLI](/cli/azure), or [Azure Resource Manager templates](/azure/azure-resource-manager/resource-group-overview#template-deployment).
 - To configure VMs, you can use [cloud-init](/azure/virtual-machines/windows/infrastructure-automation#cloud-init) (for Linux VMs) or [Azure Automation State Configuration](/azure/automation/automation-dsc-overview) (DSC).
 - To automate application deployment, you can use [Azure DevOps Services](/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services), [Jenkins](/azure/virtual-machines/windows/infrastructure-automation#jenkins), or other CI/CD solutions.
 
