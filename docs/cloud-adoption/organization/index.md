@@ -142,4 +142,4 @@ To track organization structure decisions over time, download and modify the [RA
 > [Download the RACI spreadsheet template][template]
 
 <!-- links -->
-[template]: (https://archcenter.blob.core.windows.net/cdn/fusion/management/raci-template.xlsx)
+[template]: https://archcenter.blob.core.windows.net/cdn/fusion/management/raci-template.xlsx
