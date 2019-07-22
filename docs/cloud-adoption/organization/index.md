@@ -123,7 +123,7 @@ The following is a list of cloud capabilities that are required to succeed at cl
 
 ## Maturing organizational structures
 
-To some degree, each of the above capabilities are delivered in every cloud adoption effort, either explicitly or in accordance with a defined team structure.
+To some degree, each of the above capabilities is delivered in every cloud adoption effort, either explicitly or in accordance with a defined team structure.
 As adoption needs grow, so does the need to create balance and structure. To meet those needs, companies often follow a process of maturing organizational structures.
 
 ![Organizational maturity cycle](../_images/ready/org-ready-maturity.png)
