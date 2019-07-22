@@ -1,6 +1,6 @@
 ---
 title: "Initial organization alignment" 
-titleSuffix: Microsoft Cloud Adoption Framework for Azure
+titleSuffix: Microsoft Cloud Adoption Framework
 description: Initial organization alignment
 author: BrianBlanchard
 ms.author: brblanch
@@ -14,13 +14,13 @@ ms.subservice: enterprise-cloud-adoption
 
 The most important aspect of any cloud adoption plan is the alignment of people who will make the plan a reality. No plan is complete until you understand its people-related aspects.
 
-True organizational alignment takes time. It will become important to establish long-term organizational alignment, especially as cloud adoption scales across the business and IT culture. Alignment is so important that [an entire section](../organization/index.md) has been dedicated to it in the Operate section of the Cloud Adoption Framework for Azure.
+True organizational alignment takes time. It will become important to establish long-term organizational alignment, especially as cloud adoption scales across the business and IT culture. Alignment is so important that [an entire section](../organization/index.md) has been dedicated to it in the Operate section of the Cloud Adoption Framework.
 
 Full organization alignment is not a required component of the cloud adoption plan. However, some initial organization alignment is needed. This article outlines a best-practice starting point for organizational alignment. The guidance here can help complete your plan and get your teams ready for cloud adoption. When you're ready, you can use the [organization alignment](../organization/index.md) section to customize this guidance to fit your organization.
 
 ## Initial best-practice structure
 
-To create a balance between speed and control, we recommend that a minimum of two parties have accountability during cloud adoption: the *cloud adoption* party and *cloud governance* party. Each party might be a team of people sharing responsibilities for each of these areas, or *capabilities*. The parties might also be individual people who are both accountable for the outcomes and responsible for the work. In either scenario, cloud adoption and cloud governance are two capabilities that involve natural friction between moving quickly and reducing risks. Here's how the two teams fit together:
+To create a balance between speed and control, we recommend that during cloud adoption, at a minimum, you have people accountable for *cloud adoption* and *cloud governance*. This might be a team of people sharing responsibilities for each of these areas, or *capabilities*. It might also be individual people who are both accountable for the outcomes and responsible for the work. In either scenario, cloud adoption and cloud governance are two capabilities that involve natural friction between moving quickly and reducing risks. Here's how the two teams fit together:
 
 ![Cloud adoption with a cloud center of excellence](../_images/ready/org-ready-best-practice.png)
 
