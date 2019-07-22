@@ -10,7 +10,7 @@ ms.custom: azcat-ai
 
 # Training of Python scikit-learn and deep learning models on Azure
 
-This reference architecture shows recommended practices for tuning the hyperparameters (training parameters) of python models. Two scenarios are covered: hyperparameter tuning of [scikit-learn][scikit] models and deep learning models with GPUs. Two reference implementation for this architecture are available on GitHub, one for [scikit-learn][github1] models and one for [deep learning][github1] models.
+This reference architecture shows recommended practices for tuning the hyperparameters (training parameters) of python models. Two scenarios are covered: hyperparameter tuning of [scikit-learn][scikit] models and deep learning models with GPUs. Two reference implementation for this architecture are available on GitHub, one for [scikit-learn][github1] models and one for [deep learning][github2] models.
 
 ![Architecture diagram][0]
 
@@ -36,7 +36,7 @@ Processing in this [pipeline][pipeline] scenario involves the following steps:
 
 See also considerations for training [deep learning models][training-deep-learning] with GPUs.
 
-**Scenario 2: Out of stock detection.** This scenario shows how to tune an object detection Mask RCNN model that can be deployed as a web service to provide predictions for empty spaces on store shelves. Images similar to retailer store shelves filled with products are used to predict empty spaces to help detect out of stock products by potentially marrying these perdictions with other sources of information such as planograms and databases. In this scenario, only empty space prediction is covered. The dataset used is distributed under the [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) license.
+**Scenario2: Out of stock detection.** This scenario shows how to tune an object detection Mask RCNN model that can be deployed as a web service to provide predictions for empty spaces on store shelves. Images similar to retailer store shelves filled with products are used to predict empty spaces to help detect out of stock products by potentially marrying these predictions with other sources of information such as planograms and databases. In this scenario, only empty space prediction is covered. The dataset used is distributed under the [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) license.
 
 
 Processing in this scenario involves the following steps:
