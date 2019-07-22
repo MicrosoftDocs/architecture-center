@@ -31,15 +31,15 @@ the available controls to reduce risk
     is best accomplished with modern controls that provide privileges on demand.
     This help to limit risk by limiting administrative privileges exposure by:
 
-    1.  **Scope** – *Just Enough Access (JEA)* provides only the required
+    -  **Scope** – *Just Enough Access (JEA)* provides only the required
         privileges for the administrative operation required (vs. having direct
         and immediate privileges to many or all systems at a time, which is
         almost never required).
 
-    2.  **Time** – *Just in Time (JIT)* approaches provided the required
+    -  **Time** – *Just in Time (JIT)* approaches provided the required
         privileged as they are needed.
 
-    3.  **Mitigate the remaining risks** – Use a combination of preventive and
+    -  **Mitigate the remaining risks** – Use a combination of preventive and
         detective controls to reduce risks such as isolating administrator
         accounts from the most common risks phishing and general web browsing,
         simplifying and optimizing their workflow, increasing assurance of

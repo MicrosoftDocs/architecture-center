@@ -605,14 +605,14 @@ wDigest, Unsigned LDAP Binds, and Weak ciphers in Kerberos.
 Authentication protocols are a critical foundation of nearly all security
 assurances. These older versions can be exploited by attackers with access to
 your network and are often used extensively on legacy systems on Infrastructure
-as a Service (IaaS)
+as a Service (IaaS).
 
-Reduce your risk by
+Here are ways to reduce your risk:
 
-1.  **Discover** protocol usage by reviewing logs with Azure Sentinel’s Insecure
+-  **Discover** protocol usage by reviewing logs with Azure Sentinel’s Insecure
     Protocol Dashboard or third party tools
 
-2.  Restrict or Disable use of these protocols by following guidance for
+-  Restrict or Disable use of these protocols by following guidance for
     [SMB](https://support.microsoft.com/help/2696547/detect-enable-disable-smbv1-smbv2-smbv3-in-windows-and-windows-server),
     [NTLM](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-ntlm-authentication-in-this-domain),
     [WDigest](https://support.microsoft.com/help/2871997/microsoft-security-advisory-update-to-improve-credentials-protection-a)
