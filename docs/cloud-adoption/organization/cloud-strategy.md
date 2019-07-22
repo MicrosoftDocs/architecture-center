@@ -30,7 +30,7 @@ This capability is commonly provided by the following types of roles. When a clo
 - Application groups
 - Project managers (Often with Agile project management experience)
 
-This capability helps guide critical prioritization and discovery efforts during cloud adoption. It may also trigger changes in business processes, the execution of operations,customer interactions, or even product development. If this capability is confined to IT, the success of cloud adoption efforts will be constrained. To drive true business change, business leaders should be the primary source of this capability. A defined cloud strategy team provides a means for involving key participants in a structured way.
+This capability helps guide critical prioritization and discovery efforts during cloud adoption. It may also trigger changes in business processes, the execution of operations, customer interactions, or even product development. If this capability is confined to IT, the success of cloud adoption efforts will be constrained. To drive true business change, business leaders should be the primary source of this capability. A defined cloud strategy team provides a means for involving key participants in a structured way.
 
 > [!NOTE]
 > The organization's CEO and CIO often assign the team. Assignments are typically based on empowering this team to drive change that cuts across various different organizations within the enterprise. The cloud strategy team members should be assigned based on the [motivations for cloud adoption](../business-strategy/motivations-why-are-we-moving-to-the-cloud.md), [business outcomes](../business-strategy/business-outcomes/index.md), and relevant [financial models](../business-strategy/financial-models.md).
