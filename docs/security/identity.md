@@ -161,7 +161,7 @@ providers are uniquely positioned to offer protection against these attacks.
 Since they handle such large volumes of signons, they can apply better anomaly
 detection and use a variety of data sources to both proactively notify companies
 if their users’ passwords have been found in other breaches, as well as validate
-that any given sign-on appears legitimate and is not coming from an unexpected
+that any given sign in appears legitimate and is not coming from an unexpected
 or known-malicious host.
 
 Additionally, synchronizing passwords to the cloud to support these checks also
@@ -213,7 +213,7 @@ Azure, Office 365, [Amazon Web Services (AWS)](https://docs.microsoft.com/azure/
 (remote access to) [legacy on-premises applications](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy),
 and third-party [Software as a Service providers](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list).
 
-## Enforce conditional access for USERS (Zero Trust)
+## Enforce conditional access for users - Zero Trust
 
 Authentication for all users should include measurement and enforcement of key
 security attributes to support a Zero Trust strategy. The details of this

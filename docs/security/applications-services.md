@@ -411,7 +411,7 @@ measures to minimize time investment while maximizing security value:
     protects against attacks designed to overload the application so it can’t be
     used
 
--   Does the application store any logon credentials or keys to access other
+-   Does the application store any sign in credentials or keys to access other
     applications, databases, or services? This helps identify whether an attack
     can use your application to attack other systems.
 
