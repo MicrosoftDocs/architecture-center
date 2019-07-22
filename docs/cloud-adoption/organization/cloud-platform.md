@@ -13,11 +13,11 @@ ms.custom: organize
 
 # Cloud platform capabilities
 
-The cloud introduces many technical changes and opportunities for streaming technical approaches. However, the general principles of IT and the business stay the same. If your business works with sensitive data, that data must still be protected. If your IT platform depends a local area network, there's a good chance that network definitions will be needed in the cloud. If users need to access applications and data, they are likely to request that their current identities grant access to the relevant cloud resources as well.
+The cloud introduces many technical changes as well as opportunities to stream technical solutions. However, general IT principles and business needs stay the same. You still need to protect sensitive business data. If your IT platform depends on a local area network, there's a good chance that you'll need network definitions in the cloud. Users who need to access applications and data will want their current identities to access relevant cloud resources.
 
-While the cloud presents the opportunity to learn new skills, the experiences and subject matter expertise of existing architects is likely to be directly applicable. Cloud platform capabilities are usually delivered by a select group of architects, who invest in overcoming cloud learning curves. These architects then aid others in decision making and the proper application of controls to cloud environments.
+While the cloud presents the opportunity to learn new skills, your current architects should be able to directly apply their experiences and subject matter expertise. Cloud platform capabilities are usually provided by a select group of architects who focus on learning about the cloud platform. These architects then aid others in decision making and the proper application of controls to cloud environments.
 
-## Possible sources for this capability
+## Possible sources for cloud platform expertise
 
 The skills needed to provide full platform capabilities could be provided by:
 
@@ -33,24 +33,29 @@ The skills needed to provide full platform capabilities could be provided by:
 
 ## Key responsibilities
 
-The duties of the cloud platform capability are centered around the creation and support of the cloud platform (or landing zones).
+Cloud platform duties center around the creation and support of your cloud platform or landing zones.
 
-These tasks are typically executed on a regular basis:
+The following tasks are typically executed on a regular basis:
 
 ### Strategic tasks
 
-- Review [business outcomes](../business-strategy/business-outcomes/index.md), [financial models](../business-strategy/financial-models.md), [motivations for cloud adoption](../business-strategy/motivations-why-are-we-moving-to-the-cloud.md), [business risks](../governance/policy-compliance/risk-tolerance.md), and [rationalization of the digital estate](../digital-estate/overview.md).
-- Monitor adoption plans and progress against the [prioritized migration backlog](../migrate/migration-considerations/assess/release-iteration-backlog.md)
-- Identify and prioritize platform changes required to support the migration backlog
+- Review:
+  - [business outcomes](../business-strategy/business-outcomes/index.md)
+  - [financial models](../business-strategy/financial-models.md)
+  - [motivations for cloud adoption](../business-strategy/motivations-why-are-we-moving-to-the-cloud.md)
+  - [business risks](../governance/policy-compliance/risk-tolerance.md)
+  - [rationalization of the digital estate](../digital-estate/overview.md)
+- Monitor adoption plans and progress against the [prioritized migration backlog](../migrate/migration-considerations/assess/release-iteration-backlog.md).
+- Identify and prioritize platform changes that are required to support the migration backlog.
 
 ### Technical tasks
 
-- Build and maintain the cloud platform to support solutions
-- Define and implement the platform architecture
-- Operate and manage the cloud platform
-- Continuously evolve the platform
-- Keep up with new innovations in the cloud platform
-- Bring new cloud capabilities to support business value creation
+- Build and maintain the cloud platform to support solutions.
+- Define and implement the platform architecture.
+- Operate and manage the cloud platform.
+- Continuously evolve the platform.
+- Keep up with new innovations in the cloud platform.
+- Bring new cloud capabilities to support business value creation.
 - Suggest self-service solutions.
 - Ensure solutions meet existing governance/compliance requirements.
 - Create and validate deployment of platform architecture.
@@ -58,11 +63,11 @@ These tasks are typically executed on a regular basis:
 
 ## Meeting cadence
 
-The cloud platform capabilities usually come from a working team. The time commitment from each participate is expected to consume a large portion of their daily schedules. Contributions aren't limited to meetings and feedback cycles.
+Cloud platform expertise usually comes from a working team. Expect participants to commit a large portion of their daily schedules to cloud platform work. Contributions aren't limited to meetings and feedback cycles.
 
 ## Next steps
 
-As the cloud platform becomes better defined, aligning [cloud automation capabilities](./cloud-automation.md) will accelerate adoption and best practices, while reducing business and technical risks.
+As your cloud platform becomes better defined, aligning [cloud automation capabilities](./cloud-automation.md) can accelerate adoption. It can also help establish best practices while reducing business and technical risks.
 
 > [!div class="nextstepaction"]
 > [Align cloud automation capabilities](./cloud-automation.md)
