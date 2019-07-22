@@ -113,7 +113,7 @@ Generally, fiefdoms are the result of a line manager who fears loss of the team 
 
 IT fiefdoms can demonstrate some growth by following the approaches to [addressing IT silo resistance](#addressing-resistance-from-it-silos). Before you try to address resistance from an IT fiefdom, we recommend that you treat the team like an IT silo first. If those types of approaches fail to yield any significant change, the resistant team might be suffering from an IT fiefdom antipattern. The root cause of IT fiefdoms is a little more complex to address, because that resistance tends to come from the direct line manager (or a leader higher up the organizational chart).
 
-Managers within IT fiefdoms tend to be among the strongest high-potential managers in any organization. Their ability to inspire and build confidence in teams is often unmatched. So is their ability to block growth, transformation, and business success. The passion and intelligence of these managers can turn toxic and cause a fear-driven or protection-driven microculture to emerge. Unfortunately, these managers are likely to continue to be a blocker without changes to the organizational chart. 
+For your sake, let's hope the challenges are simply IT silo-driven.
 
 When continued resistance from IT fiefdoms blocks cloud adoption efforts, it might be wise for a combined effort to evaluate the situation with existing IT leaders. IT leaders should carefully consider insights from the [cloud strategy team](./cloud-strategy.md), [cloud center of excellence](./cloud-center-excellence.md), and [cloud governance team](./cloud-governance.md) before making decisions.
 

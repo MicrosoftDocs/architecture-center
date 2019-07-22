@@ -13,7 +13,7 @@ ms.custom: "fasttrack-edit"
 
 ::: zone target="docs"
 > [!NOTE]
-> This guide provides a starting point for readiness guidance in the Cloud Adoption Framework, and is also available in the Azure Quickstart Center (see the tip below).
+> This guide provides a starting point for readiness guidance in the Cloud Adoption Framework and is also available in the Azure Quickstart Center. See the tip in the article for a link.
 
 ::: zone-end
 
@@ -27,7 +27,7 @@ You’ll learn how to:
 >
 > - **Organize resources:** Set up a management hierarchy to consistently apply access control, policy, and compliance to groups of resources and use tagging to track related resources.
 > - **Manage access:** Use role-based access control to make sure that users have only the permissions they really need.
-> - **Manage costs and billing:** Identify your subscription type, understand how billing works, and how you can control costs.
+> - **Manage costs and billing:** Identify your subscription type, understand how billing works, and see how you can control costs.
 > - **Plan for governance, security, and compliance:** Enforce and automate policies and security settings that help you follow applicable legal requirements.
 > - **Use monitoring and reporting:** Get visibility across resources to help find and fix problems, optimize performance, or get insight to customer behavior.
 > - **Stay current with Azure:** Track product updates so you can take a proactive approach to change management.
@@ -40,13 +40,13 @@ You’ll learn how to:
 >
 > - **Organize resources.** Set up a management hierarchy to consistently apply access control, policy, and compliance to groups of resources and use tagging to track related resources.
 > - **Manage access.** Use role-based access control to make sure that users have only the permissions they really need.
-> - **Manage costs and billing.** Identify your subscription type, understand how billing works, and how you can control costs.
+> - **Manage costs and billing.** Identify your subscription type, understand how billing works, and see how you can control costs.
 > - **Plan for governance, security, and compliance.** Enforce and automate policies and security settings that help you follow applicable legal requirements.
 > - **Use monitoring and reporting.** Get visibility across resources to help find and fix problems, optimize performance, or get insight to customer behavior.
 > - **Stay current with Azure.** Track product updates so you can take a proactive approach to change management.
 
 > [!TIP]
-> For an interactive experience, view this guide in the Azure portal. Go to the [Azure Quickstart Center](https://portal.azure.com/?feature.quickstart=true#blade/Microsoft_Azure_Resources/QuickstartCenterBlade) in the Azure portal and select **Introduction to Azure Setup**, then follow step-by-step instructions.
+> For an interactive experience, view this guide in the Azure portal. Go to the [Azure Quickstart Center](https://portal.azure.com/?feature.quickstart=true#blade/Microsoft_Azure_Resources/QuickstartCenterBlade) in the Azure portal and select **Introduction to Azure Setup**. Then follow the step-by-step instructions.
 
 Next steps: [Organize your resources to simplify how you apply settings](./organize-resources.md)
 

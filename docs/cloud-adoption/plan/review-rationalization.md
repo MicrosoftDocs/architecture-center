@@ -12,55 +12,55 @@ ms.subservice: enterprise-cloud-adoption
 
 # Review rationalization decisions
 
-During initial strategy and planning phases, it is suggested that an [incremental rationalization](../digital-estate/rationalize.md#incremental-rationalization) approach is applied to the digital estate rationalization. However, this approach embeds a number of assumptions into the resultant decisions. In this phase of planning, it is advised that the cloud strategy and cloud adoption teams review those decisions, in light of expanded workload documentation. This is also a good time to involve business stakeholders and the executive sponsor in future state decisions.
+During initial strategy and planning phases, we suggest you apply an [incremental approach](../digital-estate/rationalize.md#incremental-rationalization) to the digital-estate rationalization. But this approach embeds a number of assumptions into the resulting decisions. We advise the cloud strategy and cloud adoption teams to review those decisions in light of expanded-workload documentation. This review is also a good time to involve business stakeholders and the executive sponsor in future state decisions.
 
 > [!IMPORTANT]
 > Further validation of the rationalization decisions will occur during the assessment phase of migration. This validation focuses on business review of the rationalization to align resources appropriately.
 
-To validate rationalization decisions, use the following questions to facilitate a conversation with the business. The questions below are grouped by the likely rationalization alignment.
+To validate rationalization decisions, use the following questions to facilitate a conversation with the business. The questions are grouped by the likely rationalization alignment.
 
-## Innovate indicators
+## Innovation indicators
 
-If the joint review of the following questions results in a yes answer to these questions, then the workload may be a better candidate for innovation. Innovate candidates wouldn't be migrated via a shift/lift or modernize model. Instead the business logic and/or data structures would be re-created as a new or rearchitected application. This approach can be more labor intensive and time consuming but for workloads that represent significant business returns the investment is justified.
+If the joint review of the following questions results in a "Yes" answer, a workload might be a better candidate for innovation. Such a workload wouldn't be migrated via a shift/lift or modernize model. Instead, the business logic or data structures would be recreated as a new or rearchitected application. This approach can be more labor-intensive and time-consuming. But for a workload that represents significant business returns, the investment is justified.
 
 - Do the applications in this workload create market differentiation?
-- Is there an investment (proposed or approved) aimed at improving the experiences associated with the applications in this workload?
-- Does the data in this workload enable new product or service offerings?
-- Is there an investment (proposed or approved) aimed at leveraging the data associated with this workload?
-- Can the impact of the market differentiation or new offerings be quantified? If so, does that return justify the increased cost of innovation during cloud adoption?
+- Is there a proposed or approved investment aimed at improving the experiences associated with the applications in this workload?
+- Does the data in this workload make new product or service offerings available?
+- Is there a proposed or approved investment aimed at taking advantage of the data associated with this workload?
+- Can the effect of the market differentiation or new offerings be quantified? If so, does that return justify the increased cost of innovation during cloud adoption?
 
-The following two questions aid in factoring in high-level technical scenarios into the rationalization review. Answering yes to either could identify ways of accounting for or reducing the cost burdens associated with innovation:
+The following two questions can help you include high-level technical scenarios in the rationalization review. Answering "Yes" to either could identify ways of accounting for or reducing the cost associated with innovation.
 
-- Will the data structures or business logic be changed during the course of cloud adoption?
+- Will the data structures or business logic change during the course of cloud adoption?
 - Is an existing deployment pipeline used to deploy this workload to production?
 
-If the answer to any of the above is yes, the team should evaluate inclusion of this workload as an innovate candidate. At a minimum, the team should flag this workload for architecture review to identify modernization opportunities.
+If the answer to either question is "Yes," the team should consider including this workload as an innovation candidate. At a minimum, the team should flag this workload for architecture review to identify modernization opportunities.
 
-## Migrate indicators
+## Migration indicators
 
-Migration is a faster and more cost effective means of adopting the cloud, but doesn't take advantage of opportunities to innovate. Before investing in innovation, the following questions can help determine if a migration model could be more applicable for this workload.
+Migration is a faster and cheaper way of adopting the cloud. But it doesn't take advantage of opportunities to innovate. Before you invest in innovation, answer the following questions. They can help you determine if a migration model is more applicable for a workload.
 
-- Is the source code supporting this application stable? Is it expected to remain stable & unchanged during the time frame of this release cycle?
-- Does this workload support production business processes today? Will it throughout the course of this release cycle?
-- Is it a priority to improve stability and performance of this workload, as a result of this cloud adoption effort?
-- Is cost reduction associated with this workload an objective during this adoption effort?
-- Is the goal to reduce operational complexity for this workload during this adoption effort?
-- Is innovation constrained by the current architecture or IT operation processes today?
+- Is the source code supporting this application stable? Do you expect it to remain stable and unchanged during the time frame of this release cycle?
+- Does this workload support production business processes today? Will it do so throughout the course of this release cycle?
+- Is it a priority that this cloud adoption effort improves the stability and performance of this workload?
+- Is cost reduction associated with this workload an objective during this effort?
+- Is reducing operational complexity for this workload a goal during this effort?
+- Is innovation limited by the current architecture or IT operation processes?
 
-If the answer to any of these questions is yes, then a migrate model should be considered for each workload. This is true, even if the workload is a candidate for innovation.
+If the answer to any of these questions is "Yes," you should consider a migration model for this workload. This recommendation is true even if the workload is a candidate for innovation.
 
-Business returns can be hindered by operational complexity, costs, performance, or stability challenges. The cloud can be leveraged as a means of quickly producing improvements related to each of those challenges. When applicable, it is suggested that you leverage the migration approach to stabilize the workload first. Then expand on innovation opportunities in the stable, agile cloud environment. The migrate-then-innovate approach provides short-term returns and reduces the cost required to drive long-term change.
+Challenges in operational complexity, costs, performance, or stability can hinder business returns. You can use the cloud to quickly produce improvements related to those challenges. Where it's applicable, we suggest you use the migration approach to first stabilize the workload. Then expand on innovation opportunities in the stable, agile cloud environment. This approach provides short-term returns and reduces the cost required to drive long-term change.
 
 > [!IMPORTANT]
-> Migrate models include incremental modernization. Leveraging platform as a service (PaaS) architectures is a common aspect of migration activities. As is minor configuration changes to leverage those platform services. The boundary for migration is defined as a material change to the business logic or supporting business structures, which would be considered an innovation effort.
+> Migration models include incremental modernization. Using platform as a service (PaaS) architectures is a common aspect of migration activities. So too are minor configuration changes that use those platform services. The boundary for migration is defined as a material change to the business logic or supporting business structures. Such change is considered an innovation effort.
 
 ## Update the project plan
 
-The skills required for a migrate effort are different from the skills required for an innovate effort. During cloud adoption plan implementation, it is suggested that migrate and innovate efforts be assigned to different teams, with their own iteration, release, and planning cadences. Assigning separate teams provides the process flexibility to maintain one cloud adoption plan while accounting for innovation and migration efforts.
+The skills required for a migration effort are different from the skills required for an innovation effort. During implementation of a cloud adoption plan, we suggest that you assign migration and innovation efforts to different teams. Each team has its own iteration, release, and planning cadences. Assigning separate teams provides the process flexibility to maintain one cloud adoption plan while accounting for innovation and migration efforts.
 
-When managing the cloud adoption plan in Azure DevOps, this change would be reflected by changing the parent work item (or epic) from Cloud migration to Cloud innovation. This subtle change will ensure all participants in the cloud adoption plan can quickly track the required effort and changes to remediation efforts. This will also help align proper assignments to the relevant cloud adoption team.
+When you manage the cloud adoption plan in Azure DevOps, that management is reflected by changing the parent work item (or epic) from cloud migration to cloud innovation. This subtle change helps ensure all participants in the cloud adoption plan can quickly track the required effort and changes to remediation efforts. This tracking also helps align proper assignments to the relevant cloud adoption team.
 
-For large complex adoption plans with multiple distinct projects, it may be wise to also update the iteration path. Changing the area path will make the workload visible only to the team assigned to that area path. This can make it easier on the cloud adoption team by reducing the number of visible tasks, but it will add complexity for the project management processes. 
+For large, complex adoption plans with multiple distinct projects, consider updating the iteration path. Changing the area path makes the workload visible only to the team assigned to that area path. This change can make work easier for the cloud adoption team by reducing the number of visible tasks. But it adds complexity for the project management processes.
 
 ## Next steps
 
