@@ -647,7 +647,7 @@
     - name: Security design principles
       href: security/security-principles.md
     - name: Types of attacks to resist
-      href: security/arch-type.md
+      href: security/architecture-type.md
     - name: Regulatory Compliance
       href: security/law-authority.md
     - name: Reduce organizational risk
@@ -657,7 +657,7 @@
     - name: Identity and access management
       href: security/identity.md      
     - name: Network security and containment
-      href: security/network-security-and-containment.md
+      href: security/network-security-containment.md
     - name: Storage, data, and encryption
       href: security/storage-data-encryption.md
     - name: Applications and services

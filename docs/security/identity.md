@@ -1,5 +1,5 @@
 ---
-title: Identity and Access Management
+title: Identity and Access Management in Azure | Microsoft Docs
 description: Manage access based on identity authentication and authorization 
 author: PageWriter-MSFT
 ms.date: 07/09/2019
@@ -75,13 +75,13 @@ by company HR and IT teams.
 For example, these capabilities natively integrate into the same Azure AD
 identity and permission model used by Azure and Office 365
 
--   [Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/) –
+-   [Azure AD](https://docs.microsoft.com/azure/active-directory/) –
     Employees and Enterprise Resources
 
--   [Azure AD B2B](https://docs.microsoft.com/en-us/azure/active-directory/b2b/)
+-   [Azure AD B2B](https://docs.microsoft.com/azure/active-directory/b2b/)
     – Partners
 
--   [Azure AD B2C](https://docs.microsoft.com/en-us/azure/active-directory-b2c/)
+-   [Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/)
     – Customers/citizens
 
 ## Passwordless Or multi-factor authentication for admins
@@ -149,7 +149,7 @@ of character types and minimum length, but we have learned that these controls
 in practice led to passwords with less entropy that could be cracked easier:
 
 -   **Microsoft** -
-    <https://www.microsoft.com/en-us/research/publication/password-guidance/>
+    <https://www.microsoft.com/research/publication/password-guidance/>
 
 -   **NIST** - https://pages.nist.gov/800-63-3/sp800-63b.html
 
@@ -158,7 +158,7 @@ didn't even exist one or two decades ago such as password sprays, breach replays
 (also called *“credential stuffing*”) that test username/password pairs from
 other sites’ breaches, and phishing man-in-the-middle attacks. Cloud identity
 providers are uniquely positioned to offer protection against these attacks.
-Since they handle such large volumes of logons, they can apply better anomaly
+Since they handle such large volumes of signons, they can apply better anomaly
 detection and use a variety of data sources to both proactively notify companies
 if their users’ passwords have been found in other breaches, as well as validate
 that any given sign-on appears legitimate and is not coming from an unexpected
@@ -179,17 +179,17 @@ For Azure, enable modern protections in Azure AD by
 
     1.  **Automatic Enforcement -** Automatically remediate high risk passwords
         with Conditional Access [leveraging Azure AD Identity Protection risk
-        assessments](https://docs.microsoft.com/en-us/azure/active-directory/identity-protection/overview)
+        assessments](https://docs.microsoft.com/azure/active-directory/identity-protection/overview)
 
     2.  **Report & Manually Remediate -** View reports and manually remediate
         accounts
 
         -   **Azure AD reporting** - Risk events are part of Azure AD's security
-            reports. For more information, see the [users at risk security report](https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/concept-user-at-risk)
-            and the [risky sign-ins security report](https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/concept-risky-sign-ins).
+            reports. For more information, see the [users at risk security report](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk)
+            and the [risky sign-ins security report](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins).
 
         -   **Azure AD Identity Protection** - Risk events are also part of the
-            reporting capabilities of [Azure Active Directory Identity Protection](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-identityprotection).
+            reporting capabilities of [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection).
 
 Use the Identity Protection risk events API to gain programmatic access to
 security detections using Microsoft Graph.
@@ -207,11 +207,11 @@ proliferation of passwords (often stored insecurely), and former employees
 retaining passwords after termination.
 
 For example, Azure Active Directory can be used to authenticate Windows,
-[Linux](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/login-using-aad),
-Azure, Office 365, [Amazon Web Services (AWS)](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/amazon-web-service-tutorial),
-[Google Services](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/google-apps-tutorial),
-(remote access to) [legacy on-premises applications](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/application-proxy),
-and third-party [Software as a Service providers](https://docs.microsoft.com/en-us/azure/active-directory/saas-apps/tutorial-list).
+[Linux](https://docs.microsoft.com/azure/virtual-machines/linux/login-using-aad),
+Azure, Office 365, [Amazon Web Services (AWS)](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial),
+[Google Services](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-tutorial),
+(remote access to) [legacy on-premises applications](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy),
+and third-party [Software as a Service providers](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list).
 
 ## Enforce conditional access for USERS (Zero Trust)
 
@@ -220,7 +220,7 @@ security attributes to support a Zero Trust strategy. The details of this
 recommendation are in the administration section [Enforce conditional access for ADMINS (Zero Trust)](/azure/architecture/security/critical-impact-accounts.md#enforce-conditional-access-for-admins-zero-trust). The same recommendation applies to all users, but should be applied
 first to accounts with administrative privileges.
 
-You can also reduce use of passwords by applications using [Managed Identities](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)
+You can also reduce use of passwords by applications using [Managed Identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
 to grant access to resources in Azure.
 
 ## Attack simulation for users
@@ -231,7 +231,7 @@ People are a critical part of your defense, so ensure they have the knowledge
 and skills to avoid and resist attacks will reduce your overall organizational
 risk.
 
-You can use [Office 365 Attack Simulation](https://docs.microsoft.com/en-us/office365/securitycompliance/attack-simulator)
+You can use [Office 365 Attack Simulation](https://docs.microsoft.com/office365/securitycompliance/attack-simulator)
 capabilities or any number of third-party offerings.
 
 ## Implementing Identity best practices in Azure
@@ -240,19 +240,19 @@ Each of the recommendations from this section can be implemented using Azure Act
 
 ### Single Enterprise Directory 
 
-https://docs.microsoft.com/en-us/azure/active-directory/hybrid/whatis-hybrid-identity
+https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity
 
 ### Synchronize Identity Systems 
 
-https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect 
+https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect 
 
 ### Use Cloud Provider Identity Source for Third Parties
 
-https://docs.microsoft.com/en-us/azure/active-directory/hybrid/how-to-connect-fed-compatibility 
+https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-fed-compatibility 
 
-https://docs.microsoft.com/en-us/azure/active-directory/b2b/
+https://docs.microsoft.com/azure/active-directory/b2b/
 
-https://docs.microsoft.com/en-us/azure/active-directory-b2c/
+https://docs.microsoft.com/azure/active-directory-b2c/
 
 ### Block Legacy Authentication 
 
@@ -260,14 +260,14 @@ https://docs.microsoft.com/en-us/azure/active-directory-b2c/
 
 ### Use Modern Password Protection Offerings 
 
-*https://docs.microsoft.com/en-us/azure/active-directory/identity-protection/overview*
+*https://docs.microsoft.com/azure/active-directory/identity-protection/overview*
 
-https://docs.microsoft.com/en-us/azure/active-directory/authentication/concept-password-ban-bad-on-premises
+https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises
 
-https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/concept-user-at-risk
+https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk
 
-https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/concept-risky-sign-ins
+https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
 
 ### Use Cross-Platform Credential Management
 
-https://docs.microsoft.com/en-us/azure/virtual-machines/linux/login-using-aad
+https://docs.microsoft.com/azure/virtual-machines/linux/login-using-aad

@@ -103,7 +103,7 @@ This results in three key strategies
     enterprise networks, which isn’t feasible for enterprise assets outside the
     network.  
     More on this and how it relates to Zero Trust and Enterprise Segmentation
-    are in the [Governance, Risk, and Compliance](/azure/architecture/security/governance.md#enterprise-segmentation-strategy) and [Network Security & Containment](/azure/architecture/security/network-security-and-containment.md#align-network-segmentation-with-enterprise-segmentation-strategy) sections.
+    are in the [Governance, Risk, and Compliance](/azure/architecture/security/governance.md#enterprise-segmentation-strategy) and [Network Security & Containment](/azure/architecture/security/network-security-containment.md#align-network-segmentation-with-enterprise-segmentation-strategy) sections.
 
 -   **Modernize Infrastructure Security** – for operating systems and middleware
     elements that are required by legacy applications; take advantage of cloud

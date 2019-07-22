@@ -1,5 +1,5 @@
 ---
-title: Governance, risk, and compliance
+title: Governance, risk, and compliance in Azure | Microsoft Docs
 description: Define the security priorities around governance, risk, and compliance
 author: PageWriter-MSFT
 ms.date: 07/09/2019
@@ -27,14 +27,14 @@ there may be external industry, government or regulatory standards that need
 to be considered.
 
 **Risk** – What types of risks does the organization face while trying to
-protect Personally Identifiable Information (PII), Intellectual Property
+protect identifiable information, Intellectual Property
 (IP), financial information? Who may be interested or could leverage this
 information if stolen, including external and internal threats as well as
 unintentional or malicious? A commonly forgotten but extremely important
 consideration within risk is addressing Disaster Recovery and Business
 Continuity.
 
-**Compliance** – Are there specific industry, government, or regulatory requirements that dictate or provide recommendation on criteria that your organization’s security controls must meet? Examples of such standards, organizations, controls, and legislation are [ISO27001]( https://www.iso.org/isoiec-27001-information-security.html), [NIST]( https://www.nist.gov/), [PCI-DSS]( https://www.pcicomplianceguide.org/faq/), [GDPR]( https://eugdpr.org/).
+**Compliance** – Are there specific industry, government, or regulatory requirements that dictate or provide recommendation on criteria that your organization’s security controls must meet? Examples of such standards, organizations, controls, and legislation are [ISO27001]( https://www.iso.org/isoiec-27001-information-security.html), [NIST]( https://www.nist.gov/), [PCI-DSS]( https://www.pcicomplianceguide.org/faq/).
 
 The collective role of organization(s) is to manage the security standards of
 the organization through their lifecycle:
@@ -82,7 +82,7 @@ Microsoft has provided some prioritized lists of security initiatives to help
 organizations start with these decisions based on our experience with threats
 and mitigation initiatives in our own environments and across our customers. See
 [Module
-4a](https://docs.microsoft.com/en-us/office365/securitycompliance/ciso-workshop-module-4a)
+4a](https://docs.microsoft.com/office365/securitycompliance/ciso-workshop-module-4a)
 of the [Microsoft CISO Workshop](https://aka.ms/cisoworkshop)
 
 ## Manage connected tenants
@@ -144,7 +144,7 @@ This resulted in overwhelming complexity that generates support issues and often
 undermines the original purpose with broad network firewall exceptions.
 
 Creating a unified enterprise segmentation strategy enables to guide all
-technical teams stakeholders (IT, Security, Applications, etc.) Business Units)
+technical teams stakeholders (IT, Security, Applications, etc.) Business Units
 that is built around the business risks and needs will increase alignment to and
 understand and support sustainability of the security containment promises.
 This clarity and alignment will also reduce s the risk of human errors and
@@ -152,25 +152,26 @@ automation failures that can lead to security vulnerabilities, operational
 downtime, or both.
 
 While network micro-segmentation also offers promise to reduce risk (discussed
-more in [Network Security & Containment](/azure/architecture/security/network-security-and-containment) section), it doesn’t eliminate the
+more in [Network Security and Containment](/azure/architecture/security/network-security-containment) section), it doesn’t eliminate the
 need to align technical teams. Micro segmentation should be considered after to
 and plans to ensure the ensuring technical teams are aligned so you can avoid a
 recurrence of the internal conflicts that plagued and confusion of the
 on-premises network generation segmentation strategies.
 
-Microsoft recommendation for prioritizing initiatives on containment and
-segmentation (based on Zero Trust principles) is to
+Here are Microsoft's recommendations for prioritizing initiatives on containment and
+segmentation (based on Zero Trust principles). These recommendations are listed in priority
+order by highest importance.
 
-1.   Ensure alignment of technical teams to a single enterprise segmentation
-    strategy
+-  Ensure alignment of technical teams to a single enterprise segmentation
+    strategy.
 
-2.   Invest in broadening containment by establishing a modern perimeter based on
+-  Invest in broadening containment by establishing a modern perimeter based on
     zero trust principles focused on identity, device, applications, and other
     signals (to overcome limitation of network controls to protect new resources
-    and attack types)
+    and attack types).
 
-3.   Bolster network controls for legacy applications by exploring micro
-    segmentation strategies
+-  Bolster network controls for legacy applications by exploring micro
+    segmentation strategies.
 
 A good enterprise segmentation strategy meets these criteria:
 
@@ -187,7 +188,7 @@ A good enterprise segmentation strategy meets these criteria:
 -   **Monitored** – Security Operations should monitor for potential violations
     of the integrity of the segments (account usage, unexpected traffic, etc.)
 
-![A screenshot of a cell phone Description automatically generated](_images/enterprise-tenant.png)
+![A screenshot of a cell phone Description automatically generated](images/enterprise-tenant.png)
 
 ## Security team visibility
 
@@ -236,7 +237,7 @@ like overpermissioning, reducing your overall risk.
 
 Microsoft recommends starting from these Microsoft reference models and adapting to your organization.
 
-![](_images/ref-perms.png)
+![](images/ref-perms.png)
 
 ### Core Services Reference Permissions
 This segment hosts shared services
@@ -264,7 +265,7 @@ delete resources like virtual machines and storage.
 and avoid technical conflicts, assign network resource responsibilities to a
 single central networking organization. These resources should include
 virtual networks, subnets, Network Security Groups (NSG), and the virtual
-machines hosting virtual network appliances. See [Centralize Network Management And Security](/azure/architecture/security/network-security-and-containment.md#centralize-network-management-and-security) for more details
+machines hosting virtual network appliances. See [Centralize Network Management And Security](/azure/architecture/security/network-security-containment.md#centralize-network-management-and-security) for more details
 
 **Resource Role Permissions** – For most core services, administrative
 privileges required to manage them are granted via the application itself
@@ -277,7 +278,7 @@ resources, you can assign these permissions to those roles.
 emergencies (and initial setup if required). Do not use this role for daily
 tasks. See [Emergency Access (‘Break Glass’ Accounts)](/azure/architecture/security/critical-impact-accounts.md#enforce-conditional-access-for-admins-zero-trust) for more details.
 
-![A screenshot of a cell phone Description automatically generated](_images/ref-segment.png)
+![A screenshot of a cell phone Description automatically generated](images/ref-segment.png)
 
 ### Segment reference permissions
 
@@ -319,7 +320,7 @@ will depend on your organization structure.
 and avoid technical conflicts, assign network resource responsibilities to a
 single central networking organization. These resources should include
 virtual networks, subnets, Network Security Groups (NSG), and the virtual
-machines hosting virtual network appliances. See [Centralize Network Management And Security](/azure/architecture/security/network-security-and-containment.md#centralize-network-management-and-security).
+machines hosting virtual network appliances. See [Centralize Network Management And Security](/azure/architecture/security/network-security-containment.md#centralize-network-management-and-security).
 
 **Resource Role Permissions** – Segments with autonomous DevOps teams will
 manage the resources associated with each application. The actual roles and
@@ -406,7 +407,7 @@ attempt “easy” attacks like common passwords and unpatched vulnerabilities.
 Enable [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-apply-system-updates)
 to identify missing security updates & apply them.
 
-[Local Admin Password Solution (LAPS)](https://www.microsoft.com/en-us/download/details.aspx?id=46899) or a third party Privileged Access Management can set strong local admin passwords and just in time access to them.
+[Local Admin Password Solution (LAPS)](https://www.microsoft.com/download/details.aspx?id=46899) or a third party Privileged Access Management can set strong local admin passwords and just in time access to them.
 
 ## Remove Virtual Machine (VM) direct internet connectivity
 
@@ -431,18 +432,18 @@ This can be accomplished with one or more methods in Azure:
         ensure appropriate controls are applied)
 
 -   **Identify and Remediate** exposed VMs using the [Azure Security
-    Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-restrict-access-through-internet-facing-endpoints)
+    Center](https://docs.microsoft.com/azure/security-center/security-center-restrict-access-through-internet-facing-endpoints)
     network visualization to quickly identify internet exposed resources.
 
 -   **Restrict management ports** (RDP, SSH) using [Just in Time
-    access](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time)
+    access](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
     in Azure Security Center
 
 ## Assign incident notification contact
 
 Ensure a security contact receives Azure incident notifications from Microsoft
-(typically a notification that your resource is compromised and/or attacking
-another customer)
+typically a notification that your resource is compromised and/or attacking
+another customer.
 
 This enables your security operations team to rapidly respond to potential
 security risks and remediate them.
@@ -499,12 +500,12 @@ application environments that are compliant with your organization’s policies
 and external regulations. [Azure Blueprint Service](https://docs.microsoft.com/azure/governance/blueprints/)
 automates deployment of environments including RBAC roles, policies, resources
 (VM/Net/Storage/etc.), and more. Azure Blueprints builds on Microsoft’s
-significant investment into the Azure Resource Manager (ARM) to standardize
+significant investment into the Azure Resource Manager to standardize
 resource deployment in Azure and enable resource deployment and governance based
 on a desired-state approach. You can use built in configurations in Azure
-Blueprint, make your own, or just use ARM scripts for smaller scope.
+Blueprint, make your own, or just use Resource Manager scripts for smaller scope.
 
-Several [Security and Compliance Blueprints](https://servicetrust.microsoft.com/ViewPage/BlueprintOverview) [samples](https://docs.microsoft.com/en-us/azure/governance/blueprints/samples/)
+Several [Security and Compliance Blueprints](https://servicetrust.microsoft.com/ViewPage/BlueprintOverview) [samples](https://docs.microsoft.com/azure/governance/blueprints/samples/)
 are available to use as a starting template.
 
 ## Evaluate security using benchmarks
@@ -541,7 +542,7 @@ correct and that it continues to be compliant over time.
 
 In Azure, you can take advantage of Azure Policy to create and manage policies
 that enforce compliance. Like Azure Blueprints, Azure Policies are built on the
-underlying Azure Resource Manager (ARM) capabilities in the Azure platform (and
+underlying Azure Resource Manager capabilities in the Azure platform (and
 Azure Policy can also be assigned via Azure Blueprints).
 
 For more information on how to do this in Azure, please review **Tutorial: Create and manage policies to enforce compliance**.
@@ -568,13 +569,13 @@ There are two places where you review reported risk events:
 
 -   **Azure AD reporting** - Risk events are part of Azure AD's security
     reports. For more information, see the [users at risk security
-    report](https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/concept-user-at-risk) and
+    report](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk) and
     the [risky sign-ins security
-    report](https://docs.microsoft.com/en-us/azure/active-directory/reports-monitoring/concept-risky-sign-ins).
+    report](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins).
 
 -   **Azure AD Identity Protection** - Risk events are also part of the
     reporting capabilities of [Azure Active Directory Identity
-    Protection](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-identityprotection).
+    Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection).
 
 In addition, you can use the [Identity Protection risk events API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent) to
 gain programmatic access to security detections using Microsoft Graph.
@@ -592,7 +593,7 @@ strategy and implementation. This can be accomplished by a penetration test
 (simulates a one time attack) or a red ream program (simulates a persistent
 threat actor targeting your environment).
 
-Follow the [guidance published by Microsoft](https://technet.microsoft.com/en-us/mt784683) for planning and executing simulated
+Follow the [guidance published by Microsoft](https://technet.microsoft.com/mt784683) for planning and executing simulated
 attacks.
 
 
@@ -612,9 +613,9 @@ Reduce your risk by
     Protocol Dashboard or third party tools
 
 2.  Restrict or Disable use of these protocols by following guidance for
-    [SMB](https://support.microsoft.com/en-us/help/2696547/detect-enable-disable-smbv1-smbv2-smbv3-in-windows-and-windows-server),
-    [NTLM](https://docs.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-ntlm-authentication-in-this-domain),
-    [WDigest](https://support.microsoft.com/en-us/help/2871997/microsoft-security-advisory-update-to-improve-credentials-protection-a)
+    [SMB](https://support.microsoft.com/help/2696547/detect-enable-disable-smbv1-smbv2-smbv3-in-windows-and-windows-server),
+    [NTLM](https://docs.microsoft.com/windows/security/threat-protection/security-policy-settings/network-security-restrict-ntlm-ntlm-authentication-in-this-domain),
+    [WDigest](https://support.microsoft.com/help/2871997/microsoft-security-advisory-update-to-improve-credentials-protection-a)
 
 We recommend implementing changes using pilot or other testing method to
 mitigate risk of operational interruption.
@@ -633,7 +634,7 @@ as required:
 
 -   **Dedicated Hardware Security Modules (HSMs)**  
     [Dedicated Hardware Security Modules (HSMs) may help meet regulatory or
-    security requirements](https://docs.microsoft.com/en-us/azure/dedicated-hsm/).
+    security requirements](https://docs.microsoft.com/azure/dedicated-hsm/).
 
 -   **Confidential Computing**  
-    [Confidential Computing may help meet regulatory or security requirements](https://azure.microsoft.com/en-us/blog/azure-confidential-computing/).
+    [Confidential Computing may help meet regulatory or security requirements](https://azure.microsoft.com/blog/azure-confidential-computing/).

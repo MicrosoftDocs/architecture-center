@@ -1,5 +1,5 @@
 ---
-title: Network security and containment
+title: Network security and containment in Azure | Microsoft Docs
 description: Secure assets through network-based access
 author: PageWriter-MSFT
 ms.date: 07/09/2019
@@ -37,7 +37,7 @@ practice recommendations:
 
 -   Build a network containment strategy
 
--   Define an Internet Edge Strategy
+-   Define an internet edge strategy
 
 ## Centralize network management and security
 
@@ -55,7 +55,7 @@ the same level of network management and security knowledge and sophistication,
 organizations benefit from leveraging a centralized network team’s expertise and
 tooling.
 
-[Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-network-recommendations)
+[Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-network-recommendations)
 can be used to help centralize the management of network security.
 
 ## Align network segmentation with enterprise segmentation strategy
@@ -72,7 +72,7 @@ through automation.
 
 Please compare images in [Network security and containment](/azure/architecture/security/governance.md#define-a-segmentation-strategy).
 
-![](_images/ref-entp-design-az-network-security.png)
+![](images/ref-entp-design-az-network-security.png)
 
 ## Evolve security beyond network controls
 
@@ -160,7 +160,7 @@ with legacy assets on them.
 ## Define an internet edge strategy
 
 Choose whether to use native cloud service provider controls or virtual network
-appliances for Internet edge security.
+appliances for internet edge security.
 
 Internet edge traffic (sometimes referred to as “North-South” traffic)
 represents network connectivity between your assets in the cloud and the
@@ -173,13 +173,13 @@ There are two primary choices that can provide Internet edge security controls
 and monitoring:
 
 -   Cloud Service Provider Native Controls ([Azure
-    Firewall](https://azure.microsoft.com/en-us/services/azure-firewall/) + [Web
+    Firewall](https://azure.microsoft.com/services/azure-firewall/) + [Web
     Application Firewall
-    (WAF)](https://docs.microsoft.com/en-us/azure/application-gateway/waf-overview))
+    (WAF)](https://docs.microsoft.com/azure/application-gateway/waf-overview))
 
 -   Partner Virtual Network Appliances (Firewall and WAF Vendors available in
     [Azure
-    Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/))
+    Marketplace](https://azuremarketplace.microsoft.com/marketplace/))
 
 -   Cloud service provider native controls typically offer basic security that
     is good enough for common attacks, such as the OWASP Top 10.
@@ -252,7 +252,7 @@ However, the exception to this is if you want to use security groups only for
 network logging. We do not recommend this, but it is an option if you have
 another network access control solution in place.
 
-[Azure Virtual Network subnets](https://docs.microsoft.com/en-us/office365/enterprise/designing-networking-for-microsoft-azure-iaas) can be designed in this way.
+[Azure Virtual Network subnets](https://docs.microsoft.com/office365/enterprise/designing-networking-for-microsoft-azure-iaas) can be designed in this way.
 
 ## Mitigate DDoS attacks
 
@@ -280,7 +280,7 @@ We recommend that you adopt the advance protection for any services where
 downtime will have negative impact on the business.
 
 An example of advanced DDoS protection is the [Azure DDoS Protection
-Service](https://docs.microsoft.com/en-us/azure/virtual-network/ddos-protection-overview).
+Service](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview).
 
 ## Decide upon an internet ingress/egress policy
 
@@ -302,7 +302,7 @@ increased traffic load, latency, and cost.
 
 The recommended approach for production enterprise use is to allow cloud
 resources to initiate and respond to Internet request directly through cloud
-network security devices defined by your internet edge strategy (LINK)
+network security devices defined by your [internet edge strategy](#define-an-internet-edge-strategy).
 
 The direct Internet approach fits the Nth datacenter paradigm (for example, Azure
 datacenters are a natural part of my enterprise). This approach scales much
@@ -310,7 +310,7 @@ better for an enterprise deployment as it removes hops that add load, latency,
 and cost.
 
 We recommend that you avoid [forced
-tunneling](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-forced-tunneling)
+tunneling](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-forced-tunneling)
 for the reasons noted above.
 
 ## Enable enhanced network visibility
@@ -328,12 +328,12 @@ significantly reduce false positive alerts.
 
 Examples of network logs that provide visibility include:
 
--   Security group logs – [flow logs](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
+-   Security group logs – [flow logs](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal)
     and diagnostic logs
 
--   [Web application firewall logs](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-diagnostics)
+-   [Web application firewall logs](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)
 
--   [Virtual network taps](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-tap-overview)
+-   [Virtual network taps](https://docs.microsoft.com/azure/virtual-network/virtual-network-tap-overview)
     and their equivalents
 
--   [Azure Network Watcher](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview)
+-   [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)
