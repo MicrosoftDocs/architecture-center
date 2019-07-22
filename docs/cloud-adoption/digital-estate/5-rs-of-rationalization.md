@@ -12,7 +12,7 @@ ms.custom: governance
 
 # Cloud rationalization
 
-Cloud rationalization is the process of evaluating assets to determine the best way to migrate or modernize each asset in the cloud. For more information about the process of rationalization, see [What is a digital estate?](index.md)
+Cloud rationalization is the process of evaluating assets to determine the best way to migrate or modernize each asset in the cloud. For more information about the process of rationalization, see [What is a digital estate?](index.md).
 
 ## Rationalization context
 
