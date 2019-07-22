@@ -11,7 +11,7 @@ ms.subservice: cloud-design-principles
 # Security operations
 
 Security operations maintain and restores the security assurances of the system
-as live adversaries attack it. The day to day tasks of security operations are
+as live adversaries attack it. The tasks of security operations are
 described well by the NIST Cybersecurity Framework functions of Detect, Respond,
 and Recover.
 

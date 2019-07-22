@@ -25,14 +25,13 @@ strategic directions:
 ## Resilience
 
 Building cybersecurity resilience into your organization requires balancing
-investments across the security lifecycle, diligently applying maintenance
-and vigilantly responding to anomalies and alerts to prevent security
+investments across the security lifecycle, diligently applying maintenance, vigilantly responding to anomalies and alerts to prevent security
 assurance decay, and designing to defense in depth and least privilege.
 
 Balancing your investments will help you both prevent cybersecurity attacks
 and rapidly restore normal operations in the event of a successful attack.
 By investing in both of these, you will reduce the risk your organization
-faces. The functions of the map well to these dual goals:
+faces. The functions of the [NIST](https://www.nist.gov/cyberframework) map well to these dual goals:
 
 -   **Identify/Protect –** Understanding your posture, your attackers, and
     invest in establishing and improving controls to prevent attacks on data and
@@ -94,15 +93,16 @@ operations that rapidly detect potential attacks, prioritizing potential
 detections so your team is focused on quickly investigating real attacks
 (vs. false positives), and reducing your mean time to remediate those real
 incidents.  
-More information on these goals and metrics is in the REF - security
-operations section.
+More information on these goals and metrics is in the [security
+operations](/azure/architecture/security/security-operations.md#objective-and-metrics) section.
 
 **Privilege** – Limit the privileges and permissions that an adversary can
 gain during an attack operation (by permissions and by amount of time
 privileges are assigned). As attackers gain more privileges, they can access
 more target systems and data (or leverage those systems to continue to pivot
 within your environment). Your security strategy should be focused on
-containing those privileges with both preventive controls and
-detection/response/recovery that is prioritized to focus on business
-critical assets and high amounts of permissions to assets (typically IT
-operations roles).
+containing those privileges with:
+- Preventive controls
+- Detection/response/recovery that is prioritized to focus on business
+critical assets and high amounts of permissions to assets typically IT
+operations roles.

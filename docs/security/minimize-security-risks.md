@@ -43,7 +43,7 @@ the available controls to reduce risk
         detective controls to reduce risks such as isolating administrator
         accounts from the most common risks (phishing and general web browsing),
         simplifying and optimizing their workflow, increasing assurance of
-        authentication decisions, identifying anomalies from normal baseline
+        authentication decisions, and identifying anomalies from normal baseline
         behavior that can be blocked or investigated
 
 Microsoft has captured and documented best practices for protecting
@@ -194,9 +194,7 @@ security dependencies) for critical impact accounts
     -   *Native Azure AD Accounts -* Create Native Azure AD Accounts that are
         not synchronized with on-premises active directory
 
-    -   *Synchronize from On Premises Active Directory (Not Recommended see REF
-        DON’T SYNCHRONIZE ON-PREMISES ADMIN ACCOUNTS TO CLOUD IDENTITY
-        PROVIDERS)-* Leverage existing accounts hosted in the on premises active
+    -   *Synchronize from On Premises Active Directory (Not Recommended see [Don’t synchronize on-premises admin accounts to cloud identity providers](/azure/architecture/security/identity.md#dont-synchronize-on-premises-admin-accounts-to-cloud-identity-providers))-* Leverage existing accounts hosted in the on premises active
         directory.
 
 -   **Workstations** – Choose how you will manage and secure the workstations
@@ -210,7 +208,7 @@ security dependencies) for critical impact accounts
     -   *Manage with Existing Systems -* Join existing AD domain & leverage
         existing management/security
 
-This is related to the “REF Don’t synchronize on-premises admin accounts” to
+This is related to the [Don’t synchronize on-premises admin accounts to cloud identity providers](/azure/architecture/security/identity.md#dont-synchronize-on-premises-admin-accounts-to-cloud-identity-providers) to
 cloud identity providers guidance in the administration section that mitigates
 the inverse risk of pivoting from cloud assets to on-premises assets
 
@@ -298,7 +296,7 @@ cases when built in roles won’t work.
 Ensure you have a process for disabling or deleting administrative accounts when
 admin personnel leave the organization (or leave administrative positions)
 
-See REF REGULARLY REVIEW CRITICAL ACCESS for more details
+See [Regularly review critical access](/azure/architecture/security/governance.md#regularly-review-critical-access) for more details
 
 ## Attack simulation for critical impact accounts
 

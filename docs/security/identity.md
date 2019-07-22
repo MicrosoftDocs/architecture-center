@@ -53,12 +53,11 @@ and resulting security risk. Teams managing resources in both environment need
 a consistent authoritative source to achieve security assurances.
 
 For Azure, synchronize Azure AD with your existing authoritative on premises
-Active Directory using [Azure AD connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect)v.
+Active Directory using [Azure AD connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect).
 This is also required for an Office 365 migration, so it is often already done
 before Azure migration and development projects begin. Note that administrator
-accounts should be excepted from synchronization as described in REF DON’T
-SYNCHRONIZE ON-PREMISES ADMIN ACCOUNTS TO CLOUD IDENTITY PROVIDERS and REF -
-critical impact account dependencies
+accounts should be excepted from synchronization as described in [Don’t synchronize on-premises admin accounts to cloud identity providers](/azure/architecture/security/identity.md#dont-synchronize-on-premises-admin-accounts-to-cloud-identity-providers) and 
+[Critical impact account dependencies](/azure/architecture/security/critical-impact-accounts.md#critical-impact-admin-dependencies--accountworkstation).
 
 ## Use cloud provider identity source for third parties
 
@@ -83,16 +82,13 @@ identity and permission model used by Azure and Office 365
     – Partners
 
 -   [Azure AD B2C](https://docs.microsoft.com/en-us/azure/active-directory-b2c/)
-    - Customers/citizens
-
-[Do we want to keep this (resolves to 2 degrees of indirection!) or pull some
-examples from the MS-approved identity providers?]
+    – Customers/citizens
 
 ## Passwordless Or multi-factor authentication for admins
 
 All users should be converted to use passwordless authentication or multi-factor
 authentication (MFA) over time. The details of this recommendation are in the
-administration section REF PASSWORDLESS OR MULTI-FACTOR AUTHENTICATION FOR
+administration section [Passwordless Or multi-factor authentication for admins](/azure/architecture/security/critical-impact-accounts.md#passwordless-or-multi-factor-authentication-for-admins) FOR
 ADMINS. The same recommendation applies to all users, but should be applied first
 and strongest to accounts with administrative privileges.
 
@@ -129,7 +125,7 @@ all services at a protocol level.
 
 Don’t synchronize accounts with the highest privilege access to on premises
 resources as you synchronize your enterprise identity systems with cloud
-directories (LINK REF SYNCHRONIZE IDENTITY SYSTEMS).
+directories.
 
 This mitigates the risk of an adversary pivoting to full control of on-premises
 assets following a successful compromise of a cloud account. This helps contain
@@ -140,15 +136,13 @@ your existing Active Directory. This is blocked by default in the default Azure
 AD Connect configuration, so you only need to confirm you haven’t customized
 this configuration.
 
-This is related to the REF - critical impact account dependencies guidance in
-the administration section that mitigates the inverse risk of pivoting from
-on-premises to cloud assets
+This is related to the [critical impact account dependencies](/azure/architecture/security/critical-impact-accounts.md#critical-impact-admin-dependencies--accountworkstation) guidance in
+the administration section that mitigates the inverse risk of pivoting from on-premises to cloud assets.
 
 ## Use modern password protection offerings
 
 Provide modern and effective protections for accounts that cannot go
-passwordless (link to REF PASSWORDLESS OR MULTI-FACTOR AUTHENTICATION FOR
-ADMINS).
+passwordless ([Passwordless Or multi-factor authentication for admins](/azure/architecture/security/critical-impact-accounts.md#passwordless-or-multi-factor-authentication-for-admins)).
 
 Legacy identity providers mostly checked to make sure passwords had a good mix
 of character types and minimum length, but we have learned that these controls
@@ -223,8 +217,7 @@ and third-party [Software as a Service providers](https://docs.microsoft.com/en-
 
 Authentication for all users should include measurement and enforcement of key
 security attributes to support a Zero Trust strategy. The details of this
-recommendation are in the administration section REF ENFORCE CONDITIONAL ACCESS
-FOR ADMINS. The same recommendation applies to all users, but should be applied
+recommendation are in the administration section [Enforce conditional access for ADMINS (Zero Trust)](/azure/architecture/security/critical-impact-accounts.md#enforce-conditional-access-for-admins-zero-trust). The same recommendation applies to all users, but should be applied
 first to accounts with administrative privileges.
 
 You can also reduce use of passwords by applications using [Managed Identities](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)
@@ -239,11 +232,7 @@ and skills to avoid and resist attacks will reduce your overall organizational
 risk.
 
 You can use [Office 365 Attack Simulation](https://docs.microsoft.com/en-us/office365/securitycompliance/attack-simulator)
-capabilities or any number of third-party offerings [the open-source Metasploit
-Framework and Trustedsec’s Social Engineer Toolkit, potentially supplemented
-with Maltego – *this is a bit bold as a statement as these tools can be used in
-real-world attacks as well. However, it shows commitment to OSS and our
-objective stance towards the security landscape*].
+capabilities or any number of third-party offerings.
 
 ## Implementing Identity best practices in Azure
 
