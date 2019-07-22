@@ -13,7 +13,7 @@ ms.subservice: enterprise-cloud-adoption
 
 # Cloud monitoring guide: Alerting
 
-For years, IT organizations have struggled to combat alert fatigue created by the monitoring tools deployed in the enterprise. Many systems generate a high volume of alerts often considered meaningless, while others are relevant but are either overlooked or ignored. As a result, IT and developer operations have struggled to meet the service-level quality promised to internal or external customers. It's essential to understand the state of your infrastructure and applications to ensure reliability. You need to identify causes quickly, to minimize service degradation and disruption, or decrease the affect of or reduce the number of incidents.  
+For years, IT organizations have struggled to combat alert fatigue created by the monitoring tools deployed in the enterprise. Many systems generate a high volume of alerts often considered meaningless, while others are relevant but are either overlooked or ignored. As a result, IT and developer operations have struggled to meet the service-level quality promised to internal or external customers. It's essential to understand the state of your infrastructure and applications to ensure reliability. You need to identify causes quickly, to minimize service degradation and disruption, or decrease the effect of or reduce the number of incidents.  
 
 ## Successful alerting strategy
 
