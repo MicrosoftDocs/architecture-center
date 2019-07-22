@@ -19,7 +19,7 @@ Cloud adoption capabilities allow for the implementation of technical solutions 
 
 Cloud adoption teams are the modern-day equivalent of technical implementation teams or project teams. However, the nature of the cloud may require a more fluid team structure. Some teams focus exclusively on cloud migration, while other teams focus on innovations that leverage cloud technologies. Some teams include the broad technical expertise required to complete large adoption efforts, like a full datacenter migration. Other teams have a tighter technical focus and may move between projects to accomplish specific goals. One example would be a team of data platform specialists who help convert SQL VMs to SQL PaaS instances.
 
-Regardless of the type or number of cloud adoption teams, the cloud adoption capability is provided subject matter experts found in IT, business analysis, or implementation partners.
+Regardless of the type or number of cloud adoption teams, the cloud adoption capability is provided by subject matter experts found in IT, business analysis, or implementation partners.
 
 Depending on the desired business outcomes, the skills needed to provide full cloud adoption capabilities could include:
 
@@ -29,7 +29,7 @@ Depending on the desired business outcomes, the skills needed to provide full cl
 - Data scientists
 - Data or application platform specialists
 
-Cloud adoption teams should consist of an average team size of six people for optimal collaboration and efficiency. These teams should be self-organizing from a technical execution perspective. Inclusion of project management with deep experience in agile, scrum, or other iterative models are also highly recommended. However, this team is most effective when managed using a flat structure.
+For optimal collaboration and efficiency, we recommend that cloud adoption teams have an average team size of six people. These teams should be self-organizing from a technical execution perspective. We highly recommend that these teams also include project management expertise, with deep experience in agile, scrum, or other iterative models. This team is most effective when managed using a flat structure.
 
 ## Key responsibilities
 
