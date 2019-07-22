@@ -1,20 +1,22 @@
 ---
-title: Training of Python scikit-learn models on Azure
+title: Training of Python scikit-learn and deep learning models on Azure
 description:  This reference architecture shows recommended practices for tuning the hyperparameters (training parameters) of a scikit-learn Python model.
-author: njray
-ms.date: 03/07/19
+author: fboylu
+ms.date: 07/17/19
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.custom: azcat-ai
 ---
 
-# Training of Python scikit-learn models on Azure
+# Training of Python scikit-learn and deep learning models on Azure
 
-This reference architecture shows recommended practices for tuning the hyperparameters (training parameters) of a [scikit-learn][scikit] Python model. A reference implementation for this architecture is available on [GitHub][github].
+This reference architecture shows recommended practices for tuning the hyperparameters (training parameters) of python models. Two scenarios are covered: hyperparameter tuning of [scikit-learn][scikit] models and deep learning models with GPUs. Two reference implementation for this architecture are available on GitHub, one for [scikit-learn][github1] models and one for [deep learning][github2] models.
 
 ![Architecture diagram][0]
 
-**Scenario:** The problem addressed here is Frequently Asked Question (FAQ) matching. This scenario uses a subset of Stack Overflow question data that includes original questions tagged as JavaScript, their duplicate questions, and their answers. It trains a [scikit-learn model][scikit-sample] to predict the probability that a duplicate question matches one of the original questions.
+## Scenarios
+
+**Scenario 1: FAQ matching.** The problem addressed here is Frequently Asked Question (FAQ) matching. This scenario uses a subset of Stack Overflow question data that includes original questions tagged as JavaScript, their duplicate questions, and their answers. It tunes a scikit-learn pipeline to predict the probability that a duplicate question matches one of the original questions.
 
 Processing in this [pipeline][pipeline] scenario involves the following steps:
 
@@ -32,6 +34,23 @@ Processing in this [pipeline][pipeline] scenario involves the following steps:
 
 See also considerations for training [deep learning models][training-deep-learning] with GPUs.
 
+**Scenario2: Out of stock detection.** This scenario shows how to tune an object detection Mask RCNN model that can be deployed as a web service to provide predictions for empty spaces on store shelves. Images similar to retailer store shelves filled with products are used to predict empty spaces to help detect out of stock products by potentially marrying these predictions with other sources of information such as planograms and databases. In this scenario, only empty space prediction is covered. The dataset used is distributed under the [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) license.
+
+
+Processing in this scenario involves the following steps:
+
+1. The training Python script is submitted to the [Azure Machine Learning service][aml].
+
+1. The script runs in Docker containers that are created on each node by pulling a custom image that is stored on [Azure Container Registry][acr].
+
+1. The script trains a model from the training data saved in [Azure Storage][storage]. using its combination of training parameters.
+
+1. The model's performance is evaluated on the testing data, and is written to Azure Storage.
+
+1. The best performing model is registered with the Azure Machine Learning service.
+
+See also considerations for distributed training of [deep learning models][training-deep-learning] with GPUs.
+
 ## Architecture
 
 This architecture consists of several Azure cloud services that scale resources according to need. The services and their roles in this solution are described below.
@@ -48,7 +67,7 @@ This architecture consists of several Azure cloud services that scale resources 
 
 ## Performance considerations
 
-Each set of [hyperparameters][hyperparameter] runs on one node of the Machine Learning [compute target][target]. For this architecture, each node is a Standard D4 v2 VM, which has four cores. This architecture uses a [LightGBM][lightgbm] classifier for machine learning, a gradient boosting framework. This software can run on all four cores at the same time, speeding up each run by a factor of up to four. That way, the whole hyperparameter tuning run takes up to one-quarter of the time it would take had it been run on a Machine Learning Compute target based on Standard D1 v2 VMs, which have only one core each.
+Each set of [hyperparameters][hyperparameter] runs on one node of the Machine Learning [compute target][target]. For scenario 1, each node is a Standard D4 v2 VM, which has four cores. This scenario uses a [LightGBM][lightgbm] classifier for machine learning, a gradient boosting framework. This software can run on all four cores at the same time, speeding up each run by a factor of up to four. That way, the whole hyperparameter tuning run takes up to one-quarter of the time it would take had it been run on a Machine Learning Compute target based on Standard D1 v2 VMs, which have only one core each. For scenario 2, each node is a Standard NC6 with 1 GPU and each hyperparameter tuning run will use the single GPU on each node.
 
 The maximum number of Machine Learning Compute nodes affects the total run time. The recommended minimum number of nodes is zero. With this setting, the time it takes for a job to start up includes some minutes for auto-scaling at least one node into the cluster. If the hyperparameter tuning runs for a short time, however, scaling up the job adds to the overhead. For example, a job can run in under five minutes, but scaling up to one node might take another five minutes. In this case, setting the minimum to one node saves time but adds to the cost.
 
@@ -92,7 +111,9 @@ For production deployments, consider deploying the cluster into a subnet of a vi
 
 ## Deployment
 
-To deploy the reference implementation for this architecture, follow the steps in the [GitHub][github] repo.
+To deploy the reference implementation for this architecture, follow the steps described in the Github repos:
+-  [Regular Python models][github1] 
+-  [Deep Learning Models][github2] 
 
 ## Next steps
 
@@ -108,7 +129,8 @@ To operationalize the model, see [Machine learning operationalization (MLOps) fo
 [blob]: /azure/storage/blobs/storage-blobs-introduction
 [dsvm]: /azure/machine-learning/data-science-virtual-machine/overview
 [endpoints]: /azure/storage/common/storage-network-security?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network
-[github]: https://github.com/Microsoft/MLHyperparameterTuning
+[github1]: https://github.com/Microsoft/MLHyperparameterTuning
+[github2]: https://github.com/Microsoft/HyperdriveDeepLearning
 [hyperparameter]: /azure/machine-learning/service/how-to-tune-hyperparameters
 [jupyter]: http://jupyter.org/widgets
 [lightgbm]: https://github.com/Microsoft/LightGBM

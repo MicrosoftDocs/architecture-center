@@ -73,6 +73,8 @@ The following list of Azure components is used in this example.
 
 * Use a different input mechanism instead of RSS feeds. Use multiple generators or ingestion processes to feed Azure Cosmos DB and Azure Storage.
 
+* [Azure Cognitive Search][cognitivesearch] is an AI feature in [Azure Search][azuresearch] that can also used to extract text from images, blobs, and other unstructured data sources. 
+
 ## Considerations
 
 For simplicity, this example scenario uses only a few of the available APIs and services from Azure Cognitive Services. For example, text in images can be analyzed using the [Text Analytics API][text-analytics]. The target language in this scenario is assumed to be English, but you can change the input to any [supported language][language] of your choice.
@@ -150,3 +152,5 @@ All the code for this scenario is available in the [GitHub][github] repository. 
 [text-analytics]: /azure/cognitive-services/text-analytics/
 [translate-text]: /azure/cognitive-services/translator/translator-info-overview
 [vision]: /azure/cognitive-services/computer-vision/home
+[cognitivesearch]: https://docs.microsoft.com/azure/architecture/example-scenario/ai/newsfeed-ingestion
+[azuresearch]: https://azure.microsoft.com/services/search/
