@@ -42,7 +42,7 @@ Examples of solutions in the catalog include:
 - A script to deploy a containerized application
 - A Resource Manager template to deploy a SQL HA AO cluster
 - Sample code to build a deployment pipeline using Azure DevOps
-- A DevTest Labs instance of the corporate ERP for development purposes
+- An Azure DevTest Labs instance of the corporate ERP for development purposes
 - Automated deployment of a self-service environment commonly requested by business users
 
 The solutions in the solution catalog aren't deployment pipelines for a workload. Instead, you might use automation scripts in the catalog to quickly create a deployment pipeline. You might also use a solution in the catalog to quickly provision platform components to support workload tasks like automated deployment, manual deployment, or migration.
