@@ -648,7 +648,7 @@
       href: security/security-principles.md
     - name: Types of attacks to resist
       href: security/architecture-type.md
-    - name: Regulatory Compliance
+    - name: Regulatory compliance
       href: security/law-authority.md
     - name: Reduce organizational risk
       href: security/resilience.md            
