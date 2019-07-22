@@ -18,7 +18,7 @@ Roles will likely change as institutions similarly shift to cloud computing. For
 
 IT staff members might feel anxious about their roles and positions because they realize that they need a different set of skills to support cloud solutions. But agile employees who explore and learn new cloud technologies shouldn't fear. They can lead the adoption of cloud services and help the organization learn and embrace the associated changes.
 
-For guidance on building a new skill set, see the [Skills readiness path](./suggested-skills.md)
+For guidance on building a new skill set, see the [Skills readiness path](./suggested-skills.md).
 
 ## Capturing concerns
 
