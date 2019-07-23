@@ -15,7 +15,9 @@ ms.custom: organize
 
 Business transformation may be enabled by cloud adoption. However, returns are only realized when the workloads deployed to the cloud are operating in alignment with performance expectations. As additional workloads adopt cloud technologies, additional operations capacity will be required.
 
-Traditional IT operations were required to focus heavily on maintaining current state operations for a wide variety of low-level technical assets. Things like storage, cpu, memory, network equipment, servers, and virtual machine hosts require continuous care and feeding to maintain peek operations. Capital budgets often include large expenses related to annual or periodic updates to these low-level assets. Human capital within operations would also focus heavily on the monitoring, repair, and remediation of issues related to these assets. In the cloud, many of these capital costs and operations activities are transferred to the cloud provider. This triggers an opportunity for IT operations to evolve and provide significant additional value.
+Traditional IT operations were required to focus on maintaining current-state operations for a wide variety of low-level technical assets. Things like storage, cpu, memory, network equipment, servers, and virtual machine hosts require continuous maintenance to maintain peek operations. Capital budgets often include large expenses related to annual or periodic updates to these low-level assets.
+
+ Human capital within operations would also focus heavily on the monitoring, repair, and remediation of issues related to these assets. In the cloud, many of these capital costs and operations activities are transferred to the cloud provider. This provides an opportunity for IT operations to evolve and provide significant additional value.
 
 ## Possible sources for this capability
 
@@ -35,7 +37,7 @@ The duties of the people providing cloud operations capability is to deliver max
 
 ### Strategic tasks
 
-- Review [business outcomes](../business-strategy/business-outcomes/index.md), [financial models](../business-strategy/financial-models.md), [motivations for cloud adoption](../business-strategy/motivations-why-are-we-moving-to-the-cloud.md), [business risks](../governance/policy-compliance/risk-tolerance.md), and [rationalization of the digital estate](../digital-estate/overview.md).
+- Review [business outcomes](../business-strategy/business-outcomes/index.md), [financial models](../business-strategy/financial-models.md), [motivations for cloud adoption](../business-strategy/motivations-why-are-we-moving-to-the-cloud.md), [business risks](../governance/policy-compliance/risk-tolerance.md), and [rationalization of the digital estate](../digital-estate/overview.md)
 - Determine workload criticality, impact of disruptions or performance degradation
 - Establish business approved cost/performance commitments
 - Monitor and operate cloud workloads
