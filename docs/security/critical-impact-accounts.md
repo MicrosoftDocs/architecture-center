@@ -292,7 +292,7 @@ cases when built in roles won’t work.
 Ensure you have a process for disabling or deleting administrative accounts when
 admin personnel leave the organization (or leave administrative positions)
 
-See [Regularly review critical access](/azure/architecture/security/governance#regularly-review-critical-access) for more details
+See [Regularly review critical access](/azure/architecture/security/governance#regularly-review-critical-access) for more details.
 
 ## Attack simulation for critical impact accounts
 
