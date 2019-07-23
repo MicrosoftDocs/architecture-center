@@ -3,7 +3,7 @@ title: N-tier application with Apache Cassandra
 titleSuffix: Azure Reference Architectures
 description: Run Linux virtual machines for an N-tier architecture with Apache Cassandra in Microsoft Azure.
 author: MikeWasson
-ms.date: 11/12/2018
+ms.date: 08/19/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -142,6 +142,8 @@ For incoming Internet traffic, the load balancer rules define which traffic can 
 ## Deploy the solution
 
 A deployment for this reference architecture is available on [GitHub][github-folder].
+
+If you specify a region that supports availability zones, the VMs are deployed into availability zones. Otherwise, the VMs are deployed into availability sets. For a list of regions that support availability zones, see [Services support by region](/azure/availability-zones/az-overview#services-support-by-region).
 
 ### Prerequisites
 

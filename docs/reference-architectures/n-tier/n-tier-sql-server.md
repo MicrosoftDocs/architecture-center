@@ -3,7 +3,7 @@ title: Windows N-tier application with SQL Server
 titleSuffix: Azure Reference Architectures
 description: Implement a multi-tier architecture on Azure for availability, security, scalability, and manageability.
 author: MikeWasson
-ms.date: 11/12/2018
+ms.date: 08/19/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -155,7 +155,9 @@ Virtual networks are a traffic isolation boundary in Azure. VMs in one VNet can'
 
 ## Deploy the solution
 
-A deployment for this reference architecture is available on [GitHub][github-folder]. The entire deployment can take up to two hours, which includes running the scripts to configure AD DS, the Windows Server failover cluster, and the SQL Server availability group.
+A deployment for this reference architecture is available on [GitHub][github-folder]. The entire deployment can take up to an hour, which includes running the scripts to configure AD DS, the Windows Server failover cluster, and the SQL Server availability group.
+
+If you specify a region that supports availability zones, the VMs are deployed into availability zones. Otherwise, the VMs are deployed into availability sets. For a list of regions that support availability zones, see [Services support by region](/azure/availability-zones/az-overview#services-support-by-region).
 
 ### Prerequisites
 
@@ -163,74 +165,37 @@ A deployment for this reference architecture is available on [GitHub][github-fol
 
 ### Deployment steps
 
-1. Run the following command to create a resource group.
+1. Navigate to the `virtual-machines\n-tier-windows` folder of the reference architectures GitHub repository.
 
-    ```azurecli
-    az group create --location <location> --name <resource-group-name>
-    ```
+1. Open the `n-tier-windows.json` file.
 
-2. Run the following command to create a Storage account for the Cloud Witness.
-
-    ```azurecli
-    az storage account create --location <location> \
-      --name <storage-account-name> \
-      --resource-group <resource-group-name> \
-      --sku Standard_LRS
-    ```
-
-3. Navigate to the `virtual-machines\n-tier-windows` folder of the reference architectures GitHub repository.
-
-4. Open the `n-tier-windows.json` file.
-
-5. Search for all instances of "witnessStorageAccount" and replace the placeholder text with the name of the Storage account from step 2.
-
-    ```json
-    "witnessStorageAccount": "[replace-with-storageaccountname]",
-    ```
-
-6. Run the following command to list the account keys for the storage account.
-
-    ```azurecli
-    az storage account keys list \
-      --account-name <storage-account-name> \
-      --resource-group <resource-group-name>
-    ```
-
-    The output should look like the following. Copy the value of `key1`.
-
-    ```json
-    [
-    {
-        "keyName": "key1",
-        "permissions": "Full",
-        "value": "..."
-    },
-    {
-        "keyName": "key2",
-        "permissions": "Full",
-        "value": "..."
-    }
-    ]
-    ```
-
-7. In the `n-tier-windows.json` file, search for all instances of "witnessStorageAccountKey" and paste in the account key.
-
-    ```json
-    "witnessStorageAccountKey": "[replace-with-storagekey]"
-    ```
-
-8. In the `n-tier-windows.json` file, search for all instances of `[replace-with-password]` and `[replace-with-sql-password]` replace them with a strong password. Save the file.
+1. In the `n-tier-windows.json` file, search for all instances of `[replace-with-password]` and `[replace-with-safe-mode-password]` and replace them with a strong password. Save the file.
 
     > [!NOTE]
     > If you change the administrator user name, you must also update the `extensions` blocks in the JSON file.
 
-9. Run the following command to deploy the architecture.
+1. Run the following command to deploy the architecture.
 
     ```azurecli
     azbb -s <your subscription_id> -g <resource_group_name> -l <location> -p n-tier-windows.json --deploy
     ```
 
-For more information on deploying this sample reference architecture using Azure Building Blocks, visit the [GitHub repository][git].
+1. When the deployment is complete, open the Azure portal and navigate to the resource group. Find the storage account that begins with 'sqlcw'. This is the storage account that will be used for the cluster's cloud witness. Navigate into the storage account, select **Access Keys**, and copy the value of `key1`. Also copy the name of the storage account.
+
+1. Open the `n-tier-windows-sqlao.json` file.
+
+1. In the `n-tier-windows-sqlao.json` file, search for all instances of `[replace-with-password]` and `[replace-with-sql-password]` and replace them with a strong password.
+
+    > [!NOTE]
+    > If you change the administrator user name, you must also update the `extensions` blocks in the JSON file.
+
+1. In the `n-tier-windows-sqlao.json` file, search for all instances of `[replace-with-storageaccountname]` and `[replace-with-storagekey]` and replace them with the values from step 5. Save the file.
+
+1. Run the following command to configure SQL Server Always On.
+
+    ```azurecli
+    azbb -s <your subscription_id> -g <resource_group_name> -l <location> -p n-tier-windows-sqlao.json --deploy
+    ```
 
 ## Next steps
 
