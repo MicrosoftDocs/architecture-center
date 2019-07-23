@@ -27,19 +27,19 @@ training of administrators for our cloud systems and IT systems:
 Microsoft’s recommended core strategy for administrative privileges is to use
 the available controls to reduce risk
 
-1.  **Reduce risk exposure (scope and time) –** The principle of least privilege
+**Reduce risk exposure (scope and time) –** The principle of least privilege
     is best accomplished with modern controls that provide privileges on demand.
     This help to limit risk by limiting administrative privileges exposure by:
 
-    -  **Scope** – *Just Enough Access (JEA)* provides only the required
+-  **Scope** – *Just Enough Access (JEA)* provides only the required
         privileges for the administrative operation required (vs. having direct
         and immediate privileges to many or all systems at a time, which is
         almost never required).
 
-    -  **Time** – *Just in Time (JIT)* approaches provided the required
+-  **Time** – *Just in Time (JIT)* approaches provided the required
         privileged as they are needed.
 
-    -  **Mitigate the remaining risks** – Use a combination of preventive and
+-  **Mitigate the remaining risks** – Use a combination of preventive and
         detective controls to reduce risks such as isolating administrator
         accounts from the most common risks phishing and general web browsing,
         simplifying and optimizing their workflow, increasing assurance of
