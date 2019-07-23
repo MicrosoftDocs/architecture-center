@@ -232,7 +232,7 @@ To maximize security, do not enable a public IP address for your VMs, and use NS
 If you must expose management endpoints for VMs to an external network, use NSGs or access control lists to restrict the visibility of these ports to an allowed list of IP addresses or networks.
 
 > [!NOTE]
-> Azure VMs deployed through the Azure portal can include a public IP address that provides login access. It is a best practice to NOT permit this.
+> Azure VMs deployed through the Azure portal can include a public IP address that provides login access. However, it is a best practice not to permit this.
 >
 
 ## Deploy the solution
