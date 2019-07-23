@@ -34,7 +34,7 @@ use the best possible data sources available, which can come from:
     existing systems or a combination of systems.
 
 This document focuses on sharing clearly defined good security practices as well
-as guidance on applying [threat modeling to your applications and architectures](applications-services.md#advanced-threat-modeling-techniques).
+as guidance on applying [threat modeling to your applications and architectures](applications-services#advanced-threat-modeling-techniques).
 
 For more information on current attacks, see the [Microsoft Security
 Intelligence (SIR) report](https://www.microsoft.com/sir).
