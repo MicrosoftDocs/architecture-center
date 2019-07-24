@@ -128,11 +128,13 @@ In general, avoid having any special characters (`-` or `_`) as the first or las
 | --- | --- | --- | --- | --- | --- | --- |
 |Container Registry | Global |5-50 |Case insensitive | Alphanumeric |`<service short name>registry` |`app1registry` |
 
-### Service Bus
+### Messaging
 
 | Entity | Scope | Length | Casing | Valid Characters | Suggested Pattern | Example |
 | --- | --- | --- | --- | --- | --- | --- |
-|Service Bus Namespace | Global |6-50 |Case insensitive | Alphanumeric, hyphen, must start with a letter; see [here](/rest/api/servicebus/create-namespace) for details. |`<service short name>-bus` |`app1-bus` |
+|Service Bus namespace | Global | 6-50 |Case insensitive | Alphanumeric, hyphen; must start with a letter; see [here](/rest/api/servicebus/create-namespace) for details. |`<service short name>-bus` |`app1-bus` |
+| Event Hubs namespace | Global | 6-50 | Case insensitive | Alphanumeric, hyphen; must start with a letter; must end with a letter or number |  `<service>-ehns` | `app1-ehns` |
+| Event hub | Event Hubs namespace | 1-50 | Case insensitive | Alphanumeric, period, hyphen, underscore. Must start and end with a letter or number. | `<service>-<role>-eh` | `app1-orders-eh` |
 
 ## Organize resources with tags
 
