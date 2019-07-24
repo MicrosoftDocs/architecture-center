@@ -3,7 +3,11 @@ title: "Examples of global reach outcomes"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Examples of Global Reach Outcomes
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 04/04/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: strategy
 ---
 
 # Examples of global reach outcomes
