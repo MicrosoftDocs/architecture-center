@@ -7,7 +7,7 @@ ms.author: rodend
 ms.date: 01/03/2017
 ms.topic: guide
 ms.service: cloud-adoption-framework
-ms.subservice: references
+ms.subservice: reference
 ---
 
 # Examples of implementing Azure enterprise scaffold

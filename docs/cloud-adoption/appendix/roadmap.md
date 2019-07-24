@@ -7,7 +7,7 @@ ms.author: brblanch
 ms.date: 04/04/2019
 ms.topic: landing-page
 ms.service: cloud-adoption-framework
-ms.subservice: references
+ms.subservice: reference
 layout: LandingPage
 ---
 

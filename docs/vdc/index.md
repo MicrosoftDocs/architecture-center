@@ -6,7 +6,7 @@ ms.author: jonor
 ms.date: 06/12/2019
 ms.topic: landing-page
 ms.service: cloud-adoption-framework
-ms.subservice: references
+ms.subservice: reference
 keywords: Azure
 layout: LandingPage
 ---

@@ -6,7 +6,7 @@ ms.author: jonor
 ms.date: 06/12/2019
 ms.topic: guide
 ms.service: cloud-adoption-framework
-ms.subservice: references
+ms.subservice: reference
 manager: rossort
 tags: azure-resource-manager
 ms.custom: virtual-network
