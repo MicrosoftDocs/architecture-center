@@ -2,14 +2,14 @@
 title: "Azure virtual datacenter: A network perspective"
 description: Learn how to build your virtual datacenter in Azure
 author: tracsman
+ms.author: jonor
+ms.date: 06/12/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: reference
 manager: rossort
 tags: azure-resource-manager
-ms.topic: guide
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
 ms.custom: virtual-network
-ms.date: 06/12/2019
-ms.author: jonor
 ---
 
 # Azure virtual datacenter: A network perspective
@@ -259,7 +259,7 @@ We recommend that you use one set of Azure Firewall instances, or NVAs, for traf
 
 Azure Load Balancer can probe the health of the various server instances as well, and when an instance fails to respond to a probe, the load balancer stops sending traffic to the unhealthy instance. In the VDC, an external load balancer is deployed to the hub and the spokes. In the hub, the load balancer is used to efficiently route traffic to services in the spokes, and in the spokes, load balancers are used to manage application traffic.
 
-[**Azure Front Door**][AFD] (AFD) is Microsoft's highly available and scalable Web Application Acceleration Platform, Global HTTP Load Balancer, Application Protection, and Content Delivery Network. Running in more than 100 locations at the Edge of Microsoft's Global Network, AFD enables you to build, operate, and scale out your dynamic web application and static content. AFD provides your application with world-class end-user performance, unified regional/stamp maintenance automation, BCDR automation, unified client/user information, caching, and service insights. The platform offers performance, reliability and support SLAs, compliance certifications and auditable security practices developed, operated, and supported natively by Azure.
+[**Azure Front Door**][AFD] (AFD) is Microsoft's highly available and scalable Web Application Acceleration Platform, Global HTTP Load Balancer, Application Protection, and Content Delivery Network. Running in more than 100 locations at the edge of Microsoft's Global Network, AFD enables you to build, operate, and scale out your dynamic web application and static content. AFD provides your application with world-class end-user performance, unified regional/stamp maintenance automation, BCDR automation, unified client/user information, caching, and service insights. The platform offers performance, reliability and support SLAs, compliance certifications and auditable security practices developed, operated, and supported natively by Azure.
 
 [**Application Gateway**][AppGW]
 Microsoft Azure Application Gateway is a dedicated virtual appliance providing application delivery controller (ADC) as a service, offering various layer 7 load-balancing capabilities for your application. It allows you to optimize web farm productivity by offloading CPU intensive SSL termination to the application gateway. It also provides other layer 7 routing capabilities including round robin distribution of incoming traffic, cookie-based session affinity, URL path-based routing, and the ability to host multiple websites behind a single Application Gateway. A web application firewall (WAF) is also provided as part of the application gateway WAF SKU. This SKU provides protection to web applications from common web vulnerabilities and exploits. Application Gateway can be configured as internet facing gateway, internal only gateway, or a combination of both.

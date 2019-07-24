@@ -6,8 +6,8 @@ author: rdendtler
 ms.author: rodend
 ms.date: 09/22/2018
 ms.topic: guide
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
+ms.service: cloud-adoption-framework
+ms.subservice: reference
 ---
 
 # Azure enterprise scaffold: Prescriptive subscription governance
