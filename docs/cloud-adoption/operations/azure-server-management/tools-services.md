@@ -91,4 +91,4 @@ To learn about pricing for Azure management services, go to these pages:
 - [Azure File Sync service](https://azure.microsoft.com/pricing/details/storage/blobs)
 
 > [!NOTE]
-> The Azure Update Management solution is free, but there's a small cost related to data ingestion. As a rule of thumb, the first 5 GB per month of data ingestion is free. We generally observe that each machine uses about 25 MB per month. So about 200 machines per month are covered for free. Additional servers will cost about 10 cents each.
+> The Azure Update Management solution is free, but there's a small cost related to data ingestion. As a rule of thumb, the first 5 GB per month of data ingestion is free. We generally observe that each machine uses about 25 MB per month. So about 200 machines per month are covered for free. For each additional server, multiply the number of additional servers by 25 MB per month. Multiply that by the cost of storage for the total amount of storage needed. [Storage costs are available here](https://azure.microsoft.com/pricing/details/storage/). Each additional server should have a nominal impact on cost.
