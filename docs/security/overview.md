@@ -46,7 +46,7 @@ adopting a mindset of assuming failure of security controls so that you design
 compensating controls that limit risk and damage in the event a primary control
 fails. Assuming failures is sometimes referred to as “assume breach” or “assume
 compromise” and is closely related to the “Zero Trust” approach of continuously
-validating security assurances. The “Zero Trust” approach is described in the [Security Design Principles](/azure/architecture/security/minimize-security-risks.md#enforce-conditional-access-for-admins-zero-trust) section in more detail.
+validating security assurances. The “Zero Trust” approach is described in the [Security Design Principles](/azure/architecture/security/security-principles) section in more detail.
 
 Cloud architectures can help simplify the complex task of securing an enterprise
 estate through specialization and shared responsibilities:
@@ -103,7 +103,7 @@ This results in three key strategies
     enterprise networks, which isn’t feasible for enterprise assets outside the
     network.  
     More on this and how it relates to Zero Trust and Enterprise Segmentation
-    are in the [Governance, Risk, and Compliance](/azure/architecture/security/governance.md#enterprise-segmentation-strategy) and [Network Security & Containment](/azure/architecture/security/network-security-containment.md#align-network-segmentation-with-enterprise-segmentation-strategy) sections.
+    are in the [Governance, Risk, and Compliance](/azure/architecture/security/governance#enterprise-segmentation-strategy) and [Network Security & Containment](/azure/architecture/security/network-security-containment#align-network-segmentation-with-enterprise-segmentation-strategy) sections.
 
 -   **Modernize Infrastructure Security** – for operating systems and middleware
     elements that are required by legacy applications; take advantage of cloud

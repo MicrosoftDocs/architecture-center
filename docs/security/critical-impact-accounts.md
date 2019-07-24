@@ -190,7 +190,7 @@ security dependencies for critical impact accounts
     -   Native Azure AD Accounts -*Create Native Azure AD Accounts that are
         not synchronized with on-premises active directory
 
-    -   Synchronize from On Premises Active Directory (Not Recommended see [Don’t synchronize on-premises admin accounts to cloud identity providers](/azure/architecture/security/identity.md#dont-synchronize-on-premises-admin-accounts-to-cloud-identity-providers))- Leverage existing accounts hosted in the on premises active
+    -   Synchronize from On Premises Active Directory (Not Recommended see [Don’t synchronize on-premises admin accounts to cloud identity providers](/azure/architecture/security/identity#dont-synchronize-on-premises-admin-accounts-to-cloud-identity-providers))- Leverage existing accounts hosted in the on premises active
         directory.
 
 -   **Workstations** – Choose how you will manage and secure the workstations
@@ -204,7 +204,7 @@ security dependencies for critical impact accounts
     -   Manage with Existing Systems - Join existing AD domain & leverage
         existing management/security.
 
-This is related to the [Don’t synchronize on-premises admin accounts to cloud identity providers](/azure/architecture/security/identity.md#dont-synchronize-on-premises-admin-accounts-to-cloud-identity-providers) to
+This is related to the [Don’t synchronize on-premises admin accounts to cloud identity providers](/azure/architecture/security/identity#dont-synchronize-on-premises-admin-accounts-to-cloud-identity-providers) to
 cloud identity providers guidance in the administration section that mitigates
 the inverse risk of pivoting from cloud assets to on-premises assets
 
@@ -292,7 +292,7 @@ cases when built in roles won’t work.
 Ensure you have a process for disabling or deleting administrative accounts when
 admin personnel leave the organization (or leave administrative positions)
 
-See [Regularly review critical access](/azure/architecture/security/governance.md#regularly-review-critical-access) for more details
+See [Regularly review critical access](/azure/architecture/security/governance#regularly-review-critical-access) for more details.
 
 ## Attack simulation for critical impact accounts
 
