@@ -20,7 +20,8 @@ This article discusses a few motivations behind cloud migration that can help pr
 
 ## Motivations
 
-Business transformations that are supported by cloud adoption can be driven by a number of motivations. It's even likely that several motivations are applicable at once. The goal of the lists in the following table is to help spark ideas about which motivations are relevant. From there, you can prioritize and assess the potential impacts of the motivations. In this article, we recommend that your cloud adoption team meet with various executives and business leaders using the list below to understand which of these motivations are impacted by the cloud adoption effort.
+Business transformations that are supported by cloud adoption can be driven by a number of motivations. It's even likely that several motivations are applicable at once. The goal of the lists in the following table is to help spark ideas about which motivations are relevant. From there, you can prioritize and assess the potential impacts of the motivations. In this article, we recommend that your cloud adoption team meet with various executives and business leaders using the list below to understand which of these motivations are affected by the cloud adoption effort.
+
 <!-- markdownlint-disable MD033 -->
 
 | Critical business events | Migration | Innovation |
@@ -43,7 +44,7 @@ To ensure wiser decision-making, all participants in the migration process shoul
 
 This section highlights the *Migration* and *Innovation* motivations and their corresponding strategies.
 
-### Migration 
+### Migration
 
 The *Migration* motivations listed near the top of the Motivations table are the most common, but not necessarily the most significant, reasons for adopting the cloud. These outcomes are important to achieve, but they're most effectively used to transition to other, more useful worldviews. This important first step to cloud adoption is often called a *cloud migration*. The framework refers to the strategy for executing a cloud migration by using the term [Migrate](../getting-started/migrate.md).
 
@@ -57,7 +58,7 @@ Some motivations align well with a migrate strategy. The motives at the top of t
 - Scaling to meet market demands.
 - Scaling to meet geographic demands.
 
-### Innovation 
+### Innovation
 
 Data is the new commodity. Modern apps are the supply chain that drives that data into various experiences. In today's business market, it's hard to find a transformative product or service that isn't built on top of data, insights, and customer experiences. The motivations that appear lower in the *Innovation* list align to a technology strategy referred to in this framework as [Innovate](../getting-started/innovate.md).
 

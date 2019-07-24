@@ -74,7 +74,7 @@ We can unpack this equation to get a migration-specific view of the formulas for
 
 ## Migration-specific revenue deltas
 
-This aspect is often overlooked by strategists creating a business justification for migration. In some areas, the cloud can cut costs. But the ultimate goal of any transformation is to yield better results over time. Consider the downstream effects to understand long-term revenue improvements. What new technologies will be available to your business after the migration that can't be used today? What projects or business objectives are blocked by dependencies on legacy technologies? What programs are on hold, pending high capex technology costs?
+This aspect is often overlooked by strategists creating a business justification for migration. In some areas, the cloud can cut costs. But the ultimate goal of any transformation is to yield better results over time. Consider the downstream effects to understand long-term revenue improvements. What new technologies will be available to your business after the migration that can't be used today? What projects or business objectives are blocked by dependencies on legacy technologies? What programs are on hold, pending high capital expeditures for technology?
 
 After you consider the opportunities unlocked by the cloud, calculate the revenue increases that could come from those opportunities.
 
