@@ -182,10 +182,10 @@ A deployment for this reference architecture is available on [GitHub][github-fol
 
 4. Open the `n-tier-windows.json` file.
 
-5. Search for all instances of "witnessStorageBlobEndPoint" and replace the placeholder text with the name of the Storage account from step 2.
+5. Search for all instances of "witnessStorageAccount" and replace the placeholder text with the name of the Storage account from step 2.
 
     ```json
-    "witnessStorageBlobEndPoint": "https://[replace-with-storageaccountname].blob.core.windows.net",
+    "witnessStorageAccount": "[replace-with-storageaccountname]",
     ```
 
 6. Run the following command to list the account keys for the storage account.
