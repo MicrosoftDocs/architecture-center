@@ -1,10 +1,14 @@
 ---
 title: Roadmap
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-layout: LandingPage
-ms.topic: landing-page
+description: Learn about the roadmap for the Microsoft Cloud Adoption Framework for Azure.
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 04/04/2019
+ms.topic: landing-page
+ms.service: cloud-adoption-framework
+ms.subservice: reference
+layout: LandingPage
 ---
 
 # Microsoft Cloud Adoption Framework for Azure
