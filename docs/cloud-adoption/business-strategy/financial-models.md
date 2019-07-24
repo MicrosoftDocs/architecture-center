@@ -1,13 +1,14 @@
 ---
 title: "Create a financial model for cloud transformation"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
-ms.custom: governance
 description: How to create a financial model for cloud transformation.
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 12/10/2018
 ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: strategy
+ms.custom: governance
 ---
 
 # Create a financial model for cloud transformation
