@@ -67,7 +67,7 @@ follow first:
 
 -   **High business impact and highly exposed systems –** These include systems
     with direct intrinsic value as well as the systems that provide attackers a
-    path to them. For more information, see [Identify and classify business critical applications](/azure/architecture/security/applications-services.md#identify-and-classify-business-critical-applications).
+    path to them. For more information, see [Identify and classify business critical applications](/azure/architecture/security/applications-services#identify-and-classify-business-critical-applications).
 
 -   **Easiest to implement Mitigations**– Identify quick wins by prioritizing
     the best practices, which your organization can execute quickly because you
@@ -265,7 +265,7 @@ delete resources like virtual machines and storage.
 and avoid technical conflicts, assign network resource responsibilities to a
 single central networking organization. These resources should include
 virtual networks, subnets, Network Security Groups (NSG), and the virtual
-machines hosting virtual network appliances. See [Centralize Network Management And Security](/azure/architecture/security/network-security-containment.md#centralize-network-management-and-security) for more details
+machines hosting virtual network appliances. See [Centralize Network Management And Security](/azure/architecture/security/network-security-containment#centralize-network-management-and-security) for more details
 
 **Resource Role Permissions** – For most core services, administrative
 privileges required to manage them are granted via the application itself
@@ -276,7 +276,7 @@ resources, you can assign these permissions to those roles.
 
 **Service admin (Break Glass Account)** – Use the service admin role only for
 emergencies (and initial setup if required). Do not use this role for daily
-tasks. See [Emergency Access (‘Break Glass’ Accounts)](/azure/architecture/security/critical-impact-accounts.md#enforce-conditional-access-for-admins-zero-trust) for more details.
+tasks. See [Emergency Access (‘Break Glass’ Accounts)](/azure/architecture/security/critical-impact-accounts#enforce-conditional-access-for-admins-zero-trust) for more details.
 
 ![A screenshot of a cell phone Description automatically generated](images/ref-segment.png)
 
@@ -320,7 +320,7 @@ will depend on your organization structure.
 and avoid technical conflicts, assign network resource responsibilities to a
 single central networking organization. These resources should include
 virtual networks, subnets, Network Security Groups (NSG), and the virtual
-machines hosting virtual network appliances. See [Centralize Network Management And Security](/azure/architecture/security/network-security-containment.md#centralize-network-management-and-security).
+machines hosting virtual network appliances. See [Centralize Network Management And Security](/azure/architecture/security/network-security-containment#centralize-network-management-and-security).
 
 **Resource Role Permissions** – Segments with autonomous DevOps teams will
 manage the resources associated with each application. The actual roles and
@@ -328,7 +328,7 @@ their permissions depend on the application size and complexity, the
 application team size and complexity, and the culture of the organization
 and application team.
 
-**Service Admin (Break Glass Account)** – Use the service admin role only for emergencies (and initial setup if required). Do not use this role for daily tasks. See [Emergency Access (‘Break Glass’ Accounts)](/azure/architecture/security/critical-impact-accounts.md#enforce-conditional-access-for-admins-zero-trust) for more details.
+**Service Admin (Break Glass Account)** – Use the service admin role only for emergencies (and initial setup if required). Do not use this role for daily tasks. See [Emergency Access (‘Break Glass’ Accounts)](/azure/architecture/security/critical-impact-accounts#enforce-conditional-access-for-admins-zero-trust) for more details.
 
 
 
@@ -336,11 +336,11 @@ and application team.
 
 -   To drive consistency and ensure application to future subscriptions,
     permissions should be assigned at management group for the segment rather
-    than the individual subscriptions. See [Avoid Granular and Custom Permissions](/azure/architecture/security/critical-impact-accounts.md#avoid-granular-and-custom-permissions) for more details.
+    than the individual subscriptions. See [Avoid Granular and Custom Permissions](/azure/architecture/security/critical-impact-accounts#avoid-granular-and-custom-permissions) for more details.
 
 -   You should first review the built-in roles to see if one is applicable
     before creating a custom role to grant the appropriate permissions to VMs
-    and other objects. See [Use Built in Roles](/azure/architecture/security/critical-impact-accounts.md#use-built-in-roles) for more details
+    and other objects. See [Use Built in Roles](/azure/architecture/security/critical-impact-accounts#use-built-in-roles) for more details
 
 -   **Security managers** group membership may be appropriate for smaller
     teams/organizations where security teams have extensive operational
@@ -357,7 +357,7 @@ complex Organizational Unit (OU) and Group Policy Object (GPO) designs for
 Active Directory).
 
 Microsoft recommends aligning the top level of management groups (MGs) into a
-simple [enterprise segmentation strategy](/azure/architecture/security/governance.md#enterprise-segmentation-strategy) limited to 1 or 2 levels. 
+simple [enterprise segmentation strategy](/azure/architecture/security/governance#enterprise-segmentation-strategy) limited to 1 or 2 levels. 
 
 ## Use root management group carefully
 

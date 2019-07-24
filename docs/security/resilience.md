@@ -94,7 +94,7 @@ detections so your team is focused on quickly investigating real attacks
 (vs. false positives), and reducing your mean time to remediate those real
 incidents.  
 More information on these goals and metrics is in the [security
-operations](/azure/architecture/security/security-operations.md#objective-and-metrics) section.
+operations](/azure/architecture/security/security-operations#objective-and-metrics) section.
 
 **Privilege** – Limit the privileges and permissions that an adversary can
 gain during an attack operation (by permissions and by amount of time
