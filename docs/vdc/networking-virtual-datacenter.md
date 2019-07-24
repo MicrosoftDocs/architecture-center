@@ -2,14 +2,14 @@
 title: "Azure virtual datacenter: A network perspective"
 description: Learn how to build your virtual datacenter in Azure
 author: tracsman
+ms.author: jonor
+ms.date: 06/12/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: references
 manager: rossort
 tags: azure-resource-manager
-ms.topic: guide
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
 ms.custom: virtual-network
-ms.date: 06/12/2019
-ms.author: jonor
 ---
 
 # Azure virtual datacenter: A network perspective

@@ -3,12 +3,13 @@ title: Scenarios and examples for subscription governance
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Provides examples of how to implement Azure subscription governance for common scenarios.
 author: rdendtler
-ms.date: 01/03/2017
 ms.author: rodend
+ms.date: 01/03/2017
 ms.topic: guide
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
+ms.service: cloud-adoption-framework
+ms.subservice: references
 ---
+
 # Examples of implementing Azure enterprise scaffold
 
 > [!NOTE]
