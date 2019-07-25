@@ -41,7 +41,7 @@ Azure tenant|Azure Active Directory || Enable diagnostic logging, and configure 
 
 ## Hybrid cloud monitoring
 
-Some organizations aren't ready to embrace the latest DevOps practices and cloud innovations to manage their heterogenous environments with Azure Monitor. For this situation, Microsoft has several strategies intended to support your business and IT operational goals, realizing the need for integration and phased migration from your current tools to Azure Monitor.  
+Some organizations aren't ready to embrace the latest DevOps practices and cloud innovations to manage their heterogenous environments with Azure Monitor. For this situation, we have several strategies intended to support your business and IT operational goals, realizing the need for integration and phased migration from your current tools to Azure Monitor.  
 
 The following are the likely candidates for this scenario:  
 
@@ -57,7 +57,7 @@ To collect metrics and logs from Azure infrastructure and platform resources, yo
 
 This is the best choice if you require a monitoring platform that provides full visibility and holistic health monitoring of the application. This includes monitoring the workload components that have been migrated to Azure and that are still on-premises. The knowledge defined in management packs describes how to monitor the individual dependencies and components. These include the guest operating system (Windows and Linux), the workloads running on the VM (for example, SQL Server and Apache Tomcat), and resources hosted in Azure that use the Azure Management Pack. To describe and measure the end-to-end health of the application, you customize Operations Manager to build a model representing the relationship among the components of the application. This model allows you to view the overall health of the application at any point in time, as well as measure the availability of your application against defined SLAs.
 
-With Azure or other cloud providers existing as an extension of your own on-premises network, with Operations Manager you can monitor the Linux and Windows VMs as if they were on your corporate network and intranet. At a minimum, monitoring VMs requires deploying the Operations Manager monitoring agent on the VMs. You must also deploy the applicable operating system management pack that supports the version of the operating system installed on the VMs.  
+With Azure or other cloud providers existing as an extension of your own on-premises network, Operations Manager can monitor the Linux and Windows VMs as if they were on your corporate network and intranet. At a minimum, monitoring VMs requires deploying the Operations Manager monitoring agent on the VMs and importing the applicable operating system management pack that supports the version of the operating system installed on the VMs.  
 
 At the application tier, Operations Manager offers basic application performance monitoring capabilities for some versions of .NET and Java. If certain applications within your hybrid cloud environment operate in an offline or network-isolated mode, such that they can't communicate with a public cloud service, Operations Manager might be your best option. For applications, hosted both on-premises and in any public cloud, that allow communication through a firewall to Azure, use Azure Monitor Application Insights. This offers deep, code-level monitoring, with first-class support for .NET, .NET Core, Java, JavaScript, and Node.js.
 
