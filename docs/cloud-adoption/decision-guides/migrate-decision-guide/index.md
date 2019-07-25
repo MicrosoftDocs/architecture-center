@@ -1,8 +1,13 @@
 ---
 title: "Migration tools decision guide"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Migration tools decision guide
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 04/04/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: decision-guide
 ---
 
 # Migration tools decision guide

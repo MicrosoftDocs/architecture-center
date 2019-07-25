@@ -102,7 +102,6 @@ Use Cognitive Services to develop apps across devices and platforms. The APIs ke
 |**Supported languages**    |many options depending on the service|
 |**Machine learning phases**|Deployment|
 |**Key benefits**           |Incorporating machine learning capabilities in applications using pre-trained models.<br/><br/>Variety of models for natural communication methods with vision and speech.|
-|**Considerations**         |Models have been pre-trained and are not customizable.|
 
 ## SQL Server Machine Learning Services
 
