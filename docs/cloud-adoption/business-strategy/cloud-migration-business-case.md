@@ -26,7 +26,7 @@ Cloud migrations can generate early return on investment (ROI) from cloud transf
 **Myth: Server costs drive business cases for cloud migration.** Sometimes this assumption is true. For some companies, it's important to reduce ongoing capital expenses related to servers. But it depends on several factors. Companies with a five-year to eight-year hardware refresh cycle are unlikely to see fast returns on their cloud migration. Companies with standardized or enforced refresh cycles can hit a break-even point quickly. In either case, other expenses might be the financial triggers that justify the migration. Here are a few examples of costs that are commonly overlooked when companies take a server-only or VM-only view of costs:
 
 - Costs of software for virtualization, servers, and middleware can be extensive. Cloud providers eliminate some of these costs. Two examples of a cloud provider reducing virtualization costs are the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/#services) and [Azure reservations](https://azure.microsoft.com/reservations) programs.
-- Business losses caused by outages can quickly exceed hardware or software costs. If your current datacenter is unstable, quantify the impact of outages in terms of opportunity costs or actual business costs.
+- Business losses caused by outages can quickly exceed hardware or software costs. If your current datacenter is unstable, work with the business to quantify the impact of outages in terms of opportunity costs or actual business costs.
 - Environmental costs can also be significant. For the average American family, a home is the biggest investment and the highest cost in the budget. The same is often true for datacenters. Real estate, facilities, and utility costs represent a fair portion of on-premises costs. When datacenters are retired, those facilities can be repurposed, or your business could potentially be released from these costs entirely.
 
 **Myth: An operating expense model is better than a capital expense model.** As explained in the [fiscal outcomes](business-outcomes/fiscal-outcomes.md) article, an operating expense model can be a good thing. But some industries view operating expenditures negatively. Here are a few examples that would trigger tighter integration with the accounting and business units regarding the operating expense conversation:
@@ -42,7 +42,7 @@ Before you provide a business justification that focuses on a conversion from ca
 **Myth: Moving to the cloud is like flipping a switch.** Migrations are a manually intense technical transformation. When developing a business justification, especially justifications that are time sensitive, consider the following aspects that could increase the time it takes to migrate assets:
 
 - **Bandwidth limitations:** The amount of bandwidth between the current datacenter and the cloud provider will drive timelines during migration.
-- **Testing timelines:** Testing applications to ensure readiness and performance can be time consuming. Aligning power users and testing processes is critical.
+- **Testing timelines:** Testing applications with the business to ensure readiness and performance can be time consuming. Aligning power users and testing processes is critical.
 - **Migration timelines:** The amount of time and effort required to implement the migration can increase costs and cause delays. Allocating employees or contracting partners can also delay the process. The plan should account for these allocations.
 
 Technical and cultural impediments can slow cloud adoption. When time is an important aspect of the business justification, the best mitigation is proper planning. During planning, two approaches can help mitigate timeline risks:
@@ -76,7 +76,7 @@ We can unpack this equation to get a migration-specific view of the formulas for
 
 This aspect is often overlooked by strategists creating a business justification for migration. In some areas, the cloud can cut costs. But the ultimate goal of any transformation is to yield better results over time. Consider the downstream effects to understand long-term revenue improvements. What new technologies will be available to your business after the migration that can't be used today? What projects or business objectives are blocked by dependencies on legacy technologies? What programs are on hold, pending high capital expeditures for technology?
 
-After you consider the opportunities unlocked by the cloud, calculate the revenue increases that could come from those opportunities.
+After you consider the opportunities unlocked by the cloud, work with the business to calculate the revenue increases that could come from those opportunities.
 
 ## Migration-specific cost deltas
 
