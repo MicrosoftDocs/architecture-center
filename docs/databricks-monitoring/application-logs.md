@@ -129,6 +129,9 @@ Application metrics appear under SparkMetric_CL:
 SparkMetric_CL | where name_s contains "rowcounter" | limit 50
 ```
 
+> [!IMPORTANT]
+> After you verify the metrics appear, stop the sample application job.
+
 ## Next steps
 
 Deploy the performance monitoring dashboard that accompanies this code library to troubleshoot performance issues in your production Azure Databricks workloads.

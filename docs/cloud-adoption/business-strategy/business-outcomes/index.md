@@ -3,7 +3,11 @@ title: "What business outcomes are associated with transformation journeys?"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Explanation of the business outcomes associated with cloud transformations.
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 04/04/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: strategy
 ---
 
 <!-- markdownlint-disable -->
