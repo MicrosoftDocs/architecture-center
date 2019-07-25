@@ -1,13 +1,14 @@
 ---
 title: "Subscription decision guide"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
-ms.custom: governance
-ms.date: 06/07/2019
 description: Learn about cloud platform subscriptions as a core service in Azure migrations.
 author: alexbuckgit
 ms.author: abuck
+ms.date: 06/07/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: decision-guide
+ms.custom: governance
 ---
 
 # Subscription decision guide

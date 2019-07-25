@@ -1,12 +1,14 @@
 ---
 title: "Encryption decision guide"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
-ms.custom: governance
-ms.date: 02/11/2019
 description: Learn about encryption as a core service in Azure migrations.
 author: rotycenh
+ms.author: v-tyhopk
+ms.date: 02/11/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: decision-guide
+ms.custom: governance
 ---
 
 # Encryption decision guide
@@ -65,7 +67,7 @@ In certain scenarios, there may be regulatory, policy, or technical reasons why 
 
 ## Data encryption
 
-There are several different states of data with different encryption needs to consider when planning your encryption policy:
+Consider several different states of data with different encryption needs when planning your encryption policy:
 
 | Data state | Data |
 |-----|-----|

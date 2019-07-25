@@ -1,19 +1,22 @@
 ---
 title: "Architectural decision guides"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
-ms.custom: governance
-ms.date: 02/11/2019
 description: Learn about architectural decision guides in the Cloud Adoption Framework.
 author: rotycenh
+ms.author: v-tyhopk
+ms.date: 02/11/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: decision-guide
+ms.custom: governance
 ---
 
 # Architectural decision guides
 
-The architectural decision guides in the Cloud Adoption Framework describe patterns and models that help when creating cloud governance design guidance. Each decision guide focuses on one core infrastructure component of cloud deployments and lists potential patterns or models intended to support specific cloud deployment scenarios.
+The architectural decision guides in the Cloud Adoption Framework describe patterns and models that help when creating cloud governance design guidance. Each decision guide focuses on one core infrastructure component of cloud deployments and lists patterns and models that can support specific cloud deployment scenarios.
 
 When you begin to establish cloud governance for your organization, actionable governance journeys provide a baseline roadmap. However, these journeys make assumptions about requirements and priorities that may not reflect those of your organization.
+
 These decision guides supplement the sample governance journeys by providing alternative patterns and models that help you align the architectural design choices made in the example design guidance with your own requirements.
 
 ## Decision guidance categories
