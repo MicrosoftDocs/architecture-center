@@ -6,7 +6,7 @@ services: azure-monitor
 keywords: 
 author: mgoedtel
 ms.author: magoedte
-ms.date: 06/26/2019
+ms.date: 07/24/2019
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ---

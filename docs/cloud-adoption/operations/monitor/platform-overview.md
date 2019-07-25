@@ -1,17 +1,17 @@
 ---
-title:  Cloud monitoring guide – Azure monitoring platform overview
+title:  Cloud monitoring guide – monitoring platforms overview
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: Choose when to use Azure Monitor or System Center Operations Manager in Microsoft Azure
+description: Understand the basic monitoring capabilities and their differences that System Center Operations Manager and Azure Monitor deliver as a monitoring platform.
 services: azure-monitor
 keywords: 
 author: mgoedtel
 ms.author: magoedte
-ms.date: 06/26/2019
+ms.date: 07/24/2019
 ms.service: architecture-center
 ms.subservice: enterprise-cloud-adoption
 ---
 
-# Cloud monitoring guide: Overview of the Azure monitoring platform
+# Cloud monitoring guide: Overview of our monitoring platforms
 
 Microsoft provides a range of monitoring capabilities from two products: System Center Operations Manager and Azure Monitor. These two offerings deliver core monitoring services, such as alerting, service uptime tracking, application and infrastructure health monitoring, diagnostics, and analytics.
 
