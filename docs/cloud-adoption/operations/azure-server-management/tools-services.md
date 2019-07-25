@@ -41,7 +41,7 @@ The most basic data protection is backup. To speed up the recovery process in ca
 
 Recovery via backup can take a long time. The industry standard is usually one day. If a workload requires business continuity for hardware failures or datacenter outage, consider using data replication. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) provides continuous replication of your VMs, a solution that provides bare-minimum data loss. Site Recovery also supports several replication scenarios, like replication of Azure VMs between two Azure regions, between servers on-premises, and between on-premises and Azure. For more information, see the [complete Azure Site Recovery replication matrix](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview#what-can-i-replicate).
 
-For your file server data, another service to consider is [Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning). This service lets you centralize your organization's file shares in Azure Files while preserving the flexibility, performance, and compatibility of an on-premises file server. To use this service, follow the instructions for deploying Azure File Sync.
+For your file server data, another service to consider is [Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning). This service allows you to centralize your organization's file shares in Azure Files while preserving the flexibility, performance, and compatibility of an on-premises file server. To use this service, follow the instructions for deploying Azure File Sync.
 
 ## Monitor
 
