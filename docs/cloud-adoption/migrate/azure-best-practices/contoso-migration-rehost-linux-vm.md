@@ -2,13 +2,13 @@
 title: "Rehost an on-premises Linux app to Azure VMs"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how Contoso rehosts an on-premises Linux app by migrating to Azure VMs.
-services: site-recovery
 author: BrianBlanchard
-ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 04/04/2019
 ms.author: brblanch
-
+ms.date: 04/04/2019
+ms.topic: conceptual
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
+services: site-recovery
 ---
 
 # Rehost an on-premises Linux app to Azure VMs
@@ -244,7 +244,7 @@ Now Contoso admins configure the target replication settings.
 
 After the source and target are set up, they're ready to create a replication policy.
 
-1. In  **Prepare infrastructure** > **Replication Settings** > **Replication Policy** >  **Create and Associate**, they create a policy **ContosoMigrationPolicy**.
+1. In **Prepare infrastructure** > **Replication Settings** > **Replication Policy** >  **Create and Associate**, they create a policy **ContosoMigrationPolicy**.
 2. They use the default settings:
     - **RPO threshold:** Default of 60 minutes. This value defines how often recovery points are created. An alert is generated if continuous replication exceeds this limit.
     - **Recovery point retention:** Default of 24 hours. This value specifies how long the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window.

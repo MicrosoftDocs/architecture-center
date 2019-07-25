@@ -3,7 +3,11 @@ title: "Iteration and Release Backlog"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Building an iteration and release backlog
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 04/04/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
 ---
 
 # Manage change in an incremental migration effort

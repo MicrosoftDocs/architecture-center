@@ -1,11 +1,13 @@
 ---
 title: "Establish an operational fitness review"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Guidance on operational fundamentals
-author: petertaylor9999
+author: BrianBlanchard
+ms.author: brblanch
 ms.date: 09/20/2018
 ms.topic: guide
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
+ms.service: cloud-adoption-framework
+ms.subservice: operate
 ---
 
 # Establish an operational fitness review
@@ -61,7 +63,7 @@ The steps in this phase capture the requirements for conducting a regular review
 
 1. **Map operations to services**. Map the critical business operations to the services that support them. In the shopping-cart example, several services might be involved: an inventory stock-management service, a shopping-cart service, and others. To process a credit-card payment, an on-premises payment service might interact with a third-party, payment-processing service.
 
-1. **Analyze service dependencies**. Most business operations require orchestration among multiple supporting services. It's important to understand the dependencies between the services and the flow of mission-critical transactions through these services. 
+1. **Analyze service dependencies**. Most business operations require orchestration among multiple supporting services. It's important to understand the dependencies between the services and the flow of mission-critical transactions through these services.
 
     Also consider the dependencies between on-premises services and Azure services. In the shopping-cart example, the inventory stock-management service might be hosted on-premises and ingest data entered by employees from a physical warehouse. However, it might store data off-premises in an Azure service, such as [Azure Storage](/azure/storage/common/storage-introduction), or a database, such as [Azure Cosmos DB](/azure/cosmos-db/introduction).
 

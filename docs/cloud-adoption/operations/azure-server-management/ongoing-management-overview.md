@@ -6,8 +6,8 @@ author: BrianBlanchard
 ms.author: brblanch
 ms.date: 05/10/2019
 ms.topic: article
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
+ms.service: cloud-adoption-framework
+ms.subservice: operate
 ---
 
 # Phase 3: Ongoing management and security
@@ -18,7 +18,7 @@ After you've onboarded Azure management services, you'll need to focus on the op
 - **[Enable the Guest Configuration policy.](./guest-configuration-policy.md)** Enable the Azure Policy Guest Configuration feature to audit the settings in a virtual machine. For example, you can check if any certificates are about to expire.
 - **[Track and alert on critical changes.](./enable-tracking-alerting.md)** When you're troubleshooting, the first question to consider is "What has changed?" In this article, you'll learn how to track changes and create alerts to proactively monitor critical components.
 - **[Create update schedules.](./update-schedules.md)** Schedule the installation of updates to ensure all your servers have the latest ones.
-- **[Common Azure Policy examples.](./common-policies.md)** Provides examples of common management policies.  
+- **[Common Azure Policy examples.](./common-policies.md)** Provides examples of common management policies.
 
 ## Address security recommendations
 

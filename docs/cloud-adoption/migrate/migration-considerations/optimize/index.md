@@ -3,7 +3,11 @@ title: "Optimize migrated workloads"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Optimize migrated workloads
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 04/04/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
 ---
 
 # Optimize migrated workloads

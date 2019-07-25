@@ -3,7 +3,7 @@ title: "Gather inventory data for a digital estate"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: How to gather inventory for a digital estate.
 author: BrianBlanchard
-ms.author: XX
+ms.author: brblanch
 ms.date: 12/10/2018
 ms.topic: guide
 ms.service: cloud-adoption-framework

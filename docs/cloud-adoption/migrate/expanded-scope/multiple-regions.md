@@ -3,7 +3,11 @@ title: "Addressing the complexity of migrating multiple geographical regions"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Addressing the complexity of migrating multiple geographical regions.
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 04/04/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
 ---
 
 # Multiple geographic regions

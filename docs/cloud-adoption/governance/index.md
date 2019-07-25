@@ -18,6 +18,8 @@ The cloud creates new paradigms regarding the technologies that support the busi
 
 Cloud governance is an iterative process. For organizations with existing policies that govern on-premises IT environments, cloud governance should complement those policies. However, the level of corporate policy integration between on-premises and the cloud varies depending on cloud governance maturity and digital estate in the cloud. As the cloud estate evolves over time, so do cloud governance processes and policies. The following exercises help you get started on an incremental growth journey.
 
+<!-- markdownlint-disable MD033 -->
+
 <ul class="panelContent cardsF">
     <li style="display: flex; flex-direction: column;">
         <a href="./journeys/index.md">
@@ -69,7 +71,7 @@ Cloud governance is an iterative process. For organizations with existing polici
                         </div>
                         <div class="cardText" style="padding-left:0px;">
                             <h3>Initial governance best practice</h3>
-                            Begin your governance journey with a small, easily implemented set of governance tools. This initial best practice is called a minimally viable product (MVP).
+                            Begin your governance journey with a small, easily implemented set of governance tools. This initial best practice is called a minimum viable product (MVP).
                         </div>
                     </div>
                 </div>
@@ -96,6 +98,8 @@ Cloud governance is an iterative process. For organizations with existing polici
         </a>
     </li>
 </ul>
+
+<!-- markdownlint-enable MD033 -->
 
 ## Objective of this content
 

@@ -2,13 +2,13 @@
 title: "Refactor a Team Foundation Server deployment to Azure DevOps Services in Azure"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how Contoso refactors its on-premises TFS deployment by migrating it to Azure DevOps Services in Azure.
-services: site-recovery
 author: BrianBlanchard
-ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 10/11/2018
 ms.author: brblanch
-
+ms.date: 10/11/2018
+ms.topic: conceptual
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
+services: site-recovery
 ---
 
 # Refactor a Team Foundation Server deployment to Azure DevOps Services
@@ -228,7 +228,7 @@ Before they start, the admins schedule downtime with the dev team, to take the c
 
 Before starting, Contoso admins take a local SQL Server backup, and VMware snapshot of the TFS server, before detaching.
 
-1. In the TFS Admin console, they select the collection they want to detach  (**ContosoDev**).
+1. In the TFS Admin console, they select the collection they want to detach (**ContosoDev**).
 
     ![Migrate](./media/contoso-migration-tfs-vsts/migrate1.png)
 

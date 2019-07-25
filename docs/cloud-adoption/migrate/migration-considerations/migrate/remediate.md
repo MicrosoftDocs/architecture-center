@@ -3,7 +3,11 @@ title: "Remediating assets prior to migration"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Remediating incompatible assets prior to migration
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 04/04/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
 ---
 
 # Remediate assets prior to migration

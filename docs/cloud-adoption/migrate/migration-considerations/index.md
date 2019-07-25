@@ -1,8 +1,13 @@
 ---
 title: Cloud Adoption Framework migration model
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Cloud Adoption Framework migration model
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 04/04/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
 ---
 
 # Cloud Adoption Framework migration model
