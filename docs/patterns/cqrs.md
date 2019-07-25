@@ -224,21 +224,6 @@ public class ProductsCommandHandler :
 }
 ```
 
-The following code shows the `IProductsDomain` interface from the write model.
-
-```csharp
-public interface IProductsDomain
-{
-  void AddNewProduct(int id, string name, string description, decimal price);
-  void RateProduct(int userId, int rating);
-  void AddToInventory(int productId, int quantity);
-  void ConfirmItemsShipped(int productId, int quantity);
-  void UpdateStockFromInventoryRecount(int productId, int updatedQuantity);
-}
-```
-
-Also notice how the `IProductsDomain` interface contains methods that have a meaning in the domain. Typically, in a CRUD environment these methods would have generic names such as `Save` or `Update`, and have a DTO as the only argument. The CQRS approach can be designed to meet the needs of this organization's business and inventory management systems.
-
 ## Related patterns and guidance
 
 The following patterns and guidance are useful when implementing this pattern:
