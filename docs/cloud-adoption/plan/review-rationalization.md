@@ -6,13 +6,13 @@ author: BrianBlanchard
 ms.author: brblanch
 ms.date: 07/01/2019
 ms.topic: guide
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
+ms.service: cloud-adoption-framework
+ms.subservice: plan
 ---
 
 # Review rationalization decisions
 
-During initial strategy and planning phases, we suggest you apply an [incremental rationalization](../digital-estate/rationalize.md#incremental-rationalization) approach to the digital-estate. But this approach embeds a number of assumptions into the resulting decisions. We advise the cloud strategy and cloud adoption teams to review those decisions in light of expanded-workload documentation. This review is also a good time to involve business stakeholders and the executive sponsor in future state decisions.
+During initial strategy and planning phases, we suggest you apply an [incremental rationalization](../digital-estate/rationalize.md#incremental-rationalization) approach to the digital estate. But this approach embeds some assumptions into the resulting decisions. We advise the cloud strategy and cloud adoption teams to review those decisions in light of expanded-workload documentation. This review is also a good time to involve business stakeholders and the executive sponsor in future state decisions.
 
 > [!IMPORTANT]
 > Further validation of the rationalization decisions will occur during the assessment phase of migration. This validation focuses on business review of the rationalization to align resources appropriately.
