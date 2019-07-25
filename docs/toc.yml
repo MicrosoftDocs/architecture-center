@@ -80,7 +80,17 @@ items:
       href: best-practices/retry-service-specific.md
     - name: Transient fault handling
       href: best-practices/transient-faults.md
-  - name: Performance Antipatterns
+  - name: Performance tuning
+    items:
+    - name: Introduction
+      href: performance/index.md
+    - name: Scenario 1 - Distributed transactions
+      href: performance/distributed-transaction.md
+    - name: Scenario 2 - Multiple backend services
+      href: performance/backend-services.md
+    - name: Scenario 3 - Event streaming
+      href: performance/event-streaming.md
+  - name: Performance antipatterns
     items:
     - name: Overview
       href: antipatterns/index.md
