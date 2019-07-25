@@ -3,11 +3,11 @@ title: "Refactor a Linux service desk app to Azure App Service and Azure Databas
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how Contoso refactors on-premises Linux app by migrating it to Azure App Service using GitHub for Web Tier and Azure SQL Database.
 author: BrianBlanchard
-ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 10/11/2018
 ms.author: brblanch
-
+ms.date: 10/11/2018
+ms.topic: conceptual
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
 ---
 
 # Refactor a Linux app to multiple regions using Azure App Service, Traffic Manager, and Azure Database for MySQL

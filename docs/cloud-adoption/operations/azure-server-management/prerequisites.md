@@ -6,8 +6,8 @@ author: BrianBlanchard
 ms.author: brblanch
 ms.date: 05/10/2019
 ms.topic: article
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
+ms.service: cloud-adoption-framework
+ms.subservice: operate
 ---
 
 # Phase 1: Prerequisite planning for Azure server management services
@@ -35,18 +35,18 @@ The following Azure server management services require a linked Log Analytics wo
 - [Hybrid Runbook Worker](/azure/automation/automation-hybrid-runbook-worker)
 - [Desired State Configuration](/azure/virtual-machines/extensions/dsc-overview)
 
-The second phase of this guidance focuses on deploying services and automation scripts. It shows you how to create a Log Analytics workspace and an Automation account. This guidance also shows you how to use Azure Policy to ensure that new VMs are connected to the correct workspace. 
+The second phase of this guidance focuses on deploying services and automation scripts. It shows you how to create a Log Analytics workspace and an Automation account. This guidance also shows you how to use Azure Policy to ensure that new VMs are connected to the correct workspace.
 
 The examples covered in this guidance assume a deployment that does not already have servers deployed to the cloud. To learn more about the principles and considerations involved in planning your workspaces, see [Manage log data and workspaces in Azure Monitor](/azure/azure-monitor/platform/manage-access#determine-the-number-of-workspaces-you-need).
 
 ## Planning considerations
 
-When preparing the workspaces and accounts that you create for onboarding management services, consult the following discussions of issues: 
+When preparing the workspaces and accounts that you create for onboarding management services, consult the following discussions of issues:
 
 - **Azure geographies and regulatory compliance**. Azure regions are organized into *geographies*. An [Azure geography](https://azure.microsoft.com/global-infrastructure/geographies/) ensures that data residency, sovereignty, compliance, and resiliency requirements are honored within geographical boundaries. If your workloads are subject to data sovereignty or other compliance requirements, workspace and Automation accounts must be deployed to regions within the same Azure geography as the workload resources they support.
 - **Number of workspaces**. As a guiding principle, create the minimum number of workspaces required per Azure geography. We recommend at least one workspace for each Azure geography where your compute or storage resources are located. This initial alignment helps avoid future regulatory issues when migrating data to different geographies.
 - **Data retention and capping**. You may also need to take Data retention policies or data capping requirements into consideration when creating workspaces or Automation accounts. For more information about these principles and additional considerations when planning your workspaces, see [Manage log data and workspaces in Azure Monitor](/azure/azure-monitor/platform/manage-access#determine-the-number-of-workspaces-you-need).
-- **Region mapping**. Linking a Log Analytics workspace and an Azure Automation account is only supported between certain Azure regions. For example, if the Log Analytics workspace is hosted in the *EastUS* region, the linked Automation account must be created in the *EastUS2* region in order to be used with management services. If you have an Automation account that was created in another region, it will not be able to link to a workspace in *EastUS*.  Choice of deployment region can significantly affect Azure geography requirements. Consult the [region mapping table](/azure/automation/how-to/region-mappings) to decide which region should host your workspaces and Automation accounts.
+- **Region mapping**. Linking a Log Analytics workspace and an Azure Automation account is only supported between certain Azure regions. For example, if the Log Analytics workspace is hosted in the *EastUS* region, the linked Automation account must be created in the *EastUS2* region in order to be used with management services. If you have an Automation account that was created in another region, it will not be able to link to a workspace in *EastUS*. Choice of deployment region can significantly affect Azure geography requirements. Consult the [region mapping table](/azure/automation/how-to/region-mappings) to decide which region should host your workspaces and Automation accounts.
 - **Workspace multihoming**. Log Analytics Agent supports multihoming in some scenarios, but the agent faces several limitations and issues when running in this configuration. Unless Microsoft has recommended using multihoming for your scenario, we don’t recommend configuring multihoming on the Log Analytics agent.
 
 ## Resource placement examples
@@ -57,11 +57,11 @@ The following examples illustrate some ways that workspaces and Automation accou
 
 ### Placement by geography
 
-For small and medium environments with a single subscription and several hundred resources that span multiple Azure geographies, create one Log Analytics workspace and one Azure Automation account in each geography. 
+For small and medium environments with a single subscription and several hundred resources that span multiple Azure geographies, create one Log Analytics workspace and one Azure Automation account in each geography.
 
 You can create a workspace and an Azure Automation account—one pair—in each resource group and deploy the pair in the corresponding geography to the virtual machines. Alternatively, if your data compliance policies do not dictate that resources reside in specific regions, you can create one pair to manage all the virtual machines. We also recommended that you place the workspace and Automation account pairs in separate resource groups to provide more granular role-based access control (RBAC).
 
-The example in the following diagram has one subscription with two resource groups, each located in a different geography. 
+The example in the following diagram has one subscription with two resource groups, each located in a different geography.
 
 ![Workspace model for small-to-medium environments](./media/workspace-model-small.png)
 

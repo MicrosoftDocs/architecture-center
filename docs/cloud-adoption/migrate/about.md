@@ -3,7 +3,11 @@ title: "Cloud migration"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Introduction to Cloud Migration content
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 04/04/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
 ---
 
 # Cloud migration in the Microsoft Cloud Adoption Framework for Azure

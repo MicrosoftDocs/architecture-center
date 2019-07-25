@@ -6,6 +6,7 @@ ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 description: Explanation of the internal functioning of Azure
 author: petertaylor9999
+ms.author: abuck
 ms.date: 04/04/2019
 ---
 

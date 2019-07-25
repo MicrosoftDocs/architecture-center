@@ -17,7 +17,7 @@ Digital estate planning can take several forms depending on the desired outcomes
 
 ## Workload-driven approach
 
-The top-down assessment approach evaluates security aspects.  Security includes the categorization of data (high, medium, or low business impact), compliance, sovereignty, and security risk requirements. This approach assesses high-level architectural complexity. It evaluates aspects such as authentication, data structure, latency requirements, dependencies, and application life expectancy.
+The top-down assessment approach evaluates security aspects. Security includes the categorization of data (high, medium, or low business impact), compliance, sovereignty, and security risk requirements. This approach assesses high-level architectural complexity. It evaluates aspects such as authentication, data structure, latency requirements, dependencies, and application life expectancy.
 
 The top-down approach also measures the operational requirements of the application, such as service levels, integration, maintenance windows, monitoring, and insight. When all of these aspects have been analyzed and taken into consideration, the resulting score that reflects the relative difficulty of migrating this application to each of the cloud platforms: IaaS, PaaS, and SaaS.
 

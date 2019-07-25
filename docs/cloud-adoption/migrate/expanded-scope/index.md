@@ -1,8 +1,13 @@
 ---
 title: "Cloud migration expanded scope checklist"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Cloud migration expanded scope checklist
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 04/04/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
 ---
 
 # Expanded scope for cloud migration

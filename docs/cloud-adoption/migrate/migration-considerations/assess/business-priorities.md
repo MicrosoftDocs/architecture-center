@@ -3,7 +3,11 @@ title: "Maintain business priorities during a long-term transformation process"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Maintain business priorities during a long-term transformation process.
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 04/04/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
 ---
 
 # Business Priorities - Maintaining alignment

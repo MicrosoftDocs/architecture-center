@@ -6,6 +6,7 @@ ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
 description: Guidance for configuring Azure governance controls for multiple teams, multiple workloads, and multiple environments.
 author: petertaylor9999
+ms.author: abuck
 ms.date: 02/11/2019
 ---
 
