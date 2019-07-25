@@ -13,53 +13,11 @@ ms.subservice: enterprise-cloud-adoption
 
 # Cloud monitoring guide: Overview of the Azure monitoring platform
 
-Microsoft provides a range of monitoring capabilities from two products: System Center Operations Manager for on-premises environments, and Azure Monitor for the cloud. These offerings deliver core monitoring services, such as alerting, service uptime tracking, application and infrastructure health monitoring, diagnostics, and analytics.
+Microsoft provides a range of monitoring capabilities from two products: System Center Operations Manager and Azure Monitor. These two offerings deliver core monitoring services, such as alerting, service uptime tracking, application and infrastructure health monitoring, diagnostics, and analytics.
 
 Many organizations are embracing the latest practices for DevOps agility and cloud innovations to manage their heterogenous environments. Yet they are also concerned about their ability to make appropriate and responsible decisions regarding how to monitor those workloads.  
 
-This article compares the current offerings available, and outlines our recommended strategy based on the following factors:
-
-* Your current investment in Operations Manager or other monitoring platforms on your corporate network, and whether it’s tightly integrated with your IT operations processes.
-* Your migration approach to Azure. This approach can be a staged one, extending your corporate network to Azure, or redesigning applications and services to run natively in Azure by using a combination of IaaS and PaaS resources.  
-
-Our strategy includes support for monitoring infrastructure (compute, storage, and server workloads), application (end-user, exceptions, and client), and network resources to deliver a complete, service-oriented monitoring perspective.
-
-Every journey has a story. Before we dive into the detailed overview, let’s start with a brief look at where it all began when we entered the monitoring field, and how our strategy has evolved over time.
-
-## Story of System Center Operations Manager
-
-In 2000, we entered the operations management field with Microsoft Operations Manager (MOM) 2000.  In 2007, we introduced a re-engineered version of the product named System Center Operations Manager. It moved beyond simple monitoring of a Windows server and concentrated on robust, end-to-end service and application monitoring, including heterogenous platforms, network devices, and other application or service dependencies. It's an established, enterprise-grade monitoring platform for on-premises environments, in the same class as IBM Tivoli or HP Operations Manager in the industry. It has evolved to support monitoring compute and platform resources running in Azure, Amazon Web Services (AWS), and other cloud providers.   
-
-Operations Manager monitors these different platforms, devices, applications, and infrastructure services with a management pack. Defined in a management pack are all the elements required for monitoring an IT service or application, including the service model, health model, discovery rules, views, and reports. After the management pack is imported into the management group, it automatically detects if the agent is running the components supporting the application or IT service. If so, it runs the workflows that proactively monitor them.  
-
-As an extensible platform, Operations Manager is supported by a broad ecosystem of partners and communities that provide a variety of solutions. These solutions include:
-
-* Management packs to monitor non-Microsoft applications, vendor hardware, and other technologies, to deliver full-stack monitoring or to automate and extend features of Operations Manager. 
-* Visualization products that include advanced dashboarding capabilities and engaging data visualizations. These help to easily analyze the data on any browser or device in the enterprise.
-* Integration with other ITSM products or orchestration tools, to support incident recording, configuration management, and incident autoremediation.
-* Custom code to automate and extend Operations Manager, by using published APIs. 
-
-## Story of Azure Monitor
-
-
-![Timeline](./media/monitoring-management-guidance-cloud-and-on-premises/timeline-v2-opt.svg)
-
-When Azure cloud was released in 2010, monitoring of cloud services was provided with the Azure Diagnostics agent, which delivered a way to collect diagnostic data from Azure compute and platform resources. In addition to viewing this data in the Azure portal, you can use Azure Storage to view the data with one of several available tools, such as Server Explorer in Visual Studio and Azure Storage Explorer.
-
-This capability was considered a general monitoring tool. It lacked many features that were available in enterprise-class monitoring platforms, and it wasn’t consistent between each service that supported this method. In addition, as new Azure services were released, each provided its own monitoring method. Azure services lacked an overall, common monitoring methodology and framework. For these reasons, we began working on Azure Insights. It provided a common framework to collect platform metrics and logs from any Azure service that started using the framework.  
-
-In 2015, Azure Operational Insights was made generally available. It delivered the Log Analytics analysis service that collected and searched data from machines in Azure, on-premises, or other cloud environments, and it connected to System Center Operations Manager. Intelligence packs delivered different pre-packaged management and monitoring configurations. These contained a collection of query and analytic logic, visualizations, and data collection rules for such scenarios as capacity planning, security auditing, health assessments, and alert management. As part of this release, Azure Operational Insights was added to the new Operations Management Suite (OMS). OMS intended to provide a unified IT management experience for organizations by bringing together a collection of IT management solutions, including automation, backup, recovery, and security. 
- 
-Early on, Microsoft realized the need for a common monitoring framework and began working on Azure Insights. This service collected and routed platform metrics and logs from any Azure service into a central pipeline. In 2016, we rebranded Azure Insights as Azure Monitor, which was released in March 2017. Even before release, we began consolidation of the various alerting capabilities into the newly branded Azure Monitor.  
-
-In 2018, Azure Monitor expanded to include several different services that were originally developed for independent functionality: 
-
-* **Log Analytics** provided rich analytical insight of log data from services and applications. It shared the same agent as Operations Manager to collect monitoring data from VMs both in the cloud and on-premises. Monitoring solutions in Log Analytics were like management packs in Operations Manager, providing packaged logic to monitor a particular product or service.
-* **Application Insights** grew from Application Performance Monitoring in Operations Manager. It provided rich monitoring of web applications written in a variety of languages. Application Insights collects details on application performance, requests and exceptions, and traces.
-* **Azure Insights** (briefly branded Azure Monitor) provided core metrics and resource diagnostics logs for only Azure platform resources. It also included alerting and notification based on those metrics. The notification system included the ability to integrate with partner applications through webhooks and ITSM software. Later, it also integrated with Azure Logic Apps and Azure Automation, in addition to common notification methods such as voice, SMS, and email.
-* **Azure Network Watcher** to monitor, diagnose, and view metrics for resources in an Azure virtual network.
-
-Now that you understand the history, let’s review the way Operations Manager monitors applications and infrastructure services, and understand the advantages Azure Monitor provides as a SaaS monitoring platform for organizations.  
+This article provides a high-level overview of our monitoring platforms to help you understand how both deliver core monitoring functionality. 
 
 ## Infrastructure requirements
 
@@ -72,6 +30,7 @@ Operations Manager requires significant infrastructure to support a management g
 Each of these components requires infrastructure and software within your corporate network that must be maintained.
 
 ### Azure Monitor
+
 Azure Monitor is a SaaS service, where all the infrastructure supporting it is running in the Azure cloud and is managed by Microsoft. It's designed to do monitoring, analytics, and diagnostics at scale, and is available in all national clouds. Core parts of the infrastructure (collectors, metrics and logs store, and analytics) are necessary to support Azure Monitor.  
 
 ![Diagram of Azure Monitor](./media/monitoring-management-guidance-cloud-and-on-premises/azure-monitor-greyed-optimized.svg)
@@ -109,6 +68,7 @@ Because workflows are isolated from each other and work from the individual sour
 Azure Monitor collects data from a variety of sources, including Azure infrastructure and platform resources, agents on Windows and Linux computers, and monitoring data collected in Azure storage. Any REST client can write log data to Azure Monitor by using an API, and you can define custom metrics for your web applications. Some metric data can be routed to different locations, depending on its usage. For example, you might use the data for "fast-as-possible" alerting, or for long-term trend analysis searched in conjunction with other log data.  
 
 #### Monitoring solutions and insights
+
 Monitoring solutions use the logs platform in Azure Monitor to provide monitoring for a particular application or service. They typically define data collection from agents or from Azure services, and provide log queries and views to analyze that data. They typically don’t provide alert rules, meaning that you must define your own alert criteria based on collected data.
 
 Insights use the logs and metrics platform of Azure Monitor to provide a customized monitoring experience for an application or service in the Azure portal. They might provide health monitoring and alerting conditions, in addition to customized analysis of collected data.

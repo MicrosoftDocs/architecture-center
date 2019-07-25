@@ -58,7 +58,7 @@ A selection of software and services are available to monitor and manage a varie
 * Azure Logic Apps
 * Azure Event Hubs
 
-A large part of this guide discusses and contrasts Azure Monitor to System Center Operations Manager.
+This first version of the guide covers our current monitoring platforms - Azure Monitor and System Center Operations Manager, and outlines our recommended strategy for monitoring each of the cloud deployment models.
 
 ## Next step
 
