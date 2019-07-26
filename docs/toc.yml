@@ -407,9 +407,9 @@
         href: serverless/overview.md
       - name: Walk through a serverless solution
         href: serverless/index.md
-      - name: Architect serverless event processing
+      - name: Serverless event processing guidelines
         href: reference-architectures/serverless/event-processing.md
-      - name: Architect serverless web application
+      - name: Serverless web application guidelines
         href: reference-architectures/serverless/web-app.md
 
     - name: VM workloads
