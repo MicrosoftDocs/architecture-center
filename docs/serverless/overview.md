@@ -11,7 +11,7 @@ ms.subservice: reference-architecture
 
 # Serverless with Azure
 
-Serverless models abstract the underlying compute infrastructure. This allows developers to focus on business logic without needing extensive startup or maintenance cost to set up the solution. Serverless also reduces your overall costs since the  This event-driven model is suitable for situations where some event triggers a defined action. For example, collecting incoming device messages and storing them for later use. 
+Serverless models abstract the underlying compute infrastructure. This allows developers to focus on business logic without needing extensive startup or maintenance cost to set up the solution. Serverless reduces the overall costs since you pay only for the duration the code was executed. This event-driven model is suitable for situations where some event triggers a defined action. For example, receiving an incoming device messages to store for later use, or a database update that needs some further processing.
 
 Microsoft Azure provides multiple ways of implementing serverless code:
 
