@@ -6,8 +6,8 @@ author: BrianBlanchard
 ms.author: brblanch
 ms.date: 05/20/2019
 ms.topic: guide
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
+ms.service: cloud-adoption-framework
+ms.subservice: ready
 ---
 
 # Landing zone considerations
@@ -36,7 +36,7 @@ Each landing zone is part of a broader solution for organizing resources across 
 
 ## Governance considerations
 
-The Cloud Adoption Framework's Govern methodologies establish a process for governing the environment as a whole. However, there are many use cases that might require you to make governance decisions on a per-landing zone basis. In many scenarios, governance baselines are enforced on a per-landing zone basis, even though the baselines are established holistically. It's true for the first few landing zones that an organization deploys. 
+The Cloud Adoption Framework's Govern methodologies establish a process for governing the environment as a whole. However, there are many use cases that might require you to make governance decisions on a per-landing zone basis. In many scenarios, governance baselines are enforced on a per-landing zone basis, even though the baselines are established holistically. It's true for the first few landing zones that an organization deploys.
 
 The following articles can help you make governance-related decisions about your landing zone. You can factor each decision into your governance baselines.
 
@@ -45,4 +45,3 @@ The following articles can help you make governance-related decisions about your
 - **Using role-based access control**. Azure [role-based access control (RBAC)](../azure-best-practices/roles.md) offers fine-grained, group-based access management for resources that are organized around user roles.
 - **Policy decisions**. Azure Blueprint samples provide premade compliance blueprints, each with predefined policy initiatives. Policy decisions help inform a selection of the best blueprint or policy initiative based on your requirements and constraints.
 - **[Create hybrid cloud consistency](../../infrastructure/misc/hybrid-consistency.md)**. Create hybrid cloud solutions that give your organization the benefits of cloud innovation while maintaining many of the conveniences of on-premises management.
-

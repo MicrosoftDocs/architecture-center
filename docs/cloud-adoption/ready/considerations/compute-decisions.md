@@ -6,8 +6,8 @@ author: BrianBlanchard
 ms.author: brblanch
 ms.date: 05/15/2019
 ms.topic: guide
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
+ms.service: cloud-adoption-framework
+ms.subservice: ready
 ---
 
 # Compute design decisions
@@ -35,10 +35,10 @@ Answer the following questions about your workloads to help you make decisions b
 - **Are your applications web-based or API-based, and do they use PHP, ASP.NET, Node.js, or similar technologies?** Web apps can be deployed to managed [Azure App Service](/azure/app-service/overview) instances, so you don't have to maintain virtual machines for hosting purposes.
 - **Will you require full control over the OS and hosting environment of your workload?** If you need to control the hosting environment, including OS, disks, locally running software, and other configurations, you can use [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines) to host your applications and services. In addition to choosing your virtual machine sizes and performance tiers, your decisions regarding virtual disk storage will affect performance and SLAs related to your infrastructure as a service (IaaS)-based workloads. For more information, see the [Azure Disk Storage](/azure/virtual-machines/windows/managed-disks-overview) documentation.
 - **Will your workload involve high-performance computing (HPC) capabilities?** [Azure Batch](/azure/batch/batch-technical-overview) provides job scheduling and autoscaling of compute resources as a platform service, so it's easy to run large-scale parallel and HPC applications in the cloud.
-- **Will your applications use a microservices architecture?** Applications that use a microservices-based architecture can take advantage of several optimized compute technologies. Self-contained, event-driven workloads can use [Azure Functions](/azure/azure-functions/functions-overview) to build scalable, serverless applications that don't need an infrastructure. For applications that require more control over the environment where microservices run, you can use container services like [Azure Container Instances](/azure/container-instances/container-instances-overview), [Azure Kubernetes Service](/azure/aks/intro-kubernetes), and [Azure Service Fabric](/azure/service-fabric/service-fabric-overview). 
+- **Will your applications use a microservices architecture?** Applications that use a microservices-based architecture can take advantage of several optimized compute technologies. Self-contained, event-driven workloads can use [Azure Functions](/azure/azure-functions/functions-overview) to build scalable, serverless applications that don't need an infrastructure. For applications that require more control over the environment where microservices run, you can use container services like [Azure Container Instances](/azure/container-instances/container-instances-overview), [Azure Kubernetes Service](/azure/aks/intro-kubernetes), and [Azure Service Fabric](/azure/service-fabric/service-fabric-overview).
 
 > [!NOTE]
-> Most Azure compute services are used in combination with Azure Storage. Consult the [storage decisions guidance](./storage-guidance.md) for related storage decisions.  
+> Most Azure compute services are used in combination with Azure Storage. Consult the [storage decisions guidance](./storage-guidance.md) for related storage decisions.
 
 ## Common compute scenarios
 
@@ -72,7 +72,7 @@ Part of your compliance efforts might include controlling where your compute res
 
 ## Establish controls for compute services
 
-When you prepare your landing zone environment, you can establish controls that limit what resources each user can deploy. The controls can help you manage costs and limit security risks, while still allowing developers and IT teams to deploy and configure resources that are needed to support your workloads.  
+When you prepare your landing zone environment, you can establish controls that limit what resources each user can deploy. The controls can help you manage costs and limit security risks, while still allowing developers and IT teams to deploy and configure resources that are needed to support your workloads.
 
 After you identify and document your landing zone's requirements, you can use [Azure Policy](/azure/governance/policy/overview) to control the compute resources that you allow users to create. Controls can take the form of [allowing or denying the creation of compute resource types](/azure/governance/policy/samples/allowed-resource-types). For example, you might restrict users to creating only Azure App Service or Azure Functions resources. You also can use policy to control the allowable options when a resource is created, like [restricting what virtual machine SKUs can be provisioned](https://docs.microsoft.com/azure/governance/policy/samples/allowed-skus-storage) or [allowing only specific VM images](https://docs.microsoft.com/azure/governance/policy/samples/allowed-custom-images).
 

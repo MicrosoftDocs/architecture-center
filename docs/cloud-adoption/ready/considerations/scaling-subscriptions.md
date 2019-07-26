@@ -6,8 +6,8 @@ author: alexbuckgit
 ms.author: abuck
 ms.date: 05/20/2019
 ms.topic: guide
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
+ms.service: cloud-adoption-framework
+ms.subservice: ready
 ---
 
 # Scaling with multiple Azure subscriptions

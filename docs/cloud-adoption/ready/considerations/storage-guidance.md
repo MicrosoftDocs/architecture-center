@@ -6,8 +6,8 @@ author: BrianBlanchard
 ms.author: brblanch
 ms.date: 05/15/2019
 ms.topic: guide
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
+ms.service: cloud-adoption-framework
+ms.subservice: ready
 ---
 
 # Storage design decisions
@@ -26,7 +26,7 @@ For each application or service you'll deploy to your landing zone environment, 
 
 Answer the following questions about your workloads to help you make decisions based on the Azure storage decision tree:
 
-- **Do your workloads require disk storage to support the deployment of infrastructure as a service (IaaS) virtual machines?** [Azure Disk Storage](/azure/virtual-machines/windows/managed-disks-overview) provides virtual disk capabilities for IaaS virtual machines. 
+- **Do your workloads require disk storage to support the deployment of infrastructure as a service (IaaS) virtual machines?** [Azure Disk Storage](/azure/virtual-machines/windows/managed-disks-overview) provides virtual disk capabilities for IaaS virtual machines.
 - **Will you need to provide downloadable images, documents, or other media as part of your workloads?** [Azure Blob storage](/azure/storage/blobs/storage-blobs-introduction) provides the ability to [host static files](/azure/storage/blobs/storage-blob-static-website), which are then accessible for download over the internet. You can make assets that are hosted in Blob storage public, or you can [limit assets to authorized users](/azure/storage/common/storage-auth) via Azure Active Directory (Azure AD), shared keys, or shared access signatures.
 - **Will you need a location to store virtual machine logs, application logs, and analytics data?** You can use Azure Blob storage to [store Azure Monitor log data](/azure/storage/common/storage-analytics).
 - **Will you need to provide a location for backup, disaster recovery, or archiving workload-related data?** Azure Disk Storage uses Azure Blob storage to provide [backup and disaster recovery capabilities](/azure/virtual-machines/windows/backup-and-disaster-recovery-for-azure-iaas-disks). You can also use Blob storage as a location to back up other resources, like on-premises or IaaS VM-hosted [SQL Server data](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-and-restore-with-microsoft-azure-blob-storage-service?view=sql-server-2017).

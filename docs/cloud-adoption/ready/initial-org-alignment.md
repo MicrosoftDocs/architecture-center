@@ -1,12 +1,14 @@
 ---
 title: "Initial organization alignment"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
-ms.custom: governance
 description: Provides an overview of the initial organization alignment.
 author: petertaylor9999
+ms.author: abuck
 ms.date: 04/04/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: ready
+ms.custom: governance
 ---
 
 # Initial organization alignment

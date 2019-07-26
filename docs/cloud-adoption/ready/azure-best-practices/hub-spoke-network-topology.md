@@ -6,8 +6,8 @@ author: tracsman
 ms.author: jonor
 ms.date: 05/10/2019
 ms.topic: guide
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
+ms.service: cloud-adoption-framework
+ms.subservice: ready
 manager: rossort
 tags: azure-resource-manager
 ms.custom: virtual-network
@@ -21,7 +21,7 @@ ms.custom: virtual-network
 - **Overcoming subscriptions limits**. Large cloud-based workloads might require the use of more resources than are allowed in a single Azure subscription. (See [subscription limits][Limits].) Peering workload virtual networks from different subscriptions to a central hub can overcome these limits.
 - **Separation of concerns**. You can deploy individual workloads between central IT teams and workload teams.
 
-Smaller cloud estates might not benefit from the added structure and capabilities that this model offers. But larger cloud adoption efforts should consider implementing a hub-and-spoke networking architecture if they have any of the concerns listed previously.  
+Smaller cloud estates might not benefit from the added structure and capabilities that this model offers. But larger cloud adoption efforts should consider implementing a hub-and-spoke networking architecture if they have any of the concerns listed previously.
 
 > [!NOTE]
 > The Azure Reference Architectures site contains example templates that you can use as the basis for implementing your own hub-and-spoke networks:
@@ -48,7 +48,7 @@ The hub often contains the common service components that the spokes consume. Th
 
 You can minimize redundancy, simplify management, and reduce overall cost by using the shared hub infrastructure to support multiple spokes.
 
-The role of each spoke can be to host different types of workloads. The spokes also provide a modular approach for repeatable deployments of the same workloads. Examples are dev and test, user acceptance testing, preproduction, and production. 
+The role of each spoke can be to host different types of workloads. The spokes also provide a modular approach for repeatable deployments of the same workloads. Examples are dev and test, user acceptance testing, preproduction, and production.
 
 The spokes can also segregate and enable different groups within your organization. An example is Azure DevOps groups. Inside a spoke, it's possible to deploy a basic workload or complex multitier workloads with traffic control between the tiers.
 
@@ -56,7 +56,7 @@ The spokes can also segregate and enable different groups within your organizati
 
 In Azure, every component, whatever the type, is deployed in an Azure subscription. The isolation of Azure components in different Azure subscriptions can satisfy the requirements of different lines of business, such as setting up differentiated levels of access and authorization.
 
-A single hub-and-spoke implementation can scale up to a large number of spokes. But as with every IT system, there are platform limits. The hub deployment is bound to a specific Azure subscription, which has restrictions and limits. (An example is a maximum number of virtual network peerings. See [Azure subscription and service limits, quotas, and constraints][Limits] for details). 
+A single hub-and-spoke implementation can scale up to a large number of spokes. But as with every IT system, there are platform limits. The hub deployment is bound to a specific Azure subscription, which has restrictions and limits. (An example is a maximum number of virtual network peerings. See [Azure subscription and service limits, quotas, and constraints][Limits] for details).
 
 In cases where limits might be an issue, you can scale up the architecture further by extending the model from a single hub and spoke to a cluster of hubs and spokes. You can interconnect multiple hubs in one or more Azure regions by using virtual network peering, Azure ExpressRoute, a virtual WAN, or a site-to-site VPN.
 
@@ -68,7 +68,7 @@ The introduction of multiple hubs increases the cost and management overhead of 
 
 It's possible to implement complex multitier workloads in a single spoke. You can implement multitier configurations by using subnets (one for every tier) in the same virtual network and by using network security groups to filter the flows.
 
-An architect might want to deploy a multitier workload across multiple virtual networks. With virtual network peering, spokes can connect to other spokes in the same hub or in different hubs. 
+An architect might want to deploy a multitier workload across multiple virtual networks. With virtual network peering, spokes can connect to other spokes in the same hub or in different hubs.
 
 A typical example of this scenario is the case where application processing servers are in one spoke or virtual network. The database deploys in a different spoke or virtual network. In this case, it's easy to interconnect the spokes with virtual network peering and avoid transiting through the hub. The solution is to perform a careful architecture and security review to ensure that bypassing the hub doesn’t bypass important security or auditing points that might exist only in the hub.
 

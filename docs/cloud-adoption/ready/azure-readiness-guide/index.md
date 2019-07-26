@@ -1,11 +1,13 @@
 ---
 title: "Azure readiness guide: Before you start" 
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how to set up Azure effectively for your organization with step-by-step guidance.
 author: timleyden
 ms.author: kfollis
 ms.date: 04/09/2019
 ms.topic: conceptual
-ms.service: azure-portal
+ms.service: cloud-adoption-framework
+ms.subservice: ready
 ms.custom: "fasttrack-edit"
 ---
 

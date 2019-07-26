@@ -6,8 +6,8 @@ author: BrianBlanchard
 ms.author: brblanch
 ms.date: 07/01/2019
 ms.topic: landing-page
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
+ms.service: cloud-adoption-framework
+ms.subservice: organize
 ms.custom: organize
 layout: LandingPage
 ---
@@ -19,6 +19,8 @@ Cloud adoption can't happen without well-organized people. Successful cloud adop
 ## Organization alignment exercises
 
 The following exercises will help guide the process of creating a landing zone to support cloud adoption.
+
+<!-- markdownlint-disable MD033 -->
 
 <ul class="panelContent cardsF">
     <li style="display: flex; flex-direction: column;">
@@ -98,6 +100,8 @@ The following exercises will help guide the process of creating a landing zone t
         </a>
     </li>
 </ul>
+
+<!-- markdownlint-enable MD033 -->
 
 ## Structure type
 
