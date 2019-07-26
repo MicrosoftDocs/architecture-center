@@ -1,8 +1,13 @@
 ---
 title: "Align design guides with policy"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: How do you align design guides with policy?
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 01/04/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: govern
 ---
 <!---
 I've established policies. How to help developers adopt these policies?
