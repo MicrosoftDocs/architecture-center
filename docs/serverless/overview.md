@@ -11,7 +11,7 @@ ms.subservice: reference-architecture
 
 # Serverless with Azure
 
-Serverless models abstract the underlying compute infrastructure. This allows developers to focus on business logic without needing extensive startup or maintenance cost to set up the solution. This event-driven model is to situations where some event triggers a defined action. For example, collecting incoming device messages and storing them for later use. 
+Serverless models abstract the underlying compute infrastructure. This allows developers to focus on business logic without needing extensive startup or maintenance cost to set up the solution. Serverless also reduces your overall costs since the  This event-driven model is suitable for situations where some event triggers a defined action. For example, collecting incoming device messages and storing them for later use. 
 
 Microsoft Azure provides multiple ways of implementing serverless code:
 
@@ -20,7 +20,13 @@ Microsoft Azure provides multiple ways of implementing serverless code:
 - [Azure App Service](/azure/app-service/)
 
 
-To explore serverless technologies in Azure, start with a serverless reference solution developed and tested by Microsoft. The code for this solution is available to download from [GitHub](https://github.com/mspnp/serverless-reference-implementation). The article [Show me the code: Serverless application with Azure Functions](index.md) walks you through this code, and explains the reasons behind the various choices. This two-part solution describes a hypothetical drone delivery system. Drones send in-flight status to the cloud, which stores these messages for later use. A web application allows users to retrieve these messages to get the latest status of these devices. 
+## Explore the recommendations
+
+To explore serverless technologies in Azure, start with a serverless reference solution developed and tested by Microsoft. This two-part solution describes a hypothetical drone delivery system. Drones send in-flight status to the cloud, which stores these messages for later use. A web application allows users to retrieve these messages to get the latest status of these devices. 
+
+- The code for this solution is available to download from [GitHub](https://github.com/mspnp/serverless-reference-implementation). 
+- The article [Show me the code: Serverless application with Azure Functions](index.md) walks you through this code, and explains why various choices were made.  
+
 
 Once you get a feel for how this reference solution works, proceed to learning the best practices and recommendations for developing similar serverless solutions:
 
@@ -28,6 +34,10 @@ Once you get a feel for how this reference solution works, proceed to learning t
 - For developing a serverless *web application*, refer to the reference-based guidance at [Serverless web application on Azure](/azure/architecture/reference-architectures/serverless/web-app/).
  
  
+## Next steps
+
+For in-depth discussion on developing serverless solutions on premises as well as in cloud, read [Serverless apps: Architecture, patterns, and Azure implementation](https://docs.microsoft.com/dotnet/standard/serverless-architecture/).
+
 
 
 
