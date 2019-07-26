@@ -1,16 +1,17 @@
 ---
-title: "Governance in the Cloud Adoption Framework for Azure"
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
-ms.custom: governance
-ms.date: 02/11/2019
-description: Governance in the Cloud Adoption Framework for Azure
+title: "Governance in the Microsoft Cloud Adoption Framework for Azure"
+description: Learn about governance in the Microsoft Cloud Adoption Framework for Azure.
 author: BrianBlanchard
-layout: LandingPage
+ms.author: brblanch
+ms.date: 02/11/2019
 ms.topic: landing-page
+ms.service: cloud-adoption-framework
+ms.subservice: govern
+ms.custom: governance
+layout: LandingPage
 ---
 
-# Governance in the Cloud Adoption Framework for Azure
+# Governance in the Microsoft Cloud Adoption Framework for Azure
 
 The cloud creates new paradigms regarding the technologies that support the business. These new paradigms also cause shifts in how those technologies are adopted, managed, and governed. When entire datacenters can be destroyed and re-created with one line of code executed from an unattended process, we have to rethink traditional approaches. This is equally true when it comes to governance.
 

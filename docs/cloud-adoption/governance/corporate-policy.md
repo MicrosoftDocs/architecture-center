@@ -1,14 +1,15 @@
 ---
 title: "Implement a cloud governance strategy"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
-ms.custom: governance
 description: Learn about using the Microsoft Cloud Adoption Framework for Azure to implement a cloud governance strategy.
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 01/03/2019
-layout: LandingPage
 ms.topic: landing-page
+ms.service: cloud-adoption-framework
+ms.subservice: govern
+ms.custom: governance
+layout: LandingPage
 ---
 
 # Implement a cloud governance strategy
