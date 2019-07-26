@@ -6,8 +6,8 @@ author: BrianBlanchard
 ms.author: brblanch
 ms.date: 05/15/2019
 ms.topic: guide
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
+ms.service: cloud-adoption-framework
+ms.subservice: ready
 ---
 
 # Networking design decisions
@@ -42,6 +42,8 @@ Answer the following questions about your workloads to help you make decisions b
 
 Azure networking is composed of multiple products and services that provide different networking capabilities. As part of your networking design process, you can compare your workload requirements to the networking scenarios in the following table to identify the Azure tools or services you can use to provide these networking capabilities:
 
+<!-- markdownlint-disable MD033 -->
+
 | **Scenario** | **Networking product or service** |
 | --- | --- |
 | I need the networking infrastructure to connect everything, from virtual machines to incoming VPN connections. | [Azure Virtual Network](/azure/virtual-network) |
@@ -58,9 +60,11 @@ Azure networking is composed of multiple products and services that provide diff
 | I need to connect business offices, retail locations, and sites securely. | [Azure Virtual WAN](/azure/virtual-wan) |
 | I need a scalable, security-enhanced delivery point for global microservices-based web applications. | [Azure Front Door Service](/azure/frontdoor) |
 
+<!-- markdownlint-enable MD033 -->
+
 ## Choose a networking architecture
 
-After you identify the Azure networking services that you need to support your workloads, you also need to design the architecture that will combine these services to provide your landing zone's cloud networking infrastructure. The Cloud Adoption Framework [Software Defined Networking decision guide](../../decision-guides/software-defined-network/index.md) provides details about some of the most common networking architecture patterns used on Azure. 
+After you identify the Azure networking services that you need to support your workloads, you also need to design the architecture that will combine these services to provide your landing zone's cloud networking infrastructure. The Cloud Adoption Framework [Software Defined Networking decision guide](../../decision-guides/software-defined-network/index.md) provides details about some of the most common networking architecture patterns used on Azure.
 
 The following table summarizes the primary scenarios that these patterns support:
 

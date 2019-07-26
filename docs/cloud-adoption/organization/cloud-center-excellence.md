@@ -6,8 +6,8 @@ author: BrianBlanchard
 ms.author: brblanch
 ms.date: 07/04/2019
 ms.topic: article
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
+ms.service: cloud-adoption-framework
+ms.subservice: organize
 ms.custom: organize
 ---
 
@@ -29,7 +29,7 @@ CCoE requires collaboration between each of the following capabilities:
 
 When this function is properly structured and supported, the participants can accelerate innovation and migration efforts while reducing the overall cost of change and increasing business agility. When successfully implemented, this function can produce noticeable reductions in time-to-market. As team practices mature, increases in quality indicators can be seen, including reliability, performance efficiency, security, maintainability, and customer satisfaction. These gains in efficiency, agility, and quality are especially vital if the company plans on implementing large-scale cloud migration efforts or has a desire to use the cloud to drive innovations associated with market differentiation.
 
-When successful, a CCoE model will create a significant cultural shift in IT. The fundamental premise of a CCoE approach is that IT serves as a broker, partner, or representative to the business. This model is a paradigm shift away from the traditional view of IT as an operations unit or abstraction layer between the business and IT assets. 
+When successful, a CCoE model will create a significant cultural shift in IT. The fundamental premise of a CCoE approach is that IT serves as a broker, partner, or representative to the business. This model is a paradigm shift away from the traditional view of IT as an operations unit or abstraction layer between the business and IT assets.
 
 The following image provides an analogy for this cultural change. Without a CCoE approach, IT tends to focus on providing control and central responsibility, acting like the stoplights at an intersection. When the CCoE is successful, the focus is on freedom and delegated responsibility, which is more like a roundabout at an intersection.
 
@@ -59,10 +59,10 @@ Each member of the CCoE is tasked with understanding the necessary constraints, 
 
 Examples of this transition:
 
-|Scenario  |Pre-CCoE solution |Post-CCoE solution |
+| Scenario | Pre-CCoE solution | Post-CCoE solution |
 |---------|---------|---------|
 | Provision a production SQL Server | Network, IT, and data platform teams provision various components over the course of days or even weeks. | The team requiring the server deploys a PaaS instance of Azure SQL Database. Alternatively, a preapproved template could be used to deploy all of the IaaS assets to the cloud in hours. |
-|Provision a development environment | Network, IT, Development, and DevOps teams agree to specs and deploy an environment. | The development team defines their own specs and deploys an environment based on allocated budget. |
+| Provision a development environment | Network, IT, Development, and DevOps teams agree to specs and deploy an environment. | The development team defines their own specs and deploys an environment based on allocated budget. |
 | Update security requirements to improve data protection | Networking, IT, and security teams update various networking devices and VMs across multiple environments to add protections. | Cloud governance tools are used to update policies that can be applied immediately to all assets in all cloud environments. |
 
 ## Negotiations
@@ -89,7 +89,7 @@ In healthy cloud-forward companies, this negotiation process is a dynamic conver
 
 ## Enabling CCoE success
 
-Before proceeding with this model, it is important to validate the company's tolerance for a growth mindset and IT's comfort with releasing central responsibilities. As mentioned above, the purpose of a CCoE is to exchange control for agility and speed. 
+Before proceeding with this model, it is important to validate the company's tolerance for a growth mindset and IT's comfort with releasing central responsibilities. As mentioned above, the purpose of a CCoE is to exchange control for agility and speed.
 
 This type of change takes time, experimentation, and negotiation. There will be bumps and set backs during this maturation process. However, if the team stays diligent and isn't discouraged from experimentation, there is a high probability of success in improving agility, speed, and reliability. One of the biggest factors in success or failure of a CCoE is support from leadership and key stakeholders.
 
@@ -112,7 +112,7 @@ CCoE efforts can be accelerated with support from the business stakeholders. Muc
 These data points are not an attack on IT. Instead, they help CCoE learn from the past and establish a realistic backlog and plan for improvement.
 
 **Ongoing support and engagement:**
-CCoE teams can demonstrate quick returns in some areas. However, the higher-level goals, like business agility and time-to-market, can take much longer. During maturation, there is a high risk of the CCoE becoming discouraged or being pulled off to focus on other IT efforts. 
+CCoE teams can demonstrate quick returns in some areas. However, the higher-level goals, like business agility and time-to-market, can take much longer. During maturation, there is a high risk of the CCoE becoming discouraged or being pulled off to focus on other IT efforts.
 
 During the first six to nine months of CCoE efforts, we recommend that business stakeholders allocate time to meet monthly with the IT leadership and the CCoE. There is little need for formal ceremony to these meetings. Simply reminding the CCoE members and their leadership of the importance of this program can go along way to driving CCoE success.
 

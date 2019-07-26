@@ -3,9 +3,12 @@ title: "Prepare for cloud adoption"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Prepare the environment for the cloud adoption to follow
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 07/01/2019
-layout: LandingPage
 ms.topic: landing-page
+ms.service: cloud-adoption-framework
+ms.subservice: ready
+layout: LandingPage
 ---
 
 <!-- markdownlint-disable MD026 -->
@@ -17,6 +20,8 @@ Before adoption can begin, you must create a landing zone to host the workloads 
 ## Landing zone exercises
 
 The following exercises help guide you through the process of creating a landing zone to support cloud adoption.
+
+<!-- markdownlint-disable MD033 -->
 
 <ul class="panelContent cardsF">
     <li style="display: flex; flex-direction: column;">
@@ -88,7 +93,7 @@ The following exercises help guide you through the process of creating a landing
                         </div>
                         <div class="cardText" style="padding-left:0px;">
                             <h3>Best practices</h3>
-                            Validate landing zone modifications against the best practices sections to ensure the proper configuration of your current and future landing zones. 
+                            Validate landing zone modifications against the best practices sections to ensure the proper configuration of your current and future landing zones.
                         </div>
                     </div>
                 </div>
@@ -96,6 +101,8 @@ The following exercises help guide you through the process of creating a landing
         </a>
     </li>
 </ul>
+
+<!-- markdownlint-enable MD033 -->
 
 ## Next steps
 
