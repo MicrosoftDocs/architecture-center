@@ -239,7 +239,17 @@ The following sections apply these steps to the sample application described ear
 
 The following graph shows the results of running a load test against the sample application, using a step load of up to 50 concurrent users. The volume of requests quickly reaches a limit and stays at that level, while the average response time steadily increases. A logarithmic scale is used for those two metrics.
 
-![Load-test results for performing processing in the database][ProcessingInDatabaseLoadTest]
+<!-- test to use raw HTML for image with long description -->
+
+<img src="_images/ProcessingInDatabaseLoadTest.jpg"
+     alt="graph showing database activity"
+     aria-describedby="description-1">
+
+<p id="description-1" class="visually-hidden">
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur ultricies aliquam mi, at porta dui egestas convallis. Quisque augue diam, malesuada eu vulputate sit amet, tristique vel lorem. Aliquam facilisis ligula at velit ornare eleifend et nec ex. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Vestibulum fermentum libero nisl, non ultrices felis laoreet quis. Pellentesque eros metus, gravida in feugiat vitae, auctor quis est. Cras imperdiet condimentum hendrerit. Pellentesque egestas ipsum sed est faucibus bibendum. Cras nec tempor tortor, ut mollis ex. Cras mattis accumsan ipsum vitae pulvinar. Cras auctor est sed felis tincidunt.
+</p>
+
+<!-- end test -->
 
 The next graph shows CPU utilization and DTUs as a percentage of service quota. DTUs provide a measure of how much processing the database performs. The graph shows that CPU and DTU utilization both quickly reached 100%.
 
