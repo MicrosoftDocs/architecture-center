@@ -3,10 +3,11 @@ title: "Rehost a Linux service desk app to Azure and Azure Database for MySQL"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how Contoso rehosts an on-premises Linux app by migrating it to Azure VMs and Azure Database for MySQL.
 author: BrianBlanchard
-ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 04/04/2019
 ms.author: brblanch
+ms.date: 04/04/2019
+ms.topic: conceptual
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
 ---
 
 # Rehost an on-premises Linux app to Azure VMs and Azure Database for MySQL
@@ -266,7 +267,7 @@ Now Contoso admins input target replication settings.
 
 With the source and target set up, Contoso admins are ready to create a replication policy.
 
-1. In  **Prepare infrastructure** > **Replication Settings** > **Replication Policy** >  **Create and Associate**, they create a policy **ContosoMigrationPolicy**.
+1. In **Prepare infrastructure** > **Replication Settings** > **Replication Policy** >  **Create and Associate**, they create a policy **ContosoMigrationPolicy**.
 
 2. They use the default settings:
     - **RPO threshold:** Default of 60 minutes. This value defines how often recovery points are created. An alert is generated if continuous replication exceeds this limit.

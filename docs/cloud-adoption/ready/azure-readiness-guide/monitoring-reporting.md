@@ -1,11 +1,13 @@
 ---
 title: Monitoring and reporting in Azure
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how to set up monitoring, reporting, and alerts for your Azure management environment.
 author: timleyden
 ms.author: tileyden
 ms.date: 04/09/2019
 ms.topic: conceptual
-ms.service: azure-portal
+ms.service: cloud-adoption-framework
+ms.subservice: ready
 ms.custom: "fasttrack-edit"
 ---
 
@@ -52,7 +54,7 @@ To learn more, see [Azure Monitor documentation](/azure/monitoring-and-diagnosti
 
 # [Azure Service Health](#tab/AzureServiceHealth)
 
-Azure Service Health provides a personalized view of the health of the Azure services and regions you use. Information about active issues is posted to Service Health to help you understand the impact to your resources. Regular updates keep you informed as the issue is resolved. 
+Azure Service Health provides a personalized view of the health of the Azure services and regions you use. Information about active issues is posted to Service Health to help you understand the impact to your resources. Regular updates keep you informed as the issue is resolved.
 
 We also publish planned maintenance events to Service Health so you'll know about changes that could affect the availability of your resources. Set up Service Health alerts to be notified when service issues, planned maintenance, or other changes might affect the Azure services and regions you use.
 

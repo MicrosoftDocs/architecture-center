@@ -3,7 +3,11 @@ title: "Understand partnership and support options"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Describes options and approaches to support migration efforts
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 04/04/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
 ---
 
 # Understand partnership options

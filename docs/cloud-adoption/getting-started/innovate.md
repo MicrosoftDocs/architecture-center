@@ -3,7 +3,11 @@ title: "Innovation through cloud adoption"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Innovation through cloud adoption
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 04/04/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: overview
 ---
 
 # Innovation through cloud adoption in the Cloud Adoption Framework
@@ -11,7 +15,7 @@ ms.date: 04/04/2019
 Innovation is closely linked to migration. When workloads create market differentiation opportunities, it is common for those workloads to be migrated to the cloud, then undergo modernization efforts. Once in the cloud modernization can be accelerated by modern cloud-based approaches, which also enable the development of new innovations.
 
 > [!NOTE]
-> This guidance is being developed for the Q3 2019 release of the Cloud Adoption Framework. The taxonomy and approach below is likely to change. The following is intended to show the general direction of innovation guidance.
+> This guidance is being developed for the Q3 2019 release of the Cloud Adoption Framework. The taxonomy and approach below is likely to change. The following information shows the general direction of innovation guidance.
 
 ## Motivations behind innovation
 

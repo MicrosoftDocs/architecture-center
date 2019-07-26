@@ -3,10 +3,11 @@ title: "Best practices for securing and managing workloads migrated to Azure"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: After migrating to Azure, get best practices for operating, managing, and securing your migrated workloads.
 author: BrianBlanchard
-ms.service: azure-migrate
-ms.topic: conceptual
-ms.date: 12/08/2018
 ms.author: brblanch
+ms.date: 12/08/2018
+ms.topic: conceptual
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
 ---
 
 # Best practices for securing and managing workloads migrated to Azure

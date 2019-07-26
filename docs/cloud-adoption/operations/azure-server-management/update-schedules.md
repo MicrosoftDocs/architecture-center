@@ -6,8 +6,8 @@ author: BrianBlanchard
 ms.author: brblanch
 ms.date: 05/10/2019
 ms.topic: article
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
+ms.service: cloud-adoption-framework
+ms.subservice: operate
 ---
 
 # Create update schedules
@@ -68,7 +68,7 @@ Import-Module Az.Automation
 
 $startTime = ([DateTime]::Now).AddMinutes(10)
 $schedule = New-AzAutomationSchedule -ResourceGroupName $ResourceGroupName `
-                                     -AutomationAccountName $AutomationAccountName  `
+                                     -AutomationAccountName $AutomationAccountName `
                                      -StartTime $startTime `
                                      -Name $scheduleName `
                                      -Description "Saturday patches" `
@@ -92,7 +92,7 @@ $DGQuery = New-AzAutomationUpdateManagementAzureQuery -ResourceGroupName $Resour
 
 $AzureQueries = @($DGQuery)
 
-$UpdateConfig = New-AzAutomationSoftwareUpdateConfiguration  -ResourceGroupName $ResourceGroupName `
+$UpdateConfig = New-AzAutomationSoftwareUpdateConfiguration -ResourceGroupName $ResourceGroupName `
                                                              -AutomationAccountName $AutomationAccountName `
                                                              -Schedule $schedule `
                                                              -Windows `

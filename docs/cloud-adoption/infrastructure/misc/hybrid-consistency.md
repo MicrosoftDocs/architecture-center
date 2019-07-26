@@ -1,8 +1,13 @@
 ---
 title: "Create hybrid cloud consistency"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Defining the approach to create hybrid cloud consistency.
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 12/27/2018
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
 ---
 # Create hybrid cloud consistency
 

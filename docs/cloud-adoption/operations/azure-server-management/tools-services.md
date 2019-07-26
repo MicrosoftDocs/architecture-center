@@ -6,8 +6,8 @@ author: BrianBlanchard
 ms.author: brblanch
 ms.date: 05/10/2019
 ms.topic: article
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
+ms.service: cloud-adoption-framework
+ms.subservice: operate
 ---
 
 # Azure server management tools and services
@@ -41,7 +41,7 @@ The most basic data protection is backup. To speed up the recovery process in ca
 
 Recovery via backup can take a long time. The industry standard is usually one day. If a workload requires business continuity for hardware failures or datacenter outage, consider using data replication. [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) provides continuous replication of your VMs, a solution that provides bare-minimum data loss. Site Recovery also supports several replication scenarios, like replication of Azure VMs between two Azure regions, between servers on-premises, and between on-premises and Azure. For more information, see the [complete Azure Site Recovery replication matrix](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview#what-can-i-replicate).
 
-For your file server data, another service to consider is [Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning). This service lets you centralize your organization's file shares in Azure Files while preserving the flexibility, performance, and compatibility of an on-premises file server. To use this service, follow the instructions for deploying Azure File Sync.
+For your file server data, another service to consider is [Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning). This service allows you to centralize your organization's file shares in Azure Files while preserving the flexibility, performance, and compatibility of an on-premises file server. To use this service, follow the instructions for deploying Azure File Sync.
 
 ## Monitor
 
@@ -91,4 +91,4 @@ To learn about pricing for Azure management services, go to these pages:
 - [Azure File Sync service](https://azure.microsoft.com/pricing/details/storage/blobs)
 
 > [!NOTE]
-> The Azure Update Management solution is free, but there's a small cost related to data ingestion. As a rule of thumb, the first 5 GB per month of data ingestion is free. We generally observe that each machine uses about 25 MB per month. So about 200 machines per month are covered for free. Additional servers will cost about 10 cents each.
+> The Azure Update Management solution is free, but there's a small cost related to data ingestion. As a rule of thumb, the first 5 GB per month of data ingestion is free. We generally observe that each machine uses about 25 MB per month. So about 200 machines per month are covered for free. For each additional server, multiply the number of additional servers by 25 MB per month. Multiply that by the cost of storage for the total amount of storage needed. [Storage costs are available here](https://azure.microsoft.com/pricing/details/storage/). Each additional server should have a nominal impact on cost.

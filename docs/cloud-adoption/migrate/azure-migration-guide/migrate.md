@@ -6,7 +6,8 @@ author: matticusau
 ms.author: mlavery
 ms.date: 04/04/2019
 ms.topic: conceptual
-ms.service: azure-portal
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
 ms.custom: fasttrack-new
 ---
 
@@ -20,7 +21,7 @@ The following sections describe the native Azure tools available to perform or a
 
 ## Azure Migrate V2 (preview)
 
-Azure Migrate is being enhanced to deliver a unified and extensible migration experience.  Azure Migrate provides a one-stop, dedicated experience to track your migration journey across the phases of assessment and migration to Azure. It provides you the option to use the tools of your choice and track the progress of migration across these tools.
+Azure Migrate is being enhanced to deliver a unified and extensible migration experience. Azure Migrate provides a one-stop, dedicated experience to track your migration journey across the phases of assessment and migration to Azure. It provides you the option to use the tools of your choice and track the progress of migration across these tools.
 
 Azure Migrate provides the following functionality:
 

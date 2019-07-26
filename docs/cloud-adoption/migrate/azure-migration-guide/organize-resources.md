@@ -6,7 +6,8 @@ author: laraaleite
 ms.author: kfollis
 ms.date: 04/09/2019
 ms.topic: conceptual
-ms.service: azure-portal
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
 ms.custom: "fasttrack-edit"
 ---
 # Organize your Azure resources
