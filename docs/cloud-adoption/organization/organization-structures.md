@@ -6,8 +6,8 @@ author: BrianBlanchard
 ms.author: brblanch
 ms.date: 07/04/2019
 ms.topic: article
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
+ms.service: cloud-adoption-framework
+ms.subservice: organize
 ms.custom: organize
 ---
 
@@ -59,6 +59,7 @@ The next sections describe a fully staffed, best-practice organizational structu
 One of the first signs of maturity in adoption efforts is a desire to move beyond governance to a *cloud center of excellence* (CCoE) structure. Such a structure is similar to the [MVP best practice](#best-practice-minimum-viable-product) organizational structure. But there's one fundamental difference between a cloud center of excellence model and the MVP best practice. The capabilities of the governance team are realigned to accelerate adoption and innovation.
 
 ![Cloud adoption with a cloud center of excellence](../_images/ready/org-ready-fully-staffed.png)
+
 ## Strategic alignment
 
 When the motivations that drive cloud adoption are aligned to business outcomes, it's important to add a defined cloud strategy team, as the following image illustrates. This model works well as an addition to the [MVP best practice](#best-practice-minimum-viable-product) or [cloud center of excellence](#cloud-center-of-excellence) model.

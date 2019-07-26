@@ -1,14 +1,15 @@
 ---
 title: "Resource Consistency discipline overview"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
-ms.custom: governance
-ms.date: 02/11/2019
 description: Resource Consistency discipline overview
 author: BrianBlanchard
-layout: LandingPage
+ms.author: brblanch
+ms.date: 02/11/2019
 ms.topic: landing-page
+ms.service: cloud-adoption-framework
+ms.subservice: govern
+ms.custom: governance
+layout: LandingPage
 ---
 
 # Resource Consistency discipline overview

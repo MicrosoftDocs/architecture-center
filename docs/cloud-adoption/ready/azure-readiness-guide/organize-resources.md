@@ -1,11 +1,13 @@
 ---
 title: Organize your Azure resources effectively
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Best practices to effectively organize your Azure resources for ease of management.
 author: laraaleite
 ms.author: kfollis
 ms.date: 04/09/2019
 ms.topic: conceptual
-ms.service: azure-portal
+ms.service: cloud-adoption-framework
+ms.subservice: ready
 ms.custom: "fasttrack-edit"
 ---
 
@@ -116,9 +118,9 @@ Create a resource group to hold resources like web apps, databases, and storage 
 
 # [Naming standards](#tab/NamingStandards)
 
-A good naming standard helps to identify resources in the Azure portal, on a bill, and in scripts. Your naming strategy should include business and operational details as components of resource names: 
+A good naming standard helps to identify resources in the Azure portal, on a bill, and in scripts. Your naming strategy should include business and operational details as components of resource names:
 
-- The business-related side of this strategy should ensure that resource names include the organizational information that's needed to identify the teams. Use a resource along with the business owners who are responsible for resource costs. 
+- The business-related side of this strategy should ensure that resource names include the organizational information that's needed to identify the teams. Use a resource along with the business owners who are responsible for resource costs.
 
 - The operational side should ensure that names include information that IT teams need. Use the details that identify the workload, application, environment, criticality, and other information that's useful for managing resources.
 

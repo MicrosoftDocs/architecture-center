@@ -6,8 +6,8 @@ author: BrianBlanchard
 ms.author: brblanch
 ms.date: 07/01/2019
 ms.topic: guide
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
+ms.service: cloud-adoption-framework
+ms.subservice: plan
 ---
 
 # Plan for cloud adoption
@@ -16,15 +16,15 @@ A plan is an essential requirement for a successful cloud adoption. A cloud adop
 
 ## Align strategy and planning
 
-Cloud adoption plans start with a well-defined strategy. At minimum, the strategy should outline the motivations, business outcomes, and business justifications for cloud adoption. Those positive returns are then balanced by the effort required to realize them. 
+Cloud adoption plans start with a well-defined strategy. At minimum, the strategy should outline the motivations, business outcomes, and business justifications for cloud adoption. Those positive returns are then balanced by the effort required to realize them.
 
 The effort starts with the digital estate (proposed or existing), which translates the strategy into more tangible workloads and assets. You can then map these tangible elements to technical work. From there, skilled people in a proper organizational structure can execute the technical work. The cloud adoption plan combines all of these topics into one plan that can be forecasted, budgeted, implemented, and managed by means of agile project-management practices. This article series helps you build the plan and provides a few templates to make the job easier.
 
 ## Transition from sequential to iterative planning
 
-Planning for cloud adoption can be a significant change for some organizations. IT organizations have long focused on the application of linear or sequential models of project management, like the [waterfall model](https://en.wikipedia.org/wiki/Waterfall_model). In traditional IT, this approach was entirely logical. Most large IT projects started with a procurement request to acquire expensive hardware resources. Capital expense requests, budget allocations, and equipment acquisition often represented a large percentage of project execution. And, after it was acquired, the hardware itself became a constraint on what could be delivered.
+Planning for cloud adoption can be a significant change for some organizations. IT organizations have long focused on the application of linear or sequential models of project management, like the [waterfall model](https://wikipedia.org/wiki/Waterfall_model). In traditional IT, this approach was entirely logical. Most large IT projects started with a procurement request to acquire expensive hardware resources. Capital expense requests, budget allocations, and equipment acquisition often represented a large percentage of project execution. And, after it was acquired, the hardware itself became a constraint on what could be delivered.
 
-The acquisition models of the cloud change the core dependencies that made a sequential model necessary. The replacement of acquisition cycles with an operating-expense approach lets businesses move more quickly and with smaller financial commitments. This approach helps teams to engage in projects before all requirements are well known. It also creates room for a growth mindset, which frees the team to experiment, learn, and deliver without artificial constraints. For all these reasons and more, we highly recommend that teams use agile or iterative approaches to cloud adoption planning.
+The acquisition models of the cloud change the core dependencies that made a sequential model necessary. The replacement of acquisition cycles with an operating-expense approach helps businesses move more quickly and with smaller financial commitments. This approach helps teams to engage in projects before all requirements are well known. It also creates room for a growth mindset, which frees the team to experiment, learn, and deliver without artificial constraints. For all these reasons and more, we highly recommend that teams use agile or iterative approaches to cloud adoption planning.
 
 ## Build your cloud adoption plan
 

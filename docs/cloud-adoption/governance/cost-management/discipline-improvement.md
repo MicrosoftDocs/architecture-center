@@ -1,12 +1,14 @@
 ---
 title: "Cost Management discipline improvement"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
-ms.custom: governance
-ms.date: 02/11/2019
 description: Cost Management discipline improvement
 author: BrianBlanchard
+ms.author: brblanch
+ms.date: 02/11/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: govern
+ms.custom: governance
 ---
 
 # Cost Management discipline improvement
@@ -59,7 +61,7 @@ Several technical and nontechnical prerequisites are required to successfully mi
 
 - Align your budgetary plans with the [Subscription Strategy](../../decision-guides/subscriptions/index.md) that defines your core ownership model.
 - Use the [Resource Consistency Strategy](../../decision-guides/resource-consistency/index.md) to enforce architecture and cost guidelines over time.
-- Determine if there are any cost anomalies that affect your adoption and migration plans.
+- Determine if any cost anomalies affect your adoption and migration plans.
 
 ## Adopt and migrate
 

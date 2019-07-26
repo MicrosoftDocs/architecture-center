@@ -3,7 +3,11 @@ title: "Network capacity exceeded"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Storage requirements exceed network capacity during a migration effort.
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 04/04/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
 ---
 
 # Storage requirements exceed network capacity during a migration effort

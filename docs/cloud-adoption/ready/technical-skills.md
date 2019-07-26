@@ -3,7 +3,11 @@ title: "Build technical skills"
 titleSuffix: "Microsoft Cloud Adoption Framework in Azure"
 description: Introduction to building technical skills
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 04/04/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: ready
 ---
 
 # Build technical skills

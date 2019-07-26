@@ -3,7 +3,11 @@ title: "Prepare for cultural complexity: aligning roles and responsibilities"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Preparing for cultural complexity - aligning roles and responsibilities.
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 04/04/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
 ---
 
 # Prepare for cultural complexity: aligning roles and responsibilities
@@ -16,7 +20,7 @@ In either scenario, it’s wise to invest in the documentation of roles and resp
 
 In any migration, there are a few key functions that are best executed by the business, whenever possible. Often, IT is capable of completing the following tasks. However, engaging members of the business could aid in reducing barriers later in the adoption process. It also ensures mutual investment from key stakeholders throughout the migration process.
 
-|Process  |Activity  |Description  |
+| Process | Activity | Description |
 |---------|---------|---------|
 | Assess | Business goals | Define the desired business outcomes of the migration effort. |
 | Assess | Priorities | Ensure alignment with changing business priorities and market conditions. |
@@ -37,7 +41,7 @@ Each process within the discussion of the Cloud Adoption Framework migration pri
 > [!NOTE]
 > In the following table, an accountable party should start the alignment of roles. That column should be customized to fit existing processes for efficient execution. Ideally a single person should be named as the accountable party.
 
-|Process  |Activity  |Description  |Accountable party  |
+| Process | Activity | Description | Accountable party |
 |---------|---------|---------|---------|
 | Prerequisite | Digital estate | Align the existing inventory to basic assumptions, based on business outcomes. | Cloud Strategy team |
 | Prerequisite | Migration backlog | Prioritize the sequence of workloads to be migrated. | Cloud Strategy team |

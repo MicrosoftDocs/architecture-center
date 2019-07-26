@@ -3,7 +3,11 @@ title: "Replication options"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: A process within cloud migration that focuses on the tasks of migrating workloads to the cloud.
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 04/04/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
 ---
 
 # Replication options

@@ -6,8 +6,8 @@ author: BrianBlanchard
 ms.author: brblanch
 ms.date: 12/10/2018
 ms.topic: guide
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
+ms.service: cloud-adoption-framework
+ms.subservice: plan
 ms.custom: governance
 ---
 
@@ -23,7 +23,7 @@ It's easy to understand rationalization when you visualize the traditional proce
 
 **Quantitative analysis:** In the decision tree, quantitative questions drive the first layer of decisions. Common questions include the following: Is the asset in use today? If so, is it optimized and sized properly? What dependencies exist between assets? These questions are vital to the classification of the inventory.
 
-**Qualitative analysis:** The next set of decisions requires human intelligence in the form of qualitative analysis. Often, the questions that come up here are unique to the solution and can only be answered by business stakeholders and power users. These decisions typically delay the process, slowing things down considerably. This analysis generally consumes 40 to 80 FTE hours per application. 
+**Qualitative analysis:** The next set of decisions requires human intelligence in the form of qualitative analysis. Often, the questions that come up here are unique to the solution and can only be answered by business stakeholders and power users. These decisions typically delay the process, slowing things down considerably. This analysis generally consumes 40 to 80 FTE hours per application.
 
 For guidance about building a list of qualitative analysis questions, see [Approaches to digital estate planning](approach.md).
 
@@ -47,7 +47,7 @@ The complete rationalization of a large digital estate is prone to risk and can 
 
 Few organizations invest the time, energy, and expense in maintaining an accurate, real-time inventory of the full digital estate. Loss, theft, refresh cycles, and employee on-boarding often justify detailed asset tracking of end-user devices. However, the ROI of maintaining an accurate server and application inventory in a traditional, on-premises datacenter is often low. Most IT organizations have other more pressing issues to address than tracking the usage of fixed assets in a datacenter.
 
-In a cloud transformation, inventory directly correlates to operating costs. Accurate inventory data is required for proper planning. Unfortunately, current environmental scanning options can delay decisions by weeks or months. Fortunately, there are a few tricks for accelerating data collection.
+In a cloud transformation, inventory directly correlates to operating costs. Accurate inventory data is required for proper planning. Unfortunately, current environmental scanning options can delay decisions by weeks or months. Fortunately, a few tricks can accelerate data collection.
 
 Agent-based scanning is the most frequently cited delay. The robust data that's required for a traditional rationalization can often only be collected with an agent running on each asset. This dependency on agents often slows progress, because it can require feedback from security, operations, and administration functions.
 
@@ -65,7 +65,7 @@ By reducing the number of potential outcomes, it’s easier to reach an initial 
 
 For example, if the options are limited to rehosting or retiring, the business needs to answer only one question during initial rationalization, which is whether to retire the asset.
 
-"Analysis suggests that there are no users actively using this asset. Is that accurate, or have we overlooked something?" Such a binary question is typically much easier to run through qualitative analysis.
+"Analysis suggests that no users are actively using this asset. Is that accurate, or have we overlooked something?" Such a binary question is typically much easier to run through qualitative analysis.
 
 This streamlined approach produces baselines, financial plans, strategy, and direction. In later activities, each asset goes through further rationalization and qualitative analysis to evaluate other options. All assumptions that you make in this initial rationalization are tested before
 
@@ -85,7 +85,7 @@ It's not uncommon for organizations to retire 20% or more of their digital estat
 
 A company seldom embarks on just one transformation journey. The choice between cost reduction, market growth, and new revenue streams is rarely a binary decision. As such, we recommend that the cloud strategy team work with IT to identify assets on parallel transformation efforts that are outside of the scope of the primary transformation journey.
 
-In the IaaS migration example  that's used in this article:
+In the IaaS migration example given in this article:
 
 - Ask the DevOps team to identify assets that are already part of a deployment automation and remove those assets from the core migration plan.
 
@@ -115,7 +115,7 @@ The cloud adoption and cloud strategy teams can work together to analyze this sm
 
 ### Migration
 
-In parallel to continued rationalization, the cloud adoption team can begin migrating the small workload to expand learning in the following key areas:
+In parallel with continued rationalization, the cloud adoption team can begin migrating the small workload to expand learning in the following key areas:
 
 - Strengthen skills with the cloud provider’s platform.
 - Define the core services (and Azure standards) needed to fit the long-term vision.
@@ -141,7 +141,7 @@ After the two teams agree on the qualitative analysis criteria, assessment can b
 
 After the assessment has moved into the incremental execution process of migration, the cloud adoption team can iterate faster on assessment and architecture. At this stage, the cloud strategy team is also abstracted, which reduces the drain on their time. This also enables the cloud strategy team to focus on prioritizing the applications that are not yet in a specific release, which ensures tight alignment with changing market conditions.
 
-Not all of the prioritized applications will be ready for migration. Sequencing is likely to change as the team does deeper qualitative analysis and discovers business events and dependencies that might prompt  reprioritization of the backlog. Some releases might group together a small number of workloads. Others might just contain a single workload.
+Not all of the prioritized applications will be ready for migration. Sequencing is likely to change as the team does deeper qualitative analysis and discovers business events and dependencies that might prompt reprioritization of the backlog. Some releases might group together a small number of workloads. Others might just contain a single workload.
 
 The cloud adoption team is likely to run iterations that don’t produce a complete workload migration. The smaller the workload, and the fewer dependencies, the more likely a workload is to fit into a single sprint or iteration. For this reason, we recommend that the first few applications in the release backlog be small and contain few external dependencies.
 

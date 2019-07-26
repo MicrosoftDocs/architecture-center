@@ -3,9 +3,12 @@ title: "Cloud migration"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Cloud migration in the Cloud Adoption Framework
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 04/04/2019
-layout: LandingPage
 ms.topic: landing-page
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
+layout: LandingPage
 ---
 
 # Cloud migration in the Cloud Adoption Framework
@@ -112,7 +115,7 @@ To prepare you for this phase of the cloud adoption lifecycle, the framework sug
                         </div>
                         <div class="cardText" style="padding-left:0px;">
                             <h3>Process Improvements</h3>
-                            Migration is a process heavy activity. As migration efforts scale, leverage the migration considerations section to evaluate and mature various aspects of your processes.
+                            Migration is a process heavy activity. As migration efforts scale, use the migration considerations section to evaluate and mature various aspects of your processes.
                         </div>
                     </div>
                 </div>

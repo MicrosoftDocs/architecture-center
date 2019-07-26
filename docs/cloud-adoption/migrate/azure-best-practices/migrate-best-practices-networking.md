@@ -3,10 +3,11 @@ title: "Best practices to set up networking for workloads migrated to Azure"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: After migrating to Azure, get best practices for setting up networking for your migrated workloads.
 author: BrianBlanchard
-ms.service: azure-migrate
-ms.topic: conceptual
-ms.date: 12/04/2018
 ms.author: brblanch
+ms.date: 12/04/2018
+ms.topic: conceptual
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
 ---
 
 # Best practices to set up networking for workloads migrated to Azure

@@ -3,7 +3,11 @@ title: "Decisions that affect migrations"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Important decisions to be made regarding the migration process
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 04/04/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
 ---
 
 # Decisions that affect migrations

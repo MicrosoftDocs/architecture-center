@@ -1,14 +1,15 @@
 ---
 title: "The Five Disciplines of Cloud Governance"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
-ms.custom: governance
-ms.date: 02/11/2019
 description: Overview of governance content within the Cloud Adoption Framework
 author: BrianBlanchard
-layout: LandingPage
+ms.author: brblanch
+ms.date: 02/11/2019
 ms.topic: landing-page
+ms.service: cloud-adoption-framework
+ms.subservice: govern
+ms.custom: governance
+layout: LandingPage
 ---
 
 # The Five Disciplines of Cloud Governance

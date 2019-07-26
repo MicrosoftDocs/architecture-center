@@ -54,7 +54,7 @@ This model provides a balance between a true chargeback model and more tradition
 
 The choice of accounting models is crucial in system design. The choice of accounting model can affect subscription strategies, naming standards, tagging standards, and policy and blueprint designs.
 
-After you've made decisions about a cloud accounting model and [global markets](global-markets.md), you have enough information to [develop an Azure foundation](../ready/index.md).
+After you've worked with the business to make decisions about a cloud accounting model and [global markets](global-markets.md), you have enough information to [develop an Azure foundation](../ready/index.md).
 
 > [!div class="nextstepaction"]
 > [Develop an Azure foundation](../ready/index.md)

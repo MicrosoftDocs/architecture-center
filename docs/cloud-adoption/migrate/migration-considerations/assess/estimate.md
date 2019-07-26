@@ -3,7 +3,11 @@ title: "Estimate cloud costs prior to migration"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Explanation of the process of estimating cloud costs prior to migration.
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 04/04/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
 ---
 
 # Estimate cloud costs
