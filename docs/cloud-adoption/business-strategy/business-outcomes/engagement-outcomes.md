@@ -28,7 +28,7 @@ During customer-obsessed transformations, like a cloud-enabled application innov
 
 > **ExakTime**
 >
-> Labor management breaks free of on-premises constraints with cloud technology. With Microsoft Azure, ExakTime is moving toward streamlined agile product development, while the company’s clients enjoy a more robust and easier-to-use product, full of new features.
+> Labor management breaks free of on-premises constraints with cloud technology. With Microsoft Azure, ExakTime is moving toward streamlined agile product development, while the company's clients enjoy a more robust and easier-to-use product, full of new features.
 >
 > "Now, a developer can sit down at his machine, have an idea, spin up a web service or an Azure instance, test out his idea, point it at test data, and get the concept going. In the time that it would have taken to provision just the stuff to do a test, we can actually write the functionality."  
 > Wayne Wise  
