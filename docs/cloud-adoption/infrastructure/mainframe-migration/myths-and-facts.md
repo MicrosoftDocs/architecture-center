@@ -32,7 +32,7 @@ The new core-dense, Intel-based systems have as much compute capacity as mainfra
 
 ## Myth: The cloud can't accommodate mission-critical applications for large companies such as financial institutions
 
-Although there may be some isolated instances where cloud solutions fall short, it is usually becuase the application algorithms cannot be distributed. These few examples are the exceptions, not the rule.
+Although there may be some isolated instances where cloud solutions fall short, it is usually because the application algorithms cannot be distributed. These few examples are the exceptions, not the rule.
 
 ## Summary
 

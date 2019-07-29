@@ -13,7 +13,7 @@ ms.subservice: reference
 # Azure enterprise scaffold: Prescriptive subscription governance
 
 > [!NOTE]
-> Azure enterprise scaffolding has been integrated into the Microsoft Cloud Adoption Framework. The content in this article is now represented in the [Ready](../ready/index.md) section of the new framework. This article will be deprecated some time in early 2020. To begin using the new process, see the [Ready overview](../ready/index.md), [creating your first landing zone](../ready/azure-readiness-guide/migration-landing-zone.md), and/or [landing zone considerations](../ready/considerations/index.md).
+> Azure enterprise scaffolding has been integrated into the Microsoft Cloud Adoption Framework. The content in this article is now represented in the [Ready](../ready/index.md) section of the new framework. This article will be deprecated in early 2020. To begin using the new process, see the [Ready overview](../ready/index.md), [creating your first landing zone](../ready/azure-readiness-guide/migration-landing-zone.md), and/or [landing zone considerations](../ready/considerations/index.md).
 
 Enterprises are increasingly adopting the public cloud for its agility and flexibility. They rely on the cloud's strengths to generate revenue and optimize resource usage for the business. Microsoft Azure provides a multitude of services and capabilities that enterprises assemble like building blocks to address a wide array of workloads and applications.
 
@@ -83,7 +83,7 @@ Well-designed management groups are, along with Azure Policy and Initiatives, th
 
 ### Subscriptions
 
-When deciding on your Departments and Accounts (or management groups), you are primarily looking at how you're dividing up your Azure environment to match your organization. Subscriptions, however, are where the real work happens and your decisions here affect security, scalability, and billing. Many organizations look at the following patterns as their guides:
+When deciding on your Departments and Accounts (or management groups), you are primarily looking at how you're dividing up your Azure environment to match your organization. However, subscriptions are where the real work happens, and your decisions here affect security, scalability, and billing. Many organizations look at the following patterns as their guides:
 
 - **Application/service:** Subscriptions represent an application or a service (portfolio of applications)
 - **Lifecycle:** Subscriptions represent a lifecycle of a service, such as Production or Development.
@@ -329,7 +329,7 @@ The final component of the Azure scaffold reference model is core to how your or
 - **Security groups** are an extensive set of rules that provide the ability to allow or deny inbound and outbound traffic to/from Azure resources. [Security groups](/azure/virtual-network/security-overview) consist of security rules that can be augmented with **service tags** (which define common Azure services such as Azure Key Vault or Azure SQL Database) and **application security groups** (which define and application structure, such as web servers or app servers).
 
 > [!TIP]
-> Use service tags and application security groups in your network security groups to not only enhance the readability of your rules&mdash;which is crucial to understanding impact&mdash;but also to enable effective microsegmentation within a larger subnet, reducing sprawl and increasing flexibility.
+> Use service tags and application security groups in your network security groups not only to enhance the readability of your rules&mdash;which is crucial to understanding impact&mdash;but also to enable effective microsegmentation within a larger subnet, reducing sprawl and increasing flexibility.
 
 ### Azure Virtual Datacenter
 
