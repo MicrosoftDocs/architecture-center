@@ -361,6 +361,11 @@
          "source_path": "docs/databricks-monitoring/configure-cluster.md",
          "redirect_url": "/azure/architecture/databricks-monitoring",
          "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/topics/high-performance-computing/index.md",
+         "redirect_url": "/azure/architecture/topics/high-performance-computing",
+         "redirect_document_id": true
       }
   ] 
   } 
