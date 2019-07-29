@@ -51,7 +51,7 @@ The following development platforms and tools are available for machine learning
 | [Azure Databricks](#azure-databricks) | Spark-based analytics platform | Build and deploy models and data workflows |
 | [ML.NET](#mlnet) | Open-source, cross-platform machine learning SDK | Develop machine learning solutions for .NET applications |
 | [Windows ML](#windows-ml) | Windows 10 machine learning platform | Evaluate trained models on a Windows 10 device |
-| [MMLSPark](#mmlspark) | Open-source, distributed, machine learning and microservice framework for Apache Spark | Create and deploy scalable machine learning applications for Scala and Python. |
+| [MMLSpark](#mmlspark) | Open-source, distributed, machine learning and microservice framework for Apache Spark | Create and deploy scalable machine learning applications for Scala and Python. |
 
 ## Azure Machine Learning service
 
