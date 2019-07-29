@@ -67,6 +67,26 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
 
 <!-- Second panel -->
 <ul class="panelContent cardsI">
+    <!-- Example Workloads -->
+    <li>
+        <a href="/azure/architecture/example-scenario/">
+            <div class="cardSize">
+                <div class="cardPadding">
+                    <div class="card">
+                        <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img src="https://docs.microsoft.com/media/common/i_library.svg" alt="" />
+                            </div>
+                        </div>
+                        <div class="cardText">
+                            <h3>Example Workloads</h3>
+                            <p>Workloads examples covering the implementation of specific business or technical challenges using Azure</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
     <!-- Microservices -->
     <li>
         <a href="/azure/architecture/microservices">
