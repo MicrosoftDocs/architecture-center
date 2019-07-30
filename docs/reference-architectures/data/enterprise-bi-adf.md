@@ -209,8 +209,7 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 
 - [Data warehousing and analytics for sales and marketing](/azure/architecture/example-scenario/data/data-warehouse)
 - [Hybrid ETL with existing on-premises SSIS and Azure Data Factory](/azure/architecture/example-scenario/data/hybrid-etl-with-adf)
-
-Also, you can check the reference architecture for [Enterprise BI in Azure with SQL Data Warehouse](/azure/architecture/reference-architectures/data/enterprise-bi-sqldw).
+- [Enterprise BI in Azure with SQL Data Warehouse](/azure/architecture/reference-architectures/data/enterprise-bi-sqldw).
 
 <!-- links -->
 
