@@ -24,8 +24,8 @@ To explore serverless technologies in Azure, start with a serverless reference s
 
 Once you get a feel for how this reference solution works, proceed to learning the best practices and recommendations for developing similar serverless solutions:
 
-- For developing a serverless *event ingestion* solution, refer to the reference-based guidance at [Serverless event processing using Azure Functions](../reference-architectures/serverless/event-processing/).
-- For developing a serverless *web application*, refer to the reference-based guidance at [Serverless web application on Azure](../reference-architectures/serverless/web-app/).
+- For developing a serverless *event ingestion* solution, refer to the reference-based guidance at [Serverless event processing using Azure Functions](../reference-architectures/serverless/event-processing.md).
+- For developing a serverless *web application*, refer to the reference-based guidance at [Serverless web application on Azure](../reference-architectures/serverless/web-app.md).
  
  
 ## Next steps
