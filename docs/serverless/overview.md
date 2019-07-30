@@ -13,12 +13,6 @@ ms.subservice: reference-architecture
 
 Serverless models abstract the underlying compute infrastructure. This allows developers to focus on business logic without needing extensive startup or maintenance cost to set up the solution. Serverless reduces the overall costs since you pay only for the duration the code was executed. This event-driven model is suitable for situations where some event triggers a defined action. For example, receiving an incoming device messages to store for later use, or a database update that needs some further processing.
 
-Microsoft Azure provides multiple ways of implementing serverless code:
-
-- [Azure Functions](/azure/azure-functions/)
-- [Azure Kubernetes Service](/azure/aks/)
-- [Azure App Service](/azure/app-service/)
-
 
 ## Explore the recommendations
 
@@ -30,8 +24,8 @@ To explore serverless technologies in Azure, start with a serverless reference s
 
 Once you get a feel for how this reference solution works, proceed to learning the best practices and recommendations for developing similar serverless solutions:
 
-- For developing a serverless *event ingestion*, refer to the reference-based guidance at [Serverless event processing using Azure Functions](/azure/architecture/reference-architectures/serverless/event-processing/).
-- For developing a serverless *web application*, refer to the reference-based guidance at [Serverless web application on Azure](/azure/architecture/reference-architectures/serverless/web-app/).
+- For developing a serverless *event ingestion* solution, refer to the reference-based guidance at [Serverless event processing using Azure Functions](../reference-architectures/serverless/event-processing/).
+- For developing a serverless *web application*, refer to the reference-based guidance at [Serverless web application on Azure](../reference-architectures/serverless/web-app/).
  
  
 ## Next steps
