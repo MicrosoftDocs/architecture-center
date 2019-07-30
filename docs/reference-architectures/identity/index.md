@@ -6,6 +6,7 @@ ms.date: 07/30/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
+ms.custom: seodec18, identity
 ---
 
 # Choose a solution for integrating on-premises Active Directory with Azure
