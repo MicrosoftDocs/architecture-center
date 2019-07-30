@@ -403,10 +403,14 @@
 
     - name: Serverless
       items:
-      - name: Serverless web application
-        href: reference-architectures/serverless/web-app.md
-      - name: Serverless event processing
+      - name: Overview
+        href: serverless/overview.md
+      - name: Walk through a serverless solution
+        href: serverless/index.md
+      - name: Serverless event processing guidelines
         href: reference-architectures/serverless/event-processing.md
+      - name: Serverless web application guidelines
+        href: reference-architectures/serverless/web-app.md
 
     - name: VM workloads
       items:
@@ -608,11 +612,6 @@
     href: service-fabric/modernize-app-azure-service-fabric.md
   - name: Migrate from Cloud Services to Service Fabric
     href: service-fabric/migrate-from-cloud-services.md
-
-- name: Show me the code
-  items:
-  - name: Serverless application on Azure
-    href: serverless/index.md
 
 - name: Design Review Framework
   items:
