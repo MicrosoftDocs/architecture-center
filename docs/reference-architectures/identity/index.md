@@ -45,7 +45,7 @@ You can also use Azure AD without using an on-premises directory. In this case, 
 
 - You must configure connectivity with your on-premises domain to keep the Azure AD directory synchronized.
 - Applications may need to be rewritten to enable authentication through Azure AD.
-- If you wish to authenticate service and computer accounts, you will have to also deploy [Azure Active Directory Domain Services](https://docs.microsoft.com/en-us/azure/active-directory-domain-services/).
+- If you wish to authenticate service and computer accounts, you will have to also deploy [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/).
 
 **Reference architecture**
 
