@@ -168,7 +168,7 @@ Connecting to 10.20.1.6:80:
 
 The following recommendations are useful for determining if there is a problem with the Azure VPN gateway:
 
-**Examine Azure VPN gateway diagnostic logs for potential issues.** See [Step-by-Step: Capturing Azure Resource Manager VNET Gateway Diagnostic Logs][gateway-diagnostic-logs].
+**Examine Azure VPN gateway diagnostic logs for potential issues.** For more information, ee [Step-by-Step: Capturing Azure Resource Manager VNet Gateway Diagnostic Logs][gateway-diagnostic-logs].
 
 **Verify that the Azure VPN gateway and on-premises VPN appliance are configured with the same shared authentication key.** You can view the shared key stored by the Azure VPN gateway using the following Azure CLI command:
 

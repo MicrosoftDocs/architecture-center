@@ -76,7 +76,7 @@ A typical example of this scenario is the case where application processing serv
 
 Spokes can also be interconnected to a spoke that acts as a hub. This approach creates a two-level hierarchy: the spoke in the higher level (level 0) becomes the hub of lower spokes (level 1) of the hierarchy. The spokes of a hub-and-spoke implementation are required to forward the traffic to the central hub so that the traffic can transit to its destination in either the on-premises network or the public internet. An architecture with two levels of hubs introduces complex routing that removes the benefits of a simple hub-and-spoke relationship.
 
-<!--Image References-->
+<!-- images -->
 
 [0]: ./images/network-redundant-equipment.png "Examples of component overlap"
 [1]: ./images/network-hub-spoke-high-level.png "High-level example of hub and spoke"
@@ -90,7 +90,8 @@ Spokes can also be interconnected to a spoke that acts as a hub. This approach c
 [9]: ./images/network-high-level-diagram-monitoring.png "High-level diagram for monitoring"
 [10]: ./images/network-high-level-workloads.png "High-level diagram for workload"
 
-<!--Link References-->
+<!-- links -->
+
 [Limits]: /azure/azure-subscription-service-limits
 [Roles]: /azure/role-based-access-control/built-in-roles
 [VNet]: /azure/virtual-network/virtual-networks-overview
@@ -111,7 +112,6 @@ Spokes can also be interconnected to a spoke that acts as a hub. This approach c
 [RGMgmt]: /azure/azure-resource-manager/resource-group-overview
 [DMZ]: /azure/best-practices-network-security
 [ALB]: /azure/load-balancer/load-balancer-overview
-[DDOS]: /azure/virtual-network/ddos-protection-overview
 [PIP]: /azure/virtual-network/resource-groups-networking#public-ip-address
 [AFD]: /azure/frontdoor/front-door-overview
 [AppGW]: /azure/application-gateway/application-gateway-introduction

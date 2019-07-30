@@ -70,7 +70,7 @@ This section describes a recommended Web-Queue-Worker architecture that uses Azu
 
 - You can use either Azure Service Bus or Azure Storage queues for the message queue. (The diagram shows an Azure Storage queue.)
 
-- Azure Redis Cache stores session state and other data that needs low latency access.
+- Azure Cache for Redis stores session state and other data that needs low latency access.
 
 - Azure CDN is used to cache static content such as images, CSS, or HTML.
 

@@ -36,7 +36,7 @@ This scenario covers purchasing tickets from an e-commerce site, the data flows 
 4. User searches for concerts using Azure Search.
 5. Web site pulls concert details from Azure SQL Database.
 6. Web site refers to purchased ticket images in Blob Storage.
-7. Database query results are cached in Azure Redis Cache for better performance.
+7. Database query results are cached in Azure Cache for Redis to improve performance.
 8. User submits ticket orders and concert reviews, which are placed in the queue.
 9. Azure Functions processes order payment and concert reviews.
 10. Cognitive Services provides an analysis of the concert review to determine the sentiment (positive or negative).
@@ -53,7 +53,7 @@ This scenario covers purchasing tickets from an e-commerce site, the data flows 
 - [Cognitive Services - Sentiment Analysis][docs-sentiment-analysis] uses machine learning APIs and enables developers to easily add intelligent features – such as emotion and video detection; facial, speech, and vision recognition; and speech and language understanding – into applications.
 - [Azure Search][docs-search] is a search-as-a-service cloud solution that provides a rich search experience over private, heterogenous content in web, mobile, and enterprise applications.
 - [Storage Blobs][docs-storage-blobs] are optimized to store large amounts of unstructured data, such as text or binary data.
-- [Redis Cache][docs-redis-cache] improves the performance and scalability of systems that rely heavily on back-end data stores by temporarily copying frequently accessed data to fast storage located close to the application.
+- [Azure Cache for Redis][docs-redis-cache] improves the performance and scalability of systems that rely heavily on back-end data stores by temporarily copying frequently accessed data to fast storage located close to the application.
 - [SQL Database][docs-sql-database] is a general-purpose relational database managed service in Microsoft Azure that supports structures such as relational data, JSON, spatial, and XML.
 - [Application Insights][docs-application-insights] is designed to help you continuously improve performance and usability by automatically detecting performance anomalies through built-in analytics tools to help understand what users do with an app.
 
