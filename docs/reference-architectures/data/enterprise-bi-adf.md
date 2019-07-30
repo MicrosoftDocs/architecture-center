@@ -71,7 +71,7 @@ This reference architecture defines a master pipeline that runs a sequence of ch
 
 ## Incremental loading
 
-When you run an automated ETL or ELT process, it's most efficient to load only the data that changed since the previous run. This is called an *incremental load*, as opposed to a full load that loads all of the data. To perform an incremental load, you need a way to identify which data has changed. The most common approach is to use a *high water mark* value, which means tracking the latest value of some column in the source table, either a datetime column or a unique integer column.
+When you run an automated ETL or ELT process, it's most efficient to load only the data that changed since the previous run. This is called an *incremental load*, as opposed to a full load that loads all the data. To perform an incremental load, you need a way to identify which data has changed. The most common approach is to use a *high water mark* value, which means tracking the latest value of some column in the source table, either a datetime column or a unique integer column.
 
 Starting with SQL Server 2016, you can use [temporal tables](/sql/relational-databases/tables/temporal-tables). These are system-versioned tables that keep a full history of data changes. The database engine automatically records the history of every change in a separate history table. You can query the historical data by adding a FOR SYSTEM_TIME clause to a query. Internally, the database engine queries the history table, but this is transparent to the application.
 
@@ -209,6 +209,7 @@ You may want to review the following [Azure example scenarios](/azure/architectu
 
 - [Data warehousing and analytics for sales and marketing](/azure/architecture/example-scenario/data/data-warehouse)
 - [Hybrid ETL with existing on-premises SSIS and Azure Data Factory](/azure/architecture/example-scenario/data/hybrid-etl-with-adf)
+- [Enterprise BI in Azure with SQL Data Warehouse](/azure/architecture/reference-architectures/data/enterprise-bi-sqldw).
 
 <!-- links -->
 
