@@ -363,19 +363,41 @@ Service Bus is a cloud messaging platform that provides loosely coupled message 
 
 ### Retry mechanism
 
-Service Bus implements retries using implementations of the [RetryPolicy](/dotnet/api/microsoft.servicebus.retrypolicy) base class. All of the Service Bus clients expose a **RetryPolicy** property that can be set to one of the implementations of the **RetryPolicy** base class. The built-in implementations are:
+Service Bus implements retries using implementations of the abstract [**RetryPolicy**](/dotnet/api/microsoft.servicebus.retrypolicy) class. The namespace and some of the configuration details depend on which Service Bus client SDK package is used:
 
-- The [RetryExponential class](/dotnet/api/microsoft.servicebus.retryexponential). This exposes properties that control the back-off interval, the retry count, and the **TerminationTimeBuffer** property that is used to limit the total time for the operation to complete.
+| Package | Description | Namespace |
+|---------|-------------|-------|
+| [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) | Azure Service Bus client library for .NET Standard. | `Microsoft.ServiceBus` |
+|  [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) |  This package is the older Service Bus client library. It requires .Net Framework 4.5.2. | `Microsoft.Azure.ServiceBus` |
 
-- The [NoRetry class](/dotnet/api/microsoft.servicebus.noretry). This is used when retries at the Service Bus API level are not required, such as when retries are managed by another process as part of a batch or multistep operation.
+Both versions of the client library provide the following built-in implementations of `RetryPolicty`:
 
-Service Bus actions can return a range of exceptions, as listed in [Service Bus messaging exceptions](/azure/service-bus-messaging/service-bus-messaging-exceptions). The list provides information about which if these indicate that retrying the operation is appropriate. For example, a **ServerBusyException** indicates that the client should wait for a period of time, then retry the operation. The occurrence of a **ServerBusyException** also causes Service Bus to switch to a different mode, in which an extra 10-second delay is added to the computed retry delays. This mode is reset after a short period.
+- [RetryExponential](/dotnet/api/microsoft.servicebus.retryexponential). Implements exponential backoff.
 
-The exceptions returned from Service Bus expose the **IsTransient** property that indicates if the client should retry the operation. The built-in **RetryExponential** policy relies on the **IsTransient** property in the **MessagingException** class, which is the base class for all Service Bus exceptions. If you create custom implementations of the **RetryPolicy** base class you could use a combination of the exception type and the **IsTransient** property to provide more fine-grained control over retry actions. For example, you could detect a **QuotaExceededException** and take action to drain the queue before retrying sending a message to it.
+- [NoRetry](/dotnet/api/microsoft.servicebus.noretry). Does not perform retries. Use this class when you don't need retries at the Service Bus API level, for example when another process manages retries as part of a batch or multistep operation.
 
-### Policy configuration
+The `RetryPolicy.Default` property returns a default policy of type `RetryExponential`. This policy object has the following settings:
 
-Retry policies are set programmatically, and can be set as a default policy for a **NamespaceManager** and for a **MessagingFactory**, or individually for each messaging client. To set the default retry policy for a messaging session you set the **RetryPolicy** of the **NamespaceManager**.
+| Setting | Default value | Meaning |
+|---------|---------------|---------|
+| MinimalBackoff | 0 | Minimum back-off interval. Added to the retry interval computed from `deltaBackoff`. |
+| MaximumBackoff | 30 seconds | Maximum back-off interval. |
+| DeltaBackoff | 3 seconds | Back-off interval between retries. Multiples of this timespan are used for subsequent retry attempts. |
+| MaxRetryCount | 5 | The maximum number of retries. (Default value is 10 in the `WindowsAzure.ServiceBus` package.) |
+
+In addition, the following property is defined in the older `WindowsAzure.ServiceBus` package:
+
+| Setting | Default value | Meaning |
+|---------|---------------|---------|
+| TerminationTimeBuffer  | 5 seconds | Retry attempts will be abandoned if the remaining time is less than this value. |
+
+Service Bus actions can return a range of exceptions, listed in [Service Bus messaging exceptions](/azure/service-bus-messaging/service-bus-messaging-exceptions). Exceptions returned from Service Bus expose the **IsTransient** property that indicates whether the client should retry the operation. The built-in **RetryExponential** policy checks this property before retrying.
+
+If the last exception encountered was **ServerBusyException**, the **RetryExponential** policy adds 10 seconds to the computed retry interval. This value cannot be changed.
+
+Custom implementations could use a combination of the exception type and the **IsTransient** property to provide more fine-grained control over retry actions. For example, you could detect a **QuotaExceededException** and take action to drain the queue before retrying sending a message to it.
+
+To set the default retry policy for a messaging session, set the **RetryPolicy** of the **NamespaceManager**.
 
 ```csharp
 namespaceManager.Settings.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
@@ -383,7 +405,7 @@ namespaceManager.Settings.RetryPolicy = new RetryExponential(minBackoff: TimeSpa
                                                                 maxRetryCount: 3);
 ```
 
-To set the default retry policy for all clients created from a messaging factory, you set the **RetryPolicy** of the **MessagingFactory**.
+To set the default retry policy for all clients created from a messaging factory, set the **RetryPolicy** of the **MessagingFactory**.
 
 ```csharp
 messagingFactory.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
@@ -391,7 +413,7 @@ messagingFactory.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSec
                                                     maxRetryCount: 3);
 ```
 
-To set the retry policy for a messaging client, or to override its default policy, you set its **RetryPolicy** property using an instance of the required policy class:
+To set the retry policy for a messaging client, or to override its default policy, set its **RetryPolicy** property:
 
 ```csharp
 client.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
@@ -400,17 +422,6 @@ client.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
 ```
 
 The retry policy cannot be set at the individual operation level. It applies to all operations for the messaging client.
-The following table shows the default settings for the built-in retry policy.
-
-| Setting | Default value | Meaning |
-|---------|---------------|---------|
-| Policy | Exponential | Exponential back-off. |
-| MinimalBackoff | 0 | Minimum back-off interval. This is added to the retry interval computed from deltaBackoff. |
-| MaximumBackoff | 30 seconds | Maximum back-off interval. MaximumBackoff is used if the computed retry interval is greater than MaxBackoff. |
-| DeltaBackoff | 3 seconds | Back-off interval between retries. Multiples of this timespan will be used for subsequent retry attempts. |
-| TimeBuffer | 5 seconds | The termination time buffer associated with the retry. Retry attempts will be abandoned if the remaining time is less than TimeBuffer. |
-| MaxRetryCount | 10 | The maximum number of retries. |
-| ServerBusyBaseSleepTime | 10 seconds | If the last exception encountered was **ServerBusyException**, this value will be added to the computed retry interval. This value cannot be changed. |
 
 ### Retry usage guidance
 
