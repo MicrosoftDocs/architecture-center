@@ -42,6 +42,6 @@ Now that you understand Azure internals, learn about cloud resource governance.
 > [!div class="nextstepaction"]
 > [Learn about resource governance](what-is-governance.md)
 
-<!-- Links -->
+<!-- links -->
 
 [docs-add-users-to-aad]: /azure/active-directory/add-users-azure-active-directory?toc=/azure/architecture/cloud-adoption-guide/toc.json

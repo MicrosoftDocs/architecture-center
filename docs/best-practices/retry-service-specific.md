@@ -25,7 +25,7 @@ The following table summarizes the retry features for the Azure services describ
 | **Data Lake Store** |Native in client |Non-configurable |Individual operations |None |
 | **[Event Hubs](#event-hubs)** |Native in client |Programmatic |Client |None |
 | **[IoT Hub](#iot-hub)** |Native in client SDK |Programmatic |Client |None |
-| **[Redis Cache](#azure-redis-cache)** |Native in client |Programmatic |Client |TextWriter |
+| **[Azure Cache for Redis](#azure-cache-for-redis)** |Native in client |Programmatic |Client |TextWriter |
 | **[Search](#azure-search)** |Native in client |Programmatic |Client |ETW or Custom |
 | **[Service Bus](#service-bus)** |Native in client |Programmatic |Namespace Manager, Messaging Factory, and Client |ETW |
 | **[Service Fabric](#service-fabric)** |Native in client |Programmatic |Client |None |
@@ -122,7 +122,7 @@ For example, if you add the following to your App.config file, traces will be ge
 
 ## Event Hubs
 
-Azure Event Hubs is a hyper-scale telemetry ingestion service that collects, transforms, and stores millions of events.
+Azure Event Hubs is a hyperscale telemetry ingestion service that collects, transforms, and stores millions of events.
 
 ### Retry mechanism
 
@@ -158,9 +158,9 @@ Policy configuration differs by language. For more details, see [IoT Hub retry p
 - [IoT Hub retry policy](/azure/iot-hub/iot-hub-reliability-features-in-sdks)
 - [Troubleshoot IoT Hub device disconnection](/azure/iot-hub/iot-hub-troubleshoot-connectivity)
 
-## Azure Redis Cache
+## Azure Cache for Redis
 
-Azure Redis Cache is a fast data access and low latency cache service based on the popular open source Redis Cache. It is secure, managed by Microsoft, and is accessible from any application in Azure.
+Azure Cache for Redis is a fast data access and low latency cache service based on the popular open-source Redis cache. It is secure, managed by Microsoft, and is accessible from any application in Azure.
 
 The guidance in this section is based on using the StackExchange.Redis client to access the cache. A list of other suitable clients can be found on the [Redis website](https://redis.io/clients), and these may have different retry mechanisms.
 
@@ -217,11 +217,11 @@ The following table shows the default settings for the built-in retry policy.
 | ConfigurationOptions |ConnectRetry<br /><br />ConnectTimeout<br /><br />SyncTimeout<br /><br />ReconnectRetryPolicy |3<br /><br />Maximum 5000 ms plus SyncTimeout<br />1000<br /><br />LinearRetry 5000 ms |The number of times to repeat connect attempts during the initial connection operation.<br />Timeout (ms) for connect operations. Not a delay between retry attempts.<br />Time (ms) to allow for synchronous operations.<br /><br />Retry every 5000 ms.|
 
 > [!NOTE]
-> For synchronous operations, `SyncTimeout` can add to the end-to-end latency, but setting the value too low can cause excessive timeouts. See [How to troubleshoot Azure Redis Cache][redis-cache-troubleshoot]. In general, avoid using synchronous operations, and use asynchronous operations instead. For more information, see [Pipelines and Multiplexers](https://github.com/StackExchange/StackExchange.Redis/blob/master/docs/PipelinesMultiplexers.md).
+> For synchronous operations, `SyncTimeout` can add to the end-to-end latency, but setting the value too low can cause excessive timeouts. See [How to troubleshoot Azure Cache for Redis][redis-cache-troubleshoot]. In general, avoid using synchronous operations, and use asynchronous operations instead. For more information, see [Pipelines and Multiplexers](https://github.com/StackExchange/StackExchange.Redis/blob/master/docs/PipelinesMultiplexers.md).
 
 ### Retry usage guidance
 
-Consider the following guidelines when using Azure Redis Cache:
+Consider the following guidelines when using Azure Cache for Redis:
 
 - The StackExchange Redis client manages its own retries, but only when establishing a connection to the cache when the application first starts. You can configure the connection timeout, the number of retry attempts, and the time between retries to establish this connection, but the retry policy does not apply to operations against the cache.
 - Instead of using a large number of retry attempts, consider falling back by accessing the original data source instead.
