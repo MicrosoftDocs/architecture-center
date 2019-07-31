@@ -25,8 +25,8 @@ For production use cases review the SAP reference architectures available below:
 
 Other relevant use cases include:
 
-- Non-critical SAP non-productive workloads (sandbox, development, test, quality assurance)
-- Non-critical SAP business workloads
+- Noncritical SAP nonproduction workloads (such sandbox, development, test, and quality assurance).
+- Noncritical SAP business workloads.
 
 ## Architecture
 

@@ -141,7 +141,7 @@ For a thorough introduction on using R within ML Studio experiments, check out
 ### Create, manage, and deploy experiments from your local R environment
 
 The other way that you can use R with Azure Machine Learning Studio is to use the
-[`AzureML`](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html) package to
+[AzureML](https://cran.r-project.org/src/contrib/Archive/AzureML/) package to
 monitor and control the experimentation process with the R programming environment.  This package, which is maintained
 by Microsoft, allows you to upload and download datasets to and from Azure Machine Learning Studio, to interrogate experiments, to publish R
 functions as web services, and to run R data through existing web services and retrieve the output.
