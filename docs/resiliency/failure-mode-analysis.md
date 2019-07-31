@@ -222,7 +222,7 @@ Consider using Azure Service Bus Messaging queues, which provides a [dead-letter
 
 **Diagnostics**. Use application logging.
 
-## Redis Cache
+## Azure Cache for Redis
 
 ### Reading from the cache fails.
 
@@ -230,10 +230,10 @@ Consider using Azure Service Bus Messaging queues, which provides a [dead-letter
 
 **Recovery:**
 
-1. Retry on transient failures. Azure Redis cache supports built-in retry through See [Redis Cache retry guidelines][redis-retry].
+1. Retry on transient failures. Azure Redis cache supports built-in retry. For more information, see [Azure Cache for Redis retry guidelines][redis-retry].
 2. Treat non-transient failures as a cache miss, and fall back to the original data source.
 
-**Diagnostics**. Use [Redis Cache diagnostics][redis-monitor].
+**Diagnostics**. Use [Azure Cache for Redis diagnostics][redis-monitor].
 
 ### Writing to the cache fails.
 
@@ -241,10 +241,10 @@ Consider using Azure Service Bus Messaging queues, which provides a [dead-letter
 
 **Recovery:**
 
-1. Retry on transient failures. Azure Redis cache supports built-in retry through See [Redis Cache retry guidelines][redis-retry].
+1. Retry on transient failures. Azure Redis cache supports built-in retry. For more information, see [Azure Cache for Redis retry guidelines][redis-retry].
 2. If the error is non-transient, ignore it and let other transactions write to the cache later.
 
-**Diagnostics**. Use [Redis Cache diagnostics][redis-monitor].
+**Diagnostics**. Use [Azure Cache for Redis diagnostics][redis-monitor].
 
 ## SQL Database
 
@@ -518,8 +518,8 @@ For more information about the FMA process, see [Resilience by design for cloud 
 [queue-based-load-leveling]: https://msdn.microsoft.com/library/dn589783.aspx
 [QuotaExceededException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.quotaexceededexception.aspx
 [ra-web-apps-basic]: ../reference-architectures/app-service-web-app/basic-web-app.md
-[redis-monitor]: /azure/redis-cache/cache-how-to-monitor/
-[redis-retry]: ../best-practices/retry-service-specific.md#azure-redis-cache
+[redis-monitor]: /azure/azure-cache-for-redis/cache-how-to-monitor
+[redis-retry]: ../best-practices/retry-service-specific.md#azure-cache-for-redis
 [resilience-by-design-pdf]: https://download.microsoft.com/download/D/8/C/D8C599A4-4E8A-49BF-80EE-FE35F49B914D/Resilience_by_Design_for_Cloud_Services_White_Paper.pdf
 [RoleEntryPoint.OnStop]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
 [RoleEnvironment.Stopping]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.stopping.aspx

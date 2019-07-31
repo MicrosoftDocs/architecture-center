@@ -737,7 +737,7 @@ In many cases, batch processes can generate reports according to a defined sched
 - [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](/azure/storage/storage-monitoring-diagnosing-troubleshooting)
 - [Azure: Telemetry Basics and Troubleshooting](https://social.technet.microsoft.com/wiki/contents/articles/18146.windows-azure-telemetry-basics-and-troubleshooting.aspx)
 - [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](/azure/cloud-services/cloud-services-dotnet-diagnostics)
-- [Azure Redis Cache](https://azure.microsoft.com/services/cache/), [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), and [HDInsight](https://azure.microsoft.com/services/hdinsight/)
+- [Azure Cache for Redis](https://azure.microsoft.com/services/cache/), [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), and [HDInsight](https://azure.microsoft.com/services/hdinsight/)
 - [How to use Service Bus queues](/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues)
 - [SQL Server business intelligence in Azure Virtual Machines](/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-bi)
 - [Receive alert notifications](/azure/monitoring-and-diagnostics/insights-receive-alert-notifications) and [Track service health](/azure/monitoring-and-diagnostics/insights-service-health)

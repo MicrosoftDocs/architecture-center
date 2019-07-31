@@ -28,7 +28,7 @@ This architecture builds on the one shown in [Basic web application][basic-web-a
 - **[Web app][app-service-web-app]**. A typical modern application might include both a website and one or more RESTful web APIs. A web API might be consumed by browser clients through AJAX, by native client applications, or by server-side applications. For considerations on designing web APIs, see [API design guidance][api-guidance].
 - **Function App**. Use [Function Apps][functions] to run background tasks. Functions are invoked by a trigger, such as a timer event or a message being placed on queue. For long-running stateful tasks, use [Durable Functions][durable-functions].
 - **Queue**. In the architecture shown here, the application queues background tasks by putting a message onto an [Azure Queue storage][queue-storage] queue. The message triggers a function app. Alternatively, you can use Service Bus queues. For a comparison, see [Azure Queues and Service Bus queues - compared and contrasted][queues-compared].
-- **Cache**. Store semi-static data in [Azure Redis Cache][azure-redis].
+- **Cache**. Store semi-static data in [Azure Cache for Redis][azure-redis].
 - **CDN**. Use [Azure Content Delivery Network][azure-cdn] (CDN) to cache publicly available content for lower latency and faster delivery of content.
 - **Data storage**. Use [Azure SQL Database][sql-db] for relational data. For non-relational data, consider [Cosmos DB][cosmosdb].
 - **Azure Search**. Use [Azure Search][azure-search] to add search functionality such as search suggestions, fuzzy search, and language-specific search. Azure Search is typically used in conjunction with another data store, especially if the primary data store requires strict consistency. In this approach, store authoritative data in the other data store and the search index in Azure Search. Azure Search can also be used to consolidate a single search index from multiple data stores.
@@ -49,7 +49,7 @@ We recommend creating the web application and the web API as separate App Servic
 
 ### Cache
 
-You can improve performance and scalability by using [Azure Redis Cache][azure-redis] to cache some data. Consider using Redis Cache for:
+You can improve performance and scalability by using [Azure Cache for Redis][azure-redis] to cache some data. Consider using Azure Cache for Redis for:
 
 - Semi-static transaction data.
 - Session state.

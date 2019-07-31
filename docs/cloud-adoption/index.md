@@ -18,7 +18,7 @@ The Microsoft Cloud Adoption Framework for Azure is the One Microsoft voice for 
 
 ## Getting started: Executive summaries
 
-To customers who are new to the Cloud Adoption Framework, we offer three introductory articles: [Migrate](./getting-started/migrate.md), [Innovate](./getting-started/innovate.md), and [Enable](./getting-started/enable.md). Each article provides an executive summary and a high-level journey through an enterprise's adoption lifecycle. 
+To customers who are new to the Cloud Adoption Framework, we offer three introductory articles: [Migrate](./getting-started/migrate.md), [Innovate](./getting-started/innovate.md), and [Enable](./getting-started/enable.md). Each article provides an executive summary and a high-level journey through an enterprise's adoption lifecycle.
 
 For more specific guidance, see the following section, which lists and provides links to each of the various stages of the adoption lifecycle.
 
@@ -27,7 +27,7 @@ For more specific guidance, see the following section, which lists and provides 
 Each section of the Cloud Adoption Framework maps to the preceding overview diagram. The list here can help you align to the section of the Cloud Adoption Framework that best matches your current stage in the cloud adoption lifecycle.
 
 <!-- markdownlint-disable MD033 -->
- 
+
 <ul class="panelContent cardsF">
     <li style="display: flex; flex-direction: column;">
         <a href="./business-strategy/index.md">

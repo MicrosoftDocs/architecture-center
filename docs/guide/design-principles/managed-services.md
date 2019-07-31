@@ -27,5 +27,5 @@ Of course, your application may have specific requirements that make an IaaS app
 | Hadoop | HDInsight |
 | IIS | App Service |
 | MongoDB | Cosmos DB |
-| Redis | Azure Redis Cache |
+| Redis | Azure Cache for Redis |
 | SQL Server | Azure SQL Database |
