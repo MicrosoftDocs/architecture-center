@@ -37,7 +37,7 @@ Other relevant use cases include:
 
 In a typical big data processing pipeline implementation, the data flows from left to right. In this real-time big data processing pipeline, the data flows through the solution as follows:
 
-1. Events generated from the IoT data sources are sent to the stream ingestion layer through Azure HDInsight Kafka as a stream of messages. HDInsight Kafka stores streams of data in topics for a configurable of time.
+1. Events generated from the IoT data sources are sent to the stream ingestion layer through Azure HDInsight Kafka as a stream of messages. HDInsight Kafka stores streams of data in topics for a configurable amount of time.
 2. Kafka consumer, Azure Databricks, picks up the message in real time from the Kafka topic, to process the data based on the business logic and can then send to Serving layer for storage.
 3. Downstream storage services, like Azure Cosmos DB, Azure SQL Data warehouse, or Azure SQL DB, will then be a data source for presentation and action layer.
 4. Business analysts can use Microsoft Power BI to analyze warehoused data. Other applications can be built on the serving layer as well. For example, we can expose APIs based on the service layer data for third-party uses.
