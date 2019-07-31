@@ -30,7 +30,7 @@ Introduced by Kate Johnson at the Microsoft Digital Transformation Academy, busi
 
 *Figure 1: Business outcomes visualized as a house with stakeholders, over business outcomes, over technical capabilities.*
 
-The business outcome template focuses on simplified conversations that can quickly engage stakeholders without getting too deep into the technical solution. By rapidly understanding and aligning the KPIs and business drivers that are important to stakeholders, your team can think about high-level approaches and transformations before diving into the implementation details.
+The business outcome template focuses on simplified conversations that can quickly engage stakeholders without getting too deep into the technical solution. By rapidly understanding and aligning the key performance indicators (KPIs) and business drivers that are important to stakeholders, your team can think about high-level approaches and transformations before diving into the implementation details.
 
 An example can be found on the "Example Outcome" tab of the spreadsheet, as shown below. To track multiple outcomes, add them to the "Collective Outcomes" tab.
 
