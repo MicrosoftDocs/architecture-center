@@ -3,9 +3,12 @@ title: "Enable customer success across any cloud adoption journey"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Enable customer success across any cloud adoption journey
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 04/04/2019
-layout: LandingPage
 ms.topic: landing-page
+ms.service: cloud-adoption-framework
+ms.subservice: overview
+layout: LandingPage
 ---
 
 # Enable success across any cloud adoption journey

@@ -59,7 +59,7 @@ Several technical and nontechnical prerequisites are required to successfully mi
 
 - Align your budgetary plans with the [Subscription Strategy](../../decision-guides/subscriptions/index.md) that defines your core ownership model.
 - Use the [Resource Consistency Strategy](../../decision-guides/resource-consistency/index.md) to enforce architecture and cost guidelines over time.
-- Determine if there are any cost anomalies that affect your adoption and migration plans.
+- Determine if any cost anomalies affect your adoption and migration plans.
 
 ## Adopt and migrate
 

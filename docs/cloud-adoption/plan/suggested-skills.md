@@ -6,8 +6,8 @@ author: BrianBlanchard
 ms.author: brblanch
 ms.date: 07/01/2019
 ms.topic: article
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
+ms.service: cloud-adoption-framework
+ms.subservice: plan
 ---
 
 # Getting started on a skills readiness path
@@ -17,7 +17,7 @@ IT staff members might feel anxious about their roles and positions as they real
 ![Mapping of skills to IT roles in a cloud hosted environment](../_images/skills-guidance.png)
 *Figure 1. Mapping of skills to IT roles in a cloud-hosted environment*
 
-Cloud Adoption Framework guides readers through the full adoption life cycle. Throughout this framework, readers are provided opportunities to build necessary skills. To help you get started on this journey, skills-readiness articles are included in the following outline for easier access. Each of the following links maps to the skills required to be successful in each of those adoption phases.
+The Cloud Adoption Framework guides readers through the full adoption lifecycle. Throughout this framework, readers are provided opportunities to build necessary skills. To help you get started on this journey, skills-readiness articles are included in the following outline for easier access. Each of the following links maps to the skills required to be successful in each of those adoption phases.
 
 - **[Strategy](../business-strategy/suggested-skills.md):** Develop the skills needed to prepare an actionable migration plan. This includes business justification and other required business-planning skills.
 - **[Plan](./suggested-skills.md):** Develop the skills needed to prepare an actionable migration plan. This includes business justification and other required business-planning skills.

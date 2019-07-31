@@ -3,7 +3,11 @@ title: "Migration Backlog Review"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Important review of the migration backlog
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 04/04/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
 ---
 
 # Migration Backlog Review

@@ -3,7 +3,11 @@ title: "Migration Environment - Planning Checklist"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Validate environmental readiness prior to migration
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 04/04/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
 ---
 
 # Migration environment planning checklist - Validate environmental readiness prior to migration

@@ -20,7 +20,7 @@ This article discusses a few motivations behind cloud migration that can help pr
 
 ## Motivations
 
-Business transformations that are supported by cloud adoption can be driven by a number of motivations. It's even likely that several motivations are applicable at once. The goal of the lists in the following table is to help spark ideas about which motivations are relevant. From there, you can prioritize and assess the potential impacts of the motivations. In this article, we recommend that your cloud adoption team meet with various executives and business leaders using the list below to understand which of these motivations are affected by the cloud adoption effort.
+Business transformations that are supported by cloud adoption can be driven by various motivations. It's even likely that several motivations are applicable at once. The goal of the lists in the following table is to help spark ideas about which motivations are relevant. From there, you can prioritize and assess the potential impacts of the motivations. In this article, we recommend that your cloud adoption team meet with various executives and business leaders using the list below to understand which of these motivations are affected by the cloud adoption effort.
 
 <!-- markdownlint-disable MD033 -->
 

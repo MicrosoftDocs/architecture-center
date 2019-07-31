@@ -6,8 +6,8 @@ author: BrianBlanchard
 ms.author: brblanch
 ms.date: 05/10/2019
 ms.topic: article
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
+ms.service: cloud-adoption-framework
+ms.subservice: operate
 ---
 
 # Enable tracking and alerting for critical changes
@@ -76,7 +76,7 @@ Useful for environments that need to lock down software configurations.
 
 ### Specific software version is or isn't installed on a machine
 
-Useful for assessing security. Note that this query references `ConfigurationData`, which contains the logs for Inventory and reports the last reported configuration state, not changes.  
+Useful for assessing security. Note that this query references `ConfigurationData`, which contains the logs for Inventory and reports the last reported configuration state, not changes.
 
   ```kusto
   ConfigurationData | where SoftwareName contains "Monitoring Agent" and CurrentVersion != "8.0.11081.0"

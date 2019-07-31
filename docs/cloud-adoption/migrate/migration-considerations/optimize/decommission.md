@@ -3,7 +3,11 @@ title: "Decommission retired assets"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Decommission retired assets
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 04/04/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
 ---
 
 # Decommission retired assets

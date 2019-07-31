@@ -1,21 +1,21 @@
 ---
 title:  Cloud monitoring guide – monitoring platforms overview
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: Understand the basic monitoring capabilities and their differences that System Center Operations Manager and Azure Monitor deliver as a monitoring platform.
-services: azure-monitor
-keywords: 
+description: Choose when to use Azure Monitor or System Center Operations Manager in Microsoft Azure
 author: mgoedtel
 ms.author: magoedte
-ms.date: 07/24/2019
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
+ms.date: 07/31/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: operate
+services: azure-monitor
 ---
 
 # Cloud monitoring guide: Overview of our monitoring platforms
 
 Microsoft provides a range of monitoring capabilities from two products: System Center Operations Manager and Azure Monitor. These two offerings deliver core monitoring services, such as alerting, service uptime tracking, application and infrastructure health monitoring, diagnostics, and analytics.
 
-Many organizations are embracing the latest practices for DevOps agility and cloud innovations to manage their heterogenous environments. Yet they are also concerned about their ability to make appropriate and responsible decisions regarding how to monitor those workloads.  
+Many organizations are embracing the latest practices for DevOps agility and cloud innovations to manage their heterogenous environments. Yet they are also concerned about their ability to make appropriate and responsible decisions regarding how to monitor those workloads.
 
 This article provides a high-level overview of our monitoring platforms to help you understand how both deliver core monitoring functionality. 
 
@@ -23,7 +23,7 @@ This article provides a high-level overview of our monitoring platforms to help 
 
 ### Operations Manager
 
-Operations Manager requires significant infrastructure to support a management group, which is a basic unit of functionality.  At a minimum, a management group consists of one or more management servers, a SQL Server, hosting the operational and reporting data warehouse database, and agents. The complexity of a management group design depends on a number of factors, such as the scope of workloads to monitor, how many devices or computers support the workloads, and if you require high availability and site resiliency.  
+Operations Manager requires significant infrastructure to support a management group, which is a basic unit of functionality. At a minimum, a management group consists of one or more management servers, a SQL Server, hosting the operational and reporting data warehouse database, and agents. The complexity of a management group design depends on a number of factors, such as the scope of workloads to monitor, how many devices or computers support the workloads, and if you require high availability and site resiliency.
 
 ![Diagram of Operations Manager management group](./media/monitoring-management-guidance-cloud-and-on-premises/operations-manager-management-group-optimized.svg)
 
@@ -65,7 +65,7 @@ Because workflows are isolated from each other and work from the individual sour
 
 #### Data sources
 
-Azure Monitor collects data from a variety of sources, including Azure infrastructure and platform resources, agents on Windows and Linux computers, and monitoring data collected in Azure storage. Any REST client can write log data to Azure Monitor by using an API, and you can define custom metrics for your web applications. Some metric data can be routed to different locations, depending on its usage. For example, you might use the data for "fast-as-possible" alerting, or for long-term trend analysis searched in conjunction with other log data.  
+Azure Monitor collects data from a variety of sources, including Azure infrastructure and platform resources, agents on Windows and Linux computers, and monitoring data collected in Azure storage. Any REST client can write log data to Azure Monitor by using an API, and you can define custom metrics for your web applications. Some metric data can be routed to different locations, depending on its usage. For example, you might use the data for "fast-as-possible" alerting, or for long-term trend analysis searched in conjunction with other log data.
 
 #### Monitoring solutions and insights
 
@@ -75,7 +75,7 @@ Insights use the logs and metrics platform of Azure Monitor to provide a customi
 
 #### Workflows
 
-Azure Monitor separates data collection from actions taken against that data, which supports distributed microservices in a cloud environment. It consolidates data from multiple sources into a common data platform, and provides features or performing such monitoring tasks as analysis, visualization, and alerting base on that collected data. 
+Azure Monitor separates data collection from actions taken against that data, which supports distributed microservices in a cloud environment. It consolidates data from multiple sources into a common data platform, and provides features or performing such monitoring tasks as analysis, visualization, and alerting base on that collected data.
 
 Monitor stores all data collected either as logs or as metrics, and different features of Monitor rely on either. Metrics contain numerical values in time series that are well suited for near real-time alerting and fast detection of issues. Logs contain text or numerical data, and are supported by a powerful query language that make them especially useful for performing complex analysis.
 
@@ -85,15 +85,15 @@ Because Monitor separates data collection from actions against that data, it mig
 
 ### Operations Manager
 
-Management Packs in Operations Manager include a service model that describes the components of the application being monitored and their relationship. Monitors identify the current health state of each component based on data and scripts on the agent. Health states roll up so that you quickly view the summarized health state of monitored computers and applications. 
+Management Packs in Operations Manager include a service model that describes the components of the application being monitored and their relationship. Monitors identify the current health state of each component based on data and scripts on the agent. Health states roll up so that you quickly view the summarized health state of monitored computers and applications.
 
 ### Azure Monitor
 
-Azure Monitor doesn’t provide a standard means of implementing a service model or monitors that indicate the current health state of any service components. Because monitoring solutions are based on standard features of Azure Monitor, they don’t provide state level monitoring. The following features of Azure Monitor can be helpful: 
+Azure Monitor doesn’t provide a standard means of implementing a service model or monitors that indicate the current health state of any service components. Because monitoring solutions are based on standard features of Azure Monitor, they don’t provide state level monitoring. The following features of Azure Monitor can be helpful:
 
-* **Application Insights** builds a composite map of your web application, and provides a health state for each application component or dependency. This includes alerts status and drill-down to more detailed diagnostics, if your app uses Azure services.
-* **Azure Monitor for VMs** delivers a health monitoring experience for the guest Azure VMs, similar to Operations Manager, when monitoring Windows and Linux virtual machines. It evaluates the health of key operating system components from the perspective of availability and performance to determine the current health state. When it determines the guest VM is experiencing sustained resource utilization, disk space capacity, or an issue related to core operating system functionality, it generates an alert to bring this state to your attention.  
-* **Azure Monitor for containers** monitors the performance and health of Azure Kubernetes Services or Azure Container Instances. It collects memory and processor metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. It also collects container logs, and inventory data about containers and their images. Pre-defined health criteria based on the performance data collected help you identify if there is a resource bottleneck or capacity issue. You can also understand the overall performance, or the performance from a specific Kubernetes object type (pod, node, controller, or container).  
+- **Application Insights** builds a composite map of your web application, and provides a health state for each application component or dependency. This includes alerts status and drill-down to more detailed diagnostics, if your app uses Azure services.
+- **Azure Monitor for VMs** delivers a health monitoring experience for the guest Azure VMs, similar to Operations Manager, when monitoring Windows and Linux virtual machines. It evaluates the health of key operating system components from the perspective of availability and performance to determine the current health state. When it determines the guest VM is experiencing sustained resource utilization, disk space capacity, or an issue related to core operating system functionality, it generates an alert to bring this state to your attention.
+- **Azure Monitor for containers** monitors the performance and health of Azure Kubernetes Services or Azure Container Instances. It collects memory and processor metrics from controllers, nodes, and containers that are available in Kubernetes through the Metrics API. It also collects container logs, and inventory data about containers and their images. Pre-defined health criteria based on the performance data collected help you identify if there is a resource bottleneck or capacity issue. You can also understand the overall performance, or the performance from a specific Kubernetes object type (pod, node, controller, or container).
 
 ## Analyzing data
 
@@ -107,7 +107,7 @@ Operations Manager provides four basic ways to analyze data after it’s collect
 
 - **Reports** allow you to summarize historical data stored in the Operations Manager data warehouse. You can customize the data that views and reports are based on, but there is no feature to allow for complex or interactive analysis of collected data.
 
-- **Operations Manager Command Shell**, which extends Windows PowerShell with an additional set of cmdlets, can query and visualize collected data. This includes graphs and other visualizations, natively with PowerShell, or with the Operations Manager HTML-based web console.  
+- **Operations Manager Command Shell**, which extends Windows PowerShell with an additional set of cmdlets, can query and visualize collected data. This includes graphs and other visualizations, natively with PowerShell, or with the Operations Manager HTML-based web console.
 
 ### Azure Monitor
 
@@ -123,13 +123,14 @@ Management packs include various predefined alerting rules for different critica
 
 ### Azure Monitor
 
-Azure Monitor allows you to create alerts based on a metric crossing a threshold, or based on a scheduled query returning results. Alerts based on metrics can achieve near real-time results, while scheduled queries have a longer response time, depending on the speed of data ingestion and indexing. Instead of being limited to a specific agent, log query alerts in Azure Monitor allow you to analyze data across all data stored in multiple workspaces. These alerts also include data from a specific Application Insights app by using a cross-workspace query. 
+Azure Monitor allows you to create alerts based on a metric crossing a threshold, or based on a scheduled query returning results. Alerts based on metrics can achieve near real-time results, while scheduled queries have a longer response time, depending on the speed of data ingestion and indexing. Instead of being limited to a specific agent, log query alerts in Azure Monitor allow you to analyze data across all data stored in multiple workspaces. These alerts also include data from a specific Application Insights app by using a cross-workspace query.
 
-While monitoring solutions can include alert rules, typically you create them based on your own requirements. 
+While monitoring solutions can include alert rules, typically you create them based on your own requirements.
 
 ## Workflows
 
 ### Operations Manager
+
 Management packs in Operations Manager contain hundreds of individual workflows, and determine both what data to collect and what action to perform with that data. For example, a rule might sample a performance counter every few minutes, storing its results for analysis. A monitor might sample the same performance counter, and compare its value to a threshold to determine the health state of a monitored object. Another rule might run a script to collect and analyze some data on an agent computer, and fire an alert if it returned a particular value.
 
 Workflows in Operations Manager are independent of each other, so analysis across multiple monitored objects is difficult. These monitoring scenarios must be based on data after it's collected, which is possible but can be difficult, and isn’t common.
@@ -148,7 +149,7 @@ The Operations Manager SDK enables Operations Manager to integrate with third-pa
 
 ### Azure Monitor
 
-Azure Monitor collects metrics and logs from Azure resources, with little to no configuration. Monitoring solutions add logic for monitoring an application or service, but still work within the standard log queries and views in Monitor. Insights, such as Application Insights and Azure Monitor for VMs, use the Monitor platform for data collecting and processing, and also provide additional tools to visualize and analyze the data. You can combine data collected by insights with other data, by using core Monitor features such as log queries and alerts. 
+Azure Monitor collects metrics and logs from Azure resources, with little to no configuration. Monitoring solutions add logic for monitoring an application or service, but still work within the standard log queries and views in Monitor. Insights, such as Application Insights and Azure Monitor for VMs, use the Monitor platform for data collecting and processing, and also provide additional tools to visualize and analyze the data. You can combine data collected by insights with other data, by using core Monitor features such as log queries and alerts.
 
 Monitor supports several methods to collect monitoring or management data from Azure or external resources. You can then extract and forward data from the metric or log stores to your ITSM or monitoring tools, or perform administrative tasks by using the Azure Monitor REST API.
 

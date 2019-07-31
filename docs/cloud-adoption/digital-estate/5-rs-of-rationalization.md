@@ -3,10 +3,11 @@ title: "Cloud rationalization"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Review the options available for rationalizing a digital estate.
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 12/10/2018
 ms.topic: guide
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
+ms.service: cloud-adoption-framework
+ms.subservice: plan
 ms.custom: governance
 ---
 

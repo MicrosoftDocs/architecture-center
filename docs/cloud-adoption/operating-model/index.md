@@ -6,9 +6,9 @@ author: BrianBlanchard
 ms.author: brblanch
 ms.date: 05/19/2019
 ms.topic: article
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
-ms.custom: com
+ms.service: cloud-adoption-framework
+ms.subservice: overview
+ms.custom: operating-model
 ---
 
 # Operating model for the cloud
