@@ -193,11 +193,11 @@ You must also protect the data as it flows in and out of the cache. To do this, 
 
 ## Considerations for implementing caching in Azure
 
-[Azure Redis Cache](/azure/redis-cache/) is an implementation of the open source Redis cache that runs as a service in an Azure datacenter. It provides a caching service that can be accessed from any Azure application, whether the application is implemented as a cloud service, a website, or inside an Azure virtual machine. Caches can be shared by client applications that have the appropriate access key.
+[Azure Cache for Redis](/azure/redis-cache/) is an implementation of the open source Redis cache that runs as a service in an Azure datacenter. It provides a caching service that can be accessed from any Azure application, whether the application is implemented as a cloud service, a website, or inside an Azure virtual machine. Caches can be shared by client applications that have the appropriate access key.
 
-Azure Redis Cache is a high-performance caching solution that provides availability, scalability and security. It typically runs as a service spread across one or more dedicated machines. It attempts to store as much information as it can in memory to ensure fast access. This architecture is intended to provide low latency and high throughput by reducing the need to perform slow I/O operations.
+Azure Cache for Redis is a high-performance caching solution that provides availability, scalability and security. It typically runs as a service spread across one or more dedicated machines. It attempts to store as much information as it can in memory to ensure fast access. This architecture is intended to provide low latency and high throughput by reducing the need to perform slow I/O operations.
 
-Azure Redis Cache is compatible with many of the various APIs that are used by client applications. If you have existing applications that already use Azure Redis Cache running on-premises, the Azure Redis Cache provides a quick migration path to caching in the cloud.
+Azure Cache for Redis is compatible with many of the various APIs that are used by client applications. If you have existing applications that already use Azure Cache for Redis running on-premises, the Azure Cache for Redis provides a quick migration path to caching in the cloud.
 
 ### Features of Redis
 
@@ -257,11 +257,11 @@ Redis does not directly support any form of data encryption, so all encoding mus
 For more information, visit the [Redis security](https://redis.io/topics/security) page on the Redis website.
 
 > [!NOTE]
-> Azure Redis Cache provides its own security layer through which clients connect. The underlying Redis servers are not exposed to the public network.
+> Azure Cache for Redis provides its own security layer through which clients connect. The underlying Redis servers are not exposed to the public network.
 
 ### Azure Redis cache
 
-Azure Redis Cache provides access to Redis servers that are hosted at an Azure datacenter. It acts as a façade that provides access control and security. You can provision a cache by using the Azure portal.
+Azure Cache for Redis provides access to Redis servers that are hosted at an Azure datacenter. It acts as a façade that provides access control and security. You can provision a cache by using the Azure portal.
 
 The portal provides a number of predefined configurations. These range from a 53 GB cache running as a dedicated service that supports SSL communications (for privacy) and master/subordinate replication with an SLA of 99.9% availability, down to a 250 MB cache without replication (no availability guarantees) running on shared hardware.
 
@@ -275,29 +275,29 @@ Additionally, you can create alerts that send email messages to an administrator
 
 You can also monitor the CPU, memory, and network usage for the cache.
 
-For further information and examples showing how to create and configure an Azure Redis Cache, visit the page [Lap around Azure Redis Cache](https://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/) on the Azure blog.
+For further information and examples showing how to create and configure an Azure Cache for Redis, visit the page [Lap around Azure Cache for Redis](https://azure.microsoft.com/blog/2014/06/04/lap-around-azure-redis-cache-preview/) on the Azure blog.
 
 ## Caching session state and HTML output
 
-If you're building ASP.NET web applications that run by using Azure web roles, you can save session state information and HTML output in an Azure Redis Cache. The session state provider for Azure Redis Cache enables you to share session information between different instances of an ASP.NET web application, and is very useful in web farm situations where client-server affinity is not available and caching session data in-memory would not be appropriate.
+If you're building ASP.NET web applications that run by using Azure web roles, you can save session state information and HTML output in an Azure Cache for Redis. The session state provider for Azure Cache for Redis enables you to share session information between different instances of an ASP.NET web application, and is very useful in web farm situations where client-server affinity is not available and caching session data in-memory would not be appropriate.
 
-Using the session state provider with Azure Redis Cache delivers several benefits, including:
+Using the session state provider with Azure Cache for Redis delivers several benefits, including:
 
 - Sharing session state with a large number of instances of ASP.NET web applications.
 - Providing improved scalability.
 - Supporting controlled, concurrent access to the same session state data for multiple readers and a single writer.
 - Using compression to save memory and improve network performance.
 
-For more information, see [ASP.NET session state provider for Azure Redis Cache](/azure/redis-cache/cache-aspnet-session-state-provider/).
+For more information, see [ASP.NET session state provider for Azure Cache for Redis](/azure/redis-cache/cache-aspnet-session-state-provider/).
 
 > [!NOTE]
-> Do not use the session state provider for Azure Redis Cache with ASP.NET applications that run outside of the Azure environment. The latency of accessing the cache from outside of Azure can eliminate the performance benefits of caching data.
+> Do not use the session state provider for Azure Cache for Redis with ASP.NET applications that run outside of the Azure environment. The latency of accessing the cache from outside of Azure can eliminate the performance benefits of caching data.
 
-Similarly, the output cache provider for Azure Redis Cache enables you to save the HTTP responses generated by an ASP.NET web application. Using the output cache provider with Azure Redis Cache can improve the response times of applications that render complex HTML output. Application instances that generate similar responses can use the shared output fragments in the cache rather than generating this HTML output afresh. For more information, see [ASP.NET output cache provider for Azure Redis Cache](/azure/redis-cache/cache-aspnet-output-cache-provider/).
+Similarly, the output cache provider for Azure Cache for Redis enables you to save the HTTP responses generated by an ASP.NET web application. Using the output cache provider with Azure Cache for Redis can improve the response times of applications that render complex HTML output. Application instances that generate similar responses can use the shared output fragments in the cache rather than generating this HTML output afresh. For more information, see [ASP.NET output cache provider for Azure Cache for Redis](/azure/redis-cache/cache-aspnet-output-cache-provider/).
 
 ## Building a custom Redis cache
 
-Azure Redis Cache acts as a façade to the underlying Redis servers. If you require an advanced configuration that is not covered by the Azure Redis cache (such as a cache bigger than 53 GB) you can build and host your own Redis servers by using Azure virtual machines.
+Azure Cache for Redis acts as a façade to the underlying Redis servers. If you require an advanced configuration that is not covered by the Azure Redis cache (such as a cache bigger than 53 GB) you can build and host your own Redis servers by using Azure virtual machines.
 
 This is a potentially complex process because you might need to create several VMs to act as master and subordinate nodes if you want to implement replication. Furthermore, if you wish to create a cluster, then you need multiple masters and subordinate servers. A minimal clustered replication topology that provides a high degree of availability and scalability comprises at least six VMs organized as three pairs of master/subordinate servers (a cluster must contain at least three master nodes).
 
@@ -320,19 +320,19 @@ For a cache, the most common form of partitioning is sharding. In this strategy,
 To implement partitioning in a Redis cache, you can take one of the following approaches:
 
 - *Server-side query routing.* In this technique, a client application sends a request to any of the Redis servers that comprise the cache (probably the closest server). Each Redis server stores metadata that describes the partition that it holds, and also contains information about which partitions are located on other servers. The Redis server examines the client request. If it can be resolved locally, it will perform the requested operation. Otherwise it will forward the request on to the appropriate server. This model is implemented by Redis clustering, and is described in more detail on the [Redis cluster tutorial](https://redis.io/topics/cluster-tutorial) page on the Redis website. Redis clustering is transparent to client applications, and additional Redis servers can be added to the cluster (and the data re-partitioned) without requiring that you reconfigure the clients.
-- *Client-side partitioning.* In this model, the client application contains logic (possibly in the form of a library) that routes requests to the appropriate Redis server. This approach can be used with Azure Redis Cache. Create multiple Azure Redis Caches (one for each data partition) and implement the client-side logic that routes the requests to the correct cache. If the partitioning scheme changes (if additional Azure Redis Caches are created, for example), client applications might need to be reconfigured.
-- *Proxy-assisted partitioning.* In this scheme, client applications send requests to an intermediary proxy service which understands how the data is partitioned and then routes the request to the appropriate Redis server. This approach can also be used with Azure Redis Cache; the proxy service can be implemented as an Azure cloud service. This approach requires an additional level of complexity to implement the service, and requests might take longer to perform than using client-side partitioning.
+- *Client-side partitioning.* In this model, the client application contains logic (possibly in the form of a library) that routes requests to the appropriate Redis server. This approach can be used with Azure Cache for Redis. Create multiple Azure Cache for Rediss (one for each data partition) and implement the client-side logic that routes the requests to the correct cache. If the partitioning scheme changes (if additional Azure Cache for Rediss are created, for example), client applications might need to be reconfigured.
+- *Proxy-assisted partitioning.* In this scheme, client applications send requests to an intermediary proxy service which understands how the data is partitioned and then routes the request to the appropriate Redis server. This approach can also be used with Azure Cache for Redis; the proxy service can be implemented as an Azure cloud service. This approach requires an additional level of complexity to implement the service, and requests might take longer to perform than using client-side partitioning.
 
 The page [Partitioning: how to split data among multiple Redis instances](https://redis.io/topics/partitioning)
 on the Redis website provides further information about implementing partitioning with Redis.
 
 ### Implement Redis cache client applications
 
-Redis supports client applications written in numerous programming languages. If you are building new applications by using the .NET Framework, the recommended approach is to use the StackExchange.Redis client library. This library provides a .NET Framework object model that abstracts the details for connecting to a Redis server, sending commands, and receiving responses. It is available in Visual Studio as a NuGet package. You can use this same library to connect to an Azure Redis Cache, or a custom Redis cache hosted on a VM.
+Redis supports client applications written in numerous programming languages. If you are building new applications by using the .NET Framework, the recommended approach is to use the StackExchange.Redis client library. This library provides a .NET Framework object model that abstracts the details for connecting to a Redis server, sending commands, and receiving responses. It is available in Visual Studio as a NuGet package. You can use this same library to connect to an Azure Cache for Redis, or a custom Redis cache hosted on a VM.
 
 To connect to a Redis server you use the static `Connect` method of the `ConnectionMultiplexer` class. The connection that this method creates is designed to be used throughout the lifetime of the client application, and the same connection can be used by multiple concurrent threads. Do not reconnect and disconnect each time you perform a Redis operation because this can degrade performance.
 
-You can specify the connection parameters, such as the address of the Redis host and the password. If you are using Azure Redis Cache, the password is either the primary or secondary key that is generated for Azure Redis Cache by using the Azure portal.
+You can specify the connection parameters, such as the address of the Redis host and the password. If you are using Azure Cache for Redis, the password is either the primary or secondary key that is generated for Azure Cache for Redis by using the Azure portal.
 
 After you have connected to the Redis server, you can obtain a handle on the Redis database that acts as the cache. The Redis connection provides the `GetDatabase` method to do this. You can then retrieve items from the cache and store data in the cache by using the `StringGet` and `StringSet` methods. These methods expect a key as a parameter, and return the item either in the cache that has a matching value (`StringGet`) or add the item to the cache with this key (`StringSet`).
 
@@ -476,7 +476,7 @@ var customer1 = cache.Wait(task1);
 var customer2 = cache.Wait(task2);
 ```
 
-For additional information on writing client applications that can the Azure Redis Cache, see the [Azure Cache for Redis documentation](/azure/azure-cache-for-redis/). More information is also available at [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/docs/Basics.md).
+For additional information on writing client applications that can the Azure Cache for Redis, see the [Azure Cache for Redis documentation](/azure/azure-cache-for-redis/). More information is also available at [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis/blob/master/docs/Basics.md).
 
 The page [Pipelines and multiplexers](https://stackexchange.github.io/StackExchange.Redis/PipelinesMultiplexers) on the same website provides more information about asynchronous operations and pipelining with Redis and the StackExchange library.
 
@@ -898,8 +898,8 @@ The following patterns might also be relevant to your scenario when you implemen
 
 ## More information
 
-- [Azure Redis Cache documentation](/azure/azure-cache-for-redis/)
-- [Azure Redis Cache FAQ](/azure/redis-cache/cache-faq)
+- [Azure Cache for Redis documentation](/azure/azure-cache-for-redis/)
+- [Azure Cache for Redis FAQ](/azure/redis-cache/cache-faq)
 - [Task-based Asynchronous pattern](/dotnet/standard/asynchronous-programming-patterns/task-based-asynchronous-pattern-tap)
 - [Redis documentation](https://redis.io/documentation)
 - [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/)

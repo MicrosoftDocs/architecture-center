@@ -16,7 +16,7 @@ Here is a summary of the steps:
 
 1. Create an Azure AD directory (tenant) for the fictitious Tailspin company.
 2. Register the Surveys application and the backend web API with Azure AD.
-3. Create an Azure Redis Cache instance.
+3. Create an Azure Cache for Redis instance.
 4. Configure application settings and create a local database.
 5. Run the application and sign up a new tenant.
 6. Add application roles to users.
@@ -184,11 +184,11 @@ To complete the end-to-end scenario, you'll need a second Azure AD directory to 
 
 Now repeat the same steps for the Surveys app, except do not add an entry for `knownClientApplications`. Use the same role definitions, but generate new GUIDs for the IDs.
 
-## Create a new Redis Cache instance
+## Create a new Azure Cache for Redis instance
 
-The Surveys application uses Redis to cache OAuth 2 access tokens. To create the cache:
+The Surveys application uses Azure Cache for Redis to cache OAuth 2 access tokens. To create the cache:
 
-1. Go to the [Azure portal](https://portal.azure.com) and click **+ Create a Resource** > **Databases** > **Redis Cache**.
+1. Go to the [Azure portal](https://portal.azure.com) and click **+ Create a Resource** > **Databases** > **Azure Cache for Redis**.
 
 2. Fill in the required information, including DNS name, resource group, location, and pricing tier. You can create a new resource group or use an existing resource group.
 
@@ -198,7 +198,7 @@ The Surveys application uses Redis to cache OAuth 2 access tokens. To create the
 
 5. Click **Access keys** and copy the primary key.
 
-For more information about creating a Redis cache, see [How to Use Azure Redis Cache](/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache).
+For more information about creating a Redis cache, see [How to Use Azure Cache for Redis](/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache).
 
 ## Set application secrets
 

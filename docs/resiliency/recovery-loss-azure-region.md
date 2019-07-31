@@ -38,7 +38,7 @@ Many alternative strategies are available for implementing distributed compute a
 
 - **Warm Spare (Active/Passive)**: A secondary hosted service is created in an alternate region, and roles are deployed to guarantee minimal capacity; however, the roles don’t receive production traffic. This approach is useful for applications that have not been designed to distribute traffic across regions.
 
-- **Hot Spare (Active/Active)**: The application is designed to receive production load in multiple regions. The cloud services in each region might be configured for higher capacity than required for disaster recovery purposes. Alternatively, the cloud services might scale out as necessary at the time of a disaster and failover. This approach requires substantial investment in application design, but it has significant benefits. These include low and guaranteed recovery time, continuous testing of all recovery locations, and efficient usage of capacity.
+- **Hot Spare (Active/Active)**: The application is designed to receive production load in multiple regions. The cloud services in each region might be configured for higher capacity than required for disaster recovery purposes. Alternatively, the cloud services might scale out as necessary at the time of a disaster and fail over. This approach requires substantial investment in application design, but it has significant benefits. These include low and guaranteed recovery time, continuous testing of all recovery locations, and efficient usage of capacity.
 
 A complete discussion of distributed design is outside the scope of this document. For further information, see [Disaster Recovery and High Availability for Azure Applications](https://aka.ms/drtechguide).
 
@@ -67,7 +67,7 @@ For more information about both GRS and RA-GRS storage, see [Azure Storage repli
 
 ### Geo-Replication region mappings
 
-It is important to know where your data is geo-replicated, in order to know where to deploy the other instances of your data that require regional affinity with your storage. For more information see [Azure Paired Regions](/azure/best-practices-availability-paired-regions).
+It is important to know where your data is geo-replicated, in order to know where to deploy the other instances of your data that require regional affinity with your storage. For more information, see [Azure Paired Regions](/azure/best-practices-availability-paired-regions).
 
 ### Geo-Replication pricing
 
@@ -138,43 +138,43 @@ Configuration files provide the quickest way to set up a virtual network in an a
 
 ## Checklists for disaster recovery
 
-## Cloud Services checklist
+### Cloud Services checklist
 
 1. Review the Cloud Services section of this document.
 2. Create a cross-region disaster recovery strategy.
 3. Understand trade-offs in reserving capacity in alternate regions.
 4. Use traffic routing tools, such as Azure Traffic Manager.
 
-## Virtual Machines checklist
+### Virtual Machines checklist
 
 1. Review the Virtual Machines section of this document.
 2. Use [Azure Backup](https://azure.microsoft.com/services/backup/) to create application consistent backups across regions.
 
-## Storage checklist
+### Storage checklist
 
 1. Review the Storage section of this document.
 2. Do not disable geo-replication of storage resources.
 3. Understand alternate region for geo-replication in the event of failover.
 4. Create custom backup strategies for user-controlled failover strategies.
 
-## SQL Database checklist
+### SQL Database checklist
 
 1. Review the SQL Database section of this document.
 2. Use [Geo-Restore](/azure/sql-database/sql-database-recovery-using-backups/#geo-restore) or [Geo-Replication](/azure/sql-database/sql-database-geo-replication-overview/) as appropriate.
 
-## SQL Server on Virtual Machines checklist
+### SQL Server on Virtual Machines checklist
 
 1. Review the SQL Server on Virtual Machines section of this document.
 2. Use cross-region AlwaysOn Availability Groups or database mirroring.
 3. Alternately use backup and restore to blob storage.
 
-## Service Bus checklist
+### Service Bus checklist
 
 1. Review the Service Bus section of this document.
 2. Configure a Service Bus namespace in an alternate region.
 3. Consider custom replication strategies for messages across regions.
 
-## App Service checklist
+### App Service checklist
 
 1. Review the App Service section of this document.
 2. Maintain site backups outside of the primary region.
@@ -182,25 +182,25 @@ Configuration files provide the quickest way to set up a virtual network in an a
 4. Plan to deploy the site to new or existing site in an alternate region.
 5. Plan configuration changes for both application and DNS CNAME records.
 
-## HDInsight checklist
+### HDInsight checklist
 
 1. Review the HDInsight section of this document.
 2. Create a new Hadoop cluster in the region with replicated data.
 
-## SQL Reporting checklist
+### SQL Reporting checklist
 
 1. Review the SQL Reporting section of this document.
 2. Maintain an alternate SQL Reporting instance in a different region.
 3. Maintain a separate plan to replicate the target to that region.
 
-## Media Services checklist
+### Media Services checklist
 
 1. Review the Media Services section of this document.
 2. Create a Media Services account in an alternate region.
 3. Encode the same content in both regions to support streaming failover.
 4. Submit encoding jobs to an alternate region in the event of a service disruption.
 
-## Virtual Network checklist
+### Virtual Network checklist
 
 1. Review the Virtual Network section of this document.
 2. Use exported virtual network settings to re-create it in another region.
