@@ -261,7 +261,7 @@ For more information, see [Deploy resources with Azure Resource Manager template
 [sql-db-v12]: /azure/sql-database/sql-database-features
 [sql-dtu]: /azure/sql-database/sql-database-service-tiers
 [sql-human-error]: /azure/sql-database/sql-database-business-continuity#recover-a-database-within-the-same-azure-region
-[sql-outage-recovery]: /azure/sql-database/sql-database-business-continuity#recover-a-database-to-another-azure-region
+[sql-outage-recovery]: /azure/sql-database/sql-database-recovery-using-backups#geo-restore
 [ssl-redirect]: /azure/app-service-web/web-sites-configure-ssl-certificate#bkmk_enforce
 [sql-resource-limits]: /azure/sql-database/sql-database-resource-limits
 [ssl-cert]: /azure/app-service-web/web-sites-purchase-ssl-web-site
