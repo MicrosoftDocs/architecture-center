@@ -217,7 +217,7 @@ and third-party [Software as a Service providers](https://docs.microsoft.com/azu
 
 Authentication for all users should include measurement and enforcement of key
 security attributes to support a Zero Trust strategy. The details of this
-recommendation are in the administration section [Enforce conditional access for ADMINS (Zero Trust)](/azure/architecture/security/critical-impact-accounts#enforce-conditional-access-for-admins-zero-trust). The same recommendation applies to all users, but should be applied
+recommendation are in the administration section [Enforce conditional access for ADMINS (Zero Trust)](/azure/architecture/security/critical-impact-accounts#enforce-conditional-access-for-admins---zero-trust). The same recommendation applies to all users, but should be applied
 first to accounts with administrative privileges.
 
 You can also reduce use of passwords by applications using [Managed Identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)
