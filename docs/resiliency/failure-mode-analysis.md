@@ -16,7 +16,7 @@ Failure mode analysis (FMA) is a process for building resiliency into a system, 
 Here is the general process to conduct an FMA:
 
 1. Identify all of the components in the system. Include external dependencies, such as identity providers, third-party services, and so on.
-2. For each component, identify potential failures that could occur. A single component may have more than one failure mode. For example, you should consider read failures and write failures separately, because the impact and possible mitigations will be different.
+2. For each component, identify potential failures that could occur. A single component may have more than one failure mode. For example, you should consider read failures and write failures separately, because the impact and possible mitigation steps will be different.
 3. Rate each failure mode according to its overall risk. Consider these factors:
 
    - What is the likelihood of the failure. Is it relatively common? Extremely rare? You don't need exact numbers; the purpose is to help rank the priority.
@@ -24,7 +24,7 @@ Here is the general process to conduct an FMA:
 
 4. For each failure mode, determine how the application will respond and recover. Consider tradeoffs in cost and application complexity.
 
-As a starting point for your FMA process, this article contains a catalog of potential failure modes and their mitigations. The catalog is organized by technology or Azure service, plus a general category for application-level design. The catalog is not exhaustive, but covers many of the core Azure services.
+As a starting point for your FMA process, this article contains a catalog of potential failure modes and their mitigation steps. The catalog is organized by technology or Azure service, plus a general category for application-level design. The catalog is not exhaustive, but covers many of the core Azure services.
 
 ## App Service
 
@@ -75,12 +75,12 @@ Application_End logging will catch the app domain shutdown (soft process crash) 
 
 ## Azure Active Directory
 
-### OpenID Connect (OIDC) authentication fails.
+### OpenID Connect authentication fails.
 
 **Detection**. Possible failure modes include:
 
-1. Azure AD is not available, or cannot be reached due to a network problem. Redirection to the authentication endpoint fails, and the OIDC middleware throws an exception.
-2. Azure AD tenant does not exist. Redirection to the authentication endpoint returns an HTTP error code, and the OIDC middleware throws an exception.
+1. Azure AD is not available, or cannot be reached due to a network problem. Redirection to the authentication endpoint fails, and the OpenID Connect middleware throws an exception.
+2. Azure AD tenant does not exist. Redirection to the authentication endpoint returns an HTTP error code, and the OpenID Connect middleware throws an exception.
 3. User cannot authenticate. No detection strategy is necessary; Azure AD handles login failures.
 
 **Recovery:**
@@ -230,7 +230,7 @@ Consider using Azure Service Bus Messaging queues, which provides a [dead-letter
 
 **Recovery:**
 
-1. Retry on transient failures. Azure Redis cache supports built-in retry. For more information, see [Azure Cache for Redis retry guidelines][redis-retry].
+1. Retry on transient failures. Azure Cache for Redis supports built-in retry. For more information, see [Azure Cache for Redis retry guidelines][redis-retry].
 2. Treat non-transient failures as a cache miss, and fall back to the original data source.
 
 **Diagnostics**. Use [Azure Cache for Redis diagnostics][redis-monitor].
@@ -241,7 +241,7 @@ Consider using Azure Service Bus Messaging queues, which provides a [dead-letter
 
 **Recovery:**
 
-1. Retry on transient failures. Azure Redis cache supports built-in retry. For more information, see [Azure Cache for Redis retry guidelines][redis-retry].
+1. Retry on transient failures. Azure Cache for Redis supports built-in retry. For more information, see [Azure Cache for Redis retry guidelines][redis-retry].
 2. If the error is non-transient, ignore it and let other transactions write to the cache later.
 
 **Diagnostics**. Use [Azure Cache for Redis diagnostics][redis-monitor].
