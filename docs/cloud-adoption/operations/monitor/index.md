@@ -23,7 +23,7 @@ This digital transformation is also enabling an opportunity to modernize your in
 
 Stakeholders want to use cloud-based, software as a service (SaaS) monitoring and management tools. They need to understand what services and solutions deliver in order to achieve end-to-end visibility, reduce costs, and focus less on infrastructure and maintenance of traditional software-based IT operations tools.
 
-However, IT often prefers to use the tools they have already made a significant investment in. This supports their service operations processes to monitor both, with the eventual goal of transitioning to a SaaS-based offering. This choice is not only because it takes time planning, resources, and funding to switch. It's also due to confusion about which products or Azure services are appropriate or applicable to achieve the transition.
+However, IT often prefers to use the tools they have already made a significant investment in. This supports their service operations processes to monitor both cloud models, with the eventual goal of transitioning to a SaaS-based offering. This choice is not only because it takes time planning, resources, and funding to switch. It's also due to confusion about which products or Azure services are appropriate or applicable to achieve the transition.
 
 The goal of this guide is to provide a detailed reference to help enterprise IT managers, business decision makers, application architects, and application developers understand:
 
@@ -42,8 +42,7 @@ This guide is primarily useful for enterprise administrators, IT operations, IT 
 This article is part of a series. The following articles are meant to be read together, in order:
 
 * Introduction (this article)
-* [Overview of the Azure monitoring platform](./platform-overview.md)
-* [Monitoring Azure cloud applications](./cloud-app-howto.md)
+* [Monitoring strategy for cloud deployment models](./cloud-app-howto.md)
 * [Collecting the right data](./data-collection.md)
 * [Alerting](./alert.md)
 
@@ -63,4 +62,4 @@ This first version of the guide covers our current monitoring platforms - Azure 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Overview of the Azure monitoring platform](./platform-overview.md)
+> [Monintoring strategy for cloud deployment models](./platform-overview.md)
