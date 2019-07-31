@@ -397,31 +397,20 @@ If the last exception encountered was **ServerBusyException**, the **RetryExpone
 
 Custom implementations could use a combination of the exception type and the **IsTransient** property to provide more fine-grained control over retry actions. For example, you could detect a **QuotaExceededException** and take action to drain the queue before retrying sending a message to it.
 
-To set the default retry policy for a messaging session, set the **RetryPolicy** of the **NamespaceManager**.
+The following code sets the retry policy on a Service Bus client using the `Microsoft.Azure.ServiceBus` library:
 
 ```csharp
-namespaceManager.Settings.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
-                                                                maxBackoff: TimeSpan.FromSeconds(30),
-                                                                maxRetryCount: 3);
+const string QueueName = "queue1";
+const string ServiceBusConnectionString = "<your_connection_string>";
+
+var policy = new RetryExponential(
+    minimumBackoff: TimeSpan.FromSeconds(10),
+    maximumBackoff: TimeSpan.FromSeconds(30),
+    maximumRetryCount: 3);
+var queueClient = new QueueClient(ServiceBusConnectionString, QueueName, ReceiveMode.PeekLock, policy);
 ```
 
-To set the default retry policy for all clients created from a messaging factory, set the **RetryPolicy** of the **MessagingFactory**.
-
-```csharp
-messagingFactory.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
-                                                    maxBackoff: TimeSpan.FromSeconds(30),
-                                                    maxRetryCount: 3);
-```
-
-To set the retry policy for a messaging client, or to override its default policy, set its **RetryPolicy** property:
-
-```csharp
-client.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
-                                            maxBackoff: TimeSpan.FromSeconds(30),
-                                            maxRetryCount: 3);
-```
-
-The retry policy cannot be set at the individual operation level. It applies to all operations for the messaging client.
+The retry policy cannot be set at the individual operation level. It applies to all operations for the client.
 
 ### Retry usage guidance
 
