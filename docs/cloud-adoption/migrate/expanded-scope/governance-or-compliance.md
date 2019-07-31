@@ -43,7 +43,7 @@ During assessment, additional decisions are required to align to the required go
 
 ### Suggested action during the assess process
 
-Governance and compliance assessment requirements are too customer-specific to provide general guidance on the actual steps taken during assessment. However, it is advised that the process includes tasks and time allocations for "alignment to compliance/governance requirements". For additional understanding of these requirements see the following links:
+Governance and compliance assessment requirements are too customer-specific to provide general guidance on the actual steps taken during assessment. However, it is advised that the process includes tasks and time allocations for "alignment to compliance/governance requirements". For additional understanding of these requirements, see the following links:
 
 For a deeper understanding of governance, review the [Five Disciplines of Cloud Governance overview](/azure/architecture/cloud-adoption/governance/governance-disciplines). This section of the Cloud Adoption Framework also includes templates to document the policies, guidance, and requirements for each of the five sections:
 
