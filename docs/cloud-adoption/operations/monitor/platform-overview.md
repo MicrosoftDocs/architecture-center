@@ -135,11 +135,11 @@ Azure Monitor doesn’t provide a user definable method of implementing a servic
 
 Operations Manager provides four basic ways to analyze data after it’s collected.
 
-- With **Health Explorer**, you can find out which monitor is reflecting a health state issue and review knowledge about the monitor and possible causes for actions related to it.
+- With **Health Explorer**, you can find out which monitors are identifying a health state issue and review knowledge about the monitor and possible causes for actions related to it.
 
 - **Views** are predefined visualizations of collected data, such as a graph of performance data or a list of monitored components and their current health state. Diagram views visually present the service model of an application.
 
-- **Reports** allow you to summarize historical data stored in the Operations Manager data warehouse. You can customize the data that views and reports are based on, but there is no feature to allow for complex or interactive analysis of collected data.
+- **Reports** allow you to summarize historical data stored in the Operations Manager data warehouse. You can customize the data that views and reports are based on. However, there is no feature to allow for complex or interactive analysis of collected data.
 
 - **Operations Manager Command Shell**, which extends Windows PowerShell with an additional set of cmdlets, can query and visualize collected data. This includes graphs and other visualizations, natively with PowerShell, or with the Operations Manager HTML-based web console.
 
