@@ -57,7 +57,7 @@ SAP provides flexible options for different combinations of operating system, da
 
 ## Considerations
 
-- Recommended practices are defined for building highly available SAP environments in Azure. For more information, see [High-availability architecture and scenarios for SAP NetWeaver](/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios). Also see [High availability of SAP applications on Azure VMs](/azure/virtual-machines/workloads/sap/high-availability-guide).
+- Recommended practices are defined for building highly available SAP environments in Azure. For more information, see [High-availability architecture and scenarios for SAP NetWeaver](/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios). Also, see [High availability of SAP applications on Azure VMs](/azure/virtual-machines/workloads/sap/high-availability-guide).
 
 - Oracle databases also have recommended practices for Azure. For more information, see [Designing and implementing an Oracle database in Azure](/azure/virtual-machines/workloads/oracle/oracle-design).
 
@@ -87,7 +87,7 @@ Extra Large|250000|M64s|6xP30, 1xP30|DS11_v2|1x P10|10x DS14_v2|1x P10|[Extra La
 
 - [Large](https://azure.com/e/f70fccf571e948c4b37d4fecc07cbf42): A large system consists of VM type E32s_v3 for the database server with 32x vCPUs, 256-GB RAM and 800-GB temp storage, additionally three 512 GB and one 128-GB premium storage disks. An SAP Central Instance server using a DS11_v2 VM types with 2x vCPUs 14-GB RAM and 28-GB temp storage. Six VM type DS14_v2 for the SAP application servers with 16x vCPUs, 112 GB RAM, and 224 GB temp storage, additionally six 128-GB premium storage disk.
 
-- [Extra Large](https://azure.com/e/58c636922cf94faf9650f583ff35e97b): An extra large system consists of the M64s VM type for the database server with 64x vCPUs, 1024 GB RAM, and 2000 GB temp storage, additionally seven 1024-GB premium storage disks. An SAP Central Instance server using a DS11_v2 VM types with 2x vCPUs 14-GB RAM and 28-GB temp storage. 10 VM type DS14_v2 for the SAP application servers with 16x vCPUs, 112 GB RAM, and 224 GB temp storage, additionally ten 128-GB premium storage disk.
+- [Extra Large](https://azure.com/e/58c636922cf94faf9650f583ff35e97b): An extra-large system consists of the M64s VM type for the database server with 64x vCPUs, 1024 GB RAM, and 2000 GB temp storage, additionally seven 1024-GB premium storage disks. An SAP Central Instance server using a DS11_v2 VM types with 2x vCPUs 14-GB RAM and 28-GB temp storage. 10 VM type DS14_v2 for the SAP application servers with 16x vCPUs, 112 GB RAM, and 224 GB temp storage, additionally ten 128-GB premium storage disk.
 
 ## Deployment
 

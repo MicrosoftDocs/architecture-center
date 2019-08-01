@@ -280,7 +280,7 @@ DMS isn't the only Microsoft database migration tool. Get a [comparison of tools
 
 Contoso will use DMS when migrating from SQL Server.
 
-- When provisioning DMS, Contoso needs to ensure that it's sized correctly, and set to optimize performance for data migrations. Contoso will select the "business-critical tier with 4 vCores" option, thus allowing the service to take advantage of multiple vCPUs for parallelization and faster data transfer.
+- When provisioning DMS, Contoso needs to size it correctly and set it to optimize performance for data migrations. Contoso will select the "business-critical tier with 4 vCores" option, thus allowing the service to take advantage of multiple vCPUs for parallelization and faster data transfer.
 
     ![DMS scaling](./media/contoso-migration-scale/dms.png)
 

@@ -1,23 +1,25 @@
 ---
 title: "Small-to-medium enterprise: The narrative behind the governance strategy"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
-ms.custom: governance
-ms.date: 02/11/2019
 description: This narrative establishes a use case for a small-to-medium enterprise governance journey.
 author: BrianBlanchard
+ms.author: brblanch
+ms.date: 02/11/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: govern
+ms.custom: governance
 ---
 
 # Small-to-medium enterprise: The narrative behind the governance strategy
 
-The following narrative describes the use case for the [small-to-medium enterprise governance journey](./index.md). Before implementing the journey, it’s important to understand the assumptions and reasoning that are reflected in this narrative. Then you can better align the governance strategy to your own organization’s journey.
+The following narrative describes the use case for the [small-to-medium enterprise governance journey](./index.md). Before implementing the journey, it’s important to understand the assumptions and rationale that are reflected in this narrative. Then you can better align the governance strategy to your own organization’s journey.
 
 ## Back story
 
 The board of directors started the year with plans to energize the business in several ways. They are pushing leadership to improve customer experiences to gain market share. They are also pushing for new products and services that will position the company as a thought leader in the industry. They also initiated a parallel effort to reduce waste and cut unnecessary costs. Though intimidating, the actions of the board and leadership show that this effort is focusing as much capital as possible on future growth.
 
-In the past, the company’s CIO has been excluded from these strategic conversations. However, because the future vision is intrinsically linked to technical growth, IT has a seat at the table to help guide these big plans. IT is now expected to deliver in new ways. The team isn’t really prepared for these changes and is likely to struggle with the learning curve.
+In the past, the company’s CIO has been excluded from these strategic conversations. However, because the future vision is intrinsically linked to technical growth, IT has a seat at the table to help guide these big plans. IT is now expected to deliver in new ways. The team isn’t prepared for these changes and is likely to struggle with the learning curve.
 
 ## Business characteristics
 

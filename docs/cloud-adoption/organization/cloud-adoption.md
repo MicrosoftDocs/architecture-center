@@ -6,8 +6,8 @@ author: BrianBlanchard
 ms.author: brblanch
 ms.date: 07/04/2019
 ms.topic: article
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
+ms.service: cloud-adoption-framework
+ms.subservice: organize
 ms.custom: organize
 ---
 
@@ -17,7 +17,7 @@ Cloud adoption capabilities allow for the implementation of technical solutions 
 
 ## Possible sources for this capability
 
-Cloud adoption teams are the modern-day equivalent of technical implementation teams or project teams. However, the nature of the cloud may require a more fluid team structure. Some teams focus exclusively on cloud migration, while other teams focus on innovations that leverage cloud technologies. Some teams include the broad technical expertise required to complete large adoption efforts, like a full datacenter migration. Other teams have a tighter technical focus and may move between projects to accomplish specific goals. One example would be a team of data platform specialists who help convert SQL VMs to SQL PaaS instances.
+Cloud adoption teams are the modern-day equivalent of technical implementation teams or project teams. However, the nature of the cloud may require a more fluid team structure. Some teams focus exclusively on cloud migration, while other teams focus on innovations that take advantage of cloud technologies. Some teams include the broad technical expertise required to complete large adoption efforts, like a full datacenter migration. Other teams have a tighter technical focus and may move between projects to accomplish specific goals. One example would be a team of data platform specialists who help convert SQL VMs to SQL PaaS instances.
 
 Regardless of the type or number of cloud adoption teams, the cloud adoption capability is provided by subject matter experts found in IT, business analysis, or implementation partners.
 

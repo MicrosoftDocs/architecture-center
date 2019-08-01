@@ -1,14 +1,15 @@
 ---
 title: "Getting started with governance"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
-ms.custom: governance
 description: Getting started with governance
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 01/03/2019
-layout: LandingPage
 ms.topic: landing-page
+ms.service: cloud-adoption-framework
+ms.subservice: govern
+ms.custom: governance
+layout: LandingPage
 ---
 
 # Getting started with governance

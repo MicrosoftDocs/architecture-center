@@ -1,14 +1,15 @@
 ---
 title: "Actionable governance journeys"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
-ms.custom: governance
-ms.date: 02/11/2019
 description: Actionable governance journeys
 author: BrianBlanchard
-layout: LandingPage
+ms.author: brblanch
+ms.date: 02/11/2019
 ms.topic: landing-page
+ms.service: cloud-adoption-framework
+ms.subservice: govern
+ms.custom: governance
+layout: LandingPage
 ---
 
 # Actionable governance journeys
@@ -153,12 +154,11 @@ A virtual datacenter can be thought of as your own isolated cloud within the Azu
 Although smaller teams may benefit from the models and recommendations the Azure Virtual Datacenter provides, this approach is designed to guide enterprise IT groups managing large cloud environments. For organizations that meet the following criteria it's recommended that you consider consulting the Azure Virtual Datacenter guidance when designing your Azure-based cloud infrastructure:
 
 - Your enterprise is subject to regulatory compliance requirements that require centralized monitoring and audit capabilities.
-- Your cloud estate will consist of over 10,000 IaaS VMs or an equivalent scale of PaaS services.
-- You need to enable agile deployment capabilities for workloads in support of developer and operations teams, while maintaining common policy and governance compliance and central IT control over core services.
-- Your industry depends on a complex platform that requires deep domain expertise (for example, finance, oil and gas, or manufacturing).
+- You need to maintain common policy and governance compliance and central IT control over core services.
+- Your industry depends on a complex platform which requires complex controls and deep domain expertise to govern the platform. This is most common in large enterprises within finance, oil and gas, or manufacturing.
 - Your existing IT governance policies require tighter parity with existing features, even during early stage adoption.
 
-For more information, visit the [Azure Virtual Datacenter](/azure/architecture/vdc) section of the Cloud Adoption Framework site.
+For more information, visit the [Azure Virtual Datacenter](/azure/architecture/vdc) section of the Cloud Adoption Framework.
 
 ## Next steps
 

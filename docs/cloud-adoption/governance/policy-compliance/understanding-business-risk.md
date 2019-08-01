@@ -1,8 +1,13 @@
 ---
 title: "How does business risk change in the cloud?"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Understanding business risk during migration
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 04/04/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: govern
 ---
 
 <!-- markdownlint-disable MD026 -->

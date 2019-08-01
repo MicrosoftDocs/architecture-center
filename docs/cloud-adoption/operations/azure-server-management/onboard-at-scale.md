@@ -13,7 +13,7 @@ ms.subservice: operate
 # Configure Azure management services at scale
 
 Onboarding the Azure management services to your servers involves two tasks: deploying service agents to your servers and enabling the management solutions. This article covers the following processes that will allow you to complete these tasks:
-  
+
 - [Deploying required agents to Azure VMs using Azure Policy](#deploy-extensions-to-azure-vms-using-azure-policy)
 - [Deploying required agents to on-premises servers](#install-required-agents-on-on-premises-servers)
 - [Enable and configuring solutions](#enable-and-configure-solutions)
@@ -92,7 +92,7 @@ We recommend enabling the Update Management solution for all servers. Update Man
 
 To cover all existing servers, as well as future servers, you need to remove the scope configuration. To do so, view your Automation account in the Azure portal, and select **Update Management** > **Manage machine** > **Enable on all available and future machines**. Enabling this setting allows all Azure VMs connected to the workspace to use Update Management.
 
-![Screenshot of Update Management in the Azure portal](./media/onboarding-configuration1.png)  
+![Screenshot of Update Management in the Azure portal](./media/onboarding-configuration1.png)
 
 ### Change Tracking and Inventory solutions
 
@@ -104,10 +104,11 @@ The Change Tracking solution is free for Azure VMs and costs $6 per node per mon
 
 1. Go to the Automation account that has Change Tracking and Inventory enabled.
 2. Select **Change tracking**.
-3. Select **Manage machines** on the upper-right pane.
-4. Select **Enable on selected machines**, and select the machines to be enabled. Then select **Enable** to enable the solution for those machines.
+3. Select **Manage machines** on the right top pane.
+4. Select **Enable on selected machines**, and select the machines to be enabled by clicking **Add** next to the machine name.
+5. Select **Enable** to enable the solution for those machines.
 
-![Screenshot of Change Tracking in the Azure portal](./media/onboarding-configuration2.png)  
+![Screenshot of Change Tracking in the Azure portal](./media/onboarding-configuration2.png)
 
 #### Opt in by using saved searches
 

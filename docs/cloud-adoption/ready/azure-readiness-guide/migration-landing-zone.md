@@ -1,12 +1,13 @@
 ---
 title: Deploy a migration landing zone in Azure
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how to deploy a migration landing zone in Azure.
 author: BrianBlanchard
 ms.author: brblanch
 ms.date: 5/19/2019
 ms.topic: conceptual
-ms.service: azure-portal
-ms.subservice: enterprise-cloud-adoption
+ms.service: cloud-adoption-framework
+ms.subservice: ready
 ms.custom: "fasttrack-edit"
 ---
 
@@ -49,12 +50,12 @@ If these assumptions seem aligned with your current environment, then this bluep
 
 The following decisions are represented in the landing zone blueprint.
 
-|Component  |Decisions  |Alternative approaches  |
+| Component | Decisions | Alternative approaches |
 |---------|---------|---------|
 |Migration tools|Azure Site Recovery will be deployed and an Azure Migrate project will be created.|[Migration tools decision guide](../../decision-guides/migrate-decision-guide/index.md)|
 |Logging and monitoring|Operational Insights workspace and diagnostic storage account will be provisioned.|         |
 |Network|A virtual network will be created with subnets for gateway, firewall, jumpbox, and landing zone.|[Networking decisions](../considerations/network-decisions.md)|
-|Identity     |It's assumed that the subscription is already associated with an Azure Active Directory instance.|[Identity management best practices](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json)         |
+|Identity|It's assumed that the subscription is already associated with an Azure Active Directory instance.|[Identity management best practices](https://docs.microsoft.com/azure/security/azure-security-identity-management-best-practices?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json)         |
 |Policy|This blueprint currently assumes that no Azure policies are to be applied.|         |
 |Subscription design|N/A - Designed for a single production subscription.|[Scaling subscriptions](../considerations/scaling-subscriptions.md)|
 |Management groups|N/A - Designed for a single production subscription.|[Scaling subscriptions](../considerations/scaling-subscriptions.md)         |

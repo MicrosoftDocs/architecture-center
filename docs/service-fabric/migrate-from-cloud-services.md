@@ -87,7 +87,7 @@ In addition to Cloud Services, the Surveys application uses some other Azure ser
 
 - **Azure Storage** to store surveys, surveys answers, and tenant information.
 
-- **Azure Redis Cache** to cache some of the data that is stored in Azure Storage, for faster read access.
+- **Azure Cache for Redis** to cache some of the data that is stored in Azure Storage, for faster read access.
 
 - **Azure Active Directory** (Azure AD) to authenticate customers and Tailspin administrators.
 

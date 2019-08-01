@@ -6,8 +6,8 @@ author: BrianBlanchard
 ms.author: brblanch
 ms.date: 05/15/2019
 ms.topic: guide
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
+ms.service: cloud-adoption-framework
+ms.subservice: ready
 ---
 
 # Data design decisions
@@ -71,7 +71,7 @@ Part of your compliance efforts might include controlling where your database re
 
 ## Establish controls for database services
 
-When you prepare your landing zone environment, you can establish controls that limit what data stores users can deploy. Controls can help you manage costs and limit security risks, while still allowing developers and IT teams to deploy and configure resources that are needed to support your workloads.  
+When you prepare your landing zone environment, you can establish controls that limit what data stores users can deploy. Controls can help you manage costs and limit security risks, while still allowing developers and IT teams to deploy and configure resources that are needed to support your workloads.
 
 After you identify and document your landing zone's requirements, you can use [Azure Policy](/azure/governance/policy/overview) to control the database resources that you allow users to create. Controls can take the form of [allowing or denying the creation of database resource types](/azure/governance/policy/samples/allowed-resource-types). For example, you might restrict users to creating only Azure SQL Database resources. You can also use policy to control the allowable options when a resource is created, like [restricting what SQL Database SKUs can be provisioned](/azure/governance/policy/samples/allowed-sql-db-skus) or [allowing only specific versions of SQL server](/azure/governance/policy/samples/require-sql-12) to be installed on an IaaS VM.
 

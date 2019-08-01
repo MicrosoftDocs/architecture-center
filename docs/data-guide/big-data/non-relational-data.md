@@ -73,7 +73,7 @@ A single key/value store can be extremely scalable, as the data store can easily
 Relevant Azure services:  
 
 - [Azure Cosmos DB Table API](/azure/cosmos-db/table-introduction)
-- [Azure Redis Cache](https://azure.microsoft.com/services/cache/)  
+- [Azure Cache for Redis](https://azure.microsoft.com/services/cache/)  
 - [Azure Table Storage](https://azure.microsoft.com/services/storage/tables/)
 
 ## Graph data stores

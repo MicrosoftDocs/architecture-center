@@ -60,13 +60,13 @@ Resiliency is the ability of a system to recover from failures and continue to f
 
 **Implement disaster recovery by failing over to a secondary Event Hubs namespace.** For more information, see [Azure Event Hubs Geo-disaster recovery](/azure/event-hubs/event-hubs-geo-dr).
 
-## Redis Cache
+## Azure Cache for Redis
 
-**Configure Geo-replication**. Geo-replication provides a mechanism for linking two Premium tier Azure Redis Cache instances. Data written to the primary cache is replicated to a secondary read-only cache. For more information, see [How to configure Geo-replication for Azure Redis Cache](/azure/redis-cache/cache-how-to-geo-replication)
+**Configure Geo-replication**. Geo-replication provides a mechanism for linking two Premium-tier Azure Cache for Redis instances. Data written to the primary cache is replicated to a secondary read-only cache. For more information, see [How to configure geo-replication for Azure Cache for Redis](/azure/redis-cache/cache-how-to-geo-replication)
 
-**Configure data persistence.** Redis persistence allows you to persist data stored in Redis. You can also take snapshots and back up the data, which you can load in case of a hardware failure. For more information, see [How to configure data persistence for a Premium Azure Redis Cache](/azure/redis-cache/cache-how-to-premium-persistence)
+**Configure data persistence.** Redis persistence allows you to persist data stored in Redis. You can also take snapshots and back up the data, which you can load in case of a hardware failure. For more information, see [How to configure data persistence for a Premium-tier Azure Cache for Redis](/azure/redis-cache/cache-how-to-premium-persistence)
 
-If you are using Redis Cache as a temporary data cache and not as a persistent store, these recommendations may not apply.
+If you are using Azure Cache for Redis as a temporary data cache and not as a persistent store, these recommendations may not apply.
 
 ## Search
 

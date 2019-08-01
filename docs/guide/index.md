@@ -51,7 +51,7 @@ Immutable infrastructure<br/>
 
 <!-- markdownlint-enable MD033 -->
 
-This guide is intended for application architects, developers, and operations teams. It's not a how-to guide for using individual Azure services. After reading this guide, you will understand the architectural patterns and best practices to apply when building on the Azure cloud platform. You can also download an [e-book version of the guide][e-book].
+This guide is intended for application architects, developers, and operations teams. It's not a how-to guide for using individual Azure services. After reading this guide, you will understand the architectural patterns and best practices to apply when building on the Azure cloud platform.
 
 ## How this guide is structured
 
@@ -87,5 +87,3 @@ Learn more:
 A successful cloud application will focus on five pillars of software quality: Scalability, availability, resiliency, management, and security. Use our design review checklists to review your architecture according to these quality pillars.
 
 - [Quality pillars](./pillars.md)
-
-[e-book]: https://azure.microsoft.com/campaigns/cloud-application-architecture-guide/

@@ -363,8 +363,13 @@
          "redirect_document_id": true
       },
       {
-         "source_path": "docs/cloud-adoption/operations/monitor/cloud-app-howto.md",
-         "redirect_url": "/azure/architecture/cloud-adoption/operations/monitor/cloud-models-monitor-overview"
-     }
+         "source_path": "docs/topics/high-performance-computing/index.md",
+         "redirect_url": "/azure/architecture/topics/high-performance-computing",
+         "redirect_document_id": true
+      }, 
+      {
+      "source_path": "docs/cloud-adoption/operations/monitor/cloud-app-howto.md",
+      "redirect_url": "/azure/architecture/cloud-adoption/operations/monitor/cloud-models-monitor-overview"
+      }
   ] 
   } 

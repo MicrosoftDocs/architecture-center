@@ -16,7 +16,7 @@ As discussed in [business outcomes](index.md), several potential business outcom
 
 Across the Fortune 500 and smaller enterprises, globalization of services and customer base has been a focus for over three decades. As the world shrinks, it is increasingly likely for any business to engage in global commerce. Supporting global operations is challenging and costly. Hosting datacenters around the world can consume more than 80 percent of an annual IT budget. By themselves, wide area networks using private lines to connect those datacenters can cost millions of dollars per year.
 
-Cloud solutions move the cost of globalization to the cloud provider. In Azure, customers can quickly deploy resources in the same region as customers or operations without having to buy and provision a datacenter. Microsoft owns one of the largest WANs in the world, connecting datacenters around the globe. Connectivity and global operating capacity are available to global customers on demand.
+Cloud solutions move the cost of globalization to the cloud provider. In Azure, customers can quickly deploy resources in the same region as customers or operations without having to buy and provision a datacenter. Microsoft owns one of the largest wide area networks in the world, connecting datacenters around the globe. Connectivity and global operating capacity are available to global customers on demand.
 
 ## Global access
 
