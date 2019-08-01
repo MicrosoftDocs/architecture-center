@@ -43,26 +43,15 @@ Azure tenant|Azure Active Directory || Enable diagnostic logging, and configure 
 
 <!-- markdownlint-enable MD033 -->
 
+## Hybrid cloud monitoring
+
+This section is currently under development to deliver a comprehensive set of recommendations intended to address your business and IT operational goals for this cloud model and will be made available shortly.  
+
 ## Private cloud monitoring
 
 You can achieve holistic monitoring of Azure Stack with System Center Operations Manager. Specifically, you can monitor the workloads running in the tenant, the resource level, on the virtual machines, and the infrastructure hosting Azure Stack (physical servers and network switches). You can also achieve holistic monitoring with a combination of [infrastructure monitoring capabilities](/azure/azure-stack/azure-stack-monitor-health) included in Azure Stack. These capabilities help you view health and alerts for an Azure Stack region and the [Azure Monitor service](/azure/azure-stack/user/azure-stack-metrics-azure-data) in Azure Stack, which provides base-level infrastructure metrics and logs for most services.
 
 If you've already invested in Operations Manager, use the Azure Stack management pack to monitor the availability and health state of Azure Stack deployments. This includes regions, resource providers, updates, update runs, scale units, unit nodes, infrastructure roles, and their instances (logical entities comprised of the hardware resources). It uses the Health and Update resource provider REST APIs to communicate with Azure Stack. To monitor physical servers and storage devices, use the OEM vendors' management pack (for example, provided by Lenovo, Hewlett Packard, or Dell). Operations Manager can natively monitor the network switches to collect basic statistics by using the SNMP protocol. Monitoring the tenant workloads is possible with the Azure management pack by following two basic steps. Configure the subscription that you want to monitor, and then add the monitors for that subscription.
-
-## Summary
-
-To summarize, the following table highlights monitoring scenarios and how our monitoring platforms support each scenario.
-
-Scenario | Azure Monitor | Operations Manager
-:--|:---|:---
-Infrastructure monitoring | Currently delivers health monitoring experience for Azure VMs, somewhat similar to Operations Manager. | Supports monitoring most of the infrastructure from the corporate network. Tracks availability state, metrics, and alerts for Azure VMs, SQL, and storage via the Azure management pack (polling Azure Resource Manager APIs).
-Monitor server workloads | Can collect IIS and SQL Server error logs, Windows events, and performance counters. Requires creating custom queries, alerts, and visualizations. | Supports monitoring most of the server workloads with available management packs. Requires either the Log Analytics Windows agent or Operations Manager agent on the VM, reporting back to the management group on the corporate network.
-Web application monitoring | Application Insights includes support for the latest versions of .NET, Java, and other platforms. Comprehensive web application monitoring to detect and help diagnose issues with code, capacity, and responsiveness. | Supports monitoring older versions of .NET and Java web servers. Requires creating a custom management pack by using REST API to query data from Application Insights and stream to Operations Manager.
-Azure service monitoring | [Azure Service Health](https://docs.microsoft.com/azure/service-health/overview) provides the ability to monitor your service, and how the health of the underlying Azure infrastructure affects your service. | While there is no native monitoring of Azure service health provided today through a management pack, you can create custom workflows to query Azure service health alerts. Use the Azure REST API, and get alerts through your existing notifications.
-Network performance monitoring | Azure Monitor Network Insights monitors the Azure networking stack, network performance, and NSGs. Azure Monitor for VM's Map feature includes connectivity metrics between Azure and other environment VMs. | Supports availability checks, and collects basic statistics from network devices by using the SNMP protocol from the corporate network.
-Data aggregation | Azure Monitor Logs and alert management support processing data from Operations Manager and other platforms. | Relies on SQL Server Reporting Services pre-canned or custom reports, third-party visualization solutions, or a custom Power BI implementation. There are scale and performance limitations with the Operations Manager data warehouse. Integrate with Azure Monitor Logs as an alternative for data aggregation requirements. Integration is achieved by configuring the Log Analytics connector.
-End-to-end diagnostics, root-cause analysis, and timely troubleshooting | Azure Monitor delivers end-to-end diagnostics and root-cause analysis for developer and IT operations, from your cloud and on-premises environments. It does this through several features and tools that provide valuable insights into your applications and other resources that they depend on.| Supports end-to-end diagnostics and troubleshooting only for on-premises infrastructure and applications. It uses other System Center components or partner solutions.
-Experiences – Dashboards, reports, integrations with IT/DevOps tools | Supports integration with Azure dashboards, Power BI, Grafana, and integration with ITSM tools to forward collected data and alerts. | Supports dashboards natively, or by using partner solutions from Squared Up and Savision. Integrates with ITSM tools by using custom code, System Center Orchestrator, or partner solutions based on the Operations Manager SDK.
 
 ## Next steps
 
