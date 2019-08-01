@@ -145,19 +145,19 @@ Operations Manager provides four basic ways to analyze data after it’s collect
 
 ### Azure Monitor
 
-Azure Monitor has a powerful analytics engine that allows you to interactively work with detailed or aggregated log data. Views and dashboards allow you to visualize query data in different ways from the Azure portal, and import into Power BI. Monitoring solutions include queries and views to present the data they collect. Insights such as Application Insights, Azure Monitor for VMs, and Azure Monitor for containers include customized visualizations to support interactive monitoring scenarios.
+Azure Monitor has a powerful analytics engine that allows you to interactively work with log data and combine them with other monitoring data for trending and other data analysis. Views and dashboards allow you to visualize query data in different ways from the Azure portal, and import into Power BI. Monitoring solutions include queries and views to present the data they collect. Insights such as Application Insights, Azure Monitor for VMs, and Azure Monitor for containers include customized visualizations to support interactive monitoring scenarios. 
 
 ## Alerting
 
 ### Operations Manager
 
-Operations Manager creates alerts in response to important events on an agent, when a performance threshold is crossed, and when the health state of a monitored component changes. It includes complete management of alerts, allowing you to set their resolution and assign them to different operators. You can set notification rules that specify which alerts will send proactive notifications.
+Operations Manager creates alerts in response to pre-defined events, when a performance threshold is met, and when the health state of a monitored component changes. It includes complete management of alerts, allowing you to set their resolution and assign them to different operators or system engineers. You can set notification rules that specify which alerts will send proactive notifications.
 
-Management packs include various predefined alerting rules for different critical conditions in the application being monitored. You can tune these rules to the particular requirements of your environment.
+Management packs include various predefined alerting rules for different critical conditions in the application being monitored. You can tune these rules or create custom rules to the particular requirements of your environment.
 
 ### Azure Monitor
 
-Azure Monitor allows you to create alerts based on a metric crossing a threshold, or based on a scheduled query returning results. Alerts based on metrics can achieve near real-time results, while scheduled queries have a longer response time, depending on the speed of data ingestion and indexing. Instead of being limited to a specific agent, log query alerts in Azure Monitor allow you to analyze data across all data stored in multiple workspaces. These alerts also include data from a specific Application Insights app by using a cross-workspace query.
+Azure Monitor allows you to create alerts based on a metric crossing a threshold, or based on a scheduled query result. Alerts based on metrics can achieve near real-time results, while scheduled queries have a longer response time, depending on the speed of data ingestion and indexing. Instead of being limited to a specific agent, log query alerts in Azure Monitor allow you to analyze data across all data stored in multiple workspaces. These alerts also include data from a specific Application Insights app by using a cross-workspace query.
 
 While monitoring solutions can include alert rules, typically you create them based on your own requirements.
 
@@ -179,7 +179,7 @@ Azure Monitor separates data collection from actions and analysis taken from tha
 
 Operations Manager implements all monitoring logic in a management pack, which you either create yourself or obtain from us or a partner. When you install a management pack, it automatically discovers components of the application or service on different agents, and deploys appropriate rules and monitors. The management pack contains health definitions, alert rules, performance and event collection rules, and views, to provide complete monitoring supporting the infrastructure service or application.
 
-The Operations Manager SDK enables Operations Manager to integrate with third-party monitoring platforms or ITSM software. The SDK is also used by some partner management packs to support monitoring network devices, and deliver custom presentation experiences like the Squared Up HTML5 dashboard or our Visio integration.
+The Operations Manager SDK enables Operations Manager to integrate with third-party monitoring platforms or ITSM software. The SDK is also used by some partner management packs to support monitoring network devices, and deliver custom presentation experiences like the Squared Up HTML5 dashboard or integration with Office Visio.
 
 ### Azure Monitor
 
@@ -190,4 +190,4 @@ Monitor supports several methods to collect monitoring or management data from A
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Monitoring Azure cloud applications](./cloud-app-howto.md)
+> [Monitoring the cloud deployment models](./cloud-app-howto.md)
