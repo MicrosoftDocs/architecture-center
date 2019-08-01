@@ -2,7 +2,7 @@
 title: Online transaction processing (OLTP)
 description: 
 author: zoinerTejada
-ms.date: 02/12/2018
+ms.date: 07/27/2019
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -101,7 +101,7 @@ The following tables summarize the key differences in capabilities.
 |------------------------------|--------------------|----------------------------------------|--------------------------|-------------------------------|
 |      Is Managed Service      |        Yes         |                   No                   |           Yes            |              Yes              |
 |       Runs on Platform       |        N/A         |         Windows, Linux, Docker         |           N/A            |              N/A              |
-| Programmability <sup>1</sup> |   T-SQL, .NET, R   |         T-SQL, .NET, R, Python         |  T-SQL, .NET, R, Python  |              SQL              |
+| Programmability <sup>1</sup> |   T-SQL, .NET, R   |         T-SQL, .NET, R, Python         |           SQL            |              SQL, PL/pgSQL              |
 
 <!-- markdownlint-enable MD033 -->
 
@@ -111,7 +111,7 @@ The following tables summarize the key differences in capabilities.
 
 | Capability | Azure SQL Database | SQL Server in an Azure virtual machine| Azure Database for MySQL | Azure Database for PostgreSQL|
 | --- | --- | --- | --- | --- | --- |
-| Maximum database instance size | [4 TB](/azure/sql-database/sql-database-resource-limits) | 256 TB | [1 TB](/azure/mysql/concepts-limits) | [1 TB](/azure/postgresql/concepts-limits) |
+| Maximum database instance size | [4 TB](/azure/sql-database/sql-database-resource-limits) | 256 TB | [16 TB](/azure/mysql/concepts-limits) | [16 TB](/azure/postgresql/concepts-limits) |
 | Supports capacity pools  | Yes | Yes | No | No |
 | Supports clusters scale out  | No | Yes | No | No |
 | Dynamic scalability (scale up)  | Yes | No | Yes | Yes |
@@ -129,8 +129,8 @@ The following tables summarize the key differences in capabilities.
 
 | Capability | Azure SQL Database | SQL Server in an Azure virtual machine| Azure Database for MySQL | Azure Database for PostgreSQL|
 | --- | --- | --- | --- | --- | --- |
-| Readable secondaries | Yes | Yes | No | No |
-| Geographic replication | Yes | Yes | No | No |
+| Readable secondaries | Yes | Yes | Yes | Yes |
+| Geographic replication | Yes | Yes | Yes | Yes |
 | Automatic failover to secondary | Yes | No | No | No|
 | Point-in-time restore | Yes | Yes | Yes | Yes |
 
@@ -142,9 +142,9 @@ The following tables summarize the key differences in capabilities.
 |                                                Data masking                                                 |        Yes         |                  Yes                   |            No            |              No               |
 |                                         Transparent data encryption                                         |        Yes         |                  Yes                   |           Yes            |              Yes              |
 |                                  Restrict access to specific IP addresses                                   |        Yes         |                  Yes                   |           Yes            |              Yes              |
-|                                  Restrict access to allow VNet access only                                  |        Yes         |                  Yes                   |            No            |              No               |
+|                                  Restrict access to allow VNet access only                                  |        Yes         |                  Yes                   |           Yes            |              Yes               |
 |                                    Azure Active Directory authentication                                    |        Yes         |                  Yes                   |            No            |              No               |
 |                                       Active Directory authentication                                       |         No         |                  Yes                   |            No            |              No               |
 |                                         Multi-factor authentication                                         |        Yes         |                  Yes                   |            No            |              No               |
-| Supports [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) |        Yes         |                  Yes                   |           Yes            |              No               |
-|                                                 Private IP                                                  |         No         |                  Yes                   |           Yes            |              No               |
+| Supports [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine) |        Yes         |                  Yes                   |            No            |              No               |
+|                                                 Private IP                                                  |         No         |                  Yes                   |            No            |              No               |
