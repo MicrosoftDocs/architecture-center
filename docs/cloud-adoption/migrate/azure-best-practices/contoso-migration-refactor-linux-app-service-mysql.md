@@ -300,7 +300,7 @@ Finally, they set up automatic scaling for the app. This ensures that as agents 
 
     ![Autoscale](./media/contoso-migration-refactor-linux-app-service-mysql/autoscale1.png)
 
-3. They configure the same setting on **APP-SRV-CUS** to ensure that the same behavior applies if the app fails over to the secondary region. The only difference is that they set the instance limit to 1 since this is for failovers only.
+3. They configure the same setting on **APP-SRV-CUS** to ensure that the same behavior applies if the app fails over to the secondary region. The only difference is that they set the default instance to 1 since this is for failovers only.
 
    ![Autoscale](./media/contoso-migration-refactor-linux-app-service-mysql/autoscale2.png)
 
