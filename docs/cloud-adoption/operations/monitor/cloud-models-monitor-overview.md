@@ -45,7 +45,7 @@ Azure tenant|Azure Active Directory || Enable diagnostic logging, and configure 
 
 ## Hybrid cloud monitoring
 
-This section is currently under development to deliver a comprehensive set of recommendations intended to address your business and IT operational goals for this cloud model and will be made available shortly.  
+This section is currently under development to deliver a comprehensive set of recommendations intended to address your interest for this cloud model, and will be made available shortly.  
 
 ## Private cloud monitoring
 
