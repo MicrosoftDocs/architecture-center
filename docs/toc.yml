@@ -1336,7 +1336,7 @@
         - name: Introduction
           href: cloud-adoption/operations/monitor/index.md
         - name: Monitoring cloud models
-          href: cloud-adoption/operations/monitor/cloud-models-monitor-howto.md
+          href: cloud-adoption/operations/monitor/cloud-models-monitor-overview.md
         - name: Data collection
           href: cloud-adoption/operations/monitor/data-collection.md
         - name: Alerting

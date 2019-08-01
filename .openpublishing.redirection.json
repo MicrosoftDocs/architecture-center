@@ -364,7 +364,7 @@
       },
       {
          "source_path": "docs/cloud-adoption/operations/monitor/cloud-app-howto.md",
-         "redirect_url": "/azure/architecture/cloud-adoption/operations/monitor/cloud-models-monitor-howto"
+         "redirect_url": "/azure/architecture/cloud-adoption/operations/monitor/cloud-models-monitor-overview"
      }
   ] 
   } 

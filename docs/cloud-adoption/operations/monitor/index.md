@@ -42,7 +42,7 @@ This guide is primarily useful for enterprise administrators, IT operations, IT 
 This article is part of a series. The following articles are meant to be read together, in order:
 
 * Introduction (this article)
-* [Monitoring strategy for cloud deployment models](./cloud-app-howto.md)
+* [Monitoring strategy for cloud deployment models](./cloud-models-monitor-overview.md)
 * [Collecting the right data](./data-collection.md)
 * [Alerting](./alert.md)
 
@@ -62,4 +62,4 @@ This first version of the guide covers our current monitoring platforms - Azure 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Monintoring strategy for cloud deployment models](./cloud-models-monitor-howto.md)
+> [Monintoring strategy for cloud deployment models](./cloud-models-monitor-overview.md)

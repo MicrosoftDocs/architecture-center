@@ -190,4 +190,4 @@ Monitor supports several methods to collect monitoring or management data from A
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Monitoring the cloud deployment models](./cloud-models-monitor-howto.md)
+> [Monitoring the cloud deployment models](./cloud-models-monitor-overview.md)
