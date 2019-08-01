@@ -361,6 +361,10 @@
          "source_path": "docs/databricks-monitoring/configure-cluster.md",
          "redirect_url": "/azure/architecture/databricks-monitoring",
          "redirect_document_id": true
-      }
+      },
+      {
+         "source_path": "docs/cloud-adoption/operations/monitor/cloud-app-howto.md",
+         "redirect_url": "/azure/architecture/cloud-adoption/operations/monitor/cloud-models-monitor-howto"
+     }
   ] 
   } 
