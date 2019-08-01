@@ -33,6 +33,8 @@ The goal of this guide is to provide a detailed reference to help enterprise IT 
 
 This guide isn't a how-to guide for using or configuring individual Azure services and solutions, but does reference those sources when applicable or available. After reading this guide, you'll understand how to successfully operate a workload following recommended practices and patterns.
 
+If you are unfamiliar with Azure Monitor and System Center Operations Manager and you would like to get a better understanding of what makes them unique and how they compare to each other before going any further, review the [Overview of our monitoring platforms](./platform-overview.md).
+
 ## Audience
 
 This guide is primarily useful for enterprise administrators, IT operations, IT security and compliance, application architects, workload development owners, and workload operations owners.
