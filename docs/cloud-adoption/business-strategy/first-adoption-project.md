@@ -58,6 +58,7 @@ Additional examples of first adoption projects include:
 - **Dev/test:** Remove dev/test from on-premises environments to give developers control, agility, and self-service capacity.
 - **Simple apps (less than five):** Modernize and migrate a simple app to quickly gain developer and operations experience.
 - **Performance labs:** When you need high-scale performance in a lab setting, use the cloud to quickly and cost-effectively provision those labs for a short time.
+- **Data Platform:** Creating a data lake with scalable compute for analytics, reporting or machine learning workloads.
 
 ## Next steps
 
