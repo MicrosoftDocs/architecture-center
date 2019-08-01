@@ -62,4 +62,4 @@ This first version of the guide covers our current monitoring platforms - Azure 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Monintoring strategy for cloud deployment models](./platform-overview.md)
+> [Monintoring strategy for cloud deployment models](./cloud-app-howto-.md)
