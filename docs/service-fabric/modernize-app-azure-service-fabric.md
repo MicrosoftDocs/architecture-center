@@ -49,7 +49,7 @@ Before containerizing existing applications, evaluate requirements. Select appli
 
 First, determine the type of applications that are best suited for a containerized platform, full virtual machines, and pure PaaS environment. The application could be a shared application that is built with Service Fabric to share Windows Server hosts across various containerized applications. Each Service Fabric host can run multiple different applications running in isolated Windows containers.
 
-Consider creating a set of criteria to determine such applications. Here are some example criteria of containerized Windows applications in Service Fabric. 
+Consider creating a set of criteria to determine such applications. Here are some example criteria of containerized Windows applications in Service Fabric.
 
 - HTTP/HTTPS web and application tiers without database dependency.
 - Stateless web applications.
@@ -61,33 +61,38 @@ Consider creating a set of criteria to determine such applications. Here are som
     > Dependencies that cannot be containerized include MSMQ (Currently supported in preview releases of Windows Server Core post 1709).
 - Applications can compile and build in Visual Studio.
 
-For the web applications, databases, and other required servers (such as Active Directory) exist outside the Service Fabric cluster in IaaS VMs, PaaS, or on-premise. 
+For the web applications, databases, and other required servers (such as Active Directory) exist outside the Service Fabric cluster in IaaS VMs, PaaS, or on-premises.
 
 ### Developer workstation requirements
-From an application development perspective, determine the workstation requirements. 
-- [Docker for Windows](https://www.docker.com/docker-windows) is required for developers to containerize and test their applications prior to deployment. 
+
+From an application development perspective, determine the workstation requirements.
+
+- [Docker for Windows](https://www.docker.com/docker-windows) is required for developers to containerize and test their applications prior to deployment.
 - Visual Studio Docker support is required. Standardize on the latest version of [Visual Studio](https://visualstudio.microsoft.com/) for the best Docker compatibility.
 - If workstations don't have enough hardware resources to oversee those requirements, use Azure compute resources for speed and productivity gains. An option is the Azure DevTest Labs Service. Docker for Windows, and Visual Studio 2017 require a minimum of 8 GB of memory.
 
 ### Networking requirements
-Service Fabric orchestration provides a platform for hosting, deploying, scaling, and operating applications at enterprise scale. Most large enterprises that use Azure:
-- Extend their corporate network with a private address space to an Azure subscription. use either [Express Route](https://azure.microsoft.com/services/expressroute/) or a [Site-to-Site VPN](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) to provide secure on-premise connectivity. 
-- Want to control inbound and outbound network traffic through third-party firewall appliances and/or [Azure Network Security Group rules](/azure/virtual-network/security-overview). 
-- Want tight control over the address space requirements and subnets. 
 
-Service Fabric is suitable as a containerization platform. It plugs into an existing cloud infrastructure and doesn't require open public ingress endpoints. You just need to carve out the necessary address space for Service Fabric’s IP address requirements. For details, see the [Service Fabric Networking](#service-fabric-networking) section in this article. 
+Service Fabric orchestration provides a platform for hosting, deploying, scaling, and operating applications at enterprise scale. Most large enterprises that use Azure:
+
+- Extend their corporate network with a private address space to an Azure subscription. use either [Express Route](https://azure.microsoft.com/services/expressroute/) or a [Site-to-Site VPN](/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal) to provide secure on-premises connectivity.
+- Want to control inbound and outbound network traffic through third-party firewall appliances and/or [Azure Network Security Group rules](/azure/virtual-network/security-overview).
+- Want tight control over the address space requirements and subnets.
+
+Service Fabric is suitable as a containerization platform. It plugs into an existing cloud infrastructure and doesn't require open public ingress endpoints. You just need to carve out the necessary address space for Service Fabric’s IP address requirements. For details, see the [Service Fabric Networking](#service-fabric-networking) section in this article.
 
 ## Containerize existing Windows applications
+
 After you’ve determined the applications that meet the selection criteria, containerize them into Docker images. The result is containerized .NET web application running in IIS where all tiers run in one container.
 
-> [!NOTE] 
+> [!NOTE]
 > You can use multiple containers; one per tier.  
 
 Here are the basic steps for containerizing an application.
 
-1. Open the project in Visual Studio. 
-2.	Make sure the project compiles and runs locally on the developer workstation.
-3.	Add a Dockerfile to the project. This Dockerfile example shows a basic .NET MVC application.
+1. Open the project in Visual Studio.
+2. Make sure the project compiles and runs locally on the developer workstation.
+3. Add a Dockerfile to the project. This Dockerfile example shows a basic .NET MVC application.
     ```
     FROM microsoft/aspnet:4.7
     ADD PublishOutput/ /inetpub/wwwroot
@@ -103,30 +108,32 @@ Here are the basic steps for containerizing an application.
     # plugin into SF healthcheck ensuring the container website is running
     HEALTHCHECK --interval=30s --timeout=30s --start-period=60s --retries=3 CMD curl -f http://localhost/ || exit 1
     ```
-4.	Test locally by using Docker For Windows. The application must successfully run in a Docker container by using the Visual Studio debug experience. For more information, see [Deploy a .NET app using Docker Compose](/azure/service-fabric/service-fabric-host-app-in-a-container).
+4. Test locally by using Docker For Windows. The application must successfully run in a Docker container by using the Visual Studio debug experience. For more information, see [Deploy a .NET app using Docker Compose](/azure/service-fabric/service-fabric-host-app-in-a-container).
 
-5.	Build (if needed), tag, and push the tested image to a Docker registry, like the [Azure Container Registry](/azure/container-registry/) service. This example uses an existing Azure Container Registry named MyAcr and Docker build/tag/push to build/deploy appA to the registry.
+5. Build (if needed), tag, and push the tested image to a Docker registry, like the [Azure Container Registry](/azure/container-registry/) service. This example uses an existing Azure Container Registry named MyAcr and Docker build/tag/push to build/deploy appA to the registry.
 
     ```
     docker login myacr.azurecr.io -u myacr -p <pwd>
     docker build -t appa .
     docker tag appa myacr.azurecr.io/appa:1.0
-    docker push myacr.azurecr.io/appa:1.0 
-
+    docker push myacr.azurecr.io/appa:1.0
     ```
+
 The image is tagged with a version number that Service Fabric references when it deploys and versions the container. Azure DevOps encapsulates and executes the manual Docker build/tag/push process. DevOps details are described in the [DevOps and CI/CD](#devops-and-cicd) section.
 
 > [!NOTE]
 > In the preceding example, the base image is "microsoft/aspnet4.7" from DockerHub.
 
 Here are some considerations about the base images:
+
 - The base image could be a locked-down custom enterprise image that enforces enterprise requirements. For a shared application, isolation boundaries can be created through credentials or by using separate registry. It's recommended that enterprise-supported docker images be kept separately and stored in an isolated container registry.  
-- Avoid storing the registry login credentials in configuration files. Instead, use (role-based access control) RBAC and [Azure Active Directory service principals](/azure/active-directory/develop/app-objects-and-service-principals) with Azure Container Registry. Provide read-only access to registries depending on your enterprise requirements. 
+- Avoid storing the registry login credentials in configuration files. Instead, use (role-based access control) RBAC and [Azure Active Directory service principals](/azure/active-directory/develop/app-objects-and-service-principals) with Azure Container Registry. Provide read-only access to registries depending on your enterprise requirements.
 
 For information about running an IIS ASP.net MVC application in a Windows container, see [Migrating ASP.NET MVC Applications to Windows Containers](/aspnet/mvc/overview/deployment/docker-aspnetmvc).
 
 ## Service Fabric cluster configuration for enterprise deployments
-To deploy a Service Fabric cluster, start with the sample Azure Resource Manager template in this [GitHub Repo](https://github.com/Azure-Samples/Service-fabric-dotnet-modernization) and customize it to fit your requirements. You also deploy a cluster through the Azure portal, but that option should be used for development/test provisioning. 
+
+To deploy a Service Fabric cluster, start with the sample Azure Resource Manager template in this [GitHub Repo](https://github.com/Azure-Samples/Service-fabric-dotnet-modernization) and customize it to fit your requirements. You also deploy a cluster through the Azure portal, but that option should be used for development/test provisioning.
 
 ### Service Fabric node types
 

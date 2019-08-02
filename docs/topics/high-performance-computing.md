@@ -30,7 +30,7 @@ Many industries use HPC to solve some of their most difficult problems.  These i
 
 ### How is HPC different on the cloud?
 
-One of the primary differences between an on-premise HPC system and one in the cloud is the ability for resources to dynamically be added and removed as they're needed.  Dynamic scaling removes compute capacity as a bottleneck and instead allow customers to right size their infrastructure for the requirements of their jobs.
+One of the primary differences between an on-premises HPC system and one in the cloud is the ability for resources to dynamically be added and removed as they're needed.  Dynamic scaling removes compute capacity as a bottleneck and instead allow customers to right size their infrastructure for the requirements of their jobs.
 
 The following articles provide more detail about this dynamic scaling capability.
 
@@ -170,7 +170,7 @@ Building an HPC system from scratch on Azure offers a significant amount of flex
 
 ### Hybrid and cloud Bursting
 
-If you have an existing on-premise HPC system that you'd like to connect to Azure, there are a number of resources to help get you started.
+If you have an existing on-premises HPC system that you'd like to connect to Azure, there are a number of resources to help get you started.
 
 First, review the [Options for connecting an on-premises network to Azure](/azure/architecture/reference-architectures/hybrid-networking/) article in the documentation.  From there, you may want information on these connectivity options:
 
