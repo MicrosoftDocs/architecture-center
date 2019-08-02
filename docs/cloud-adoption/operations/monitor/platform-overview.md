@@ -2,7 +2,7 @@
 title:  Cloud monitoring guide – monitoring platforms overview
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Choose when to use Azure Monitor or System Center Operations Manager in Microsoft Azure
-author: mgoedtel
+author: MGoedtel
 ms.author: magoedte
 ms.date: 07/31/2019
 ms.topic: guide
@@ -187,7 +187,7 @@ Azure Monitor collects metrics and logs from Azure resources, with little to no 
 
 Monitor supports several methods to collect monitoring or management data from Azure or external resources. You can then extract and forward data from the metric or log stores to your ITSM or monitoring tools, or perform administrative tasks by using the Azure Monitor REST API.
 
-## Next step
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Monitoring the cloud deployment models](./cloud-models-monitor-overview.md)

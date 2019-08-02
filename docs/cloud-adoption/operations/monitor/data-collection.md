@@ -2,7 +2,7 @@
 title: Cloud monitoring guide – Collecting the right data
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Choose when to use Azure Monitor or System Center Operations Manager in Microsoft Azure
-author: mgoedtel
+author: MGoedtel
 ms.author: magoedte
 ms.date: 06/26/2019
 ms.topic: guide
@@ -42,7 +42,7 @@ To drive quicker resolution of the incident, consider the following recommendati
 
 Embracing this guiding set of principles gives you near real-time insights, as well as better management of your service.
 
-## Next step
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Alerting strategy](./alert.md)

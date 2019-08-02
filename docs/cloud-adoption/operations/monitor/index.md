@@ -2,7 +2,7 @@
 title: Cloud monitoring guide
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Overview of Azure Monitor and System Center Operations Manager
-author: mgoedtel
+author: MGoedtel
 ms.author: magoedte
 ms.date: 07/31/2019
 ms.topic: guide
@@ -61,7 +61,7 @@ A selection of software and services are available to monitor and manage a varie
 
 This first version of the guide covers our current monitoring platforms - Azure Monitor and System Center Operations Manager, and outlines our recommended strategy for monitoring each of the cloud deployment models. Also included is the first set of monitoring recommendations, starting with data collection and alerting.
 
-## Next step
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Monintoring strategy for cloud deployment models](./cloud-models-monitor-overview.md)
