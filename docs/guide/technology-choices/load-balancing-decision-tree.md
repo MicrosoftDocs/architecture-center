@@ -1,7 +1,7 @@
 ---
 title: Decision tree for load balancing in Azure
 titleSuffix: Azure Application Architecture Guide
-description: A flowchart for selecting load balancing services in Azure.
+description: A flowchart for selecting load-balancing services in Azure.
 author: sharadag
 ms.date: 05/25/2019
 ms.topic: guide
@@ -12,7 +12,7 @@ ms.custom: sharad4u
 
 # Decision tree for load balancing in Azure
 
-Azure provides you with a variety of different load balancing solutions that you can leverage to distribute traffic between your different application endpoints. This distribution of traffic could be across your virtual machines, containers, Kubernetes clusters, App Services, in-region within a virtual network or across different Azure regions. The following flowchart will help you to choose a load balancing solution for your application. The flowchart guides you through a set of key decision criteria to reach a recommendation.
+Azure provides you with a variety of different load-balancing solutions that you can leverage to distribute traffic between your different application endpoints. This distribution of traffic could be across your virtual machines, containers, Kubernetes clusters, App Services, in-region within a virtual network or across different Azure regions. The following flowchart will help you to choose a load-balancing solution for your application. The flowchart guides you through a set of key decision criteria to reach a recommendation.
 
 **Treat this flowchart as a starting point.** Every application has unique requirements, so use the recommendation as a starting point. Then perform a more detailed evaluation, looking at aspects such as:
 
@@ -23,7 +23,7 @@ Azure provides you with a variety of different load balancing solutions that you
 - [Regional availability](https://azure.microsoft.com/global-infrastructure/services/)
 - IT/DevOps ecosystem and team skills
 
-If your application consists of multiple workloads, evaluate each workload separately. A complete solution may incorporate two or more load balancing solutions.
+If your application consists of multiple workloads, evaluate each workload separately. A complete solution may incorporate two or more load-balancing solutions.
 
 ## Flowchart
 
@@ -40,4 +40,4 @@ If your application consists of multiple workloads, evaluate each workload separ
 
 ## Next steps
 
-For additional context on these different load balancing services, see [Overview of load balancing options in Azure](./load-balancing-overview.md).
+For additional context on these different load-balancing services, see [Overview of load balancing options in Azure](./load-balancing-overview.md).
