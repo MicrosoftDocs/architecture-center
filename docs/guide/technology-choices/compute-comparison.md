@@ -68,7 +68,7 @@ Notes
 | Criteria | Virtual Machines | App Service | Service Fabric | Azure Functions | Azure Kubernetes Service | Container Instances | Azure Batch |
 |----------|-----------------|-------------|----------------|-----------------|-------------------------|----------------|-------------|
 | SLA | [SLA for Virtual Machines][sla-vm] | [SLA for App Service][sla-app-service] | [SLA for Service Fabric][sla-sf] | [SLA for Functions][sla-functions] | [SLA for AKS][sla-acs] | [SLA for Container Instances](https://azure.microsoft.com/support/legal/sla/container-instances/) | [SLA for Azure Batch][sla-batch] |
-| Multi region failover | Traffic manager | Traffic manager | Traffic manager, Multi-Region Cluster | Not supported | Traffic manager | Not supported | Not Supported |
+| Multi region failover | Azure Front Door (HTTP/HTTPS) </br> Traffic manager (Other) | Azure Front Door | Azure Front Door (HTTP/HTTPS) </br> Traffic manager (Other), Multi-Region Cluster | Azure Front Door | Azure Front Door (HTTP/HTTPS) </br> Traffic manager (Other) | Not supported | Not Supported |
 
 ## Other
 

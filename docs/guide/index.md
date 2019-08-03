@@ -74,6 +74,8 @@ Learn more:
 - [Choosing a compute service](./technology-choices/compute-overview.md)
 - [Choosing a data store](./technology-choices/data-store-overview.md)
 
+Depending on your application's requirements, there is a high likelihood of a requirement for choosing the right load balancing services for your architecture. *Load balancing* defines how the traffic for your application will be distributed to your compute service. Learn more at [Choosing a load balancing service](./technology-choices/load-balancing-overview.md)
+
 ### Design principles
 
 We have identified ten high-level design principles that will make your application more scalable, resilient, and manageable. These design principles apply to any architecture styles. Throughout the design process, keep these ten high-level design principles in mind. Then consider the set of best practices for specific aspects of the architecture, such as auto-scaling, caching, data partitioning, API design, and others.
