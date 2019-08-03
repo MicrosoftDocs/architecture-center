@@ -27,7 +27,7 @@ If your application consists of multiple workloads, evaluate each workload separ
 
 ## Flowchart
 
-![Decision tree for load balancing in Azure](../images/load-balancing-decision-tree.svg)
+![Decision tree for load balancing in Azure](../images/load-balancing-decision-tree.png)
 
 ## Definitions
 
