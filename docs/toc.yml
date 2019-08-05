@@ -606,12 +606,8 @@ items:
       href: multitenant-identity/token-cache.md
     - name: Client assertion
       href: multitenant-identity/client-assertion.md
-    - name: Protect application secrets
-      href: multitenant-identity/key-vault.md
     - name: Federate with a customer's AD FS
       href: multitenant-identity/adfs.md
-    - name: Run the Surveys application
-      href: multitenant-identity/run-the-app.md
   - name: Modernize enterprise applications with Azure Service Fabric
     href: service-fabric/modernize-app-azure-service-fabric.md
   - name: Migrate from Cloud Services to Service Fabric

@@ -32,7 +32,7 @@ To enable OpenID Connect, the SaaS provider registers the application inside the
 
 To register the application, follow the steps in [Quickstart: Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).
 
-See [Run the Surveys application](./run-the-app.md) for the specific steps for the Surveys application. Note the following:
+To enable this functionality in the sample Surveys application, see the [GitHub readme](https://github.com/mspnp/multitenant-saas-guidance/blob/master/get-started.md). Note the following:
 
 - For a multitenant application, you must configure the multitenanted option explicitly. This enables other organizations to access the application.
 
