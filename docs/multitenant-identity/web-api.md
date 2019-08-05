@@ -233,7 +233,7 @@ The JwtBearer middleware handles the authorization responses. For example, to re
 
 This returns a 401 status code if the user is not authenticated.
 
-To restrict a controller action by authorizaton policy, specify the policy name in the **[Authorize]** attribute:
+To restrict a controller action by authorization policy, specify the policy name in the **[Authorize]** attribute:
 
 ```csharp
 [Authorize(Policy = PolicyNames.RequireSurveyCreator)]
