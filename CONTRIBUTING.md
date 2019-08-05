@@ -10,7 +10,7 @@ agreement testifies that you are granting us permission to use the submitted
 change according to the terms of the project's license, and that the work being
 submitted is under appropriate copyright.
 
-Please submit a [Contributor License Agreement (CLA)](https://cla.azure.com/)
+Please submit a [Contributor License Agreement (CLA)](https://cla.microsoft.com/)
 before submitting a pull request. This process is automated and should be
 painless.
 
