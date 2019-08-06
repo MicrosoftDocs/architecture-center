@@ -19,7 +19,7 @@ Tailspin is a fictitious company that is developing a SaaS application named Sur
 * Users can create, edit, and publish surveys.
 
 > [!NOTE]
-> To get started with the application, see [Run the Surveys application].
+> To get started with the application, see the [GitHub readme](https://github.com/mspnp/multitenant-saas-guidance/blob/master/get-started.md).
 
 ## Users can create, edit, and view surveys
 
@@ -63,6 +63,5 @@ The web application uses Azure Active Directory (Azure AD) to authenticate users
 
 [authentication]: authenticate.md
 
-[Run the Surveys application]: ./run-the-app.md
 [ASP.NET Core]: /aspnet/core
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance
