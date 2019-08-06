@@ -1,18 +1,18 @@
 ---
 title: Scalable web application
 titleSuffix: Azure Reference Architectures
-description: Improve scalability in a web application running in Microsoft Azure.
+description: Improve Scalability in a web application running in Microsoft Azure.
 author: MikeWasson
-ms.date: 10/25/2018
+ms.date: 08/01/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.custom: seodec18
 ---
 
-# Improve scalability in an Azure web application
+# Improve Scalability in an Azure web application
 
-This reference architecture shows proven practices for improving scalability and performance in an Azure App Service web application.
+This Reference Architecture shows proven practices for improving scalability and performance in an Azure App Service web application.
 
 ![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github].
 
@@ -120,7 +120,8 @@ Since your application is fronted with Front Door, and you will have your web ap
 
 ### Web application firewall
 
-Web application firewall that helps protect your web applications from common threats such as SQL injection, cross-site scripting and other web exploits. You can define a WAF policy with Front Door, consisting of a combination of custom and managed rules to control access to your web applications. 
+Web application firewall that helps protect your web applications from common threats such as SQL injection, cross-site scripting and other web exploits. You can define a WAF policy with Front Door, consisting of a combination of custom and managed rules to control access to your web applications.
+
 Azure WAF, when integrated with Front Door, stops denial-of-service and targeted application attacks at the edge of Microsoft's network, close to attack sources before they enter your application, and offers protection without sacrificing performance.
 
 ### Cross-Origin Resource Sharing (CORS)

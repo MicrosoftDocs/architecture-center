@@ -32,10 +32,10 @@ A multi-region architecture can provide higher availability than deploying to a 
 There are several general approaches to achieving high availability across regions:
 
 - Active/passive with hot standby. Traffic goes to one region, while the other waits on hot standby. Hot standby means the VMs in the secondary region are allocated and running at all times.
-- Active/passive with cold standby. Traffic goes to one region, while the other waits on cold standby. Cold standby means the VMs in the secondary region are not allocated until needed for fail over. This approach costs less to run, but will generally take longer to come online during a failure.
+- Active/passive with cold standby. Traffic goes to one region, while the other waits on cold standby. Cold standby means the VMs in the secondary region are not allocated until needed for failover. This approach costs less to run, but will generally take longer to come online during a failure.
 - Active/active. Both regions are active, and requests are load balanced between them. If one region becomes unavailable, it is taken out of rotation.
 
-This reference architecture focuses on active/passive with hot standby, using Front Door for fail over.
+This reference architecture focuses on active/passive with hot standby, using Front Door for failover.
 
 ## Recommendations
 
@@ -67,11 +67,11 @@ Don't use the health probe to check lower priority services. For example, if an 
 
 ### SQL Database
 
-Use [Active Geo-Replication][sql-replication] to create a readable secondary replica in a different region. You can have up to four readable secondary replicas. Fail over to a secondary database if your primary database fails or needs to be taken offline. Active Geo-Replication can be configured for any database in any elastic database pool.
+Use [Active Geo-Replication][sql-replication] to create a readable secondary replica in a different region. You can have up to four readable secondary replicas. Failover to a secondary database if your primary database fails or needs to be taken offline. Active Geo-Replication can be configured for any database in any elastic database pool.
 
 ### Cosmos DB
 
-Cosmos DB supports geo-replication across regions with multi-master (multiple write regions). Alternatively, you can designate one region as the writable region and the others as read-only replicas. If there is a regional outage, you can fail over by selecting another region to be the write region. The client SDK automatically sends write requests to the current write region, so you don't need to update the client configuration after a fail over. For more information, see [Global data distribution with Azure Cosmos DB][cosmosdb-geo].
+Cosmos DB supports geo-replication across regions with multi-master (multiple write regions). Alternatively, you can designate one region as the writable region and the others as read-only replicas. If there is a regional outage, you can fail over by selecting another region to be the write region. The client SDK automatically sends write requests to the current write region, so you don't need to update the client configuration after a failover. For more information, see [Global data distribution with Azure Cosmos DB][cosmosdb-geo].
 
 > [!NOTE]
 > All of the replicas belong to the same resource group.
@@ -79,9 +79,9 @@ Cosmos DB supports geo-replication across regions with multi-master (multiple wr
 
 ### Storage
 
-For Azure Storage, use [read-access geo-redundant storage][ra-grs] (RA-GRS). With RA-GRS storage, the data is replicated to a secondary region. You have read-only access to the data in the secondary region through a separate endpoint. If there is a regional outage or disaster, the Azure Storage team might decide to perform a geo fail over to the secondary region. There is no customer action required for this fail over.
+For Azure Storage, use [read-access geo-redundant storage][ra-grs] (RA-GRS). With RA-GRS storage, the data is replicated to a secondary region. You have read-only access to the data in the secondary region through a separate endpoint. If there is a regional outage or disaster, the Azure Storage team might decide to perform a geo failover to the secondary region. There is no customer action required for this failover.
 
-For Queue storage, create a backup queue in the secondary region. During fail over, the app can use the backup queue until the primary region becomes available again. That way, the application can still process new requests.
+For Queue storage, create a backup queue in the secondary region. During failover, the app can use the backup queue until the primary region becomes available again. That way, the application can still process new requests.
 
 ## Availability considerations - Front Door
 
@@ -101,9 +101,9 @@ The recovery point objective (RPO) and estimated recovery time (ERT) for SQL Dat
 RA-GRS storage provides durable storage, but it's important to understand what can happen during an outage:
 
 - If a storage outage occurs, there will be a period of time when you don't have write-access to the data. You can still read from the secondary endpoint during the outage.
-- If a regional outage or disaster affects the primary location and the data there cannot be recovered, the Azure Storage team may decide to perform a geo fail over to the secondary region.
-- Data replication to the secondary region is performed asynchronously. Therefore, if a geo fail over is performed, some data loss is possible if the data can't be recovered from the primary region.
-- Transient failures, such as a network outage, will not trigger a storage fail over. Design your application to be resilient to transient failures. Possible mitigations:
+- If a regional outage or disaster affects the primary location and the data there cannot be recovered, the Azure Storage team may decide to perform a geo failover to the secondary region.
+- Data replication to the secondary region is performed asynchronously. Therefore, if a geo failover is performed, some data loss is possible if the data can't be recovered from the primary region.
+- Transient failures, such as a network outage, will not trigger a storage failover. Design your application to be resilient to transient failures. Possible mitigations:
 
   - Read from the secondary region.
   - Temporarily switch to another storage account for new write operations (for example, to queue messages).
