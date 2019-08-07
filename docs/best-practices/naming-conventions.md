@@ -43,6 +43,8 @@ A recommended pattern for naming subscriptions is:
 | Contoso |IT |InternalApps |Production |Contoso IT InternalApps Production |
 | Contoso |IT |InternalApps |Dev |Contoso IT InternalApps Dev |
 
+Like all Azure services, there are limits placed on the value of Subscription Names. The length must be 1-64 characters and they must be alphanumeric and cannot contain these characters: `<` `>` `;` `|`.
+
 For more information on how to organize subscriptions for larger enterprises, see [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption/appendix/azure-scaffold).
 
 ## Use affixes to avoid ambiguity
