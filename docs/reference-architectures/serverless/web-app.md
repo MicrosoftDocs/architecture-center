@@ -304,6 +304,5 @@ To learn more about the reference implementation, read [Show me the code: Server
 [storage-https]: /azure/storage/common/storage-require-secure-transfer
 [tm]: /azure/traffic-manager/traffic-manager-overview
 
-[github]: https://github.com/mspnp/serverless-reference-implementation
-[HttpRequestAuthorizationExtensions]: https://github.com/mspnp/serverless-reference-implementation/blob/master/src/DroneStatus/dotnet/DroneStatusFunctionApp/HttpRequestAuthorizationExtensions.cs
-[readme]: https://github.com/mspnp/serverless-reference-implementation/blob/master/README.md
+[github]: https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0
+[readme]: https://github.com/mspnp/serverless-reference-implementation/blob/v0.1.0/README.md
