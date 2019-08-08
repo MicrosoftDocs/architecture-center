@@ -15,12 +15,6 @@ layout: LandingPage
 
 Any enterprise-scale [cloud adoption plan](../plan/index.md), will include workloads which do not warrant significant investments in the creation of new business logic. Those workloads could be moved to the cloud through any number of approaches; Lift & Shift, Lift & Optimize, or Modernize. Each of which is considered a migration. The following exercises will help establish the iterative processes to assess, migrate, optimize, secure and manage those workloads.
 
-## Iterative migration process
-
-At its core, migration to the cloud consists of four simple phases: Assess, Migrate, Optimize, and Secure & Manage. This section of CAF teaches readers to maximize the return from each phase of the process and align those phases with your cloud adoption plan. The following graphic illustrates those phases in an iterative approach:
-
-![Cloud Adoption Framework migration model](../_images/operational-transformation-migrate.png)
-
 ## Getting started
 
 To prepare you for this phase of the cloud adoption lifecycle, the framework suggests the following five exercises:
@@ -125,6 +119,12 @@ To prepare you for this phase of the cloud adoption lifecycle, the framework sug
 </ul>
 <!-- markdownlint-enable MD033 -->
 
+## Iterative migration process
+
+At its core, migration to the cloud consists of four simple phases: Assess, Migrate, Optimize, and Secure & Manage. This section of CAF teaches readers to maximize the return from each phase of the process and align those phases with your cloud adoption plan. The following graphic illustrates those phases in an iterative approach:
+
+![Cloud Adoption Framework migration model](../_images/operational-transformation-migrate.png)
+
 ## Creating a balanced cloud portfolio
 
 Any balanced technology portfolio has a mixture of assets in various states. Some applications are scheduled for retirement and given minimal support. Other applications or assets are supported in a maintenance state, but the features of those solutions are stable. For newer business processes, changing market conditions will likely spur ongoing feature enhancements or modernization. When opportunities to drive new revenue streams arise, new applications or assets are introduced into the environment. At each stage of an asset's lifecycle, the impact any investment has on revenue and profit will change. The later the lifecycle stage, the less likely a new feature or modernization effort will yield a strong return on investment.
@@ -134,8 +134,6 @@ The cloud provides various adoption mechanisms, each with similar degrees of inv
 ## Establishing an end state
 
 An effective journey needs a target destination. Establish a rough vision of the end state before taking the first step. This infographic outlines a starting point consisting of existing applications, data, and infrastructure, which defines the digital estate. During the migration process, each asset is transitioned via one of the options on the right.
-
-![Infographic of the migration options](../_images/migration/migration-options.png)
 
 ## Migration implementation
 
