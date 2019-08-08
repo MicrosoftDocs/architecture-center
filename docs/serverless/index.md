@@ -620,4 +620,4 @@ For more information about authentication and authorization in this application,
 
 <!-- links -->
 
-[github]: https://github.com/mspnp/serverless-reference-implementation
+[github]: https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0
