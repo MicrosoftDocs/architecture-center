@@ -22,7 +22,7 @@ The tools in this article include:
 > - Azure Migrate
 > - Azure pricing calculator
 > - Azure TCO calculator
-> - Azure Cost Management by Cloudyn
+> - Azure Cost Management
 > - Azure Advisor
 
 The processes described in this article may also require a partnership with IT managers, finance, or line-of-business application owners. For guidance on partnering with these roles, see the Cloud Adoption Framework article on establishing a cost-conscious organization (coming in Q3 2019).

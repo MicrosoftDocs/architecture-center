@@ -51,6 +51,7 @@ The following development platforms and tools are available for machine learning
 | [Azure Databricks](#azure-databricks) | Spark-based analytics platform | Build and deploy models and data workflows |
 | [ML.NET](#mlnet) | Open-source, cross-platform machine learning SDK | Develop machine learning solutions for .NET applications |
 | [Windows ML](#windows-ml) | Windows 10 machine learning platform | Evaluate trained models on a Windows 10 device |
+| [MMLSpark](#mmlspark) | Open-source, distributed, machine learning and microservice framework for Apache Spark | Create and deploy scalable machine learning applications for Scala and Python. |
 
 ## Azure Machine Learning service
 
@@ -181,6 +182,19 @@ Use Windows ML when you want to use trained machine learning models within your 
 |-|-|
 |**Type**                   |Inference engine for trained models in Windows devices|
 |**Languages supported**    |C#/C++, JavaScript|
+
+## MMLSpark
+[Microsoft ML for Apache Spark](https://aka.ms/spark/) (MMLSpark) is an open source library that expands the distributed computing framework [Apache Spark](https://spark.apache.org/). MMLSpark adds many deep learning and data science tools to the Spark ecosystem, including seamless integration of [Spark Machine Learning](https://spark.apache.org/docs/latest/ml-guide.html) pipelines with [Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/en-us/cognitive-toolkit/), [LightGBM](https://github.com/microsoft/LightGBM), [LIME (Model Interpretability)](https://www.oreilly.com/learning/introduction-to-local-interpretable-model-agnostic-explanations-lime), and [OpenCV](https://opencv.org/). You can use these tools to create powerful predictive models on any Spark cluster, such as [Azure Databricks](#azure-databricks) or [Cosmic Spark](https://docs.microsoft.com/en-us/azure/cosmos-db/spark-api-introduction).
+
+MMLSpark also brings new networking capabilities to the Spark ecosystem. With the HTTP on Spark project, users can embed any web service into their SparkML models. Additionally, MMLSpark provides easy-to-use tools for orchestrating [Microsoft Cognitive Services](https://azure.microsoft.com/en-us/services/cognitive-services/) at scale. For production-grade deployment, the Spark Serving project enables high throughput, sub-millisecond latency web services, backed by your Spark cluster.
+
+|||
+|-|-|
+|**Type**                    |Open-source, distributed machine learning and microservice framework for Apache Spark|
+|**Languages supported**     |Scala 2.11, Java, Python 3.5+, R (beta)|
+|**Machine learning phases** |Data preparation<br>Model training<br>Deployment|
+|**Key benefits**            |Scalability<br>Streaming + Serving compatible<br>Fault-tolerance|
+|**Considerations**          |Requires Apache Spark|
 
 ## Next steps
 
