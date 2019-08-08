@@ -1,6 +1,6 @@
 ---
 title: Implement a serverless application with Azure Functions
-description: Code walk-through of a serverlesss application using Azure Functions
+description: Code walk-through of a serverless application using Azure Functions
 author: MikeWasson
 ms.date: 06/13/2019
 ms.author: pnp
