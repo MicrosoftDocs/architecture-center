@@ -88,6 +88,9 @@ A successful cloud application will focus on five pillars of software quality: S
 
 - [Quality pillars](./pillars.md)
 
-### More Learning
+### More learning
 
-For an guided introduction to common cloud computing services, benefits of cloud computing, and cloud deployment modules,  review the [Cloud Concepts - Principles of Cloud Computing](/learn/modules/principles-cloud-computing/) on [Microsoft Learn](/learn/).
+For a guided introduction to common cloud computing services, benefits of cloud computing, and cloud deployment modules, review [Cloud Concepts - Principles of Cloud Computing](/learn/modules/principles-cloud-computing/).  
+
+For a more technical perspective on the key pillars of a cloud solution and principles for creating a solid architectural foundation, review [Pillars of a great Azure Architecture](/learn/modules/pillars-of-a-great-azure-architecture).
+
