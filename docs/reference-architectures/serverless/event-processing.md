@@ -158,5 +158,5 @@ To learn more about the reference implementation, read [Show me the code: Server
 [ra-grs]: /azure/storage/common/storage-redundancy-grs
 [ru]: /azure/cosmos-db/request-units
 
-[github]: https://github.com/mspnp/serverless-reference-implementation
-[readme]: https://github.com/mspnp/serverless-reference-implementation/blob/master/README.md
+[github]: https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0
+[readme]: https://github.com/mspnp/serverless-reference-implementation/blob/v0.1.0/README.md
