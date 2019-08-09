@@ -99,7 +99,7 @@ In general, avoid having any special characters (`-` or `_`) as the first or las
 
 | Entity | Scope | Length | Casing | Valid Characters | Suggested Pattern | Example |
 | --- | --- | --- | --- | --- | --- | --- |
-|Storage account name (data) |Global |3-24 |Lowercase |Alphanumeric |`<globally unique name><number>` (use a function to calculate a unique guid for naming storage accounts) |`profxdata001` |
+|Storage account name (data) |Global |3-24 |Lowercase |Alphanumeric |`<globally unique name><number>` |`profxdata001` |
 |Storage account name (disks) |Global |3-24 |Lowercase |Alphanumeric |`<vm name without hyphens>st<number>` |`profxsql001st0` |
 | Container name |Storage account |3-63 |Lowercase |0-9, a-z and - |`<context>` |`logs` |
 |Blob name | Container |1-1024 |Case sensitive |Any URL characters |`<variable based on blob usage>` |`<variable based on blob usage>` |
