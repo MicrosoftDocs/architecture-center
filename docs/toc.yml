@@ -1,6 +1,3 @@
-metadata:
-  experimental: false
-  experiment_id: "1eb71ad0-d9de-43"
 items:
 - name: Azure Architecture Center
   href: index.md
