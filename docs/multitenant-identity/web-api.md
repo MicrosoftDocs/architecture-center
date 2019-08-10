@@ -15,7 +15,7 @@ pnp.series.next: token-cache
 
 [![GitHub](../_images/github.png) Sample code][sample application]
 
-The [Tailspin Surveys] application uses a backend web API to manage CRUD operations on surveys. For example, when a user clicks "My Surveys", the web application sends an HTTP request to the web API:
+The [Tailspin Surveys][surveys] application uses a backend web API to manage CRUD operations on surveys. For example, when a user clicks "My Surveys", the web application sends an HTTP request to the web API:
 
 ```http
 GET /users/{userId}/surveys
@@ -76,9 +76,9 @@ In order for Azure AD to issue a bearer token for the web API, you need to confi
 
 1. Register the web API in Azure AD.
 
-2. Add the client ID of the web app to the web API application manifest, in the `knownClientApplications` property. See [Update the application manifests].
+2. Add the client ID of the web app to the web API application manifest, in the `knownClientApplications` property. See the [GitHub readme](https://github.com/mspnp/multitenant-saas-guidance/blob/master/get-started.md#update-the-application-manifests) for more information.
 
-3. Give the web application permission to call the web API. In the Azure Management Portal, you can set two types of permissions: "Application Permissions" for application identity (client credential flow), or "Delegated Permissions" for delegated user identity.
+3. Give the web application permission to call the web API. In the Azure portal, you can set two types of permissions: "Application Permissions" for application identity (client credential flow), or "Delegated Permissions" for delegated user identity.
 
    ![Delegated permissions](./images/delegated-permissions.png)
 
@@ -113,7 +113,7 @@ Here are the various parameters that are needed:
 * `clientSecret`. The web application's client secret.
 * `redirectUri`. The redirect URI that you set for OpenID Connect. This is where the IDP calls back with the token.
 * `resourceID`. The App ID URI of the web API, which you created when you registered the web API in Azure AD
-* `tokenCache`. An object that caches the access tokens. See [Token caching].
+* `tokenCache`. An object that caches the access tokens. See [Token caching][token-cache].
 
 If `AcquireTokenByAuthorizationCodeAsync` succeeds, ADAL caches the token. Later, you can get the token from the cache by calling AcquireTokenSilentAsync:
 
@@ -233,7 +233,7 @@ The JwtBearer middleware handles the authorization responses. For example, to re
 
 This returns a 401 status code if the user is not authenticated.
 
-To restrict a controller action by authorizaton policy, specify the policy name in the **[Authorize]** attribute:
+To restrict a controller action by authorization policy, specify the policy name in the **[Authorize]** attribute:
 
 ```csharp
 [Authorize(Policy = PolicyNames.RequireSurveyCreator)]
@@ -266,18 +266,52 @@ public void ConfigureServices(IServiceCollection services)
 }
 ```
 
-[**Next**][token cache]
+## Protecting application secrets
+
+It's common to have application settings that are sensitive and must be protected, such as:
+
+* Database connection strings
+* Passwords
+* Cryptographic keys
+
+As a security best practice, you should never store these secrets in source control. It's too easy for them to leak &mdash; even if your source code repository is private. And it's not just about keeping secrets from the general public. On larger projects, you might want to restrict which developers and operators can access the production secrets. (Settings for test or development environments are different.)
+
+A more secure option is to store these secrets in [Azure Key Vault][KeyVault]. Key Vault is a cloud-hosted service for managing cryptographic keys and other secrets. This article shows how to use Key Vault to store configuration settings for your app.
+
+In the [Tailspin Surveys][surveys] application, the following settings are secret:
+
+* The database connection string.
+* The Redis connection string.
+* The client secret for the web application.
+
+The Surveys application loads configuration settings from the following places:
+
+* The appsettings.json file
+* The [user secrets store][user-secrets] (development environment only; for testing)
+* The hosting environment (app settings in Azure web apps)
+* Key Vault (when enabled)
+
+Each of these overrides the previous one, so any settings stored in Key Vault take precedence.
+
+> [!NOTE]
+> By default, the Key Vault configuration provider is disabled. It's not needed for running the application locally. You would enable it in a production deployment.
+
+At startup, the application reads settings from every registered configuration provider, and uses them to populate a strongly typed options object. For more information, see [Using Options and configuration objects][options].
+
+[**Next**][token-cache]
 
 <!-- links -->
-[ADAL]: https://msdn.microsoft.com/library/azure/jj573266.aspx
-[JwtBearer]: https://www.nuget.org/packages/Microsoft.AspNet.Authentication.JwtBearer
-
-[Tailspin Surveys]: tailspin.md
-[IdentityServer4]: https://github.com/IdentityServer/IdentityServer4
-[Update the application manifests]: ./run-the-app.md#update-the-application-manifests
-[Token caching]: token-cache.md
-[tenant sign-up]: signup.md
-[claims-transformation]: claims.md#claims-transformations
 [Authorization]: authorize.md
+[ADAL]: /previous-versions/azure/jj573266
+[claims-transformation]: claims.md#claims-transformations
+[IdentityServer4]: https://github.com/IdentityServer/IdentityServer4
+[JwtBearer]: https://www.nuget.org/packages/Microsoft.AspNet.Authentication.JwtBearer
+[KeyVault]: https://azure.microsoft.com/services/key-vault/
+[options]: /aspnet/core/fundamentals/configuration/options
+[tenant sign-up]: signup.md
+[Token caching]: token-cache.md
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance
-[token cache]: token-cache.md
+[surveys]: tailspin.md
+[token-cache]: token-cache.md
+[user-secrets]: /aspnet/core/security/app-secrets
+

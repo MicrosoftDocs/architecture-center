@@ -22,7 +22,7 @@ When you're building a multitenant application, one of the first challenges is m
 
 Azure Active Directory (Azure AD) has some great features that support all of these scenarios.
 
-To accompany this series of articles, we created a complete [end-to-end implementation][sample-application] of a multitenant application. The articles reflect what we learned in the process of building the application. To get started with the application, see [Run the Surveys application][running-the-app].
+To accompany this series of articles, we created a complete [end-to-end implementation][sample-application] of a multitenant application. The articles reflect what we learned in the process of building the application. To get started with the application, see the [GitHub readme](https://github.com/mspnp/multitenant-saas-guidance/blob/master/get-started.md).
 
 ## Introduction
 
@@ -94,4 +94,3 @@ This guidance does not consider other aspects of multitenancy such as data parti
 <!-- links -->
 
 [sample-application]: https://github.com/mspnp/multitenant-saas-guidance
-[running-the-app]: ./run-the-app.md

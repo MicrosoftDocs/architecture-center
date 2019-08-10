@@ -43,6 +43,8 @@ A recommended pattern for naming subscriptions is:
 | Contoso |IT |InternalApps |Production |Contoso IT InternalApps Production |
 | Contoso |IT |InternalApps |Dev |Contoso IT InternalApps Dev |
 
+Like all Azure services, there are limits placed on the value of Subscription Names. The length must be 1-64 characters and they must be alphanumeric and cannot contain these characters: `<` `>` `;` `|`.
+
 For more information on how to organize subscriptions for larger enterprises, see [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption/appendix/azure-scaffold).
 
 ## Use affixes to avoid ambiguity
@@ -97,13 +99,13 @@ In general, avoid having any special characters (`-` or `_`) as the first or las
 
 | Entity | Scope | Length | Casing | Valid Characters | Suggested Pattern | Example |
 | --- | --- | --- | --- | --- | --- | --- |
-|Storage account name (data) |Global |3-24 |Lowercase |Alphanumeric |`<globally unique name><number>` (use a function to calculate a unique guid for naming storage accounts) |`profxdata001` |
+|Storage account name (data) |Global |3-24 |Lowercase |Alphanumeric |`<globally unique name><number>` |`profxdata001` |
 |Storage account name (disks) |Global |3-24 |Lowercase |Alphanumeric |`<vm name without hyphens>st<number>` |`profxsql001st0` |
-| Container name |Storage account |3-63 |Lowercase |0-9, a-z, A-Z and - |`<context>` |`logs` |
+| Container name |Storage account |3-63 |Lowercase |0-9, a-z and - |`<context>` |`logs` |
 |Blob name | Container |1-1024 |Case sensitive |Any URL characters |`<variable based on blob usage>` |`<variable based on blob usage>` |
-|Queue name |Storage account |3-63 |Lowercase |0-9, a-z, A-Z and - |`<service short name>-<context>-<num>` |`awesomeservice-messages-001` |
+|Queue name |Storage account |3-63 |Lowercase |0-9, a-z and - |`<service short name>-<context>-<num>` |`awesomeservice-messages-001` |
 |Table name | Storage account |3-63 |Case insensitive |Alphanumeric |`<service short name><context>` |`awesomeservicelogs` |
-|File share name | Storage account |3-63 |Lowercase | 0-9, a-z, A-Z and - |`<variable based on file share usage>` |`<variable based on file share usage>` |
+|File share name | Storage account |3-63 |Lowercase | 0-9, a-z and - |`<variable based on file share usage>` |`<variable based on file share usage>` |
 |Data Lake Store | Global |3-24 |Lowercase | Alphanumeric |`<name>dls` |`telemetrydls` |
 |Managed Disk name | Resource Group | 1-80 | Case insensitive |Alphanumeric, hyphen and underscore but not on character 1|`<disktype>disk<number>`|`OSdisk1`|
 

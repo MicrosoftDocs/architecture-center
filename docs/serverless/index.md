@@ -1,6 +1,6 @@
 ---
 title: Implement a serverless application with Azure Functions
-description: Code walk-through of a serverlesss application using Azure Functions
+description: Code walk-through of a serverless application using Azure Functions
 author: MikeWasson
 ms.date: 06/13/2019
 ms.author: pnp
@@ -620,4 +620,4 @@ For more information about authentication and authorization in this application,
 
 <!-- links -->
 
-[github]: https://github.com/mspnp/serverless-reference-implementation
+[github]: https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0
