@@ -21,7 +21,6 @@ Azure provides you with a variety of different load-balancing solutions that you
 - [Cost](https://azure.microsoft.com/pricing/)
 - [SLA](https://azure.microsoft.com/support/legal/sla/)
 - [Regional availability](https://azure.microsoft.com/global-infrastructure/services/)
-- IT/DevOps ecosystem and team skills
 
 If your application consists of multiple workloads, evaluate each workload separately. A complete solution may incorporate two or more load-balancing solutions.
 
