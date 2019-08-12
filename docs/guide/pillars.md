@@ -80,25 +80,65 @@ Applications often depend on multiple services. In general, the probability of e
 
 Resiliency is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. Resiliency is closely related to availability.
 
-In traditional application development, there has been a focus on reducing mean time between failures (MTBF). Effort was spent trying to prevent the system from failing. In cloud computing, a different mindset is required, due to several factors:
+In traditional application development, effort was spent trying to prevent the system from failing. In cloud computing, a different mindset is required, due to several factors:
 
 - Distributed systems are complex, and a failure at one point can potentially cascade throughout the system.
 - Costs for cloud environments are kept low through the use of commodity hardware, so occasional hardware failures must be expected.
 - Applications often depend on external services, which may become temporarily unavailable or throttle high-volume users.
 - Today's users expect an application to be available 24/7 without ever going offline.
 
-All of these factors mean that cloud applications must be designed to expect occasional failures and recover from them. Azure has many resiliency features already built into the platform. For example:
+All of these factors mean that cloud applications must be designed to expect occasional failures and recover from them. The following metrics can be used to gauge resilience:
+
+1. **Recovery time objective (RTO)** is the maximum acceptable time that an application can be available after an incident.
+2. **Recovery point objective (RPO)** is the maximum acceptable duration of data loss that is acceptable during a disaster.
+3. **Mean time to recover (MTTR)** is the average time that it takes to restore a component after a failure.
+4. **Mean time between failures (MTBF)** is the runtime that a component can reasonably expect to last between outages.
+
+Azure invests heavily in the cloud platform to ensure that customers can run their workloads reliably. Microsoft’s approach to improving Azure reliability involves improving the platform’s capability to minimize impact during planned maintenance events and giving customers control over the experience during these events. 
+
+Azure proactively mitigates potential failures, which reduces the impact of failures on availability by 50 percent. Using deep fleet telemetry, Microsoft enables machine learning (ML)-based failure predictions and ties them to automatic live migration for several types of hardware failure cases, including disk failures, IO latency, and CPU frequency anomalies. As a result, VMs are live migrated off “at-risk” machines before they ever show signs of failing. This means VMs running on Azure are more reliable than the underlying hardware.
+
+The reliability and performance of cloud services are determined in part by the network over which the transactions take place. Microsoft’s network has more datacenter regions than any of its competitors and its network is one of the largest in the world. Unlike many other public cloud providers, data that traverses between Azure datacenters and regions doesn’t go through the public internet; it stays on Microsoft’s network.
+
+This includes all traffic between Microsoft services, anywhere in the world. For example, within Azure, traffic between virtual machines, storage, and SQL communication traverses only the Microsoft network, regardless of the source and destination region. Cross-region VNet-to-VNet traffic stays on the Microsoft network as well. This helps ensure customers’ applications and data are both secure and highly available. Azure has many resiliency features already built into the platform. For example:
 
 - Azure Storage, SQL Database, and Cosmos DB all provide built-in data replication, both within a region and across regions.
 - Azure managed disks are automatically placed in different storage scale units to limit the effects of hardware failures.
 - VMs in an availability set are spread across several fault domains. A fault domain is a group of VMs that share a common power source and network switch. Spreading VMs across fault domains limits the impact of physical hardware failures, network outages, or power interruptions.
 
-That said, you still need to build resiliency into your application. Resiliency strategies can be applied at all levels of the architecture. Some mitigations are more tactical in nature &mdash; for example, retrying a remote call after a transient network failure. Other mitigations are more strategic, such as failing over the entire application to a secondary region. Tactical mitigations can make a big difference. While it's rare for an entire region to experience a disruption, transient problems such as network congestion are more common &mdash; so target these first. Having the right monitoring and diagnostics is also important, both to detect failures when they happen, and to find the root causes.
+Despite all the investments Microsoft puts into making the platform reliable, apps can suffer from downtime because of unplanned events such as power failures, data corruption, ransomware attacks, and other unplanned events such as fires or natural disasters. The graphic below illustrates key Azure service offerings for various types of failures that can occur.
+
+![bcdr-spectrum](../_images/bcdr-spectrum.PNG)
+
+Resiliency strategies can be applied at all levels of the architecture. Some mitigations are more tactical in nature &mdash; for example, retrying a remote call after a transient network failure. Other mitigations are more strategic, such as failing over the entire application to a secondary region. Tactical mitigations can make a big difference. While it's rare for an entire region to experience a disruption, transient problems such as network congestion are more common &mdash; so target these first. Having the right monitoring and diagnostics is also important, both to detect failures when they happen, and to find the root causes.
+
+To help protect against the consequences of such failures, Azure provides a comprehensive set of built-in resilience services that customers can easily enable, and control based on individual business needs. Whether it’s a single hardware node failure, a rack level failure, a datacenter outage, or a large-scale regional outage, Azure offers solutions, including the following:
+
+**Availability Sets** ensure that the VMs deployed on Azure are distributed across multiple isolated hardware nodes in a cluster.
+
+**Availability Zones** protect customers’ applications and data from datacenter failures by enabling distribution of VMs belonging to one tier across multiple physical locations within a region.
+
+**Azure Load Balancer** distributes inbound traffic according to rules and health probes.
+
+**Azure Traffic Manager** enables distribution of traffic optimally to services across global Azure regions, while providing high availability and responsiveness.
+
+**Azure Site Recovery** allows replication of virtual machines to another Azure region for business continuity and disaster recovery needs.
+
+**Azure Backup** serves as a general-purpose backup solution for cloud and on-premises workflows that run on VMs or physical servers.
+
+**Geo-Replication for Azure SQL Database** allows an application to perform quick disaster recovery of individual databases in case of a regional disaster or large-scale outage.
+
+**Locally-redundant storage (LRS)** provides object durability by replicating customer data to a storage scale unit.
+
+**Zone-redundant storage (ZRS)** replicates customer data synchronously across three storage clusters in a single region.
+
+**Geo-redundant storage (GRS)** provides durability of objects over a given year by replicating customer data to a secondary region that is hundreds of miles away from the primary region.
 
 When designing an application to be resilient, you must understand your availability requirements. How much downtime is acceptable? This is partly a function of cost. How much will potential downtime cost your business? How much should you invest in making the application highly available?
 
 ### Resiliency guidance
 
+- [White paper: Resilience in Azure](https://azure.microsoft.com/mediahandler/files/resourcefiles/resilience-in-azure-whitepaper/Resilience%20in%20Azure.pdf)
 - [Designing reliable Azure applications][resiliency]
 - [Design patterns for resiliency][resiliency-patterns]
 - Best practices: [Transient fault handling][transient-fault-handling], [Retry guidance for specific services][retry-service-specific]
