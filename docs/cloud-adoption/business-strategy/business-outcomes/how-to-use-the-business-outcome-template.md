@@ -28,7 +28,7 @@ Introduced by Kate Johnson at the Microsoft Digital Transformation Academy, busi
 
 ![Business outcomes visualized as a house with stakeholders, over business outcomes, over technical capabilities](../../_images/business-outcome-house.png)
 
-*Figure 1: Business outcomes visualized as a house with stakeholders, over business outcomes, over technical capabilities.*
+*Figure 1 - Business outcomes visualized as a house with stakeholders, over business outcomes, over technical capabilities.*
 
 The business outcome template focuses on simplified conversations that can quickly engage stakeholders without getting too deep into the technical solution. By rapidly understanding and aligning the key performance indicators (KPIs) and business drivers that are important to stakeholders, your team can think about high-level approaches and transformations before diving into the implementation details.
 
@@ -36,7 +36,7 @@ An example can be found on the "Example Outcome" tab of the spreadsheet, as show
 
 ![Example of a business outcome template](../../_images/business-outcome-template.png)
 
-*Figure 2: Example of a business outcome template.*
+*Figure 2 - Example of a business outcome template.*
 
 ## Why is this template relevant?
 
@@ -44,7 +44,7 @@ Discovery is a fundamental tenet of enterprise architecture. If discovery is lim
 
 ![Five areas of focus in discovery: stakeholders, outcomes, drivers, KPIs, and capabilities](../../_images/business-outcome-focus-areas.png)
 
-*Figure 3: Five areas of focus in discovery: stakeholders, outcomes, drivers, KPIs, and capabilities.*
+*Figure 3 - Five areas of focus in discovery: stakeholders, outcomes, drivers, KPIs, and capabilities.*
 
 **Stakeholders**: Who in the organization is likely to see the greatest value in a specific business outcome? Who is most likely to support this transformation, especially when things get tough or time consuming? Who has the greatest stake in the success of this transformation? This person is a potential stakeholder.
 

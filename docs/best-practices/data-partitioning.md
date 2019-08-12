@@ -55,7 +55,7 @@ Figure 1 shows horizontal partitioning or sharding. In this example, product inv
 
 ![Horizontally partitioning (sharding) data based on a partition key](./images/data-partitioning/DataPartitioning01.png)
 
-*Figure 1. Horizontally partitioning (sharding) data based on a partition key.*
+*Figure 1 - Horizontally partitioning (sharding) data based on a partition key.*
 
 The most important factor is the choice of a sharding key. It can be difficult to change the key after the system is in operation. The key must ensure that data is partitioned to spread the workload as evenly as possible across the shards.
 
@@ -75,7 +75,7 @@ The most common use for vertical partitioning is to reduce the I/O and performan
 
 ![Vertically partitioning data by its pattern of use](./images/data-partitioning/DataPartitioning02.png)
 
-*Figure 2. Vertically partitioning data by its pattern of use.*
+*Figure 2 - Vertically partitioning data by its pattern of use.*
 
 In this example, the application regularly queries the product name, description, and price when displaying the product details to customers. Stock count and last- ordered date are held in a separate partition because these two items are commonly used together.
 
@@ -95,7 +95,7 @@ When it's possible to identify a bounded context for each distinct business area
 
 ![Functionally partitioning data by bounded context or subdomain](./images/data-partitioning/DataPartitioning03.png)
 
-*Figure 3. Functionally partitioning data by bounded context or subdomain.*
+*Figure 3 - Functionally partitioning data by bounded context or subdomain.*
 
 This partitioning strategy can help reduce data access contention across different parts of a system.
 

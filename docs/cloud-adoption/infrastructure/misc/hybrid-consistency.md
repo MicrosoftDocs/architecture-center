@@ -20,7 +20,7 @@ Hybrid deployment models during migration can reduce risk and contribute to a sm
 Using a hybrid cloud solution allows organizations to scale computing resources. It also eliminates the need to make massive capital expenditures to handle short-term spikes in demand. Changes to your business can drive the need to free up local resources for more sensitive data or applications. It's easier, faster, and less expensive to deprovision cloud resources. You pay only for those resources your organization temporarily uses, instead of having to purchase and maintain additional resources. This approach reduces the amount of equipment that might remain idle over long periods of time. Hybrid cloud computing delivers all the benefits of cloud computing flexibility, scalability, and cost efficiencies with the lowest possible risk of data exposure.
 
 ![Creating hybrid cloud consistency across identity, management, security, data, development, and DevOps](../../_images/hybrid-consistency.png)
-*Figure 1. Creating hybrid cloud consistency across identity, management, security, data, development, and DevOps*
+*Figure 1 - Creating hybrid cloud consistency across identity, management, security, data, development, and DevOps.*
 
 A true hybrid cloud solution must provide four components, each of which brings significant benefits:
 
