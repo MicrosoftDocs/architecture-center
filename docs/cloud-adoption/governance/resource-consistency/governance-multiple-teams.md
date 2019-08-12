@@ -54,12 +54,12 @@ The user identities for both the Azure Account Owner and the Azure AD global adm
 The Azure Account Owner has permission to create, update, and delete subscriptions:
 
 ![Azure account with Azure Account Manager and Azure AD global admin](../../_images/governance-3-0.png)
-*Figure 1. An Azure account with an Account Manager and Azure AD Global Administrator.*
+*Figure 1 - An Azure account with an Account Manager and Azure AD Global Administrator.*
 
 The Azure AD **global administrator** has permission to create user accounts:
 
 ![Azure account with Azure Account Manager and Azure AD global admin](../../_images/governance-3-0a.png)
-*Figure 2. The Azure AD Global Administrator creates the required user accounts in the tenant.*
+*Figure 2 - The Azure AD Global Administrator creates the required user accounts in the tenant.*
 
 The first two accounts, **App1 Workload Owner** and **App2 Workload Owner** are each associated with an individual in your organization responsible for managing a workload. The **network operations** account is owned by the individual that is responsible for the shared infrastructure resources. Finally, the **subscription owner** account is associated with the individual responsible for ownership of subscriptions.
 
@@ -77,7 +77,7 @@ Let's take a look at two example permission models to understand this concept a 
 
 In both examples, there is a subscription service administrator that is assigned the [built-in owner role][rbac-built-in-owner] at the subscription scope. Recall that the [built-in owner role][rbac-built-in-owner] grants all permissions including the management of access to resources.
 ![subscription service administrator with owner role](../../_images/governance-2-1.png)
-*Figure 3. A subscription with a service administrator assigned the built-in owner role.*
+*Figure 3 - A subscription with a service administrator assigned the built-in owner role.*
 
 1. In the first example, there is **workload owner A** with no permissions at the subscription scope - they have no resource access management rights by default. This user wants to deploy and manage the resources for their workload. They must contact the **service administrator** to request creation of a resource group.
     ![workload owner requests creation of resource group A](../../_images/governance-2-2.png)
@@ -99,7 +99,7 @@ In both examples, there is a subscription service administrator that is assigned
 At this point, each of the workload owners is isolated in their own resource group. None of the workload owners or their team members have management access to the resources in any other resource group.
 
 ![subscription with resource groups A and B](../../_images/governance-2-10.png)
-*Figure 4. A subscription with two workload owners isolated with their own resource group.*
+*Figure 4 - A subscription with two workload owners isolated with their own resource group.*
 
 This model is a least-privilege model&mdash;each user is assigned the correct permission at the correct resource management scope.
 
@@ -121,7 +121,7 @@ Let's take a look at second example that reduces the number of tasks performed b
 Note that in this model, the **service administrator** performed fewer actions than they did in the first example due to the delegation of management access to each of the individual workload owners.
 
 ![subscription with resource groups A and B](../../_images/governance-2-16.png)
-*Figure 5. A subscription with a service administrator and two workload owners, all assigned the built-in owner role.*
+*Figure 5 - A subscription with a service administrator and two workload owners, all assigned the built-in owner role.*
 
 However, because both **workload owner A** and **workload owner B** are assigned the built-in owner role at the subscription scope, they have each inherited the built-in owner role for each other's resource group. This means that not only do they have full access to one another's resources, they are also able to delegate management access to each other's resource groups. For example, **workload owner B** has rights to add any other user to **resource group A** and can assign any role to them, including the built-in owner role.
 
@@ -144,12 +144,12 @@ Before you look at examples of each of these models, let's review the management
 Recall from the requirements that you have an individual in the organization who is responsible for subscriptions, and this user owns the **subscription owner** account in the Azure AD tenant. However, this account does not have permission to create subscriptions. Only the **Azure Account Owner** has permission to do this:
 
 ![An Azure Account Owner creates a subscription](../../_images/governance-3-0b.png)
-*Figure 6. An Azure Account Owner creates a subscription.*
+*Figure 6 - An Azure Account Owner creates a subscription.*
 
 Once the subscription has been created, the **Azure Account Owner** can add the **subscription owner** account to the subscription with the **owner** role:
 
 ![The Azure Account Owner adds the subscription owner user account to the subscription with the owner role.](../../_images/governance-3-0c.png)
-*Figure 7. The Azure Account Owner adds the **subscription owner** user account to the subscription with the **owner** role.*
+*Figure 7 - The Azure Account Owner adds the **subscription owner** user account to the subscription with the **owner** role.*
 
 The **subscription owner** can now create **resource groups** and delegate resource access management.
 
