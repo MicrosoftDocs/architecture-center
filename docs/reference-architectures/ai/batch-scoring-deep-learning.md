@@ -77,7 +77,7 @@ For this workload, these two options will have comparable performance. Using few
 
 ### MPI step
 
-When creating the pipeline in Azure Machine Learning, one of the steps used to perform parallel computation is the MPI step. The MPI step will help split the data evenly across the available nodes. The MPI step will not executed until all the requested nodes are ready. Should one node fail or get preempted (if it is a low-priority virtual machine), the MPI step will have to be rerun.
+When creating the [Azure Machine Learning service pipeline][aml-pipeline], one of the steps used to perform parallel computation is the MPI step. The MPI step will help split the data evenly across the available nodes. The MPI step will not executed until all the requested nodes are ready. Should one node fail or get preempted (if it is a low-priority virtual machine), the MPI step will have to be rerun.
 
 ## Security considerations
 
@@ -139,6 +139,7 @@ To deploy this reference architecture, follow the steps described in the [GitHub
 <!-- links -->
 
 [aml-compute]: /azure/machine-learning/service/concept-compute-target
+[aml-pipeline]: /azure/machine-learning/service/concept-ml-pipelines
 [amls]: /azure/machine-learning/service/overview-what-is-azure-ml
 [azcopy]: /azure/storage/common/storage-use-azcopy-linux
 [blob-storage]: /azure/storage/blobs/storage-blobs-introduction

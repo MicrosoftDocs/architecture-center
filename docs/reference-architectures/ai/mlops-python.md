@@ -13,7 +13,7 @@ ms.custom: azcat-ai
 
 # Machine learning operationalization (MLOps) for Python models using Azure Machine Learning
 
-This reference architecture shows how to implement a continuous integration (CI), continuous delivery (CD), and retraining pipeline for an AI application using Azure DevOps and Azure Machine Learning. The solution is built on the scikit-learn diabetes dataset but can be easily adapted for any AI scenario and other popular build systems such as Jenkins and Travis.
+This reference architecture shows how to implement a continuous integration (CI), continuous delivery (CD), and retraining pipeline for an AI application using Azure DevOps and [Azure Machine Learning service](/azure/machine-learning/service/overview-what-is-azure-ml). The solution is built on the scikit-learn diabetes dataset but can be easily adapted for any AI scenario and other popular build systems such as Jenkins and Travis.
 
 ![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][repo].
 
@@ -25,7 +25,7 @@ This architecture consists of the following components:
 
 **[Azure Pipelines](/azure/devops/pipelines/get-started/index?view=azure-devops)**. This build and test system is based on [Azure DevOps](https://azure.microsoft.com/services/devops/) and used for the build and release pipelines. Azure Pipelines breaks these pipelines into logical steps called tasks. For example, the [Azure CLI](/azure/devops/pipelines/tasks/deploy/azure-cli?view=azure-devops) task makes it easier to work with Azure resources.
 
-**[Azure Machine Learning service](/azure/machine-learning/service/overview-what-is-azure-ml)**. Machine Learning is a cloud service for training, scoring, deploying, and managing machine learning models at scale. This architecture uses the Azure Machine Learning [SDK for Python 3](/azure/machine-learning/service/quickstart-create-workspace-with-python) to create a workspace, compute resources, the machine learning pipeline, and the scoring image. An Azure Machine Learning workspace provides the space in which to experiment and train and deploy machine learning models.
+**[Azure Machine Learning service](/azure/machine-learning/service/overview-what-is-azure-ml)**. Azure Machine Learning is a cloud service for training, scoring, deploying, and managing machine learning models at scale. This architecture uses the Azure Machine Learning [SDK for Python 3](/azure/machine-learning/service/quickstart-create-workspace-with-python) to create a workspace, compute resources, the machine learning pipeline, and the scoring image. An Azure Machine Learning [workspace](/azure/machine-learning/service/concept-workspace) provides the space in which to experiment and train and deploy machine learning models.
 
 **[Azure Machine Learning Compute](/azure/machine-learning/service/how-to-set-up-training-targets)** is cluster of virtual machines on demand with an automatic scaling and GPU and CPU node options. The training job is executed on this cluster.
 
@@ -61,23 +61,23 @@ The CI pipeline gets triggered every time code is checked in. It publishes an up
 
 - **Data test.** These tests verify that the data samples conform to the expected schema and distribution. Customize this test for other use cases and run it as a separate data sanity pipeline that gets triggered as new data arrives. For example, move the data test task to a data ingestion pipeline so you can test it earlier.
 
-The following one-time tasks occur when setting up the infrastructure for the Machine Learning service and the Python SDK:
+The following one-time tasks occur when setting up the infrastructure for the Azure Machine Learning service and the Python SDK:
 
-- Create the workspace that hosts all Machine Learning-related resources.
+- Create the workspace that hosts all Azure Machine Learning-related resources.
 
 - Create the compute resources that run the training job.
 
-- Create the Machine Learning pipeline with the updated training script.
+- Create the machine learning pipeline with the updated training script.
 
-- Publish the Machine Learning pipeline as a REST endpoint to orchestrate the training workflow. The next section describes this step.
+- Publish the machine learning pipeline as a REST endpoint to orchestrate the training workflow. The next section describes this step.
 
 ### Retraining pipeline
 
-The Machine Learning pipeline orchestrates the process of retraining the model in an asynchronous manner. Retraining can be triggered on a schedule or when new data becomes available by calling the published pipeline REST endpoint from previous step.
+The machine learning pipeline orchestrates the process of retraining the model in an asynchronous manner. Retraining can be triggered on a schedule or when new data becomes available by calling the published pipeline REST endpoint from previous step.
 
 This pipeline covers the following steps:
 
-- **Train model.** The training Python script is executed on the Machine Learning Compute resource to get a new model. Since training is the most compute-intensive task in an AI project, the solution uses [Azure Machine Learning Compute](/azure/machine-learning/service/how-to-set-up-training-targets#amlcompute).
+- **Train model.** The training Python script is executed on the Azure Machine Learning Compute resource to get a new model. Since training is the most compute-intensive task in an AI project, the solution uses [Azure Machine Learning Compute](/azure/machine-learning/service/how-to-set-up-training-targets#amlcompute).
 
 - **Evaluate model.** A simple evaluation test compares the new model with the existing model, and only when the new model is better does it get promoted.
 
@@ -124,13 +124,13 @@ The release pipeline publishes a real-time scoring web service. A release to the
 
 Scale the production environment according to the size of your Azure Kubernetes Service cluster. The size of the cluster depends on the load you expect for the deployed scoring web service. For real-time scoring architectures, throughput is a key optimization metric. For non-deep learning scenarios, CPU should be sufficient to handle the load; however, for deep learning workloads, when speed is a bottleneck, GPUs generally provide better performance compared to CPUs. For moreTo match GPU performance using CPUs, a cluster with a large number of CPUs is usually needed. Kubernetes Service supports both CPU and GPU node types—the reason this solution uses Kubernetes Service for image deployment. For more information, see [GPUs vs CPUs for deployment of deep learning models](https://azure.microsoft.com/blog/gpus-vs-cpus-for-deployment-of-deep-learning-models/) (blog post).
 
-Scale the retraining pipeline up and down depending on the number of nodes in your Machine Learning Compute resource, and use the [autoscaling](/azure/machine-learning/service/how-to-set-up-training-targets#persistent) option to manage the cluster. This architecture uses CPUs. For deep learning workloads, GPUs are a better choice and are supported by Machine Learning Compute.
+Scale the retraining pipeline up and down depending on the number of nodes in your Azure Machine Learning Compute resource, and use the [autoscaling](/azure/machine-learning/service/how-to-set-up-training-targets#persistent) option to manage the cluster. This architecture uses CPUs. For deep learning workloads, GPUs are a better choice and are supported by Azure Machine Learning Compute.
 
 ## Management considerations
 
-- **Monitor retraining job.** Machine Learning pipelines orchestrate retraining across a cluster of machines and provides an easy way to monitor them. Use the [Azure portal](https://portal.azure.com/), and go to Machine Learning workspace, and look under pipelines section for the logs. Alternatively, these logs are also written to blob and can be read from there as well using tools such as [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
+- **Monitor retraining job.** Machine learning pipelines orchestrate retraining across a cluster of machines and provides an easy way to monitor them. Use the [Azure portal](https://portal.azure.com/), and go to the machine learning workspace, and look under pipelines section for the logs. Alternatively, these logs are also written to blob and can be read from there as well using tools such as [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
-- **Logging.** The Machine Learning service provides an easy way to log at each step of the machine learning life cycle. The logs are stored in a blob container. For more information, see [Enable logging in Azure Machine Learning service](/azure/machine-learning/service/how-to-enable-logging). For richer monitoring, configure [Application Insights](/azure/machine-learning/service/how-to-enable-app-insights#use-portal-to-configure) to use the logs.
+- **Logging.** Azure Machine Learning service provides an easy way to log at each step of the machine learning life cycle. The logs are stored in a blob container. For more information, see [Enable logging in Azure Machine Learning service](/azure/machine-learning/service/how-to-enable-logging). For richer monitoring, configure [Application Insights](/azure/machine-learning/service/how-to-enable-app-insights#use-portal-to-configure) to use the logs.
 
 - **Security.** All secrets and credentials are stored in [Azure Key Vault](/azure/key-vault/) and accessed in Azure Pipelines using [variable groups](/azure/devops/pipelines/library/variable-groups?view=azure-devops&tabs=yaml#link-secrets-from-an-azure-key-vault).
 
@@ -138,12 +138,12 @@ Scale the retraining pipeline up and down depending on the number of nodes in yo
 
 Azure DevOps is [free](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/) for open-source projects and small projects with up to five users. For larger teams, purchase a plan based on the number of users.
 
-Compute is the biggest cost driver in this architecture and varies depending on the use case. For experimentation and training, Machine Learning services are free, you pay only for the compute used. While deploying models to Kubernetes Service cluster, Machine Learning adds a small [surcharge](https://azure.microsoft.com/pricing/details/machine-learning-service/) on top of the Kubernetes Service compute cost. Depending on the expected web service load and the defined autoscaling option, you can control this cost. You can use either Azure CLI or Azure Machine Learning Python SDK to programmatically set an autoscaling configuration.
+Compute is the biggest cost driver in this architecture and varies depending on the use case. For experimentation and training, Azure Machine Learning services are free, you pay only for the compute used. While deploying models to Kubernetes Service cluster, Azure Machine Learning adds a small [surcharge](https://azure.microsoft.com/pricing/details/machine-learning-service/) on top of the Kubernetes Service compute cost. Depending on the expected web service load and the defined autoscaling option, you can control this cost. You can use either Azure CLI or Azure Machine Learning Python SDK to programmatically set an autoscaling configuration.
 
-The retraining pipeline also requires a form of compute. This architecture uses Machine Learning Compute, but other [options](/azure/machine-learning/service/concept-azure-machine-learning-architecture#compute-targets) are available. As mentioned earlier, training models do not incur the Machine Learning surcharge; you only pay the compute cost. The compute cost depends on the cluster size, node type, and number of nodes. You can estimate the cost for Machine Learning and other services using the Azure [pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service).
+The retraining pipeline also requires a form of compute. This architecture uses Azure Machine Learning Compute, but other [options](/azure/machine-learning/service/concept-azure-machine-learning-architecture#compute-targets) are available. As mentioned earlier, training models do not incur the machine learning service surcharge; you only pay the compute cost. The compute cost depends on the cluster size, node type, and number of nodes. You can estimate the cost for Machine Learning and other services using the Azure [pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service).
 
 ## Deploy the solution
 
 To deploy this reference architecture, follow the steps described in the [GitHub repo][repo].
 
-[repo]: https://github.com/Microsoft/MLOpsPython
+[repo]: https://github.com/Microsoft/MLOpsPython'
