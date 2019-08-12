@@ -46,13 +46,13 @@ The steps for training are:
 
 This architecture consists of the following components.
 
-**[Azure Machine Learning Compute][aml-compute]** plays the central role in this architecture by scaling resources up and down according to need. AzureML Compute is a service that helps provision and manage clusters of VMs, schedule jobs, gather results, scale resources,and handle failures. It supports GPU-enabled VMs for deep learning workloads. 
+**[Azure Machine Learning Compute][aml-compute]** plays the central role in this architecture by scaling resources up and down according to need. AzureML Compute is a service that helps provision and manage clusters of VMs, schedule jobs, gather results, scale resources,and handle failures. It supports GPU-enabled VMs for deep learning workloads.
 
-**[Blob storage][azure-blob]** is used to store the logs and results. 
+**[Blob storage][azure-blob]** is used to store the logs and results.
 
 **[Premium Blob storage][premium-storage]** is used to store the training data. The premium blob storage is mounted in the nodes using blob fuse. Premium blob offers better performance than standard blob and is recommended for distributed training scenarios. When mounted blob fuse uses caching so that the data is saved locally. This means that after the first epoch subsequent epochs will read from the local storage which is the most performant option.
 
-**[Container Registry][acr]** is used to store the Docker image that Machine Learning Compute uses to run the training. 
+**[Container Registry][acr]** is used to store the Docker image that Azure Machine Learning Compute uses to run the training.
 
 ## Performance considerations
 
@@ -73,7 +73,7 @@ The following graph shows the performance differences for different GPU types ba
 
 Each VM series shown in the previous table includes a configuration with InfiniBand. Use the InfiniBand configurations when you run distributed training, for faster communication between nodes. InfiniBand also increases the scaling efficiency of the training for the frameworks that can take advantage of it. For details, see the Infiniband [benchmark comparison][benchmark].
 
-Although Machine Learning Compute can mount Blob storage using the [blobfuse][blobfuse] adapter, we don't recommend using Blob Storage this way for distributed training, because the performance isn't good enough for the majority of cases to handle the necessary throughput. Use Premium Blob for the data as shown in the architecture diagram.
+Although Azure Machine Learning Compute can mount Blob storage using the [blobfuse][blobfuse] adapter, we don't recommend using Blob Storage this way for distributed training, because the performance isn't good enough for the majority of cases to handle the necessary throughput. Use Premium Blob for the data as shown in the architecture diagram.
 
 ## Scalability considerations
 
@@ -87,9 +87,10 @@ One way to increase scaling efficiency is to increase the batch size. That must 
 
 When training deep learning models, an often-overlooked aspect is where the data is stored. If the storage is too slow to keep up with the demands of the GPUs, training performance can degrade.
 
-Machine Learning Compute supports many storage options. For best performance it is advisable that you download the data locally to each node. However, this can be cumbersome, because all the nodes must download the data from Blob Storage, and with the ImageNet dataset, this can take a considerable amount of time. By default AzureML mounts storage such that it caches the data locally. This means in practice that after the first epoch the data is read from local storage. This combined with Premium Blob Storage offers a good compromise between ease of use and performance.
+Azure Machine Learning Compute supports many storage options. For best performance it is advisable that you download the data locally to each node. However, this can be cumbersome, because all the nodes must download the data from Blob Storage, and with the ImageNet dataset, this can take a considerable amount of time. By default AzureML mounts storage such that it caches the data locally. This means in practice that after the first epoch the data is read from local storage. This combined with Premium Blob Storage offers a good compromise between ease of use and performance.
 
 ## Data format
+
 With large datasets it is often advisable to use data formats such as [TFRecords][tfrecords] and [parquet][petastorm] which provide better IO performance than multiple small image files.
 
 ## Security considerations
