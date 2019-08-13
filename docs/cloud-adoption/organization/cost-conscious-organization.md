@@ -17,7 +17,7 @@ As outlined in [Motivations: Why are we moving to the cloud?](../business-strate
 Ensuring cost consciousness is not a one-time activity. Like other cloud-adoption topics, it's iterative. The following diagram outlines this process to focus on three interdependent activities: *visibility*, *accountability*, and *optimization*. These processes play out at macro and micro levels, which we describe in detail in this article.
 
 ![Cost-conscious process](../_images/ready/cost-optimization-process.png)
-*Figure 1. Outline of the cost-conscious organization*
+*Figure 1 - Outline of the cost-conscious organization.*
 
 ## General cost-conscious processes
 

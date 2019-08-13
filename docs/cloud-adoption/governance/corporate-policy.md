@@ -36,7 +36,7 @@ Any change to business processes or technology platforms introduces risk to the 
                     <div class="cardText" style="padding-left:0px;">
 <img src="../_images/operational-transformation-govern-highres.png" alt="Diagram of the Cloud Adoption Framework governance model: Corporate policy and governance disciplines">
 <br/>
-<i>Figure 1. Visual of corporate policy and the Five Disciplines of Cloud Governance</i>
+<i>Figure 1 - Visual of corporate policy and the Five Disciplines of Cloud Governance.</i>
                     </div>
                 </div>
             </div>

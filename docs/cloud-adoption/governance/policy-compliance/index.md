@@ -29,7 +29,7 @@ In traditional governance and incremental governance, corporate policy creates t
 
 ![Corporate governance and governance disciplines](../../_images/operational-transformation-govern-highres.png)
 
-*Figure 1. Corporate governance and governance disciplines.*
+*Figure 1 - Corporate governance and governance disciplines.*
 
 The image above demonstrates the interactions between business risk, policy and compliance, and monitor and enforce to create a governance strategy. Followed by the Five Disciplines of Cloud Governance to realize your strategy.
 
