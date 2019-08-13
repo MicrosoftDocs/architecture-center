@@ -12,7 +12,7 @@ ms.custom: seojan19
 
 # Criteria for choosing an Azure compute service
 
-The term *compute* refers to the hosting model for the computing resources that your applications runs on. The following tables compare Azure compute services across several axes. Refer to these tables when selecting a compute option for your application.
+The term *compute* refers to the hosting model for the computing resources that your applications run on. The following tables compare Azure compute services across several axes. Refer to these tables when selecting a compute option for your application.
 
 ## Hosting model
 
@@ -43,7 +43,7 @@ Notes
 | Criteria | Virtual Machines | App Service | Service Fabric | Azure Functions | Azure Kubernetes Service | Container Instances | Azure Batch |
 |----------|-----------------|-------------|----------------|-----------------|-------------------------|----------------|-------------|
 | Local debugging | Agnostic | IIS Express, others <a href="#note1b"><sup>1</sup></a> | Local node cluster | Visual Studio or Azure Functions CLI | Minikube, others | Local container runtime | Not supported |
-| Programming model | Agnostic | Web and API applications, WebJobs for background tasks | Guest executable, Service model, Actor model, Containers | Functions with triggers | Agnostic | Agnostic | Command line application |
+| Programming model | Agnostic | Web and API applications, WebJobs for background tasks | Guest executable, Service model, Actor model, Containers | Functions with triggers | Agnostic | Agnostic | Command-line application |
 | Application update | No built-in support | Deployment slots | Rolling upgrade (per service) | Deployment slots | Rolling update | Not applicable |
 
 Notes
@@ -57,7 +57,7 @@ Notes
 |----------|-----------------|-------------|----------------|-----------------|-------------------------|----------------|-------------|
 | Autoscaling | Virtual machine scale sets | Built-in service | Virtual machine scale sets | Built-in service | Not supported | Not supported | N/A |
 | Load balancer | Azure Load Balancer | Integrated | Azure Load Balancer | Integrated | Integrated |  No built-in support | Azure Load Balancer |
-| Scale limit<a href="#note1c"><sup>1</sup></a> | Platform image: 1000 nodes per VMSS, Custom image: 100 nodes per VMSS | 20 instances, 100 with App Service Environment | 100 nodes per VMSS | 200 instances per Function app | 100 nodes per cluster (default limit) |20 container groups per subscription (default limit). | 20 core limit (default limit). |
+| Scale limit<a href="#note1c"><sup>1</sup></a> | Platform image: 1000 nodes per virtual machine scale set, Custom image: 100 nodes per virtual machine scale set | 20 instances, 100 with App Service Environment | 100 nodes per virtual machine scale set | 200 instances per Function app | 100 nodes per cluster (default limit) |20 container groups per subscription (default limit). | 20 core limit (default limit). |
 
 Notes
 
@@ -68,7 +68,7 @@ Notes
 | Criteria | Virtual Machines | App Service | Service Fabric | Azure Functions | Azure Kubernetes Service | Container Instances | Azure Batch |
 |----------|-----------------|-------------|----------------|-----------------|-------------------------|----------------|-------------|
 | SLA | [SLA for Virtual Machines][sla-vm] | [SLA for App Service][sla-app-service] | [SLA for Service Fabric][sla-sf] | [SLA for Functions][sla-functions] | [SLA for AKS][sla-acs] | [SLA for Container Instances](https://azure.microsoft.com/support/legal/sla/container-instances/) | [SLA for Azure Batch][sla-batch] |
-| Multi region failover | Traffic manager | Traffic manager | Traffic manager, Multi-Region Cluster | Not supported | Traffic manager | Not supported | Not Supported |
+| Multi region failover | Azure Front Door (HTTP/HTTPS) </br> Traffic manager (Other) | Azure Front Door | Azure Front Door (HTTP/HTTPS) </br> Traffic manager (Other), Multi-Region Cluster | Azure Front Door | Azure Front Door (HTTP/HTTPS) </br> Traffic manager (Other) | Not supported | Not Supported |
 
 For guided learning on Service Guarantees, review [Core Cloud Services - Azure architecture and service guarantees](/learn/modules/explore-azure-infrastructure).
 
