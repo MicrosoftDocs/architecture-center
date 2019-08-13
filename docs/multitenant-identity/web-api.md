@@ -302,7 +302,7 @@ At startup, the application reads settings from every registered configuration p
 
 <!-- links -->
 [Authorization]: authorize.md
-[ADAL]: /previous-versions/azure/jj573266
+[ADAL]: /azure/active-directory/develop/active-directory-authentication-libraries
 [claims-transformation]: claims.md#claims-transformations
 [IdentityServer4]: https://github.com/IdentityServer/IdentityServer4
 [JwtBearer]: https://www.nuget.org/packages/Microsoft.AspNet.Authentication.JwtBearer

@@ -54,6 +54,12 @@ items:
       href: guide/technology-choices/compute-decision-tree.md
     - name: Compute comparison
       href: guide/technology-choices/compute-comparison.md
+  - name: Choosing a load balancing service
+    items:
+    - name: Overview
+      href: guide/technology-choices/load-balancing-overview.md
+    - name: Decision tree
+      href: guide/technology-choices/load-balancing-decision-tree.md
   - name: Best Practices
     items:
     - name: API design

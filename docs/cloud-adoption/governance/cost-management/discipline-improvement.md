@@ -19,7 +19,7 @@ This article outlines potential tasks your company perform to develop and mature
 
 ![Four phases of adoption](../../_images/adoption-phases.png)
 
-*Figure 1. Adoption phases of the incremental approach to cloud governance.*
+*Figure 1 - Adoption phases of the incremental approach to cloud governance.*
 
 No single document can account for the requirements of all businesses. As such, this article outlines suggested minimum and potential example activities for each phase of the governance maturation process. The initial objective of these activities is to help you build a [Policy MVP](../journeys/index.md#an-incremental-approach-to-cloud-governance) and establish a framework for incremental policy evolution. Your Cloud Governance team will need to decide how much to invest in these activities to improve your Cost Management governance capabilities.
 

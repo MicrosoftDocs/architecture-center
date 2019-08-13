@@ -385,7 +385,7 @@ You can envisage the entire monitoring and diagnostics process as a pipeline tha
 
 ![Stages in the monitoring and diagnostics pipeline](./images/monitoring/Pipeline.png)
 
-*Figure 1. The stages in the monitoring and diagnostics pipeline.*
+*Figure 1 - The stages in the monitoring and diagnostics pipeline.*
 
 Figure 1 highlights how the data for monitoring and diagnostics can come from a variety of data sources. The instrumentation and collection stages are concerned with identifying the sources from where the data needs to be captured, determining which data to capture, how to capture it, and how to format this data so that it can be easily examined. The analysis/diagnosis stage takes the raw data and uses it to generate meaningful information that an operator can use to determine the state of the system. The operator can use this information to make decisions about possible actions to take, and then feed the results back into the instrumentation and collection stages. The visualization/alerting stage phase presents a consumable view of the system state. It can display information in near real time by using a series of dashboards. And it can generate reports, graphs, and charts to provide a historical view of the data that can help identify long-term trends. If information indicates that a KPI is likely to exceed acceptable bounds, this stage can also trigger an alert to an operator. In some cases, an alert can also be used to trigger an automated process that attempts to take corrective actions, such as autoscaling.
 
@@ -522,7 +522,7 @@ Data collection is often performed through a collection service that can run aut
 
 ![Example of collecting instrumentation data](./images/monitoring/TelemetryService.png)
 
-*Figure 2. Collecting instrumentation data.*
+*Figure 2 - Collecting instrumentation data.*
 
 Note that this is a simplified view. The collection service is not necessarily a single process and might comprise many constituent parts running on different machines, as described in the following sections. Additionally, if the analysis of some telemetry data must be performed quickly (hot analysis, as described in the section [Supporting hot, warm, and cold analysis](#supporting-hot-warm-and-cold-analysis) later in this document), local components that operate outside the collection service might perform the analysis tasks immediately. Figure 2 depicts this situation for selected events. After analytical processing, the results can be sent directly to the visualization and alerting subsystem. Data that's subjected to warm or cold analysis is held in storage while it awaits processing.
 
@@ -554,7 +554,7 @@ One approach to implementing the pull model is to use monitoring agents that run
 
 ![Illustration of using a monitoring agent to pull information and write to shared storage](./images/monitoring/PullModel.png)
 
-*Figure 3. Using a monitoring agent to pull information and write to shared storage.*
+*Figure 3 - Using a monitoring agent to pull information and write to shared storage.*
 
 > [!NOTE]
 > Using a monitoring agent is ideally suited to capturing instrumentation data that's naturally pulled from a data source. An example is information from SQL Server Dynamic Management Views or the length of an Azure Service Bus queue.
@@ -565,7 +565,7 @@ To address these issues, you can implement queuing, as shown in Figure 4. In thi
 
 ![Illustration of using a queue to buffer instrumentation data](./images/monitoring/BufferedQueue.png)
 
-*Figure 4. Using a queue to buffer instrumentation data.*
+*Figure 4 - Using a queue to buffer instrumentation data.*
 
 The local data-collection service can add data to a queue immediately after it's received. The queue acts as a buffer, and the storage writing service can retrieve and write the data at its own pace. By default, a queue operates on a first-in, first-out basis. But you can prioritize messages to accelerate them through the queue if they contain data that must be handled more quickly. For more information, see the [Priority Queue pattern](../patterns/priority-queue.md). Alternatively, you can use different channels (such as Service Bus topics) to direct data to different destinations depending on the form of analytical processing that's required.
 
@@ -577,7 +577,7 @@ The instrumentation data that the data-collection service retrieves from a singl
 
 ![Example of using a service to consolidate instrumentation data](./images/monitoring/Consolidation.png)
 
-*Figure 5. Using a separate service to consolidate and clean up instrumentation data.*
+*Figure 5 - Using a separate service to consolidate and clean up instrumentation data.*
 
 ### Storing instrumentation data
 
@@ -594,7 +594,7 @@ You can implement an additional service that periodically retrieves the data fro
 
 ![Partitioning and storage of data](./images/monitoring/DataStorage.png)
 
-*Figure 6. Partitioning data according to analytical and storage requirements.*
+*Figure 6 - Partitioning data according to analytical and storage requirements.*
 
 The same instrumentation data might be required for more than one purpose. For example, performance counters can be used to provide a historical view of system performance over time. This information might be combined with other usage data to generate customer billing information. In these situations, the same data might be sent to more than one destination, such as a document database that can act as a long-term store for holding billing information, and a multidimensional store for handling complex performance analytics.
 
