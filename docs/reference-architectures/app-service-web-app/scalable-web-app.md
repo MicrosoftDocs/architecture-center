@@ -1,18 +1,18 @@
 ---
 title: Scalable web application
 titleSuffix: Azure Reference Architectures
-description: Improve Scalability in a web application running in Microsoft Azure.
+description: Improve scalability in a web application running in Microsoft Azure.
 author: MikeWasson
-ms.date: 08/01/2019
+ms.date: 10/25/2018
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.custom: seodec18
 ---
 
-# Improve Scalability in an Azure web application
+# Improve scalability in an Azure web application
 
-This Reference Architecture shows proven practices for improving scalability and performance in an Azure App Service web application.
+This reference architecture shows proven practices for improving scalability and performance in an Azure App Service web application.
 
 ![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github].
 
@@ -33,7 +33,7 @@ This architecture builds on the one shown in [Basic web application][basic-web-a
 - **Data storage**. Use [Azure SQL Database][sql-db] for relational data. For non-relational data, consider [Cosmos DB][cosmosdb].
 - **Azure Search**. Use [Azure Search][azure-search] to add search functionality such as search suggestions, fuzzy search, and language-specific search. Azure Search is typically used in conjunction with another data store, especially if the primary data store requires strict consistency. In this approach, store authoritative data in the other data store and the search index in Azure Search. Azure Search can also be used to consolidate a single search index from multiple data stores.
 - **Azure DNS**. [Azure DNS][azure-dns] is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
-- **Front Door**. [Front Door](/azure/frontdoor/) is a layer 7 load balancer and a site acceleration platform to improve your application's performance. In this architecture, it routes HTTP requests to the web front end. Front Door also provides a [web application firewall](/azure/frontdoor/waf-overview) (WAF) that protects the application from common exploits and vulnerabilities.
+- **Application gateway**. [Application Gateway](/azure/application-gateway/) is a layer 7 load balancer. In this architecture, it routes HTTP requests to the web front end. Application Gateway also provides a [web application firewall](/azure/application-gateway/waf-overview) (WAF) that protects the application from common exploits and vulnerabilities.
 
 ## Recommendations
 
@@ -100,12 +100,6 @@ Increase scalability of a SQL database by *sharding* the database. Sharding refe
 - Better transaction throughput.
 - Queries can run faster over a subset of the data.
 
-### Azure Front Door
-
-Front Door allows you to perform SSL offload at Front Door layer and also reduces the overall set of connections that your backend (App Service) will have to maintain.
-
-Since the TCP and SSL connections get terminated at Front Door, and even if you forward the requests as HTTPS to your application deployment, due to high level of connection reuse, there is a lot lesser percentage of SSL handshakes and TCP connections that your application will have to support.
-
 ### Azure Search
 
 Azure Search removes the overhead of performing complex data searches from the primary data store, and it can scale to handle load. See [Scale resource levels for query and indexing workloads in Azure Search][azure-search-scaling].
@@ -113,16 +107,6 @@ Azure Search removes the overhead of performing complex data searches from the p
 ## Security considerations
 
 This section lists security considerations that are specific to the Azure services described in this article. It's not a complete list of security best practices. For some additional security considerations, see [Secure an app in Azure App Service][app-service-security].
-
-### Locking down App Service for access from Front Door only
-
-Since your application is fronted with Front Door, and you will have your web application firewall policies setup, it is necessary that you lock down your application to accept traffic from your Front Door only. See [how to lock down your backend to accept traffic from Front Door only](/azure/frontdoor/front-door-faq#how-do-i-lock-down-the-access-to-my-backend-to-only-azure-front-door)
-
-### Web application firewall
-
-Web application firewall that helps protect your web applications from common threats such as SQL injection, cross-site scripting and other web exploits. You can define a WAF policy with Front Door, consisting of a combination of custom and managed rules to control access to your web applications.
-
-Azure WAF, when integrated with Front Door, stops denial-of-service and targeted application attacks at the edge of Microsoft's network, close to attack sources before they enter your application, and offers protection without sacrificing performance.
 
 ### Cross-Origin Resource Sharing (CORS)
 
@@ -169,5 +153,6 @@ Use [Transparent Data Encryption][sql-encryption] if you need to encrypt data at
 [sql-db]: /azure/sql-database/
 [sql-elastic]: /azure/sql-database/sql-database-elastic-scale-introduction
 [sql-encryption]: https://msdn.microsoft.com/library/dn948096.aspx
+[tm]: https://azure.microsoft.com/services/traffic-manager/
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/app-service-reference-architectures.vsdx
 [web-app-multi-region]: ./multi-region.md
