@@ -509,7 +509,7 @@ For more information about the FMA process, see [Resilience by design for cloud 
 [cosmos-db-multi-region]: /azure/cosmos-db/tutorial-global-distribution-sql-api
 [elasticsearch-azure]: ../elasticsearch/index.md
 [elasticsearch-client]: https://www.elastic.co/guide/en/elasticsearch/client/index.html
-[health-endpoint-monitoring-pattern]: https://msdn.microsoft.com/library/dn589789.aspx
+[health-endpoint-monitoring-pattern]: ../patterns/health-endpoint-monitoring.md
 [onstop-events]: https://azure.microsoft.com/blog/the-right-way-to-handle-azure-onstop-events/
 [lb-monitor]: /azure/load-balancer/load-balancer-monitor-log/
 [lb-probe]: /azure/load-balancer/load-balancer-custom-probe-overview#types
