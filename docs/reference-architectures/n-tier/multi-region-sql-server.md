@@ -168,7 +168,7 @@ You may wish to review the following [Azure example scenarios](/azure/architectu
 <!-- links -->
 
 [azure-sql-db]: /azure/sql-database/
-[health-endpoint-monitoring-pattern]: https://msdn.microsoft.com/library/dn589789.aspx
+[health-endpoint-monitoring-pattern]: ../../patterns/health-endpoint-monitoring.md
 [azure-cli]: /cli/azure/
 [regional-pairs]: /azure/best-practices-availability-paired-regions
 [resource groups]: /azure/azure-resource-manager/resource-group-overview
