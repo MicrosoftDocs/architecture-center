@@ -271,7 +271,7 @@ The following are examples of cluster and workload managers that can run in Azur
 - [TIBCO DataSynapse GridServer](https://azure.microsoft.com/blog/tibco-datasynapse-comes-to-the-azure-marketplace/)
 - [Bright Cluster Manager](http://www.brightcomputing.com/technology-partners/microsoft)
 - [IBM Spectrum Symphony and Symphony LSF](https://azure.microsoft.com/blog/ibm-and-microsoft-azure-support-spectrum-symphony-and-spectrum-lsf/)
-- [PBS Pro](http://pbspro.org) / [Altair](http://www.altair.com/)
+- [Altair PBS Works](https://web.altair.com/pbs-on-azure)
 - [Rescale](https://www.rescale.com/azure/)
 - [Microsoft HPC Pack](https://technet.microsoft.com/library/mt744885.aspx)
   - [HPC Pack for Windows](/azure/virtual-machines/windows/hpcpack-cluster-options)
