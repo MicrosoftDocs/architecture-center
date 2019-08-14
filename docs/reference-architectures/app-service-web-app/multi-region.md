@@ -24,10 +24,10 @@ This architecture builds on the one shown in [Improve scalability in a web appli
 
 - **Primary and secondary regions**. This architecture uses two regions to achieve higher availability. The application is deployed to each region. During normal operations, network traffic is routed to the primary region. If the primary region becomes unavailable, traffic is routed to the secondary region.
 - **Azure DNS**. [Azure DNS][azure-dns] is a hosting service for DNS domains, providing name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
-- **Front Door**. [Front Door](/azure/frontdoor/) routes incoming requests to the primary region. If the application running that region becomes unavailable, Front Door fails over to the secondary region.
+- **Azure Traffic Manager**. [Traffic Manager][traffic-manager] routes incoming requests to the primary region. If the application running that region becomes unavailable, Traffic Manager fails over to the secondary region.
 - **Geo-replication** of SQL Database and Cosmos DB.
 
-A multi-region architecture can provide higher availability than deploying to a single region. If a regional outage affects the primary region, you can use [Front Door](/azure/frontdoor/) to fail over to the secondary region. This architecture can also help if an individual subsystem of the application fails.
+A multi-region architecture can provide higher availability than deploying to a single region. If a regional outage affects the primary region, you can use [Traffic Manager][traffic-manager] to fail over to the secondary region. This architecture can also help if an individual subsystem of the application fails.
 
 There are several general approaches to achieving high availability across regions:
 
@@ -35,7 +35,7 @@ There are several general approaches to achieving high availability across regio
 - Active/passive with cold standby. Traffic goes to one region, while the other waits on cold standby. Cold standby means the VMs in the secondary region are not allocated until needed for failover. This approach costs less to run, but will generally take longer to come online during a failure.
 - Active/active. Both regions are active, and requests are load balanced between them. If one region becomes unavailable, it is taken out of rotation.
 
-This reference architecture focuses on active/passive with hot standby, using Front Door for failover.
+This reference architecture focuses on active/passive with hot standby, using Traffic Manager for failover.
 
 ## Recommendations
 
@@ -57,13 +57,13 @@ Consider placing the primary region, secondary region, and Traffic Manager into 
 
 ### Traffic Manager configuration
 
-**Routing**. Front Door supports several [routing mechanisms](/azure/frontdoor/front-door-routing-methods#priority-based-traffic-routing). For the scenario described in this article, we will use *priority* routing. With this setting, Front Door sends all requests to the primary region unless the endpoint for that region becomes unreachable. At that point, it automatically fails over to the secondary region. All you need to do is mark the different backends in the backend pool for your Front Door with different priority values - 1 for the active region and 2 or lower for the standby or passive region.
+**Routing**. Traffic Manager supports several [routing algorithms][tm-routing]. For the scenario described in this article, use *priority* routing (formerly called *failover* routing). With this setting, Traffic Manager sends all requests to the primary region unless the endpoint for that region becomes unreachable. At that point, it automatically fails over to the secondary region. See [Configure Failover routing method][tm-configure-failover].
 
-**Health probe**. Front Door uses an HTTP (or HTTPS) probe to monitor the availability of each backend. The probe gives Front Door a pass/fail test for failing over to the secondary region. It works by sending a request to a specified URL path. If it gets a non-200 response within a timeout period, the probe fails. You can configure the health probe frequency, number of samples required for evaluation and the number of successful samples required to call the backend as healthy. Based on the health probe configuration, Front Door marks the backend as degraded and fails over to the other backend. For details, see [Health Probes](/azure/frontdoor/front-door-health-probes).
+**Health probe**. Traffic Manager uses an HTTP (or HTTPS) probe to monitor the availability of each endpoint. The probe gives Traffic Manager a pass/fail test for failing over to the secondary region. It works by sending a request to a specified URL path. If it gets a non-200 response within a timeout period, the probe fails. After four failed requests, Traffic Manager marks the endpoint as degraded and fails over to the other endpoint. For details, see [Traffic Manager endpoint monitoring and failover][tm-monitoring].
 
-As a best practice, create a health probe path in your application backend that reports the overall health of the application and use the configuration for the health probe. The backend should check critical dependencies such as the App Service apps, storage queue, and SQL Database. Otherwise, the probe might report a healthy backend when critical parts of the application are actually failing.
+As a best practice, create a health probe endpoint that reports the overall health of the application and use this endpoint for the health probe. The endpoint should check critical dependencies such as the App Service apps, storage queue, and SQL Database. Otherwise, the probe might report a healthy endpoint when critical parts of the application are actually failing.
 
-On the other hand, don't use the health probe to check lower priority services. For example, if an email service goes down the application can switch to a second provider or just send emails later. This is not a high enough priority to cause the application to fail over.
+On the other hand, don't use the health probe to check lower priority services. For example, if an email service goes down the application can switch to a second provider or just send emails later. This is not a high enough priority to cause the application to fail over. For more information, see the [Health Endpoint Monitoring pattern][health-endpoint-monitoring-pattern].
 
 ### SQL Database
 
@@ -83,14 +83,16 @@ For Azure Storage, use [read-access geo-redundant storage][ra-grs] (RA-GRS). Wit
 
 For Queue storage, create a backup queue in the secondary region. During failover, the app can use the backup queue until the primary region becomes available again. That way, the application can still process new requests.
 
-## Availability considerations - Front Door
+## Availability considerations - Traffic Manager
 
-Front Door automatically fails over if the primary region becomes unavailable. When Front Door fails over, there is a period of time (usually about 20-60 seconds) when clients cannot reach the application. The duration is affected by the following factors:
+Traffic Manager automatically fails over if the primary region becomes unavailable. When Traffic Manager fails over, there is a period of time when clients cannot reach the application. The duration is affected by the following factors:
 
-- The frequency of health probes: The more frequent the health probes are sent, the faster Front Door can detect downtime or the backend coming back healthy.
-- The sample size configuration for the health probe to correctly detect that the primary datacenter has become unreachable and that the same is not an intermittent issue.
+- The health probe must detect that the primary datacenter has become unreachable.
+- Domain name service (DNS) servers must update the cached DNS records for the IP address, which depends on the DNS time-to-live (TTL). The default TTL is 300 seconds (5 minutes), but you can configure this value when you create the Traffic Manager profile.
 
-Front Door is a possible failure point in the system. If the service fails, clients cannot access your application during the downtime. Review the [Front Door service level agreement (SLA)](https://azure.microsoft.com/support/legal/sla/frontdoor)) and determine whether using Front Door alone meets your business requirements for high availability. If not, consider adding another traffic management solution as a fallback. If the Front Door service fails, change your canonical name (CNAME) records in DNS to point to the other traffic management service. This step must be performed manually, and your application will be unavailable until the DNS changes are propagated.
+For details, see [About Traffic Manager Monitoring][tm-monitoring].
+
+Traffic Manager is a possible failure point in the system. If the service fails, clients cannot access your application during the downtime. Review the [Traffic Manager service level agreement (SLA)][tm-sla] and determine whether using Traffic Manager alone meets your business requirements for high availability. If not, consider adding another traffic management solution as a fallback. If the Azure Traffic Manager service fails, change your canonical name (CNAME) records in DNS to point to the other traffic management service. This step must be performed manually, and your application will be unavailable until the DNS changes are propagated.
 
 ## Availability Considerations - SQL Database
 
@@ -112,6 +114,31 @@ RA-GRS storage provides durable storage, but it's important to understand what c
 
 For more information, see [What to do if an Azure Storage outage occurs][storage-outage].
 
+## Manageability Considerations - Traffic Manager
+
+If Traffic Manager fails over, we recommend performing a manual failback rather than implementing an automatic failback. Otherwise, you can create a situation where the application flips back and forth between regions. Verify that all application subsystems are healthy before failing back.
+
+Note that Traffic Manager automatically fails back by default. To prevent this, manually lower the priority of the primary region after a failover event. For example, suppose the primary region is priority 1 and the secondary is priority 2. After a failover, set the primary region to priority 3, to prevent automatic failback. When you are ready to switch back, update the priority to 1.
+
+The following commands update the priority.
+
+### PowerShell
+
+```powershell
+$endpoint = Get-AzureRmTrafficManagerEndpoint -Name <endpoint> -ProfileName <profile> -ResourceGroupName <resource-group> -Type AzureEndpoints
+$endpoint.Priority = 3
+Set-AzureRmTrafficManagerEndpoint -TrafficManagerEndpoint $endpoint
+```
+
+For more information, see [Azure Traffic Manager Cmdlets][tm-ps].
+
+### Azure CLI
+
+```azurecli
+az network traffic-manager endpoint update --resource-group <resource-group> --profile-name <profile> \
+    --name <endpoint-name> --type azureEndpoints --priority 3
+```
+
 ## Manageability Considerations - SQL Database
 
 If the primary database fails, perform a manual failover to the secondary database. See [Restore an Azure SQL Database or failover to a secondary][sql-failover]. The secondary database remains read-only until you fail over.
@@ -131,4 +158,10 @@ If the primary database fails, perform a manual failover to the secondary databa
 [sql-replication]: /azure/sql-database/sql-database-geo-replication-overview
 [sql-rpo]: /azure/sql-database/sql-database-business-continuity#sql-database-features-that-you-can-use-to-provide-business-continuity
 [storage-outage]: /azure/storage/storage-disaster-recovery-guidance
+[tm-configure-failover]: /azure/traffic-manager/traffic-manager-configure-failover-routing-method
+[tm-monitoring]: /azure/traffic-manager/traffic-manager-monitoring
+[tm-ps]: /powershell/module/azurerm.trafficmanager
+[tm-routing]: /azure/traffic-manager/traffic-manager-routing-methods
+[tm-sla]: https://azure.microsoft.com/support/legal/sla/traffic-manager
+[traffic-manager]: https://azure.microsoft.com/services/traffic-manager
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/app-service-reference-architectures.vsdx
