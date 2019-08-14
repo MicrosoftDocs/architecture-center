@@ -15,7 +15,7 @@ ms.custom: azcat-ai
 
 This reference architecture shows how to implement a continuous integration (CI), continuous delivery (CD), and retraining pipeline for an AI application using Azure DevOps and [Azure Machine Learning service](/azure/machine-learning/service/overview-what-is-azure-ml). The solution is built on the scikit-learn diabetes dataset but can be easily adapted for any AI scenario and other popular build systems such as Jenkins and Travis.
 
-![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][repo].
+![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub](https://github.com/microsoft/MLOpsPython).
 
 ![Diagram of the MLOps architecture](./_images/ml-ops-python.png)
 
@@ -144,6 +144,6 @@ The retraining pipeline also requires a form of compute. This architecture uses 
 
 ## Deploy the solution
 
-To deploy this reference architecture, follow the steps described in the [GitHub repo][repo].
+To deploy this reference architecture, follow the steps described in the [GitHub repo](https://github.com/microsoft/MLOpsPython).
 
 [repo]: https://github.com/Microsoft/MLOpsPython'
