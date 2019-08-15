@@ -109,7 +109,7 @@ The deployment creates the following resource groups in your subscription:
 - onprem-jb-rg
 - onprem-vnet-rg
 - spoke1-vnet-rg
-- spoke2-vent-rg
+- spoke2-vnet-rg
 
 The template parameter files refer to these names, so if you change them, update the parameter files to match.
 
