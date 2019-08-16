@@ -24,7 +24,7 @@ Before beginning the migration, you should create epics within the project manag
 
 Within each epic, the workloads to be assessed and migrated would be managed as features. Each asset within that workload would be managed as a user story. The work required to assess, migrate, optimize, promote, secure, and manage each asset would be represented as tasks for each asset.
 
-Sprints or iterations would be then consist of a series of tasks required to migrate the assets and user stories committed to by the Cloud Adoption team. Releases would then consist of one or more workloads or features to be promoted to production.
+Sprints or iterations would be then consist of a series of tasks required to migrate the assets and user stories committed to by the cloud adoption team. Releases would then consist of one or more workloads or features to be promoted to production.
 
 ## Assess process changes
 

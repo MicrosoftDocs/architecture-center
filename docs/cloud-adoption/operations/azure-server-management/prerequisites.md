@@ -73,7 +73,7 @@ For larger environments that span multiple subscriptions and have a central IT d
 
 ### Decentralized placement
 
-In an alternative model for large environments, responsibility for patching and management can lie with the Application team. In this case, you should place the workspace and Automation accounts pairs in the application team subscriptions alongside their other resources.
+In an alternative model for large environments, responsibility for patching and management can lie with the application development team. In this case, you should place the workspace and Automation accounts pairs in the application team subscriptions alongside their other resources.
 
   ![Workspace account model for decentralized environments](./media/workspace-model-decentralized.png)
 

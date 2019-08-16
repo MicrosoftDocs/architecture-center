@@ -34,17 +34,17 @@ The following table can help document and share desired business outcomes. It's 
 > [!IMPORTANT]
 > The above table is a fictional example and should not used to set priorities. In many cases, this table could considered an antipattern by placing cost savings above customer experiences.
 
-The above table could accurately represent the priorities of the cloud strategy team and cloud adoption team overseeing a cloud migration. Due to short-term constraints, this team is placing a higher emphasis on IT cost reduction and prioritizing a datacenter exit as a means to achieve the desired IT cost reductions. However, by documenting the competing priorities in this table, the Cloud Adoption team is empowered to help the Cloud Strategy team identify opportunities to better align implementation of the overarching portfolio strategy.
+The above table could accurately represent the priorities of the cloud strategy team and the cloud adoption team overseeing a cloud migration. Due to short-term constraints, this team is placing a higher emphasis on IT cost reduction and prioritizing a datacenter exit as a means to achieve the desired IT cost reductions. However, by documenting the competing priorities in this table, the cloud adoption team is empowered to help the cloud strategy team identify opportunities to better align implementation of the overarching portfolio strategy.
 
 ### Move fast while maintaining balance
 
-The guidance regarding [incremental rationalization of the digital estate](../../digital-estate/index.md) suggests an approach in which the rationalization starts with an unbalanced position. The Cloud Strategy team should evaluate every workload for compatibility with a rehost approach. Such an approach is suggested because it allows for the rapid evaluation of a complex digital estate based on quantitative data. Making such an initial assumption allows the Cloud Adoption team to engage quickly, reducing time to business outcomes. However, as stated in that article, qualitative questions will provide the necessary balance in the portfolio. This article documents the process for creating the promised balance.
+The guidance regarding [incremental rationalization of the digital estate](../../digital-estate/index.md) suggests an approach in which the rationalization starts with an unbalanced position. The cloud strategy team should evaluate every workload for compatibility with a rehost approach. Such an approach is suggested because it allows for the rapid evaluation of a complex digital estate based on quantitative data. Making such an initial assumption allows the cloud adoption team to engage quickly, reducing time to business outcomes. However, as stated in that article, qualitative questions will provide the necessary balance in the portfolio. This article documents the process for creating the promised balance.
 
 ### Importance of sunset and retire decisions
 
 The table in the [documenting business outcomes](#documenting-business-outcomes) section above misses a key outcome that would support the number one objective of reducing IT costs. When IT costs reductions rank anywhere in the list of business outcomes, it is important to consider the potential to sunset or retire workloads. In some scenarios, cost savings can come from NOT migrating workloads that don't warrant a short-term investment. Some customers have reported cost savings in excess of 20% total cost reductions by retiring underutilized workloads.
 
-To balance the portfolio, better reflecting sunset and retire decisions, the cloud strategy team and cloud adoption team are encouraged to ask the following questions of each workload within assess and migrate processes:
+To balance the portfolio, better reflecting sunset and retire decisions, the cloud strategy team and the cloud adoption team are encouraged to ask the following questions of each workload within assess and migrate processes:
 
 - Has the workload been used by end users in the past six months?
 - Is end-user traffic consistent or growing?
@@ -74,7 +74,7 @@ Based on the data from the table in the [documenting business outcomes](#documen
 To reduce complexity, it is advised that the reader follow a traditional approach to portfolio rationalization, but in an iterative model. The following steps outline a qualitative model to such an approach:
 
 - The cloud strategy team maintains a prioritized backlog of workloads to be migrated.
-- The cloud strategy team and cloud adoption team host a release planning meeting prior to the completion of each release.
+- The cloud strategy team and the cloud adoption team host a release planning meeting prior to the completion of each release.
 - In the release planning meeting, the teams agree on the top 5 to 10 workloads in the prioritized backlog.
 - Outside of the release planning meeting, the cloud adoption team asks the following questions of application owners and subject matter experts:
   - Could this application be replaced with a platform as a service (PaaS) equivalent?
@@ -102,7 +102,7 @@ Portfolio rationalization requires diversity of technical effort. It is tempting
 
 It is advised that these diverse efforts are segmented across two or more cloud adoption teams. Using a two team model as an example mode of execution, Team 1 is the Migration Team and Team 2 is the Innovation Team. For larger efforts, these teams could be further segmented to address other approaches like Replace/PaaS efforts or Minor Refactoring. The following outlines the skills and roles needed to Rehost, Refactor, or Minor Refactoring:
 
-**Rehost:** Rehost requires team members to implement infrastructure focused changes. Generally using a tool like Azure Site Recovery to migrate VMs or other assets to Azure. This work aligns well to datacenter admins or IT implementors. The Cloud Migration team is well structured to deliver this work at high scale. This is the fastest approach to migrate existing assets in most scenarios.
+**Rehost:** Rehost requires team members to implement infrastructure focused changes. Generally using a tool like Azure Site Recovery to migrate VMs or other assets to Azure. This work aligns well to datacenter admins or IT implementors. The cloud migration team is well structured to deliver this work at high scale. This is the fastest approach to migrate existing assets in most scenarios.
 
 **Refactor:** Refactor requires team members to modify source code, change the architecture of an application, or adopt new cloud services. Generally this effort would use development tools like Visual Studio and deployment pipeline tools like Azure DevOps to redeploy modernized applications to Azure. This work aligns well to application development roles or DevOps pipeline development roles. Cloud Innovation Team is best structured to deliver this work. It can take longer to replace existing assets with cloud assets in this approach, but the apps can take advantage of cloud-native features.
 

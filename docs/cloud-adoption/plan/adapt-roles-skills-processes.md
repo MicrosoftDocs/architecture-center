@@ -12,7 +12,7 @@ ms.subservice: plan
 
 # Adapt existing roles, skills, and processes for the cloud
 
-At each evolutionary phase of the IT industry's history, the most notable changes have often been marked by changes in staff roles. One example is the transition from mainframe computing to client/server computing. The role of the computer operator during this transition has largely disappeared, replaced by the system administrator role. When virtualization arrived, the requirement for individuals working with physical servers was replaced with a need for virtualization specialists.
+At each phase of the IT industry's history, the most notable changes have often been marked by changes in staff roles. One example is the transition from mainframe computing to client/server computing. The role of the computer operator during this transition has largely disappeared, replaced by the system administrator role. When virtualization arrived, the requirement for individuals working with physical servers was replaced with a need for virtualization specialists.
 
 Roles will likely change as institutions similarly shift to cloud computing. For example, datacenter specialists might be replaced with cloud administrators or cloud architects. In some cases, though IT job titles haven't changed, the daily work of these roles has evolved significantly.
 
@@ -49,7 +49,7 @@ Track these dependencies and make note of the processes that will support them. 
 
 ## Next steps
 
-Ensuring proper support for the translated roles is a team effort. To begin acting on this guidance, review the [organizational readiness intro](./index.md) for help with identifying the right team structures and participants.
+Ensuring proper support for the translated roles is a team effort. To act on this guidance, review the [organizational readiness introduction](../organization/index.md) to identify the right team structures and participants.
 
 > [!div class="nextstepaction"]
 > [Identify the right team structures](./index.md)

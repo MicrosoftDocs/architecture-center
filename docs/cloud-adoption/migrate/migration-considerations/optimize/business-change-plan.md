@@ -41,7 +41,7 @@ A business change plan looks beyond the technical change and assumes that every 
 - Does the business change plan maximize impact but minimize business disruption?
 - Is downtime expected? Has a downtime window been communicated to end users?
 
-**Downstream questions.** After the adoption is complete, the business change can begin. Unfortunately, this is where many user adoption plans end. Downstream questions help the Cloud Strategy team maintain a focus on transformation after technical change is completed:
+**Downstream questions.** After the adoption is complete, the business change can begin. Unfortunately, this is where many user adoption plans end. Downstream questions help the cloud strategy team maintain a focus on transformation after technical change is completed:
 
 - Are business users responding well to the changes?
 - Has performance anticipation been maintained, now that the technical change has been adopted?

@@ -22,7 +22,7 @@ The optimization process is complete when a workload has been properly configure
 
 ## Accountability during optimization
 
-The Cloud Adoption team is accountable for the entire optimization process. However, members of the Cloud Strategy team, Cloud Operations team, and Cloud Governance team should also be responsible for activities within this process.
+The cloud adoption team is accountable for the entire optimization process. However, members of the cloud strategy team, the cloud operations team, and the cloud governance team should also be responsible for activities within this process.
 
 ## Responsibilities during optimization
 
@@ -31,14 +31,14 @@ In addition to the high-level accountability, there are actions that an individu
 - **Business testing.** Resolve any compatibility issues that prevent the workload from completing its migration to the cloud.
   - Power users from within the business should participate heavily in testing of the migrated workload. Depending on the degree of optimization attempted, multiple testing cycles may be required.
 - **Business change plan.** Development of a plan for user adoption, changes to business processes, and modification to business KPIs or learning metrics as a result of the migration effort.
-- **Benchmark and optimize.** Study of the business testing and automated testing to benchmark performance. Based on usage, the Cloud Adoption team refines sizing of the deployed assets to balance cost and performance against expected production requirements.
+- **Benchmark and optimize.** Study of the business testing and automated testing to benchmark performance. Based on usage, the cloud adoption team refines sizing of the deployed assets to balance cost and performance against expected production requirements.
 - **Ready for production.** Prepare the workload and environment for the support of the workload's ongoing production usage.
 - **Promote.** Redirect production traffic to the migrated and optimized workload. This activity represents the completion of a release cycle.
 
 In addition to core activities, there are a few parallel activities that require specific assignments and execution plans:
 
 - **Decommission.** Generally, cost savings can be realized from a migration, when the previous production assets are decommissioned and properly disposed of.
-- **Retrospective.** Every release creates an opportunity for deeper learning and adoption of a growth mindset. When each release cycle is completed, the Cloud Adoption team should evaluate the processes used during migration to identify improvements.
+- **Retrospective.** Every release creates an opportunity for deeper learning and adoption of a growth mindset. When each release cycle is completed, the cloud adoption team should evaluate the processes used during migration to identify improvements.
 
 ## Next steps
 

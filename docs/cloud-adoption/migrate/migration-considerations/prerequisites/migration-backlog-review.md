@@ -12,7 +12,7 @@ ms.subservice: migrate
 
 # Migration Backlog Review
 
-The actionable output of the plan phase is a migration backlog, which influences all of the prerequisites discussed so far. Development of the migration backlog should be completed as a first prerequisite. This article serves as a milestone to complete prerequisite activities. The Cloud Strategy team is accountable for the care and maintenance of the digital estate. However, the realization of the resultant backlog is the responsibility of every member of the migration effort. As a final prerequisite, the Cloud Strategy team and the Cloud Adoption team should review and understand the migration backlog. During that review, the members of both teams must gain sufficient knowledge to articulate the following key points in the migration backlog.
+The actionable output of the plan phase is a migration backlog, which influences all of the prerequisites discussed so far. Development of the migration backlog should be completed as a first prerequisite. This article serves as a milestone to complete prerequisite activities. The cloud strategy team is accountable for the care and maintenance of the digital estate. However, the realization of the resultant backlog is the responsibility of every member of the migration effort. As a final prerequisite, the cloud strategy team and the cloud adoption team should review and understand the migration backlog. During that review, the members of both teams must gain sufficient knowledge to articulate the following key points in the migration backlog.
 
 ## Business outcomes and metrics
 
@@ -22,11 +22,11 @@ Tracking migration progress is equally important to the motivation of the team a
 
 ## Business priorities
 
-Sometimes, prioritizing one workload over another may seem illogical to the Cloud Adoption team. Understanding the business priorities that drove those decisions can help maintain the team's motivation. It also allows the team to make a stronger contribution to the prioritization process.
+Sometimes, prioritizing one workload over another may seem illogical to the cloud adoption team. Understanding the business priorities that drove those decisions can help maintain the team's motivation. It also allows the team to make a stronger contribution to the prioritization process.
 
 ## Core assumptions
 
-The article on [digital estate rationalization](../../../digital-estate/rationalize.md) discusses the agility and time-saving impact of basic assumptions when evaluating a digital estate. To fully realize those values, the Cloud Adoption team needs to understand the assumptions and the reasons that they were established. That knowledge better equips the Cloud Adoption team to challenge those assumptions.
+The article on [digital estate rationalization](../../../digital-estate/rationalize.md) discusses the agility and time-saving impact of basic assumptions when evaluating a digital estate. To fully realize those values, the cloud adoption team needs to understand the assumptions and the reasons that they were established. That knowledge better equips the cloud adoption team to challenge those assumptions.
 
 ## Next steps
 

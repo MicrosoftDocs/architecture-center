@@ -15,7 +15,7 @@ ms.custom: governance
 
 [Deployment Acceleration](index.md) is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md). This discipline focuses on ways of establishing policies to govern asset configuration or deployment. Within the Five Disciplines of Cloud Governance, the Deployment Acceleration discipline involves deployment and configuration alignment. This could be through manual activities or fully automated DevOps activities. In either case, the policies involved would remain largely the same.
 
-Cloud custodians, cloud guardians, and cloud architects with an interest in governance are each likely to invest a lot of time in the Deployment Acceleration discipline, which codifies policies and requirements across multiple cloud adoption efforts. The tools in this toolchain are important to the Cloud Governance team and should be a high priority on the learning path for the team.
+Cloud custodians, cloud guardians, and cloud architects with an interest in governance are each likely to invest a lot of time in the Deployment Acceleration discipline, which codifies policies and requirements across multiple cloud adoption efforts. The tools in this toolchain are important to the cloud governance team and should be a high priority on the learning path for the team.
 
 The following is a list of Azure tools that can help mature the policies and processes that support this governance discipline.
 

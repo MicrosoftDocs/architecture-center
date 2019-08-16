@@ -12,7 +12,7 @@ ms.subservice: reference-architecture
 
 [![GitHub](../_images/github.png) Sample code][sample application]
 
-Tailspin is a fictitious company that is developing a SaaS application named Surveys. This application enables organizations to create and publish online surveys.
+Tailspin is a fictional company that is developing a SaaS application named Surveys. This application enables organizations to create and publish online surveys.
 
 * An organization can sign up for the application.
 * After the organization is signed up, users can sign into the application with their organizational credentials.

@@ -129,7 +129,7 @@ Alignment with business stakeholders, business motivations, and business outcome
 
 ## Next steps
 
-Disrupting organizational antipatterns is a team effort. To begin acting on this guidance, review the organizational readiness introduction for help with identifying the right team structures and participants:
+Disrupting organizational antipatterns is a team effort. To act on this guidance, review the organizational readiness introduction to identify the right team structures and participants:
 
 > [!div class="nextstepaction"]
 > [Identify the right team structures and participants](./index.md)

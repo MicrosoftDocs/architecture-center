@@ -41,9 +41,9 @@ During a cloud transformation, both the business and IT teams have an opportunit
 
 ## What is a business risk MVP?
 
-A **minimum viable product** is commonly used to define to define the smallest unit of something that can produce tangible value. In a business risk MVP, the Cloud Governance team starts with the assumption that some assets will be deployed to a cloud environment at some point in time. It's unknown what those assets are at the time, and the team may be unsure what types of data will be stored on those assets.
+A **minimum viable product** is commonly used to define to define the smallest unit of something that can produce tangible value. In a business risk MVP, the cloud governance team starts with the assumption that some assets will be deployed to a cloud environment at some point in time. It's unknown what those assets are at the time, and the team may be unsure what types of data will be stored on those assets.
 
-When planning for business risk, the Cloud Governance team could build for the worst case scenario and map every possible policy to the cloud. However, identifying all potential business risks for all cloud usage scenarios can take considerable time and effort, potentially delaying the implementation of governance to your cloud workloads. This is not advised, but is an option.
+When planning for business risk, the cloud governance team could build for the worst case scenario and map every possible policy to the cloud. However, identifying all potential business risks for all cloud usage scenarios can take considerable time and effort, potentially delaying the implementation of governance to your cloud workloads. This is not advised, but is an option.
 
 Conversely, an MVP approach can allow the team to define an initial starting point and set of assumptions that would be true for most/all assets. This business risk MVP will support initial small scale or test cloud deployments, and then be used as a base for gradually identifying and remediating new risks as business needs arise or additional workloads are added to your cloud environment. This process allows you to apply governance throughout the cloud adoption process.
 
@@ -63,11 +63,11 @@ Once the Business Risk MVP is established, they can be converted to [policies](i
 
 As your organization deploys more workloads to the cloud, development teams will make use of increasing amounts of cloud resources. At each iteration, new assets are created and staged. At each release, workloads are readied for production promotion. Each of these cycles has the potential to introduce previously unidentified business risks.
 
-Assuming a business risk MVP is the starting point for your initial cloud adoption efforts, governance can mature in parallel with your increasing use of cloud resources. When the Cloud Governance team operates in parallel with cloud adoption teams, the growth of business risks can be addressed as they are identified, providing a stable ongoing model for developing governance maturity.
+Assuming a business risk MVP is the starting point for your initial cloud adoption efforts, governance can mature in parallel with your increasing use of cloud resources. When the cloud governance team operates in parallel with cloud adoption teams, the growth of business risks can be addressed as they are identified, providing a stable ongoing model for developing governance maturity.
 
 Each asset staged can easily be classified according to risk. Data classification documents can be built or created in parallel with staging cycles. Risk profile and exposure points can likewise be documented. Over time an extremely clear view of business risk will come into focus across the organization.
 
-With each iteration, the Cloud Governance team can work with the Cloud Strategy team to quickly communicate new risks, mitigation strategies, tradeoffs, and potential costs. This empowers business participants and IT leaders to partner in mature, well-informed decisions. Those decisions then inform policy maturity. When required, the policy changes produce new work items for the maturity of core infrastructure systems. When changes to staged systems are required, the cloud adoption teams have ample time to make changes, while the business tests the staged systems and develops a user adoption plan.
+With each iteration, the cloud governance team can work with the cloud strategy team to quickly communicate new risks, mitigation strategies, tradeoffs, and potential costs. This empowers business participants and IT leaders to partner in mature, well-informed decisions. Those decisions then inform policy maturity. When required, the policy changes produce new work items for the maturity of core infrastructure systems. When changes to staged systems are required, the cloud adoption teams have ample time to make changes, while the business tests the staged systems and develops a user adoption plan.
 
 This approach minimizes risks, while empowering the team to move quickly. It also ensures that risks are promptly addressed and resolved before deployment.
 

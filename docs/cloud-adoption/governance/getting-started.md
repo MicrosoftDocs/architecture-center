@@ -21,7 +21,7 @@ This article provides two options for establishing an initial foundation for gov
 
 ## Already using the Cloud Adoption Framework
 
-If you have been following along with the Cloud Adoption Framework, you may already have deployed a governance MVP. Guidance is a core aspect of any operating model. It is present throughout every phase of the cloud adoption lifecycle. As such, the [Cloud Adoption Framework](../index.md) provides guidance that injects governance into activities related to the implementation of your [cloud adoption plan](../plan/index.md). One example of this governance integration would be the use of blueprints to deploy one or more landing zones seen throughout in the [ready](../ready/index.md) guidance. Another example is the guidance regarding [scaling out subscriptions](../ready/considerations/scaling-subscriptions.md). If you have followed either of those points of guidance, then the following MVP sections will be little more than a review of your existing deployment decisions. After a quick review, jump ahead to [Mature the initial governance solution and apply best practice controls](./best-practices.md).
+If you have been following along with the Cloud Adoption Framework, you may already have deployed a governance MVP. Guidance is a core aspect of any operating model. It is present throughout every phase of the cloud adoption lifecycle. As such, the [Cloud Adoption Framework](../index.md) provides guidance that injects governance into activities related to the implementation of your [cloud adoption plan](../plan/index.md). One example of this governance integration would be the use of blueprints to deploy one or more landing zones seen throughout in the [ready](../ready/index.md) guidance. Another example is the guidance regarding [scaling out subscriptions](../ready/considerations/scaling-subscriptions.md). If you have followed either of those points of guidance, then the following MVP sections will be little more than a review of your existing deployment decisions. After a quick review, jump ahead to [Mature the initial governance solution and apply best-practice controls](./best-practices.md).
 
 ## Implement an initial governance foundation (or governance MVP)
 
@@ -65,4 +65,4 @@ The following are two different examples of initial governance foundations (or g
 Once a governance foundation is in place, apply appropriate best practices to evolve the solution and protect against tangible risks.
 
 > [!div class="nextstepaction"]
-> [Mature the initial governance solution and apply best practice controls](./best-practices.md)
+> [Mature the initial governance solution and apply best-practice controls](./best-practices.md)

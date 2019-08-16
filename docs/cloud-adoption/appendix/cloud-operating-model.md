@@ -15,7 +15,7 @@ layout: LandingPage
 
 In early 2018, Microsoft released the Cloud Operating Model (COM). The COM was a guide that helped customers understand the **what** and the **why** of digital transformation. This helped customers get a sense of all the areas that needed to be addressed: business strategy, culture strategy, and technology strategy. What was not included in the COM were the specific _how-to's_, which left customers wondering, "Where do we go from here?"
 
-In October 2018, we began a review of all the models that had proliferated across the Microsoft community, we found roughly 60 different cloud adoption models. A cross-Microsoft team was established to bring everything together as a dedicated engineering "product" with defined implementations across services, sales, and marketing. This effort culminated in the creation of a single model, the Microsoft Cloud Adoption Framework for Azure, designed to help customers understand the **what** and **why** and provide unified guidance on the **how** to help them accelerate their cloud journey. The goal of this project is to create a One Microsoft approach to cloud adoption.
+In October 2018, we began a review of all the models that had proliferated across the Microsoft community, we found roughly 60 different cloud adoption models. A cross-Microsoft team was established to bring everything together as a dedicated engineering "product" with defined implementations across services, sales, and marketing. This effort culminated in the creation of a single model, the Microsoft Cloud Adoption Framework for Azure, designed to help customers understand the **what** and **why** and provide unified guidance on the **how** to help them accelerate their cloud adoption. The goal of this project is to create a One Microsoft approach to cloud adoption.
 
 ## Using Cloud Operating Model practices within the Cloud Adoption Framework
 
@@ -48,7 +48,7 @@ COM included an infographic that outlined the various decisions and actions need
 
 The Cloud Adoption Framework follows a similar model. However, as the actions and decisions expanded into multiple decision trees, complexity quickly made a single graphical view appear overwhelming. To simplify the guidance and make it more immediately actionable, the single graphic has been decomposed into the following structures.
 
-At the executive level, the Cloud Adoption Framework has been simplified into the following three phases of adoption and two primary journeys.
+At the executive level, the Cloud Adoption Framework has been simplified into the following three phases of adoption and two primary governance guides.
 
 ![Executive level structure of the Cloud Adoption Framework](../_images/caf-structure.png)
 
@@ -63,7 +63,7 @@ The three phases of cloud adoption have been mapped to two specific journeys:
 - [Migrate](../getting-started/migrate.md): Move existing workloads to the cloud.
 - [Innovate](../getting-started/innovate.md): Modernize existing workloads and create new products and services.
 
-Additional resources required to be successful in a cloud adoption journey can be found in [Enabling adoption success](../getting-started/enable.md).
+Additional resources required for successful cloud adoption can be found in [Enabling adoption success](../getting-started/enable.md).
 
 ## Next steps
 

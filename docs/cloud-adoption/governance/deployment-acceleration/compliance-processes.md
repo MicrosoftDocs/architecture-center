@@ -23,17 +23,17 @@ The best Deployment Acceleration tools in the cloud are only as good as the proc
 
 **Deployment planning:** Before deploying any asset, perform a security and operations review to identify any new risks and ensure all deployment related policy requirements are met.
 
-**Deployment testing:** As part of the deployment process for any asset, the Cloud Governance team, in cooperation with your IT operations teams, is responsible for reviewing the deployment policy compliance.
+**Deployment testing:** As part of the deployment process for any asset, the cloud governance team, in cooperation with your IT operations teams, is responsible for reviewing the deployment policy compliance.
 
 **Annual planning:** Conduct an annual high-level review of Deployment Acceleration strategy. Explore future corporate priorities and updated cloud adoption strategies to identify potential risk increase and other emerging configuration needs and opportunities. Also use this time to review the latest DevOps best practices and integrate these into your policies and review processes.
 
 **Quarterly review and planning:** Conduct a quarterly review of operational audit data and incident reports to identify any changes required in Deployment Acceleration policy. As part of this process, review current DevOps and DevTechOps best practices, and update policy as appropriate. After the review is complete, align application and systems design guidance with updated policy.
 
-This planning process is also a good time to evaluate the current membership of your Cloud Governance team for knowledge gaps related to new or evolving policy and risks related to DevOps and Deployment Acceleration. Invite relevant IT staff to participate in reviews and planning as either temporary technical advisors or permanent members of your team.
+This planning process is also a good time to evaluate the current membership of your cloud governance team for knowledge gaps related to new or evolving policy and risks related to DevOps and Deployment Acceleration. Invite relevant IT staff to participate in reviews and planning as either temporary technical advisors or permanent members of your team.
 
 **Education and training:** On a bimonthly basis, offer training sessions to make sure IT staff and developers are up-to-date on the latest Deployment Acceleration strategy and requirements. As part of this process review and update any documentation, guidance, or other training assets to ensure they are in sync with the latest corporate policy statements.
 
-**Monthly audit and reporting reviews:** Perform a monthly audit on all cloud deployments to assure their continued alignment with configuration policy. Review deployment-related activities with IT staff and identify any compliance issues not already handled as part of the ongoing monitoring and enforcement process. The result of this review is a report for the Cloud Strategy team and each cloud adoption team to communicate overall adherence to policy. The report is also stored for auditing and legal purposes.
+**Monthly audit and reporting reviews:** Perform a monthly audit on all cloud deployments to assure their continued alignment with configuration policy. Review deployment-related activities with IT staff and identify any compliance issues not already handled as part of the ongoing monitoring and enforcement process. The result of this review is a report for the cloud strategy team and each cloud adoption team to communicate overall adherence to policy. The report is also stored for auditing and legal purposes.
 
 ## Ongoing monitoring processes
 
@@ -43,7 +43,7 @@ Ensure that your IT operations teams have implemented automated monitoring syste
 
 ## Violation triggers and enforcement actions
 
-Because noncompliance with configuration policies can lead to critical service disruption risks, the Cloud Governance team should have visibility into serious policy violations. Ensure IT staff have clear escalation paths for reporting configuration compliance issues to the governance team members best suited to identify and verify that policy issues are mitigated once detected.
+Because noncompliance with configuration policies can lead to critical service disruption risks, the cloud governance team should have visibility into serious policy violations. Ensure IT staff have clear escalation paths for reporting configuration compliance issues to the governance team members best suited to identify and verify that policy issues are mitigated once detected.
 
 When violations are detected, you should take actions to realign with policy as soon as possible. Your IT team can automate most violation triggers using the tools outlined in the [Deployment Acceleration toolchain for Azure](toolchain.md).
 

@@ -50,7 +50,7 @@ To successfully adopting the cloud, a customer must prepare its people, technolo
   - Prioritize workloads based on impacts to the business outcomes.
   - Create a cloud adoption plan based on the current digital estate and prioritized workloads.
 - **Ready:** Prepare the people, culture, and environment for change. This phase has three key components:
-  - Create a Cloud Strategy team and other organizational alignment.
+  - Create a cloud strategy team and other organizational alignment.
   - Create a skills readiness plan across roles and functions.
   - Establish an Azure foundation by preparing the cloud environment.
 - **Adopt:** Implement the desired changes across IT and business processes to help customers realize their business, technology, and people strategies. This phase includes several areas that will vary depending on what the organization is implementing:

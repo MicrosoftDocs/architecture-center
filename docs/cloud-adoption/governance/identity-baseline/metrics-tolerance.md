@@ -53,7 +53,7 @@ Once you have a baseline, establish minimum benchmarks representing an unaccepta
 - **Authorization failure trigger.** A company where access attempts are rejected more than _x%_ of the time should invest in the Identity Baseline discipline to improve the application and updating of access controls, and identify potentially malicious access attempts.
 - **Compromised account trigger.** A company with more than _x_ compromised accounts should invest in the Identity Baseline discipline to improve the strength and security of authentication mechanisms and improve mechanisms to remediate risks related to compromised accounts.
 
-The exact metrics and triggers you use to gauge risk tolerance and the level of investment in the Identity Baseline discipline will be specific to your organization, but the examples above should serve as a useful base for discussion within your Cloud Governance team.
+The exact metrics and triggers you use to gauge risk tolerance and the level of investment in the Identity Baseline discipline will be specific to your organization, but the examples above should serve as a useful base for discussion within your cloud governance team.
 
 ## Next steps
 
