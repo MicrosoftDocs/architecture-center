@@ -146,4 +146,4 @@ The retraining pipeline also requires a form of compute. This architecture uses 
 
 To deploy this reference architecture, follow the steps described in the [GitHub repo][repo].
 
-[repo]: https://github.com/Microsoft/MLOpsPython'
+[repo]: https://github.com/Microsoft/MLOpsPython
