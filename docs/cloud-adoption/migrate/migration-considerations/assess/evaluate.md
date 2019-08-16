@@ -12,7 +12,7 @@ ms.subservice: migrate
 
 # Evaluate workload readiness
 
-This activity focuses on evaluating readiness of a workload to migrate to the cloud. During this activity, the Cloud Adoption team validates that all assets and associated dependencies are compatible with the chosen deployment model and cloud provider. During the process, the team documents any efforts required to [remediate](../migrate/remediate.md) compatibility issues.
+This activity focuses on evaluating readiness of a workload to migrate to the cloud. During this activity, the cloud adoption team validates that all assets and associated dependencies are compatible with the chosen deployment model and cloud provider. During the process, the team documents any efforts required to [remediate](../migrate/remediate.md) compatibility issues.
 
 ## Evaluation assumptions
 

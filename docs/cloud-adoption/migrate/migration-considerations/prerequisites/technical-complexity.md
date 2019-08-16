@@ -37,7 +37,7 @@ This acronym is not intended as a basis for rigid adherence but should help guid
 
 ## Migration backlog: Aligning business priorities and timing
 
-The migration backlog allows you to track your top-level portfolio of migratable workloads. Prior to migration, the Cloud Strategy team and Cloud Adoption team are encouraged to perform a review of the current [digital estate](../../../digital-estate/index.md), and agree to a prioritized list of workloads to be migrated. This list forms the basis of the initial migration backlog.
+The migration backlog allows you to track your top-level portfolio of migratable workloads. Prior to migration, the cloud strategy team and the cloud adoption team are encouraged to perform a review of the current [digital estate](../../../digital-estate/index.md), and agree to a prioritized list of workloads to be migrated. This list forms the basis of the initial migration backlog.
 
 Initially, workloads on the migration backlog are unlikely to meet the INVEST criteria outlined in the previous section. Instead, they serve as a logical grouping of assets from an initial inventory as a placeholder for future work. Those placeholders may not be technically accurate, but they serve as the basis for coordination with the business.
 
@@ -60,15 +60,15 @@ In any migration backlog, the change management team should strive to obtain the
 
 ## Release backlog: Aligning business change and technical coordination
 
-In the context of a migration, a _release_ is an activity that deploys one or more workloads into production. A release generally covers several iterations or technical work. However, it represents a single iteration of business change. After one or more workloads have been prepared for production promotion, a release occurs. The decision to package a release is made when the workloads migrated represent enough business value to justify injecting change into a business environment. Releases are executed in conjunction with a [business change plan](../optimize/business-change-plan.md), after [business testing](../optimize/business-test.md) has been completed. The Cloud Strategy team is responsible for planning and overseeing the execution of a release to ensure that the desired business change is released.
+In the context of a migration, a _release_ is an activity that deploys one or more workloads into production. A release generally covers several iterations or technical work. However, it represents a single iteration of business change. After one or more workloads have been prepared for production promotion, a release occurs. The decision to package a release is made when the workloads migrated represent enough business value to justify injecting change into a business environment. Releases are executed in conjunction with a [business change plan](../optimize/business-change-plan.md), after [business testing](../optimize/business-test.md) has been completed. The cloud strategy team is responsible for planning and overseeing the execution of a release to ensure that the desired business change is released.
 
-A *release backlog* is the future state plan that defines a coming release. Release backlog is the pivot point between business change management (*migration backlog*) and technical change management (*sprint backlog*). A release backlog consists of a list of workloads from the migration backlog that align to a specific subset of business outcome realization. Definition and submission of a release backlog to the Cloud Adoption team serve as a trigger for deeper analysis and migration planning. After the Cloud Adoption team has verified the technical details associated with a release, it can choose to commit to the release, establishing a release timeline based on current knowledge.
+A *release backlog* is the future state plan that defines a coming release. Release backlog is the pivot point between business change management (*migration backlog*) and technical change management (*sprint backlog*). A release backlog consists of a list of workloads from the migration backlog that align to a specific subset of business outcome realization. Definition and submission of a release backlog to the cloud adoption team serve as a trigger for deeper analysis and migration planning. After the cloud adoption team has verified the technical details associated with a release, it can choose to commit to the release, establishing a release timeline based on current knowledge.
 
-Given the degree of analysis required to validate a release, the Cloud Strategy team should maintain a running list of the next two to four releases. The team should also attempt to validate as much of the following information as possible, before defining and submitting a release. A disciplined Cloud Strategy team capable of maintaining the next four releases can significantly increase the consistency and accuracy of release timeline estimates.
+Given the degree of analysis required to validate a release, the cloud strategy team should maintain a running list of the next two to four releases. The team should also attempt to validate as much of the following information as possible, before defining and submitting a release. A disciplined cloud strategy team capable of maintaining the next four releases can significantly increase the consistency and accuracy of release timeline estimates.
 
 ### Release backlog data points
 
-A partnership between the Cloud Strategy team and the Cloud Adoption team collaborates to add the following data points for any workloads in the release backlog:
+A partnership between the cloud strategy team and the cloud adoption team collaborates to add the following data points for any workloads in the release backlog:
 
 - **Refined inventory.** Validation of required assets to be migrated. Often validated through log or monitoring data at the host, network, or OS level to ensure an accurate understanding of network and hardware dependencies of each asset under standard load.
 - **Usage patterns.** An understanding of the patterns of usage from end users. These patterns often include an analysis of end-user geographical distribution, network routes, seasonal usage spikes, daily/hourly usage spikes, and end-user composition (interval versus external).
@@ -76,14 +76,14 @@ A partnership between the Cloud Strategy team and the Cloud Adoption team collab
 - **Dependencies.** Analysis of network traffic and application usage patterns to identify any additional workload dependencies, which should be factored into sequencing and environmental readiness. Don't include a workload in a release until one of the following criteria can be met:
   - All dependent workloads have been migrated.
   - Network and security configurations have been implemented to allow the workload to access all dependencies in alignment with existing performance expectations.
-- **Desired migration approach.** At the migration backlog level, the assumed migration effort is the only consideration used in analysis. For instance, if the business outcome is an exit from an existing datacenter, all migrations are assumed to be a rehost scenario in the migration backlog. In the release backlog, the Cloud Strategy team and Cloud Adoption team should evaluate the long-term value of additional features, modernization, and continued development investments to evaluate whether a more modern approach should be involved.
+- **Desired migration approach.** At the migration backlog level, the assumed migration effort is the only consideration used in analysis. For instance, if the business outcome is an exit from an existing datacenter, all migrations are assumed to be a rehost scenario in the migration backlog. In the release backlog, the cloud strategy team and the cloud adoption team should evaluate the long-term value of additional features, modernization, and continued development investments to evaluate whether a more modern approach should be involved.
 - **Business testing criteria.** After a workload is added to the migration backlog, testing criteria should be mutually agreed on. In some cases, testing criteria can be limited to a performance test with a defined power user group. However, for statistical validation, an automated performance test is desired and should be included. The existing instance of the application often has no automated testing capabilities. Should this prove accurate, it is not uncommon for the cloud architects to work with power users to create a baseline load test against the existing solution to establish a benchmark to be used during migration.
 
 ### Release backlog cadence
 
-In mature migrations, releases come in a regular cadence. The velocity of the Cloud Adoption team often normalizes, producing a release every two to four iterations (approximately every one or two months). However, this should be an organic outcome. Creating artificial release cadences can negatively affect the Cloud Adoption team’s ability to achieve consistent throughput.
+In mature migrations, releases come in a regular cadence. The velocity of the cloud adoption team often normalizes, producing a release every two to four iterations (approximately every one or two months). However, this should be an organic outcome. Creating artificial release cadences can negatively affect the cloud adoption team’s ability to achieve consistent throughput.
 
-To stabilize business impact, the Cloud Strategy team should establish a monthly release process with the business to maintain regular dialogue but should also establish the expectation that it will be several months before a regular release cadence can be predicted.
+To stabilize business impact, the cloud strategy team should establish a monthly release process with the business to maintain regular dialogue but should also establish the expectation that it will be several months before a regular release cadence can be predicted.
 
 ## Sprint or iteration backlog: Aligning technical change and effort
 
@@ -91,7 +91,7 @@ A *sprint*, or *iteration*, is a consistent, time-bound unit of work. In the mig
 
 A *sprint backlog*, or *iteration backlog*, consists of the technical work to be completed in a single sprint or iteration, dealing with migrating individual assets. That work should be derived from the list of workloads being migrated. When using tools like Azure DevOps (previously Visual Studio Online) for project management, the work items in a sprint would be children of the product backlog Items in a release backlog and the epics in a migration backlog. Such a parent-child relationship allows for clarity at all levels of change management.
 
-Within a single sprint or iteration, the Cloud Adoption team would work to deliver the committed amount of technical work, driving toward the migration of a defined workload. This is the end result of the change management strategy. When complete, these efforts can be tested by validating production readiness of a workload staged in the cloud.
+Within a single sprint or iteration, the cloud adoption team would work to deliver the committed amount of technical work, driving toward the migration of a defined workload. This is the end result of the change management strategy. When complete, these efforts can be tested by validating production readiness of a workload staged in the cloud.
 
 ### Large or complex sprint structures
 
@@ -112,7 +112,7 @@ The outcome of a sprint captures and documents the changes made to a workload, t
 - **Performance metrics.** Output of automated testing or business testing performed to validate performance at the time of deployment.
 - **Unique requirements or configuration.** Any unique aspects of the deployment, configuration, or technical requirements necessary to operate the workload.
 - **Operational approval.** Sign-off of validating operational readiness from the application owner and the IT operations staff responsible for managing the workload post deployment.
-- **Architecture approval.** Sign-off from the workload owner and Cloud Adoption team to validate any architecture changes required to host each asset.
+- **Architecture approval.** Sign-off from the workload owner and the cloud adoption team to validate any architecture changes required to host each asset.
 
 ## Next steps
 

@@ -36,7 +36,7 @@ The following sample policy statements address common identity-related business 
 **Policy statement:** The following policies will be implemented:
 
 - A least-privilege access model will be applied to any resources involved in mission-critical applications or protected data.
-- Elevated permissions should be an exception, and any such exceptions must be recorded with the Cloud Governance team. Exceptions will be audited regularly.
+- Elevated permissions should be an exception, and any such exceptions must be recorded with the cloud governance team. Exceptions will be audited regularly.
 
 **Potential design options:** Consult the [Azure Identity Management best practices](/azure/security/azure-security-identity-management-best-practices) to implement a role-based access control (RBAC) strategy that restricts access based on the [need to know](https://wikipedia.org/wiki/Need_to_know) and [least-privilege security](https://wikipedia.org/wiki/Principle_of_least_privilege) principles.
 

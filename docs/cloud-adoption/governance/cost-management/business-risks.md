@@ -29,10 +29,10 @@ The cloud offers self-service capabilities that were previously unheard of in tr
 
 The Cost Management discipline attempts to address core business risks related to expenses incurred when hosting cloud-based workloads. Work with your business to identify these risks and monitor each of them for relevance as you plan for and implement your cloud deployments.
 
-Risks will differ between organization, but the following serve as common cost-related risks that you can use as a starting point for discussions within your Cloud Governance team:
+Risks will differ between organization, but the following serve as common cost-related risks that you can use as a starting point for discussions within your cloud governance team:
 
 - **Budget control:** Not controlling budget can lead to excessive spending with a cloud vendor.
-- **Utilization loss:** Prepurchases or precommitments that are not used can result in wasted investments.
+- **Utilization loss:** Prepurchases or precommitments that go unused can result in wasted investments.
 - **Spending anomalies:** Unexpected spikes in either direction can be indicators of improper usage.
 - **Overprovisioned assets:** When assets are deployed in a configuration that exceed the needs of an application or virtual machine (VM), they can increase costs and create waste.
 

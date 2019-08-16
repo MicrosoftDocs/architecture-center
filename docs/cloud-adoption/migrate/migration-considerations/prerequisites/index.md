@@ -29,8 +29,8 @@ Before beginning any cloud migration, review the [Plan](../../../business-strate
 
 Prerequisites are completed when the following are true:
 
-- **Business readiness.** The Cloud Strategy team has defined and prioritized a high-level migration backlog representing the portion of the digital estate to be migrated in the next two or three releases. The Cloud Strategy team and Cloud Adoption team have agreed to an initial strategy for managing change.
-- **Culture readiness.** The roles, responsibilities, and expectations of the Cloud Adoption team, Cloud Strategy team, and affected users have been agreed on regarding the workloads to be migrated in the next two or three releases.
+- **Business readiness.** The cloud strategy team has defined and prioritized a high-level migration backlog representing the portion of the digital estate to be migrated in the next two or three releases. The cloud strategy team and the cloud adoption team have agreed to an initial strategy for managing change.
+- **Culture readiness.** The roles, responsibilities, and expectations of the cloud adoption team, cloud strategy team, and affected users have been agreed on regarding the workloads to be migrated in the next two or three releases.
 - **Technical readiness.** The landing zone (or allocated hosting space in the cloud) that will receive the migrated assets meets minimum requirements to host the first migrated workload.
 
 > [!CAUTION]
@@ -42,8 +42,8 @@ Prerequisites are completed when the following are true:
 
 Two teams are accountable for readiness during the prerequisites phase:
 
-- **Cloud Strategy team.** This team is responsible for identifying and prioritizing the first two or three workloads to serve as migration candidates.
-- **Cloud Adoption team.** This team is responsible for validating readiness of the technical environment and the feasibility of migrating the proposed workloads.
+- **Cloud strategy team:** This team is responsible for identifying and prioritizing the first two or three workloads to serve as migration candidates.
+- **Cloud adoption team:** This team is responsible for validating readiness of the technical environment and the feasibility of migrating the proposed workloads.
 
 A single member of each team should be identified as accountable for each of the three definitions of done statements in the prior section.
 

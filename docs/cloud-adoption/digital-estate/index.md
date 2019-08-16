@@ -31,7 +31,7 @@ The measurement of a digital estate changes depending on the desired business ou
 After an organization understands the most important form of transformation, digital estate planning becomes much easier to manage.
 
 > [!TIP]
-> Each type of transformation can be measured with any of the three views. Companies commonly complete all three transformations in parallel. We strongly recommend that the leadership and cloud strategy team agree regarding the transformation that is most important for business success. That understanding serves as the basis for common language and metrics across multiple initiatives.
+> Each type of transformation can be measured with any of the three views. Companies commonly complete all three transformations in parallel. We strongly recommend that company leadership and the cloud strategy team agree regarding the transformation that is most important for business success. That understanding serves as the basis for common language and metrics across multiple initiatives.
 
 ## How can a financial model be updated to reflect the digital estate?
 

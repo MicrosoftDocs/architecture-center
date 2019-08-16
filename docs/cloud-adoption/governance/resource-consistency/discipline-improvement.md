@@ -21,7 +21,7 @@ This article outlines some potential tasks your company can engage in to better 
 
 *Figure 1 - Adoption phases of the incremental approach to cloud governance.*
 
-It's impossible for any one document to account for the requirements of all businesses. As such, this article outlines suggested minimum and potential example activities for each phase of the governance maturation process. The initial objective of these activities is to help you build a [Policy MVP](../journeys/index.md#an-incremental-approach-to-cloud-governance) and establish a framework for incremental policy evolution. Your Cloud Governance team will need to decide how much to invest in these activities to improve your Resource Consistency governance capabilities.
+It's impossible for any one document to account for the requirements of all businesses. As such, this article outlines suggested minimum and potential example activities for each phase of the governance maturation process. The initial objective of these activities is to help you build a [Policy MVP](../journeys/index.md#an-incremental-approach-to-cloud-governance) and establish a framework for incremental policy evolution. Your cloud governance team will need to decide how much to invest in these activities to improve your Resource Consistency governance capabilities.
 
 > [!CAUTION]
 > Neither the minimum or potential activities outlined in this article are aligned to specific corporate policies or third-party compliance requirements. This guidance is designed to help facilitate the conversations that will lead to alignment of both requirements with a cloud governance model.
@@ -115,7 +115,7 @@ Once the transformation is complete, governance and operations must live on for 
 - Automatically apply and enforce governance requirements during future deployments.
 - Evaluate underused resources and determine if they're worth continuing.
 - Detect misalignments and anomalies between planned and actual resource usage.
-- Assist the cloud adoption teams and the Cloud Strategy team in understanding and resolving these anomalies.
+- Assist the cloud adoption teams and the cloud strategy team in understanding and resolving these anomalies.
 - Determine if changes need to be made to Resource Consistency for billing and SLAs.
 - Evaluate logging and monitoring tools to determine whether your on-premises, cloud gateway, or hybrid solution needs adjusting.
 - For business units and geographically distributed groups, determine if your organization should consider using additional cloud management features such as [Azure management groups](/azure/governance/management-groups) to better apply centralized policy and meet SLA requirements.

@@ -30,7 +30,7 @@ The strategic inputs from the prerequisites checklist make the following tasks m
 
 During the process of [incremental rationalization](../digital-estate/rationalize.md), your team should agree on a "Power of 10" approach, which consists of 10 priority workloads. These workloads serve as an initial boundary for adoption planning.
 
-If you decide that a digital estate rationalization isn't needed, we recommend that the cloud adoption and cloud strategy teams agree on a list of 10 applications to serve as the initial focus of the migration. We recommend further that these 10 workloads contain a mixture of simple workloads (fewer than 10 assets in a self-contained deployment) and more complex workloads. Those 10 workloads will start the workload prioritization process.
+If you decide that a digital estate rationalization isn't needed, we recommend that the cloud adoption teams and the cloud strategy team agree on a list of 10 applications to serve as the initial focus of the migration. We recommend further that these 10 workloads contain a mixture of simple workloads (fewer than 10 assets in a self-contained deployment) and more complex workloads. Those 10 workloads will start the workload prioritization process.
 
 > [!NOTE]
 > The Power of 10 serves as an initial boundary for planning, to focus the energy and investment in early-stage analysis. However, the act of analyzing and defining workloads is likely to cause changes in the list of priority workloads.
@@ -94,7 +94,7 @@ After initial priorities have been defined and workloads have been added to the 
 
 ## Confirm priorities
 
-Based on the assembled data, the cloud strategy team and cloud adoption team should meet to reevaluate priorities. Clarification of business data points might prompt changes in priorities. Technical complexity or dependencies might result in changes related to staffing allocations, timelines, or sequencing of technical efforts.
+Based on the assembled data, the cloud strategy team and the cloud adoption team should meet to reevaluate priorities. Clarification of business data points might prompt changes in priorities. Technical complexity or dependencies might result in changes related to staffing allocations, timelines, or sequencing of technical efforts.
 
 After a review, both teams should be comfortable with confirming the resulting priorities. This set of documented, validated, and confirmed priorities is the prioritized cloud adoption backlog.
 

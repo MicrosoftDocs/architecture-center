@@ -24,29 +24,29 @@ The ability to execute processes and technical transitions requires a consistent
 
 ## How can business and technical priorities stay aligned during a migration?
 
-The Cloud Adoption team and the Cloud Governance team focus on the execution of the current iteration and current release. Iterations provide stable increments of technical work, thus avoiding costly disruptions that would otherwise slow the progress of migration efforts. Releases ensure that the technical effort and energy stay focused on the business objectives of the workload migration. A migration project could require many releases over an extended period. By the time it is completed, market conditions have likely changed significantly.
+The cloud adoption team and the cloud governance team focus on the execution of the current iteration and current release. Iterations provide stable increments of technical work, thus avoiding costly disruptions that would otherwise slow the progress of migration efforts. Releases ensure that the technical effort and energy stay focused on the business objectives of the workload migration. A migration project could require many releases over an extended period. By the time it is completed, market conditions have likely changed significantly.
 
-In parallel, the Cloud Strategy team focuses on executing the business change plan and preparing for the next release. The Cloud Strategy team generally looks at least one release ahead, and it monitors for changing market conditions and adjusts the migration backlog accordingly. This focus of managing transformation and adjusting the plan creates natural pivots around the technical work. When business priorities change, adoption is only one release behind, creating technical and business agility.
+In parallel, the cloud strategy team focuses on executing the business change plan and preparing for the next release. The cloud strategy team generally looks at least one release ahead, and it monitors for changing market conditions and adjusts the migration backlog accordingly. This focus of managing transformation and adjusting the plan creates natural pivots around the technical work. When business priorities change, adoption is only one release behind, creating technical and business agility.
 
 ## Business alignment questions
 
-The following questions can help the Cloud Strategy team shape and prioritize the migration backlog to help ensure that the transformation effort best aligns with current business needs.
+The following questions can help the cloud strategy team shape and prioritize the migration backlog to help ensure that the transformation effort best aligns with current business needs.
 
-- Has the Cloud Adoption team identified a list of workloads ready for migration?
-- Has the Cloud Adoption team selected a single candidate for an initial migration from that list of workloads?
-- Do the Cloud Adoption team and Cloud Governance team have all of the necessary data regarding the workload and cloud environment to be successful?
+- Has the cloud adoption team identified a list of workloads ready for migration?
+- Has the cloud adoption team selected a single candidate for an initial migration from that list of workloads?
+- Do the cloud adoption team and the cloud governance team have all of the necessary data regarding the workload and cloud environment to be successful?
 - Does the candidate workload deliver the most relevant impact for the business in the next release?
 - Are there other workloads that are better candidates for migration?
 
 ## Tangible actions
 
-During the execution of the business change plan, the Cloud Strategy team monitors for positive and negative results. When those observations require technical change, the adjustments are added as work items to the release backlog to be prioritized in the next iteration.
+During the execution of the business change plan, the cloud strategy team monitors for positive and negative results. When those observations require technical change, the adjustments are added as work items to the release backlog to be prioritized in the next iteration.
 
-When the market changes, the Cloud Strategy team works with the business to understand how to best respond to the changes. When that response requires a change in migration priorities, the migration backlog is adjusted. This moves up workloads that were previously lower in priority.
+When the market changes, the cloud strategy team works with the business to understand how to best respond to the changes. When that response requires a change in migration priorities, the migration backlog is adjusted. This moves up workloads that were previously lower in priority.
 
 ## Next steps
 
-With properly aligned business priorities, the Cloud Adoption team can confidently begin to [evaluate workloads](./evaluate.md) to develop architecture and migration plans.
+With properly aligned business priorities, the cloud adoption team can confidently begin to [evaluate workloads](./evaluate.md) to develop architecture and migration plans.
 
 > [!div class="nextstepaction"]
 > [Evaluate workloads](./evaluate.md)

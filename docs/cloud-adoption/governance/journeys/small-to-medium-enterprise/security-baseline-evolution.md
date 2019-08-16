@@ -19,9 +19,9 @@ This article evolves the narrative by adding security controls that support movi
 
 IT and business leadership have been happy with results from early stage experimentation by the IT, App Development, and BI teams. To realize tangible business values from these experiments, those teams must be allowed to integrate protected data into solutions. This triggers changes to corporate policy, but also requires an evolution of the cloud governance implementations before protected data can land in the cloud.
 
-### Evolution of the Cloud Governance team
+### Evolution of the cloud governance team
 
-Given the effect of the changing narrative and support provided so far, the Cloud Governance team is now viewed differently. The two system administrators who started the team are now viewed as experienced cloud architects. As this narrative develops, the perception of them will shift from being Cloud Custodians to more of a Cloud Guardian role.
+Given the effect of the changing narrative and support provided so far, the cloud governance team is now viewed differently. The two system administrators who started the team are now viewed as experienced cloud architects. As this narrative develops, the perception of them will shift from being Cloud Custodians to more of a Cloud Guardian role.
 
 While the difference is subtle, it’s an important distinction when building a governance- focused IT culture. A Cloud Custodian cleans up the messes made by innovative cloud architects. The two roles have natural friction and opposing objectives. On the other hand, a Cloud Guardian helps keep the cloud safe, so other cloud architects can move more quickly, with less messes. Additionally, a Cloud Guardian is involved in creating templates that accelerate deployment and adoption, making them an innovation accelerator as well as a defender of the Five Disciplines of Cloud Governance.
 
@@ -40,7 +40,7 @@ Since then, some things have changed that will affect governance:
 
 Early experiments by the App Dev and BI teams show potential improvements in customer experiences and data-driven decisions. Both teams want to expand adoption of the cloud over the next 18 months by deploying those solutions to production.
 
-During the remaining six months, the Cloud Governance team will implement security and governance requirements to allow the cloud adoption teams to migrate the protected data in those datacenters.
+During the remaining six months, the cloud governance team will implement security and governance requirements to allow the cloud adoption teams to migrate the protected data in those datacenters.
 
 The changes to current and future state expose new risks that require new policy statements.
 
@@ -64,21 +64,21 @@ This business risk can be expanded into a few technical risks:
 
 The following changes to policy will help remediate the new risks and guide implementation. The list looks long, but adopting these policies may be easier than it appears.
 
-1. All deployed assets must be categorized by criticality and data classification. Classifications are to be reviewed by the Cloud Governance team and the application owner before deployment to the cloud.
+1. All deployed assets must be categorized by criticality and data classification. Classifications are to be reviewed by the cloud governance team and the application owner before deployment to the cloud.
 2. Applications that store or access protected data are to be managed differently than those that don’t. At a minimum, they should be segmented to avoid unintended access of protected data.
 3. All protected data must be encrypted when at rest.
-4. Elevated permissions in any segment containing protected data should be an exception. Any such exceptions will be recorded with the Cloud Governance team and audited regularly.
+4. Elevated permissions in any segment containing protected data should be an exception. Any such exceptions will be recorded with the cloud governance team and audited regularly.
 5. Network subnets containing protected data must be isolated from any other subnets. Network traffic between protected data subnets will be audited regularly.
 6. No subnet containing protected data can be directly accessed over the public internet or across datacenters. Access to those subnets must be routed through intermediate subnets. All access into those subnets must come through a firewall solution that can perform packet scanning and blocking functions.
 7. Governance tooling must audit and enforce network configuration requirements defined by the security management team.
 8. Governance tooling must limit VM deployment to approved images only.
 9. Whenever possible, node configuration management should apply policy requirements to the configuration of any guest operating system.
 10. Governance tooling must enforce that automatic updates are enabled on all deployed assets. Violations must be reviewed with operational management teams and remediated in accordance with operations policies. Assets that are not automatically updated must be included in processes owned by IT Operations.
-11. Creation of new subscriptions or management groups for any mission-critical applications or protected data will require a review from the Cloud Governance team, to ensure that the proper blueprint is assigned.
+11. Creation of new subscriptions or management groups for any mission-critical applications or protected data will require a review from the cloud governance team, to ensure that the proper blueprint is assigned.
 12. A least-privilege access model will be applied to any management group or subscription that contains mission-critical apps or protected data.
 13. Trends and exploits that could affect cloud deployments should be reviewed regularly by the security team to provide updates to security management tooling used in the cloud.
-14. Deployment tooling must be approved by the Cloud Governance team to ensure ongoing governance of deployed assets.
-15. Deployment scripts must be maintained in a central repository accessible by the Cloud Governance team for periodic review and auditing.
+14. Deployment tooling must be approved by the cloud governance team to ensure ongoing governance of deployed assets.
+15. Deployment scripts must be maintained in a central repository accessible by the cloud governance team for periodic review and auditing.
 16. Governance processes must include audits at the point of deployment and at regular cycles to ensure consistency across all assets.
 17. Deployment of any applications that require customer authentication must use an approved identity provider that is compatible with the primary identity provider for internal users.
 18. Cloud governance processes must include quarterly reviews with identity management teams. These reviews can help identify malicious actors or usage patterns that should be prevented by cloud asset configuration.
@@ -87,8 +87,8 @@ The following changes to policy will help remediate the new risks and guide impl
 
 The governance MVP design will evolve to include new Azure policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
 
-1. The Networking and IT Security teams will define network requirements. The Cloud Governance team will support the conversation.
-2. The Identity and IT Security teams will define identity requirements and make any necessary changes to local Active Directory implementation. The Cloud Governance team will review changes.
+1. The Networking and IT Security teams will define network requirements. The cloud governance team will support the conversation.
+2. The Identity and IT Security teams will define identity requirements and make any necessary changes to local Active Directory implementation. The cloud governance team will review changes.
 3. Create a repository in Azure DevOps to store and version all relevant Azure Resource Manager templates and scripted configurations.
 4. Azure Security Center implementation:
     1. Configure Azure Security Center for any management group that contains protected data classifications.

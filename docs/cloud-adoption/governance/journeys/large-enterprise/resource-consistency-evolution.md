@@ -54,7 +54,7 @@ This business risk can be expanded into several technical risks:
 
 The following changes to policy will help remediate the new risks and guide implementation. The list looks long, but the adoption of these policies may be easier than it would appear.
 
-1. All deployed assets must be categorized by criticality and data classification. Classifications are to be reviewed by the Cloud Governance team and the application owner before deployment to the cloud.
+1. All deployed assets must be categorized by criticality and data classification. Classifications are to be reviewed by the cloud governance team and the application owner before deployment to the cloud.
 2. Subnets containing mission-critical applications must be protected by a firewall solution capable of detecting intrusions and responding to attacks.
 3. Governance tooling must audit and enforce network configuration requirements defined by the Security Baseline team.
 4. Governance tooling must validate that all assets related to mission-critical applications or protected data are included in monitoring for resource depletion and optimization.
@@ -62,13 +62,13 @@ The following changes to policy will help remediate the new risks and guide impl
 6. Governance process must validate that backup, recovery, and SLA adherence are properly implemented for mission-critical applications and protected data.
 7. Governance tooling must limit virtual machine deployment to approved images only.
 8. Governance tooling must enforce that automatic updates are **prevented** on all deployed assets that support mission-critical applications. Violations must be reviewed with operational management teams and remediated in accordance with operations policies. Assets that are not automatically updated must be included in processes owned by IT operations.
-9. Governance tooling must validate tagging related to cost, criticality, SLA, application, and data classification. All values must align to predefined values managed by the Cloud Governance team.
+9. Governance tooling must validate tagging related to cost, criticality, SLA, application, and data classification. All values must align to predefined values managed by the cloud governance team.
 10. Governance processes must include audits at the point of deployment and at regular cycles to ensure consistency across all assets.
 11. Trends and exploits that could affect cloud deployments should be reviewed regularly by the security team to provide updates to Security Baseline tooling used in the cloud.
 12. Before release into production, all mission-critical applications and protected data must be added to the designated operational monitoring solution. Assets that cannot be discovered by the chosen IT operations tooling cannot be released for production use. Any changes required to make the assets discoverable must be made to the relevant deployment processes to ensure assets will be discoverable in future deployments.
 13. When discovered, asset sizing is to be validated by operational management teams to validate that the asset meets performance requirements.
-14. Deployment tooling must be approved by the Cloud Governance team to ensure ongoing governance of deployed assets.
-15. Deployment scripts must be maintained in central repository accessible by the Cloud Governance team for periodic review and auditing.
+14. Deployment tooling must be approved by the cloud governance team to ensure ongoing governance of deployed assets.
+15. Deployment scripts must be maintained in central repository accessible by the cloud governance team for periodic review and auditing.
 16. Governance review processes must validate that deployed assets are properly configured in alignment with SLA and recovery requirements.
 
 ## Evolution of the best practices
@@ -79,8 +79,8 @@ Following the experience of this fictional example, it is assumed that the Prote
 
 **Corporate IT subscription:** Add the following to the Corporate IT subscription, which acts as a hub.
 
-1. As an external dependency, the Cloud Operations team will need to define operational monitoring tooling, business continuity and disaster recovery (BCDR) tooling, and automated remediation tooling. The Cloud Governance team can then support necessary discovery processes.
-    1. In this use case, the Cloud Operations team chose Azure Monitor as the primary tool for monitoring mission-critical applications.
+1. As an external dependency, the cloud operations team will need to define operational monitoring tooling, business continuity and disaster recovery (BCDR) tooling, and automated remediation tooling. The cloud governance team can then support necessary discovery processes.
+    1. In this use case, the cloud operations team chose Azure Monitor as the primary tool for monitoring mission-critical applications.
     2. The team also chose Azure Site Recovery as the primary BCDR tooling.
 2. Azure Site Recovery implementation.
     1. Define and deploy Azure Vault for backup and recovery processes.
@@ -107,7 +107,7 @@ Adding these processes and changes to the governance MVP helps remediate many of
 
 ## Next steps
 
-As cloud adoption continues to evolve and deliver additional business value, the risks and cloud governance needs will also evolve. For the fictional company in this journey, the next trigger is when the scale of deployment exceeds 1,000 assets to the cloud or monthly spending exceeds $10,000 USD per month. At this point, the Cloud Governance team adds Cost Management controls.
+As cloud adoption continues to evolve and deliver additional business value, the risks and cloud governance needs will also evolve. For the fictional company in this journey, the next trigger is when the scale of deployment exceeds 1,000 assets to the cloud or monthly spending exceeds $10,000 USD per month. At this point, the cloud governance team adds Cost Management controls.
 
 > [!div class="nextstepaction"]
 > [Cost Management evolution](./cost-management-evolution.md)

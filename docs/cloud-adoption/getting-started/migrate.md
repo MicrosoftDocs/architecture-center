@@ -93,7 +93,7 @@ The effort to realize the desired business outcomes may trigger slight changes t
 - The IT team is likely to adopt new skills to support workloads in the cloud.
 - Execution of a cloud migration encourages iterative or agile approaches.
 - Inclusion of cloud governance also tends to inspire DevOps approaches.
-- Creation of a Cloud Strategy team can lead to tighter integration between business and IT leaders.
+- Creation of a cloud strategy team can lead to tighter integration between business and IT leaders.
 - Collectively, these changes tend to lead to business and IT agility.
 
 Cultural change is not a goal of cloud migration or the Cloud Adoption Framework, but it is a commonly experienced outcome.

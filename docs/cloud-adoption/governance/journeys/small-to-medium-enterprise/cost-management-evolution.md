@@ -17,7 +17,7 @@ This article evolves the narrative by adding cost controls to the governance MVP
 
 ## Evolution of the narrative
 
-Adoption has grown beyond the cost tolerance indicator defined in the governance MVP. This is a good thing, as it corresponds with migrations from the "DR" datacenter. The increase in spending now justifies an investment of time from the Cloud Governance team.
+Adoption has grown beyond the cost tolerance indicator defined in the governance MVP. This is a good thing, as it corresponds with migrations from the "DR" datacenter. The increase in spending now justifies an investment of time from the cloud governance team.
 
 ### Evolution of the current state
 
@@ -62,7 +62,7 @@ The following changes to policy will help remediate the new risks and guide impl
 This section of the article will evolve the governance MVP design to include new Azure policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
 
 1. Implement Azure Cost Management
-    1. Establish the right scope of access to align with the subscription pattern and the Resource Consistency discipline. Assuming alignment with the governance MVP defined in prior articles, this requires **Enrollment Account Scope** access for the Cloud Governance team executing on high-level reporting. Additional teams outside of governance may require **Resource Group Scope** access.
+    1. Establish the right scope of access to align with the subscription pattern and the Resource Consistency discipline. Assuming alignment with the governance MVP defined in prior articles, this requires **Enrollment Account Scope** access for the cloud governance team executing on high-level reporting. Additional teams outside of governance may require **Resource Group Scope** access.
     2. Establish a budget in Azure Cost Management.
     3. Review and act on initial recommendations. Have a recurring process to support reporting.
     4. Configure and execute Azure Cost Management Reporting, both initial and recurring.

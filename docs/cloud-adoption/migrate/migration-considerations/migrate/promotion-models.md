@@ -26,7 +26,7 @@ In each of the following promotion models, the chosen migration tool replicates 
 - **Staged.** In a *staged* promotion model, the workload is considered migrated after it is staged, but it is not yet promoted. Prior to promotion, the migrated workload undergoes a series of performance tests, business tests, and optimization changes. It is then promoted at a future date in conjunction with a business test plan. This approach improves the balance between cost and performance, while making it easier to obtain business validation.
 - **Flight.** The *flight* promotion model combines single-step and staged models. In a flight model, the assets in the workload are treated like production after landing in staging. After a condensed period of automated testing, production traffic is routed to the workload. However, it is a subset of the traffic. That traffic serves as the first flight of production and testing. Assuming the workload performs from a feature and performance perspective, additional traffic is migrated. After all production traffic has been moved onto the new assets, the workload is considered fully promoted.
 
-The chosen promotion model affects the sequence of activities to be performed. It also affects the roles and responsibilities of the Cloud Adoption team. It may even impact the composition of a sprint or multiple sprints.
+The chosen promotion model affects the sequence of activities to be performed. It also affects the roles and responsibilities of the cloud adoption team. It may even impact the composition of a sprint or multiple sprints.
 
 ## Single-step promotion
 
@@ -46,7 +46,7 @@ This model uses migration automation tools to replicate, stage, and promote asse
 
 ## Staged promotion
 
-In this model, the staging sandbox managed by the migration tool is used for limited testing purposes. The replicated assets are then deployed into the cloud environment, which serves as an extended staging environment. The migrated assets run in the cloud, while additional assets are replicated, staged, and migrated. When full workloads become available, richer testing is initiated. When all assets associated with a subscription have been migrated, the subscription and all hosted workloads are promoted to production. In this scenario, there is no change to the workloads during the promotion process. Instead, the changes tend to be at the network and identity layers, routing users to the new environment and revoking access of the Cloud Adoption team.
+In this model, the staging sandbox managed by the migration tool is used for limited testing purposes. The replicated assets are then deployed into the cloud environment, which serves as an extended staging environment. The migrated assets run in the cloud, while additional assets are replicated, staged, and migrated. When full workloads become available, richer testing is initiated. When all assets associated with a subscription have been migrated, the subscription and all hosted workloads are promoted to production. In this scenario, there is no change to the workloads during the promotion process. Instead, the changes tend to be at the network and identity layers, routing users to the new environment and revoking access of the cloud adoption team.
 
 **Pros.** Positive benefits of this approach include:
 
@@ -76,7 +76,7 @@ This model is similar to the staged promotion model. However, there is one funda
 
 ## Next steps
 
-After a promotion model is defined and accepted by the Cloud Adoption team, [remediation of assets](./remediate.md) can begin.
+After a promotion model is defined and accepted by the cloud adoption team, [remediation of assets](./remediate.md) can begin.
 
 > [!div class="nextstepaction"]
 > [Remediating assets prior to migration](./remediate.md)
