@@ -2,8 +2,8 @@
 title: Naming conventions for Azure resources
 titleSuffix: Best practices for cloud applications
 description: Recommendations for naming virtual machines, storage accounts, networks, virtual networks, subnets, and other Azure entities.
-author: telmosampaio
-ms.date: 10/19/2018
+author: dermar
+ms.date: 8/19/2019
 ms.topic: best-practice
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
