@@ -24,7 +24,7 @@ The objective or goal of any adoption effort can have a significant impact on th
 
 No business would pursue just one of these outcomes. Without operations, there are no customers, and vice versa. Cloud adoption is no different. Companies commonly work to achieve each of these outcomes, but trying to focus on all of them simultaneously can spread your efforts too thin and slow progress on work that could most benefit your business needs.
 
-This prerequisite isn't a demand for you to pick one of these three goals, but instead to help your Cloud Strategy team and Cloud Adoption team establish a set of operational priorities that will guide execution for the next three to six months. These priorities are set by ranking each of the three itemized options from *most significant* to *least significant*, as they relate to the efforts this team can contribute to in the next one or two quarters.
+This prerequisite isn't a demand for you to pick one of these three goals, but instead to help your cloud strategy team and your cloud adoption team establish a set of operational priorities that will guide execution for the next three to six months. These priorities are set by ranking each of the three itemized options from *most significant* to *least significant*, as they relate to the efforts this team can contribute to in the next one or two quarters.
 
 ### Acting on migration outcomes
 
@@ -72,7 +72,7 @@ Often, migrations are driven by a compelling business event that is time sensiti
 
 ## Recap
 
-Before proceeding, document the following assumptions and share them with the Cloud Strategy and Cloud Adoption teams:
+Before proceeding, document the following assumptions and share them with the cloud strategy team and the cloud adoption teams:
 
 - Business outcomes.
 - Roles. This will be documented and refined for the *Assess*, *Migrate*, *Optimize*, and *Secure and Manage* migration processes.

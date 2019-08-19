@@ -21,7 +21,7 @@ Cloud migration is a portfolio management effort, cleverly disguised as a techni
 The Cloud Adoption Framework migration model depends on your organization having completed a process of business readiness for cloud adoption. Make sure you have reviewed [Plan](../../business-strategy/index.md) and [Ready](../../ready/index.md) guidance in the Cloud Adoption Framework to determine the business drivers or other justification for a cloud migration, as well as any required organizational planning or training required before executing a migration process at scale.
 
 > [!NOTE]
-> While business planning is important, a growth mindset is equally important. In parallel to broader business planning efforts by the Cloud Strategy team, it's suggested that the Cloud Adoption team begin migrating a first workload as a precursor to wider scale migration efforts. This initial migration will allow the team to gain practical experience with the business and technical issues involved in a migration.
+> While business planning is important, a growth mindset is equally important. In parallel to broader business planning efforts by the cloud strategy team, it's suggested that the cloud adoption team begin migrating a first workload as a precursor to wider scale migration efforts. This initial migration will allow the team to gain practical experience with the business and technical issues involved in a migration.
 
 ## Establishing an end state
 

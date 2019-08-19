@@ -50,14 +50,14 @@ To help you understand each scope expansion scenario, the following list will br
 
 ### Business-driven scope changes
 
-- **Balancing the cloud adoption portfolio:** The Cloud Strategy team is interested in investing more heavily in migration (rehosting existing workloads and applications with a minimum of modifications) or innovation (refactoring or rebuilding those workloads and applications using modern cloud technology). Often, a balance between the two priorities is the key to success. In this guide, the topic of balancing the cloud adoption portfolio is a common one, addressed in each of the migrate processes.
+- **Balancing the cloud adoption portfolio:** The cloud strategy team is interested in investing more heavily in migration (rehosting existing workloads and applications with a minimum of modifications) or innovation (refactoring or rebuilding those workloads and applications using modern cloud technology). Often, a balance between the two priorities is the key to success. In this guide, the topic of balancing the cloud adoption portfolio is a common one, addressed in each of the migrate processes.
 - **Support global markets:** The business operates in multiple geographic regions with disparate data sovereignty requirements. To meet those requirements, additional considerations should be factored into the prerequisite review and distribution of assets during migration.
 
 ### Culture-driven scope changes
 
 - **Change management and approval processes:** When your organization's culture is complex, highly matrixed, or siloed the processes related to change management and approvals becomes challenging. Guidance on managing this complexity can be found in assess, migrate, and optimize processes.
 - **Executive readiness:** Proper levels of executive support and leadership are critical to the success of a migration effort. If the executive team is not ready to engage, then support is unlikely to follow. This complexity is addressed during the prerequisite and assess processes.
-- **Skills readiness:** When the Cloud Adoption team or other supporting teams are not ready to execute, it can quickly inject complexity throughout the migration effort. This challenge is addressed during each of the migration processes in a specific page on skills readiness.
+- **Skills readiness:** When the cloud adoption team or other supporting teams are not ready to execute, it can quickly inject complexity throughout the migration effort. This challenge is addressed during each of the migration processes in a specific page on skills readiness.
 - **Aligning support (Partner, service, and support options):** Within each of the the processes outlined, there are ways in which a partner, services from the cloud vendor, and support from the cloud vendor can aid in execution. In each of the processes sections a page on support alignment will discuss the options further.
 
 ### Technical strategy-driven scope changes
@@ -66,7 +66,7 @@ To help you understand each scope expansion scenario, the following list will br
 - **Migrating at scale:** Migrations exceeding 2,000 assets are likely to run into constraints that require additional planning and a disciplined approach to execution. The Assess and Migrate processes are adjusted to account for scale complexity.
 - **Multiple datacenters:** Migration of multiple datacenters adds a great deal of complexity. During the Assess, Migrate, Optimization, and Manage processes, additional considerations are discussed.
 - **Change management and solution documentation:** Large digital estate inventories, complex solution architectures, long standing technical debt, and interdependencies can create a complexity that should be addressed during assess, migrate, and optimize processes.
-- **Governance or compliance strategy:** When governance and compliance are vital to the success of a migration, additional alignment between IT Governance teams and the Cloud Adoption team is required.
+- **Governance or compliance strategy:** When governance and compliance are vital to the success of a migration, additional alignment between IT Governance teams and the cloud adoption team is required.
 
 ### Workload-specific scope changes
 

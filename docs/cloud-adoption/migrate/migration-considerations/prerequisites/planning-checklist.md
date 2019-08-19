@@ -22,7 +22,7 @@ This article and checklist assume a _rehost_ or _cloud transition_ approach to c
 
 ## Governance alignment
 
-The first and most important decision regarding any migration-ready environment is the choice of governance alignment. Has a consensus been achieved regarding alignment of governance with the migration foundation? At minimum, the Cloud Adoption team should understand whether this migration is landing in a single environment with limited governance, a fully governed environment factory, or some variant in between. For more options and guidance on governance alignment, see the article on [Governance and compliance alignment](../../expanded-scope/governance-or-compliance.md).
+The first and most important decision regarding any migration-ready environment is the choice of governance alignment. Has a consensus been achieved regarding alignment of governance with the migration foundation? At minimum, the cloud adoption team should understand whether this migration is landing in a single environment with limited governance, a fully governed environment factory, or some variant in between. For more options and guidance on governance alignment, see the article on [Governance and compliance alignment](../../expanded-scope/governance-or-compliance.md).
 
 ## Cloud readiness implementation
 
@@ -47,7 +47,7 @@ A consistent approach for naming resources, along with consistent naming schemas
 
 ### Resource governance
 
-A decision regarding the tools to govern resources should be made prior to migration. The tools do not need to be fully implemented, but a direction should be selected and tested. It is advised that the Cloud Governance team define and require the implementation of a minimum viable product (MVP) for governance tooling prior to migration.
+A decision regarding the tools to govern resources should be made prior to migration. The tools do not need to be fully implemented, but a direction should be selected and tested. It is advised that the cloud governance team define and require the implementation of a minimum viable product (MVP) for governance tooling prior to migration.
 
 ## Network
 

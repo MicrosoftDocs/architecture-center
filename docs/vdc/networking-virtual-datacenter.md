@@ -62,7 +62,7 @@ The key to unlock the advantages of VDC is a centralized hub and spoke network t
 
 Any Azure customer that has decided to adopt the cloud can benefit from the efficiency of configuring a set of resources for common use by all applications. Depending on the magnitude, even single applications can benefit from using the patterns and components used to build a VDC implementation.
 
-If your organization has a centralized IT, Network, Security, and/or Compliance team/department, implementing a VDC can help enforce policy points, segregation of duty, and ensure uniformity of the underlying common components while giving application teams as much freedom and control as is appropriate for your requirements.
+If your organization has centralized teams or departments for IT, networking, security, or compliance, implementing a VDC can help enforce policy points, segregation of duty, and ensure uniformity of the underlying common components while giving application teams as much freedom and control as is appropriate for your requirements.
 
 Organizations that are looking to DevOps can also use the VDC concepts to provide authorized pockets of Azure resources and ensure they have total control within that group (either subscription or resource group in a common subscription), but the network and security boundaries stay compliant as defined by a centralized policy in a hub VNet and resource group.
 
@@ -195,7 +195,7 @@ The presence of different Azure AD tenants enforces the separation between envir
 
 #### Component type: Infrastructure
 
-This component type is where most of the supporting infrastructure resides. It's also where your centralized IT, Security, and/or Compliance teams spend most of their time.
+This component type is where most of the supporting infrastructure resides. It's also where your centralized IT, security, and compliance teams spend most of their time.
 
 [![6]][6]
 

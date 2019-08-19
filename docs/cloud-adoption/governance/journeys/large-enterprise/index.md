@@ -13,7 +13,7 @@ ms.custom: governance
 
 # Large enterprise governance journey
 
-## Best practice overview
+## Overview of best practices
 
 This governance journey follows the experiences of a fictional company through various stages of governance maturity. It is based on real customer journeys. The suggested best practices are based on the constraints and needs of the fictional company.
 
@@ -22,9 +22,9 @@ As a quick starting point, this overview defines a minimum viable product (MVP) 
 > [!WARNING]
 > This MVP is a baseline starting point, based on a set of assumptions. Even this minimal set of best practices is based on corporate policies driven by unique business risks and risk tolerances. To see if these assumptions apply to you, read the [longer narrative](./narrative.md) that follows this article.
 
-### Governance best practice
+### Governance best practices
 
-This best practice serves as a foundation that an organization can use to quickly and consistently add governance guardrails across multiple Azure subscriptions.
+These best practices serve as a foundation for an organization to quickly and consistently add governance guardrails across multiple Azure subscriptions.
 
 ### Resource organization
 
@@ -32,7 +32,7 @@ The following diagram shows the governance MVP hierarchy for organizing resource
 
 ![Resource Organization diagram](../../../_images/governance/resource-organization.png)
 
-Every application should be deployed in the proper area of the management group, subscription, and resource group hierarchy. During deployment planning, the Cloud Governance team will create the necessary nodes in the hierarchy to empower the cloud adoption teams.
+Every application should be deployed in the proper area of the management group, subscription, and resource group hierarchy. During deployment planning, the cloud governance team will create the necessary nodes in the hierarchy to empower the cloud adoption teams.
 
 1. A management group for each business unit with a detailed hierarchy that reflects geography then environment type (for example, Production or Nonproduction).
 2. A subscription for each unique combination of business unit, geography, environment, and "Application Categorization."

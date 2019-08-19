@@ -18,9 +18,9 @@ The following corporate policy defines an initial governance position, which is 
 > [!NOTE]
 >The corporate policy is not a technical document, but it drives many technical decisions. The governance MVP described in the [overview](./index.md) ultimately derives from this policy. Before implementing a governance MVP, your organization should develop a corporate policy based on your own objectives and business risks.
 
-## Cloud Governance team
+## Cloud governance team
 
-In this narrative, the Cloud Governance team is comprised of two systems administrators who have recognized the need for governance. Over the next several months, they will inherit the job of cleaning up the governance of the company’s cloud presence, earning them the title of _cloud custodians_. In subsequent evolutions, this title will likely change.
+In this narrative, the cloud governance team is comprised of two systems administrators who have recognized the need for governance. Over the next several months, they will inherit the job of cleaning up the governance of the company’s cloud presence, earning them the title of _cloud custodians_. In subsequent evolutions, this title will likely change.
 
 [!INCLUDE [business-risk](../../../includes/governance/business-risks.md)]
 
@@ -36,7 +36,7 @@ The current tolerance for risk is high and the appetite for investing in cloud g
 
 ## Next steps
 
-This corporate policy prepares the Cloud Governance team to implement the governance MVP, which will be the foundation for adoption. The next step is to implement this MVP.
+This corporate policy prepares the cloud governance team to implement the governance MVP, which will be the foundation for adoption. The next step is to implement this MVP.
 
 > [!div class="nextstepaction"]
 > [Best practice explained](./best-practice-explained.md)

@@ -34,7 +34,7 @@ The Security Baseline discipline covers the corporate policies and manual proces
 
 The Security Baseline discipline attempts to address core security-related business risks. Work with your business to identify these risks and monitor each of them for relevance as you plan for and implement your cloud deployments.
 
-Risks will differ between organization, but the following serve as common security-related risks that you can use as a starting point for discussions within your Cloud Governance team:
+Risks will differ between organization, but the following serve as common security-related risks that you can use as a starting point for discussions within your cloud governance team:
 
 - **Data breach:** Inadvertent exposure or loss of sensitive cloud-hosted data can lead to losing customers, contractual issues, or legal consequences.
 - **Service disruption:** Outages and other performance issues due to insecure infrastructure interrupts normal operations and can result in lost productivity or lost business.

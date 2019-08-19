@@ -32,7 +32,7 @@ It's not uncommon for migrations to miss data during replication processes. This
 
 ## Next steps
 
-After retired assets are decommissioned, the migration is completed. This creates a good opportunity to improve the migration process, and a [retrospective](./retrospective.md) engages the Cloud Adoption team in a review of the release in an effort to learn and improve.
+After retired assets are decommissioned, the migration is completed. This creates a good opportunity to improve the migration process, and a [retrospective](./retrospective.md) engages the cloud adoption team in a review of the release in an effort to learn and improve.
 
 > [!div class="nextstepaction"]
 > [Retrospective](./retrospective.md)

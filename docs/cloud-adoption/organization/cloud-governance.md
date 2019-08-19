@@ -82,7 +82,7 @@ Another fundamental difference between a cloud custodian and a governance volunt
 
 While the difference is subtle, it is an important distinction when building a governance-focused IT culture. A cloud custodian cleans up the messes made by innovative cloud architects, and the two roles have natural friction and opposing objectives. A cloud guardian helps keep the cloud safe, so other cloud architects can move more quickly with fewer messes.
 
-Cloud guardians begin using more advanced governance approaches to accelerate platform deployment and help teams self-service their environmental needs, so they can move faster. Examples of these more advanced functions are seen in the evolutions of the governance MVP, such as [evolution of the security baseline](../governance/journeys/large-enterprise/security-baseline-evolution.md).
+Cloud guardians begin using more advanced governance approaches to accelerate platform deployment and help teams self-service their environmental needs, so they can move faster. Examples of these more advanced functions are seen in the incremental improvements to the governance MVP, such as [improvement of the security baseline](../governance/journeys/large-enterprise/security-baseline-evolution.md).
 
 **Cloud accelerators:** Cloud guardians and cloud custodians naturally harvest scripts and automations that accelerate the deployment of environments, platforms, or even components of various applications. Curating and sharing these scripts in addition to centralized governance responsibilities develops a high degree of respect for these architects throughout IT.
 

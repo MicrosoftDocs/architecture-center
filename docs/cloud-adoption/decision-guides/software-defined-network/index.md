@@ -23,7 +23,7 @@ Jump to: [PaaS Only](paas-only.md) | [Cloud-native](cloud-native.md) | [Cloud DM
 
 SDN provides several options with varying degrees of pricing and complexity. The above discovery guide provides a reference to quickly personalize these options to best align with specific business and technology strategies.
 
-The inflection point in this guide depends on several key decisions that your Cloud Strategy team have made before making decisions about networking architecture. Most important among these are decisions involving your [digital estate definition](../../digital-estate/index.md) and [subscription design](../subscriptions/index.md) (which may also require inputs from decisions made related to your cloud accounting and global markets strategies).
+The inflection point in this guide depends on several key decisions that your cloud strategy team has made before making decisions about networking architecture. Most important among these are decisions involving your [digital estate definition](../../digital-estate/index.md) and [subscription design](../subscriptions/index.md) (which may also require inputs from decisions made related to your cloud accounting and global markets strategies).
 
 Small single-region deployments of fewer than 1,000 VMs are less likely to be significantly affected by this inflection point. Conversely, large adoption efforts with more than 1,000 VMs, multiple business units, or multiple geopolitical markets, could be substantially affected by your SDN decision and this key inflection point.
 
