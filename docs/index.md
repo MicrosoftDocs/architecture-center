@@ -190,7 +190,7 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
     </li>
     <!-- Building blocks -->
     <li>
-        <a href="https://github.com/mspnp/template-building-blocks/wiki">
+        <a href="https://github.com/mspnp/template-building-blocks/blob/master/README.md">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
