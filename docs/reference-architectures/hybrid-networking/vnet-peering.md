@@ -53,11 +53,9 @@ To learn more about the powerful and unique functionality of gateway transit, re
 |Private?|Yes, no Public IP endpoints. Routed through Microsoft backbone and is completely private. No public internet involved.|Public IP involved.|
 |Transitive relationship|If VNet A is peered to VNet B, and VNet B is peered to VNet C, VNet A and VNet C cannot currently communicate. Spoke to spoke communication can be achieved via NVAs or Gateways in the hub VNet. See an example in our documentation.| If VNet A, VNet B, and VNet C are connected via VPN Gateways and BGP is enabled in the VNet connections, transitivity works.|
 |Typical customer scenarios| Data replication, database failover, and other scenarios needing frequent backups of large data.| Encryption specific scenarios that are not latency sensitive and do not need high throughout.|
-| Initial setup time| It took me 24.38 seconds, but you should give it a shot!|30 mins to set it up| 
+|Initial setup time| It took me 24.38 seconds, but you should give it a shot!|30 mins to set it up| 
+|FAQ link| VNet peering FAQ| VPN gateway FAQ|
 
-FAQ link
-VNet peering FAQ
-VPN gateway FAQ
-Conclusion
+## Conclusion
 Azure offers VNet peering and VNet gateways to connect VNets. Based on your unique scenario, you might want to pick one over the other. We recommend VNet peering within region/cross-region scenarios.
 We always love to hear from you, so please feel free to provide any feedback via our forums.
