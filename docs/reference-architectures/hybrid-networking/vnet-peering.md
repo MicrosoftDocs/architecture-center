@@ -40,50 +40,21 @@ With gateway transit enabled on VNet peering, you can create a transit VNet that
 To learn more about the powerful and unique functionality of gateway transit, refer to our blog post "Create a transit VNet using VNet peering."
 
 ## Differences between VNet Peering and VPN Gateways
- 
- 
-VNet Peering
-VPN Gateways
-Cross-region support?
-Yes – via Global VNet Peering
- 
-Yes
-Cross-Azure Active Directory tenant support?
-Yes, learn how to set it up in our documentation "Create a virtual network peering."
-Yes, see our documentation on VNet-to-VNet connections. 
-Cross-subscription support?
-Yes, see our documentation "Resource Manager, different subscriptions."
-Yes, see our documentation "Configure a VNet-to-VNet VPN gateway connection by using the Azure portal."
-Cross-deployment model support?
-Yes, see our documentation "different deployment models, same subscription."
- 
-Yes, see our documentation "Connect virtual networks from different deployment models using the portal."
-Limits
-You can keep up to 500 VNets with one VNet as seen in the documentation on Networking Limits.
-Each VNet can only have one VPN Gateway. VPN Gateways depending on the SKU have type different number of tunnel supported.
-Pricing
-Ingress/Egress charged.
-Gateway + Egress charged.
- 
-Encrypted?
-Software level encryption is recommended
-Yes, custom IPsec/IKE policy can be created and applied to new or existing connections.
-Bandwidth limitations?
-No bandwidth limitations.
-Varies based on type of Gateway from 100 Mbps to 1.25Gps.
- 
-Private?
-Yes, no Public IP endpoints. Routed through Microsoft backbone and is completely private. No public internet involved.
-Public IP involved.
-Transitive relationship
-If VNet A is peered to VNet B, and VNet B is peered to VNet C, VNet A and VNet C cannot currently communicate. Spoke to spoke communication can be achieved via NVAs or Gateways in the hub VNet. See an example in our documentation.
-If VNet A, VNet B, and VNet C are connected via VPN Gateways and BGP is enabled in the VNet connections, transitivity works.
-Typical customer scenarios
-Data replication, database failover, and other scenarios needing frequent backups of large data.
-Encryption specific scenarios that are not latency sensitive and do not need high throughout.
-Initial setup time
-It took me 24.38 seconds, but you should give it a shot!
-30 mins to set it up
+| Item |VNet Peering   |VPN Gateways |
+|----------|-----------|------------|
+|Cross-region support?   |Yes – via Global VNet Peering      |Yes       |
+|Cross-Azure Active Directory tenant support?|Yes, learn how to set it up in our documentation "Create a virtual network peering." |Yes, see our documentation on VNet-to-VNet connections. |
+|Cross-sibscription support?|Yes, see our documentation "Resource Manager, different subscriptions."|Yes, see our documentation "Configure a VNet-to-VNet VPN gateway connection by using the Azure portal."|
+|Cross-deployment model support?|Yes, see our documentation "different deployment models, same subscription."| Yes, see our documentation "Connect virtual networks from different deployment models using the portal."|
+|Limits|You can keep up to 500 VNets with one VNet as seen in the documentation on Networking Limits.|Each VNet can only have one VPN Gateway. VPN Gateways depending on the SKU have type different number of tunnel supported.|
+|Pricing| Ingress/Egress charged.|Gateway + Egress charged.|
+|Encrypted?|Software level encryption is recommended|Yes, custom IPsec/IKE policy can be created and applied to new or existing connections.|
+|Bandwidth limitations?|No bandwidth limitations.|Varies based on type of Gateway from 100 Mbps to 1.25Gps.|
+|Private?|Yes, no Public IP endpoints. Routed through Microsoft backbone and is completely private. No public internet involved.|Public IP involved.|
+|Transitive relationship|If VNet A is peered to VNet B, and VNet B is peered to VNet C, VNet A and VNet C cannot currently communicate. Spoke to spoke communication can be achieved via NVAs or Gateways in the hub VNet. See an example in our documentation.| If VNet A, VNet B, and VNet C are connected via VPN Gateways and BGP is enabled in the VNet connections, transitivity works.|
+|Typical customer scenarios| Data replication, database failover, and other scenarios needing frequent backups of large data.| Encryption specific scenarios that are not latency sensitive and do not need high throughout.|
+| Initial setup time| It took me 24.38 seconds, but you should give it a shot!|30 mins to set it up| 
+
 FAQ link
 VNet peering FAQ
 VPN gateway FAQ
