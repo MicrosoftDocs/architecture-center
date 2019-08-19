@@ -36,7 +36,7 @@ Azure Backup is a simple solution that decreases your infrastructure costs while
 
 Azure Site Recovery makes it simple to test disaster recovery by replicating applications between Azure regions. You can also replicate on-premises VMware and Hyper-V virtual machines and physical servers to Azure to stay available if the primary site goes down. And you can recover workloads to the primary site when it’s up and running again.
 
-- **Example**: An oil and gas company used Azure technologies to implement a full site recovery. The company chose not to fully embrace the cloud for day-to-day operations, but the cloud's disaster recovery and business continuity (DRBC) features still protected their datacenter. As a hurricane formed hundreds of miles away, their implementation partner started recovering the site to Azure. Before the storm touched down, all mission-critical assets were running in Azure, preventing any downtime.
+- **Example**: An oil and gas company used Azure technologies to implement a full site recovery. The company chose not to fully embrace the cloud for day-to-day operations, but the cloud's business continuity and disaster recovery (BCDR) features still protected their datacenter. As a hurricane formed hundreds of miles away, their implementation partner started recovering the site to Azure. Before the storm touched down, all mission-critical assets were running in Azure, preventing any downtime.
 
 ## Next steps
 
