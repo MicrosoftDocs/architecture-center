@@ -19,7 +19,7 @@ This article is intended to help you quantify business risk tolerance as it rela
 
 Cost Management generally focuses on metrics related to costs. As part of your risk analysis, you'll want to gather data related to your current and planned spending on cloud-based workloads to determine how much risk you face, and how important investment in cost governance is to your cloud adoption strategy.
 
-The following are examples of useful metrics that you should gather to help evaluate risk tolerance within the Security Baseline discipline:
+The following are examples of useful metrics that you should gather to help evaluate risk tolerance within the Cost Management discipline:
 
 - **Annual spending:** The total annual cost for services provided by a cloud provider.
 - **Monthly spending:** The total monthly cost for services provided by a cloud provider.
