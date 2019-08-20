@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Migrate assets
 author: matticusau
 ms.author: mlavery
-ms.date: 04/04/2019
+ms.date: 08/08/2019
 ms.topic: conceptual
 ms.service: cloud-adoption-framework
 ms.subservice: migrate
@@ -19,9 +19,9 @@ In this phase of the journey, you use the output of the assess phase to initiate
 
 The following sections describe the native Azure tools available to perform or assist with migration. For information on choosing the right tools to support your migration efforts, see the [Cloud Adoption Framework's Migration tools decision guide](../../decision-guides/migrate-decision-guide/index.md).
 
-## Azure Migrate V2 (preview)
+## Azure Migrate
 
-Azure Migrate is being enhanced to deliver a unified and extensible migration experience. Azure Migrate provides a one-stop, dedicated experience to track your migration journey across the phases of assessment and migration to Azure. It provides you the option to use the tools of your choice and track the progress of migration across these tools.
+Azure Migrate delivers a unified and extensible migration experience. Azure Migrate provides a one-stop, dedicated experience to track your migration journey across the phases of assessment and migration to Azure. It provides you the option to use the tools of your choice and track the progress of migration across these tools.
 
 Azure Migrate provides the following functionality:
 
@@ -32,9 +32,7 @@ Azure Migrate provides the following functionality:
 1. Unified assessment, migration, and progress tracking.
 1. Extensible approach with ISV integration (such as Cloudamize).
 
-> [!TIP]
-> To complete the following steps ensure you have [signed up for Azure Migrate v2 preview](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR3jsP9XEFE1ClBlDcwuVgRZUODNERjNTVjJSUVRBVllMNzhRVDFESVozRS4u). Use this alternative URL to open the preview-enabled portal [https://aka.ms/migrate/preview](https://aka.ms/migrate/preview).
->
+To perform a migration using Azure Migrate follow these steps:
 
 1. Search for Azure Migrate under **All services**. Select **Azure Migrate** to continue.
 1. Select **Add a tool** to start your migration project.
@@ -46,7 +44,7 @@ Azure Migrate provides the following functionality:
 
 ### Read more
 
-- [Sign up for Azure Migrate v2 preview](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR3jsP9XEFE1ClBlDcwuVgRZUODNERjNTVjJSUVRBVllMNzhRVDFESVozRS4u)
+- [Azure Migrate tutorial - Migrate physical or virtualized servers to Azure](/azure/migrate/tutorial-migrate-physical-virtual-machines)
 
 ## Azure Site Recovery
 

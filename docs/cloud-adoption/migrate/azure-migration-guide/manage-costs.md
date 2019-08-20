@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how to set up budgets, payments, and understand invoices for your Azure resources.
 author: dchimes
 ms.author: kfollis
-ms.date: 04/09/2019
+ms.date: 08/08/2019
 ms.topic: conceptual
 ms.service: cloud-adoption-framework
 ms.subservice: migrate
@@ -45,9 +45,6 @@ These manual cost calculators can be used on their own to forecast potential spe
 ## Azure Migrate calculations
 
 **Prerequisites:** The remainder of this tab assumes the reader has already populated Azure Migrate with a collection of assets (infrastructure, apps, and data) to be migrated. The prior article on assessments provides instructions on collecting the initial data. Once the data is populated, follow the next few steps to estimate monthly costs based on the data collected.
-
->[!WARNING]
-> The next version of Azure Migrate is available in a public preview. The features of that new version will be updated in this article when released. These instructions are currently based on the generally available version of Azure Migrate.
 
 Azure Migrate calculates **monthly cost estimates** based on data captured by the collector and service map. The following steps will load the cost estimates:
 
