@@ -1,8 +1,8 @@
 ---
 title: Choosing a data storage technology
 description: 
-author: zoinerTejada
-ms.date: 02/12/2018
+author: mikewasson
+ms.date: 02/20/2019
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -108,7 +108,7 @@ The following tables summarize the key differences in capabilities.
 | Developer SDKs | .NET, Java, Python, Node.js | .Net, Java, Python, Node.js, C++, Ruby |
 | Analytics workload performance | Optimized performance for parallel analytics workloads, High Throughput and IOPS | Not optimized for analytics workloads |
 | Size limits | No limits on account sizes, file sizes or number of files | Specific limits documented [here](/azure/azure-subscription-service-limits#storage-limits) |
-| Geo-redundancy | Locally-redundant (multiple copies of data in one Azure region) | Locally redundant (LRS), globally redundant (GRS), read-access globally redundant (RA-GRS). See [here](/azure/storage/common/storage-redundancy) for more information |
+| Geo-redundancy | Locally-redundant (LRS), globally redundant (GRS), read-access globally redundant (RA-GRS), zone-redundant (ZRS). | Locally redundant (LRS), globally redundant (GRS), read-access globally redundant (RA-GRS), zone-redundant (ZRS). See [here](/azure/storage/common/storage-redundancy) for more information |
 
 ### NoSQL database capabilities
 

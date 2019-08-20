@@ -158,7 +158,7 @@ The following tables summarize the key differences in capabilities.
 | Redundant regional servers for high availability  | Yes | Yes | Yes | No | No |
 | Supports query scale out (distributed queries)  | No | No | Yes | Yes | Yes |
 | Dynamic scalability | Yes | No | Yes <sup>1</sup> | No | No |
-| Supports in-memory caching of data | Yes |  Yes | No | Yes | Yes |
+| Supports in-memory caching of data | Yes |  Yes | Yes | Yes | Yes |
 
 [1] SQL Data Warehouse allows you to scale up or down by adjusting the number of data warehouse units (DWUs). See [Manage compute power in Azure SQL Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-manage-compute-overview).
 
