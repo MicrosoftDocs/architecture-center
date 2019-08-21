@@ -43,10 +43,6 @@ To get started with Azure Migrate follow these steps:
 ::: form action="Create[#create/Microsoft.AzureMigrate]" submitText="Create new migration project" :::
 
 ::: zone-end
-
-> [!TIP]
-> [Azure Migrate v2](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR3jsP9XEFE1ClBlDcwuVgRZUODNERjNTVjJSUVRBVllMNzhRVDFESVozRS4u), currently in preview, provides improved capabilities, we recommend signing up for the preview and using these updated capabilities in your migration projects.
-
 ::: zone target="docs"
 
 ### Read more
