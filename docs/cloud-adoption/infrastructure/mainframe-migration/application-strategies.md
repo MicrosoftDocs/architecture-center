@@ -170,15 +170,11 @@ If you are considering a mainframe migration, the partner ecosystem is available
 
 Azure provides a proven, highly available, and scalable infrastructure for systems that currently run on mainframes. Some workloads can be migrated with relative ease. Other workloads that depend on legacy system software, such as CICS and IMS, can be rehosted using partner solutions and migrated to Azure over time. Regardless of the choice you make, Microsoft and our partners are available to assist you in optimizing for Azure while maintaining mainframe system software functionality.
 
-For detailed guidance about choosing a partner solution, refer to the [Platform Modernization Alliance](https://www.platformmodernization.org/pages/mainframe.aspx).
-
 ## Learn more
 
 For more information, see the following resources:
 
 - [Get started with Azure](/azure)
-
-- [Platform Modernization Alliance: Mainframe migration](https://www.platformmodernization.org/pages/mainframe.aspx)
 
 - [Deploy IBM DB2 pureScale on Azure](https://azure.microsoft.com/resources/deploy-ibm-db2-purescale-on-azure)
 

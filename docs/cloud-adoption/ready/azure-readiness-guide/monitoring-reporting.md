@@ -131,7 +131,7 @@ Azure Security Center is offered in two tiers: free and standard. Features like 
 
 ## Action
 
-**Try standard tier for free for your first 60 days.**
+**Try Standard tier for free for your first 30 days.**
 
 After you turn on and set up security policies for a subscription’s resources, you can view the security state of your resources and any issues in the **Prevention** section. You can also view a list of those issues on the **Recommendations** tile.
 

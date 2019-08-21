@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Assess the digital estate
 author: matticusau
 ms.author: mlavery
-ms.date: 04/04/2019
+ms.date: 08/08/2019
 ms.topic: conceptual
 ms.service: cloud-adoption-framework
 ms.subservice: migrate
@@ -23,38 +23,38 @@ The following tools help you assess your environment to determine the suitabilit
 
 ## Azure Migrate
 
-The Azure Migrate service assesses on-premises VMware or Hyper-V servers and their dependencies for migration to Azure. The service assesses the migration suitability of on-premises machines, performs performance-based sizing, and provides cost estimates for running on-premises machines in Azure. If you're considering "lift and shift" migrations, or are in the early assessment stages of migration, this service is for you. After the assessment, you can use other services like Azure Site Recovery and Azure Database Migration Service to migrate the machines to Azure.
+The Azure Migrate service assesses on-premises infrastructure, applications and data for migration to Azure. The service assesses the migration suitability of on-premises assets, performs performance-based sizing, and provides cost estimates for running on-premises assets in Azure. If you're considering "lift and shift" migrations, or are in the early assessment stages of migration, this service is for you. After completing the assessment, Azure Migrate can be utilized to execute the migration.
 
 ![Azure Migrate overview](./media/assess/azuremigrate-overview-1.png)
 
-### Create a new migration project
+### Create a new server migration project
 
-To get started with Azure Migrate follow these steps:
+To get started with a server migration assessment using Azure Migrate, follow these steps:
 
 1. Select **Azure Migrate**.
-1. Create a new migration project.
-1. Select **Discover and Assess**.
-1. Follow the **Discover machines** wizard.
-    1. Download, create, configure the collector appliance for on-premises.
-1. Follow the **Create assessment** wizard.
+1. In **Overview**, click **Assess and migrate servers**.
+1. Select **Add tool(s)**.
+1. In **Discover, assess and migrate servers**, click **Add tools**.
+1. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one.
+1. In **Project Details**, specify the project name, and geography in which you want to create the project, and click **Next**.
+1. In **Select assessment tool**, select **Skip adding an assessment tool for now > Next**.
+1. In **Select migration tool**, select **Azure Migrate: Server Migration > Next**.
+1. In **Review + add tools**, review the settings, and click **Add tools**
+1. After adding the tool, it appears in the **Azure Migrate project > Servers > Migration tools**.
 
 ::: zone target="chromeless"
 
-::: form action="Create[#create/Microsoft.AzureMigrate]" submitText="Create new migration project" :::
+::: form action="Blade[#blade/Microsoft_Azure_Migrate/AmhResourceMenuBlade/overview]" submitText="Assess and migrate servers" :::
 
 ::: zone-end
-
-> [!TIP]
-> [Azure Migrate v2](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR3jsP9XEFE1ClBlDcwuVgRZUODNERjNTVjJSUVRBVllMNzhRVDFESVozRS4u), currently in preview, provides improved capabilities, we recommend signing up for the preview and using these updated capabilities in your migration projects.
 
 ::: zone target="docs"
 
 ### Read more
 
-- [Azure Migrate overview](/azure/migrate/migrate-overview)
-- [Discover and assess on-premises VMs using Azure Migrate](/azure/migrate/tutorial-assessment-vmware)
-- [Azure Migrate in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_ManagementGroups/HierarchyBlade)
-- [Create a migration project in the Azure portal](https://portal.azure.com/#create/Microsoft.AzureMigrate)
+- [Azure Migrate overview](/azure/migrate/migrate-services-overview)
+- [Migrate physical or virtualized servers to Azure](/azure/migrate/tutorial-migrate-physical-virtual-machines)
+- [Azure Migrate in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Migrate/AmhResourceMenuBlade/overview)
 
 ::: zone-end
 
@@ -62,7 +62,7 @@ To get started with Azure Migrate follow these steps:
 
 Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. With Service Map, you can view your servers in the way that you think of them: as interconnected systems that deliver critical services. Service Map shows connections between servers, processes, inbound and outbound connection latency, and ports across any TCP-connected architecture, with no configuration required other than the installation of an agent.
 
-Azure Migrate and Azure Migrate v2 (currently in preview) use Service Map to enhance the reporting capabilities and dependencies across the environment. Full details of this integration are outlined in [Dependency visualization](/azure/migrate/concepts-dependency-visualization). If you use the Azure Migration service then there are no additional steps required to configure and obtain the benefits of Service Map. The following instructions are provided for your reference should your wish to use Service Map for other purposes or projects.
+Azure Migrate uses Service Map to enhance the reporting capabilities and dependencies across the environment. Full details of this integration are outlined in [Dependency visualization](/azure/migrate/concepts-dependency-visualization). If you use the Azure Migration service then there are no additional steps required to configure and obtain the benefits of Service Map. The following instructions are provided for your reference should your wish to use Service Map for other purposes or projects.
 
 ### Enable dependency visualization using Service Map
 
