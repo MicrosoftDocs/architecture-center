@@ -132,6 +132,10 @@ The deployment shown here resides in a single Azure region. For a more resilient
 
 To deploy this reference architecture, view the [GitHub readme][readme].
 
+## Next steps
+
+To learn more about the reference implementation, read [Show me the code: Serverless application with Azure Functions](../../serverless/index.md).
+
 <!-- links -->
 
 [cosmosdb]: /azure/cosmos-db/introduction
@@ -141,7 +145,7 @@ To deploy this reference architecture, view the [GitHub readme][readme].
 [eh]: /azure/event-hubs/
 [eh-autoscale]: /azure/event-hubs/event-hubs-auto-inflate
 [eh-dr]: /azure/event-hubs/event-hubs-geo-dr
-[eh-throughput]: /azure/event-hubs/event-hubs-features#throughput-units
+[eh-throughput]: /azure/event-hubs/event-hubs-scalability#throughput-units
 [eh-trigger]: /azure/azure-functions/functions-bindings-event-hubs
 [functions]: /azure/azure-functions/functions-overview
 [iot]: /azure/iot-hub/iot-hub-compare-event-hubs
@@ -154,5 +158,5 @@ To deploy this reference architecture, view the [GitHub readme][readme].
 [ra-grs]: /azure/storage/common/storage-redundancy-grs
 [ru]: /azure/cosmos-db/request-units
 
-[github]: https://github.com/mspnp/serverless-reference-implementation
-[readme]: https://github.com/mspnp/serverless-reference-implementation/blob/master/README.md
+[github]: https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0
+[readme]: https://github.com/mspnp/serverless-reference-implementation/blob/v0.1.0/README.md

@@ -1,13 +1,18 @@
 ---
 title: "Prerequisites to migration"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Prerequisites to migration
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 04/04/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
 ---
 
 # Prerequisites for migration
 
-Prior to beginning any migrations, your migration target *environment* must be prepared for the coming changes. In this case, environment refers to the technical foundation in the cloud. Environment also means the business environment and mindset driving the migration. Likewise, the environment includes the culture of the teams executing the changes and those receiving the output. Lack of preparation for these changes is the most common reason for failure of migrations. This article series will walk you through suggested prerequisites to prepare the environment.
+Prior to beginning any migrations, your migration target _environment_ must be prepared for the coming changes. In this case, environment refers to the technical foundation in the cloud. Environment also means the business environment and mindset driving the migration. Likewise, the environment includes the culture of the teams executing the changes and those receiving the output. Lack of preparation for these changes is the most common reason for failure of migrations. This series of articles walks you through suggested prerequisites to prepare the environment.
 
 ## Objective
 
@@ -24,8 +29,8 @@ Before beginning any cloud migration, review the [Plan](../../../business-strate
 
 Prerequisites are completed when the following are true:
 
-- **Business readiness.** The Cloud Strategy team has defined and prioritized a high-level migration backlog representing the portion of the digital estate to be migrated in the next two or three releases. The Cloud Strategy team and Cloud Adoption team have agreed to an initial strategy for managing change.
-- **Culture readiness.** The roles, responsibilities, and expectations of the Cloud Adoption team, Cloud Strategy team, and affected users have been agreed on regarding the workloads to be migrated in the next two or three releases.
+- **Business readiness.** The cloud strategy team has defined and prioritized a high-level migration backlog representing the portion of the digital estate to be migrated in the next two or three releases. The cloud strategy team and the cloud adoption team have agreed to an initial strategy for managing change.
+- **Culture readiness.** The roles, responsibilities, and expectations of the cloud adoption team, cloud strategy team, and affected users have been agreed on regarding the workloads to be migrated in the next two or three releases.
 - **Technical readiness.** The landing zone (or allocated hosting space in the cloud) that will receive the migrated assets meets minimum requirements to host the first migrated workload.
 
 > [!CAUTION]
@@ -37,8 +42,8 @@ Prerequisites are completed when the following are true:
 
 Two teams are accountable for readiness during the prerequisites phase:
 
-- **Cloud Strategy team.** This team is responsible for identifying and prioritizing the first two or three workloads to serve as migration candidates.
-- **Cloud Adoption team.** This team is responsible for validating readiness of the technical environment and the feasibility of migrating the proposed workloads.
+- **Cloud strategy team:** This team is responsible for identifying and prioritizing the first two or three workloads to serve as migration candidates.
+- **Cloud adoption team:** This team is responsible for validating readiness of the technical environment and the feasibility of migrating the proposed workloads.
 
 A single member of each team should be identified as accountable for each of the three definitions of done statements in the prior section.
 
@@ -49,7 +54,7 @@ In addition to the high-level accountability, there are actions that an individu
 - **Business prioritization.** Make business decisions regarding the workloads to be migrated and general timing constraints. For more information, see [Cloud migration business motivations](../../../business-strategy/motivations-why-are-we-moving-to-the-cloud.md).
 - **Change management readiness.** Establish and communicate the plan for tracking technical change during migration. More information on this topic will be available in Q3 2019.
 - **Business user alignment.** Establish a plan for readying the business user community for migration execution. More information on this topic will be available in Q3 2019.
-- **Digital estate inventory and analysis.** Execution of the tools required to inventory and analyze the digital estate. See the the Cloud Adoption Framework discussion of the [digital estate](../../../digital-estate/index.md) for more information.
+- **Digital estate inventory and analysis.** Execution of the tools required to inventory and analyze the digital estate. See the Cloud Adoption Framework discussion of the [digital estate](../../../digital-estate/index.md) for more information.
 - **Cloud readiness.** Evaluate the target deployment environment to ensure that it complies with requirements of the first few workload candidates. See the [Azure readiness guide](../../../ready/azure-readiness-guide/index.md) for more information.
 
 The remaining articles in this series help with the execution of each.

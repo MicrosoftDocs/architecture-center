@@ -1,8 +1,13 @@
 ---
 title: "Secure and Manage"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Secure monitoring and management tools
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 04/04/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
 ---
 
 # Secure monitoring and management tools

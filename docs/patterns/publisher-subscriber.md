@@ -32,7 +32,7 @@ Introduce an asynchronous messaging subsystem that includes the following:
 
 - One output messaging channel per consumer. The consumers are known as *subscribers*.
 
-- A mechanism for copying each message from the input channel to the output channels for all subscribers interested in that message. This operation is typically handled by a intermediary such as a message broker or event bus.
+- A mechanism for copying each message from the input channel to the output channels for all subscribers interested in that message. This operation is typically handled by an intermediary such as a message broker or event bus.
 
 The following diagram shows the logical components of this pattern:
 
@@ -73,7 +73,7 @@ Consider the following points when deciding how to implement this pattern:
 
 - **Wildcard subscribers.** Consider allowing subscribers to subscribe to multiple topics via wildcards.
 
-- **Bi-directional communication.** The channels in a publish-subscribe system are treated as unidirectional. If a specific subscriber needs to send acknowledgement or communicate status back to the publisher, consider using the [Request/Reply Pattern](http://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html). This pattern uses one channel to send a message to the subscriber, and a separate reply channel for communicating back to the publisher.
+- **Bi-directional communication.** The channels in a publish-subscribe system are treated as unidirectional. If a specific subscriber needs to send acknowledgment or communicate status back to the publisher, consider using the [Request/Reply Pattern](http://www.enterpriseintegrationpatterns.com/patterns/messaging/RequestReply.html). This pattern uses one channel to send a message to the subscriber, and a separate reply channel for communicating back to the publisher.
 
 - **Message ordering.** The order in which consumer instances receive messages isn't guaranteed, and doesn't necessarily reflect the order in which the messages were created. Design the system to ensure that message processing is idempotent to help eliminate any dependency on the order of message handling.
 

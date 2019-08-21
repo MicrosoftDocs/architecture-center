@@ -15,6 +15,8 @@ This reference architecture describes how to build an enterprise-grade conversat
 
 [![Diagram of the architecture][0]][0]
 
+*Download a [Visio file][visio-download] of this architecture.*
+
 The best practice utility samples used in this architecture are fully open-sourced and available on [GitHub][git-repo-base].
 
 ## Architecture
@@ -72,7 +74,7 @@ Before getting into the specifics of this architecture, let's start with the dat
 
 **User message**. Once authenticated, the user sends a message to the bot. The bot reads the message and routes it to a natural language understanding service such as [LUIS](/azure/cognitive-services/luis/). This step gets the **intents** (what the user wants to do) and **entities** (what things the user is interested in). The bot then builds a query that it passes to a service that serves information, such as [Azure Search][search] for document retrieval, [QnA Maker](https://www.qnamaker.ai/) for FAQs, or a custom knowledge base. The bot uses these results to construct a response. To give the best result for a  given query, the bot might make several back-and-forth calls to these remote services.
 
-**Response**. At this point, the bot has determined the best response and sends it to the user. If the confidence score of the best-matched answer is low, the response might be a disambiguation question or an acknowledgement that the bot could not reply adequately.
+**Response**. At this point, the bot has determined the best response and sends it to the user. If the confidence score of the best-matched answer is low, the response might be a disambiguation question or an acknowledgment that the bot could not reply adequately.
 
 **Logging**. When a user request is received or a response is sent, all conversation actions should be logged to a logging store, along with performance metrics and general errors from external services. These logs will be useful later when diagnosing issues and improving the system.
 
@@ -201,7 +203,7 @@ You can deploy the bot logic directly from your IDE or from a command line, such
 [git-repo-testing-util]: https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-http-test-recorder
 [testing-util]: https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-http-test-recorder
 [key-vault]: /azure/key-vault/
-[lda]: https://wikipedia.org/wiki/Latent_Dirichlet_allocation/
+[lda]: https://wikipedia.org/wiki/Latent_Dirichlet_allocation
 [logic-apps]: /azure/logic-apps/logic-apps-overview
 [luis]: /azure/cognitive-services/luis/
 [power-bi]: /power-bi/
@@ -214,6 +216,8 @@ You can deploy the bot logic directly from your IDE or from a command line, such
 [vscode]: https://azure.microsoft.com/products/visual-studio-code/
 [webapp]: /azure/app-service/overview
 [webchat]: /azure/bot-service/bot-service-channel-connect-webchat?view=azure-bot-service-4.0/
+
+[visio-download]: https://archcenter.blob.core.windows.net/cdn/conversational-bot.vsdx
 
 [cosmosdb-logger]: https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-transcript-cosmosdb
 [appinsights-logger]: https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-transcript-app-insights

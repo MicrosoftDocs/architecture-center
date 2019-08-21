@@ -3,7 +3,8 @@ title: Use dashboards to visualize Azure Databricks metrics
 description: How to deploy a Grafana dashboard to monitor performance in Azure Databricks
 author: petertaylor9999
 ms.date: 03/26/2019
-
+ms.service: architecture-center
+ms.subservice: reference-architecture
 ---
 
 # Use dashboards to visualize Azure Databricks metrics
@@ -12,13 +13,13 @@ This article shows how to set up a Grafana dashboard to monitor Azure Databricks
 
 [Azure Databricks](/azure/azure-databricks/) is a fast, powerful, and collaborative [Apache Spark](https://spark.apache.org/)–based analytics service that makes it easy to rapidly develop and deploy big data analytics and artificial intelligence (AI) solutions. Monitoring is a critical component of operating Azure Databricks workloads in production. The first step is to gather metrics into a workspace for analysis. In Azure, the best solution for managing log data is [Azure Monitor](/azure/azure-monitor/). Azure Databricks does not natively support sending log data to Azure monitor, but a [library for this functionality](https://github.com/mspnp/spark-monitoring) is available in [Github](https://github.com).
 
-This library enables logging of Azure Databricks service metrics as well as Apache Spark structure streaming query event metrics. Once you've successfully deployed this library to an Azure Databricks cluster, you can further deploy a set of [Grafana](https://granfana.com) dashboards that you can deploy as part of your production environment.
+This library enables logging of Azure Databricks service metrics as well as Apache Spark structure streaming query event metrics. Once you've successfully deployed this library to an Azure Databricks cluster, you can further deploy a set of [Grafana](https://grafana.com) dashboards that you can deploy as part of your production environment.
 
 ![Screenshot of dashboard](./_images/dashboard-screenshot.png)
 
 ## Prerequisites
 
-Clone the [Github repository](https://github.com/mspnp/spark-monitoring) and [follow the deployment instructions](./configure-cluster.md) to build and configure the Azure Monitor logging for Azure Databricks library to send logs to your Azure Log Analytics workspace.
+Configure your Azure Databricks cluster to use the monitoring library, as described in the [GitHub readme][config-cluster].
 
 ## Deploy the Azure Log Analytics workspace
 
@@ -194,5 +195,6 @@ The final set of visualizations shows the data shuffle metrics associated with a
 
 <!-- links -->
 
+[config-cluster]: https://github.com/mspnp/spark-monitoring/blob/master/README.md
 [rm-cli]: /azure/azure-resource-manager/resource-group-template-deploy-cli
 [sku]: /azure/templates/Microsoft.OperationalInsights/2015-11-01-preview/workspaces#sku-object

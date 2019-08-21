@@ -141,7 +141,7 @@ For a thorough introduction on using R within ML Studio experiments, check out
 ### Create, manage, and deploy experiments from your local R environment
 
 The other way that you can use R with Azure Machine Learning Studio is to use the
-[`AzureML`](https://cran.r-project.org/web/packages/AzureML/vignettes/getting_started.html) package to
+[AzureML](https://cran.r-project.org/src/contrib/Archive/AzureML/) package to
 monitor and control the experimentation process with the R programming environment.  This package, which is maintained
 by Microsoft, allows you to upload and download datasets to and from Azure Machine Learning Studio, to interrogate experiments, to publish R
 functions as web services, and to run R data through existing web services and retrieve the output.
@@ -175,7 +175,7 @@ in the cloud easily and economically.
 
 [Azure Notebooks](https://notebooks.azure.com) is a low-cost, low-friction method for R developers who prefer working with notebooks to bring their code to Azure.  It is a free service for anyone to develop and run code in their browser using [Jupyter](https://jupyter.org/), which is an open-source project that enables combing markdown prose, executable code, and graphics onto a single canvas.
 
-The free service tier of Azure Notebooks is a viable option for small-scale projects, as it limits each notebook's process to 4GB of memory and 1GB data sets. If you need compute and data power beyond these limitations, however, you can run notebooks in a Data Science Virtual Machine instance. For more information, see [Manage and configure Azure Notebooks projects - Compute tier](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
+The free service tier of Azure Notebooks is a viable option for small-scale projects, as it limits each notebook's process to 4 GB of memory and 1 GB data sets. If you need compute and data power beyond these limitations, however, you can run notebooks in a Data Science Virtual Machine instance. For more information, see [Manage and configure Azure Notebooks projects - Compute tier](/azure/notebooks/configure-manage-azure-notebooks-projects#compute-tier).
 
 ## Azure SQL Database
 

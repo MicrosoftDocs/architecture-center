@@ -1,19 +1,21 @@
 ---
 title: "Software Defined Networking: Hub and spoke"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
-ms.custom: governance
-ms.date: 02/11/2019
 description: Discussion of cloud-native virtual networking services.
 author: rotycenh
+ms.author: v-tyhopk
+ms.date: 02/11/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: decision-guide
+ms.custom: governance
 ---
 
 # Software Defined Networking: Hub and spoke
 
 The hub and spoke networking model organizes your Azure-based cloud network infrastructure into multiple connected virtual networks. This model allows you to more efficiently manage common communication or security requirements and deal with potential subscription limitations.
 
-In the hub and spoke model, the *hub* is a virtual network that acts as a central location for managing external connectivity and hosting services used by multiple workloads. The *spokes* are virtual networks that host workloads and connect to the central hub through [virtual network peering](/virtual-network/virtual-network-peering-overview).
+In the hub and spoke model, the _hub_ is a virtual network that acts as a central location for managing external connectivity and hosting services used by multiple workloads. The _spokes_ are virtual networks that host workloads and connect to the central hub through [virtual network peering](/azure/virtual-network/virtual-network-peering-overview).
 
 All traffic passing in or out of the workload spoke networks is routed through the hub network where it can be routed, inspected, or otherwise managed by centrally managed IT rules or processes.
 

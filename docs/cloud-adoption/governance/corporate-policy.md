@@ -1,14 +1,15 @@
 ---
 title: "Implement a cloud governance strategy"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
-ms.custom: governance
 description: Learn about using the Microsoft Cloud Adoption Framework for Azure to implement a cloud governance strategy.
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 01/03/2019
-layout: LandingPage
 ms.topic: landing-page
+ms.service: cloud-adoption-framework
+ms.subservice: govern
+ms.custom: governance
+layout: LandingPage
 ---
 
 # Implement a cloud governance strategy
@@ -21,7 +22,7 @@ ms.topic: landing-page
         <div class="cardPadding" style="padding-bottom:10px;">
             <div class="card" style="padding-bottom:10px;">
                 <div class="cardText" style="padding-left:0px;">
-Any change to business processes or technology platforms introduces risk to the business. Cloud Governance teams, whose members are sometimes known as cloud custodians, are tasked with mitigating these risks with minimal interruption to adoption or innovation efforts.<br/><br/>However, cloud governance requires more than technical implementation. Subtle changes in the corporate narrative or corporate policies can affect adoption efforts significantly. Before implementation, it's important to look beyond IT while defining corporate policy.<br/><br/>
+Any change to business processes or technology platforms introduces risk to the business. Cloud governance teams, whose members are sometimes known as cloud custodians, are tasked with mitigating these risks with minimal interruption to adoption or innovation efforts.<br/><br/>However, cloud governance requires more than technical implementation. Subtle changes in the corporate narrative or corporate policies can affect adoption efforts significantly. Before implementation, it's important to look beyond IT while defining corporate policy.<br/><br/>
                 </div>
             </div>
         </div>
@@ -35,7 +36,7 @@ Any change to business processes or technology platforms introduces risk to the 
                     <div class="cardText" style="padding-left:0px;">
 <img src="../_images/operational-transformation-govern-highres.png" alt="Diagram of the Cloud Adoption Framework governance model: Corporate policy and governance disciplines">
 <br/>
-<i>Figure 1. Visual of corporate policy and the Five Disciplines of Cloud Governance</i>
+<i>Figure 1 - Visual of corporate policy and the Five Disciplines of Cloud Governance.</i>
                     </div>
                 </div>
             </div>

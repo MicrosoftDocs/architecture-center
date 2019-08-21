@@ -1,13 +1,14 @@
 ---
 title: "Cost Management sample policy statements"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
-ms.custom: governance
-ms.date: 02/11/2019
 description: Cost Management sample policy statements
 author: BrianBlanchard
 ms.author: brblanch
+ms.date: 02/11/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: govern
+ms.custom: governance
 ---
 
 # Cost Management sample policy statements
@@ -62,7 +63,7 @@ The following sample policy statements address common cost-related business risk
 
 **Business risk:** Effective cost management creates new risks. Optimization of spending is inverse to system performance. When reducing costs, there is a risk of overtightening spending and producing poor user experiences.
 
-**Policy statement:** Any asset that directly affects customer experiences must be identified through grouping or tagging. Before optimizing any asset that affects customer experience, the Cloud Governance team must adjust optimization based on at least 90 days of utilization trends. Document any seasonal or event driven bursts considered when optimizing assets.
+**Policy statement:** Any asset that directly affects customer experiences must be identified through grouping or tagging. Before optimizing any asset that affects customer experience, the cloud governance team must adjust optimization based on at least 90 days of utilization trends. Document any seasonal or event driven bursts considered when optimizing assets.
 
 **Design options:**
 

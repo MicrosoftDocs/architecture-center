@@ -1,25 +1,112 @@
 ---
-title: "Cloud readiness in the Cloud Adoption Framework"
-titleSuffix: "Microsoft Cloud Adoption Framework for Azure"
-description: Overview of readiness content for Microsoft Cloud Adoption Framework for Azure.
+title: "Prepare for cloud adoption"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+description: Prepare the environment for the cloud adoption to follow
 author: BrianBlanchard
-ms.date: 04/04/2019
-layout: LandingPage
+ms.author: brblanch
+ms.date: 07/01/2019
 ms.topic: landing-page
+ms.service: cloud-adoption-framework
+ms.subservice: ready
+layout: LandingPage
 ---
 
-# Cloud readiness in the Cloud Adoption Framework
+<!-- markdownlint-disable MD026 -->
 
-Coming soon: Getting ready for cloud adoption is more than just building out an Azure Foundation. This section of the Cloud Adoption Framework will help readers design a Center of Excellence, develop skills readiness for IT Staff and partner/support alignment, and establish environment readiness.
+# Ensure the environment is prepared for the cloud adoption plan
 
-![Overview of the Ready section of the Cloud Adoption Framework](../_images/ready/overview.png)
+Before adoption can begin, you must create a landing zone to host the workloads that you plan to build in the cloud or migrate to the cloud. This section of the framework guides you through the creation of a landing zone.
 
-## Establish an Azure foundation
+## Landing zone exercises
 
-Innovate, Migrate, or Enable motions all require a similar foundation in cloud skills and a basic cloud environment. The following image outlines the components of a minimum viable product (MVP) Azure foundation. Environment readiness in this section is based on the MVP defined in the following image.
+The following exercises help guide you through the process of creating a landing zone to support cloud adoption.
 
-![Azure foundation](../_images/ready/AzureFoundation.png)
+<!-- markdownlint-disable MD033 -->
 
-## Azure readiness guide
+<ul class="panelContent cardsF">
+    <li style="display: flex; flex-direction: column;">
+        <a href="./azure-readiness-guide/index.md">
+            <div class="cardSize">
+                <div class="cardPadding" style="padding-bottom:10px;">
+                    <div class="card" style="padding-bottom:10px;">
+                        <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img alt="" src="../_images/icons/1.png" data-linktype="external">
+                            </div>
+                        </div>
+                        <div class="cardText" style="padding-left:0px;">
+                            <h3>Azure Readiness Guide</h3>
+                            Review the Azure Readiness Guide to become familiar with the tools and approaches you need to use to create a landing zone.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li style="display: flex; flex-direction: column;">
+        <a href="./azure-readiness-guide/migration-landing-zone.md">
+            <div class="cardSize">
+                <div class="cardPadding" style="padding-bottom:10px;">
+                    <div class="card" style="padding-bottom:10px;">
+                        <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img alt="" src="../_images/icons/2.png" data-linktype="external">
+                            </div>
+                        </div>
+                        <div class="cardText" style="padding-left:0px;">
+                            <h3>First landing zone</h3>
+                            Evaluate the Cloud Adoption Framework migrate landing zone blueprint. Use this blueprint to create your first migration-ready landing zone for quick experimentation and learning.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li style="display: flex; flex-direction: column;">
+        <a href="./considerations/index.md">
+            <div class="cardSize">
+                <div class="cardPadding" style="padding-bottom:10px;">
+                    <div class="card" style="padding-bottom:10px;">
+                        <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img alt="" src="../_images/icons/3.png" data-linktype="external">
+                            </div>
+                        </div>
+                        <div class="cardText" style="padding-left:0px;">
+                            <h3>Expand the blueprint</h3>
+                            Use the landing zone considerations to identify and make any necessary modifications to the blueprint template.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+    <li style="display: flex; flex-direction: column;">
+        <a href="./azure-best-practices/index.md">
+            <div class="cardSize">
+                <div class="cardPadding" style="padding-bottom:10px;">
+                    <div class="card" style="padding-bottom:10px;">
+                        <div class="cardImageOuter">
+                            <div class="cardImage">
+                                <img alt="" src="../_images/icons/4.png" data-linktype="external">
+                            </div>
+                        </div>
+                        <div class="cardText" style="padding-left:0px;">
+                            <h3>Best practices</h3>
+                            Validate landing zone modifications against the best practices sections to ensure the proper configuration of your current and future landing zones.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </a>
+    </li>
+</ul>
 
-As a first step in completing this section, the existing [Azure readiness guide](./azure-readiness-guide/index.md) has been pulled into the Cloud Adoption Framework. Over the next 30 to 60 days, this guide will be updated to align with the Azure Foundation taxonomy and other guidance within the Cloud Adoption Framework.
+<!-- markdownlint-enable MD033 -->
+
+## Next steps
+
+To get ready for cloud adoption, review the [Azure Readiness Guide](./azure-readiness-guide/index.md).
+
+> [!div class="nextstepaction"]
+> [Azure Readiness Guide](./azure-readiness-guide/index.md)

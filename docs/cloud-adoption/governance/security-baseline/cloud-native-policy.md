@@ -1,12 +1,14 @@
 ---
 title: "Cloud-native Security Baseline policy"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
-ms.custom: governance
-ms.date: 02/11/2019
 description: Cloud-Native Security Baseline policy
 author: BrianBlanchard
+ms.author: brblanch
+ms.date: 02/11/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: govern
+ms.custom: governance
 ---
 
 # Cloud-native Security Baseline policy
@@ -49,7 +51,7 @@ A cloud-native policy for network controls may include requirements like the fol
 
 - Hybrid connections to on-premises resources (While technically possible in Azure), might not be allowed in a cloud-native policy. Should a hybrid connection prove necessary, a more robust Enterprise Security Policy sample would be a more relevant reference.
 - Users can establish secure connections to and within Azure using virtual networks and network security groups.
-- Native Windows Azure Firewall protects hosts from malicious network traffic by limited port access. A good example of this policy would be the requirement to block (or not enable) traffic directly to a VM over RDP - TCP/UDP port 3389.
+- Native Windows Azure Firewall protects hosts from malicious network traffic by limited port access. A good example of this policy is a requirement to block (or not enable) traffic directly to a VM over RDP - TCP/UDP port 3389.
 - Services like the Azure Application Gateway web application firewall (WAF) and Azure DDoS Protection safeguard applications and ensure availability for virtual machines running in Azure. These features should not be disabled or misused.
 
 ### Data protection

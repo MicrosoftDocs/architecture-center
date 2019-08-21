@@ -4,6 +4,8 @@ description: Recommended architecture for IoT applications on Azure using PaaS (
 titleSuffix: Azure Reference Architectures
 author: MikeWasson
 ms.date: 01/09/2019
+ms.service: architecture-center
+ms.subservice: reference-architecture
 ---
 
 # Azure IoT reference architecture
@@ -67,7 +69,7 @@ IoT Hub automatically partitions device messages based on the device ID. All of 
 
 **Functions**. When reading from the Event Hubs endpoint, there is a maximum of function instance per event hub partition. The maximum processing rate is determined by how fast one function instance can process the events from a single partition. The function should process messages in batches.
 
-**Cosmos DB**. To scale out a Cosmos DB collection, create the collection with a partition key and include the partition key in each document that you write. For more information, see [Best practices when choosing a partition key](/azure/cosmos-db/partition-data#best-practices-when-choosing-a-partition-key).
+**Cosmos DB**. To scale out a Cosmos DB collection, create the collection with a partition key and include the partition key in each document that you write. For more information, see [Best practices when choosing a partition key](/azure/cosmos-db/partitioning-overview#choose-partitionkey).
 
 - If you store and update a single document per device, the device ID is a good partition key. Writes are evenly distributed across the keys. The size of each partition is strictly bounded, because there is a single document for each key value.
 - If you store a separate document for every device message, using the device ID as a partition key would quickly exceed the 10-GB limit per partition. Message ID is a better partition key in that case. Typically you would still include device ID in the document for indexing and querying.

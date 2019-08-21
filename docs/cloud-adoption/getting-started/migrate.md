@@ -3,7 +3,11 @@ title: "Getting started with a cloud migration journey"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Getting started with a cloud migration journey
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 04/04/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: overview
 ---
 
 # Getting started with a cloud migration journey
@@ -14,26 +18,26 @@ Learn about using the Microsoft Cloud Adoption Framework for Azure to begin a cl
 
 The Cloud Adoption Framework helps customers undertake a simplified cloud adoption journey. This framework contains detailed information covering an end-to-end cloud adoption journey, starting with targeted business outcomes and aligning cloud readiness and assessments with clearly defined business objectives. Those outcomes are achieved through a defined path for cloud adoption. With migration-based adoption, the defined path focuses largely on completing a migration of on-premises workloads to the cloud. Sometimes this journey includes modernization of workloads to increase the return on investment from the migration effort.
 
-This framework is designed primarily for cloud architects and the cloud strategy teams leading cloud adoption efforts. However, many topics in this framework are relevant to other roles across the business and IT. Cloud architects frequently serve as facilitators to engage each of the relevant roles. This executive summary is designed to prepare the various roles prior to facilitating conversations.
+This framework is designed primarily for cloud architects and the cloud strategy teams leading cloud adoption efforts. However, many topics in this framework are relevant to other roles across the business and IT. Cloud architects frequently serve as facilitators to engage each of the relevant roles. This executive summary is designed to prepare the various roles before facilitating conversations.
 
 > [!NOTE]
 > This guidance is currently a public preview. Terminology, approaches, and guidance are being thoroughly tested with customers, partners, and Microsoft teams during this preview. As such, the TOC and guidance may change slightly over time.
 
 ## Motivations
 
-Cloud migrations can help companies deliver on a number of desired business outcomes. Clear communication of motivations, business drivers, and measurements of success are important foundations for making wise decisions throughout cloud migration efforts. The following table classifies motivations to facilitate this conversation. It is assumed that most companies will have motivations across each classification. The objective of this table is not to limit outcomes, but instead make it easier to prioritize overall objectives and motivations:
+Cloud migrations can help companies deliver on their desired business outcomes. Clear communication of motivations, business drivers, and measurements of success are important foundations for making wise decisions throughout cloud migration efforts. The following table classifies motivations to facilitate this conversation. It is assumed that most companies will have motivations across each classification. The objective of this table is not to limit outcomes, but instead make it easier to prioritize overall objectives and motivations:
 
 <!-- markdownlint-disable MD033 -->
 
-|Critical Business Events  |Migration Motivations  |Innovation Motivations  |
+|Critical Business Events | Migration Motivations | Innovation Motivations |
 |---------|---------|---------|
-|Datacenter exit<br/><br/>Mergers, acquisition, or divestiture<br/><br/>Reductions in capital expenses<br/><br/>End of support for mission-critical technologies<br/><br/>Response to regulatory compliance changes<br/><br/>Meet new data sovereignty requirements<br/><br/>Reduce disruptions and improve IT stability|Cost savings<br/><br/>Reduction in vendor or technical complexity<br/><br/>Optimization of internal operations<br/><br/>Increase business agility<br/><br/>Prepare for new technical capabilities<br/><br/>Scale to meet market demands<br/><br/>Scale to meet geographic demands|Prepare for new technical capabilities<br/><br/>Build new technical capabilities<br/><br/>Scale to meet market demands<br/><br/>Scale to meet geographic demands<br/><br/>Improve customer experiences / engagements<br/><br/>Transform products or services<br/><br/>Disrupt the market with new products or services|
+| Datacenter exit<br/><br/>Mergers, acquisition, or divestiture<br/><br/>Reductions in capital expenses<br/><br/>End of support for mission-critical technologies<br/><br/>Response to regulatory compliance changes<br/><br/>Meet new data sovereignty requirements<br/><br/>Reduce disruptions and improve IT stability|Cost savings<br/><br/>Reduction in vendor or technical complexity<br/><br/>Optimization of internal operations<br/><br/>Increase business agility<br/><br/>Prepare for new technical capabilities<br/><br/>Scale to meet market demands<br/><br/>Scale to meet geographic demands|Prepare for new technical capabilities<br/><br/>Build new technical capabilities<br/><br/>Scale to meet market demands<br/><br/>Scale to meet geographic demands<br/><br/>Improve customer experiences / engagements<br/><br/>Transform products or services<br/><br/>Disrupt the market with new products or services|
 
 <!-- markdownlint-enable MD033 -->
 
-When a response to critical business events is the highest priority, it is important to engage in [cloud implementation](#cloud-implementation) early, often in parallel to strategy and planning efforts. Taking such an approach requires a growth mindset and a willingness to iterate and evolve processes, based on direct lessons learned.
+When a response to critical business events is the highest priority, it is important to engage in [cloud implementation](#cloud-implementation) early, often in parallel with strategy and planning efforts. Taking such an approach requires a growth mindset and a willingness to iterate and evolve processes, based on direct lessons learned.
 
-When migration motivations are a priority, [strategy and planning](#cloud-strategy-and-planning) will play a vital role early in the process. However, it is highly suggested that [implementation](#cloud-implementation) of the first workload is conducted in parallel to planning, to help the team understand and plan for any learning curves associated with the cloud.
+When migration motivations are a priority, [strategy and planning](#cloud-strategy-and-planning) will play a vital role early in the process. However, it is highly suggested that [implementation](#cloud-implementation) of the first workload is conducted in parallel with planning, to help the team understand and plan for any learning curves associated with the cloud.
 
 When innovation motivations are the highest priority, strategy and planning will require additional investments early in the process to ensure balance in the portfolio and wise alignment of the investment made during cloud. For more information about realizing innovation motivations, see [Understand the innovation journey](./innovate.md).
 
@@ -59,25 +63,26 @@ Cloud migrations are often considered a single project within a broader program 
 
 ## Cloud strategy and planning
 
-Cloud strategy and planning is a methodology that focuses on aligning business outcomes, priorities, and constraints to establish a clear migration strategy and plan. The resultant plan (or migration backlog) outlines the approach to migration and modernization across the IT portfolio, which may span entire datacenters, multiple workloads, and/or misc. collections of infrastructure, applications, and data. Proper management of the IT portfolio across cloud implementation efforts will help drive the desired business outcomes.
+Cloud strategy and planning is a methodology that focuses on aligning business outcomes, priorities, and constraints to establish a clear migration strategy and plan. The resultant plan (or migration backlog) outlines the approach to migration and modernization across the IT portfolio, which may span entire datacenters, multiple workloads, or miscellaneous collections of infrastructure, applications, and data. Proper management of the IT portfolio across cloud implementation efforts will help drive the desired business outcomes.
 
-![Cloud Adoption Framework's Cloud strategy and planning methodology](../_images/migrate.png)
+![Cloud Adoption Framework overview](../_images/cloud-adoption-framework-overview.png)
 
-**Getting started:** The remainder of this article prepares the reader for the proper application of the Cloud Adoption Framework's Cloud strategy and planning methodology. It also outlines a number of additional resources and links that can help the reader adopt this approach to guide cloud implementation efforts.
+**Getting started:** The remainder of this article prepares the reader for the proper application of the Cloud Adoption Framework's Cloud strategy and planning methodology. It also outlines additional resources and links that can help the reader adopt this approach to guide cloud implementation efforts.
 
 ### Methodology explained
 
 The Cloud Adoption Framework's Cloud strategy and planning methodology is based on an incremental approach to cloud implementation that aligns to agile technology strategies, cultural maturity based on growth mindset approaches, and strategies driven by business outcomes. This methodology consists of the following high-level components that guide the implementation of each strategy.
 
-As depicted in the image above, this framework aligns strategic decisions to a small number of contained processes, which operate within an iterative model. While described in a linear document, each of the following processes is expected to mature in parallel to iterations of the cloud implementation. The links for each process will aid in defining the end state and the means of maturing toward the desired end state:
+As depicted in the image above, this framework aligns strategic decisions to a small number of contained processes, which operate within an iterative model. While described in a linear document, each of the following processes is expected to mature in parallel with iterations of the cloud implementation. The links for each process will aid in defining the end state and the means of maturing toward the desired end state:
 
 - **[Plan](../business-strategy/index.md):** When technical implementation is aligned with clear business objectives, it's much easier to measure and align success across multiple cloud implementation efforts, regardless of technical decisions.
 - **[Ready](../ready/index.md):** Preparing the business, culture, people, and environment for coming changes leads to success in each effort and accelerates implementation and change projects.
 - **Adopt:** Ensure proper implementation of desired changes, across IT and business processes, to achieve business outcomes.
   - **[Migrate](../migrate/index.md):** Iterative execution of the [cloud implementation methodology](#cloud-implementation) adhering to the tested process of Assess, Migrate, Optimize, and Secure & Manage to create a repeatable process for migrating workloads.
-  - **[Operate](../operations/index.md):** Expand IT operations to ensure cloud-based solutions can be operated through secure, cost effective processes using modern, cloud-first operations tools.
+- **[Operate](../operating-model/index.md):** Define a manageable operating model to guide activities during and long after adoption.
+  - **[Organize](../organization/index.md):** Align people and teams to deliver proper cloud operations and adoption.
   - **[Govern](../governance/index.md):** Align corporate policy to tangible risks, mitigated through policy, process, and cloud-based governance tooling.
-  - **Change management and oversight:** Iterative approaches to implementation exist throughout this framework, which provides business and IT teams with a growth mindset approach to addressing ambiguity, learning, and succeeding in the fast paced environments demanded in today's marketplaces.
+  - **[Manage](../operations/index.md):** Expand IT operations to ensure cloud-based solutions can be operated through secure, cost effective processes using modern, cloud-first operations tools.
 
 Throughout this migration experience this framework will be used to address ambiguity, manage change, and guide cross-functional teams through the realization of business outcomes.
 
@@ -88,7 +93,7 @@ The effort to realize the desired business outcomes may trigger slight changes t
 - The IT team is likely to adopt new skills to support workloads in the cloud.
 - Execution of a cloud migration encourages iterative or agile approaches.
 - Inclusion of cloud governance also tends to inspire DevOps approaches.
-- Creation of a Cloud Strategy team can lead to tighter integration between business and IT leaders.
+- Creation of a cloud strategy team can lead to tighter integration between business and IT leaders.
 - Collectively, these changes tend to lead to business and IT agility.
 
 Cultural change is not a goal of cloud migration or the Cloud Adoption Framework, but it is a commonly experienced outcome.
@@ -96,11 +101,11 @@ Cultural changes are not directly guided, instead subtle changes to the culture 
 
 ### Common technical efforts associated with this methodology
 
-During implementation of the cloud strategy and plan the IT team will focus a large percentage of their time on the migration of existing digital assets to the cloud. During this effort, minimal code changes as expected, but can often be limited to configuration changes. In many cases, a strong business justification can be made for modernization as part of the cloud migration.
+During implementation of the cloud strategy and plan the IT team will focus a large percentage of their time on the migration of existing digital assets to the cloud. During this effort, minimal code changes are expected, but can often be limited to configuration changes. In many cases, a strong business justification can be made for modernization as part of the cloud migration.
 
 ### Common workload examples
 
-Cloud strategy and planning often target a broad collection of workloads and applications. Within the portfolio, a number of common application or workload types are commonly migrated. The following are a few examples:
+Cloud strategy and planning often target a broad collection of workloads and applications. Within the portfolio, common application or workload types are typically migrated. The following are a few examples:
 
 - Line-of-business applications
 - Customer-facing applications
@@ -120,7 +125,7 @@ The technologies migrated to the cloud constantly expand as cloud providers add 
 
 ## Next steps: Lifecycle solution
 
-The Cloud Adoption Framework is a lifecycle solution. It is intended to help readers who are just beginning their journey and as well as readers who are deep into their migration. As such, content is very context and audience specific. Next steps are best aligned to the high-level process the reader would like to improve next.
+The Cloud Adoption Framework is a lifecycle solution. It is designed to help readers who are just beginning their journey and as well as readers who are deep into their migration. As such, content is very context and audience specific. Next steps are best aligned to the high-level process the reader would like to improve next.
 
 > [!div class="nextstepaction"]
 > [Plan](../business-strategy/index.md)

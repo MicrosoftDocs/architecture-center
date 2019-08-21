@@ -64,7 +64,7 @@ In this scenario, the HPC cluster is created entirely within Azure.
 
 ![Diagram of HPC Pack deployed to Azure](./images/big-compute-iaas.png)
 
-The head node provides management and job scheduling services to the cluster. For tightly coupled tasks, use an RDMA network that provides very high bandwidth, low latency communication between VMs. For more information see [Deploy an HPC Pack 2016 cluster in Azure][deploy-hpc-azure].
+The head node provides management and job scheduling services to the cluster. For tightly coupled tasks, use an RDMA network that provides very high bandwidth, low latency communication between VMs. For more information, see [Deploy an HPC Pack 2016 cluster in Azure][deploy-hpc-azure].
 
 ### Burst an HPC cluster to Azure
 
