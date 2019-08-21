@@ -128,7 +128,7 @@ The technologies migrated to the cloud constantly expand as cloud providers add 
 The Cloud Adoption Framework is a lifecycle solution. It is designed to help readers who are just beginning their journey and as well as readers who are deep into their migration. As such, content is very context and audience specific. Next steps are best aligned to the high-level process the reader would like to improve next.
 
 > [!div class="nextstepaction"]
-> [Plan](../business-strategy/index.md)
+> [Plan](../plan/index.md)
 >
 > [Ready](../ready/index.md)
 >
