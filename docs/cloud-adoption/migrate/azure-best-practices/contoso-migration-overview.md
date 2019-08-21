@@ -3,11 +3,10 @@ title: "Overview of application migration examples for Azure"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Provides an overview of the application migration examples included as part of the Cloud Adoption Framework Migrate section.
 author: BrianBlanchard
-ms.author: brblanch
-ms.date: 10/11/2018
+ms.service: azure-migrate
 ms.topic: conceptual
-ms.service: cloud-adoption-framework
-ms.subservice: migrate
+ms.date: 10/11/2018
+ms.author: brblanch
 ---
 
 # Application migration patterns and examples

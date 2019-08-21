@@ -1,14 +1,13 @@
 ---
 title: "Resource Consistency sample policy statements"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 description: Resource Consistency sample policy statements
 author: BrianBlanchard
 ms.author: brblanch
-ms.date: 02/11/2019
-ms.topic: guide
-ms.service: cloud-adoption-framework
-ms.subservice: govern
-ms.custom: governance
 ---
 
 # Resource Consistency sample policy statements
@@ -27,11 +26,7 @@ The following sample policy statements address common business risks related to 
 
 **Policy statement:** The following policies will be implemented:
 
-- Deployed assets should be tagged with the following values:
-  - Cost
-  - Criticality
-  - SLA
-  - Environment
+- Deployed assets should be tagged with the following values: cost, criticality, SLA, and environment.
 - Governance tooling must validate tagging related to cost, criticality, SLA, application, and environment. All values must align to predefined values managed by the governance team.
 
 **Potential design options:** In Azure, [standard name-value metadata tags](/azure/azure-resource-manager/resource-group-using-tags) are supported on most resource types. [Azure Policy](/azure/governance/policy/overview) is used to enforce specific tags as part of resource creation.
@@ -40,7 +35,7 @@ The following sample policy statements address common business risks related to 
 
 **Technical risk:** Arbitrary creation of subscriptions and management groups can lead to isolated sections of your cloud estate that are not properly subject to your governance policies.
 
-**Policy statement:** Creation of new subscriptions or management groups for any mission-critical applications or protected data will require a review from the cloud governance team. Approved changes will be integrated into a proper blueprint assignment.
+**Policy statement:** Creation of new subscriptions or management groups for any mission-critical applications or protected data will require a review from the Cloud Governance team. Approved changes will be integrated into a proper blueprint assignment.
 
 **Potential design options:** Lock down administrative access to your organizations [Azure management groups](/azure/governance/management-groups) to only approved governance team members who will control the subscription creation and access control process.
 
@@ -54,12 +49,12 @@ The following sample policy statements address common business risks related to 
 
 ## Deployment compliance
 
-**Technical risk:** Deployment scripts and automation tooling that is not fully vetted by the cloud governance team can result in resource deployments that violate policy.
+**Technical risk:** Deployment scripts and automation tooling that is not fully vetted by the Cloud Governance team can result in resource deployments that violate policy.
 
 **Policy statement:** The following policies will be implemented:
 
-- Deployment tooling must be approved by the cloud governance team to ensure ongoing governance of deployed assets.
-- Deployment scripts must be maintained in central repository accessible by the cloud governance team for periodic review and auditing.
+- Deployment tooling must be approved by the Cloud Governance team to ensure ongoing governance of deployed assets.
+- Deployment scripts must be maintained in central repository accessible by the Cloud Governance team for periodic review and auditing.
 
 **Potential design options:** Consistent use of [Azure Blueprints](/azure/governance/blueprints) to manage automated deployments allows consistent deployments of Azure resources that adhere to your organization's governance standards and policies.
 

@@ -1,13 +1,8 @@
 ---
-title: "Azure migration best practices"
-titleSuffix: Microsoft Cloud Adoption Framework for Azure
+title: "Azure Migration Best Practices"
 description: Introduction to Azure Migration Best Practices
 author: BrianBlanchard
-ms.author: brblanch
 ms.date: 04/04/2019
-ms.topic: guide
-ms.service: cloud-adoption-framework
-ms.subservice: migrate
 ---
 
 # Azure migration best practices

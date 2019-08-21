@@ -15,9 +15,7 @@ pnp.series.next: key-vault
 
 [![GitHub](../_images/github.png) Sample code][sample application]
 
-This article describes how to add client assertion to the [Tailspin Surveys][Surveys] sample application.
-
-## Understanding client assertion in OpenID Connect
+## Background
 
 When using authorization code flow or hybrid flow in OpenID Connect, the client exchanges an authorization code for an access token. During this step, the client has to authenticate itself to the server.
 
@@ -65,8 +63,6 @@ Notice that the `client_secret` parameter is no longer used. Instead, the `clien
 
 At run time, the web application reads the certificate from the certificate store. The certificate must be installed on the same machine as the web app.
 
-## Implementing client assertion
-
 The Surveys application includes a helper class that creates a [ClientAssertionCertificate](/dotnet/api/microsoft.identitymodel.clients.activedirectory.clientassertioncertificate) that you can pass to the [AuthenticationContext.AcquireTokenSilentAsync](/dotnet/api/microsoft.identitymodel.clients.activedirectory.authenticationcontext.acquiretokensilentasync) method to acquire a token from Azure AD.
 
 ```csharp
@@ -97,13 +93,19 @@ public class CertificateCredentialService : ICredentialService
 }
 ```
 
-[**Next**](./adfs.md)
+For information about setting up client assertion in the Surveys application, see [Use Azure Key Vault to protect application secrets
+][key vault].
+
+[**Next**][key vault]
 
 <!-- links -->
 
 [configure-web-app]: /azure/app-service-web/web-sites-configure/
 [azure-management-portal]: https://portal.azure.com
 [client assertion]: https://tools.ietf.org/html/rfc7521
-[sample application]: https://github.com/mspnp/multitenant-saas-guidance
+[key vault]: key-vault.md
+[Setup-KeyVault]: https://github.com/mspnp/multitenant-saas-guidance/blob/master/scripts/Setup-KeyVault.ps1
 [Surveys]: tailspin.md
 [using-certs-in-websites]: https://azure.microsoft.com/blog/using-certificates-in-azure-websites-applications/
+
+[sample application]: https://github.com/mspnp/multitenant-saas-guidance

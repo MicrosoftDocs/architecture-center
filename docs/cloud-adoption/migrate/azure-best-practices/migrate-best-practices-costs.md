@@ -3,11 +3,10 @@ title: "Best practices for costing and sizing workloads migrated to Azure"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Get best practices for costing and sizing workloads migrated to Azure.
 author: BrianBlanchard
-ms.author: brblanch
-ms.date: 12/08/2018
+ms.service: azure-migrate
 ms.topic: conceptual
-ms.service: cloud-adoption-framework
-ms.subservice: migrate
+ms.date: 12/08/2018
+ms.author: brblanch
 ---
 
 # Best practices for costing and sizing workloads migrated to Azure
@@ -57,7 +56,7 @@ To forecast your monthly bill for migrated workloads, there are several tools yo
 
 ## Best practice: Right-size VMs
 
-You can choose various options when you deploy Azure VMs to support workloads. Each VM type has specific features and different combinations of CPU, memory, and disks. VMs are grouped as shown below:
+You can choose various options when you deploy Azure VMs to support workloads. Each VM type has specific features and different combinations of CPU, memory, and disks. VMs are grouped as follows.
 
 **Type** | **Details** | **Use**
 --- | --- | ---
@@ -137,10 +136,10 @@ Storage accounts can use different types of redundancy for resilience and high a
 
 **Type** | **Details** | **Usage**
 --- | --- | ---
-**Locally redundant storage (LRS)** | Protects against a local outage by replicating within a single storage unit to a separate fault domain and update domain. Keeps multiple copies of your data in one datacenter. Provides at least 99.999999999 % (11 9\'s) durability of objects over a given year. | Consider if your app stores data that can be easily reconstructed.
-**Zone-redundant storage (ZRS)** | Protects again a datacenter outage by replicating across three storage clusters in a single region. Each storage cluster is physically separated and located in its own availability zone. Provides at least 99.9999999999 % (12 9\'s) durability of objects over a given year by keeping multiple copies of your data across multiple datacenters or regions. | Consider if you need consistency, durability, and high availability. Might not protect against a regional disaster when multiple zones are permanently affected.
-**Geographically redundant storage (GRS)** | Protects against an entire region outage by replicating data to a secondary region hundreds of miles away from the primary. Provides at least 99.99999999999999 % (16 9\'s) durability of objects over a given year. | Replica data isn't available unless Microsoft initiates a failover to the secondary region. If failover occurs, read and write access is available.
-**Read-access geographically redundant storage (RA-GRS)** | Similar to GRS. Provides at least 99.99999999999999 % (16 9\'s) durability of objects over a given year | Provides and 99.99 % read availability by allowing read access from the second region used for GRS.
+**Locally Redundant Storage (LRS)** | Protects against a local outage by replicating within a single storage unit to a separate fault domain and update domain. Keeps multiple copies of your data in one datacenter. Provides at least 99.999999999 % (11 9\'s) durability of objects over a given year. | Consider if your app stores data that can be easily reconstructed.
+**Zone Redundant Storage (ZRS)** | Protects again a datacenter outage by replicating across three storage clusters in a single region. Each storage cluster is physically separated and located in its own availability zone. Provides at least 99.9999999999 % (12 9\'s) durability of objects over a given year by keeping multiple copies of your data across multiple datacenters or regions. | Consider if you need consistency, durability, and high availability. Might not protect against a regional disaster when multiple zones are permanently affected.
+**Geographically Redundant Storage (GRS)** | Protects against an entire region outage by replicating data to a secondary region hundreds of miles away from the primary. Provides at least 99.99999999999999 % (16 9\'s) durability of objects over a given year. | Replica data isn't available unless Microsoft initiates a failover to the secondary region. If failover occurs, read and write access is available.
+**Read-Access Geographically Redundant Storage (RA-GRS)** | Similar to GRS. Provides at least 99.99999999999999 % (16 9\'s) durability of objects over a given year | Provides and 99.99 % read availability by allowing read access from the second region used for GRS.
 
 **Learn more:**
 
@@ -207,7 +206,7 @@ Best practices in this section include using Azure Cost Management for cost budg
 
 ## Best practice: Use Azure Cost Management
 
-Microsoft provides Azure Cost Management to help you track spending:
+Microsoft provides Azure Cost Management to help you track spending, as follows:
 
 - Helps you to monitor and control Azure spending, and optimize use of resources.
 - Reviews your entire subscription and all of its resources, and makes recommendations.

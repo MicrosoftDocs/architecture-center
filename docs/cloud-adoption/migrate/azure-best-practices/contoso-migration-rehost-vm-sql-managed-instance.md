@@ -2,13 +2,12 @@
 title: "Rehost an on-premises app by migrating to Azure VMs and Azure SQL Database Managed Instance"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how Contoso rehosts an on-premises app on Azure VMs and by using Azure SQL Database Managed Instance.
-author: BrianBlanchard
-ms.author: brblanch
-ms.date: 10/11/2018
-ms.topic: conceptual
-ms.service: cloud-adoption-framework
-ms.subservice: migrate
 services: site-recovery
+author: BrianBlanchard
+ms.service: site-recovery
+ms.topic: conceptual
+ms.date: 10/11/2018
+ms.author: brblanch
 ---
 
 # Rehost an on-premises app on an Azure VM and SQL Database Managed Instance
@@ -119,7 +118,7 @@ Contoso and other users must meet the following prerequisites for this scenario:
 Requirements | Details
 --- | ---
 **Enroll in the Managed Instance preview** | You must be enrolled in the SQL Database Managed Instance limited public preview. You need an Azure subscription to [sign up](https://portal.azure.com#create/Microsoft.SQLManagedInstance). Signup can take a few days to complete, so make sure to sign up before you begin to deploy this scenario.
-**Azure subscription** | You should have already created a subscription when you perform the assessment in the first article in this series. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial).<br/><br/> If you create a free account, you're the administrator of your subscription and can perform all actions.<br/><br/> If you use an existing subscription and you're not the administrator of the subscription, you need to work with the admin to assign you Owner or Contributor permissions.<br/><br/> If you need more granular permissions, see [Use role-based access control to manage Site Recovery access](/azure/site-recovery/site-recovery-role-based-linked-access-control).
+**Azure subscription** | You should have already created a subscription when you perform the assessment in the first article in this series. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial).<br/><br/> If you create a free account, you're the administrator of your subscription and can perform all actions.<br/><br/> If you use an existing subscription and you're not the administrator of the subscription, you need to work with the admin to assign you Owner or Contributor permissions.<br/><br/> If you need more granular permissions, see [Use role-based access control to manage Site Recovery access](/azure/site-recovery/site-recovery-role-based-linked-access-control.md).
 **Azure infrastructure** | Contoso set up their Azure infrastructure as described in [Azure infrastructure for migration](contoso-migration-infrastructure.md).
 **Site Recovery (on-premises)** | Your on-premises vCenter Server instance should be running version 5.5, 6.0, or 6.5<br/><br/> An ESXi host running version 5.5, 6.0, or 6.5<br/><br/> One or more VMware VMs running on the ESXi host.<br/><br/> VMs must meet [Azure requirements](/azure/site-recovery/vmware-physical-azure-support-matrix#azure-vm-requirements).<br/><br/> Supported [network](/azure/site-recovery/vmware-physical-azure-support-matrix#network) and [storage](/azure/site-recovery/vmware-physical-azure-support-matrix#storage) configuration.
 **Database Migration Service** | For the Azure Database Migration Service, you need a [compatible on-premises VPN device](/azure/vpn-gateway/vpn-gateway-about-vpn-devices).<br/><br/> You must be able to configure the on-premises VPN device. It must have an external-facing public IPv4 address. The address can't be located behind a NAT device.<br/><br/> Make sure you have access to your on-premises SQL Server database.<br/><br/> Windows Firewall should be able to access the source database engine. Learn how to [configure Windows Firewall for Database Engine access](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).<br/><br/> If there's a firewall in front of your database machine, add rules to allow access to the database and files via SMB port 445.<br/><br/> The credentials that are used to connect to the source SQL Server instance and which target Managed Instance must be members of the sysadmin server role.<br/><br/> You need a network share in your on-premises database that the Azure Database Migration Service can use to back up the source database.<br/><br/> Make sure that the service account running the source SQL Server instance has write permissions on the network share.<br/><br/> Make a note of a Windows user and password that has full control permissions on the network share. The Azure Database Migration Service impersonates these user credentials to upload backup files to the Azure Storage container.<br/><br/> The SQL Server Express installation process sets the TCP/IP protocol to **Disabled** by default. Make sure that it's enabled.
@@ -209,7 +208,7 @@ Contoso considers these factors:
 
     ![Route table prefix](media/contoso-migration-rehost-vm-sql-managed-instance/mi-route-table-prefix.png)
 
-3. They associate the route table with the **SQLMI-DB-EUS2** subnet (in the **VNET-SQLMI-EUS2** network).
+3. they associate the route table with the **SQLMI-DB-EUS2** subnet (in the **VNET-SQLMI-EUS2** network).
 
     ![Route table subnet](media/contoso-migration-rehost-vm-sql-managed-instance/mi-route-table-subnet.png)
 
@@ -413,7 +412,7 @@ Now, Contoso admins configure the target replication environment:
 
 When the source and target are set up, Contoso admins create a replication policy and associates the policy with the configuration server:
 
-1. In **Prepare infrastructure** > **Replication Settings** > **Replication Policy** >  **Create and Associate**, they create the **ContosoMigrationPolicy** policy.
+1. In  **Prepare infrastructure** > **Replication Settings** > **Replication Policy** >  **Create and Associate**, they create the **ContosoMigrationPolicy** policy.
 2. They use the default settings:
     - **RPO threshold:** Default of 60 minutes. This value defines how often recovery points are created. An alert is generated if continuous replication exceeds this limit.
     - **Recovery point retention:** Default of 24 hours. This value specifies how long the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window.
@@ -475,7 +474,7 @@ Contoso admins need to create an Azure Database Migration Service project, and t
 
     ![Database Migration Service - Source details](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-wizard-source.png)
 
-2. They select the database to migrate (**SmartHotel.Registration**):
+2. they select the database to migrate (**SmartHotel.Registration**):
 
     ![Database Migration Service - Select source databases](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-wizard-sourcedb.png)
 
@@ -516,7 +515,7 @@ Before migrating WEBVM, a test failover helps ensure that everything works as ex
     a. A prerequisites check runs to make sure that all the conditions required for migration are in place.
     b. Failover processes the data so that an Azure VM can be created. If the latest recovery point is selected, a recovery point is created from the data.
     c. Azure VM is created by using the data processed in the preceding step.
-4. When the failover is finished, the replica Azure VM appears in the Azure portal. They verify that everything is working properly: the VM is the appropriate size, it's connected to the correct network, and it's running.
+4. When the failover is finished, the replica Azure VM appears in the Azure portal. they verify that everything is working properly: the VM is the appropriate size, it's connected to the correct network, and it's running.
 5. After verifying the test failover, they clean up the failover, and record any observations.
 
 ### Migrate the VM

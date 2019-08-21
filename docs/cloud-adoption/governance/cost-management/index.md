@@ -1,15 +1,14 @@
 ---
 title: "Cost Management discipline overview"
-titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Explanation of Cost Management in relation to cloud governance
-author: BrianBlanchard
-ms.author: brblanch
-ms.date: 02/11/2019
-ms.topic: landing-page
-ms.service: cloud-adoption-framework
-ms.subservice: govern
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
+ms.date: 02/11/2019
+author: BrianBlanchard
 layout: LandingPage
+ms.topic: landing-page
 ---
 
 # Cost Management discipline overview
@@ -19,7 +18,7 @@ Cost Management is one of the [Five Disciplines of Cloud Governance](../governan
 > [!NOTE]
 > Cost Management governance does not replace the existing business teams, accounting practices, and procedures that are involved in your organization's financial management of IT-related costs. The primary purpose of this discipline is to identify potential cloud-related risks related to IT spending, and provide risk-mitigation guidance to the business and IT teams responsible for deploying and managing cloud resources.
 
-The primary audience for this guidance is your organization's cloud architects and other members of your cloud governance team. However, the decisions, policies, and processes that emerge from this discipline should involve engagement and discussions with relevant members of your business and IT teams, especially those leaders responsible for owning, managing, and paying for cloud-based workloads.
+The primary audience for this guidance is your organization's cloud architects and other members of your Cloud Governance team. However, the decisions, policies, and processes that emerge from this discipline should involve engagement and discussions with relevant members of your business and IT teams, especially those leaders responsible for owning, managing, and paying for cloud-based workloads.
 
 ## Policy statements
 

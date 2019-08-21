@@ -114,9 +114,12 @@ The template will deploy:
 - The node pool will be configured to use A2 v2 VMs with Canonical Ubuntu images
 - The node pool will contain zero VMs initially and will require you to manually scale to add VMs
 
-Click the link below to deploy the solution.
+<!-- markdownlint-disable MD033 -->
 
-[![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fhpc%2Fbatchcreatewithpools.json)
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Fhpc%2Fbatchcreatewithpools.json" target="_blank">
+    <img src="https://azuredeploy.net/deploybutton.png"/>
+</a>
+<!-- markdownlint-enable MD033 -->
 
 [Learn more about Resource Manager templates][azure-arm-templates]
 
@@ -183,4 +186,4 @@ Azure Batch also supports the use of low-priority VMs in the node pools, which c
 [batch-overview]: https://azure.microsoft.com/services/batch/
 [batch-containers]: https://github.com/Azure/batch-shipyard
 [azure-arm-templates]: /azure/azure-resource-manager/resource-group-overview#template-deployment
-[batch-plugins]: /azure/batch/batch-rendering-service#options-for-rendering-on-azure
+[batch-plugins]: /azure/batch/batch-rendering-service#options-for-submitting-a-render-job

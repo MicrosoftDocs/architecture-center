@@ -1,14 +1,12 @@
 ---
 title: "Deployment Acceleration discipline improvement"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 description: Deployment Acceleration discipline improvement
 author: alexbuckgit
-ms.author: abuck
-ms.date: 02/11/2019
-ms.topic: guide
-ms.service: cloud-adoption-framework
-ms.subservice: govern
-ms.custom: governance
 ---
 
 # Deployment Acceleration discipline improvement
@@ -19,9 +17,9 @@ This article outlines some potential tasks your company can engage in to better 
 
 ![Four phases of adoption](../../_images/adoption-phases.png)
 
-*Figure 1 - Adoption phases of the incremental approach to cloud governance.*
+*Figure 1. Adoption phases of the incremental approach to cloud governance.*
 
-It's impossible for any one document to account for the requirements of all businesses. As such, this article outlines suggested minimum and potential example activities for each phase of the governance maturation process. The initial objective of these activities is to help you build a [Policy MVP](../journeys/index.md#an-incremental-approach-to-cloud-governance) and establish a framework for incremental policy improvement. Your cloud governance team will need to decide how much to invest in these activities to improve your Identity Baseline governance capabilities.
+It's impossible for any one document to account for the requirements of all businesses. As such, this article outlines suggested minimum and potential example activities for each phase of the governance maturation process. The initial objective of these activities is to help you build a [Policy MVP](../journeys/index.md#an-incremental-approach-to-cloud-governance) and establish a framework for incremental policy evolution. Your Cloud Governance team will need to decide how much to invest in these activities to improve your Identity Baseline governance capabilities.
 
 > [!CAUTION]
 > Neither the minimum or potential activities outlined in this article are aligned to specific corporate policies or third-party compliance requirements. This guidance is designed to help facilitate the conversations that will lead to alignment of both requirements with a cloud governance model.

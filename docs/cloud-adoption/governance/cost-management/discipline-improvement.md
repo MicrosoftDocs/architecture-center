@@ -1,14 +1,12 @@
 ---
 title: "Cost Management discipline improvement"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 description: Cost Management discipline improvement
 author: BrianBlanchard
-ms.author: brblanch
-ms.date: 02/11/2019
-ms.topic: guide
-ms.service: cloud-adoption-framework
-ms.subservice: govern
-ms.custom: governance
 ---
 
 # Cost Management discipline improvement
@@ -19,9 +17,9 @@ This article outlines potential tasks your company perform to develop and mature
 
 ![Four phases of adoption](../../_images/adoption-phases.png)
 
-*Figure 1 - Adoption phases of the incremental approach to cloud governance.*
+*Figure 1. Adoption phases of the incremental approach to cloud governance.*
 
-No single document can account for the requirements of all businesses. As such, this article outlines suggested minimum and potential example activities for each phase of the governance maturation process. The initial objective of these activities is to help you build a [Policy MVP](../journeys/index.md#an-incremental-approach-to-cloud-governance) and establish a framework for incremental policy improvement. Your cloud governance team will need to decide how much to invest in these activities to improve your Cost Management governance capabilities.
+No single document can account for the requirements of all businesses. As such, this article outlines suggested minimum and potential example activities for each phase of the governance maturation process. The initial objective of these activities is to help you build a [Policy MVP](../journeys/index.md#an-incremental-approach-to-cloud-governance) and establish a framework for incremental policy evolution. Your Cloud Governance team will need to decide how much to invest in these activities to improve your Cost Management governance capabilities.
 
 > [!CAUTION]
 > Neither the minimum or potential activities outlined in this article are aligned to specific corporate policies or third-party compliance requirements. This guidance is designed to help facilitate the conversations that will lead to alignment of both requirements with a cloud governance model.
@@ -61,7 +59,7 @@ Several technical and nontechnical prerequisites are required to successfully mi
 
 - Align your budgetary plans with the [Subscription Strategy](../../decision-guides/subscriptions/index.md) that defines your core ownership model.
 - Use the [Resource Consistency Strategy](../../decision-guides/resource-consistency/index.md) to enforce architecture and cost guidelines over time.
-- Determine if any cost anomalies affect your adoption and migration plans.
+- Determine if there are any cost anomalies that affect your adoption and migration plans.
 
 ## Adopt and migrate
 
@@ -99,7 +97,7 @@ Once the transformation is complete, governance and operations must live on for 
 - Analyze stakeholder value and cost reporting methods on a monthly basis.
 - Remediate underused assets and determine if they're worth continuing.
 - Detect misalignments and anomalies between the plan and actual spending.
-- Assist the cloud adoption teams and the cloud strategy team with understanding and resolving these anomalies.
+- Assist the cloud adoption teams and the Cloud Strategy team with understanding and resolving these anomalies.
 
 ## Next steps
 

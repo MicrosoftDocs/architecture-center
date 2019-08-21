@@ -1,31 +1,29 @@
 ---
 title: "Deployment Acceleration tools in Azure"
-titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Deployment Acceleration tools in Azure
-author: BrianBlanchard
-ms.author: brblanch
-ms.date: 02/11/2019
-ms.topic: guide
-ms.service: cloud-adoption-framework
-ms.subservice: govern
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
 ms.custom: governance
+ms.date: 02/11/2019
+author: BrianBlanchard
 ---
 
 # Deployment Acceleration tools in Azure
 
 [Deployment Acceleration](index.md) is one of the [Five Disciplines of Cloud Governance](../governance-disciplines.md). This discipline focuses on ways of establishing policies to govern asset configuration or deployment. Within the Five Disciplines of Cloud Governance, the Deployment Acceleration discipline involves deployment and configuration alignment. This could be through manual activities or fully automated DevOps activities. In either case, the policies involved would remain largely the same.
 
-Cloud custodians, cloud guardians, and cloud architects with an interest in governance are each likely to invest a lot of time in the Deployment Acceleration discipline, which codifies policies and requirements across multiple cloud adoption efforts. The tools in this toolchain are important to the cloud governance team and should be a high priority on the learning path for the team.
+Cloud custodians, cloud guardians, and cloud architects with an interest in governance are each likely to invest a lot of time in the Deployment Acceleration discipline, which codifies policies and requirements across multiple cloud adoption efforts. The tools in this toolchain are important to the Cloud Governance team and should be a high priority on the learning path for the team.
 
 The following is a list of Azure tools that can help mature the policies and processes that support this governance discipline.
 
 |  | [Azure Policy](/azure/governance/policy/overview) | [Azure Management Groups](/azure/governance/management-groups) | [Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview) | [Azure Blueprints](/azure/governance/blueprints/overview) | [Azure Resource Graph](/azure/governance/resource-graph/overview) | [Azure Cost Management](/azure/cost-management) |
 |---------|---------|---------|---------|---------|---------|---------|
-|Implement corporate policies     |Yes |No  |No  |No | No |No |
-|Apply policies across subscriptions     |Required |Yes  |No  |No | No |No |
+|Implement Corporate Policies     |Yes |No  |No  |No | No |No |
+|Apply Policies across subscriptions     |Required |Yes  |No  |No | No |No |
 |Deploy defined resources     |No |No  |Yes  |No | No |No |
 |Create fully compliant environments      |Required |Required  |Required  |Yes | No |No |
-|Audit policies      |Yes |No  |No  |No | No |No |
+|Audit Policies      |Yes |No  |No  |No | No |No |
 |Query Azure resources      |No |No  |No  |No |Yes |No |
 |Report on cost of resources      |No |No  |No  |No |No |Yes |
 

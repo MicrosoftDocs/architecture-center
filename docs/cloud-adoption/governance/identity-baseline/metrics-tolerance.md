@@ -1,14 +1,12 @@
 ---
 title: "Identity Baseline metrics, indicators, and risk tolerance"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 description: Identity Baseline metrics, indicators, and risk tolerance
 author: BrianBlanchard
-ms.author: brblanch
-ms.date: 02/11/2019
-ms.topic: guide
-ms.service: cloud-adoption-framework
-ms.subservice: govern
-ms.custom: governance
 ---
 
 # Identity Baseline metrics, indicators, and risk tolerance
@@ -53,7 +51,7 @@ Once you have a baseline, establish minimum benchmarks representing an unaccepta
 - **Authorization failure trigger.** A company where access attempts are rejected more than _x%_ of the time should invest in the Identity Baseline discipline to improve the application and updating of access controls, and identify potentially malicious access attempts.
 - **Compromised account trigger.** A company with more than _x_ compromised accounts should invest in the Identity Baseline discipline to improve the strength and security of authentication mechanisms and improve mechanisms to remediate risks related to compromised accounts.
 
-The exact metrics and triggers you use to gauge risk tolerance and the level of investment in the Identity Baseline discipline will be specific to your organization, but the examples above should serve as a useful base for discussion within your cloud governance team.
+The exact metrics and triggers you use to gauge risk tolerance and the level of investment in the Identity Baseline discipline will be specific to your organization, but the examples above should serve as a useful base for discussion within your Cloud Governance team.
 
 ## Next steps
 

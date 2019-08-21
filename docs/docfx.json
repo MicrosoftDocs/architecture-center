@@ -7,7 +7,6 @@
         "files": [
           "**/*.md",
           "**/toc.yml",
-          "**/toc.experimental.yml",
           "**/*context.yml"
         ],
         "exclude": [
@@ -67,6 +66,9 @@
       ]
     },
     "fileMetadata": {
+      "tocRel": {
+        "reference-architectures/**.md": "../toc.json"
+      },
       "feedback_product_url": {
         "example-scenario/**/*.md": "https://azure-architecture.uservoice.com/forums/918625-architecture-guidance",
         "guide/**/*.md": "https://azure-architecture.uservoice.com/forums/918628-cloud-fundamentals",
@@ -76,7 +78,10 @@
         "antipatterns/**/*.md": "https://azure-architecture.uservoice.com/forums/918628-cloud-fundamentals"
       },
       "featureFlags": {
-      }
+				"**/*.md": [
+					"show_star_rating"
+				]
+			}
     },
     "template": [
       "docs.html"

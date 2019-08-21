@@ -1,14 +1,12 @@
 ---
 title: "Governance design in Azure for multiple teams"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
 description: Guidance for configuring Azure governance controls for multiple teams, multiple workloads, and multiple environments.
 author: petertaylor9999
-ms.author: abuck
 ms.date: 02/11/2019
-ms.topic: guide
-ms.service: cloud-adoption-framework
-ms.subservice: govern
-ms.custom: governance
 ---
 
 # Governance design for multiple teams
@@ -54,12 +52,12 @@ The user identities for both the Azure Account Owner and the Azure AD global adm
 The Azure Account Owner has permission to create, update, and delete subscriptions:
 
 ![Azure account with Azure Account Manager and Azure AD global admin](../../_images/governance-3-0.png)
-*Figure 1 - An Azure account with an Account Manager and Azure AD Global Administrator.*
+*Figure 1. An Azure account with an Account Manager and Azure AD Global Administrator.*
 
 The Azure AD **global administrator** has permission to create user accounts:
 
 ![Azure account with Azure Account Manager and Azure AD global admin](../../_images/governance-3-0a.png)
-*Figure 2 - The Azure AD Global Administrator creates the required user accounts in the tenant.*
+*Figure 2. The Azure AD Global Administrator creates the required user accounts in the tenant.*
 
 The first two accounts, **App1 Workload Owner** and **App2 Workload Owner** are each associated with an individual in your organization responsible for managing a workload. The **network operations** account is owned by the individual that is responsible for the shared infrastructure resources. Finally, the **subscription owner** account is associated with the individual responsible for ownership of subscriptions.
 
@@ -77,7 +75,7 @@ Let's take a look at two example permission models to understand this concept a 
 
 In both examples, there is a subscription service administrator that is assigned the [built-in owner role][rbac-built-in-owner] at the subscription scope. Recall that the [built-in owner role][rbac-built-in-owner] grants all permissions including the management of access to resources.
 ![subscription service administrator with owner role](../../_images/governance-2-1.png)
-*Figure 3 - A subscription with a service administrator assigned the built-in owner role.*
+*Figure 3. A subscription with a service administrator assigned the built-in owner role.*
 
 1. In the first example, there is **workload owner A** with no permissions at the subscription scope - they have no resource access management rights by default. This user wants to deploy and manage the resources for their workload. They must contact the **service administrator** to request creation of a resource group.
     ![workload owner requests creation of resource group A](../../_images/governance-2-2.png)
@@ -99,7 +97,7 @@ In both examples, there is a subscription service administrator that is assigned
 At this point, each of the workload owners is isolated in their own resource group. None of the workload owners or their team members have management access to the resources in any other resource group.
 
 ![subscription with resource groups A and B](../../_images/governance-2-10.png)
-*Figure 4 - A subscription with two workload owners isolated with their own resource group.*
+*Figure 4. A subscription with two workload owners isolated with their own resource group.*
 
 This model is a least-privilege model&mdash;each user is assigned the correct permission at the correct resource management scope.
 
@@ -121,7 +119,7 @@ Let's take a look at second example that reduces the number of tasks performed b
 Note that in this model, the **service administrator** performed fewer actions than they did in the first example due to the delegation of management access to each of the individual workload owners.
 
 ![subscription with resource groups A and B](../../_images/governance-2-16.png)
-*Figure 5 - A subscription with a service administrator and two workload owners, all assigned the built-in owner role.*
+*Figure 5. A subscription with a service administrator and two workload owners, all assigned the built-in owner role.*
 
 However, because both **workload owner A** and **workload owner B** are assigned the built-in owner role at the subscription scope, they have each inherited the built-in owner role for each other's resource group. This means that not only do they have full access to one another's resources, they are also able to delegate management access to each other's resource groups. For example, **workload owner B** has rights to add any other user to **resource group A** and can assign any role to them, including the built-in owner role.
 
@@ -144,12 +142,12 @@ Before you look at examples of each of these models, let's review the management
 Recall from the requirements that you have an individual in the organization who is responsible for subscriptions, and this user owns the **subscription owner** account in the Azure AD tenant. However, this account does not have permission to create subscriptions. Only the **Azure Account Owner** has permission to do this:
 
 ![An Azure Account Owner creates a subscription](../../_images/governance-3-0b.png)
-*Figure 6 - An Azure Account Owner creates a subscription.*
+*Figure 6. An Azure Account Owner creates a subscription.*
 
 Once the subscription has been created, the **Azure Account Owner** can add the **subscription owner** account to the subscription with the **owner** role:
 
 ![The Azure Account Owner adds the subscription owner user account to the subscription with the owner role.](../../_images/governance-3-0c.png)
-*Figure 7 - The Azure Account Owner adds the **subscription owner** user account to the subscription with the **owner** role.*
+*Figure 7. The Azure Account Owner adds the **subscription owner** user account to the subscription with the **owner** role.*
 
 The **subscription owner** can now create **resource groups** and delegate resource access management.
 
@@ -161,46 +159,46 @@ First let's look at an example resource management model using a single subscrip
 Let's begin by evaluating the first option. You'll be using the permissions model that was discussed in the previous section, with a single subscription service administrator who creates resource groups and adds users to them with either the built-in **contributor** or **reader** role.
 
 1. The first resource group deployed represents the **shared infrastructure** environment. The **subscription owner** creates a resource group for the shared infrastructure resources named `netops-shared-rg`.
-    ![Creating a resource group](../../_images/governance-3-0d.png)
+    ![](../../_images/governance-3-0d.png)
 2. The **subscription owner** adds the **network operations user** account to the resource group and assigns the **contributor** role.
-    ![Adding a network operations user](../../_images/governance-3-0e.png)
+    ![](../../_images/governance-3-0e.png)
 3. The **network operations user** creates a [VPN gateway](/azure/vpn-gateway/vpn-gateway-about-vpngateways) and configures it to connect to the on-premises VPN appliance. The **network operations** user also applies a pair of [tags](/azure/azure-resource-manager/resource-group-using-tags) to each of the resources: *environment:shared* and *managedBy:netOps*. When the **subscription service administrator** exports a cost report, costs will be aligned with each of these tags. This allows the **subscription service administrator** to pivot costs using the *environment* tag and the *managedBy* tag. Notice the **resource limits** counter at the top right-hand side of the figure. Each Azure subscription has [service limits](/azure/azure-subscription-service-limits), and to help you understand the effect of these limits you'll follow the virtual network limit for each subscription. There is a limit of 1000 virtual networks per subscription, and after the first virtual network is deployed there are now 999 available.
-    ![Creating a VPN gateway](../../_images/governance-3-1.png)
+    ![](../../_images/governance-3-1.png)
 4. Two more resource groups are deployed. The first is named `prod-rg`. This resource group is aligned with the production environment. The second is named `dev-rg` and is aligned with the development environment. All resources associated with production workloads are deployed to the production environment and all resources associated with development workloads are deployed to the development environment. In this example, you'll only deploy two workloads to each of these two environments, so you won't encounter any Azure subscription service limits. However, consider that each resource group has a limit of 800 resources per resource group. If you continue to add workloads to each resource group, eventually this limit will be reached.
-    ![Creating resource groups](../../_images/governance-3-2.png)
+    ![](../../_images/governance-3-2.png)
 5. The first **workload owner** sends a request to the **subscription service administrator** and is added to each of the development and production environment resource groups with the **contributor** role. As you learned earlier, the **contributor** role allows the user to perform any operation other than assigning a role to another user. The first **workload owner** can now create the resources associated with their workload.
-    ![Adding contributors](../../_images/governance-3-3.png)
+    ![](../../_images/governance-3-3.png)
 6. The first **workload owner** creates a virtual network in each of the two resource groups with a pair of virtual machines in each. The first **workload owner** applies the *environment* and *managedBy* tags to all resources. Note that the Azure service limit counter is now at 997 virtual networks remaining.
-    ![Creating virtual networks](../../_images/governance-3-4.png)
+    ![](../../_images/governance-3-4.png)
 7. Each of the virtual networks does not have connectivity to on-premises when they are created. In this type of architecture, each virtual network must be peered to the *hub-vnet* in the **shared infrastructure** environment. Virtual network peering creates a connection between two separate virtual networks and allows network traffic to travel between them. Note that virtual network peering is not inherently transitive. A peering must be specified in each of the two virtual networks that are connected, and if only one of the virtual networks specifies a peering the connection is incomplete. To illustrate the effect of this, the first **workload owner** specifies a peering between **prod-vnet** and **hub-vnet**. The first peering is created, but no traffic flows because the complementary peering from **hub-vnet** to **prod-vnet** has not yet been specified. The first **workload owner** contacts the **network operations** user and requests this complementary peering connection.
-    ![Creating a peering connection](../../_images/governance-3-5.png)
+    ![](../../_images/governance-3-5.png)
 8. The **network operations** user reviews the request, approves it, then specifies the peering in the settings for the **hub-vnet**. The peering connection is now complete and network traffic flows between the two virtual networks.
-    ![Creating a peering connection](../../_images/governance-3-6.png)
+    ![](../../_images/governance-3-6.png)
 9. Now, a second **workload owner** sends a request to the **subscription service administrator** and is added to the existing **production** and **development** environment resource groups with the **contributor** role. The second **workload owner** has the same permissions on all resources as the first **workload owner** in each resource group.
-    ![Adding contributors](../../_images/governance-3-7.png)
+    ![](../../_images/governance-3-7.png)
 10. The second **workload owner** creates a subnet in the **prod-vnet** virtual network, then adds two virtual machines. The second **workload owner** applies the *environment* and *managedBy* tags to each resource.
-    ![Creating subnets](../../_images/governance-3-8.png)
+    ![](../../_images/governance-3-8.png)
 
 This example resource management model enables us to manage resources in the three required environments. The shared infrastructure resources are protected because there's only a single user in the subscription with permission to access those resources. Each of the workload owners is able to use the shared infrastructure resources without having any permissions on the actual shared resources themselves. However, This management model fails the requirement for workload isolation - each of the two **workload owners** are able to access the resources of the other's workload.
 
 There's another important consideration with this model that may not be immediately obvious. In the example, it was **app1 workload owner** that requested the network peering connection with the **hub-vnet** to provide connectivity to on-premises. The **network operations** user evaluated that request based on the resources deployed with that workload. When the **subscription owner** added **app2 workload owner** with the **contributor** role, that user had management access rights to all resources in the **prod-rg** resource group.
 
-![Diagram showing management access rights](../../_images/governance-3-10.png)
+![](../../_images/governance-3-10.png)
 
 This means **app2 workload owner** had permission to deploy their own subnet with virtual machines in the **prod-vnet** virtual network. By default, those virtual machines now have access to the on-premises network. The **network operations** user is not aware of those machines and did not approve their connectivity to on-premises.
 
 Next, let's look at a single subscription with multiple resources groups for different environments and workloads. Note that in the previous example, the resources for each environment were easily identifiable because they were in the same resource group. Now that you no longer have that grouping, you will have to rely on a resource group naming convention to provide that functionality.
 
 1. The **shared infrastructure** resources will still have a separate resource group in this model, so that remains the same. Each workload requires two resource groups - one for each of the **development** and **production** environments. For the first workload, the **subscription owner** creates two resource groups. The first is named **app1-prod-rg** and the second is named **app1-dev-rg**. As discussed earlier, this naming convention identifies the resources as being associated with the first workload, **app1**, and either the **dev** or **prod** environment. Again, the *subscription* owner adds the **app1 workload owner** to the resource group with the **contributor** role.
-    ![Adding contributors](../../_images/governance-3-12.png)
+    ![](../../_images/governance-3-12.png)
 2. Similar to the first example, **app1 workload owner** deploys a virtual network named **app1-prod-vnet** to the **production** environment, and another named **app1-dev-vnet** to the **development** environment. Again, **app1 workload owner** sends a request to the **network operations** user to create a peering connection. Note that **app1 workload owner** adds the same tags as in the first example, and the limit counter has been decremented to 997 virtual networks remaining in the subscription.
-    ![Creating a peering connection](../../_images/governance-3-13.png)
+    ![](../../_images/governance-3-13.png)
 3. The **subscription owner** now creates two resource groups for **app2 workload owner**. Following the same conventions as for **app1 workload owner**, the resource groups are named **app2-prod-rg** and **app2-dev-rg**. The **subscription owner** adds **app2 workload owner** to each of the resource groups with the **contributor** role.
-    ![Adding contributors](../../_images/governance-3-14.png)
+    ![](../../_images/governance-3-14.png)
 4. *App2 workload owner* deploys virtual networks and virtual machines to the resource groups with the same naming conventions. Tags are added and the limit counter has been decremented to 995 virtual networks remaining in the *subscription*.
-    ![Deploying virtual networks and VMs](../../_images/governance-3-15.png)
+    ![](../../_images/governance-3-15.png)
 5. *App2 workload owner* sends a request to the *network operations* user to peer the *app2-prod-vnet* with the *hub-vnet*. The *network operations* user creates the peering connection.
-    ![Creating a peering connection](../../_images/governance-3-16.png)
+    ![](../../_images/governance-3-16.png)
 
 The resulting management model is similar to the first example, with several key differences:
 
@@ -212,9 +210,9 @@ The resulting management model is similar to the first example, with several key
 Now let's look at a resource management model using multiple subscriptions. In this model, you'll align each of the three environments to a separate subscription: a **shared services** subscription, **production** subscription, and finally a **development** subscription. The considerations for this model are similar to a model using a single subscription in that you have to decide how to align resource groups to workloads. Already determined is that creating a resource group for each workload satisfies the workload isolation requirement, so you'll stick with that model in this example.
 
 1. In this model, there are three *subscriptions*: *shared infrastructure*, *production*, and *development*. Each of these three subscriptions requires a *subscription owner*, and in the simple example you'll use the same user account for all three. The *shared infrastructure* resources are managed similarly to the first two examples above, and the first workload is associated with the *app1-rg* in the *production* environment and the same-named resource group in the *development* environment. The *app1 workload owner* is added to each of the resource group with the *contributor* role.
-    ![Adding contributors](../../_images/governance-3-17.png)
+    ![](../../_images/governance-3-17.png)
 2. As with the earlier examples, *app1 workload owner* creates the resources and requests the peering connection with the *shared infrastructure* virtual network. *App1 workload owner* adds only the *managedBy* tag because there is no longer a need for the *environment* tag. That is, resources are for each environment are now grouped in the same *subscription* and the *environment* tag is redundant. The limit counter is decremented to 999 virtual networks remaining.
-    ![Creating a peering connection](../../_images/governance-3-18.png)
+    ![](../../_images/governance-3-18.png)
 3. Finally, the *subscription owner* repeats the process for the second workload, adding the resource groups with the *app2 workload owner* in the *contributor role. The limit counter for each of the environment subscriptions is decremented to 998 virtual networks remaining.
 
 This management model has the benefits of the second example above. However, the key difference is that limits are less of an issue due to the fact that they are spread over two *subscriptions*. The drawback is that the cost data tracked by tags must be aggregated across all three *subscriptions*.
@@ -234,7 +232,7 @@ Follow these steps:
     - Creating subscriptions.
     - Creating and administering [Azure Active Directory (Azure AD)](/azure/active-directory/active-directory-whatis) tenants that store user identity for those subscriptions.
 2. Your organization's leadership team decides which people are responsible for:
-    - Management of user identity; an [Azure AD tenant](/azure/active-directory/develop/active-directory-howto-tenant) is created by default when your organization's Azure Account is created, and the account administrator is added as the [Azure AD global administrator](/azure/active-directory/users-groups-roles/directory-assign-admin-roles) by default. Your organization can choose another user to manage user identity by [assigning the Azure AD global administrator role to that user](/azure/active-directory/active-directory-users-assign-role-azure-portal).
+    - Management of user identity; an [Azure AD tenant](/azure/active-directory/develop/active-directory-howto-tenant) is created by default when your organization's Azure Account is created, and the account administrator is added as the [Azure AD global administrator](/azure/active-directory/active-directory-assign-admin-roles-azure-portal#details-about-the-global-administrator-role) by default. Your organization can choose another user to manage user identity by [assigning the Azure AD global administrator role to that user](/azure/active-directory/active-directory-users-assign-role-azure-portal).
     - Subscriptions, which means these users:
         - Manage costs associated with resource usage in that subscription.
         - Implement and maintain least permission model for resource access.
@@ -251,11 +249,11 @@ Follow these steps:
     - A subscription for the **shared infrastructure** environment.
     - A subscription for the **production** environment.
     - A subscription for the **development** environment.
-5. The Azure account administrator [adds the subscription service owner to each subscription](/azure/billing/billing-add-change-azure-subscription-administrator#assign-a-user-as-an-administrator-of-a-subscription).
+5. The Azure account administrator [adds the subscription service owner to each subscription](/azure/billing/billing-add-change-azure-subscription-administrator#add-an-rbac-owner-admin-for-a-subscription-in-azure-portal).
 6. Create an approval process for **workload owners** to request the creation of resource groups. The approval process can be implemented in many ways, such as over email, or you can using a process management tool such as [SharePoint workflows](https://support.office.com/article/introduction-to-sharepoint-workflow-07982276-54e8-4e17-8699-5056eff4d9e3). The approval process can follow these steps:
     - The **workload owner** prepares a bill of materials for required Azure resources in either the **development** environment, **production** environment, or both, and submits it to the **subscription owner**.
     - The **subscription owner** reviews the bill of materials and validates the requested resources to ensure that the requested resources are appropriate for their planned use - for example, checking that the requested [virtual machine sizes](/azure/virtual-machines/windows/sizes) are correct.
-    - If the request is not approved, the **workload owner** is notified. If the request is approved, the **subscription owner** [creates the requested resource group](/azure/azure-resource-manager/manage-resource-groups-portal#create-resource-groups) following your organization's [naming conventions](/azure/architecture/best-practices/naming-conventions), [adds the **workload owner**](/azure/role-based-access-control/role-assignments-portal#add-a-role-assignment) with the [**contributor** role](/azure/role-based-access-control/built-in-roles#contributor) and sends notification to the **workload owner** that the resource group has been created.
+    - If the request is not approved, the **workload owner** is notified. If the request is approved, the **subscription owner** [creates the requested resource group](/azure/azure-resource-manager/resource-group-portal#manage-resource-groups) following your organization's [naming conventions](/azure/architecture/best-practices/naming-conventions), [adds the **workload owner**](/azure/role-based-access-control/role-assignments-portal#add-access) with the [**contributor** role](/azure/role-based-access-control/built-in-roles#contributor) and sends notification to the **workload owner** that the resource group has been created.
 7. Create an approval process for workload owners to request a virtual network peering connection from the shared infrastructure owner. As with the previous step, this approval process can be implemented using email or a process management tool.
 
 Now that you've implemented your governance model, you can deploy your shared infrastructure services.

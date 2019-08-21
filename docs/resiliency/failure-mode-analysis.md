@@ -16,7 +16,7 @@ Failure mode analysis (FMA) is a process for building resiliency into a system, 
 Here is the general process to conduct an FMA:
 
 1. Identify all of the components in the system. Include external dependencies, such as identity providers, third-party services, and so on.
-2. For each component, identify potential failures that could occur. A single component may have more than one failure mode. For example, you should consider read failures and write failures separately, because the impact and possible mitigation steps will be different.
+2. For each component, identify potential failures that could occur. A single component may have more than one failure mode. For example, you should consider read failures and write failures separately, because the impact and possible mitigations will be different.
 3. Rate each failure mode according to its overall risk. Consider these factors:
 
    - What is the likelihood of the failure. Is it relatively common? Extremely rare? You don't need exact numbers; the purpose is to help rank the priority.
@@ -24,7 +24,7 @@ Here is the general process to conduct an FMA:
 
 4. For each failure mode, determine how the application will respond and recover. Consider tradeoffs in cost and application complexity.
 
-As a starting point for your FMA process, this article contains a catalog of potential failure modes and their mitigation steps. The catalog is organized by technology or Azure service, plus a general category for application-level design. The catalog is not exhaustive, but covers many of the core Azure services.
+As a starting point for your FMA process, this article contains a catalog of potential failure modes and their mitigations. The catalog is organized by technology or Azure service, plus a general category for application-level design. The catalog is not exhaustive, but covers many of the core Azure services.
 
 ## App Service
 
@@ -69,18 +69,18 @@ Application_End logging will catch the app domain shutdown (soft process crash) 
 
 ### A bad update was deployed.
 
-**Detection**. Monitor the application health through the Azure portal (see [Monitor Azure web app performance][app-insights-web-apps]) or implement the [health endpoint monitoring pattern][health-endpoint-monitoring-pattern].
+**Detection**. Monitor the application health through the Azure Portal (see [Monitor Azure web app performance][app-insights-web-apps]) or implement the [health endpoint monitoring pattern][health-endpoint-monitoring-pattern].
 
 **Recovery:**. Use multiple [deployment slots][app-service-slots] and roll back to the last-known-good deployment. For more information, see [Basic web application][ra-web-apps-basic].
 
 ## Azure Active Directory
 
-### OpenID Connect authentication fails.
+### OpenID Connect (OIDC) authentication fails.
 
 **Detection**. Possible failure modes include:
 
-1. Azure AD is not available, or cannot be reached due to a network problem. Redirection to the authentication endpoint fails, and the OpenID Connect middleware throws an exception.
-2. Azure AD tenant does not exist. Redirection to the authentication endpoint returns an HTTP error code, and the OpenID Connect middleware throws an exception.
+1. Azure AD is not available, or cannot be reached due to a network problem. Redirection to the authentication endpoint fails, and the OIDC middleware throws an exception.
+2. Azure AD tenant does not exist. Redirection to the authentication endpoint returns an HTTP error code, and the OIDC middleware throws an exception.
 3. User cannot authenticate. No detection strategy is necessary; Azure AD handles login failures.
 
 **Recovery:**
@@ -124,7 +124,7 @@ The default retry policy uses exponential back-off. To use a different retry pol
 
 **Recovery:**
 
-- Each [Cassandra client](https://cwiki.apache.org/confluence/display/CASSANDRA2/ClientOptions) has its own retry policies and capabilities. For more information, see [Cassandra error handling done right][cassandra-error-handling].
+- Each [Cassandra client](https://wiki.apache.org/cassandra/ClientOptions) has its own retry policies and capabilities. For more information, see [Cassandra error handling done right][cassandra-error-handling].
 - Use a rack-aware deployment, with data nodes distributed across the fault domains.
 - Deploy to multiple regions with local quorum consistency. If a non-transient failure occurs, fail over to another region.
 
@@ -222,7 +222,7 @@ Consider using Azure Service Bus Messaging queues, which provides a [dead-letter
 
 **Diagnostics**. Use application logging.
 
-## Azure Cache for Redis
+## Redis Cache
 
 ### Reading from the cache fails.
 
@@ -230,10 +230,10 @@ Consider using Azure Service Bus Messaging queues, which provides a [dead-letter
 
 **Recovery:**
 
-1. Retry on transient failures. Azure Cache for Redis supports built-in retry. For more information, see [Azure Cache for Redis retry guidelines][redis-retry].
+1. Retry on transient failures. Azure Redis cache supports built-in retry through See [Redis Cache retry guidelines][redis-retry].
 2. Treat non-transient failures as a cache miss, and fall back to the original data source.
 
-**Diagnostics**. Use [Azure Cache for Redis diagnostics][redis-monitor].
+**Diagnostics**. Use [Redis Cache diagnostics][redis-monitor].
 
 ### Writing to the cache fails.
 
@@ -241,10 +241,10 @@ Consider using Azure Service Bus Messaging queues, which provides a [dead-letter
 
 **Recovery:**
 
-1. Retry on transient failures. Azure Cache for Redis supports built-in retry. For more information, see [Azure Cache for Redis retry guidelines][redis-retry].
+1. Retry on transient failures. Azure Redis cache supports built-in retry through See [Redis Cache retry guidelines][redis-retry].
 2. If the error is non-transient, ignore it and let other transactions write to the cache later.
 
-**Diagnostics**. Use [Azure Cache for Redis diagnostics][redis-monitor].
+**Diagnostics**. Use [Redis Cache diagnostics][redis-monitor].
 
 ## SQL Database
 
@@ -509,17 +509,17 @@ For more information about the FMA process, see [Resilience by design for cloud 
 [cosmos-db-multi-region]: /azure/cosmos-db/tutorial-global-distribution-sql-api
 [elasticsearch-azure]: ../elasticsearch/index.md
 [elasticsearch-client]: https://www.elastic.co/guide/en/elasticsearch/client/index.html
-[health-endpoint-monitoring-pattern]: ../patterns/health-endpoint-monitoring.md
+[health-endpoint-monitoring-pattern]: https://msdn.microsoft.com/library/dn589789.aspx
 [onstop-events]: https://azure.microsoft.com/blog/the-right-way-to-handle-azure-onstop-events/
 [lb-monitor]: /azure/load-balancer/load-balancer-monitor-log/
-[lb-probe]: /azure/load-balancer/load-balancer-custom-probe-overview#types
+[lb-probe]: /azure/load-balancer/load-balancer-custom-probe-overview/#learn-about-the-types-of-probes
 [new-relic]: https://newrelic.com/
 [priority-queue-pattern]: https://msdn.microsoft.com/library/dn589794.aspx
 [queue-based-load-leveling]: https://msdn.microsoft.com/library/dn589783.aspx
 [QuotaExceededException]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.quotaexceededexception.aspx
 [ra-web-apps-basic]: ../reference-architectures/app-service-web-app/basic-web-app.md
-[redis-monitor]: /azure/azure-cache-for-redis/cache-how-to-monitor
-[redis-retry]: ../best-practices/retry-service-specific.md#azure-cache-for-redis
+[redis-monitor]: /azure/redis-cache/cache-how-to-monitor/
+[redis-retry]: ../best-practices/retry-service-specific.md#azure-redis-cache
 [resilience-by-design-pdf]: https://download.microsoft.com/download/D/8/C/D8C599A4-4E8A-49BF-80EE-FE35F49B914D/Resilience_by_Design_for_Cloud_Services_White_Paper.pdf
 [RoleEntryPoint.OnStop]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
 [RoleEnvironment.Stopping]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.stopping.aspx
@@ -530,7 +530,7 @@ For more information about the FMA process, see [Resilience by design for cloud 
 [sb-messaging-exceptions]: /azure/service-bus-messaging/service-bus-messaging-exceptions/
 [sb-outages]: /azure/service-bus-messaging/service-bus-outages-disasters/#protecting-queues-and-topics-against-datacenter-outages-or-disasters
 [sb-partition]: /azure/service-bus-messaging/service-bus-partitioning/
-[sb-poison-message]: /azure/app-service/webjobs-sdk-how-to#automatic-triggers
+[sb-poison-message]: /azure/app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to/#poison
 [sb-retry]: ../best-practices/retry-service-specific.md#service-bus
 [search-sdk]: https://msdn.microsoft.com/library/dn951165.aspx
 [scheduler-agent-supervisor]: https://msdn.microsoft.com/library/dn589780.aspx
@@ -542,8 +542,8 @@ For more information about the FMA process, see [Resilience by design for cloud 
 [sql-db-replication]: /azure/sql-database/sql-database-geo-replication-overview/
 [storage-metrics]: https://msdn.microsoft.com/library/dn782843.aspx
 [storage-replication]: /azure/storage/storage-redundancy/
-[Storage.RetryPolicies]: /dotnet/api/microsoft.azure.storage.retrypolicies
+[Storage.RetryPolicies]: https://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.aspx
 [sys.event_log]: https://msdn.microsoft.com/library/dn270018.aspx
 [throttling-pattern]: https://msdn.microsoft.com/library/dn589798.aspx
 [web-jobs]: /azure/app-service-web/web-sites-create-web-jobs/
-[web-jobs-shutdown]: /azure/app-service/webjobs-sdk-how-to#cancellation-tokens
+[web-jobs-shutdown]: /azure/app-service-web/websites-dotnet-webjobs-sdk-storage-queues-how-to/#graceful

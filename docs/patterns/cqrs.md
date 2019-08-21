@@ -37,8 +37,8 @@ Read and write workloads are often asymmetrical, with very different performance
 
 CQRS addresses separates reads and writes into separate models, using **commands** to update data, and **queries** to read data.
 
-- Commands should be task based, rather than data centric. ("Book hotel room", not "set ReservationStatus to Reserved"). 
-- Commands may be placed on a queue for asynchronous processing, rather than being processed synchronously.
+- Commands should be task based, rather than data centric. ("Book hotel room," not "set ReservationStatus to Reserved.") Commands may be placed on a queue for asynchronous processing, rather than being processed synchronously.
+
 - Queries never modify the database. A query returns a DTO that does not encapsulate any domain knowledge.
 
 The models can then be isolated, as shown in the following diagram, although that's not an absolute requirement.
@@ -57,7 +57,7 @@ The read store can be a read-only replica of the write store, or the read and wr
 
 Separation of the read and write stores also allows each to be scaled appropriately to match the load. For example, read stores typically encounter a much higher load than write stores.
 
-Some implementations of CQRS use the [Event Sourcing pattern](./event-sourcing.md). With this pattern, application state is stored as a sequence of events. Each event represents a set of changes to the data. The current state is constructed by replaying the events. In a CQRS context, one benefit of Event Sourcing is that the same events can be used to notify other components &mdash; in particular, to notify the read model. The read model uses the events to create a snapshot of the current state, which is more efficient for queries. However, Event Sourcing adds complexity to the design.
+Some implementations of CQRS use the [Event Sourcing pattern][event-sourcing]. With this pattern, application state is stored as a sequence of events. Each event represents a set of changes to the data. The current state is constructed by replaying the events. In a CQRS context, one benefit of Event Sourcing is that the same events can be used to notify other components &mdash; in particular, to notify the read model. The read model uses the events to create a snapshot of the current state, which is more efficient for queries. However, Event Sourcing adds complexity to the design.
 
 Benefits of CQRS include:
 
@@ -224,18 +224,35 @@ public class ProductsCommandHandler :
 }
 ```
 
+The following code shows the `IProductsDomain` interface from the write model.
+
+```csharp
+public interface IProductsDomain
+{
+  void AddNewProduct(int id, string name, string description, decimal price);
+  void RateProduct(int userId, int rating);
+  void AddToInventory(int productId, int quantity);
+  void ConfirmItemsShipped(int productId, int quantity);
+  void UpdateStockFromInventoryRecount(int productId, int updatedQuantity);
+}
+```
+
+Also notice how the `IProductsDomain` interface contains methods that have a meaning in the domain. Typically, in a CRUD environment these methods would have generic names such as `Save` or `Update`, and have a DTO as the only argument. The CQRS approach can be designed to meet the needs of this organization's business and inventory management systems.
+
 ## Related patterns and guidance
 
 The following patterns and guidance are useful when implementing this pattern:
 
-- [Data Consistency Primer](https://docs.microsoft.com/previous-versions/msp-n-p/dn589800(v=pandp.10)). Explains the issues that are typically encountered due to eventual consistency between the read and write data stores when using the CQRS pattern, and how these issues can be resolved.
+- For a comparison of CQRS with other architectural styles, see [Architecture styles](/azure/architecture/guide/architecture-styles/) and [CQRS architecture style](/azure/architecture/guide/architecture-styles/cqrs).
 
-- [Data Partitioning Guidance](../best-practices/data-partitioning.md). Describes best practices for dividing data into partitions that can be managed and accessed separately to improve scalability, reduce contention, and optimize performance.
+- [Data Consistency Primer](https://msdn.microsoft.com/library/dn589800.aspx). Explains the issues that are typically encountered due to eventual consistency between the read and write data stores when using the CQRS pattern, and how these issues can be resolved.
+
+- [Data Partitioning Guidance](https://msdn.microsoft.com/library/dn589795.aspx). Describes how the read and write data stores used in the CQRS pattern can be divided into partitions that can be managed and accessed separately to improve scalability, reduce contention, and optimize performance.
 
 - [Event Sourcing pattern](./event-sourcing.md). Describes in more detail how Event Sourcing can be used with the CQRS pattern to simplify tasks in complex domains while improving performance, scalability, and responsiveness. As well as how to provide consistency for transactional data while maintaining full audit trails and history that can enable compensating actions.
 
 - [Materialized View pattern](./materialized-view.md). The read model of a CQRS implementation can contain materialized views of the write model data, or the read model can be used to generate materialized views.
 
-- The patterns & practices guide [CQRS Journey](https://aka.ms/cqrs). In particular, [Introducing the Command Query Responsibility Segregation pattern](https://docs.microsoft.com/previous-versions/msp-n-p/jj591573(v=pandp.10)) explores the pattern and when it's useful, and [Epilogue: Lessons Learned](https://docs.microsoft.com/previous-versions/msp-n-p/jj591568(v=pandp.10)) helps you understand some of the issues that come up when using this pattern.
+- The patterns & practices guide [CQRS Journey](https://aka.ms/cqrs). In particular, [Introducing the Command Query Responsibility Segregation pattern](https://msdn.microsoft.com/library/jj591573.aspx) explores the pattern and when it's useful, and [Epilogue: Lessons Learned](https://msdn.microsoft.com/library/jj591568.aspx) helps you understand some of the issues that come up when using this pattern.
 
 - The post [CQRS by Martin Fowler](https://martinfowler.com/bliki/CQRS.html), which explains the basics of the pattern and links to other useful resources.

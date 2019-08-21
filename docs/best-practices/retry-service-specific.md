@@ -1,5 +1,5 @@
 ---
-title: Retry guidance for Azure services
+title: Retry guidance for specific services
 titleSuffix: Best practices for cloud applications
 description: Service-specific guidance for setting the retry mechanism.
 author: dragon119
@@ -10,7 +10,7 @@ ms.subservice: cloud-fundamentals
 ms.custom: seodec18
 ---
 
-# Retry guidance for Azure services
+# Retry guidance for specific services
 
 Most Azure services and client SDKs include a retry mechanism. However, these differ because each service has different characteristics and requirements, and so each retry mechanism is tuned to a specific service. This guide summarizes the retry mechanism features for the majority of Azure services, and includes information to help you use, adapt, or extend the retry mechanism for that service.
 
@@ -25,7 +25,7 @@ The following table summarizes the retry features for the Azure services describ
 | **Data Lake Store** |Native in client |Non-configurable |Individual operations |None |
 | **[Event Hubs](#event-hubs)** |Native in client |Programmatic |Client |None |
 | **[IoT Hub](#iot-hub)** |Native in client SDK |Programmatic |Client |None |
-| **[Azure Cache for Redis](#azure-cache-for-redis)** |Native in client |Programmatic |Client |TextWriter |
+| **[Redis Cache](#azure-redis-cache)** |Native in client |Programmatic |Client |TextWriter |
 | **[Search](#azure-search)** |Native in client |Programmatic |Client |ETW or Custom |
 | **[Service Bus](#service-bus)** |Native in client |Programmatic |Namespace Manager, Messaging Factory, and Client |ETW |
 | **[Service Fabric](#service-fabric)** |Native in client |Programmatic |Client |None |
@@ -122,7 +122,7 @@ For example, if you add the following to your App.config file, traces will be ge
 
 ## Event Hubs
 
-Azure Event Hubs is a hyperscale telemetry ingestion service that collects, transforms, and stores millions of events.
+Azure Event Hubs is a hyper-scale telemetry ingestion service that collects, transforms, and stores millions of events.
 
 ### Retry mechanism
 
@@ -158,9 +158,9 @@ Policy configuration differs by language. For more details, see [IoT Hub retry p
 - [IoT Hub retry policy](/azure/iot-hub/iot-hub-reliability-features-in-sdks)
 - [Troubleshoot IoT Hub device disconnection](/azure/iot-hub/iot-hub-troubleshoot-connectivity)
 
-## Azure Cache for Redis
+## Azure Redis Cache
 
-Azure Cache for Redis is a fast data access and low latency cache service based on the popular open-source Redis cache. It is secure, managed by Microsoft, and is accessible from any application in Azure.
+Azure Redis Cache is a fast data access and low latency cache service based on the popular open source Redis Cache. It is secure, managed by Microsoft, and is accessible from any application in Azure.
 
 The guidance in this section is based on using the StackExchange.Redis client to access the cache. A list of other suitable clients can be found on the [Redis website](https://redis.io/clients), and these may have different retry mechanisms.
 
@@ -217,11 +217,11 @@ The following table shows the default settings for the built-in retry policy.
 | ConfigurationOptions |ConnectRetry<br /><br />ConnectTimeout<br /><br />SyncTimeout<br /><br />ReconnectRetryPolicy |3<br /><br />Maximum 5000 ms plus SyncTimeout<br />1000<br /><br />LinearRetry 5000 ms |The number of times to repeat connect attempts during the initial connection operation.<br />Timeout (ms) for connect operations. Not a delay between retry attempts.<br />Time (ms) to allow for synchronous operations.<br /><br />Retry every 5000 ms.|
 
 > [!NOTE]
-> For synchronous operations, `SyncTimeout` can add to the end-to-end latency, but setting the value too low can cause excessive timeouts. See [How to troubleshoot Azure Cache for Redis][redis-cache-troubleshoot]. In general, avoid using synchronous operations, and use asynchronous operations instead. For more information, see [Pipelines and Multiplexers](https://github.com/StackExchange/StackExchange.Redis/blob/master/docs/PipelinesMultiplexers.md).
+> For synchronous operations, `SyncTimeout` can add to the end-to-end latency, but setting the value too low can cause excessive timeouts. See [How to troubleshoot Azure Redis Cache][redis-cache-troubleshoot]. In general, avoid using synchronous operations, and use asynchronous operations instead. For more information, see [Pipelines and Multiplexers](https://github.com/StackExchange/StackExchange.Redis/blob/master/docs/PipelinesMultiplexers.md).
 
 ### Retry usage guidance
 
-Consider the following guidelines when using Azure Cache for Redis:
+Consider the following guidelines when using Azure Redis Cache:
 
 - The StackExchange Redis client manages its own retries, but only when establishing a connection to the cache when the application first starts. You can configure the connection timeout, the number of retry attempts, and the time between retries to establish this connection, but the retry policy does not apply to operations against the cache.
 - Instead of using a large number of retry attempts, consider falling back by accessing the original data source instead.
@@ -363,54 +363,54 @@ Service Bus is a cloud messaging platform that provides loosely coupled message 
 
 ### Retry mechanism
 
-Service Bus implements retries using implementations of the abstract [**RetryPolicy**](/dotnet/api/microsoft.servicebus.retrypolicy) class. The namespace and some of the configuration details depend on which Service Bus client SDK package is used:
+Service Bus implements retries using implementations of the [RetryPolicy](/dotnet/api/microsoft.servicebus.retrypolicy) base class. All of the Service Bus clients expose a **RetryPolicy** property that can be set to one of the implementations of the **RetryPolicy** base class. The built-in implementations are:
 
-| Package | Description | Namespace |
-|---------|-------------|-------|
-| [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) | Azure Service Bus client library for .NET Standard. | `Microsoft.ServiceBus` |
-|  [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus) |  This package is the older Service Bus client library. It requires .Net Framework 4.5.2. | `Microsoft.Azure.ServiceBus` |
+- The [RetryExponential class](/dotnet/api/microsoft.servicebus.retryexponential). This exposes properties that control the back-off interval, the retry count, and the **TerminationTimeBuffer** property that is used to limit the total time for the operation to complete.
 
-Both versions of the client library provide the following built-in implementations of `RetryPolicty`:
+- The [NoRetry class](/dotnet/api/microsoft.servicebus.noretry). This is used when retries at the Service Bus API level are not required, such as when retries are managed by another process as part of a batch or multistep operation.
 
-- [RetryExponential](/dotnet/api/microsoft.servicebus.retryexponential). Implements exponential backoff.
+Service Bus actions can return a range of exceptions, as listed in [Service Bus messaging exceptions](/azure/service-bus-messaging/service-bus-messaging-exceptions). The list provides information about which if these indicate that retrying the operation is appropriate. For example, a **ServerBusyException** indicates that the client should wait for a period of time, then retry the operation. The occurrence of a **ServerBusyException** also causes Service Bus to switch to a different mode, in which an extra 10-second delay is added to the computed retry delays. This mode is reset after a short period.
 
-- [NoRetry](/dotnet/api/microsoft.servicebus.noretry). Does not perform retries. Use this class when you don't need retries at the Service Bus API level, for example when another process manages retries as part of a batch or multistep operation.
+The exceptions returned from Service Bus expose the **IsTransient** property that indicates if the client should retry the operation. The built-in **RetryExponential** policy relies on the **IsTransient** property in the **MessagingException** class, which is the base class for all Service Bus exceptions. If you create custom implementations of the **RetryPolicy** base class you could use a combination of the exception type and the **IsTransient** property to provide more fine-grained control over retry actions. For example, you could detect a **QuotaExceededException** and take action to drain the queue before retrying sending a message to it.
 
-The `RetryPolicy.Default` property returns a default policy of type `RetryExponential`. This policy object has the following settings:
+### Policy configuration
 
-| Setting | Default value | Meaning |
-|---------|---------------|---------|
-| MinimalBackoff | 0 | Minimum back-off interval. Added to the retry interval computed from `deltaBackoff`. |
-| MaximumBackoff | 30 seconds | Maximum back-off interval. |
-| DeltaBackoff | 3 seconds | Back-off interval between retries. Multiples of this timespan are used for subsequent retry attempts. |
-| MaxRetryCount | 5 | The maximum number of retries. (Default value is 10 in the `WindowsAzure.ServiceBus` package.) |
-
-In addition, the following property is defined in the older `WindowsAzure.ServiceBus` package:
-
-| Setting | Default value | Meaning |
-|---------|---------------|---------|
-| TerminationTimeBuffer  | 5 seconds | Retry attempts will be abandoned if the remaining time is less than this value. |
-
-Service Bus actions can return a range of exceptions, listed in [Service Bus messaging exceptions](/azure/service-bus-messaging/service-bus-messaging-exceptions). Exceptions returned from Service Bus expose the **IsTransient** property that indicates whether the client should retry the operation. The built-in **RetryExponential** policy checks this property before retrying.
-
-If the last exception encountered was **ServerBusyException**, the **RetryExponential** policy adds 10 seconds to the computed retry interval. This value cannot be changed.
-
-Custom implementations could use a combination of the exception type and the **IsTransient** property to provide more fine-grained control over retry actions. For example, you could detect a **QuotaExceededException** and take action to drain the queue before retrying sending a message to it.
-
-The following code sets the retry policy on a Service Bus client using the `Microsoft.Azure.ServiceBus` library:
+Retry policies are set programmatically, and can be set as a default policy for a **NamespaceManager** and for a **MessagingFactory**, or individually for each messaging client. To set the default retry policy for a messaging session you set the **RetryPolicy** of the **NamespaceManager**.
 
 ```csharp
-const string QueueName = "queue1";
-const string ServiceBusConnectionString = "<your_connection_string>";
-
-var policy = new RetryExponential(
-    minimumBackoff: TimeSpan.FromSeconds(10),
-    maximumBackoff: TimeSpan.FromSeconds(30),
-    maximumRetryCount: 3);
-var queueClient = new QueueClient(ServiceBusConnectionString, QueueName, ReceiveMode.PeekLock, policy);
+namespaceManager.Settings.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
+                                                                maxBackoff: TimeSpan.FromSeconds(30),
+                                                                maxRetryCount: 3);
 ```
 
-The retry policy cannot be set at the individual operation level. It applies to all operations for the client.
+To set the default retry policy for all clients created from a messaging factory, you set the **RetryPolicy** of the **MessagingFactory**.
+
+```csharp
+messagingFactory.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
+                                                    maxBackoff: TimeSpan.FromSeconds(30),
+                                                    maxRetryCount: 3);
+```
+
+To set the retry policy for a messaging client, or to override its default policy, you set its **RetryPolicy** property using an instance of the required policy class:
+
+```csharp
+client.RetryPolicy = new RetryExponential(minBackoff: TimeSpan.FromSeconds(0.1),
+                                            maxBackoff: TimeSpan.FromSeconds(30),
+                                            maxRetryCount: 3);
+```
+
+The retry policy cannot be set at the individual operation level. It applies to all operations for the messaging client.
+The following table shows the default settings for the built-in retry policy.
+
+| Setting | Default value | Meaning |
+|---------|---------------|---------|
+| Policy | Exponential | Exponential back-off. |
+| MinimalBackoff | 0 | Minimum back-off interval. This is added to the retry interval computed from deltaBackoff. |
+| MaximumBackoff | 30 seconds | Maximum back-off interval. MaximumBackoff is used if the computed retry interval is greater than MaxBackoff. |
+| DeltaBackoff | 3 seconds | Back-off interval between retries. Multiples of this timespan will be used for subsequent retry attempts. |
+| TimeBuffer | 5 seconds | The termination time buffer associated with the retry. Retry attempts will be abandoned if the remaining time is less than TimeBuffer. |
+| MaxRetryCount | 10 | The maximum number of retries. |
+| ServerBusyBaseSleepTime | 10 seconds | If the last exception encountered was **ServerBusyException**, this value will be added to the computed retry interval. This value cannot be changed. |
 
 ### Retry usage guidance
 
@@ -861,7 +861,7 @@ Azure Storage services include table and blob storage, files, and storage queues
 
 ### Retry mechanism
 
-Retries occur at the individual REST operation level and are an integral part of the client API implementation. The client storage SDK uses classes that implement the [IExtendedRetryPolicy Interface](/dotnet/api/microsoft.azure.storage.retrypolicies.iextendedretrypolicy).
+Retries occur at the individual REST operation level and are an integral part of the client API implementation. The client storage SDK uses classes that implement the [IExtendedRetryPolicy Interface](/dotnet/api/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy).
 
 There are different implementations of the interface. Storage clients can choose from policies designed for accessing tables, blobs, and queues. Each implementation uses a different retry strategy that essentially defines the retry interval and other details.
 
@@ -915,7 +915,7 @@ context.RequestCompleted += (sender, args) =>
 var stats = await client.GetServiceStatsAsync(null, context);
 ```
 
-In addition to indicating whether a failure is suitable for retry, the extended retry policies return a **RetryContext** object that indicates the number of retries, the results of the last request, whether the next retry will happen in the primary or secondary location (see table below for details). The properties of the **RetryContext** object can be used to decide if and when to attempt a retry. For more information, see [IExtendedRetryPolicy.Evaluate Method](/dotnet/api/microsoft.azure.storage.retrypolicies.iextendedretrypolicy.evaluate).
+In addition to indicating whether a failure is suitable for retry, the extended retry policies return a **RetryContext** object that indicates the number of retries, the results of the last request, whether the next retry will happen in the primary or secondary location (see table below for details). The properties of the **RetryContext** object can be used to decide if and when to attempt a retry. For more information, see [IExtendedRetryPolicy.Evaluate Method](/dotnet/api/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate).
 
 The following tables show the default settings for the built-in retry policies.
 
@@ -948,7 +948,7 @@ The following tables show the default settings for the built-in retry policies.
 
 Consider the following guidelines when accessing Azure storage services using the storage client API:
 
-- Use the built-in retry policies from the Microsoft.Azure.Storage.RetryPolicies namespace where they are appropriate for your requirements. In most cases, these policies will be sufficient.
+- Use the built-in retry policies from the Microsoft.WindowsAzure.Storage.RetryPolicies namespace where they are appropriate for your requirements. In most cases, these policies will be sufficient.
 
 - Use the **ExponentialRetry** policy in batch operations, background tasks, or non-interactive scenarios. In these scenarios, you can typically allow more time for the service to recover&mdash;with a consequently increased chance of the operation eventually succeeding.
 
@@ -969,7 +969,7 @@ Consider starting with the following settings for retrying operations. These set
 
 Retry attempts are logged to a **TraceSource**. You must configure a **TraceListener** to capture the events and write them to a suitable destination log. You can use the **TextWriterTraceListener** or **XmlWriterTraceListener** to write the data to a log file, the **EventLogTraceListener** to write to the Windows Event Log, or the **EventProviderTraceListener** to write trace data to the ETW subsystem. You can also configure autoflushing of the buffer, and the verbosity of events that will be logged (for example, Error, Warning, Informational, and Verbose). For more information, see [Client-side Logging with the .NET Storage Client Library](/rest/api/storageservices/Client-side-Logging-with-the-.NET-Storage-Client-Library).
 
-Operations can receive an **OperationContext** instance, which exposes a **Retrying** event that can be used to attach custom telemetry logic. For more information, see [OperationContext.Retrying Event](/dotnet/api/microsoft.azure.storage.operationcontext.retrying).
+Operations can receive an **OperationContext** instance, which exposes a **Retrying** event that can be used to attach custom telemetry logic. For more information, see [OperationContext.Retrying Event](/dotnet/api/microsoft.windowsazure.storage.operationcontext.retrying).
 
 ### Examples
 

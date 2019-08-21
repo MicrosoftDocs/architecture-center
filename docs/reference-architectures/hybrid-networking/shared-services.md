@@ -2,19 +2,20 @@
 title: Implement a hub-spoke network topology
 titleSuffix: Azure Reference Architectures
 description: Implement a hub-spoke network topology with shared services in Azure.
-author: MikeWasson
-ms.date: 08/19/2019
+author: telmosampaio
+ms.date: 10/09/2018
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.custom: seodec18, networking
 ---
 
-# Hub-spoke network topology with shared services in Azure
+# Implement a hub-spoke network topology with shared services in Azure
 
-This reference architecture builds on the [hub-spoke][guidance-hub-spoke] reference architecture to include shared services in the hub that can be consumed by all spokes. 
+This reference architecture builds on the [hub-spoke][guidance-hub-spoke] reference architecture to include shared services in the hub that can be consumed by all spokes. As a first step toward migrating a datacenter to the cloud, and building a [virtual datacenter], the first services you need to share are identity and security. This reference architecture shows you how to extend your Active Directory services from your on-premises datacenter to Azure, and how to add a network virtual appliance (NVA) that can act as a firewall, in a hub-spoke topology.  [**Deploy this solution**](#deploy-the-solution).
 
-As a first step toward migrating a datacenter to the cloud, the first services that need to be shared are identity and security. This reference architecture shows how to extend Active Directory services from your on-premises datacenter to Azure, and how to add a network virtual appliance (NVA) that can act as a firewall. The firewall functionality can also be accomplished using [Azure Firewall](/azure/firewall/), a cloud-based network security service.
+> [!NOTE]
+> This scenario can also be accomplished using [Azure Firewall](/azure/firewall/), a cloud-based network security service.
 
 ![Shared services topology in Azure](./images/shared-services.png)
 
@@ -81,6 +82,16 @@ You can use network virtual appliances (NVAs) in Azure to host different types o
 > [!NOTE]
 > The deployment scripts for this reference architecture use an Ubuntu VM with IP forwarding enabled to mimic a network virtual appliance.
 
+## Considerations
+
+### Overcoming VNet peering limits
+
+Make sure you consider the [limitation on number of VNets peerings per VNet][vnet-peering-limit] in Azure. If you decide you need more spokes than the limit will allow, consider creating a hub-spoke-hub-spoke topology, where the first level of spokes also act as hubs. The following diagram shows this approach.
+
+![Hub-spoke-hub-spoke topology in Azure](./images/hub-spokehub-spoke.svg)
+
+Also consider what services are shared in the hub, to ensure the hub scales for a larger number of spokes. For instance, if your hub provides firewall services, consider the bandwidth limits of your firewall solution when adding multiple spokes. You might want to move some of these shared services to a second level of hubs.
+
 ## Deploy the solution
 
 A deployment for this architecture is available on [GitHub][ref-arch-repo]. The deployment creates the following resource groups in your subscription:
@@ -100,25 +111,103 @@ The template parameter files refer to these names, so if you change them, update
 
 ### Deploy the simulated on-premises datacenter using azbb
 
-Follow these steps to deploy the architecture:
+This step deploys the simulated on-premises datacenter as an Azure VNet.
 
 1. Navigate to the `hybrid-networking\shared-services-stack\` folder of the GitHub repository.
 
-1. Open the `shared-services-stack.json` file.
+2. Open the `onprem.json` file.
 
-1. Search for all instances of `[replace-with-username]`, `[replace-with-safe-mode-username]`,`[replace-with-password]`, and `[replace-with-safe-mode-password]`. Enter values for the user name and password in the parameters and save the file.
+3. Search for all instances of `UserName`, `adminUserName`,`Password`, and `adminPassword`. Enter values for the user name and password in the parameters and save the file.
 
-1. Search for all instances of `[replace-with-shared-key]` and enter a value for a shared key. The values must match.
-
-1. Save the file.
-
-1. Run the following command:
+4. Run the following command:
 
    ```bash
-   azbb -s <subscription_id> -g onprem-vnet-rg -l <location> -p shared-services-stack.json --deploy
+   azbb -s <subscription_id> -g onprem-vnet-rg -l <location> -p onprem.json --deploy
    ```
 
-1. Wait for the deployment to finish. This deployment creates four virtual networks, four virtual machines to function as jumpboxes, four virtual machines to act as Active Directory domain controllers, two VPN Gateways, and Azure Firewall. The VPN gateway creation can take more than 40 minutes to complete.
+5. Wait for the deployment to finish. This deployment creates a virtual network, a virtual machine running Windows, and a VPN gateway. The VPN gateway creation can take more than 40 minutes to complete.
+
+### Deploy the hub VNet
+
+This step deploys the hub VNet and connects it to the simulated on-premises VNet.
+
+1. Open the `hub-vnet.json` file.
+
+2. Search for `adminPassword` and enter a user name and password in the parameters.
+
+3. Search for all instances of `sharedKey` and enter a value for a shared key. Save the file.
+
+   ```json
+   "sharedKey": "abc123",
+   ```
+
+4. Run the following command:
+
+   ```bash
+   azbb -s <subscription_id> -g hub-vnet-rg -l <location> -p hub-vnet.json --deploy
+   ```
+
+5. Wait for the deployment to finish. This deployment creates a virtual network, a virtual machine, a VPN gateway, and a connection to the gateway created in the previous section. The VPN gateway can take more than 40 minutes to complete.
+
+### Deploy AD DS in Azure
+
+This step deploys AD DS domain controllers in Azure.
+
+1. Open the `hub-adds.json` file.
+
+2. Search for all instances of `Password` and `adminPassword`. Enter values for the user name and password in the parameters and save the file.
+
+3. Run the following command:
+
+   ```bash
+   azbb -s <subscription_id> -g hub-adds-rg -l <location> -p hub-adds.json --deploy
+   ```
+
+This deployment step may take several minutes, because it joins the two VMs to the domain hosted in the simulated on-premises datacenter, and installs AD DS on them.
+
+### Deploy the spoke VNets
+
+This step deploys the spoke VNets.
+
+1. Open the `spoke1.json` file.
+
+2. Search for `adminPassword` and enter a user name and password in the parameters.
+
+3. Run the following command:
+
+   ```bash
+   azbb -s <subscription_id> -g spoke1-vnet-rg -l <location> -p spoke1.json --deploy
+   ```
+
+4. Repeat steps 1 and 2 for the file `spoke2.json`.
+
+5. Run the following command:
+
+   ```bash
+   azbb -s <subscription_id> -g spoke2-vnet-rg -l <location> -p spoke2.json --deploy
+   ```
+
+### Peer the hub VNet to the spoke VNets
+
+To create a peering connection from the hub VNet to the spoke VNets, run the following command:
+
+```bash
+azbb -s <subscription_id> -g hub-vnet-rg -l <location> -p hub-vnet-peering.json --deploy
+```
+
+### Deploy the NVA
+
+This step deploys an NVA in the `dmz` subnet.
+
+1. Open the `hub-nva.json` file.
+
+2. Search for `adminPassword` and enter a user name and password in the parameters.
+
+3. Run the following command:
+
+   ```bash
+   azbb -s <subscription_id> -g hub-nva-rg -l <location> -p hub-nva.json --deploy
+   ```
 
 ### Test connectivity
 
@@ -131,14 +220,14 @@ Test connectivity from the simulated on-premises environment to the hub VNet.
 3. Open a PowerShell console in the VM, and use the `Test-NetConnection` cmdlet to verify that you can connect to the jumpbox VM in the hub VNet.
 
    ```powershell
-   Test-NetConnection 10.0.0.36 -CommonTCPPort RDP
+   Test-NetConnection 10.0.0.68 -CommonTCPPort RDP
    ```
 
 The output should look similar to the following:
 
 ```powershell
-ComputerName     : 10.0.0.36
-RemoteAddress    : 10.0.0.36
+ComputerName     : 10.0.0.68
+RemoteAddress    : 10.0.0.68
 RemotePort       : 3389
 InterfaceAlias   : Ethernet 2
 SourceAddress    : 192.168.1.000
@@ -148,11 +237,11 @@ TcpTestSucceeded : True
 > [!NOTE]
 > By default, Windows Server VMs do not allow ICMP responses in Azure. If you want to use `ping` to test connectivity, you need to enable ICMP traffic in the Windows Advanced Firewall for each VM.
 
-Repeat the same steps to test connectivity to the spoke VNets:
+Repeat the sames steps to test connectivity to the spoke VNets:
 
 ```powershell
-Test-NetConnection 10.1.0.36 -CommonTCPPort RDP
-Test-NetConnection 10.2.0.36 -CommonTCPPort RDP
+Test-NetConnection 10.1.0.68 -CommonTCPPort RDP
+Test-NetConnection 10.2.0.68 -CommonTCPPort RDP
 ```
 
 <!-- links -->

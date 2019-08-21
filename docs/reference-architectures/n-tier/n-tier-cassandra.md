@@ -3,7 +3,7 @@ title: N-tier application with Apache Cassandra
 titleSuffix: Azure Reference Architectures
 description: Run Linux virtual machines for an N-tier architecture with Apache Cassandra in Microsoft Azure.
 author: MikeWasson
-ms.date: 08/19/2019
+ms.date: 11/12/2018
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -143,8 +143,6 @@ For incoming Internet traffic, the load balancer rules define which traffic can 
 
 A deployment for this reference architecture is available on [GitHub][github-folder].
 
-If you specify a region that supports availability zones, the VMs are deployed into availability zones. Otherwise, the VMs are deployed into availability sets. For a list of regions that support availability zones, see [Services support by region](/azure/availability-zones/az-overview#services-support-by-region).
-
 ### Prerequisites
 
 [!INCLUDE [ref-arch-prerequisites.md](../../../includes/ref-arch-prerequisites.md)]
@@ -203,11 +201,11 @@ For more information on deploying this sample reference architecture using Azure
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
 [vmss]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
 [load-balancer]: /azure/load-balancer/load-balancer-get-started-internet-arm-cli
-[load-balancer-hashing]: /azure/load-balancer/load-balancer-overview#fundamental-load-balancer-features
+[load-balancer-hashing]: /azure/load-balancer/load-balancer-overview#load-balancer-features
 [vmss-design]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview
 [subscription-limits]: /azure/azure-subscription-service-limits
 [availability-set]: /azure/virtual-machines/virtual-machines-windows-manage-availability
-[health-probes]: /azure/load-balancer/load-balancer-overview#fundamental-load-balancer-features
+[health-probes]: /azure/load-balancer/load-balancer-overview#load-balancer-features
 [health-probe-log]: /azure/load-balancer/load-balancer-monitor-log
-[health-probe-ip]: /azure/virtual-network/security-overview#augmented-security-rules
+[health-probe-ip]: /azure/virtual-network/virtual-networks-nsg#special-rules
 [network-security]: /azure/best-practices-network-security

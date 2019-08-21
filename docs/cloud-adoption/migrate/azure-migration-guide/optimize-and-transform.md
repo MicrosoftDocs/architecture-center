@@ -6,8 +6,7 @@ author: matticusau
 ms.author: mlavery
 ms.date: 04/04/2019
 ms.topic: conceptual
-ms.service: cloud-adoption-framework
-ms.subservice: migrate
+ms.service: azure-portal
 ms.custom: fasttrack-new
 ---
 
@@ -26,7 +25,7 @@ All Azure services that provide a consumption-based cost model can be resized th
 
 ::: zone target="chromeless"
 
-::: form action="OpenBlade[#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/metrics]" submitText="Go to Monitor" :::
+::: form action="OpenBlade[#blade/Microsoft_Azure_Monitoring/AzureMonitoringBrowseBlade/metrics]" submitText="Go to Monitor Metrics" :::
 
 ::: zone-end
 
@@ -44,7 +43,6 @@ However, for virtual machines created or migrated using other methods, or in cas
 1. Select **Resize**.
 
 Note that resizing production virtual machines has the potential to cause service disruptions. Try to apply the correct sizing for your VMs before you promote them to production.
-
 
 ::: zone target="chromeless"
 
@@ -110,7 +108,6 @@ You can also use **Advisor** and select the **Costs** tab to identify recommenda
 
 > [!TIP]
 > For services that don't require continuous availability, implementing a solution to start, stop, or pause the service as needed can help manage the cost (for example, Azure Virtual Machines or Azure SQL Data Warehouse).
->
 
 ::: zone target="chromeless"
 

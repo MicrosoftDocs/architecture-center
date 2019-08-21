@@ -2,13 +2,12 @@
 title: "Assess on-premises workloads for migration to Azure"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how Contoso assesses its on-premises machines for migration to Azure by using Azure Migrate and Data Migration Assistant.
-author: BrianBlanchard
-ms.author: brblanch
-ms.date: 01/30/2019
-ms.topic: conceptual
-ms.service: cloud-adoption-framework
-ms.subservice: migrate
 services: site-recovery
+author: BrianBlanchard
+ms.service: site-recovery
+ms.topic: conceptual
+ms.date: 01/30/2019
+ms.author: brblanch
 ---
 
 # Assess on-premises workloads for migration to Azure
@@ -106,7 +105,7 @@ Contoso and other users must meet the following prerequisites for the assessment
 - Permissions to install Azure Migrate agents on each VM.
 - The VMs should have direct internet connectivity.
   - You can restrict internet access to the [required URLs](/azure/migrate/concepts-collector).
-  - If your VMs don't have internet connectivity, the Azure [Log Analytics Gateway](/azure/azure-monitor/platform/gateway) must be installed on them, and agent traffic directed through it.
+  - If your VMs don't have internet connectivity, the Azure [Log Analytics Gateway](/azure/azure-monitor/platform/gateway.md) must be installed on them, and agent traffic directed through it.
 - The FQDN of the VM running the SQL Server instance, for database assessment.
 - Windows Firewall running on the SQL Server VM should allow external connections on TCP port 1433 (default). This setup allows Data Migration Assistant to connect.
 
@@ -136,7 +135,7 @@ Here's how Contoso performs its assessment:
 Now, Contoso can run an assessment to analyze its on-premises SQL Server database for the SmartHotel360 app.
 
 1. In Data Migration Assistant, Contoso selects **New** > **Assessment**, and then gives the assessment a project name.
-2. For **Source server type**, Contoso selects **SQL Server** and for **Target Server type**, Contoso selects **SQL Server on Azure Virtual Machines**
+2. For **Source server type**, Contoso selects **SQL Server on Azure Virtual Machines**.
 
     ![Data Migration Assistant - Select source](./media/contoso-migration-assessment/dma-assessment-1.png)
 
@@ -270,7 +269,7 @@ Before deploying the VM, Contoso checks that the OVA file is secure:
     **Example:**
 
     ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. The generated hash should match the hash values listed in the [Verify security](/azure/migrate/tutorial-assess-vmware#verify-security) section of the [Assess VMWare VMs for migration](/azure/migrate/tutorial-assess-vmware) tutorial.
+3. The generated hash should match the hash values listed [here](/azure/migrate/tutorial-assessment-vmware#continuous-discovery).
 
 ### Create the collector appliance
 
@@ -442,7 +441,7 @@ Contoso can now verify machine dependencies and create a group. Then, it runs th
 
 2. To view the assessment, Contoso selects **Manage** > **Assessments**.
 
-Contoso uses the default assessment settings, but you can [customize settings](/azure/migrate/how-to-modify-assessment).
+Contoso uses the default assessment settings, but you can [customize settings](/azure/migrate/how-to-modify-assessment.md).
 
 ### Analyze the VM assessment
 

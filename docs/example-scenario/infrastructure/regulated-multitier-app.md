@@ -92,16 +92,17 @@ For general guidance on designing resilient solutions, see [Designing reliable A
 
 To deploy the core infrastructure for this scenario with an Azure Resource Manager template, perform the following steps.
 
-1. Click the link below to deploy the solution.
+<!-- markdownlint-disable MD033 -->
 
-    [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Finfrastructure%2Fregulated-multitier-app.json)
-
+1. Select the **Deploy to Azure** button:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fsolution-architectures%2Fmaster%2Finfrastructure%2Fregulated-multitier-app.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 2. Wait for the template deployment to open in the Azure portal, then complete the following steps:
    - Choose to **Create new** resource group, then provide a name such as *myWindowsscenario* in the text box.
    - Select a region from the **Location** drop-down box.
    - Provide a username and secure password for the virtual machine scale set instances.
    - Review the terms and conditions, then check **I agree to the terms and conditions stated above**.
    - Select the **Purchase** button.
+
+<!-- markdownlint-enable MD033 -->
 
 It can take 15-20 minutes for the deployment to complete.
 
@@ -137,7 +138,7 @@ For more detailed implementation guides, review the [reference architecture for 
 [vnet-docs]: /azure/virtual-network/virtual-networks-overview
 [vnetendpoint-docs]: /azure/virtual-network/virtual-network-service-endpoints-overview
 [pci-dss]: /azure/security/blueprints/pcidss-iaaswa-overview
-[dmz]: ../../reference-architectures/dmz/secure-vnet-hybrid.md
+[dmz]: /azure/virtual-network/virtual-networks-dmz-nsg
 [sql-linux]: /sql/linux/sql-server-linux-overview?view=sql-server-linux-2017
 [cloud-witness]: /windows-server/failover-clustering/deploy-cloud-witness
 [small-pricing]: https://azure.com/e/711bbfcbbc884ef8aa91cdf0f2caff72

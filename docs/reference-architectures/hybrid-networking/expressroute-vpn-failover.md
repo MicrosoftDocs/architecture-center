@@ -48,7 +48,7 @@ The following recommendations apply for most scenarios. Follow these recommendat
 
 ### VNet and GatewaySubnet
 
-Create the ExpressRoute virtual network gateway connection and the VPN virtual network gateway connection in the same VNet with a Gateway object already in place. They will both share the same subnet named *GatewaySubnet*.
+Create the ExpressRoute virtual network gateway and the VPN virtual network gateway in the same VNet. This means that they should share the same subnet named *GatewaySubnet*.
 
 If the VNet already includes a subnet named *GatewaySubnet*, ensure that it has a /27 or larger address space. If the existing subnet is too small, use the following PowerShell command to remove the subnet:
 
@@ -100,30 +100,29 @@ For general Azure security considerations, see [Microsoft cloud services and net
 
 To deploy the solution, perform the following steps.
 
+<!-- markdownlint-disable MD033 -->
 
-1. Click the link below.
+1. Click the button below:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fhybrid-networking%2Fexpressroute-vpn-failover%2Fazuredeploy.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
-    [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fhybrid-networking%2Fexpressroute-vpn-failover%2Fazuredeploy.json)
-
-1. Wait for the link to open in the Azure portal, then follow these steps:
+2. Wait for the link to open in the Azure portal, then follow these steps:
    - The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-hybrid-vpn-er-rg` in the text box.
    - Select the region from the **Location** drop down box.
    - Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
    - Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
    - Click the **Purchase** button.
 
-1. Wait for the deployment to complete.
+3. Wait for the deployment to complete.
 
-1. Click the link below.
+4. Click the button below:<br><a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fhybrid-networking%2Fexpressroute-vpn-failover%2Fazuredeploy-expressRouteCircuit.json" target="_blank"><img src="https://azuredeploy.net/deploybutton.png"/></a>
 
-    [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fhybrid-networking%2Fexpressroute-vpn-failover%2Fazuredeploy-expressRouteCircuit.json)
-
-1. Wait for the link to open in the Azure portal, then enter then follow these steps:
+5. Wait for the link to open in the Azure portal, then enter then follow these steps:
    - Select **Use existing** in the **Resource group** section and enter `ra-hybrid-vpn-er-rg` in the text box.
    - Select the region from the **Location** drop down box.
    - Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
    - Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
    - Click the **Purchase** button.
+
+<!-- markdownlint-enable MD033 -->
 
 <!-- links -->
 

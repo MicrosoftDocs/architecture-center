@@ -2,14 +2,14 @@
 title: "Azure virtual datacenter: A network perspective"
 description: Learn how to build your virtual datacenter in Azure
 author: tracsman
-ms.author: jonor
-ms.date: 06/12/2019
-ms.topic: guide
-ms.service: cloud-adoption-framework
-ms.subservice: reference
 manager: rossort
 tags: azure-resource-manager
+ms.topic: guide
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
 ms.custom: virtual-network
+ms.date: 11/28/2018
+ms.author: jonor
 ---
 
 # Azure virtual datacenter: A network perspective
@@ -18,7 +18,7 @@ ms.custom: virtual-network
 
 Migrating on-premises applications to Azure provides organizations the benefits of a secured and cost-efficient infrastructure, even if the applications are migrated with minimal changes. However, to make the most of the agility possible with cloud computing, enterprises must evolve their architectures to take advantage of Azure capabilities.
 
-Microsoft Azure delivers hyperscale services and infrastructure with enterprise-grade capabilities and reliability. These services and infrastructure offer many choices in hybrid connectivity so customers can choose to access them over the public internet or over a private Azure ExpressRoute connection. Microsoft partners also provide enhanced capabilities by offering security services and virtual appliances that are optimized to run in Azure.
+Microsoft Azure delivers hyper-scale services and infrastructure with enterprise-grade capabilities and reliability. These services and infrastructure offer many choices in hybrid connectivity so customers can choose to access them over the public internet or over a private Azure ExpressRoute connection. Microsoft partners also provide enhanced capabilities by offering security services and virtual appliances that are optimized to run in Azure.
 
 Customers can choose to access these cloud services either via the internet or with Azure ExpressRoute, which provides private network connectivity. With the Microsoft Azure platform, customers can seamlessly extend their infrastructure into the cloud and build multitier architectures. Microsoft partners also provide enhanced capabilities by offering security services and virtual appliances that are optimized to run in Azure.
 
@@ -28,7 +28,9 @@ Customers can choose to access these cloud services either via the internet or w
 
 At its inception, the cloud was essentially a platform for hosting public-facing applications. Enterprises began to understand the value of the cloud and began to move internal line-of-business applications to the cloud. These types of applications brought additional security, reliability, performance, and cost considerations that required additional flexibility in the way cloud services were delivered. This paved the way for new infrastructure and networking services designed to provide this flexibility but also new features for scale, disaster recovery, and other considerations.
 
-Cloud solutions were first designed to host single, relatively isolated applications in the public spectrum. This approach worked well for a few years. Then the benefits of cloud solutions became apparent, and multiple large-scale workloads were hosted on the cloud. Addressing security, reliability, performance, and cost concerns of deployments in one or more regions became vital throughout the life-cycle of the cloud service.
+## What is a virtual datacenter?
+
+Cloud solutions were first designed to host single, relatively isolated applications in the public spectrum. This approach worked well for a few years. Then the benefits of cloud solutions became apparent, and multiple large-scale workloads were hosted on the cloud. Addressing security, reliability, performance, and cost concerns of deployments in one or more regions became vital throughout the lifecycle of the cloud service.
 
 The following cloud deployment diagram shows an example of a security gap in the **red box**. The **yellow box** shows room for optimizing network virtual appliances across workloads.
 
@@ -62,7 +64,7 @@ The key to unlock the advantages of VDC is a centralized hub and spoke network t
 
 Any Azure customer that has decided to adopt the cloud can benefit from the efficiency of configuring a set of resources for common use by all applications. Depending on the magnitude, even single applications can benefit from using the patterns and components used to build a VDC implementation.
 
-If your organization has centralized teams or departments for IT, networking, security, or compliance, implementing a VDC can help enforce policy points, segregation of duty, and ensure uniformity of the underlying common components while giving application teams as much freedom and control as is appropriate for your requirements.
+If your organization has a centralized IT, Network, Security, and/or Compliance team/department, implementing a VDC can help enforce policy points, segregation of duty, and ensure uniformity of the underlying common components while giving application teams as much freedom and control as is appropriate for your requirements.
 
 Organizations that are looking to DevOps can also use the VDC concepts to provide authorized pockets of Azure resources and ensure they have total control within that group (either subscription or resource group in a common subscription), but the network and security boundaries stay compliant as defined by a centralized policy in a hub VNet and resource group.
 
@@ -96,9 +98,9 @@ The Azure fabric allocates infrastructure resources to tenant workloads and mana
 
 A VDC implementation requires connectivity to external networks to offer services to customers, partners and/or internal users. This need for connectivity refers not only to the Internet, but also to on-premises networks and datacenters.
 
-Customers control which services have access to and are accessible from the public internet by using [Azure Firewall][AzFW] or other types of virtual network appliances (NVAs), custom routing policies by using [user-defined routes][user-defined-routes], and network filtering by using [network security groups][network-security-groups]. We recommend that all internet-facing resources also be protected by the [Azure DDoS Protection Standard][DDoS].
+Customers control which services have access to and are accessible from the public internet by using [Azure Firewall][AzFW] or other types of virtual network appliances (NVAs), custom routing policies by using [user-defined routes][user-defined-routes], and network filtering by using [network security groups][network-security-groups]. We recommend that all internet-facing resources also be protected by the [Azure DDoS Protection Standard][DDOS].
 
-Enterprises may need to connect their VDC implementation to on-premises datacenters or other resources. This connectivity between Azure and on-premises networks is a crucial aspect when designing an effective architecture. Enterprises have two different ways to create this interconnection: transit over the Internet or via private direct connections.
+Enterprises may need to connect their VDC implementation to on-premises datacenters or other resources. This connectivity between Azure and on-premises networks is a crucial aspect when designing an effective architecture. Enterprises have two different ways to create this interconnection: transit over the Internet and/or by private direct connections.
 
 An [**Azure Site-to-Site VPN**][VPN] is an interconnection service over the Internet between on-premises networks and a VDC implementation, established through secure encrypted connections (IPsec/IKE tunnels). Azure Site-to-Site connection is flexible, quick to create, and does not require any further procurement, as all connections connect over the internet.
 
@@ -116,15 +118,13 @@ Deploying ExpressRoute connections usually involves engaging with an ExpressRout
 
 ### Topology
 
-*Hub and spoke* is a model for designing the network topology for a virtual datacenter implementation.
+_Hub and spoke_ is a model for designing the network topology for a virtual datacenter implementation.
 
 [![1]][1]
 
-As shown, two types of hub and spoke design can be used in Azure. For communication, shared resources, and centralized security policy (VNet Hub in the diagram), or a Virtual WAN type (Virtual WAN in the diagram) for large scale branch-to-branch and branch-to-Azure communications.
-
 A hub is the central network zone that controls and inspects ingress or egress traffic between different zones: internet, on-premises, and the spokes. The hub and spoke topology gives the IT department an effective way to enforce security policies in a central location. It also reduces the potential for misconfiguration and exposure.
 
-The hub often contains the common service components consumed by the spokes. The following examples are common central services:
+The hub contains the common service components consumed by the spokes. The following examples are common central services:
 
 - The Windows Active Directory infrastructure, required for user authentication of third parties that access from untrusted networks before they get access to the workloads in the spoke. It includes the related Active Directory Federation Services (AD FS).
 - A DNS service to resolve naming for the workload in the spokes, to access resources on-premises and on the internet if [Azure DNS][DNS] isn't used.
@@ -141,7 +141,7 @@ The role of each spoke can be to host different types of workloads. The spokes a
 
 In Azure, every component, whatever the type, is deployed in an Azure Subscription. The isolation of Azure components in different Azure subscriptions can satisfy the requirements of different LOBs, such as setting up differentiated levels of access and authorization.
 
-A single VDC implementation can scale up to large number of spokes, although, as with every IT system, there are platform limits. The hub deployment is bound to a specific Azure subscription, which has restrictions and limits (for example, a maximum number of VNet peerings; see [Azure subscription and service limits, quotas, and constraints][limits] for details). In cases where limits may be an issue, the architecture can scale up further by extending the model from a single hub-spokes to a cluster of hub and spokes. Multiple hubs in one or more Azure regions can be interconnected using VNet Peering, ExpressRoute, Virtual WAN, or site-to-site VPN.
+A single VDC implementation can scale up to large number of spokes, although, as with every IT system, there are platform limits. The hub deployment is bound to a specific Azure subscription, which has restrictions and limits (for example, a max number of VNet peerings - see [Azure subscription and service limits, quotas, and constraints][Limits] for details). In cases where limits may be an issue, the architecture can scale up further by extending the model from a single hub-spokes to a cluster of hub and spokes. Multiple hubs in one or more Azure regions can be interconnected using VNet Peering, ExpressRoute, Virtual WAN, or site-to-site VPN.
 
 [![2]][2]
 
@@ -195,7 +195,7 @@ The presence of different Azure AD tenants enforces the separation between envir
 
 #### Component type: Infrastructure
 
-This component type is where most of the supporting infrastructure resides. It's also where your centralized IT, security, and compliance teams spend most of their time.
+This component type is where most of the supporting infrastructure resides. It's also where your centralized IT, Security, and/or Compliance teams spend most of their time.
 
 [![6]][6]
 
@@ -227,16 +227,16 @@ Perimeter network components provide the following features:
 - [Virtual networks][VNet], [user-defined routes][user-defined-routes], and [network security groups][network-security-groups]
 - [Network virtual appliances][NVA]
 - [Azure Load Balancer][ALB]
-- [Azure Application Gateway][AppGW] with [web application firewall (WAF)][AppGWWAF]
+- [Azure Application Gateway][AppGW] and [web application firewall (WAF)][WAF]
 - [Public IPs][PIP]
-- [Azure Front Door][AFD] with [web application firewall (WAF)][AFDWAF]
+- [Azure Front Door][AFD]
 - [Azure Firewall][AzFW]
 
 Usually, the central IT and security teams have responsibility for requirement definition and operation of the perimeter networks.
 
 [![7]][7]
 
-The preceding diagram shows the enforcement of two perimeters with access to the internet and an on-premises network, both resident in the DMZ hub. In the DMZ hub, the perimeter network to internet can scale up to support large numbers of LOBs, using multiple farms of Web Application Firewalls (WAFs) and/or Azure Firewalls. In hub also allows for connectivity via VPN or ExpressRoute as needed.
+The preceding diagram shows the enforcement of two perimeters with access to the internet and an on-premises network, both resident in the DMZ and vWAN hubs. In the DMZ hub, the perimeter network to internet can scale up to support large numbers of LOBs, using multiple farms of Web Application Firewalls (WAFs) and/or Azure Firewalls. In the vWAN hub, highly scalable branch to branch and branch to Azure connectivity is accomplished via VPN or ExpressRoute as needed.
 
 [**Virtual networks**][VNet]. The hub is typically built on a virtual network with multiple subnets to host the different types of services that filter and inspect traffic to or from the internet via NVAs, WAF, and Azure Application Gateway instances.
 
@@ -259,14 +259,14 @@ We recommend that you use one set of Azure Firewall instances, or NVAs, for traf
 
 Azure Load Balancer can probe the health of the various server instances as well, and when an instance fails to respond to a probe, the load balancer stops sending traffic to the unhealthy instance. In the VDC, an external load balancer is deployed to the hub and the spokes. In the hub, the load balancer is used to efficiently route traffic to services in the spokes, and in the spokes, load balancers are used to manage application traffic.
 
-[**Azure Front Door**][AFD] (AFD) is Microsoft's highly available and scalable Web Application Acceleration Platform, Global HTTP Load Balancer, Application Protection, and Content Delivery Network. Running in more than 100 locations at the edge of Microsoft's Global Network, AFD enables you to build, operate, and scale out your dynamic web application and static content. AFD provides your application with world-class end-user performance, unified regional/stamp maintenance automation, BCDR automation, unified client/user information, caching, and service insights. The platform offers performance, reliability and support SLAs, compliance certifications and auditable security practices developed, operated, and supported natively by Azure.
+[**Azure Front Door**][AFD] (AFD) is Microsoft's highly available and scalable Web Application Acceleration Platform, Global HTTP Load Balancer, Application Protection, and Content Delivery Network. Running in more than 100 locations at the Edge of Microsoft's Global Network, AFD enables you to build, operate, and scale out your dynamic web application and static content. AFD provides your application with world-class end-user performance, unified regional/stamp maintenance automation, BCDR automation, unified client/user information, caching, and service insights. The platform offers performance, reliability and support SLAs, compliance certifications and auditable security practices developed, operated, and supported natively by Azure.
 
 [**Application Gateway**][AppGW]
 Microsoft Azure Application Gateway is a dedicated virtual appliance providing application delivery controller (ADC) as a service, offering various layer 7 load-balancing capabilities for your application. It allows you to optimize web farm productivity by offloading CPU intensive SSL termination to the application gateway. It also provides other layer 7 routing capabilities including round robin distribution of incoming traffic, cookie-based session affinity, URL path-based routing, and the ability to host multiple websites behind a single Application Gateway. A web application firewall (WAF) is also provided as part of the application gateway WAF SKU. This SKU provides protection to web applications from common web vulnerabilities and exploits. Application Gateway can be configured as internet facing gateway, internal only gateway, or a combination of both.
 
 [**Public IPs**][PIP]. With some Azure features, you can associate service endpoints to a public IP address, so that your resource can be accessed from the internet. This endpoint uses network address translation (NAT) to route traffic to the internal address and port on the Azure virtual network. This path is the primary way for external traffic to pass into the virtual network. You can configure public IP addresses to determine which traffic is passed in and how and where it's translated onto the virtual network.
 
-[**Azure DDoS Protection Standard**][DDoS] provides additional mitigation capabilities over the [Basic service][DDoS] tier that are tuned specifically to Azure Virtual Network resources. DDoS Protection Standard is simple to enable and requires no application changes. Protection policies are tuned through dedicated traffic monitoring and machine learning algorithms. Policies are applied to public IP addresses associated to resources deployed in virtual networks. Examples are Azure Load Balancer, Azure Application Gateway, and Azure Service Fabric instances. Real-time telemetry is available through Azure Monitor views during an attack and for history. Application layer protection can be added through the Azure Application Gateway web application firewall. Protection is provided for IPv4 Azure public IP addresses.
+[**Azure DDoS Protection Standard**][DDOS] provides additional mitigation capabilities over the [Basic service][DDOS] tier that are tuned specifically to Azure Virtual Network resources. DDoS Protection Standard is simple to enable and requires no application changes. Protection policies are tuned through dedicated traffic monitoring and machine learning algorithms. Policies are applied to public IP addresses associated to resources deployed in virtual networks. Examples are Azure Load Balancer, Azure Application Gateway, and Azure Service Fabric instances. Real-time telemetry is available through Azure Monitor views during an attack and for history. Application layer protection can be added through the Azure Application Gateway web application firewall. Protection is provided for IPv4 Azure public IP addresses.
 
 #### Component type: Monitoring
 
@@ -328,7 +328,7 @@ The workload possibilities are endless. The following are just a few of the poss
 
 **Big Data/Analytics**: When data needs to scale up to a large volume, databases may not scale up properly. Hadoop technology offers a system to run distributed queries in parallel on large number of nodes. Customers have the option to run data workloads in IaaS VMs or PaaS ([HDInsight][HDI]). HDInsight supports deploying into a location-based VNet, can be deployed to a cluster in a spoke of the VDC.
 
-**Events and Messaging**: [Azure Event Hubs][EventHubs] is a hyperscale telemetry ingestion service that collects, transforms, and stores millions of events. As a distributed streaming platform, it offers low latency and configurable time retention, enabling you to ingest massive amounts of telemetry into Azure and read that data from multiple applications. With Event Hubs, a single stream can support both real-time and batch-based pipelines.
+**Events and Messaging**: [Azure Event Hubs][EventHubs] is a hyper-scale telemetry ingestion service that collects, transforms, and stores millions of events. As a distributed streaming platform, it offers low latency and configurable time retention, enabling you to ingest massive amounts of telemetry into Azure and read that data from multiple applications. With Event Hubs, a single stream can support both real-time and batch-based pipelines.
 
 You can implement a highly reliable cloud messaging service between applications and services through [Azure Service Bus][ServiceBus]. It offers asynchronous brokered messaging between client and server, structured first-in-first-out (FIFO) messaging, and publish and subscribe capabilities.
 
@@ -381,21 +381,14 @@ The Virtual datacenter is an approach to datacenter migration to create a scalab
 
 The following features were discussed in this document. Follow the links to learn more.
 
-<!-- markdownlint-disable MD033 -->
-
+| | | |
+|-|-|-|
 |Network Features|Load Balancing|Connectivity|
-|-|-|-|
-|[Azure Virtual Networks][VNet]</br>[Network Security Groups][network-security-groups]</br>[Network Security Group Logs][nsg-log]</br>[User-Defined Routes][user-defined-routes]</br>[Network Virtual Appliances][NVA]</br>[Public IP Addresses][PIP]</br>[Azure DDoS][DDoS]</br>[Azure Firewall][AzFW]</br>[Azure DNS][DNS]|[Azure Front Door][AFD]</br>[Azure Load Balancer (L3)][ALB]</br>[Application Gateway (L7)][AppGW]</br>[Web Application Firewall][WAF]</br>[Azure Traffic Manager][traffic-manager]</br></br></br></br></br> |[VNet Peering][VNetPeering]</br>[Virtual Private Network][VPN]</br>[Virtual WAN][vWAN]</br>[ExpressRoute][ExR]</br>[ExpressRoute Direct][ExRD]</br></br></br></br></br>
-
+|[Azure Virtual Networks][VNet]</br>[Network Security Groups][network-security-groups]</br>[Network Security Group Logs][nsg-log]</br>[User-Defined Routes][user-defined-routes]</br>[Network Virtual Appliances][NVA]</br>[Public IP Addresses][PIP]</br>[Azure DDOS][DDOS]</br>[Azure Firewall][AzFW]</br>[Azure DNS][DNS]|[Azure Front Door][AFD]</br>[Azure Load Balancer (L3)][ALB]</br>[Application Gateway (L7)][AppGW]</br>[Web Application Firewall][WAF]</br>[Azure Traffic Manager][traffic-manager]</br></br></br></br></br> |[VNet Peering][VNetPeering]</br>[Virtual Private Network][VPN]</br>[Virtual WAN][vWAN]</br>[ExpressRoute][ExR]</br>[ExpressRoute Direct][ExRD]</br></br></br></br></br>
 |Identity</br>|Monitoring</br>|Best Practices</br>|
-|-|-|-|
-|[Azure Active Directory][azure-ad]</br>[Multi-Factor Authentication][multi-factor-authentication]</br>[Role Base Access Controls][RBAC]</br>[Default Azure AD Roles][Roles]</br></br></br> |[Network Watcher][NetWatch]</br>[Azure Monitor][Monitor]</br>[Activity Logs][ActLog]</br>[Diagnostic Logs][DiagLog]</br>[Microsoft Operations Management Suite][OMS]</br>[Network Performance Monitor][NPM]|[Perimeter Networks Best Practices][DMZ]</br>[Subscription Management][SubMgmt]</br>[Resource Group Management][RGMgmt]</br>[Azure Subscription Limits][limits] </br></br></br>|
-
+|[Azure Active Directory][azure-ad]</br>[Multi-Factor Authentication][multi-factor-authentication]</br>[Role Base Access Controls][RBAC]</br>[Default Azure AD Roles][Roles]</br></br></br> |[Network Watcher][NetWatch]</br>[Azure Monitor][Monitor]</br>[Activity Logs][ActLog]</br>[Diagnostic Logs][DiagLog]</br>[Microsoft Operations Management Suite][OMS]</br>[Network Performance Monitor][NPM]|[Perimeter Networks Best Practices][DMZ]</br>[Subscription Management][SubMgmt]</br>[Resource Group Management][RGMgmt]</br>[Azure Subscription Limits][Limits] </br></br></br>|
 |Other Azure Services|
-|-|
 |[Azure Web Apps][WebApps]</br>[HDInsights (Hadoop)][HDI]</br>[Event Hubs][EventHubs]</br>[Service Bus][ServiceBus]|
-
-<!-- markdownlint-enable MD033 -->
 
 ## Next Steps
 
@@ -403,8 +396,7 @@ The following features were discussed in this document. Follow the links to lear
 - Implement [Azure AD][azure-ad] to get started with [RBAC][RBAC] exploration
 - Develop a Subscription and Resource management model and RBAC model to meet the structure, requirements, and policies of your organization. The most important activity is planning. As much as practical, plan for reorganizations, mergers, new product lines, and other considerations.
 
-<!-- images -->
-
+<!--Image References-->
 [0]: ./images/networking-redundant-equipment.png "Examples of component overlap"
 [1]: ./images/networking-vdc-high-level.png "High-level example of hub and spoke VDC"
 [2]: ./images/networking-hub-spokes-cluster.png "Cluster of hubs and spokes"
@@ -417,9 +409,8 @@ The following features were discussed in this document. Follow the links to lear
 [9]: ./images/networking-high-level-diagram-monitoring.png "High-level diagram for monitoring"
 [10]: ./images/networking-high-level-workloads.png "High-level diagram for Workload"
 
-<!-- links -->
-
-[limits]: /azure/azure-subscription-service-limits
+<!--Link References-->
+[Limits]: /azure/azure-subscription-service-limits
 [Roles]: /azure/role-based-access-control/built-in-roles
 [VNet]: /azure/virtual-network/virtual-networks-overview
 [network-security-groups]: /azure/virtual-network/virtual-networks-nsg
@@ -440,12 +431,11 @@ The following features were discussed in this document. Follow the links to lear
 [RGMgmt]: /azure/azure-resource-manager/resource-group-overview
 [DMZ]: /azure/best-practices-network-security
 [ALB]: /azure/load-balancer/load-balancer-overview
-[DDoS]: /azure/virtual-network/ddos-protection-overview
-[PIP]: /azure/virtual-network/virtual-network-public-ip-address
+[DDOS]: /azure/virtual-network/ddos-protection-overview
+[PIP]: /azure/virtual-network/resource-groups-networking#public-ip-address
 [AFD]: /azure/frontdoor/front-door-overview
-[AFDWAF]: /azure/frontdoor/waf-overview
 [AppGW]: /azure/application-gateway/application-gateway-introduction
-[AppGWWAF]: /azure/application-gateway/application-gateway-web-application-firewall-overview
+[WAF]: /azure/application-gateway/application-gateway-web-application-firewall-overview
 [Monitor]: /azure/monitoring-and-diagnostics/
 [ActLog]: /azure/monitoring-and-diagnostics/monitoring-overview-activity-logs
 [DiagLog]: /azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs

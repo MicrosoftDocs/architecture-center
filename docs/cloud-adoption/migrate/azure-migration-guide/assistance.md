@@ -6,8 +6,7 @@ author: matticusau
 ms.author: mlavery
 ms.date: 04/04/2019
 ms.topic: conceptual
-ms.service: cloud-adoption-framework
-ms.subservice: migrate
+ms.service: azure-portal
 ms.custom: fasttrack-new
 ---
 
@@ -33,35 +32,21 @@ Microsoft offers a basic support plan to all Azure customers. You have 24x7 acce
 
 If you need help from Microsoft Support while using Azure, follow these steps to create a support request:
 
-::: zone target="docs"
-
 1. Select **Help + support** in the [Azure portal](https://portal.azure.com).
 1. Select **New support request** to enter details about your issue and contact support.
 
-::: zone-end
-
 ::: zone target="chromeless"
-
-1. Select **Help + support**.
-1. Select **New support request** to enter details about your issue and contact support.
 
 ::: form action="OpenBlade[#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest]" submitText="Create a support request" ::: form-end
 
 ::: zone-end
-
-::: zone target="docs"
 
 To view your support requests, follow these steps:
 
 1. Select **Help + support** in the [Azure portal](https://portal.azure.com).
 1. Select **All support requests** to view your support requests.
 
-::: zone-end
-
 ::: zone target="chromeless"
-
-1. Select **Help + support**.
-1. Select **All support requests** to view your support requests.
 
 ::: form action="OpenBlade[#blade/Microsoft_Azure_Support/HelpAndSupportBlade/managesupportrequest]" submitText="View your support requests" ::: form-end
 
@@ -69,17 +54,10 @@ To view your support requests, follow these steps:
 
 Need support engineer assistance for deep technical guidance?
 
-::: zone target="docs"
-
 1. Select **Help + support** in the [Azure portal](https://portal.azure.com).
 1. Select **Support Plans** to review the plans available to you.
 
-::: zone-end
-
 ::: zone target="chromeless"
-
-1. Select **Help + support**.
-1. Select **Support Plans** to review the plans available to you.
 
 ::: form action="OpenBlade[#blade/Microsoft_Azure_Support/HelpAndSupportBlade/supportPlans]" submitText="Review support plans" ::: form-end
 
@@ -91,7 +69,7 @@ Need support engineer assistance for deep technical guidance?
 
 The following online communities provide community-based support:
 
-- [MSDN forums](https://social.msdn.microsoft.com/Forums/home?forum=windowsazureplatform%2Cazuremarketplace%2Cwindowsazureplatformctp)
+- [MSDN forums](https://social.msdn.microsoft.com/Forums/en-us/home?forum=windowsazureplatform%2Cazuremarketplace%2Cwindowsazureplatformctp)
 - [Stack Overflow](https://stackoverflow.com/questions/tagged/azure)
 
 ::: zone-end

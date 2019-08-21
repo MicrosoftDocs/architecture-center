@@ -3,7 +3,7 @@ title: Serverless web application
 titleSuffix: Azure Reference Architectures
 description: Recommended architecture for a serverless web application and web API.
 author: MikeWasson
-ms.date: 05/28/2019
+ms.date: 10/16/2018
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -41,7 +41,7 @@ The architecture consists of the following components:
 
 **Function Apps**. [Azure Functions][functions] is a serverless compute option. It uses an event-driven model, where a piece of code (a "function") is invoked by a trigger. In this architecture, the function is invoked when a client makes an HTTP request. The request is always routed through an API gateway, described below.
 
-**API Management**. [API Management][apim] provides an API gateway that sits in front of the HTTP function. You can use API Management to publish and manage APIs used by client applications. Using a gateway helps to decouple the front-end application from the back-end APIs. For example, API Management can rewrite URLs, transform requests before they reach the backend, set request or response headers, and so forth.
+**API Management**. [API Management][apim] provides a API gateway that sits in front of the HTTP function. You can use API Management to publish and manage APIs used by client applications. Using a gateway helps to decouple the front-end application from the back-end APIs. For example, API Management can rewrite URLs, transform requests before they reach the backend, set request or response headers, and so forth.
 
 API Management can also be used to implement cross-cutting concerns such as:
 
@@ -158,11 +158,46 @@ Within an API, use [scopes][scopes] to give applications fine-grained control ov
 
 ### Authorization
 
-In many applications, the backend API must check whether a user has permission to perform a given action. It's recommended to use [claims-based authorization][claims], where information about the user is conveyed by the identity provider (in this case, Azure AD) and used to make authorization decisions. For example, when you register an application in Azure AD, you can define a set of application roles. When a user signs into the application, Azure AD includes a `roles` claim for each role that the user has been granted, including roles that are inherited through group membership.
+In many applications, the backend API must check whether a user has permission to perform a given action. It's recommended to use [claims-based authorization][claims], where information about the user is conveyed by the identity provider (in this case, Azure AD) and used to make authorization decisions.
 
-The ID token that Azure AD returns to the client contains some of the user's claims. Within the function app, these claims are available in the X-MS-CLIENT-PRINCIPAL header of the request. However, it's simpler to read this information from binding data. For other claims, use [Microsoft Graph][graph] to query Azure AD. (The user must consent to this action when signing in.)
+Some claims are provided inside the ID token that Azure AD returns to the client. You can get these claims from within the function app by examining the X-MS-CLIENT-PRINCIPAL header in the request. For other claims, use [Microsoft Graph][graph] to query Azure AD (requires user consent during sign-in).
 
-For more information, see [Working with client identities](/azure/azure-functions/functions-bindings-http-webhook#working-with-client-identities).
+For example, when you register an application in Azure AD, you can define a set of application roles in the application's registration manifest. When a user signs into the application, Azure AD includes a "roles" claim for each role that the user has been granted (including roles that are inherited through group membership).
+
+In the reference implementation, the function checks whether the authenticated user is a member of the `GetStatus` application role. If not, the function returns an HTTP Unauthorized (401) response.
+
+```csharp
+[FunctionName("GetStatusFunction")]
+public static Task<IActionResult> Run(
+    [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req,
+    [CosmosDB(
+        databaseName: "%COSMOSDB_DATABASE_NAME%",
+        collectionName: "%COSMOSDB_DATABASE_COL%",
+        ConnectionStringSetting = "COSMOSDB_CONNECTION_STRING",
+        Id = "{Query.deviceId}",
+        PartitionKey = "{Query.deviceId}")] dynamic deviceStatus,
+    ILogger log)
+{
+    log.LogInformation("Processing GetStatus request.");
+
+    return req.HandleIfAuthorizedForRoles(new[] { GetDeviceStatusRoleName },
+        async () =>
+        {
+            string deviceId = req.Query["deviceId"];
+            if (deviceId == null)
+            {
+                return new BadRequestObjectResult("Missing DeviceId");
+            }
+
+            return await Task.FromResult<IActionResult>(deviceStatus != null
+                    ? (ActionResult)new OkObjectResult(deviceStatus)
+                    : new NotFoundResult());
+        },
+        log);
+}
+```
+
+In this code example, `HandleIfAuthorizedForRoles` is an extension method that checks for the role claim and returns HTTP 401 if the claim isn't found. You can find the source code [here][HttpRequestAuthorizationExtensions]. Notice that `HandleIfAuthorizedForRoles` takes an `ILogger` parameter. You should log unauthorized requests so that you have an audit trail and can diagnose issues if needed. At the same time, avoid leaking any detailed information inside the HTTP 401 response.
 
 ### CORS
 
@@ -251,11 +286,7 @@ For updates that are not breaking API changes, deploy the new version to a stagi
 
 ## Deploy the solution
 
-To deploy the reference implementation for this architecture, see the [GitHub readme][readme].
-
-## Next steps
-
-To learn more about the reference implementation, read [Show me the code: Serverless application with Azure Functions](../../serverless/index.md).
+To deploy this reference architecture, view the [GitHub readme][readme].
 
 <!-- links -->
 
@@ -304,5 +335,6 @@ To learn more about the reference implementation, read [Show me the code: Server
 [storage-https]: /azure/storage/common/storage-require-secure-transfer
 [tm]: /azure/traffic-manager/traffic-manager-overview
 
-[github]: https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0
-[readme]: https://github.com/mspnp/serverless-reference-implementation/blob/v0.1.0/README.md
+[github]: https://github.com/mspnp/serverless-reference-implementation
+[HttpRequestAuthorizationExtensions]: https://github.com/mspnp/serverless-reference-implementation/blob/master/src/DroneStatus/dotnet/DroneStatusFunctionApp/HttpRequestAuthorizationExtensions.cs
+[readme]: https://github.com/mspnp/serverless-reference-implementation/blob/master/README.md

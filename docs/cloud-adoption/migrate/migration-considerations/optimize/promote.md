@@ -3,11 +3,7 @@ title: "What is required to promote a migrated resource to production?"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: A process within cloud migration that focuses on the tasks of migrating workloads to the cloud.
 author: BrianBlanchard
-ms.author: brblanch
 ms.date: 04/04/2019
-ms.topic: guide
-ms.service: cloud-adoption-framework
-ms.subservice: migrate
 ---
 
 <!-- markdownlint-disable MD026 -->
@@ -48,7 +44,7 @@ Workloads will require varying levels of detailed review and promotion processes
 
 ## Next steps
 
-Promotion of a workload signals the completion of a release. However, in parallel with migration, retired assets need to be [decommissioned](./decommission.md) taking them out of service.
+Promotion of a workload signals the completion of a release. However, in parallel to migration, retired assets need to be [decommissioned](./decommission.md) taking them out of service.
 
 > [!div class="nextstepaction"]
 > [Decommission retired assets](./decommission.md)

@@ -1,14 +1,12 @@
 ---
 title: "Resource Consistency metrics, indicators, and risk tolerance"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 description: Resource Consistency metrics, indicators, and risk tolerance
 author: BrianBlanchard
-ms.author: brblanch
-ms.date: 02/11/2019
-ms.topic: guide
-ms.service: cloud-adoption-framework
-ms.subservice: govern
-ms.custom: governance
 ---
 
 # Resource Consistency metrics, indicators, and risk tolerance
@@ -61,7 +59,7 @@ Once you have a baseline, establish minimum benchmarks representing an unaccepta
 - **Backup coverage trigger.** A company with _x%_ of mission-critical assets without up-to-date backups in place would benefit from an increased investment in the Resource Consistency discipline to ensure a consistent backup strategy.
 - **Backup health trigger.** A company experiencing more than _x%_ failure of restore operations should invest in the Resource Consistency discipline to identify problems with backup and ensure important resources are protected.
 
-The exact metrics and triggers you use to gauge risk tolerance and the level of investment in the Resource Consistency discipline will be specific to your organization, but the examples above should serve as a useful base for discussion within your cloud governance team.
+The exact metrics and triggers you use to gauge risk tolerance and the level of investment in the Resource Consistency discipline will be specific to your organization, but the examples above should serve as a useful base for discussion within your Cloud Governance team.
 
 ## Next steps
 

@@ -30,9 +30,9 @@ The Surveys application uses the OpenID Connect (OIDC) protocol to authenticate 
 
 To enable OpenID Connect, the SaaS provider registers the application inside their own Azure AD tenant.
 
-To register the application, follow the steps in [Quickstart: Register an application with the Microsoft identity platform](/azure/active-directory/develop/quickstart-register-app).
+To register the application, follow the steps in [Integrating Applications with Azure Active Directory](/azure/active-directory/active-directory-integrating-applications/), in the section [Adding an Application](/azure/active-directory/active-directory-integrating-applications/#adding-an-application).
 
-To enable this functionality in the sample Surveys application, see the [GitHub readme](https://github.com/mspnp/multitenant-saas-guidance/blob/master/get-started.md). Note the following:
+See [Run the Surveys application](./run-the-app.md) for the specific steps for the Surveys application. Note the following:
 
 - For a multitenant application, you must configure the multitenanted option explicitly. This enables other organizations to access the application.
 
@@ -83,7 +83,7 @@ app.UseCookieAuthentication(new CookieAuthenticationOptions {
 
 ## Initiate the authentication flow
 
-To start the authentication flow in ASP.NET MVC, return a **ChallengeResult** from the controller:
+To start the authentication flow in ASP.NET MVC, return a **ChallengeResult** from the contoller:
 
 ```csharp
 [AllowAnonymous]
@@ -166,7 +166,7 @@ By default, the OIDC middleware knows how to fetch this metadata. Set the **Auth
 By default, the OIDC middleware uses hybrid flow with form post response mode.
 
 - *Hybrid flow* means the client can get an ID token and an authorization code in the same round-trip to the authorization server.
-- *Form post response mode* means the authorization server uses an HTTP POST request to send the ID token and authorization code to the app. The values are form-urlencoded (content type = "application/x-www-form-urlencoded").
+- *Form post reponse mode* means the authorization server uses an HTTP POST request to send the ID token and authorization code to the app. The values are form-urlencoded (content type = "application/x-www-form-urlencoded").
 
 When the OIDC middleware redirects to the authorization endpoint, the redirect URL includes all of the query string parameters needed by OIDC. For hybrid flow:
 
@@ -189,6 +189,6 @@ app.UseOpenIdConnectAuthentication(options =>
 [**Next**][claims]
 
 [claims]: claims.md
-[cookie-options]: /aspnet/core/security/authentication/cookie#absolute-cookie-expiration
+[cookie-options]: /aspnet/core/security/authentication/cookie#controlling-cookie-options
 [session-cookie]: https://en.wikipedia.org/wiki/HTTP_cookie#Session_cookie
 [sample application]: https://github.com/mspnp/multitenant-saas-guidance

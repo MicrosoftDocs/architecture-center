@@ -3,11 +3,10 @@ title: "Best practices to set up networking for workloads migrated to Azure"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: After migrating to Azure, get best practices for setting up networking for your migrated workloads.
 author: BrianBlanchard
-ms.author: brblanch
-ms.date: 12/04/2018
+ms.service: azure-migrate
 ms.topic: conceptual
-ms.service: cloud-adoption-framework
-ms.subservice: migrate
+ms.date: 12/04/2018
+ms.author: brblanch
 ---
 
 # Best practices to set up networking for workloads migrated to Azure
@@ -251,7 +250,7 @@ Now imagine you have an Azure deployment (for example, Azure App Service) in bot
 
 - You want users in each office to access their nearest Azure services for an optimal experience.
 - Thus you want to connect users in Los Angeles to Azure US West and users in New York to Azure US East.
-- This works for East Coast users, but not for those on the West Coast. The problem is:
+- This works for east coast users, but not for the west. The problem is as follows:
   - On each ExpressRoute circuit, we advertise both prefixes in Azure US East (23.100.0.0/16) and Azure US West (13.100.0.0/16).
   - Without knowing which prefix is from which region, prefixes aren't treated differently.
   - Your WAN network can assume that both prefixes are closer to US East than US West, and thus route users from both offices to the ExpressRoute circuit in US East, providing a suboptimal experience for users in the Los Angeles office.
@@ -372,11 +371,11 @@ NIC4 | AsgDb
 
 <!--markdownlint-disable MD033 -->
 
-**Rule name** | **Purpose** | **Details**
---- | --- | ---
-Allow-HTTP-Inbound-Internet | Allow traffic from the internet to the web servers. Inbound traffic from the internet is denied by the DenyAllInbound default security rule, so no additional rule is needed for the AsgLogic or AsgDb application security groups. | Priority: 100<br/><br/> Source: internet<br/><br/> Source port: *<br/><br/> Destination: AsgWeb<br/><br/> Destination port: 80<br/><br/> Protocol: TCP<br/><br/> Access: Allow.
-Deny-Database-All | AllowVNetInBound default security rule allows all communication between resources in the same VNet, this rule is needed to deny traffic from all resources. | Priority: 120<br/><br/> Source: *<br/><br/> Source port: *<br/><br/> Destination: AsgDb<br/><br/> Destination port: 1433<br/><br/> Protocol: All<br/><br/> Access: Deny.
-Allow-Database-BusinessLogic | Allow traffic from the AsgLogic application security group to the AsgDb application security group. The priority for this rule is higher than the Deny-Database-All rule, and is processed before that rule, so traffic from the AsgLogic application security group is allowed, and all other traffic is blocked. | Priority: 110<br/><br/> Source: AsgLogic<br/><br/> Source port: *<br/><br/> Destination: AsgDb<br/><br/> Destination port: 1433<br/><br/> Protocol: TCP<br/><br/> Access: Allow.
+    **Rule name** | **Purpose** | **Details**
+    --- | --- | ---
+    Allow-HTTP-Inbound-Internet | Allow traffic from the internet to the web servers. Inbound traffic from the internet is denied by the DenyAllInbound default security rule, so no additional rule is needed for the AsgLogic or AsgDb application security groups. | Priority: 100<br/><br/> Source: internet<br/><br/> Source port: *<br/><br/> Destination: AsgWeb<br/><br/> Destination port: 80<br/><br/> Protocol: TCP<br/><br/> Access: Allow.
+    Deny-Database-All | AllowVNetInBound default security rule allows all communication between resources in the same VNet, this rule is needed to deny traffic from all resources. | Priority: 120<br/><br/> Source: *<br/><br/> Source port: *<br/><br/> Destination: AsgDb<br/><br/> Destination port: 1433<br/><br/> Protocol: All<br/><br/> Access: Deny.
+    Allow-Database-BusinessLogic | Allow traffic from the AsgLogic application security group to the AsgDb application security group. The priority for this rule is higher than the Deny-Database-All rule, and is processed before that rule, so traffic from the AsgLogic application security group is allowed, and all other traffic is blocked. | Priority: 110<br/><br/> Source: AsgLogic<br/><br/> Source port: *<br/><br/> Destination: AsgDb<br/><br/> Destination port: 1433<br/><br/> Protocol: TCP<br/><br/> Access: Allow.
 
 <!--markdownlint-enable MD033 -->
 

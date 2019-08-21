@@ -1,14 +1,12 @@
 ---
 title: "Cost Management tools in Azure"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
+ms.service: architecture-center
+ms.subservice: enterprise-cloud-adoption
+ms.custom: governance
+ms.date: 02/11/2019
 description: Cost Management tools in Azure
 author: BrianBlanchard
-ms.author: brblanch
-ms.date: 02/11/2019
-ms.topic: guide
-ms.service: cloud-adoption-framework
-ms.subservice: govern
-ms.custom: governance
 ---
 
 # Cost Management tools in Azure
@@ -17,7 +15,7 @@ ms.custom: governance
 
 The following is a list of Azure native tools that can help mature the policies and processes that support this governance discipline.
 
-| Tool | [Azure portal](https://azure.microsoft.com/features/azure-portal)  | [Azure Cost Management](/azure/cost-management/overview-cost-mgt)  | [Azure EA Content Pack](/power-bi/service-connect-to-azure-enterprise)  | [Azure Policy](/azure/governance/policy/overview) |
+|  | [Azure portal](https://azure.microsoft.com/features/azure-portal)  | [Azure Cost Management](/azure/cost-management/overview-cost-mgt)  | [Azure EA Content Pack](/power-bi/service-connect-to-azure-enterprise)  | [Azure Policy](/azure/governance/policy/overview) |
 |---------|---------|---------|---------|---------|
 |Enterprise Agreement required?     | No         | No         | Yes         | No         |
 |Budget control     | No         | Yes         | No         | Yes         |

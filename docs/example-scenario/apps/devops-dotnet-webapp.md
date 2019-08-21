@@ -37,7 +37,7 @@ The data flows through the scenario as follows:
 4. Continuous deployment within Azure Pipelines triggers an automated deployment of application artifacts *with environment-specific configuration values*.
 5. The artifacts are deployed to Azure App Service.
 6. Azure Application Insights collects and analyzes health, performance, and usage data.
-7. Developers monitor and manage health, performance, and usage information.
+7. Developers monitor and mange health, performance, and usage information.
 8. Backlog information is used to prioritize new features and bug fixes using Azure Boards.
 
 ### Components
@@ -136,7 +136,7 @@ Review the following resources to learn more about CI/CD and Azure DevOps:
 [download-keyvault-secrets]: /vsts/pipelines/tasks/deploy/azure-key-vault?view=vsts
 [resource-groups]: /azure/azure-resource-manager/resource-group-overview
 [resiliency-app-service]: /azure/architecture/checklist/resiliency-per-service#app-service
-[vsts]: /azure/devops/
+[vsts]: /vsts/?view=vsts#pivot=services
 [continuous-integration]: /azure/devops/what-is-continuous-integration
 [continuous-delivery]: /azure/devops/what-is-continuous-delivery
 [web-apps]: /azure/app-service/app-service-web-overview

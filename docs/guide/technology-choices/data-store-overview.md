@@ -54,7 +54,7 @@ A single key/value store can be extremely scalable, as the data store can easily
 Relevant Azure services:
 
 - [Cosmos DB][cosmos-db]
-- [Azure Cache for Redis][redis]
+- [Azure Redis Cache][redis-cache]
 
 ## Document databases
 
@@ -150,7 +150,7 @@ Relevant Azure service: [File Storage][file-storage]
 [mysql]: https://azure.microsoft.com/services/mysql/
 [postgres]: https://azure.microsoft.com/services/postgresql/
 [mariadb]: https://azure.microsoft.com/services/mariadb/
-[redis]: https://azure.microsoft.com/services/cache/
+[redis-cache]: https://azure.microsoft.com/services/cache/
 [search]: https://azure.microsoft.com/services/search/
 [sql-db]: https://azure.microsoft.com/services/sql-database
 [sql-dw]: https://azure.microsoft.com/services/sql-data-warehouse/
