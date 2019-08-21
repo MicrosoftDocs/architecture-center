@@ -6,7 +6,8 @@ author: laraaleite
 ms.author: kfollis
 ms.date: 04/09/2019
 ms.topic: conceptual
-ms.service: azure-portal
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
 ms.custom: "fasttrack-edit"
 ---
 # Organize your Azure resources
@@ -143,7 +144,7 @@ You can also use tags for many other things. Common uses include:
 
 Each resource or resource group can have a maximum of 15 tag name/value pairs. However, this limitation only applies to tags directly applied to the resource group or resource.
 
-For further information on tagging refer to [Azure Architecture Center's naming conventions for Azure resources](../../ready/considerations/naming-and-tagging.md#metadata-tags)
+For further information on tagging refer to [Azure Architecture Center's naming conventions for Azure resources](../../ready/considerations/name-and-tag.md#metadata-tags)
 
 ::: zone target="docs"
 

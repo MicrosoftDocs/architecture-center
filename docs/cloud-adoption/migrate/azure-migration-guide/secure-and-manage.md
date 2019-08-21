@@ -6,7 +6,8 @@ author: matticusau
 ms.author: mlavery
 ms.date: 04/04/2019
 ms.topic: conceptual
-ms.service: azure-portal
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
 ms.custom: fasttrack-new
 ---
 
@@ -65,7 +66,7 @@ Combined, these experiences give you a comprehensive view of Azure health, at a 
 
 ## Read more
 
-To learn more, see the [Azure Service Health documentation](/azure/service-health/).
+To learn more, see the [Azure Service Health documentation](/azure/service-health).
 
 ::: zone-end
 

@@ -62,7 +62,7 @@ This reference architecture bundles the application (R) and the data (model obje
 
 Use the [Kubernetes dashboard][dashboard] to monitor the overall status of your AKS cluster. See the cluster’s overview blade in Azure portal for more details. The [GitHub][github] resources also show how to bring up the dashboard from R.
 
-Although the dashboard gives you a view of the overall health of your cluster, it’s also important to track the status of individual containers. To do this, enable [Azure Monitor Insights][monitor] from the cluster overview blade in Azure portal, or see [Azure Monitor for containers][monitor-containers] (in preview).
+Although the dashboard gives you a view of the overall health of your cluster, it’s also important to track the status of individual containers. To do this, enable [Azure Monitor Insights][monitor] from the cluster overview blade in Azure portal, or consider [Azure Monitor for containers][monitor-containers] (in preview).
 
 ## Cost considerations
 

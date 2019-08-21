@@ -1,11 +1,14 @@
 ---
 title: Azure Virtual Datacenter
 description: Resources for the Microsoft Azure Virtual Datacenter
+author: tracsman
+ms.author: jonor
+ms.date: 06/12/2019
+ms.topic: landing-page
+ms.service: cloud-adoption-framework
+ms.subservice: reference
 keywords: Azure
 layout: LandingPage
-ms.topic: landing-page
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
 ---
 
 # Azure Virtual Datacenter and the Enterprise Control Plane

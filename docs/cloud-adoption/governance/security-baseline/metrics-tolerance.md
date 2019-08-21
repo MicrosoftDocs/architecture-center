@@ -1,12 +1,14 @@
 ---
 title: "Security Baseline metrics, indicators, and risk tolerance"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
-ms.custom: governance
-ms.date: 02/11/2019
 description: Security Baseline metrics, indicators, and risk tolerance
 author: BrianBlanchard
+ms.author: brblanch
+ms.date: 02/11/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: govern
+ms.custom: governance
 ---
 
 # Security Baseline metrics, indicators, and risk tolerance
@@ -23,7 +25,7 @@ Every organization has different security environments and requirements and diff
 - **Number of sensitive data stores:** Number of storage end points or databases that contain sensitive data and should be protected.
 - **Number of unencrypted data stores:** Number of sensitive data stores that are not encrypted.
 - **Attack surface:** How many total data sources, services, and applications will be cloud-hosted. What percentage of these data sources are classified as sensitive? What percentage of these applications and services are mission-critical?
-- **Covered standards:** Number of security standards defined by the Security team.
+- **Covered standards:** Number of security standards defined by the security team.
 - **Covered resources:** Deployed assets that are covered by security standards.
 - **Overall standards compliance:** Ratio of compliance adherence to security standards.
 - **Attacks by severity:** How many coordinated attempts to disrupt your cloud-hosted services, such as through Distributed Denial of Service (DDoS) attacks, does your infrastructure experience? What is the size and severity of these attacks?
@@ -48,7 +50,7 @@ Once you have a baseline, establish minimum benchmarks representing an unaccepta
 - **Patching trigger.** A company where deployed virtual machines or services where OS or software patches have not been applied in the last _x_ days. A Security Baseline discipline can be used to ensure patching is kept up-to-date within a required schedule.
 - **Security-focused.** Some companies will have strong security and data confidentiality requirements even for test and experimental workloads. These companies will need to invest in the Security Baseline discipline before any deployments can begin.
 
-The exact metrics and triggers you use to gauge risk tolerance and the level of investment in the Security Baseline discipline will be specific to your organization, but the examples above should serve as a useful base for discussion within your Cloud Governance team.
+The exact metrics and triggers you use to gauge risk tolerance and the level of investment in the Security Baseline discipline will be specific to your organization, but the examples above should serve as a useful base for discussion within your cloud governance team.
 
 ## Next steps
 

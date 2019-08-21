@@ -72,7 +72,7 @@ As a general rule, SMP-based warehouses are best suited for small to medium data
 
 Beyond data sizes, the type of workload pattern is likely to be a greater determining factor. For example, complex queries may be too slow for an SMP solution, and require an MPP solution instead. MPP-based systems usually have a performance penalty with small data sizes, because of how jobs are distributed and consolidated across nodes. If your data sizes already exceed 1 TB and are expected to continually grow, consider selecting an MPP solution. However, if your data sizes are smaller, but your workloads are exceeding the available resources of your SMP solution, then MPP may be your best option as well.
 
-The data accessed or stored by your data warehouse could come from a number of data sources, including a data lake, such as [Azure Data Lake Store](/azure/data-lake-store/). For a video session that compares the different strengths of MPP services that can use Azure Data Lake, see [Azure Data Lake and Azure Data Warehouse: Applying Modern Practices to Your App](https://azure.microsoft.com/resources/videos/build-2016-azure-data-lake-and-azure-data-warehouse-applying-modern-practices-to-your-app/).
+The data accessed or stored by your data warehouse could come from a number of data sources, including a data lake, such as [Azure Data Lake Storage](/azure/data-lake-store/). For a video session that compares the different strengths of MPP services that can use Azure Data Lake, see [Azure Data Lake and Azure Data Warehouse: Applying Modern Practices to Your App](https://azure.microsoft.com/resources/videos/build-2016-azure-data-lake-and-azure-data-warehouse-applying-modern-practices-to-your-app/).
 
 SMP systems are characterized by a single instance of a relational database management system sharing all resources (CPU/Memory/Disk). You can scale up an SMP system. For SQL Server running on a VM, you can scale up the VM size. For Azure SQL Database, you can scale up by selecting a different service tier.
 
@@ -128,7 +128,7 @@ The following tables summarize the key differences in capabilities.
 
 <!-- markdownlint-disable MD033 -->
 
-| | Azure SQL Database | SQL Server (VM) | SQL Data Warehouse | Apache Hive on HDInsight | Hive LLAP on HDInsight |
+| Capability | Azure SQL Database | SQL Server (VM) | SQL Data Warehouse | Apache Hive on HDInsight | Hive LLAP on HDInsight |
 | --- | --- | --- | --- | --- | --- | -- |
 | Is managed service | Yes | No | Yes | Yes <sup>1</sup> | Yes <sup>1</sup> |
 | Requires data orchestration (holds copy of data/historical data) | No | No | Yes | Yes | Yes |
@@ -147,18 +147,18 @@ The following tables summarize the key differences in capabilities.
 
 [3] With SQL Data Warehouse, you can restore a database to any available restore point within the last seven days. Snapshots start every four to eight hours and are available for seven days. When a snapshot is older than seven days, it expires and its restore point is no longer available.
 
-[4] Consider using an [external Hive metastore](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters#use-hiveoozie-metastore) that can be backed up and restored as needed. Standard backup and restore options that apply to Blob Storage or Data Lake Store can be used for the data, or third-party HDInsight backup and restore solutions, such as [Imanis Data](https://azure.microsoft.com/blog/imanis-data-cloud-migration-backup-for-your-big-data-applications-on-azure-hdinsight/) can be used for greater flexibility and ease of use.
+[4] Consider using an [external Hive metastore](/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters#use-hiveoozie-metastore) that can be backed up and restored as needed. Standard backup and restore options that apply to Blob Storage or Data Lake Storage can be used for the data, or third-party HDInsight backup and restore solutions, such as [Imanis Data](https://azure.microsoft.com/blog/imanis-data-cloud-migration-backup-for-your-big-data-applications-on-azure-hdinsight/) can be used for greater flexibility and ease of use.
 
 ### Scalability capabilities
 
 <!-- markdownlint-disable MD033 -->
 
-| | Azure SQL Database | SQL Server (VM) |  SQL Data Warehouse | Apache Hive on HDInsight | Hive LLAP on HDInsight |
+| Capability | Azure SQL Database | SQL Server (VM) |  SQL Data Warehouse | Apache Hive on HDInsight | Hive LLAP on HDInsight |
 | --- | --- | --- | --- | --- | --- | -- |
 | Redundant regional servers for high availability  | Yes | Yes | Yes | No | No |
 | Supports query scale out (distributed queries)  | No | No | Yes | Yes | Yes |
 | Dynamic scalability | Yes | No | Yes <sup>1</sup> | No | No |
-| Supports in-memory caching of data | Yes |  Yes | No | Yes | Yes |
+| Supports in-memory caching of data | Yes |  Yes | Yes | Yes | Yes |
 
 [1] SQL Data Warehouse allows you to scale up or down by adjusting the number of data warehouse units (DWUs). See [Manage compute power in Azure SQL Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-manage-compute-overview).
 
@@ -168,7 +168,7 @@ The following tables summarize the key differences in capabilities.
 
 <!-- markdownlint-disable MD033 -->
 
-|                         |           Azure SQL Database            |  SQL Server in a virtual machine  | SQL Data Warehouse |   Apache Hive on HDInsight    |    Hive LLAP on HDInsight     |
+| Capability |           Azure SQL Database            |  SQL Server in a virtual machine  | SQL Data Warehouse |   Apache Hive on HDInsight    |    Hive LLAP on HDInsight     |
 |-------------------------|-----------------------------------------|-----------------------------------|--------------------|-------------------------------|-------------------------------|
 |     Authentication      | SQL / Azure Active Directory (Azure AD) | SQL / Azure AD / Active Directory |   SQL / Azure AD   | local / Azure AD <sup>1</sup> | local / Azure AD <sup>1</sup> |
 |      Authorization      |                   Yes                   |                Yes                |        Yes         |              Yes              |       Yes <sup>1</sup>        |
@@ -188,7 +188,7 @@ The following tables summarize the key differences in capabilities.
 
 Read more about securing your data warehouse:
 
-- [Securing your SQL Database](/azure/sql-database/sql-database-security-overview#connection-security)
+- [Securing your SQL Database](/azure/sql-database/sql-database-security-overview#network-security)
 
 - [Secure a database in SQL Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-overview-manage-security)
 

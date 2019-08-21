@@ -175,6 +175,9 @@ Many failures are manageable within the same Azure region. However, in the unlik
 > [!NOTE]
 > This process occurs only for region-wide service disruptions and is not within your control. Consider using [Azure Site Recovery](/azure/site-recovery/) to achieve better RPO and RTO. Using Site Recovery, you decide what is an acceptable outage and when to fail over to the replicated VMs.
 
+>[!NOTE]
+>The selection of the Resource Group location is important. In the event of a regional outage, you will be unable to control resources inside that Resource Group, regardless of what region those resources are actually in (i.e., the resources in the other region(s) will continue to function, but management plane operations will be unavailable.
+
 Your response to a region-wide service disruption depends on your deployment and your disaster recovery plan.
 
 - As a cost-control strategy, for non-critical applications that don't require a guaranteed recovery time, it might make sense to redeploy to a different region.

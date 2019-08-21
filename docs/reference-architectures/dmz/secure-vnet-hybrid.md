@@ -115,7 +115,7 @@ Do not create a public IP address for the jumpbox. Instead, create one route to 
 
 The reference architecture uses a load balancer to direct on-premises network traffic to a pool of NVA devices, which route the traffic. The NVAs are placed in an [availability set][availability-set]. This design allows you to monitor the throughput of the NVAs over time and add NVA devices in response to increases in load.
 
-The standard SKU VPN gateway supports sustained throughput of up to 100 Mbps. The High Performance SKU provides up to 200 Mbps. For higher bandwidths, consider upgrading to an ExpressRoute gateway. ExpressRoute provides up to 10 Gbps bandwidth with lower latency than a VPN connection.
+For details about the bandwidth limits of VPN Gateway, see [Gateway SKUs](/azure/vpn-gateway/vpn-gateway-about-vpngateways#gwsku). For higher bandwidths, consider upgrading to an ExpressRoute gateway. ExpressRoute provides up to 10 Gbps bandwidth with lower latency than a VPN connection.
 
 For more information about the scalability of Azure gateways, see the scalability consideration section in [Implementing a hybrid network architecture with Azure and on-premises VPN][guidance-vpn-gateway-scalability] and [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute-scalability].
 
@@ -185,7 +185,7 @@ A deployment for a reference architecture that implements these recommendations 
 
 In this step, you will connect the two local network gateways.
 
-1. In the Azure Portal, navigate to the resource group that you created.
+1. In the Azure portal, navigate to the resource group that you created.
 
 2. Find the resource named `ra-vpn-vgw-pip` and copy the IP address shown in the **Overview** blade.
 
@@ -209,7 +209,7 @@ In this step, you will connect the two local network gateways.
 
 ### Verify that network traffic reaches the web tier
 
-1. In the Azure Portal, navigate to the resource group that you created.
+1. In the Azure portal, navigate to the resource group that you created.
 
 2. Find the resource named `int-dmz-lb`, which is the load balancer in front of the private DMZ. Copy the private IP address from the **Overview** blade.
 
@@ -245,7 +245,7 @@ In this step, you will connect the two local network gateways.
 [guidance-vpn-gateway-manageability]: ../hybrid-networking/vpn.md#manageability-considerations
 [guidance-vpn-gateway-scalability]: ../hybrid-networking/vpn.md#scalability-considerations
 [guidance-vpn-gateway-security]: ../hybrid-networking/vpn.md#security-considerations
-[ip-forwarding]: /azure/virtual-network/virtual-networks-udr-overview#ip-forwarding
+[ip-forwarding]: /azure/virtual-network/virtual-network-network-interface#enable-or-disable-ip-forwarding
 [ra-expressroute]: ../hybrid-networking/expressroute.md
 [ra-n-tier]: ../virtual-machines-windows/n-tier.md
 [ra-vpn]: ../hybrid-networking/vpn.md

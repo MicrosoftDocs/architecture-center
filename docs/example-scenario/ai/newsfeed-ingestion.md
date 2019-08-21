@@ -27,7 +27,7 @@ While this scenario is based on processing of RSS feeds, it's relevant to any do
 
 ## Architecture
 
-![][architecture]
+![Diagram of the architecture][architecture]
 
 The data flows through the solution as follows:
 
@@ -72,6 +72,8 @@ The following list of Azure components is used in this example.
 * Implement this architecture using customized AI components rather than existing Azure services. For example, extend the pipeline using a customized model that detects certain people in an image as opposed to the generic people count, gender, and age data collected in this example. To use customized machine learning or AI models with this architecture, build the models as RESTful endpoints so they can be called from Azure Functions.
 
 * Use a different input mechanism instead of RSS feeds. Use multiple generators or ingestion processes to feed Azure Cosmos DB and Azure Storage.
+
+* [Azure Cognitive Search][cognitivesearch] is an AI feature in [Azure Search][azuresearch] that can also used to extract text from images, blobs, and other unstructured data sources. 
 
 ## Considerations
 
@@ -150,3 +152,5 @@ All the code for this scenario is available in the [GitHub][github] repository. 
 [text-analytics]: /azure/cognitive-services/text-analytics/
 [translate-text]: /azure/cognitive-services/translator/translator-info-overview
 [vision]: /azure/cognitive-services/computer-vision/home
+[cognitivesearch]: https://docs.microsoft.com/azure/architecture/example-scenario/ai/newsfeed-ingestion
+[azuresearch]: https://azure.microsoft.com/services/search/

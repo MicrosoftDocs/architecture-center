@@ -2,12 +2,13 @@
 title: "Deploy a migration infrastructure"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how Contoso sets up an Azure infrastructure for migration to Azure.
-services: azure-migrate
 author: BrianBlanchard
-ms.service: azure-migrate
-ms.topic: conceptual
-ms.date: 10/1/2018
 ms.author: brblanch
+ms.date: 10/1/2018
+ms.topic: conceptual
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
+services: azure-migrate
 ---
 
 # Deploy a migration infrastructure
@@ -204,11 +205,11 @@ To facilitate integration, Contoso uses the [Azure AD Connect tool](/azure/activ
 
     ![Azure AD Connect Wizard](./media/contoso-migration-infrastructure/ad-connect-wiz1.png)
 
-3. In **Connect to Azure AD**, they specify the credentials for connecting to the Azure AD (in the form CONTOSO\admin or contoso.com\admin).
+3. In **Connect to Azure AD**, they specify the credentials for connecting to the Azure AD (in the form admin@contoso.com or admin@contoso.onmicrosoft.com).
 
     ![Azure AD Connect Wizard](./media/contoso-migration-infrastructure/ad-connect-wiz2.png)
 
-4. In **Connect to AD DS**, they specify credentials for the on-premises Active Directory.
+4. In **Connect to AD DS**, they specify credentials for the on-premises Active Directory (in the form CONTOSO\admin or contoso.com\admin).
 
      ![Azure AD Connect Wizard](./media/contoso-migration-infrastructure/ad-connect-wiz3.png)
 
@@ -644,7 +645,7 @@ As they configure identity and access control, Contoso has already begun to put 
 
 The Azure Policy service evaluates your resources, scanning for those not compliant with the policy definitions you have in place. For example, you might have a policy that only allows certain types of VMs, or requires resources to have a specific tag.
 
-Policies specify a policy definition, and a policy assignment specifies the scope in which a policy should be applied. The scope can range from a management group to a resource group. [Learn](/azure/governance/policy/tutorials/create-and-manage.md) about creating and managing policies.
+Policies specify a policy definition, and a policy assignment specifies the scope in which a policy should be applied. The scope can range from a management group to a resource group. [Learn](/azure/governance/policy/tutorials/create-and-manage) about creating and managing policies.
 
 Contoso wants to get started with a couple of policies:
 
@@ -775,8 +776,8 @@ The NSGs associated with the ASGs will be configured with least privilege to ens
 **Action** | **Name** | **Source** | **Target** | **Port**
 --- | --- | --- | --- | ---
 Allow | AllowiInternetToFE | VNET-HUB-EUS1/IB-TrustZone | APP1-FE 80, 443
-Allow | AllowWebToApp | APP1-FE | APP1-DB | 1433
-Allow | AllowAppToDB | APP1-APP | Any | Any
+Allow | AllowWebToApp | APP1-FE | APP1-APP | 80, 443
+Allow | AllowAppToDB | APP1-APP | APP1-DB | 1433
 Deny | DenyAllInbound | Any | Any | Any
 
 ### Encrypt data

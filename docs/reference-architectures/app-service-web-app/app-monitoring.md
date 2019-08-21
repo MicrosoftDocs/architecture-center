@@ -152,6 +152,6 @@ Check out these resources designed to help you get started with your own monitor
 [Monitoring Azure applications and resources]: /azure/monitoring-and-diagnostics/monitoring-overview
 [Find and diagnose run-time exceptions with Azure Application Insights]: /azure/application-insights/app-insights-tutorial-runtime-exceptions
 [data-dog]: https://www.datadoghq.com/blog/azure-monitoring-enhancements/
-[app-insights-limits]: /azure/azure-subscription-service-limits#application-insights-limits
+[app-insights-limits]: /azure/azure-subscription-service-limits#application-insights
 [message-filtering]: /azure/application-insights/app-insights-api-filtering-sampling
 [message-sampling]: /azure/application-insights/app-insights-sampling
