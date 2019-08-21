@@ -15,6 +15,81 @@ ms.custom: "fasttrack-edit"
 
 As you establish corporate policy and plan your governance strategies, you can use tools and services like Azure Policy, Azure Blueprints, and Azure Security Center to enforce and automate your organization's governance decisions. Before you start your governance planning, use the [Governance Benchmark tool](http://aka.ms/caf/gov/assess) to identify potential gaps in your organization's cloud governance approach. For more information on how to develop governance processes, see the [Cloud Adoption Framework for Azure's governance guidance](../../governance/index.md).
 
+# [Azure Blueprints](#tab/AzureBlueprints)
+
+Azure Blueprints enables cloud architects and central information technology groups to define a repeatable set of Azure resources that implements and adheres to an organization's standards, patterns, and requirements. Azure Blueprints makes it possible for development teams to rapidly build and stand up new environments and trust that they're building within organizational compliance using a set of built-in components--such as networking--to speed up development and delivery.
+
+Blueprints are a declarative way to orchestrate the deployment of various resource templates and other artifacts like:
+
+- Role assignments.
+- Policy assignments.
+- Azure Resource Manager templates.
+- Resource groups.
+
+## Create a blueprint
+
+To create a blueprint:
+
+::: zone target="chromeless"
+
+1. Goto **Blueprints - Getting started**.
+1. In the **Create a Blueprint** section, select **Create**.
+1. Filter the list of blueprints to select the appropriate blueprint.
+1. Enter the **Blueprint name**, and select the appropriate **Definition location**.
+1. Click **Next : Artifacts >>** and review the artifacts included in the blueprint.
+1. Click **Save Draft**.
+
+::: form action="OpenBlade[#blade/Microsoft_Azure_Policy/BlueprintsMenuBlade/GetStarted]" submitText="Create a blueprint" :::
+
+::: zone-end
+
+::: zone target="docs"
+
+1. Go to [Blueprints - Getting started](https://portal.azure.com/#blade/Microsoft_Azure_Policy/BlueprintsMenuBlade/GetStarted).
+1. In the **Create a Blueprint** section, select **Create**.
+1. Filter the list of blueprints to select the appropriate blueprint.
+1. Enter the **Blueprint name**, and select the appropriate **Definition location**.
+1. Click **Next : Artifacts >>** and review the artifacts included in the blueprint.
+1. Click **Save Draft**.
+
+::: zone-end
+
+## Publish a blueprint
+
+To publish a blueprint artifacts to your subscription:
+
+::: zone target="chromeless"
+
+1. Goto **Blueprints - Blueprint definitions**.
+1. Select the blueprint you created in the previous steps.
+1. Review the blueprint definition and select **Publish blueprint**.
+1. Provide a **Version** (e.g. 1.0) and any **Change notes**, then select **Publish**.
+
+::: form action="OpenBlade[#blade/Microsoft_Azure_Policy/BlueprintsMenuBlade/Blueprints]" submitText="Blueprint definitions" :::
+
+::: zone-end
+
+::: zone target="docs"
+
+1. Goto [Blueprints - Blueprint definitions](https://portal.azure.com/#blade/Microsoft_Azure_Policy/BlueprintsMenuBlade/Blueprints).
+1. Select the blueprint you created in the previous steps.
+1. Review the blueprint definition and select **Publish blueprint**.
+1. Provide a **Version** (e.g. 1.0) and any **Change notes**, then select **Publish**.
+
+::: zone-end
+
+::: zone target="docs"
+
+## Learn more
+
+To learn more, see:
+
+- [Azure Blueprints](/azure/governance/blueprints)
+- [Cloud Adoption Framework: Resource consistency decision guide](../../decision-guides/resource-consistency/index.md)
+- [Standards-based blueprints samples](https://docs.microsoft.com/azure/governance/blueprints/samples/index#standards-based-blueprint-samples)
+
+::: zone-end
+
 # [Azure Policy](#tab/AzurePolicy)
 
 Azure Policy is a service that you use to create, assign, and manage policies. These policies enforce rules on your resources so those resources stay compliant with your corporate standards and service level agreements. Azure Policy scans your resources to identify resources that aren't compliant with the policies you implement. For example, you can have a policy to allow only a specific virtual machine (VM) size to run in your environment. When you implement this policy, it evaluates existing VMs in your environment and any new VMs that are deployed. The policy evaluation generates compliance events for you to use for monitoring and reporting.
@@ -51,45 +126,6 @@ To learn more, see:
 
 - [Azure Policy](/azure/azure-policy)
 - [Cloud Adoption Framework: Policy enforcement decision guide](../../decision-guides/policy-enforcement/index.md)
-
-::: zone-end
-
-# [Azure Blueprints](#tab/AzureBlueprints)
-
-Azure Blueprints enables cloud architects and central information technology groups to define a repeatable set of Azure resources that implements and adheres to an organization's standards, patterns, and requirements. Azure Blueprints makes it possible for development teams to rapidly build and stand up new environments and trust that they're building within organizational compliance using a set of built-in components--such as networking--to speed up development and delivery.
-
-Blueprints are a declarative way to orchestrate the deployment of various resource templates and other artifacts like:
-
-- Role assignments.
-- Policy assignments.
-- Azure Resource Manager templates.
-- Resource groups.
-
-::: zone target="chromeless"
-
-## Action
-
-Create a blueprint to configure role and policy assignments for the subscription.
-
-::: form action="OpenBlade[#blade/Microsoft_Azure_Policy/BlueprintsMenuBlade/GetStarted]" submitText="Create a blueprint" :::
-
-::: zone-end
-
-::: zone target="docs"
-
-## Create a blueprint
-
-To create a blueprint:
-
-1. Go to [Blueprints - Getting started](https://portal.azure.com/#blade/Microsoft_Azure_Policy/BlueprintsMenuBlade/GetStarted).
-1. In the **Create a Blueprint** section, select **Create**.
-
-## Learn more
-
-To learn more, see:
-
-- [Azure Blueprints](/azure/governance/blueprints)
-- [Cloud Adoption Framework: Resource consistency decision guide](../../decision-guides/resource-consistency/index.md)
 
 ::: zone-end
 
