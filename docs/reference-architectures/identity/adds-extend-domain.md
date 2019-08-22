@@ -55,7 +55,7 @@ Configure the VM network interface (NIC) for each AD DS server with a static pri
 > Do not configure the VM NIC for any AD DS with a public IP address. See [Security considerations][security-considerations] for more details.
 >
 
-The Active Directory subnet NSG requires rules to permit incoming traffic from on-premises and outgoing traffic to on-premises. For detailed information on the ports used by AD DS, see [Active Directory and Active Directory Domain Services Port Requirements][ad-ds-ports]. Also, ensure the UDR tables do not route AD DS traffic through the NVAs used in this architecture.
+The Active Directory subnet NSG requires rules to permit incoming traffic from on-premises and outgoing traffic to on-premises. For detailed information on the ports used by AD DS, see [Active Directory and Active Directory Domain Services Port Requirements][ad-ds-ports].
 
 ### Active Directory site
 
