@@ -617,6 +617,8 @@ items:
     items:
     - name: Overview
       href: serverless/index.md
+    - name: Code walkthrough
+      href: serverless/code.md
     - name: Reference architectures
       items:
       - name: Serverless event processing
