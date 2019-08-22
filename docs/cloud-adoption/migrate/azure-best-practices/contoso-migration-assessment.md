@@ -294,37 +294,35 @@ Now, Contoso can import the downloaded file to the vCenter Server instance and p
 
 Now, Contoso runs the collector to discover VMs. Currently, the collector currently supports only **English (United States)** as the operating system language and collector interface language.
 
-1. In the vSphere Client console, Contoso selects **Open Console**. Contoso specifies the language, time zone, and password preferences for the collector VM.
-2. On the desktop, Contoso selects the **Run collector** shortcut.
+1. In the vSphere Client console, Contoso selects **Open Console**. Contoso specifies the accepts the licensing terms, and password preferences for the collector VM.
+2. On the desktop, Contoso selects the **Microsoft Azure Appliance Configuration Manager** shortcut.
 
-    ![vSphere Client console - Collector shortcut](./media/contoso-migration-assessment/collector-shortcut.png)
+    ![vSphere Client console - Collector shortcut](./media/contoso-migration-assessment/collector-shortcut-v2.png)
 
 3. In Azure Migrate Collector, Contoso selects **Set up prerequisites**. Contoso accepts the license terms and reads the third-party information.
-4. The collector checks that the VM has internet access, that the time is synced, and that the collector service is running. (The collector service is installed by default on the VM.) Contoso also installs VMware PowerCLI.
+4. The collector checks that the VM has internet access, that the time is synced, and that the collector service is running. (The collector service is installed by default on the VM.) Contoso also installs the VMware vSphere Virtual Disk Development Kit.
 
     > [!NOTE]
     > It's assumed that the VM has direct access to the internet without using a proxy.
 
-    ![Azure Migrate Collector - Verify prerequisites](./media/contoso-migration-assessment/collector-verify-prereqs.png)
+    ![Azure Migrate Collector - Verify prerequisites](./media/contoso-migration-assessment/collector-verify-prereqs-v2.png)
 
-5. In **Specify vCenter Server details**, Contoso enters the name (FQDN) or IP address of the vCenter Server instance and the read-only credentials used for discovery.
-6. Contoso selects a scope for VM discovery. The collector can discover only VMs that are within the specified scope. The scope can be set to a specific folder, datacenter, or cluster. The scope shouldn't contain more than 1,500 VMs.
+6. Login to you **Azure** account and select the subscription and Migrate project you created earlier. Also enter a name for the **appliance** so you can identify it in the Azure Portal. 
+7. In **Specify vCenter Server details**, Contoso enters the name (FQDN) or IP address of the vCenter Server instance and the read-only credentials used for discovery.
+8. Contoso selects a scope for VM discovery. The collector can discover only VMs that are within the specified scope. The scope can be set to a specific folder, datacenter, or cluster. 
 
     ![Specify vCenter Server details](./media/contoso-migration-assessment/collector-connect-vcenter.png)
 
-7. In **Specify migration project**, Contoso enters the Azure Migrate project ID and key that were copied from the portal. To get the project ID and key, Contoso can go to the project **Overview** page > **Discover machines**.
 
-    ![Specify migration project](./media/contoso-migration-assessment/collector-connect-azure.png)
+8. The collector will now start to discovery and collect information about the Contoso environment. 
 
-8. In **View collection progress**, Contoso can monitor discovery and check that metadata collected from the VMs is in scope. The collector provides an approximate discovery time.
-
-    ![View collection progress](./media/contoso-migration-assessment/collector-collection-process.png)
+    ![View collection progress](./media/contoso-migration-assessment/migrate-disccovery.png)
 
 ### Verify VMs in the portal
 
 When collection is finished, Contoso checks that the VMs appear in the portal:
 
-1. In the Azure Migrate project, Contoso selects **Manage** > **Machines**. Contoso checks that the VMs that it wants to discover are shown.
+1. In the Azure Migrate project, Contoso selects **Servers** > **Discovered Servers**. Contoso checks that the VMs that it wants to discover are shown.
 
     ![Azure Migrate - Discovered machines](./media/contoso-migration-assessment/discovery-complete.png)
 
