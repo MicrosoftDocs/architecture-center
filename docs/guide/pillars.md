@@ -80,7 +80,7 @@ Applications often depend on multiple services. In general, the probability of e
 
 Resiliency is the ability of the system to recover from failures and continue to function. The goal of resiliency is to return the application to a fully functioning state after a failure occurs. Resiliency is closely related to availability.
 
-In traditional application development, there has been a focus on reducing mean time between failures (MTBF). Effort was spent trying to prevent the system from failing. In cloud computing, a different mindset is required, due to several factors:
+In traditional application development, there has been a focus on increasing the mean time between failures (MTBF). Effort was spent trying to prevent the system from failing. In cloud computing, a different mindset is required, due to several factors:
 
 - Distributed systems are complex, and a failure at one point can potentially cascade throughout the system.
 - Costs for cloud environments are kept low through the use of commodity hardware, so occasional hardware failures must be expected.
