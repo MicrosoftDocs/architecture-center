@@ -123,6 +123,9 @@ Here's how Contoso performs its assessment:
 > - **Step 5: Prepare for dependency analysis by using Azure Migrate.** Contoso installs Azure Migrate agents on the VMs, so the company can see dependency mapping between VMs.
 > - **Step 6: Assess the VMs by using Azure Migrate.** Contoso checks dependencies, groups the VMs, and runs the assessment. When the assessment is ready, Contoso analyzes the assessment in preparation for migration.
 
+    > [!NOTE]
+    > Assessments shouldn't just be limited to using tooling to discover information about your environment, you should schedule in time to speak to business owners, end users, other members within the IT department, etc in order to get a full picture of what is happening within the environment and understand things tooling cannot tell you. 
+
 ## Step 1: Download and install Data Migration Assistant
 
 1. Contoso downloads Data Migration Assistant from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53595).
@@ -212,51 +215,52 @@ Contoso verifies that it has permissions to create a VM by importing a file in .
 
 The Contoso assessment uses dependency mapping. Dependency mapping requires an agent to be installed on VMs that will be assessed. The agent must be able to connect to Azure from TCP port 443 on each VM. Learn about [connection requirements](/azure/log-analytics/log-analytics-concept-hybrid).
 
-### Set statistics settings
-
-Before Contoso begins the deployment, it must set the statistics settings for the vCenter Server to level 3.
-
-> [!NOTE]
->
-> - After setting the level, Contoso must wait at least a day before it runs the assessment. Otherwise, the assessment might not work as expected.
-> - If the level is higher than 3, the assessment works, but:
->   - Performance data for disks and networking isn't collected.
->   - For storage, Azure Migrate recommends a standard disk in Azure, with the same size as the on-premises disk.
->   - For networking, for each on-premises network adapter, a network adapter is recommended in Azure.
->   - For compute, Azure Migrate looks at the VM cores and memory size and recommends an Azure VM with the same configuration. If there are multiple eligible Azure VM sizes, the one with the lowest cost is recommended.
-> - For more information about sizing by using level 3, see [Sizing](/azure/migrate/concepts-assessment-calculation#sizing).
-
-To set the level:
-
-1. In the vSphere Web Client, Contoso opens the vCenter Server instance.
-2. Contoso selects **Manage** > **Settings** > **General** > **Edit**.
-3. In **Statistics**, Contoso sets the statistic level settings to **Level 3**.
-
-    ![vCenter Server statistics level](./media/contoso-migration-assessment/vcenter-statistics-level.png)
-
 ## Step 4: Discover VMs
 
 To discover VMs, Contoso creates an Azure Migrate project. Contoso downloads and sets up the collector VM. Then, Contoso runs the collector to discover its on-premises VMs.
 
 ### Create a project
 
-1. In the [Azure portal](https://portal.azure.com), Contoso searches for **Azure Migrate**. Then, Contoso creates a project.
-2. Contoso specifies a project name (**ContosoMigration**) and the Azure subscription. It creates a new Azure resource group (**ContosoFailoverRG**).
-    > [!NOTE]
-    > - You can create an Azure Migrate project only in the West Central US or East US region.
-    > - You can plan a migration for any target location.
-    > - The project location is used only to store the metadata that's gathered from on-premises VMs.
+Set up a new Azure Migrate project as follows.
 
-    ![Azure Migrate - Create migration project](./media/contoso-migration-assessment/project-1.png)
+1. In the Azure portal > **All services**, search for **Azure Migrate**.
+
+2. Under **Services**, select **Azure Migrate**.
+
+3. In **Overview**, under **Discover, assess and migrate servers**, click **Assess and migrate servers**.
+
+    ![Azure Migrate - Create migration project](./media/contoso-migration-assessment/assess-migrate.png)
+
+4. In **Getting started**, click **Add tools**.
+
+5. In **Migrate project**, select your Azure subscription, and create a resource group if you don't have one.
+
+6. In **Project Details*, specify the project name, and the geography in which you want to create the project. United States, Asia, Europe, Australia, United Kingdom, Canada, India and Japan are supported.
+
+    * The project geography is used only to store the metadata gathered from on-premises VMs.
+    * You can select any target region when you run a migration.
+
+7. Click **Next**.
+
+8. In **Select assessment tool**, select **Azure Migrate: Server Assessment** > **Next**.
+
+    ![Azure Migrate - Assessment Tool](./media/contoso-migration-assessment/assessment-tool.png)
+
+9. In **Select migration tool**, select **Skip adding a migration tool for now** > **Next**.
+
+10. In **Review + add tools**, review the settings, and click **Add tools**.
+
+11. Wait a few minutes for the Azure Migrate project to deploy. You'll be taken to the project page. If you don't see the project, you can access it from **Servers** in the Azure Migrate dashboard.
 
 ### Download the collector appliance
 
-Azure Migrate creates an on-premises VM known as the *collector appliance*. The VM discovers on-premises VMware VMs and sends metadata about the VMs to the Azure Migrate service. To set up the collector appliance, Contoso downloads an OVA template, and then imports it to the on-premises vCenter Server instance to create the VM.
+1. In **Migration Goals** > **Servers** > **Azure Migrate: Server Assessment**, **click Discover**.
 
-1. In the Azure Migrate project, Contoso selects **Getting Started** > **Discover and Assess** > **Discover machines**. Contoso downloads the OVA template file.
-2. Contoso copies the project ID and key. The project and ID are required for configuring the collector.
+2. In **Discover machines** > **Are your machines virtualized?**, click **Yes, with VMWare vSphere hypervisor**.
 
-    ![Azure Migrate - Download the OVA file](./media/contoso-migration-assessment/download-ova.png)
+3. Click **Download** to download the .OVA template file.
+
+     ![Azure Migrate - Download Collector](./media/contoso-migration-assessment/download-ovav2.png)
 
 ### Verify the collector appliance
 
@@ -290,37 +294,35 @@ Now, Contoso can import the downloaded file to the vCenter Server instance and p
 
 Now, Contoso runs the collector to discover VMs. Currently, the collector currently supports only **English (United States)** as the operating system language and collector interface language.
 
-1. In the vSphere Client console, Contoso selects **Open Console**. Contoso specifies the language, time zone, and password preferences for the collector VM.
-2. On the desktop, Contoso selects the **Run collector** shortcut.
+1. In the vSphere Client console, Contoso selects **Open Console**. Contoso specifies the accepts the licensing terms, and password preferences for the collector VM.
+2. On the desktop, Contoso selects the **Microsoft Azure Appliance Configuration Manager** shortcut.
 
-    ![vSphere Client console - Collector shortcut](./media/contoso-migration-assessment/collector-shortcut.png)
+    ![vSphere Client console - Collector shortcut](./media/contoso-migration-assessment/collector-shortcut-v2.png)
 
 3. In Azure Migrate Collector, Contoso selects **Set up prerequisites**. Contoso accepts the license terms and reads the third-party information.
-4. The collector checks that the VM has internet access, that the time is synced, and that the collector service is running. (The collector service is installed by default on the VM.) Contoso also installs VMware PowerCLI.
+4. The collector checks that the VM has internet access, that the time is synced, and that the collector service is running. (The collector service is installed by default on the VM.) Contoso also installs the VMware vSphere Virtual Disk Development Kit.
 
     > [!NOTE]
     > It's assumed that the VM has direct access to the internet without using a proxy.
 
-    ![Azure Migrate Collector - Verify prerequisites](./media/contoso-migration-assessment/collector-verify-prereqs.png)
+    ![Azure Migrate Collector - Verify prerequisites](./media/contoso-migration-assessment/collector-verify-prereqs-v2.png)
 
-5. In **Specify vCenter Server details**, Contoso enters the name (FQDN) or IP address of the vCenter Server instance and the read-only credentials used for discovery.
-6. Contoso selects a scope for VM discovery. The collector can discover only VMs that are within the specified scope. The scope can be set to a specific folder, datacenter, or cluster. The scope shouldn't contain more than 1,500 VMs.
+6. Login to you **Azure** account and select the subscription and Migrate project you created earlier. Also enter a name for the **appliance** so you can identify it in the Azure Portal. 
+7. In **Specify vCenter Server details**, Contoso enters the name (FQDN) or IP address of the vCenter Server instance and the read-only credentials used for discovery.
+8. Contoso selects a scope for VM discovery. The collector can discover only VMs that are within the specified scope. The scope can be set to a specific folder, datacenter, or cluster. 
 
     ![Specify vCenter Server details](./media/contoso-migration-assessment/collector-connect-vcenter.png)
 
-7. In **Specify migration project**, Contoso enters the Azure Migrate project ID and key that were copied from the portal. To get the project ID and key, Contoso can go to the project **Overview** page > **Discover machines**.
 
-    ![Specify migration project](./media/contoso-migration-assessment/collector-connect-azure.png)
+8. The collector will now start to discovery and collect information about the Contoso environment. 
 
-8. In **View collection progress**, Contoso can monitor discovery and check that metadata collected from the VMs is in scope. The collector provides an approximate discovery time.
-
-    ![View collection progress](./media/contoso-migration-assessment/collector-collection-process.png)
+    ![View collection progress](./media/contoso-migration-assessment/migrate-disccovery.png)
 
 ### Verify VMs in the portal
 
 When collection is finished, Contoso checks that the VMs appear in the portal:
 
-1. In the Azure Migrate project, Contoso selects **Manage** > **Machines**. Contoso checks that the VMs that it wants to discover are shown.
+1. In the Azure Migrate project, Contoso selects **Servers** > **Discovered Servers**. Contoso checks that the VMs that it wants to discover are shown.
 
     ![Azure Migrate - Discovered machines](./media/contoso-migration-assessment/discovery-complete.png)
 
