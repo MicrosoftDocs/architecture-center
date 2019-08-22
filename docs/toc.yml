@@ -147,6 +147,8 @@ items:
     href: patterns/ambassador.md
   - name: Anti-corruption Layer
     href: patterns/anti-corruption-layer.md
+  - name: Asynchronous Request Reply
+    href: patterns/async-request-reply.md
   - name: Backends for Frontends
     href: patterns/backends-for-frontends.md
   - name: Bulkhead
@@ -706,4 +708,3 @@ items:
 
 - name: Cloud Adoption Framework
   href: https://docs.microsoft.com/azure/cloud-adoption-framework
-  
