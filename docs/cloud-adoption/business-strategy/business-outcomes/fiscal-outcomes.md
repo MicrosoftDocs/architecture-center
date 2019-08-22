@@ -52,7 +52,7 @@ Cloud computing can reduce capital expenses for hardware and software, setting u
 - **Example #2**: A holding company recently acquired a new company. In the acquisition, the terms dictate that the new entity should be removed from the current datacenters within six months. Failure to do so will result in a fine of 1 million USD per month to the holding company. Moving the digital assets to the cloud in a cloud migration could allow for a quick decommission of the old assets.
 - **Example #3**: An income tax company that caters to consumers experiences 70 percent of its annual revenue during the first three months of the year. The remainder of the year, its large IT investment sits relatively dormant. A cloud migration could allow IT to deploy the compute/hosting capacity required for those three months. During the remaining nine months, the IaaS costs could be significantly reduced by shrinking the compute footprint.
 
-### Coverdell
+### Example: Coverdell
 
 Coverdell modernizes their infrastructure to drive record cost savings with Azure. Coverdell’s decision to invest in Azure, and to unite their network of websites, applications, data, and infrastructure within this environment, led to more cost savings than the company could have ever expected. The migration to an Azure-only environment eliminated 54,000 USD in monthly costs for colocation services. With the company’s new, united infrastructure alone, Coverdell expects to save an estimated 1 million USD over the next two to three years.
 
