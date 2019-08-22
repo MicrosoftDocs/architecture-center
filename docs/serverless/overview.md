@@ -18,7 +18,7 @@ Serverless models abstract the underlying compute infrastructure. This allows de
 To explore serverless technologies in Azure, start with a serverless reference solution developed and tested by Microsoft. This two-part solution describes a hypothetical drone delivery system. Drones send in-flight status to the cloud, which stores these messages for later use. A web application allows users to retrieve these messages to get the latest status of these devices. 
 
 - The code for this solution is available to download from [GitHub](https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0).
-- The article [Show me the code: Serverless application with Azure Functions](index.md) walks you through this code, and explains why various choices were made.  
+- The article [Code walkthrough: Serverless application with Azure Functions](index.md) walks you through this code, and explains why various choices were made.  
 
 Once you get a feel for how this reference solution works, proceed to learning the best practices and recommendations for developing similar serverless solutions:
 
