@@ -36,16 +36,17 @@ The challenge with customer behavior metrics is that they can easily be influenc
 
 ## Data innovation
 
-Changing an industry, disrupting markets, or transforming products/services can take years. In a cloud-enabled data innovation effort, experimentation is key to measuring success. Be transparent. Share prediction metrics like percent probability, number of failed experiments, and amount of data trained. Failures will accumulate faster than successes. These metrics can be discouraging. It's important that the executive team understands the time and investment needed to train data properly and make accurate predictions.
+Changing an industry, disrupting markets, or transforming products/services can take years. In a cloud-enabled data innovation effort, experimentation is key to measuring success. Be transparent by sharing prediction metrics like percent probability, number of failed experiments, and amount of models trained. Failures will accumulate faster than successes. These metrics can be discouraging and it is important that the executive team understands the time and investment needed to leverage on data properly.
 
-On the other hand, some positive indicators are often associated with data-driven learning: centralization of data, data ingress, and democratization of data. While the team is learning about the customer of tomorrow, real results can be produced today. Supporting learning metrics could include:
+On the other hand, some positive indicators are often associated with data-driven learning: centralization of heterogeneous data sets, data ingress, and democratization of data. While the team is learning about the customer of tomorrow, real results can be produced today. Supporting learning metrics could include:
 
-- Number of models available in the cloud
+- Number of models available
 - Number of partner data sources consumed
 - Devices producing ingress data
 - Volume of ingress data
+- Types of data
 
-An even more valuable metric is the number of dashboards created from combined data sources. This number reflects the current-state business processes that are affected by new data sources. By sharing new data sources openly, your business can take advantage of the data by using model reporting tools like Power BI to produce incremental insights and drive business change.
+An even more valuable metric is the number of dashboards created from combined data sources. This number reflects the current-state business processes that are affected by new data sources. By sharing new data sources openly, your business can take advantage of the data by using reporting tools like Power BI to produce incremental insights and drive business change.
 
 ## Next steps
 
