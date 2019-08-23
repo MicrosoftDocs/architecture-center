@@ -51,6 +51,7 @@ Use the following guidance when designing your identity and access control infra
 
 - [Choose the correct SQL Server option in Azure](https://docs.microsoft.com/azure/sql-database/sql-database-paas-vs-sql-server-iaas?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json). Choose the PaaS or IaaS solution that best supports your SQL Server workloads.
 - [Database security best practices](https://docs.microsoft.com/azure/security/azure-database-security-best-practices?toc=https://docs.microsoft.com/azure/architecture/toc.json&bc=https://docs.microsoft.com/azure/architecture/bread/toc.json). Learn best practices for database security on the Azure platform.
+- [Choose the right data store](https://docs.microsoft.com/azure/architecture/guide/technology-choices/data-store-overview). Selecting the right data store for your requirements is a key design decision. There are literally hundreds of implementations to choose from among SQL and NoSQL databases. Data stores are often categorized by how they structure data and the types of operations they support. This article describes several of the most common storage models. 
 
 ## Cost management
 
