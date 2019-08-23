@@ -148,7 +148,7 @@ They set these up as follows:
 
 After failover, Contoso wants to connect to the Azure VMs. To do this, Contoso admins do the following before migration:
 
-1. For access over the internet they:
+1. For access over the internet, they:
 
     - Enable RDP on the on-premises VM before failover.
     - Ensure that TCP and UDP rules are added for the **Public** profile.
