@@ -54,8 +54,8 @@ Until trust in the cloud environment is fully established it's important to tigh
     2. Validate that on-premises security and traffic management mechanisms treat connected cloud networks as untrusted. Resources and services hosted in the cloud should only have access to authorized on-premises services.
     3. Validate that the local edge device in the on-premises datacenter is compatible with [Azure VPN Gateway requirements](/azure/vpn-gateway/vpn-gateway-about-vpn-devices) and is configured to access the public internet.
 1. In the root management group, create a second blueprint definition named `secure-hybrid-vnet`.
-    1. Add the Resource Manager template for the VPN Gateway as an artifact of the blueprint definition.
-    2. Add the Resource Manager template for the your virtual network as an artifact of the blueprint definition.
+    1. Add the Resource Manager template for the VPN Gateway as an artifact to the blueprint definition.
+    2. Add the Resource Manager template for the virtual network as an artifact to the blueprint definition.
     3. Publish the blueprint definition.
 1. Assign the `secure-hybrid-vnet` blueprint definition to any subscriptions requiring on-premises connectivity. This definition should be assigned in addition to the `governance-baseline` blueprint definition.
 
