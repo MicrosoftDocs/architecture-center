@@ -134,7 +134,7 @@ To deploy this reference architecture, view the [GitHub readme][readme].
 
 ## Next steps
 
-To learn more about the reference implementation, read [Show me the code: Serverless application with Azure Functions](../../serverless/index.md).
+To learn more about the reference implementation, read [Code walkthrough: Serverless application with Azure Functions](../../serverless/code.md).
 
 <!-- links -->
 

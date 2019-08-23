@@ -49,7 +49,7 @@ After planning and setting up an [Azure infrastructure](contoso-migration-infras
 --- | --- | ---
 **Workloads** | More than 3,000 apps | Apps run on VMs.<br/><br/>  Apps are Windows, SQL-based, and OSS LAMP.
 **Databases** | Around 8,500 | Databases include SQL Server, MySQL, PostgreSQL.
-**VMs** | More than 10,000 | VMs run on VMware hosts and managed by vCenter Servers.
+**VMs** | More than 35,000 | VMs run on VMware hosts and managed by vCenter Servers.
 
 <!--markdownlint-enable MD033 -->
 
@@ -156,9 +156,9 @@ Contoso needs to use Azure Migrate correctly given the scale of this migration.
 
 **Action** | **Limit**
 --- | ---
-Create Azure Migrate project | 1500 VMs
-Discovery | 1500 VMs
-Assessment | 1500 VMs
+Create Azure Migrate project | 10,000 VMs
+Discovery | 10,000 VMs
+Assessment | 10,000 VMs
 
 Contoso will use Azure Migrate as follows:
 

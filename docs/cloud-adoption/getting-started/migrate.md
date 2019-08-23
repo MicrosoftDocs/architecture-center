@@ -119,7 +119,8 @@ Cloud strategy and planning often target a broad collection of workloads and app
 The technologies migrated to the cloud constantly expand as cloud providers add new capabilities. The following are a few examples of the technologies commonly seen in a migration effort:
 
 - Windows and SQL Server
-- Linux and OSS DB
+- Linux and Open Source (OSS) databases
+- Unstructure/NoSQL databases
 - SAP on Azure
 - Analytics (Data Warehouse, Data Lake)
 
