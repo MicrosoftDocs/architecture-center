@@ -2,13 +2,13 @@
 title: Migration-focused cost control mechanisms
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how to set up budgets, payments, and understand invoices for your Azure resources.
-author: dchimes
-ms.author: kfollis
+author: bandersmsft
+ms.author: banders
 ms.date: 08/08/2019
 ms.topic: conceptual
 ms.service: cloud-adoption-framework
 ms.subservice: migrate
-ms.custom: "fasttrack-edit", AQC
+ms.custom: fasttrack-edit, AQC
 ms.localizationpriority: high
 ---
 
