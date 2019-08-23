@@ -123,6 +123,8 @@ items:
     href: patterns/bulkhead.md
   - name: Cache-Aside
     href: patterns/cache-aside.md
+  - name: Choreography
+    href: patterns/choreography.md
   - name: Circuit Breaker
     href: patterns/circuit-breaker.md
   - name: Claim Check
