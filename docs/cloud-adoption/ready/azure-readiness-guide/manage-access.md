@@ -8,7 +8,8 @@ ms.date: 04/09/2019
 ms.topic: conceptual
 ms.service: cloud-adoption-framework
 ms.subservice: ready
-ms.custom: "fasttrack-edit"
+ms.custom: fasttrack-edit, AQC
+ms.localizationpriority: high
 ---
 # Manage access to your Azure environment with role-based access controls
 
