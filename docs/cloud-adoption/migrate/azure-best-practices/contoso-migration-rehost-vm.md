@@ -141,7 +141,7 @@ They set these up as follows:
 
 **Need more help?**
 
-[Learn about](/azure/migrate/contoso-migration-rehost-vm) setting up Azure Migrate Server Migration tool. 
+[Learn about](/azure/migrate/) setting up Azure Migrate Server Migration tool. 
 
 
 ### Prepare to connect to Azure VMs after failover
@@ -220,12 +220,6 @@ With discovery completed, you can begin replication of VMware VMs to Azure.
 
 
 
-**Need more help?**
-
-- You can read a full walkthrough of all these steps in [Set up disaster recovery for on-premises VMware VMs](/azure/site-recovery/vmware-azure-tutorial).
-- Detailed instructions are available to help you [set up the source environment](/azure/site-recovery/vmware-azure-set-up-source), [deploy the configuration server](/azure/site-recovery/vmware-azure-deploy-configuration-server), and [configure replication settings](/azure/site-recovery/vmware-azure-set-up-replication).
-- You can learn more about [enabling replication](/azure/site-recovery/vmware-azure-enable-replication).
-
 ## Step 4: Migrate the VMs
 
 Contoso admins run a quick test failover, and then a full failover to migrate the VMs.
@@ -266,9 +260,8 @@ Now Contoso admins run a full failover to complete the migration.
 
 **Need more help?**
 
-- [Learn about](/azure/site-recovery/tutorial-dr-drill-azure) running a test failover.
-- [Learn](/azure/site-recovery/site-recovery-create-recovery-plans) how to create a recovery plan.
-- [Learn about](/azure/site-recovery/site-recovery-failover) failing over to Azure.
+- [Learn about](/azure/migrate/tutorial-migrate-vmware#run-a-test-migration) running a test failover.
+- [Learn about](/azure/migrate/tutorial-migrate-vmware#migrate-vms) migrating VMs to Azure. 
 
 ## Clean up after migration
 
