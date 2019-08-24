@@ -7,7 +7,7 @@ The initial objective is to establish a foundation for governance agility. An ef
 
 ## Business risks
 
-The company is at an early stage of cloud adoption, experimenting and building proofs of concept. Risks are now relatively low, but future risks are likely. There is little definition around the final state of the technical solutions to be deployed to the cloud. In addition, the cloud readiness of IT employees is low. A foundation for cloud adoption will help the team safely learn and grow.
+The company is at an early stage of cloud adoption, experimenting and building proofs of concept. Risks are now relatively low, but future risks are likely to have a significant impact. There is little definition around the final state of the technical solutions to be deployed to the cloud. In addition, the cloud readiness of IT employees is low. A foundation for cloud adoption will help the team safely learn and grow.
 
 **Future-proofing:** There is a risk of not empowering growth, but also a risk of not providing the right protections against future risks.
 
