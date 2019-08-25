@@ -73,7 +73,7 @@ The following changes to policy will help remediate the new risks and guide impl
 
 ## Evolution of the best practices
 
-This section of the article will evolve the governance MVP design to include new Azure policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
+This section of the article will evolve the governance MVP design to include new Azure policies and an implementation of Azure Site Recovery and Azure Monitor. These design changes will fulfill the new corporate policy statements.
 
 Following the experience of this fictional example, it is assumed that the Protected Data evolution has already happened. Building on that best practice, the following will add operational monitoring requirements, readying a subscription for mission-critical applications.
 
