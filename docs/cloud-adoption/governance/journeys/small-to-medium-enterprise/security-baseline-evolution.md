@@ -85,7 +85,7 @@ The following changes to policy will help remediate the new risks and guide impl
 
 ## Evolution of the best practices
 
-The governance MVP design will evolve to include new Azure policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
+The governance MVP design will evolve to include new Azure policies and an implementation of Azure Security Center. Together, these two design changes will fulfill the new corporate policy statements.
 
 1. The Networking and IT Security teams will define network requirements. The cloud governance team will support the conversation.
 2. The Identity and IT Security teams will define identity requirements and make any necessary changes to local Active Directory implementation. The cloud governance team will review changes.
