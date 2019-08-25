@@ -54,7 +54,7 @@ The following changes to policy will help remediate the new risks and guide impl
 3. Cloud assets should be continually monitored for optimization opportunities.
 4. Cloud Governance tooling must limit Asset sizing options to an approved list of configurations. The tooling must ensure that all assets are discoverable and tracked by the cost monitoring solution.
 5. During deployment planning, any required cloud resources associated with the hosting of production workloads should be documented. This documentation will help refine budgets and prepare additional automations to prevent the use of more expensive options. During this process consideration should be given to different discounting tools offered by the cloud provider, such as Reserved Instances or License cost reductions.
-6. All application owners are required to attend trained on practices for optimizing workloads to better control cloud costs.
+6. All application owners are required to attend a training on cost management practices for optimizing workloads to better control cloud costs.
 
 ## Evolution of the best practices
 
