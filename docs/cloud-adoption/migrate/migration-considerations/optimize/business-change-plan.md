@@ -18,7 +18,7 @@ Traditionally, IT has overseen the release of new workloads. During a major tran
 
 User adoption plans focus on how users will adopt a new technology or change to a given technology. This approach is time tested for introducing users to new tools. In a typical user adoption plan, IT focuses on the installation, configuration, maintenance, and training associated with the technical changes being introduced to the business environment.
 
-Although approaches may vary, general themes are present in most user adoption plans. These themes are typically based on a risk control and facilitation approach that aligns to evolutionary change. The Eason Matrix, illustrated in the figure below, represents the drivers behind those themes across a spectrum of adoption types.
+Although approaches may vary, general themes are present in most user adoption plans. These themes are typically based on a risk control and facilitation approach that aligns to incremental improvement. The Eason Matrix, illustrated in the figure below, represents the drivers behind those themes across a spectrum of adoption types.
 
 ![Eason Matrix of user adoption concerns](../../../_images/eason-matrix.gif)
 

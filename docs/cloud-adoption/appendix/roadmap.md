@@ -93,7 +93,7 @@ This first release helped test the Cloud Adoption Framework's unification of an 
 1. Define a customer end state based on a common methodology.
 2. Provide an assessment to define gaps and areas of governance investment.
 3. Define a minimum viable product (MVP) to help the customer iterate rapidly.
-4. Provide a way to evolve the MVP to mitigate risks and meet business requirements.
+4. Provide a way to incrementally improve the MVP to mitigate risks and meet business requirements.
 
 **Q2 2019 release (April 15, 2019):** Cloud migration tools can easily migrate tens of thousands of IT assets to the cloud. However, customer feedback indicates that cloud migrations are blocked by culture and technical readiness. The spring release addresses these blockers by defining an iterative approach to cloud migration. The core methodology includes a streamlined Azure migration guide for learning the tools and basic processes, with expanded scope and best practices sections for building on this baseline guidance.
 

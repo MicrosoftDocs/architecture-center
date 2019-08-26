@@ -11,9 +11,9 @@ ms.subservice: ready
 ms.custom: "fasttrack - new"
 ---
 
-# Stay current with Azure
+# Stay current with Microsoft Azure
 
-Cloud services like Azure evolve at a faster pace than many organizations are used to. This pace of change means that organizations have to adapt people and processes to a new cadence. If you're responsible for helping your organization keep up with change, you might feel overwhelmed at times. The resources listed in this section can help you stay up to date.
+Cloud platforms like Microsoft Azure change faster than many organizations are accustomed to. This pace of change means that organizations have to adapt people and processes to a new cadence. If you're responsible for helping your organization keep up with change, you might feel overwhelmed at times. The resources listed in this section can help you stay up to date.
 
 # [Top resources](#tab/TopResources)
 

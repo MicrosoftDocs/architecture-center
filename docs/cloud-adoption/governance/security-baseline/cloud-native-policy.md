@@ -32,7 +32,7 @@ It’s hard to maintain a strong security infrastructure when security controls 
 
 ### Cloud-native identity policies
 
-Identity is becoming the new boundary control plane for security, taking over that role from the traditional network-centric perspective. Network perimeters have become increasingly porous and that perimeter defense cannot be as effective as it was before the evolution of bring your own device (BYOD) and cloud applications. Azure identity management and access control enable seamless, secure access to all your applications.
+Identity is becoming the new boundary control plane for security, taking over that role from the traditional network-centric perspective. Network perimeters have become increasingly porous and that perimeter defense cannot be as effective as it was before the advent of bring your own device (BYOD) and cloud applications. Azure identity management and access control enable seamless, secure access to all your applications.
 
 A sample cloud-native policy for identity across cloud and on-premises directories, could include requirements like the following:
 

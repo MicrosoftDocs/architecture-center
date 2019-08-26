@@ -17,7 +17,7 @@ The cloud creates new paradigms for the technologies that support the business. 
 
 ## Get started with cloud governance
 
-Cloud governance is an iterative process. For organizations with existing policies that govern on-premises IT environments, cloud governance should complement those policies. However, the level of corporate policy integration between on-premises and the cloud varies depending on cloud governance maturity and a digital estate in the cloud. As the cloud estate evolves over time, so do cloud governance processes and policies. The following exercises help you start building your initial governance foundation.
+Cloud governance is an iterative process. For organizations with existing policies that govern on-premises IT environments, cloud governance should complement those policies. However, the level of corporate policy integration between on-premises and the cloud varies depending on cloud governance maturity and a digital estate in the cloud. As the cloud estate changes over time, so do cloud governance processes and policies. The following exercises help you start building your initial governance foundation.
 
 <!-- markdownlint-disable MD033 -->
 
@@ -123,7 +123,7 @@ The cloud architect serves as the thought leader and facilitator to bring these 
 
 If you want to follow this guide from beginning to end, this content aids in developing a robust cloud governance strategy in parallel with cloud implementation. The guidance walks you through the theory and implementation of such a strategy.
 
-For a crash course on the theory and quick access to Azure implementation, get started with the [Governance guides overview](./journeys/index.md). Using this guidance, you can start small and evolve your governance needs in parallel with cloud adoption efforts.
+For a crash course on the theory and quick access to Azure implementation, get started with the [Governance guides overview](./journeys/index.md). Using this guidance, you can start small and iteratively improve your governance needs in parallel with cloud adoption efforts.
 
 ## Next steps
 

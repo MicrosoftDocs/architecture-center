@@ -24,7 +24,7 @@ In any migration, there are a few key functions that are best executed by the bu
 |---------|---------|---------|
 | Assess | Business goals | Define the desired business outcomes of the migration effort. |
 | Assess | Priorities | Ensure alignment with changing business priorities and market conditions. |
-| Assess | Justification | Validate assumptions that drive evolving business justifications. |
+| Assess | Justification | Validate assumptions that drive changing business justifications. |
 | Assess | Risk | Help the cloud adoption team understand the impact of tangible business risks. |
 | Assess | Approve | Review and approve the business impact of proposed architecture changes. |
 | Optimize | Change plan | Define a plan for consumption of change within the business, including periods of low activities and change freezes. |

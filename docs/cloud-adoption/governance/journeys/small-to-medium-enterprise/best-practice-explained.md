@@ -1,7 +1,7 @@
 ---
-title: "Small-to-medium enterprise: Best practice explained"
+title: "Small-to-medium enterprise guide: Best practice explained"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: Small-to-medium enterprise – Best practice explained
+description: "Small-to-medium enterprise guide: Best practice explained"
 author: BrianBlanchard
 ms.author: brblanch
 ms.date: 02/11/2019
@@ -13,9 +13,9 @@ ms.custom: governance
 
 # Small-to-medium enterprise: Best practice explained
 
-The governance journey starts with a set of initial [corporate policies](./initial-corporate-policy.md). These policies are used to establish a governance MVP that reflects [best practices](./index.md).
+The governance guide starts with a set of initial [corporate policies](./initial-corporate-policy.md). These policies are used to establish a governance MVP that reflects [best practices](./index.md).
 
-In this article, we discuss the high-level strategies that are required to create a governance MVP. The core of the governance MVP is the [Deployment Acceleration](../../deployment-acceleration/index.md) discipline. The tools and patterns applied at this stage will enable the incremental evolutions needed to expand governance in the future.
+In this article, we discuss the high-level strategies that are required to create a governance MVP. The core of the governance MVP is the [Deployment Acceleration](../../deployment-acceleration/index.md) discipline. The tools and patterns applied at this stage will enable the incremental improvements needed to expand governance in the future.
 
 ## Governance MVP (initial governance foundation)
 
@@ -74,7 +74,7 @@ Resource tagging decisions determine how metadata is applied to Azure resources 
   - SLA
   - Environment
 - These four values will drive governance, operations, and security decisions.
-- If this governance journey is being implemented for a business unit or team within a larger corporation, tagging should also include metadata for the billing unit.
+- If this governance guide is being implemented for a business unit or team within a larger corporation, tagging should also include metadata for the billing unit.
 
 ### Logging and reporting
 
@@ -83,9 +83,9 @@ Logging and reporting decisions determine how your store log data and how the mo
 - No governance requirements have been set regarding the data to be collected for logging or reporting purposes.
 - Additional analysis will be needed before releasing any protected data or mission-critical workloads.
 
-## Evolution of governance processes
+## Incremental improvement of governance processes
 
-As governance evolves, some policy statements can’t or shouldn’t be controlled by automated tooling. Other policies will result in effort by the IT Security team and the on-premises Identity Management team over time. To help manage new risks as they arise, the cloud governance team will oversee the following processes.
+As governance changes, some policy statements can’t or shouldn’t be controlled by automated tooling. Other policies will result in effort by the IT Security team and the on-premises Identity Management team over time. To help manage new risks as they arise, the cloud governance team will oversee the following processes.
 
 **Adoption acceleration:** The cloud governance team has been reviewing deployment scripts across multiple teams. They maintain a set of scripts that serve as deployment templates. Those templates are used by the cloud adoption and DevOps teams to define deployments more quickly. Each of those scripts contains the necessary requirements to enforce a set of governance policies with no additional effort from cloud adoption engineers. As the curators of these scripts, the cloud governance team can more quickly implement policy changes. As a result of script curation, the cloud governance team is seen as a source of adoption acceleration. This creates consistency among deployments, without strictly forcing adherence.
 
@@ -99,7 +99,7 @@ As governance evolves, some policy statements can’t or shouldn’t be controll
 
 ## Alternative patterns
 
-If any of the patterns selected in this governance journey don't align with the reader's requirements, alternatives to each pattern are available:
+If any of the patterns selected in this governance guide don't align with the reader's requirements, alternatives to each pattern are available:
 
 - [Encryption patterns](../../../decision-guides/encryption/index.md)
 - [Identity patterns](../../../decision-guides/identity/index.md)
@@ -114,7 +114,7 @@ If any of the patterns selected in this governance journey don't align with the 
 
 Once this guide is implemented, each cloud adoption team can go forth with a sound governance foundation. The cloud governance team will work in parallel to continuously update the corporate policies and governance disciplines.
 
-The two teams will use the tolerance indicators to identify the next evolution needed to continue supporting cloud adoption. For the fictional company in this journey, the next step is evolving the Security Baseline to support moving protected data to the cloud.
+The two teams will use the tolerance indicators to identify the next set of improvements needed to continue supporting cloud adoption. For the fictional company in this guide, the next step is improving the Security Baseline to support moving protected data to the cloud.
 
 > [!div class="nextstepaction"]
-> [Security Baseline evolution](./security-baseline-evolution.md)
+> [Improving the Security Baseline](./security-baseline-evolution.md)
