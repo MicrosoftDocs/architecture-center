@@ -95,7 +95,7 @@ The ability to respond rapidly to changing risks empowers the cloud governance t
 
 The following diagram shows a simple governance MVP and three governance iterations. During the iterations, additional corporate policies are defined to remediate new risks. The Deployment Acceleration discipline then applies those changes across each deployment.
 
-![Example of incremental governance improvement](../../_images/governance/incremental-governaance-example.png)
+![Example of incremental governance improvement](../../_images/governance/incremental-governance-example.png)
 
 > [!NOTE]
 > Governance is not a replacement for key functions such as security, networking, identity, finance, DevOps, or operations. Along the way, there will be interactions with and dependencies on members from each function. Those members should be included on the cloud governance team to accelerate decisions and actions.
