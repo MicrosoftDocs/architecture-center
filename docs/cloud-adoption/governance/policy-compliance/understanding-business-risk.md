@@ -55,7 +55,7 @@ The following are a few basic examples of business risks that can be included as
 - Any asset with all open ports exposed to the internet are at risk of compromise.
 
 The above examples are meant to establish MVP business risks as a theory. The actual list will be unique to every environment.
-Once the Business Risk MVP is established, they can be converted to [policies](.\index.md) to remediate each risk.
+Once the Business Risk MVP is established, they can be converted to [policies](./index.md) to remediate each risk.
 
 <!-- markdownlint-enable MD026 -->
 
