@@ -35,7 +35,7 @@ Cloud migrations can help companies deliver on their desired business outcomes. 
 
 <!-- markdownlint-enable MD033 -->
 
-When a response to critical business events is the highest priority, it is important to engage in [cloud implementation](#cloud-implementation) early, often in parallel with strategy and planning efforts. Taking such an approach requires a growth mindset and a willingness to iterate and evolve processes, based on direct lessons learned.
+When a response to critical business events is the highest priority, it is important to engage in [cloud implementation](#cloud-implementation) early, often in parallel with strategy and planning efforts. Taking such an approach requires a growth mindset and a willingness to iteratively improve processes, based on direct lessons learned.
 
 When migration motivations are a priority, [strategy and planning](#cloud-strategy-and-planning) will play a vital role early in the process. However, it is highly suggested that [implementation](#cloud-implementation) of the first workload is conducted in parallel with planning, to help the team understand and plan for any learning curves associated with the cloud.
 

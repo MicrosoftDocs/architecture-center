@@ -23,7 +23,7 @@ The goal of business testing is to solicit validation from power users to certif
 
 ## Business activities during business testing
 
-During business testing, the first evolution is manually driven directly with customers. This is the purest but most time-consuming form of feedback loop.
+During business testing, the first iteration is manually driven directly with customers. This is the purest but most time-consuming form of feedback loop.
 
 - **Identify power users.** The business generally has a better understanding of the power users who are most affected by a technical change.
 - **Align and prepare power users.** Ensure that power users understand the business objectives, desired outcomes, and expected changes to business processes. Prepare them and their management structure for the testing process.

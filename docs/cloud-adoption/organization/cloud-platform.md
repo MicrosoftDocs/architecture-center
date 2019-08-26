@@ -53,7 +53,7 @@ The following tasks are typically executed on a regular basis:
 - Build and maintain the cloud platform to support solutions.
 - Define and implement the platform architecture.
 - Operate and manage the cloud platform.
-- Continuously evolve the platform.
+- Continuously improve the platform.
 - Keep up with new innovations in the cloud platform.
 - Bring new cloud capabilities to support business value creation.
 - Suggest self-service solutions.

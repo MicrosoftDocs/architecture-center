@@ -78,7 +78,7 @@ Use the samples mentioned in this article as a starting point for developing pol
 
 To begin developing your own custom policy statements related to Identity Baseline, download the [Identity Baseline template](./template.md).
 
-To accelerate adoption of this discipline, choose the [actionable governance journey](../journeys/index.md) that most closely aligns with your environment. Then modify the design to incorporate your specific corporate policy decisions.
+To accelerate adoption of this discipline, choose the [actionable governance guide](../journeys/index.md) that most closely aligns with your environment. Then modify the design to incorporate your specific corporate policy decisions.
 
 > [!div class="nextstepaction"]
-> [Actionable governance journeys](../journeys/index.md)
+> [Actionable governance guides](../journeys/index.md)
