@@ -93,7 +93,7 @@ The following changes to policy will help remediate the new risks and guide impl
 
 ## Evolution of the best practices
 
-This section of the article will evolve the governance MVP design to include new Azure policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
+This section of the article will evolve the governance MVP design to include new Azure policies and an implementation of Azure Security Center. Together, these two design changes will fulfill the new corporate policy statements.
 
 The new best practices fall into two categories: Corporate IT (hub) and Cloud Adoption (spoke).
 
