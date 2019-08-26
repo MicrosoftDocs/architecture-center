@@ -47,7 +47,7 @@ These tasks are usually executed by the cloud governance capability on a monthly
 
 - Understand [business risks](../governance/policy-compliance/risk-tolerance.md) introduced during each release
 - Represent the [business' tolerance for risk](../governance/policy-compliance/risk-tolerance.md)
-- Aid in the evolution of [Policy and Compliance requirements](../governance/policy-compliance/overview.md)
+- Aid in the incremental improvement of [Policy and Compliance requirements](../governance/policy-compliance/overview.md)
 
 ## Meeting cadence
 

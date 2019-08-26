@@ -35,7 +35,7 @@ COM established a scope comprised of the following components:
 
 - **Business strategy:** Establish clear business objectives and outcomes that are to be supported by cloud adoption.
 - **Technology strategy:** Align the overarching strategy to guide adoption of the cloud in alignment with the business strategy.
-- **People strategy:** Develop a strategy for training the people and evolving the culture to enable business success.
+- **People strategy:** Develop a strategy for training the people and changing the culture to enable business success.
 
 The high-level scopes of the Cloud Operating Model and the Cloud Adoption Framework are similar. Business, culture, and technology are reflected throughout the guidance and each methodology within the Cloud Adoption Framework.
 

@@ -1,7 +1,7 @@
 ---
-title: "Large enterprise: Best practice explained"
+title: "Large enterprise guide: Best practice explained"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: Large enterprise – Best practice explained
+description: "Large enterprise guide: Best practice explained"
 author: BrianBlanchard
 ms.author: brblanch
 ms.date: 02/11/2019
@@ -13,7 +13,7 @@ ms.custom: governance
 
 # Large enterprise: Best practice explained
 
-The governance journey starts with a set of initial [corporate policies](./initial-corporate-policy.md). These policies are used to establish a minimum viable product (MVP) for governance that reflects [best practices](./index.md).
+The governance guide begins with a set of initial [corporate policies](./initial-corporate-policy.md). These policies are used to establish a minimum viable product (MVP) for governance that reflects [best practices](./index.md).
 
 In this article, we discuss the high-level strategies that are required to create a governance MVP. The core of the governance MVP is the [Deployment Acceleration](../../deployment-acceleration/index.md) discipline. The tools and patterns applied at this stage will enable the incremental improvements needed to expand governance in the future.
 
@@ -86,7 +86,7 @@ Logging and reporting decisions determine how your store log data and how the mo
 - Additional analysis is required before the release of any protected data or mission-critical workloads.
 - Before supporting protected data or mission-critical workloads, the existing on-premises operational monitoring solution must be granted access to the workspace used for logging. Applications are required to meet security and logging requirements associated with the use of that tenant, if the application is to be supported with a defined SLA.
 
-## Evolution of governance processes
+## Incremental of governance processes
 
 Some of the policy statements cannot or should not be controlled by automated tooling. Other policies will require periodic effort from IT Security and on-premises Identity Baseline teams. The cloud governance team will need to oversee the following processes to implement the last eight policy statements:
 
@@ -104,7 +104,7 @@ Some of the policy statements cannot or should not be controlled by automated to
 
 ## Alternative patterns
 
-If any of the patterns chosen in this governance journey don't align with the reader's requirements, alternatives to each pattern are available:
+If any of the patterns chosen in this governance guide don't align with the reader's requirements, alternatives to each pattern are available:
 
 - [Encryption patterns](../../../decision-guides/encryption/index.md)
 - [Identity patterns](../../../decision-guides/identity/index.md)
@@ -119,7 +119,7 @@ If any of the patterns chosen in this governance journey don't align with the re
 
 Once this guidance is implemented, each cloud adoption team can proceed with a solid governance foundation. The cloud governance team will work in parallel to continually update the corporate policies and governance disciplines.
 
-Both teams will use the tolerance indicators to identify the next set of improvements needed to continue supporting cloud adoption. The next step for the company in this journey is to evolve their governance baseline to support applications with legacy or third-party multi-factor authentication requirements.
+Both teams will use the tolerance indicators to identify the next set of improvements needed to continue supporting cloud adoption. The next step for this company is incremental improvement of their governance baseline to support applications with legacy or third-party multi-factor authentication requirements.
 
 > [!div class="nextstepaction"]
-> [Identity Baseline evolution](./identity-baseline-evolution.md)
+> [Improving the Identity Baseline](./identity-baseline-evolution.md)

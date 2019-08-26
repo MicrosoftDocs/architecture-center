@@ -14,7 +14,7 @@ ms.subservice: plan
 
 At each phase of the IT industry's history, the most notable changes have often been marked by changes in staff roles. One example is the transition from mainframe computing to client/server computing. The role of the computer operator during this transition has largely disappeared, replaced by the system administrator role. When virtualization arrived, the requirement for individuals working with physical servers was replaced with a need for virtualization specialists.
 
-Roles will likely change as institutions similarly shift to cloud computing. For example, datacenter specialists might be replaced with cloud administrators or cloud architects. In some cases, though IT job titles haven't changed, the daily work of these roles has evolved significantly.
+Roles will likely change as institutions similarly shift to cloud computing. For example, datacenter specialists might be replaced with cloud administrators or cloud architects. In some cases, though IT job titles haven't changed, the daily work of these roles has changed significantly.
 
 IT staff members might feel anxious about their roles and positions because they realize that they need a different set of skills to support cloud solutions. But agile employees who explore and learn new cloud technologies shouldn't fear. They can lead the adoption of cloud services and help the organization learn and embrace the associated changes.
 

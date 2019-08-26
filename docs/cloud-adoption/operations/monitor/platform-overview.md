@@ -2,7 +2,7 @@
 title:  Cloud monitoring guide – monitoring platforms overview
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Choose when to use Azure Monitor or System Center Operations Manager in Microsoft Azure
-author: MGoedtel
+author: mgoedtel
 ms.author: magoedte
 ms.date: 07/31/2019
 ms.topic: guide
@@ -21,13 +21,13 @@ This article provides a high-level overview of our monitoring platforms to help 
 
 ## Story of System Center Operations Manager
 
-In 2000, we entered the operations management field with Microsoft Operations Manager (MOM) 2000. In 2007, we introduced a re-engineered version of the product named System Center Operations Manager. It moved beyond simple monitoring of a Windows server and concentrated on robust, end-to-end service and application monitoring, including heterogenous platforms, network devices, and other application or service dependencies. It's an established, enterprise-grade monitoring platform for on-premises environments, in the same class as IBM Tivoli or HP Operations Manager in the industry. It has evolved to support monitoring compute and platform resources running in Azure, Amazon Web Services (AWS), and other cloud providers. 
+In 2000, we entered the operations management field with Microsoft Operations Manager (MOM) 2000. In 2007, we introduced a re-engineered version of the product named System Center Operations Manager. It moved beyond simple monitoring of a Windows server and concentrated on robust, end-to-end service and application monitoring, including heterogenous platforms, network devices, and other application or service dependencies. It's an established, enterprise-grade monitoring platform for on-premises environments, in the same class as IBM Tivoli or HP Operations Manager in the industry. It has grown to support monitoring compute and platform resources running in Azure, Amazon Web Services (AWS), and other cloud providers.
 
 ## Story of Azure Monitor
 
 When Azure was released in 2010, monitoring of cloud services was provided with the Azure Diagnostics agent, which delivered a way to collect diagnostic data from Azure resources. This capability was considered a general monitoring tool vs an enterprise-class monitoring platform.  
 
-Application Insights was introduced to shift with changes in the industry where proliferation of cloud, mobile and IoT devices was growing and the introduction of DevOps practices. It evolved from Application Performance Monitoring in Operations Manager to a service in Azure, where it delivers rich monitoring of web applications written in a variety of languages. In 2015, the preview of Application Insights for Visual Studio was announced and later, it became known just as Application Insights. It collects details on application performance, requests and exceptions, and traces.
+Application Insights was introduced to shift with changes in the industry where proliferation of cloud, mobile and IoT devices was growing and the introduction of DevOps practices. It grew from Application Performance Monitoring in Operations Manager to a service in Azure, where it delivers rich monitoring of web applications written in a variety of languages. In 2015, the preview of Application Insights for Visual Studio was announced and later, it became known just as Application Insights. It collects details on application performance, requests and exceptions, and traces.
 
 In 2015, Azure Operational Insights was made generally available. It delivered the Log Analytics analysis service that collected and searched data from machines in Azure, on-prem or other cloud environments, and connected to System Center Operations Manager. Intelligence packs were offered that delivered different pre-packaged management and monitoring configurations that contained a collection of query and analytic logic, visualizations, and data collection rules for such scenarios as security auditing, health assessments, and alert management.  Later Azure Operational Insights became known as Log Analytics.  
 
@@ -35,23 +35,23 @@ In 2016, the preview of Azure Monitor was announced Ignite. It provided a common
 
 At Microsoft Ignite conference in 2018, we announced that the Azure Monitor brand expanded to include several different services originally developed with independent functionality:
 
-* The original **Azure Monitor** functionality of collecting platform metrics, resource diagnostics logs, and activity logs for only Azure platform resources.
-* **Application Insights** for application monitoring. 
-* **Log Analytics** as the primary location for collection and analysis of log data. 
-* A new **unified alerting service** that brought together alert mechanisms from each of the other services mentioned earlier.  
-* **Azure Network Watcher** to monitor, diagnose, and view metrics for resources in an Azure virtual network.
+- The original **Azure Monitor** functionality of collecting platform metrics, resource diagnostics logs, and activity logs for only Azure platform resources.
+- **Application Insights** for application monitoring.
+- **Log Analytics** as the primary location for collection and analysis of log data.
+- A new **unified alerting service** that brought together alert mechanisms from each of the other services mentioned earlier.  
+- **Azure Network Watcher** to monitor, diagnose, and view metrics for resources in an Azure virtual network.
 
-## Story of Operations Management Suite (OMS)
+## The story of Operations Management Suite (OMS)
 
 From 2015 until April 2018, Operations Management Suite (OMS) was a bundling of the following Azure management services for licensing purposes:
 
-* Application Insights
-* Azure Automation
-* Azure Backup
-* Operational Insights (later the rebranded Log Analytics)
-* Site Recovery
+- Application Insights
+- Azure Automation
+- Azure Backup
+- Operational Insights (later the rebranded Log Analytics)
+- Site Recovery
 
-The functionality of the services that were part of OMS did not change when OMS was discontinued, they were realigned under Azure Monitor. 
+The functionality of the services that were part of OMS did not change when OMS was discontinued, they were realigned under Azure Monitor.
 
 ## Infrastructure requirements
 
@@ -145,7 +145,7 @@ Operations Manager provides four basic ways to analyze data after it’s collect
 
 ### Azure Monitor
 
-Azure Monitor has a powerful analytics engine that allows you to interactively work with log data and combine them with other monitoring data for trending and other data analysis. Views and dashboards allow you to visualize query data in different ways from the Azure portal, and import into Power BI. Monitoring solutions include queries and views to present the data they collect. Insights such as Application Insights, Azure Monitor for VMs, and Azure Monitor for containers include customized visualizations to support interactive monitoring scenarios. 
+Azure Monitor has a powerful analytics engine that allows you to interactively work with log data and combine them with other monitoring data for trending and other data analysis. Views and dashboards allow you to visualize query data in different ways from the Azure portal, and import into Power BI. Monitoring solutions include queries and views to present the data they collect. Insights such as Application Insights, Azure Monitor for VMs, and Azure Monitor for containers include customized visualizations to support interactive monitoring scenarios.
 
 ## Alerting
 
@@ -179,7 +179,7 @@ Azure Monitor separates data collection from actions and analysis taken from tha
 
 Operations Manager implements all monitoring logic in a management pack, which you either create yourself or obtain from us or a partner. When you install a management pack, it automatically discovers components of the application or service on different agents, and deploys appropriate rules and monitors. The management pack contains health definitions, alert rules, performance and event collection rules, and views, to provide complete monitoring supporting the infrastructure service or application.
 
-The Operations Manager SDK enables Operations Manager to integrate with third-party monitoring platforms or ITSM software. The SDK is also used by some partner management packs to support monitoring network devices, and deliver custom presentation experiences like the Squared Up HTML5 dashboard or integration with Office Visio.
+The Operations Manager SDK enables Operations Manager to integrate with third-party monitoring platforms or ITSM software. The SDK is also used by some partner management packs to support monitoring network devices, and deliver custom presentation experiences like the Squared Up HTML5 dashboard or integration with Microsoft Office Visio.
 
 ### Azure Monitor
 

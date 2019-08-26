@@ -31,7 +31,7 @@ The following is a set of example processes commonly involved in the Resource Co
 
 **Quarterly review and planning:** On a quarterly basis perform a review of operational data and incident reports to identify any changes required in Resource Consistency policy. As part of this process, review changes in resource usage and performance to identify assets that require increases or decreases in resource allocation, and identify any workloads or assets that are candidates for retirement.
 
-This planning process is also a good time to evaluate the current membership of your cloud governance team for knowledge gaps related to new or evolving policy and risks related to Resource Consistency as a discipline. Invite relevant IT staff to participate in reviews and planning as either temporary technical advisors or permanent members of your team.
+This planning process is also a good time to evaluate the current membership of your cloud governance team for knowledge gaps related to new or changing policy and risks related to Resource Consistency as a discipline. Invite relevant IT staff to participate in reviews and planning as either temporary technical advisors or permanent members of your team.
 
 **Education and training:** On a bimonthly basis, offer training sessions to make sure IT staff and developers are up-to-date on the latest Resource Consistency policy requirements and guidance. As part of this process review and update any documentation or other training assets to ensure they are in sync with the latest corporate policy statements.
 
