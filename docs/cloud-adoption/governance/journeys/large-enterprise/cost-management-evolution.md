@@ -1,7 +1,7 @@
 ---
-title: "Large enterprise guide: Improving Cost Management"
+title: "Large enterprise guide: Improve the Cost Management discipline"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: "Large enterprise guide: Improving Cost Management"
+description: "Large enterprise guide: Improve the Cost Management discipline"
 author: BrianBlanchard
 ms.author: brblanch
 ms.date: 02/11/2019
@@ -11,7 +11,7 @@ ms.subservice: govern
 ms.custom: governance
 ---
 
-# Large enterprise guide: Improving Cost Management
+# Large enterprise guide: Improve the Cost Management discipline
 
 This article advances the narrative by adding cost controls to the minimum viable product (MVP) governance.
 

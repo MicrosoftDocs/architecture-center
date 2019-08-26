@@ -80,5 +80,7 @@ To begin developing your own custom policy statements related to Identity Baseli
 
 To accelerate adoption of this discipline, choose the [actionable governance guide](../journeys/index.md) that most closely aligns with your environment. Then modify the design to incorporate your specific corporate policy decisions.
 
+Building on risks and tolerance, establish a process for governing and communicating Identity Baseline policy adherence.
+
 > [!div class="nextstepaction"]
-> [Actionable governance guides](../journeys/index.md)
+> [Establish policy compliance processes](./compliance-processes.md)

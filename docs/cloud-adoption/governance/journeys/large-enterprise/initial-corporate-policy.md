@@ -42,4 +42,4 @@ The current risk tolerance is high and the appetite for investing in cloud gover
 This corporate policy prepares the cloud governance team to implement the governance MVP, which will be the foundation for adoption. The next step is to implement this MVP.
 
 > [!div class="nextstepaction"]
-> [Best practice explained](./best-practice-explained.md)
+> [Prescriptive guidance explained](./best-practice-explained.md)

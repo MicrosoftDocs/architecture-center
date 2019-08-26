@@ -1,7 +1,7 @@
 ---
-title: "Small-to-medium enterprise guide: Best practice explained"
+title: "Small-to-medium enterprise guide: Prescriptive guidance explained"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: "Small-to-medium enterprise guide: Best practice explained"
+description: Learn about prescriptive guidance for governance in small-to-medium enterprises.
 author: BrianBlanchard
 ms.author: brblanch
 ms.date: 02/11/2019
@@ -11,9 +11,9 @@ ms.subservice: govern
 ms.custom: governance
 ---
 
-# Small-to-medium enterprise: Best practice explained
+# Small-to-medium enterprise guide: Prescriptive guidance explained
 
-The governance guide starts with a set of initial [corporate policies](./initial-corporate-policy.md). These policies are used to establish a governance MVP that reflects [best practices](./index.md).
+The governance guide starts with a set of initial [corporate policies](./initial-corporate-policy.md). These policies are used to establish a governance MVP that reflects [recommended practices](./index.md).
 
 In this article, we discuss the high-level strategies that are required to create a governance MVP. The core of the governance MVP is the [Deployment Acceleration](../../deployment-acceleration/index.md) discipline. The tools and patterns applied at this stage will enable the incremental improvements needed to expand governance in the future.
 
@@ -117,4 +117,4 @@ Once this guide is implemented, each cloud adoption team can go forth with a sou
 The two teams will use the tolerance indicators to identify the next set of improvements needed to continue supporting cloud adoption. For the fictional company in this guide, the next step is improving the Security Baseline to support moving protected data to the cloud.
 
 > [!div class="nextstepaction"]
-> [Improving the Security Baseline](./security-baseline-evolution.md)
+> [Improve the Security Baseline discipline](./security-baseline-evolution.md)

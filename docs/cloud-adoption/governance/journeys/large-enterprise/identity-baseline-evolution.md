@@ -1,7 +1,7 @@
 ---
-title: "Large enterprise guide: Improving the Identity Baseline"
+title: "Large enterprise guide: Improve the Identity Baseline discipline"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: "Large enterprise guide: Improving the Identity Baseline"
+description: "Large enterprise guide: Improve the Identity Baseline discipline"
 author: BrianBlanchard
 ms.author: brblanch
 ms.date: 02/11/2019
@@ -11,7 +11,7 @@ ms.subservice: govern
 ms.custom: governance
 ---
 
-# Large enterprise guide: Improving the Identity Baseline
+# Large enterprise guide: Improve the Identity Baseline discipline
 
 This article advances the narrative by adding Identity Baseline controls to the governance MVP.
 
@@ -92,4 +92,4 @@ Adding these changes to the governance MVP helps remediate many of the risks in 
 As cloud adoption continues and delivers additional business value, risks and cloud governance needs will also change. The following are a few changes that may occur. For this fictional company, the next trigger is the inclusion of protected data in the cloud adoption plan. This change requires additional security controls.
 
 > [!div class="nextstepaction"]
-> [Improving the Security Baseline](./security-baseline-evolution.md)
+> [Improve the Security Baseline discipline](./security-baseline-evolution.md)

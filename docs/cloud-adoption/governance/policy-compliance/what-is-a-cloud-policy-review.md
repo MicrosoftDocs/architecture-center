@@ -1,7 +1,7 @@
 ---
-title: "What is a cloud policy review?"
+title: Conduct a cloud policy review
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: What is a cloud policy Review?
+description: Learn how to conduct a cloud policy review.
 author: BrianBlanchard
 ms.author: brblanch
 ms.date: 02/11/2019
@@ -13,9 +13,9 @@ ms.custom: governance
 
 <!-- markdownlint-disable MD026 -->
 
-# What is a cloud policy review?
+# Conduct a cloud policy review
 
-A **cloud policy review** is the first step toward [governance maturity](../index.md) in the cloud. The objective of this process is to modernize existing corporate IT policies. When completed, the updated policies provide an equivalent level of risk management for cloud-based resources. This article explains the cloud policy review process and its importance.
+A cloud policy review is the first step toward [governance maturity](../index.md) in the cloud. The objective of this process is to modernize existing corporate IT policies. When completed, the updated policies provide an equivalent level of risk management for cloud-based resources. This article explains the cloud policy review process and its importance.
 
 ## Why perform a cloud policy review?
 
@@ -51,3 +51,10 @@ To provide an example of the process, let's again use the tape backup policy in 
 - Does the risk still exist? Yes. Even in the cloud, a dependence on a single facility does create some risk. There is a lower probability of this risk affecting the business than was present in the on-premises solution, but the risk still exists.
 - Rewrite of the policy. In the case of a datacenter-wide disaster, there must exist a means of restoring production systems within 24 hours of the outage in a different datacenter and different geographic location.
 - Review with the cloud adoption teams. Depending on the solution being implemented, there are multiple means of adhering to this Resource Consistency policy.
+
+## Next steps
+
+Learn more about including data classification in your cloud governance strategy.
+
+> [!div class="nextstepaction"]
+> [Data classification](./what-is-data-classification.md)

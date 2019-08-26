@@ -49,3 +49,10 @@ More detailed information about Azure compliance offerings is available from the
 
 - **Audit reports:** Includes sections for FedRAMP, GRC assessment, ISO, PCI DSS, and SOC reports.
 - **Data protection resources:** Includes compliance guides, FAQ and white papers, and pen test and security assessment sections.
+
+## Next steps
+
+Learn more about cloud security readiness.
+
+> [!div class="nextstepaction"]
+> [Cloud security readiness](./how-can-a-ciso-prepare-for-the-cloud.md)

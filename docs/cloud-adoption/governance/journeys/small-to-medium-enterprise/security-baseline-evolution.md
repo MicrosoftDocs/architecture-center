@@ -1,7 +1,7 @@
 ---
-title: "Small-to-medium enterprise guide: Improving the Security Baseline"
+title: "Small-to-medium enterprise guide: Improve the Security Baseline discipline"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: "Small-to-medium enterprise guide: Improving the Security Baseline"
+description: "Small-to-medium enterprise guide: Improve the Security Baseline discipline"
 author: BrianBlanchard
 ms.author: brblanch
 ms.date: 02/11/2019
@@ -11,7 +11,7 @@ ms.subservice: govern
 ms.custom: governance
 ---
 
-# Small-to-medium enterprise guide: Improving the Security Baseline
+# Small-to-medium enterprise guide: Improve the Security Baseline discipline
 
 This article advances the narrative by adding security controls that support moving protected data to the cloud.
 

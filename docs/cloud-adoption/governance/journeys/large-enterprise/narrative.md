@@ -1,5 +1,5 @@
 ---
-title: "Large enterprise: The narrative behind the governance guide"
+title: "Large enterprise guide: The supporting narrative"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: This narrative establishes a use case for governance during a large enterprise's cloud adoption journey.
 author: BrianBlanchard
@@ -11,7 +11,7 @@ ms.subservice: govern
 ms.custom: governance
 ---
 
-# Large enterprise: The narrative behind the governance strategy
+# Large enterprise guide: The supporting narrative
 
 The following narrative establishes a use case for [governance during large enterprise's cloud adoption journey](./index.md). Before acting on the recommendations in the guide, it's important to understand the assumptions and reasoning that are reflected in this narrative. Then you can better align the governance strategy to your own organization's cloud adoption journey.
 

@@ -1,7 +1,7 @@
 ---
-title: "Actionable governance guides"
+title: "Cloud governance guides"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: Actionable governance guides
+description: Learn about the actionable governance guides provided in the Cloud Adoption Framework.
 author: BrianBlanchard
 ms.author: brblanch
 ms.date: 02/11/2019
@@ -12,13 +12,13 @@ ms.custom: governance
 layout: LandingPage
 ---
 
-# Actionable governance guides
+# Cloud governance guides
 
-The governance guides in this section illustrate the incremental approach of the Cloud Adoption Framework governance model. You can establish an agile governance platform that will grow to meet the needs of any cloud governance scenario.
+The actionable governance guides in this section illustrate the incremental approach of the Cloud Adoption Framework governance model. You can establish an agile approach to cloud governance that will grow to meet the needs of any cloud governance scenario.
 
 ## Review and adopt cloud governance best practices
 
-To begin your cloud adoption journey, choose one of the following governance guides. Each guide outlines a set of best practices, based on a set of fictional customer experiences. For readers who are new to the incremental approach of the Cloud Adoption Framework governance model, review the high-level governance theory introduction below before adopting either set of best practices.
+To begin your cloud adoption journey, choose one of the following governance guides. Each guide outlines a set of best practices, based on a set of fictional customer experiences. For readers who are new to the incremental approach of the Cloud Adoption Framework governance model, review the high-level introduction to governance theory below before adopting either set of best practices.
 
 <!-- markdownlint-disable MD033 -->
 

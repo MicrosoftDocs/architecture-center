@@ -33,7 +33,7 @@ Cloud governance is an iterative process. For organizations with existing polici
                             </div>
                         </div>
                         <div class="cardText" style="padding-left:0px;">
-                            <h3>Methodology</h3>
+                            <h3>Governance guides</h3>
                             Establish a basic understanding of the methodology that drives cloud governance in the Cloud Adoption Framework.
                         </div>
                     </div>
@@ -127,7 +127,7 @@ For a crash course on the theory and quick access to Azure implementation, get s
 
 ## Next steps
 
-Review the actionable governance guides.
+Review the actionable cloud governance guides.
 
 > [!div class="nextstepaction"]
 > [Review the governance guides](./journeys/index.md)
