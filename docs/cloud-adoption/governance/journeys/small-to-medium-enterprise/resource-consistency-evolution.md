@@ -1,7 +1,7 @@
 ---
-title: "Small-to-medium enterprise: Resource Consistency evolution"
+title: "Small-to-medium enterprise guide: Improving Resource Consistency"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: Small-to-medium enterprise – Resource Consistency evolution
+description: "Small-to-medium enterprise guide: Improving Resource Consistency"
 author: BrianBlanchard
 ms.author: brblanch
 ms.date: 02/11/2019
@@ -11,15 +11,15 @@ ms.subservice: govern
 ms.custom: governance
 ---
 
-# Small-to-medium enterprise: Resource Consistency evolution
+# Small-to-medium enterprise guide: Improving Resource Consistency
 
-This article evolves the narrative by adding Resource Consistency controls to support mission-critical apps.
+This article advances the narrative by adding Resource Consistency controls to support mission-critical apps.
 
-## Evolution of the narrative
+## Advancing the narrative
 
 New customer experiences, new prediction tools, and migrated infrastructure continue to progress. The business is now ready to begin using those assets in a production capacity.
 
-### Evolution of the current state
+### Changes in the current state
 
 In the previous phase of this narrative, the application development and BI teams were nearly ready to integrate customer and financial data into production workloads. The IT team was in the process of retiring the DR datacenter.
 
@@ -29,13 +29,13 @@ Since then, some things have changed that will affect governance:
 - The application development teams are now ready for production traffic.
 - The BI team is ready to feed predictions and insights back into operation systems in the Production datacenter.
 
-### Evolution of the future state
+### Incrementally improve the future state
 
-Before using Azure deployments in production business processes, cloud operations must mature. In conjunction, an additional governance evolution is required to ensure assets can be operated properly.
+Before using Azure deployments in production business processes, cloud operations must mature. In conjunction, additional governance changes is required to ensure assets can be operated properly.
 
 The changes to current and future state expose new risks that will require new policy statements.
 
-## Evolution of tangible risks
+## Changes in tangible risks
 
 **Business interruption:** There is an inherent risk of any new platform causing interruptions to mission-critical business processes. The IT Operations team and the teams executing on various cloud adoptions are relatively inexperienced with cloud operations. This increases the risk of interruption and must be remediated and governed.
 
@@ -53,7 +53,7 @@ This business risk can be expanded into several technical risks:
 - Deployed operating systems or applications might fail to meet hardening requirements.
 - With so many teams working in the cloud, there is a risk of inconsistency.
 
-## Evolution of the policy statements
+## Incremental improvement of the policy statements
 
 The following changes to policy will help remediate the new risks and guide implementation. The list looks long, but adopting these policies may be easier than it appears.
 
@@ -74,9 +74,11 @@ The following changes to policy will help remediate the new risks and guide impl
 15. Deployment scripts must be maintained in a central repository accessible by the cloud governance team for periodic review and auditing.
 16. Governance review processes must validate that deployed assets are properly configured in alignment with SLA and recovery requirements.
 
-## Evolution of the best practices
+## Incremental improvement of governance practices
 
-This section of the article will evolve the governance MVP design to include new Azure policies and an implementation of Azure Vault and Azure Monitor. These design changes will fulfill the new corporate policy statements.
+
+This section of the article will change the governance MVP design to include new Azure policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
+
 
 1. The cloud operations team will define operational monitoring tooling and automated remediation tooling. The cloud governance team will support those discovery processes. In this use case, the cloud operations team chose Azure Monitor as the primary tool for monitoring mission-critical applications.
 2. Create a repository in Azure DevOps to store and version all relevant Resource Manager templates and scripted configurations.
@@ -111,7 +113,7 @@ These additional processes and changes to the governance MVP help remediate many
 
 ## Next steps
 
-As cloud adoption continues to evolve and deliver additional business value, risks and cloud governance needs will also evolve. For the fictional company in this journey, the next trigger is when the scale of deployment exceeds 100 assets to the cloud or monthly spending exceeds $1,000 per month. At this point, the cloud governance team adds Cost Management controls.
+As cloud adoption continues and delivers additional business value, risks and cloud governance needs will also change. For the fictional company in this guide, the next trigger is when the scale of deployment exceeds 100 assets to the cloud or monthly spending exceeds $1,000 per month. At this point, the cloud governance team adds Cost Management controls.
 
 > [!div class="nextstepaction"]
-> [Cost Management evolution](./cost-management-evolution.md)
+> [Improving Cost Management](./cost-management-evolution.md)

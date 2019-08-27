@@ -8,7 +8,8 @@ ms.date: 08/08/2019
 ms.topic: conceptual
 ms.service: cloud-adoption-framework
 ms.subservice: migrate
-ms.custom: fasttrack-new
+ms.custom: fasttrack-new, AQC
+ms.localizationpriority: high
 ---
 
 # Migrate assets (infrastructure, apps, and data)

@@ -1,7 +1,7 @@
 ---
-title: "Small-to-medium enterprise: Security Baseline evolution"
+title: "Small-to-medium enterprise guide: Improving the Security Baseline"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: "Small-to-medium enterprise: Security Baseline evolution"
+description: "Small-to-medium enterprise guide: Improving the Security Baseline"
 author: BrianBlanchard
 ms.author: brblanch
 ms.date: 02/11/2019
@@ -11,21 +11,21 @@ ms.subservice: govern
 ms.custom: governance
 ---
 
-# Small-to-medium enterprise: Security Baseline evolution
+# Small-to-medium enterprise guide: Improving the Security Baseline
 
-This article evolves the narrative by adding security controls that support moving protected data to the cloud.
+This article advances the narrative by adding security controls that support moving protected data to the cloud.
 
-## Evolution of the narrative
+## Advancing the narrative
 
-IT and business leadership have been happy with results from early stage experimentation by the IT, App Development, and BI teams. To realize tangible business values from these experiments, those teams must be allowed to integrate protected data into solutions. This triggers changes to corporate policy, but also requires an evolution of the cloud governance implementations before protected data can land in the cloud.
+IT and business leadership have been happy with results from early stage experimentation by the IT, App Development, and BI teams. To realize tangible business values from these experiments, those teams must be allowed to integrate protected data into solutions. This triggers changes to corporate policy, but also requires incremental improvement of the cloud governance implementations before protected data can land in the cloud.
 
-### Evolution of the cloud governance team
+### Changes to the cloud governance team
 
 Given the effect of the changing narrative and support provided so far, the cloud governance team is now viewed differently. The two system administrators who started the team are now viewed as experienced cloud architects. As this narrative develops, the perception of them will shift from being Cloud Custodians to more of a Cloud Guardian role.
 
 While the difference is subtle, it’s an important distinction when building a governance- focused IT culture. A Cloud Custodian cleans up the messes made by innovative cloud architects. The two roles have natural friction and opposing objectives. On the other hand, a Cloud Guardian helps keep the cloud safe, so other cloud architects can move more quickly, with less messes. Additionally, a Cloud Guardian is involved in creating templates that accelerate deployment and adoption, making them an innovation accelerator as well as a defender of the Five Disciplines of Cloud Governance.
 
-### Evolution of the current state
+### Changes in the current state
 
 At the start of this narrative, the application development teams were still working in a dev/test capacity, and the BI team was still in the experimental phase. IT operated two hosted infrastructure environments, named Prod and DR.
 
@@ -36,7 +36,7 @@ Since then, some things have changed that will affect governance:
 - The IT team is progressing on the CIO and CFO's plans to retire the DR datacenter. More than 1,000 of the 2,000 assets in the DR datacenter have been retired or migrated.
 - The loosely defined policies regarding PII and financial data have been modernized. However, the new corporate policies are contingent on the implementation of related security and governance policies. Teams are still stalled.
 
-### Evolution of the future state
+### Incrementally improve the future state
 
 Early experiments by the App Dev and BI teams show potential improvements in customer experiences and data-driven decisions. Both teams want to expand adoption of the cloud over the next 18 months by deploying those solutions to production.
 
@@ -44,7 +44,7 @@ During the remaining six months, the cloud governance team will implement securi
 
 The changes to current and future state expose new risks that require new policy statements.
 
-## Evolution of tangible risks
+## Changes in tangible risks
 
 **Data breach:** When adopting any new data platform, there is an inherent increase in liabilities related to potential data breaches. Technicians adopting cloud technologies have increased responsibilities to implement solutions that can decrease this risk. A robust security and governance strategy must be implemented to ensure those technicians fulfill those responsibilities.
 
@@ -60,7 +60,7 @@ This business risk can be expanded into a few technical risks:
 - Inconsistent deployment processes might result in security gaps, which could lead to data leaks or interruptions.
 - Configuration drift or missed patches might result in unintended security gaps, which could lead to data leaks or interruptions.
 
-## Evolution of the policy statements
+## Incremental improvement of the policy statements
 
 The following changes to policy will help remediate the new risks and guide implementation. The list looks long, but adopting these policies may be easier than it appears.
 
@@ -83,9 +83,11 @@ The following changes to policy will help remediate the new risks and guide impl
 17. Deployment of any applications that require customer authentication must use an approved identity provider that is compatible with the primary identity provider for internal users.
 18. Cloud governance processes must include quarterly reviews with identity management teams. These reviews can help identify malicious actors or usage patterns that should be prevented by cloud asset configuration.
 
-## Evolution of the best practices
+## Incremental improvement of governance practices
 
-The governance MVP design will evolve to include new Azure policies and an implementation of Azure Security Center. Together, these two design changes will fulfill the new corporate policy statements.
+
+The governance MVP design will change to include new Azure policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
+
 
 1. The Networking and IT Security teams will define network requirements. The cloud governance team will support the conversation.
 2. The Identity and IT Security teams will define identity requirements and make any necessary changes to local Active Directory implementation. The cloud governance team will review changes.
@@ -124,7 +126,7 @@ Adding the above processes and changes to the governance MVP will help to remedi
 
 ## Next steps
 
-As cloud adoption continues to evolve and deliver additional business value, risks and cloud governance needs also evolve. For the fictional company in this journey, the next step is to support mission-critical workloads. This is the point when Resource Consistency controls are needed.
+As cloud adoption continues and delivers additional business value, risks and cloud governance needs also change. For the fictional company in this guide, the next step is to support mission-critical workloads. This is the point when Resource Consistency controls are needed.
 
 > [!div class="nextstepaction"]
-> [Resource Consistency evolution](./resource-consistency-evolution.md)
+> [Improving Resource Consistency](./resource-consistency-evolution.md)
