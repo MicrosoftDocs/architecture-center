@@ -90,7 +90,7 @@ Cloud governance is an iterative process. For organizations with existing polici
                             </div>
                         </div>
                         <div class="cardText" style="padding-left:0px;">
-                            <h3>Governance maturity</h3>
+                            <h3>Improve initial governance foundation</h3>
                             Throughout implementation of the cloud adoption plan, iteratively add governance controls to address tangible risks as you move towards the end state.
                         </div>
                     </div>
