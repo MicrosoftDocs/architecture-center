@@ -56,6 +56,7 @@ The following changes to policy will help remediate the new risks and guide impl
 5. During deployment planning, any required cloud resources associated with the hosting of production workloads should be documented. This documentation will help refine budgets and prepare additional automation tools to prevent the use of more expensive options. During this process consideration should be given to different discounting tools offered by the cloud provider, such as Reserved Instances or License cost reductions.
 6. All application owners are required to attend trained on practices for optimizing workloads to better control cloud costs.
 
+
 ## Incremental improvement of the best practices
 
 This section of the article will improve the governance MVP design to include new Azure policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
