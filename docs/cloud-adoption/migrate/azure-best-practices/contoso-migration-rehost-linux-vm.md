@@ -73,17 +73,18 @@ Contoso evaluates the proposed design by putting together a pros and cons list.
 
 Contoso will migrate as follows:
 
-1. As a first step, Contoso sets up the Azure and on-premises infrastructure needed to deploy Site Recovery.
-2. After preparing Azure and on-premises components, Contoso sets up and enables replication for the VMs.
-3. After replication is working, Contoso migrates the VMs by failing them over to Azure.
+- As a first step, Contoso prepares and sets up Azure components for Azure Migrate Server Migration, and prepares the on-premises VMware infrastructure.
+- They already have the [Azure infrastructure](contoso-migration-infrastructure.md) in place, so Contoso just needs to add configure the replication of the VMs through the Azure Migrate Server Migration tool. 
+- With everything prepared, Contoso can start replicating the VMs.
+- After replication is enabled and working, Contoso will migrate the VM by failing it over to Azure.
 
-![Migration process](./media/contoso-migration-rehost-linux-vm/migration-process.png)
-
+![Migration process](./media/contoso-migration-rehost-linux-vm/migraton-process-az-migrate.png)
 ### Azure services
 
 **Service** | **Description** | **Cost**
 --- | --- | ---
-[Azure Site Recovery](/azure/site-recovery) | The service orchestrates and manages migration and disaster recovery for Azure VMs, and on-premises VMs and physical servers. | During replication to Azure, Azure Storage charges are incurred. Azure VMs are created, and incur charges, when failover occurs. [Learn more](https://azure.microsoft.com/pricing/details/site-recovery) about charges and pricing.
+[Azure Migrate Server Migration](/azure/migrate/contoso-migration-rehost-linux-vm) | The service orchestrates and manages migration of your on-premises apps and workloads, and AWS/GCP VM instances. | During replication to Azure, Azure Storage charges are incurred. Azure VMs are created, and incur charges, when failover occurs. [Learn more](https://azure.microsoft.com/pricing/details/azure-migrate/) about charges and pricing.
+
 
 ## Prerequisites
 
@@ -94,9 +95,9 @@ Here's what Contoso needs for this scenario.
 **Requirements** | **Details**
 --- | ---
 **Azure subscription** | Contoso created subscriptions in an early article in this series. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/pricing/free-trial).<br/><br/> If you create a free account, you're the administrator of your subscription and can perform all actions.<br/><br/> If you use an existing subscription and you're not the administrator, you need to work with the admin to assign you Owner or Contributor permissions.<br/><br/> If you need more granular permissions, review [this article](/azure/site-recovery/site-recovery-role-based-linked-access-control).
-**Azure infrastructure** | Contoso set up their Azure infrastructure as described in [Azure infrastructure for migration](contoso-migration-infrastructure.md).<br/><br/> Learn more about specific [network](/azure/site-recovery/vmware-physical-azure-support-matrix#network) and [storage](/azure/site-recovery/vmware-physical-azure-support-matrix#storage) requirements for Site Recovery.
+**Azure infrastructure** |  [Learn how](contoso-migration-infrastructure.md) Contoso set up an Azure infrastructure.<br/><br/> Learn more about specific [prerequisites](/azure/migrate/contoso-migration-rehost-linux-vm#prerequisites) requirements for Azure Migrate Server Migration.
 **On-premises servers** | The on-premises vCenter server should be running version 5.5, 6.0, or 6.5<br/><br/> An ESXi host running version 5.5, 6.0 or 6.5<br/><br/> One or more VMware VMs running on the ESXi host.
-**On-premises VMs** | [Review Linux machines](/azure/site-recovery/vmware-physical-azure-support-matrix#replicated-machines) that are supported for migration with Site Recovery.<br/><br/> Verify supported [Linux file and storage systems](/azure/site-recovery/vmware-physical-azure-support-matrix#linux-file-systemsguest-storage).<br/><br/> VMs must meet [Azure requirements](/azure/site-recovery/vmware-physical-azure-support-matrix#azure-vm-requirements).
+**On-premises VMs** | [Review Linux machines](/azure/virtual-machines/linux/endorsed-distros) that are endorsed to run on Azure.
 
 <!-- markdownlint-enable MD033 -->
 
@@ -106,62 +107,36 @@ Here's how Contoso will complete the migration:
 
 > [!div class="checklist"]
 >
-> - **Step 1: Prepare Azure for Site Recovery.** Contoso creates an Azure storage account to hold replicated data, and creates a Recovery Services vault.
-> - **Step 2: Prepare on-premises VMware for Site Recovery.** Contoso prepares accounts to be used for VM discovery and agent installation, and prepares to connect to Azure VMs after failover.
-> - **Step 3: Replicate VMs.** Contoso sets up the source and target migration environment, creates a replication policy, and starts replicating VMs to Azure storage.
-> - **Step 4: Migrate the VMs with Site Recovery.** Contoso runs a test failover to make sure everything's working, and then runs a full failover to migrate the VMs to Azure.
+> - **Step 1: Prepare Azure for Azure Migrate Server Migration.** They add the Server Migration tool to their Azure Migrate project. 
+> - **Step 2: Prepare on-premises VMware for Azure Migrate Server Migration.** They prepare accounts for VM discovery, and prepare to connect to Azure VMs after failover.
+> - **Step 3: Replicate VMs.** They set up replication, and start replicating VMs to Azure storage.
+> - **Step 4: Migrate the VMs with Azure Migrate Server Migration.** They run a test failover to make sure everything's working, and then run a full failover to migrate the VMs to Azure.
 
-## Step 1: Prepare Azure for the Site Recovery service
+## Step 1: Prepare Azure for the Azure Migrate Server Migration tool
 
-Contoso needs a couple of Azure components for Site Recovery:
+Here are the Azure components Contoso needs to migrate the VMs to Azure:
 
-- A new Azure storage account to hold replicated data.
-- A Recovery Services vault in Azure.
-- A VNet in which failed over resources are located. Contoso already created the VNet during [Azure infrastructure deployment](contoso-migration-infrastructure.md), so they just need to create a storage account and vault.
+- A VNet in which Azure VMs will be located when they're created during failover.
+- The Azure Migrate Server Migration tool provisioned. 
 
-1. Contoso admins create an Azure storage account (contosovmsacc20180528) in the East US 2 region.
+They set these up as follows:
 
-    - The storage account must be in the same region as the Recovery Services vault.
-    - They use a general purpose account, with standard storage, and LRS replication.
+1. Set up a network-Contoso already set up a network that can be for Azure Migrate Server Migration when they [deployed the Azure infrastructure](contoso-migration-infrastructure.md)
 
-      ![Site Recovery storage](./media/contoso-migration-rehost-linux-vm/asr-storage.png)
+    - The SmartHotel360 app is a production app, and the VMs will be migrated to the Azure production network (VNET-PROD-EUS2) in the primary East US 2 region.
+    - Both VMs will be placed in the ContosoRG resource group, which is used for production resources.
+    - The app front-end VM (WEBVM) will migrate to the front-end subnet (PROD-FE-EUS2), in the production network.
+    - The app database VM (SQLVM) will migrate to the database subnet (PROD-DB-EUS2), in the production network.
 
-2. With the network and storage account in place, they create a vault (ContosoMigrationVault), and place it in the **ContosoFailoverRG** resource group, in the primary East US 2 region.
 
-    ![Recovery Services vault](./media/contoso-migration-rehost-linux-vm/asr-vault.png)
+2. Provision the Azure Migrate Server Migration tool-With the network and storage account in place, Contoso now creates a Recovery Services vault (ContosoMigrationVault), and places it in the ContosoFailoverRG resource group in the primary East US 2 region.
+
+    ![Azure Migrate Server Migration tool](./media/contoso-migration-rehost-linux-vm/server-migration-tool.png)
 
 **Need more help?**
 
-[Learn about](/azure/site-recovery/tutorial-prepare-azure) setting up Azure for Site Recovery.
+[Learn about](/azure/migrate/) setting up Azure Migrate Server Migration tool. 
 
-## Step 2: Prepare on-premises VMware for Site Recovery
-
-Contoso admins prepare the on-premises VMware infrastructure as follows:
-
-- They create an account on the vCenter server or vSphere ESXi host, to automate VM discovery.
-- They create an account that allows automatic installation of the Mobility service on VMware VMs that you want to replicate.
-- They prepare on-premises VMs, so that they can connect to Azure VMs when they're created after migration.
-
-### Prepare an account for automatic discovery
-
-Site Recovery needs access to VMware servers to:
-
-- Automatically discover VMs. At least a read-only account is required.
-- Orchestrate replication, failover, and failback. You need an account that can run operations such as creating and removing disks, and turning on VMs.
-
-Contoso admins set up the account as follows:
-
-1. They create a role at the vCenter level.
-2. They assign that role the required permissions.
-
-### Prepare an account for Mobility service installation
-
-The Mobility service must be installed on the Linux VMs that will be migrated.
-
-- Site Recovery can do an automatic push installation of this component when replication is enabled for VMs.
-- For automatic push installation, they need to prepare an account that Site Recovery will use to access the VMs.
-- Accounts details are input during replication setup.
-- The account can be domain or local account, with permissions to install on VMs.
 
 ### Prepare to connect to Azure VMs after failover
 
@@ -173,201 +148,97 @@ After failover to Azure, Contoso wants to be able to connect to the replicated V
 
 **Need more help?**
 
-- [Learn about](/azure/site-recovery/vmware-azure-tutorial-prepare-on-premises#prepare-an-account-for-automatic-discovery) creating and assigning a role for automatic discovery.
-- [Learn about](/azure/site-recovery/vmware-azure-tutorial-prepare-on-premises#prepare-an-account-for-mobility-service-installation) creating an account for push installation of the Mobility service.
+- [Learn about](/azure/migrate/contoso-migration-rehost-linux-vm#prepare-vms-for-migration) preparing VMs for migration
 
 ## Step 3: Replicate the on-premises VMs
 
-Before they can migrate the web VM to Azure, Contoso admins set up and enable replication.
 
-### Set a protection goal
+Before Contoso admins can run a migration to Azure, they need to set up and enable replication.
 
-1. In the vault, under the vault name (ContosoVMVault) they set a replication goal (**Getting Started** > **Site Recovery** > **Prepare infrastructure**.
-2. They specify that their machines are located on-premises, that they're VMware VMs, and that they want to replicate to Azure.
-    ![Replication goal](./media/contoso-migration-rehost-linux-vm/replication-goal.png)
+With discovery completed, you can begin replication of VMware VMs to Azure.
 
-### Confirm deployment planning
+1. In the Azure Migrate project > **Servers**, **Azure Migrate: Server Migration**, click **Replicate**.
 
-To continue, they confirm that they've completed deployment planning, by selecting **Yes, I have done it**. Contoso are only migrating a single VM in this scenario, and don't need deployment planning.
+    ![Replicate VMs](./media/contoso-migration-rehost-linux-vm/select-replicate.png)
 
-### Set up the source environment
+2. In **Replicate**, > **Source settings** > **Are your machines virtualized?**, select **Yes, with VMware vSphere**.
+3. In **On-premises appliance**, select the name of the Azure Migrate appliance that you set up > **OK**. 
 
-Contoso admins now need to configure the source environment. To do this, they download an OVF template and use it to deploy the Site Recovery configuration server as a highly available, on-premises VMware VM. After the configuration server is up and running, they register it in the vault.
+    ![Source settings](./media/contoso-migration-rehost-linux-vm/source-settings.png)
 
-The configuration server runs several components:
+4. In **Virtual machines**, select the machines you want to replicate.
+    - If you've run an assessment for the VMs, you can apply VM sizing and disk type (premium/standard) recommendations from the assessment results. To do this, in **Import migration settings from an Azure Migrate assessment?**, select the **Yes** option.
+    - If you didn't run an assessment, or you don't want to use the assessment settings, select the **No** options.
+    - If you selected to use the assessment, select the VM group, and assessment name.
 
-- The configuration server component that coordinates communications between on-premises and Azure and manages data replication.
-- The process server that acts as a replication gateway. It receives replication data; optimizes it with caching, compression, and encryption; and sends it to Azure storage.
-- The process server also installs Mobility Service on VMs you want to replicate and performs automatic discovery of on-premises VMware VMs.
+    ![Select assessment](./media/contoso-migration-rehost-linux-vm/select-assessment.png)
 
-Contoso admins perform these steps as follows:
+5. In **Virtual machines**, search for VMs as needed, and check each VM you want to migrate. Then click **Next: Target settings**.
 
-1. They download the OVF template from **Prepare Infrastructure** > **Source** > **Configuration Server**.
 
-    ![Download OVF](./media/contoso-migration-rehost-linux-vm/add-cs.png)
+6. In **Target settings**, select the subscription, and target region to which you'll migrate, and specify the resource group in which the Azure VMs will reside after migration. In **Virtual Network**, select the Azure VNet/subnet to which the Azure VMs will be joined after migration.
+7. In **Azure Hybrid Benefit**:
 
-2. They import the template into VMware to create the VM, and deploy the VM.
+    - Select **No** if you don't want to apply Azure Hybrid Benefit. Then click **Next**.
+    - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating. Then click **Next**.
 
-    ![OVF template](./media/contoso-migration-rehost-linux-vm/vcenter-wizard.png)
 
-3. When they turn on the VM for the first time, it boots up into a Windows Server 2016 installation experience. They accept the license agreement, and enter an administrator password.
-4. After the installation finishes, they sign into the VM as an administrator. At first sign-in, the Azure Site Recovery Configuration Tool runs by default.
-5. In the tool, they specify a name to use for registering the configuration server in the vault.
-6. The tool checks that the VM can connect to Azure. After the connection is established, they sign in to the Azure subscription. The credentials must have access to the vault in which you want to register the configuration server.
+8. In **Compute**, review the VM name, size, OS disk type, and availability set. VMs must conform with [Azure requirements](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vmware-vm-requirements).
 
-    ![Register configuration server](./media/contoso-migration-rehost-linux-vm/config-server-register2.png)
+    - **VM size**: If you're using assessment recommendations, the VM size dropdown will contain the recommended size. Otherwise Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**. 
+    - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer. 
+    - **Availability set**: If the VM should be in an Azure availability set after migration, specify the set. The set must be in the target resource group you specify for the migration.
 
-7. The tool performs some configuration tasks and then reboots.
-8. They sign in to the machine again, and the Configuration Server Management Wizard starts automatically.
-9. In the wizard, they select the NIC to receive replication traffic. This setting can't be changed after it's configured.
-10. They select the subscription, resource group, and vault in which to register the configuration server.
+9. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium-managed disks) in Azure. Then click **Next**.
+    - You can exclude disks from replication.
+    - If you exclude disks, won't be present on the Azure VM after migration. 
 
-    ![vault](./media/contoso-migration-rehost-linux-vm/cswiz1.png)
 
-11. They then download and install MySQL Server, and VMware PowerCLI.
-12. After validation, they specify the FQDN or IP address of the vCenter server or vSphere host. They leave the default port, and specify a friendly name for the vCenter server.
-13. They specify the account that they created for automatic discovery, and the credentials that should be used to automatically install the Mobility Service.
+10. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers.
 
-    ![vCenter](./media/contoso-migration-rehost-linux-vm/cswiz2.png)
+> [!NOTE]
+> You can update replication settings any time before replication starts, in **Manage** > **Replicating machines**. Settings can't be changed after replication starts.
 
-14. After registration finishes, in the Azure portal, they check that the configuration server and VMware server are listed on the **Source** page in the vault. Discovery can take 15 minutes or more.
-15. Site Recovery then connects to VMware servers, and discovers VMs.
 
-### Set up the target
-
-Now Contoso admins configure the target replication settings.
-
-1. In **Prepare infrastructure** > **Target**, they select the target settings.
-2. Site Recovery checks that there's an Azure storage account and network in the specified target.
-
-### Create a replication policy
-
-After the source and target are set up, they're ready to create a replication policy.
-
-1. In **Prepare infrastructure** > **Replication Settings** > **Replication Policy** >  **Create and Associate**, they create a policy **ContosoMigrationPolicy**.
-2. They use the default settings:
-    - **RPO threshold:** Default of 60 minutes. This value defines how often recovery points are created. An alert is generated if continuous replication exceeds this limit.
-    - **Recovery point retention:** Default of 24 hours. This value specifies how long the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window.
-    - **App-consistent snapshot frequency:** Default of one hour. This value specifies the frequency at which application-consistent snapshots are created.
-
-        ![Create replication policy](./media/contoso-migration-rehost-linux-vm/replication-policy.png)
-
-3. The policy is automatically associated with the configuration server.
-
-    ![Associate replication policy](./media/contoso-migration-rehost-linux-vm/replication-policy2.png)
-
-**Need more help?**
-
-- You can read a full walkthrough of all these steps in [Set up disaster recovery for on-premises VMware VMs](/azure/site-recovery/vmware-azure-tutorial).
-- Detailed instructions are available to help you [set up the source environment](/azure/site-recovery/vmware-azure-set-up-source), [deploy the configuration server](/azure/site-recovery/vmware-azure-deploy-configuration-server), and [configure replication settings](/azure/site-recovery/vmware-azure-set-up-replication).
-- [Learn more](/azure/virtual-machines/extensions/agent-linux) about the Azure Guest agent for Linux.
-
-**Need more help?**
-
-- You can read a full walkthrough of all these steps in [Set up disaster recovery for on-premises VMware VMs](/azure/site-recovery/vmware-azure-tutorial).
-- Detailed instructions are available to help you [set up the source environment](/azure/site-recovery/vmware-azure-set-up-source), [deploy the configuration server](/azure/site-recovery/vmware-azure-deploy-configuration-server), and [configure replication settings](/azure/site-recovery/vmware-azure-set-up-replication).
-- [Learn more](/azure/virtual-machines/extensions/agent-linux) about the Azure Guest agent for Linux.
-
-### Enable replication for OSTICKETWEB
-
-Now Contoso admins can start replicating the **OSTICKETWEB** VM.
-
-1. In **Replicate application** > **Source** > **+Replicate** they select the source settings.
-2. They select that they want to enable virtual machines, select the source settings, including the vCenter server, and the configuration server.
-
-    ![Enable replication](./media/contoso-migration-rehost-linux-vm/enable-replication-source.png)
-
-3. They specify the target settings, including the resource group and VNet in which the Azure VM will be located after failover, and the storage account in which replicated data will be stored.
-
-     ![Enable replication](./media/contoso-migration-rehost-linux-vm/enable-replication2.png)
-
-4. They select the **OSTICKETWEB** VM for replication.
-
-    - At this stage they select **OSTICKETWEB** only, because the VNet and subnet must both be selected, and the VMs aren't in the same subnet.
-    - Site Recovery automatically installs the Mobility service when replication is enabled for the VM.
-
-    ![Enable replication](./media/contoso-migration-rehost-linux-vm/enable-replication3.png)
-
-5. In the VM properties, they select the account that's used by the process server to automatically install Mobility Service on the machine.
-
-     ![Mobility service](./media/contoso-migration-rehost-linux-vm/linux-mobility.png)
-
-6. In **Replication settings** > **Configure replication settings**, they check that the correct replication policy is applied, and select **Enable Replication**.
-
-7. They track replication progress in **Jobs**. After the **Finalize Protection** job runs, the machine is ready for failover.
-
-### Enable replication for OSTICKETMYSQL
-
-Now Contoso admins can start replicating **OSTICKETMYSQL**.
-
-1. In **Replicate application** > **Source** > **+Replicate** they select the source and target settings.
-2. They select the **OSTICKETMYSQL** VM for replication, and select the account to use for Mobility service installation.
-
-    ![Enable replication](./media/contoso-migration-rehost-linux-vm/mysql-enable.png)
-
-3. They apply the same replication policy that was used for OSTICKETWEB, and enable replication.
-
-**Need more help?**
-
-You can read a full walkthrough of all these steps in [Enable replication](/azure/site-recovery/vmware-azure-enable-replication).
 
 ## Step 4: Migrate the VMs
 
-Contoso admins run a quick test failover, and then migrate the VMs.
+Contoso admins run a quick test failover, and then a full failover to migrate the VMs.
 
 ### Run a test failover
 
-Running a test failover helps ensure that everything's working as expected before the migration.
+1. In **Migration goals** > **Servers** > **Azure Migrate: Server Migration**, click **Test migrated servers**.
 
-1. They run a test failover to the latest available point in time (**Latest processed**).
-2. They select **Shut down machine before beginning failover**, so that Site Recovery attempts to shut down the source VM before triggering the failover. Failover continues even if shutdown fails.
-3. Test failover runs:
-    - A prerequisites check runs to make sure all of the conditions required for migration are in place.
-    - Failover processes the data, so that an Azure VM can be created. If the latest recovery point is selected, a recovery point is created from the data.
-    - An Azure VM is created using the data processed in the previous step.
-4. After the failover finishes, the replica Azure VM appears in the Azure portal. They check that the VM is the appropriate size, that it's connected to the right network, and that it's running.
-5. After verifying, they clean up the failover, and record and save any observations.
+     ![Test migrated servers](./media/contoso-migration-rehost-linux-vm/test-migrated-servers.png)
 
-### Create and customize a recovery plan
+2. Right-click the VM to test, and click **Test migrate**.
 
- After verifying that the test failover worked as expected, Contoso admins create a recovery plan for migration.
+    ![Test migration](./media/contoso-migration-rehost-linux-vm/test-migrate.png)
 
-- A recovery plan specifies the order in which failover occurs, how Azure VMs will be brought up in Azure.
-- Since they want to migrate a two-tier app, they'll customize the recovery plan so that the data VM (SQLVM) starts before the front-end (WEBVM).
+3. In **Test Migration**, select the Azure VNet in which the Azure VM will be located after the migration. We recommend you use a non-production VNet.
+4. The **Test migration** job starts. Monitor the job in the portal notifications.
+5. After the migration finishes, view the migrated Azure VM in **Virtual Machines** in the Azure portal. The machine name has a suffix **-Test**.
+6. After the test is done, right-click the Azure VM in **Replicating machines**, and click **Clean up test migration**.
 
-1. In **Recovery Plans (Site Recovery)** > **+Recovery Plan**, they create a plan and add the VMs to it.
+    ![Clean up migration](./media/contoso-migration-rehost-linux-vm/clean-up.png)
 
-    ![Recovery plan](./media/contoso-migration-rehost-linux-vm/recovery-plan.png)
-
-2. After creating the plan, they select it for customization (**Recovery Plans** > **OsTicketMigrationPlan** > **Customize**.
-3. They remove **OSTICKETWEB** from **Group 1: Start**. This ensures that the first start action affects **OSTICKETMYSQL** only.
-
-    ![Recovery group](./media/contoso-migration-rehost-linux-vm/recovery-group1.png)
-
-4. In **+Group** > **Add protected items**, they add **OSTICKETWEB** to **Group 2: Start**. They need these in two different groups.
-
-    ![Recovery group](./media/contoso-migration-rehost-linux-vm/recovery-group2.png)
 
 ### Migrate the VMs
 
-Contoso admins are now ready to run a failover on the recovery plan, to migrate the VMs.
+Now Contoso admins run a full failover to complete the migration.
 
-1. They select the plan > **Failover**.
-2. They select to fail over to the latest recovery point, and specify that Site Recovery should try to shut down the on-premises VM before triggering the failover. They can follow the failover progress on the **Jobs** page.
+1. In the Azure Migrate project > **Servers** > **Azure Migrate: Server Migration**, click **Replicating servers**.
 
-    ![Failover](./media/contoso-migration-rehost-vm/failover1.png)
+    ![Replicating servers](./media/contoso-migration-rehost-linux-vm/replicating-servers.png)
 
-3. During the failover, vCenter Server issues commands to stop the two VMs running on the ESXi host.
+2. In **Replicating machines**, right-click the VM > **Migrate**.
+3. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **Yes** > **OK**.
+    - By default Azure Migrate shuts down the on-premises VM, and runs an on-demand replication to synchronize any VM changes that occurred since the last replication occurred. This ensures no data loss.
+    - If you don't want to shut down the VM, select **No**
+4. A migration job starts for the VM. Track the job in Azure notifications.
+5. After the job finishes, you can view and manage the VM from the **Virtual Machines** page.
 
-    ![Failover](./media/contoso-migration-rehost-linux-vm/vcenter-failover.png)
 
-4. After the failover, they verify that the Azure VM appears as expected in the Azure portal.
-
-    ![Failover](./media/contoso-migration-rehost-linux-vm/failover2.png)
-
-5. After verifying the VM in Azure, they complete the migration to finish the migration process for each VM. This stops replication for the VM, and stops Site Recovery billing for the VM.
-
-    ![Failover](./media/contoso-migration-rehost-linux-vm/failover3.png)
 
 ### Connect the VM to the database
 
@@ -401,9 +272,8 @@ As the final step in the migration process, Contoso adins update the connection 
 
 **Need more help?**
 
-- [Learn about](/azure/site-recovery/tutorial-dr-drill-azure) running a test failover.
-- [Learn](/azure/site-recovery/site-recovery-create-recovery-plans) how to create a recovery plan.
-- [Learn about](/azure/site-recovery/site-recovery-failover) failing over to Azure.
+- [Learn about](/azure/migrate/tutorial-migrate-vmware#run-a-test-migration) running a test failover.
+- [Learn about](/azure/migrate/tutorial-migrate-vmware#migrate-vms) migrating VMs to Azure. 
 
 ## Clean up after migration
 
