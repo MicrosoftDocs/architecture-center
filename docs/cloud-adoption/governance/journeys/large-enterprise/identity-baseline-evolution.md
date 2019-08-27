@@ -1,7 +1,7 @@
 ---
-title: "Large enterprise: Identity Baseline evolution"
+title: "Large enterprise guide: Improving the Identity Baseline"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: Large enterprise – Identity Baseline evolution
+description: "Large enterprise guide: Improving the Identity Baseline"
 author: BrianBlanchard
 ms.author: brblanch
 ms.date: 02/11/2019
@@ -11,11 +11,11 @@ ms.subservice: govern
 ms.custom: governance
 ---
 
-# Large enterprise: Identity Baseline evolution
+# Large enterprise guide: Improving the Identity Baseline
 
-This article evolves the narrative by adding Identity Baseline controls to the governance MVP.
+This article advances the narrative by adding Identity Baseline controls to the governance MVP.
 
-## Evolution of the narrative
+## Advancing the narrative
 
 The business justification for the cloud migration of the two datacenters was approved by the CFO. During the technical feasibility study, several roadblocks were discovered:
 
@@ -26,15 +26,15 @@ The business justification for the cloud migration of the two datacenters was ap
 
 The first two roadblocks are being managed in parallel. This article will address the resolution of the third and fourth roadblocks.
 
-### Evolution of the cloud governance team
+### Expanding the cloud governance team
 
 The cloud governance team is expanding. Given the need for additional support regarding identity management, a systems administrator from the Identity Baseline team now participates in a weekly meeting to keep the existing team members aware of changes.
 
-### Evolution of the current state
+### Changes in the current state
 
 The IT team has approval to move forward with the CIO and CFO's plans to retire two datacenters. However, IT is concerned that 750 (15%) of the assets in those datacenters will have to be moved somewhere other than the cloud.
 
-### Evolution of the future state
+### Incrementally improve the future state
 
 The new future state plans require a more robust Identity Baseline solution to migrate the 750 virtual machines with legacy authentication requirements. Beyond these two datacenters, this challenge is expected to affect similar percentages of assets in other datacenters.
 
@@ -42,7 +42,7 @@ The future state now also requires a connection from the cloud provider to the c
 
 The changes to current and future state expose new risks that will require new policy statements.
 
-## Evolution of tangible risks
+## Changes in tangible risks
 
 **Business interruption during migration.** Migration to the cloud creates a controlled, time-bound risk that can be managed. Moving aging hardware to another part of the world is much higher risk. A mitigation strategy is needed to avoid interruptions to business operations.
 
@@ -56,7 +56,7 @@ This business risk can be expanded into a few technical risks:
 - The speed and stability of the VPN might impede migration.
 - Traffic entering the cloud could cause security issues in other parts of the global network.
 
-## Evolution of the policy statements
+## Incremental improvement of the policy statements
 
 The following changes to policy will help remediate the new risks and guide implementation.
 
@@ -65,9 +65,9 @@ The following changes to policy will help remediate the new risks and guide impl
 3. A high-speed private connection should be established between the cloud provider and the company’s telco provider, connecting the cloud provider to the global network of datacenters.
 4. Until sufficient security requirements are established, no inbound public traffic may access company assets hosted in the cloud. All ports are blocked from any source outside of the global WAN.
 
-## Evolution of the best practices
+## Incremental improvement of the best practices
 
-The governance MVP design evolves to include new Azure policies and an implementation of Active Directory on a virtual machine. Together, these two design changes fulfill the new corporate policy statements.
+The governance MVP design changes to include new Azure policies and an implementation of Active Directory on a virtual machine. Together, these two design changes fulfill the new corporate policy statements.
 
 Here are the new best practices:
 
@@ -89,7 +89,7 @@ Adding these changes to the governance MVP helps remediate many of the risks in 
 
 ## Next steps
 
-As cloud adoption evolves and delivers additional business value, risks and cloud governance needs will also evolve. The following are a few evolutions that may occur. For the fictional company in this journey, the next trigger is the inclusion of protected data in the cloud adoption plan. This change will require additional security controls.
+As cloud adoption continues and delivers additional business value, risks and cloud governance needs will also change. The following are a few changes that may occur. For this fictional company, the next trigger is the inclusion of protected data in the cloud adoption plan. This change requires additional security controls.
 
 > [!div class="nextstepaction"]
-> [Security Baseline evolution](./security-baseline-evolution.md)
+> [Improving the Security Baseline](./security-baseline-evolution.md)

@@ -32,7 +32,7 @@ Business transformations that are supported by cloud adoption can be driven by v
 
 Your motivations for cloud adoption will likely fall into multiple categories. As you're building the list of motivations, trends will likely emerge. Motivations tend to be associated more with one classification than with others. Use the predominant classification to help guide the development of your cloud adoption strategy.
 
-When a response to critical business events is the highest priority, it's important to engage early in [cloud implementation](../getting-started/migrate.md#cloud-implementation), often in parallel with strategy and planning efforts. Taking this approach requires a growth mindset and a willingness to iterate and evolve processes, based on direct lessons learned.
+When a response to critical business events is the highest priority, it's important to engage early in [cloud implementation](../getting-started/migrate.md#cloud-implementation), often in parallel with strategy and planning efforts. Taking this approach requires a growth mindset and a willingness to iteratively improve processes, based on direct lessons learned.
 
 When migration is the highest priority, [strategy and planning](../getting-started/migrate.md#cloud-strategy-and-planning) will play a vital role early in the process. We recommend that you [implement the first workload](../getting-started/migrate.md#cloud-implementation) in parallel with planning, to help the team understand and anticipate any learning curves that are associated with cloud adoption.
 

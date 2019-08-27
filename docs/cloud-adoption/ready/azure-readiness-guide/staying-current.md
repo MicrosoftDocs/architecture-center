@@ -1,19 +1,20 @@
 ---
 title: Stay current with Azure in today's cloud cadence
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: Learn how to stay current with Azure in today's cloud cadence.
+description: Learn how to stay current and manage change with Azure in today's cloud cadence.
 author: jelledruyts
 ms.author: andym
 ms.date: 04/09/2019
 ms.topic: conceptual
 ms.service: cloud-adoption-framework
 ms.subservice: ready
-ms.custom: "fasttrack - new"
+ms.custom: fasttrack-new, AQC
+ms.localizationpriority: high
 ---
 
-# Stay current with Azure
+# Stay current with Microsoft Azure
 
-Cloud services like Azure evolve at a faster pace than many organizations are used to. This pace of change means that organizations have to adapt people and processes to a new cadence. If you're responsible for helping your organization keep up with change, you might feel overwhelmed at times. The resources listed in this section can help you stay up to date.
+Cloud platforms like Microsoft Azure change faster than many organizations are accustomed to. This pace of change means that organizations have to adapt people and processes to a new cadence. If you're responsible for helping your organization keep up with change, you might feel overwhelmed at times. The resources listed in this section can help you stay up to date.
 
 # [Top resources](#tab/TopResources)
 

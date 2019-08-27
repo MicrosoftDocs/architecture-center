@@ -1,7 +1,7 @@
 ---
-title: "Large enterprise – Resource Consistency evolution"
+title: "Large enterprise guide: Improving Resource Consistency"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: Large enterprise – Resource Consistency evolution
+description: "Large enterprise: Improving Resource Consistency"
 author: BrianBlanchard
 ms.author: brblanch
 ms.date: 02/11/2019
@@ -11,27 +11,27 @@ ms.subservice: govern
 ms.custom: governance
 ---
 
-# Large enterprise: Resource Consistency evolution
+# Large enterprise guide: Improving Resource Consistency
 
-This article evolves the narrative by adding Resource Consistency controls to the governance MVP to support mission-critical applications.
+This article advances the narrative by adding Resource Consistency controls to the governance MVP to support mission-critical applications.
 
-## Evolution of the narrative
+## Advancing the narrative
 
 The cloud adoption teams have met all requirements to move protected data. With those applications come SLA commitments to the business and need for support from IT Operations. Right behind the team migrating the two datacenters, multiple application development and BI teams are ready to begin launching new solutions into production. IT Operations is new to cloud operations and needs to quickly integrate existing operational processes.
 
-### Evolution of current state
+### Changes in the current state
 
 - IT is actively moving production workloads with protected data into Azure. Some low-priority workloads are serving production traffic. More can be cut over as soon as IT Operations signs off on readiness to support the workloads.
 - The application development teams are ready for production traffic.
 - The BI team is ready to integrate predictions and insights into the systems that run operations for the three business units.
 
-### Evolution of the future state
+### Incrementally improve the future state
 
 - IT operations is new to cloud operations and needs to quickly integrate existing operational processes.
 
 The changes to current and future state expose new risks that will require new policy statements.
 
-## Evolution of tangible risks
+## Changes in tangible risks
 
 **Business interruption:** There is an inherent risk of any new platform causing interruptions to mission-critical business processes. The IT Operations team and the teams executing on various cloud adoptions are relatively inexperienced with cloud operations. This increases the risk of interruption and must be remediated and governed.
 
@@ -50,7 +50,7 @@ This business risk can be expanded into several technical risks:
 - Deployed operating systems or applications might not meet OS and application hardening requirements.
 - There is a risk of inconsistency due to multiple teams working in the cloud.
 
-## Evolution of the policy statements
+## Incremental improvement of the policy statements
 
 The following changes to policy will help remediate the new risks and guide implementation. The list looks long, but the adoption of these policies may be easier than it would appear.
 
@@ -71,11 +71,11 @@ The following changes to policy will help remediate the new risks and guide impl
 15. Deployment scripts must be maintained in central repository accessible by the cloud governance team for periodic review and auditing.
 16. Governance review processes must validate that deployed assets are properly configured in alignment with SLA and recovery requirements.
 
-## Evolution of the best practices
+## Incremental improvement of the best practices
 
-This section of the article will evolve the governance MVP design to include new Azure policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
+This section of the article will improve the governance MVP design to include new Azure policies and an implementation of Azure Cost Management. Together, these two design changes will fulfill the new corporate policy statements.
 
-Following the experience of this fictional example, it is assumed that the Protected Data evolution has already happened. Building on that best practice, the following will add operational monitoring requirements, readying a subscription for mission-critical applications.
+Following the experience of this fictional example, it is assumed that the Protected Data changes have already occurred. Building on that best practice, the following will add operational monitoring requirements, readying a subscription for mission-critical applications.
 
 **Corporate IT subscription:** Add the following to the Corporate IT subscription, which acts as a hub.
 
@@ -107,7 +107,7 @@ Adding these processes and changes to the governance MVP helps remediate many of
 
 ## Next steps
 
-As cloud adoption continues to evolve and deliver additional business value, the risks and cloud governance needs will also evolve. For the fictional company in this journey, the next trigger is when the scale of deployment exceeds 1,000 assets to the cloud or monthly spending exceeds $10,000 USD per month. At this point, the cloud governance team adds Cost Management controls.
+As cloud adoption grows and delivers additional business value, the risks and cloud governance needs will also change. For the fictional company in this guide, the next trigger is when the scale of deployment exceeds 1,000 assets to the cloud or monthly spending exceeds $10,000 USD per month. At this point, the cloud governance team adds Cost Management controls.
 
 > [!div class="nextstepaction"]
-> [Cost Management evolution](./cost-management-evolution.md)
+> [Improving Cost Management](./cost-management-evolution.md)

@@ -46,14 +46,18 @@ items:
       href: guide/design-principles/design-for-evolution.md
     - name: Build for the needs of business
       href: guide/design-principles/build-for-business.md
-  - name: Choosing a compute service
+  - name: Technology choices
     items:
-    - name: Overview
-      href: guide/technology-choices/compute-overview.md
-    - name: Decision tree
-      href: guide/technology-choices/compute-decision-tree.md
-    - name: Compute comparison
-      href: guide/technology-choices/compute-comparison.md
+    - name: Choosing a compute service
+      items:
+      - name: Overview
+        href: guide/technology-choices/compute-overview.md
+      - name: Decision tree
+        href: guide/technology-choices/compute-decision-tree.md
+      - name: Compute comparison
+        href: guide/technology-choices/compute-comparison.md
+    - name: Choosing a load balancing service
+      href: guide/technology-choices/load-balancing-overview.md
   - name: Best Practices
     items:
     - name: API design
