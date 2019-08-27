@@ -45,6 +45,8 @@ These patterns provide room for growth without complicating the hierarchy unnece
 
 [!INCLUDE [governance-of-resources](../../../../../includes/caf-governance-of-resources.md)]
 
+<!-- See comments for suggestion to possibly add here -->
+
 ## Incremental governance improvements
 
 Once this MVP has been deployed, additional layers of governance can be quickly incorporated into the environment. Here are some ways to improve the MVP to meet specific business needs:
