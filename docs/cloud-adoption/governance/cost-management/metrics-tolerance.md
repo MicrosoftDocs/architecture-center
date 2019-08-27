@@ -19,7 +19,7 @@ This article is intended to help you quantify business risk tolerance as it rela
 
 Cost Management generally focuses on metrics related to costs. As part of your risk analysis, you'll want to gather data related to your current and planned spending on cloud-based workloads to determine how much risk you face, and how important investment in cost governance is to your cloud adoption strategy.
 
-The following are examples of useful metrics that you should gather to help evaluate risk tolerance within the Security Baseline discipline:
+The following are examples of useful metrics that you should gather to help evaluate risk tolerance within the Cost Management discipline:
 
 - **Annual spending:** The total annual cost for services provided by a cloud provider.
 - **Monthly spending:** The total monthly cost for services provided by a cloud provider.
@@ -41,7 +41,7 @@ Once you have identified [business risks](./business-risks.md), you will work wi
 - **Overprovisioned trigger:** A company who believes their deployed solutions are overprovisioned. Cost Management is a priority investment until they can demonstrate proper alignment of provisioning and asset utilization.
 - **Monthly spending trigger:** A company that spends over $x,000 per month is considered a sizable cost. If spending exceeds that amount in a given month, they will need to invest in Cost Management.
 - **Annual spending trigger:** A company with an IT R&D budget that allows for spending $X,000 per year on cloud experimentation. They may run production workloads in the cloud, but they will still be considered experimental solutions if the budget doesn't exceed that amount. Once it goes over, they will need to treat the budget like a production investment and manage spending closely.
-- **Operating expense-adverse (uncommon):** As a company, they are adverse to operating expenses and will need Cost Management controls in place before deploying a dev/test workload.
+- **Operating expense-adverse (uncommon):** As a company, they are averse to operating expenses and will need Cost Management controls in place before deploying a dev/test workload.
 
 ## Next steps
 
