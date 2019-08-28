@@ -2,9 +2,6 @@
 title: Create an AD DS resource forest in Azure
 titleSuffix: Azure Reference Architectures
 description: How to create a trusted Active Directory domain in Azure.
-
-  guidance,vpn-gateway,expressroute,load-balancer,virtual-network,active-directory
-
 author: telmosampaio
 ms.date: 05/02/2018
 ms.topic: reference-architecture

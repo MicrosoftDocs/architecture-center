@@ -2,8 +2,8 @@
 title: Integrate on-premises AD domains with Azure AD
 titleSuffix: Azure Reference Architectures
 description: Implement a secure hybrid network architecture using Azure Active Directory (Azure AD).
-author: telmosampaio
-ms.date: 11/28/2016
+author: MikeWasson
+ms.date: 08/28/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -209,23 +209,7 @@ For more information, see [Azure Active Directory conditional access][aad-condit
 
 ## Deploy the solution
 
-A deployment for a reference architecture that implements these recommendations and considerations is available on GitHub. This reference architecture deploys a simulated on-premises network in Azure that you can use to test and experiment. The reference architecture can be deployed with either with Windows or Linux VMs by following the directions below:
-
-1. Click the link below to deploy the solution.
-
-    [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Fidentity-reference-architectures%2Fmaster%2Fazure-ad%2Fazuredeploy.json)
-
-2. Once the link has opened in the Azure portal, you must enter values for some of the settings:
-   - The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-aad-onpremise-rg` in the text box.
-   - Select the region from the **Location** drop-down box.
-   - Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
-   - Select **windows** or **linux** in the **Os Type** the drop-down box.
-   - Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
-   - Click the **Purchase** button.
-
-3. Wait for the deployment to complete.
-
-4. The parameter files include hard-coded administrator user names and passwords, and you should immediately change both on all the VMs. Click each VM in the Azure portal then click on **Reset password** in the **Support + troubleshooting** blade. Select **Reset password** in the **Mode** drop down box, then select a new **User name** and **Password**. Click the **Update** button to persist the new user name and password.
+A deployment for a reference architecture that implements these recommendations and considerations is available on GitHub. This reference architecture deploys a simulated on-premises network in Azure that you can use to test and experiment. To deploy the solution, see the [readme](https://github.com/mspnp/identity-reference-architectures/tree/master/azure-ad) on GitHub.
 
 <!-- links -->
 
@@ -238,7 +222,6 @@ A deployment for a reference architecture that implements these recommendations 
 [aad-connect-sync-operational-tasks]: /azure/active-directory/hybrid/how-to-connect-sync-operations
 [aad-dynamic-memberships]: https://youtu.be/Tdiz2JqCl9Q
 [aad-dynamic-membership-rules]: /azure/active-directory/active-directory-accessmanagement-groups-with-advanced-rules
-[aad-editions]: /azure/active-directory/active-directory-editions
 [aad-filtering]: /azure/active-directory/hybrid/how-to-connect-sync-configure-filtering
 [aad-health]: /azure/active-directory/active-directory-aadconnect-health-sync
 [aad-health-adds]: /azure/active-directory/active-directory-aadconnect-health-adds
@@ -257,6 +240,5 @@ A deployment for a reference architecture that implements these recommendations 
 [azure-ad-connect]: /azure/active-directory/hybrid/whatis-hybrid-identity
 [azure-multifactor-authentication]: /azure/multi-factor-authentication/multi-factor-authentication
 [considerations]: ./considerations.md
-[resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
 [sla-aad]: https://azure.microsoft.com/support/legal/sla/active-directory
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/identity-architectures.vsdx
