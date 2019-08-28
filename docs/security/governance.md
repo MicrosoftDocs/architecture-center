@@ -432,7 +432,7 @@ This can be accomplished with one or more methods in Azure:
         ensure appropriate controls are applied)
 
 -   **Identify and Remediate** exposed VMs using the [Azure Security
-    Center](https://docs.microsoft.com/azure/security-center/security-center-restrict-access-through-internet-facing-endpoints)
+    Center](https://docs.microsoft.com/azure/security-center/security-center-install-endpoint-protection)
     network visualization to quickly identify internet exposed resources.
 
 -   **Restrict management ports** (RDP, SSH) using [Just in Time
