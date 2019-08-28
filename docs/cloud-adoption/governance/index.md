@@ -23,7 +23,7 @@ Cloud governance is an iterative process. For organizations with existing polici
 
 <ul class="panelContent cardsF">
     <li style="display: flex; flex-direction: column;">
-        <a href="./journeys/index.md">
+        <a href="./methodology.md">
             <div class="cardSize">
                 <div class="cardPadding" style="padding-bottom:10px;">
                     <div class="card" style="padding-bottom:10px;">
@@ -33,7 +33,7 @@ Cloud governance is an iterative process. For organizations with existing polici
                             </div>
                         </div>
                         <div class="cardText" style="padding-left:0px;">
-                            <h3>Understand the end state</h3>
+                            <h3>Methodology</h3>
                             Establish a basic understanding of the methodology that drives cloud governance in the Cloud Adoption Framework to begin thinking through the end state solution.
                         </div>
                     </div>
@@ -42,7 +42,7 @@ Cloud governance is an iterative process. For organizations with existing polici
         </a>
     </li>
     <li style="display: flex; flex-direction: column;">
-        <a href="https://cafbaseline.com/">
+        <a href="./benchmark.md">
             <div class="cardSize">
                 <div class="cardPadding" style="padding-bottom:10px;">
                     <div class="card" style="padding-bottom:10px;">
