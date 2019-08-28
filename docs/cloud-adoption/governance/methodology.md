@@ -17,7 +17,7 @@ Adopting the cloud is a journey, not a destination. Along the way, there are cle
 
 The Cloud Adoption Framework provides governance guides that describe the experiences of fictional companies, which are based on the experiences of real customers. Each guide follows the customer through the governance aspects of their cloud adoption.
 
-## Establishing an end state
+## Envision an end state
 
 A journey without a target destination is just wandering. It’s important to establish a rough vision of the end state before taking the first step. The following infographic provides a frame of reference for the end state. It’s not your starting point, but it shows your potential destination.
 
