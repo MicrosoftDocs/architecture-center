@@ -261,7 +261,7 @@ To learn more about the reference implementation, read [Code walkthrough: Server
 
 [api-versioning]: ../../best-practices/api-design.md#versioning-a-restful-web-api
 [apim]: /azure/api-management/api-management-key-concepts
-[apim-ip]: /azure/api-management/api-management-faq#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules
+[apim-ip]: /azure/api-management/api-management-faq#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services
 [api-geo]: /azure/api-management/api-management-howto-deploy-multi-region
 [apim-scale]: /azure/api-management/api-management-howto-autoscale
 [apim-validate-jwt]: /azure/api-management/api-management-access-restriction-policies#ValidateJWT
