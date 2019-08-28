@@ -34,7 +34,7 @@ Cloud governance is an iterative process. For organizations with existing polici
                         </div>
                         <div class="cardText" style="padding-left:0px;">
                             <h3>Understand the end state</h3>
-                            Establish a basic understanding of the methodology that drives cloud governance in the Cloud Adoption Framework to begin thinking through end state solution.
+                            Establish a basic understanding of the methodology that drives cloud governance in the Cloud Adoption Framework to begin thinking through the end state solution.
                         </div>
                     </div>
                 </div>
@@ -90,8 +90,8 @@ Cloud governance is an iterative process. For organizations with existing polici
                             </div>
                         </div>
                         <div class="cardText" style="padding-left:0px;">
-                            <h3>Improve initial governance foundation</h3>
-                            Throughout implementation of the cloud adoption plan, iteratively add governance controls to address tangible risks as you move towards the end state.
+                            <h3>Improve the initial governance foundation</h3>
+                            Throughout implementation of the cloud adoption plan, iteratively add governance controls to address tangible risks as you progress toward the end state.
                         </div>
                     </div>
                 </div>
@@ -127,7 +127,7 @@ For a crash course on the theory and quick access to Azure implementation, get s
 
 ## Next steps
 
-Review the actionable cloud governance guides.
+Establish a basic understanding of the methodology that drives cloud governance in the Cloud Adoption Framework.
 
 > [!div class="nextstepaction"]
-> [Review the governance guides](./journeys/index.md)
+> [Understand the methodology](./methodology.md)

@@ -1108,6 +1108,10 @@ items:
       items:
       - name: Overview 
         href: cloud-adoption/governance/index.md
+      - name: Methodology 
+        href: cloud-adoption/governance/methodology.md
+      - name: Benchmark
+        href: cloud-adoption/governance/benchmark.md
       - name: Initial governance foundation
         href: cloud-adoption/governance/getting-started.md
       - name: Governance foundation improvements

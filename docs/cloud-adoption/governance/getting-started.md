@@ -64,4 +64,4 @@ The following are two different examples of initial governance foundations (also
 Once a governance foundation is in place, apply suitable recommendations to improve the solution and protect against tangible risks.
 
 > [!div class="nextstepaction"]
-> [Improve the initial cloud governance foundation](./best-practices.md)
+> [Improve the initial governance foundation](./best-practices.md)
