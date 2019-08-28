@@ -21,7 +21,7 @@ The Cloud Adoption Framework provides governance guides that describe the experi
 
 A journey without a target destination is just wandering. It’s important to establish a rough vision of the end state before taking the first step. The following infographic provides a frame of reference for the end state. It’s not your starting point, but it shows your potential destination.
 
-![Infographic of the Cloud Adoption Framework governance model](../../_images/operational-transformation-govern-highres.png)
+![Infographic of the Cloud Adoption Framework governance model](../_images/operational-transformation-govern-highres.png)
 
 The Cloud Adoption Framework governance model identifies key areas of importance during the journey. Each area relates to different types of risks the company must address as it adopts more cloud services. Within this framework, the governance guide identifies required actions for the cloud governance team. Along the way, each principle of the Cloud Adoption Framework governance model is described further. Broadly, these include:
 
@@ -51,7 +51,7 @@ The ability to respond rapidly to changing risks empowers the cloud governance t
 
 The following diagram shows a simple governance MVP and three governance iterations. During the iterations, additional corporate policies are defined to remediate new risks. The Deployment Acceleration discipline then applies those changes across each deployment.
 
-![Example of incremental governance improvement](../../_images/governance/incremental-governance-example.png)
+![Example of incremental governance improvement](../_images/governance/incremental-governance-example.png)
 
 > [!NOTE]
 > Governance is not a replacement for key functions such as security, networking, identity, finance, DevOps, or operations. Along the way, there will be interactions with and dependencies on members from each function. Those members should be included on the cloud governance team to accelerate decisions and actions.
