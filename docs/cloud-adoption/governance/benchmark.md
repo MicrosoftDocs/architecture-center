@@ -20,7 +20,7 @@ The Cloud Adoption Framework provides a [governance benchmark tool](https://cafb
 
 <ul class="panelContent cardsZ">
     <li style="display: flex; flex-direction: column;">
-        <a href="./journeys/small-to-medium-enterprise/index.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+        <a href="https://cafbaseline.com" style="display: flex; flex-direction: column; flex: 1 0 auto;">
             <div class="cardSize" style="flex: 1 0 auto; display: flex;">
                 <div class="cardPadding" style="display: flex;">
                     <div class="card">
