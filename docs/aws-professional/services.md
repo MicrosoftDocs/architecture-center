@@ -179,6 +179,7 @@ Dedicated network | Direct Connect | [ExpressRoute](https://azure.microsoft.com/
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
 | Identity and Access Management (IAM) | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) | Allows users to securely control access to services and resources while offering data security and protection. Create and manage users and groups, and use permissions to allow and deny access to resources. |
+| Identity and Access Management (IAM) | [Azure Role Based Access Control](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) | Role-based access control (RBAC) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to. |
 | AWS Organizations | [Azure Subscription Management + Azure RBAC](/azure/azure-subscription-service-limits) | Security policy and role management for working with multiple accounts. |
 | Multi-Factor Authentication | [Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/) | Safeguard access to data and applications while meeting user demand for a simple sign-in process. |
 | AWS Directory Service | [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/) | Provides managed domain services such as domain join, group policy, LDAP, and Kerberos/NTLM authentication that are fully compatible with Windows Server Active Directory. |
