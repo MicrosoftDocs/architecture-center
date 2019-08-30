@@ -1,7 +1,7 @@
 ---
-title: "Small-to-medium enterprise: Improving Cost Management"
+title: "Small-to-medium enterprise guide: Improve the Cost Management discipline"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: "Small-to-medium enterprise guide: Improving Cost Management"
+description: "Small-to-medium enterprise guide: Improve the Cost Management discipline"
 author: BrianBlanchard
 ms.author: brblanch
 ms.date: 02/11/2019
@@ -11,7 +11,7 @@ ms.subservice: govern
 ms.custom: governance
 ---
 
-# Small-to-medium enterprise guide: Improving Cost Management
+# Small-to-medium enterprise guide: Improve the Cost Management discipline
 
 This article advances the narrative by adding cost controls to the governance MVP.
 

@@ -1,7 +1,7 @@
 ---
-title: "Large enterprise guide: Improving Resource Consistency"
+title: "Large enterprise guide: Improve the Resource Consistency discipline"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: "Large enterprise: Improving Resource Consistency"
+description: "Large enterprise guide: Improve the Resource Consistency discipline"
 author: BrianBlanchard
 ms.author: brblanch
 ms.date: 02/11/2019
@@ -11,7 +11,7 @@ ms.subservice: govern
 ms.custom: governance
 ---
 
-# Large enterprise guide: Improving Resource Consistency
+# Large enterprise guide: Improve the Resource Consistency discipline
 
 This article advances the narrative by adding Resource Consistency controls to the governance MVP to support mission-critical applications.
 
@@ -112,4 +112,4 @@ Adding these processes and changes to the governance MVP helps remediate many of
 As cloud adoption grows and delivers additional business value, the risks and cloud governance needs will also change. For the fictional company in this guide, the next trigger is when the scale of deployment exceeds 1,000 assets to the cloud or monthly spending exceeds $10,000 USD per month. At this point, the cloud governance team adds Cost Management controls.
 
 > [!div class="nextstepaction"]
-> [Improving Cost Management](./cost-management-evolution.md)
+> [Improve the Cost Management discipline](./cost-management-evolution.md)

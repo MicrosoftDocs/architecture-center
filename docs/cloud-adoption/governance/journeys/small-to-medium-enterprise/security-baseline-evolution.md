@@ -1,7 +1,7 @@
 ---
-title: "Small-to-medium enterprise guide: Improving the Security Baseline"
+title: "Small-to-medium enterprise guide: Improve the Security Baseline discipline"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: "Small-to-medium enterprise guide: Improving the Security Baseline"
+description: "Small-to-medium enterprise guide: Improve the Security Baseline discipline"
 author: BrianBlanchard
 ms.author: brblanch
 ms.date: 02/11/2019
@@ -11,7 +11,7 @@ ms.subservice: govern
 ms.custom: governance
 ---
 
-# Small-to-medium enterprise guide: Improving the Security Baseline
+# Small-to-medium enterprise guide: Improve the Security Baseline discipline
 
 This article advances the narrative by adding security controls that support moving protected data to the cloud.
 
@@ -34,7 +34,7 @@ Since then, some things have changed that will affect governance:
 - The application development team has implemented a CI/CD pipeline to deploy a cloud-native application with an improved user experience. That app doesn’t yet interact with protected data, so it is not production ready.
 - The Business Intelligence team within IT actively curates data in the cloud from logistics, inventory, and third-party sources. This data is being used to drive new predictions, which could shape business processes. However, those predictions and insights are not actionable until customer and financial data can be integrated into the data platform.
 - The IT team is progressing on the CIO and CFO's plans to retire the DR datacenter. More than 1,000 of the 2,000 assets in the DR datacenter have been retired or migrated.
-- The loosely defined policies regarding PII and financial data have been modernized. However, the new corporate policies are contingent on the implementation of related security and governance policies. Teams are still stalled.
+- The loosely defined policies regarding personal data and financial data have been modernized. However, the new corporate policies are contingent on the implementation of related security and governance policies. Teams are still stalled.
 
 ### Incrementally improve the future state
 

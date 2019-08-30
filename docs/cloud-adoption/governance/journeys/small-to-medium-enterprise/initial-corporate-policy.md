@@ -1,7 +1,7 @@
 ---
-title: "Small-to-medium enterprise: Initial corporate policy behind the governance strategy"
+title: "Small-to-medium enterprise guide: Initial corporate policy behind the governance strategy"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: Small-to-medium enterprise - Initial corporate policy behind the governance strategy.
+description: "Small-to-medium enterprise guide: Initial corporate policy behind the governance strategy"
 author: BrianBlanchard
 ms.author: brblanch
 ms.date: 02/11/2019
@@ -11,7 +11,7 @@ ms.subservice: govern
 ms.custom: governance
 ---
 
-# Small-to-medium enterprise: Initial corporate policy behind the governance strategy
+# Small-to-medium enterprise guide: Initial corporate policy behind the governance strategy
 
 The following corporate policy defines an initial governance position, which is the starting point for this guide. This article defines early-stage risks, initial policy statements, and early processes to enforce policy statements.
 
@@ -39,4 +39,4 @@ The current tolerance for risk is high and the appetite for investing in cloud g
 This corporate policy prepares the cloud governance team to implement the governance MVP, which will be the foundation for adoption. The next step is to implement this MVP.
 
 > [!div class="nextstepaction"]
-> [Best practice explained](./best-practice-explained.md)
+> [Prescriptive guidance explained](./best-practice-explained.md)

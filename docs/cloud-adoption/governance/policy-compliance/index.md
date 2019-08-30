@@ -1,5 +1,5 @@
 ---
-title: "How can corporate IT policy become cloud-ready?"
+title: "Prepare corporate IT policy for the cloud"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Explanation of the concept of corporate policy in relation to cloud governance.
 author: BrianBlanchard
@@ -13,7 +13,7 @@ ms.custom: governance
 
 <!-- markdownlint-disable MD026 -->
 
-# How can corporate IT policy become cloud-ready?
+# Prepare corporate IT policy for the cloud
 
 Cloud governance is the product of an ongoing adoption effort over time, as a true lasting transformation doesn't happen overnight. Attempting to deliver complete cloud governance before addressing key corporate policy changes using a fast aggressive method seldom produces the desired results. Instead we recommend an incremental approach.
 
@@ -61,3 +61,10 @@ Incremental policy growth is the key mechanism to growing policy and cloud gover
 **Sprint time requirements:** At the beginning of each iteration, each cloud adoption team creates a list of assets to be migrated or adopted in the current increment. The cloud governance team is expected to allow sufficient time to review the list, validate data classifications for assets, evaluate any new risks associated with each asset, update architecture guidelines, and educate the team on the changes. These commitments commonly require 10-30 hours per sprint. It's also expected for this level of involvement to require at least one dedicated employee to manage governance in a large cloud adoption effort.
 
 **Release time requirements:** At the beginning of each release, the cloud adoption teams and the cloud strategy team should prioritize a list of applications or workloads to be migrated in the current iteration, along with any business change activities. Those data points allow the cloud governance team to understand new business risks early. That allows time to align with the business and gauge the business's tolerance for risk.
+
+## Next steps
+
+Effective cloud governance strategy begins with understanding business risk.
+
+> [!div class="nextstepaction"]
+> [Understand business risk](./understanding-business-risk.md)

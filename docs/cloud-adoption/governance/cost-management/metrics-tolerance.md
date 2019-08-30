@@ -47,7 +47,7 @@ Once you have identified [business risks](./business-risks.md), you will work wi
 
 Using the [Cloud Management template](./template.md), document metrics and tolerance indicators that align to the current cloud adoption plan.
 
-Building on risks and tolerance, establish a process for governing and communicating Cost Management policy adherence.
+Review sample Cost Management policies as a starting point to develop policies that address specific business risks that align with your cloud adoption plans.
 
 > [!div class="nextstepaction"]
-> [Establish policy compliance processes](compliance-processes.md)
+> [Review sample policies](./policy-statements.md)
