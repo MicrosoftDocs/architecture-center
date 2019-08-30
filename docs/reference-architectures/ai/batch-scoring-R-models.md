@@ -11,7 +11,7 @@ ms.custom: azcat-ai
 
 # Batch scoring of R machine learning models on Azure
 
-This reference architecture shows how to perform batch scoring with R models using Azure Batch. The scenario is based on retail store sales forecasting, but this architecture can be generalized for any scenario requiring the generation of predictions on a large scaler using R models. A reference implementation for this architecture is available on
+This reference architecture shows how to perform batch scoring with R models using Azure Batch. The scenario is based on retail store sales forecasting, but this architecture can be generalized for any scenario requiring the generation of predictions on a larger scale using R models. A reference implementation for this architecture is available on
 [GitHub][github].
 
 ![Architecture diagram][0]
