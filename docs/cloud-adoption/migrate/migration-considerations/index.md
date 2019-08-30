@@ -23,7 +23,7 @@ The Cloud Adoption Framework migration model depends on your organization having
 > [!NOTE]
 > While business planning is important, a growth mindset is equally important. In parallel to broader business planning efforts by the cloud strategy team, it's suggested that the cloud adoption team begin migrating a first workload as a precursor to wider scale migration efforts. This initial migration will allow the team to gain practical experience with the business and technical issues involved in a migration.
 
-## Establishing an end state
+## Envision an end state
 
 It’s important to establish a rough vision of your end state before starting your migration efforts. The diagram below shows an on-premises starting point of infrastructure, applications, and data, which defines your *digital estate*. During the migration process, those assets are transitioned using one of the five migration strategies described in [The five Rs of rationalization](../../digital-estate/5-rs-of-rationalization.md).
 

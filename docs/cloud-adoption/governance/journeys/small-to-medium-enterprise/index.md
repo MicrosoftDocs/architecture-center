@@ -13,16 +13,16 @@ ms.custom: governance
 
 # Small-to-medium enterprise governance guide
 
-## Best practice overview
+## Overview of best practices
 
-This governance guide follows the experiences of a fictional company through various stages of governance maturity. It is based on real customer experiences. The suggested best practices are based on the constraints and needs of the fictional company.
+This governance guide follows the experiences of a fictional company through various stages of governance maturity. It is based on real customer experiences. The recommended practices are based on the constraints and needs of the fictional company.
 
-As a quick starting point, this overview defines a minimum viable product (MVP) for governance based on best practices. It also provides links to some governance improvements that add further best practices as new business or technical risks emerge.
+As a quick starting point, this overview defines a minimum viable product (MVP) for governance based on prescriptive guidance. It also provides links to some governance improvements that add further recommended practices as new business or technical risks emerge.
 
 > [!WARNING]
 > This MVP is a baseline starting point, based on a set of assumptions. Even this minimal set of best practices is based on corporate policies driven by unique business risks and risk tolerances. To see if these assumptions apply to you, read the [longer narrative](./narrative.md) that follows this article.
 
-## Governance best practices
+### Governance best practices
 
 These best practices serve as a foundation for an organization to quickly and consistently add governance guardrails across multiple Azure subscriptions.
 
@@ -30,7 +30,9 @@ These best practices serve as a foundation for an organization to quickly and co
 
 The following diagram shows the governance MVP hierarchy for organizing resources.
 
-![Resource Organization diagram](../../../_images/governance/resource-organization.png)
+![Diagram of resource organization](../../../_images/governance/resource-organization.png)
+
+<!-- Same comment from large enterprise about linking together -->
 
 Every application should be deployed in the proper area of the management group, subscription, and resource group hierarchy. During deployment planning, the cloud governance team will create the necessary nodes in the hierarchy to empower the cloud adoption teams.
 
@@ -41,7 +43,7 @@ Every application should be deployed in the proper area of the management group,
 
 Here is an example of this pattern in use:
 
-![Resource Organization example for a mid-market company](../../../_images/governance/mid-market-resource-organization.png)
+![Resource organization example for a mid-market company](../../../_images/governance/mid-market-resource-organization.png)
 
 These patterns provide room for growth without complicating the hierarchy unnecessarily.
 
@@ -58,7 +60,7 @@ Once this MVP has been deployed, additional layers of governance can be incorpor
 
 <!-- markdownlint-disable MD026 -->
 
-## What does this best practice do?
+## What does this guidance provide?
 
 In the MVP, practices and tools from the [Deployment Acceleration](../../deployment-acceleration/index.md) discipline are established to quickly apply corporate policy. In particular, the MVP uses Azure Blueprints, Azure Policy, and Azure management groups to apply a few basic corporate policies, as defined in the narrative for this fictional company. Those corporate policies are applied using Resource Manager templates and Azure policies to establish a small baseline for identity and security.
 

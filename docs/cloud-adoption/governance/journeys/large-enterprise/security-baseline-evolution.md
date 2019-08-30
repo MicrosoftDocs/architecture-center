@@ -1,7 +1,7 @@
 ---
-title: "Large enterprise guide: Improving the Security Baseline"
+title: "Large enterprise guide: Improve the Security Baseline discipline"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: "Large enterprise guide: Improving the Security Baseline"
+description: "Large enterprise guide: Improve the Security Baseline discipline"
 author: BrianBlanchard
 ms.author: brblanch
 ms.date: 02/11/2019
@@ -11,7 +11,7 @@ ms.subservice: govern
 ms.custom: governance
 ---
 
-# Large enterprise guide: Improving the Security Baseline
+# Large enterprise guide: Improve the Security Baseline discipline
 
 This article advances the narrative by adding security controls that support moving protected data to the cloud.
 
@@ -171,7 +171,7 @@ Adding these processes and changes to the governance MVP helps remediate many of
 As cloud adoption continues and delivers additional business value, risks and cloud governance needs also change. For the fictional company in this guide, the next step is to support mission-critical workloads. This is the point when Resource Consistency controls are needed.
 
 > [!div class="nextstepaction"]
-> [Improving Resource Consistency](./resource-consistency-evolution.md)
+> [Improve the Resource Consistency discipline](./resource-consistency-evolution.md)
 
 <!-- links -->
 

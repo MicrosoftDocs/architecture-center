@@ -1,7 +1,7 @@
 ---
-title: "Getting started with governance"
+title: "Establish an initial cloud governance foundation"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: Getting started with governance
+description: Get started with cloud governance by establishing an initial cloud governance foundation.
 author: BrianBlanchard
 ms.author: brblanch
 ms.date: 01/03/2019
@@ -12,20 +12,19 @@ ms.custom: governance
 layout: LandingPage
 ---
 
-# Getting started with governance
+# Establish an initial cloud governance foundation
 
-Governance can be a large, iterative topic. It can be challenging to find a balance between speed and control. Especially during early phases of cloud adoption. The governance guidance in the Cloud Adoption Framework seeks to provide that balance through an agile approach to adoption.
+Establishing cloud governance is a broad iterative effort. It is challenging to strike an effective balance between speed and control, especially during early phases of cloud adoption. The governance guidance in the Cloud Adoption Framework helps provide that balance via an agile approach to adoption.
 
-This article provides two options for establishing an initial foundation for governance. This initial foundation ensures that governance constraints can be scaled and expanded, as the adoption plan is implemented and requirements become more clearly defined. By default, the initial foundation assumes an isolate and control position. It also focuses on organization of resources more than governance of resources. This small, light-weight starting point is referred to as a minimum viable product (MVP) for governance. The objective of the MVP is to reduce barriers to establishing an initial governance position, and then enable rapid maturation of the solution to address a variety of tangible risks.
-This article provides two options for establishing an initial foundation for governance. This initial foundation ensures that governance constraints can be scaled and expanded, as the adoption plan is implemented and requirements become more clearly defined. By default, the initial foundation assumes an isolate and control position. It also focuses on organization of resources more than governance of resources. This lightweight starting point is referred to as a minimum viable product (MVP) for governance. The objective of the MVP is to reduce barriers to establishing an initial governance position, and then enable rapid maturation of the solution to address a variety of tangible risks.
+This article provides two options for establishing an initial foundation for governance. Either option ensures that governance constraints can be scaled and expanded as the adoption plan is implemented and requirements become more clearly defined. By default, the initial foundation assumes an isolate-and-control position. It also focuses more on resource organization than on resource governance. This lightweight starting point is called a _minimum viable product (MVP)_ for governance. The objective of the MVP is reducing barriers to establishing an initial governance position, and then enabling rapid maturation of the solution to address a variety of tangible risks.
 
 ## Already using the Cloud Adoption Framework
 
-If you have been following along with the Cloud Adoption Framework, you may already have deployed a governance MVP. Guidance is a core aspect of any operating model. It is present throughout every phase of the cloud adoption lifecycle. As such, the [Cloud Adoption Framework](../index.md) provides guidance that injects governance into activities related to the implementation of your [cloud adoption plan](../plan/index.md). One example of this governance integration would be the use of blueprints to deploy one or more landing zones seen throughout in the [ready](../ready/index.md) guidance. Another example is the guidance regarding [scaling out subscriptions](../ready/considerations/scaling-subscriptions.md). If you have followed either of those points of guidance, then the following MVP sections will be little more than a review of your existing deployment decisions. After a quick review, jump ahead to [Mature the initial governance solution and apply best-practice controls](./best-practices.md).
+If you have been following along with the Cloud Adoption Framework, you may already have deployed a governance MVP. Guidance is a core aspect of any operating model. It is present during every phase of the cloud adoption lifecycle. As such, the [Cloud Adoption Framework](../index.md) provides guidance that injects governance into activities related to the implementation of your [cloud adoption plan](../plan/index.md). One example of this governance integration is using blueprints to deploy one or more landing zones present in the [ready](../ready/index.md) guidance. Another example is guidance for [scaling out subscriptions](../ready/considerations/scaling-subscriptions.md). If you have followed either of those recommendations, then the following MVP sections are simply a review of your existing deployment decisions. After a quick review, jump ahead to [Mature the initial governance solution and apply best-practice controls](./best-practices.md).
 
-## Implement an initial governance foundation (or governance MVP)
+## Establish an initial governance foundation
 
-The following are two different examples of initial governance foundations (or governance MVPs) to apply a sound foundation for governance to new or existing deployments. Choose the MVP that best aligns with your business needs to get started:
+The following are two different examples of initial governance foundations (also called governance MVPs) to apply a sound foundation for governance to new or existing deployments. Choose the MVP that best aligns with your business needs to get started:
 
 <!-- markdownlint-disable MD033 -->
 
@@ -62,7 +61,7 @@ The following are two different examples of initial governance foundations (or g
 
 ## Next steps
 
-Once a governance foundation is in place, apply appropriate best practices to improve the solution and protect against tangible risks.
+Once a governance foundation is in place, apply suitable recommendations to improve the solution and protect against tangible risks.
 
 > [!div class="nextstepaction"]
-> [Mature the initial governance solution and apply best-practice controls](./best-practices.md)
+> [Improve the initial governance foundation](./best-practices.md)

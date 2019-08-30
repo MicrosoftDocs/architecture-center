@@ -1,7 +1,7 @@
 ---
-title: "How does business risk change in the cloud?"
+title: Understand business risk during cloud migration
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: Understanding business risk during migration
+description: Understand business risk during cloud migration
 author: BrianBlanchard
 ms.author: brblanch
 ms.date: 04/04/2019
@@ -12,7 +12,7 @@ ms.subservice: govern
 
 <!-- markdownlint-disable MD026 -->
 
-# How does business risk change in the cloud?
+# Understand business risk during cloud migration
 
 An understanding of business risk is one of the most important elements of any cloud transformation. Risk drives policy, and it influences monitoring and enforcement requirements. Risk heavily influences how we manage the digital estate, on-premises or in the cloud.
 
@@ -24,7 +24,7 @@ Risk is relative. A small company with a few IT assets, in a closed building has
 
 In the traditional on-premises world, IT governance teams focus on assessing risks, creating processes to manage those risks, and deploying systems to ensure remediation measures are successfully implemented. These efforts work to balance risks required to operate in a connected, modern business environment.
 
-## Understanding business risks in the cloud
+## Understand business risks in the cloud
 
 During a transformation, the same relative risks exist.
 
@@ -55,7 +55,7 @@ The following are a few basic examples of business risks that can be included as
 - Any asset with all open ports exposed to the internet are at risk of compromise.
 
 The above examples are meant to establish MVP business risks as a theory. The actual list will be unique to every environment.
-Once the Business Risk MVP is established, they can be converted to [policies](index.md) to remediate each risk.
+Once the Business Risk MVP is established, they can be converted to [policies](./index.md) to remediate each risk.
 
 <!-- markdownlint-enable MD026 -->
 
@@ -72,6 +72,8 @@ With each iteration, the cloud governance team can work with the cloud strategy 
 This approach minimizes risks, while empowering the team to move quickly. It also ensures that risks are promptly addressed and resolved before deployment.
 
 ## Next steps
+
+Learn how to evaluate risk tolerance during cloud adoption.
 
 > [!div class="nextstepaction"]
 > [Evaluate risk tolerance](./risk-tolerance.md)

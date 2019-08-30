@@ -1,7 +1,7 @@
 ---
-title: "Monitor and enforce policy adherence"
+title: "Establish policy adherence processes"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: How do you ensure compliance with established policies?
+description: Establish processes to ensure compliance with corporate policies.
 author: BrianBlanchard
 ms.author: brblanch
 ms.date: 02/11/2019
@@ -13,7 +13,7 @@ ms.custom: governance
 
 <!-- markdownlint-disable MD026 -->
 
-# What processes can help ensure policy adherence?
+# Establish policy adherence processes
 
 <!---
 I've defined policies, I've provided an architecture guide. Now how do I monitor adherence to policy? If there is a violation, how do I enforce the policy?
@@ -85,3 +85,10 @@ Some examples of violation triggers and actions:
 After you've defined your compliance violation triggers and actions, you can start planning how best to use the logging and reporting tools and other features of the cloud platform to help automate your monitoring and policy compliance strategy.
 
 Consult the Cloud Adoption Framework [logging and reporting decision guide](../../decision-guides/log-and-report/index.md) topic for guidance on choosing the best monitoring pattern for your deployment.
+
+## Next steps
+
+Learn more about regulatory compliance in the cloud.
+
+> [!div class="nextstepaction"]
+> [Regulatory compliance](./what-is-regulatory-compliance.md)

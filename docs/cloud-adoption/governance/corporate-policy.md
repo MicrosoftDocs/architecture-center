@@ -1,7 +1,7 @@
 ---
-title: "Implement a cloud governance strategy"
+title: "Evaluate corporate policy"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: Learn about using the Microsoft Cloud Adoption Framework for Azure to implement a cloud governance strategy.
+description: Evaluate corporate policy as part of your cloud governance strategy.
 author: BrianBlanchard
 ms.author: brblanch
 ms.date: 01/03/2019
@@ -12,7 +12,7 @@ ms.custom: governance
 layout: LandingPage
 ---
 
-# Implement a cloud governance strategy
+# Evaluate corporate policy
 
 <!-- markdownlint-disable MD033 -->
 
@@ -117,7 +117,7 @@ Defining corporate policy focuses on identifying and mitigating business risks r
 
 ## Next steps
 
-Sound cloud governance strategy begins with understanding business risk.
+Learn how to make your corporate policy ready for the cloud.
 
 > [!div class="nextstepaction"]
-> [Understanding business risk](./policy-compliance/understanding-business-risk.md)
+> [Prepare corporate policy for the cloud](./policy-compliance/index.md)

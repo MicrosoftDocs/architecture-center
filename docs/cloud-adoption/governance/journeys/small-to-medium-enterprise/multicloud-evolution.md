@@ -1,7 +1,7 @@
 ---
-title: "Small-to-medium enterprise: Multicloud evolution"
+title: "Small-to-medium enterprise guide: Multicloud improvement"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: "Small-to-medium enterprise: Multicloud evolution"
+description: "Small-to-medium enterprise guide: Multicloud improvement"
 author: BrianBlanchard
 ms.author: brblanch
 ms.date: 02/11/2019
@@ -11,7 +11,7 @@ ms.subservice: govern
 ms.custom: governance
 ---
 
-# Small-to-medium enterprise: Multicloud evolution
+# Small-to-medium enterprise guide: Multicloud improvement
 
 This article advances the narrative by adding controls for multicloud adoption.
 

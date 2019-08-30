@@ -1,5 +1,5 @@
 ---
-title: "Large enterprise: The narrative behind the governance guide"
+title: "Large enterprise guide: The supporting narrative"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: This narrative establishes a use case for governance during a large enterprise's cloud adoption journey.
 author: BrianBlanchard
@@ -11,7 +11,7 @@ ms.subservice: govern
 ms.custom: governance
 ---
 
-# Large enterprise: The narrative behind the governance strategy
+# Large enterprise guide: The supporting narrative
 
 The following narrative establishes a use case for [governance during large enterprise's cloud adoption journey](./index.md). Before acting on the recommendations in the guide, it's important to understand the assumptions and reasoning that are reflected in this narrative. Then you can better align the governance strategy to your own organization's cloud adoption journey.
 
@@ -41,7 +41,7 @@ Here is the current state of the company's IT and cloud operations:
 - IT entered the cloud by migrating all end-user email accounts to Office 365. This migration was completed more than six months ago. Since then, only a few IT assets have been deployed to the cloud.
 - The CDO's primary development team is working in a dev/test capacity to learn about cloud-native capabilities.
 - One business unit is experimenting with big data in the cloud. The BI team inside of IT is participating in that effort.
-- The existing IT governance policy states that customer personally identifiable information (PII) and financial data must be hosted on assets owned directly by the company. This policy blocks cloud adoption for any mission-critical apps or protected data.
+- The existing IT governance policy states that personal customer data and financial data must be hosted on assets owned directly by the company. This policy blocks cloud adoption for any mission-critical apps or protected data.
 - IT investments are controlled largely by capital expense. Those investments are planned yearly and often include plans for ongoing maintenance, as well as established refresh cycles of three to five years depending on the datacenter.
 - Most investments in technology that don't align to the annual plan are addressed by shadow IT efforts. Those efforts are usually managed by business units and funded through the business unit's operating expenses.
 
@@ -49,7 +49,7 @@ Here is the current state of the company's IT and cloud operations:
 
 The following changes are anticipated over the next several years:
 
-- The CIO is leading an effort to modernize the policy on PII and financial data to support future goals. Two members of the IT Governance team have visibility into this effort.
+- The CIO is leading an effort to modernize the policy on personal and financial data to support future goals. Two members of the IT Governance team have visibility into this effort.
 - The CIO wants to use the cloud migration as a forcing function to improve consistency and stability across business units and geographies. However, the future state must respect any external compliance requirements which would require deviation from standard approaches by specific IT teams.
 - If the early experiments in App Dev and BI show leading indicators of success, they would each like to release small-scale production solutions to the cloud in the next 24 months.
 - The CIO and CFO have assigned an architect and the Vice President of Infrastructure to create a cost analysis and feasibility study. These efforts will determine if the company can and should move 5,000 assets to the cloud over the next 36 months. A successful migration would allow the CIO to eliminate two datacenters, reducing costs by over $100M USD during the five-year plan. If three to four datacenters can experience similar results, the budget will be back in the black, giving the CIO budget to support more innovative initiatives.

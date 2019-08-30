@@ -1,7 +1,7 @@
 ---
-title: "Large enterprise guide: Improving the Identity Baseline"
+title: "Large enterprise guide: Improve the Identity Baseline discipline"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: "Large enterprise guide: Improving the Identity Baseline"
+description: "Large enterprise guide: Improve the Identity Baseline discipline"
 author: BrianBlanchard
 ms.author: brblanch
 ms.date: 02/11/2019
@@ -11,7 +11,7 @@ ms.subservice: govern
 ms.custom: governance
 ---
 
-# Large enterprise guide: Improving the Identity Baseline
+# Large enterprise guide: Improve the Identity Baseline discipline
 
 This article advances the narrative by adding Identity Baseline controls to the governance MVP.
 
@@ -73,7 +73,7 @@ Here are the new best practices:
 
 1. Secure hybrid VNet blueprint: The on-premises side of the hybrid network should be configured to allow communication between the following solution and the on-premises Active Directory servers. This best practice requires a DMZ to enable Active Directory Domain Services across network boundaries.
 2. Azure Resource Manager templates:
-    1. Define an NSG to block external traffic and whitelist internal traffic.
+    1. Define an NSG to block external traffic and allow internal traffic.
     1. Deploy two Active Directory virtual machines in a load-balanced pair based on a golden image. On first boot, that image runs a PowerShell script to join the domain and register with domain services. For more information, see [Extend Active Directory Domain Services (AD DS) to Azure](../../../../reference-architectures/identity/adds-extend-domain.md).
 3. Azure Policy: Apply the NSG to all resources.
 4. Azure blueprint:
@@ -92,4 +92,4 @@ Adding these changes to the governance MVP helps remediate many of the risks in 
 As cloud adoption continues and delivers additional business value, risks and cloud governance needs will also change. The following are a few changes that may occur. For this fictional company, the next trigger is the inclusion of protected data in the cloud adoption plan. This change requires additional security controls.
 
 > [!div class="nextstepaction"]
-> [Improving the Security Baseline](./security-baseline-evolution.md)
+> [Improve the Security Baseline discipline](./security-baseline-evolution.md)

@@ -131,7 +131,7 @@ Any balanced technology portfolio has a mixture of assets in various states. Som
 
 The cloud provides various adoption mechanisms, each with similar degrees of investment and return. Building cloud-native applications can significantly reduce operating expenses. Once a cloud-native application is released, development of new features and solutions can iterate faster. Modernizing an application can yield similar benefits by removing legacy constraints associated with on-premises development models. Unfortunately, these two approaches are labor-intensive and depend on the size, skill, and experience of software development teams. Often, labor is misaligned&mdash;people with the skills and talent to modernize applications would rather build new applications. In a labor-constrained market, large-scale modernization projects can suffer from an employee satisfaction and talent issue. In a balanced portfolio, this approach should be reserved for applications that would receive significant feature enhancements if they remained on-premises.
 
-## Establishing an end state
+## Envision an end state
 
 An effective journey needs a target destination. Establish a rough vision of the end state before taking the first step. This infographic outlines a starting point consisting of existing applications, data, and infrastructure, which defines the digital estate. During the migration process, each asset is transitioned via one of the options on the right.
 

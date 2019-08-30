@@ -1,7 +1,7 @@
 ---
-title: "Large enterprise guide: Best practice explained"
+title: "Large enterprise guide: Prescriptive guidance explained"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: "Large enterprise guide: Best practice explained"
+description: Learn about prescriptive guidance for governance in large enterprises.
 author: BrianBlanchard
 ms.author: brblanch
 ms.date: 02/11/2019
@@ -11,7 +11,7 @@ ms.subservice: govern
 ms.custom: governance
 ---
 
-# Large enterprise: Best practice explained
+# Large enterprise guide: Prescriptive guidance explained
 
 The governance guide begins with a set of initial [corporate policies](./initial-corporate-policy.md). These policies are used to establish a minimum viable product (MVP) for governance that reflects [best practices](./index.md).
 
@@ -122,4 +122,4 @@ Once this guidance is implemented, each cloud adoption team can proceed with a s
 Both teams will use the tolerance indicators to identify the next set of improvements needed to continue supporting cloud adoption. The next step for this company is incremental improvement of their governance baseline to support applications with legacy or third-party multi-factor authentication requirements.
 
 > [!div class="nextstepaction"]
-> [Improving the Identity Baseline](./identity-baseline-evolution.md)
+> [Improve the Identity Baseline discipline](./identity-baseline-evolution.md)

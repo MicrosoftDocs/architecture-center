@@ -23,7 +23,7 @@ Cloud governance is an iterative process. For organizations with existing polici
 
 <ul class="panelContent cardsF">
     <li style="display: flex; flex-direction: column;">
-        <a href="./journeys/index.md">
+        <a href="./methodology.md">
             <div class="cardSize">
                 <div class="cardPadding" style="padding-bottom:10px;">
                     <div class="card" style="padding-bottom:10px;">
@@ -34,7 +34,7 @@ Cloud governance is an iterative process. For organizations with existing polici
                         </div>
                         <div class="cardText" style="padding-left:0px;">
                             <h3>Methodology</h3>
-                            Establish a basic understanding of the methodology that drives cloud governance in the Cloud Adoption Framework.
+                            Establish a basic understanding of the methodology that drives cloud governance in the Cloud Adoption Framework to begin thinking through the end state solution.
                         </div>
                     </div>
                 </div>
@@ -42,7 +42,7 @@ Cloud governance is an iterative process. For organizations with existing polici
         </a>
     </li>
     <li style="display: flex; flex-direction: column;">
-        <a href="https://cafbaseline.com/">
+        <a href="./benchmark.md">
             <div class="cardSize">
                 <div class="cardPadding" style="padding-bottom:10px;">
                     <div class="card" style="padding-bottom:10px;">
@@ -90,8 +90,8 @@ Cloud governance is an iterative process. For organizations with existing polici
                             </div>
                         </div>
                         <div class="cardText" style="padding-left:0px;">
-                            <h3>Governance maturity</h3>
-                            Throughout implementation of the cloud adoption plan, iteratively add governance controls to address tangible risks.
+                            <h3>Improve the initial governance foundation</h3>
+                            Throughout implementation of the cloud adoption plan, iteratively add governance controls to address tangible risks as you progress toward the end state.
                         </div>
                     </div>
                 </div>
@@ -123,11 +123,11 @@ The cloud architect serves as the thought leader and facilitator to bring these 
 
 If you want to follow this guide from beginning to end, this content aids in developing a robust cloud governance strategy in parallel with cloud implementation. The guidance walks you through the theory and implementation of such a strategy.
 
-For a crash course on the theory and quick access to Azure implementation, get started with the [Governance guides overview](./journeys/index.md). Using this guidance, you can start small and iteratively improve your governance needs in parallel with cloud adoption efforts.
+For a crash course on the theory and quick access to Azure implementation, get started with the [governance guides overview](./journeys/index.md). Using this guidance, you can start small and iteratively improve your governance needs in parallel with cloud adoption efforts.
 
 ## Next steps
 
-Review the actionable governance guides.
+Establish a basic understanding of the methodology that drives cloud governance in the Cloud Adoption Framework.
 
 > [!div class="nextstepaction"]
-> [Review the governance guides](./journeys/index.md)
+> [Understand the methodology](./methodology.md)

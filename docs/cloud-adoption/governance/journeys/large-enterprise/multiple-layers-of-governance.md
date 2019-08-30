@@ -52,3 +52,4 @@ The important aspect of each of these tools is the ability to apply multiple blu
 - **Cloud adoption teams:** Detailed decisions and implementation about applications or workloads can be made by each cloud adoption team, within the context of governance requirements. At times the team can also request additional Azure Resource Consistency templates to accelerate adoption efforts.
 
 The details regarding governance implementation at each level will require coordination between each team. The governance MVP and governance improvements outlined in this guide can aid in aligning that coordination.
+

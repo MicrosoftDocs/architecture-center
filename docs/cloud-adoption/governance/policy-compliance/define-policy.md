@@ -1,7 +1,7 @@
 ---
-title: "Define corporate policy statements for cloud governance"
+title: "Define corporate policy for cloud governance"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-description: How do you establish policy to reflect and remediate risks?
+description: Learn how to establish policy to reflect and remediate risks.
 author: BrianBlanchard
 ms.author: brblanch
 ms.date: 01/02/2019
@@ -64,4 +64,4 @@ The need to integrate cloud policy with your legacy IT policies depends largely 
 After defining your policies, draft an architecture design guide to provide IT staff and developers with actionable guidance.
 
 > [!div class="nextstepaction"]
-> [Draft an architecture design guide](align-governance-journeys.md)
+> [Align your governance design guide with corporate policy](./align-governance-journeys.md)

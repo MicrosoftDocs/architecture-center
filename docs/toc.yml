@@ -1120,9 +1120,13 @@ items:
       items:
       - name: Overview 
         href: cloud-adoption/governance/index.md
+      - name: Methodology 
+        href: cloud-adoption/governance/methodology.md
+      - name: Benchmark
+        href: cloud-adoption/governance/benchmark.md
       - name: Initial governance foundation
         href: cloud-adoption/governance/getting-started.md
-      - name: Maturing governance best practices
+      - name: Governance foundation improvements
         href: cloud-adoption/governance/best-practices.md
       - name: Governance guides
         items:
@@ -1130,49 +1134,49 @@ items:
           href: cloud-adoption/governance/journeys/index.md
         - name: Small-to-medium enterprise guide
           items:
-          - name: Best practices for getting started with cloud governance
+          - name: Overview
             href: cloud-adoption/governance/journeys/small-to-medium-enterprise/index.md
-          - name: Example scenario
+          - name: Narrative
             href: cloud-adoption/governance/journeys/small-to-medium-enterprise/narrative.md
           - name: Initial corporate policy
             href: cloud-adoption/governance/journeys/small-to-medium-enterprise/initial-corporate-policy.md
-          - name: Best practice explained
+          - name: Prescriptive guidance
             href: cloud-adoption/governance/journeys/small-to-medium-enterprise/best-practice-explained.md
-          - name: Improve the security baseline for this governance guide
+          - name: Improve the security baseline discipline
             href: cloud-adoption/governance/journeys/small-to-medium-enterprise/security-baseline-evolution.md
-          - name: Improve resource consistency for this governance guide
+          - name: Improve resource consistency discipline
             href: cloud-adoption/governance/journeys/small-to-medium-enterprise/resource-consistency-evolution.md
-          - name: Improve cost management for this governance guide
+          - name: Improve cost management discipline
             href: cloud-adoption/governance/journeys/small-to-medium-enterprise/cost-management-evolution.md
-          - name: Apply this guidance to multicloud scenarios
+          - name: Multicloud scenarios
             href: cloud-adoption/governance/journeys/small-to-medium-enterprise/multicloud-evolution.md
         - name: Large enterprise guide
           items:
-          - name: Best practices for getting started with cloud governance
+          - name: Overview
             href: cloud-adoption/governance/journeys/large-enterprise/index.md
-          - name: Example scenario
+          - name: Narrative
             href: cloud-adoption/governance/journeys/large-enterprise/narrative.md
           - name: Initial corporate policy
             href: cloud-adoption/governance/journeys/large-enterprise/initial-corporate-policy.md
-          - name: Best practice explained
+          - name: Prescriptive guidance
             href: cloud-adoption/governance/journeys/large-enterprise/best-practice-explained.md
-          - name: Improve the identity baseline for this governance guide
+          - name: Improve the identity baseline discipline
             href: cloud-adoption/governance/journeys/large-enterprise/identity-baseline-evolution.md
-          - name: Improve the security baseline for this governance guide
+          - name: Improve the security baseline discipline
             href: cloud-adoption/governance/journeys/large-enterprise/security-baseline-evolution.md
-          - name: Improve resource consistency for this governance guide
+          - name: Improve the resource consistency discipline
             href: cloud-adoption/governance/journeys/large-enterprise/resource-consistency-evolution.md
-          - name: Improve cost management for this governance guide
+          - name: Improve the cost management discipline
             href: cloud-adoption/governance/journeys/large-enterprise/cost-management-evolution.md
-          - name: Apply this guidance to multicloud scenarios
+          - name: Multicloud scenarios
             href: cloud-adoption/governance/journeys/large-enterprise/multicloud-evolution.md
           - name: Multiple layers of governance
             href: cloud-adoption/governance/journeys/large-enterprise/multiple-layers-of-governance.md
       - name: Governance considerations
         items:
-        - name: Implement a cloud governance strategy
+        - name: Evaluate corporate policy
           href: cloud-adoption/governance/corporate-policy.md
-        - name: Cloud governance disciplines
+        - name: Disciplines of cloud governance
           href: cloud-adoption/governance/governance-disciplines.md
         - name: Cloud-ready corporate policy and compliance
           items:
@@ -1184,19 +1188,19 @@ items:
               href: cloud-adoption/governance/policy-compliance/risk-tolerance.md
             - name: Define corporate policy
               href: cloud-adoption/governance/policy-compliance/define-policy.md
-            - name: Align design with corporate policy
+            - name: Align design with policy
               href: cloud-adoption/governance/policy-compliance/align-governance-journeys.md
-            - name: Develop policy adherence processes
+            - name: Establish policy adherence processes
               href: cloud-adoption/governance/policy-compliance/processes.md
             - name: Regulatory compliance
               href: cloud-adoption/governance/policy-compliance/what-is-regulatory-compliance.md
-            - name: Cloud policy review
-              href: cloud-adoption/governance/policy-compliance/what-is-a-cloud-policy-review.md
             - name: Cloud security readiness
               href: cloud-adoption/governance/policy-compliance/how-can-a-ciso-prepare-for-the-cloud.md
+            - name: Cloud policy review
+              href: cloud-adoption/governance/policy-compliance/what-is-a-cloud-policy-review.md
             - name: Data classification
               href: cloud-adoption/governance/policy-compliance/what-is-data-classification.md
-        - name: Implement the cloud governance disciplines
+        - name: Implement disciplines of cloud governance
           items:
           - name: Cost management
             items:
