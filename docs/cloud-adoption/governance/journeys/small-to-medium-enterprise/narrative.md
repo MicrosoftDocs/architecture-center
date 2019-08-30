@@ -37,14 +37,14 @@ Here is the current state of the company’s IT and cloud operations:
 - IT entered the cloud by migrating all end-user email accounts to Office 365. This migration was completed six months ago. Few other IT assets have been deployed to the cloud.
 - The application development teams are working in a dev/test capacity to learn about cloud-native capabilities.
 - The business intelligence (BI) team is experimenting with big data in the cloud and curation of data on new platforms.
-- The company has a loosely defined policy stating that customer personally identifiable information (PII) and financial data cannot be hosted in the cloud, which limits mission-critical applications in the current deployments.
+- The company has a loosely defined policy stating that personal customer data and financial data cannot be hosted in the cloud, which limits mission-critical applications in the current deployments.
 - IT investments are controlled largely by capital expense. Those investments are planned yearly. In the past several years, investments have included little more than basic maintenance requirements.
 
 ## Future state
 
 The following changes are anticipated over the next several years:
 
-- The CIO is reviewing the policy on PII and financial data to allow for the future state goals.
+- The CIO is reviewing the policy on personal data and financial data to allow for the future state goals.
 - The application development and BI teams want to release cloud-based solutions to production over the next 24 months based on the vision for customer engagement and new products.
 - This year, the IT team will finish retiring the disaster recovery workloads of the DR datacenter by migrating 2,000 VMs to the cloud. This is expected to produce an estimated $25M USD cost savings over the next five years.
     ![On-premises costs versus Azure costs demonstrating a return of $25M USD over the next five years](../../../_images/governance/calculator-small-to-medium-enterprise.png)

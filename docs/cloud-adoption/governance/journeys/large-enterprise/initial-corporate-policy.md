@@ -20,7 +20,7 @@ The following corporate policy defines the initial governance position, which is
 
 ## Cloud governance team
 
-The CIO recently held a meeting with the IT Governance team to understand the history of the PII and mission-critical policies and review the effect of changing those policies. She also discussed the overall potential of the cloud for IT and the company.
+The CIO recently held a meeting with the IT governance team to understand the history of the personal data and mission-critical policies and review the effect of changing those policies. The CIO also discussed the overall potential of the cloud for IT and the company.
 
 After the meeting, two members of the IT Governance team requested permission to research and support the cloud planning efforts. Recognizing the need for governance and an opportunity to limit shadow IT, the Director of IT Governance supported this idea. With that, the cloud governance team was born. Over the next several months, they will inherit the cleanup of many mistakes made during exploration in the cloud from a governance perspective. This will earn them the moniker of _cloud custodians_. In later iterations, this guide will show how their roles change over time.
 
