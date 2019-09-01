@@ -160,7 +160,7 @@ Contoso admins set up the virtual network as follows:
 1. They create a new virtual network (**VNET-SQLMI-EU2**) in the primary East US 2 region. It adds the virtual network to the **ContosoNetworkingRG** resource group.
 2. They assign an address space of 10.235.0.0/24. They ensure that the range doesn't overlap with any other networks in its enterprise.
 3. They add two subnets to the network:
-    - **SQLMI-DS-EUS2** (10.235.0.0.25)
+    - **SQLMI-DS-EUS2** (10.235.0.0/25)
     - **SQLMI-SAW-EUS2** (10.235.0.128/29). This subnet is used to attach a directory to the Managed Instance.
 
       ![Managed Instance - Create virtual network](media/contoso-migration-rehost-vm-sql-managed-instance/mi-vnet.png)
