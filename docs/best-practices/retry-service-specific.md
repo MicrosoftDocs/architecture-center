@@ -658,7 +658,7 @@ SQL Database is a hosted SQL database available in a range of sizes and as both 
 Retry support is provided when accessing SQL Database using Entity Framework 6.0 and higher through a mechanism called [Connection resiliency / retry logic](/ef/ef6/fundamentals/connection-resiliency/retry-logic). The main features of the retry mechanism are:
 
 - The primary abstraction is the **IDbExecutionStrategy** interface. This interface:
-  - Defines synchronous and asynchronous **Execute*** methods.
+  - Defines synchronous and asynchronous **Execute** methods.
   - Defines classes that can be used directly or can be configured on a database context as a default strategy, mapped to provider name, or mapped to a provider name and server name. When configured on a context, retries occur at the level of individual database operations, of which there might be several for a given context operation.
   - Defines when to retry a failed connection, and how.
 - It includes several built-in implementations of the **IDbExecutionStrategy** interface:
