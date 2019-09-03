@@ -11,7 +11,7 @@ pnp.series.prev: authorize
 pnp.series.next: token-cache
 ---
 
-# Secure a backend web API
+# Secure a backend web API for multitenant applications
 
 [![GitHub](../_images/github.png) Sample code][sample application]
 
@@ -68,7 +68,8 @@ In either approach, the web application must get an access token, which is the c
 
 The rest of this article assumes the application is authenticating with Azure AD.
 
-![Getting the access token](./images/access-token.png)
+<img src="./images/access-token.png" alt="Getting the access token" aria-describedby="description-1">
+<p id="description-1" class="visually-hidden">A diagram that shows the web application requesting an access token from Azure AD and sending the token to the web API.</p>
 
 ## Register the web API in Azure AD
 
@@ -80,7 +81,8 @@ In order for Azure AD to issue a bearer token for the web API, you need to confi
 
 3. Give the web application permission to call the web API. In the Azure portal, you can set two types of permissions: "Application Permissions" for application identity (client credential flow), or "Delegated Permissions" for delegated user identity.
 
-   ![Delegated permissions](./images/delegated-permissions.png)
+    <img src="./images/delegated-permissions.png" alt="Delegated permissions" aria-describedby="description-2">
+    <p id="description-2" class="visually-hidden">A screenshot of the Azure portal that shows the application permissions and delegated permissions.</p>
 
 ## Getting an access token
 
