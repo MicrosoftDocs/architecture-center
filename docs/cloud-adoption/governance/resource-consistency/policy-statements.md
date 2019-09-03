@@ -80,7 +80,7 @@ The following sample policy statements address common business risks related to 
 
 **Policy statement:** All mission-critical applications and protected data must have backup and recovery solutions implemented to minimize business impact of outages or system failures.
 
-**Potential design options:** The [Azure Site Recovery] (Please provide hyperlink for Azure Site Recovery) service provides backup, recovery, and replication capabilities intended to minimize outage duration in business continuity and disaster recovery (BCDR) scenarios.
+**Potential design options:** The [Azure Site Recovery service](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) provides backup, recovery, and replication capabilities intended to minimize outage duration in business continuity and disaster recovery (BCDR) scenarios.
 
 ## Next steps
 
