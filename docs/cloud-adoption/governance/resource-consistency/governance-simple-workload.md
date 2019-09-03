@@ -64,7 +64,7 @@ You may have noticed that there is currently no user associated with the subscri
 Since the **account owner** is currently the only user with permission to add the **workload owner** to the subscription, they add the **workload owner** to the subscription:
 
 ![The Azure account owner adds the **workload owner** to the subscription](../../_images/governance-1-5.png)
-*Figure 5 - The Azure account owner adds the workload owner to the subscription.*
+_Figure 5 - The Azure account owner adds the workload owner to the subscription._
 
 The Azure **account owner** grants permissions to the **workload owner** by assigning a [role-based access control (RBAC)](/azure/role-based-access-control) role. The RBAC role specifies a set of permissions that the **workload owner** has for an individual resource type or a set of resource types.
 
