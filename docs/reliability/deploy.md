@@ -22,7 +22,7 @@ The most reliable deployment processes are automated and *idempotent* &mdash; th
 
 - To automate provisioning of Azure resources, you can use [Terraform](/azure/virtual-machines/windows/infrastructure-automation#terraform),
     [Ansible](/azure/virtual-machines/windows/infrastructure-automation#ansible), [Chef](/azure/virtual-machines/windows/infrastructure-automation#chef), [Puppet](/azure/virtual-machines/windows/infrastructure-automation#puppet),
-    [Azure PowerShell](/powershell/azure/overview), [Azure CLI](/cli/azure), or [Azure Resource Manager templates](/azure/azure-resource-manager/resource-group-overview#template-deployment).
+    [Azure PowerShell](/powershell/azure/overview), [Azure CLI](/cli/azure), or [Azure Resource Manager templates](/azure/azure-resource-manager/template-deployment-overview).
 - To configure VMs, you can use [cloud-init](/azure/virtual-machines/windows/infrastructure-automation#cloud-init) (for Linux VMs) or [Azure Automation State Configuration](/azure/automation/automation-dsc-overview) (DSC).
 - To automate application deployment, you can use [Azure DevOps Services](/azure/virtual-machines/windows/infrastructure-automation#azure-devops-services), [Jenkins](/azure/virtual-machines/windows/infrastructure-automation#jenkins), or other CI/CD solutions.
 
@@ -34,13 +34,13 @@ Automation scripts can also activate resources on demand for disaster recovery.
 
 This practice, called *infrastructure as code,* may use a declarative approach or an imperative approach (or a combination of both).
 
-- [Resource Manager templates](/azure/azure-resource-manager/resource-group-overview#template-deployment) are an example of a declarative approach.
+- [Resource Manager templates](/azure/azure-resource-manager/template-deployment-overview) are an example of a declarative approach.
 - [PowerShell](/powershell/azure/overview) scripts are an example of an imperative approach.
 
 ### Practice immutable infrastructure
 
 In other words, don't modify infrastructure after it's deployed to production. After ad hoc changes have been applied, you might not know exactly what has changed, so it can be difficult to troubleshoot the system.
-
+ 
 ### Automate and test deployment and maintenance tasks
 
 Distributed applications consist of multiple parts that must work together. Deployment should take advantage of proven mechanisms, such as scripts, that can update and validate configuration and automate the deployment process. Test all processes fully to ensure that errors don't cause additional downtime.

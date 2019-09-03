@@ -92,7 +92,7 @@ When running a hybrid ETL workload, you must factor in the cost of the virtual m
 [resiliency]: /azure/architecture/resiliency/
 [security]: /azure/security/
 [scalability]: /azure/architecture/checklist/scalability
-[docs-blob-storage]: /azure/storage/blobs/
+[docs-blob-storage]: /azure/storage/blobs/storage-blobs-overview
 [docs-data-factory]: /azure/data-factory/introduction
 [docs-resource-groups]: /azure/azure-resource-manager/resource-group-overview
 [docs-ssis]: /sql/integration-services/sql-server-integration-services
