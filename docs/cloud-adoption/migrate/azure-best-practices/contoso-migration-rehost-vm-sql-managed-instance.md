@@ -364,8 +364,8 @@ Now, Contoso admins configure the source environment. To set up its source envir
 - The configuration server that coordinates communications between the on-premises infrastructure and Azure. The configuration server manages data replication.
 - The process server that acts as a replication gateway. The process server:
   - Receives replication data.
-  - Optimizes replication date by using caching, compression, and encryption.
-  - Sends replication date to Azure Storage.
+  - Optimizes replication data by using caching, compression, and encryption.
+  - Sends replication data to Azure Storage.
 - The process server also installs the Mobility Service on the VMs that will be replicated. The process server performs automatic discovery of on-premises VMware VMs.
 - After the configuration server VM is created and started, Contoso registers the server in the vault.
 
