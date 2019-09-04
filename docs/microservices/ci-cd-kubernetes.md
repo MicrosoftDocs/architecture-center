@@ -320,7 +320,7 @@ Based on the CI flow described earlier in this article, a build pipeline might c
         runInBackground: false
     ```
 
-1. Publish the test results. See [Integrate build and test tasks](/azure/devops/pipelines/languages/docker?view=azure-devops&tabs=yaml#integrate-build-and-test-tasks).
+1. Publish the test results. See [Build an image](/azure/devops/pipelines/ecosystems/containers/build-image).
 
     ```yaml
     - task: PublishTestResults@2
