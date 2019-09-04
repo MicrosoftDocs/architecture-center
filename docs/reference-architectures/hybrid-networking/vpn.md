@@ -14,7 +14,8 @@ ms.custom: networking
 
 This reference architecture shows how to extend a network on premises or on Azure Stack to Azure, using a site-to-site virtual private network (VPN). Traffic flows between the on-premises network and an Azure Virtual Network (VNet) through an IPSec VPN tunnel or through the Azure Stack multitenant VPN gateway. [**Deploy this solution**](#deploy-the-solution).
 
-![Hybrid network spanning on-premises and Azure infrastructures](./images/vpn.png)
+<img src="./images/vpn.png" alt="Hybrid network spanning on-premises and Azure infrastructures" aria-describedby="description-1">
+<p id="description-1" class="visually-hidden">A diagram of the VPN gateway architecture. An on-premises network connects to an Azure virtual network through a VPN gateway. A virtual network in Azure Stack also connects to the VPN gateway through public VIPs.</p>
 
 *Download a [Visio file][visio-download] of this architecture.*
 
@@ -150,7 +151,8 @@ Use [Azure VPN gateway diagnostics][gateway-diagnostic-logs] to capture informat
 
 Monitor the operational logs of the Azure VPN gateway using the audit logs available in the Azure portal. Separate logs are available for the local network gateway, the Azure network gateway, and the connection. This information can be used to track any changes made to the gateway, and can be useful if a previously functioning gateway stops working for some reason.
 
-![Audit logs in the Azure portal](../_images/guidance-hybrid-network-vpn/audit-logs.png)
+<img src="../_images/guidance-hybrid-network-vpn/audit-logs.png" alt="Audit logs in the Azure portal" aria-describedby="description-2">
+<p id="description-2" class="visually-hidden">A screenshot of the Azure portal, showing audit log events filtered by date.</p>
 
 Monitor connectivity, and track connectivity failure events. You can use a monitoring package such as [Nagios][nagios] to capture and report this information.
 
