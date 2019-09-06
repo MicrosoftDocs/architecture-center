@@ -101,9 +101,9 @@ In general, avoid having any special characters (`-` or `_`) as the first or las
 |Web App |Global |1-60 |Insensitive |0-9, a-z, A-Z and - |`<app_name>-<source-slot-name>` |`contoso-staging` |
 |Web App Name |Resource Group | 3-24 | Insensitive| 0-9, a-z, A-Z and - | `<appname>` | `mywebapp`|
 |Slot Name | Web App | 2-59 | Insensitive|0-9, a-z, A-Z and -|`<slotname>`|`production`|
-|Web App Setting Name | Web App | N/A | Insensitive | 0-9, a-z, A-Z !"#$%&\'()*+,-./:;<=>?@[\\]^_`{\|\}~ \ and spaces | N/A | N/A|
-|Web App Setting Value | Setting | N/A | Insensitive | 0-9, a-z, A-Z !"#$%&\'()*+,-./:;<=>?@[\\]^_`{\|\}~ \ and spaces | N/A | N/A|
-|Web App Connection String | Web App | N/A |Insensitive | 0-9, a-z, A-Z !"#$%&\'()*+,-./:;<=>?@[\\]^_`{\|\}~ \ and spaces | N/A | N/A|
+|Web App Setting Name | Web App | N/A | Insensitive | All characters | N/A | N/A|
+|Web App Setting Value | Setting | N/A | Insensitive | All characters | N/A | N/A|
+|Web App Connection String | Web App | N/A |Insensitive | All characters | N/A | N/A|
 |Web Job Name | Web App | 1-29 | Insensitive | 0-9, a-z, A-Z and - | `<jobname>`|`myJob`|
 
 > [!WARNING]
