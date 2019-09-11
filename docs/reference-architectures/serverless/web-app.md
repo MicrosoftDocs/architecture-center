@@ -257,6 +257,10 @@ To deploy the reference implementation for this architecture, see the [GitHub re
 
 To learn more about the reference implementation, read [Code walkthrough: Serverless application with Azure Functions](../../serverless/code.md).
 
+Related guidance:
+- [Best practices for using CDNs](../../best-practices/cdn.md)
+- [Static Content Hosting pattern](../../patterns/static-content-hosting.md)
+
 <!-- links -->
 
 [api-versioning]: ../../best-practices/api-design.md#versioning-a-restful-web-api
