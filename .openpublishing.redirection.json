@@ -1,258 +1,155 @@
-{ 
-    "redirections": [ 
+{
+   "redirections": [
       {
          "source_path": "docs/blueprints/hybrid-networking/index.md",
          "redirect_url": "/azure/architecture/reference-architectures/hybrid-networking/",
          "redirect_document_id": true
-      }, 
+      },
       {
          "source_path": "docs/compliance/fedramp/index.md",
          "redirect_url": "/azure/security/blueprints/fedramp",
          "redirect_document_id": true
-      }, 
-      { 
-          "source_path": "docs/compliance/pci-dss/index.md",
-          "redirect_url": "/azure/security/blueprints/payment-processing-blueprint", 
-          "redirect_document_id": false 
-      }, 
-      { 
-          "source_path": "docs/reference-architectures/managed-web-app/index.md",
-          "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app", 
-          "redirect_document_id": false 
-      },
-      { 
-        "source_path": "docs/elasticsearch/automated-performance-tests.md",
-        "redirect_url": "/azure/architecture" 
-      },
-      { 
-        "source_path": "docs/elasticsearch/automated-resilience-tests.md",
-        "redirect_url": "/azure/architecture" 
-      },
-      { 
-        "source_path": "docs/elasticsearch/data-aggregation-and-query-performance.md",
-        "redirect_url": "/azure/architecture" 
-      },
-      { 
-        "source_path": "docs/elasticsearch/data-ingestion-performance.md",
-        "redirect_url": "/azure/architecture" 
-      },
-      { 
-        "source_path": "docs/elasticsearch/index.md",
-        "redirect_url": "/azure/architecture" 
-      },
-      { 
-        "source_path": "docs/elasticsearch/jmeter-junit-sampler.md",
-        "redirect_url": "/azure/architecture" 
-      },
-      { 
-        "source_path": "docs/elasticsearch/jmeter-test-plan.md",
-        "redirect_url": "/azure/architecture" 
-      },
-      { 
-        "source_path": "docs/elasticsearch/performance-testing-environment.md",
-        "redirect_url": "/azure/architecture" 
-      },
-      { 
-        "source_path": "docs/elasticsearch/resilience-and-recover.md",
-        "redirect_url": "/azure/architecture" 
       },
       {
-        "source_path": "docs/data-guide/scenarios/batch-processing.md",
-        "redirect_url": "/azure/architecture/data-guide/big-data/batch-processing"
-    },
-    {
-        "source_path": "docs/data-guide/concepts/big-data.md",
-        "redirect_url": "/azure/architecture/data-guide/big-data"
-    },
-    {
-        "source_path": "docs/data-guide/concepts/machine-learning-at-scale.md",
-        "redirect_url": "/azure/architecture/data-guide/big-data/machine-learning-at-scale"
-    },
-    {
-        "source_path": "docs/data-guide/concepts/non-relational-data.md",
-        "redirect_url": "/azure/architecture/data-guide/big-data/non-relational-data"
-    },
-    {
-        "source_path": "docs/data-guide/scenarios/real-time-processing.md",
-        "redirect_url": "/azure/architecture/data-guide/big-data/real-time-processing"
-    },
-    {
-        "source_path": "docs/data-guide/technology-choices/data-warehouses.md",
-        "redirect_url": "/azure/architecture/data-guide/relational-data/data-warehousing"
-    },
-    {
-        "source_path": "docs/data-guide/scenarios/etl.md",
-        "redirect_url": "/azure/architecture/data-guide/relational-data/etl"
-    },
-    {
-        "source_path": "docs/data-guide/concepts/relational-data.md",
-        "redirect_url": "/azure/architecture/data-guide/relational-data"
-    },
-    {
-        "source_path": "docs/data-guide/concepts/advanced-analytics.md",
-        "redirect_url": "/azure/architecture/data-guide/scenarios/advanced-analytics"
-    },
-    {
-        "source_path": "docs/data-guide/concepts/csv-and-json.md",
-        "redirect_url": "/azure/architecture/data-guide/scenarios/csv-and-json"
-    },
-    {
-        "source_path": "docs/data-guide/concepts/data-lake.md",
-        "redirect_url": "/azure/architecture/data-guide/scenarios/data-lake"
-    },
-    {
-        "source_path": "docs/data-guide/concepts/semantic-modeling.md",
-        "redirect_url": "/azure/architecture/data-guide/relational-data/online-analytical-processing"
-    },
-    {
-        "source_path": "docs/data-guide/concepts/transactional-data.md",
-        "redirect_url": "/azure/architecture/data-guide/relational-data/online-transaction-processing"
-    },
-    {
-        "source_path": "docs/data-guide/scenarios/data-warehousing.md",
-        "redirect_url": "/azure/architecture/data-guide/relational-data/data-warehousing"
-    },
-    {
-        "source_path": "docs/data-guide/scenarios/online-analytical-processing.md",
-        "redirect_url": "/azure/architecture/data-guide/relational-data/online-analytical-processing"
-    },
-    {
-        "source_path": "docs/data-guide/scenarios/online-transaction-processing.md",
-        "redirect_url": "/azure/architecture/data-guide/relational-data/online-transaction-processing"
-    },
-    {
-        "source_path": "docs/data-guide/technology-choices/olap-data-stores.md",
-        "redirect_url": "/azure/architecture/data-guide//relational-data/online-analytical-processing"
-    },
-    {
-        "source_path": "docs/data-guide/technology-choices/oltp-data-stores.md",
-        "redirect_url": "/azure/architecture/data-guide/relational-data/online-transaction-processing"
-    },
-    {
-        "source_path": "docs/cloud-adoption-guide/adoption-intro/azure-explainer.md",
-        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/what-is-azure",
-        "redirect_document_id": true
-     },      
-     {
-        "source_path": "docs/cloud-adoption-guide/adoption-intro/azure-resource-access.md",
-        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
-     }, 
-     {
-        "source_path": "docs/cloud-adoption/getting-started/azure-resource-access.md",
-        "redirect_url": "/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access",
-        "redirect_document_id": true  
-     },
-     {
-        "source_path": "docs/cloud-adoption-guide/adoption-intro/governance-explainer.md",
-        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/what-is-governance",
-        "redirect_document_id": true
-     },
-     {
-        "source_path": "docs/cloud-adoption/getting-started/what-is-governance.md",
-        "redirect_url": "/azure/architecture/cloud-adoption/governance/resource-consistency/what-is-governance",
-        "redirect_document_id": true
-     },
-     {
-        "source_path": "docs/cloud-adoption-guide/adoption-intro/governance-how-to.md",
-        "redirect_url": "/azure/architecture/cloud-adoption/governance/governance-single-team",
-        "redirect_document_id": true
-     }, 
-     {
-        "source_path": "docs/cloud-adoption-guide/adoption-intro/overview.md",
-        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/migrate"
-     }, 
-     {
-        "source_path": "docs/cloud-adoption/getting-started/overview.md",
-        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/migrate"
-     },
-     {
-        "source_path": "docs/cloud-adoption/getting-started/index.md",
-        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/migrate"
-     },
-     {
-        "source_path": "docs/cloud-adoption-guide/adoption-intro/resource-group-explainer.md",
-        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
-     }, 
-     {
-        "source_path": "docs/cloud-adoption-guide/adoption-intro/resource-group.md",
-        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
-     }, 
-     {
-        "source_path": "docs/cloud-adoption-guide/adoption-intro/resource-manager-explainer.md",
-        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
-     }, 
-     {
-        "source_path": "docs/cloud-adoption-guide/adoption-intro/subscription-explainer.md",
-        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
-     }, 
-     {
-        "source_path": "docs/cloud-adoption-guide/adoption-intro/subscription.md",
-        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
-     }, 
-     {
-        "source_path": "docs/cloud-adoption-guide/adoption-intro/tenant-explainer.md",
-        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
-     }, 
-     {
-        "source_path": "docs/cloud-adoption-guide/adoption-intro/tenant.md",
-        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
-     }, 
-     {
-        "source_path": "docs/cloud-adoption-guide/intermediate-stage/governance-design-guide.md",
-        "redirect_url": "/azure/architecture/cloud-adoption/governance/governance-multiple-teams",
-        "redirect_document_id": true
-     }, 
-     {
-        "source_path": "docs/cloud-adoption-guide/intermediate-stage/overview.md",
-        "redirect_url": "/azure/architecture/cloud-adoption/getting-started/migrate"
-     }, 
-     {
-        "source_path": "docs/cloud-adoption-guide/index.md",
-        "redirect_url": "/azure/architecture/cloud-adoption",
-        "redirect_document_id": true
-     }, 
-     {
-        "source_path": "docs/cloud-adoption-guide/subscription-governance-examples.md",
-        "redirect_url": "/azure/architecture/cloud-adoption/appendix/azure-scaffold-examples",
-        "redirect_document_id": true
-     }, 
-     {
-        "source_path": "docs/cloud-adoption-guide/subscription-governance.md",
-        "redirect_url": "/azure/architecture/cloud-adoption/appendix/azure-scaffold",
-        "redirect_document_id": true
-     },
-     {
-        "source_path": "docs/guide/technology-choices.md",
-        "redirect_url": "/azure/architecture/guide/technology-choices/compute-overview"
-     },
-     {
-        "source_path": "docs/example-scenario/infrastructure/ServiceFabricMicroservices.md",
-        "redirect_url": "/azure/architecture/example-scenario/infrastructure/service-fabric-microservices",
-        "redirect_document_id": true
-     },
-     {
-        "source_path": "docs/example-scenario/apps/commerce-chatbot.md",
-        "redirect_url": "/azure/architecture/example-scenario/ai/commerce-chatbot",
-        "redirect_document_id": true
-     },
-     {
-      "source_path": "docs/reference-architectures/enterprise-integration/simple-enterprise-integration.md",
-      "redirect_url": "/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration",
-      "redirect_document_id": true
+         "source_path": "docs/compliance/pci-dss/index.md",
+         "redirect_url": "/azure/security/blueprints/payment-processing-blueprint",
+         "redirect_document_id": false
+      },
+      {
+         "source_path": "docs/reference-architectures/managed-web-app/index.md",
+         "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app",
+         "redirect_document_id": false
+      },
+      {
+         "source_path": "docs/elasticsearch/automated-performance-tests.md",
+         "redirect_url": "/azure/architecture"
+      },
+      {
+         "source_path": "docs/elasticsearch/automated-resilience-tests.md",
+         "redirect_url": "/azure/architecture"
+      },
+      {
+         "source_path": "docs/elasticsearch/data-aggregation-and-query-performance.md",
+         "redirect_url": "/azure/architecture"
+      },
+      {
+         "source_path": "docs/elasticsearch/data-ingestion-performance.md",
+         "redirect_url": "/azure/architecture"
+      },
+      {
+         "source_path": "docs/elasticsearch/index.md",
+         "redirect_url": "/azure/architecture"
+      },
+      {
+         "source_path": "docs/elasticsearch/jmeter-junit-sampler.md",
+         "redirect_url": "/azure/architecture"
+      },
+      {
+         "source_path": "docs/elasticsearch/jmeter-test-plan.md",
+         "redirect_url": "/azure/architecture"
+      },
+      {
+         "source_path": "docs/elasticsearch/performance-testing-environment.md",
+         "redirect_url": "/azure/architecture"
+      },
+      {
+         "source_path": "docs/elasticsearch/resilience-and-recover.md",
+         "redirect_url": "/azure/architecture"
+      },
+      {
+         "source_path": "docs/data-guide/scenarios/batch-processing.md",
+         "redirect_url": "/azure/architecture/data-guide/big-data/batch-processing"
+      },
+      {
+         "source_path": "docs/data-guide/concepts/big-data.md",
+         "redirect_url": "/azure/architecture/data-guide/big-data"
+      },
+      {
+         "source_path": "docs/data-guide/concepts/machine-learning-at-scale.md",
+         "redirect_url": "/azure/architecture/data-guide/big-data/machine-learning-at-scale"
+      },
+      {
+         "source_path": "docs/data-guide/concepts/non-relational-data.md",
+         "redirect_url": "/azure/architecture/data-guide/big-data/non-relational-data"
+      },
+      {
+         "source_path": "docs/data-guide/scenarios/real-time-processing.md",
+         "redirect_url": "/azure/architecture/data-guide/big-data/real-time-processing"
+      },
+      {
+         "source_path": "docs/data-guide/technology-choices/data-warehouses.md",
+         "redirect_url": "/azure/architecture/data-guide/relational-data/data-warehousing"
+      },
+      {
+         "source_path": "docs/data-guide/scenarios/etl.md",
+         "redirect_url": "/azure/architecture/data-guide/relational-data/etl"
+      },
+      {
+         "source_path": "docs/data-guide/concepts/relational-data.md",
+         "redirect_url": "/azure/architecture/data-guide/relational-data"
+      },
+      {
+         "source_path": "docs/data-guide/concepts/advanced-analytics.md",
+         "redirect_url": "/azure/architecture/data-guide/scenarios/advanced-analytics"
+      },
+      {
+         "source_path": "docs/data-guide/concepts/csv-and-json.md",
+         "redirect_url": "/azure/architecture/data-guide/scenarios/csv-and-json"
+      },
+      {
+         "source_path": "docs/data-guide/concepts/data-lake.md",
+         "redirect_url": "/azure/architecture/data-guide/scenarios/data-lake"
+      },
+      {
+         "source_path": "docs/data-guide/concepts/semantic-modeling.md",
+         "redirect_url": "/azure/architecture/data-guide/relational-data/online-analytical-processing"
+      },
+      {
+         "source_path": "docs/data-guide/concepts/transactional-data.md",
+         "redirect_url": "/azure/architecture/data-guide/relational-data/online-transaction-processing"
+      },
+      {
+         "source_path": "docs/data-guide/scenarios/data-warehousing.md",
+         "redirect_url": "/azure/architecture/data-guide/relational-data/data-warehousing"
+      },
+      {
+         "source_path": "docs/data-guide/scenarios/online-analytical-processing.md",
+         "redirect_url": "/azure/architecture/data-guide/relational-data/online-analytical-processing"
+      },
+      {
+         "source_path": "docs/data-guide/scenarios/online-transaction-processing.md",
+         "redirect_url": "/azure/architecture/data-guide/relational-data/online-transaction-processing"
+      },
+      {
+         "source_path": "docs/data-guide/technology-choices/olap-data-stores.md",
+         "redirect_url": "/azure/architecture/data-guide//relational-data/online-analytical-processing"
+      },
+      {
+         "source_path": "docs/data-guide/technology-choices/oltp-data-stores.md",
+         "redirect_url": "/azure/architecture/data-guide/relational-data/online-transaction-processing"
+      },
+      {
+         "source_path": "docs/guide/technology-choices.md",
+         "redirect_url": "/azure/architecture/guide/technology-choices/compute-overview"
+      },
+      {
+         "source_path": "docs/example-scenario/infrastructure/ServiceFabricMicroservices.md",
+         "redirect_url": "/azure/architecture/example-scenario/infrastructure/service-fabric-microservices",
+         "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/example-scenario/apps/commerce-chatbot.md",
+         "redirect_url": "/azure/architecture/example-scenario/ai/commerce-chatbot",
+         "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/reference-architectures/enterprise-integration/simple-enterprise-integration.md",
+         "redirect_url": "/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration",
+         "redirect_document_id": true
       },
       {
          "source_path": "docs/example-scenario/apps/app-monitoring.md",
          "redirect_url": "/azure/architecture/reference-architectures/app-service-web-app/app-monitoring",
-         "redirect_document_id": true
-      },
-      {
-         "source_path": "docs/cloud-adoption/governance/governance-single-team.md",
-         "redirect_url": "/azure/architecture/cloud-adoption/governance/",
-         "redirect_document_id": true
-      },
-      {
-         "source_path": "docs/cloud-adoption/governance/governance-multiple-teams.md",
-         "redirect_url": "/azure/architecture/cloud-adoption/governance",
          "redirect_document_id": true
       },
       {
@@ -339,22 +236,12 @@
          "redirect_document_id": true
       },
       {
-         "source_path": "docs/cloud-adoption/ready/considerations/naming-and-tagging.md",
-         "redirect_url": "/azure/architecture/cloud-adoption/ready/considerations/name-and-tag",
-         "redirect_document_id": true
-      },
-      {
          "source_path": "docs/microservices/ingestion-workflow.md",
          "redirect_url": "/azure/architecture/microservices/design/api-design"
       },
       {
          "source_path": "docs/service-fabric/refactor-migrated-app.md",
          "redirect_url": "/azure/architecture/service-fabric/migrate-from-cloud-services",
-         "redirect_document_id": true
-      },
-      {
-         "source_path": "docs/cloud-adoption/migrate/expanded-scope/skills-readiness.md",
-         "redirect_url": "/azure/architecture/cloud-adoption/migrate/",
          "redirect_document_id": true
       },
       {
@@ -366,10 +253,6 @@
          "source_path": "docs/topics/high-performance-computing/index.md",
          "redirect_url": "/azure/architecture/topics/high-performance-computing",
          "redirect_document_id": true
-      }, 
-      {
-      "source_path": "docs/cloud-adoption/operations/monitor/cloud-app-howto.md",
-      "redirect_url": "/azure/architecture/cloud-adoption/operations/monitor/cloud-models-monitor-overview"
       },
       {
          "source_path": "docs/multitenant-identity/run-the-app.md",
@@ -380,6 +263,123 @@
          "source_path": "docs/multitenant-identity/key-vault.md",
          "redirect_url": "/azure/architecture/multitenant-identity/web-api",
          "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/cloud-adoption/getting-started/azure-resource-access.md",
+         "redirect_url": "/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access",
+         "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/cloud-adoption/getting-started/what-is-governance.md",
+         "redirect_url": "/azure/architecture/cloud-adoption/governance/resource-consistency/what-is-governance",
+         "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/cloud-adoption/getting-started/overview.md",
+         "redirect_url": "/azure/architecture/cloud-adoption/getting-started/migrate"
+      },
+      {
+         "source_path": "docs/cloud-adoption/getting-started/index.md",
+         "redirect_url": "/azure/architecture/cloud-adoption/getting-started/migrate"
+      },
+      {
+         "source_path": "docs/cloud-adoption/governance/governance-single-team.md",
+         "redirect_url": "/azure/architecture/cloud-adoption/governance/",
+         "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/cloud-adoption/governance/governance-multiple-teams.md",
+         "redirect_url": "/azure/architecture/cloud-adoption/governance",
+         "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/cloud-adoption/migrate/expanded-scope/skills-readiness.md",
+         "redirect_url": "/azure/architecture/cloud-adoption/migrate/",
+         "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/cloud-adoption/operations/monitor/cloud-app-howto.md",
+         "redirect_url": "/azure/architecture/cloud-adoption/operations/monitor/cloud-models-monitor-overview"
+      },
+      {
+         "source_path": "docs/cloud-adoption/ready/considerations/naming-and-tagging.md",
+         "redirect_url": "/azure/architecture/cloud-adoption/ready/considerations/name-and-tag",
+         "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/cloud-adoption-guide/adoption-intro/governance-how-to.md",
+         "redirect_url": "/azure/architecture/cloud-adoption/governance/governance-single-team",
+         "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/cloud-adoption-guide/adoption-intro/overview.md",
+         "redirect_url": "/azure/architecture/cloud-adoption/getting-started/migrate"
+      },
+      {
+         "source_path": "docs/cloud-adoption-guide/adoption-intro/governance-explainer.md",
+         "redirect_url": "/azure/architecture/cloud-adoption/getting-started/what-is-governance",
+         "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/cloud-adoption-guide/adoption-intro/azure-explainer.md",
+         "redirect_url": "/azure/architecture/cloud-adoption/getting-started/what-is-azure",
+         "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/cloud-adoption-guide/adoption-intro/azure-resource-access.md",
+         "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
+      },
+      {
+         "source_path": "docs/cloud-adoption-guide/adoption-intro/resource-group-explainer.md",
+         "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
+      },
+      {
+         "source_path": "docs/cloud-adoption-guide/adoption-intro/resource-group.md",
+         "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
+      },
+      {
+         "source_path": "docs/cloud-adoption-guide/adoption-intro/resource-manager-explainer.md",
+         "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
+      },
+      {
+         "source_path": "docs/cloud-adoption-guide/adoption-intro/subscription-explainer.md",
+         "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
+      },
+      {
+         "source_path": "docs/cloud-adoption-guide/adoption-intro/subscription.md",
+         "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
+      },
+      {
+         "source_path": "docs/cloud-adoption-guide/adoption-intro/tenant-explainer.md",
+         "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
+      },
+      {
+         "source_path": "docs/cloud-adoption-guide/adoption-intro/tenant.md",
+         "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
+      },
+      {
+         "source_path": "docs/cloud-adoption-guide/intermediate-stage/governance-design-guide.md",
+         "redirect_url": "/azure/architecture/cloud-adoption/governance/governance-multiple-teams",
+         "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/cloud-adoption-guide/intermediate-stage/overview.md",
+         "redirect_url": "/azure/architecture/cloud-adoption/getting-started/migrate"
+      },
+      {
+         "source_path": "docs/cloud-adoption-guide/index.md",
+         "redirect_url": "/azure/architecture/cloud-adoption",
+         "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/cloud-adoption-guide/subscription-governance-examples.md",
+         "redirect_url": "/azure/architecture/cloud-adoption/appendix/azure-scaffold-examples",
+         "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/cloud-adoption-guide/subscription-governance.md",
+         "redirect_url": "/azure/architecture/cloud-adoption/appendix/azure-scaffold",
+         "redirect_document_id": true
       }
-  ] 
-  } 
+   ]
+}
