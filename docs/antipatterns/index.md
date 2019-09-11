@@ -27,6 +27,8 @@ Based on our engagements with Microsoft Azure customers, we've identified some o
 
 Some of these antipatterns may seem obvious when you read the descriptions, but they occur more often than you might think. Sometimes an application inherits a design that worked on-premises, but doesn't scale in the cloud. Or an application might start with a very clean design, but as new features are added, one or more of these antipatterns creeps in. Regardless, this guide will help you to identify and fix these antipatterns.
 
+## Catalog of antipatterns
+
 Here is the list of the antipatterns that we've identified:
 
 | Antipattern | Description |
@@ -48,3 +50,7 @@ Here is the list of the antipatterns that we've identified:
 [MonolithicPersistence]: ./monolithic-persistence/index.md
 [NoCaching]: ./no-caching/index.md
 [SynchronousIO]: ./synchronous-io/index.md
+
+## Next steps
+
+For more about performance tuning, see [Performance tuning a distributed application](../performance/index.md).
