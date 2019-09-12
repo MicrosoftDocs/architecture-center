@@ -658,6 +658,8 @@ items:
         href: reference-architectures/n-tier/multi-region-sql-server.md
     - name: Example workloads
       items:
+      - name: Apache Cassandra
+        href: best-practices/cassandra.md
       - name: SAP
         items:
         - name: SAP HANA on Azure Large Instances
