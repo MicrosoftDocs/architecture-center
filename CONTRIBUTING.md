@@ -1,29 +1,28 @@
-# Contributing
+# Contributing to Microsoft Azure Documentation
 
-If you haven't already read through them, we recommend that you start with the
-[Azure contribution guidelines][azure-oss].
+Thank you for taking the time to contribute to the Microsoft Azure documentation.
 
-## Legal
+This guide covers some general topics around contribution and refers out to our [contributors guide](https://docs.microsoft.com/contribute) for more detailed explanations where relevant.
 
-You will need to complete a Contributor License Agreement (CLA). Briefly, this
-agreement testifies that you are granting us permission to use the submitted
-change according to the terms of the project's license, and that the work being
-submitted is under appropriate copyright.
+## Code of Conduct
 
-Please submit a [Contributor License Agreement (CLA)](https://cla.azure.com/)
-before submitting a pull request. This process is automated and should be
-painless.
+This project has adopted the [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/).
+For more information, see the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/), or contact [opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
 
-## Housekeeping
+## How can I contribute?
 
-Your pull request should:
+There are a variety of ways to contribute to the documentation, review the sections below to find out which one is right for you.
 
-* Include a description of what your change intends to do.
-* Be based on a reasonably recent commit in the `master` branch.
+### Reporting Bugs and Suggesting Enhancements
 
-## Be nice
+Please use the Feedback tool at the bottom of any article to submit bugs and suggestions.
 
-We might be slower than you'd like. We might also ask you to make changes to the
-pull request. We ask for your patience. :smiley:
+![Feedback Tool](https://raw.githubusercontent.com/MicrosoftDocs/azure-docs/master/media/feedback-tool.png)
 
-[azure-oss]: http://azure.github.io/guidelines/
+### Editing in GitHub
+
+Follow the guidance for [Quick edits to existing documents](https://docs.microsoft.com/contribute/#quick-edits-to-existing-documents) in our contributors guide.
+
+### Pull Request
+
+Review the guidance for [Pull Requests](https://docs.microsoft.com/contribute/how-to-write-workflows-major#pull-request-processing) in our contributors guide.
