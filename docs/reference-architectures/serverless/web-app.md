@@ -12,46 +12,34 @@ ms.custom: seodec18, serverless
 
 # Serverless web application on Azure
 
-This reference architecture shows a [serverless](https://azure.microsoft.com/solutions/serverless/) web application. The application serves static content from Azure Blob Storage, and implements an API using Azure Functions. The API reads data from Cosmos DB and returns the results to the web app.
+This reference architecture shows a [serverless](https://azure.microsoft.com/solutions/serverless/) web application. The application serves static content from Azure Storage, and implements an API using Azure Functions. The API reads data from Cosmos DB and returns the results to the web app.
 
 ![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github].
 
 ![Reference architecture for a serverless web application](./_images/serverless-web-app.png)
 
-The term serverless has two distinct but related meanings:
+In a serverless web app, the term "serverless" has two distinct but related implementations:
 
-- **Backend as a service** (BaaS). Backend cloud services, such as databases and storage, provide APIs that enable client applications to connect directly to these services.
 - **Functions as a service** (FaaS). In this model, a "function" is a piece of code that is deployed to the cloud and runs inside a hosting environment that completely abstracts the servers that run the code.
+- **Backend as a service** (BaaS). Backend cloud services, such as databases and storage, provide APIs that enable client applications to connect directly to these services.
 
-Both definitions have in common the idea that developers and DevOps personnel don't need to deploy, configure, or manage servers. This reference architecture focuses on FaaS using Azure Functions, although serving web content from Azure Blob Storage is an example of BaaS. Some important characteristics of FaaS are:
+Both definitions have in common the idea that developers and DevOps personnel don't need to deploy, configure, or manage servers. This reference architecture focuses on FaaS using Azure Functions, although serving web content from Azure Storage is an example of BaaS. Some important characteristics of FaaS are:
 
 1. Compute resources are allocated dynamically as needed by the platform.
 1. Consumption-based pricing: You are charged only for the compute resources used to execute your code.
 1. The compute resources scale on demand based on traffic, without the developer needing to do any configuration.
 
-Functions are executed when an external trigger occurs, such as an HTTP request or a message arriving on a queue. This makes an [event-driven architecture style][event-driven] natural for serverless architectures. To coordinate work between components in the architecture, consider using message brokers or pub/sub patterns. For help choosing between messaging technologies in Azure, see [Choose between Azure services that deliver messages][azure-messaging].
+Functions are executed when an external trigger occurs, such as an HTTP request or a message arriving on a queue. In the case of a serverless web app, functions comprise the API of the application and are triggered by an HTTP request. This is called an [Event Driven Aarchitecture][event-driven]. To coordinate work between components in the architecture, consider using message brokers or pub/sub patterns. For help choosing between messaging technologies in Azure, see [Choose between Azure services that deliver messages][azure-messaging].
 
 ## Architecture
 
 The architecture consists of the following components:
 
-**Blob Storage**. Static web content, such as HTML, CSS, and JavaScript files, are stored in Azure Blob Storage and served to clients by using [static website hosting][static-hosting]. All dynamic interaction happens through JavaScript code making calls to the backend APIs. There is no server-side code to render the web page. Static website hosting supports index documents and custom 404 error pages.
-
-**CDN**. Use [Azure Content Delivery Network][cdn] (CDN) to cache content for lower latency and faster delivery of content, as well as providing an HTTPS endpoint.
+**Blob Storage**. Blob stands for "Binary Large Object". In Azure Storage, a blob is just any type of file. The size does not matter. Static web content, such as HTML, CSS, and JavaScript files are all "blobs". They are stored in Azure Blob Storage and served to clients by using [static website hosting][static-hosting]. All dynamic interaction happens through JavaScript code making calls to the backend APIs. There is no server-side code to render the web page. Static website hosting supports index documents and custom 404 error pages.
 
 **Function Apps**. [Azure Functions][functions] is a serverless compute option. It uses an event-driven model, where a piece of code (a "function") is invoked by a trigger. In this architecture, the function is invoked when a client makes an HTTP request. The request is always routed through an API gateway, described below.
 
-**API Management**. [API Management][apim] provides an API gateway that sits in front of the HTTP function. You can use API Management to publish and manage APIs used by client applications. Using a gateway helps to decouple the front-end application from the back-end APIs. For example, API Management can rewrite URLs, transform requests before they reach the backend, set request or response headers, and so forth.
-
-API Management can also be used to implement cross-cutting concerns such as:
-
-- Enforcing usage quotas and rate limits
-- Validating OAuth tokens for authentication
-- Enabling cross-origin requests (CORS)
-- Caching responses
-- Monitoring and logging requests
-
-If you don't need all of the functionality provided by API Management, another option is to use [Functions Proxies][functions-proxy]. This feature of Azure Functions lets you define a single API surface for multiple function apps, by creating routes to back-end functions. Function proxies can also perform limited transformations on the HTTP request and response. However, they don't provide the same rich policy-based capabilities of API Management.
+**Front Door**. Front Door provides an API gateway that sits in front of both the static front-end of a serverless web application, as well as the serverless function API. It allows you to glue the front-end of the application to the back-end API's so that they both operate under the same URL, but are still decoupled in their implmentation. In addition, it provides SSL certificates, caching for your assets for faster delivery and load times, the ability to creating routing rules for incoming requests, as well as periodically checking your application to ensure that it remains healthy.
 
 **Cosmos DB**. [Cosmos DB][cosmosdb] is a multi-model database service. For this scenario, the function application fetches documents from Cosmos DB in response to HTTP GET requests from the client.
 
@@ -91,6 +79,7 @@ Use Functions [bindings][functions-bindings] when possible. Bindings provide a d
 
 For example, the `GetStatus` function in the reference implementation uses the Cosmos DB [input binding][cosmosdb-input-binding]. This binding is configured to look up a document in Cosmos DB, using query parameters that are taken from the query string in the HTTP request. If the document is found, it is passed to the function as a parameter.
 
+We should provide samples in as many languages as possible. At least C# and JavaScript.
 ```csharp
 [FunctionName("GetStatusFunction")]
 public static Task<IActionResult> Run(
@@ -115,15 +104,13 @@ By using bindings, you don't need to write code that talks directly to the servi
 
 **Cosmos DB**. Throughput capacity for Cosmos DB is measured in [Request Units][ru] (RU). A 1-RU throughput corresponds to the throughput need to GET a 1KB document. In order to scale a Cosmos DB container past 10,000 RU, you must specify a [partition key][partition-key] when you create the container and include the partition key in every document that you create. For more information about partition keys, see [Partition and scale in Azure Cosmos DB][cosmosdb-scale].
 
-**API Management**. API Management can scale out and supports rule-based autoscaling. Note that the scaling process takes at least 20 minutes. If your traffic is bursty, you should provision for the maximum burst traffic that you expect. However, autoscaling is useful for handling hourly or daily variations in traffic. For more information, see [Automatically scale an Azure API Management instance][apim-scale].
-
 ## Disaster recovery considerations
 
 The deployment shown here resides in a single Azure region. For a more resilient approach to disaster-recovery, take advantage of the geo-distribution features in the various services:
 
 - API Management supports multi-region deployment, which can be used to distribute a single API Management instance across any number of Azure regions. For more information, see [How to deploy an Azure API Management service instance to multiple Azure regions][api-geo].
 
-- Use [Traffic Manager][tm] to route HTTP requests to the primary region. If the Function App running in that region becomes unavailable, Traffic Manager can fail over to a secondary region.
+- Front Door will route HTTP requests to the primary region. If the Function App running in that region becomes unavailable, Front Door will detect that and begin to direct all traffic over to a secondary region until the first region becomes available again.
 
 - Cosmos DB supports [multiple master regions][cosmosdb-geo], which enables writes to any region that you add to your Cosmos DB account. If you don't enable multi-master, you can still fail over the primary write region. The Cosmos DB client SDKs and the Azure Function bindings automatically handle the failover, so you don't need to update any application configuration settings.
 
@@ -143,6 +130,8 @@ In this architecture, the client application is a single-page application (SPA) 
 1. The backend API validates the access token.
 
 To configure authentication:
+
+Why not use Easy Auth here on the Function app? 
 
 - Register an application in your Azure AD tenant. This generates an application ID, which the client includes with the login URL.
 
@@ -166,28 +155,33 @@ For more information, see [Working with client identities](/azure/azure-function
 
 ### CORS
 
-In this reference architecture, the web application and the API do not share the same origin. That means when the application calls the API, it is a cross-origin request. Browser security prevents a web page from making AJAX requests to another domain. This restriction is called the *same-origin policy* and prevents a malicious site from reading sensitive data from another site. To enable a cross-origin request, add a Cross-Origin Resource Sharing (CORS) [policy][cors-policy] to the API Management gateway:
+Front Door sits in front of both the web application and the API. The primary domain points at Front Door, not the application pieces themselves. As such, it is possible to direct traffic going to domain.com to the websites and traffic to domain.com/api to the API. This means that both pieces of the application will share the same origin, and cross-origin considerations will not be necessary
 
-```xml
-<cors allow-credentials="true">
-    <allowed-origins>
-        <origin>[Website URL]</origin>
-    </allowed-origins>
-    <allowed-methods>
-        <method>GET</method>
-    </allowed-methods>
-    <allowed-headers>
-        <header>*</header>
-    </allowed-headers>
-</cors>
+In development, the website and API are two different services running on two different origins. That means when the application calls the API, it is a cross-origin request. Browser security prevents a web page from making AJAX requests to another domain. This restriction is called the *same-origin policy* and prevents a malicious site from reading sensitive data from another site. To enable a cross-origin request, specify the development host and port for the application in the CORS section of the `local.settings.json` file which is located in your function application. 
+
+```json
+{
+  "Values": {
+  },
+  "Host": {
+    "CORS": "http://localhost:3000"
+  }
+}
 ```
 
+**It is important that you remove this setting before publishing to production so that your API is not open to any user making a call from the location specified in the "CORS" setting.** 
+
+
+// Not sure if it's possible to set the allowCredentials from the local.settings.json. Need to confirm. Can definitely be done via portal.
 In this example, the **allow-credentials** attribute is **true**. This authorizes the browser to send credentials (including cookies) with the request. Otherwise, by default the browser does not send credentials with a cross-origin request.
 
 > [!NOTE]
 > Be very careful about setting **allow-credentials** to **true**, because it means a website can send the user's credentials to your API on the user's behalf, without the user being aware. You must trust the allowed origin.
+//
 
 ### Enforce HTTPS
+
+// This section would change to discuss how to force all traffic to HTTPS in Front Door
 
 For maximum security, require HTTPS throughout the request pipeline:
 
@@ -219,10 +213,11 @@ For maximum security, require HTTPS throughout the request pipeline:
 
 ### Lock down the function app
 
-All calls to the function should go through the API gateway. You can achieve this as follows:
+All calls to the function should go through Front Door. You can achieve this as follows:
 
 - Configure the function app to require a function key. The API Management gateway will include the function key when it calls the function app. This prevents clients from calling the function directly, bypassing the gateway.
 
+// This can't be done with Front Door. Not sure if we can filter based on domain - which is what Front Door gets you.
 - The API Management gateway has a [static IP address][apim-ip]. Restrict the Azure Function to allow only calls from that static IP address. For more information, see [Azure App Service Static IP Restrictions][app-service-ip-restrictions]. (This feature is available for Standard tier services only.)
 
 ### Protect application secrets
