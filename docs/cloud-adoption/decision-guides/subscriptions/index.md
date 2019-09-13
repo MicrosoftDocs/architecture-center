@@ -32,7 +32,7 @@ Because every organization is different, Azure management groups are designed to
 
 Before finalizing your subscription design, also consider how [resource consistency](../resource-consistency/index.md) considerations might influence your design choices.
 
-> ![NOTE]
+> [!NOTE]
 > Azure Enterprise Agreements (EAs) allows you to define another organizational hierarchy for billing purposes. This hierarchy is distinct from your management group hierarchy, which focuses on providing an inheritance model for easily applying suitable policies and access control to your resources.
 
 The following subscription patterns reflect an initial increase in subscription design sophistication, followed by several more advanced hierarchies that may align well to your organization:
