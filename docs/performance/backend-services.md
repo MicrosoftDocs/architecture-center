@@ -159,7 +159,7 @@ Interestingly, a side effect of increasing the throughput is that the number of 
 
 ![Graph of RU consumption per partition](./images/backend-services//read-consumed-3.png)
 
-This graph might a signal to further scale out the database. However, it turns out that we can optimize the query instead.
+This graph might be a signal to further scale out the database. However, it turns out that we can optimize the query instead.
 
 ## Step 4: Optimize the query
 
@@ -198,7 +198,7 @@ The load test shows improved throughput and latency:
 | Successful requests | 9.8 K | 11 K | 20 K | 29 K |
 | Throttled requests | 2.72 K | 0 | 0 | 0 |
 
-A consequence of the improved performance is that node CPU utilization is now running hot:
+A consequence of the improved performance is that node CPU utilization becomes very high:
 
 ![Graph of AKS node utilization](./images/backend-services//read-perf-4.png)
 
