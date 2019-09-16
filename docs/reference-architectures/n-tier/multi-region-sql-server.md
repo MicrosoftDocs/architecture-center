@@ -160,10 +160,9 @@ Measure the recovery times and verify they meet your business requirements. Test
 
 ## Related resources
 
-You may wish to review the following [Azure example scenarios](/azure/architecture/example-scenario) that demonstrate specific solutions using some of the same technologies:
+The following architecture uses some of the same technologies:
 
 - [Multitier web application built for high availability and disaster recovery on Azure](/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery)
-- [Building secure web applications with Windows virtual machines on Azure](/azure/architecture/example-scenario/infrastructure/regulated-multitier-app)
 
 <!-- links -->
 
