@@ -561,25 +561,6 @@ ms.subservice: example-scenario
     </a>
 </li>
 <li style="display: flex; flex-direction: column;">
-    <a href="./infrastructure/regulated-multitier-app.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="./infrastructure/media/architecture-regulated-multitier-app.png" alt="Architecture diagram for Building secure web apps with Windows VMs" height="140px" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Building secure web apps with Windows VMs</h3>
-                        <p>Build a secure, multi-tier web application with Windows Server on Azure using scale sets, Application Gateway, and load balancers.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-<li style="display: flex; flex-direction: column;">
     <a href="./infrastructure/service-fabric-microservices.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
