@@ -380,6 +380,11 @@
          "source_path": "docs/cloud-adoption-guide/subscription-governance.md",
          "redirect_url": "/azure/architecture/cloud-adoption/appendix/azure-scaffold",
          "redirect_document_id": true
+      },
+      {
+         "source_path": "docs/example-scenario/infrastructure/regulated-multitier-app.md",
+         "redirect_url": "/azure/architecture/reference-architectures/n-tier/n-tier-sql-server",
+         "redirect_document_id": true
       }
    ]
 }
