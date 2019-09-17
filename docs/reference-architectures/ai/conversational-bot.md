@@ -180,7 +180,7 @@ You can deploy the bot logic directly from your IDE or from a command line, such
 
 [0]: ./_images/conversational-bot.png
 [aad]: /azure/active-directory/
-[activities]: /azure/bot-service/rest-api/bot-framework-rest-connector-activities
+[activities]: /azure/bot-service/rest-api/bot-framework-rest-connector-concepts?#activity
 [aml]: /azure/machine-learning/service/
 [app-insights]: /azure/azure-monitor/app/app-insights-overview
 [app-service]: /azure/app-service/
