@@ -168,7 +168,6 @@ Test-NetConnection 10.2.0.36 -CommonTCPPort RDP
 [hybrid-ha]: ./expressroute-vpn-failover.md
 [naming conventions]: /azure/guidance/guidance-naming-conventions
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
-[virtual datacenter]: https://aka.ms/vdc
 [vnet-peering]: /azure/virtual-network/virtual-network-peering-overview
 [vnet-peering-limit]: /azure/azure-subscription-service-limits#networking-limits
 [vnet-peering-requirements]: /azure/virtual-network/virtual-network-peering-overview#requirements-and-constraints

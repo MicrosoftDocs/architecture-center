@@ -331,10 +331,6 @@ The final component of the Azure scaffold reference model is core to how your or
 > [!TIP]
 > Use service tags and application security groups in your network security groups not only to enhance the readability of your rules&mdash;which is crucial to understanding impact&mdash;but also to enable effective microsegmentation within a larger subnet, reducing sprawl and increasing flexibility.
 
-### Azure Virtual Datacenter
-
-Azure provides you both internal capabilities and third-party capabilities from our extensive partner network that enable you to have an effective security stance. More importantly, Microsoft provides best practices and guidance in the form of the [Azure Virtual Datacenter (VDC)](/azure/architecture/vdc/networking-virtual-datacenter). As you move from a single workload to multiple workloads that use hybrid capabilities, the VDC guidance will provide you with "recipes" to enable a flexible, network that will grow as your workloads in Azure grow.
-
 ## Next steps
 
 Governance is crucial to the success of Azure. This article targets the technical implementation of an enterprise scaffold but only touches on the broader process and relationships between the components. Policy governance flows from the top down and is determined by what the business wants to achieve. Naturally, the creation of a governance model for Azure includes representatives from IT, but more importantly it should have strong representation from business group leaders, and security and risk management. In the end, an enterprise scaffold is about mitigating business risk to facilitate an organization's mission and objectives.
