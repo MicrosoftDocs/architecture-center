@@ -658,10 +658,6 @@ items:
         href: reference-architectures/n-tier/multi-region-sql-server.md
     - name: Example workloads
       items:
-      - name: Highly scalable WordPress
-        href: example-scenario/infrastructure/wordpress.md
-      - name: Multi-tier Windows
-        href: example-scenario/infrastructure/regulated-multitier-app.md
       - name: SAP
         items:
         - name: SAP HANA on Azure Large Instances
@@ -676,6 +672,8 @@ items:
           href: example-scenario/apps/sap-production.md
       - name: SharePoint Server 2016
         href: reference-architectures/sharepoint/index.md
+      - name: WordPress
+        href: example-scenario/infrastructure/wordpress.md
 
   - name: Web apps
     items:

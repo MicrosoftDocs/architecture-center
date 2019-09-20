@@ -97,10 +97,10 @@ Here’s a code example that shows the choreography pattern between all business
 [ProducesResponseType(typeof(void), 400)]
 [ProducesResponseType(typeof(void), 500)]
 
-public async Task<IActionResult> Post([FromBody] EventGridEvent[] e)
+public async Task<IActionResult> Post([FromBody] EventGridEvent[] events)
 {
 
-   if (e == null)
+   if (events == null)
    {
        return BadRequest("No Event for Choreography");
    }
