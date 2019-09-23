@@ -31,6 +31,8 @@ Both definitions have in common the idea that developers and DevOps personnel do
 
 Functions are executed when an external trigger occurs, such as an HTTP request or a message arriving on a queue. This makes an [event-driven architecture style][event-driven] natural for serverless architectures. To coordinate work between components in the architecture, consider using message brokers or pub/sub patterns. For help choosing between messaging technologies in Azure, see [Choose between Azure services that deliver messages][azure-messaging].
 
+// TODO: Add similar information for BaaS here. Get info from Masashi/Fernando
+
 ## Architecture
 
 The architecture consists of the following components:
