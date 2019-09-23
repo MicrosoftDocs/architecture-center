@@ -79,7 +79,7 @@ The following table summarizes the primary scenarios that these patterns support
 
 ### Azure Virtual Datacenter
 
-In addition using one of these architecture patterns, if your enterprise IT group manages large cloud environments, consider consulting the [Azure Virtual Datacenter guidance](../../../vdc/index.md) when you design your Azure-based cloud infrastructure. Azure Virtual Datacenter provides a combined approach to networking, security, management, and infrastructure if your organization meets the following criteria:
+In addition to using one of these architecture patterns, if your enterprise IT group manages large cloud environments, consider consulting the [Azure Virtual Datacenter guidance](../../../vdc/index.md) when you design your Azure-based cloud infrastructure. Azure Virtual Datacenter provides a combined approach to networking, security, management, and infrastructure if your organization meets the following criteria:
 
 - Your enterprise is subject to regulatory compliance that requires centralized monitoring and audit capabilities.
 - Your cloud estate will consist of more than 10,000 IaaS VMs or an equivalent scale of PaaS services.

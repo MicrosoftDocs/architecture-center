@@ -38,7 +38,7 @@ When planning your access control strategy, use a least-privilege access model t
 
 ## Using built-in RBAC roles
 
-Azure provides a many built-in role definitions, with three core roles for providing access:
+Azure provides many built-in role definitions, with three core roles for providing access:
 
 - The [Owner](/azure/role-based-access-control/built-in-roles#owner) role can manage everything, including access to resources.
 - The [Contributor](/azure/role-based-access-control/built-in-roles#contributor) role can manage everything except access to resources.
