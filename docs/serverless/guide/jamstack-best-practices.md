@@ -1,15 +1,15 @@
 ---
-title: Best practices for JAMstack | Microsoft Docs
-description: Understand best practices of JAMstack architecture for serverless applications. 
+title: CI/CD with JAMstack on Azure | Microsoft Docs
+description: Understand best practices of JAMstack to create a robust CI/CD pipeline for serverless applications. 
 author: dsk-2015
-ms.date: 09/09/2019
+ms.date: 09/20/2019
 ms.author: dkshir
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: guide
 ---
 
-# JAM stack for serverless applications
+# Develop a robust CI/CD pipeline for serverless frontend on Azure using JAMstack
 
 The JAMstack is a modern way of building websites and apps, with these concepts at the core:
 
@@ -19,7 +19,7 @@ The JAMstack is a modern way of building websites and apps, with these concepts 
 
 It is a collective effort of best practices and workflows that result in easy-to-build, fast, secure, and scalable websites and apps. 
 
-This article explains how to implement these best practices, with the help of this [sample application](https://github.com/mspnp/serverless-reference-implementation/), to provide you a starting point for an efficient and fast serverless application. This [React](http://Reactjs.org)-based sample bundles up the JavaScript and Markup files for fast access at any geographic location, and uses [Azure Function](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview)-based APIs for a serverless design. 
+This article explains how to implement these best practices, with the help of a [sample application](https://github.com/mspnp/serverless-reference-implementation/), to provide you a starting point for an efficient and fast serverless application. This [React](http://Reactjs.org)-based sample bundles up the JavaScript and Markup files for fast access at any geographic location, and uses [Azure Function](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview)-based APIs for a serverless design. 
 
 ## Entire project in a CDN
 
@@ -43,10 +43,11 @@ You can take advantage of the [Git workflows](https://git-scm.com/docs/gitworkfl
 
 ## Modern build tools
 
-Using modern build tools allows you to create pre-built markup files at deploy time. The sample uses Gatsby.js, a modern static site generator 
+In JAMstack, markup files are built before getting deployed to the CDN servers, using modern build tools. These build tools simplify your build process, provide powerful pre-configuration, minification of the JavaScript files, as well as provide additional functionality such as static site generation. There are a variety of such tools you can use, based on the type of your application. For more detailed analysis, read the [comparison of top static site generators for JAMstack](https://blog.logrocket.com/the-best-static-websites-generators-compared-5f1f9eeeaf1a/).
 
-Markup files are prebuilt at deploy time using site generators or build tools. 
-Modern build tools creatcan help simplify your build process and assist with other functions such as such as [Static Site Generators or SSG]() The prebuilt Markup files served to the CDN servers is created using moderd build tools such as Gatsby.js, or 
+Since the sample is a React application, it is built using Gatsby.js, a React-based static site generator and front-end development framework, powered by GraphQL. Tools such as Gatsby.js can not only be integrated with your Azure resources using [Azure Pipelines]((https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) to pre-build before deploy, they can also be used on your local machine to during the development and testing phases. 
+
+The sample installs the [gatsby-plugin-typescript](https://www.gatsbyjs.org/packages/gatsby-plugin-typescript/) using the [gatsby-config.js](https://github.com/mspnp/serverless-reference-implementation/blob/master/src/ClientApp/gatsby-config.js). // Todo: describe transpiling? 
 
 
 ## Automated builds
