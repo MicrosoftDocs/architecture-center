@@ -271,5 +271,5 @@ For more information, see [Deploy resources with Azure Resource Manager template
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/app-service-reference-architectures.vsdx
 [web-app-autoscale]: /azure/app-service-web/web-sites-scale
 [web-app-backup]: /azure/app-service-web/web-sites-backup
-[web-app-log-stream]: /azure/app-service-web/web-sites-enable-diagnostic-log#streamlogs
+[web-app-log-stream]: /azure/app-service-web/web-sites-enable-diagnostic-log#stream-logs
 [1]: ./images/paas-basic-web-app-staging-slots.png "Swapping slots for production and staging deployments"
