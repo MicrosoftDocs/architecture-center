@@ -11,6 +11,8 @@ ms.subservice: guide
 
 # Develop a robust CI/CD pipeline for serverless frontend on Azure using JAMstack
 
+//TODO: MN: Brief desc why and history, then define the term. 
+
 The JAMstack is a modern way of building websites and apps, with these concepts at the core:
 
 - client-side **J**avaScript, that handles all dynamic programming during the request/response cycle,

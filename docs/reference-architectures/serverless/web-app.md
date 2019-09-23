@@ -235,20 +235,26 @@ Alternatively, you can store application secrets in Key Vault. This allows you t
 
 ## DevOps considerations
 
-### Deployment
+### Frontend deployment
+
+// TBD: Recommend JAMstack and explain Why? 
+
+<!-- 
+To deploy the BaaS front-end application, we recommend using the JAMstack approach for a robust CI/CD pipeline. This means making sure the following best practices are implemented:
+1. Entire project in a CDN: This allows fast and secure access to your application over vast geographical areas. 
+2. Everything lives in Git: This allows for automated and instantaneous builds with the help of powerful Git workloads. 
+3. Modern build tools: Using modern build tools and static site generators allows you to focus on your application logic, and leave the complex build processes to be automatically handled for you, improving developer experience and velocity.
+4. Automated builds: Automated CI/CD system such as Azure Pipelines can automatically run the build tools everytime you commit a change in your site's content or logic to your Git repo, thereby minimizing or eliminating any user errors introduced through manual process. 
+5. Atomic deploys: We recommend using a new folder for every built version of the app before deploying to the Blob Storage (TODO: Explain better. AND: Why atomic deployment - so there is no mix of old and new files). This ensures easier rollback to a previous version, as well as makes sure all clients get a complete atomic set of the app's resources and logic. 
+6. Instant Cache Invalidation: (TODO: Why? CDN Cache Purge. ) To ensure every new load of your application is atomic, the cached versions in the CDN network should always be verified against the oring. To reduce network delays, we recommend allowing heavier resources such as videos and images, and even JavaScript logic to be cached in the CDN for a longer period such as a year. Validate the HTML files against the current deployment in the Blob for every new usage, and fingerprint the resource files so that for every actual change in the resources, a new file is generated in the build folder, causing the new file to be cached. 
+
+Learn how these best practices are built into the CI/CD pipeline for the reference implementation, read [Develop a robust CI/CD pipeline for serverless frontend on Azure using JAMstack](../../serverless/guide/jamstack-best-practices.md).
+-->
+
+### Backend deployment
 
 To deploy the function app, we recommend using [package files][functions-run-from-package] ("Run from package"). Using this approach, you upload a zip file to a Blob Storage container and the Functions runtime mounts the zip file as a read-only file system. This is an atomic operation, which reduces the chance that a failed deployment will leave the application in an inconsistent state. It can also improve cold start times, especially for Node.js apps, because all of the files are swapped at once.
 
-//TBD is the above still true? Add here the following:
-//To deploy the BaaS front-end application, we recommend using the JAMstack approach for a robust CI/CD pipeline. This means making sure the following best practices are implemented:
-// 1) Entire project in a CDN: This allows fast and secure access to your application over vast geographical areas. 
-// 2) Everything lives in Git: This allows for community contribution, as well as automated and instantaneous builds with the help of powerful Git workloads. 
-// 3) Modern build tools: Using modern build tools and static site generators allows you to focus on your application logic, and leave the complex build processes to be automatically handled for you, improving developer experience and community collaboration.
-// 4) Automated builds: Automated CI/CD system such as Azure Pipelines can automatically run the build tools everytime you commit a change in your site's content or logic to your Git repo, thereby minimizing or eliminating any user errors introduced through manual process. 
-// 5) Atomic deploys: We recommend using a new folder for every built version of the app before deploying to the Blob Storage. This ensures easier rollback to a previous version, as well as makes sure all clients get a complete atomic set of the app's resources and logic. 
-// 6) Instant Cache Invalidation: To ensure every new load of your application is atomic, the cached versions in the CDN network should always be verified against the oring. To reduce network delays, we recommend allowing heavier resources such as videos and images, and even JavaScript logic to be cached in the CDN for a longer period such as a year. Validate the HTML files against the current deployment in the Blob for every new usage, and fingerprint the resource files so that for every actual change in the resources, a new file is generated in the build folder, causing the new file to be cached. 
-
-Learn how these best practices are built into the CI/CD pipeline for the reference implementation, read [Develop a robust CI/CD pipeline for serverless frontend on Azure using JAMstack](../../serverless/guide/jamstack-best-practices.md).
 
 ### API versioning
 
