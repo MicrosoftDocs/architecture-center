@@ -487,11 +487,11 @@
          "redirect_url": "https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/identity/index"
      },
      {
-         "source_path": "docs/cloud-adoption/decision-guides/logging-and-reporting/index.md",
+         "source_path": "docs/cloud-adoption/decision-guides/log-and-report/index.md",
          "redirect_url": "https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/logging-and-reporting/index"
      },
      {
-         "source_path": "docs/cloud-adoption/decision-guides/logging-and-reporting/overview.md",
+         "source_path": "docs/cloud-adoption/decision-guides/log-and-report/overview.md",
          "redirect_url": "https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/logging-and-reporting/index"
      },
      {
