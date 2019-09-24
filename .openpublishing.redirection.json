@@ -1299,11 +1299,11 @@
      },
      {
          "source_path": "docs/cloud-adoption/operating-model/index.md",
-         "redirect_url": "https://docs.microsoft.com/azure/cloud-adoption-framework/operating-model/index"
+         "redirect_url": "https://docs.microsoft.com/azure/cloud-adoption-framework/operate/index"
      },
      {
          "source_path": "docs/cloud-adoption/operating-model/terms.md",
-         "redirect_url": "https://docs.microsoft.com/azure/cloud-adoption-framework/operating-model/terms"
+         "redirect_url": "https://docs.microsoft.com/azure/cloud-adoption-framework/operate/terms"
      },
      {
          "source_path": "docs/cloud-adoption/operations/azure-server-management/common-policies.md",
