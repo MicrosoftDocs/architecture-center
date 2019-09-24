@@ -1158,7 +1158,7 @@
      },
      {
          "source_path": "docs/cloud-adoption/migrate/expanded-scope/multiple-regions.md",
-         "redirect_url": "https://docs.microsoft.com/azure/cloud-adoption-framework/migrate/expanded-scope/multiple-regions"
+         "redirect_url": "https://docs.microsoft.com/azure/cloud-adoption-framework/decision-guides/regions/index"
      },
      {
          "source_path": "docs/cloud-adoption/migrate/expanded-scope/network-capacity-exceeded.md",
