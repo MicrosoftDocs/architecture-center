@@ -14,7 +14,9 @@ ms.custom: seodec18, SAP
 
 This reference architecture shows a set of proven practices for running SAP HANA on Azure (Large Instances) with high availability and disaster recovery (DR). Called HANA Large Instances, this offering is deployed on physical servers in Azure regions.
 
-![SAP HANA architecture using Azure Large Instances](./images/sap-hana-large-instances.png)
+:::image type="complex" source="./images/sap-hana-large-instances.png" alt-text="SAP HANA architecture using Azure Large Instances":::
+The diagram shows two Azure regions. The primary region contains an application tier with SAP applications, an SAP HANA server pool, and an ExpressRoute gateway. The ExpressRoute gateway connects to the secondary region, which contains a replicated HANA server pool.
+:::image-end:::
 
 *Download a [Visio file][visio-download] of this architecture.*
 
