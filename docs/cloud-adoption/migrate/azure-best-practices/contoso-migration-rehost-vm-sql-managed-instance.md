@@ -15,9 +15,6 @@ services: site-recovery
 
 This article shows how the fictional company Contoso migrates a two-tier Windows .NET front-end app running on VMware VMs to an Azure VM using the Azure Site Recovery service. It also shows how Contoso migrates the app database to Azure SQL Database Managed Instance.
 
-> [!NOTE]
-> Azure SQL Database Managed Instance currently is in preview.
-
 The SmartHotel360 app used in this example is provided as open source. If you'd like to use it for your own testing purposes, you can download it from [GitHub](https://github.com/Microsoft/SmartHotel360).
 
 ## Business drivers
