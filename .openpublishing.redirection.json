@@ -1592,6 +1592,14 @@
      {
          "source_path": "docs/cloud-adoption/overview.md",
          "redirect_url": "https://docs.microsoft.com/azure/cloud-adoption-framework/index"
+     },
+     {
+        "source_path": "docs/vdc/index.md",
+        "redirect_url": "https://docs.microsoft.com/azure/cloud-adoption-framework/reference/vdc"
+     },
+     {
+         "source_path": "docs/vdc/networking-virtual-datacenter.md",
+         "redirect_url": "https://docs.microsoft.com/azure/cloud-adoption-framework/reference/networking-vdc"
      }
    ]
 }
