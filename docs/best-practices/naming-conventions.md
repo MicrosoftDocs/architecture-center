@@ -160,7 +160,7 @@ The Azure Resource Manager supports tagging entities with arbitrary text strings
 > [!TIP]
 > One other advantage of tags is that tags span resource groups, allowing you to link and correlate entities across disparate deployments.
 
-Each resource or resource group can have a maximum of **15** tags. The tag name is limited to 512 characters, and the tag value is limited to 256 characters.
+Each resource or resource group can have a maximum of **50** tags. The tag name is limited to 512 characters, and the tag value is limited to 256 characters.
 
 For more information on resource tagging, see [Using tags to organize your Azure resources](/azure/azure-resource-manager/resource-group-using-tags/).
 
