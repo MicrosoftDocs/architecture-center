@@ -13,7 +13,7 @@ ms.custom: governance
 
 # Subscription decision guide
 
-Effective subscription design helps organizations establish a structure for organize assets in Azure during a cloud adoption.
+Effective subscription design helps organizations establish a structure for organizing assets in Azure during a cloud adoption.
 
 Each resource in Azure, such as a virtual machine or a database, is associated with a subscription. Adopting Azure begins by creating an Azure subscription, associating it with an account, and deploying resources to the subscription. For an overview of these concepts, see [Azure fundamental concepts](../../ready/considerations/fundamental-concepts.md).
 
