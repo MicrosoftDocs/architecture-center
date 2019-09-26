@@ -25,7 +25,7 @@ The term serverless has two distinct but related meanings:
 
 Both definitions have in common the idea that developers and DevOps personnel don't need to deploy, configure, or manage servers. The backend developed in this reference architecture is an example of FaaS using Azure Functions, while serving web content from Azure Blob Storage using the Azure CDN could be an example of BaaS.
 
-The `serverless` movement initially started with BaaS or MBaaS (Mobile backend as a service) to assist in managing and scaling cloud infrastructure, as well as speed up backend development using third party solutions for common functionality such as authentication, CDN, data management, email and social integration, etc.
+The *serverless* movement initially started with BaaS or MBaaS (Mobile backend as a service) services, which manage and scale cloud infrastructure, as well as speed up backend development. These are third party solutions providing common functionality such as authentication, CDN, data management, email and social integration, etc.
 
 With services such as AWS Lambda and Azure Functions, it became possible for developers to run their own code in a serverless backend, sometimes called as *Compute as a service*. Some important characteristics of FaaS are:
 
