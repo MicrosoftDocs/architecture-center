@@ -23,7 +23,11 @@ The term serverless has two distinct but related meanings:
 - **Backend as a service** (BaaS). Backend cloud services, such as databases and storage, provide APIs that enable client applications to connect directly to these services.
 - **Functions as a service** (FaaS). In this model, a "function" is a piece of code that is deployed to the cloud and runs inside a hosting environment that completely abstracts the servers that run the code.
 
-Both definitions have in common the idea that developers and DevOps personnel don't need to deploy, configure, or manage servers. This reference architecture focuses on FaaS using Azure Functions, although serving web content from Azure Blob Storage is an example of BaaS. Some important characteristics of FaaS are:
+Both definitions have in common the idea that developers and DevOps personnel don't need to deploy, configure, or manage servers. The backend developed in this reference architecture is an example of FaaS using Azure Functions, while serving web content from Azure Blob Storage using the Azure CDN could be an example of BaaS.
+
+The `serverless` movement initially started with BaaS or MBaaS (Mobile backend as a service) to assist in managing and scaling cloud infrastructure, as well as speed up backend development using third party solutions for common functionality such as authentication, CDN, data management, email and social integration, etc.
+
+With services such as AWS Lambda and Azure Functions, it became possible for developers to run their own code in a serverless backend, sometimes called as *Compute as a service*. Some important characteristics of FaaS are:
 
 1. Compute resources are allocated dynamically as needed by the platform.
 1. Consumption-based pricing: You are charged only for the compute resources used to execute your code.
@@ -31,7 +35,12 @@ Both definitions have in common the idea that developers and DevOps personnel do
 
 Functions are executed when an external trigger occurs, such as an HTTP request or a message arriving on a queue. This makes an [event-driven architecture style][event-driven] natural for serverless architectures. To coordinate work between components in the architecture, consider using message brokers or pub/sub patterns. For help choosing between messaging technologies in Azure, see [Choose between Azure services that deliver messages][azure-messaging].
 
+<!--
 // TODO: Add similar information for BaaS here. Why it also implements BaaS? Imp characteristics of BaaS? Any other tips?
+This and several other articles point out that what we are doing is not quite BaaS, although similar. So I have chosen to avoid labeling it as BaaS. It is a JAMstack app, which may or may not be serverless. 
+https://blog.back4app.com/2019/07/24/backend-as-a-service-baas/
+https://learning.oreilly.com/library/view/what-is-serverless/9781491984178/ch05.html#ch05 (What is Serverless? - book on aka.ms/oreilly)
+-->
 
 ## Architecture
 
@@ -237,9 +246,30 @@ Alternatively, you can store application secrets in Key Vault. This allows you t
 
 ### Frontend deployment
 
-// TBD: Recommend JAMstack and explain Why? 
+Static frontend development can highly benefit from a methodology similar to serverless, called the [JAMstack](jamstack.org). It allows you to develop and deploy fast, modern web applications, without using web servers. It removes the tight coupling between client and server in the traditional web development, by isolating the dynamic programming entirely to the client-side using JavaScript. Any server-side processing or database access is done using reusable APIs over HTTPS, which could be custom-built or leveraged from a third-party service. The client renders using pre-built Markup templates for a responsive, fast, and secure user experience.
 
-<!-- 
+JAMstack recommends a set of [best practices](https://jamstack.org/best-practices/) designed to improve the build and deploy processes for the application. The frontend application in this reference architecture is a React-based JAMstack application. The article [Develop a robust CI/CD pipeline for serverless frontend on Azure using JAMstack](../../serverless/guide/jamstack-best-practices.md) uses this application to illustrate how these best practices can be implemented using primarily Azure services. The following are some salient features of this implementation:
+
+1. Content Delivery Networks (CDN) can help you provide a fast and consistent user experience over vast geographical areas. All of the website content is served by the CDN edge servers instead of a centralized web server. This includes the HTML markup, JavaScript, as well as any other static resources such as images and videos. Use a well-established global-ready CDN such a Azure CDN, or Amazon CloudFront, if your application will be accessed outside of the US. Read [best CDN providers of 2019](https://www.techradar.com/news/the-best-cdns-of-2018) for more guidance in choosing your CDN. This reference frontend uses [Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-overview). All the files are served to the CDN via an Azure Blob Storage account.
+1. Keep your entire project in Git, to avail of the powerful Git workloads to automate your CI/CD process.
+1. Use modern and powerful build tools and static site generators to efficiently handle the complex build process, as well as perform other functions such as pre-configuration, minification, etc. Read the [comparison of modern build tools](https://medium.com/netlify/comparing-modern-build-tools-8eca722b69b6) to help you with choosing tools specific to your application or website. The React-based application in this reference architecture uses [Gatsby](https://www.gatsbyjs.org/).
+1. Automate your build process to run your build tools every time a change is committed to your git repo. This will eliminate or minimize user errors introduced through manual process. The ease of downloading the project from a Git repo and automating the build process also encourages collaboration from within the larger enterprise, improving the developer velocity. The reference architecture uses [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) to automate both the build and deploy processes. The build pipeline is executed for every new change in the project files. A successful build triggers a deploy pipeline which compresses the built markup and pushes it to the Blob Storage.
+1. Choose a CDN provider that has the ability to [purge its cache](https://docs.microsoft.com/en-us/azure/cdn/cdn-purge-endpoint). This will keep the content fresh for all users of your application, by ensuring that everyone is served only the content after a successful build/deploy as an atomic unit. This is required if versioning is not used in the build process allowing newly built files to slowly update older ones in the same folder. The following alternative cache strategy may not need a CDN cache purge.
+    1. This reference frontend manages the CDN cache by versioning. Every new build is packaged into a new folder for that version, and the CDN edge servers point to this new folder only after a successful deployment to the Blob storage.
+1. To allow for maximum usage of the cache, the reference increases the cache TTL by fingerprinting the resource file names. If their content changes, the build process automatically updates the fingerprint in their file names, invalidating the resource files present in the CDN or browser cache. Whenever these resources are referenced from the HTML markup, the CDN needs to update the cache with the new files. You can maximize cache efficiency for heavier resource files by keeping them in the cache for as long as a year, or until they change. See the [Manage expiration of web content in Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-manage-expiration-of-cloud-service-content) for more information.
+
+<!-- after review: 
+// TBD: Recommend JAMstack and explain Why?
+
+// Might not need to explain why Git (automated build pipeline or workloads), and avoid open-source collaboration.
+//  Developer velocity: Colloration within the enterprise from the same or different team - internal community. 
+// why atomic builds - avoid mixed file set. then the recommendations.
+// Make sure your CDN support cache purge. Instant cache invalidation is different from our cache strategy. Our recos could be specific to Azure. Our cache strategy is a different best practice regardless of JAMstack. We don't use the cache purge but we meet recomendation because Azure CDN supports it. But our approach of folders to swap directories takes care of cache invalidation. So 6 depends on how 5 is implemented. If using the same folder for all versions, we might need cache purge (that's the recommendation we make, check your implementation and use the CDN's cache purge or some other method, but choose the CDN that supports cache purge) : cache purge or versioning
+// Cache TTL (fingerprinting) is separate from cache invalidation. 
+// be a little higher level. Perhaps combine the last 2 points in the CDN. Make sure to always serve the latest version for all files (when you have the entire project in CDN, different ways to do this. // Folder/quick purge depending on how 5 is implemented.)
+// Focus on the Modern release pipeline, instead of pointing out just the best practices. Add the recos listed in the format that makes sense to me instead of limiting to the best practices bullet points.
+-->
+<!-- original:
 To deploy the BaaS front-end application, we recommend using the JAMstack approach for a robust CI/CD pipeline. This means making sure the following best practices are implemented:
 1. Entire project in a CDN: This allows fast and secure access to your application over vast geographical areas. 
 2. Everything lives in Git: This allows for automated and instantaneous builds with the help of powerful Git workloads. 
@@ -254,7 +284,6 @@ Learn how these best practices are built into the CI/CD pipeline for the referen
 ### Backend deployment
 
 To deploy the function app, we recommend using [package files][functions-run-from-package] ("Run from package"). Using this approach, you upload a zip file to a Blob Storage container and the Functions runtime mounts the zip file as a read-only file system. This is an atomic operation, which reduces the chance that a failed deployment will leave the application in an inconsistent state. It can also improve cold start times, especially for Node.js apps, because all of the files are swapped at once.
-
 
 ### API versioning
 
