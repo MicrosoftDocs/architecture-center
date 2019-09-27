@@ -732,13 +732,12 @@ In many cases, batch processes can generate reports according to a defined sched
 - [Health Endpoint Monitoring pattern](../patterns/health-endpoint-monitoring.md) describes how to implement functional checks within an application that external tools can access through exposed endpoints at regular intervals.
 - [Priority Queue pattern](../patterns/priority-queue.md) shows how to prioritize queued messages so that urgent requests are received and can be processed before less urgent messages.
 
-## More information
+## Next steps
 
+- [Azure Monitor overview](/azure/azure-monitor/overview)
 - [Monitor, diagnose, and troubleshoot Microsoft Azure Storage](/azure/storage/storage-monitoring-diagnosing-troubleshooting)
-- [Azure: Telemetry Basics and Troubleshooting](https://social.technet.microsoft.com/wiki/contents/articles/18146.windows-azure-telemetry-basics-and-troubleshooting.aspx)
-- [Enabling Diagnostics in Azure Cloud Services and Virtual Machines](/azure/cloud-services/cloud-services-dotnet-diagnostics)
-- [Azure Cache for Redis](https://azure.microsoft.com/services/cache/), [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), and [HDInsight](https://azure.microsoft.com/services/hdinsight/)
-- [How to use Service Bus queues](/azure/service-bus-messaging/service-bus-dotnet-get-started-with-queues)
-- [SQL Server business intelligence in Azure Virtual Machines](/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-bi)
-- [Receive alert notifications](/azure/monitoring-and-diagnostics/insights-receive-alert-notifications) and [Track service health](/azure/monitoring-and-diagnostics/insights-service-health)
-- [Application Insights](/azure/application-insights/app-insights-overview)
+- [Overview of alerts in Microsoft Azure](/azure/monitoring-and-diagnostics/insights-receive-alert-notifications)
+- [View service health notifications by using the Azure portal](/azure/monitoring-and-diagnostics/insights-service-health)
+- [What is Application Insights?](/azure/application-insights/app-insights-overview)
+- [Performance diagnostics for Azure virtual machines](/azure/virtual-machines/troubleshooting/performance-diagnostics)
+- [Download and install SQL Server Data Tools (SSDT) for Visual Studio](/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-bi)
