@@ -633,18 +633,14 @@ items:
     items:
     - name: Overview
       href: serverless/index.md
-      name: Guides
-      items: 
-      - name: CI/CD for a JAMstack frontend
-        href: serverless/guide/jamstack-best-practices.md
+    - name: Code walkthrough
+      href: serverless/code.md
     - name: Reference architectures
       items:
       - name: Serverless event processing
         href: reference-architectures/serverless/event-processing.md
       - name: Serverless web application
         href: reference-architectures/serverless/web-app.md
-    - name: Sample code walkthrough
-      href: serverless/code.md
 
   - name: VM workloads
     items:
