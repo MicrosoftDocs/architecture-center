@@ -78,8 +78,8 @@ items:
       href: best-practices/data-partitioning-strategies.md
     - name: Monitoring and diagnostics
       href: best-practices/monitoring.md
-    - name: Naming conventions
-      href: best-practices/naming-conventions.md
+    - name: Naming rules and restrictions for Azure resources
+      href: best-practices/resource-naming.md
     - name: Retry guidance for specific services
       href: best-practices/retry-service-specific.md
     - name: Transient fault handling
