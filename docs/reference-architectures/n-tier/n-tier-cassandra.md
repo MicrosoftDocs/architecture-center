@@ -133,6 +133,10 @@ Each Azure subscription has default limits in place, including a maximum number 
 
 Application Gateway supports fixed capacity mode or autoscaling mode. Fixed capacity mode is useful for scenarios with consistent and predictable workloads. Consider using autoscaling mode for workloads with variable traffic. For more information, see [Autoscaling and Zone-redundant Application Gateway v2][app-gw-scaling].
 
+## Performance considerations
+
+To get the best performance from Cassandra on Azure VMs, see the recommendations in [Run Apache Cassandra on Azure VMs](../../best-practices/cassandra.md).
+
 ## Availability considerations
 
 Availability zones provide the best resiliency within a single region. If you need even higher availability, consider replicating the application across two regions.
