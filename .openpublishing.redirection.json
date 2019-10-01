@@ -1600,6 +1600,11 @@
      {
          "source_path": "docs/vdc/networking-virtual-datacenter.md",
          "redirect_url": "https://docs.microsoft.com/azure/cloud-adoption-framework/reference/networking-vdc"
+     },
+     { 
+         "source_path": "docs/best-practices/naming-conventions.md",
+         "redirect_url": "/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging",
+         "redirect_document_id": false
      }
    ]
 }
