@@ -3,7 +3,7 @@ title: Overview of the resiliency pillar
 titleSuffix: Overview of the resiliency pillar
 description: Describes the resiliency pillar
 author: david-stanford
-ms.date: 11/01/201
+ms.date: 11/01/2019
 ms.topic: overview
 ms.service: architecture-center
 ms.subservice: cloud-design-principles
