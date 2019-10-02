@@ -64,7 +64,7 @@ In general, avoid using a special character, such as a hyphen (`-`) or underscor
 |Queue name |Storage account |3-63 |Lowercase |0-9, a-z, and `-` |`<service short name>-<context>-<num>` |`awesomeservice-messages-001` |
 |Table name | Storage account |3-63 |Insensitive |Alphanumeric |`<service short name><context>` |`awesomeservicelogs` |
 |File share name | Storage account |3-63 |Lowercase | 0-9, a-z, and `-` |`<variable based on file share usage>` |`<variable based on file share usage>` |
-|Data lake store | Global |3-24 |Lowercase | Alphanumeric |`<name>dls` |`telemetrydls` |
+|Data Lake Storage | Global |3-24 |Lowercase | Alphanumeric |`<name>dls` |`telemetrydls` |
 |Managed disk name | Resource group | 1-80 | Insensitive |Alphanumeric, hyphen, and underscore, but not on character 1|`<disktype>disk<number>`|`OSdisk1`|
 
 ## Networking
