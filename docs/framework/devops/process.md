@@ -1,7 +1,6 @@
 ---
-title: Optimizing Cloud Costs
-titleSuffix: Optimizing Cloud Costs
-description: Describes how to best take advantage of the benefits of the cloud to minimize your cost.
+title: Process and procedures for DevOps
+description: Describes how to optimize your processes and procedures to enable DevOps in your organization.
 author: david-stanford
 ms.date: 11/01/2019
 ms.topic: article
@@ -10,6 +9,32 @@ ms.subservice: cloud-design-principles
 ms.custom: 
 ---
 
-# Pillars of software quality
+# Process and procedures for DevOps
 
-A successful cloud application will focus on these five pillars of software quality: Scalability, availability, resiliency, management, and security.
+## Source code policies and licensing
+
+## Repository creation and usage policies
+
+## Branching strategies
+
+## Monitor for bugs in dependecies
+
+## Naming conventions
+
+## Roadmap 
+Adopt VSTS Agile as a single source of truth for all stakeholders to avoid mismatched expectations and to give an accurate picture of the current status.
+
+## Continous improvement
+Use VSTS dashboards and VSTS Power BI integration for data-driven reporting and improvement.
+
+## Documented procedures
+Track ideas to implementation using VSTS work-item tracking. Implement DevOps using VSTS.
+
+Use Azure Operations Management Suite (OMS) for process automation.
+
+Employ third-party extensions such as Remedy OnDemand to notify on-call responders for critical VSTS work items.
+
+Practice agile planning and portfolio management with VSTS for a full view of the work escalation and decomposition of tasks.
+
+## Knowledge sharing
+Use VSTS Wiki to distribute information, share knowledge, and collaborate.

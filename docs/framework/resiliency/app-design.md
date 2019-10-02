@@ -1,7 +1,7 @@
 ---
-title: Optimizing Cloud Costs
+title: Application design for resiliency
 titleSuffix: Optimizing Cloud Costs
-description: Describes how to best take advantage of the benefits of the cloud to minimize your cost.
+description: Describes a number of considerations to make around application design
 author: david-stanford
 ms.date: 11/01/2019
 ms.topic: article
@@ -10,6 +10,11 @@ ms.subservice: cloud-design-principles
 ms.custom: 
 ---
 
-# Pillars of software quality
+# Application design for resiliency
 
-A successful cloud application will focus on these five pillars of software quality: Scalability, availability, resiliency, management, and security.
+## Multiple instances
+
+## SLA for application components
+
+## Throttling
+
