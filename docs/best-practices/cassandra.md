@@ -9,7 +9,7 @@ ms.service: architecture-center
 ---
 # Run Apache Cassandra on Azure VMs
 
-This article describes performance considerations for running Apache Cassanda on Azure virtual machines.
+This article describes performance considerations for running Apache Cassandra on Azure virtual machines.
 
 These recommendations are based on the results of performance tests, which you can find on [GitHub][repo]. You should use these recommendations as a baseline and then test against your own workload.
 
