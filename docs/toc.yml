@@ -279,6 +279,113 @@ items:
     - name: Checklist
       href: checklist/scalability.md
 
+- name: Azure Architecture Framework
+  items:
+  - name: Overview
+    href: framework/index.md
+  - name: Cost
+    items:
+    - name: Overview
+      href: framework/cost/overview.md
+    - name: Cost modelling
+      href: framework/cost/modelling.md
+    - name: Cost monitoring
+      href: framework/cost/monitoring.md
+    - name: Data management
+      href: framework/cost/data-management.md
+    - name: Optimizing cloud costs
+      href: framework/cost/optimizing.md
+    - name: Provisioning
+      href: framework/cost/provisioning.md
+    - name: Trade-offs
+      href: framework/cost/tradeoffs.md
+  - name: DevOps
+    items:
+    - name: Overview
+      href: framework/devops/overview.md
+    - name: Application design
+      href: framework/devops/app-design.md
+    - name: Configuration management
+      href: framework/devops/configuration.md
+    - name: Data management
+      href: framework/devops/data-management.md
+    - name: Development
+      href: framework/devops/development.md
+    - name: Deployment
+      href: framework/devops/deployment.md
+    - name: Monitoring
+      href: framework/devops/monitoring.md
+    - name: Performance
+      href: framework/devops/performance.md
+    - name: Process and Procedures
+      href: framework/devops/process.md
+    - name: Testing
+      href: framework/devops/testing.md
+    - name: Trade-offs
+      href: framework/devops/tradeoffs.md
+  - name: Resiliency
+    items:
+    - name: Overview
+      href: framework/resiliency/overview.md
+    - name: Application design
+      href: framework/resiliency/app-design.md
+    - name: Business metrics
+      href: framework/resiliency/metrics.md
+    - name: Data management
+      href: framework/resiliency/data-management.md
+    - name: Monitoring & disaster recovery
+      href: framework/resiliency/monitoring.md
+    - name: Resiliency testing
+      href: framework/resiliency/testing.md
+    - name: Trade-offs
+      href: framework/resiliency/tradeoffs.md
+  - name: Scalability
+    items: 
+    - name: Overview
+      href: framework/scalability/overview.md
+    - name: Application design
+      href: framework/scalability/app-design.md
+    - name: Capacity planning
+      href: framework/scalability/capacity.md
+    - name: Data management
+      href: framework/scalability/data-management.md
+    - name: Load testing
+      href: framework/scalability/load-testing.md
+    - name: Monitoring
+      href: framework/scalability/monitoring.md
+    - name: Performance
+      href: framework/scalability/performance.md
+    - name: Trade-offs
+      href: framework/scalability/tradeoffs.md
+  - name: Security
+    items:
+    - name: Overview
+      href: framework/security/overview.md
+    - name: Application design
+      href: framework/security/app-design.md
+    - name: Authorization
+      href: framework/security/authorization.md
+    - name: Compliance & Governance
+      href: framework/security/compliance.md
+    - name: Data classification
+      href: framework/security/data-classification.md
+    - name: Data management
+      href: framework/security/data-management.md
+    - name: Encryption
+      href: framework/security/encryption.md
+    - name: Identity management
+      href: framework/security/identity.md
+    - name: Security Monitoring
+      href: framework/security/monitoring.md
+    - name: Security testing
+      href: framework/security/testing.md
+    - name: Theat modelling
+      href: framework/security/threat-modelling.md
+    - name: Tracability
+      href: framework/security/tracability.md
+    - name: Trade-offs
+      href: framework/security/tradeoffs.md
+
 - name: Technologies
   expanded: true
   items:   
