@@ -1,7 +1,6 @@
 ---
-title: Optimizing Cloud Costs
-titleSuffix: Optimizing Cloud Costs
-description: Describes how to best take advantage of the benefits of the cloud to minimize your cost.
+title: Identity management for your workload
+description: Describes how to manage identities in your workload.
 author: david-stanford
 ms.date: 11/01/2019
 ms.topic: article
@@ -10,6 +9,10 @@ ms.subservice: cloud-design-principles
 ms.custom: 
 ---
 
-# Pillars of software quality
+# Identity management for your workload
 
-A successful cloud application will focus on these five pillars of software quality: Scalability, availability, resiliency, management, and security.
+## Secrets
+Safeguarding confidential source, connection strings, certificates, secrets etc. required in the deployment pipeline ensures security of end products.
+
+## Isolation
+With DevOps, organizations aim to improve operational processes in terms of security, reliability and efficiency. In DevOps environments, since software components are often developed in parallel but separately, you’ll require certain network configurations.

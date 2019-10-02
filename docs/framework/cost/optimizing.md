@@ -13,3 +13,9 @@ ms.custom:
 # Pillars of software quality
 
 A successful cloud application will focus on these five pillars of software quality: Scalability, availability, resiliency, management, and security.
+
+## How do you identify opportunities to reduce overall cost?
+Adopt Advisor cost recommendations to optimize and reduce overall Azure spend.
+
+## Support
+Understand Azure support plans. Refer to Azure Support FAQs.

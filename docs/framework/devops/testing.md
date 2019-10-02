@@ -1,7 +1,6 @@
 ---
-title: Optimizing Cloud Costs
-titleSuffix: Optimizing Cloud Costs
-description: Describes how to best take advantage of the benefits of the cloud to minimize your cost.
+title: Testing for DevOps
+description: Describes testing considerations to make when in regards to DevOps when desinging your workload.
 author: david-stanford
 ms.date: 11/01/2019
 ms.topic: article
@@ -10,6 +9,8 @@ ms.subservice: cloud-design-principles
 ms.custom: 
 ---
 
-# Pillars of software quality
+# Testing for DevOps
 
-A successful cloud application will focus on these five pillars of software quality: Scalability, availability, resiliency, management, and security.
+## DR and fault injection
+Experimentation on a system to uncover its weaknesses. Breaking things on purpose is preferable to being surprised when things break.
+
