@@ -1,6 +1,5 @@
 ---
 title: Overview of the devops pillar 
-titleSuffix: Overview of the devops pillar
 description: Describes the devops pillar
 author: david-stanford
 ms.date: 11/01/2019
