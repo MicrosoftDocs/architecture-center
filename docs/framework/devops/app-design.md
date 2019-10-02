@@ -1,7 +1,6 @@
 ---
-title: Optimizing Cloud Costs
-titleSuffix: Optimizing Cloud Costs
-description: Describes how to best take advantage of the benefits of the cloud to minimize your cost.
+title: Application design for DevOps
+description: Describes considerations that you should take into account while doing application design to optimize for DevOps.
 author: david-stanford
 ms.date: 11/01/2019
 ms.topic: article
@@ -10,6 +9,21 @@ ms.subservice: cloud-design-principles
 ms.custom: 
 ---
 
-# Pillars of software quality
+# Application design for DevOps
 
-A successful cloud application will focus on these five pillars of software quality: Scalability, availability, resiliency, management, and security.
+## Infrastructure as code
+Use Azure Resource Manager templates to ensure that investments for one location are reusable in another.
+
+## Dependency tracking
+Use Azure Resource Manager templates to define dependencies for resources that are deployed in the same template.
+
+## Limits
+
+## Tagging and resource naming
+
+## Workload isolation 
+
+## Orchestration system
+
+## Containerization
+Use VSTS hosted CI/CD for containers to create and deploy containers.

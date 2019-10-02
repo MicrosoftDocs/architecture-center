@@ -13,3 +13,6 @@ ms.custom:
 # Pillars of software quality
 
 A successful cloud application will focus on these five pillars of software quality: Scalability, availability, resiliency, management, and security.
+
+## DNS Monitoring
+Utilize DNS Analytics for gathering security, performance and operations-related insights of DNS servers.

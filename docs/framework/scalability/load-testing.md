@@ -1,7 +1,6 @@
 ---
-title: Optimizing Cloud Costs
-titleSuffix: Optimizing Cloud Costs
-description: Describes how to best take advantage of the benefits of the cloud to minimize your cost.
+title: Load testing your workload
+description: Describes considerations to make when load testing your workload.
 author: david-stanford
 ms.date: 11/01/2019
 ms.topic: article
@@ -10,6 +9,10 @@ ms.subservice: cloud-design-principles
 ms.custom: 
 ---
 
-# Pillars of software quality
+# Load testing your workload
 
-A successful cloud application will focus on these five pillars of software quality: Scalability, availability, resiliency, management, and security.
+## Appropriate sizing
+Use VSTS load testing for regular stress testing to identify and fix capacity hotspots.
+
+## Performance bottlenecks
+Employ Service Endpoint Monitoring for testing reachability of applications and detect performance bottlenecks across on- premises, carrier networks and cloud/private data centers.
