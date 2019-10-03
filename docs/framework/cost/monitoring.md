@@ -1,7 +1,6 @@
 ---
-title: Optimizing Cloud Costs
-titleSuffix: Optimizing Cloud Costs
-description: Describes how to best take advantage of the benefits of the cloud to minimize your cost.
+title: Monitoring your cloud costs
+description: Describes strategies that you can leverage to monitor your cloud costs, and act on them appropriately.
 author: david-stanford
 ms.date: 11/01/2019
 ms.topic: article
@@ -10,6 +9,12 @@ ms.subservice: cloud-design-principles
 ms.custom: 
 ---
 
-# Pillars of software quality
+# Monitoring your cloud costs
 
-A successful cloud application will focus on these five pillars of software quality: Scalability, availability, resiliency, management, and security.
+## Review bill
+
+## Setup alarms
+
+## Define budgets
+
+## Review Azure Advisor

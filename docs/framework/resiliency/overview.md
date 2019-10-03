@@ -1,6 +1,5 @@
 ---
 title: Overview of the resiliency pillar 
-titleSuffix: Overview of the resiliency pillar
 description: Describes the resiliency pillar
 author: david-stanford
 ms.date: 11/01/2019

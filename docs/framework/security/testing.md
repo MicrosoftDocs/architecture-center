@@ -1,7 +1,6 @@
 ---
-title: Optimizing Cloud Costs
-titleSuffix: Optimizing Cloud Costs
-description: Describes how to best take advantage of the benefits of the cloud to minimize your cost.
+title: Testing the security of your workload
+description: Describes considerations to make when testing the security of a given workload.
 author: david-stanford
 ms.date: 11/01/2019
 ms.topic: article
@@ -10,6 +9,9 @@ ms.subservice: cloud-design-principles
 ms.custom: 
 ---
 
-# Pillars of software quality
+# Testing the security of your workload
 
-A successful cloud application will focus on these five pillars of software quality: Scalability, availability, resiliency, management, and security.
+## Penetration testing
+Pen testing provides a way determine if the system is resilient to security attacks. This also identifies the expose vulnerabilities and the extend of attack.
+
+## Vulnerability scanning
