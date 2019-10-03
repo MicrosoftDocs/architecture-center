@@ -375,14 +375,14 @@ items:
       href: framework/security/encryption.md
     - name: Identity management
       href: framework/security/identity.md
+    - name: Network security
+      href: framework/security/network.md
     - name: Security Monitoring
       href: framework/security/monitoring.md
     - name: Security testing
       href: framework/security/testing.md
     - name: Theat modelling
       href: framework/security/threat-modelling.md
-    - name: Tracability
-      href: framework/security/tracability.md
     - name: Trade-offs
       href: framework/security/tradeoffs.md
 

@@ -1,6 +1,5 @@
 ---
 title: Overview of the security pillar 
-titleSuffix: Overview of the security pillar
 description: Describes the security pillar
 author: david-stanford
 ms.date: 11/01/2019
@@ -10,6 +9,6 @@ ms.subservice: cloud-design-principles
 ms.custom: 
 ---
 
-# Pillars of software quality
+# Overview of the security pillar 
 
-A successful cloud application will focus on these five pillars of software quality: Scalability, availability, resiliency, management, and security.
+
