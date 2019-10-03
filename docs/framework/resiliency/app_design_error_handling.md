@@ -12,17 +12,17 @@ ms.custom: How are you managing errors & failures?
 # App Design - Error Handling
 
 <!-- Retries for transient errors are impelmented and logged -->
-[!include[choice.id](xref:3128430d-7c25-49da-97eb-643d29f1149c)]
+[!include[3128430d-7c25-49da-97eb-643d29f1149c](./guidance/3128430d-7c25-49da-97eb-643d29f1149c.md)]
 
 <!-- Request timeouts are configured -->
-[!include[choice.id](xref:5c44424c-38f4-45a8-8d38-57cb34869f29)]
+[!include[5c44424c-38f4-45a8-8d38-57cb34869f29](./guidance/5c44424c-38f4-45a8-8d38-57cb34869f29.md)]
 
 <!-- Implemented the "Circuit Breaker" pattern to prevent cascading failures -->
-[!include[choice.id](xref:2d348cc5-c6e0-4f9d-a29a-827f57527e5f)]
+[!include[2d348cc5-c6e0-4f9d-a29a-827f57527e5f](./guidance/2d348cc5-c6e0-4f9d-a29a-827f57527e5f.md)]
 
 <!-- Application components are split with seperate health probes -->
-[!include[choice.id](xref:309f1127-3a9e-4876-b5dd-91bade63f789)]
+[!include[309f1127-3a9e-4876-b5dd-91bade63f789](./guidance/309f1127-3a9e-4876-b5dd-91bade63f789.md)]
 
 <!-- Command and Query Responsibility Segregation (CQRS) is implemented on data stores -->
-[!include[choice.id](xref:c9dbb912-a194-4b28-9f04-1ebb17eb711c)]
+[!include[c9dbb912-a194-4b28-9f04-1ebb17eb711c](./guidance/c9dbb912-a194-4b28-9f04-1ebb17eb711c.md)]
 
