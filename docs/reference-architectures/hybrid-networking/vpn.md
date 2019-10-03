@@ -3,7 +3,7 @@ title: Connect an on-premises network to Azure using VPN
 titleSuffix: Azure Reference Architectures
 description: Implement a secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using a VPN.
 author: MikeWasson
-ms.date: 07/30/2019
+ms.date: 10/03/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -156,6 +156,8 @@ Monitor the operational logs of the Azure VPN gateway using the audit logs avail
 
 Monitor connectivity, and track connectivity failure events. You can use a monitoring package such as [Nagios][nagios] to capture and report this information.
 
+To troubleshoot the connection, see [Troubleshoot a hybrid VPN connection](./troubleshoot-vpn.md).
+
 ## Security considerations
 
 Generate a different shared key for each VPN gateway. Use a strong shared key to help resist brute-force attacks.
@@ -178,48 +180,31 @@ If the application in the VNet sends data to the Internet, consider [implementin
 
 ## Deploy the solution
 
-**Prerequisites**. You must have an existing on-premises infrastructure already configured with a suitable network appliance.
-
-To deploy the solution, perform the following steps.
-
-1. Click the link below to deploy the solution.
-
-    [![Deploy to Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fhybrid-networking%2Fvpn%2Fazuredeploy.json)
-
-2. Wait for the link to open in the Azure portal, then follow these steps:
-   - The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-hybrid-vpn-rg` in the text box.
-   - Select the region from the **Location** drop down box.
-   - Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
-   - Review the terms and conditions, then click the **I agree to the terms and conditions stated above** checkbox.
-   - Click the **Purchase** button.
-
-3. Wait for the deployment to complete.
-
-To troubleshoot the connection, see [Troubleshoot a hybrid VPN connection](./troubleshoot-vpn.md).
+To deploy this reference architecture, see the [GitHub readme][readme]. 
 
 <!-- links -->
 
 [adds-extend-domain]: ../identity/adds-extend-domain.md
-[windows-vm-ra]: ../virtual-machines-windows/index.md
-[linux-vm-ra]: ../virtual-machines-linux/index.md
-
-[azure-virtual-network]: /azure/virtual-network/virtual-networks-overview
-[vpn-appliance]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
-[azure-vpn-gateway]: https://azure.microsoft.com/services/vpn-gateway/
+[az-vpn]: /azure/azure-stack/azure-stack-connect-vpn
 [azure-gateway-charges]: https://azure.microsoft.com/pricing/details/vpn-gateway/
 [azure-gateway-skus]: /azure/vpn-gateway/vpn-gateway-about-vpngateways#gwsku
-[connect-to-an-Azure-vnet]: /office365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network
-[vpn-gateway-multi-site]: /azure/vpn-gateway/vpn-gateway-multi-site
-[policy-based-routing]: https://en.wikipedia.org/wiki/Policy-based_routing
-[route-based-routing]: https://en.wikipedia.org/wiki/Static_routing
-[sla-for-vpn-gateway]: https://azure.microsoft.com/support/legal/sla/vpn-gateway/
-[nagios]: https://www.nagios.org/
+[azure-virtual-network]: /azure/virtual-network/virtual-networks-overview
+[azure-vpn-gateway]: https://azure.microsoft.com/services/vpn-gateway/
 [changing-SKUs]: https://azure.microsoft.com/blog/azure-virtual-network-gateway-improvements/
-[gateway-diagnostic-logs]: https://blogs.technet.microsoft.com/keithmayer/2016/10/12/step-by-step-capturing-azure-resource-manager-arm-vnet-gateway-diagnostic-logs/
-[rras-logging]: https://www.petri.com/enable-diagnostic-logging-in-windows-server-2012-r2-routing-and-remote-access
+[CIDR]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
+[connect-to-an-Azure-vnet]: /office365/enterprise/connect-an-on-premises-network-to-a-microsoft-azure-virtual-network
 [forced-tunneling]: /azure/vpn-gateway/vpn-gateway-about-forced-tunneling
-[vpn-appliances]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
+[gateway-diagnostic-logs]: https://blogs.technet.microsoft.com/keithmayer/2016/10/12/step-by-step-capturing-azure-resource-manager-arm-vnet-gateway-diagnostic-logs/
+[linux-vm-ra]: ../virtual-machines-linux/index.md
+[nagios]: https://www.nagios.org/
+[policy-based-routing]: https://en.wikipedia.org/wiki/Policy-based_routing
+[readme]: https://github.com/mspnp/reference-architectures/blob/master/hybrid-networking/vpn/README.md
+[route-based-routing]: https://en.wikipedia.org/wiki/Static_routing
+[rras-logging]: https://www.petri.com/enable-diagnostic-logging-in-windows-server-2012-r2-routing-and-remote-access
+[sla-for-vpn-gateway]: https://azure.microsoft.com/support/legal/sla/vpn-gateway/
 [visio-download]: https://archcenter.blob.core.windows.net/cdn/hybrid-network-architectures.vsdx
 [vpn-appliance-ipsec]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices#ipsec
-[CIDR]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
-[az-vpn]: /azure/azure-stack/azure-stack-connect-vpn
+[vpn-appliance]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
+[vpn-appliances]: /azure/vpn-gateway/vpn-gateway-about-vpn-devices
+[vpn-gateway-multi-site]: /azure/vpn-gateway/vpn-gateway-multi-site
+[windows-vm-ra]: ../virtual-machines-windows/index.md
