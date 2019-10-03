@@ -1,7 +1,6 @@
 ---
-title: Optimizing Cloud Costs
-titleSuffix: Optimizing Cloud Costs
-description: Describes how to best take advantage of the benefits of the cloud to minimize your cost.
+title: Monitoring for resiliency
+description: Describes how to monitor for resiliency in your workload
 author: david-stanford
 ms.date: 11/01/2019
 ms.topic: article
@@ -13,3 +12,10 @@ ms.custom:
 # Pillars of software quality
 
 A successful cloud application will focus on these five pillars of software quality: Scalability, availability, resiliency, management, and security.
+
+## Network monitoring
+
+Inability to understand, diagnose, and gain insights to the network in Azure.
+
+Action:
+Use Network Watcher to understand, diagnose, and gain insights to the network in Azure.

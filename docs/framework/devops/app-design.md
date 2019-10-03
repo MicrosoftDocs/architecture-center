@@ -12,9 +12,11 @@ ms.custom:
 # Application design for DevOps
 
 ## Infrastructure as code
+
 Use Azure Resource Manager templates to ensure that investments for one location are reusable in another.
 
 ## Dependency tracking
+
 Use Azure Resource Manager templates to define dependencies for resources that are deployed in the same template.
 
 ## Limits
@@ -26,4 +28,5 @@ Use Azure Resource Manager templates to define dependencies for resources that a
 ## Orchestration system
 
 ## Containerization
+
 Use VSTS hosted CI/CD for containers to create and deploy containers.
