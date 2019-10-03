@@ -1,6 +1,5 @@
 ---
 title: Overview of the scalability pillar 
-titleSuffix: Overview of the scalability pillar
 description: Describes the scalability pillar
 author: david-stanford
 ms.date: 11/01/2019

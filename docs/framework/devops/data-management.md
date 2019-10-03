@@ -1,6 +1,6 @@
 ---
-title: Optimizing Cloud Costs
-description: Describes how to best take advantage of the benefits of the cloud to minimize your cost.
+title: Data management for DevOps
+description: Describes considerations you should make for the data management of your DevOps infrastructure.
 author: david-stanford
 ms.date: 11/01/2019
 ms.topic: article
@@ -9,6 +9,5 @@ ms.subservice: cloud-design-principles
 ms.custom: 
 ---
 
-# Pillars of software quality
+# Data management for DevOps
 
-A successful cloud application will focus on these five pillars of software quality: Scalability, availability, resiliency, management, and security.

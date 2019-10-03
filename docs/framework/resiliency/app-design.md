@@ -1,6 +1,5 @@
 ---
 title: Application design for resiliency
-titleSuffix: Optimizing Cloud Costs
 description: Describes a number of considerations to make around application design
 author: david-stanford
 ms.date: 11/01/2019
