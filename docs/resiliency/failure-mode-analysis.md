@@ -132,7 +132,7 @@ The default retry policy uses exponential back-off. To use a different retry pol
 
 ## Cloud Service
 
-### Web or worker roles are unexpectedly being shut down.
+### Web or worker roles are unexpectedly  being shut down.
 
 **Detection**. The [RoleEnvironment.Stopping][RoleEnvironment.Stopping] event is fired.
 
