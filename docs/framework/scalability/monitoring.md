@@ -1,14 +1,25 @@
 ---
-title: Optimizing Cloud Costs
-description: Describes how to best take advantage of the benefits of the cloud to minimize your cost.
+title: Monitoring
+description: None
 author: david-stanford
-ms.date: 11/01/2019
+ms.date: 10/04/2019
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: cloud-design-principles
-ms.custom: 
+ms.custom: How are you monitoring to ensure you're scaling appropriately? 
 ---
 
-# Pillars of software quality
+# Monitoring
 
-A successful cloud application will focus on these five pillars of software quality: Scalability, availability, resiliency, management, and security.
+NoneNone<!-- Monitor and alert on user experience -->
+[!include[c3d89c92-c78c-4b15-ae1b-cbf3dfe731f8](./guidance/c3d89c92-c78c-4b15-ae1b-cbf3dfe731f8.md)]
+
+<!-- Graph system utilization metrics -->
+[!include[df880e97-e112-45c9-980d-6c2bb48d4717](./guidance/df880e97-e112-45c9-980d-6c2bb48d4717.md)]
+
+<!-- Track when resources scale in and out -->
+[!include[1f7261c1-d0cf-48e0-b3b7-b1f8e6b00054](./guidance/1f7261c1-d0cf-48e0-b3b7-b1f8e6b00054.md)]
+
+<!-- Monitor and graph historical usage of the system -->
+[!include[2cbb21af-0a9c-40b1-8aee-74aa66403bb3](./guidance/2cbb21af-0a9c-40b1-8aee-74aa66403bb3.md)]
+

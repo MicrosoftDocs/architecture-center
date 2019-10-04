@@ -1,15 +1,25 @@
 ---
-title: Data management for scalability
-description: Describes data management considerations to make when optimizing your workload for scalability.
+title: Data Management
+description: 
 author: david-stanford
-ms.date: 11/01/2019
+ms.date: 10/04/2019
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: cloud-design-principles
-ms.custom: 
+ms.custom: How are you managing your data to handle scale? 
 ---
 
-# Data management for scalability
+# Data Management
 
-## Database sizing
-Review SQL Database choices and performance guidance. Use Azure Managed Database Services for built-in automatic tuning.
+<!-- Using multiple databases -->
+[!include[5b9914bc-0b30-4867-b62e-91eaa3f68323](./guidance/5b9914bc-0b30-4867-b62e-91eaa3f68323.md)]
+
+<!-- Managing data consistency appropriately -->
+[!include[c459273e-7262-452f-8703-be19f7a36d16](./guidance/c459273e-7262-452f-8703-be19f7a36d16.md)]
+
+<!-- Optimize database queries & indexes -->
+[!include[4e8be95d-47b7-4a4c-b165-635e713722bd](./guidance/4e8be95d-47b7-4a4c-b165-635e713722bd.md)]
+
+<!-- Documented plans for data growth and retention -->
+[!include[5de0cf80-7d09-40de-a0a3-7447fb2f1a6f](./guidance/5de0cf80-7d09-40de-a0a3-7447fb2f1a6f.md)]
+
