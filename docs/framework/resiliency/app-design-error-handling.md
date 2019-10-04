@@ -1,6 +1,6 @@
 ---
 title: App Design - Error Handling
-description: 
+description: Ensuring your application can recover from errors is critical when working in a distributed system
 author: david-stanford
 ms.date: 10/03/2019
 ms.topic: article
@@ -11,7 +11,7 @@ ms.custom: How are you managing errors & failures?
 
 # App Design - Error Handling
 
-<!-- Retries for transient errors are impelmented and logged -->
+Ensuring your application can recover from errors is critical when working in a distributed system<!-- Retries for transient errors are impelmented and logged -->
 [!include[3128430d-7c25-49da-97eb-643d29f1149c](./guidance/3128430d-7c25-49da-97eb-643d29f1149c.md)]
 
 <!-- Request timeouts are configured -->
