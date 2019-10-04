@@ -322,9 +322,15 @@ items:
     - name: Overview
       href: framework/resiliency/overview.md
     - name: Application design
-      href: framework/resiliency/app-design.md
+      items:
+        - name: Design Overview
+          href: framework/resiliency/app-design.md
+        - name: Error Handling
+          href: framework/resiliency/app-design-error-handling.md
+    - name: Backup and recovery
+      href: framework/resiliency/backup-and-recovery.md
     - name: Business metrics
-      href: framework/resiliency/metrics.md
+      href: framework/resiliency/business-metrics.md
     - name: Data management
       href: framework/resiliency/data-management.md
     - name: Monitoring & disaster recovery
