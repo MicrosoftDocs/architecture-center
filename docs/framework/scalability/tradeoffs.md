@@ -1,14 +1,19 @@
 ---
-title: Optimizing Cloud Costs
-description: Describes how to best take advantage of the benefits of the cloud to minimize your cost.
+title: Tradeoffs
+description: 
 author: david-stanford
-ms.date: 11/01/2019
+ms.date: 10/04/2019
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: cloud-design-principles
-ms.custom: 
+ms.custom: What scalability tradeoffs are you making? 
 ---
 
-# Pillars of software quality
+# Tradeoffs
 
-A successful cloud application will focus on these five pillars of software quality: Scalability, availability, resiliency, management, and security.
+<!-- Balance performance and cost appropriately -->
+[!include[1c28b8ad-c6e4-4d8d-881b-fcb0609ee928](./guidance/1c28b8ad-c6e4-4d8d-881b-fcb0609ee928.md)]
+
+<!-- Choosing the correct data store based on Capacity, Availability, and Performance requirements (CAP) -->
+[!include[2ba81c3e-794e-4b7f-b834-dbce290d3225](./guidance/2ba81c3e-794e-4b7f-b834-dbce290d3225.md)]
+
