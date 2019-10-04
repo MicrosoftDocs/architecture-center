@@ -47,12 +47,9 @@ ms.custom: How have you ensured that your application is resilient to failures?
 <!-- Availability Sets are used for each application tier -->
 [!include[8ad5e66c-bdc0-40ef-93cb-bcb5787fff8c](./guidance/8ad5e66c-bdc0-40ef-93cb-bcb5787fff8c.md)]
 
-<!-- VMs are replicated using Azure Site Recovery -->
+<!-- VMs are replicated -->
 [!include[4fc5dd89-3067-49ed-a65a-42d4f9182964](./guidance/4fc5dd89-3067-49ed-a65a-42d4f9182964.md)]
 
 <!-- Deployed the application across multiple regions -->
 [!include[61c17190-428b-47ca-b09f-68daca74faf2](./guidance/61c17190-428b-47ca-b09f-68daca74faf2.md)]
-
-<!-- Health probes are configured and tested for load balancers and traffic managers -->
-[!include[808d565e-331d-44e5-866d-eb563f89c575](./guidance/808d565e-331d-44e5-866d-eb563f89c575.md)]
 
