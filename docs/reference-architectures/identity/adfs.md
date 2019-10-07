@@ -283,7 +283,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
     At the `Get-Credential` prompt, enter the password that you specified in the deployment parameter file.
 
-1. Run the following command to monitor the progress of the [DSC](/powershell/dsc/overview) configuration:
+1. Run the following command to monitor the progress of the [DSC](/powershell/scripting/dsc/overview/overview) configuration:
 
     ```powershell
     Get-DscConfigurationStatus
