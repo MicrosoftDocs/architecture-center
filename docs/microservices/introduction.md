@@ -20,7 +20,7 @@ A microservices architecture consists of a collection of small, autonomous servi
 - Services communicate with each other by using well-defined APIs. Internal implementation details of each service are hidden from other services.
 - Services don't need to share the same technology stack, libraries, or frameworks.
 
-![Microservices logical architecture](../guide/architecture-styles/images/microservices-logical.svg)
+![Microservices logical architecture](../guide/architecture-styles/images/microservices-logical.png)
 
 <!-- markdownlint-disable MD026 -->
 
