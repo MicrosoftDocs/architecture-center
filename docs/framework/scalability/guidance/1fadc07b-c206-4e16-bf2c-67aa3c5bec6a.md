@@ -1,14 +1,7 @@
 ---
-ms.author: dastanfo
-author: david-stanford
-ms.date: 10/09/2019
-ms.topic: article
-ms.service: architecture-center
-ms.subservice: cloud-design-principles
-ms.uid: 1fadc07b-c206-4e16-bf2c-67aa3c5bec6a
-ms.assessment_question: Utilize background jobs
+uid: 1fadc07b-c206-4e16-bf2c-67aa3c5bec6a
 ---
-## Background jobs (heading)
+## Utilize background jobs
 
 <div class="alert is-warning"><p>Possibility of application becoming unresponsive and not taking requests.</p></div>
 
