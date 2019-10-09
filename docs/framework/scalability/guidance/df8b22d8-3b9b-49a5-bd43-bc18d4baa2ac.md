@@ -1,7 +1,14 @@
 ---
-uid: df8b22d8-3b9b-49a5-bd43-bc18d4baa2ac
+ms.author: dastanfo
+author: david-stanford
+ms.date: 10/09/2019
+ms.topic: article
+ms.service: architecture-center
+ms.subservice: cloud-design-principles
+ms.uid: df8b22d8-3b9b-49a5-bd43-bc18d4baa2ac
+ms.assessment_question: Leverage appropriate caching
 ---
-## Leverage appropriate caching
+## Caching (heading)
 
 <div class="alert is-danger"><p>Caching can improve performance and helps to maintain consistency between data held in the cache and data in the underlying data store.</p></div>
 
