@@ -2,7 +2,7 @@
 title: Monitoring
 description: 
 author: david-stanford
-ms.date: 10/09/2019
+ms.date: 10/03/2019
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: cloud-design-principles
