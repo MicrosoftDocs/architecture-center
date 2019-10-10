@@ -1605,6 +1605,15 @@
          "source_path": "docs/best-practices/naming-conventions.md",
          "redirect_url": "/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging",
          "redirect_document_id": false
+     },
+     { 
+         "source_path": "docs/reference-architectures/dmz/secure-vnet-hybrid.md",
+         "redirect_url": "/azure/architecture/reference-architectures/dmz/secure-vnet-dmz",
+         "redirect_document_id": true
+     },
+     { 
+         "source_path": "docs/reference-architectures/dmz/index.md",
+         "redirect_url": "/azure/architecture/reference-architectures/dmz/secure-vnet-dmz"
      }
    ]
 }
