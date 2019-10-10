@@ -2,7 +2,7 @@
 title: Backup and Recovery
 description: 
 author: david-stanford
-ms.date: 10/09/2019
+ms.date: 10/10/2019
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: cloud-design-principles
@@ -10,6 +10,15 @@ ms.custom: How are you handling DR (Backup & Restore) for this workload?
 ---
 
 # Backup and Recovery
+
+<!-- Backup strategy defined -->
+[!include[c0f0af98-7b8f-49c1-823d-a7626f4abed8](./guidance/c0f0af98-7b8f-49c1-823d-a7626f4abed8.md)]
+
+<!-- Virtual machines are protected from corruption and accidental deletion -->
+[!include[15e506d4-11cb-476f-a1aa-e0d7699dcc76](./guidance/15e506d4-11cb-476f-a1aa-e0d7699dcc76.md)]
+
+<!-- Resource management -->
+[!include[569d1907-4e1b-47a4-9edf-d663534ef164](./guidance/569d1907-4e1b-47a4-9edf-d663534ef164.md)]
 
 <!-- Backup & restore operations are automatically scheduled and tested -->
 [!include[7e063160-cb53-46c1-b111-380f77a7c848](./guidance/7e063160-cb53-46c1-b111-380f77a7c848.md)]
