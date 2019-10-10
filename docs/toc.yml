@@ -623,8 +623,6 @@ items:
     - name: Network DMZ
       items:
       - name: DMZ between Azure and on-premises
-        href: reference-architectures/dmz/secure-vnet-hybrid.md
-      - name: DMZ between Azure and the Internet
         href: reference-architectures/dmz/secure-vnet-dmz.md
       - name: Highly available network virtual appliances
         href: reference-architectures/dmz/nva-ha.md
