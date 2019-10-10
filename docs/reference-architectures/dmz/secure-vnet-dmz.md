@@ -203,7 +203,7 @@ In this step, you will connect the two local network gateways.
 
 <!-- links -->
 
-[azure-forced-tunneling]: azure/vpn-gateway/vpn-gateway-forced-tunneling-rm
+[azure-forced-tunneling]: /azure/vpn-gateway/vpn-gateway-forced-tunneling-rm
 [azurect]: https://github.com/Azure/NetworkMonitoring/tree/master/AzureCT
 [cloud-services-network-security]: /azure/best-practices-network-security
 [getting-started-with-azure-security]: /azure/security/azure-security-getting-started
