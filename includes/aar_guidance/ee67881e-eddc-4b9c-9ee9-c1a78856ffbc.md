@@ -10,5 +10,4 @@ ms.assessment_question: Do you gather insight by analyzing virtual machines with
 ---
 ## Do you gather insight by analyzing virtual machines with their different processes and dependencies on other computers and external processes?
 
-
 Use Service Map to gain insight by analyzing virtual machines with their different processes and dependencies on other computers and external processes.

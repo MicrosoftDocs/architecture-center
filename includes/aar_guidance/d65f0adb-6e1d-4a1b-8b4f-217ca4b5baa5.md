@@ -10,5 +10,4 @@ ms.assessment_question: How do you monitor resource configuration and usage tele
 ---
 ## How do you monitor resource configuration and usage telemetry? Do you generate best-practice recommendations from usage?
 
-
 Utilize Azure Advisor for monitoring resource configuration and usage telemetry, and to get personalized recommendations based on best practices.
