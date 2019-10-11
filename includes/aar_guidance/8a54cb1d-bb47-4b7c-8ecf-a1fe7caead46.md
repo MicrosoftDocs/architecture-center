@@ -10,4 +10,4 @@ ms.assessment_question: Recovery Time Objectives (RTO)
 ---
 ## Recovery Time Objectives (RTO)
 
-
+A definition of the amount of time it takes to recover from a failure.
