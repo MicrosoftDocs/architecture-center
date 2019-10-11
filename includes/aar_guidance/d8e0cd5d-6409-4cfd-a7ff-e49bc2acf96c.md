@@ -10,4 +10,4 @@ ms.assessment_question: Rely on a cloud operating model.
 ---
 ## Rely on a cloud operating model.
 
-
+A cloud operating model summarizes the organizations goals for cloud adoption. Having a cloud operating model clarifies areas of focus that are readily translate to subjects of cost optimization.
