@@ -10,5 +10,4 @@ ms.assessment_question: How do you ensure applications are available during outa
 ---
 ## How do you ensure applications are available during outages with automatic recovery?
 
-
 Use Azure Site Recovery to deploy application-aware replication to the cloud or to a secondary site.
