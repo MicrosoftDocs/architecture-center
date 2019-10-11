@@ -11,6 +11,25 @@ ms.custom: How are you ensuring failures are resolved quickly?
 
 # Monitoring
 
+Monitoring and diagnostics are crucial for resiliency. If something fails, you need to know *that* it failed, *when* it failed &mdash; and *why*.
+
+*Monitoring* is not the same as *failure detection*. For example, your application might detect a transient error and retry, avoiding downtime. But it should also log the retry operation so that you can monitor the error rate to get an overall picture of application health.
+
+Think of the monitoring and diagnostics process as a pipeline with four distinct stages: Instrumentation, collection and storage, analysis and diagnosis, and visualization and alerts.<!-- You have an early warning system for workloads where that makes sense. -->
+[!include[4e396a34-d281-498a-aa04-7e568c0302fa](./guidance/4e396a34-d281-498a-aa04-7e568c0302fa.md)]
+
+<!-- You track and act on your remote call statistics -->
+[!include[ba131573-d162-41ae-b7b3-965b756c4b8c](./guidance/ba131573-d162-41ae-b7b3-965b756c4b8c.md)]
+
+<!-- You monitor your long-running workflows for failures. -->
+[!include[e1c866fc-2813-4dd8-9cb1-6e3994725f48](./guidance/e1c866fc-2813-4dd8-9cb1-6e3994725f48.md)]
+
+<!-- You have built visualization and alerts so your monitoring is actionable. -->
+[!include[0b2db038-ce56-4969-839c-52eff60d43ca](./guidance/0b2db038-ce56-4969-839c-52eff60d43ca.md)]
+
+<!-- You have validated that your monitoring system is functional. -->
+[!include[cdd26956-73b7-4c13-843c-744a5a7de41d](./guidance/cdd26956-73b7-4c13-843c-744a5a7de41d.md)]
+
 <!-- The process to contact Azure support is documented and understood -->
 [!include[8e97698d-b6ed-45d0-bf98-89f5cd7e6fb1](./guidance/8e97698d-b6ed-45d0-bf98-89f5cd7e6fb1.md)]
 
@@ -23,7 +42,7 @@ ms.custom: How are you ensuring failures are resolved quickly?
 <!-- Operators are assigned for system alerts -->
 [!include[1f5ab437-af5d-45b0-8954-ad5843769e00](./guidance/1f5ab437-af5d-45b0-8954-ad5843769e00.md)]
 
-<!-- Alerting and monitoring are implemented -->
+<!-- You have implemented the necessary instrumentation to monitor your workload. -->
 [!include[0c294da9-897f-4e40-9eb9-e683ebf3b548](./guidance/0c294da9-897f-4e40-9eb9-e683ebf3b548.md)]
 
 <!-- Monitoring tools are used to collect and view historical statistics -->
