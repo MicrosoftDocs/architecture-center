@@ -547,26 +547,6 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
 </li>
 <!-- DMZ between Azure and on-premises -->
 <li style="display: flex; flex-direction: column;">
-    <a href="./dmz/secure-vnet-hybrid.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
-        <div class="cardSize" style="flex: 1 0 auto; display: flex;">
-            <div class="cardPadding" style="display: flex;">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="../_images/icons/vnet.svg" height="140px" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>DMZ between Azure and on-premises</h3>
-                        <p>Use network virtual appliances to create a secure hybrid network.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </a>
-</li>
-<!-- DMZ between Azure and the Internet -->
-<li style="display: flex; flex-direction: column;">
     <a href="./dmz/secure-vnet-dmz.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
@@ -577,8 +557,8 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>DMZ between Azure and the Internet</h3>
-                        <p>Use network virtual appliances to create a secure network that accepts Internet traffic.</p>
+                        <h3>Network DMZ between Azure and on-premises</h3>
+                        <p>Use Azure Firewall to create a secure hybrid network.</p>
                     </div>
                 </div>
             </div>
