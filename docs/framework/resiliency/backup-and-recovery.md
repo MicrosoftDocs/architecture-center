@@ -11,6 +11,23 @@ ms.custom: How are you handling DR (Backup & Restore) for this workload?
 
 # Backup and Recovery
 
+*Disaster recovery* is the process of restoring application functionality in the wake of a catastrophic loss.
+
+Your tolerance for reduced functionality during a disaster is a business decision that varies from one application to the next. It might be acceptable for some applications to be completely unavailable or to be partially available with reduced functionality or delayed processing for a period of time. For other applications, any reduced functionality is unacceptable.<!-- You have a plan for dependency failures -->
+[!include[33fe1493-7dbd-48de-ab6a-d6635c9c7c68](./guidance/33fe1493-7dbd-48de-ab6a-d6635c9c7c68.md)]
+
+<!-- There is a response plan in place for network outages. -->
+[!include[5be928fb-5256-48be-ae77-6c7c932a7371](./guidance/5be928fb-5256-48be-ae77-6c7c932a7371.md)]
+
+<!-- You have manual responses defined where automation doesn't exist -->
+[!include[2da87328-516c-4ff1-a653-3dcce115f12a](./guidance/2da87328-516c-4ff1-a653-3dcce115f12a.md)]
+
+<!-- You understand what to do when data is corrupted or deleted -->
+[!include[fdbbf0bc-5fba-4a7e-bbb2-a0dabc22f7e6](./guidance/fdbbf0bc-5fba-4a7e-bbb2-a0dabc22f7e6.md)]
+
+<!-- You have a disaster recovery plan -->
+[!include[78b95e10-acc0-4749-8f1f-efa8cfb5eb89](./guidance/78b95e10-acc0-4749-8f1f-efa8cfb5eb89.md)]
+
 <!-- Backup strategy defined -->
 [!include[c0f0af98-7b8f-49c1-823d-a7626f4abed8](./guidance/c0f0af98-7b8f-49c1-823d-a7626f4abed8.md)]
 
