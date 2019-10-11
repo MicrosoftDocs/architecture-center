@@ -10,5 +10,4 @@ ms.assessment_question: How do you configure public IPs for which traffic is pas
 ---
 ## How do you configure public IPs for which traffic is passed in, and how and where it's translated?
 
-
 Use Azure Firewall for built-in high availability and unrestricted cloud scalability. Utilize Azure IP address to determine which traffic is passed in, and how and where it's translated on to the virtual network.

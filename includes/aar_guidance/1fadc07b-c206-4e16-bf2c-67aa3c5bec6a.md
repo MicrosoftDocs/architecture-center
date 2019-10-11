@@ -10,5 +10,4 @@ ms.assessment_question: Utilize background jobs
 ---
 ## Background jobs
 
-
 Review background jobs guidance. Use Azure Logic Apps to create and schedule regularly running tasks.
