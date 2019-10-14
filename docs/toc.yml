@@ -114,6 +114,32 @@ items:
       href: antipatterns/no-caching/index.md
     - name: Synchronous I/O
       href: antipatterns/synchronous-io/index.md
+  - name: Security
+    items: 
+    - name: Overview
+      href: security/overview.md
+    - name: Security design principles
+      href: security/security-principles.md
+    - name: Types of attacks to resist
+      href: security/architecture-type.md
+    - name: Regulatory compliance
+      href: security/law-authority.md
+    - name: Reduce organizational risk
+      href: security/resilience.md            
+    - name: Governance, risk, and compliance
+      href: security/governance.md
+    - name: Identity and access management
+      href: security/identity.md      
+    - name: Network security and containment
+      href: security/network-security-containment.md
+    - name: Storage, data, and encryption
+      href: security/storage-data-encryption.md
+    - name: Applications and services
+      href: security/applications-services.md
+    - name: Administration
+      href: security/critical-impact-accounts.md
+    - name: Security operations
+      href: security/security-operations.md
   - name: Azure for AWS Professionals
     items:
     - name: Overview
@@ -211,68 +237,6 @@ items:
     href: patterns/throttling.md
   - name: Valet Key
     href: patterns/valet-key.md
-
-- name: Pillars of software quality
-  items:
-  - name: Overview
-    href: guide/pillars.md
-  - name: Reliability
-    items:
-    - name: Overview
-      href: reliability/index.md
-    - name: Define requirements
-      href: reliability/requirements.md
-    - name: Architect for reliability
-      href: reliability/architect.md
-    - name: Test for reliability
-      href: reliability/testing.md
-    - name: Deploy for reliability
-      href: reliability/deploy.md
-    - name: Monitor application health
-      href: reliability/monitoring.md
-    - name: Respond to failures and disasters
-      href: reliability/disaster-recovery.md
-  - name: Resiliency
-    items:
-    - name: Checklist
-      href: checklist/resiliency-per-service.md
-    - name: Failure mode analysis
-      href: resiliency/failure-mode-analysis.md
-    - name: Recover from a region-wide service disruption
-      href: resiliency/recovery-loss-azure-region.md
-    - name: Recover from data corruption or accidental deletion
-      href: resiliency/recovery-data-corruption.md
-  - name: Security
-    items: 
-    - name: Overview
-      href: security/overview.md
-    - name: Security design principles
-      href: security/security-principles.md
-    - name: Types of attacks to resist
-      href: security/architecture-type.md
-    - name: Regulatory compliance
-      href: security/law-authority.md
-    - name: Reduce organizational risk
-      href: security/resilience.md            
-    - name: Governance, risk, and compliance
-      href: security/governance.md
-    - name: Identity and access management
-      href: security/identity.md      
-    - name: Network security and containment
-      href: security/network-security-containment.md
-    - name: Storage, data, and encryption
-      href: security/storage-data-encryption.md
-    - name: Applications and services
-      href: security/applications-services.md
-    - name: Administration
-      href: security/critical-impact-accounts.md
-    - name: Security operations
-      href: security/security-operations.md
-  - name: Scalability
-    items:
-    - name: Checklist
-      href: checklist/scalability.md
-
 - name: Azure Architecture Framework
   items:
   - name: Overview
@@ -327,6 +291,8 @@ items:
           href: framework/resiliency/app-design.md
         - name: Error Handling
           href: framework/resiliency/app-design-error-handling.md
+        - name: Failure mode analysis
+          href: resiliency/failure-mode-analysis.md
     - name: Backup and recovery
       href: framework/resiliency/backup-and-recovery.md
     - name: Business metrics
@@ -335,10 +301,14 @@ items:
       href: framework/resiliency/data-management.md
     - name: Monitoring & disaster recovery
       href: framework/resiliency/monitoring.md
+    - name: Recover from a region-wide service disruption
+      href: resiliency/recovery-loss-azure-region.md
     - name: Resiliency testing
       href: framework/resiliency/testing.md
     - name: Trade-offs
       href: framework/resiliency/tradeoffs.md
+    - name: Checklist
+      href: checklist/resiliency-per-service.md
   - name: Scalability
     items: 
     - name: Overview
@@ -357,6 +327,8 @@ items:
       href: framework/scalability/performance.md
     - name: Trade-offs
       href: framework/scalability/tradeoffs.md
+    - name: Checklist
+      href: checklist/scalability.md
   - name: Security
     items:
     - name: Overview
