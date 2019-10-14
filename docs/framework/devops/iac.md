@@ -1,7 +1,7 @@
 ---
 title: Infrastructure Deployment
-description: Describes how to best take advantage of the benefits of the cloud to minimize your cost.
-author: david-stanford
+description: Describes how to automate cloud deployments.
+author: jose-moreno
 ms.date: 11/01/2019
 ms.topic: article
 ms.service: architecture-center
