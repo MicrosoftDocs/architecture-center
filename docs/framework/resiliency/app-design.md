@@ -1,8 +1,8 @@
 ---
 title: App Design
-description: 
+description: Building *resiliency* (recovering from failures) and *availability* (running in a healthy state without significant downtime) into your apps begins with gathering requirements. For example, how much downtime is acceptable? How much does potential downtime cost your business? What are your customer's availability requirements? How much do you invest in making your application highly available? What is the risk versus the cost?
 author: david-stanford
-ms.date: 10/11/2019
+ms.date: 10/14/2019
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: cloud-design-principles
@@ -10,6 +10,18 @@ ms.custom: How have you ensured that your application is resilient to failures?
 ---
 
 # App Design
+
+Building *resiliency* (recovering from failures) and *availability* (running in a healthy state without significant downtime) into your apps begins with gathering requirements. For example, how much downtime is acceptable? How much does potential downtime cost your business? What are your customer's availability requirements? How much do you invest in making your application highly available? What is the risk versus the cost?<!-- You have identified your subscription and service requirements. -->
+[!include[89034945-14d8-4763-a116-e1e40d949f5f](../../../includes/aar_guidance/89034945-14d8-4763-a116-e1e40d949f5f.md)]
+
+<!-- You have implemented appropriate resiliency strategies -->
+[!include[06b2e64c-0f3d-417c-a603-05c024b7b6d6](../../../includes/aar_guidance/06b2e64c-0f3d-417c-a603-05c024b7b6d6.md)]
+
+<!-- You have planned for the usage patterns you expect in your workload. -->
+[!include[c160e662-2740-4bce-9ab8-c7ea1b88ae76](../../../includes/aar_guidance/c160e662-2740-4bce-9ab8-c7ea1b88ae76.md)]
+
+<!-- You have identified distinct workloads. -->
+[!include[2617db5e-4cb1-4488-a30d-d1aaaafeb63c](../../../includes/aar_guidance/2617db5e-4cb1-4488-a30d-d1aaaafeb63c.md)]
 
 <!-- Retry and Circuit Breaker patterns are used -->
 [!include[52f1a917-f368-439a-98f9-0262a25de762](../../../includes/aar_guidance/52f1a917-f368-439a-98f9-0262a25de762.md)]

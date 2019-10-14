@@ -1,7 +1,7 @@
 ---
 ms.author: dastanfo
 author: david-stanford
-ms.date: 10/11/2019
+ms.date: 10/14/2019
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: cloud-design-principles
