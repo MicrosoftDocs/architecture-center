@@ -19,7 +19,7 @@ ms.custom: seojan19
                 <div class="level-item has-flex-justify-content-start-mobile">
                     <span class="learn-banner-heading has-padding is-size-3 is-title">
                         This is a preview of the Azure Architecture Framework.<br>
-                        We're under active development and will be updated regularly.
+                        We're under active development and will be updating these articles regularly.
                     </span>
                 </div>
             </div>
