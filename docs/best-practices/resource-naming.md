@@ -25,7 +25,7 @@ In general, avoid using a special character, such as a hyphen (`-`) or underscor
 |Availability set |Resource group |1-80 |Insensitive |Alphanumeric, underscore, and hyphen |`<service-short-name>-<context>-as` |`profx-sql-as` |
 |Tag |Associated entity |512 (name), 256 (value) |Insensitive |Alphanumeric, including Unicode characters; special characters except `<`, `>`, `%`, `&`, `\`, `?`, `/`, and [other limitations](/azure/azure-resource-manager/resource-group-using-tags) |`"key" : "value"` |`"department" : "Central IT"` |
 |API management |Global |1-50 |Insensitive |0-9, a-z, A-Z, and `-` |`<apim-service-name>` |`contoso` |
-|Key vault | Global | 3-24 | Insensitive | 0-9, a-z, A-Z, and `-` | `<service short name>-<environment>-kv` | `myapp-prod-kv` |
+|Key vault | Global | 3-24 | Insensitive | 0-9, a-z, A-Z, and `-`. Must start with a letter. | `<service short name>-<environment>-kv` | `myapp-prod-kv` |
 
 ## Compute
 
