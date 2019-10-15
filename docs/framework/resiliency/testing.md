@@ -1,18 +1,6 @@
 ---
 title: Testing
 description: To test resiliency, you should verify how the end-to-end workload performs under intermittent failure conditions.
-
-Run tests in production using both synthetic and real user data. Test and production are rarely identical, so it's important to validate your application in production using a [blue-green](https://martinfowler.com/bliki/BlueGreenDeployment.html) or [canary deployment](https://martinfowler.com/bliki/CanaryRelease.html). This way, you're testing the application under real conditions, so you can be sure that it will function as expected when fully deployed.
-
-As part of your test plan, include:
-
-- Automated predeployment testing
-- Fault injection testing
-- Peak load testing
-- Disaster recovery testing
-- Third-party service testing
-
-Testing is an iterative process. Test the application, measure the outcome, analyze and address any failures that result, and repeat the process.
 author: david-stanford
 ms.date: 10/15/2019
 ms.topic: article
