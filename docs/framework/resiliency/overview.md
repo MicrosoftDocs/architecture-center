@@ -11,6 +11,29 @@ ms.custom:
 
 # Designing reliable Azure applications
 
+<div id="banner-holder" class="has-default-focus has-overflow-hidden">
+    <section data-dismissable="disappearing" class="uhf-container has-padding has-padding-top-small has-padding-bottom-small has-background-docs alert is-banner has-text-docs-invert" id="preview-banner" data-bi-name="preview-banner">
+        <div class="level">
+            <div class="level-left has-margin-left-medium has-margin-right-medium-mobile">
+                <div class="level-item has-flex-justify-content-start-mobile">
+                    <span class="learn-banner-heading has-padding is-size-3 is-title">
+                        This is a preview of the Azure Architecture Framework.<br>
+                        We're under active development and will be updating this often.
+                    </span>
+                </div>
+            </div>
+            <div class="level-right has-margin-right-medium has-flex-justify-content-start-mobile">  
+                <a id="feedback-anchor" data-bi-name="CTA" class="button is-transparent has-inverted-border is-small" href="#feedback">
+                    <span>Provide Feedback</span>
+                </a>
+                <button type="button" data-dismiss="" data-bi-name="close" class="is-inverted has-inverted-focus has-inner-focus delete is-large is-absolute-mobile has-top-zero-mobile has-right-zero-mobile has-margin-extra-small-mobile">
+                    <span class="visually-hidden">Dismiss</span>
+                </button>
+            </div>
+        </div>
+    </section>
+</div>
+
 Building a reliable application in the cloud is different from traditional application development. While historically you may have purchased higher-end hardware to scale up, in a cloud environment you scale out instead of up. Instead of trying to prevent failures altogether, the goal is to minimize the effects of a single failing component.
 
 Reliable applications are:
