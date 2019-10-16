@@ -79,7 +79,7 @@ When running a hybrid ETL workload, you must factor in the cost of the virtual m
 ## Next Steps
 
 - Learn more about [Azure Data Factory](https://azure.microsoft.com/services/data-factory/).
-- Get started with Azure Data Factory by following the [Step-by-step tutorial](/azure/data-factory/#step-by-step-tutorials).
+- Get started with Azure Data Factory by following the [Step-by-step tutorial](/azure/data-factory/).
 - [Provision the Azure-SSIS Integration Runtime in Azure Data Factory](/azure/data-factory/tutorial-deploy-ssis-packages-azure).
 
 <!-- links -->
