@@ -154,11 +154,11 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| Mobile Hub | [Mobile Apps](https://azure.microsoft.com/services/app-service/mobile/) <br/><br/>[Xamarin Apps](https://azure.microsoft.com/features/xamarin/) | Provides backend mobile services for rapid development of mobile solutions, identity management, data synchronization, and storage and notifications across devices. |
-| Mobile SDK | [Mobile Apps](https://azure.microsoft.com/services/app-service/mobile/) | Provides the technology to rapidly build cross-platform and native apps for mobile devices. |
-| Cognito | [Mobile Apps](https://azure.microsoft.com/services/app-service/mobile/) | Provides authentication capabilities for mobile applications. |
-| AWS Device Farm | [Xamarin Test Cloud (front end)](https://www.xamarin.com/test-cloud) | Provides services to support testing mobile applications. |
-| Mobile Analytics | [HockeyApp](https://azure.microsoft.com/services/hockeyapp/) <br/><br/>[Application Insights](https://azure.microsoft.com/services/application-insights/) | Supports monitoring, and feedback collection for the debugging and analysis of a mobile application service quality. |
+| Mobile Hub | [App Center](https://azure.microsoft.com/services/app-center/) <br/><br/>[Xamarin Apps](https://azure.microsoft.com/features/xamarin/) | Provides backend mobile services for rapid development of mobile solutions, identity management, data synchronization, and storage and notifications across devices. |
+| Mobile SDK | [App Center](https://azure.microsoft.com/services/app-center/) | Provides the technology to rapidly build cross-platform and native apps for mobile devices. |
+| Cognito | [App Center](https://azure.microsoft.com/services/app-center/) | Provides authentication capabilities for mobile applications. |
+| AWS Device Farm | [App Center](https://azure.microsoft.com/services/app-center/) | Provides services to support testing mobile applications. |
+| Mobile Analytics | [App Center](https://azure.microsoft.com/services/app-center/) | Supports monitoring, and feedback collection for the debugging and analysis of a mobile application service quality. |
 
 ## Networking
 
@@ -179,7 +179,7 @@ Dedicated network | Direct Connect | [ExpressRoute](https://azure.microsoft.com/
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
 | Identity and Access Management (IAM) | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) | Allows users to securely control access to services and resources while offering data security and protection. Create and manage users and groups, and use permissions to allow and deny access to resources. |
-| Identity and Access Management (IAM) | [Azure Role Based Access Control](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview) | Role-based access control (RBAC) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to. |
+| Identity and Access Management (IAM) | [Azure Role Based Access Control](https://docs.microsoft.com/azure/role-based-access-control/overview) | Role-based access control (RBAC) helps you manage who has access to Azure resources, what they can do with those resources, and what areas they have access to. |
 | AWS Organizations | [Azure Subscription Management + Azure RBAC](/azure/azure-subscription-service-limits) | Security policy and role management for working with multiple accounts. |
 | Multi-Factor Authentication | [Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/) | Safeguard access to data and applications while meeting user demand for a simple sign-in process. |
 | AWS Directory Service | [Azure Active Directory Domain Services](https://azure.microsoft.com/services/active-directory-ds/) | Provides managed domain services such as domain join, group policy, LDAP, and Kerberos/NTLM authentication that are fully compatible with Windows Server Active Directory. |
@@ -259,7 +259,7 @@ Dedicated network | Direct Connect | [ExpressRoute](https://azure.microsoft.com/
 | Elastic Beanstalk | [App Service](https://azure.microsoft.com/services/app-service) | Managed hosting platform providing easy to use services for deploying and scaling web applications and services. |
 | API Gateway | [API Management](https://azure.microsoft.com/services/api-management/) | A turnkey solution for publishing APIs to external and internal consumers. |
 | CloudFront | [Azure Content Delivery Network](https://azure.microsoft.com/services/cdn/) | A global content delivery network that delivers audio, video, applications, images, and other files. |
-| Global Accelerator | [Azure Front Door](https://azure.microsoft.com/en-us/services/frontdoor/) | Easily join your distributed microservice architectures into a single global application using HTTP load balancing and path-based routing rules. Automate turning up new regions and scale-out with API-driven global actions, and independent fault-tolerance to your back end microservices in Azure—or anywhere. |
+| Global Accelerator | [Azure Front Door](https://azure.microsoft.com/services/frontdoor/) | Easily join your distributed microservice architectures into a single global application using HTTP load balancing and path-based routing rules. Automate turning up new regions and scale-out with API-driven global actions, and independent fault-tolerance to your back end microservices in Azure—or anywhere. |
 
 
 ## Miscellaneous
