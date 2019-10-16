@@ -1,26 +1,22 @@
 ---
-title: Authorization for your workload
-description: Describes considerations to make when authorizing traffic into your workload.
+title: Authorization
+description: None
 author: david-stanford
-ms.date: 11/01/2019
+ms.date: 10/16/2019
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: cloud-design-principles
-ms.custom: 
+ms.custom: What considerations have you made when authorizing users to your workload? 
 ---
 
-# Authorization for your workload
+# Authorization
 
-## Role-based access control(RBAC)
+Describes considerations to make when authorizing traffic into your workload.<!-- Auditing authorization -->
+[!include[c0ffe50a-3932-488c-9a31-af921afce8e7](../../../includes/aar_guidance/c0ffe50a-3932-488c-9a31-af921afce8e7.md)]
 
-Use role-based access control (RBAC) to grant access based on Azure Active Directory identities and groups.
+<!-- Common authorization patterns -->
+[!include[69182b0a-889d-471d-b706-8f3c6696744e](../../../includes/aar_guidance/69182b0a-889d-471d-b706-8f3c6696744e.md)]
 
-Role-based: If you want to authorize based on users. A user can either be an administrator, creator, or reader. If you want to authorize an action based on a particular resource, consider resource based. For example, the app can check whether a user is the owner for of a resource.
+<!-- Role-based access control(RBAC) -->
+[!include[cddcb8c1-b117-406f-9b0e-435a84855530](../../../includes/aar_guidance/cddcb8c1-b117-406f-9b0e-435a84855530.md)]
 
-## Common authorization patterns
-
-Authorization is a security mechanism used to determine user/client privileges or access levels related to system resources, including computer programs, files, services, data and application features. Authorization is normally preceded by authentication for user identity verification.
-
-## Auditing authorization
-
-Conducting internal security audits help companies keep their compliance programs up to date and aimed in the right direction. An effective security risk assessment can prevent breaches, reduce the impact of realized breaches, and keep your company's name from appearing in the spotlight for all the wrong reasons.

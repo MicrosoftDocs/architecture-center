@@ -1,44 +1,49 @@
 ---
-title: Encrypting your workload
-description: Describes considerations to make when encrypting your workload.
+title: encryption
+description: Describes considerations to make when encrypting your workload
 author: david-stanford
-ms.date: 11/01/2019
+ms.date: 10/16/2019
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: cloud-design-principles
-ms.custom: 
+ms.custom: How are you managing encryption for this workload? 
 ---
 
-# Encrypting your workload
+# encryption
 
-## Key management strategy
+Encryption is a powerful tool for security, but it's critical to understand its
+limits in protecting data. Much like a safe, encryption restricts access to only
+those with possession of a small item (a mathematical key). While it's easier to
+protect possession of keys than larger datasets, it is imperative that you
+provide the appropriate protections for the keys. Protecting cryptographic keys
+is not a natural intuitive human process (especially because electronic data
+like keys can be copied perfectly without a forensic evidence trail), so it is
+often overlooked or implemented poorly.
 
-Protecting your keys is essential to protecting your data in the cloud.
+While encryption is available in many layers in Azure (and often on by default),
+we have identified the layers that are most important to implement (high
+potential for data to move to another storage medium) and are easiest to
+implement (near zero overhead).<!-- You have enabled platform encryption services -->
+[!include[3b071bca-019b-44e6-a9d4-0ad6b6efd682](../../../includes/aar_guidance/3b071bca-019b-44e6-a9d4-0ad6b6efd682.md)]
 
-## Encryption policy
+<!-- Key management strategy -->
+[!include[5ecb1483-b8a4-49ae-8db6-320ca944d571](../../../includes/aar_guidance/5ecb1483-b8a4-49ae-8db6-320ca944d571.md)]
 
-## Data at rest
+<!-- Encryption policy -->
+[!include[8f600cf8-2b7f-453d-b4d9-26a427ec74b1](../../../includes/aar_guidance/8f600cf8-2b7f-453d-b4d9-26a427ec74b1.md)]
 
-Encryption at rest provides data protection for stored data (at rest). Attacks against data at-rest include attempts to obtain physical access to the hardware on which the data is stored, and then compromise the contained data. In such an attack, a server’s hard drive may have been mishandled during maintenance allowing an attacker to remove the hard drive. Later the attacker would put the hard drive into a computer under their control to attempt to access the data.
+<!-- Data at rest -->
+[!include[f814cf06-a764-4af1-a84c-0cb920b933f5](../../../includes/aar_guidance/f814cf06-a764-4af1-a84c-0cb920b933f5.md)]
 
-## Data in transit
+<!-- Data in transit -->
+[!include[a1583f13-8bec-45fe-a42e-d0d481ec85f6](../../../includes/aar_guidance/a1583f13-8bec-45fe-a42e-d0d481ec85f6.md)]
 
-If data moving over a network is not encrypted, there’s a chance that it can be captured and stolen by unauthorized users. When you're dealing with database services, make sure that data is encrypted between the database client and server. Also make sure that data is encrypted between database servers that communicate with each other and with middle-tier applications.
+<!-- Appropriate encryption algorithms -->
+[!include[ce3d8eed-fddd-4e82-bd4b-5665d7ddf68d](../../../includes/aar_guidance/ce3d8eed-fddd-4e82-bd4b-5665d7ddf68d.md)]
 
-## Appropriate encryption algorithms
+<!-- File level encryption -->
+[!include[e8a807d0-59d9-46ba-9884-e51355196d25](../../../includes/aar_guidance/e8a807d0-59d9-46ba-9884-e51355196d25.md)]
 
-Organizations have to think about what type of threats they want to protect against, and that will determine the type of technology used.
+<!-- You encrypt your virtual disk files. -->
+[!include[e0dc5c60-d25f-4199-b991-3d241f99ea2b](../../../includes/aar_guidance/e0dc5c60-d25f-4199-b991-3d241f99ea2b.md)]
 
-## File level encryption
-
-Risk of data leakage and lack of business insights monitor for abuse and prevent malicious access to files.
-
-Action:
-Use Azure Managed Disks for persistent and secure disk storage for Azure virtual machines. Enforce file-level data encryption.
-
-## VM Disks
-
-Risk of data integrity issues, such as malicious or rogue users stealing data and compromised accounts gaining unauthorized access to data.
-
-Action:
-Use Azure Disk Encryption to protect and safeguard data to meet organizational security and compliance commitments. Encrypt Azure Virtual Machines.

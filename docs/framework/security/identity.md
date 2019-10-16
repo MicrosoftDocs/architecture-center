@@ -1,65 +1,58 @@
 ---
-title: Identity management for your workload
+title: identity
 description: Describes how to manage identities in your workload.
 author: david-stanford
-ms.date: 11/01/2019
+ms.date: 10/16/2019
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: cloud-design-principles
-ms.custom: 
+ms.custom: How are you managing identity for this workload? 
 ---
 
-# Identity management for your workload
+# identity
 
-## Secrets
+In cloud-focused architecture, identity provides the basis of a large percentage
+of security assurances. While legacy IT infrastructure often heavily relied on
+firewalls and network security solutions at the internet egress points for
+protection against outside threats, these controls are less effective in cloud
+architectures with shared services being accessed across cloud provider networks
+or the internet.
 
-Safeguarding confidential source, connection strings, certificates, secrets etc. required in the deployment pipeline ensures security of end products.
+It is challenging or impossible to write concise firewall rules when you don’t
+control the networks where these services are hosted, different cloud resources
+spin up and down dynamically, cloud customers may share common infrastructure,
+and employees and users expect to be able to access data and services from
+anywhere. To enable all these capabilities, you must manage access based on
+identity authentication and authorization controls in the cloud services to
+protect data and resources and to decide which requests should be permitted.
 
-## Isolation
+Additionally, using a cloud-based identity solution like Azure AD offers
+additional security features that legacy identity services cannot because they
+can apply threat intelligence from their visibility into a large volume of
+access requests and threats across many customers.<!-- Secrets -->
+[!include[79de83f8-b5cd-4dd1-b39c-4b60fb26f23e](../../../includes/aar_guidance/79de83f8-b5cd-4dd1-b39c-4b60fb26f23e.md)]
 
-With DevOps, organizations aim to improve operational processes in terms of security, reliability and efficiency. In DevOps environments, since software components are often developed in parallel but separately, you’ll require certain network configurations.
+<!-- Isolation -->
+[!include[de1c1879-8308-484a-aa73-6743b26bce09](../../../includes/aar_guidance/de1c1879-8308-484a-aa73-6743b26bce09.md)]
 
-## Identity strategy
+<!-- Identity strategy -->
+[!include[cd05c86a-d4a1-41b9-a146-b555a82d7661](../../../includes/aar_guidance/cd05c86a-d4a1-41b9-a146-b555a82d7661.md)]
 
-Many consider identity to be the primary perimeter for security. This is a shift from the traditional focus on network security. Network perimeters keep getting more porous, and that perimeter defense can’t be as effective as it was before the explosion of BYOD devices and cloud applications. Azure Active Directory (Azure AD) is the Azure solution for identity and access management. Azure AD is a multitenant, cloud-based directory and identity management service from Microsoft. It combines core directory services, application access management, and identity protection into a single solution.
+<!-- System to manage identity -->
+[!include[699e0bec-18d8-4f21-ab2a-fd1871148244](../../../includes/aar_guidance/699e0bec-18d8-4f21-ab2a-fd1871148244.md)]
 
-Manage accounts from one single location, regardless of where an account is created. Enable single sign-on. Otherwise, it becomes an administrative problem not only for IT but also for users who have to remember multiple passwords. Turn on conditional access because focusing on who can access a resource is not sufficient anymore. Enable password management and use appropriate security policies to prevent abuse.
+<!-- Credential policies in place -->
+[!include[a982ae49-0817-4115-b0db-800cd00e12b7](../../../includes/aar_guidance/a982ae49-0817-4115-b0db-800cd00e12b7.md)]
 
-## System to manage identity
+<!-- Enabled Single Sign-on (SSO) -->
+[!include[d3d7496f-438b-4cd8-9673-623271f49f08](../../../includes/aar_guidance/d3d7496f-438b-4cd8-9673-623271f49f08.md)]
 
-Don't take this decision lightly, for the following reasons: It's the first decision for an organization that wants to move to the cloud. The authentication method is a critical component of an organization’s presence in the cloud. It controls access to all cloud data and resources. It's the foundation of all the other advanced security and user experience features in Azure AD. The authentication method is difficult to change after it's implemented.
+<!-- Self-service password reset & password management -->
+[!include[95b6e2ca-d1e3-4f6d-aef0-75721f239743](../../../includes/aar_guidance/95b6e2ca-d1e3-4f6d-aef0-75721f239743.md)]
 
-## Credential policies in place
+<!-- Multi-factor authentication (MFA) -->
+[!include[8b457523-89e1-4b27-93ae-2c438b96f358](../../../includes/aar_guidance/8b457523-89e1-4b27-93ae-2c438b96f358.md)]
 
-Limiting the lifespan of a credential reduces the risk from and effectiveness of password-based attacks and exploits, by condensing the window of time during which a stolen credential is valid.
-
-Password rotation, etc.
-
-## Enabled Single Sign-on (SSO)
-
-Exposure to scenarios where users have multiple passwords, increasing the likelihood of users reusing passwords or using weak passwords.
-
-Action:
-Enable Single Sign-On (SSO).
-
-## Self-service password reset & password management
-
-Susceptibility to a higher call volume to the service desk due to password issues.
-
-Action:
-Deploy password management.
-
-## Multi-factor authentication (MFA)
-
-Risk of not complying with industry standards, such as PCI DSS version 3.2 and credential theft type of attack, such as Pass-the- Hash (PtH).
-
-Action:
-Enforce MFA for users.
-
-## enforce identity for SaaS apps, integrating with custom apps
-
-Risk of a credential-theft type of attack, such as weak authentication and session management described in Open Web Application Security Project (OWASP) Top 10.
-
-Action:
-Guide developers to leverage identity capabilities for SaaS apps.
+<!-- enforce identity for SaaS apps, integrating with custom apps -->
+[!include[60b6b658-3a88-4370-8796-b005e80c07c9](../../../includes/aar_guidance/60b6b658-3a88-4370-8796-b005e80c07c9.md)]
 
