@@ -1,70 +1,52 @@
 ---
-title: Security considerations to make for monitoring
-description: Describes monitoring strategies that you can use in your workload.
+title: monitoring
+description: None
 author: david-stanford
-ms.date: 11/01/2019
+ms.date: 10/16/2019
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: cloud-design-principles
-ms.custom: 
+ms.custom: How are you monitoring the security posture of your workload? 
 ---
 
-# Security considerations to make for monitoring
+# monitoring
 
-## DNS Monitoring
+Describes monitoring strategies that you can use in your workload.<!-- correlating calls across systems (end-to-end tracing) -->
+[!include[814ddc02-75cb-4873-97ba-79248fad892e](../../../includes/aar_guidance/814ddc02-75cb-4873-97ba-79248fad892e.md)]
 
-Utilize DNS Analytics for gathering security, performance and operations-related insights of DNS servers.
+<!-- Admin credential usage -->
+[!include[62a2d031-ea56-4acf-b3c2-b939749564f0](../../../includes/aar_guidance/62a2d031-ea56-4acf-b3c2-b939749564f0.md)]
 
-## Workload hardening
+<!-- Actively monitor logs for suspicious activity -->
+[!include[67934fd1-d3ef-4850-a632-ec5b18e90541](../../../includes/aar_guidance/67934fd1-d3ef-4850-a632-ec5b18e90541.md)]
 
-Use Security Compliance Manager to import the current configuration by using either group policies based on Active Directory or configuration of a “golden master” reference machine by using the LocalGPO tool. You can then import the local group policy into Security Compliance Manager.
+<!-- Audit access log -->
+[!include[02e4510e-5069-4569-ac53-c04431b986dd](../../../includes/aar_guidance/02e4510e-5069-4569-ac53-c04431b986dd.md)]
 
-## Manage antimalware
+<!-- Understand who has access to what data -->
+[!include[b649d9e0-78a5-4ffe-89a1-16700e0ba36d](../../../includes/aar_guidance/b649d9e0-78a5-4ffe-89a1-16700e0ba36d.md)]
 
-Install and manage antimalware.
+<!-- Trace requests -->
+[!include[00af55cf-b32d-49c5-9baf-84446d8f0dc1](../../../includes/aar_guidance/00af55cf-b32d-49c5-9baf-84446d8f0dc1.md)]
 
-## Monitor resources
+<!-- How do you collect and process data about resources (security event log, Windows firewall log, antimalware assessment)? -->
+[!include[51b68716-7d41-43f3-820b-f3086e5425bd](../../../includes/aar_guidance/51b68716-7d41-43f3-820b-f3086e5425bd.md)]
 
-Utilize Azure Monitor to get the granular, up-to-date monitoring data all in one place. Use monitoring services.
+<!-- Manage and protect infrastructure -->
+[!include[27a38978-7a94-431a-80dd-a69dc2215f54](../../../includes/aar_guidance/27a38978-7a94-431a-80dd-a69dc2215f54.md)]
 
-## Manage and protect infrastructure
+<!-- Monitor resources -->
+[!include[7f5f2838-cdd3-433e-8e73-1edd2ac47538](../../../includes/aar_guidance/7f5f2838-cdd3-433e-8e73-1edd2ac47538.md)]
 
-Utilize Azure Monitor to get the granular, up-to-date monitoring data all in one place. Review monitor, manage, and protect cloud infrastructure guidance.
+<!-- Manage antimalware -->
+[!include[f309d196-d72c-4e10-b247-189c88888b40](../../../includes/aar_guidance/f309d196-d72c-4e10-b247-189c88888b40.md)]
 
-## How do you collect and process data about resources (security event log, Windows firewall log, antimalware assessment)?
+<!-- Workload hardening -->
+[!include[aaec024a-38e5-408b-aeb6-21936d363537](../../../includes/aar_guidance/aaec024a-38e5-408b-aeb6-21936d363537.md)]
 
-Use Operations Management Suite (OMS) Security and Audit Solution to collect and processes data about resources.
+<!-- DNS Monitoring -->
+[!include[a5ef014a-105b-4677-927f-796add134010](../../../includes/aar_guidance/a5ef014a-105b-4677-927f-796add134010.md)]
 
-## Trace requests
+<!-- Threat response -->
+[!include[757b2190-c991-4241-84ee-994b74489ba0](../../../includes/aar_guidance/757b2190-c991-4241-84ee-994b74489ba0.md)]
 
-Use Azure Security Center for security management and advanced threat protection across hybrid cloud workloads. Review trace requests, analyze usage trends, and diagnose issues guidance.
-
-## Understand who has access to what data
-
-Data security is essential for every business. Businesses rely on data storage and transactions to perform certain operations. Usage of data has increased business profitability and efficiency. At the same time, it also has potential security risks that could devastate a company.
-
-## Audit access log
-
-## Actively monitor logs for suspicious activity
-
-Being on top of logs means a quicker response time to security events and better security program effectiveness. Not only will log analysis and daily monitoring demonstrate your willingness to comply with PCI DSS and HIPAA requirements, it will also help you defend against insider and outsider threats.
-
-Risk of compromised user credentials and suspicious activities occurring using these credentials.
-
-## correlating calls across systems (end-to-end tracing).
-
-You must think about security for all resources that take part in the workload. Azure Security Center provides integrated security monitoring and policy management across your Azure subscriptions. The events collected from the agents and from Azure are correlated in the security analytics engine to provide you tailored recommendations (hardening tasks), that you should follow to make sure your workloads are secure, and threat detection alerts. You should investigate such alerts as soon as possible to make sure malicious attacks aren't taking place on your workloads.
-
-## Admin credential usage
-
-Risk of compromised admin accounts negating the value of all the other measures taken to ensure the confidentiality and integrity of data.
-
-Action:
-Limit and constrain administrative access.
-
-## Threat response
-
-Inability to have a single pane of visibility to prevent, detect, and respond to threats.
-
-Action:
-Employ Azure Security Center for increased visibility into, and control over, the security of Azure resources, integrated security monitoring, and policy management across Azure subscriptions.

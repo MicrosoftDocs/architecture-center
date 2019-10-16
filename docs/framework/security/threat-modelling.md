@@ -1,26 +1,25 @@
 ---
-title: Threat modelling
-description: Describes how to model threats for your workload.
+title: threat modelling
+description: None
 author: david-stanford
-ms.date: 11/01/2019
+ms.date: 10/16/2019
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: cloud-design-principles
-ms.custom: 
+ms.custom: How are you modelling the threats that will impact this workload? 
 ---
 
-# Threat modelling
+# threat modelling
 
-## Consider the impact of adversaries
+Describes how to model threats for your workload.<!-- Consider the impact of adversaries -->
+[!include[87772841-b321-4bae-9c81-3bbf98af4303](../../../includes/aar_guidance/87772841-b321-4bae-9c81-3bbf98af4303.md)]
 
-Protecting identity, data, physical resources, and other assets is crucial.
+<!-- Modelling both internal and external threats -->
+[!include[b3b4ba92-898a-47ac-9cf3-1106844e4aed](../../../includes/aar_guidance/b3b4ba92-898a-47ac-9cf3-1106844e4aed.md)]
 
-## Modelling both internal and external threats
+<!-- Catalog potential entry points for bad actors -->
+[!include[67376cc2-d11d-4bc9-83c3-36a97d2f098b](../../../includes/aar_guidance/67376cc2-d11d-4bc9-83c3-36a97d2f098b.md)]
 
-Attacker can gain access to the system and change the authentication data, read user profile data, and gain access to user database.
+<!-- Attack surface -->
+[!include[85e22d16-d1c9-4182-adf4-e3176a03064b](../../../includes/aar_guidance/85e22d16-d1c9-4182-adf4-e3176a03064b.md)]
 
-## Catalog potential entry points for bad actors
-
-## Attack surface
-
-An attack surface is the total number of points or vectors through which an attacker can try to enter an environment or network. In terms of cybersecurity, this means how a bad actor could gain access to your network to either send, extract, or encrypt data through the holes they find in a network. Every network interaction point allows for a potential network attack surface. In other words, an attack on a surface occurs when bad actors can find holes in a network which then allows them to cause disruption. This disruption can come in the forms of data breaches, ransomware, and more.
