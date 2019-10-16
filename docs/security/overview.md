@@ -8,7 +8,16 @@ ms.service: architecture-center
 ms.subservice: cloud-design-principles
 ---
 
-# Role of security
+# Azure Security Compass - Architecture
+
+![alt text](https://github.com/MarkSimos/MicrosoftSecurity/blob/master/Azure%20Security%20Compass%201.1/Azure%20Security%20Compass%20v1.1%20-%20PNG.png "Logo Title Text 1")
+
+Microsoft's Azure Security Compass is a set of best practices designed to rapidly increase your Azure security posture. Additional material is available for download (including a detailed slide presentation and a tracking worksheets) at http://aka.ms/azuresecuritycompass
+
+This documentation contains the architectul view of these Azure security best practices. 
+
+
+## Introduction - Role of security in Architecture 
 
 Security is one of the most important aspects of any architecture. Security
 provides confidentiality, integrity, and availability assurances against
