@@ -223,7 +223,7 @@ To maximize security, add network security appliances between the on-premises ne
 
 ![[2]][2]
 
-For auditing or compliance purposes, it may be necessary to prohibit direct access from components running in the VNet to the Internet and implement [forced tunneling][forced-tunneling]. In this situation, Internet traffic should be redirected back through a proxy running on-premises where it can be audited. The proxy can be configured to block unauthorized traffic flowing out, and filter potentially malicious inbound traffic.
+For auditing or compliance purposes, it may be necessary to prohibit direct access from components running in the VNet to the Internet and implement forced tunneling. In this situation, Internet traffic should be redirected back through a proxy running on-premises where it can be audited. The proxy can be configured to block unauthorized traffic flowing out, and filter potentially malicious inbound traffic.
 
 ![[3]][3]
 
@@ -271,7 +271,6 @@ To deploy the solution, perform the following steps.
 
 <!-- links -->
 
-[forced-tunneling]: ../dmz/secure-vnet-hybrid.md
 [highly-available-network-architecture]: ./expressroute-vpn-failover.md
 
 [expressroute-technical-overview]: /azure/expressroute/expressroute-introduction

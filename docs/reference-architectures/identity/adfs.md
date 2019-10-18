@@ -283,7 +283,7 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 
     At the `Get-Credential` prompt, enter the password that you specified in the deployment parameter file.
 
-1. Run the following command to monitor the progress of the [DSC](/powershell/dsc/overview) configuration:
+1. Run the following command to monitor the progress of the [DSC](/powershell/scripting/dsc/overview/overview) configuration:
 
     ```powershell
     Get-DscConfigurationStatus
@@ -364,8 +364,6 @@ A deployment for this architecture is available on [GitHub][github]. Note that t
 [extending-ad-to-azure]: adds-extend-domain.md
 
 [vm-recommendations]: ../virtual-machines-windows/single-vm.md
-[implementing-a-secure-hybrid-network-architecture]: ../dmz/secure-vnet-hybrid.md
-[implementing-a-secure-hybrid-network-architecture-with-internet-access]: ../dmz/secure-vnet-dmz.md
 [hybrid-azure-on-prem-vpn]: ../hybrid-networking/vpn.md
 
 [azure-cli]: /azure/azure-resource-manager/xplat-cli-azure-resource-manager

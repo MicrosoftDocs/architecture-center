@@ -114,13 +114,11 @@ You choose the type of probe you want to use when you configure the function app
 ## Next steps
 
 - Learn how to [implement a DMZ between Azure and your on-premises datacenter][dmz-on-premises] using layer-7 NVAs.
-- Learn how to [implement a DMZ between Azure and the Internet][dmz-internet] using layer-7 NVAs.
 - [Troubleshoot network virtual appliance issues in Azure](/azure/virtual-network/virtual-network-troubleshoot-nva)
 
 <!-- links -->
 
 [cloud-security]: /azure/best-practices-network-security
-[dmz-on-premises]: ./secure-vnet-hybrid.md
 [dmz-internet]: ./secure-vnet-dmz.md
 [egress-with-layer-7]: #egress-with-layer-7-nvas
 [ingress-with-layer-7]: #ingress-with-layer-7-nvas

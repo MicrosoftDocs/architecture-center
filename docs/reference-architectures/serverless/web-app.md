@@ -20,28 +20,28 @@ This reference architecture shows a [serverless](https://azure.microsoft.com/sol
 
 The term serverless has two distinct but related meanings:
 
-- **Backend as a service** (BaaS). Backend cloud services, such as databases and storage, provide APIs that enable client applications to connect directly to these services.
+- **Backend as a service** (BaaS). Back-end cloud services, such as databases and storage, provide APIs that enable client applications to connect directly to these services.
 - **Functions as a service** (FaaS). In this model, a "function" is a piece of code that is deployed to the cloud and runs inside a hosting environment that completely abstracts the servers that run the code.
 
-Both definitions have in common the idea that developers and DevOps personnel don't need to deploy, configure, or manage servers. This reference architecture focuses on FaaS using Azure Functions, although serving web content from Azure Blob Storage is an example of BaaS. Some important characteristics of FaaS are:
+Both definitions have in common the idea that developers and DevOps personnel don't need to deploy, configure, or manage servers. This reference architecture focuses on FaaS using Azure Functions, although serving web content from Azure Blob Storage could be an example of BaaS. Some important characteristics of FaaS are:
 
 1. Compute resources are allocated dynamically as needed by the platform.
 1. Consumption-based pricing: You are charged only for the compute resources used to execute your code.
 1. The compute resources scale on demand based on traffic, without the developer needing to do any configuration.
 
-Functions are executed when an external trigger occurs, such as an HTTP request or a message arriving on a queue. This makes an [event-driven architecture style][event-driven] natural for serverless architectures. To coordinate work between components in the architecture, consider using message brokers or pub/sub patterns. For help choosing between messaging technologies in Azure, see [Choose between Azure services that deliver messages][azure-messaging].
+Functions are executed when an external trigger occurs, such as an HTTP request or a message arriving on a queue. This makes an [event-driven architecture style][event-driven] natural for serverless architectures. To coordinate work between components in the architecture, consider using message brokers or pub/sub patterns. For help with choosing between messaging technologies in Azure, see [Choose between Azure services that deliver messages][azure-messaging].
 
 ## Architecture
 
 The architecture consists of the following components:
 
-**Blob Storage**. Static web content, such as HTML, CSS, and JavaScript files, are stored in Azure Blob Storage and served to clients by using [static website hosting][static-hosting]. All dynamic interaction happens through JavaScript code making calls to the backend APIs. There is no server-side code to render the web page. Static website hosting supports index documents and custom 404 error pages.
+**Blob Storage**. Static web content, such as HTML, CSS, and JavaScript files, are stored in Azure Blob Storage and served to clients by using [static website hosting][static-hosting]. All dynamic interaction happens through JavaScript code making calls to the back-end APIs. There is no server-side code to render the web page. Static website hosting supports index documents and custom 404 error pages.
 
 **CDN**. Use [Azure Content Delivery Network][cdn] (CDN) to cache content for lower latency and faster delivery of content, as well as providing an HTTPS endpoint.
 
 **Function Apps**. [Azure Functions][functions] is a serverless compute option. It uses an event-driven model, where a piece of code (a "function") is invoked by a trigger. In this architecture, the function is invoked when a client makes an HTTP request. The request is always routed through an API gateway, described below.
 
-**API Management**. [API Management][apim] provides an API gateway that sits in front of the HTTP function. You can use API Management to publish and manage APIs used by client applications. Using a gateway helps to decouple the front-end application from the back-end APIs. For example, API Management can rewrite URLs, transform requests before they reach the backend, set request or response headers, and so forth.
+**API Management**. [API Management][apim] provides an API gateway that sits in front of the HTTP function. You can use API Management to publish and manage APIs used by client applications. Using a gateway helps to decouple the front-end application from the back-end APIs. For example, API Management can rewrite URLs, transform requests before they reach the back end, set request or response headers, and so forth.
 
 API Management can also be used to implement cross-cutting concerns such as:
 
@@ -115,7 +115,7 @@ By using bindings, you don't need to write code that talks directly to the servi
 
 **Cosmos DB**. Throughput capacity for Cosmos DB is measured in [Request Units][ru] (RU). A 1-RU throughput corresponds to the throughput need to GET a 1KB document. In order to scale a Cosmos DB container past 10,000 RU, you must specify a [partition key][partition-key] when you create the container and include the partition key in every document that you create. For more information about partition keys, see [Partition and scale in Azure Cosmos DB][cosmosdb-scale].
 
-**API Management**. API Management can scale out and supports rule-based autoscaling. Note that the scaling process takes at least 20 minutes. If your traffic is bursty, you should provision for the maximum burst traffic that you expect. However, autoscaling is useful for handling hourly or daily variations in traffic. For more information, see [Automatically scale an Azure API Management instance][apim-scale].
+**API Management**. API Management can scale out and supports rule-based autoscaling. The scaling process takes at least 20 minutes. If your traffic is bursty, you should provision for the maximum burst traffic that you expect. However, autoscaling is useful for handling hourly or daily variations in traffic. For more information, see [Automatically scale an Azure API Management instance][apim-scale].
 
 ## Disaster recovery considerations
 
@@ -140,7 +140,7 @@ In this architecture, the client application is a single-page application (SPA) 
 1. The user signs in.
 1. Azure AD redirects back to the client application, including an access token in the URL fragment.
 1. When the web application calls the API, it includes the access token in the Authentication header. The application ID is sent as the audience ('aud') claim in the access token.
-1. The backend API validates the access token.
+1. The back-end API validates the access token.
 
 To configure authentication:
 
@@ -152,13 +152,13 @@ To configure authentication:
 
 For more details, see the [GitHub readme][readme].
 
-It's recommended to create separate app registrations in Azure AD for the client application and the backend API. Grant the client application permission to call the API. This approach gives you the flexibility to define multiple APIs and clients and control the permissions for each.
+It's recommended to create separate app registrations in Azure AD for the client application and the back-end API. Grant the client application permission to call the API. This approach gives you the flexibility to define multiple APIs and clients and control the permissions for each.
 
 Within an API, use [scopes][scopes] to give applications fine-grained control over what permissions they request from a user. For example, an API might have `Read` and `Write` scopes, and a particular client app might ask the user to authorize `Read` permissions only.
 
 ### Authorization
 
-In many applications, the backend API must check whether a user has permission to perform a given action. It's recommended to use [claims-based authorization][claims], where information about the user is conveyed by the identity provider (in this case, Azure AD) and used to make authorization decisions. For example, when you register an application in Azure AD, you can define a set of application roles. When a user signs into the application, Azure AD includes a `roles` claim for each role that the user has been granted, including roles that are inherited through group membership.
+In many applications, the back-end API must check whether a user has permission to perform a given action. It's recommended to use [claims-based authorization][claims], where information about the user is conveyed by the identity provider (in this case, Azure AD) and used to make authorization decisions. For example, when you register an application in Azure AD, you can define a set of application roles. When a user signs into the application, Azure AD includes a `roles` claim for each role that the user has been granted, including roles that are inherited through group membership.
 
 The ID token that Azure AD returns to the client contains some of the user's claims. Within the function app, these claims are available in the X-MS-CLIENT-PRINCIPAL header of the request. However, it's simpler to read this information from binding data. For other claims, use [Microsoft Graph][graph] to query Azure AD. (The user must consent to this action when signing in.)
 
@@ -233,7 +233,18 @@ Alternatively, you can store application secrets in Key Vault. This allows you t
 
 ## DevOps considerations
 
-### Deployment
+### Front-end deployment
+
+The front end of this reference architecture is a single page application, with JavaScript accessing the serverless back-end APIs, and static content providing a fast user experience. The following are some important considerations for such an application:
+
+- Deploy the application uniformly to users over a wide geographical area with a global-ready CDN, with the static content hosted on the cloud. This avoids the need for a dedicated web server. Read [Integrate an Azure storage account with Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-create-a-storage-account-with-cdn) to get started. Secure your application with [HTTPS](https://docs.microsoft.com/azure/storage/blobs/storage-https-custom-domain-cdn). Read the [Best practices for using content delivery networks](https://docs.microsoft.com/azure/architecture/best-practices/cdn) for additional recommendations.
+- Use a fast and reliable CI/CD service such as [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops), to automatically build and deploy every source change. The source must reside in an online version control system. For more details, read [Create your first pipeline](https://docs.microsoft.com/azure/devops/pipelines/create-first-pipeline?view=azure-devops&tabs=tfs-2018-2).
+- Compress your website files to reduce the bandwidth consumption on the CDN and improve performance. Azure CDN allows [compression on the fly on the edge servers](https://docs.microsoft.com/azure/cdn/cdn-improve-performance). Alternatively, the deploy pipeline in this reference architecture compresses the files before deploying them to the Blob storage. This reduces the storage requirement, and gives you more freedom to choose the compression tools, regardless of any CDN limitations.
+- The CDN should be able to [purge its cache](https://docs.microsoft.com/azure/cdn/cdn-purge-endpoint) to ensure all users are served the freshest content. A cache purge is required if the build and deploy processes are not atomic, for example, if they replace old files with newly built ones in the same origin folder.
+- A different cache strategy such as versioning using directories, may not require a purge by the CDN. The build pipeline in this front-end application creates a new directory for each newly built version. This version is uploaded as an atomic unit to the Blob storage. The Azure CDN points to this new version only after a completed deployment.
+- Increase the cache TTL by caching resource files for a longer duration, spanning months. To make sure the cached files are updated when they do change, fingerprint the filenames when they are rebuilt. This front-end application fingerprints all files except for public-facing files such as *index.html*. Since the index.html is updated frequently, it reflects the changed filenames causing a cache refresh. See the [Manage expiration of web content in Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-manage-expiration-of-cloud-service-content) for more information.
+
+### Back-end deployment
 
 To deploy the function app, we recommend using [package files][functions-run-from-package] ("Run from package"). Using this approach, you upload a zip file to a Blob Storage container and the Functions runtime mounts the zip file as a read-only file system. This is an atomic operation, which reduces the chance that a failed deployment will leave the application in an inconsistent state. It can also improve cold start times, especially for Node.js apps, because all of the files are swapped at once.
 
@@ -308,5 +319,5 @@ Related guidance:
 [storage-https]: /azure/storage/common/storage-require-secure-transfer
 [tm]: /azure/traffic-manager/traffic-manager-overview
 
-[github]: https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0
-[readme]: https://github.com/mspnp/serverless-reference-implementation/blob/v0.1.0/README.md
+[github]: https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0-update
+[readme]: https://github.com/mspnp/serverless-reference-implementation/blob/v0.1.0-update/README.md
