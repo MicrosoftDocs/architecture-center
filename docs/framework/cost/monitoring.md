@@ -72,7 +72,7 @@ For more flexibility with your cost reports, Azure Consumption Insights can be r
 If you have another preferred data analysis tool, Azure comes with Billing APIs (in Preview) that you can connect to. Import invoices, resource usage and rate cards, to learn more visit [billing usage rate card overview](/azure/billing/billing-usage-rate-card-overview) or connect to additional usage data including Budgets and Reserved Instances consumption, review [billing consumption api overview](/azure/billing/billing-consumption-api-overview)
 
 >[!NOTE]
-> There are several different ways of purchasing Azure services and not all of them are supported by Azure Cost Management. For example, detailed billing information for services purchased through a Cloud Solution Provider must be obtained directly from your CSP. Review [understand cost management data](azure/cost-management/understand-cost-mgt-data) for information on supported cost data.
+> There are several different ways of purchasing Azure services and not all of them are supported by Azure Cost Management. For example, detailed billing information for services purchased through a Cloud Solution Provider must be obtained directly from your CSP. Review [understand cost management data](/azure/cost-management/understand-cost-mgt-data) for information on supported cost data.
 
 ### Custom Solutions
 
