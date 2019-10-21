@@ -2,7 +2,7 @@
 title: Modelling your cloud costs
 description: Describes strategies to model your cloud costs
 author: david-stanford
-ms.date: 11/01/2019
+ms.date: 10/21/2019
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: cloud-design-principles
@@ -14,6 +14,7 @@ ms.custom:
 Mapping your organization's hierarchy with each business units' cloud consumption needs is likely one of the first requirements that business leaders care about on their journey of understanding the value of cloud. Most importantly, it allows business leaders to have a structured view on how cloud services are being governed and consumed. The cloud provider often provides different options to build hierarchy and grouping (via management groups, subscriptions, resource groups, etc.) across the cloud services it provides. Being able to map these logical containers with your organization's hierarchy will yield a clear path towards defining where cloud services are deployed and how they are governed.
 
 ## Treat resources as a utility
+
 The cloud is all about change. Your resources in the cloud are virtual, and unless built for durability, are to be considered ephemeral. Your provider may reboot or replace your resources for troubleshooting or updates. Mapping resources as 1 to 1 drop in replacement for on-prem resources is not recommended.
 
 ## Leverage reserved capacity
