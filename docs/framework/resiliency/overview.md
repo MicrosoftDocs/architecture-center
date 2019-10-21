@@ -20,7 +20,7 @@ Reliable applications are:
 
 Understanding how these elements work together &mdash; and how they affect cost &mdash; is essential to building a reliable application. It can help you determine how much downtime is acceptable, the potential cost to your business, and which functions are necessary during a recovery.
 
-This article provides a brief overview of building reliability into each step of the Azure application design process. Each section includes a link to an in-depth article on how to integrate reliability into that specific step in the process. If you're looking for reliability considerations for individual Azure services, review the [Resiliency checklist for specific Azure services](../checklist/resiliency-per-service.md).
+This article provides a brief overview of building reliability into each step of the Azure application design process. Each section includes a link to an in-depth article on how to integrate reliability into that specific step in the process. If you're looking for reliability considerations for individual Azure services, review the [Resiliency checklist for specific Azure services](../../checklist/resiliency-per-service.md).
 
 ## Build for reliability
 
@@ -48,7 +48,7 @@ Identify your business needs, and build your reliability plan to address them. C
 
     Define your own target SLAs for each workload in your solution, so you can determine whether the architecture meets the business requirements. For example, if a workload requires 99.99 percent uptime but depends on a service with a 99.9 percent SLA, that service can't be a single point of failure in the system.
 
-For more information about developing requirements for reliable applications, see [Developing requirements for resilient Azure applications](./requirements.md).
+For more information about developing requirements for reliable applications, see [Application design for resiliency](./app-design.md).
 
 ## Use architectural best practices
 
@@ -59,7 +59,7 @@ During the architectural phase, focus on implementing practices that meet your b
 - **Design for scalability.** A cloud application must be able to scale to accommodate changes in usage. Begin with discrete components, and design the application to respond automatically to load changes whenever possible. Keep scaling limits in mind during design so you can expand easily in the future.
 - **Plan for subscription and service requirements.** You might need additional subscriptions to provision enough resources to meet your business requirements for storage, connections, throughput, and more.
 - **Use load-balancing to distribute requests.** Load-balancing distributes your application's requests to healthy service instances by removing unhealthy instances from rotation.
-- **Implement resiliency strategies.** *Resiliency* is the ability of a system to recover from failures and continue to function. Implement [resiliency design patterns](../patterns/category/resiliency.md), such as isolating critical resources, using compensating transactions, and performing asynchronous operations whenever possible.
+- **Implement resiliency strategies.** *Resiliency* is the ability of a system to recover from failures and continue to function. Implement [resiliency design patterns](../../patterns/category/resiliency.md), such as isolating critical resources, using compensating transactions, and performing asynchronous operations whenever possible.
 - **Build availability requirements into your design.** *Availability* is the proportion of time your system is functional and working. Take steps to ensure that application availability conforms to your service-level agreement. For example, avoid single points of failure, decompose workloads by service-level objective, and throttle high-volume users.
 - **Manage your data.** How you store, back up, and replicate data is critical.
 
@@ -67,8 +67,6 @@ During the architectural phase, focus on implementing practices that meet your b
   - **Document and test your failover and failback processes.** Clearly document instructions to fail over to a new data store, and test them regularly to make sure they are accurate and easy to follow.
   - **Protect your data.** Back up and validate data regularly, and make sure no single user account has access to both production and backup data.
   - **Plan for data recovery.** Make sure that your backup and replication strategy provides for data recovery times that meet your service-level requirements. Account for all types of data your application uses, including reference data and databases.
-
-For more information about architecting reliable applications, see [Architecting Azure applications for resiliency and availability](./architect.md).
 
 ## Test with simulations and forced failovers
 
@@ -101,7 +99,7 @@ After an application is deployed to production, updates are a possible source of
 - **Log and audit deployments.** If you use staged deployment techniques, more than one version of your application is running in production. Implement a robust logging strategy to capture as much version-specific information as possible.
 - **Document the application release process.** Clearly define and document your release process, and ensure that it's available to the entire operations team.
 
-For more information about application reliability and deployment, see [Deploying Azure applications for resiliency and availability](./deploy.md).
+For more information about application reliability and deployment, see [Deploying Azure applications for resiliency and availability](../devops/deployment.md).
 
 ## Monitor application health
 
@@ -137,9 +135,4 @@ Create a recovery plan, and make sure that it covers data restoration, network o
 - **Recover from a dependent service failure.** Determine which functionality is still available and how the application should respond.
 - **Recover from a region-wide service disruption.** Region-wide service disruptions are uncommon, but you should have a strategy to address them, especially for critical applications. You might be able to redeploy the application to another region or redistribute traffic.
 
-For more information about responding to failures and disaster recovery, see [Failure and disaster recovery for Azure applications](./disaster-recovery.md).
-
-## Next steps
-
-> [!div class="nextstepaction"]
-> [Develop requirements for resilient applications](./requirements.md)
+For more information about responding to failures and disaster recovery, see [Failure and disaster recovery for Azure applications](./backup-and-recovery.md).
