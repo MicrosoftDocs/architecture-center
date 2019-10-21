@@ -125,12 +125,28 @@ items:
   items:
   - name: Overview
     href: patterns/index.md
+  - name: Categories
+    items:
+    - name: Availability
+      href: patterns/category/availability.md
+    - name: Data management
+      href: patterns/category/data-management.md
+    - name: Design and implementation
+      href: patterns/category/design-implementation.md
+    - name: Management and monitoring
+      href: patterns/category/management-monitoring.md
+    - name: Messaging
+      href: patterns/category/messaging.md
+    - name: Performance and scalability
+      href: patterns/category/performance-scalability.md
+    - name: Resiliency
+      href: patterns/category/resiliency.md
+    - name: Security
+      href: patterns/category/security.md
   - name: Ambassador
     href: patterns/ambassador.md
   - name: Anti-corruption Layer
     href: patterns/anti-corruption-layer.md
-  - name: Availability
-    href: patterns/category/availability.md
   - name: Backends for Frontends
     href: patterns/backends-for-frontends.md
   - name: Bulkhead
@@ -151,10 +167,6 @@ items:
     href: patterns/competing-consumers.md
   - name: Compute Resource Consolidation
     href: patterns/compute-resource-consolidation.md
-  - name: Data management
-    href: patterns/category/data-management.md
-  - name: Design and implementation
-    href: patterns/category/design-implementation.md
   - name: Event Sourcing
     href: patterns/event-sourcing.md
   - name: External Configuration Store
@@ -175,14 +187,8 @@ items:
     href: patterns/index-table.md
   - name: Leader Election
     href: patterns/leader-election.md
-  - name: Management and monitoring
-    href: patterns/category/management-monitoring.md
   - name: Materialized View
     href: patterns/materialized-view.md
-  - name: Messaging
-    href: patterns/category/messaging.md
-  - name: Performance and scalability
-    href: patterns/category/performance-scalability.md
   - name: Pipes and Filters
     href: patterns/pipes-and-filters.md
   - name: Priority Queue
@@ -191,14 +197,10 @@ items:
     href: patterns/publisher-subscriber.md
   - name: Queue-Based Load Leveling
     href: patterns/queue-based-load-leveling.md
-  - name: Resiliency
-    href: patterns/category/resiliency.md
   - name: Retry
     href: patterns/retry.md
   - name: Scheduler Agent Supervisor
     href: patterns/scheduler-agent-supervisor.md
-  - name: Security
-    href: patterns/category/security.md
   - name: Sharding
     href: patterns/sharding.md
   - name: Sidecar
