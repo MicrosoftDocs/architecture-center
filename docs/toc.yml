@@ -355,6 +355,8 @@ items:
       href: framework/security/monitoring.md
     - name: Security testing
       href: framework/security/testing.md
+    - name: Role of security
+      href: framework/security/role-of-security.md
     - name: Theat modelling
       href: framework/security/threat-modelling.md
     - name: Trade-offs

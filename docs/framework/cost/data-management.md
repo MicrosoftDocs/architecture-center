@@ -2,7 +2,7 @@
 title: Data management for cost optimization
 description: Describes some of the decisions you may need to make when optimizaing your data footprint for cost.
 author: david-stanford
-ms.date: 11/01/2019
+ms.date: 10/21/2019
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: cloud-design-principles
