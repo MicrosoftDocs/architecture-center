@@ -8,6 +8,9 @@ ms.service: architecture-center
 ms.subservice: cloud-design-principles
 ms.custom: 
 ---
+
+# Role of security when building in the cloud
+
 Security is one of the most important aspects of any architecture. Security
 provides confidentiality, integrity, and availability assurances against
 deliberate attacks and abuse of your valuable data and systems. Losing these
@@ -75,7 +78,7 @@ the particular service, while addressing others will remain the customer’s
 responsibility. To ensure that the proper security controls are provided, a
 careful evaluation of the services and technology choices becomes necessary.
 
-![Shared Responsibility and Key Strategies](images/shared-resp.png)
+![Shared Responsibility and Key Strategies](../_images/shared-resp.png)
 
 **Shared Responsibility and Key Strategies**
 
