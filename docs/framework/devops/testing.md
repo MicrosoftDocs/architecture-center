@@ -2,7 +2,7 @@
 title: Testing your Application and Azure Environment
 description: Describes testing considerations to make when in regards to DevOps when designing your workload.
 author: jose-moreno
-ms.date: 11/01/2019
+ms.date: 10/21/2019
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: cloud-design-principles
@@ -87,8 +87,8 @@ Most companies use a controlled way of injecting faults in the system, although 
 In order to deploy software quickly and reliably, testing is a fundamental component of the development and deployment life cycle. Not only application code should be tested, but infrastructure automation and resiliency should equally be put to the test, to make sure that the application is going to perform as expected in every situation.
 
 <!-- testing -->
-[iac]: iac.md
-[pipelines]: https://docs.microsoft.com/en-us/azure/devops/pipelines
-[devopstests]: https://docs.microsoft.com/azure/devops/test
-[telemetry]: https://docs.microsoft.com/azure/azure-monitor/app/usage-overview
-[slots]: https://docs.microsoft.com/azure/app-service/deploy-staging-slots
+[iac]: /azure/architecture/framework/devops/iac.md
+[pipelines]: /azure/devops/pipelines
+[devopstests]: /azure/devops/test
+[telemetry]: /azure/azure-monitor/app/usage-overview
+[slots]: /azure/app-service/deploy-staging-slots

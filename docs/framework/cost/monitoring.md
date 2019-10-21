@@ -2,7 +2,7 @@
 title: Monitoring your cloud costs
 description: Describes strategies that you can leverage to monitor your cloud costs, and act on them appropriately.
 author: david-stanford
-ms.date: 11/01/2019
+ms.date: 10/21/2019
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: cloud-design-principles
@@ -31,7 +31,7 @@ Within your existing business processes, there may be other cost reviews that oc
 
 - After the billing period – to review actual spend with activity that occurred that month or
 
-- On an ad-hoc basis – usually triggered by a [budget alert](https://docs.microsoft.com/en-us/azure/cost-management/cost-mgt-alerts-monitor-usage-spending) or Azure Advisor recommendation.
+- On an ad-hoc basis – usually triggered by a [budget alert](/azure/cost-management/cost-mgt-alerts-monitor-usage-spending) or Azure Advisor recommendation.
 
 Web Direct (pay as you go) and CSP billing occurs monthly. Note that while Enterprise Agreement (EA) billing occurs annually, each month's consumption counts towards your EA budget, so these costs should still be reviewed monthly.
 
@@ -57,22 +57,22 @@ In addition to detailed usage information on your invoice, Azure provides you wi
 
 ### Azure Cost Management – Cost Analysis
 
-Cost Analysis allows you to view aggregated costs to understand where they have occurred over time and to identify your spending trends. This can be broken down into time periods and viewed against your budgets. You can also set the scope of the costs, for example view all costs incurred by resources with a certain tag or within a specific resource group. Cost Analysis provides inbuilt charts but also supports custom views and the ability to download grouped and filtered data in CSV format. For more information: https://docs.microsoft.com/en-us/azure/cost-management/quick-acm-cost-analysis
+Cost Analysis allows you to view aggregated costs to understand where they have occurred over time and to identify your spending trends. This can be broken down into time periods and viewed against your budgets. You can also set the scope of the costs, for example view all costs incurred by resources with a certain tag or within a specific resource group. Cost Analysis provides inbuilt charts but also supports custom views and the ability to download grouped and filtered data in CSV format. For more information: see [quick acm cost analysis](/azure/cost-management/quick-acm-cost-analysis)
 
 ### Azure Cost Management - Advisor
 
-Advisor cost management recommendations proactively highlight areas of service underuse and steps that you can take to realize cost savings. This includes virtual machines which could be resized to a lower SKU, un-provisioned ExpressRoute circuits and idle virtual network gateways. You can act on these recommendations, postpone them or download them as a CSV or PDF file. To get started with Advisor cost management recommendations, visit: https://docs.microsoft.com/en-gb/azure/advisor/advisor-cost-recommendations. It's important to note, while Azure Advisor is a great tool offered at no additional cost, it does not provide an exhaustive list of recommendations across all underutilized or orphaned resources in Azure.
+Advisor cost management recommendations proactively highlight areas of service underuse and steps that you can take to realize cost savings. This includes virtual machines which could be resized to a lower SKU, un-provisioned ExpressRoute circuits and idle virtual network gateways. You can act on these recommendations, postpone them or download them as a CSV or PDF file. To get started visit [Advisor cost management recommendations](/azure/advisor/advisor-cost-recommendations). It's important to note, while Azure Advisor is a great tool offered at no additional cost, it does not provide an exhaustive list of recommendations across all underutilized or orphaned resources in Azure.
 
 ### Power BI and Azure Consumption Insights
 
-For more flexibility with your cost reports, Azure Consumption Insights can be read into Microsoft's Power BI service. With Power BI, you can then create custom dashboards and reports, ask questions of your data and publish & share your work. Note: Sharing requires Power BI Premium licenses. To connect your billing data to Power BI, visit: https://docs.microsoft.com/en-gb/power-bi/service-connect-to-azure-consumption-insights
+For more flexibility with your cost reports, Azure Consumption Insights can be read into Microsoft's Power BI service. With Power BI, you can then create custom dashboards and reports, ask questions of your data and publish & share your work. Note: Sharing requires Power BI Premium licenses. To connect your billing data to Power BI, visit [connect to azure consumption insights](/power-bi/service-connect-to-azure-consumption-insights)
 
 #### Azure Billing API and Azure Consumption API
 
-If you have another preferred data analysis tool, Azure comes with Billing APIs (in Preview) that you can connect to. Import invoices, resource usage and rate cards: https://docs.microsoft.com/en-us/azure/billing/billing-usage-rate-card-overview or connect to additional usage data including Budgets and Reserved Instances consumption: https://docs.microsoft.com/en-us/azure/billing/billing-consumption-api-overview
+If you have another preferred data analysis tool, Azure comes with Billing APIs (in Preview) that you can connect to. Import invoices, resource usage and rate cards, to learn more visit [billing usage rate card overview](/azure/billing/billing-usage-rate-card-overview) or connect to additional usage data including Budgets and Reserved Instances consumption, review [billing consumption api overview](/azure/billing/billing-consumption-api-overview)
 
 >[!NOTE]
-> There are several different ways of purchasing Azure services and not all of them are supported by Azure Cost Management. For example, detailed billing information for services purchased through a Cloud Solution Provider must be obtained directly from your CSP. For more information on supported cost data, visit https://docs.microsoft.com/en-us/azure/cost-management/understand-cost-mgt-data
+> There are several different ways of purchasing Azure services and not all of them are supported by Azure Cost Management. For example, detailed billing information for services purchased through a Cloud Solution Provider must be obtained directly from your CSP. Review [understand cost management data](/azure/cost-management/understand-cost-mgt-data) for information on supported cost data.
 
 ### Custom Solutions
 

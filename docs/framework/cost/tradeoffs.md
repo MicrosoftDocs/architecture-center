@@ -2,7 +2,7 @@
 title: Trade-offs for costs
 description: Describes some of the trade-offs you may decide to make when optimizing a workload for cost.
 author: david-stanford
-ms.date: 11/01/2019
+ms.date: 10/21/2019
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: cloud-design-principles
@@ -27,7 +27,7 @@ It can be a challenge to get these figures accurate though, due to several reaso
 
 - ROI may not account for organizational business process re-engineering, which may be necessary to fully embrace cloud benefits. In some cases, this re-engineering may not occur at all, leaving an organization in a state where they are using new technology in old ways, therefore stifling the full benefits of their cloud investment.
 
-It is worth examining the TCO and ROI in full, exploring all costs and potential benefits. For migration projects, the [Microsoft Azure Total Cost of Ownership Calculator](https://azure.microsoft.com/en-au/pricing/tco/calculator/) may assist, as it pre-populates some common cost but allows you to modify the cost assumptions.
+It is worth examining the TCO and ROI in full, exploring all costs and potential benefits. For migration projects, the [Microsoft Azure Total Cost of Ownership Calculator](https://azure.microsoft.com/pricing/tco/calculator/) may assist, as it pre-populates some common cost but allows you to modify the cost assumptions.
 
 ## Location
 
@@ -49,4 +49,4 @@ The same applies to compute infrastructure, it's much easier to deploy an additi
 
 ## Subscription offer type
 
-Azure usage rates and billing periods can differ between Enterprise, Web Direct, and Cloud Solution Provider (CSP) customers based on specific subscription types as described [here](https://azure.microsoft.com/en-us/support/legal/offer-details/). Some subscription types also include usage allowances or lower prices, which affect costs. For example, Azure [Dev/Test subscription](https://azure.microsoft.com/en-us/offers/ms-azr-0148p/) types offers lower prices on Azure services such as specific VM sizes, PaaS web apps and VM images with pre-installed software. On the other hand, Visual Studio subscribers obtain as part of their benefits access to [Azure subscriptions](https://azure.microsoft.com/en-us/offers/ms-azr-0063p/) with monthly allowances.
+Azure usage rates and billing periods can differ between Enterprise, Web Direct, and Cloud Solution Provider (CSP) customers based on specific subscription types as described [here](https://azure.microsoft.com/support/legal/offer-details/). Some subscription types also include usage allowances or lower prices, which affect costs. For example, Azure [Dev/Test subscription](https://azure.microsoft.com/offers/ms-azr-0148p/) types offers lower prices on Azure services such as specific VM sizes, PaaS web apps and VM images with pre-installed software. On the other hand, Visual Studio subscribers obtain as part of their benefits access to [Azure subscriptions](https://azure.microsoft.com/offers/ms-azr-0063p/) with monthly allowances.

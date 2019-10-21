@@ -76,7 +76,6 @@ Whether it is for application, network or platform monitoring, you should not ex
 
 Automation around alerts is critical due to the highly collaborative nature of DevOps and the inherent speed needed for effective incident management. Earlier this year, a report from DevOps.com came out stating that 80% of IT teams are alerted to critical incidents via email. Email is an effective form of communication, but it shouldn’t be the most common notification method for a critical issue. Instead, if you can define actions to be executed upon receiving certain alerts (such as scaling up or down) your system will be self-healing.
 
-
 ### Other monitoring tasks
 
 Beyond Azure Monitor, you will want to keep an eye on certain events to make sure that your application is running smoothly:
