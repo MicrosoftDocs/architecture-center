@@ -11,18 +11,20 @@ ms.subservice: guide
 
 # Develop a robust CI/CD pipeline for serverless application frontend on Azure
 
-Serverless computing abstracts the servers, infrastructure, and operating systems, allowing developers to focus on application development. A robust *CI/CD* or *Continuous Integration*/*Continuous Delivery* of such applications allows companies to ship fully-tested and integrated software versions within minutes of development; it provides a backbone of modern DevOps environment.
+Serverless computing abstracts the servers, infrastructure, and operating systems, allowing developers to focus on application development. A robust *CI/CD* or *Continuous Integration*/*Continuous Delivery* of such applications allows companies to ship fully-tested and integrated software versions within minutes of development. It provides a backbone of modern DevOps environment.
 
 What does CI/CD actually stand for?
 
 - Continuous Integration allows development teams to integrate code changes in a shared repository almost instantaneously. This ability coupled with automated build and testing before the changes are actually integrated, ensures that only fully-functional application code is available for deployment.
-- Continuous Delivery allows changes in the source code, configuration, content, and other artifacts, to be delivered to production, and ready to be deployed to end-users, as quickly and safely as possible. The process keeps the code in a *deployable state* at all times. A special case of this a *Continuous Deployment* which includes actual deployment to end-users.
+- Continuous Delivery allows changes in the source code, configuration, content, and other artifacts, to be delivered to production, and ready to be deployed to end-users, as quickly and safely as possible. The process keeps the code in a *deployable state* at all times. A special case of this is *Continuous Deployment*, which includes actual deployment to end-users.
 
-This article discusses CI/CD pipeline for the web frontend for serverless architecture developed in Azure. This is a modern way of building web applications, using client-side JavaScript, reusable server-side APIs, and pre-built Markup, alternatively called as [JAMstack](https://jamstack.org). The application frontend used in this article is in [this GitHub repository](https://github.com/mspnp/serverless-reference-implementation/). The readme describes the steps to download the application, and create your own CI/CD pipeline.
+This article discusses a CI/CD pipeline for the web frontend of [serverless reference implementation](../../reference-architectures/serverless/web-app.md). This pipeline is developed using Azure services. This web frontend demonstrates a modern web application, with client-side JavaScript, reusable server-side APIs, and pre-built Markup, alternatively called [JAMstack](https://jamstack.org). The application frontend used in this article is in [this GitHub repository](https://github.com/mspnp/serverless-reference-implementation/). The readme describes the steps to download the application, and create your own CI/CD pipeline.
 
 The following figure describes the CI/CD pipeline used in this sample frontend:
 
 ![CI/CD pipeline in Serverless App using Azure services](./images/cicd_serverless_frontend.png)
+
+Note that this does not include the [backend deployment](../../reference-architectures/serverless/web-app.md#back-end-deployment).
 
 ## Prerequisites
 
@@ -44,7 +46,7 @@ Use a powerful CI/CD service such as Azure Pipelines to automate your build and 
 
 ### Integrate your build tools
 
-Modern build tools can simplify your build process, and provide functionality such as pre-configuration, minification of the JavaScript files, and static site generation. Static site generators can build markup files before they are deployed to the hosting servers, resulting in a fast user experience. You can select from a variety of these tools, based on the type of your application's programming language and platform, as well as additional functionality needed. [This article](https://blog.logrocket.com/the-best-static-websites-generators-compared-5f1f9eeeaf1a/) provides a list of popular build tools.
+Modern build tools can simplify your build process, and provide functionality such as pre-configuration, [minification](https://techterms.com/definition/minification) of the JavaScript files, and static site generation. Static site generators can build markup files before they are deployed to the hosting servers, resulting in a fast user experience. You can select from a variety of these tools, based on the type of your application's programming language and platform, as well as additional functionality needed. [This article](https://blog.logrocket.com/the-best-static-websites-generators-compared-5f1f9eeeaf1a/) provides a list of popular build tools.
 
 The sample is a React application, built using Gatsby.js - a React-based static site generator and front-end development framework. In addition to running locally during development and testing phases, these tools can be integrated with [Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) to pre-build before deploy.
 
@@ -52,10 +54,117 @@ The sample installs the [gatsby-plugin-typescript](https://www.gatsbyjs.org/pack
 
 ### Automate builds
 
-Automating the build process reduces the human errors. Since the markup files are prebuilt, the content changes will go live only when after a build is completed. The sample achieves automated builds using [Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops). The file [azure-pipelines.yml](https://github.com/mspnp/serverless-reference-implementation/blob/master/src/ClientApp/azure-pipelines.yml) includes the following two-stage automation:
+Automating the build process reduces the human errors. Since the markup files are prebuilt, the content changes will go live only when after a build is completed. The sample achieves automated builds using [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops).
 
-- Build stage: Every change to the content or source specified in the `path` variable triggers a build process using Gatsby, followed by compression using Brotli. Lastly the version is updated.
-- Deploy stage: After the build is successfully completed, the Deploy pipeline starts which uploads all the files required to render the website to the Blob storage, in a new directory for the new version. When the upload is successfully completed, it then points the Azure CDN to the new version's folder.
+The file [azure-pipelines.yml](https://github.com/mspnp/serverless-reference-implementation/blob/master/src/ClientApp/azure-pipelines.yml) includes the script for the two-stage automation. [The Readme for this project](https://github.com/mspnp/serverless-reference-implementation/tree/master/src/ClientApp) describes the steps required to set up the automation pipeline using Azure Pipelines. The following sub-sections show how the pipeline stages are configured.
+
+#### Build stage
+
+Since the Azure Pipeline is [integrated with GitHub repository](https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/github?view=azure-devops&tabs=yaml), any change in the directory in the master branch observed by the azure-pipelines.yml, triggers the first stage of the pipeline, which is the build stage:
+
+```Yaml
+trigger:
+  batch: true
+  branches:
+    include:
+    - master
+  paths:
+    include:
+    - src/ClientApp
+```
+
+The following snippet illustrates the start of the build stage, which spins a Ubuntu virtual machine to run this stage.
+
+```Yaml
+    stages:
+    - stage: Build
+      jobs:
+      - job: WebsiteBuild
+        displayName: Build Fabrikam Drone Status app
+        pool:
+          vmImage: 'Ubuntu-16.04'
+        continueOnError: false
+    steps:
+```
+
+This is followed by *tasks* and *scripts* to install Node.js and set environment variables. The following snippet installs and runs Gatsby.js.
+
+```Yaml
+    - script: |
+        cd src/ClientApp
+        npm install
+        npx gatsby build
+      displayName: 'gatsby build'
+```
+
+The following snippet then installs and runs the compression tool *brotli*. This compresses the built files before deployment. The [next section](#host-and-distribute-using-the-cloud) describes another way of compressing these files. Note that you may choose to use any compression tool in this step.
+
+```Yaml
+    - script: |
+        cd src/ClientApp/public
+        sudo apt-get install brotli --install-suggests --no-install-recommends -q --assume-yes
+        for f in $(find . -type f \( -iname '*.html' -o -iname '*.map' -o -iname '*.js' -o -iname '*.json' \)); do brotli $f -Z -j -f -v && mv ${f}.br $f; done
+      displayName: 'enable compression at origin level'
+```
+
+The script then computes the version of the current build. Versioning the builds helps in cache management as described in the [proceeding section below](#manage-cache-at-the-edge-and-user-devices).
+
+```Yaml
+    - script: |
+        cd $(Build.SourcesDirectory)
+        echo $(docker run --rm -v "$(pwd):/repo" gittools/gitversion:5.0.1-linux-netcoreapp2.1 /repo) > .gitversion
+        echo $(cat .gitversion | grep -oP '(?<="MajorMinorPatch":")[^"]*') > src/ClientApp/public/version.txt
+        echo $(cat .gitversion | grep -oP '(?<="FullSemVer":")[^"]*' | sed -e "s/\+/-/g") > src/ClientApp/public/semver.txt
+      displayName: 'bump version'
+```
+
+The following task publishes the built files for use by the [next stage in the pipeline](https://docs.microsoft.com/azure/devops/pipelines/artifacts/pipeline-artifacts?view=azure-devops&tabs=yaml):
+
+```Yaml
+    - task: PublishPipelineArtifact@1
+      inputs:
+        targetPath: 'src/ClientApp/public'
+        artifactName: 'drop'
+```
+
+A successful completion of the build stage triggers the next stage in the pipeline, which is the deploy stage.
+
+#### Deploy stage
+
+The deploy stage gets another Ubuntu image from the pool.
+
+```Yaml
+    - stage: Deploy
+      jobs:
+      - deployment: WebsiteDeploy
+        displayName: Deploy Fabrikam Drone Status app
+        pool:
+          vmImage: 'Ubuntu-16.04'
+        environment: 'fabrikamdronestatus-prod'
+        strategy:
+          runOnce:
+            deploy:
+              steps:
+```
+
+The build artifacts are then downloaded to the deploy image, the build release version is recorded, and updated in the GitHub repository. The following snippet shows how the website files are uploaded to a new folder for the built version the Blob Storage, and changes the CDN to point to this new folder. This replicates a cache purge, since older folders are no longer accessible by the CDN edge servers.
+
+```Yaml
+       - script: |
+              az login --service-principal -u $(azureArmClientId) -p $(azureArmClientSecret) --tenant $(azureArmTenantId)
+              # upload content to container versioned folder
+              az storage blob upload-batch -s "$(Pipeline.Workspace)/drop" --destination "\$web\$(releaseSemVer)" --account-name $(azureStorageAccountName) --content-encoding br --pattern "*.html" --content-type "text/html"
+              az storage blob upload-batch -s "$(Pipeline.Workspace)/drop" --destination "\$web\$(releaseSemVer)" --account-name $(azureStorageAccountName) --content-encoding br --pattern "*.js" --content-type "application/javascript"
+              az storage blob upload-batch -s "$(Pipeline.Workspace)/drop" --destination "\$web\$(releaseSemVer)" --account-name $(azureStorageAccountName) --content-encoding br --pattern "*.js.map" --content-type "application/octet-stream"
+              az storage blob upload-batch -s "$(Pipeline.Workspace)/drop" --destination "\$web\$(releaseSemVer)" --account-name $(azureStorageAccountName) --content-encoding br --pattern "*.json" --content-type "application/json"
+              az storage blob upload-batch -s "$(Pipeline.Workspace)/drop" --destination "\$web\$(releaseSemVer)" --account-name $(azureStorageAccountName) --pattern "*.txt" --content-type "text/plain"
+              # target new version
+              az cdn endpoint update --resource-group $(azureResourceGroup) --profile-name $(azureCdnName) --name $(azureCdnName) --origin-path '/$(releaseSemVer)'
+              AZURE_CDN_ENDPOINT_HOSTNAME=$(az cdn endpoint show --resource-group $(azureResourceGroup) --name $(azureCdnName) --profile-name $(azureCdnName) --query hostName -o tsv)
+              echo "Azure CDN endpooint host ${AZURE_CDN_ENDPOINT_HOSTNAME}"
+              echo '##vso[task.setvariable variable=azureCndEndpointHost]'$AZURE_CDN_ENDPOINT_HOSTNAME
+            displayName: 'upload to Azure Storage static website hosting and purge Azure CDN endpoint'
+```
 
 ### Atomic deploys
 
@@ -67,7 +176,7 @@ A Content Delivery Network or CDN is a set of distributed servers that speed up 
 
 The sample code uses [Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-overview) to cache the markup and the JavaScript files. You would also use it to store any other resources such as images, video, etc. It uses [Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-overview) as the origin server for these files. For a quick guide on how to use Azure CDN with Azure Blob Storage, read [Integrate an Azure storage account with Azure CDN](https://docs.microsoft.com/en-us/azure/cdn/cdn-create-a-storage-account-with-cdn).
 
-To further improve performance, you should [compress the files in the Azure CDN](https://docs.microsoft.com/en-us/azure/cdn/cdn-improve-performance). There are two ways to do this: at the origin level or on the CDN edge servers. The advantage of compressing at the origin is that it is done during deployment rather than at run time, further improving the run time performance of your website. Additionally, you can finetune the compression by controlling which tool to use. The sample compresses the files before uploading to the Blob Storage using [Brotli](https://brotli.org/). Refer to the following script at line 40 of [azure-pipelines.yml](https://github.com/mspnp/serverless-reference-implementation/blob/master/src/ClientApp/azure-pipelines.yml):
+To further improve performance, you should [compress the files in the Azure CDN](https://docs.microsoft.com/en-us/azure/cdn/cdn-improve-performance). There are two ways to do this: at the origin level or on the CDN edge servers. The advantage of compressing at the origin is that it is done during deployment rather than at run time, further improving the run time performance of your website. Additionally, you can fine tune the compression by controlling which tool to use. The sample compresses the files before uploading to the Blob Storage using [Brotli](https://brotli.org/). Refer to the following script at line 40 of [azure-pipelines.yml](https://github.com/mspnp/serverless-reference-implementation/blob/master/src/ClientApp/azure-pipelines.yml):
 
 ```JavaScript
     - script: |
