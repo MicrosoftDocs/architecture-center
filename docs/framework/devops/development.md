@@ -2,7 +2,7 @@
 title: Development considerations when enabling DevOps
 description: Describes considerations to make when enabling DevOps for your workload.
 author: david-stanford
-ms.date: 11/01/2019
+ms.date: 10/21/2019
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: cloud-design-principles

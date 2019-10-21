@@ -55,7 +55,6 @@ The goal of workload isolation is to associate a workload's specific resources t
 
 Because of their small size and application orientation, containers are well suited for agile delivery environments and microservice-based architectures. The task of automating and managing a large number of containers and how they interact is known as orchestration. While there are multiple container orchestrators are available, it's critical to select right container orchestrator based on your workload requirements, team's skill set, timeline to ramp up & support production workload, etc. One of the popular container orchestration system is [Kubernetes](https://azure.microsoft.com/en-us/topic/what-is-kubernetes/) and Azure provides managed kubernetes cluster using [AKS service](https://docs.microsoft.com/en-us/azure/aks/intro-kubernetes)
 
-
 ## Containerization
 
 Containers make it easy for you to continuously build and deploy applications. By orchestrating the deployment of those containers using Azure Kubernetes Service (AKS), you can achieve replicable, manageable clusters of containers.

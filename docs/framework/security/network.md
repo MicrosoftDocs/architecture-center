@@ -38,7 +38,9 @@ practice recommendations:
 
 -   Build a network containment strategy
 
--   Define an internet edge strategy<!-- DDos Protection -->
+-   Define an internet edge strategy
+ 
+<!-- DDos Protection -->
 [!include[0b02951b-c60d-4593-a7c8-5a9e5ac645cd](../../../includes/aar_guidance/0b02951b-c60d-4593-a7c8-5a9e5ac645cd.md)]
 
 <!-- How do you configure public IPs for which traffic is passed in, and how and where it's translated -->
