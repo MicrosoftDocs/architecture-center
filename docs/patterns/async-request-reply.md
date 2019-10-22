@@ -4,14 +4,13 @@ description: Allow decoupling of backend processing from a frontend host, where 
 keywords: async, http, https, request, reply, synchronous, asynchronous, queue, cqrs, valet, extreme load, transactional, retry-after, location, 202, accepted
 author: WillEastbury
 ms.date: 10/22/2019
-pnp.series.title: Cloud Design Patterns
-pnp.pattern.categories: [design-implementation, messaging, performance-scalability]
 ms.author: wieastbu
 ms.custom: fasttrack-new, architecture
-
+ms.topic: design-pattern
+ms.service: architecture-center
 ---
 
-# Asynchronous Request-Reply Pattern
+# Asynchronous Request-Reply pattern
 
 Decouple backend processing from a frontend host, where backend processing needs to be asynchronous, but the frontend still needs a clear response.
 
