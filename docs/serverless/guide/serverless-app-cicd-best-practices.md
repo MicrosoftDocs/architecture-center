@@ -87,51 +87,39 @@ The following snippet illustrates the start of the build stage, which spins a Ub
     steps:
 ```
 
-This is followed by *tasks* and *scripts* to install Node.js and set environment variables. The following snippet installs and runs Gatsby.js.
+This is followed by *tasks* and *scripts* required to successfully build the project. These include the following: 
 
-```Yaml
-    - script: |
-        cd src/ClientApp
-        npm install
-        npx gatsby build
-      displayName: 'gatsby build'
-```
+- installing Node.js and setting environment variables,
+- installing and running Gatsby.js that builds your static website:
+    ```Yaml
+        - script: |
+            cd src/ClientApp
+            npm install
+            npx gatsby build
+          displayName: 'gatsby build'
+    ```
+- installing and running the compression tool named *brotli*, to [compress the built files](#host-and-distribute-using-the-cloud) before deployment:
+    ```Yaml
+        - script: |
+            cd src/ClientApp/public
+            sudo apt-get install brotli --install-suggests --no-install-recommends -q --assume-yes
+            for f in $(find . -type f \( -iname '*.html' -o -iname '*.map' -o -iname '*.js' -o -iname '*.json' \)); do brotli $f -Z -j -f -v && mv ${f}.br $f; done
+          displayName: 'enable compression at origin level'
+    ```
+- computing the version of the current build, for [cache management](#manage-cache-at-the-edge-and-user-devices),
+- publishing the built files for use by the [deploy stage](https://docs.microsoft.com/azure/devops/pipelines/artifacts/pipeline-artifacts?view=azure-devops&tabs=yaml):
+    ```Yaml
+        - task: PublishPipelineArtifact@1
+          inputs:
+            targetPath: 'src/ClientApp/public'
+            artifactName: 'drop'
+    ```
 
-The following snippet then installs and runs the compression tool *brotli*. This compresses the built files before deployment. The [next section](#host-and-distribute-using-the-cloud) describes another way of compressing these files. Note that you may choose to use any compression tool in this step.
-
-```Yaml
-    - script: |
-        cd src/ClientApp/public
-        sudo apt-get install brotli --install-suggests --no-install-recommends -q --assume-yes
-        for f in $(find . -type f \( -iname '*.html' -o -iname '*.map' -o -iname '*.js' -o -iname '*.json' \)); do brotli $f -Z -j -f -v && mv ${f}.br $f; done
-      displayName: 'enable compression at origin level'
-```
-
-The script then computes the version of the current build. Versioning the builds helps in cache management as described in the [proceeding section below](#manage-cache-at-the-edge-and-user-devices).
-
-```Yaml
-    - script: |
-        cd $(Build.SourcesDirectory)
-        echo $(docker run --rm -v "$(pwd):/repo" gittools/gitversion:5.0.1-linux-netcoreapp2.1 /repo) > .gitversion
-        echo $(cat .gitversion | grep -oP '(?<="MajorMinorPatch":")[^"]*') > src/ClientApp/public/version.txt
-        echo $(cat .gitversion | grep -oP '(?<="FullSemVer":")[^"]*' | sed -e "s/\+/-/g") > src/ClientApp/public/semver.txt
-      displayName: 'bump version'
-```
-
-The following task publishes the built files for use by the [next stage in the pipeline](https://docs.microsoft.com/azure/devops/pipelines/artifacts/pipeline-artifacts?view=azure-devops&tabs=yaml):
-
-```Yaml
-    - task: PublishPipelineArtifact@1
-      inputs:
-        targetPath: 'src/ClientApp/public'
-        artifactName: 'drop'
-```
-
-A successful completion of the build stage triggers the next stage in the pipeline, which is the deploy stage.
+A successful completion of the build stage tears down the Ubuntu environment and triggers the deploy stage in the pipeline.
 
 #### Deploy stage
 
-The deploy stage gets another Ubuntu image from the pool.
+The deploy stage runs in a separate Ubuntu virtual machine:
 
 ```Yaml
     - stage: Deploy
@@ -147,7 +135,14 @@ The deploy stage gets another Ubuntu image from the pool.
               steps:
 ```
 
-The build artifacts are then downloaded to the deploy image, the build release version is recorded, and updated in the GitHub repository. The following snippet shows how the website files are uploaded to a new folder for the built version the Blob Storage, and changes the CDN to point to this new folder. This replicates a cache purge, since older folders are no longer accessible by the CDN edge servers.
+This is followed by various deployment tasks and scripts to:
+
+- download the build artifacts to the virtual machine (this happens automatically as a consequence of using `PublishPipelineArtifact` in the build stage), 
+- record the build release version, and update in the GitHub repository, 
+- upload the website files to the Blob Storage, in a new folder corresponding to the new version, and 
+- change the CDN to point to this new folder. 
+
+The last two steps together replicate a cache purge, since older folders are no longer accessible by the CDN edge servers. The following snippet shows how this is achieved:
 
 ```Yaml
        - script: |
@@ -161,14 +156,18 @@ The build artifacts are then downloaded to the deploy image, the build release v
               # target new version
               az cdn endpoint update --resource-group $(azureResourceGroup) --profile-name $(azureCdnName) --name $(azureCdnName) --origin-path '/$(releaseSemVer)'
               AZURE_CDN_ENDPOINT_HOSTNAME=$(az cdn endpoint show --resource-group $(azureResourceGroup) --name $(azureCdnName) --profile-name $(azureCdnName) --query hostName -o tsv)
-              echo "Azure CDN endpooint host ${AZURE_CDN_ENDPOINT_HOSTNAME}"
+              echo "Azure CDN endpoint host ${AZURE_CDN_ENDPOINT_HOSTNAME}"
               echo '##vso[task.setvariable variable=azureCndEndpointHost]'$AZURE_CDN_ENDPOINT_HOSTNAME
             displayName: 'upload to Azure Storage static website hosting and purge Azure CDN endpoint'
 ```
 
 ### Atomic deploys
 
-Versioned deployment is recommended for static websites. Every build triggers deployment to a new versioned folder. This is true for any change in any of the files. The origin for the CDN, i.e. the Blob Storage in our case, is pointed to the new versioned folder only after all build and uploading is completed. This ensures a truly atomic deployment of the website. This also helps fast rollback to a previous version. You can configure how many such versions should be stored.
+Atomic deployment ensures that the users of your website or application always get the content corresponding to the same version. 
+
+In the sample CI/CD pipeline, the website contents are deployed to the Blob storage, which acts as [the origin server for the Azure CDN](https://docs.microsoft.com/en-us/azure/cdn/cdn-create-endpoint-how-to). If the files are updated in the same *root folder* in the blob, the website will be served inconsistently. Uploading to a new versioned folder as shown in the preceding section solves this problem. The users either get *all or nothing* of the new successful build, since the CDN points to the new folder as the origin, only after all files are successfully updated. This also makes it easy to roll back to a previous version if required. You can configure how many such versions should be stored in the blob.
+
+![Versioned deployment](./images/versioned-deployment.png)
 
 ## Host and distribute using the cloud
 
