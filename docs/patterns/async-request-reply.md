@@ -13,7 +13,7 @@ ms.custom: fasttrack-new, architecture
 
 # Asynchronous Request-Reply Pattern
 
-Decouple backend processing from a frontend host, whee backend processing needs to be asynchronous, but the frontend still needs a clear response.
+Decouple backend processing from a frontend host, where backend processing needs to be asynchronous, but the frontend still needs a clear response.
 
 ## Context and problem
 
@@ -66,7 +66,7 @@ The following diagram shows a typical flow:
 
 ## Issues and considerations
 
-- There a number of possible ways to implement this pattern over HTTP and not all upstream services have the same semantics. For example, most services won't return an HTTP 202 response back from a GET method when a remote process hasn't finished. Following pure REST semantics, they should return HTTP 404 (Not Found). This response makes sense when you consider the result of the call isn't present yet.
+- There are a number of possible ways to implement this pattern over HTTP and not all upstream services have the same semantics. For example, most services won't return an HTTP 202 response back from a GET method when a remote process hasn't finished. Following pure REST semantics, they should return HTTP 404 (Not Found). This response makes sense when you consider the result of the call isn't present yet.
 
 - An HTTP 202 response should indicate the location and frequency that the client should poll for the response. It should have the following additional headers:
 
@@ -95,7 +95,7 @@ Use this pattern for:
 
 - Client-side code, such as browser applications, where it's difficult to provide call-back endpoints, or the use of long-running connections adds too much additional complexity.
 
-- Service calls where only the HTTP protocol is available and the return service can't fire callbacks because of firewall restrictions.  
+- Service calls where only the HTTP protocol is available and the return service can't fire callbacks because of firewall restrictions on the client-side. 
 
 - Service calls that need to be integrated with legacy architectures that don't support modern callback technologies such as WebSockets or webhooks.
 
