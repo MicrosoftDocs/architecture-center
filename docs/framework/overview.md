@@ -162,9 +162,9 @@ Use Key Vault to safeguard cryptographic keys and secrets. By using Key Vault, y
 
 <!-- links -->
 
-[dr-guidance]: ../resiliency/disaster-recovery-azure-applications.md
+[dr-guidance]: ./resiliency/backup-and-recovery.md
 [identity-ref-arch]: ../reference-architectures/identity/index.md
-[resiliency]: ../resiliency/overview
+[resiliency]: ./resiliency/overview.md
 
 [ad-subscriptions]: /azure/active-directory/active-directory-how-subscriptions-associated-directory
 [data-warehouse-encryption]: /azure/data-lake-store/data-lake-store-security-overview#data-protection
