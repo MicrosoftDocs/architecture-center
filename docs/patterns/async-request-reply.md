@@ -3,7 +3,7 @@ title: Asynchronous Request-Reply Pattern
 description: Allow decoupling of backend processing from a frontend host, where backend processing needs to be asynchronous, but the frontend still needs a clear response.
 keywords: async, http, https, request, reply, synchronous, asynchronous, queue, cqrs, valet, extreme load, transactional, retry-after, location, 202, accepted
 author: WillEastbury
-ms.date: 06/06/2019
+ms.date: 10/22/2019
 pnp.series.title: Cloud Design Patterns
 pnp.pattern.categories: [design-implementation, messaging, performance-scalability]
 ms.author: wieastbu
