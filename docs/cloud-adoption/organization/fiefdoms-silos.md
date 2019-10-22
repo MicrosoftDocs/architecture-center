@@ -57,7 +57,7 @@ Even in toxic cultures, the efforts of the CCoE and the cloud governance team sh
 
 Team members in an IT silo are likely to define themselves through their alignment to a small number of IT vendors or an area of technical specialization. However, don't confuse IT silos with IT fiefdoms. IT silos tend to be driven by comfort and passion, and are generally easier to overcome than the fear-driven motives behind fiefdoms.
 
-This antipattern often emerges from of a common passion for a specific solution. IT silos are then reinforced by the team's advanced skills as a result of the investment in that specific solution. This superior skill can be an accelerator to cloud adoption efforts if the resistance to change can be overcome. It can also become a major blocker if the silos are broken down or if the team members can't accurately evaluate options. Fortunately, IT silos can often be overcome without any significant changes to the organizational chart.
+This antipattern often emerges from a common passion for a specific solution. IT silos are then reinforced by the team's advanced skills as a result of the investment in that specific solution. This superior skill can be an accelerator to cloud adoption efforts if the resistance to change can be overcome. It can also become a major blocker if the silos are broken down or if the team members can't accurately evaluate options. Fortunately, IT silos can often be overcome without any significant changes to the organizational chart.
 
 ### Addressing resistance from IT silos
 
