@@ -1,5 +1,5 @@
 ---
-title: Modelling your cloud costs
+title: Modeling your cloud costs
 description: Describes strategies to model your cloud costs
 author: david-stanford
 ms.date: 10/21/2019
@@ -9,13 +9,13 @@ ms.subservice: cloud-design-principles
 ms.custom: 
 ---
 
-# Modelling your cloud costs
+# Modeling your cloud costs
 
 Mapping your organization's hierarchy to business units' cloud consumption needs is likely one of the first requirements for business leaders to understand the value of cloud. Most importantly, it allows business leaders to have a structured view on how cloud services are being governed and consumed. The cloud provider enables creating hierarchies and groupings (via management groups, subscriptions, resource groups, etc.) across the services you utilize. Mapping these logical groupings with your organizational structure will help define where cloud services are deployed and how they are governed.
 
 ## Treat resources as a utility
 
-The cloud is all about change. Your resources in the cloud are virtual, and unless built for durability should be considered ephemeral. Your provider may reboot or replace your resources for troubleshooting or updates. Mapping resources as 1 to 1 drop in replacement for on-prem resources is not recommended. Understanding the utility nature of cloud services and your business service level requirements is critical to modelling your costs.
+The cloud is all about change. Your resources in the cloud are virtual, and unless built for durability should be considered ephemeral. Your provider may reboot or replace your resources for troubleshooting or updates. Mapping resources as 1 to 1 drop in replacement for on-prem resources is not recommended. Understanding the utility nature of cloud services and your business service level requirements is critical to modeling your costs.
 
 ## Leverage reserved capacity
 
@@ -35,7 +35,7 @@ From real experience, it is not easy to estimate costs before migrating to the c
 
 - Let us first look at the scenario when cloud estimates appear to be much more costly than on-premises. In most cases, if you build your own datacenter using best-practices your costs may appear comparable to cloud. However most estimates of on-premises resource costs fail to correctly account for factors such as cooling, electricity, IT and facilities labor costs, physical security, and disaster recovery. To be sure that your calculations accurately reflect all costs, we strongly suggest you check with the Total Cost of Ownership (TCO) Calculator for Azure (https://azure.microsoft.com/pricing/tco/calculator/)  
 
-- As for the second pitfall it is easy to forget to add or choose the right storage type for the solution, or skip networking costs such as large data downloads. Smaller and cheaper VM sizes may be chosen which cannot provide the performance required for a workload.   
+- As for the second pitfall it is easy to forget to add or choose the right storage type for the solution, or skip networking costs such as large data downloads. Smaller and cheaper VM sizes may be chosen which cannot provide the performance required for a workload.
 
 There are number of experts in the market within the Microsoft Partner eco-system who have real experience with complex projects. However even for them it can be difficult to accurately predict real cloud service costs for very large projects. It is a good practice to use proof-of-concept deployments to help refine cost estimates.
 
