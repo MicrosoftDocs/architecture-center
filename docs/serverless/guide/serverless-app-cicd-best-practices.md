@@ -207,8 +207,9 @@ This sample enables dynamic site acceleration as shown in [this section of the r
 
 ### Cache purge
 
-Purging your CDN cache guarantees that every user gets the latest live website files. These files are cached at the edge servers until their time-to-live expires. After this, a new client request prompts new retrieval and caching of the new updated files. Azure CDN allows you to [purge the cache from the portal](https://docs.microsoft.com/en-us/azure/cdn/cdn-purge-endpoint). A better approach is to invalidate this cache 
-is by [using versioning during deployment](#atomic-deploys). An explicit cache purge or expiration usually causes the CDN to retrieve newer versions of the web content. However, since the CDN always points to the latest version of the deployment, it improves caching in the following manner:
+The CDN caches the website files at the edge servers until their time-to-live expires. These are only updated for a new client request after the time-to-live has expired. Purging your CDN cache is required to guarantee that every user gets the latest live website files, especially if the deployment happens at the same CDN origin folder. Azure CDN allows you to [purge the cache from the portal](https://docs.microsoft.com/en-us/azure/cdn/cdn-purge-endpoint). 
+
+A better approach is to invalidate this cache by [using versioning during deployment](#atomic-deploys). An explicit cache purge or expiration usually causes the CDN to retrieve newer versions of the web content. However, since the CDN always points to the latest version of the deployment, it improves caching in the following manner:
 
 1. The CDN validates the index.html against the origin, for every new website instance.
 1. Apart from the index.html and 404.html, all other website files are fingerprinted and cached for a year. This is based on the assumption that resources such as images and videos do not need frequent changes. If these files are updated and rebuilt, their names are updated by a new fingerprint GUID. This results in an update to the index.html with an updated reference to the changed resource file. The CDN then retrieves the updated index.html, and since it does not find the reference resource file in its cache, it also retrieves the changed resource files.
