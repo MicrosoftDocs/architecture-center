@@ -19,9 +19,15 @@ The cloud is all about change. Your resources in the cloud are virtual, and unle
 
 ## Leverage reserved capacity
 
+There are a number of Azure resources you can reserve as prepaid capacity for a period of time, generally one or three years, at a substantial discount off of the standard rate. Taking advantage of these reservation discounts requires understanding the resource requirements and usage patterns for your workloads to ensure you are reserving capacity at a scope and scale that provides the best value. Azure provides tools to help analyze resource usage and make recommendations for reservations.
+
 ## Low-priority VMs
 
+Some workloads such as highly parallel Batch processing jobs can be run on low-priority VMs which take advantage of surplus capacity in Azure at a much lower cost. Development and testing of large-scale solutions, or supplementing baseline capacity are great uses for low-priority VMs.  
+
 ## Platform as a service
+
+Azure provides a wide range of platform-as-a-service (PaaS) offerings such as Azure App Services, CosmosDB, and Service Bus. Leveraging these services can greatly reduce the time and cost of managing application infrastructure, and improve developer efficiency.
 
 ## Estimating & comparing costs
 
