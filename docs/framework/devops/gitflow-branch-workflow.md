@@ -19,12 +19,14 @@ Develop and Master Branches
 Instead of a single master branch, this workflow uses two branches to record the history of the project. The master branch stores the official release history, and the develop branch serves as an integration branch for features. It's also convenient to tag all commits in the master branch with a version number.
 
 The first step is to complement the default master with a develop branch. A simple way to do this is for one developer to create an empty develop branch locally and push it to the server:
+    
     git branch develop
     git push -u origin develop
 
 This branch will contain the complete history of the project, whereas master will contain an abridged version. Other developers should now clone the central repository and create a tracking branch for develop.
 
 When using the git-flow extension library, executing git flow init on an existing repo will create the develop branch:
+    
     Initialized empty Git repository in ~/project/.git/
     No branches exist yet. Base branches must be created now.
     Branch name for production releases: [master]
@@ -52,10 +54,12 @@ Each new feature should reside in its own branch, which can be pushed to the cen
 Feature branches are generally created off to the latest develop branch.
 
 Creating a feature branch Without the git-flow extensions:
+    
     git checkout develop
     git checkout -b feature_branch
 
 When using the git-flow extension:
+    
     git flow feature start feature_branch
 
 
@@ -64,10 +68,12 @@ Continue your work and use Git like you normally would.
 Finishing a feature branch When you’re done with the development work on the feature, the next step is to merge the feature_branch into develop.
 
 Without the git-flow extensions:
+    
     git checkout develop
     git merge feature_branch
 
 Using the git-flow extensions:
+    
     git flow feature finish feature_branch
 
 
@@ -82,11 +88,13 @@ Using a dedicated branch to prepare releases makes it possible for one team to p
 Making release branches is another straightforward branching operation. Like feature branches, release branches are based on the develop branch. A new release branch can be created using the following methods.
 
 Without the git-flow extensions:
+    
     git checkout develop
     git checkout -b release/0.1.0
     ``` cmd
 
 When using the git-flow extensions:
+    
     ``` cmd
     $ git flow release start 0.1.0
     Switched to a new branch 'release/0.1.0
@@ -96,10 +104,12 @@ Once the release is ready to ship, it will get merged it into master and develop
 To finish a release branch, use the following methods:
 
 Without the git-flow extensions:
+    
     git checkout develop
     git merge release/0.1.0`
 
 Or with the git-flow extension:
+    
     git checkout master
     git checkout merge release/0.1.0
     git flow release finish '0.1.0'
@@ -113,13 +123,16 @@ Maintenance or “hotfix” branches are used to quickly patch production releas
 Having a dedicated line of development for bug fixes lets your team address issues without interrupting the rest of the workflow or waiting for the next release cycle. You can think of maintenance branches as ad hoc release branches that work directly with master. A hotfix branch can be created using the following methods:
 
 Without the git-flow extensions:
+    
     git checkout master
     git checkout -b hotfix_branch
 
 When using the git-flow extensions:
+    
     $ git flow hotfix start hotfix_branch
 
 Similar to finishing a release branch, a hotfix branch gets merged into both master and develop.
+    
     git checkout master
     git merge hotfix_branch
     git checkout develop
