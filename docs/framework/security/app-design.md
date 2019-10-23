@@ -26,7 +26,7 @@ This section focuses on applications written by your organization or by others
 on behalf of your organization vs. SaaS or commercially available applications
 installed on IaaS VMs.
 
-![Diagram of Application Models](images/appmodels.png)
+![Diagram of Application Models](../_images/appmodels.png)
 
 Modern cloud platforms like Azure can host both legacy and modern generations of
 applications
@@ -59,7 +59,7 @@ component types:
     requires identifying and mitigating risks from the design and implementation
     of the application as well as assessing supply chain risk of included
     components. Note that the evolution of applications into [microservices
-    architectures](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview-microservices)
+    architectures](/azure/service-fabric/service-fabric-overview-microservices)
     will break various aspects of application code into smaller services vs. a
     single monolithic codebase.
 
@@ -112,8 +112,9 @@ component types:
         These containerized applications fit into either the legacy or modern
         models above depending on whether they are run on a container service by
         the cloud provider (Modern Applications) or on a server managed by the
-        organization (on premises or in IaaS). See the [container security
-        section](#follow-best-practices-for-container-security) below for more details.<!-- Distributed denial-of-service protection -->
+        organization (on premises or in IaaS). See [container security](./container-security.md) for more details.
+
+<!-- Distributed denial-of-service protection -->
 [!include[234e0781-2cb6-43c2-a21e-b8e6270d3e72](../../../includes/aar_guidance/234e0781-2cb6-43c2-a21e-b8e6270d3e72.md)]
 
 <!-- Role-based access controls (RBAC) -->
