@@ -2,11 +2,11 @@
 title: CI/CD for a serverless Azure frontend | Microsoft Docs
 description: Learn best practices for a robust CI/CD pipeline for your serverless frontend on Azure. 
 author: dsk-2015
-ms.date: 09/20/2019
 ms.author: dkshir
+ms.date: 10/20/2019
 ms.topic: guide
 ms.service: architecture-center
-ms.subservice: guide
+ms.subservice: reference-architecture
 ---
 
 # CI/CD for serverless application frontend on Azure
@@ -32,7 +32,7 @@ To work with this sample application, make sure you have the following:
 
 - A GitHub account.
 - An Azure account - if you don't have one, you can try out a [free Azure account](https://azure.microsoft.com/free/).
-- An Azure DevOps organization - if you don't have one, you can try out a [basic plan](https://azure.microsoft.com/en-us/pricing/details/devops/azure-devops-services/), which includes DevOps services such as Azure Pipelines.
+- An Azure DevOps organization - if you don't have one, you can try out a [basic plan](https://azure.microsoft.com/pricing/details/devops/azure-devops-services/), which includes DevOps services such as Azure Pipelines.
 
 ## Use an online version control system
 
@@ -42,13 +42,13 @@ The sample application project files are kept in GitHub, one of the most popular
 
 ## Automate your build and deploy
 
-A powerful CI/CD service such as [Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/?view=azure-devops) can help you automate the build and deploy processes. You can create multiple stages in the pipeline, each stage running based on the result of the previous one. The stages can run in either a [Windows or Linux container](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/container-phases?view=azure-devops&tabs=yaml). The script must make sure the tools and environments are set properly in the container. Azure Pipelines can run a variety of build tools, and can work with quite a few [online version control systems](https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/?view=azure-devops).
+A powerful CI/CD service such as [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/?view=azure-devops) can help you automate the build and deploy processes. You can create multiple stages in the pipeline, each stage running based on the result of the previous one. The stages can run in either a [Windows or Linux container](https://docs.microsoft.com/azure/devops/pipelines/process/container-phases?view=azure-devops&tabs=yaml). The script must make sure the tools and environments are set properly in the container. Azure Pipelines can run a variety of build tools, and can work with quite a few [online version control systems](https://docs.microsoft.com/azure/devops/pipelines/repos/?view=azure-devops).
 
 ### Integrate build tools
 
 Modern build tools can simplify your build process, and provide functionality such as pre-configuration, [minification](https://techterms.com/definition/minification) of the JavaScript files, and static site generation. Static site generators can build markup files before they are deployed to the hosting servers, resulting in a fast user experience. You can select from a variety of these tools, based on the type of your application's programming language and platform, as well as additional functionality needed. [This article](https://blog.logrocket.com/the-best-static-websites-generators-compared-5f1f9eeeaf1a/) provides a list of popular build tools for a modern application.
 
-The sample is a React application, built using [Gatsby.js](https://www.gatsbyjs.org/) - a static site generator and front-end development framework. These tools can be run locally during development and testing phases, as well as integrated with [Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) for the final deployment.
+The sample is a React application, built using [Gatsby.js](https://www.gatsbyjs.org/) - a static site generator and front-end development framework. These tools can be run locally during development and testing phases, as well as integrated with [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/what-is-azure-pipelines?view=azure-devops) for the final deployment.
 
 The sample uses the Gatsby file [gatsby-ssr.js](https://www.gatsbyjs.org/docs/ssr-apis/) for rendering, and [gatsby-config.js](https://www.gatsbyjs.org/docs/gatsby-config/) for site configuration. Gatsby converts all JavaScript files under the `pages` subdirectory of the `src` folder to HTML files. Additional components go in the `components` subdirectory. The sample also uses the [gatsby-plugin-typescript](https://www.gatsbyjs.org/packages/gatsby-plugin-typescript/) plugin that allows using [TypeScript](https://www.typescriptlang.org/) for type safety, instead of JavaScript.
 
@@ -60,7 +60,7 @@ Automating the build process reduces the human errors that can be introduced in 
 
 #### Build stage
 
-Since the Azure Pipeline is [integrated with GitHub repository](https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/github?view=azure-devops&tabs=yaml), any changes in the tracked directory of the master branch, trigger the first stage of the pipeline, the build stage:
+Since the Azure Pipeline is [integrated with GitHub repository](https://docs.microsoft.com/azure/devops/pipelines/repos/github?view=azure-devops&tabs=yaml), any changes in the tracked directory of the master branch, trigger the first stage of the pipeline, the build stage:
 
 ```Yaml
 trigger:
@@ -165,7 +165,7 @@ The last two steps together replicate a cache purge, since older folders are no 
 
 Atomic deployment ensures that the users of your website or application, always get the content corresponding to the same version.
 
-In the sample CI/CD pipeline, the website contents are deployed to the Blob storage, which acts as [the origin server for the Azure CDN](https://docs.microsoft.com/en-us/azure/cdn/cdn-create-endpoint-how-to). If the files are updated in the same *root folder* in the blob, the website will be served inconsistently. Uploading to a new versioned folder as shown in the preceding section solves this problem. The users either get *all or nothing* of the new successful build, since the CDN points to the new folder as the origin, only after all files are successfully updated.
+In the sample CI/CD pipeline, the website contents are deployed to the Blob storage, which acts as [the origin server for the Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-create-endpoint-how-to). If the files are updated in the same *root folder* in the blob, the website will be served inconsistently. Uploading to a new versioned folder as shown in the preceding section solves this problem. The users either get *all or nothing* of the new successful build, since the CDN points to the new folder as the origin, only after all files are successfully updated.
 
 ![Versioned deployment](./images/versioned-deployment.png)
 
@@ -177,17 +177,17 @@ The advantages of this approach are as follows:
 
 ## Host and distribute using the cloud
 
-A Content Delivery Network or CDN is a set of distributed servers that speed up the content delivery to users over a vast geographical area. Every user gets the content from the server nearest to them. The CDN accesses this content from an *origin* server, and caches it to *edge* servers at strategic locations. The sample CI/CD in this article uses [Azure CDN](https://docs.microsoft.com/en-us/azure/cdn/), pointing to website content hosted on [Azure Blob Storage](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-overview) as the origin server. The Blob storage is [configured for static website hosting](https://github.com/mspnp/serverless-reference-implementation/tree/master/src/ClientApp#create-azure-storage-static-website-hosting). For a quick guide on how to use Azure CDN with Azure Blob Storage, read [Integrate an Azure storage account with Azure CDN](https://docs.microsoft.com/en-us/azure/cdn/cdn-create-a-storage-account-with-cdn).
+A Content Delivery Network or CDN is a set of distributed servers that speed up the content delivery to users over a vast geographical area. Every user gets the content from the server nearest to them. The CDN accesses this content from an *origin* server, and caches it to *edge* servers at strategic locations. The sample CI/CD in this article uses [Azure CDN](https://docs.microsoft.com/azure/cdn/), pointing to website content hosted on [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) as the origin server. The Blob storage is [configured for static website hosting](https://github.com/mspnp/serverless-reference-implementation/tree/master/src/ClientApp#create-azure-storage-static-website-hosting). For a quick guide on how to use Azure CDN with Azure Blob Storage, read [Integrate an Azure storage account with Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-create-a-storage-account-with-cdn).
 
 The following are some strategies that can improve the CDN performance.
 
 ### Compress the content
 
-[Compressing the files before serving](https://docs.microsoft.com/en-us/azure/cdn/cdn-improve-performance) improves file transfer speed and increases page-load performance for the end users. 
+[Compressing the files before serving](https://docs.microsoft.com/azure/cdn/cdn-improve-performance) improves file transfer speed and increases page-load performance for the end users. 
 
 There are two ways to do this:
 
-1. **On the fly in the CDN edge servers**. This improves bandwidth consumption by a significant percentage, making the website considerably faster than without compression. It is relatively easy to [enable this type of compression on Azure CDN](https://docs.microsoft.com/en-us/azure/cdn/cdn-improve-performance#enabling-compression). Since it's controlled by the CDN, you cannot choose or configure the compression tool. Use this compression if website performance is not a critical concern.
+1. **On the fly in the CDN edge servers**. This improves bandwidth consumption by a significant percentage, making the website considerably faster than without compression. It is relatively easy to [enable this type of compression on Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-improve-performance#enabling-compression). Since it's controlled by the CDN, you cannot choose or configure the compression tool. Use this compression if website performance is not a critical concern.
 
 1. **Pre-compressing before reaching the CDN**, either on your origin server, or before reaching the origin. Pre-compressing further improves the run time performance of your website, since it's done before being fetched by the CDN. The sample CI/CD pipeline compresses the built files in the deployment stage, using [brotli](https://brotli.org/), as shown in the [build section above](#build-stage). The advantages of using pre-compression are as follows:
     1. You can use any compression tool that you're comfortable with, and further fine-tune the compression. CDNs may have limitations on the tools they use.
@@ -207,7 +207,7 @@ This sample enables dynamic site acceleration as shown in [this section of the r
 
 ### Cache purge
 
-The CDN caches the website files at the edge servers until their time-to-live expires. These are updated for a new client request, only after their time-to-live has expired. Purging your CDN cache is required to guarantee that every user gets the latest live website files, especially if the deployment happens at the same CDN origin folder. Azure CDN allows you to [purge the cache from the Azure portal](https://docs.microsoft.com/en-us/azure/cdn/cdn-purge-endpoint).
+The CDN caches the website files at the edge servers until their time-to-live expires. These are updated for a new client request, only after their time-to-live has expired. Purging your CDN cache is required to guarantee that every user gets the latest live website files, especially if the deployment happens at the same CDN origin folder. Azure CDN allows you to [purge the cache from the Azure portal](https://docs.microsoft.com/azure/cdn/cdn-purge-endpoint).
 
 A better approach is to invalidate this cache by [using versioning during deployment](#atomic-deploys). An explicit cache purge or expiration usually causes the CDN to retrieve newer versions of the web content. However, since the CDN always points to the latest version of the deployment, it improves caching in the following manner:
 
