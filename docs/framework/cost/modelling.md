@@ -19,11 +19,11 @@ The cloud is all about change. Your resources in the cloud are virtual, and unle
 
 ## Leverage reserved capacity
 
-There are a number of Azure resources you can reserve as prepaid capacity for a period of time, generally one or three years, at a substantial discount off of the standard rate. Taking advantage of these reservation discounts requires understanding the resource requirements and usage patterns for your workloads to ensure you are reserving capacity at a scope and scale that provides the best value. Azure provides tools to help analyze resource usage and make recommendations for reservations.
+There are a number of Azure resources you can reserve as prepaid capacity for a period of time, generally one or three years, for a substantial discount. Taking advantage of these discounts requires understanding the resource needs and usage patterns for your workloads. Azure provides tools to help analyze resource usage and make recommendations to get the most value from your reservations.
 
 ## Low-priority VMs
 
-Some workloads such as highly parallel Batch processing jobs can be run on low-priority VMs which take advantage of surplus capacity in Azure at a much lower cost. Development and testing of large-scale solutions, or supplementing baseline capacity are great uses for low-priority VMs.  
+Some workloads such as highly parallel Batch processing jobs can be run on low-priority VMs. These VMs take advantage of surplus capacity in Azure at a much lower cost. Development and testing of large-scale solutions, or supplementing baseline capacity are great uses for low-priority VMs.  
 
 ## Platform as a service
 
@@ -31,23 +31,23 @@ Azure provides a wide range of platform-as-a-service (PaaS) offerings such as Az
 
 ## Estimating & comparing costs
 
-From real experience, it is not easy to estimate costs before migrating to the cloud. In many cases the initial calculation of cloud resource costs will be quite inaccurate if you rely on methods used for on-premises estimation. These methods may make cloud resources appear to be much more expensive than on-premises, or may show that cloud is cheaper but miss capturing some service costs in the calculation.
+From real experience, it is hard to estimate costs before migrating to the cloud. In many cases, the initial calculation of cloud resource costs will be inaccurate if you rely on methods used for on-premises estimation. These methods may make cloud resources appear to be much more expensive than on-premises, or may show cloud is cheaper but miss capturing some service costs in the calculation.
 
-- Let us first look at the scenario when cloud estimates appear to be much more costly than on-premises. In most cases, if you build your own datacenter using best-practices your costs may appear comparable to cloud. However most estimates of on-premises resource costs fail to correctly account for factors such as cooling, electricity, IT and facilities labor costs, physical security, and disaster recovery. To be sure that your calculations accurately reflect all costs, we strongly suggest you check with the Total Cost of Ownership (TCO) Calculator for Azure (https://azure.microsoft.com/pricing/tco/calculator/)  
+- Let us first look at the scenario when cloud estimates appear to be much more costly than on-premises. In most cases, if you build your own datacenter using best-practices your costs may appear comparable to cloud. However most on-premises estimates fail to account for costs like cooling, electricity, IT and facilities labor, security, and disaster recovery. The Total Cost of Ownership (TCO) Calculator for Azure (https://azure.microsoft.com/pricing/tco/calculator/) can help your estimates accurately reflect all costs.
 
-- As for the second pitfall it is easy to forget to add or choose the right storage type for the solution, or skip networking costs such as large data downloads. Smaller and cheaper VM sizes may be chosen which cannot provide the performance required for a workload.
+- It is easy to forget to add or choose the right storage type for the solution, or skip networking costs such as large data downloads. Smaller and cheaper VM sizes may be chosen which cannot provide the performance required for a workload. These and other mistakes can cause cloud estimates to appear less expensive than they should be.
 
-There are number of experts in the market within the Microsoft Partner eco-system who have real experience with complex projects. However even for them it can be difficult to accurately predict real cloud service costs for very large projects. It is a good practice to use proof-of-concept deployments to help refine cost estimates.
+There are a number of experts in the market within the Microsoft Partner eco-system who have real experience with complex projects. However even for them it can be difficult to accurately predict real cloud service costs for large projects. It is a good practice to use proof-of-concept deployments to help refine cost estimates.
 
 ## Standardization
 
-Ensure that your cloud environments are integrated into any IT-related operational processes, from the provisioning of users and their application access through to your business continuity & disaster recovery processes. This process mapping may uncover areas where additional cloud spend is needed, either to achieve the desired business outcomes or to adapt processes to take advantage of new cloud capabilities.
+Ensure that your cloud environments are integrated into any IT operations processes like user or application access provisioning, incident response, and disaster recovery. This process mapping may uncover areas where additional cloud spend is needed to achieve the desired outcomes or take advantage of new capabilities.
 
 ## Education
 
-The cloud brings a new set of capabilities and tools for your organization's technical staff and business users. Identify training requirements & associated costs for technical staff to perform cloud migration projects and application development or re-architecture. Also include training initiatives to enable ongoing cloud management skills such as identity management, security configuration, systems monitoring and automation.
+The cloud brings a new set of capabilities and tools for your organization's technical staff and business users. Identify training requirements & associated costs for technical staff to perform cloud migration projects and application development or rearchitecture. Also include training initiatives to enable ongoing cloud management skills such as identity management, security configuration, systems monitoring and automation.
 
-Ensure that staff have access to ongoing training and relevant announcements for the duration of your investment, as the pace of change in cloud means new capabilities and tooling updates are released continuously. Real experience of many customers across the globe shows that after attending specific cloud training and passing dedicated [Microsoft Exams](https://www.microsoft.com/learning/exam-list.aspx) (AZ, MS, MB etc,) costs decrease as increased knowledge leads to more optimal usage of the services.
+Your staff should have access to ongoing training and relevant announcements for the duration of your investment, as the pace of change means new cloud capabilities and updates are released continuously. Real experience of many customers across the globe shows attending specific cloud training and passing dedicated [Microsoft Exams](https://www.microsoft.com/learning/exam-list.aspx) (AZ, MS, MB etc,) can help costs decrease. Increased knowledge leads to more optimal usage of the services.
 
 Consider onboarding offerings that may be available for free for your organization to leverage, such as [FastTrack for Azure](https://azure.microsoft.com/programs/azure-fasttrack/partners/), to help speed up your adoption, build your confidence in the platform and set you up for success.
 
