@@ -147,6 +147,8 @@ items:
     href: patterns/ambassador.md
   - name: Anti-corruption Layer
     href: patterns/anti-corruption-layer.md
+  - name: Asynchronous Request-Reply
+    href: patterns/async-request-reply.md
   - name: Backends for Frontends
     href: patterns/backends-for-frontends.md
   - name: Bulkhead
@@ -343,6 +345,16 @@ items:
 
   - name: Data architectures
     items:
+    - name: Reference architectures
+      items:
+      - name: Automated enterprise BI with Azure Data Factory
+        href: reference-architectures/data/enterprise-bi-adf.md
+      - name: Enterprise BI with SQL Data Warehouse
+        href: reference-architectures/data/enterprise-bi-sqldw.md
+      - name: Stream processing with Azure Databricks
+        href: reference-architectures/data/stream-processing-databricks.md
+      - name: Stream processing with Azure Stream Analytics
+        href: reference-architectures/data/stream-processing-stream-analytics.md
     - name: Guides
       items:
       - name: Overview
@@ -399,16 +411,6 @@ items:
           href: databricks-monitoring/dashboards.md
         - name: Troubleshoot performance bottlenecks
           href: databricks-monitoring/performance-troubleshooting.md
-    - name: Reference architectures
-      items:
-      - name: Automated enterprise BI with Azure Data Factory
-        href: reference-architectures/data/enterprise-bi-adf.md
-      - name: Enterprise BI with SQL Data Warehouse
-        href: reference-architectures/data/enterprise-bi-sqldw.md
-      - name: Stream processing with Azure Databricks
-        href: reference-architectures/data/stream-processing-databricks.md
-      - name: Stream processing with Azure Stream Analytics
-        href: reference-architectures/data/stream-processing-stream-analytics.md
     - name: Example workloads
       items:
       - name: Advanced analytics
@@ -497,6 +499,18 @@ items:
 
   - name: Identity
     items:
+    - name: Reference architectures
+      items:
+      - name: Choose an Active Directory integration architecture
+        href: reference-architectures/identity/index.md
+      - name: Integrate on-premises AD with Azure AD
+        href: reference-architectures/identity/azure-ad.md
+      - name: Extend AD DS to Azure
+        href: reference-architectures/identity/adds-extend-domain.md
+      - name: Create an AD DS forest in Azure
+        href: reference-architectures/identity/adds-forest.md
+      - name: Extend AD FS to Azure
+        href: reference-architectures/identity/adfs.md
     - name: Guides
       items:
       - name: Identity in multitenant applications
@@ -523,18 +537,6 @@ items:
           href: multitenant-identity/client-assertion.md
         - name: Federate with a customer's AD FS
           href: multitenant-identity/adfs.md
-    - name: Reference architectures
-      items:
-      - name: Choose an Active Directory integration architecture
-        href: reference-architectures/identity/index.md
-      - name: Integrate on-premises AD with Azure AD
-        href: reference-architectures/identity/azure-ad.md
-      - name: Extend AD DS to Azure
-        href: reference-architectures/identity/adds-extend-domain.md
-      - name: Create an AD DS forest in Azure
-        href: reference-architectures/identity/adds-forest.md
-      - name: Extend AD FS to Azure
-        href: reference-architectures/identity/adfs.md
 
   - name: Internet of Things (IoT)
     items:
@@ -555,6 +557,12 @@ items:
       href: microservices/index.md
     - name: Introduction to microservices
       href: microservices/introduction.md
+    - name: Reference architectures
+      items:
+      - name: Azure Kubernetes Service (AKS)
+        href: reference-architectures/microservices/aks.md
+      - name: Azure Service Fabric
+        href: reference-architectures/microservices/service-fabric.md
     - name: Guides
       items:
       - name: Modeling microservices
@@ -593,12 +601,6 @@ items:
         href: service-fabric/modernize-app-azure-service-fabric.md
       - name: Migrate from Cloud Services to Service Fabric
         href: service-fabric/migrate-from-cloud-services.md
-    - name: Reference architectures
-      items:
-      - name: Azure Kubernetes Service (AKS)
-        href: reference-architectures/microservices/aks.md
-      - name: Azure Service Fabric
-        href: reference-architectures/microservices/service-fabric.md
     - name: Example workloads
       items:
       - name: Decomposing a monolithic application
@@ -641,6 +643,10 @@ items:
         href: reference-architectures/serverless/event-processing.md
       - name: Serverless web application
         href: reference-architectures/serverless/web-app.md
+    - name: Guides
+      items:
+      - name: CI/CD for serverless frontend
+        href: serverless/guide/serverless-app-cicd-best-practices.md
 
   - name: VM workloads
     items:
@@ -706,4 +712,3 @@ items:
 
 - name: Cloud Adoption Framework
   href: https://docs.microsoft.com/azure/cloud-adoption-framework
-  

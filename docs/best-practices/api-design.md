@@ -10,7 +10,7 @@ ms.subservice: cloud-fundamentals
 ms.custom: seodec18
 ---
 
-# API design
+# Web API design
 
 Most modern web applications expose APIs that clients can use to interact with the application. A well-designed web API should aim to support:
 
@@ -257,7 +257,7 @@ HTTP/1.1 303 See Other
 Location: /api/orders/12345
 ```
 
-For more information, see [Asynchronous operations in REST](https://www.adayinthelifeof.nl/2011/06/02/asynchronous-operations-in-rest/).
+For more information, see [Asynchronous Request-Reply pattern](../patterns/async-request-reply.md).
 
 ## Filter and paginate data
 
