@@ -22,7 +22,7 @@ This article discusses a CI/CD pipeline for the web frontend of a [serverless re
 
 The following figure describes the CI/CD pipeline used in this sample frontend:
 
-![CI/CD pipeline in Serverless App using Azure services](./images/cicd_serverless_frontend.png)
+![CI/CD pipeline in Serverless App using Azure services](./images/cicd-serverless-frontend.png)
 
 This article does not discuss the [backend deployment](../../reference-architectures/serverless/web-app.md#back-end-deployment).
 
