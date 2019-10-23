@@ -31,10 +31,10 @@ A declarative automation framework is characterized for handling some of the det
 
 * [ARM Templates][arm]: ARM templates are declarative text files containing a description of Azure resources to be deployed. ARM templates are specific to Azure, and its most important advantage is the extensive coverage of Azure resource types and properties.
 * [Terraform][terraform]: Terraform is a cloud-agnostic declarative framework that supports many private and public clouds, being Azure one of them. It has the main advantage of offering a cloud-agnostic framework: while Terraform configurations are specific to each cloud, the framework itself is the same for all of them.
-* [Ansible][ansible]: Ansible is different from ARM templates and Terraform because it was created not to describe infrastructure, but to describe software configuration of Linux-based computer systems. Ansible has evolved to describe infrastructure in multiple clouds, such as Azure.
+* [Ansible][ansible]: Ansible is an open-source software provisioning, configuration management, and application-deployment tool. It runs on many Unix-like systems, and can configure both Unix-like systems as well as Windows. Ansible is agentless, temporarily connecting remotely via SSH or remote PowerShell to do its tasks. Ansible’s language, despite being based on the declarative YAML language, is imperative. Ansible playbooks are a sequence of plays to be carried out on different groups of hosts. Plays are in turn sequences of tasks that invoke modules to commit changes to individual hosts. Ansible has evolved to describe infrastructure in multiple clouds, such as Azure.
 * Other: other declarative frameworks such as Chef or Puppet support as well deploying infrastructure to Azure.
 
-Which of these frameworks is better for you will depend on factors such as whether your organization already has any experience in one of them. If you are open to choosing any one, the best option would probably be ARM Templates: first of all it has the best coverage for Azure resources and features. Besides, ARM templates can be used inside certain Azure services such as Azure Blueprints or Azure Policy.
+Which of these frameworks is better for you will depend on factors such as whether your organization already has any experience in one of them and if you plan on running workloads in multiple clouds now or in the future. For Azure, the best option would be ARM Templates: it has the best coverage for Azure resources and features and ARM templates can be used to manage certain Azure services such as Azure Blueprints or Azure Policy. If you are planning on running workloads in multiple clouds it is best to standardize on tools and frameworks that let you manage those deployments in a consistent manner.
 
 ### Imperative Frameworks for Azure Automation
 
@@ -63,6 +63,8 @@ Configuration Management Tools such as Ansible, Puppet, Chef or Desired State Co
 
 These tools are not Azure-specific, but have been used for years in both Linux and Windows Operating Systems. Azure Virtual Machines are no different, and you should use Configuration Management Tools to make sure that your VMs contain the right dependencies for your applications, and are configured correctly.
 
+* [Ansible Dynamic Inventory][Ansible] supports the concept of dynamic inventory in which we have some python scripts and a .ini file through which we can provision machines dynamically without knowing its public or private address. Ansible Dynamic Inventory is fed by using external python scripts and .ini files provided by Ansible for cloud infrastructure platforms like Azure. It will dynamically use tags to enable the ability to quickly and easily work with subgroups of your virtual machines.
+
 ### Azure Managed Images
 
 In some situations, instead of deploying an Azure Virtual Machine out of the Azure Marketplace and install the required application dependencies on the Operating System, you might want to build your own OS image with everything that your applications require already in it. This way, Virtual Machines will be created quicker, since nothing needs to be installed. Additionally this way of deploying Virtual Machines is very predictable, since the image contains every single software package in advance.
@@ -76,6 +78,18 @@ Packer can be used to create Azure Managed Images for both [Linux][packer-linux]
 As seen in previous sections, it is recommended storing your templates and scripts to deploy Azure resources along your application code, so that if applications upgrades require infrastructure changes, those can be stored next to the new application code. There are many version control systems for source code, but [git][git] has become a de facto standard in the last few years. If you are already using a version control system you can continue using it with Azure. If you are looking for a new one, you might consider [Github][github] or [Azure Repos][repos], a component of the [Azure DevOps Services][azuredevops]. Both Github and Azure Repos offer a rich set of functionality, automation and security features.
 
 Once you have your infrastructure deployment code such as ARM templates or Packer configurations stored in a version control systems, you can automate its deployment with Continuous Deployment tools. Once again, if you have automation tools that you use today to deploy application code, such as Jenkins, you can continue using them. If you are looking for a CI/CD tool with a high integration in the Azure ecosystem you might want to look at [Azure Pipelines][pipelines], the component of [Azure DevOps Services][azuredevops] that brings automation for application builds and deployments.
+
+### Best Practices for running Terraform in automation
+When running Terraform in automation the main path is broadly the same as for CLI usage:
+
+1. Initialize the Terraform working directory.
+2. Produce a plan for changing resources to match the current configuration.
+3. Have a human operator review that plan, to ensure it is acceptable.
+4. Apply the changes described by the plan.
+
+* After plan completes, archive the entire working directory, including the .terraform subdirectory created during init, and save it somewhere where it will be available to the apply step. A common choice is as a "build artifact" within the chosen orchestration tool.
+* Before running apply, obtain the archive created in the previous step and extract it at the same absolute path. This re-creates everything that was present after plan, avoiding strange issues where local files were created during the plan step.
+* Implement an interactive approval step between plan and apply. Different orchestration tools address this in different ways, but generally this is implemented via a build pipeline feature, where different steps can be applied in sequence, with later steps having access to data produced by earlier steps.
 
 ## Summary
 
