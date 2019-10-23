@@ -112,8 +112,9 @@ component types:
         These containerized applications fit into either the legacy or modern
         models above depending on whether they are run on a container service by
         the cloud provider (Modern Applications) or on a server managed by the
-        organization (on premises or in IaaS). See the [container security
-        section](#follow-best-practices-for-container-security) below for more details.<!-- Distributed denial-of-service protection -->
+        organization (on premises or in IaaS). See [container security](./container-security.md) for more details.
+
+<!-- Distributed denial-of-service protection -->
 [!include[234e0781-2cb6-43c2-a21e-b8e6270d3e72](../../../includes/aar_guidance/234e0781-2cb6-43c2-a21e-b8e6270d3e72.md)]
 
 <!-- Role-based access controls (RBAC) -->
