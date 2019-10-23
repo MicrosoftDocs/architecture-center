@@ -246,7 +246,7 @@ items:
     - name: Overview
       href: framework/cost/overview.md
     - name: Cost modelling
-      href: framework/cost/modelling.md
+      href: framework/cost/modeling.md
     - name: Cost monitoring
       href: framework/cost/monitoring.md
     - name: Data management
