@@ -26,7 +26,7 @@ This section focuses on applications written by your organization or by others
 on behalf of your organization vs. SaaS or commercially available applications
 installed on IaaS VMs.
 
-![Diagram of Application Models](images/appmodels.png)
+![Diagram of Application Models](../_images/appmodels.png)
 
 Modern cloud platforms like Azure can host both legacy and modern generations of
 applications
@@ -59,7 +59,7 @@ component types:
     requires identifying and mitigating risks from the design and implementation
     of the application as well as assessing supply chain risk of included
     components. Note that the evolution of applications into [microservices
-    architectures](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview-microservices)
+    architectures](/azure/service-fabric/service-fabric-overview-microservices)
     will break various aspects of application code into smaller services vs. a
     single monolithic codebase.
 
