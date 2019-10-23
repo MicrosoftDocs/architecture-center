@@ -240,7 +240,7 @@ items:
 - name: Azure Architecture Framework
   items:
   - name: Overview
-    href: framework/overview.md
+    href: framework/
   - name: Cost
     items:
     - name: Overview
