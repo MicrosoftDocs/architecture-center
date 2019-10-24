@@ -1,12 +1,12 @@
 ---
 title: Process and procedures for DevOps
 description: Describes how to optimize your processes and procedures to enable DevOps in your organization.
-author: david-stanford
+author: nimccoll
 ms.date: 10/21/2019
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: cloud-design-principles
-ms.custom: 
+ms.custom: fasttrack-edit
 ---
 
 # Process and procedures for DevOps
@@ -17,7 +17,7 @@ ms.custom:
 
 ## Branching strategies
 
-## Monitor for bugs in dependecies
+## Monitor for bugs in dependencies
 
 ## Naming conventions
 
