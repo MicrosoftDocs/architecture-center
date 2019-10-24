@@ -2,7 +2,7 @@
 title: Process and procedures for DevOps
 description: Describes how to optimize your processes and procedures to enable DevOps in your organization.
 author: david-stanford
-ms.date: 11/01/2019
+ms.date: 10/21/2019
 ms.topic: article
 ms.service: architecture-center
 ms.subservice: cloud-design-principles

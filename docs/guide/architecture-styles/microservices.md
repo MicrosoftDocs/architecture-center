@@ -14,7 +14,7 @@ ms.custom: seojan19, microservices
 
 A microservices architecture consists of a collection of small, autonomous services. Each service is self-contained and should implement a single business capability.
 
-![Logical diagram of microservices architecture style](./images/microservices-logical.svg)
+![Logical diagram of microservices architecture style](./images/microservices-logical.png)
 
 In some ways, microservices are the natural evolution of service oriented architectures (SOA), but there are differences between microservices and SOA. Here are some defining characteristics of a microservice:
 

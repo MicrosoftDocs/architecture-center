@@ -246,7 +246,7 @@ items:
     - name: Overview
       href: framework/cost/overview.md
     - name: Cost modelling
-      href: framework/cost/modelling.md
+      href: framework/cost/modeling.md
     - name: Cost monitoring
       href: framework/cost/monitoring.md
     - name: Data management
@@ -257,6 +257,8 @@ items:
       href: framework/cost/provisioning.md
     - name: Trade-offs
       href: framework/cost/tradeoffs.md
+    - name: Checklist
+      href: framework/cost/checklist.md
   - name: DevOps
     items:
     - name: Overview
@@ -271,6 +273,8 @@ items:
       href: framework/devops/development.md
     - name: Deployment
       href: framework/devops/deployment.md
+    - name: Infrastructure Deployments
+      href: framework/devops/iac.md
     - name: Monitoring
       href: framework/devops/monitoring.md
     - name: Performance
@@ -353,6 +357,8 @@ items:
       href: framework/security/monitoring.md
     - name: Security testing
       href: framework/security/testing.md
+    - name: Role of security
+      href: framework/security/role-of-security.md
     - name: Theat modelling
       href: framework/security/threat-modelling.md
     - name: Trade-offs
@@ -708,8 +714,6 @@ items:
     - name: Network DMZ
       items:
       - name: DMZ between Azure and on-premises
-        href: reference-architectures/dmz/secure-vnet-hybrid.md
-      - name: DMZ between Azure and the Internet
         href: reference-architectures/dmz/secure-vnet-dmz.md
       - name: Highly available network virtual appliances
         href: reference-architectures/dmz/nva-ha.md
