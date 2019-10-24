@@ -11,7 +11,7 @@ ms.custom: How are you monitoring to ensure you're scaling appropriately?
 
 # Monitoring
 
-None<!-- Monitor and alert on user experience -->
+<!-- Monitor and alert on user experience -->
 [!include[c3d89c92-c78c-4b15-ae1b-cbf3dfe731f8](../../../includes/aar_guidance/c3d89c92-c78c-4b15-ae1b-cbf3dfe731f8.md)]
 
 <!-- Graph system utilization metrics -->
