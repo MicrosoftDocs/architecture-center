@@ -343,6 +343,8 @@ items:
     items:
     - name: Overview
       href: framework/security/overview.md
+    - name: Security design principles
+      href: security/security-principles.md
     - name: Application design
       href: framework/security/app-design.md
     - name: Authorization
@@ -357,6 +359,8 @@ items:
       href: framework/security/encryption.md
     - name: Identity management
       href: framework/security/identity.md
+    - name: Regulatory compliance
+      href: security/law-authority.md
     - name: Network security
       href: framework/security/network.md
     - name: Security Monitoring
@@ -369,6 +373,8 @@ items:
       href: framework/security/threat-modelling.md
     - name: Trade-offs
       href: framework/security/tradeoffs.md
+    - name: Types of attacks to resist
+      href: security/architecture-type.md
 
 - name: Technologies
   expanded: true
