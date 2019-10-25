@@ -11,7 +11,10 @@ ms.custom: How are you modelling the threats that will impact this workload?
 
 # threat modelling
 
-Describes how to model threats for your workload.<!-- Consider the impact of adversaries -->
+Describes how to model threats for your workload.<!-- You took a top down approach to threat modeling -->
+[!include[ba574991-8562-46db-a225-2a04f50a59c2](../../../includes/aar_guidance/ba574991-8562-46db-a225-2a04f50a59c2.md)]
+
+<!-- Consider the impact of adversaries -->
 [!include[87772841-b321-4bae-9c81-3bbf98af4303](../../../includes/aar_guidance/87772841-b321-4bae-9c81-3bbf98af4303.md)]
 
 <!-- Modelling both internal and external threats -->

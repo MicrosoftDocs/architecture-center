@@ -26,7 +26,7 @@ This section focuses on applications written by your organization or by others
 on behalf of your organization vs. SaaS or commercially available applications
 installed on IaaS VMs.
 
-![Diagram of Application Models](../_images/appmodels.png)
+![Diagram of Application Models](https://docs.microsoft.com/azure/architecture/framework/_images/appmodels.png)
 
 Modern cloud platforms like Azure can host both legacy and modern generations of
 applications
@@ -37,7 +37,7 @@ applications
 
 -   **Modern** Platform as a Service (PaaS) applications don’t require the
     application owner to manage and secure the underlying server operating
-    systems (OSes) and are sometimes fully 'Serverless' and built primarily
+    systems (OSes) and are sometimes fully Serverless and built primarily
     using functions as a service.
 
     **Notes:** Popular forms of modern applications are application code hosted
@@ -45,7 +45,7 @@ applications
     also be hosted on IaaS VMs or on-premises as well).
 
 -   **Hybrid** – While hybrid applications can take many forms, the most common
-    is an &quot;IaaS plus&quot; state where legacy applications are transitioning to a
+    is an IaaS plus state where legacy applications are transitioning to a
     modern architecture with modern services replacing legacy components or
     being added a legacy application.
 
@@ -59,7 +59,7 @@ component types:
     requires identifying and mitigating risks from the design and implementation
     of the application as well as assessing supply chain risk of included
     components. Note that the evolution of applications into [microservices
-    architectures](/azure/service-fabric/service-fabric-overview-microservices)
+    architectures](https://docs.microsoft.com/azure/service-fabric/service-fabric-overview-microservices)
     will break various aspects of application code into smaller services vs. a
     single monolithic codebase.
 
@@ -112,15 +112,35 @@ component types:
         These containerized applications fit into either the legacy or modern
         models above depending on whether they are run on a container service by
         the cloud provider (Modern Applications) or on a server managed by the
-        organization (on premises or in IaaS). See [container security](./container-security.md) for more details.
+        organization (on premises or in IaaS). See the [container security
+        section](#follow-best-practices-for-container-security) below for more details.<!-- You have identified and classified business critical applications -->
+[!include[368b37c0-46f7-4872-8af0-907f71dd119e](../../../includes/aar_guidance/368b37c0-46f7-4872-8af0-907f71dd119e.md)]
 
-<!-- Distributed denial-of-service protection -->
+<!-- You've adopted a DevOps approach to building software -->
+[!include[e8616dd6-df2c-4bf4-ab31-03cfa0aa0b57](../../../includes/aar_guidance/e8616dd6-df2c-4bf4-ab31-03cfa0aa0b57.md)]
+
+<!-- You leverage DevOps security guidance -->
+[!include[d8b15e08-0d33-458a-b8ce-517013d34de6](../../../includes/aar_guidance/d8b15e08-0d33-458a-b8ce-517013d34de6.md)]
+
+<!-- You leverage cloud services instead of building custom security implementations -->
+[!include[c5861a02-2bd9-4257-b944-db5e9988f7d8](../../../includes/aar_guidance/c5861a02-2bd9-4257-b944-db5e9988f7d8.md)]
+
+<!-- You leverage native security capabilities built into cloud services. -->
+[!include[02968947-8865-4b12-919c-b7f3595662ab](../../../includes/aar_guidance/02968947-8865-4b12-919c-b7f3595662ab.md)]
+
+<!-- You implement security practices and tools during the development lifecycle. -->
+[!include[fa9cff6e-0fa5-454f-b488-6455cc7ff63a](../../../includes/aar_guidance/fa9cff6e-0fa5-454f-b488-6455cc7ff63a.md)]
+
+<!-- You follow best practices for container security -->
+[!include[080badc2-09ec-4c29-8bbd-ffdfdb100c2c](../../../includes/aar_guidance/080badc2-09ec-4c29-8bbd-ffdfdb100c2c.md)]
+
+<!-- You have put a web application firewall in front of your application. -->
 [!include[234e0781-2cb6-43c2-a21e-b8e6270d3e72](../../../includes/aar_guidance/234e0781-2cb6-43c2-a21e-b8e6270d3e72.md)]
 
 <!-- Role-based access controls (RBAC) -->
 [!include[6bb71142-3759-443a-8cc6-9b78cb88e175](../../../includes/aar_guidance/6bb71142-3759-443a-8cc6-9b78cb88e175.md)]
 
-<!-- Secret management -->
+<!-- You authenticate via identity services where you can. -->
 [!include[63ed4f9d-7227-4c4d-96eb-ce9bedc9d6f9](../../../includes/aar_guidance/63ed4f9d-7227-4c4d-96eb-ce9bedc9d6f9.md)]
 
 <!-- Keys in source code -->
