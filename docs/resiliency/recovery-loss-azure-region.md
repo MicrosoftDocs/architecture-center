@@ -53,6 +53,9 @@ Recovery of infrastructure as a service (IaaS) virtual machines (VMs) is similar
 
 - **Be aware of potential consistency issues after a geo-failover of multiple VM Disks**. VM Disks are implemented as Azure Storage blobs, and have the same geo-replication characteristic. Unless [Azure Backup](https://azure.microsoft.com/services/backup) is used, there are no guarantees of consistency across disks, because geo-replication is asynchronous and replicates independently. Individual VM disks are guaranteed to be in a crash consistent state after a geo-failover, but not consistent across disks. This could cause problems in some cases (for example, in the case of disk striping).
 
+- **Use Azure Site Recovery to replicate applications across regions**.
+  With [Azure Site Recovery](https://azure.microsoft.com/en-in/services/site-recovery/), customers do not need to worry about separation of data disks and operating system disk or of potential consistency issues. Azure Site Recovery replicates workloads running on physical and virtual machines (VMs) from a primary site (on-prem or in Azure) to a secondary location (in Azure). When an outage occurs at the customers' primary site, they can fail over to secondary location, and access apps from there. After the primary location is running again, customers can fail back to it. They can easily replicate using recovery points with application-consistent snapshots. These snapshots capture disk data, all data in memory, and all transactions in process. Azure Site Recovery allows customers to keep recovery time objectives (RTO) and recovery point objectives (RPO) within organizational limits. Customers can also easily run disaster recovery drills without impacting applications in production. Using recovery plans, customers can sequence the failover and recovery of multi-tier applications running on multiple VMs. They can group machines together in a recovery plan, and optionally add scripts and manual actions. Recovery plans can be integrated with Azure automation runbooks.
+
 ## Storage
 
 ### Recovery by using geo-redundant storage of blob, table, queue, and VM disk storage
@@ -82,10 +85,6 @@ If a geo-failover occurs, this will be posted to the [Azure Service Health Dashb
     <LastGeoFailoverTime>DateTime</LastGeoFailoverTime>
     <GeoSecondaryRegion>secondary-region</GeoSecondaryRegion>
     <StatusOfSecondary>[Available|Unavailable]</StatusOfSecondary>
-
-### VM disks and geo-failover
-
-As discussed in the section on VM disks, there are no guarantees for data consistency across VM disks after a failover. To ensure correctness of backups, a backup product such as Data Protection Manager should be used to back up and restore application data.
 
 ## Database
 
