@@ -23,7 +23,7 @@ Application design is critical to handling scale as load increases<!-- Chose the
 <!-- Compress data when appropriate -->
 [!include[35e74034-cf86-4c27-9cfe-8b3c20ce9bbf](../../../includes/aar_guidance/35e74034-cf86-4c27-9cfe-8b3c20ce9bbf.md)]
 
-<!-- Use locking to ensure consistancy -->
+<!-- Use locking to ensure consistency -->
 [!include[8e3058be-8434-46f9-b6db-de41c8e69d75](../../../includes/aar_guidance/8e3058be-8434-46f9-b6db-de41c8e69d75.md)]
 
 <!-- Use async calls and waits to prevent locks -->
@@ -38,9 +38,8 @@ Application design is critical to handling scale as load increases<!-- Chose the
 <!-- Avoid sticky sessions and client affinity -->
 [!include[48e520f4-3ae0-4185-8e61-0b194cab0f9e](../../../includes/aar_guidance/48e520f4-3ae0-4185-8e61-0b194cab0f9e.md)]
 
-<!-- Automatically scale when load increses -->
+<!-- Automatically scale when load increases -->
 [!include[dfe40589-8d10-40c4-85cd-e15ab0ce3b19](../../../includes/aar_guidance/dfe40589-8d10-40c4-85cd-e15ab0ce3b19.md)]
 
 <!-- Utilize background jobs -->
 [!include[1fadc07b-c206-4e16-bf2c-67aa3c5bec6a](../../../includes/aar_guidance/1fadc07b-c206-4e16-bf2c-67aa3c5bec6a.md)]
-
