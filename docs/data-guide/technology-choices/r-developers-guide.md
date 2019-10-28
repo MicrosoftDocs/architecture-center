@@ -128,33 +128,9 @@ Start training on your local machine and then scale out to the cloud. [Train you
 drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions in the cloud.  It enables
 emerging data scientists to create and deploy machine learning models without the need to write much code.
 
-Azure Machine Learning Studio supports both R and Python.  You can use R with Azure Machine Learning Studio in two ways.
+Azure Machine Learning Studio (classic) supports both R and Python.  
 
-### Custom R scripts in your experiments
-
-First, you can extend the data manipulation and machine learning capabilities of ML Studio by writing custom R scripts.
-Although ML Studio includes a wide variety of modules for preparing and analyzing data, it cannot match the capabilities
-of a mature language like R.  Therefore, the service was designed to allow you to introduce your own custom R scripts in
-cases where the provided modules do not meet your needs.
-
-To leverage this capability, drag and drop an "Execute R Script" module into your experiment.  Then use the code editor
-in the "Properties" pane to write a new R script or paste an existing script.  Within the script, you can reference
-external R packages.  You can use the script to manipulate data or to train complex ML models that are not part of the
-standard Azure Machine Learning Studio model library.
-
-For a thorough introduction on using R within ML Studio experiments, check out
-[Getting started with the R programming language in Azure Machine Learning Studio](https://docs.microsoft.com/azure/machine-learning/studio/r-quickstart).
-
-### Create, manage, and deploy experiments from your local R environment
-
-The other way that you can use R with Azure Machine Learning Studio is to use the
-[AzureML](https://cran.r-project.org/src/contrib/Archive/AzureML/) package to
-monitor and control the experimentation process with the R programming environment.  This package, which is maintained
-by Microsoft, allows you to upload and download datasets to and from Azure Machine Learning Studio, to interrogate experiments, to publish R
-functions as web services, and to run R data through existing web services and retrieve the output.
-
-This package makes it much easier to use Azure Machine Learning Studio as a scalable deployment platform for your R code.  Instead of
-clicking and dragging in the UI, you can automate the entire deployment process using tools you already know.
+Customers currently using or evaluating Machine Learning Studio (classic) are encouraged to try Azure Machine Learning designer (preview), which provides drag-n-drop ML modules plus scalability, version control, and enterprise security.
 
 ## Azure Batch
 
