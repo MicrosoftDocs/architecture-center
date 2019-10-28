@@ -1,6 +1,6 @@
 ---
-title: Overview of the security pillar 
-description: Describes the security pillar
+title: Identity and access management
+description: High-level overview of all of the governanace risk and compliance topics
 author: david-stanford
 ms.date: 10/21/2019
 ms.topic: overview
@@ -9,11 +9,9 @@ ms.subservice: cloud-design-principles
 ms.custom: 
 ---
 
-# Overview of the security pillar
+# Identity and access management
 
-Description goes here :D
-
-These are the topics we cover in the security pillar of the Azure Architecture Framework
+In cloud-focused architecture, identity provides the basis of a large percentage of security assurances. While legacy IT infrastructure often heavily relied on firewalls and network security solutions at the internet egress points for protection against outside threats, these controls are less effective in cloud architectures with shared services being accessed across cloud provider networks or the internet.
 
 | Security Topic | Description |
 |-------------------|-------------|

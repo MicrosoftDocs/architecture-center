@@ -1,6 +1,6 @@
 ---
-title: Overview of the security pillar 
-description: Describes the security pillar
+title: Info-sec and storage
+description: High-level overview of all of the governanace risk and compliance topics
 author: david-stanford
 ms.date: 10/21/2019
 ms.topic: overview
@@ -9,11 +9,9 @@ ms.subservice: cloud-design-principles
 ms.custom: 
 ---
 
-# Overview of the security pillar
+# Security Operations
 
-Description goes here :D
-
-These are the topics we cover in the security pillar of the Azure Architecture Framework
+Security operations maintain and restores the security assurances of the system as live adversaries attack it. The tasks of security operations are described well by the NIST Cybersecurity Framework functions of Detect, Respond, and Recover.
 
 | Security Topic | Description |
 |-------------------|-------------|
