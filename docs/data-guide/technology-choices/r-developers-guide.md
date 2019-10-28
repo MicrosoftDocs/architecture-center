@@ -35,7 +35,8 @@ This article covers the following Azure services that support the R language:
 |[Data Science Virtual Machine](#data-science-virtual-machine)    |a customized VM to use as a data science workstation or as a custom compute target|
 |[ML Services on HDInsight](#ml-services-on-hdinsight)            |cluster-based system for running R analyses on large datasets across many nodes   |
 |[Azure Databricks](#azure-databricks)                            |collaborative Spark environment that supports R and other languages               |
-|[Azure Machine Learning Studio](#azure-machine-learning-studio)  |run custom R scripts in Azure's machine learning experiments                      |
+|[Azure Machine Learning](#azure-machine-learning)                | cloud service that you use to train, deploy, automate, and manage machine learning models
+|[Azure Machine Learning Studio (classic)](#azure-machine-learning-studio)  |run custom R scripts in Azure's machine learning experiments                      |
 |[Azure Batch](#azure-batch)                                      |offers a variety options for economically running R code across many nodes in a cluster|
 |[Azure Notebooks](#azure-notebooks)                              |a no-cost cloud-based version of Jupyter notebooks                  |
 |[Azure SQL Database](#azure-sql-database)                        |run R scripts inside of the SQL Server database engine                            |
@@ -115,9 +116,15 @@ work.
 The article [What is Azure Databricks?](https://docs.microsoft.com/azure/azure-databricks/what-is-azure-databricks)
 can provide more details about the platform and help you get started.
 
-## Azure Machine Learning Studio
+## Azure Machine Learning
 
-[Azure Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/) is a collaborative,
+[Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/) can be used for any kind of machine learning, from classical machine learning to deep learning, supervised and unsupervised learning. Whether you prefer to write Python or R code or zero-code/low-code options such as the designer, you can build, train and track highly accurate machine learning and deep-learning models in an Azure Machine Learning Workspace.
+
+Start training on your local machine and then scale out to the cloud. [Train your first model in R](https://docs.microsoft.com/azure/machine-learning/service/tutorial-1st-r-experiment) with Azure Machine Learning today.
+
+## <a name="azure-machine-learning-studio"></a>Azure Machine Learning Studio (classic)
+
+[Azure Machine Learning Studio (classic)](https://azure.microsoft.com/services/machine-learning-studio/) is a collaborative,
 drag-and-drop tool you can use to build, test, and deploy predictive analytics solutions in the cloud.  It enables
 emerging data scientists to create and deploy machine learning models without the need to write much code.
 
