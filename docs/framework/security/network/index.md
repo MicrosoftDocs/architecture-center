@@ -1,6 +1,6 @@
 ---
-title: Overview of the security pillar 
-description: Describes the security pillar
+title: Network security and containment
+description: High-level overview of all of the governanace risk and compliance topics
 author: david-stanford
 ms.date: 10/21/2019
 ms.topic: overview
@@ -9,11 +9,9 @@ ms.subservice: cloud-design-principles
 ms.custom: 
 ---
 
-# Overview of the security pillar
+# Network security and containment
 
-Description goes here :D
-
-These are the topics we cover in the security pillar of the Azure Architecture Framework
+Network security has been the traditional lynchpin of enterprise security efforts. However, cloud computing has increased the requirement for network perimeters to be more porous and many attackers have mastered the art of attacks on identity system elements (which nearly always bypass network controls). These factors have increased the need to focus primarily on identity-based access controls to protect resources rather than network-based access controls.
 
 | Security Topic | Description |
 |-------------------|-------------|
