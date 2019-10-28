@@ -337,39 +337,61 @@ items:
     items:
     - name: Overview
       href: framework/security/overview.md
-    - name: Security design principles
-      href: security/security-principles.md
-    - name: Application design
-      href: framework/security/app-design.md
-    - name: Authorization
-      href: framework/security/authorization.md
-    - name: Compliance & Governance
-      href: framework/security/compliance.md
-    - name: Data classification
-      href: framework/security/data-classification.md
-    - name: Data management
-      href: framework/security/data-management.md
-    - name: Encryption
-      href: framework/security/encryption.md
-    - name: Identity management
-      href: framework/security/identity.md
-    - name: Regulatory compliance
-      href: security/law-authority.md
-    - name: Network security
-      href: framework/security/network.md
-    - name: Security Monitoring
-      href: framework/security/monitoring.md
-    - name: Security testing
-      href: framework/security/testing.md
     - name: Role of security
       href: framework/security/role-of-security.md
-    - name: Theat modelling
-      href: framework/security/threat-modelling.md
-    - name: Trade-offs
-      href: framework/security/tradeoffs.md
+    - name: Security design principles
+      href: security/security-principles.md
     - name: Types of attacks to resist
       href: security/architecture-type.md
-
+    - name: Regulatory compliance
+      href: security/law-authority.md
+    - name: Reduce organizational risk
+      href: security/resilience.md
+    - name: Administration
+      href: framework/security/administration/index.md
+      items:
+        - name: test
+          href: framework/security/administration/index.md
+    - name: Application design
+      href: framework/security/application/index.md
+      items:
+        - name: app-design
+          href: framework/security/application/app-design.md
+    - name: Governance, risk, and compliance
+      href: framework/security/compliance/index.md
+      items:
+        - name: Compliance
+          href: framework/security/governance/compliance.md
+    - name: Identity
+      href: framework/security/identity/index.md
+      items: 
+        - name: Authorization
+          href: framework/security/identity/authorization.md
+        - name: Identity
+          href: framework/security/identity/identity.md
+    - name: Info protection and storage
+      href: framework/security/storage/index.md
+      items:
+        - name: Data classification
+          href: /framework/security/storage/data-classification.md
+        - name: Data management
+          href: /framework/security/storage/data-management.md
+        - name: Encryption
+          href: /framework/security/storage/encryption.md
+    - name: Network Containment
+      href: framework/security/network/index.md
+      items:
+        - name: Network
+          href: framework/security/network/network.md
+    - name: Security operations
+      href: framework/security/operations/index.md
+      items:
+        - name: Monitoring
+          href: framework/security/operations/monitoring.md
+        - name: Testing
+          href: framework/security/operations/testing.md
+        - name: Threat Modeling
+          href: framework/security/operations/threat-modeling.md
 - name: Technologies
   expanded: true
   items:   
