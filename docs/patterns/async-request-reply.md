@@ -116,13 +116,14 @@ The following code shows excerpts from an application that uses Azure Functions 
 
 ![Image of the structure of the Async Request Reply pattern in Functions](_images/async-request-fn.PNG)
 
+![GitHub logo](../_images/github.png) This sample is available on [GitHub](https://github.com/mspnp/cloud-design-patterns/tree/master/async-request-reply).
+
 ### AsyncProcessingWorkAcceptor function
 
 The `AsyncProcessingWorkAcceptor` function implements an endpoint that accepts work from a client application and puts it on a queue for processing.
 
 - The function generates a request ID and adds it as metadata to the queue message. 
 - The HTTP response includes a location header pointing to a status endpoint. The request ID is part of the URL path.
-- The body of the HTTP response includes a SAS token that the client can use to retrieve the result of the long-running process once it's available.
 
 ```csharp
 public static class AsyncProcessingWorkAcceptor
@@ -130,7 +131,6 @@ public static class AsyncProcessingWorkAcceptor
     [FunctionName("AsyncProcessingWorkAcceptor")]
     public static async Task<IActionResult> Run(
         [HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = null)] CustomerPOCO customer,
-        [Blob("data", FileAccess.Read, Connection = "StorageConnectionAppSetting")] CloudBlobContainer inputBlob,
         [ServiceBus("outqueue", Connection = "ServiceBusConnectionAppSetting")] IAsyncCollector<Message> OutMessage,
         ILogger log)
     {
@@ -151,9 +151,7 @@ public static class AsyncProcessingWorkAcceptor
             
         await OutMessage.AddAsync(m);  
 
-        CloudBlockBlob cbb = inputBlob.GetBlockBlobReference($"{reqid}.blobdata");
-        var sasUri = cbb.GenerateSASURI();
-        return (ActionResult) new AcceptedResult(rqs, $"Request Accepted for Processing{Environment.NewLine}ValetKey: {sasUri}{Environment.NewLine}ProxyStatus: {rqs}");  
+        return (ActionResult) new AcceptedResult(rqs, $"Request Accepted for Processing{Environment.NewLine}ProxyStatus: {rqs}");   
     }
 }
 ```
