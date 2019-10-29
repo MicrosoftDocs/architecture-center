@@ -563,7 +563,7 @@ items:
         href: reference-architectures/microservices/service-fabric.md
     - name: Guides
       items:
-      - name: Modeling microservices
+      - name: Domain modeling for microservices
         items:
         - name: Domain analysis
           href: microservices/model/domain-analysis.md
@@ -595,10 +595,14 @@ items:
           href: microservices/ci-cd.md
         - name: CI/CD for microservices on Kubernetes
           href: microservices/ci-cd-kubernetes.md
-      - name: Modernize enterprise applications with Azure Service Fabric
-        href: service-fabric/modernize-app-azure-service-fabric.md
-      - name: Migrate from Cloud Services to Service Fabric
-        href: service-fabric/migrate-from-cloud-services.md
+      - name: Migrate to a microservices architecture
+        items:
+        - name: Migrate a monolith application to microservices
+          href: microservices/migrate-monolith.md
+        - name: Modernize enterprise applications with Service Fabric
+          href: service-fabric/modernize-app-azure-service-fabric.md
+        - name: Migrate from Cloud Services to Service Fabric
+          href: service-fabric/migrate-from-cloud-services.md
     - name: Example workloads
       items:
       - name: Decomposing a monolithic application
