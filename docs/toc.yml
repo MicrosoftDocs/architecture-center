@@ -356,7 +356,7 @@ items:
       href: framework/security/application-overview.md
       items:
         - name: app-design
-          href: framework/security/application/app-design.md
+          href: framework/security/app-design.md
     - name: Governance, risk, and compliance
       href: framework/security/governance-overview.md
       items:
