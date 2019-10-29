@@ -13,8 +13,6 @@ ms.custom: seodec18
 
 # Availability patterns
 
-[!INCLUDE [header](../../_includes/header.md)]
-
 Availability defines the proportion of time that the system is functional and working. It will be affected by system errors, infrastructure problems, malicious attacks, and system load. It is usually measured as a percentage of uptime. Cloud applications typically provide users with a service level agreement (SLA), which means that applications must be designed and implemented in a way that maximizes availability.
 
 |                            Pattern                             |                                                           Summary                                                            |
