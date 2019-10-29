@@ -9,8 +9,6 @@ pnp.pattern.categories: Replace this text based on the guidance in Completing th
 
 # Article Title
 
-[!INCLUDE [header](../_includes/header.md)]
-
 _Your article can have only one **H1 heading (#)**, which is the article title. The H1 heading is always followed by a succinct descriptive paragraph that informs the reader what the article is about and how it can help them. Do not start the article with a note or tip. Descriptive text always appears in italics. Descriptive text should be deleted or replaced with your text prior to publication._
 
 _This template is specific to **Cloud Design Patterns**. Your article should describe the problem that the pattern addresses, identify considerations for applying the pattern, and provide an example based on Microsoft Azure. Most of the patterns include code samples or snippets that show how to implement the pattern on Azure. Your article should be broken down into six subheadings (H2, ## in markdown)--Context and problem, Solution, Issues and considerations, When to use this pattern, Example, and Next steps. The H2 headings and descriptions are included in this template. If you need to create a new heading under one of the H2 headings, use an H3 heading (###)._
