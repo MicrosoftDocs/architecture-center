@@ -1614,6 +1614,11 @@
      { 
          "source_path": "docs/reference-architectures/dmz/index.md",
          "redirect_url": "/azure/architecture/reference-architectures/dmz/secure-vnet-dmz"
+     },
+     { 
+         "source_path": "docs/microservices/introduction.md",
+         "redirect_url": "/azure/architecture/microservices/",
+         "redirect_document_id": true
      }
    ]
 }
