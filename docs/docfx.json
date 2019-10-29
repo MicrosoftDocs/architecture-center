@@ -14,7 +14,7 @@
           "**/obj/**",
           "**/*.liquid.md",
           "**/_css/**",
-          "**/_includes/**",
+          "**/includes/**",
           "**/_bread/**",
           "**/_themes/**"
         ]
@@ -44,6 +44,21 @@
           "**/obj/**",
           "**/_themes/**"
         ]
+      },
+      {
+        "files": [
+          "includes/**/*.svg",
+          "includes/**/*.png",
+          "includes/**/*.jpg",
+          "includes/**/*.jpeg",
+          "includes/**/*.gif"
+        ],
+        "exclude": [
+          "**/obj/**",
+          "**/_themes/**"
+        ],
+        "src": "null",
+        "dest": null
       }
     ],
     "overwrite": [],
