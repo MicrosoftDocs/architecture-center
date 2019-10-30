@@ -67,12 +67,15 @@ Learn more:
 
 ### Technology choices
 
-Two technology choices should be decided early on, because they affect the entire architecture. These are the choice of compute service and data stores. *Compute* refers to the hosting model for the computing resources that your applications runs on. *Data stores* includes databases but also storage for message queues, caches, logs, and anything else that an application might persist to storage.
+Two technology choices should be decided early on, because they affect the entire architecture. These are the choice of compute service and data stores. *Compute* refers to the hosting model for the computing resources that your applications runs on. *Data stores* includes databases but also storage for message queues, caches, logs, and anything else that an application might persist to storage. 
+
+If your design includes a messaging infrastructure, the choice of messaging service depends on the intent and requirements of the message.  
 
 Learn more:
 
 - [Choosing a compute service](./technology-choices/compute-overview.md)
 - [Choosing a data store](./technology-choices/data-store-overview.md)
+- [Choosing a messaging service](./technology-choices/messaging.md)
 
 ### Design principles
 

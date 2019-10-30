@@ -58,6 +58,8 @@ items:
         href: guide/technology-choices/compute-comparison.md
     - name: Choosing a load balancing service
       href: guide/technology-choices/load-balancing-overview.md
+    - name: Choosing a messaging service
+      href: guide/technology-choices/messaging.md
   - name: Best Practices
     items:
     - name: API design
