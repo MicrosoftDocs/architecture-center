@@ -142,7 +142,7 @@ All the code for this scenario is available in the [GitHub][github] repository. 
 [plan]: /azure/azure-functions/functions-scale
 [plan-aas]: /azure/azure-functions/functions-scale#app-service-plan
 [plan-c]: /azure/azure-functions/functions-scale#consumption-plan
-[portal]: http://portal.azure.com
+[portal]: https://portal.azure.com
 [redlock]: https://redis.io/topics/distlock
 [russian]: http://government.ru/all/rss/
 [service-bus]: /azure/service-bus-messaging/
