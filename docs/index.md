@@ -298,7 +298,7 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
                     <div class="card">
                         <div class="cardImageOuter">
                             <div class="cardImage">
-                                <img src="https://docs.microsoft.com/en-us/media/common/i_feedback.svg" alt="" data-linktype="external">
+                                <img src="/media/common/i_feedback.svg" alt="" data-linktype="external">
                             </div>
                         </div>
                         <div class="cardText">

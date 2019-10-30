@@ -146,8 +146,8 @@ The following reference architecture deploys Cassandra as part of an n-tier conf
 
 - [Linux N-tier application in Azure with Apache Cassandra](../reference-architectures/n-tier/n-tier-cassandra.md)
 
-[dsv2]: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-memory#dsv2-series-11-15
-[dsv3]: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-general#dsv3-series-1
-[lsv2]: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-storage#lsv2-series
+[dsv2]: /azure/virtual-machines/linux/sizes-memory#dsv2-series-11-15
+[dsv3]: /azure/virtual-machines/linux/sizes-general#dsv3-series-1
+[lsv2]: /azure/virtual-machines/linux/sizes-storage#lsv2-series
 
 [repo]: https://github.com/Azure-Samples/cassandra-on-azure-vms-performance-experiments
