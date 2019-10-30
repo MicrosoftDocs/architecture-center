@@ -116,5 +116,5 @@ For detailed guidance about building a microservices architecture on Azure, see 
 
 <!-- links -->
 
-[resiliency-overview]: ../../reliability/index.md
+[resiliency-overview]: ../../framework/resiliency/overview.md
 [resiliency-patterns]: ../../patterns/category/resiliency.md
