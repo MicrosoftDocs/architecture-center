@@ -35,7 +35,7 @@ One way to implement choreography is to use the [asynchronous messaging pattern]
 
 A client request publishes messages to a message queue. As messages arrive, they are pushed to subscribers, or services, interested in that message. Each subscribed service does their operation as indicated by the message and responds to the message queue with success or failure of the operation. In case of success, the service can push a message back to the same queue or a different message queue so that another service can continue the workflow if needed. If an operation fails, the message bus can retry that operation.
 
-This way, the services choreograph the workflow amongst themselves without depending on an orchestrator or having direct communication between them.
+This way, the services choreograph the workflow among themselves without depending on an orchestrator or having direct communication between them.
 
 Because there isn't point-to-point communication, this pattern helps reduce coupling between services. Also, it can remove the performance bottleneck caused by the orchestrator when it has to deal with all transactions.
 
@@ -57,7 +57,7 @@ It's simple to implement a workflow when you want to process independent busines
 
 The choreography pattern becomes a challenge if the number of services grow rapidly. Given the high number of independent moving parts, the workflow between services tends to get complex. Also, distributed tracing becomes difficult.
 
-The orchestrator centrally manages the resiliency of the workflow and it can become a single point of failure. On the other hand, for choreography, the role is distributed amongst all services and resiliency becomes less robust.
+The orchestrator centrally manages the resiliency of the workflow and it can become a single point of failure. On the other hand, for choreography, the role is distributed between all services and resiliency becomes less robust.
 
 Each service isn't only responsible for the resiliency of its operation but also the workflow. This responsibility can be burdensome for the service and hard to implement. Each service must retry transient, non-transient, and time-out failures, so that the request terminates gracefully, if needed. Also, the service must be diligent about communicating the success or failure of the operation so that other services can act accordingly.
 
@@ -164,3 +164,5 @@ Consider these patterns in your design for choreography.
 -   Use asynchronous distributed messaging through the [publisher-subscriber pattern](./publisher-subscriber.md).
 
 -   Use [compensating transactions](./compensating-transaction.md) to undo a series of successful operations in case one or more related operation fails.
+
+-  For information about using a message broker in a messaging infrastructure, see [Asynchronous messaging options in Azure](/azure/architecture/guide/technology-choices/messaging).
