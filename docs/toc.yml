@@ -347,45 +347,50 @@ items:
       href: security/law-authority.md
     - name: Reduce organizational risk
       href: security/resilience.md
-    - name: Administration
-      href: framework/security/administration-overview.md
+    - name: Administration      
       items:
-        - name: test
-          href: framework/security/compliance.md
-    - name: Application design
-      href: framework/security/application-overview.md
+        - name: Overview
+          href: framework/security/administration-overview.md
+    - name: Applications and services     
       items:
-        - name: app-design
+        - name: Overview
+          href: framework/security/application-overview.md
+        - name: Designing applications for security
           href: framework/security/app-design.md
-    - name: Governance, risk, and compliance
-      href: framework/security/governance-overview.md
+    - name: Governance, risk, and compliance      
       items:
+        - name: Overview
+          href: framework/security/governance-overview.md
         - name: Compliance
           href: framework/security/compliance.md
-    - name: Identity
-      href: framework/security/identity-overview.md
+    - name: Identity and accesss management   
       items: 
+        - name: Overview
+          href: framework/security/identity-overview.md
         - name: Authorization
           href: framework/security/authorization.md
         - name: Identity
           href: framework/security/identity.md
-    - name: Info protection and storage
-      href: framework/security/infosec-overview.md
+    - name: Info protection and storage      
       items:
+        - name: Overview
+          href: framework/security/infosec-overview.md
         - name: Data classification
           href: /framework/security/data-classification.md
         - name: Data management
           href: /framework/security/data-management.md
         - name: Encryption
           href: /framework/security/encryption.md
-    - name: Network Containment
-      href: framework/security/network-overview.md
+    - name: Network security and containment      
       items:
+        - name: Overview
+          href: framework/security/network-overview.md
         - name: Network
           href: framework/security/network.md
-    - name: Security operations
-      href: framework/security/operations-overview.md
+    - name: Security operations      
       items:
+        - name: Overview
+          href: framework/security/operations-overview.md
         - name: Monitoring
           href: framework/security/monitoring.md
         - name: Testing
