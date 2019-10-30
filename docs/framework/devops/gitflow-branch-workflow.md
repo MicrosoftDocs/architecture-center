@@ -1,3 +1,14 @@
+---
+title: GitFlow branch workflow
+description: Gitflow Workflow defines a strict branching model designed around the project release
+author: UmarMohamedUsman
+ms.date: 10/22/2019
+ms.topic: article
+ms.service: architecture-center
+ms.subservice: cloud-design-principles
+ms.custom: 
+---
+
 # GitFlow Branch Workflow
 
 Gitflow Workflow is a Git workflow design that was first published and made popular by Vincent Driessen at nvie. The Gitflow Workflow defines a strict branching model designed around the project release. This provides a robust framework for managing larger projects.

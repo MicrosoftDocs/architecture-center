@@ -24,7 +24,7 @@ Insights provide a customized monitoring experience for particular applications 
 ## Technical debt
 
 Technical debt includes anything the team must do to deploy production quality code and keep it running in production. Examples are bugs, performance issues, operational issues, not having unit tests (necessary for refactoring code), accessibility, and others. [SonarQube](https://www.sonarqube.org/) is a set of static analyzers that can be used to identify areas of improvement in your code. It allows you to analyze the technical debt in your project and keep track of it in the future.
-For more info, see [Using SonarQube with Azure DevOps](https://docs.microsoft.com/en-us/azure/devops/java/sonarqube?view=azure-devops) 
+For more info, see [Using SonarQube with Azure DevOps](/azure/devops/java/sonarqube?view=azure-devops).
 
 ## Continous deployment / continous integration
 

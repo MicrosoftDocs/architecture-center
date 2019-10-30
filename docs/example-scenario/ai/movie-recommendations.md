@@ -7,7 +7,7 @@ ms.custom: azcat-ai, AI
 social_image_url: /azure/architecture/example-scenario/ai/media/architecture-movie-recommender.png
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenario
+ms.subservice: example-scenarios
 ---
 
 # Movie recommendations on Azure
