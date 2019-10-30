@@ -156,7 +156,7 @@ creating a full copy of your solution in both regions.
 
 - [High availability for Azure applications](../resiliency/high-availability-azure-applications.md)
 
-- [Failure and disaster recovery for Azure applications](../reliability/disaster-recovery.md)
+- [Failure and disaster recovery for Azure applications](../framework/resiliency/backup-and-recovery.md)
 
 - [Planned maintenance for Linux virtual machines in Azure](/azure/virtual-machines/linux/maintenance-and-updates)
 
