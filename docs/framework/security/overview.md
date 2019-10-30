@@ -34,13 +34,13 @@ These are the topics we cover in the security pillar of the Azure Architecture F
 <!-- security links -->
 [monitoring]: ./monitoring.md
 [role]: ./role-of-security.md
-[app]: ./application-overview.md
-[compliance]: ./governance-overview.md
+[app]: ./application-services.md
+[compliance]: ./governance.md
 [identity]: ./identity-overview.md
 [network]: ./network-overview.md
-[design]: ../../security/security-principles.md
-[attacks]: ../../security/architecture-type.md
-[regulatory]: ../../security/law-authority.md
-[org-risk]: ../../security/resilience.md
+[design]: ./security/security-principles.md
+[attacks]: ./security/architecture-type.md
+[regulatory]: ./security/law-authority.md
+[org-risk]: ./security/resilience.md
 [admin]: ./admin-overview.md
 [info]: ./infosec-overview.md
