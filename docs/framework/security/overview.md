@@ -34,7 +34,7 @@ These are the topics we cover in the security pillar of the Azure Architecture F
 <!-- security links -->
 [monitoring]: ./monitoring.md
 [role]: ./role-of-security.md
-[app]: ./application-services.md
+[app]: ./applications-services.md
 [compliance]: ./governance.md
 [identity]: ./identity.md
 [network]: ./network-security-containment.md
