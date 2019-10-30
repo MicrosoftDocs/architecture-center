@@ -38,9 +38,9 @@ These are the topics we cover in the security pillar of the Azure Architecture F
 [compliance]: ./governance.md
 [identity]: ./identity.md
 [network]: ./network-security-containment.md
-[design]: ./security/security-principles.md
-[attacks]: ./security/architecture-type.md
-[regulatory]: ./security/law-authority.md
-[org-risk]: ./security/resilience.md
+[design]: ./security-principles.md
+[attacks]: ./architecture-type.md
+[regulatory]: ./law-authority.md
+[org-risk]: ./resilience.md
 [admin]: ./critical-impact-accounts.md
 [info]: ./storage-data-encryption.md
