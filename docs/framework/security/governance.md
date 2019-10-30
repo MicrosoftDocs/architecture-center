@@ -99,7 +99,7 @@ applicable regulatory requirements are being followed.
 Ensure all Azure environments that connect to your production
 environment/network apply your organization’s policy and IT governance controls
 for security. You can discover existing connected tenants using a
-[tool](http://aka.ms/magicbutton) provided by Microsoft. Guidance on permissions
+[tool](https://aka.ms/magicbutton) provided by Microsoft. Guidance on permissions
 you may assign to security is in the [Assign privileges for managing the
 environment](#assign-privileges-for-managing-the-environment) section.
 

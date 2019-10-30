@@ -222,7 +222,7 @@ order by highest cost/difficulty to attack (strongest/preferred options) to
 lowest cost/difficult to attack:
 
 -   **Passwordless (such as Windows Hello)**  
-    <http://aka.ms/HelloForBusiness>
+    <https://aka.ms/HelloForBusiness>
 
 -   **Passwordless (Authenticator App)**  
     <https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-phone-sign-in>
