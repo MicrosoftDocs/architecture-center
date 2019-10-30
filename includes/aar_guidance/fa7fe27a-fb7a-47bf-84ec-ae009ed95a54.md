@@ -10,4 +10,4 @@ ms.assessment_question: Gracefully handle throttling
 ---
 ## Throttling
 
-Learn More: [https://docs.microsoft.com/en-us/azure/architecture/patterns/throttling](https://docs.microsoft.com/en-us/azure/architecture/patterns/throttling)
+Learn More: [/azure/architecture/patterns/throttling](/azure/architecture/patterns/throttling)
