@@ -17,7 +17,7 @@ Microservices are a popular architectural style for building applications that a
 
 ## Process for building a microservices architecture
 
-The articles listed here present a structure approach for designing, building, and operating a microservices architecture.
+The articles listed here present a structured approach for designing, building, and operating a microservices architecture.
 
 **Domain analysis.** To avoid some common pitfalls when designing microservices, use domain analysis to define your microservice boundaries. Follow these steps:
 
