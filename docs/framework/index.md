@@ -10,71 +10,52 @@ ms.subservice: reference-architecture
 ms.custom: seojan19
 ---
 
-# Pillars of software quality
+# Pillars of Architecture Excellence
 
-A successful cloud application will focus on these five pillars of software quality: Scalability, availability, resiliency, management, and security.
+A successful cloud solution implementations requires focus on these five pillars of architecture excellence: Cost, DevOps, Resiliency, Scalability, and Security.
 
 | Pillar | Description |
 |--------|-------------|
-| Scalability | The ability of a system to handle increased load. |
-| Availability | The proportion of time that a system is functional and working. |
+| Cost | Manage cost, generate value and return on investment |
+| DevOps | Operations processes that keep a system running in production. |
 | Resiliency | The ability of a system to recover from failures and continue to function. |
-| Management | Operations processes that keep a system running in production. |
+| Scalability | The ability of a system to handle increased load. |
 | Security | Protecting applications and data from threats. |
 
-## Scalability
+## Cost
+While architecting cloud solutions focus on generating incremental value early. Apply the principles of **Build-Measure-Learn**, enable accelerating time to market avoiding capital intensive solutions.  Leverage the pay as you go strategy for your architecture.  Invest in scaling out rather than delivering a large investment first version. Incorporate opportunity cost considerations in to your architecture. Consider cost aspects of balancing the first mover advantage vs fast follow.  
 
-Scalability is the ability of a system to handle increased load. There are two main ways that an application can scale. Vertical scaling (scaling *up*) means increasing the capacity of a resource, for example by using a larger VM size. Horizontal scaling (scaling *out*) is adding new instances of a resource, such as VMs or database replicas.
+Leverage the cost calculators to predict and estimate initial and operational costs.  Establish policies, budgets and controls that set cost limits for your solution.
 
-Horizontal scaling has significant advantages over vertical scaling:
 
-- True cloud scale. Applications can be designed to run on hundreds or even thousands of nodes, reaching scales that are not possible on a single node.
-- Horizontal scale is elastic. You can add more instances if load increases, or remove them during quieter periods.
-- Scaling out can be triggered automatically, either on a schedule or in response to changes in load.
-- Scaling out may be cheaper than scaling up. Running several small VMs can cost less than a single large VM.
-- Horizontal scaling can also improve resiliency, by adding redundancy. If an instance goes down, the application keeps running.
+### Cost guidance
 
-An advantage of vertical scaling is that you can do it without making any changes to the application. But at some point you'll hit a limit, where you can't scale any up any more. At that point, any further scaling must be horizontal.
+- [Design patterns for Cost][cost-patterns]
+- Best practices: [Cost][cost]
 
-Horizontal scale must be designed into the system. For example, you can scale out VMs by placing them behind a load balancer. But each VM in the pool must be able to handle any client request, so the application must be stateless or store state externally (say, in a distributed cache). Managed PaaS services often have horizontal scaling and autoscaling built in. The ease of scaling these services is a major advantage of using PaaS services.
 
-Just adding more instances doesn't mean an application will scale, however. It might simply push the bottleneck somewhere else. For example, if you scale a web front-end to handle more client requests, that might trigger lock contentions in the database. You would then need to consider additional measures, such as optimistic concurrency or data partitioning, to enable more throughput to the database.
+## DevOps
 
-Always conduct performance and load testing to find these potential bottlenecks. The stateful parts of a system, such as databases, are the most common cause of bottlenecks, and require careful design to scale horizontally. Resolving one bottleneck may reveal other bottlenecks elsewhere.
+This pillar covers the operations processes that keep an application running in production.
 
-Use the [Scalability checklist][scalability-checklist] to review your design from a scalability standpoint.
+Deployments must be reliable and predictable. They should be automated to reduce the chance of human error. They should be a fast and routine process, so they don't slow down the release of new features or bug fixes. Equally important, you must be able to quickly roll back or roll forward if an update has problems.
 
-### Scalability guidance
+Monitoring and diagnostics are crucial. Cloud applications run in a remote datacenter where you do not have full control of the infrastructure or, in some cases, the operating system. In a large application, it's not practical to log into VMs to troubleshoot an issue or sift through log files. With PaaS services, there may not even be a dedicated VM to log into. Monitoring and diagnostics give insight into the system, so that you know when and where failures occur. All systems must be observable. Use a common and consistent logging schema that lets you correlate events across systems.
 
-- [Design patterns for scalability and performance][scalability-patterns]
-- Best practices: [Autoscaling][autoscale], [Background jobs][background-jobs], [Caching][caching], [CDN][cdn], [Data partitioning][data-partitioning]
+The monitoring and diagnostics process has several distinct phases:
 
-## Availability
+- Instrumentation. Generating the raw data, from application logs, web server logs, diagnostics built into the Azure platform, and other sources.
+- Collection and storage. Consolidating the data into one place.
+- Analysis and diagnosis. To troubleshoot issues and see the overall health.
+- Visualization and alerts. Using telemetry data to spot trends or alert the operations team.
 
-Availability is the proportion of time that the system is functional and working. It is usually measured as a percentage of uptime. Application errors, infrastructure problems, and system load can all reduce availability.
+Use the [DevOps checklist][devops-checklist] to review your design from a management and DevOps standpoint.
 
-A cloud application should have a service level objective (SLO) that clearly defines the expected availability, and how the availability is measured. When defining availability, look at the critical path. The web front-end might be able to service client requests, but if every transaction fails because it can't connect to the database, the application is not available to users.
+### DevOps guidance
 
-Availability is often described in terms of "9s" &mdash; for example, "four 9s" means 99.99% uptime. The following table shows the potential cumulative downtime at different availability levels.
+- [Design patterns for management and monitoring][management-patterns]
+- Best practices: [Monitoring and diagnostics][monitoring]
 
-| % Uptime | Downtime per week | Downtime per month | Downtime per year |
-|----------|-------------------|--------------------|-------------------|
-| 99% | 1.68 hours | 7.2 hours | 3.65 days |
-| 99.9% | 10 minutes | 43.2 minutes | 8.76 hours |
-| 99.95% | 5 minutes | 21.6 minutes | 4.38 hours |
-| 99.99% | 1 minute | 4.32 minutes | 52.56 minutes |
-| 99.999% | 6 seconds | 26 seconds | 5.26 minutes |
-
-Notice that 99% uptime could translate to an almost 2-hour service outage per week. For many applications, especially consumer-facing applications, that is not an acceptable SLO. On the other hand, five 9s (99.999%) means no more than five minutes of downtime in a *year*. It's challenging enough just detecting an outage that quickly, let alone resolving the issue. To get very high availability (99.99% or higher), you can't rely on manual intervention to recover from failures. The application must be self-diagnosing and self-healing, which is where resiliency becomes crucial.
-
-In Azure, the Service Level Agreement (SLA) describes Microsoft's commitments for uptime and connectivity. If the SLA for a particular service is 99.95%, it means you should expect the service to be available 99.95% of the time.
-
-Applications often depend on multiple services. In general, the probability of either service having downtime is independent. For example, suppose your application depends on two services, each with a 99.9% SLA. The composite SLA for both services is 99.9% &times; 99.9% &asymp; 99.8%, or slightly less than each service by itself.
-
-### Availability guidance
-
-- [Design patterns for availability][availability-patterns]
-- Best practices: [Autoscaling][autoscale], [Background jobs][background-jobs]
 
 ## Resiliency
 
@@ -103,27 +84,32 @@ When designing an application to be resilient, you must understand your availabi
 - [Design patterns for resiliency][resiliency-patterns]
 - Best practices: [Transient fault handling][transient-fault-handling], [Retry guidance for specific services][retry-service-specific]
 
-## Management and DevOps
+## Scalability
 
-This pillar covers the operations processes that keep an application running in production.
+Scalability is the ability of a system to handle increased load. There are two main ways that an application can scale. Vertical scaling (scaling *up*) means increasing the capacity of a resource, for example by using a larger VM size. Horizontal scaling (scaling *out*) is adding new instances of a resource, such as VMs or database replicas.
 
-Deployments must be reliable and predictable. They should be automated to reduce the chance of human error. They should be a fast and routine process, so they don't slow down the release of new features or bug fixes. Equally important, you must be able to quickly roll back or roll forward if an update has problems.
+Horizontal scaling has significant advantages over vertical scaling:
 
-Monitoring and diagnostics are crucial. Cloud applications run in a remote datacenter where you do not have full control of the infrastructure or, in some cases, the operating system. In a large application, it's not practical to log into VMs to troubleshoot an issue or sift through log files. With PaaS services, there may not even be a dedicated VM to log into. Monitoring and diagnostics give insight into the system, so that you know when and where failures occur. All systems must be observable. Use a common and consistent logging schema that lets you correlate events across systems.
+- True cloud scale. Applications can be designed to run on hundreds or even thousands of nodes, reaching scales that are not possible on a single node.
+- Horizontal scale is elastic. You can add more instances if load increases, or remove them during quieter periods.
+- Scaling out can be triggered automatically, either on a schedule or in response to changes in load.
+- Scaling out may be cheaper than scaling up. Running several small VMs can cost less than a single large VM.
+- Horizontal scaling can also improve resiliency, by adding redundancy. If an instance goes down, the application keeps running.
 
-The monitoring and diagnostics process has several distinct phases:
+An advantage of vertical scaling is that you can do it without making any changes to the application. But at some point you'll hit a limit, where you can't scale any up any more. At that point, any further scaling must be horizontal.
 
-- Instrumentation. Generating the raw data, from application logs, web server logs, diagnostics built into the Azure platform, and other sources.
-- Collection and storage. Consolidating the data into one place.
-- Analysis and diagnosis. To troubleshoot issues and see the overall health.
-- Visualization and alerts. Using telemetry data to spot trends or alert the operations team.
+Horizontal scale must be designed into the system. For example, you can scale out VMs by placing them behind a load balancer. But each VM in the pool must be able to handle any client request, so the application must be stateless or store state externally (say, in a distributed cache). Managed PaaS services often have horizontal scaling and autoscaling built in. The ease of scaling these services is a major advantage of using PaaS services.
 
-Use the [DevOps checklist][devops-checklist] to review your design from a management and DevOps standpoint.
+Just adding more instances doesn't mean an application will scale, however. It might simply push the bottleneck somewhere else. For example, if you scale a web front-end to handle more client requests, that might trigger lock contentions in the database. You would then need to consider additional measures, such as optimistic concurrency or data partitioning, to enable more throughput to the database.
 
-### Management and DevOps guidance
+Always conduct performance and load testing to find these potential bottlenecks. The stateful parts of a system, such as databases, are the most common cause of bottlenecks, and require careful design to scale horizontally. Resolving one bottleneck may reveal other bottlenecks elsewhere.
 
-- [Design patterns for management and monitoring][management-patterns]
-- Best practices: [Monitoring and diagnostics][monitoring]
+Use the [Scalability checklist][scalability-checklist] to review your design from a scalability standpoint.
+
+### Scalability guidance
+
+- [Design patterns for scalability and performance][scalability-patterns]
+- Best practices: [Autoscaling][autoscale], [Background jobs][background-jobs], [Caching][caching], [CDN][cdn], [Data partitioning][data-partitioning]
 
 ## Security
 
@@ -180,6 +166,7 @@ Use Key Vault to safeguard cryptographic keys and secrets. By using Key Vault, y
 [trust-center]: https://azure.microsoft.com/support/trust-center/
 
 <!-- patterns -->
+[cost-patterns]: https://docs.microsoft.com/azure/architecture/patterns/
 [availability-patterns]: ../patterns/category/availability.md
 [management-patterns]: ../patterns/category/management-monitoring.md
 [resiliency-patterns]: ../patterns/category/resiliency.md
@@ -192,6 +179,7 @@ Use Key Vault to safeguard cryptographic keys and secrets. By using Key Vault, y
 [cdn]: ../best-practices/cdn.md
 [data-partitioning]: ../best-practices/data-partitioning.md
 [monitoring]: ../best-practices/monitoring.md
+[cost]: https://docs.microsoft.com/azure/cost-management/cost-mgt-best-practices
 [retry-service-specific]: ../best-practices/retry-service-specific.md
 [transient-fault-handling]: ../best-practices/transient-faults.md
 
