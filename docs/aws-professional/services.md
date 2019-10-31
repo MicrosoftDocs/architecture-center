@@ -154,11 +154,11 @@ For an overview of Azure for AWS users, see [Introduction to Azure for AWS profe
 
 | AWS service | Azure service | Description |
 | ----------- | ------------- | ----------- |
-| Mobile Hub | [Mobile Apps](https://azure.microsoft.com/services/app-service/mobile/) <br/><br/>[Xamarin Apps](https://azure.microsoft.com/features/xamarin/) | Provides backend mobile services for rapid development of mobile solutions, identity management, data synchronization, and storage and notifications across devices. |
-| Mobile SDK | [Mobile Apps](https://azure.microsoft.com/services/app-service/mobile/) | Provides the technology to rapidly build cross-platform and native apps for mobile devices. |
-| Cognito | [Mobile Apps](https://azure.microsoft.com/services/app-service/mobile/) | Provides authentication capabilities for mobile applications. |
-| AWS Device Farm | [Xamarin Test Cloud (front end)](https://www.xamarin.com/test-cloud) | Provides services to support testing mobile applications. |
-| Mobile Analytics | [HockeyApp](https://azure.microsoft.com/services/hockeyapp/) <br/><br/>[Application Insights](https://azure.microsoft.com/services/application-insights/) | Supports monitoring, and feedback collection for the debugging and analysis of a mobile application service quality. |
+| Mobile Hub | [App Center](https://azure.microsoft.com/services/app-center/) <br/><br/>[Xamarin Apps](https://azure.microsoft.com/features/xamarin/) | Provides backend mobile services for rapid development of mobile solutions, identity management, data synchronization, and storage and notifications across devices. |
+| Mobile SDK | [App Center](https://azure.microsoft.com/services/app-center/) | Provides the technology to rapidly build cross-platform and native apps for mobile devices. |
+| Cognito | [App Center](https://azure.microsoft.com/services/app-center/) | Provides authentication capabilities for mobile applications. |
+| AWS Device Farm | [App Center](https://azure.microsoft.com/services/app-center/) | Provides services to support testing mobile applications. |
+| Mobile Analytics | [App Center](https://azure.microsoft.com/services/app-center/) | Supports monitoring, and feedback collection for the debugging and analysis of a mobile application service quality. |
 
 ## Networking
 

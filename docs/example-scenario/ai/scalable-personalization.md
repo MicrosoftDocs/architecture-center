@@ -62,7 +62,7 @@ For deployment, you can scale the compute resources based on the expected load f
 
 Machine learning tasks are split into two resource components: resources for training, and resources for production deployment. Resources required for training generally don't need high availability, as live production requests don't directly hit these resources. Resources required for serving need to have high availability to serve customer requests.
 
-Training on [Azure Databricks] can happen on any one of the [regions](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/regions.html) with a [service level agreement][1] (SLA) to support your needs. For production deployment, [Azure Kubernetes Service] is used to provide broad geographic availability with this [SLA][1].
+Training on [Azure Databricks] can happen on any one of the [regions](https://azure.microsoft.com/global-infrastructure/services/?products=databricks) with a [service level agreement][1] (SLA) to support your needs. For production deployment, [Azure Kubernetes Service] is used to provide broad geographic availability with this [SLA][1].
 
 ### Security
 
