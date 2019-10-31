@@ -13,8 +13,6 @@ ms.custom: seodec18
 
 # Sharding pattern
 
-[!INCLUDE [header](../_includes/header.md)]
-
 Divide a data store into a set of horizontal partitions or shards. This can improve scalability when storing and accessing large volumes of data.
 
 ## Context and problem

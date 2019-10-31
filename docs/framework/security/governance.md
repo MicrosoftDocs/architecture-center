@@ -99,7 +99,7 @@ applicable regulatory requirements are being followed.
 Ensure all Azure environments that connect to your production
 environment/network apply your organization’s policy and IT governance controls
 for security. You can discover existing connected tenants using a
-[tool](http://aka.ms/magicbutton) provided by Microsoft. Guidance on permissions
+[tool](https://aka.ms/magicbutton) provided by Microsoft. Guidance on permissions
 you may assign to security is in the [Assign privileges for managing the
 environment](#assign-privileges-for-managing-the-environment) section.
 
@@ -117,12 +117,12 @@ functions:
 
 |Group or individual role| Responsibility|
 |---|---|
-| **Network Security**                 | *Typically existing network security team* Configuration and maintenance of Azure Firewall, Network Virtual Appliances (and associated routing), WAFs, NSGs, ASGs, etc.                              |
-| **Network Management**               | *Typically existing network operations team* Enterprise-wide virtual network and subnet allocation                                                                                                   |
-| **Server Endpoint Security**         | *Typically IT operations, security, or jointly* Monitor and remediate server security (patching, configuration, endpoint security, etc.)                                                             |
-| **Incident Monitoring and Response** | *Typically security operations team* Investigate and remediate security incidents in Security Information and Event Management (SIEM) or source console:                                             |
-| **Policy Management**                | *Typically GRC team + Architecture* Set Direction for use of Role Based Access Control (RBAC), Azure Security Center, Administrator protection strategy, and Azure Policy to govern Azure resources |
-| **Identity Security and Standards**  | *Typically Security Team + Identity Team Jointly* Set direction for Azure AD directories, PIM/PAM usage, MFA, password/synchronization configuration, Application Identity Standards                 |
+| **Network Security**                 | *Typically existing network security team.* Configuration and maintenance of Azure Firewall, Network Virtual Appliances (and associated routing), WAFs, NSGs, ASGs, etc. |
+| **Network Management**               | *Typically existing network operations team.* Enterprise-wide virtual network and subnet allocation. |
+| **Server Endpoint Security**         | *Typically IT operations, security, or jointly.* Monitor and remediate server security (patching, configuration, endpoint security, etc.). |
+| **Incident Monitoring and Response** | *Typically security operations team.* Investigate and remediate security incidents in Security Information and Event Management (SIEM) or source console.|
+| **Policy Management**                | *Typically GRC team + Architecture.* Set Direction for use of Role Based Access Control (RBAC), Azure Security Center, Administrator protection strategy, and Azure Policy to govern Azure resources. |
+| **Identity Security and Standards**  | *Typically Security Team + Identity Team jointly.* Set direction for Azure AD directories, PIM/PAM usage, MFA, password/synchronization configuration, Application Identity Standards. |
 
 
 ## Enterprise segmentation strategy
@@ -590,7 +590,7 @@ Use Penetration Testing to validate security defenses.
 
 Real world validation of security defenses is critical to validate your defense
 strategy and implementation. This can be accomplished by a penetration test
-(simulates a one time attack) or a red ream program (simulates a persistent
+(simulates a one time attack) or a red team program (simulates a persistent
 threat actor targeting your environment).
 
 Follow the [guidance published by Microsoft](https://technet.microsoft.com/mt784683) for planning and executing simulated

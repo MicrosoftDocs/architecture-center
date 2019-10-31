@@ -6,7 +6,7 @@ author: njray
 ms.date: 04/30/2018
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenario
+ms.subservice: example-scenarios
 ms.custom: seodec18
 social_image_url: /azure/architecture/example-scenario/apps/media/architecture-jenkins.png
 ---

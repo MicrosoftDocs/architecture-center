@@ -135,6 +135,6 @@ recommended which maps to one of more of these principles:
 
 -   **Educate and incentivize security –** The humans that are designing and
     operating the cloud workloads are part of the whole system. It is critical
-    to ensure that these people and educated, informed, and incented to support
+    to ensure that these people are educated, informed, and incented to support
     the security assurance goals of the system. This is particularly important
     for people with accounts granted broad administrative privileges.

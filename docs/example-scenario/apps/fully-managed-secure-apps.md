@@ -7,7 +7,7 @@ ms.date: 05/09/2019
 ms.author: faisalm
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenario
+ms.subservice: example-scenarios
 ms.custom:
     - fasttrack
     - security

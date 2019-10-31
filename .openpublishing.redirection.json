@@ -331,6 +331,66 @@
          "redirect_document_id": true
       },
       {
+        "source_path": "docs/security/overview.md",
+        "redirect_url": "docs/framework/security/overview.md",
+        "redirect_document_id": true
+      },
+      {
+        "source_path": "docs/security/applications-services.md",
+        "redirect_url": "docs/framework/security/applications-services.md",
+        "redirect_document_id": true
+      },
+      {
+        "source_path": "docs/security/architecture-type.md",
+        "redirect_url": "docs/framework/security/architecture-type.md",
+        "redirect_document_id": true
+      },
+      {
+        "source_path": "docs/security/critical-impact-accounts.md",
+        "redirect_url": "docs/framework/security/critical-impact-accounts.md",
+        "redirect_document_id": true
+      },
+      {
+        "source_path": "docs/security/governance.md",
+        "redirect_url": "docs/framework/security/governance.md",
+        "redirect_document_id": true
+      },
+      {
+        "source_path": "docs/security/identity.md",
+        "redirect_url": "docs/framework/security/identity.md",
+        "redirect_document_id": true
+      },
+      {
+        "source_path": "docs/security/law-authority.md",
+        "redirect_url": "docs/framework/security/law-authority.md",
+        "redirect_document_id": true
+      },
+      {
+        "source_path": "docs/security/network-security-containment.md",
+        "redirect_url": "docs/framework/security/network-security-containment.md",
+        "redirect_document_id": true
+      },
+      {
+        "source_path": "docs/security/resilience.md",
+        "redirect_url": "docs/framework/security/resilience.md",
+        "redirect_document_id": true
+      },
+      {
+        "source_path": "docs/security/security-operations.md",
+        "redirect_url": "docs/framework/security/security-operations.md",
+        "redirect_document_id": true
+      },
+      {
+        "source_path": "docs/security/security-principles.md",
+        "redirect_url": "docs/framework/security/security-principles.md",
+        "redirect_document_id": true
+      },
+      {
+        "source_path": "docs/security/storage-data-encryption.md",
+        "redirect_url": "docs/framework/security/storage-data-encryption.md",
+        "redirect_document_id": true
+      },
+      {
          "source_path": "docs/cloud-adoption-guide/adoption-intro/azure-resource-access.md",
          "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
       },
@@ -1575,7 +1635,7 @@
      },
      {
          "source_path": "docs/cloud-adoption/ready/initial-org-alignment.md",
-         "redirect_url": "https://docs.microsoft.com/azure/cloud-adoption-framework/ready/initial-org-alignment"
+         "redirect_url": "https://docs.microsoft.com/azure/cloud-adoption-framework/plan/initial-org-alignment"
      },
      {
          "source_path": "docs/cloud-adoption/ready/suggested-skills.md",
@@ -1614,6 +1674,11 @@
      { 
          "source_path": "docs/reference-architectures/dmz/index.md",
          "redirect_url": "/azure/architecture/reference-architectures/dmz/secure-vnet-dmz"
+     },
+     { 
+         "source_path": "docs/microservices/introduction.md",
+         "redirect_url": "/azure/architecture/microservices/",
+         "redirect_document_id": true
      }
    ]
 }

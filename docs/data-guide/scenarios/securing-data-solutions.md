@@ -54,7 +54,7 @@ For more information, see [Azure Logging and Auditing](/azure/security/azure-log
 
 ### Encryption
 
-**Virtual machines**. Use [Azure Disk Encryption](/azure/security/azure-security-disk-encryption) to encrypt the attached disks on Windows or Linux VMs. This solution integrates with [Azure Key Vault](/azure/key-vault/) to control and manage the disk-encryption keys and secrets.
+**Virtual machines**. Use [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) to encrypt the attached disks on Windows or Linux VMs. This solution integrates with [Azure Key Vault](/azure/key-vault/) to control and manage the disk-encryption keys and secrets.
 
 **Azure Storage**. Use [Azure Storage Service Encryption](/azure/storage/common/storage-service-encryption) to automatically encrypt data at rest in Azure Storage. Encryption, decryption, and key management are totally transparent to users. Data can also be secured in transit by using client-side encryption with Azure Key Vault. For more information, see [Client-Side Encryption and Azure Key Vault for Microsoft Azure Storage](/azure/storage/common/storage-client-side-encryption).
 

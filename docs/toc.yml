@@ -58,6 +58,8 @@ items:
         href: guide/technology-choices/compute-comparison.md
     - name: Choosing a load balancing service
       href: guide/technology-choices/load-balancing-overview.md
+    - name: Choosing a messaging service
+      href: guide/technology-choices/messaging.md
   - name: Best Practices
     items:
     - name: API design
@@ -114,49 +116,40 @@ items:
       href: antipatterns/no-caching/index.md
     - name: Synchronous I/O
       href: antipatterns/synchronous-io/index.md
-  - name: Security
-    items: 
-    - name: Overview
-      href: security/overview.md
-    - name: Security design principles
-      href: security/security-principles.md
-    - name: Types of attacks to resist
-      href: security/architecture-type.md
-    - name: Regulatory compliance
-      href: security/law-authority.md
-    - name: Reduce organizational risk
-      href: security/resilience.md            
-    - name: Governance, risk, and compliance
-      href: security/governance.md
-    - name: Identity and access management
-      href: security/identity.md      
-    - name: Network security and containment
-      href: security/network-security-containment.md
-    - name: Storage, data, and encryption
-      href: security/storage-data-encryption.md
-    - name: Applications and services
-      href: security/applications-services.md
-    - name: Administration
-      href: security/critical-impact-accounts.md
-    - name: Security operations
-      href: security/security-operations.md
   - name: Azure for AWS Professionals
     items:
     - name: Overview
       href: aws-professional/index.md
     - name: Services comparison
       href: aws-professional/services.md
-
 - name: Design Patterns
   items:
   - name: Overview
     href: patterns/index.md
+  - name: Categories
+    items:
+    - name: Availability
+      href: patterns/category/availability.md
+    - name: Data management
+      href: patterns/category/data-management.md
+    - name: Design and implementation
+      href: patterns/category/design-implementation.md
+    - name: Management and monitoring
+      href: patterns/category/management-monitoring.md
+    - name: Messaging
+      href: patterns/category/messaging.md
+    - name: Performance and scalability
+      href: patterns/category/performance-scalability.md
+    - name: Resiliency
+      href: patterns/category/resiliency.md
+    - name: Security
+      href: patterns/category/security.md
   - name: Ambassador
     href: patterns/ambassador.md
   - name: Anti-corruption Layer
     href: patterns/anti-corruption-layer.md
-  - name: Availability
-    href: patterns/category/availability.md
+  - name: Asynchronous Request-Reply
+    href: patterns/async-request-reply.md
   - name: Backends for Frontends
     href: patterns/backends-for-frontends.md
   - name: Bulkhead
@@ -177,10 +170,6 @@ items:
     href: patterns/competing-consumers.md
   - name: Compute Resource Consolidation
     href: patterns/compute-resource-consolidation.md
-  - name: Data management
-    href: patterns/category/data-management.md
-  - name: Design and implementation
-    href: patterns/category/design-implementation.md
   - name: Event Sourcing
     href: patterns/event-sourcing.md
   - name: External Configuration Store
@@ -201,14 +190,8 @@ items:
     href: patterns/index-table.md
   - name: Leader Election
     href: patterns/leader-election.md
-  - name: Management and monitoring
-    href: patterns/category/management-monitoring.md
   - name: Materialized View
     href: patterns/materialized-view.md
-  - name: Messaging
-    href: patterns/category/messaging.md
-  - name: Performance and scalability
-    href: patterns/category/performance-scalability.md
   - name: Pipes and Filters
     href: patterns/pipes-and-filters.md
   - name: Priority Queue
@@ -217,14 +200,10 @@ items:
     href: patterns/publisher-subscriber.md
   - name: Queue-Based Load Leveling
     href: patterns/queue-based-load-leveling.md
-  - name: Resiliency
-    href: patterns/category/resiliency.md
   - name: Retry
     href: patterns/retry.md
   - name: Scheduler Agent Supervisor
     href: patterns/scheduler-agent-supervisor.md
-  - name: Security
-    href: patterns/category/security.md
   - name: Sharding
     href: patterns/sharding.md
   - name: Sidecar
@@ -334,42 +313,33 @@ items:
     - name: Checklist
       href: checklist/scalability.md
   - name: Security
-    items:
+    items: 
     - name: Overview
       href: framework/security/overview.md
-    - name: Security design principles
-      href: security/security-principles.md
-    - name: Application design
-      href: framework/security/app-design.md
-    - name: Authorization
-      href: framework/security/authorization.md
-    - name: Compliance & Governance
-      href: framework/security/compliance.md
-    - name: Data classification
-      href: framework/security/data-classification.md
-    - name: Data management
-      href: framework/security/data-management.md
-    - name: Encryption
-      href: framework/security/encryption.md
-    - name: Identity management
-      href: framework/security/identity.md
-    - name: Regulatory compliance
-      href: security/law-authority.md
-    - name: Network security
-      href: framework/security/network.md
-    - name: Security Monitoring
-      href: framework/security/monitoring.md
-    - name: Security testing
-      href: framework/security/testing.md
     - name: Role of security
       href: framework/security/role-of-security.md
-    - name: Theat modelling
-      href: framework/security/threat-modelling.md
-    - name: Trade-offs
-      href: framework/security/tradeoffs.md
+    - name: Security design principles
+      href: framework/security/security-principles.md
     - name: Types of attacks to resist
-      href: security/architecture-type.md
-
+      href: framework/security/architecture-type.md
+    - name: Regulatory compliance
+      href: framework/security/law-authority.md
+    - name: Reduce organizational risk
+      href: framework/security/resilience.md            
+    - name: Governance, risk, and compliance
+      href: framework/security/governance.md
+    - name: Identity and access management
+      href: framework/security/identity.md      
+    - name: Network security and containment
+      href: framework/security/network-security-containment.md
+    - name: Storage, data, and encryption
+      href: framework/security/storage-data-encryption.md
+    - name: Applications and services
+      href: framework/security/applications-services.md
+    - name: Administration
+      href: framework/security/critical-impact-accounts.md
+    - name: Security operations
+      href: framework/security/security-operations.md  
 - name: Technologies
   expanded: true
   items:   
@@ -438,6 +408,16 @@ items:
 
   - name: Data architectures
     items:
+    - name: Reference architectures
+      items:
+      - name: Automated enterprise BI with Azure Data Factory
+        href: reference-architectures/data/enterprise-bi-adf.md
+      - name: Enterprise BI with SQL Data Warehouse
+        href: reference-architectures/data/enterprise-bi-sqldw.md
+      - name: Stream processing with Azure Databricks
+        href: reference-architectures/data/stream-processing-databricks.md
+      - name: Stream processing with Azure Stream Analytics
+        href: reference-architectures/data/stream-processing-stream-analytics.md
     - name: Guides
       items:
       - name: Overview
@@ -494,16 +474,6 @@ items:
           href: databricks-monitoring/dashboards.md
         - name: Troubleshoot performance bottlenecks
           href: databricks-monitoring/performance-troubleshooting.md
-    - name: Reference architectures
-      items:
-      - name: Automated enterprise BI with Azure Data Factory
-        href: reference-architectures/data/enterprise-bi-adf.md
-      - name: Enterprise BI with SQL Data Warehouse
-        href: reference-architectures/data/enterprise-bi-sqldw.md
-      - name: Stream processing with Azure Databricks
-        href: reference-architectures/data/stream-processing-databricks.md
-      - name: Stream processing with Azure Stream Analytics
-        href: reference-architectures/data/stream-processing-stream-analytics.md
     - name: Example workloads
       items:
       - name: Advanced analytics
@@ -592,6 +562,18 @@ items:
 
   - name: Identity
     items:
+    - name: Reference architectures
+      items:
+      - name: Choose an Active Directory integration architecture
+        href: reference-architectures/identity/index.md
+      - name: Integrate on-premises AD with Azure AD
+        href: reference-architectures/identity/azure-ad.md
+      - name: Extend AD DS to Azure
+        href: reference-architectures/identity/adds-extend-domain.md
+      - name: Create an AD DS forest in Azure
+        href: reference-architectures/identity/adds-forest.md
+      - name: Extend AD FS to Azure
+        href: reference-architectures/identity/adfs.md
     - name: Guides
       items:
       - name: Identity in multitenant applications
@@ -618,18 +600,6 @@ items:
           href: multitenant-identity/client-assertion.md
         - name: Federate with a customer's AD FS
           href: multitenant-identity/adfs.md
-    - name: Reference architectures
-      items:
-      - name: Choose an Active Directory integration architecture
-        href: reference-architectures/identity/index.md
-      - name: Integrate on-premises AD with Azure AD
-        href: reference-architectures/identity/azure-ad.md
-      - name: Extend AD DS to Azure
-        href: reference-architectures/identity/adds-extend-domain.md
-      - name: Create an AD DS forest in Azure
-        href: reference-architectures/identity/adds-forest.md
-      - name: Extend AD FS to Azure
-        href: reference-architectures/identity/adfs.md
 
   - name: Internet of Things (IoT)
     items:
@@ -648,8 +618,12 @@ items:
     items:
     - name: Overview
       href: microservices/index.md
-    - name: Introduction to microservices
-      href: microservices/introduction.md
+    - name: Reference architectures
+      items:
+      - name: Azure Kubernetes Service (AKS)
+        href: reference-architectures/microservices/aks.md
+      - name: Azure Service Fabric
+        href: reference-architectures/microservices/service-fabric.md
     - name: Guides
       items:
       - name: Modeling microservices
@@ -688,12 +662,6 @@ items:
         href: service-fabric/modernize-app-azure-service-fabric.md
       - name: Migrate from Cloud Services to Service Fabric
         href: service-fabric/migrate-from-cloud-services.md
-    - name: Reference architectures
-      items:
-      - name: Azure Kubernetes Service (AKS)
-        href: reference-architectures/microservices/aks.md
-      - name: Azure Service Fabric
-        href: reference-architectures/microservices/service-fabric.md
     - name: Example workloads
       items:
       - name: Decomposing a monolithic application
@@ -736,6 +704,10 @@ items:
         href: reference-architectures/serverless/event-processing.md
       - name: Serverless web application
         href: reference-architectures/serverless/web-app.md
+    - name: Guides
+      items:
+      - name: CI/CD for serverless frontend
+        href: serverless/guide/serverless-app-cicd-best-practices.md
 
   - name: VM workloads
     items:
@@ -801,4 +773,3 @@ items:
 
 - name: Cloud Adoption Framework
   href: https://docs.microsoft.com/azure/cloud-adoption-framework
-  

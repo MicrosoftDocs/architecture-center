@@ -13,8 +13,6 @@ ms.custom: seodec18
 
 # Command and Query Responsibility Segregation (CQRS) pattern
 
-[!INCLUDE [header](../_includes/header.md)]
-
 Segregate operations that read data from operations that update data by using separate interfaces. This can maximize performance, scalability, and security. Supports the evolution of the system over time through higher flexibility, and prevents update commands from causing merge conflicts at the domain level.
 
 ## Context and problem
@@ -35,7 +33,7 @@ Read and write workloads are often asymmetrical, with very different performance
 
 ## Solution
 
-CQRS addresses separates reads and writes into separate models, using **commands** to update data, and **queries** to read data.
+CQRS separates reads and writes into different models, using **commands** to update data, and **queries** to read data.
 
 - Commands should be task based, rather than data centric. ("Book hotel room", not "set ReservationStatus to Reserved"). 
 - Commands may be placed on a queue for asynchronous processing, rather than being processed synchronously.
