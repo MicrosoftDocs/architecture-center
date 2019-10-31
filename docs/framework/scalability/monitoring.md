@@ -13,6 +13,7 @@ ms.custom: fasttrack-edit
 
 Monitoring for scalability should be part of your overall monitoring strategy that utilizes [Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/). The overall monitoring strategy should take into consideration not only scalability, but resiliency (infrastructure, application and dependent services) and application performance as well. Most services in Azure offer the ability to turn on both data and management plane logs as well as metrics. For purposes of scalability, looking at the metrics would allow you to scale based scale up, scale out, scale in, and scale down. The ability to scale dynamically is one of the biggest values of moving to the cloud.  
 
+
 ## What are some of the reasons for setting up auto scaling
 
 - Are the systems able to handle the current number of requests?

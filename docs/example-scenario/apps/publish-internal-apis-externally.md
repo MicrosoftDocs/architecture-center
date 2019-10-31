@@ -7,7 +7,7 @@ ms.date: 03/12/2019
 ms.author: ssarwa
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenario
+ms.subservice: example-scenarios
 ms.custom: fasttrack
 social_image_url: ./media/architecture-publish-internal-apis-externally.png
 ---

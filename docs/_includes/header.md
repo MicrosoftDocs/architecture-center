@@ -1,3 +1,0 @@
----
-ms.topic: banner
----

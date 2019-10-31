@@ -6,7 +6,7 @@ author: begim
 ms.date: 09/13/2018
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenario
+ms.subservice: example-scenarios
 ms.custom: fasttrack
 social_image_url: /azure/architecture/example-scenario/apps/media/architecture-apim-api-scenario.png
 ---
