@@ -37,7 +37,7 @@ Monitoring for scalability should be part of your overall monitoring strategy th
 - Azure Kubernetes Services offers both the ability to scale pods as well as to auto scale nodes. Scaling rules can be based on internal metrics or can leverage metrics from systems like Prometheus.
 - Other services, such as Application Gateway, can be scaled manually. In this case, it is important to leverage services such as Log Analytics to raise alerts when the service is no longer able to handle the load.
 
-- Monitor Metrics and auto scale on performance and schedule for [VMs and VM Scalesets] (https://docs.microsoft.com/en-us/azure/azure-monitor/insights/vminsights-overview)
+- Monitor Metrics and auto scale on performance and schedule for [VMs and VM Scalesets](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/vminsights-overview)
 
 - For Container workloads, [Container Monitoring Solution in Azure Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/containers) should be utilized.
 
@@ -48,7 +48,7 @@ Monitoring for scalability should be part of your overall monitoring strategy th
 - Configure the auto scaling rules for those service that include it.
 - Create alert rules for those that could be scaled manually.
 - Monitor your environment to make sure that auto scaling is working as expected. For example, watch out for scaling events from the telemetry coming out of the management plane.
-- Monitor [Web applications] (https://docs.microsoft.com/en-us/azure/azure-monitor/learn/quick-monitor-portal) using Azure
+- Monitor [Web applications](https://docs.microsoft.com/en-us/azure/azure-monitor/learn/quick-monitor-portal) using Azure
 Application Insights.
 - [Monitor Network Performance](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/network-performance-monitor).
 - Consider reviewing as applicable, [Network Performance Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/network-performance-monitor-performance-monitor), [Service Connectivity Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/network-performance-monitor-service-connectivity), [ExpressRoute Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/network-performance-monitor-expressroute)
