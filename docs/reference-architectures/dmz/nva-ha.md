@@ -120,6 +120,7 @@ You choose the type of probe you want to use when you configure the function app
 
 [cloud-security]: /azure/best-practices-network-security
 [dmz-internet]: ./secure-vnet-dmz.md
+[dmz-on-premises]: secure-vnet-dmz.md
 [egress-with-layer-7]: #egress-with-layer-7-nvas
 [ingress-with-layer-7]: #ingress-with-layer-7-nvas
 [ingress-egress-with-layer-7]: #ingress-egress-with-layer-7-nvas
