@@ -48,10 +48,9 @@ Monitoring for scalability should be part of your overall monitoring strategy th
 - Configure the auto scaling rules for those service that include it.
 - Create alert rules for those that could be scaled manually.
 - Monitor your environment to make sure that auto scaling is working as expected. For example, watch out for scaling events from the telemetry coming out of the management plane.
-- Monitor [Web applications](https://docs.microsoft.com/en-us/azure/azure-monitor/learn/quick-monitor-portal) using Azure
-Application Insights.
+- Monitor Web applications using [Application Insights](https://docs.microsoft.com/en-us/azure/azure-monitor/learn/quick-monitor-portal).
 - [Monitor Network Performance](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/network-performance-monitor).
-- Consider reviewing as applicable, [Network Performance Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/network-performance-monitor-performance-monitor), [Service Connectivity Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/network-performance-monitor-service-connectivity), [ExpressRoute Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/network-performance-monitor-expressroute)
+  - Consider reviewing as applicable, [Network Performance Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/network-performance-monitor-performance-monitor), [Service Connectivity Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/network-performance-monitor-service-connectivity), [ExpressRoute Monitor](https://docs.microsoft.com/en-us/azure/azure-monitor/insights/network-performance-monitor-expressroute)
 - For long term storage, consider [archiving of the Monitoring Data](https://docs.microsoft.com/en-us/azure/azure-monitor/learn/tutorial-archive-data).
 - Track activities using [Azure Security and Audit Logs](https://docs.microsoft.com/en-us/azure/security/fundamentals/log-audit).
 
