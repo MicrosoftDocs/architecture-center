@@ -635,8 +635,6 @@ items:
     items:
     - name: Overview
       href: serverless/index.md
-    - name: Code walkthrough
-      href: serverless/code.md
     - name: Reference architectures
       items:
       - name: Serverless event processing
@@ -645,7 +643,9 @@ items:
         href: reference-architectures/serverless/web-app.md
     - name: Guides
       items:
-      - name: CI/CD for serverless frontend
+      - name: Create a serverless backend with Azure Functions
+        href: serverless/code.md
+      - name: CI/CD for a serverless frontend
         href: serverless/guide/serverless-app-cicd-best-practices.md
 
   - name: VM workloads
