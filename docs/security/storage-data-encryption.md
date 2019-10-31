@@ -88,7 +88,7 @@ they will not be able to because of the encryption.
 We recommend that you enable virtual disk encryption.
 
 An example of virtual disk encryption is [Azure Disk
-Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview).
+Encryption](https://docs.microsoft.com/azure/security/fundamentals/azure-disk-encryption-vms-vmss).
 
 ## Enable platform encryption services
 

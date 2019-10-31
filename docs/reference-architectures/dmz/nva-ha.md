@@ -48,9 +48,6 @@ The following figure shows a high availability architecture that implements an i
 
 The benefit of this architecture is that all NVAs are active, and if one fails the load balancer directs network traffic to the other NVA. Both NVAs route traffic to the internal load balancer so as long as one NVA is active, traffic continues to flow. The NVAs are required to terminate SSL traffic intended for the web tier VMs. These NVAs cannot be extended to handle on-premises traffic because on-premises traffic requires another dedicated set of NVAs with their own network routes.
 
-> [!NOTE]
-> This architecture is used in the [DMZ between Azure and your on-premises datacenter][dmz-on-premises] reference architecture and the [DMZ between Azure and the Internet][dmz-internet] reference architecture. Each of these reference architectures includes a deployment solution that you can use. Follow the links for more information.
-
 ## Egress with layer 7 NVAs
 
 The previous architecture can be expanded to provide an egress DMZ for requests originating in the Azure workload. The following architecture is designed to provide high availability of the NVAs in the DMZ for layer 7 traffic, such as HTTP or HTTPS:
@@ -58,9 +55,6 @@ The previous architecture can be expanded to provide an egress DMZ for requests 
 ![[2]][2]
 
 In this architecture, all traffic originating in Azure is routed to an internal load balancer. The load balancer distributes outgoing requests between a set of NVAs. These NVAs direct traffic to the Internet using their individual public IP addresses.
-
-> [!NOTE]
-> This architecture is used in the [DMZ between Azure and your on-premises datacenter][dmz-on-premises] reference architecture and the [DMZ between Azure and the Internet][dmz-internet] reference architecture. Each of these reference architectures includes a deployment solution that you can use. Follow the links for more information.
 
 ## Ingress-egress with layer 7 NVAs
 
@@ -113,13 +107,13 @@ You choose the type of probe you want to use when you configure the function app
 
 ## Next steps
 
-- Learn how to [implement a DMZ between Azure and your on-premises datacenter][dmz-on-premises] using layer-7 NVAs.
+- Learn how to [implement a DMZ between Azure and your on-premises datacenter][dmz-on-premises] using Azure Firewall.
 - [Troubleshoot network virtual appliance issues in Azure](/azure/virtual-network/virtual-network-troubleshoot-nva)
 
 <!-- links -->
 
 [cloud-security]: /azure/best-practices-network-security
-[dmz-internet]: ./secure-vnet-dmz.md
+[dmz-on-premises]: secure-vnet-dmz.md
 [egress-with-layer-7]: #egress-with-layer-7-nvas
 [ingress-with-layer-7]: #ingress-with-layer-7-nvas
 [ingress-egress-with-layer-7]: #ingress-egress-with-layer-7-nvas

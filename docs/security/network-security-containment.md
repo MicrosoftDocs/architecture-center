@@ -207,8 +207,7 @@ The major cloud service providers already filter for malformed packets and
 common network layer attacks, so there’s no need for a NIDS/NIPS solution to
 detect those. In addition, traditional NIDS/NIPS solutions are typically driven
 by signature-based approaches (which are considered outdated) and are easily
-evaded by attackers and typically produce a high rate of false positives. NIDS
-and NIPS style of capabilities that
+evaded by attackers and typically produce a high rate of false positives.
 
 Network-based DLP is decreasingly effective at identifying both inadvertent and
 deliberate data loss. The reason for this is that most modern protocols and

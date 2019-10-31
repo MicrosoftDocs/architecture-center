@@ -13,8 +13,9 @@ ms.custom: microservices
 
 Microservices have become a popular architectural style for building cloud applications that are resilient, highly scalable, independently deployable, and able to evolve quickly. To be more than just a buzzword, however, microservices require a different approach to designing and building applications.
 
-In this set of articles, we explore how to build and run a microservices architecture on Azure. Topics include:
+In this set of articles, we explore how to build a microservices architecture on Azure. Topics include:
 
+- [Compute options for microservices](./compute-options.md)
 - [Interservice communication](./interservice-communication.md)
 - [API design](./api-design.md)
 - [API gateways](./gateway.md)
@@ -25,7 +26,7 @@ In this set of articles, we explore how to build and run a microservices archite
 
 Before reading these articles, you might start with the following:
 
-- [Introduction to microservices architectures](../introduction.md). Understand the benefits and challenges of microservices, and when to use this style of architecture.
+- [Introduction to microservices architectures](../index.md). Understand the benefits and challenges of microservices, and when to use this style of architecture.
 - [Using domain analysis to model microservices](../model/domain-analysis.md). Learn a domain-driven approach to modeling microservices.
 
 ## Reference implementation
