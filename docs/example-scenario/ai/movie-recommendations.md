@@ -7,7 +7,7 @@ ms.custom: azcat-ai, AI
 social_image_url: /azure/architecture/example-scenario/ai/media/architecture-movie-recommender.png
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenario
+ms.subservice: example-scenarios
 ---
 
 # Movie recommendations on Azure
@@ -125,11 +125,11 @@ For an in-depth guide to building and scaling a recommender service, see [Build 
 [ndcg]: https://en.wikipedia.org/wiki/Discounted_cumulative_gain
 [notebook]: https://github.com/Microsoft/Recommenders/notebooks/00_quick_start/als_pyspark_movielens.ipynb
 [ref-arch]: /azure/architecture/reference-architectures/ai/real-time-recommendation
-[regions]: https://azure.microsoft.com/en-us/global-infrastructure/services/?products=virtual-machines&regions=all
+[regions]: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all
 [resiliency]: /azure/architecture/resiliency/
 [sec-docs]: /azure/security/
 [setup]: https://github.com/Microsoft/Recommenders/blob/master/SETUP.md%60
-[sla]: https://azure.microsoft.com/en-us/support/legal/sla/virtual-machines/v1_8/
-[sla-aks]: https://azure.microsoft.com/en-us/support/legal/sla/kubernetes-service/v1_0/
+[sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/
+[sla-aks]: https://azure.microsoft.com/support/legal/sla/kubernetes-service/v1_0/
 [storage-security]: /azure/storage/common/storage-service-encryption
 [vm-size]: /azure/virtual-machines/virtual-machines-linux-change-vm-size
