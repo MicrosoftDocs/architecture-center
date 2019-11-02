@@ -23,7 +23,7 @@ Gitflow is an abstract idea of a Git workflow. This means it dictates what kind 
 
 How it works
 
-![Gitflow](/docs/framework/_images/gitflow-how-it-works.png)
+![Gitflow](../_images/gitflow-how-it-works.png)
 
 Develop and Master Branches
 
@@ -58,7 +58,7 @@ When using the git-flow extension library, executing git flow init on an existin
 
 Each new feature should reside in its own branch, which can be pushed to the central repository for backup/collaboration. But, instead of branching off of master, feature branches use develop as their parent branch. When a feature is complete, it gets merged back into develop. Features should never interact directly with master.
 
-![feature branch](/docs/framework/_images/feature-branches.png)
+![feature branch](../_images/feature-branches.png)
 
 *Feature branches combined with the develop branch is, for all intents and purposes, the Feature Branch Workflow. But, the Gitflow Workflow doesn’t stop there.*
 
@@ -88,7 +88,7 @@ Using the git-flow extensions:
 
 ## Release Branches
 
-![release branch](/docs/framework/_images/release-branches.png)
+![release branch](../_images/release-branches.png)
 
 Once develop has acquired enough features for a release (or a predetermined release date is approaching), you fork a release branch off of develop. Creating this branch starts the next release cycle, so no new features can be added after this point—only bug fixes, documentation generation, and other release-oriented tasks should go in this branch. Once it's ready to ship, the release branch gets merged into master and tagged with a version number. In addition, it should be merged back into develop, which may have progressed since the release was initiated.
 
@@ -125,7 +125,7 @@ Or with the git-flow extension:
 
 ## Hotfix Branches
 
-![hotfix branch](/docs/framework/_images/hotfix-branches.png)
+![hotfix branch](../_images/hotfix-branches.png)
 
 Maintenance or "hotfix" branches are used to quickly patch production releases. Hotfix branches are a lot like release branches and feature branches except they're based on master instead of develop. This is the only branch that forks directly off of master. As soon as the fix is complete, it should be merged into both master and develop (or the current release branch), and master should be tagged with an updated version number.
 
