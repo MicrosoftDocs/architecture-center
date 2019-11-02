@@ -29,4 +29,4 @@ Autoscaling rules that use a detection mechanism based on a measured trigger att
 
 ## Preemptively scaling based on trends
 
-Preemptively scaling based on historical data can ensure your application has consistent performance, even though your metrics have not yet indicated the need to scale. Consider whether you can predict the load on the application enough to use scheduled autoscaling, adding and removing instances to meet anticipated peaks in demand. To learn more [review autoscaling guidance](/azure/architecture/best-practices/auto-scaling).
+Preemptively scaling based on historical data can ensure your application has consistent performance, even though your metrics have not yet indicated the need to scale. If you can predict the load on the application, consider using scheduled autoscaling, which adds and removes instances to meet anticipated peaks in demand. To learn more [review autoscaling guidance](/azure/architecture/best-practices/auto-scaling).

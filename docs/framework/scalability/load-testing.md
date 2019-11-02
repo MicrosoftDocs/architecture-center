@@ -11,27 +11,27 @@ ms.custom: How are you handling user load?
 
 # Load Testing
 
-<!-- Have you done testing at expected peak load? -->
-[!include[821e7b7e-2432-4136-a708-dc0544187150](../../../includes/aar_guidance/821e7b7e-2432-4136-a708-dc0544187150.md)]
+## Testing at expected peak load
 
-<!-- Know the limits of Azure resources as it relates to your workload -->
-[!include[57718622-cd7d-416a-8731-a0a542e8e4ab](../../../includes/aar_guidance/57718622-cd7d-416a-8731-a0a542e8e4ab.md)]
+Load test your application at the expected peak load to ensure there are no challenges around performance or stability when operating at full capacity. Review [Changes to load test functionality in Visual Studio and cloud load testing in Azure DevOps](/azure/devops/test/load-test/overview?view=azure-devops) to get an overview of the Microsoft provided load testing tools, along with a comprehensive list of third-party tools you can leverage as well.
 
-<!-- Understand the user load the system can handle -->
-[!include[b4e28c41-ba4d-4e60-9de8-07c7c25049c3](../../../includes/aar_guidance/b4e28c41-ba4d-4e60-9de8-07c7c25049c3.md)]
+## Azure service limits
 
-<!-- Know base & peak loads -->
-[!include[09d9771d-5f07-4004-b9e0-a9dc04d98efa](../../../includes/aar_guidance/09d9771d-5f07-4004-b9e0-a9dc04d98efa.md)]
+Different azure services have soft and hard limits associated with them. Understand the limits for the services you consume so that you are not blocked if you need to exceed them. Review [Azure subscription and service limits, quotas, and constraints](/azure/azure-subscription-service-limits) to get a list of the most common Azure limits.
 
-<!-- Know how long it takes scaling to respond to events -->
-[!include[28613f56-5cd0-4318-b1b2-28bfd2a2643c](../../../includes/aar_guidance/28613f56-5cd0-4318-b1b2-28bfd2a2643c.md)]
+## Understanding application behavior under load
 
-<!-- Leverage appropriate caching -->
-[!include[df8b22d8-3b9b-49a5-bd43-bc18d4baa2ac](../../../includes/aar_guidance/df8b22d8-3b9b-49a5-bd43-bc18d4baa2ac.md)]
+Load test your application to understand how it performs at various scales. Review [Autoscale best practices](/en-us/azure/architecture/best-practices/auto-scaling) to get additional insight into how to evaluate your application as the amount of traffic sent to it increases.
 
-<!-- Database storage is sharded when appropriate -->
-[!include[89270a39-dc22-496e-bf13-0fa221e6dae7](../../../includes/aar_guidance/89270a39-dc22-496e-bf13-0fa221e6dae7.md)]
+## Measuring typical loads
 
-<!-- Do you know the availability of your SKU's? -->
-[!include[373984b8-a555-4958-a7a8-378ef6f7e53b](../../../includes/aar_guidance/373984b8-a555-4958-a7a8-378ef6f7e53b.md)]
+Knowing the typical and maximum loads on your system help you understand when something is operating outside of its designed limits.  Monitor traffic to your application to understand user behavior.
+
+## Caching
+
+Applications should implement a strategy that helps to ensure that the data in the cache is as up-to-date as possible but can also detect and handle situations that arise when the data in the cache has become stale. Review the [Cache-Aside pattern](/azure/architecture/patterns/cache-aside) to learn how to load data on demand into a cache from a data store. This can improve performance and also helps to maintain consistency between data held in the cache and data in the underlying data store.
+
+## Availability of SKUs
+
+Certain Azure SKUs are only available in certain regions. Understand which SKUs are available in the regions you operate in so you can plan accordingly. Read about [global infrastructure services](https://azure.microsoft.com/global-infrastructure/services/).
 
