@@ -6,7 +6,7 @@ author: iainfoulds
 ms.date: 07/05/2018
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenario
+ms.subservice: example-scenarios
 social_image_url: /azure/architecture/example-scenario/ai/media/architecture-commerce-chatbot.png
 ---
 
@@ -80,7 +80,7 @@ This scenario uses Azure SQL Database for storing customer reservations. SQL Dat
 
 To monitor the health of your application, this scenario uses Application Insights. With Application Insights, you can generate alerts and respond to performance issues that would impact the customer experience and availability of the chatbot. For more information, see [What is Application Insights?][appinsights-docs]
 
-For other resiliency topics, see [Designing reliable Azure applications](../../reliability/index.md).
+For other resiliency topics, see [Designing reliable Azure applications](../../framework/resiliency/app-design.md).
 
 ## Deploy the scenario
 

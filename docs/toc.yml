@@ -1,7 +1,6 @@
 items:
 - name: Azure Architecture Center
   href: index.md
-
 - name: Application architecture guide
   items:
   - name: Introduction
@@ -122,7 +121,6 @@ items:
       href: aws-professional/index.md
     - name: Services comparison
       href: aws-professional/services.md
-
 - name: Design Patterns
   items:
   - name: Overview
@@ -217,68 +215,118 @@ items:
     href: patterns/throttling.md
   - name: Valet Key
     href: patterns/valet-key.md
-
-- name: Pillars of software quality
+- name: Azure Architecture Framework
   items:
   - name: Overview
-    href: guide/pillars.md
-  - name: Reliability
+    href: framework/index.md
+  - name: Cost
     items:
     - name: Overview
-      href: reliability/index.md
-    - name: Define requirements
-      href: reliability/requirements.md
-    - name: Architect for reliability
-      href: reliability/architect.md
-    - name: Test for reliability
-      href: reliability/testing.md
-    - name: Deploy for reliability
-      href: reliability/deploy.md
-    - name: Monitor application health
-      href: reliability/monitoring.md
-    - name: Respond to failures and disasters
-      href: reliability/disaster-recovery.md
+      href: framework/cost/overview.md
+    - name: Cost modeling
+      href: framework/cost/modeling.md
+    - name: Cost monitoring
+      href: framework/cost/monitoring.md
+    - name: Data management
+      href: framework/cost/data-management.md
+    - name: Optimizing cloud costs
+      href: framework/cost/optimizing.md
+    - name: Provisioning
+      href: framework/cost/provisioning.md
+    - name: Trade-offs
+      href: framework/cost/tradeoffs.md
+    - name: Checklist
+      href: framework/cost/checklist.md
+  - name: DevOps
+    items:
+    - name: Overview
+      href: framework/devops/overview.md
+    - name: Application design
+      href: framework/devops/app-design.md
+    - name: Branching strategies
+      href: framework/devops/gitflow-branch-workflow.md
+    - name: Development
+      href: framework/devops/development.md
+    - name: Deployment
+      href: framework/devops/deployment.md    
+    - name: Infrastructure Deployments
+      href: framework/devops/iac.md
+    - name: Monitoring
+      href: framework/devops/monitoring.md
+    - name: Performance
+      href: framework/devops/performance.md
+    - name: Testing
+      href: framework/devops/testing.md
+    - name: Checklist
+      href: checklist/dev-ops.md
   - name: Resiliency
     items:
-    - name: Checklist
-      href: checklist/resiliency-per-service.md
-    - name: Failure mode analysis
-      href: resiliency/failure-mode-analysis.md
+    - name: Overview
+      href: framework/resiliency/overview.md
+    - name: Application design
+      items:
+        - name: Design Overview
+          href: framework/resiliency/app-design.md
+        - name: Error Handling
+          href: framework/resiliency/app-design-error-handling.md
+        - name: Failure mode analysis
+          href: resiliency/failure-mode-analysis.md
+    - name: Backup and recovery
+      href: framework/resiliency/backup-and-recovery.md
+    - name: Business metrics
+      href: framework/resiliency/business-metrics.md
+    - name: Data management
+      href: framework/resiliency/data-management.md
+    - name: Monitoring & disaster recovery
+      href: framework/resiliency/monitoring.md
     - name: Recover from a region-wide service disruption
       href: resiliency/recovery-loss-azure-region.md
-    - name: Recover from data corruption or accidental deletion
-      href: resiliency/recovery-data-corruption.md
+    - name: Resiliency testing
+      href: framework/resiliency/testing.md
+    - name: Checklist
+      href: checklist/resiliency-per-service.md
+  - name: Scalability
+    items: 
+    - name: Overview
+      href: framework/scalability/overview.md
+    - name: Application design
+      href: framework/scalability/app-design.md
+    - name: Capacity planning
+      href: framework/scalability/capacity.md
+    - name: Load testing
+      href: framework/scalability/load-testing.md
+    - name: Monitoring
+      href: framework/scalability/monitoring.md
+    - name: Checklist
+      href: checklist/scalability.md
   - name: Security
     items: 
     - name: Overview
-      href: security/overview.md
+      href: framework/security/overview.md
+    - name: Role of security
+      href: framework/security/role-of-security.md
     - name: Security design principles
-      href: security/security-principles.md
+      href: framework/security/security-principles.md
     - name: Types of attacks to resist
-      href: security/architecture-type.md
+      href: framework/security/architecture-type.md
     - name: Regulatory compliance
-      href: security/law-authority.md
+      href: framework/security/law-authority.md
     - name: Reduce organizational risk
-      href: security/resilience.md            
+      href: framework/security/resilience.md            
     - name: Governance, risk, and compliance
-      href: security/governance.md
+      href: framework/security/governance.md
     - name: Identity and access management
-      href: security/identity.md      
+      href: framework/security/identity.md      
     - name: Network security and containment
-      href: security/network-security-containment.md
+      href: framework/security/network-security-containment.md
     - name: Storage, data, and encryption
-      href: security/storage-data-encryption.md
+      href: framework/security/storage-data-encryption.md
     - name: Applications and services
-      href: security/applications-services.md
+      href: framework/security/applications-services.md
     - name: Administration
-      href: security/critical-impact-accounts.md
+      href: framework/security/critical-impact-accounts.md
     - name: Security operations
-      href: security/security-operations.md
-  - name: Scalability
-    items:
-    - name: Checklist
-      href: checklist/scalability.md
-
+      href: framework/security/security-operations.md  
 - name: Technologies
   expanded: true
   items:   
