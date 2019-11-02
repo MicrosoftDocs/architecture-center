@@ -13,7 +13,7 @@ ms.custom: How are you ensuring you have sufficient Capacity?
 
 ## Content Delivery Networks (CDN)
 
-With CDNs, you can cache static objects loaded from Azure Blob storage, a web application, or any publicly accessible web server, by using the closest point of presence (POP) server. CDNs can also accelerate dynamic content, which cannot be cached, by leveraging various network and routing optimizations. If you are not familiar with CDN's review [What is a content delivery network on Azure](azure/cdn/cdn-overview) to get an introduction to the concept.
+With CDNs, you can cache static objects loaded from Azure Blob storage, a web application, or any publicly accessible web server, by using the closest point of presence (POP) server. CDNs can also accelerate dynamic content, which cannot be cached, by leveraging various network and routing optimizations. If you are not familiar with CDN's review [What is a content delivery network on Azure](/azure/cdn/cdn-overview) to get an introduction to the concept.
 
 ## Large-scale event management
 
