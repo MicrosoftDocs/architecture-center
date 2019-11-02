@@ -13,7 +13,7 @@ ms.custom:
 
 ## Automation of manual tasks
 
-Use automation runbooks with hybrid runbook worker to unify management by orchestrating across on- premises environments. Use webhooks to provide a way to fulfill requests and ensure continuous delivery and operations by triggering automation from ITSM, DevOps, and monitoring systems.
+Use automation runbooks with hybrid runbook worker to unify management by orchestrating across on-premises environments. Use webhooks to provide a way to fulfill requests and ensure continuous delivery and operations by triggering automation from ITSM, DevOps, and monitoring systems.
 
 ## Monitor and update machine configuration
 
@@ -21,7 +21,7 @@ Use Azure Automation State Configuration to provide configuration management req
 
 ## Schedule deployments
 
-Employ Update Management to manage VM updates in Azure, on- premises, or in other cloud providers.
+Employ Update Management to manage VM updates in Azure, on-premises, or in other cloud providers.
 
 ## Monitor resource configuration
 
@@ -34,15 +34,3 @@ Use Azure Resource Manager to define the dependencies between resources so they'
 ## Repeated deployment of resources
 
 Utilize Azure Resource Manager deployment modes to provision all resources specified in the template.
-
-## Configuration management
-
-Employ VSTS configuration management for visibility to dev and operations teams. Use PowerShell DSC for configuration management.
-
-## Bug tracking
-
-Utilize VSTS bug tracking tool for establishing links between code and bugs. Use Bugzilla integration with VSTS.
-
-## Audit and track changes
-
-Employ VSTS history and auditing for a consolidated view of changes to code and infrastructure.
