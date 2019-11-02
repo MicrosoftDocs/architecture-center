@@ -16,23 +16,22 @@ A successful cloud solution implementations requires focus on these five pillars
 
 | Pillar | Description |
 |--------|-------------|
-| Cost | Manage cost to maximize delivered value |
+| Cost | Manage costs to maximize value delivered |
 | DevOps | Operations processes that keep a system running in production. |
 | Resiliency | The ability of a system to recover from failures and continue to function. |
 | Scalability | The ability of a system to adapt to changes in load. |
 | Security | Protecting applications and data from threats. |
 
 ## Cost
+
 While architecting cloud solutions focus on generating incremental value early. Apply the principles of **Build-Measure-Learn**, enable accelerating time to market avoiding capital intensive solutions.  Leverage the pay as you go strategy for your architecture.  Invest in scaling out rather than delivering a large investment first version. Incorporate opportunity cost considerations in to your architecture. Consider cost aspects of balancing the first mover advantage vs fast follow.  
 
 Leverage the cost calculators to predict and estimate initial and operational costs.  Establish policies, budgets and controls that set cost limits for your solution.
-
 
 ### Cost guidance
 
 - [Design patterns for Cost][cost-patterns]
 - Best practices: [Cost][cost]
-
 
 ## DevOps
 
@@ -40,7 +39,7 @@ This pillar covers the operations processes that keep an application running in 
 
 Deployments must be reliable and predictable. They should be automated to reduce the chance of human error. They should be a fast and routine process, so they don't slow down the release of new features or bug fixes. Equally important, you must be able to quickly roll back or roll forward if an update has problems.
 
-Monitoring and diagnostics are crucial. Cloud applications run in a remote datacenter where you do not have full control of the infrastructure or, in some cases, the operating system. In a large application, it's not practical to log into VMs to troubleshoot an issue or sift through log files. With PaaS services, there may not even be a dedicated VM to log into. Monitoring and diagnostics give insight into the system, so that you know when and where failures occur. All systems must be observable. Use a common and consistent logging schema that lets you correlate events across systems.
+Monitoring and diagnostics are crucial. Cloud applications run in a remote data-center where you do not have full control of the infrastructure or, in some cases, the operating system. In a large application, it's not practical to log into VMs to troubleshoot an issue or sift through log files. With PaaS services, there may not even be a dedicated VM to log into. Monitoring and diagnostics give insight into the system, so that you know when and where failures occur. All systems must be observable. Use a common and consistent logging schema that lets you correlate events across systems.
 
 The monitoring and diagnostics process has several distinct phases:
 
@@ -55,7 +54,6 @@ Use the [DevOps checklist][devops-checklist] to review your design from a manage
 
 - [Design patterns for management and monitoring][management-patterns]
 - Best practices: [Monitoring and diagnostics][monitoring]
-
 
 ## Resiliency
 

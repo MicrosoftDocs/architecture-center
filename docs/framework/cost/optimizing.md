@@ -31,22 +31,6 @@ As we are talking about financial things - the way how you purchase cloud servic
 
 - Azure Reserved Instances
 
-## How do you identify opportunities to reduce overall cost?
-
-Adopt Advisor cost recommendations to optimize and reduce overall Azure spend.
-
-## Metric based requirements
-
-Detailed metrics about your application translate to better cost estimates while planning.
-
-## Cloud operating model
-
-A cloud operating model summarizes the organizations goals for cloud adoption. Having a cloud operating model clarifies areas of focus that are readily translated to subjects of cost optimization.
-
-## Tagging
-
-Tags allow for a logical grouping of cloud resources that work together to achieve a business goal. Tags facilitate fine-grain instrumentation, tracking, and forecast of cloud spending.
-
 ## Act on recommendations
 
 Azure Advisor enables you to act on cost management recommendations from within the Azure portal, such as resizing virtual machines. [Act on recommendations](/azure/cost-management/tutorial-acm-opt-recommendations). Make sure that all stakeholders are in agreement regarding the implementation and timing of this change. Resizing a virtual machine does require the VM to be shut down and restarted, causing a period of time when it will be unavailable, so time this carefully for minimal business impact.

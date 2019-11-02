@@ -11,18 +11,22 @@ ms.custom: How are you ensuring you have sufficient Capacity?
 
 # Capacity
 
-<!-- Using a Content Delivery Networks (CDN) if applicable -->
-[!include[617f326b-536a-424d-8f64-789782d5fe7a](../../../includes/aar_guidance/617f326b-536a-424d-8f64-789782d5fe7a.md)]
+## Content Delivery Networks (CDN)
 
-<!-- Aware of any events that will cause spikes in user load -->
-[!include[a38b7b87-7964-48e0-9ae3-a0ff9c6a2c7d](../../../includes/aar_guidance/a38b7b87-7964-48e0-9ae3-a0ff9c6a2c7d.md)]
+With CDNs, you can cache static objects loaded from Azure Blob storage, a web application, or any publicly accessible web server, by using the closest point of presence (POP) server. CDNs can also accelerate dynamic content, which cannot be cached, by leveraging various network and routing optimizations. If you are not familiar with CDN's review [What is a content delivery network on Azure](/azure/cdn/cdn-overview) to get an introduction to the concept.
 
-<!-- Optimized resource choices (vm, database sizing, etc) to match the needs of your application -->
-[!include[fe7458fa-7e8f-4fe5-a992-9f0c740e1430](../../../includes/aar_guidance/fe7458fa-7e8f-4fe5-a992-9f0c740e1430.md)]
+## Large-scale event management
 
-<!-- Configured scaling policies using the appropriate metrics -->
-[!include[0f4d6be8-a93d-4a8a-bf92-d801c26f427b](../../../includes/aar_guidance/0f4d6be8-a93d-4a8a-bf92-d801c26f427b.md)]
+Work with your business and marketing teams to prepare for large-scale events. Knowing if there will be sudden spikes in traffic (Superbowl, Black Friday, or Marketing pushes) can allow you to prepare your infrastructure ahead of time.
 
-<!-- Automatically schedule autoscaling to add resources based on time of day trends -->
-[!include[309d9359-996b-4959-9783-330c9899b770](../../../includes/aar_guidance/309d9359-996b-4959-9783-330c9899b770.md)]
+## Choosing the right resources
 
+Right sizing your infrastructure to meet the needs of your applications can save you considerably as opposed to a 'one size fits all' solution often employed with on-premises hardware. Identify the needs of your application and choose the resources that best fit those needs. Review [sizes for Windows virtual machines in Azure](/azure/virtual-machines/windows/sizes) to learn more.
+
+## Choosing metrics for scaling policies
+
+Autoscaling rules that use a detection mechanism based on a measured trigger attribute (such as CPU usage or queue length) use an aggregated value over time, rather than instantaneous values, to trigger an autoscaling action. By default, the aggregate is an average of the values. This prevents the system from reacting too quickly, or causing rapid oscillation. To learn more [review autoscaling guidance](/azure/architecture/best-practices/auto-scaling).
+
+## Preemptively scaling based on trends
+
+Preemptively scaling based on historical data can ensure your application has consistent performance, even though your metrics have not yet indicated the need to scale. If you can predict the load on the application, consider using scheduled autoscaling, which adds and removes instances to meet anticipated peaks in demand. To learn more [review autoscaling guidance](/azure/architecture/best-practices/auto-scaling).
