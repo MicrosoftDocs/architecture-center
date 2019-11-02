@@ -351,6 +351,36 @@
         "redirect_document_id": true
       },
       {
+        "source_path": "docs/reliability/requirements.md",
+        "redirect_url": "docs/framework/resiliency/business-metrics.md",
+        "redirect_document_id": true
+      },
+      {
+        "source_path": "docs/reliability/testing.md",
+        "redirect_url": "docs/framework/resiliency/testing.md",
+        "redirect_document_id": true
+      },
+      {
+        "source_path": "docs/reliability/deploy.md",
+        "redirect_url": "docs/framework/devops/deployment.md",
+        "redirect_document_id": true
+      },
+      {
+        "source_path": "docs/reliability/monitoring.md",
+        "redirect_url": "docs/framework/resiliency/monitoring.md",
+        "redirect_document_id": true
+      },
+      {
+        "source_path": "docs/reliability/disaster-recovery.md",
+        "redirect_url": "docs/framework/resiliency/backup-and-recovery.md",
+        "redirect_document_id": true
+      },
+      {
+        "source_path": "docs/resiliency/recovery-data-corruption.md",
+        "redirect_url": "docs/framework/resiliency/data-management.md",
+        "redirect_document_id": true
+      },
+      {
         "source_path": "docs/security/governance.md",
         "redirect_url": "docs/framework/security/governance.md",
         "redirect_document_id": true
