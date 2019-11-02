@@ -16,10 +16,10 @@ A successful cloud solution implementations requires focus on these five pillars
 
 | Pillar | Description |
 |--------|-------------|
-| Cost | Manage cost, generate value and return on investment |
+| Cost | Manage cost to maximize delivered value |
 | DevOps | Operations processes that keep a system running in production. |
 | Resiliency | The ability of a system to recover from failures and continue to function. |
-| Scalability | The ability of a system to handle increased load. |
+| Scalability | The ability of a system to adapt to changes in load. |
 | Security | Protecting applications and data from threats. |
 
 ## Cost
