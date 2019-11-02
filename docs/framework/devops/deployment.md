@@ -40,8 +40,8 @@ This practice, called *infrastructure as code,* may use a declarative approach o
 
 ### Practice immutable infrastructure
 
-In other words, don't modify infrastructure after it's deployed to production. After ad hoc changes have been applied, you might not know exactly what has changed, so it can be difficult to troubleshoot the system.
- 
+In other words, don't modify infrastructure after it's deployed to production. After improvised changes have been applied, you might not know exactly what has changed, so it can be difficult to troubleshoot the system.
+
 ### Automate and test deployment and maintenance tasks
 
 Distributed applications consist of multiple parts that must work together. Deployment should take advantage of proven mechanisms, such as scripts, that can update and validate configuration and automate the deployment process. Test all processes fully to ensure that errors don't cause additional downtime.
@@ -52,19 +52,13 @@ All deployment tools must incorporate security restrictions to protect the deplo
 
 ## Release process
 
-Use VSTS release management for end-to-end traceability. Utilize VSTS history and auditing for a consolidated view of changes to code and infrastructure.
-
 One of the challenges with automating deployment is the cut-over itself, taking software from the final stage of testing to live production. You usually need to do this quickly in order to minimize downtime. The blue-green deployment approach does this by ensuring you have two production environments, as identical as possible.
-
-Use VSTS Release Management for continuous delivery of software at a faster pace and with lower risk.
 
 ## Document release process
 
 Without detailed release process documentation, an operator might deploy a bad update or might improperly configure settings for your application. Clearly define and document your release process, and ensure that it's available to the entire operations team.
 
 ## Stage your workloads
-
-Use staging slots in Azure App Service.
 
 Deployment to various stages and running tests/validations at each stage before moving on to the next ensures friction free production deployment.
 
@@ -81,21 +75,15 @@ Use Azure Automation for complete control during deployment, operations, and dec
 
 Utilize Azure Resource Manager templates and scripts for automated resource provisioning.
 
-## Deployment strategies
-
-Use the blue/green or canary release deployment technique.
-
 ## Logging and auditing
-
-Use VSTS release management for end-to-end traceability. Utilize VSTS history and auditing for a consolidated view of changes to code and infrastructure.
 
 To capture as much version-specific information as possible, implement a robust logging strategy. If you use staged deployment techniques, more than one version of your application will be running in production. If a problem occurs, determine which version is causing it.
 
 ## Rollback plan
 
-Use App Service deployment slots to fall back on last-known good menu. Run VSTS conditional rollback.
+Use App Service deployment slots to fall back on last-known good menu. 
 
-The most important step is to implement an architecture that supports the need to rollback. For instance, componentized, service based architectures lend themselves well to this. Persistent message queues and asynchronous services allow you to bring components down for rollback without impacting the main user base. Work towards something like the Blue-Green release pattern such that your application can stay available whilst you are working on one half of the system.
+The most important step is to implement an architecture that supports the need to rollback. For instance, componentized, service-based architectures lend themselves well to this. Persistent message queues and asynchronous services allow you to bring components down for rollback without impacting the main user base. Work towards something like the Blue-Green release pattern such that your application can stay available whilst you are working on one half of the system.
 
 If a deployment fails, your application could become unavailable. To minimize downtime, design a rollback process to go back to a last-known good version. Include a strategy to roll back changes to databases and any other services your app depends on.
 
@@ -111,24 +99,10 @@ An application that depends on a single instance of a service creates a single p
 
 ### Consider deploying across multiple regions
 
-We recommend deploying all but the least critical applications and application services across multiple regions. If your application is deployed to a single region, in the rare event that the entire region becomes unavailable, the application will also be unavailable.
-
-If you choose to deploy to a single region, consider preparing to redeploy to a secondary region as a response to an unexpected failure.
+We recommend deploying all but the least critical applications and application services across multiple regions. If your application is deployed to a single region, in the rare event that the entire region becomes unavailable, the application will also be unavailable. If you choose to deploy to a single region, consider preparing to redeploy to a secondary region as a response to an unexpected failure.
 
 ### Redeploy to a secondary region
 
-If you run applications and databases in a single, primary region with no replication, your recovery strategy might be to redeploy to another region. This solution is affordable but most appropriate for non-critical applications that can tolerate longer recovery times.
-
-If you choose this strategy, automate the redeployment process as much as possible and include redeployment scenarios in your disaster response testing.
+If you run applications and databases in a single, primary region with no replication, your recovery strategy might be to redeploy to another region. This solution is affordable but most appropriate for non-critical applications that can tolerate longer recovery times. If you choose this strategy, automate the redeployment process as much as possible and include redeployment scenarios in your disaster response testing.
 
 To automate your redeployment process, consider using [Azure Site Recovery](/azure/site-recovery/).
-
-## Hotfixes
-
-## Logging
-
-Use VSTS extensions to create documentation from source code. Utilize VSTS history and auditing for a consolidated view of changes to code and infrastructure.
-
-## Manage infrastructure after deployment
-
-Use VSTS access management to grant or restrict access to resources and features you want to control. Use Azure Automation Change Tracking.

@@ -1,7 +1,6 @@
 items:
 - name: Azure Architecture Center
   href: index.md
-
 - name: Application architecture guide
   items:
   - name: Introduction
@@ -244,26 +243,22 @@ items:
       href: framework/devops/overview.md
     - name: Application design
       href: framework/devops/app-design.md
+    - name: Branching strategies
+      href: gitflow-branch-workflow.md
     - name: Configuration management
       href: framework/devops/configuration.md
-    - name: Data management
-      href: framework/devops/data-management.md
     - name: Development
       href: framework/devops/development.md
     - name: Deployment
-      href: framework/devops/deployment.md
+      href: framework/devops/deployment.md    
     - name: Infrastructure Deployments
       href: framework/devops/iac.md
     - name: Monitoring
       href: framework/devops/monitoring.md
     - name: Performance
       href: framework/devops/performance.md
-    - name: Process and Procedures
-      href: framework/devops/process.md
     - name: Testing
       href: framework/devops/testing.md
-    - name: Trade-offs
-      href: framework/devops/tradeoffs.md
   - name: Resiliency
     items:
     - name: Overview
