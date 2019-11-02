@@ -31,7 +31,7 @@ This article introduces you to Cloud cost management through a series of importa
 
 ### Organization
 
-**Develop a Cloud Operating Model.** One of the main considerations that should be made when adopting the cloud is the shift from static (or purchased) infrastructure to dynamic (or rented) infrastrcture.  This has implications across four facets of building software. Specifically, how you provision, secure, connect, and run your applications. If you are just starting in this process review [Enable success during a cloud adoption journey ](/azure/cloud-adoption-framework/getting-started/enable).
+**Develop a Cloud Operating Model.** One of the main considerations that should be made when adopting the cloud is the shift from static (or purchased) infrastructure to dynamic (or rented) infrastrcture.  This has implications across four facets of building software. Specifically, how you provision, secure, connect, and run your applications. If you are just starting in this process review [enable success during a cloud adoption journey ](/azure/cloud-adoption-framework/getting-started/enable).
 
 ### Architecture
 
