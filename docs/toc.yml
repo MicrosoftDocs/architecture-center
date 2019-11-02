@@ -223,7 +223,7 @@ items:
     items:
     - name: Overview
       href: framework/cost/overview.md
-    - name: Cost modelling
+    - name: Cost modeling
       href: framework/cost/modeling.md
     - name: Cost monitoring
       href: framework/cost/monitoring.md
@@ -259,6 +259,8 @@ items:
       href: framework/devops/performance.md
     - name: Testing
       href: framework/devops/testing.md
+    - name: Checklist
+      href: checklist/dev-ops.md
   - name: Resiliency
     items:
     - name: Overview
@@ -283,8 +285,6 @@ items:
       href: resiliency/recovery-loss-azure-region.md
     - name: Resiliency testing
       href: framework/resiliency/testing.md
-    - name: Trade-offs
-      href: framework/resiliency/tradeoffs.md
     - name: Checklist
       href: checklist/resiliency-per-service.md
   - name: Scalability
