@@ -245,8 +245,6 @@ items:
       href: framework/devops/app-design.md
     - name: Branching strategies
       href: framework/devops/gitflow-branch-workflow.md
-    - name: Configuration management
-      href: framework/devops/configuration.md
     - name: Development
       href: framework/devops/development.md
     - name: Deployment
@@ -295,16 +293,10 @@ items:
       href: framework/scalability/app-design.md
     - name: Capacity planning
       href: framework/scalability/capacity.md
-    - name: Data management
-      href: framework/scalability/data-management.md
     - name: Load testing
       href: framework/scalability/load-testing.md
     - name: Monitoring
       href: framework/scalability/monitoring.md
-    - name: Performance
-      href: framework/scalability/performance.md
-    - name: Trade-offs
-      href: framework/scalability/tradeoffs.md
     - name: Checklist
       href: checklist/scalability.md
   - name: Security
