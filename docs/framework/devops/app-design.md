@@ -52,11 +52,11 @@ The goal of workload isolation is to associate a workload's specific resources t
 
 ## Orchestration system
 
-Because of their small size and application orientation, containers are well suited for agile delivery environments and microservice-based architectures. The task of automating and managing a large number of containers and how they interact is known as orchestration. While there are multiple container orchestrators are available, it's critical to select right container orchestrator based on your workload requirements, team's skill set, timeline to ramp up & support production workload, etc. One of the popular container orchestration system is [Kubernetes](https://azure.microsoft.com/topic/what-is-kubernetes/) and Azure provides managed kubernetes cluster using [AKS service](/azure/aks/intro-kubernetes)
+Because of their small size and application orientation, containers are well suited for agile delivery environments and microservice-based architectures. The task of automating and managing a large number of containers and how they interact is known as orchestration. While there are multiple container orchestrators available, it's critical to select the right container orchestrator based on your workload requirements, the team's skill set, timeline to ramp up and support production workload. One of the popular container orchestration systems is [Kubernetes](https://azure.microsoft.com/topic/what-is-kubernetes/) and Azure provides a managed kubernetes cluster using [Azure Kubernetes Service (AKS) service](/azure/aks/intro-kubernetes)
 
 ## Containerization
 
-Containers make it easy for you to continuously build and deploy applications. By orchestrating the deployment of those containers using Azure Kubernetes Service (AKS), you can achieve replicable, manageable clusters of containers.
+Containers make it easy for you to continuously build and deploy applications. By orchestrating the deployment of those containers using Azure Kubernetes Service, you can achieve replicable, manageable clusters of containers.
 
 By setting up a continuous build to produce your container images and orchestration, Azure DevOps increases the speed and reliability of your deployment.
 

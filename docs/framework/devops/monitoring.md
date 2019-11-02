@@ -40,7 +40,7 @@ Make sure not only to monitor your compute elements supporting your application 
 
 ### Container Insights
 
-Should your application run on Azure Kubernetes Service, Azure Monitor allows you to easily monitor the state of your cluster, nodes and pods. Extremely easy to configure for AKS clusters, Container Insights delivers quick, visual and actionable information: from the CPU and memory pressure of your nodes to the logs of individual Kubernetes pods.
+Should your application run on Azure Kubernetes Service, Azure Monitor allows you to easily monitor the state of your cluster, nodes, and pods. Easy to configure for AKS clusters, Container Insights delivers quick, visual, and actionable information: from the CPU and memory pressure of your nodes to the logs of individual Kubernetes pods.
 
 Additionally, for operators that prefer using the open source Kubernetes monitoring tool Prometheus but still like the ease of use of Azure Monitor Container Insights, both solutions can integrate with each other.
 
@@ -66,9 +66,9 @@ Not only your application components are producing data, but there are many othe
 
 ### Event correlation
 
-One critical advantage of Azure Monitor is that it is the monitoring tool for the whole Azure platform. As the previous sections has shown, Azure Monitor holds metrics and logs relevant to your application code, the platform where it is running, the data components, as well as the network connecting the application to its users. This enables operators to compare metrics of different application components to each other, and find out dependencies that might have been hidden otherwise.
+One critical advantage of Azure Monitor is that it is the monitoring tool for the whole Azure platform. As the previous sections have shown, Azure Monitor holds metrics and logs relevant to your application code, the platform where it is running, the data components, as well as the network connecting the application to its users. This enables operators to compare metrics of different application components to each other, and find out dependencies that might have been hidden otherwise.
 
-Dashboards in Azure offer an great way of exposing the rich information contained in Azure Monitor to other users. Make sure to create shared dashboards in order to expose relevant information to the different groups involved in operating your application, including Developers and Operators. If more complex visualizations are required, Azure Monitor data can be exported to PowerBI for advanced data analysis.
+Dashboards in Azure offer a great way of exposing the rich information contained in Azure Monitor to other users. Make sure to create shared dashboards in order to expose relevant information to the different groups involved in operating your application, including Developers and Operators. If more complex visualizations are required, Azure Monitor data can be exported to Power BI for advanced data analysis.
 
 ### Notifications
 
