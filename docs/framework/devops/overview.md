@@ -23,7 +23,7 @@ These are the disciplines we group in the DevOps pillar:
 | [Code deployment][deployment] | How you deploy your application code is going to be one of the key factors that will determine your application stability  |
 | [Infrastructure provisioning][iac] | Frequently known as "Automation" or "Infrastructure as code", this discipline refers to best practices for deploying the platform where your application will run on |
 | [Testing][testing] | Testing is fundamental to be prepared for the unexpected and to catch mistakes before they impact users |
-| ... |  |
+
 
 <!-- devops disciplines -->
 [monitoring]: ./monitoring.md
