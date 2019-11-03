@@ -79,7 +79,7 @@ The following tables summarize the key differences in capabilities.
 | Data encryption at rest | Yes <sup>2</sup> | Yes <sup>2</sup> | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes | Yes |
 | Row-level security | Yes | Yes <sup>3</sup> | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes (through object-level security in model) | No |
 | Supports firewalls | Yes | Yes | Yes <sup>4</sup> | Yes <sup>4</sup> | Yes | Yes |
-| Dynamic data masking | Yes | No | Yes <sup>1</sup> | Yes | No | No |
+| Dynamic data masking | Yes | Yes | Yes <sup>1</sup> | Yes | No | No |
 
 [1] Requires using a [domain-joined HDInsight cluster](/azure/hdinsight/domain-joined/apache-domain-joined-introduction).
 
