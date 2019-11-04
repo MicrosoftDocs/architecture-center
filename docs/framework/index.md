@@ -3,20 +3,20 @@ title: Azure Architecture Framework
 titleSuffix: Azure Architecture Framework introduction
 description: Describes five pillars of software quality, scalability, devops, resiliency, cost, and security.
 author: MikeWasson
-ms.date: 08/30/2018
+ms.date: 11/04/2019
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: reference-architecture
 ms.custom: seojan19
 ---
 
-# Pillars of Architecture Excellence
+# Pillars of architecture excellence
 
-A successful cloud solution implementations requires focus on these five pillars of architecture excellence: Cost, DevOps, Resiliency, Scalability, and Security.
+A successful cloud solution requires focus on these five pillars of architecture excellence: Cost, DevOps, Resiliency, Scalability, and Security.
 
 | Pillar | Description |
 |--------|-------------|
-| Cost | Manage costs to maximize value delivered |
+| Cost | Managing costs to maximize the value delivered. |
 | DevOps | Operations processes that keep a system running in production. |
 | Resiliency | The ability of a system to recover from failures and continue to function. |
 | Scalability | The ability of a system to adapt to changes in load. |
@@ -24,14 +24,11 @@ A successful cloud solution implementations requires focus on these five pillars
 
 ## Cost
 
-While architecting cloud solutions focus on generating incremental value early. Apply the principles of **Build-Measure-Learn**, enable accelerating time to market avoiding capital intensive solutions.  Leverage the pay as you go strategy for your architecture.  Invest in scaling out rather than delivering a large investment first version. Incorporate opportunity cost considerations in to your architecture. Consider cost aspects of balancing the first mover advantage vs fast follow.  
-
-Leverage the cost calculators to predict and estimate initial and operational costs.  Establish policies, budgets and controls that set cost limits for your solution.
+When you are designing a cloud solution, focus on generating incremental value early. Apply the principles of **Build-Measure-Learn**, to accelerate your time to market while avoiding capital-intensive solutions. Use the pay-as-you-go strategy for your architecture, and invest in scaling out, rather than delivering a large investment first version. Consider opportunity costs in your architecture, and the balance between first mover advantage versus "fast follow". Use the cost calculators to estimate the initial cost and operational costs. Finally, establish policies, budgets, and controls that set cost limits for your solution.
 
 ### Cost guidance
 
-- [Design patterns for Cost][cost-patterns]
-- Best practices: [Cost][cost]
+- Best practices: [How to optimize your cloud investment with Azure Cost Management][cost]
 
 ## DevOps
 
@@ -98,7 +95,7 @@ An advantage of vertical scaling is that you can do it without making any change
 
 Horizontal scale must be designed into the system. For example, you can scale out VMs by placing them behind a load balancer. But each VM in the pool must be able to handle any client request, so the application must be stateless or store state externally (say, in a distributed cache). Managed PaaS services often have horizontal scaling and autoscaling built in. The ease of scaling these services is a major advantage of using PaaS services.
 
-Just adding more instances doesn't mean an application will scale, however. It might simply push the bottleneck somewhere else. For example, if you scale a web front-end to handle more client requests, that might trigger lock contentions in the database. You would then need to consider additional measures, such as optimistic concurrency or data partitioning, to enable more throughput to the database.
+Just adding more instances doesn't mean an application will scale, however. It might simply push the bottleneck somewhere else. For example, if you scale a web front end to handle more client requests, that might trigger lock contentions in the database. You would then need to consider additional measures, such as optimistic concurrency or data partitioning, to enable more throughput to the database.
 
 Always conduct performance and load testing to find these potential bottlenecks. The stateful parts of a system, such as databases, are the most common cause of bottlenecks, and require careful design to scale horizontally. Resolving one bottleneck may reveal other bottlenecks elsewhere.
 
@@ -111,7 +108,7 @@ Use the [Scalability checklist][scalability-checklist] to review your design fro
 
 ## Security
 
-You must think about security throughout the entire lifecycle of an application, from design and implementation to deployment and operations. The Azure platform provides protections against a variety of threats, such as network intrusion and DDoS attacks. But you still need to build security into your application and into your DevOps processes.
+Think about security throughout the entire lifecycle of an application, from design and implementation to deployment and operations. The Azure platform provides protections against a variety of threats, such as network intrusion and DDoS attacks. But you still need to build security into your application and into your DevOps processes.
 
 Here are some broad security areas to consider.
 
@@ -164,7 +161,6 @@ Use Key Vault to safeguard cryptographic keys and secrets. By using Key Vault, y
 [trust-center]: https://azure.microsoft.com/support/trust-center/
 
 <!-- patterns -->
-[cost-patterns]: https://docs.microsoft.com/azure/architecture/patterns/
 [availability-patterns]: ../patterns/category/availability.md
 [management-patterns]: ../patterns/category/management-monitoring.md
 [resiliency-patterns]: ../patterns/category/resiliency.md
