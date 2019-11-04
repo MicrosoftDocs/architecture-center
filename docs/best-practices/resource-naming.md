@@ -100,4 +100,4 @@ In general, avoid using a special character, such as a hyphen (`-`) or underscor
 
 ## Next steps
 
-For recommendations on developing resource naming conventions for your organization, see [Ready: Recommended naming and tagging conventions](/azure/architecture/cloud-adoption/ready/considerations/name-and-tag).
+For recommendations on developing resource naming conventions for your organization, see [Ready: Recommended naming and tagging conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging).
