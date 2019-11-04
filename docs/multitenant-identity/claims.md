@@ -22,7 +22,7 @@ When a user signs in, Azure AD sends an ID token that contains a set of claims a
 At a high level:
 
 1. The user authenticates.
-2. The IDP sends a set of claims.
+2. The Identity Provider (IDP) sends a set of claims.
 3. The app normalizes or augments the claims (optional).
 4. The app uses the claims to make authorization decisions.
 
