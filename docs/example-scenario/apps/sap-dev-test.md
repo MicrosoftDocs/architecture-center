@@ -97,7 +97,7 @@ Click the link below to deploy the solution.
 
 <!-- links -->
 
-[resiliency]: /azure/architecture/resiliency/
+[resiliency]: /azure/architecture/framework/resiliency/overview
 [security]: /azure/security/
 [scalability]: /azure/architecture/checklist/scalability
 [sap-netweaver]: /azure/architecture/reference-architectures/sap/sap-netweaver
