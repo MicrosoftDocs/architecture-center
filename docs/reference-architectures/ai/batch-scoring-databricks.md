@@ -118,7 +118,7 @@ We have also built a reference architecture that uses Spark for building [real-t
 [mllib]: https://docs.databricks.com/spark/latest/mllib/index.html
 [mllib-spark]: https://docs.databricks.com/spark/latest/mllib/index.html#apache-spark-mllib
 [notebooks]: https://docs.databricks.com/user-guide/notebooks/index.html
-[pricing]: https://azure.microsoft.com/en-us/pricing/details/databricks/
+[pricing]: https://azure.microsoft.com/pricing/details/databricks/
 [python-aml]: https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1
 [py-dvsm]: https://gallery.azure.ai/Tutorial/Predictive-Maintenance-using-PySpark
 [recommendation]: /azure/architecture/reference-architectures/ai/real-time-recommendation
