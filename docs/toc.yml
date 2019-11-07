@@ -265,9 +265,9 @@ items:
       href: framework/resiliency/overview.md
     - name: Application design
       items:
-        - name: Design Overview
+        - name: Design overview
           href: framework/resiliency/app-design.md
-        - name: Error Handling
+        - name: Error handling
           href: framework/resiliency/app-design-error-handling.md
         - name: Failure mode analysis
           href: resiliency/failure-mode-analysis.md
@@ -277,7 +277,7 @@ items:
       href: framework/resiliency/business-metrics.md
     - name: Data management
       href: framework/resiliency/data-management.md
-    - name: Monitoring & disaster recovery
+    - name: Monitoring and disaster recovery
       href: framework/resiliency/monitoring.md
     - name: Recover from a region-wide service disruption
       href: resiliency/recovery-loss-azure-region.md

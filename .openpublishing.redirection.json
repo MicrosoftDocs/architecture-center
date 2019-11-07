@@ -351,6 +351,11 @@
         "redirect_document_id": true
       },
       {
+        "source_path": "docs/reliability/index.md",
+        "redirect_url": "/azure/architecture/framework/resiliency/overview",
+        "redirect_document_id": true
+      },
+      {
         "source_path": "docs/reliability/requirements.md",
         "redirect_url": "/azure/architecture/framework/resiliency/business-metrics",
         "redirect_document_id": true
