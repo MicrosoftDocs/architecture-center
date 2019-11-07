@@ -1,6 +1,6 @@
 ---
-title: Monitoring
-description: 
+title: Monitoring application health for reliability in Azure
+description: How to use monitoring to improve application reliability in Azure
 author: david-stanford
 ms.date: 10/16/2019
 ms.topic: article
@@ -9,7 +9,7 @@ ms.subservice: cloud-design-principles
 ms.custom: How are you ensuring failures are resolved quickly? 
 ---
 
-# Monitoring
+# Monitoring application health for reliability in Azure
 
 Monitoring and diagnostics are crucial for resiliency. If something fails, you need to know *that* it failed, *when* it failed &mdash; and *why*.
 
