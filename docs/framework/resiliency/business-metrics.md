@@ -9,7 +9,7 @@ ms.subservice: cloud-design-principles
 ms.custom: Which business metrics have you defined for your application? 
 ---
 
-# Business Metrics
+# Using business metrics to design resilient Azure applications
 
 ## Workload availability targets
 

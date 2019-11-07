@@ -1,5 +1,5 @@
 ---
-title: App Design
+title: Designing scalable Azure applications
 description: 
 author: david-stanford
 ms.date: 10/16/2019
@@ -9,9 +9,9 @@ ms.subservice: cloud-design-principles
 ms.custom: How are you designing your applications to scale? 
 ---
 
-# App Design
+# Designing scalable Azure applications
 
-Application design is critical to handling scale as load increase
+Application design is critical to handling scale as load increases.
 
 ## Choosing the right database
 
@@ -19,12 +19,12 @@ Not surprisingly, the overall performance and scale of an application is often h
 
 The first decision to consider is whether the application storage requirements fit a relational design (SQL) vs a key-value/document/graph design (NO-SQL). Some applications may have both a relational database and a NO-SQL database for different storage needs.
 
-If a relational RDBMS is considered optimal, Azure has a series of PaaS options where the hosting and operations of the database are run for the customer by the service. In particular Azure SQL Database has many different options spanning a single database needs and instances that host multiple databases (Azure SQL Database Managed Instance). The suite of offerings span requirements crossing performance, scale, size, resiliency, disaster recovery, and migration compatibility. For the full set of Azure PaaS relational database offerings, see the below.  
+If a relational RDBMS is considered optimal, Azure has a series of PaaS options where the hosting and operations of the database are run for the customer by the service. In particular Azure SQL Database has many different options spanning a single database needs and instances that host multiple databases (Azure SQL Database Managed Instance). The suite of offerings span requirements crossing performance, scale, size, resiliency, disaster recovery, and migration compatibility. Azure offers the following PaaS relational database services:  
 
-Azure SQL Database <https://azure.microsoft.com/services/sql-database>
-Azure Database for MySQL <https://azure.microsoft.com/services/mysql>
-Azure Database for PostgreSQL <https://azure.microsoft.com/services/postgresql>
-Azure Database for MariaDB <https://azure.microsoft.com/services/mariadb>
+- [Azure SQL Database](https://azure.microsoft.com/services/sql-database)
+- [Azure Database for MySQL](https://azure.microsoft.com/services/mysql)
+- [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql)
+- [Azure Database for MariaDB](https://azure.microsoft.com/services/mariadb)
 
 If the application requirements fall into a format that better fits a key/value format or document storage (i.e JSON, XML, YAML, etc.), a NO-SQL should be considered as first option for performance, scale, and cost savings.
 
@@ -32,7 +32,7 @@ For key/value storage needs, Azure provides two managed services that optimize f
 
 ## Dynamic service discovery for micro-services applications
 
-Clients of a service use either Client-side discovery or Server-side discovery to determine the location of a service instance to send requests. Service discovery is a process of figuring out how to connect to a service, and if done correctly, can lead to software that scales out as usage increases. Decomposing an application into microservices is a practice that can directly lead to native scalability given a service's ability to be scaled and updated individually. This level of decoupling is an architectural best practice. However, when many microservices are in play, managing, executing, and operationalizing the services becomes a bottleneck, leading to the incorporation of an orchestration platform like Kubernetes or Service Fabric. Both of these platforms provide built-in services for executing, scaling, and operating a microservices architecture; and one of those key services is discovery and finding where a particular service is running.
+Clients of a service use either client-side discovery or Server-side discovery to determine the location of a service instance to send requests. Service discovery is a process of figuring out how to connect to a service, and if done correctly, can lead to software that scales out as usage increases. Decomposing an application into microservices is a practice that can directly lead to native scalability given a service's ability to be scaled and updated individually. This level of decoupling is an architectural best practice. However, when many microservices are in play, managing, executing, and operationalizing the services becomes a bottleneck, leading to the incorporation of an orchestration platform like Kubernetes or Service Fabric. Both of these platforms provide built-in services for executing, scaling, and operating a microservices architecture; and one of those key services is discovery and finding where a particular service is running.
 
 The client of the service should not need to know or care where the service executes or how many instances of the service are executing. It is the job of the orchestration platform to connect the client to the service through a decoupled discovery service, such as DNS, that major orchestration platforms all provide. An example of how this works in [Kubernetes](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/). The reason incorporating dynamic service discovery can lead to scalability gains is that each service can then be sized independently with multiple instances without the service client having this knowledge or changing its interaction.  
 

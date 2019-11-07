@@ -1,5 +1,5 @@
 ---
-title: App Design
+title: Designing resilient Azure applications
 description: 
 author: david-stanford
 ms.date: 10/16/2019
@@ -9,7 +9,7 @@ ms.subservice: cloud-design-principles
 ms.custom: How have you ensured that your application is resilient to failures? 
 ---
 
-# App Design
+# Designing resilient Azure applications
 
 Building *resiliency* (recovering from failures) and *availability* (running in a healthy state without significant downtime) into your apps begins with gathering requirements. For example, how much downtime is acceptable? How much does potential downtime cost your business? What are your customer's availability requirements? How much do you invest in making your application highly available? What is the risk versus the cost?
 
