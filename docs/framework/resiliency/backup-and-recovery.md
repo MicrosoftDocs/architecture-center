@@ -1,6 +1,6 @@
 ---
-title: Backup and Recovery
-description: 
+title: Backup and disaster recover for Azure applications
+description: Overview of disaster recovery approaches in Azure
 author: david-stanford
 ms.date: 10/16/2019
 ms.topic: article
@@ -9,7 +9,7 @@ ms.subservice: cloud-design-principles
 ms.custom: How are you handling DR (Backup & Restore) for this workload? 
 ---
 
-# Backup and Recovery
+# Backup and disaster recover for Azure applications
 
 *Disaster recovery* is the process of restoring application functionality in the wake of a catastrophic loss.
 
