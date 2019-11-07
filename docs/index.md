@@ -53,7 +53,7 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
-                        <img src="_images/cloud-adoption.svg" alt="" />
+                        <img src="_images/cloud-adoption-framework.png" alt="" />
                         <div class="cardText">
                             <h3>Microsoft Cloud Adoption Framework for Azure</h3>
                             <p>A process for creating an organization-wide cloud adoption strategy, focusing on policies, governance, and infrastructure.</p>
