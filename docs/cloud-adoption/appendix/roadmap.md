@@ -1,10 +1,14 @@
 ---
 title: Roadmap
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-layout: LandingPage
-ms.topic: landing-page
+description: Learn about the roadmap for the Microsoft Cloud Adoption Framework for Azure.
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 04/04/2019
+ms.topic: landing-page
+ms.service: cloud-adoption-framework
+ms.subservice: reference
+layout: LandingPage
 ---
 
 # Microsoft Cloud Adoption Framework for Azure
@@ -46,7 +50,7 @@ To successfully adopting the cloud, a customer must prepare its people, technolo
   - Prioritize workloads based on impacts to the business outcomes.
   - Create a cloud adoption plan based on the current digital estate and prioritized workloads.
 - **Ready:** Prepare the people, culture, and environment for change. This phase has three key components:
-  - Create a Cloud Strategy team and other organizational alignment.
+  - Create a cloud strategy team and other organizational alignment.
   - Create a skills readiness plan across roles and functions.
   - Establish an Azure foundation by preparing the cloud environment.
 - **Adopt:** Implement the desired changes across IT and business processes to help customers realize their business, technology, and people strategies. This phase includes several areas that will vary depending on what the organization is implementing:
@@ -89,7 +93,7 @@ This first release helped test the Cloud Adoption Framework's unification of an 
 1. Define a customer end state based on a common methodology.
 2. Provide an assessment to define gaps and areas of governance investment.
 3. Define a minimum viable product (MVP) to help the customer iterate rapidly.
-4. Provide a way to evolve the MVP to mitigate risks and meet business requirements.
+4. Provide a way to incrementally improve the MVP to mitigate risks and meet business requirements.
 
 **Q2 2019 release (April 15, 2019):** Cloud migration tools can easily migrate tens of thousands of IT assets to the cloud. However, customer feedback indicates that cloud migrations are blocked by culture and technical readiness. The spring release addresses these blockers by defining an iterative approach to cloud migration. The core methodology includes a streamlined Azure migration guide for learning the tools and basic processes, with expanded scope and best practices sections for building on this baseline guidance.
 

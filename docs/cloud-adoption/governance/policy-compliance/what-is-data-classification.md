@@ -1,12 +1,14 @@
 ---
 title: "What is data classification?"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
-ms.custom: governance
-ms.date: 02/11/2019
 description: What is data classification?
 author: BrianBlanchard
+ms.author: brblanch
+ms.date: 02/11/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: govern
+ms.custom: governance
 ---
 
 <!-- markdownlint-disable MD026 -->
@@ -39,7 +41,7 @@ For additional information on resource tagging in Azure, see the article on [Usi
 
 ## Next steps
 
-Apply data classifications during one of the actionable governance journeys.
+Apply data classifications during one of the actionable governance guides.
 
 > [!div class="nextstepaction"]
-> [Begin an actionable governance journey](../journeys/index.md)
+> [Choose an actionable governance guide](../journeys/index.md)

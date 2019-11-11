@@ -1,13 +1,14 @@
 ---
-title: "Contoso - Scale a migration to Azure"
+title: "Scale a migration to Azure"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how Contoso handles a scaled migration to Azure.
-services: azure-migrate
 author: BrianBlanchard
-ms.service: azure-migrate
-ms.topic: conceptual
-ms.date: 10/08/2018
 ms.author: brblanch
+ms.date: 10/08/2018
+ms.topic: conceptual
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
+services: azure-migrate
 ---
 
 # Scale a migration to Azure
@@ -48,7 +49,7 @@ After planning and setting up an [Azure infrastructure](contoso-migration-infras
 --- | --- | ---
 **Workloads** | More than 3,000 apps | Apps run on VMs.<br/><br/>  Apps are Windows, SQL-based, and OSS LAMP.
 **Databases** | Around 8,500 | Databases include SQL Server, MySQL, PostgreSQL.
-**VMs** | More than 10,000 | VMs run on VMware hosts and managed by vCenter Servers.
+**VMs** | More than 35,000 | VMs run on VMware hosts and managed by vCenter Servers.
 
 <!--markdownlint-enable MD033 -->
 
@@ -155,9 +156,9 @@ Contoso needs to use Azure Migrate correctly given the scale of this migration.
 
 **Action** | **Limit**
 --- | ---
-Create Azure Migrate project | 1500 VMs
-Discovery | 1500 VMs
-Assessment | 1500 VMs
+Create Azure Migrate project | 10,000 VMs
+Discovery | 10,000 VMs
+Assessment | 10,000 VMs
 
 Contoso will use Azure Migrate as follows:
 
@@ -279,7 +280,7 @@ DMS isn't the only Microsoft database migration tool. Get a [comparison of tools
 
 Contoso will use DMS when migrating from SQL Server.
 
-- When provisioning DMS, Contoso needs to ensure that it's sized correctly, and set to optimize performance for data migrations. Contoso will select the "business-critical tier with 4 vCores" option, thus allowing the service to take advantage of multiple vCPUs for parallelization and faster data transfer.
+- When provisioning DMS, Contoso needs to size it correctly and set it to optimize performance for data migrations. Contoso will select the "business-critical tier with 4 vCores" option, thus allowing the service to take advantage of multiple vCPUs for parallelization and faster data transfer.
 
     ![DMS scaling](./media/contoso-migration-scale/dms.png)
 

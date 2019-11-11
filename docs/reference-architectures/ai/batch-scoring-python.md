@@ -11,7 +11,7 @@ ms.custom: azcat-ai, AI
 
 # Batch scoring of Python machine learning models on Azure
 
-This reference architecture shows how to build a scalable solution for batch scoring many models on a schedule in parallel using Azure Machine Learning Service. The solution can be used as a template and can generalize to different problems.
+This reference architecture shows how to build a scalable solution for batch scoring many models on a schedule in parallel using [Azure Machine Learning Service][amls]. The solution can be used as a template and can generalize to different problems.
 
 A reference implementation for this architecture is available on [GitHub][github].
 
@@ -24,7 +24,7 @@ This reference architecture is designed for workloads that are triggered on a sc
 1. Send sensor readings for ingestion to Azure Event Hubs.
 2. Perform stream processing and store the raw data.
 3. Send the data to a Machine Learning cluster that is ready to start taking work. Each node in the cluster runs a scoring job for a specific sensor.
-4. Execute the scoring pipeline, which runs the scoring jobs in parallel using Machine Learning Python scripts. The pipeline is created, published, and scheduled to run on a predefined interval of time.
+4. Execute the [scoring pipeline][batch-scoring], which runs the scoring jobs in parallel using machine learning Python scripts. The pipeline is created, published, and scheduled to run on a predefined interval of time.
 5. Generate predictions and store them in Blob storage for later consumption.
 
 ## Architecture
@@ -37,7 +37,7 @@ This architecture consists of the following components:
 
 [Azure SQL Database][sql-database]. Data from the sensor readings is loaded into SQL Database. SQL is a familiar way to store the processed, streamed data (which is tabular and structured), but other data stores can be used.
 
-[Azure Machine Learning Service][amls]. Machine Learning is a cloud service for training, scoring, deploying, and managing machine learning models at scale. In the context of batch scoring, Machine Learning creates a cluster of virtual machines on demand with an automatic scaling option, where each node in the cluster runs a scoring job for a specific sensor. The scoring jobs are executed in parallel as Python-script steps that are queued and managed by Machine Learning. These steps are part of a Machine Learning pipeline that is created, published, and scheduled to run on a predefined interval of time.
+[Azure Machine Learning Service][amls]. Azure Machine Learning service is a cloud service for training, scoring, deploying, and managing machine learning models at scale. In the context of batch scoring, Azure Machine Learning service creates a cluster of virtual machines on demand with an automatic scaling option, where each node in the cluster runs a scoring job for a specific sensor. The scoring jobs are executed in parallel as Python-script steps that are queued and managed by the service. These steps are part of a Machine Learning service pipeline that is created, published, and scheduled to run on a predefined interval of time.
 
 [Azure Blob Storage][storage]. Blob containers are used to store the pretrained models, the data, and the output predictions. The models are uploaded to Blob storage in the [01_create_resources.ipynb][create-resources] notebook. These [one-class SVM][one-class-svm] models are trained on data that represents values of different sensors for different devices. This solution assumes that the data values are aggregated over a fixed interval of time.
 
@@ -56,7 +56,7 @@ When running scoring processes of many models in batch mode, the jobs need to be
 
 In general, scoring of standard Python models is not as demanding as scoring of deep learning models, and a small cluster should be able to handle a large number of queued models efficiently. You can increase the number of cluster nodes as the dataset sizes increase.
 
-For convenience in this scenario, one scoring task is submitted within a single Machine Learning pipeline step. However, it can be more efficient to score multiple data chunks within the same pipeline step. In those cases, write custom code to read in multiple datasets and execute the scoring script for those during a single-step execution.
+For convenience in this scenario, one scoring task is submitted within a single [Azure Machine Learning pipeline][pipeline] step. However, it can be more efficient to score multiple data chunks within the same pipeline step. In those cases, write custom code to read in multiple datasets and execute the scoring script for those during a single-step execution.
 
 ## Management considerations
 
@@ -65,7 +65,7 @@ For convenience in this scenario, one scoring task is submitted within a single 
 
 ## Cost considerations
 
-The most expensive components used in this reference architecture are the compute resources. The compute cluster size scales up and down depending on the jobs in the queue. Enable automatic scaling programmatically through the Python SDK by modifying the compute’s provisioning configuration. Or use the [Azure CLI][cli] to set the automatic scaling parameters of the cluster.
+The most expensive components used in this reference architecture are the compute resources. The compute cluster size scales up and down depending on the jobs in the queue. Enable automatic scaling programmatically through the [Python SDK][python-sdk] by modifying the compute’s provisioning configuration. Or use the [Azure CLI][cli] to set the automatic scaling parameters of the cluster.
 
 For work that doesn't require immediate processing, configure the automatic scaling formula so the default state (minimum) is a cluster of zero nodes. With this configuration, the cluster starts with zero nodes and only scales up when it detects jobs in the queue. If the batch scoring process happens only a few times a day or less, this setting enables significant cost savings.
 
@@ -81,6 +81,7 @@ To deploy this reference architecture, follow the steps described in the [GitHub
 [amls]: /azure/machine-learning/service/overview-what-is-azure-ml
 [automatic-scaling]: /azure/batch/batch-automatic-scaling
 [azure-files]: /azure/storage/files/storage-files-introduction
+[batch-scoring]: /azure/machine-learning/service/how-to-run-batch-predictions
 [cli]: /cli/azure
 [create-resources]: https://github.com/Microsoft/AMLBatchScoringPipeline/blob/master/01_create_resources.ipynb
 [deep]: /azure/architecture/reference-architectures/ai/batch-scoring-deep-learning
@@ -89,7 +90,9 @@ To deploy this reference architecture, follow the steps described in the [GitHub
 [github]: https://github.com/Microsoft/AMLBatchScoringPipeline
 [one-class-svm]: http://scikit-learn.org/stable/modules/generated/sklearn.svm.OneClassSVM.html
 [portal]: https://portal.azure.com
+[python-sdk]: /python/api/overview/azure/ml/intro
 [ml-workspace]: /azure/machine-learning/studio/create-workspace
+[pipeline]: /azure/machine-learning/service/concept-ml-pipelines
 [python-script]: https://github.com/Azure/BatchAIAnomalyDetection/blob/master/batchai/predict.py
 [pyscript]: https://github.com/Microsoft/AMLBatchScoringPipeline/blob/master/scripts/predict.py
 [storage]: /azure/storage/blobs/storage-blobs-overview

@@ -2,12 +2,14 @@
 title: Migration-focused cost control mechanisms
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how to set up budgets, payments, and understand invoices for your Azure resources.
-author: dchimes
-ms.author: kfollis
-ms.date: 04/09/2019
+author: bandersmsft
+ms.author: banders
+ms.date: 08/08/2019
 ms.topic: conceptual
-ms.service: azure-portal
-ms.custom: "fasttrack-edit"
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
+ms.custom: fasttrack-edit, AQC
+ms.localizationpriority: high
 ---
 
 # Migration-focused cost control mechanisms
@@ -21,7 +23,7 @@ The tools in this article include:
 > - Azure Migrate
 > - Azure pricing calculator
 > - Azure TCO calculator
-> - Azure Cost Management by Cloudyn
+> - Azure Cost Management
 > - Azure Advisor
 
 The processes described in this article may also require a partnership with IT managers, finance, or line-of-business application owners. For guidance on partnering with these roles, see the Cloud Adoption Framework article on establishing a cost-conscious organization (coming in Q3 2019).
@@ -45,9 +47,6 @@ These manual cost calculators can be used on their own to forecast potential spe
 
 **Prerequisites:** The remainder of this tab assumes the reader has already populated Azure Migrate with a collection of assets (infrastructure, apps, and data) to be migrated. The prior article on assessments provides instructions on collecting the initial data. Once the data is populated, follow the next few steps to estimate monthly costs based on the data collected.
 
->[!WARNING]
-> The next version of Azure Migrate is available in a public preview. The features of that new version will be updated in this article when released. These instructions are currently based on the generally available version of Azure Migrate.
-
 Azure Migrate calculates **monthly cost estimates** based on data captured by the collector and service map. The following steps will load the cost estimates:
 
 1. Navigate to the Azure Migrate Assessment blade in the portal.
@@ -62,12 +61,12 @@ Azure Migrate calculates **monthly cost estimates** based on data captured by th
 The resulting estimate, pictured below, identifies the monthly costs of compute and storage, which often represent the largest portion of cloud costs.
 
 ![compute-storage-monthly-cost-estimate.png](./media/manage-costs/compute-storage-monthly-cost-estimate.png)
-_Figure 1. Image of the Cost Details view of an assessment in Azure Migrate_
+*Figure 1 - Image of the Cost Details view of an assessment in Azure Migrate.*
 
 ## Additional resources
 
-- [Creating and viewing assessments with Azure Migrate](/azure/migrate/tutorial-assessment-vmware#create-and-view-an-assessment)
-- For a more comprehensive plan on cost management across larger numbers of assets (infrastructure, apps, and data), see the [Cloud Adoption Framework governance model](../../governance/journeys/index.md). In particular, guidance on the [Cost Management discipline](../../governance/cost-management/index.md) and the [Cost Management evolution in the large enterprise guide](../../governance/journeys/large-enterprise/cost-management-evolution.md).
+- [Set up and review an assessment with Azure Migrate](/azure/migrate/tutorial-assess-vmware#set-up-an-assessment)
+- For a more comprehensive plan on cost management across larger numbers of assets (infrastructure, apps, and data), see the [Cloud Adoption Framework governance model](../../governance/journeys/index.md). In particular, guidance on the [Cost Management discipline](../../governance/cost-management/index.md) and the [Cost Management improvement in the large enterprise guide](../../governance/journeys/large-enterprise/cost-management-evolution.md).
 
 # [Estimate and optimize VM costs during and after migration](#tab/EstimateOptimize)
 
@@ -100,7 +99,7 @@ This analysis will allow you to review total costs, budget (if available), and a
 
 ## Additional resources
 
-- For a more comprehensive plan on cost management across larger numbers of assets (infrastructure, apps, and data), see the [Cloud Adoption Framework governance model](../../governance/journeys/index.md). In particular, guidance on the [Cost Management discipline](../../governance/cost-management/index.md) and the [Cost Management evolution in the large enterprise guide](../../governance/journeys/large-enterprise/cost-management-evolution.md).
+- For a more comprehensive plan on cost management across larger numbers of assets (infrastructure, apps, and data), see the [Cloud Adoption Framework governance model](../../governance/journeys/index.md). In particular, guidance on the [Cost Management discipline](../../governance/cost-management/index.md) and the [incremental Cost Management improvement in the large enterprise guide](../../governance/journeys/large-enterprise/cost-management-evolution.md).
 - For more information about Azure Advisor, see [Reducing service costs using Azure Advisor](/azure/advisor/advisor-cost-recommendations).
 - For more information about Azure Cost Management, see [Understand and work with scopes](/azure/cost-management/understand-work-scopes) and [Explore and analyze costs with Cost Analysis](/azure/cost-management/quick-acm-cost-analysis).
 
@@ -138,4 +137,4 @@ For lower priority background processes, Batch offers a means of managing the ba
 
 ## Additional resources
 
-For a more comprehensive plan on cost management across larger numbers of assets (infrastructure, apps, and data), see the [Cloud Adoption Framework governance model](../../governance/journeys/index.md). In particular, guidance on the [Cost Management Discipline](../../governance/cost-management/index.md) and the [Cost Management evolution in the large enterprise Guide](../../governance/journeys/large-enterprise/cost-management-evolution.md).
+For a more comprehensive plan on cost management across larger numbers of assets (infrastructure, apps, and data), see the [Cloud Adoption Framework governance model](../../governance/journeys/index.md). In particular, guidance on the [Cost Management discipline](../../governance/cost-management/index.md) and the [incremental Cost Management improvements in the large enterprise governance guide](../../governance/journeys/large-enterprise/cost-management-evolution.md).

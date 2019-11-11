@@ -3,7 +3,11 @@ title: "What role does replication and synchronization play in the migration pro
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: A process within cloud migration that focuses on the tasks of migrating workloads to the cloud.
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 04/04/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
 ---
 
 <!-- markdownlint-disable MD026 -->
@@ -20,7 +24,7 @@ Prior to replication, the *new platform* and hardware must be prepared to receiv
 
 The *source binaries* must also be prepared for replication and synchronization. The articles on assessment, architecture, and remediation each address the actions necessary to ensure that the source binary is ready for replication and synchronization.
 
-A *toolchain* that aligns with the new platform and source binaries must be implemented to execute and manage the replication and synchronization processes. The article on  [replication options](./replicate-options.md) outlines various tools that could contribute to a migration to Azure.
+A *toolchain* that aligns with the new platform and source binaries must be implemented to execute and manage the replication and synchronization processes. The article on [replication options](./replicate-options.md) outlines various tools that could contribute to a migration to Azure.
 
 ## Replication risks - physics of replication
 

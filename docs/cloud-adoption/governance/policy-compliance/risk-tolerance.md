@@ -1,8 +1,13 @@
 ---
 title: "Evaluate risk tolerance"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Explanation of the business risks associated with a cloud transformation
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 04/04/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: govern
 ---
 
 # Evaluate risk tolerance
@@ -26,7 +31,7 @@ True business risks are based on the details of specific transformations. Severa
 
 - **Budget control:** Cost models change in the cloud. This change can create risks associated with cost overruns or increases in the cost of goods sold (COGS), especially directly attributed operating expenses. When business works closely with IT, it is feasible to create transparency regarding costs and services consumed by various business units, programs, or projects. [Cost Management](../cost-management/index.md) provides examples of ways business and IT can partner on this topic.
 
-The above are a few of the most common risks mentioned by customers. The Cloud Governance team and the cloud adoption teams can begin to develop a risk profile, as workloads are migrated and readied for production release. Be prepared for conversations to define, refine, and manage risks based on the desired business outcomes and transformation effort.
+The above are a few of the most common risks mentioned by customers. The cloud governance team and the cloud adoption teams can begin to develop a risk profile, as workloads are migrated and readied for production release. Be prepared for conversations to define, refine, and manage risks based on the desired business outcomes and transformation effort.
 
 ## Understanding risk tolerance
 
@@ -36,9 +41,9 @@ Identifying risk is a fairly direct process. IT-related risks are generally stan
 
 To help understand risk tolerance, let's examine customer data. If a company in any industry posts customer data on an unsecured server, the technical risk of that data being compromised or stolen is roughly the same. However, a company's tolerance for that risk will vary wildly based on the nature and potential value of the data.
 
-- Companies in healthcare and finance in the United States, are governed by rigid, third-party compliance requirements. It is assumed that personally identifiable information (PII) or healthcare-related data is extremely confidential. There are severe consequences for these types of companies, if they are involved in the risks scenario above. Their tolerance will be extremely low. Any customer data published inside or outside of the network will need to be governed by those third-party compliance policies.
+- Companies in healthcare and finance in the United States, are governed by rigid, third-party compliance requirements. It is assumed that personal data or healthcare-related data is extremely confidential. There are severe consequences for these types of companies, if they are involved in the risks scenario above. Their tolerance will be extremely low. Any customer data published inside or outside of the network will need to be governed by those third-party compliance policies.
 - A gaming company whose customer data is limited to a user name, play times, and high scores is not as likely to suffer any significant consequences, if they engage in the risky behavior above. While any unsecured data is at risk, the impact of that risk is small. Therefore, the tolerance for risk in this case is high.
-- A medium-sized enterprise that provides carpet cleaning services to thousands of customers would fall in between these two tolerance extremes. There, customer data may be more robust, containing details like address or phone number. Both could be considered PII and should be protected. However, there may not be any specific governance requirement mandating that the data be secured. From an IT perspective, the answer is simple, secure the data. From a business perspective, it may not be as simple. The business would need more details before they could determine a level of tolerance for this risk.
+- A medium-sized enterprise that provides carpet cleaning services to thousands of customers would fall in between these two tolerance extremes. There, customer data may be more robust, containing details like address or phone number. Both could be considered personal data and should be protected. However, there may not be any specific governance requirement mandating that the data be secured. From an IT perspective, the answer is simple, secure the data. From a business perspective, it may not be as simple. The business would need more details before they could determine a level of tolerance for this risk.
 
 The next section shares a few sample questions that could help the business determine a level of risk tolerance for the use case above or others.
 
@@ -72,7 +77,7 @@ These basic questions will lead to many more. After exploring a healthy dialogue
 
 These questions over simplify the technical solutions needed to manage or remove risks. However, these questions communicate those solutions in ways the business can quickly integrate into a decision process.
 
-**Probability of loss:** Questions to determine how likely it is that the risk will become a reality. This is the most difficult area to quantify. Instead it is suggested that the Cloud Governance team create categories for communicating probability, based on the supporting data. The following questions can help create categories that are meaningful to the team.
+**Probability of loss:** Questions to determine how likely it is that the risk will become a reality. This is the most difficult area to quantify. Instead it is suggested that the cloud governance team create categories for communicating probability, based on the supporting data. The following questions can help create categories that are meaningful to the team.
 
 - Has any research been done regarding the likelihood of this risk being realized?
 - Can the vendor provide references or statistics on the likelihood of an impact?
@@ -80,7 +85,7 @@ These questions over simplify the technical solutions needed to manage or remove
 - Look further, are there other companies in general that have been hit by this risk?
 - Is this risk unique to something this company has done poorly?
 
-After answering these questions along with questions as determined by the Cloud Governance team, groupings of probability will likely emerge. The following are a few grouping samples to help get started:
+After answering these questions along with questions as determined by the cloud governance team, groupings of probability will likely emerge. The following are a few grouping samples to help get started:
 
 - **No indication:** Not enough research has been completed to determine probability.
 - **Low risk:** Current research indicates realizing the risk is unlikely.

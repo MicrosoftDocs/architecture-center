@@ -1,12 +1,14 @@
 ---
 title: "Deployment Acceleration metrics, indicators, and risk tolerance"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
-ms.custom: governance
-ms.date: 02/11/2019
 description: Deployment Acceleration metrics, indicators, and risk tolerance
 author: alexbuckgit
+ms.author: abuck
+ms.date: 02/11/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: govern
+ms.custom: governance
 ---
 
 # Deployment Acceleration metrics, indicators, and risk tolerance
@@ -41,7 +43,7 @@ Once you have a baseline, establish minimum benchmarks representing an unaccepta
 
 Using the [Cloud Management template](./template.md), document metrics and tolerance indicators that align to the current cloud adoption plan.
 
-Building on risks and tolerance, establish a process for governing and communicating Deployment Acceleration policy adherence.
+Review sample Deployment Acceleration policies as a starting point to develop policies that address specific business risks that align with your cloud adoption plans.
 
 > [!div class="nextstepaction"]
-> [Establish policy adherence processes](compliance-processes.md)
+> [Review sample policies](./policy-statements.md)

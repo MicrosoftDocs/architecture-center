@@ -2,12 +2,13 @@
 title: "Deploy a migration infrastructure"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how Contoso sets up an Azure infrastructure for migration to Azure.
-services: azure-migrate
 author: BrianBlanchard
-ms.service: azure-migrate
-ms.topic: conceptual
-ms.date: 10/1/2018
 ms.author: brblanch
+ms.date: 10/1/2018
+ms.topic: conceptual
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
+services: azure-migrate
 ---
 
 # Deploy a migration infrastructure
@@ -100,7 +101,7 @@ Predictable workloads are those that always need to be available with VMs runnin
 
 ![Reserved instance](./media/contoso-migration-infrastructure/reserved-instance.png)
 
-In exchange for using reserved instances for specific VM instances must be maintained for large durations of time, Console can get both a discount, and prioritized capacity. Using [Azure Reserved Instances](https://azure.microsoft.com/pricing/reserved-vm-instances), together with Azure Hybrid Benefit, Contoso can save up to 82% off regular pay-as-you-go pricing (April 2018).
+In exchange for using reserved instances for specific VM instances must be maintained for large durations of time, Contoso can get both a discount, and prioritized capacity. Using [Azure Reserved Instances](https://azure.microsoft.com/pricing/reserved-vm-instances), together with Azure Hybrid Benefit, Contoso can save up to 82% off regular pay-as-you-go pricing (April 2018).
 
 ## Step 2: Manage hybrid identity
 

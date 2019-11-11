@@ -200,6 +200,9 @@ Consider using Helm to manage building and deploying services. Here are some of 
 
 For more information about using Container Registry as a Helm repository, see [Use Azure Container Registry as a Helm repository for your application charts](/azure/container-registry/container-registry-helm-repos).
 
+> [!IMPORTANT]
+> This feature is currently in preview. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
+
 A single microservice may involve multiple Kubernetes configuration files. Updating a service can mean touching all of these files to update selectors, labels, and image tags. Helm treats these as a single package called a chart and allows you to easily update the YAML files by using variables. Helm uses a template language (based on Go templates) to let you write parameterized YAML configuration files.
 
 For example, here's part of a YAML file that defines a deployment:
@@ -317,7 +320,7 @@ Based on the CI flow described earlier in this article, a build pipeline might c
         runInBackground: false
     ```
 
-1. Publish the test results. See [Integrate build and test tasks](/azure/devops/pipelines/languages/docker?view=azure-devops&tabs=yaml#integrate-build-and-test-tasks).
+1. Publish the test results. See [Build an image](/azure/devops/pipelines/ecosystems/containers/build-image).
 
     ```yaml
     - task: PublishTestResults@2

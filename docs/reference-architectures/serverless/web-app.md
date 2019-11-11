@@ -255,13 +255,17 @@ To deploy the reference implementation for this architecture, see the [GitHub re
 
 ## Next steps
 
-To learn more about the reference implementation, read [Show me the code: Serverless application with Azure Functions](../../serverless/index.md).
+To learn more about the reference implementation, read [Code walkthrough: Serverless application with Azure Functions](../../serverless/code.md).
+
+Related guidance:
+- [Best practices for using CDNs](../../best-practices/cdn.md)
+- [Static Content Hosting pattern](../../patterns/static-content-hosting.md)
 
 <!-- links -->
 
 [api-versioning]: ../../best-practices/api-design.md#versioning-a-restful-web-api
 [apim]: /azure/api-management/api-management-key-concepts
-[apim-ip]: /azure/api-management/api-management-faq#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules
+[apim-ip]: /azure/api-management/api-management-faq#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services
 [api-geo]: /azure/api-management/api-management-howto-deploy-multi-region
 [apim-scale]: /azure/api-management/api-management-howto-autoscale
 [apim-validate-jwt]: /azure/api-management/api-management-access-restriction-policies#ValidateJWT
@@ -304,6 +308,5 @@ To learn more about the reference implementation, read [Show me the code: Server
 [storage-https]: /azure/storage/common/storage-require-secure-transfer
 [tm]: /azure/traffic-manager/traffic-manager-overview
 
-[github]: https://github.com/mspnp/serverless-reference-implementation
-[HttpRequestAuthorizationExtensions]: https://github.com/mspnp/serverless-reference-implementation/blob/master/src/DroneStatus/dotnet/DroneStatusFunctionApp/HttpRequestAuthorizationExtensions.cs
-[readme]: https://github.com/mspnp/serverless-reference-implementation/blob/master/README.md
+[github]: https://github.com/mspnp/serverless-reference-implementation/tree/v0.1.0
+[readme]: https://github.com/mspnp/serverless-reference-implementation/blob/v0.1.0/README.md

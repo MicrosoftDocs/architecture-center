@@ -1,13 +1,14 @@
 ---
 title: "Security Baseline sample policy statements"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
-ms.custom: governance
-ms.date: 02/11/2019
 description: Security Baseline sample policy statements
 author: BrianBlanchard
 ms.author: brblanch
+ms.date: 02/11/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: govern
+ms.custom: governance
 ---
 
 # Security Baseline sample policy statements
@@ -24,7 +25,7 @@ The following sample policy statements address common security-related business 
 
 **Technical risk:** Assets that are not correctly identified as mission-critical or involving sensitive data may not receive sufficient protections, leading to potential data leaks or business disruptions.
 
-**Policy statement:** All deployed assets must be categorized by criticality and data classification. Classifications must be reviewed by the Cloud Governance team and the application owner before deployment to the cloud.
+**Policy statement:** All deployed assets must be categorized by criticality and data classification. Classifications must be reviewed by the cloud governance team and the application owner before deployment to the cloud.
 
 **Potential design option:** Establish [resource tagging standards](../../decision-guides/resource-tagging/index.md) and ensure IT staff apply them consistently to any deployed resources using [Azure resource tags](/azure/azure-resource-manager/resource-group-using-tags).
 
@@ -90,7 +91,9 @@ Use the samples mentioned in this article as a starting point to develop policie
 
 To begin developing your own custom policy statements related to Security Baseline, download the [Security Baseline template](./template.md).
 
-To accelerate adoption of this discipline, choose the [actionable governance journey](../journeys/index.md) that most closely aligns with your environment. Then modify the design to incorporate your specific corporate policy decisions.
+To accelerate adoption of this discipline, choose the [actionable governance guide](../journeys/index.md) that most closely aligns with your environment. Then modify the design to incorporate your specific corporate policy decisions.
+
+Building on risks and tolerance, establish a process for governing and communicating Security Baseline policy adherence.
 
 > [!div class="nextstepaction"]
-> [Actionable governance journeys](../journeys/index.md)
+> [Establish policy compliance processes](./compliance-processes.md)

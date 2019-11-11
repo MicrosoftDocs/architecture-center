@@ -115,6 +115,7 @@ Disadvantages:
 
 * Complexity. Because every tenant sends different group claims, the app must keep track of which security groups correspond to which application roles, for each tenant.
 * If the customer removes the application from their AD tenant, the security groups are left in their AD directory.
+* As users belong to more groups, access tokens grow to include more claims. After a certain limit, Azure AD includes an "overage" claim to limit the token size; see [Microsoft identity platform access tokens](/azure/active-directory/develop/access-tokens). However, when using cookies to store access tokens, some clients may truncate the token before this limit is reached. Application roles avoid this issue because they are scoped to the specific application.
 
 <!-- markdownlint-disable MD024 -->
 

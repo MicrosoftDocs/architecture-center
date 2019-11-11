@@ -255,6 +255,8 @@ Learn more about features in Azure Monitor that support monitoring of applicatio
 - [Azure Monitor for containers overview](/azure/azure-monitor/insights/container-insights-overview)
 - [Understand AKS cluster performance with Azure Monitor for containers](/azure/azure-monitor/insights/container-insights-analyze)
 
+For more information about using metrics for performance tuning, see see [Performance tuning a distributed application](../performance/index.md).
+
 <!-- links -->
 
 [azure-monitor]: /azure/azure-monitor

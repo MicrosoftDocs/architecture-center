@@ -6,19 +6,21 @@ author: BrianBlanchard
 ms.author: brblanch
 ms.date: 07/01/2019
 ms.topic: landing-page
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
+ms.service: cloud-adoption-framework
+ms.subservice: organize
 ms.custom: organize
 layout: LandingPage
 ---
 
 # Managing organizational alignment
 
-Cloud adoption can't happen without well organized people. Successful cloud adoption is the result of properly skilled people doing the appropriate types of work, in alignment with clearly defined business goals, and in a well managed environment. To deliver an effective cloud operating model, it is important to establish appropriately staffed organizational structures. This document outlines an approach to establishing and maintaining the proper organizational structures in four steps:
+Cloud adoption can't happen without well-organized people. Successful cloud adoption is the result of properly skilled people doing the appropriate types of work, in alignment with clearly defined business goals, and in a well-managed environment. To deliver an effective cloud operating model, it's important to establish appropriately staffed organizational structures. This article outlines an approach to establishing and maintaining the proper organizational structures in four steps.
 
 ## Organization alignment exercises
 
 The following exercises will help guide the process of creating a landing zone to support cloud adoption.
+
+<!-- markdownlint-disable MD033 -->
 
 <ul class="panelContent cardsF">
     <li style="display: flex; flex-direction: column;">
@@ -70,7 +72,7 @@ The following exercises will help guide the process of creating a landing zone t
                             </div>
                         </div>
                         <div class="cardText" style="padding-left:0px;">
-                            <h3>Establish Teams</h3>
+                            <h3>Establish teams</h3>
                             Define the teams that will be providing various cloud capabilities. A number of best practice options are listed for reference.
                         </div>
                     </div>
@@ -90,7 +92,7 @@ The following exercises will help guide the process of creating a landing zone t
                         </div>
                         <div class="cardText" style="padding-left:0px;">
                             <h3>RACI matrix</h3>
-                            Clearly defined roles is an important aspect of any operating model. Leverage the provided RACI matrix to map responsibility, accountability, consulted, and informed roles to each of the teams for various functions of the cloud operating model.
+                            Clearly defined roles are an important aspect of any operating model. Leverage the provided RACI matrix to map responsibility, accountability, consulted, and informed roles to each of the teams for various functions of the cloud operating model.
                         </div>
                     </div>
                 </div>
@@ -99,19 +101,21 @@ The following exercises will help guide the process of creating a landing zone t
     </li>
 </ul>
 
-## Structure Type
+<!-- markdownlint-enable MD033 -->
 
-The following organizational structures do not necessarily have to map to an organizational chart (org chart). Org charts generally reflect command and control management structures. Conversely, the following organizational structures are designed to capture alignment of roles and responsibilities. In an agile, matrix organization, these structures may be best represented as virtual teams (or v-teams). There is no limitation suggesting that these organizational structures couldn't be represented in an org chart, but it is not necessary to do produce an effective operating model.
+## Structure type
+
+The following organizational structures do not necessarily have to map to an organizational chart (org chart). Org charts generally reflect command and control management structures. Conversely, the following organizational structures are designed to capture alignment of roles and responsibilities. In an agile, matrix organization, these structures may be best represented as virtual teams (or v-teams). There is no limitation suggesting that these organizational structures couldn't be represented in an org chart, but it is not necessary in order to produce an effective operating model.
 
 The first step of managing organizational alignment is to determine how the following organizational structures will be fulfilled:
 
 - **Org chart alignment:** Management hierarchies, manager responsibilities, and staff alignment will align to organizational structures.
-- **Virtual teams (v-teams):** Management structures and org charts will remain unchanged. Instead, virtual teams are created and tasked with the required capabilities.
+- **Virtual teams (v-teams):** Management structures and org charts remain unchanged. Instead, virtual teams will be created and tasked with the required capabilities.
 - **Mixed model:** More commonly, a mixture of org chart and v-team alignment will be required to deliver on transformation goals.
 
 ## Understand required cloud capabilities
 
-The following is a list of cloud capabilities that are required to succeed at cloud adoption and longer-term operating models. After becoming familiar with the various cloud capabilities, these can be aligned to organizational structures based on staffing and maturity.
+The following is a list of cloud capabilities that are required to succeed at cloud adoption and longer-term operating models. After you become familiar with the various cloud capabilities, these can be aligned to organizational structures based on staffing and maturity:
 
 - [Cloud adoption](./cloud-adoption.md): Deliver technical solutions.
 - [Cloud strategy](./cloud-strategy.md): Align technical change to business needs.
@@ -123,7 +127,7 @@ The following is a list of cloud capabilities that are required to succeed at cl
 
 ## Maturing organizational structures
 
-To some degree, each of the above capabilities are delivered in every cloud adoption effort, either explicitly or in accordance with a defined team structure.
+To some degree, each of the above capabilities is delivered in every cloud adoption effort, either explicitly or in accordance with a defined team structure.
 As adoption needs grow, so does the need to create balance and structure. To meet those needs, companies often follow a process of maturing organizational structures.
 
 ![Organizational maturity cycle](../_images/ready/org-ready-maturity.png)
@@ -142,4 +146,4 @@ To track organization structure decisions over time, download and modify the [RA
 > [Download the RACI spreadsheet template][template]
 
 <!-- links -->
-[template]: (https://archcenter.blob.core.windows.net/cdn/fusion/management/raci-template.xlsx)
+[template]: https://archcenter.blob.core.windows.net/cdn/fusion/management/raci-template.xlsx

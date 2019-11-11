@@ -160,15 +160,14 @@ Measure the recovery times and verify they meet your business requirements. Test
 
 ## Related resources
 
-You may wish to review the following [Azure example scenarios](/azure/architecture/example-scenario) that demonstrate specific solutions using some of the same technologies:
+The following architecture uses some of the same technologies:
 
 - [Multitier web application built for high availability and disaster recovery on Azure](/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery)
-- [Building secure web applications with Windows virtual machines on Azure](/azure/architecture/example-scenario/infrastructure/regulated-multitier-app)
 
 <!-- links -->
 
 [azure-sql-db]: /azure/sql-database/
-[health-endpoint-monitoring-pattern]: https://msdn.microsoft.com/library/dn589789.aspx
+[health-endpoint-monitoring-pattern]: ../../patterns/health-endpoint-monitoring.md
 [azure-cli]: /cli/azure/
 [regional-pairs]: /azure/best-practices-availability-paired-regions
 [resource groups]: /azure/azure-resource-manager/resource-group-overview

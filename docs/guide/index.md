@@ -51,7 +51,7 @@ Immutable infrastructure<br/>
 
 <!-- markdownlint-enable MD033 -->
 
-This guide is intended for application architects, developers, and operations teams. It's not a how-to guide for using individual Azure services. After reading this guide, you will understand the architectural patterns and best practices to apply when building on the Azure cloud platform. You can also download an [e-book version of the guide][e-book].
+This guide is intended for application architects, developers, and operations teams. It's not a how-to guide for using individual Azure services. After reading this guide, you will understand the architectural patterns and best practices to apply when building on the Azure cloud platform.
 
 ## How this guide is structured
 
@@ -76,7 +76,7 @@ Learn more:
 
 ### Design principles
 
-We have identified ten high-level design principles that will make your application more scalable, resilient, and manageable. These design principles apply to any architecture styles. Throughout the design process, keep these ten high-level design principles in mind. Then consider the set of best practices for specific aspects of the architecture, such as auto-scaling, caching, data partitioning, API design, and others.
+We have identified ten high-level design principles that will make your application more scalable, resilient, and manageable. These design principles apply to any architecture style. Throughout the design process, keep these ten high-level design principles in mind. Then consider the set of best practices for specific aspects of the architecture, such as auto-scaling, caching, data partitioning, API design, and others.
 
 Learn more:
 
@@ -88,4 +88,9 @@ A successful cloud application will focus on five pillars of software quality: S
 
 - [Quality pillars](./pillars.md)
 
-[e-book]: https://azure.microsoft.com/campaigns/cloud-application-architecture-guide/
+### More learning
+
+For a guided introduction to common cloud computing services, benefits of cloud computing, and cloud deployment modules, review [Cloud Concepts - Principles of Cloud Computing](/learn/modules/principles-cloud-computing/).  
+
+For a more technical perspective on the key pillars of a cloud solution and principles for creating a solid architectural foundation, review [Pillars of a great Azure Architecture](/learn/modules/pillars-of-a-great-azure-architecture).
+

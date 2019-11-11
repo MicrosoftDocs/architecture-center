@@ -1,13 +1,14 @@
 ---
 title: "Resource Consistency sample policy statements"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
-ms.custom: governance
-ms.date: 02/11/2019
 description: Resource Consistency sample policy statements
 author: BrianBlanchard
 ms.author: brblanch
+ms.date: 02/11/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: govern
+ms.custom: governance
 ---
 
 # Resource Consistency sample policy statements
@@ -39,7 +40,7 @@ The following sample policy statements address common business risks related to 
 
 **Technical risk:** Arbitrary creation of subscriptions and management groups can lead to isolated sections of your cloud estate that are not properly subject to your governance policies.
 
-**Policy statement:** Creation of new subscriptions or management groups for any mission-critical applications or protected data will require a review from the Cloud Governance team. Approved changes will be integrated into a proper blueprint assignment.
+**Policy statement:** Creation of new subscriptions or management groups for any mission-critical applications or protected data will require a review from the cloud governance team. Approved changes will be integrated into a proper blueprint assignment.
 
 **Potential design options:** Lock down administrative access to your organizations [Azure management groups](/azure/governance/management-groups) to only approved governance team members who will control the subscription creation and access control process.
 
@@ -53,12 +54,12 @@ The following sample policy statements address common business risks related to 
 
 ## Deployment compliance
 
-**Technical risk:** Deployment scripts and automation tooling that is not fully vetted by the Cloud Governance team can result in resource deployments that violate policy.
+**Technical risk:** Deployment scripts and automation tooling that is not fully vetted by the cloud governance team can result in resource deployments that violate policy.
 
 **Policy statement:** The following policies will be implemented:
 
-- Deployment tooling must be approved by the Cloud Governance team to ensure ongoing governance of deployed assets.
-- Deployment scripts must be maintained in central repository accessible by the Cloud Governance team for periodic review and auditing.
+- Deployment tooling must be approved by the cloud governance team to ensure ongoing governance of deployed assets.
+- Deployment scripts must be maintained in central repository accessible by the cloud governance team for periodic review and auditing.
 
 **Potential design options:** Consistent use of [Azure Blueprints](/azure/governance/blueprints) to manage automated deployments allows consistent deployments of Azure resources that adhere to your organization's governance standards and policies.
 
@@ -79,7 +80,7 @@ The following sample policy statements address common business risks related to 
 
 **Policy statement:** All mission-critical applications and protected data must have backup and recovery solutions implemented to minimize business impact of outages or system failures.
 
-**Potential design options:** The [Azure Site Recovery] service provides backup, recovery, and replication capabilities intended to minimize outage duration in business continuity and disaster recovery (BCDR) scenarios.
+**Potential design options:** The [Azure Site Recovery service](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview) provides backup, recovery, and replication capabilities intended to minimize outage duration in business continuity and disaster recovery (BCDR) scenarios.
 
 ## Next steps
 
@@ -87,7 +88,9 @@ Use the samples mentioned in this article as a starting point to develop policie
 
 To begin developing your own custom policy statements related to Resource Consistency, download the [Resource Consistency template](./template.md).
 
-To accelerate adoption of this discipline, choose the [actionable governance journey](../journeys/index.md) that most closely aligns with your environment. Then modify the design to incorporate your specific corporate policy decisions.
+To accelerate adoption of this discipline, choose the [actionable governance guide](../journeys/index.md) that most closely aligns with your environment. Then modify the design to incorporate your specific corporate policy decisions.
+
+Building on risks and tolerance, establish a process for governing and communicating Resource Consistency policy adherence.
 
 > [!div class="nextstepaction"]
-> [Actionable governance journeys](../journeys/index.md)
+> [Establish policy compliance processes](./compliance-processes.md)

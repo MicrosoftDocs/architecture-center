@@ -1,13 +1,14 @@
 ---
 title: "Identity Baseline sample policy statements"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
-ms.custom: governance
-ms.date: 02/11/2019
 description: Identity Baseline sample policy statements
 author: BrianBlanchard
 ms.author: brblanch
+ms.date: 02/11/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: govern
+ms.custom: governance
 ---
 
 # Identity Baseline sample policy statements
@@ -35,7 +36,7 @@ The following sample policy statements address common identity-related business 
 **Policy statement:** The following policies will be implemented:
 
 - A least-privilege access model will be applied to any resources involved in mission-critical applications or protected data.
-- Elevated permissions should be an exception, and any such exceptions must be recorded with the Cloud Governance team. Exceptions will be audited regularly.
+- Elevated permissions should be an exception, and any such exceptions must be recorded with the cloud governance team. Exceptions will be audited regularly.
 
 **Potential design options:** Consult the [Azure Identity Management best practices](/azure/security/azure-security-identity-management-best-practices) to implement a role-based access control (RBAC) strategy that restricts access based on the [need to know](https://wikipedia.org/wiki/Need_to_know) and [least-privilege security](https://wikipedia.org/wiki/Principle_of_least_privilege) principles.
 
@@ -77,7 +78,9 @@ Use the samples mentioned in this article as a starting point for developing pol
 
 To begin developing your own custom policy statements related to Identity Baseline, download the [Identity Baseline template](./template.md).
 
-To accelerate adoption of this discipline, choose the [actionable governance journey](../journeys/index.md) that most closely aligns with your environment. Then modify the design to incorporate your specific corporate policy decisions.
+To accelerate adoption of this discipline, choose the [actionable governance guide](../journeys/index.md) that most closely aligns with your environment. Then modify the design to incorporate your specific corporate policy decisions.
+
+Building on risks and tolerance, establish a process for governing and communicating Identity Baseline policy adherence.
 
 > [!div class="nextstepaction"]
-> [Actionable governance journeys](../journeys/index.md)
+> [Establish policy compliance processes](./compliance-processes.md)

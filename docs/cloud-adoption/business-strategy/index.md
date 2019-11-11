@@ -3,20 +3,23 @@ title: "Develop a cloud adoption strategy"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Use the cloud to advance your business strategy.
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 07/01/2019
-layout: LandingPage
 ms.topic: landing-page
+ms.service: cloud-adoption-framework
+ms.subservice: strategy
+layout: LandingPage
 ---
 
 <!-- markdownlint-disable MD026 -->
 
 # Develop a cloud adoption strategy
 
-The cloud delivers fundamental technology benefits that can aid in executing multiple business strategies. Using cloud-based approaches can improve business agility, reduce costs, accelerate time to market, and enable expansion into new markets. The cloud can meet countless needs in numerous ways. This expansive capability offers great potential. To take advantage of the cloud's potential, it's important to start by documenting the business strategy in a way that is understandable to cloud technicians and also palatable to business stakeholders.
+The cloud delivers fundamental technology benefits that can help your enterprise execute multiple business strategies. By using cloud-based approaches, you can improve business agility, reduce costs, accelerate time to market, and enable expansion into new markets. To take advantage of this great potential, start by documenting your business strategy in a way that's both understandable to cloud technicians and palatable to your business stakeholders.
 
 ## Cloud adoption strategy process
 
-The following exercises will help you document your business strategy efficiently. This approach captures targeted business value in a cross-functional model to drive adoption efforts. The cloud adoption strategy can then be mapped to specific cloud capabilities and business strategies to reach the desired state of transformation.
+The exercises in this section can help you document your business strategy efficiently. By using this approach, you can drive adoption efforts that capture targeted business value in a cross-functional model. You can then map your cloud adoption strategy to specific cloud capabilities and business strategies to reach your desired state of transformation.
 
 <!--markdownlint-disable MD033 -->
 
@@ -51,7 +54,7 @@ The following exercises will help you document your business strategy efficientl
                             </div>
                         </div>
                         <div class="cardText" style="padding-left:0px;">
-                            <h3>Business Outcomes</h3>
+                            <h3>Business outcomes</h3>
                             Engage motivated stakeholders and executives to document specific business outcomes.
                         </div>
                     </div>
@@ -70,8 +73,8 @@ The following exercises will help you document your business strategy efficientl
                             </div>
                         </div>
                         <div class="cardText" style="padding-left:0px;">
-                            <h3>Business Justification</h3>
-                            Develop a business case to validate the financial model supporting the motivations and outcomes.
+                            <h3>Business justification</h3>
+                            Develop a business case to validate the financial model that supports your motivations and outcomes.
                         </div>
                     </div>
                 </div>
@@ -89,8 +92,8 @@ The following exercises will help you document your business strategy efficientl
                             </div>
                         </div>
                         <div class="cardText" style="padding-left:0px;">
-                            <h3>Choosing the right first project</h3>
-                            Your first cloud project will help align motivations with technical effort. Choose your first project wisely.
+                            <h3>Choose the right first project</h3>
+                            Your first cloud project will help align motivations with technical effort. This article can help you choose your first project wisely.
                         </div>
                     </div>
                 </div>
@@ -99,7 +102,7 @@ The following exercises will help you document your business strategy efficientl
     </li>
 </ul>
 
-Download the [cloud adoption framework - strategy and planning template](https://archcenter.blob.core.windows.net/cdn/fusion/readiness/Microsoft-Cloud-Adoption-Framework-Strategy-and-Plan-Template.docx) to track the outputs of each exercise, as you build out your cloud adoption strategy.
+To help build out your cloud adoption strategy, download the [Microsoft Cloud Adoption Plan template](https://archcenter.blob.core.windows.net/cdn/fusion/readiness/Microsoft-Cloud-Adoption-Framework-Strategy-and-Plan-Template.docx), and then track the output of each exercise.
 
 ## Next steps
 

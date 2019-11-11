@@ -35,7 +35,7 @@ Read and write workloads are often asymmetrical, with very different performance
 
 ## Solution
 
-CQRS addresses separates reads and writes into separate models, using **commands** to update data, and **queries** to read data.
+CQRS separates reads and writes into different models, using **commands** to update data, and **queries** to read data.
 
 - Commands should be task based, rather than data centric. ("Book hotel room", not "set ReservationStatus to Reserved"). 
 - Commands may be placed on a queue for asynchronous processing, rather than being processed synchronously.
@@ -224,26 +224,9 @@ public class ProductsCommandHandler :
 }
 ```
 
-The following code shows the `IProductsDomain` interface from the write model.
-
-```csharp
-public interface IProductsDomain
-{
-  void AddNewProduct(int id, string name, string description, decimal price);
-  void RateProduct(int userId, int rating);
-  void AddToInventory(int productId, int quantity);
-  void ConfirmItemsShipped(int productId, int quantity);
-  void UpdateStockFromInventoryRecount(int productId, int updatedQuantity);
-}
-```
-
-Also notice how the `IProductsDomain` interface contains methods that have a meaning in the domain. Typically, in a CRUD environment these methods would have generic names such as `Save` or `Update`, and have a DTO as the only argument. The CQRS approach can be designed to meet the needs of this organization's business and inventory management systems.
-
 ## Related patterns and guidance
 
 The following patterns and guidance are useful when implementing this pattern:
-
-- For a comparison of CQRS with other architectural styles, see [Architecture styles](/azure/architecture/guide/architecture-styles/).
 
 - [Data Consistency Primer](https://docs.microsoft.com/previous-versions/msp-n-p/dn589800(v=pandp.10)). Explains the issues that are typically encountered due to eventual consistency between the read and write data stores when using the CQRS pattern, and how these issues can be resolved.
 

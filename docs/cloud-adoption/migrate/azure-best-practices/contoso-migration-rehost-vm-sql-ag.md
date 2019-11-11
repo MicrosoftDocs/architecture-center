@@ -2,12 +2,13 @@
 title: "Rehost an app by migrating it to Azure VMs and SQL Server Always On availability group"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how Contoso rehosts an on-premises app by migrating it to Azure VMs and SQL Server Always On availability groups.
-services: site-recovery
 author: BrianBlanchard
-ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 10/11/2018
 ms.author: brblanch
+ms.date: 10/11/2018
+ms.topic: conceptual
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
+services: site-recovery
 ---
 
 # Rehost an on-premises app on Azure VMs and SQL Server Always On availability group
@@ -455,7 +456,7 @@ Now Contoso admins specify target replication settings.
 
 Now, Contoso admins can create a replication policy.
 
-1. In  **Prepare infrastructure** > **Replication Settings** > **Replication Policy** >  **Create and Associate**, they create a policy **ContosoMigrationPolicy**.
+1. In **Prepare infrastructure** > **Replication Settings** > **Replication Policy** >  **Create and Associate**, they create a policy **ContosoMigrationPolicy**.
 2. They use the default settings:
     - **RPO threshold:** Default of 60 minutes. This value defines how often recovery points are created. An alert is generated if continuous replication exceeds this limit.
     - **Recovery point retention:** Default of 24 hours. This value specifies how long the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window.

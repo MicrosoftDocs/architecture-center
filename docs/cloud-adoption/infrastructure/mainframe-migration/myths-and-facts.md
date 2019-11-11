@@ -1,8 +1,13 @@
 ---
 title: "Mainframe migration: Myths and facts"
+titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Migrate applications from mainframe environments to Azure, a proven, highly available, and scalable infrastructure for systems that currently run on mainframes.
 author: njray
+ms.author: v-nanra
 ms.date: 12/27/2018
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
 ---
 
 # Mainframe myths and facts
@@ -27,7 +32,7 @@ The new core-dense, Intel-based systems have as much compute capacity as mainfra
 
 ## Myth: The cloud can't accommodate mission-critical applications for large companies such as financial institutions
 
-Although there may be some isolated instances where cloud solutions fall short, it is usually becuase the application algorithms cannot be distributed. These few examples are the exceptions, not the rule.
+Although there may be some isolated instances where cloud solutions fall short, it is usually because the application algorithms cannot be distributed. These few examples are the exceptions, not the rule.
 
 ## Summary
 

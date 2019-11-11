@@ -1,12 +1,14 @@
 ---
 title: "Resource Consistency metrics, indicators, and risk tolerance"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
-ms.custom: governance
-ms.date: 02/11/2019
 description: Resource Consistency metrics, indicators, and risk tolerance
 author: BrianBlanchard
+ms.author: brblanch
+ms.date: 02/11/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: govern
+ms.custom: governance
 ---
 
 # Resource Consistency metrics, indicators, and risk tolerance
@@ -42,7 +44,7 @@ Every organization has different operational scenarios, but the following items 
 
 Cloud platforms offer a baseline set of features that allow deployment teams to effectively manage small deployments without extensive additional planning or processes. As a result, small Dev/Test or experimental first workloads that include a relatively small amount of cloud-based assets represent low level of risk, and will likely not need much in the way of a formal Resource Consistency policy.
 
-However, as the size of your cloud estate grows the complexity of managing your assets becomes significantly more difficult. With more assets on the cloud, the ability identify ownership of resources and control resource useful becomes critical to minimizing risks. As more mission-critical workloads are deployed to the cloud, service uptime becomes more critical, and tolerance for service disruption potential cost overruns diminishes rapidly.
+However, as the size of your cloud estate grows the complexity of managing your assets becomes significantly more difficult. With more assets on the cloud, the ability to identify ownership of resources and control resource usage becomes critical to minimizing risks. As more mission-critical workloads are deployed to the cloud, service uptime becomes more critical, and tolerance for service disruption potential cost overruns diminishes rapidly.
 
 In the early stages of cloud adoption, work with your IT operations team and business stakeholders to identify [business risks](business-risks.md) related to Resource Consistency, then determine an acceptable baseline for risk tolerance. This section of the Cloud Adoption Framework provides examples, but the detailed risks and baselines for your company or deployments may be different.
 
@@ -52,20 +54,20 @@ Once you have a baseline, establish minimum benchmarks representing an unaccepta
 - **Overprovisioned resources trigger.** If a company has more than _x%_ of assets regularly using small amounts of their available memory, CPU, or network capabilities, investment in the Resource Consistency discipline is suggested to help optimize resources usage for these items.
 - **Underprovisioned resources trigger.** If a company has more than _x%_ of assets regularly exhausting most of their available memory, CPU, or network capabilities, investment in the Resource Consistency discipline is suggested to help ensure these assets have the resources necessary to prevent service interruptions.
 - **Resource age trigger.** A company with more than _x_ resources that have not been updated in over _y_ months could benefit from investment in the Resource Consistency discipline aimed at ensuring active resources are patched and healthy, while retiring obsolete or otherwise unused assets.
-- **Service-level agreement trigger.** A company that cannot meet its service-level agreements to its external customers or internal partners should invest in the Deployment Acceleration discipline to reduce system downtime.
-- **Recovery time triggers.** If a company exceeds the required thresholds for recovery time following a system failure, it should invest in improving its Deployment Acceleration discipline and systems design to reduce or eliminate failures or the effect of individual component downtime.
+- **Service-level agreement trigger.** A company that cannot meet its service-level agreements to its external customers or internal partners should invest in the Resource Consistency discipline to reduce system downtime.
+- **Recovery time triggers.** If a company exceeds the required thresholds for recovery time following a system failure, it should invest in improving its Resource Consistency discipline and systems design to reduce or eliminate failures or the effect of individual component downtime.
 - **VM health trigger.** A company that has more than _x%_ of VMs experiencing a critical health issue should invest in the Resource Consistency discipline to identify issues and improve VM stability.
 - **Network health trigger.** A company that has more than _x%_ of network subnets or endpoints experiencing connectivity issues should invest in the Resource Consistency discipline to identify and resolve network issues.
 - **Backup coverage trigger.** A company with _x%_ of mission-critical assets without up-to-date backups in place would benefit from an increased investment in the Resource Consistency discipline to ensure a consistent backup strategy.
 - **Backup health trigger.** A company experiencing more than _x%_ failure of restore operations should invest in the Resource Consistency discipline to identify problems with backup and ensure important resources are protected.
 
-The exact metrics and triggers you use to gauge risk tolerance and the level of investment in the Resource Consistency discipline will be specific to your organization, but the examples above should serve as a useful base for discussion within your Cloud Governance team.
+The exact metrics and triggers you use to gauge risk tolerance and the level of investment in the Resource Consistency discipline will be specific to your organization, but the examples above should serve as a useful base for discussion within your cloud governance team.
 
 ## Next steps
 
 Using the [Cloud Management template](./template.md), document metrics and tolerance indicators that align to the current cloud adoption plan.
 
-Building on risks and tolerance, establish a process for governing and communicating Resource Consistency policy adherence.
+Review sample Resource Consistency policies as a starting point to develop policies that address specific business risks that align with your cloud adoption plans.
 
 > [!div class="nextstepaction"]
-> [Establish policy compliance processes](compliance-processes.md)
+> [Review sample policies](./policy-statements.md)

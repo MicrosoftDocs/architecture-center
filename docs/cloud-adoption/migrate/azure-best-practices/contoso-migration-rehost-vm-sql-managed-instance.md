@@ -2,20 +2,18 @@
 title: "Rehost an on-premises app by migrating to Azure VMs and Azure SQL Database Managed Instance"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Learn how Contoso rehosts an on-premises app on Azure VMs and by using Azure SQL Database Managed Instance.
-services: site-recovery
 author: BrianBlanchard
-ms.service: site-recovery
-ms.topic: conceptual
-ms.date: 10/11/2018
 ms.author: brblanch
+ms.date: 10/11/2018
+ms.topic: conceptual
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
+services: site-recovery
 ---
 
 # Rehost an on-premises app on an Azure VM and SQL Database Managed Instance
 
 This article shows how the fictional company Contoso migrates a two-tier Windows .NET front-end app running on VMware VMs to an Azure VM using the Azure Site Recovery service. It also shows how Contoso migrates the app database to Azure SQL Database Managed Instance.
-
-> [!NOTE]
-> Azure SQL Database Managed Instance currently is in preview.
 
 The SmartHotel360 app used in this example is provided as open source. If you'd like to use it for your own testing purposes, you can download it from [GitHub](https://github.com/Microsoft/SmartHotel360).
 
@@ -159,7 +157,7 @@ Contoso admins set up the virtual network as follows:
 1. They create a new virtual network (**VNET-SQLMI-EU2**) in the primary East US 2 region. It adds the virtual network to the **ContosoNetworkingRG** resource group.
 2. They assign an address space of 10.235.0.0/24. They ensure that the range doesn't overlap with any other networks in its enterprise.
 3. They add two subnets to the network:
-    - **SQLMI-DS-EUS2** (10.235.0.0.25)
+    - **SQLMI-DS-EUS2** (10.235.0.0/25)
     - **SQLMI-SAW-EUS2** (10.235.0.128/29). This subnet is used to attach a directory to the Managed Instance.
 
       ![Managed Instance - Create virtual network](media/contoso-migration-rehost-vm-sql-managed-instance/mi-vnet.png)
@@ -363,8 +361,8 @@ Now, Contoso admins configure the source environment. To set up its source envir
 - The configuration server that coordinates communications between the on-premises infrastructure and Azure. The configuration server manages data replication.
 - The process server that acts as a replication gateway. The process server:
   - Receives replication data.
-  - Optimizes replication date by using caching, compression, and encryption.
-  - Sends replication date to Azure Storage.
+  - Optimizes replication data by using caching, compression, and encryption.
+  - Sends replication data to Azure Storage.
 - The process server also installs the Mobility Service on the VMs that will be replicated. The process server performs automatic discovery of on-premises VMware VMs.
 - After the configuration server VM is created and started, Contoso registers the server in the vault.
 
@@ -412,7 +410,7 @@ Now, Contoso admins configure the target replication environment:
 
 When the source and target are set up, Contoso admins create a replication policy and associates the policy with the configuration server:
 
-1. In  **Prepare infrastructure** > **Replication Settings** > **Replication Policy** >  **Create and Associate**, they create the **ContosoMigrationPolicy** policy.
+1. In **Prepare infrastructure** > **Replication Settings** > **Replication Policy** >  **Create and Associate**, they create the **ContosoMigrationPolicy** policy.
 2. They use the default settings:
     - **RPO threshold:** Default of 60 minutes. This value defines how often recovery points are created. An alert is generated if continuous replication exceeds this limit.
     - **Recovery point retention:** Default of 24 hours. This value specifies how long the retention window is for each recovery point. Replicated VMs can be recovered to any point in a window.

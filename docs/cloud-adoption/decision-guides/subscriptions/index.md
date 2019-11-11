@@ -1,13 +1,14 @@
 ---
 title: "Subscription decision guide"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
-ms.custom: governance
-ms.date: 06/07/2019
 description: Learn about cloud platform subscriptions as a core service in Azure migrations.
 author: alexbuckgit
 ms.author: abuck
+ms.date: 06/07/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: decision-guide
+ms.custom: governance
 ---
 
 # Subscription decision guide
@@ -31,7 +32,7 @@ Because every organization is different, Azure management groups are designed to
 
 Before finalizing your subscription design, also consider how [resource consistency](../resource-consistency/index.md) considerations might influence your design choices.
 
-> ![NOTE]
+> [!NOTE]
 > Azure Enterprise Agreements (EAs) allows you to define another organizational hierarchy for billing purposes. This hierarchy is distinct from your management group hierarchy, which focuses on providing an inheritance model for easily applying suitable policies and access control to your resources.
 
 The following subscription patterns reflect an initial increase in subscription design sophistication, followed by several more advanced hierarchies that may align well to your organization:

@@ -1,13 +1,14 @@
 ---
 title: "Deployment Acceleration sample policy statements"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
-ms.custom: governance
-ms.date: 02/11/2019
 description: Deployment Acceleration sample policy statements
 author: alexbuckgit
 ms.author: abuck
+ms.date: 02/11/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: govern
+ms.custom: governance
 ---
 
 # Deployment Acceleration sample policy statements
@@ -26,7 +27,7 @@ The following sample policy statements address common configuration-related busi
 
 **Policy statement:** All assets deployed to the cloud should be deployed using templates or automation scripts whenever possible.
 
-**Potential design options:** [Azure Resource Manager templates](/azure/azure-resource-manager/resource-group-overview#template-deployment) provides an infrastructure-as-code approach to deploying your resources to Azure. The [Azure Building Blocks](https://github.com/mspnp/template-building-blocks/wiki) provide a command-line tool and set of Resource Manager templates designed to simplify deployment of Azure resources.
+**Potential design options:** [Azure Resource Manager templates](/azure/azure-resource-manager/template-deployment-overview) provides an infrastructure-as-code approach to deploying your resources to Azure. The [Azure Building Blocks](https://github.com/mspnp/template-building-blocks/wiki) provide a command-line tool and set of Resource Manager templates designed to simplify deployment of Azure resources.
 
 ## Lack of visibility into system issues
 
@@ -53,7 +54,9 @@ Use the samples mentioned in this article as a starting point to develop policie
 
 To begin developing your own custom policy statements related to identity management, download the [Identity Baseline template](./template.md).
 
-To accelerate adoption of this discipline, choose the [actionable governance journey](../journeys/index.md) that most closely aligns with your environment. Then modify the design to incorporate your specific corporate policy decisions.
+To accelerate adoption of this discipline, choose the [actionable governance guide](../journeys/index.md) that most closely aligns with your environment. Then modify the design to incorporate your specific corporate policy decisions.
+
+Building on risks and tolerance, establish a process for governing and communicating Deployment Acceleration policy adherence.
 
 > [!div class="nextstepaction"]
-> [Actionable governance journeys](../journeys/index.md)
+> [Establish policy compliance processes](./compliance-processes.md)

@@ -10,7 +10,7 @@ ms.subservice: cloud-fundamentals
 ms.custom: seodec18
 ---
 
-# Content delivery networks (CDNs)
+# Best practices for using content delivery networks (CDNs)
 
 A content delivery network (CDN) is a distributed network of servers that can efficiently deliver web content to users. CDNs store cached content on edge servers that are close to end users to minimize latency.
 

@@ -1,12 +1,14 @@
 ---
 title: "Software Defined Networking decision guide"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
-ms.custom: governance
-ms.date: 02/11/2019
 description: Learn about Software Defined Networks as a core service in Azure migrations.
 author: rotycenh
+ms.author: v-tyhopk
+ms.date: 02/11/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: decision-guide
+ms.custom: governance
 ---
 
 # Software Defined Networking decision guide
@@ -21,7 +23,7 @@ Jump to: [PaaS Only](paas-only.md) | [Cloud-native](cloud-native.md) | [Cloud DM
 
 SDN provides several options with varying degrees of pricing and complexity. The above discovery guide provides a reference to quickly personalize these options to best align with specific business and technology strategies.
 
-The inflection point in this guide depends on several key decisions that your Cloud Strategy team have made before making decisions about networking architecture. Most important among these are decisions involving your [digital estate definition](../../digital-estate/index.md) and [subscription design](../subscriptions/index.md) (which may also require inputs from decisions made related to your cloud accounting and global markets strategies).
+The inflection point in this guide depends on several key decisions that your cloud strategy team has made before making decisions about networking architecture. Most important among these are decisions involving your [digital estate definition](../../digital-estate/index.md) and [subscription design](../subscriptions/index.md) (which may also require inputs from decisions made related to your cloud accounting and global markets strategies).
 
 Small single-region deployments of fewer than 1,000 VMs are less likely to be significantly affected by this inflection point. Conversely, large adoption efforts with more than 1,000 VMs, multiple business units, or multiple geopolitical markets, could be substantially affected by your SDN decision and this key inflection point.
 
@@ -57,7 +59,7 @@ Learn more about the primary software defined networking architectures:
 For more information about Software Defined Networking in Azure, see:
 
 - [Azure Virtual Network](/azure/virtual-network/virtual-networks-overview). On Azure, the core SDN capability is provided by Azure Virtual Network, which acts as a cloud analog to physical on-premises networks. Virtual networks also act as a default isolation boundary between resources on the platform.
-- [Azure Network Security Best Practices](/azure/security/azure-security-network-security-best-practices). Recommendations from the Azure Security team on how to configure your virtual networks to minimize security vulnerabilities.
+- [Azure best practices for network security](/azure/security/azure-security-network-security-best-practices). Recommendations from the Azure Security team on how to configure your virtual networks to minimize security vulnerabilities.
 
 ## Next steps
 

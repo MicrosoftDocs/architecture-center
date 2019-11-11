@@ -7,6 +7,7 @@
         "files": [
           "**/*.md",
           "**/toc.yml",
+          "**/toc.experimental.yml",
           "**/*context.yml"
         ],
         "exclude": [
@@ -61,14 +62,9 @@
         }
       },
       "ms.topic": "article",
-      "searchScope": [
-        "Azure"
-      ]
+      "searchScope": [ "Azure", "Azure Architecture Center" ]
     },
     "fileMetadata": {
-      "tocRel": {
-        "reference-architectures/**.md": "../toc.json"
-      },
       "feedback_product_url": {
         "example-scenario/**/*.md": "https://azure-architecture.uservoice.com/forums/918625-architecture-guidance",
         "guide/**/*.md": "https://azure-architecture.uservoice.com/forums/918628-cloud-fundamentals",
@@ -78,6 +74,19 @@
         "antipatterns/**/*.md": "https://azure-architecture.uservoice.com/forums/918628-cloud-fundamentals"
       },
       "featureFlags": {
+      },
+      "searchScope": { 
+        "guide/**/*.md": [ "Azure", "Azure Architecture Center", "Application Architecture Guide" ],
+        "best-practices/**/*.md": [ "Azure", "Azure Architecture Center", "Application Architecture Guide" ],
+        "performance/**/*.md": [ "Azure", "Azure Architecture Center", "Application Architecture Guide" ],
+        "antipatterns/**/*.md": [ "Azure", "Azure Architecture Center", "Application Architecture Guide" ],
+        "aws-professional/**/*.md": [ "Azure", "Azure Architecture Center", "Application Architecture Guide" ],
+        "patterns/**/*.md": [ "Azure", "Azure Architecture Center", "Cloud Design Patterns" ],
+        "data-guide/**/*.md": [ "Azure", "Azure Architecture Center", "Data Guide" ],
+        "reference-architectures/data/**/*.md": [ "Azure", "Azure Architecture Center", "Data Guide" ],
+        "example-scenario/data/**/*.md": [ "Azure", "Azure Architecture Center", "Data Guide" ],
+        "reference-architectures/hybrid-networking/**/*.md": [ "Azure", "Azure Architecture Center", "Networking" ],
+        "reference-architectures/dmz/**/*.md": [ "Azure", "Azure Architecture Center", "Networking" ]
       }
     },
     "template": [

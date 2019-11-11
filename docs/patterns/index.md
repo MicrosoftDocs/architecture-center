@@ -46,7 +46,7 @@ Each pattern describes the problem that the pattern addresses, considerations fo
     <td style="width: 64px; vertical-align: middle;"><a href="./category/messaging.md"><img src="_images/category/messaging.svg" alt="Messaging" /></a></td>
     <td>
         <h3><a href="./category/messaging.md">Messaging</a></h3>
-        <p>The distributed nature of cloud applications requires a messaging infrastructure that connects the components and services, ideally in a loosely coupled manner in order to maximize scalability. Asynchronous messaging is widely used, and provides many benefits, but also brings challenges such as the ordering of messages, poison message management, idempotency, and more</p>
+        <p>The distributed nature of cloud applications requires a messaging infrastructure that connects the components and services, ideally in a loosely coupled manner in order to maximize scalability. Asynchronous messaging is widely used, and provides many benefits, but also brings challenges such as the ordering of messages, poison message management, idempotency, and more.</p>
     </td>
 </tr>
 <tr>
@@ -89,6 +89,7 @@ Each pattern describes the problem that the pattern addresses, considerations fo
 |         [Backends for Frontends](./backends-for-frontends.md)         |                                                            Create separate backend services to be consumed by specific frontend applications or interfaces.                                                             |
 |                       [Bulkhead](./bulkhead.md)                       |                                                        Isolate elements of an application into pools so that if one fails, the others will continue to function.                                                        |
 |                    [Cache-Aside](./cache-aside.md)                    |                                                                                   Load data on demand into a cache from a data store                                                                                    |
+|[Choreography](./choreography.md)|Let each service decide when and how a business operation is processed, instead of depending on a central orchestrator.|
 |                [Circuit Breaker](./circuit-breaker.md)                |                                                     Handle faults that might take a variable amount of time to fix when connecting to a remote service or resource.                                                     |
 | [Claim Check](./claim-check.md) | Split a large message into a claim check and a payload to avoid overwhelming a message bus. |
 |       [Compensating Transaction](./compensating-transaction.md)       |                                                         Undo the work performed by a series of steps, which together define an eventually consistent operation.                                                         |

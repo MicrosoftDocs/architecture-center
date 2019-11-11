@@ -15,6 +15,8 @@ This reference architecture describes how to build an enterprise-grade conversat
 
 [![Diagram of the architecture][0]][0]
 
+*Download a [Visio file][visio-download] of this architecture.*
+
 The best practice utility samples used in this architecture are fully open-sourced and available on [GitHub][git-repo-base].
 
 ## Architecture
@@ -178,7 +180,7 @@ You can deploy the bot logic directly from your IDE or from a command line, such
 
 [0]: ./_images/conversational-bot.png
 [aad]: /azure/active-directory/
-[activities]: /azure/bot-service/rest-api/bot-framework-rest-connector-activities
+[activities]: /azure/bot-service/rest-api/bot-framework-rest-connector-concepts?#activity
 [aml]: /azure/machine-learning/service/
 [app-insights]: /azure/azure-monitor/app/app-insights-overview
 [app-service]: /azure/app-service/
@@ -214,6 +216,8 @@ You can deploy the bot logic directly from your IDE or from a command line, such
 [vscode]: https://azure.microsoft.com/products/visual-studio-code/
 [webapp]: /azure/app-service/overview
 [webchat]: /azure/bot-service/bot-service-channel-connect-webchat?view=azure-bot-service-4.0/
+
+[visio-download]: https://archcenter.blob.core.windows.net/cdn/conversational-bot.vsdx
 
 [cosmosdb-logger]: https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-transcript-cosmosdb
 [appinsights-logger]: https://github.com/Microsoft/botbuilder-utils-js/tree/master/packages/botbuilder-transcript-app-insights

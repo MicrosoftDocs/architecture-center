@@ -6,8 +6,8 @@ author: BrianBlanchard
 ms.author: brblanch
 ms.date: 07/01/2019
 ms.topic: landing-page
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
+ms.service: cloud-adoption-framework
+ms.subservice: plan
 layout: LandingPage
 ---
 
@@ -15,11 +15,11 @@ layout: LandingPage
 
 # Develop a cloud adoption plan
 
-Cloud adoption plans convert the aspirational goals of the cloud adoption strategy into an actionable plan. The collective cloud teams can leverage the cloud adoption plan to guide technical efforts, in alignment with the business strategy.
+Cloud adoption plans convert the aspirational goals of a cloud adoption strategy into an actionable plan. The collective cloud teams can use the cloud adoption plan to guide their technical efforts and align them with the business strategy.
 
 ## Cloud adoption plan process
 
-The following exercises will help you document your technology strategy. This approach captures prioritized tasks, to drive adoption efforts. The cloud adoption plan then maps to the metrics and motivations defined in the cloud adoption strategy.
+The following exercises will help you document your technology strategy. This approach captures prioritized tasks to drive adoption efforts. The cloud adoption plan then maps to the metrics and motivations defined in the cloud adoption strategy.
 
 <!-- markdownlint-disable MD033 -->
 
@@ -35,8 +35,8 @@ The following exercises will help you document your technology strategy. This ap
                             </div>
                         </div>
                         <div class="cardText" style="padding-left:0px;">
-                            <h3>Digital Estate</h3>
-                            Inventory and rationalize the digital estate based on assumptions that align with motivations and business outcomes.
+                            <h3>Digital estate</h3>
+                            Inventory and rationalize your digital estate based on assumptions that align with motivations and business outcomes.
                         </div>
                     </div>
                 </div>
@@ -74,7 +74,7 @@ The following exercises will help you document your technology strategy. This ap
                         </div>
                         <div class="cardText" style="padding-left:0px;">
                             <h3>Skills readiness plan</h3>
-                            Create a plan for addressing skills readiness gaps
+                            Create a plan for addressing skills readiness gaps.
                         </div>
                     </div>
                 </div>
@@ -102,7 +102,7 @@ The following exercises will help you document your technology strategy. This ap
     </li>
 </ul>
 
-Download the [Cloud Adoption Framework strategy and planning template](https://archcenter.blob.core.windows.net/cdn/fusion/readiness/Microsoft-Cloud-Adoption-Framework-Strategy-and-Plan-Template.docx) to track the outputs of each exercise, as you build out your cloud adoption strategy.
+Download the [Cloud Adoption Framework strategy and planning template](https://archcenter.blob.core.windows.net/cdn/fusion/readiness/Microsoft-Cloud-Adoption-Framework-Strategy-and-Plan-Template.docx) to track the outputs of each exercise as you build out your cloud adoption strategy.
 
 ## Next steps
 

@@ -2,8 +2,8 @@
 title: Connect an on-premises network to Azure using ExpressRoute
 titleSuffix: Azure Reference Architectures
 description: Implement a secure site-to-site network architecture that spans an Azure virtual network and an on-premises network connected using Azure ExpressRoute.
-author: telmosampaio
-ms.date: 10/22/2017
+author: MikeWasson
+ms.date: 07/23/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -27,11 +27,12 @@ The architecture consists of the following components.
 - **ExpressRoute circuit**. A layer 2 or layer 3 circuit supplied by the connectivity provider that joins the on-premises network with Azure through the edge routers. The circuit uses the hardware infrastructure managed by the connectivity provider.
 
 - **Local edge routers**. Routers that connect the on-premises network to the circuit managed by the provider. Depending on how your connection is provisioned, you may need to provide the public IP addresses used by the routers.
+
 - **Microsoft edge routers**. Two routers in an active-active highly available configuration. These routers enable a connectivity provider to connect their circuits directly to their datacenter. Depending on how your connection is provisioned, you may need to provide the public IP addresses used by the routers.
 
 - **Azure virtual networks (VNets)**. Each VNet resides in a single Azure region, and can host multiple application tiers. Application tiers can be segmented using subnets in each VNet.
 
-- **Azure public services**. Azure services that can be used within a hybrid application. These services are also available over the Internet, but accessing them using an ExpressRoute circuit provides low latency and more predictable performance, because traffic does not go through the Internet. Connections are performed using [public peering][expressroute-peering], with addresses that are either owned by your organization or supplied by your connectivity provider.
+- **Azure public services**. Azure services that can be used within a hybrid application. These services are also available over the Internet, but accessing them using an ExpressRoute circuit provides low latency and more predictable performance, because traffic does not go through the Internet.
 
 - **Office 365 services**. The publicly available Office 365 applications and services provided by Microsoft. Connections are performed using [Microsoft peering][expressroute-peering], with addresses that are either owned by your organization or supplied by your connectivity provider. You can also connect directly to Microsoft CRM Online through Microsoft peering.
 
@@ -88,9 +89,9 @@ Create an ExpressRoute circuit as follows:
 
 4. If you're using a layer 2 connection:
 
-    1. Reserve two /30 subnets composed of valid public IP addresses for each type of peering you want to implement. These /30 subnets will be used to provide IP addresses for the routers used for the circuit. If you are implementing private, public, and Microsoft peering, you'll need 6 /30 subnets with valid public IP addresses.
+    1. Reserve two /30 subnets composed of valid public IP addresses for each type of peering you want to implement. These /30 subnets will be used to provide IP addresses for the routers used for the circuit. If you are implementing private and Microsoft peering, you'll need 4 /30 subnets with valid public IP addresses.
 
-    2. Configure routing for the ExpressRoute circuit. Run the following PowerShell commands for each type of peering you want to configure (private, public, and Microsoft). For more information, see [Create and modify routing for an ExpressRoute circuit][configure-expressroute-routing].
+    2. Configure routing for the ExpressRoute circuit. Run the following PowerShell commands for each type of peering you want to configure (private and Microsoft). For more information, see [Create and modify routing for an ExpressRoute circuit][configure-expressroute-routing].
 
         ```powershell
         Set-AzureRmExpressRouteCircuitPeeringConfig -Name <<peering-name>> -Circuit <<circuit-name>> -PeeringType <<peering-type>> -PeerASN <<peer-asn>> -PrimaryPeerAddressPrefix <<primary-peer-address-prefix>> -SecondaryPeerAddressPrefix <<secondary-peer-address-prefix>> -VlanId <<vlan-id>>
@@ -98,7 +99,7 @@ Create an ExpressRoute circuit as follows:
         Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit <<circuit-name>>
         ```
 
-    3. Reserve another pool of valid public IP addresses to use for network address translation (NAT) for public and Microsoft peering. It is recommended to have a different pool for each peering. Specify the pool to your connectivity provider, so they can configure border gateway protocol (BGP) advertisements for those ranges.
+    3. Reserve another pool of valid public IP addresses to use for network address translation (NAT) for Microsoft peering. It is recommended to have a different pool for each peering. Specify the pool to your connectivity provider, so they can configure border gateway protocol (BGP) advertisements for those ranges.
 
 5. Run the following PowerShell commands to link your private VNet(s) to the ExpressRoute circuit. For more information,see [Link a virtual network to an ExpressRoute circuit][link-vnet-to-expressroute].
 
@@ -149,7 +150,7 @@ A single ExpressRoute circuit can support a certain number of peerings and VNet 
 
 For an extra charge, the ExpressRoute Premium add-on provides some additional capability:
 
-- Increased route limits for public and private peering.
+- Increased route limits for private peering.
 - Increased number of VNet links per ExpressRoute circuit.
 - Global connectivity for services.
 
@@ -192,13 +193,13 @@ Although some providers allow you to change your bandwidth, make sure you pick a
 
 ExpressRoute does not support router redundancy protocols such as hot standby routing protocol (HSRP) and virtual router redundancy protocol (VRRP) to implement high availability. Instead, it uses a redundant pair of BGP sessions per peering. To facilitate highly-available connections to your network, Azure provisions you with two redundant ports on two routers (part of the Microsoft edge) in an active-active configuration.
 
-By default, BGP sessions use an idle timeout value of 60 seconds. If a session times out three times (180 seconds total), the router is marked as unavailable, and all traffic is redirected to the remaining router. This 180-second timeout might be too long for critical applications. If so, you can change your BGP time-out settings on the on-premises router to a smaller value.
+By default, BGP sessions use an idle timeout value of 60 seconds. If a session times out three times (180 seconds total), the router is marked as unavailable, and all traffic is redirected to the remaining router. This 180-second timeout might be too long for critical applications. If so, you can change your BGP time-out settings on the on-premises router to a smaller value. ExpressRoute also supports [Bidirectional Forwarding Detection (BFD)](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-bfd) over private peering. By enabling BFD over ExpressRoute, you can expedite link failure detection between Microsoft Enterprise edge (MSEE) devices and the routers on which you terminate the ExpressRoute circuit (PE). You can terminate ExpressRoute over Customer Edge routing devices or Partner Edge routing devices (if you went with managed Layer 3 connection service).
 
 You can configure high availability for your Azure connection in different ways, depending on the type of provider you use, and the number of ExpressRoute circuits and virtual network gateway connections you're willing to configure. The following summarizes your availability options:
 
 - If you're using a layer 2 connection, deploy redundant routers in your on-premises network in an active-active configuration. Connect the primary circuit to one router, and the secondary circuit to the other. This will give you a highly available connection at both ends of the connection. This is necessary if you require the ExpressRoute service level agreement (SLA). See [SLA for Azure ExpressRoute][sla-for-expressroute] for details.
 
-    The following diagram shows a configuration with redundant on-premises routers connected to the primary and secondary circuits. Each circuit handles the traffic for a public peering and a private peering (each peering is designated a pair of /30 address spaces, as described in the previous section).
+    The following diagram shows a configuration with redundant on-premises routers connected to the primary and secondary circuits. Each circuit handles the traffic for private peering (each peering is designated a pair of /30 address spaces, as described in the previous section).
 
     ![[1]][1]
 
@@ -216,7 +217,7 @@ You can use the [Azure Connectivity Toolkit (AzureCT)][azurect] to monitor conne
 
 You can configure security options for your Azure connection in different ways, depending on your security concerns and compliance needs.
 
-ExpressRoute operates in layer 3. Threats in the application layer can be prevented by using a network security appliance that restricts traffic to legitimate resources. Additionally, ExpressRoute connections using public peering can only be initiated from on-premises. This prevents a rogue service from accessing and compromising on-premises data from the Internet.
+ExpressRoute operates in layer 3. Threats in the application layer can be prevented by using a network security appliance that restricts traffic to legitimate resources.
 
 To maximize security, add network security appliances between the on-premises network and the provider edge routers. This will help to restrict the inflow of unauthorized traffic from the VNet:
 
@@ -231,7 +232,7 @@ To maximize security, do not enable a public IP address for your VMs, and use NS
 If you must expose management endpoints for VMs to an external network, use NSGs or access control lists to restrict the visibility of these ports to an allowed list of IP addresses or networks.
 
 > [!NOTE]
-> By default, Azure VMs deployed through the Azure portal include a public IP address that provides login access.
+> Azure VMs deployed through the Azure portal can include a public IP address that provides login access. However, it is a best practice not to permit this.
 >
 
 ## Deploy the solution

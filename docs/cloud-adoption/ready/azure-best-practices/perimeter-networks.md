@@ -6,8 +6,8 @@ author: tracsman
 ms.author: jonor
 ms.date: 05/10/2019
 ms.topic: guide
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
+ms.service: cloud-adoption-framework
+ms.subservice: ready
 manager: rossort
 tags: azure-resource-manager
 ms.custom: virtual-network
@@ -15,62 +15,95 @@ ms.custom: virtual-network
 
 # Perimeter networks
 
-[Perimeter networks][perimeter-network], also known as demilitarized zones (DMZ), enable secure connectivity between your cloud networks and your on-premises or physical datacenter networks along with any connectivity to and from the internet.
+[Perimeter networks][perimeter-network] enable secure connectivity between your cloud networks and your on-premises or physical datacenter networks, along with any connectivity to and from the internet. They're also known as demilitarized zones (DMZs).
 
-For perimeter networks to be effective, incoming packets must flow through security appliances hosted in secure subnets before reaching back-end servers. Examples are the firewall, IDS, and IPS. Before they leave the network, internet-bound packets from workloads should also flow through the security appliances in the perimeter network. The purposes of this flow are policy enforcement, inspection, and auditing.
+For perimeter networks to be effective, incoming packets must flow through security appliances hosted in secure subnets before reaching back-end servers. Examples are the firewall, intrusion detection systems (IDS), and intrusion prevention systems (IPS). Before they leave the network, internet-bound packets from workloads should also flow through the security appliances in the perimeter network. The purposes of this flow are policy enforcement, inspection, and auditing.
 
 Perimeter networks make use of the following Azure features and services:
 
 - [Virtual networks][virtual-networks], [user-defined routes][user-defined-routes], and [network security groups][network-security-groups]
-- [Network virtual appliances][NVA]
+- [Network virtual appliances][NVA] (NVAs)
 - [Azure Load Balancer][ALB]
-- [Azure Application Gateway][AppGW] and [web application firewall (WAF)][AppGWWAF]
+- [Azure Application Gateway][AppGW] and [web application firewall][AppGWWAF] (WAF)
 - [Public IPs][PIP]
-- [Azure Front Door][AFD] with [web application firewall (WAF)][AFDWAF]
+- [Azure Front Door][AFD] with [web application firewall][AFDWAF]
 - [Azure Firewall][AzFW]
 
 > [!NOTE]
-> Azure Reference Architectures provide example templates you can use as the basis for implementing your own perimeter networks:
+> Azure reference architectures provide example templates that you can use to implement your own perimeter networks:
 >
 > - [Implement a DMZ between Azure and your on-premises datacenter](/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid)
 > - [Implement a DMZ between Azure and the internet](/azure/architecture/reference-architectures/dmz/secure-vnet-dmz)
 
-Usually, your central IT and security teams are responsible for requirements definition and operation of your perimeter networks.
+Usually, your central IT and security teams are responsible for defining requirements for operating your perimeter networks.
 
-![7][7]
+![Example hub-and-spoke network][7]
 
-The preceding diagram shows an example [hub and spoke network](./hub-spoke-network-topology.md) that implements enforcement of two perimeters with access to the internet and an on-premises network, both resident in the DMZ hub. In the DMZ hub, the perimeter network to internet can scale up to support large numbers of LOBs, using multiple farms of web application firewalls (WAFs) and Azure Firewalls protecting the Spoke VNets. The hub also allows for connectivity via VPN or ExpressRoute as needed.
+The preceding diagram shows an example [hub-and-spoke network](./hub-spoke-network-topology.md) that implements enforcement of two perimeters with access to the internet and an on-premises network. Both perimeters reside in the DMZ hub. In the DMZ hub, the perimeter network to the internet can scale up to support many lines of business (LOBs), by using multiple farms of WAFs and Azure Firewall instances that help protect the spoke virtual networks. The hub also allows for connectivity via VPN or Azure ExpressRoute as needed.
 
-[**Virtual networks**][virtual-networks]. Perimeter networks are typically built using a virtual network with multiple subnets to host the different types of services that filter and inspect traffic to or from the internet via NVAs, WAF, and Azure Application Gateway instances.
+## Virtual networks
 
-[**User-defined routes**][user-defined-routes]. Using user-defined routes, customers can deploy firewalls, IDS/IPS, and other virtual appliances and route network traffic through these security appliances for security boundary policy enforcement, auditing, and inspection. User-defined routes can be created to guarantee that traffic passes through the specified custom VMs, Network Virtual Appliances, and load balancers.
+Perimeter networks are typically built using a [virtual network][virtual-networks] with multiple subnets to host the different types of services that filter and inspect traffic to or from the internet via NVAs, WAFs, and Azure Application Gateway instances.
 
-In a hub and spoke network example, guaranteeing that traffic generated by virtual machines residing in the spoke passes through the correct virtual appliances in the hub requires a user-defined route defined in the subnets of the spoke. This route sets the front-end IP address of the internal load balancer as the next hop. The internal load balancer distributes the internal traffic to the virtual appliances (load balancer back-end pool).
+## User-defined routes
 
-[**Azure Firewall**][AzFW] is a managed cloud-based network-security service that protects your Azure Virtual Network resources. It's a fully stateful managed firewall with built-in high availability and unrestricted cloud scalability. You can centrally create, enforce, and log application and network connectivity policies across subscriptions and virtual networks. Azure Firewall uses a static public IP address for your virtual network resources. It allows outside firewalls to identify traffic that originates from your virtual network. The service is fully integrated with Azure Monitor for logging and analytics.
+By using [user-defined routes][user-defined-routes], customers can deploy firewalls, IDS/IPS, and other virtual appliances. Customers can then route network traffic through these security appliances for security boundary policy enforcement, auditing, and inspection. User-defined routes can be created to guarantee that traffic passes through the specified custom VMs, NVAs, and load balancers.
 
-[**Network virtual appliances**][NVA]. Perimeter networks with access to the internet are typically managed through an Azure Firewall instance or a farm of firewalls or [web application firewalls][AFDWAF].
+In a hub-and-spoke network example, guaranteeing that traffic generated by virtual machines that reside in the spoke passes through the correct virtual appliances in the hub requires a user-defined route defined in the subnets of the spoke. This route sets the front-end IP address of the internal load balancer as the next hop. The internal load balancer distributes the internal traffic to the virtual appliances (load balancer back-end pool).
 
-Different LOBs commonly use many web applications. These applications tend to suffer from various vulnerabilities and potential exploits. Web application firewalls are a special type of product used to detect attacks against web applications (HTTP/HTTPS) in more depth than a generic firewall. Compared with tradition firewall technology, WAFs have a set of specific features to protect internal web servers from threats.
+## Azure Firewall
 
-An Azure Firewall or NVA firewall both use a common administration plane with a set of security rules to protect the workloads hosted in the spokes and control access to on-premises networks. The Azure Firewall has built-in scalability, while NVA firewalls can be manually scaled behind a load balancer. A firewall farm typically has less specialized software compared with a WAF, but it has a broader application scope to filter and inspect any type of traffic in egress and ingress. If an NVA approach is used, they can be found and deployed from the Azure marketplace.
+[Azure Firewall][AzFW] is a managed cloud-based service that helps protect your Azure virtual network resources. It's a fully stateful managed firewall with built-in high availability and unrestricted cloud scalability. You can centrally create, enforce, and log application and network connectivity policies across subscriptions and virtual networks.
 
-Use one set of Azure Firewalls (or NVAs) for traffic originating on the internet and another set for traffic originating on-premises. Using only one set of firewalls for both is a security risk because it provides no security perimeter between the two sets of network traffic. Using separate firewall layers reduces the complexity of checking security rules and makes it clear which rules correspond to which incoming network requests.
+Azure Firewall uses a static public IP address for your virtual network resources. It allows outside firewalls to identify traffic that originates from your virtual network. The service interoperates with Azure Monitor for logging and analytics.
 
-[**Azure Load Balancer**][ALB] offers a high availability Layer 4 (TCP/UDP) service, which can distribute incoming traffic among service instances defined in a load-balanced set. Traffic sent to the load balancer from front-end endpoints (public IP endpoints or private IP endpoints) can be redistributed with or without address translation to a pool of back-end IP addresses (such as Network Virtual Appliances or VMs).
+## Network virtual appliances
 
-Azure Load Balancer can probe the health of the various server instances as well. When an instance fails to respond to a probe, the load balancer stops sending traffic to the unhealthy instance. For an example using a hub and spoke network, an external load balancer can be deployed to both the hub and the spokes. In the hub, the load balancer is used to efficiently route traffic to services in the spokes; in the spokes, load balancers are used to manage application traffic.
+Perimeter networks with access to the internet are typically managed through an Azure Firewall instance or a farm of firewalls or [web application firewalls][AFDWAF].
 
-[**Azure Front Door Service**][AFD] (AFD) is Microsoft's highly available and scalable web application acceleration platform and global HTTP(S) load balancer. Running in more than 100 locations at the edge of Microsoft's global network, AFD allows you to build, operate, and scale out your dynamic web application and static content. AFD provides your application with world-class end-user performance, unified regional/stamp maintenance automation, BCDR automation, unified client/user information, caching, and service insights. The platform offers performance, reliability and support SLAs, compliance certifications and auditable security practices developed, operated, and supported natively by Azure.
+Different LOBs commonly use many web applications. These applications tend to suffer from various vulnerabilities and potential exploits. A web application firewall detects attacks against web applications (HTTP/HTTPS) in more depth than a generic firewall. Compared with tradition firewall technology, web application firewalls have a set of specific features to help protect internal web servers from threats.
 
-[**Application Gateway**][AppGW]
-Microsoft Azure Application Gateway is a dedicated virtual appliance providing a managed application delivery controller (ADC), offering various layer 7 load-balancing capabilities for your application. It allows you to optimize web farm productivity by offloading CPU-intensive SSL termination to the application gateway. It also provides other layer 7 routing capabilities including round-robin distribution of incoming traffic, cookie-based session affinity, URL path-based routing, and the ability to host multiple websites behind a single Application Gateway. A web application firewall (WAF) is also provided as part of the application gateway WAF SKU. This SKU provides protection to web applications from common web vulnerabilities and exploits. Application Gateway can be configured as internet-facing gateway, internal-only gateway, or a combination of both.
+An Azure Firewall instance and a [network virtual appliance][NVA] firewall use a common administration plane with a set of security rules to help protect the workloads hosted in the spokes and control access to on-premises networks. Azure Firewall has built-in scalability, whereas NVA firewalls can be manually scaled behind a load balancer.
 
-[**Public IPs**][PIP]. With some Azure features, you can associate service endpoints to a public IP address so that your resource can be accessed from the internet. This endpoint uses network address translation (NAT) to route traffic to the internal address and port on the Azure virtual network. This path is the primary way for external traffic to pass into the virtual network. You can configure public IP addresses to determine what traffic is passed in and how and where it's translated onto the virtual network.
+A firewall farm typically has less specialized software compared with a WAF, but it has a broader application scope to filter and inspect any type of traffic in egress and ingress. If you use an NVA approach, you can find and deploy the software from the Azure Marketplace.
 
-[**Azure DDoS Protection Standard**][DDOS] provides additional mitigation capabilities over the [Basic service][DDOS] tier that are tuned specifically to Azure Virtual Network resources. DDoS Protection Standard is simple to enable and requires no application changes. Protection policies are tuned through dedicated traffic monitoring and machine-learning algorithms. Policies are applied to public IP addresses associated to resources deployed in virtual networks. Examples are Azure Load Balancer, Azure Application Gateway, and Azure Service Fabric instances. Real-time telemetry is available through Azure Monitor views both during an attack and for historical purposes. Application layer protection can be added through the Azure Application Gateway web application firewall. Protection is provided for IPv4 Azure public IP addresses.
+Use one set of Azure Firewall instances (or NVAs) for traffic that originates on the internet and another set for traffic that originates on-premises. Using only one set of firewalls for both is a security risk because it provides no security perimeter between the two sets of network traffic. Using separate firewall layers reduces the complexity of checking security rules and makes clear which rules correspond to which incoming network requests.
 
-<!--Image References-->
+## Azure Load Balancer
+
+[Azure Load Balancer][ALB] offers a high-availability Layer 4 (TCP/UDP) service, which can distribute incoming traffic among service instances defined in a load-balanced set. Traffic sent to the load balancer from front-end endpoints (public IP endpoints or private IP endpoints) can be redistributed with or without address translation to a pool of back-end IP addresses (such as NVAs or VMs).
+
+Azure Load Balancer can also probe the health of the various server instances. When an instance fails to respond to a probe, the load balancer stops sending traffic to the unhealthy instance.
+
+As an example of using a hub-and-spoke network, you can deploy an external load balancer to both the hub and the spokes. In the hub, the load balancer efficiently routes traffic to services in the spokes. In the spokes, load balancers manage application traffic.
+
+## Azure Front Door Service
+
+[Azure Front Door Service][AFD] is Microsoft's highly available and scalable web application acceleration platform and global HTTPS load balancer. You can use Azure Front Door Service to build, operate, and scale out your dynamic web application and static content. It runs in more than 100 locations at the edge of Microsoft's global network.
+
+Azure Front Door Service provides your application with unified regional/stamp maintenance automation, BCDR automation, unified client/user information, caching, and service insights. The platform offers performance, reliability, and support SLAs. It also offers compliance certifications and auditable security practices that are developed, operated, and supported natively by Azure.
+
+## Application Gateway
+
+[Azure Application Gateway][AppGW] is a dedicated virtual appliance that provides a managed application delivery controller (ADC). It offers various layer 7 load-balancing capabilities for your application.
+
+Application Gateway allows you to optimize web farm productivity by offloading CPU-intensive SSL termination to the application gateway. It also provides other layer 7 routing capabilities, including round-robin distribution of incoming traffic, cookie-based session affinity, URL path-based routing, and the ability to host multiple websites behind a single application gateway.
+
+The application gateway WAF SKU includes a web application firewall. This SKU provides protection to web applications from common web vulnerabilities and exploits. You can configure Application Gateway as an internet-facing gateway, an internal-only gateway, or a combination of both.
+
+## Public IPs
+
+With some Azure features, you can associate service endpoints to a [public IP][PIP] address so that your resource can be accessed from the internet. This endpoint uses network address translation (NAT) to route traffic to the internal address and port on the Azure virtual network. This path is the primary way for external traffic to pass into the virtual network. You can configure public IP addresses to determine what traffic is passed in, and how and where it's translated onto the virtual network.
+
+## Azure DDoS Protection Standard
+
+[Azure DDoS Protection Standard][DDoS] provides additional mitigation capabilities over the [Basic service][DDoS] tier that are tuned specifically to Azure virtual network resources. DDoS Protection Standard is simple to enable and requires no application changes.
+
+You can tune protection policies through dedicated traffic monitoring and machine-learning algorithms. Policies are applied to public IP addresses associated to resources deployed in virtual networks. Examples are Azure Load Balancer, Azure Application Gateway, and Azure Service Fabric instances.
+
+Real-time telemetry is available through Azure Monitor views both during an attack and for historical purposes. You can add application-layer protection by using the web application firewall in Azure Application Gateway. Protection is provided for IPv4 Azure public IP addresses.
+
+<!-- images -->
 
 [0]: ./images/network-redundant-equipment.png "Examples of component overlap"
 [1]: ./images/network-hub-spoke-high-level.png "High-level example of hub and spoke"
@@ -84,7 +117,7 @@ Microsoft Azure Application Gateway is a dedicated virtual appliance providing a
 [9]: ./images/network-high-level-diagram-monitoring.png "High-level diagram for Monitoring"
 [10]: ./images/network-high-level-workloads.png "High-level diagram for Workload"
 
-<!--Link References-->
+<!-- links -->
 
 [Limits]: /azure/azure-subscription-service-limits
 [Roles]: /azure/role-based-access-control/built-in-roles
@@ -106,8 +139,8 @@ Microsoft Azure Application Gateway is a dedicated virtual appliance providing a
 [RGMgmt]: /azure/azure-resource-manager/resource-group-overview
 [perimeter-network]: /azure/best-practices-network-security
 [ALB]: /azure/load-balancer/load-balancer-overview
-[DDOS]: /azure/virtual-network/ddos-protection-overview
-[PIP]: /azure/virtual-network/resource-groups-networking#public-ip-address
+[DDoS]: /azure/virtual-network/ddos-protection-overview
+[PIP]: /azure/virtual-network/virtual-network-public-ip-address
 [AFD]: /azure/frontdoor/front-door-overview
 [AFDWAF]: /azure/frontdoor/waf-overview
 [AppGW]: /azure/application-gateway/application-gateway-introduction

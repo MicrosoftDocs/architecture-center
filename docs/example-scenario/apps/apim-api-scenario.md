@@ -107,12 +107,12 @@ Review the extensive Azure API Management [documentation and reference articles]
 [azure-vpn]: /azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal
 [azure-vnet]: /azure/virtual-network/virtual-networks-overview
 [azure-appservice-auth]: /azure/app-service/app-service-authentication-overview#identity-providers
-[apim-faq-vip]: /azure/api-management/api-management-faq#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules
+[apim-faq-vip]: /azure/api-management/api-management-faq#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services
 [azure-appservice-ip-restrict]: /azure/app-service/app-service-ip-restrictions
 [azure-api-apps]: /azure/app-service/
 [apim-ssl]: /azure/api-management/api-management-howto-manage-protocols-ciphers
 [apim-mutualcert-auth]: /azure/api-management/api-management-howto-mutual-certificates
-[apim-whitelist-ip]: /azure/api-management/api-management-faq#is-the-api-management-gateway-ip-address-constant-can-i-use-it-in-firewall-rules
+[apim-whitelist-ip]: /azure/api-management/api-management-faq#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services
 [anti-corruption-layer-pattern]: /azure/architecture/patterns/anti-corruption-layer
 [apim]: /azure/api-management/api-management-key-concepts
 [apim-api-design-guidance]: /azure/architecture/best-practices/api-design

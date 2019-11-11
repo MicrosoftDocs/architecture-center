@@ -3,7 +3,7 @@ title: N-tier application with Apache Cassandra
 titleSuffix: Azure Reference Architectures
 description: Run Linux virtual machines for an N-tier architecture with Apache Cassandra in Microsoft Azure.
 author: MikeWasson
-ms.date: 11/12/2018
+ms.date: 08/21/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -14,51 +14,65 @@ ms.custom: seodec18
 
 This reference architecture shows how to deploy virtual machines (VMs) and a virtual network configured for an [N-tier](../../guide/architecture-styles/n-tier.md) application, using Apache Cassandra on Linux for the data tier. [**Deploy this solution**](#deploy-the-solution).
 
-![N-tier architecture using Microsoft Azure](./images/n-tier-cassandra.png)
+[![N-tier architecture using Microsoft Azure](./images/n-tier-cassandra.png)](./images/n-tier-cassandra.png)
 
 *Download a [Visio file][visio-download] of this architecture.*
 
 ## Architecture
 
-The architecture has the following components:
+The architecture has the following components.
 
-- **Resource group**. [Resource groups][resource-manager-overview] are used to group resources so they can be managed by lifetime, owner, or other criteria.
+### General
 
-- **Virtual network (VNet) and subnets**. Every Azure VM is deployed into a VNet that can be segmented into subnets. Create a separate subnet for each tier.
+- **Resource group**. [Resource groups][resource-manager-overview] are used to group Azure resources so they can be managed by lifetime, owner, or other criteria.
 
-- **NSGs**. Use [network security groups][nsg] (NSGs) to restrict network traffic within the VNet. For example, in the three-tier architecture shown here, the database tier accepts traffic from the business tier and the management subnet, but not the web front end.
+- **Availability zones**. [Availability zones](/azure/availability-zones/az-overview) are physical locations within an Azure region. Each zone consists of one or more datacenters with independent power, cooling, and networking. By placing VMs across zones, the application becomes resilient to failures within a zone.
+
+### Networking and load balancing
+
+- **Virtual network and subnets**. Every Azure VM is deployed into a virtual network that can be segmented into subnets. Create a separate subnet for each tier.
+
+- **Application gateway**. [Application Gateway](/azure/application-gateway/) is a layer 7 load balancer. In this architecture, it routes HTTP requests to the web front end. Application Gateway also provides a [web application firewall](/azure/application-gateway/waf-overview) (WAF) that protects the application from common exploits and vulnerabilities.
+
+- **Load balancers**. Use [Azure Standard Load Balancer][load-balancer] to distribute network traffic from the web tier to the business tier, and from the business tier to SQL Server.
+
+- **Network security groups** (NSGs). Use [NSGs][nsg] to restrict network traffic within the virtual network. For example, in the three-tier architecture shown here, the database tier does not accept traffic from the web front end, only from the business tier and the management subnet.
 
 - **DDoS Protection**. Although the Azure platform provides basic protection against distributed denial of service (DDoS) attacks, we recommend using [DDoS Protection Standard][ddos], which has enhanced DDoS mitigation features. See [Security considerations](#security-considerations).
 
-- **Virtual machines**. For recommendations on configuring VMs, see [Run a Windows VM on Azure](./windows-vm.md) and [Run a Linux VM on Azure](./linux-vm.md).
+- **Azure DNS**. [Azure DNS][azure-dns] is a hosting service for DNS domains. It provides name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
 
-- **Availability sets**. Create an [availability set][azure-availability-sets] for each tier, and provision at least two VMs in each tier, which makes the VMs eligible for a higher [service level agreement (SLA)][vm-sla].
-
-- **Azure load balancers**. The [load balancers][load-balancer] distribute incoming Internet requests to the VM instances. Use a [public load balancer][load-balancer-external] to distribute incoming Internet traffic to the web tier, and an [internal load balancer][load-balancer-internal] to distribute network traffic from the web tier to the business tier.
-
-- **Public IP address**. A public IP address is needed for the public load balancer to receive Internet traffic.
-
-- **Jumpbox**. Also called a [bastion host]. A secure VM on the network that administrators use to connect to the other VMs. The jumpbox has an NSG that allows remote traffic only from public IP addresses on a safe list. The NSG should allow ssh traffic.
+### Virtual machines
 
 - **Apache Cassandra database**. Provides high availability at the data tier, by enabling replication and failover.
 
-- **Azure DNS**. [Azure DNS][azure-dns] is a hosting service for DNS domains. It provides name resolution using Microsoft Azure infrastructure. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
+- **OpsCenter**. Deploy a monitoring solution such as [DataStax OpsCenter](https://docs.datastax.com/en/opscenter/6.1/opsc/about_c.html) to monitor the Cassandra cluster.
+
+- **Jumpbox**. Also called a [bastion host]. A secure VM on the network that administrators use to connect to the other VMs. The jumpbox has an NSG that allows remote traffic only from public IP addresses on a safe list. The NSG should permit remote desktop (RDP) traffic.
 
 ## Recommendations
 
 Your requirements might differ from the architecture described here. Use these recommendations as a starting point.
 
-### VNet / Subnets
+### Virtual machines
 
-When you create the VNet, determine how many IP addresses your resources in each subnet require. Specify a subnet mask and a VNet address range large enough for the required IP addresses, using [CIDR] notation. Use an address space that falls within the standard [private IP address blocks][private-ip-space], which are 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16.
+For recommendations on configuring the VMs, see [Run a Linux VM on Azure](./linux-vm.md).
+
+### Virtual network
+
+When you create the virtual network, determine how many IP addresses your resources in each subnet require. Specify a subnet mask and a network address range large enough for the required IP addresses, using [CIDR] notation. Use an address space that falls within the standard [private IP address blocks][private-ip-space], which are 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16.
 
 Choose an address range that doesn't overlap with your on-premises network, in case you need to set up a gateway between the VNet and your on-premises network later. Once you create the VNet, you can't change the address range.
 
 Design subnets with functionality and security requirements in mind. All VMs within the same tier or role should go into the same subnet, which can be a security boundary. For more information about designing VNets and subnets, see [Plan and design Azure Virtual Networks][plan-network].
 
+### Application Gateway
+
+For information about configuring Application Gateway, see [Application Gateway configuration overview](/azure/application-gateway/configuration-overview).
+
 ### Load balancers
 
-Do not expose the VMs directly to the Internet. Instead, give each VM a private IP address. Clients connect using the IP address of the public load balancer.
+Do not expose the VMs directly to the Internet. Instead, give each VM a private IP address. Clients connect using the IP address associated with the Application Gateway.
 
 Define load balancer rules to direct network traffic to the VMs. For example, to enable HTTP traffic, create a rule that maps port 80 from the front-end configuration to port 80 on the back-end address pool. When a client sends an HTTP request to port 80, the load balancer selects a back-end IP address by using a [hashing algorithm][load-balancer-hashing] that includes the source IP address. Client requests are distributed across all the VMs.
 
@@ -77,15 +91,14 @@ Create rules 2 &ndash; 4 with higher priority than the first rule, so they overr
 
 We recommend [DataStax Enterprise][datastax] for production use, but these recommendations apply to any Cassandra edition. For more information on running DataStax in Azure, see [DataStax Enterprise Deployment Guide for Azure][cassandra-in-azure].
 
-Put the VMs for a Cassandra cluster in an availability set to ensure that the Cassandra replicas are distributed across multiple fault domains and upgrade domains. For more information about fault domains and upgrade domains, see [Manage the availability of virtual machines][azure-availability-sets].
-
-Configure three fault domains (the maximum) per availability set and 18 upgrade domains per availability set. This provides the maximum number of upgrade domains that can still be distributed evenly across the fault domains.
-
-Configure nodes in rack-aware mode. Map fault domains to racks in the `cassandra-rackdc.properties` file.
+Configure nodes in rack-aware mode. Map fault domains to racks in the `cassandra-rackdc.properties` file. 
 
 You don't need a load balancer in front of the cluster. The client connects directly to a node in the cluster.
 
-For high availability, deploy Cassandra in more than one Azure region. Nodes within each region are configured in rack-aware mode with fault and upgrade domains, for resiliency inside the region.
+The deployment scripts for this architecture use name resolution to initialize the seed node for intra-cluster communication (gossip). To enable name resolution, the deployment creates an Azure Private DNS zone with A records for the Cassandra nodes. Depending on your initialization scripts, you might be able to use the static IP address instead.
+
+> [!NOTE]
+> Azure Private DNS is currently in public preview.
 
 ### Jumpbox
 
@@ -97,7 +110,9 @@ To secure the jumpbox, add an NSG rule that allows ssh connections only from a s
 
 ## Scalability considerations
 
-For the web and business tiers, consider using [virtual machine scale sets][vmss], instead of deploying separate VMs into an availability set. A scale set makes it easy to deploy and manage a set of identical VMs, and autoscale the VMs based on performance metrics. As the load on the VMs increases, additional VMs are automatically added to the load balancer. Consider scale sets if you need to quickly scale out VMs, or need to autoscale.
+### Scale sets
+
+For the web and business tiers, consider using [virtual machine scale sets][vmss], instead of deploying separate VMs into an availability set. A scale set makes it easy to deploy and manage a set of identical VMs, and autoscale the VMs based on performance metrics. As the load on the VMs increases, additional VMs are automatically added to the load balancer. 
 
 There are two basic ways to configure VMs deployed in a scale set:
 
@@ -110,22 +125,56 @@ For more information, see [Design considerations for scale sets][vmss-design].
 > [!TIP]
 > When using any autoscale solution, test it with production-level workloads well in advance.
 
+### Subscription limits
+
 Each Azure subscription has default limits in place, including a maximum number of VMs per region. You can increase the limit by filing a support request. For more information, see [Azure subscription and service limits, quotas, and constraints][subscription-limits].
+
+### Application Gateway
+
+Application Gateway supports fixed capacity mode or autoscaling mode. Fixed capacity mode is useful for scenarios with consistent and predictable workloads. Consider using autoscaling mode for workloads with variable traffic. For more information, see [Autoscaling and Zone-redundant Application Gateway v2][app-gw-scaling].
 
 ## Availability considerations
 
-If you don't use virtual machine scale sets, put VMs for the same tier into an availability set. Create at least two VMs in the availability set to support the [availability SLA for Azure VMs][vm-sla]. For more information, see [Manage the availability of virtual machines][availability-set]. Scale sets automatically use *placement groups*, which act as an implicit availability set.
+Availability zones provide the best resiliency within a single region. If you need even higher availability, consider replicating the application across two regions.
 
-The load balancer uses [health probes][health-probes] to monitor the availability of VM instances. If a probe can't reach an instance within a timeout period, the load balancer stops sending traffic to that VM. The load balancer will continue to probe, and if the VM becomes available again, the load balancer resumes sending traffic to that VM.
+Not all regions support availability zones, and not all VM sizes are supported in all zones. Run the following Azure CLI command to find the supported zones for each VM size within a region:
 
-Here are some recommendations on load balancer health probes:
+```bash
+az vm list-skus --resource-type virtualMachines --zone false --location <location> \
+    --query "[].{Name:name, Zones:locationInfo[].zones[] | join(','@)}" -o table  
+```
 
-- Probes can test either HTTP or TCP. If your VMs run an HTTP server, create an HTTP probe. Otherwise create a TCP probe.
-- For an HTTP probe, specify the path to an HTTP endpoint. The probe checks for an HTTP 200 response from this path. This can be the root path ("/"), or a health-monitoring endpoint that implements some custom logic to check the health of the application. The endpoint must allow anonymous HTTP requests.
-- The probe is sent from a [known IP address][health-probe-ip], 168.63.129.16. Make sure you don't block traffic to or from this IP address in any firewall policies or NSG rules.
-- Use [health probe logs][health-probe-log] to view the status of the health probes. Enable logging in the Azure portal for each load balancer. Logs are written to Azure Blob storage. The logs show how many VMs aren't getting network traffic because of failed probe responses.
+If you deploy this architecture to a region that does not support availability zones, put the VMs for each tier inside an *availability set*. VMs within the same availability are deployed across multiple physical servers, compute racks, storage units, and network switches for redundancy. Scale sets automatically use *placement groups*, which act as an implicit availability set.
+
+When deploying to availability zones, use the Standard SKU of Azure Load Balancer and the v2 SKU of Application Gateway. These SKUs support cross-zone redundancy. For more information, see:
+
+- [Standard Load Balancer and Availability Zones](/azure/load-balancer/load-balancer-standard-availability-zones)
+- [Autoscaling and Zone-redundant Application Gateway v2][app-gw-scaling]
+- [How does Application Gateway support high availability and scalability?](/azure/application-gateway/application-gateway-faq#how-does-application-gateway-support-high-availability-and-scalability)
+
+A single Application Gateway deployment can run multiple instances of the gateway. For production workloads, run at least two instances.
+
+### Cassandra cluster
 
 For the Cassandra cluster, the failover scenarios depend on the consistency levels used by the application and the number of replicas. For consistency levels and usage in Cassandra, see [Configuring data consistency][cassandra-consistency] and [Cassandra: How many nodes are talked to with Quorum?][cassandra-consistency-usage] Data availability in Cassandra is determined by the consistency level used by the application and the replication mechanism. For replication in Cassandra, see [Data Replication in NoSQL Databases Explained][cassandra-replication].
+
+### Health probes
+
+Application Gateway and Load Balancer both use health probes to monitor the availability of VM instances.
+
+- Application Gateway always uses an HTTP probe.
+- Load Balancer can test either HTTP or TCP. Generally, if a VM runs an HTTP server, use an HTTP probe. Otherwise, use TCP.
+
+If a probe can't reach an instance within a timeout period, the gateway or load balancer stops sending traffic to that VM. The probe continues to check and will return the VM to the back-end pool if the VM becomes available again.
+
+HTTP probes send an HTTP GET request to a specified path and listen for an HTTP 200 response. This path can be the root path ("/"), or a health-monitoring endpoint that implements some custom logic to check the health of the application. The endpoint must allow anonymous HTTP requests.
+
+For more information about health probes, see:
+
+- [Load Balancer health probes](/azure/load-balancer/load-balancer-custom-probe-overview)
+- [Application Gateway health monitoring overview](/azure/application-gateway/application-gateway-probe-overview)
+
+For considerations about designing a health probe endpoint, see [Health Endpoint Monitoring pattern](../../patterns/health-endpoint-monitoring.md).
 
 ## Security considerations
 
@@ -142,6 +191,8 @@ For incoming Internet traffic, the load balancer rules define which traffic can 
 ## Deploy the solution
 
 A deployment for this reference architecture is available on [GitHub][github-folder].
+
+If you specify a region that supports availability zones, the VMs are deployed into availability zones. Otherwise, the VMs are deployed into availability sets. For a list of regions that support availability zones, see [Services support by region](/azure/availability-zones/az-overview#services-support-by-region).
 
 ### Prerequisites
 
@@ -161,51 +212,35 @@ To deploy the Linux VMs for an N-tier application reference architecture, follow
    azbb -s <your subscription_id> -g <your resource_group_name> -l <azure region> -p n-tier-linux.json --deploy
    ```
 
-For more information on deploying this sample reference architecture using Azure Building Blocks, visit the [GitHub repository][git].
-
 ## Next steps
 
 - [Microsoft Learn module: Tour the N-tier architecture style](/learn/modules/n-tier-architecture/)
 
 <!-- links -->
 
-[dmz]: ../dmz/secure-vnet-dmz.md
-[multi-vm]: ./multi-vm.md
-[naming conventions]: /azure/guidance/guidance-naming-conventions
-[azure-availability-sets]: /azure/virtual-machines/virtual-machines-linux-manage-availability
+[app-gw-scaling]: /azure/application-gateway/
 [azure-dns]: /azure/dns/dns-overview
 [azure-key-vault]: https://azure.microsoft.com/services/key-vault
-
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
 [cassandra-in-azure]: https://academy.datastax.com/resources/deployment-guide-azure
 [cassandra-consistency]: https://docs.datastax.com/en/cassandra/2.0/cassandra/dml/dml_config_consistency_c.html
 [cassandra-replication]: https://academy.datastax.com/planet-cassandra/data-replication-in-nosql-databases-explained
 [cassandra-consistency-usage]: https://medium.com/@foundev/cassandra-how-many-nodes-are-talked-to-with-quorum-also-should-i-use-it-98074e75d7d5#.b4pb4alb2
-
 [cidr]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing
 [datastax]: https://www.datastax.com/products/datastax-enterprise
-[ddos]: /azure/virtual-network/ddos-protection-overview
 [ddos-best-practices]: /azure/security/azure-ddos-best-practices
-[git]: https://github.com/mspnp/template-building-blocks
+[ddos]: /azure/virtual-network/ddos-protection-overview
+[dmz]: ../dmz/secure-vnet-dmz.md
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/n-tier-linux
-[load-balancer-external]: /azure/load-balancer/load-balancer-internet-overview
-[load-balancer-internal]: /azure/load-balancer/load-balancer-internal-overview
+[load-balancer-hashing]: /azure/load-balancer/load-balancer-overview#fundamental-load-balancer-features
+[load-balancer]: /azure/load-balancer/load-balancer-get-started-internet-arm-cli
+[network-security]: /azure/best-practices-network-security
 [nsg]: /azure/virtual-network/virtual-networks-nsg
-[nsg-rules]: /azure/azure-resource-manager/best-practices-resource-manager-security#network-security-groups
 [plan-network]: /azure/virtual-network/virtual-network-vnet-plan-design-arm
 [private-ip-space]: https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces
 [public IP address]: /azure/virtual-network/virtual-network-ip-addresses-overview-arm
-[vm-sla]: https://azure.microsoft.com/support/legal/sla/virtual-machines
-[visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
-
 [resource-manager-overview]: /azure/azure-resource-manager/resource-group-overview
-[vmss]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview
-[load-balancer]: /azure/load-balancer/load-balancer-get-started-internet-arm-cli
-[load-balancer-hashing]: /azure/load-balancer/load-balancer-overview#fundamental-load-balancer-features
-[vmss-design]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview
 [subscription-limits]: /azure/azure-subscription-service-limits
-[availability-set]: /azure/virtual-machines/virtual-machines-windows-manage-availability
-[health-probes]: /azure/load-balancer/load-balancer-overview#fundamental-load-balancer-features
-[health-probe-log]: /azure/load-balancer/load-balancer-monitor-log
-[health-probe-ip]: /azure/virtual-network/security-overview#augmented-security-rules
-[network-security]: /azure/best-practices-network-security
+[visio-download]: https://archcenter.blob.core.windows.net/cdn/vm-reference-architectures.vsdx
+[vmss-design]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview
+[vmss]: /azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview

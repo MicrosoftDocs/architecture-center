@@ -3,7 +3,11 @@ title: "Build technical skills"
 titleSuffix: "Microsoft Cloud Adoption Framework in Azure"
 description: Introduction to building technical skills
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 04/04/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: ready
 ---
 
 # Build technical skills
@@ -12,7 +16,7 @@ Cloud adoption requires retooling for some IT roles. This section of the Cloud A
 
 ## Migration skill building
 
-During cloud migration efforts, all members of the cloud adoption teams and Cloud Strategy team can use Microsoft Learn modules to develop necessary skills.
+During cloud migration efforts, all members of the cloud adoption teams and the cloud strategy team can use Microsoft Learn modules to develop necessary skills.
 
 [Business users](/learn/browse/?roles=business-user) may experience a steep learning curve when asked to participate in planning, testing, and adoption of cloud-based technology. Microsoft Learn helps business users with modules focused on adopting cloud models and tools for better managing the business through cloud-based services.
 

@@ -1,12 +1,14 @@
 ---
 title: "Security Baseline discipline improvement"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
-ms.custom: governance
-ms.date: 02/11/2019
 description: Security Baseline discipline improvement
 author: BrianBlanchard
+ms.author: brblanch
+ms.date: 02/11/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: govern
+ms.custom: governance
 ---
 
 # Security Baseline discipline improvement
@@ -17,9 +19,9 @@ This article outlines some potential tasks your company can engage in to better 
 
 ![Four phases of adoption](../../_images/adoption-phases.png)
 
-*Figure 1. Adoption phases of the incremental approach to cloud governance.*
+*Figure 1 - Adoption phases of the incremental approach to cloud governance.*
 
-It's impossible for any one document to account for the requirements of all businesses. As such, this article outlines suggested minimum and potential example activities for each phase of the governance maturation process. The initial objective of these activities is to help you build a [Policy MVP](../journeys/index.md#an-incremental-approach-to-cloud-governance) and establish a framework for incremental policy evolution. Your Cloud Governance team will need to decide how much to invest in these activities to improve your Security Baseline governance capabilities.
+It's impossible for any one document to account for the requirements of all businesses. As such, this article outlines suggested minimum and potential example activities for each phase of the governance maturation process. The initial objective of these activities is to help you build a [Policy MVP](../journeys/index.md#an-incremental-approach-to-cloud-governance) and establish a framework for incremental policy improvement. Your cloud governance team will need to decide how much to invest in these activities to improve your Security Baseline governance capabilities.
 
 > [!CAUTION]
 > Neither the minimum or potential activities outlined in this article are aligned to specific corporate policies or third-party compliance requirements. This guidance is designed to help facilitate the conversations that will lead to alignment of both requirements with a cloud governance model.
@@ -65,7 +67,7 @@ Several technical and nontechnical prerequisites are required to successful migr
 - Evaluate your cloud deployment's [identity](../../decision-guides/identity/index.md) strategy. Determine how your cloud-based identity solution will coexist or integrate with on-premises identity providers.
 - Determine network boundary policies for your [Software Defined Networking (SDN)](../../decision-guides/software-defined-network/index.md) design to ensure secure virtualized networking capabilities.
 - Evaluate your organization's [least-privilege access](/azure/active-directory/users-groups-roles/roles-delegate-by-task) policies, and use task-based roles to provide access to specific resources.
-- Apply security and monitoring mechanisms to for all cloud services and virtual machines.
+- Apply security and monitoring mechanisms to all cloud services and virtual machines.
 - Automate [security policies](../../decision-guides/policy-enforcement/index.md) where possible.
 - Review your Security Baseline policy and determine if you need to modify your plans according to best practices guidance such as those outlined in the [Security Development Lifecycle](https://www.microsoft.com/securityengineering/sdl).
 

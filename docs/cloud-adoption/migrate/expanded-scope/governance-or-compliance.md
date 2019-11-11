@@ -3,7 +3,11 @@ title: "Governance or compliance strategy"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Governance or compliance strategy
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 04/04/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
 ---
 
 # Governance or compliance strategy
@@ -35,11 +39,11 @@ Microsoft Services provides solution offerings that can align to the Cloud Adopt
 
 ## Assess process changes
 
-During assessment, additional decisions are required to align to the required governance approach. The Cloud Governance team should provide all members of the Cloud Adoption team with any policy statements, architectural guidance, or governance/compliance requirements prior to the assessment of a workload.
+During assessment, additional decisions are required to align to the required governance approach. The cloud governance team should provide all members of the cloud adoption team with any policy statements, architectural guidance, or governance/compliance requirements prior to the assessment of a workload.
 
 ### Suggested action during the assess process
 
-Governance and compliance assessment requirements are too customer-specific to provide general guidance on the actual steps taken during assessment. However, it is advised that the process includes tasks and time allocations for "alignment to compliance/governance requirements". For additional understanding of these requirements see the following links:
+Governance and compliance assessment requirements are too customer-specific to provide general guidance on the actual steps taken during assessment. However, it is advised that the process includes tasks and time allocations for "alignment to compliance/governance requirements". For additional understanding of these requirements, see the following links:
 
 For a deeper understanding of governance, review the [Five Disciplines of Cloud Governance overview](/azure/architecture/cloud-adoption/governance/governance-disciplines). This section of the Cloud Adoption Framework also includes templates to document the policies, guidance, and requirements for each of the five sections:
 
@@ -53,11 +57,11 @@ For guidance on developing governance guidance based on the Cloud Adoption Frame
 
 ## Optimize and promote process changes
 
-During the optimization and promotion processes, it is advised that the Cloud Governance team invest time to test and validate adherence to governance and compliance standards. Additionally, this step is a good time to inject processes for the Cloud Governance team to curate templates that could provide additional [deployment acceleration](/azure/architecture/cloud-adoption/governance/deployment-acceleration) for future projects.
+During the optimization and promotion processes, it is advised that the cloud governance team invest time to test and validate adherence to governance and compliance standards. Additionally, this step is a good time to inject processes for the cloud governance team to curate templates that could provide additional [deployment acceleration](/azure/architecture/cloud-adoption/governance/deployment-acceleration) for future projects.
 
 ### Suggested action during the optimize and promote process
 
-During this process, it is advised that the project plan includes time allocations for the Cloud Governance team to execute a compliance review for each workload planned for production promotion.
+During this process, it is advised that the project plan includes time allocations for the cloud governance team to execute a compliance review for each workload planned for production promotion.
 
 ## Next steps
 

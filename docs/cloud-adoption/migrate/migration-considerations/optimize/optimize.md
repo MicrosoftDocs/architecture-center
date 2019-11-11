@@ -3,7 +3,11 @@ title: "Benchmark and resize cloud assets"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Benchmark and resize cloud assets
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 5/19/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: migrate
 ---
 
 # Benchmark and resize cloud assets
@@ -12,7 +16,7 @@ Monitoring usage and spending is critically important for cloud infrastructures.
 
 In the traditional on-premises models of IT, requisition of IT systems is costly and time consuming. The processes often require lengthy capital expenditure review cycles and may even require an annual planning process. As such, it is common practice to buy more than is needed. It is equally common for IT administrators to then overprovision assets in preparation for anticipated future demands.
 
-In the cloud, the accounting and provisioning models eliminate the time delays that lead to overbuying. When an asset needs additional resources, it can be scaled up or out almost instantly. This means that assets can safely be reduced in size to minimize resources and costs consumed. During benchmarking and optimization, the Cloud Adoption team seeks to find the balance between performance and costs, provisioning assets to be no larger and no smaller than necessary to meet production demands.
+In the cloud, the accounting and provisioning models eliminate the time delays that lead to overbuying. When an asset needs additional resources, it can be scaled up or out almost instantly. This means that assets can safely be reduced in size to minimize resources and costs consumed. During benchmarking and optimization, the cloud adoption team seeks to find the balance between performance and costs, provisioning assets to be no larger and no smaller than necessary to meet production demands.
 
 <!-- markdownlint-disable MD026 -->
 

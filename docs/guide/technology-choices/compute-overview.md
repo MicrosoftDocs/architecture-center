@@ -54,3 +54,5 @@ When selecting a compute option, here are some factors to consider:
 To help select a compute service for your application, use the [Decision tree for Azure compute services](./compute-decision-tree.md)
 
 For a more detailed comparison of compute options in Azure, see [Criteria for choosing an Azure compute service](./compute-comparison.md).
+
+For a guided introduction to compute services on Azure, try the [Core Cloud Services - Azure compute options](/learn/modules/intro-to-azure-compute/) module on [Microsoft Learn](/learn/).

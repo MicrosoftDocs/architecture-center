@@ -1,21 +1,23 @@
 ---
-title: "Large enterprise: Best practice explained"
+title: "Large enterprise guide: Prescriptive guidance explained"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
-ms.custom: governance
-ms.date: 02/11/2019
-description: Large enterprise – Best practice explained
+description: Learn about prescriptive guidance for governance in large enterprises.
 author: BrianBlanchard
+ms.author: brblanch
+ms.date: 02/11/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: govern
+ms.custom: governance
 ---
 
-# Large enterprise: Best practice explained
+# Large enterprise guide: Prescriptive guidance explained
 
-The governance journey starts with a set of initial [corporate policies](./initial-corporate-policy.md). These policies are used to establish a minimum viable product (MVP) for governance that reflects [best practices](./index.md).
+The governance guide begins with a set of initial [corporate policies](./initial-corporate-policy.md). These policies are used to establish a minimum viable product (MVP) for governance that reflects [best practices](./index.md).
 
-In this article, we discuss the high-level strategies that are required to create a governance MVP. The core of the governance MVP is the [Deployment Acceleration](../../deployment-acceleration/index.md) discipline. The tools and patterns applied at this stage will enable the incremental evolutions needed to expand governance in the future.
+In this article, we discuss the high-level strategies that are required to create a governance MVP. The core of the governance MVP is the [Deployment Acceleration](../../deployment-acceleration/index.md) discipline. The tools and patterns applied at this stage will enable the incremental improvements needed to expand governance in the future.
 
-## Governance MVP (Cloud Adoption Foundation)
+## Governance MVP (initial governance foundation)
 
 Rapid adoption of governance and corporate policy is achievable, thanks to a few simple principles and cloud-based governance tooling. These are the first of the three governance disciplines to approach in any governance process. Each discipline will be explained further on in this article.
 
@@ -25,7 +27,7 @@ To establish the starting point, this article will discuss the high-level strate
 
 ## Implementation process
 
-The implementation of the governance MVP has dependencies on Identity, Security, and Networking. Once the dependencies are resolved, the Cloud Governance team will decide a few aspects of governance. The decisions from the Cloud Governance team and from supporting teams will be implemented through a single package of enforcement assets.
+The implementation of the governance MVP has dependencies on Identity, Security, and Networking. Once the dependencies are resolved, the cloud governance team will decide a few aspects of governance. The decisions from the cloud governance team and from supporting teams will be implemented through a single package of enforcement assets.
 
 ![Example of an incremental governance MVP](../../../_images/governance/governance-mvp-implementation-flow.png)
 
@@ -40,7 +42,7 @@ This implementation can also be described using a simple checklist:
 
 ## Application of governance-defined patterns
 
-The Cloud Governance team will be responsible for the following decisions and implementations. Many will require inputs from other teams, but the Cloud Governance team is likely to own both the decision and implementation. The following sections outline the decisions made for this use case and details of each decision.
+The cloud governance team will be responsible for the following decisions and implementations. Many will require inputs from other teams, but the cloud governance team is likely to own both the decision and implementation. The following sections outline the decisions made for this use case and details of each decision.
 
 ### Subscription design
 
@@ -84,25 +86,25 @@ Logging and reporting decisions determine how your store log data and how the mo
 - Additional analysis is required before the release of any protected data or mission-critical workloads.
 - Before supporting protected data or mission-critical workloads, the existing on-premises operational monitoring solution must be granted access to the workspace used for logging. Applications are required to meet security and logging requirements associated with the use of that tenant, if the application is to be supported with a defined SLA.
 
-## Evolution of governance processes
+## Incremental of governance processes
 
-Some of the policy statements cannot or should not be controlled by automated tooling. Other policies will require periodic effort from IT Security and on-premises Identity Baseline teams. The Cloud Governance team will need to oversee the following processes to implement the last eight policy statements:
+Some of the policy statements cannot or should not be controlled by automated tooling. Other policies will require periodic effort from IT Security and on-premises Identity Baseline teams. The cloud governance team will need to oversee the following processes to implement the last eight policy statements:
 
-**Corporate policy changes:** The Cloud Governance team will make changes to the governance MVP design to adopt the new policies. The value of the governance MVP is that it will allow for the automatic enforcement of the new policies.
+**Corporate policy changes:** The cloud governance team will make changes to the governance MVP design to adopt the new policies. The value of the governance MVP is that it will allow for the automatic enforcement of the new policies.
 
-**Adoption acceleration:** The Cloud Governance team has been reviewing deployment scripts across multiple teams. They've maintained a set of scripts that serve as deployment templates. Those templates can be used by the cloud adoption teams and DevOps teams to more quickly define deployments. Each script contains the requirements for enforcing governance policies, and additional effort from cloud adoption engineers is not needed. As the curators of these scripts, they can implement policy changes more quickly. Additionally, they are viewed as accelerators of adoption. This ensures consistent deployments without strictly enforcing adherence.
+**Adoption acceleration:** The cloud governance team has been reviewing deployment scripts across multiple teams. They've maintained a set of scripts that serve as deployment templates. Those templates can be used by the cloud adoption teams and DevOps teams to more quickly define deployments. Each script contains the requirements for enforcing governance policies, and additional effort from cloud adoption engineers is not needed. As the curators of these scripts, they can implement policy changes more quickly. Additionally, they are viewed as accelerators of adoption. This ensures consistent deployments without strictly enforcing adherence.
 
-**Engineer training:** The Cloud Governance team offers bimonthly training sessions and has created two videos for engineers. Both resources help engineers get up to speed quickly on the governance culture and how deployments are performed. The team is adding training assets to demonstrate the difference between production and nonproduction deployments, which helps engineers understand how the new policies affect adoption. This ensures consistent deployments without strictly enforcing adherence.
+**Engineer training:** The cloud governance team offers bimonthly training sessions and has created two videos for engineers. Both resources help engineers get up to speed quickly on the governance culture and how deployments are performed. The team is adding training assets to demonstrate the difference between production and nonproduction deployments, which helps engineers understand how the new policies affect adoption. This ensures consistent deployments without strictly enforcing adherence.
 
-**Deployment planning:** Before deploying any asset containing protected data, the Cloud Governance team will be responsible for reviewing deployment scripts to validate governance alignment. Existing teams with previously approved deployments will be audited using programmatic tooling.
+**Deployment planning:** Before deploying any asset containing protected data, the cloud governance team will be responsible for reviewing deployment scripts to validate governance alignment. Existing teams with previously approved deployments will be audited using programmatic tooling.
 
-**Monthly audit and reporting:** Each month, the Cloud Governance team runs an audit of all cloud deployments to validate continued alignment to policy. When deviations are discovered, they are documented and shared with the cloud adoption teams. When enforcement doesn't risk a business interruption or data leak, the policies are automatically enforced. At the end of the audit, the Cloud Governance team compiles a report for the Cloud Strategy team and each cloud adoption team to communicate overall adherence to policy. The report is also stored for auditing and legal purposes.
+**Monthly audit and reporting:** Each month, the cloud governance team runs an audit of all cloud deployments to validate continued alignment to policy. When deviations are discovered, they are documented and shared with the cloud adoption teams. When enforcement doesn't risk a business interruption or data leak, the policies are automatically enforced. At the end of the audit, the cloud governance team compiles a report for the cloud strategy team and each cloud adoption team to communicate overall adherence to policy. The report is also stored for auditing and legal purposes.
 
-**Quarterly policy review:** Each quarter, the Cloud Governance team and Cloud Strategy team to review audit results and suggest changes to corporate policy. Many of those suggestions are the result of continuous improvements and the observation of usage patterns. Approved policy changes are integrated into governance tooling during subsequent audit cycles.
+**Quarterly policy review:** Each quarter, the cloud governance team and the cloud strategy team to review audit results and suggest changes to corporate policy. Many of those suggestions are the result of continuous improvements and the observation of usage patterns. Approved policy changes are integrated into governance tooling during subsequent audit cycles.
 
 ## Alternative patterns
 
-If any of the patterns chosen in this governance journey don't align with the reader's requirements, alternatives to each pattern are available:
+If any of the patterns chosen in this governance guide don't align with the reader's requirements, alternatives to each pattern are available:
 
 - [Encryption patterns](../../../decision-guides/encryption/index.md)
 - [Identity patterns](../../../decision-guides/identity/index.md)
@@ -115,9 +117,9 @@ If any of the patterns chosen in this governance journey don't align with the re
 
 ## Next steps
 
-Once this guidance is implemented, each cloud adoption team can proceed with a solid governance foundation. The Cloud Governance team will work in parallel to continually update the corporate policies and governance disciplines.
+Once this guidance is implemented, each cloud adoption team can proceed with a solid governance foundation. The cloud governance team will work in parallel to continually update the corporate policies and governance disciplines.
 
-Both teams will use the tolerance indicators to identify the next evolution needed to continue supporting cloud adoption. The next step for the company in this journey is to evolve their governance baseline to support applications with legacy or third-party multi-factor authentication requirements.
+Both teams will use the tolerance indicators to identify the next set of improvements needed to continue supporting cloud adoption. The next step for this company is incremental improvement of their governance baseline to support applications with legacy or third-party multi-factor authentication requirements.
 
 > [!div class="nextstepaction"]
-> [Identity Baseline evolution](./identity-baseline-evolution.md)
+> [Improve the Identity Baseline discipline](./identity-baseline-evolution.md)

@@ -6,15 +6,15 @@ author: BrianBlanchard
 ms.author: brblanch
 ms.date: 05/10/2019
 ms.topic: article
-ms.service: architecture-center
-ms.subservice: enterprise-cloud-adoption
+ms.service: cloud-adoption-framework
+ms.subservice: operate
 ---
 
 # Guest Configuration policy
 
-Azure Policy's [Guest Configuration](/azure/governance/policy/concepts/guest-configuration) extension allows you to audit configuration settings inside a virtual machine. Guest Configuration is currently supported only on Azure VMs.
+The Azure Policy [Guest Configuration](/azure/governance/policy/concepts/guest-configuration) extension allows you to audit the configuration settings in a virtual machine. Guest Configuration is currently supported only on Azure VMs.
 
-You can find the list of Guest Configuration policies by searching for category "Guest Configuration" in the Azure Policy portal page. You can also find the list by running this cmdlet in a PowerShell Window:
+You can find the list of Guest Configuration policies by searching for the category "Guest Configuration" on the Azure Policy portal page. You can also find the list by running this cmdlet in a PowerShell window:
 
 ```powershell
 Get-AzPolicySetDefinition | where-object {$_.Properties.metadata.category -eq "Guest Configuration"}
@@ -34,10 +34,15 @@ By default, we recommend enabling the following policies:
 
 ## Deployment
 
-You can use the following example PowerShell script to deploy both policies. Before running this script, you will need to sign in using the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.1.0) cmdlet. On launching the script, you will need to provide the name of the subscription you want to apply these policies to.
+You can use the following example PowerShell script to deploy these policies:
+
+- Verify that password security settings in Windows and Linux computers are set correctly.
+- Verify that certificates aren't close to expiration on Windows VMs.
+
+ Before you run this script, you'll need to sign in by using the [Connect-AzAccount](https://docs.microsoft.com/powershell/module/az.accounts/connect-azaccount?view=azps-2.1.0) cmdlet. When you run the script, you'll need to provide the name of the subscription you want to apply the policies to.
 
 ```powershell
-#Assign Guest configuration policy
+#Assign Guest Configuration policy.
 param (
     [Parameter(Mandatory=$true)]
     [string]$SubscriptionName
@@ -56,7 +61,7 @@ New-AzPolicyAssignment -Name "CertExpirePolicy" -DisplayName "[Preview]: Audit t
 
 ## Next steps
 
-Learn how to [enable change tracking and alerting](./enable-tracking-alerting.md) on critical file, service, software, and registry changes.
+Learn how to [enable change tracking and alerting](./enable-tracking-alerting.md) for critical file, service, software, and registry changes.
 
 > [!div class="nextstepaction"]
-> [Enable tracking and alerting on critical changes](./enable-tracking-alerting.md)
+> [Enable tracking and alerting for critical changes](./enable-tracking-alerting.md)

@@ -3,7 +3,11 @@ title: "Cloud innovation"
 titleSuffix: Microsoft Cloud Adoption Framework for Azure
 description: Introduction to Cloud Innovation content
 author: BrianBlanchard
+ms.author: brblanch
 ms.date: 04/04/2019
+ms.topic: guide
+ms.service: cloud-adoption-framework
+ms.subservice: innovate
 ---
 
 # Innovation in the Cloud Adoption Framework

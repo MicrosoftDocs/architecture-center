@@ -64,7 +64,7 @@ The combination of AKS and Azure Cosmos DB enables this architecture to provide 
 
 ![Graph of throughput](./_images/recommenders-throughput.png)
 
-Azure Cosmos DB is recommended for its turnkey global distribution and usefulness in meeting any database requirements your app has. For slightly [faster latency][latency], consider using [Azure Redis Cache][redis] instead of Azure Cosmos DB to serve lookups. Redis Cache can improve performance of systems that rely highly on data in back-end stores.
+Azure Cosmos DB is recommended for its turnkey global distribution and usefulness in meeting any database requirements your app has. For slightly [faster latency][latency], consider using [Azure Cache for Redis][redis] instead of Azure Cosmos DB to serve lookups. Azure Cache for Redis can improve performance of systems that rely highly on data in back-end stores.
 
 ## Scalability considerations
 
@@ -159,7 +159,7 @@ We have also built a reference architecture that uses Spark and Azure Databricks
 [nodes]: /azure/aks/scale-cluster
 [notebook]: https://github.com/Microsoft/Recommenders/notebooks/00_quick_start/als_pyspark_movielens.ipynb
 [partition-data]: /azure/cosmos-db/partition-data
-[redis]: /azure/redis-cache/cache-overview
+[redis]: /azure/azure-cache-for-redis/cache-overview
 [regions]: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all
 [resiliency]: /azure/architecture/resiliency/
 [ru]: /azure/cosmos-db/request-units
