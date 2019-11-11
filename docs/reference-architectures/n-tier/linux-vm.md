@@ -132,7 +132,7 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 [iostat]: https://en.wikipedia.org/wiki/Iostat
 [manage-vm-availability]: /azure/virtual-machines/virtual-machines-linux-manage-availability
 [managed-disks]: /azure/storage/storage-managed-disks-overview
-[naming-conventions]: ../../best-practices/naming-conventions.md
+[naming-conventions]: /azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging
 [nsg]: /azure/virtual-network/virtual-networks-nsg
 [nsg-default-rules]: /azure/virtual-network/security-overview#default-security-rules
 [planned-maintenance]: /azure/virtual-machines/virtual-machines-linux-planned-maintenance

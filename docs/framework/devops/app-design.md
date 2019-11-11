@@ -40,7 +40,7 @@ Organizing cloud-based assets in ways that aid operational management and suppor
 
 The Azure Architecture Center's [naming rules and restrictions for Azure resources](/azure/architecture/best-practices/resource-naming) guidance provides general recommendations and platform limitations.
 
-[Recommended naming and tagging conventions](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging)
+[Recommended naming and tagging conventions](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)
 
 ## Workload isolation
 
