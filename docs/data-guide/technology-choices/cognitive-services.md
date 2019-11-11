@@ -44,7 +44,7 @@ In Azure, there are dozens of Cognitive Services available. The current listing 
 
 - [Vision](https://azure.microsoft.com/services/cognitive-services/directory/vision/)
 - [Speech](https://azure.microsoft.com/services/cognitive-services/directory/speech/)
-- [Knowledge](https://azure.microsoft.com/services/cognitive-services/directory/know/)
+- [Decision](https://azure.microsoft.com/services/cognitive-services/directory/decision/)
 - [Search](https://azure.microsoft.com/services/cognitive-services/directory/search/)
 - [Language](https://azure.microsoft.com/services/cognitive-services/directory/lang/)
 
