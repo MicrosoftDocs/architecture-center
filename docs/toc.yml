@@ -1000,6 +1000,8 @@ items:
         href: reference-architectures/serverless/event-processing.md
       - name: Serverless web application
         href: reference-architectures/serverless/web-app.md
+      - name: Serverless cloud automation
+        href: reference-architectures/serverless/cloud-automation.md
     - name: Guides
       items:
       - name: Create a serverless backend with Azure Functions
