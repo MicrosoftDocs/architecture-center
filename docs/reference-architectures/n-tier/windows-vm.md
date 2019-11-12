@@ -109,7 +109,7 @@ Use [Azure Security Center][security-center] to get a central view of the securi
 [group-policy]: /windows-server/administration/windows-server-update-services/deploy/4-configure-group-policy-settings-for-automatic-updates
 [manage-vm-availability]: /azure/virtual-machines/virtual-machines-windows-manage-availability
 [managed-disks]: /azure/storage/storage-managed-disks-overview
-[naming-conventions]: ../../best-practices/naming-conventions.md
+[naming-conventions]: /azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging
 [nsg]: /azure/virtual-network/virtual-networks-nsg
 [nsg-default-rules]: /azure/virtual-network/security-overview#default-security-rules
 [planned-maintenance]: /azure/virtual-machines/virtual-machines-windows-planned-maintenance
