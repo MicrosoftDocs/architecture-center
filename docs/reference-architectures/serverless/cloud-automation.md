@@ -79,11 +79,53 @@ If your automation task is related to a database update or a similar time-consum
 
 ![Reliability in automation function](./_images/automation-function-reliability.png)
 
-**Event Grid**. If your workflow uses Event Grid, see [this article](https://docs.microsoft.com/en-us/azure/event-grid/delivery-and-retry) to understand how it handles events when delivery isn't acknowledged, and modify your logic accordingly.
+**Event Grid**. If your workflow uses Event Grid, check if your scenario might generate a high enough volume of events to clog the grid. See [Event Grid message delivery and retry](https://docs.microsoft.com/en-us/azure/event-grid/delivery-and-retry) to understand how it handles events when delivery isn't acknowledged, and modify your logic accordingly. The cost center workflow does not implement additional checks for this, since it only watches for resource creation events in a resource group. It can also watch for resources created in an entire subscription, which can generate larger number of events, that require resilient handling.
 
 ## Security considerations
 
+**Functions**-
+
+1. Control access to the function:
+
+Both the automation implementations referenced here us http triggers to invoke the function. You can restrict access to your function url by setting the [authorization level](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook?tabs=csharp#trigger---configuration).  With *anonymous* authentication, your function is easily accessible with a URL such as `http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>`. Using *function* level authentication helps you obfuscate your http endpoint, by requiring function keys in the URL. This level is set in the file [function.json](https://github.com/mspnp/serverless-automation/blob/master/src/automation/cost-center/cost-center-tagging/OnResourceWriteSuccess/function.json):
+
+```JSON
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "Request",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "Response"
+    }
+  ]
+}
+```
+
+For production environment, you might need to implement [additional strategies to secure your function](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-http-webhook?tabs=csharp#secure-an-http-endpoint-in-production). This is not implemented in the reference implementations, since the functions are executed within the Azure platform, by other services such as Event Grid or Azure Monitor action group, and so are harder to be exposed to hackers. If using function keys in production, keep the keys secure in a Key Vault. In a dedicated App Service plan, you can lock down the functions in a private subnet to limit access to it, which is not possible in a consumption-based serverless model.
+
+1. Control what the function can access:
+
+The function and the logic app in the cost center tagging workflow can access the resource group only through [Active Directory managed identities](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview). Permissions need to be explicitly given to the function to be able to read and set tags for these resources. No other service can modify these resources since permissions are specifically given to the automation function.
+
+1. Control what the function can do with the access:
+
+Limit what the function can actually modify for other resources by [setting policies](https://docs.microsoft.com/en-us/azure/governance/policy/overview). Unlike RBAC which controls access for users, Azure Policy controls access to properties such as types or location, for new or existing resources.
+
 ## Deployment considerations
+
+Although less critical than a frontend app, an automation workflow should have a separate DevOps pipeline, so that updating the automation function does not affect the main application. Strive to achieve zero downtime deployment, especially when handling a critical resource such as a database. For more discussion on this, read [serverless backend deployment](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/serverless/web-app#back-end-deployment). 
+
+Keep resources specific to automation workflow in a resource group separate from your main application resource group. This ensures that breaking or fixing the automation does not affect the monitored application.
 
 ## Deploy the solution
 
