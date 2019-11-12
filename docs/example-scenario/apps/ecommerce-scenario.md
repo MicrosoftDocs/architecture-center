@@ -6,7 +6,7 @@ author: masonch
 ms.date: 07/13/2018
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenario
+ms.subservice: example-scenarios
 ms.custom: fasttrack
 social_image_url: /azure/architecture/example-scenario/apps/media/architecture-ecommerce-scenario.png
 ---
@@ -126,7 +126,7 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [medium-pricing]: https://azure.com/e/38d5d387e3234537b6859660db1c9973
 [large-pricing]: https://azure.com/e/f07f99b6c3134803a14c9b43fcba3e2f
 [app-service-reference-architecture]: ../../reference-architectures/app-service-web-app/basic-web-app.md
-[availability]: /azure/architecture/checklist/availability
+[availability]: /azure/architecture/patterns/category/availability
 [circuit-breaker]: /azure/architecture/patterns/circuit-breaker
 [design-patterns-availability]: /azure/architecture/patterns/category/availability
 [design-patterns-resiliency]: /azure/architecture/patterns/category/resiliency
@@ -152,7 +152,7 @@ We have provided three sample cost profiles based on amount of traffic you expec
 [multi-region-web-app]: /azure/architecture/reference-architectures/app-service-web-app/multi-region
 [pci-dss-blueprint]: /azure/security/blueprints/payment-processing-blueprint
 [resiliency-app-service]: /azure/architecture/checklist/resiliency-per-service#app-service
-[resiliency]: /azure/architecture/checklist/resiliency
+[resiliency]: /azure/architecture/framework/resiliency/overview
 [scalability]: /azure/architecture/checklist/scalability
 [secure-development]: https://www.microsoft.com/SDL/process/design.aspx
 [service-bus]: /azure/service-bus-messaging/

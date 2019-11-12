@@ -21,7 +21,7 @@ Application roles are used to assign permissions to users. For example, the [Tai
 * Creator. Can create new surveys.
 * Reader. Can read any surveys that belong to that tenant.
 
-You can see that roles ultimately get translated into permissions, during [authorization]. But the first question is how to assign and manage roles. We identified three main options:
+You can see that roles ultimately get translated into permissions, during [authorization][authorization]. But the first question is how to assign and manage roles. We identified three main options:
 
 * [Azure AD App Roles](#roles-using-azure-ad-app-roles)
 * [Azure AD security groups](#roles-using-azure-ad-security-groups)
@@ -50,7 +50,7 @@ Drawbacks:
 
 ### Implementation
 
-**Define the roles.** The SaaS provider declares the app roles in the [application manifest]. For example, here is the manifest entry for the Surveys app:
+**Define the roles.** The SaaS provider declares the app roles in the [application manifest][application manifest]. For example, here is the manifest entry for the Surveys app:
 
 ```json
 "appRoles": [

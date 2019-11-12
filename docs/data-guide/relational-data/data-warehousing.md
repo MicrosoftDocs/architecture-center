@@ -14,7 +14,7 @@ A data warehouse is a centralized repository of integrated data from one or more
 
 ![Data warehousing in Azure](../../reference-architectures/data/images/enterprise-bi-sqldw.png)
 
-To move data into a data warehouse, data is periodically extracted from various sources that contain important business information. As the data is moved, it can be formatted, cleaned, validated, summarized, and reorganized. Alternatively, the data can be stored in the lowest level of detail, with aggregated views provided in the warehouse for reporting. In either case, the data warehouse becomes a permanent date store for reporting, analysis, and business intelligence (BI).
+To move data into a data warehouse, data is periodically extracted from various sources that contain important business information. As the data is moved, it can be formatted, cleaned, validated, summarized, and reorganized. Alternatively, the data can be stored in the lowest level of detail, with aggregated views provided in the warehouse for reporting. In either case, the data warehouse becomes a permanent data store for reporting, analysis, and business intelligence (BI).
 
 ## Data warehouse architectures
 

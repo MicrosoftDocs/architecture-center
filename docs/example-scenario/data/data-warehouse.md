@@ -6,7 +6,7 @@ author: alexbuckgit
 ms.date: 09/15/2018
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenario
+ms.subservice: example-scenarios
 ms.custom: data-analytics
 social_image_url: /azure/architecture/example-scenario/data/media/architecture-data-warehouse.png
 ---

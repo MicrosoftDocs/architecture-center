@@ -6,7 +6,7 @@ author: david-stanford
 ms.date: 07/05/2018
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenario
+ms.subservice: example-scenarios
 social_image_url: /azure/architecture/example-scenario/ai/media/architecture-intelligent-apps-image-processing.png
 ---
 
@@ -98,7 +98,7 @@ Before deploying this example scenario in a production environment, review recom
 [cognitive-search]: /azure/search/cognitive-search-concept-intro
 [serverless]: /azure/functions/tutorial-static-website-serverless-api-with-database
 [cv-categories]: /azure/cognitive-services/computer-vision/category-taxonomy
-[resiliency]: /azure/architecture/resiliency/
+[resiliency]: /azure/architecture/framework/resiliency/overview
 [security]: /azure/security/
 [scalability]: /azure/architecture/checklist/scalability
 [functions-best-practices]: /azure/azure-functions/functions-best-practices

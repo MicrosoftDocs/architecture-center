@@ -6,7 +6,7 @@ author: AndrewDibbins
 ms.date: 07/11/2018
 ms.topic: example-scenario
 ms.service: architecture-center
-ms.subservice: example-scenario
+ms.subservice: example-scenarios
 ms.custom: fasttrack, SAP
 social_image_url: /azure/architecture/example-scenario/apps/media/architecture-sap-dev-test.png
 ---
@@ -97,7 +97,7 @@ Click the link below to deploy the solution.
 
 <!-- links -->
 
-[resiliency]: /azure/architecture/resiliency/
+[resiliency]: /azure/architecture/framework/resiliency/overview
 [security]: /azure/security/
 [scalability]: /azure/architecture/checklist/scalability
 [sap-netweaver]: /azure/architecture/reference-architectures/sap/sap-netweaver

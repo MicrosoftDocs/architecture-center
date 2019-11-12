@@ -107,7 +107,7 @@ We have also built a reference architecture that uses Spark for building [real-t
 [ai-guide]: /azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance
 [blob]: https://docs.databricks.com/spark/latest/data-sources/azure/azure-storage.html
 [cli]: https://docs.databricks.com/user-guide/dev-tools/databricks-cli.html
-[cluster]: https://docs.azuredatabricks.net/user-guide/clusters/sizing.html
+[cluster]: https://docs.azuredatabricks.net/clusters/configure.html#cluster-size-and-autoscaling
 [databricks]: /azure/azure-databricks/
 [databricks-connect]: /azure/azure-databricks/databricks-connect-to-data-sources
 [data-sources]: https://docs.databricks.com/spark/latest/data-sources/index.html
@@ -118,7 +118,7 @@ We have also built a reference architecture that uses Spark for building [real-t
 [mllib]: https://docs.databricks.com/spark/latest/mllib/index.html
 [mllib-spark]: https://docs.databricks.com/spark/latest/mllib/index.html#apache-spark-mllib
 [notebooks]: https://docs.databricks.com/user-guide/notebooks/index.html
-[pricing]: https://azure.microsoft.com/en-us/pricing/details/databricks/
+[pricing]: https://azure.microsoft.com/pricing/details/databricks/
 [python-aml]: https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-Python-Notebook-1
 [py-dvsm]: https://gallery.azure.ai/Tutorial/Predictive-Maintenance-using-PySpark
 [recommendation]: /azure/architecture/reference-architectures/ai/real-time-recommendation

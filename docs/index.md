@@ -53,7 +53,7 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
-                        <img src="_images/cloud-adoption.svg" alt="" />
+                        <img src="_images/cloud-adoption-framework.png" alt="" />
                         <div class="cardText">
                             <h3>Microsoft Cloud Adoption Framework for Azure</h3>
                             <p>A process for creating an organization-wide cloud adoption strategy, focusing on policies, governance, and infrastructure.</p>
@@ -250,7 +250,7 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
     </li>
     <!-- Performance anti-practices -->
     <li>
-        <a href="/azure/architecture/antipatterns">
+        <a href="/azure/architecture/performance">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card">
@@ -260,8 +260,8 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
                             </div>
                         </div>
                         <div class="cardText">
-                            <h3>Performance Antipatterns</h3>
-                            <p>How to detect and fix some common causes of performance and scalability problems in cloud applications.</p>
+                            <h3>Performance tuning</h3>
+                            <p>Used load tests and metrics to diagnose performance issues in cloud applications.</p>
                         </div>
                     </div>
                 </div>
@@ -298,7 +298,7 @@ google-site-verification: b-xRLveOzJ9oSOh37wgRTRB2lMOoFY8HiHf9_0DIawE
                     <div class="card">
                         <div class="cardImageOuter">
                             <div class="cardImage">
-                                <img src="https://docs.microsoft.com/en-us/media/common/i_feedback.svg" alt="" data-linktype="external">
+                                <img src="/media/common/i_feedback.svg" alt="" data-linktype="external">
                             </div>
                         </div>
                         <div class="cardText">

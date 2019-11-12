@@ -105,7 +105,7 @@ The monitoring library includes a [sample application][sample-app] that demonstr
 
 1. Build the **spark-jobs** project in the monitoring library, as described in the [GitHub readme][config-cluster].
 
-1. Navigate to your Databricks workspace and create a new job, as described [here](https://docs.azuredatabricks.net/user-guide/jobs.html#create-a-job).
+1. Navigate to your Databricks workspace and create a new job, as described [here](https://docs.azuredatabricks.net/jobs.html#create-a-job).
 
 1. In the job detail page, select **Set JAR**.
 

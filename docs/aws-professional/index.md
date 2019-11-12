@@ -154,9 +154,9 @@ creating a full copy of your solution in both regions.
 
 - [Availability options for virtual machines in Azure](/azure/virtual-machines/linux/availability)
 
-- [High availability for Azure applications](../resiliency/high-availability-azure-applications.md)
+- [High availability for Azure applications](/azure/architecture/example-scenario/infrastructure/multi-tier-app-disaster-recovery)
 
-- [Failure and disaster recovery for Azure applications](../reliability/disaster-recovery.md)
+- [Failure and disaster recovery for Azure applications](../framework/resiliency/backup-and-recovery.md)
 
 - [Planned maintenance for Linux virtual machines in Azure](/azure/virtual-machines/linux/maintenance-and-updates)
 

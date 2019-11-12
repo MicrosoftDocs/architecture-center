@@ -33,7 +33,7 @@ The serverless model is best suited to automate cloud operations that follow an 
 
 The architecture consists of the following blocks:
 
-**Automation Function**. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) provide the event-driven serverless compute capabilities. It performs automation tasks, when triggered by events such as a new resource creation in the case of the first scenario, or a database overload error in the case of the second. In both these implementations, the automation function is invoked with an HTTP request. To avoid HTTP timeouts for a longer automation task, you can optionally queue this event in a Service Bus and handle the actual automation in a second function.
+**Automation Function**. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) provide the event-driven serverless compute capabilities. It performs automation tasks, when triggered by events such as a new resource creation in the case of the first scenario, or a database overload error in the case of the second. In both these implementations, the automation function is invoked with an HTTP request.
 
 **Logic App**. [Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview) provide an optional workflow element in this architecture. This can be used to perform non-automation related tasks which can be more easily implemented using [Logic App's built-in connectors](https://docs.microsoft.com/en-us/azure/connectors/apis-list), such as sending an email.
 
@@ -44,6 +44,10 @@ The architecture consists of the following blocks:
 **Actions**. Your automation function can interact with other Azure services to provide the functionality as an action. The tagging scenario verifies the tagged cost center information against the Azure Active Directory, and updates the resource for any changes. The throttling scenario updates the CosmosDB RUs to increase the throughput of the database.
 
 ## Reliability considerations
+
+**Functions**. To avoid HTTP timeouts for a longer automation task, queue this event in a [Service Bus](https://docs.microsoft.com/en-us/azure/service-bus-messaging/service-bus-messaging-overview#queues) and handle the actual automation in a second function.
+
+![Reliability in automation function](./_images/automation-function-reliability.png)
 
 ## Resiliency considerations
 
