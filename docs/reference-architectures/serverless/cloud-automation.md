@@ -33,7 +33,7 @@ The serverless model is best suited to automate cloud operations that follow an 
 
 The architecture consists of the following blocks:
 
-**Automation Function**. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) provide the event-driven serverless compute capabilities. It performs automation tasks, when triggered by events such as a new resource creation in the case of the first scenario, or a database overload error in the case of the second. In both these implementations, the automation function is invoked with an HTTP request. To minimize code complexity, it should be developed so that the function:
+**Automation Function**. [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) provides the event-driven serverless compute capabilities. It performs automation tasks, when triggered by events such as a new resource creation in the case of the first scenario, or a database overload error in the case of the second. In both these implementations, the automation function is invoked with an HTTP request. To minimize code complexity, it should be developed so that the function:
 
 - does exactly one thing (single responsibility principle),
 - returns as soon as possible,
@@ -42,7 +42,7 @@ The architecture consists of the following blocks:
 
 To maintain idempotency, the function scaling in the throttling scenario is kept simplistic. In real world automation, make sure to scale up or down appropriately.
 
-**Logic App**. [Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview) provide an optional workflow element in this architecture. This can be used to perform non-automation related tasks which can be more easily implemented using [Logic App's built-in connectors](https://docs.microsoft.com/azure/connectors/apis-list), such as sending an email.
+**Logic App**. [Logic Apps provides an optional workflow element in this architecture. This can be used to perform non-automation related tasks, which can be more easily implemented using [Logic App's built-in connectors](https://docs.microsoft.com/azure/connectors/apis-list), such as sending an email.
 
 **Event Grid**. [Event Grid](https://docs.microsoft.com/azure/event-grid/overview) has built-in support for events from other Azure services, as well as your own events (as custom topics). It provides an important channel between events from an Azure resource and your automation workflow. Most event-driven automation workflows will use this channel, such as the cost center automation scenario.
 
@@ -71,11 +71,13 @@ Verify the concurrency requirement for your automation function. For example, th
 }
 ```
 
-If your automation task is related to a database update or a similar time-consuming operation, make sure that false alarms caused in the meanwhile do not cause unwanted results. Where possible, read the current value before updating to avoid such unwanted results. For example, if the throttling workflow would scale out, it should counter for false alerts.
+If your automation task is related to a database update or a similar time-consuming operation, make sure that false alarms caused while the task is getting executed, do not cause unwanted results. Where possible, read the current value before updating to avoid such unwanted results. For example, if the throttling workflow would scale out, it should counter for false alerts.
+
+For both Azure Monitor and Event Grid, you may get alerts or events that indicate progression such as your subscribed event is *resolved*, *fired*, *in progress*, etc., or your resource is *getting created*, *created successfully*, etc, or false alerts sent due to a misconfiguration. Make sure to act only on the relevant alerts and events, and ignore all others, in your automation logic.
 
 ## Resiliency considerations
 
-**Functions**. To avoid HTTP timeouts for a longer automation task, queue this event in a [Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview#queues) and handle the actual automation in a second function. This might be required for example, if the function needs to update a database, as in the case of the throttling response automation scenario.
+**Functions**. To avoid HTTP timeouts for a longer automation task, queue this event in a [Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview#queues) and handle the actual automation in a second function. This might be required, for example, if the function needs to update a database, as in the case of the throttling response automation scenario.
 
 ![Reliability in automation function](./_images/automation-function-reliability.png)
 
@@ -83,43 +85,50 @@ If your automation task is related to a database update or a similar time-consum
 
 ## Security considerations
 
-**Functions**-
+**Functions**.
 
-1. Control access to the function:
+1. Control access to the function
 
-Both the automation implementations referenced here us http triggers to invoke the function. You can restrict access to your function url by setting the [authorization level](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook?tabs=csharp#trigger---configuration).  With *anonymous* authentication, your function is easily accessible with a URL such as `http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>`. Using *function* level authentication helps you obfuscate your http endpoint, by requiring function keys in the URL. This level is set in the file [function.json](https://github.com/mspnp/serverless-automation/blob/master/src/automation/cost-center/cost-center-tagging/OnResourceWriteSuccess/function.json):
+    Both the automation implementations referenced here us http triggers to invoke the function. You can restrict access to your function url by setting the [authorization level](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook?tabs=csharp#trigger---configuration).  With *anonymous* authentication, your function is easily accessible with a URL such as `http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>`. Using *function* level authentication helps you obfuscate your http endpoint, by requiring function keys in the URL. This level is set in the file [function.json](https://github.com/mspnp/serverless-automation/blob/master/src/automation/cost-center/cost-center-tagging/OnResourceWriteSuccess/function.json):
 
-```JSON
-{
-  "bindings": [
+    ```JSON
     {
-      "authLevel": "function",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "Request",
-      "methods": [
-        "get",
-        "post"
+      "bindings": [
+        {
+          "authLevel": "function",
+          "type": "httpTrigger",
+          "direction": "in",
+          "name": "Request",
+          "methods": [
+            "get",
+            "post"
+          ]
+        },
+        {
+          "type": "http",
+          "direction": "out",
+          "name": "Response"
+        }
       ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "Response"
     }
-  ]
-}
-```
+    ```
 
-For production environment, you might need to implement [additional strategies to secure your function](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook?tabs=csharp#secure-an-http-endpoint-in-production). This is not implemented in the reference implementations, since the functions are executed within the Azure platform, by other services such as Event Grid or Azure Monitor action group, and so are harder to be exposed to hackers. If using function keys in production, keep the keys secure in a Key Vault. In a dedicated App Service plan, you can lock down the functions in a private subnet to limit access to it, which is not possible in a consumption-based serverless model.
+    For production environment, you might need to implement [additional strategies to secure your function](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook?tabs=csharp#secure-an-http-endpoint-in-production). This is not implemented in the reference implementations, since the functions are executed within the Azure platform, by other services such as Event Grid or Azure Monitor action group, and so are harder to be exposed to hackers. In such a scenario, function authorization is recommended. If using function keys in production, keep the keys secure in a Key Vault.
 
-1. Control what the function can access:
+    For additional security, the following costlier options could be considered:
 
-The function and the logic app in the cost center tagging workflow can access the resource group only through [Active Directory managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Permissions need to be explicitly given to the function to be able to read and set tags for these resources. No other service can modify these resources since permissions are specifically given to the automation function.
+    - Use a dedicated App Service plan, where you can lock down the functions in a virtual v-net to limit access to it. This is not possible in a consumption-based serverless model.
+    - Try the [Premium plan, which allows a dedicated V-net to be used by your function apps.
 
-1. Control what the function can do with the access:
+    For price and feature comparison between these models, read [Azure Functions scale and hosting](https://docs.microsoft.com/azure/azure-functions/functions-scale).
 
-Limit what the function can actually modify for other resources by [setting policies](https://docs.microsoft.com/azure/governance/policy/overview). Unlike RBAC which controls access for users, Azure Policy controls access to properties such as types or location, for new or existing resources.
+1. Control what the function can access
+
+    The function and the logic app in the cost center tagging workflow can access the resource group only through [Active Directory managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Permissions need to be explicitly given to the function to be able to read and set tags for these resources. No other service can modify these resources since permissions are given to the automation function.
+
+1. Control what the function can do with the access
+
+    Limit what the function can actually modify for other resources by [setting policies](https://docs.microsoft.com/azure/governance/policy/overview). Unlike RBAC, which controls access for users, Azure Policy controls access to properties such as types or location, for new or existing resources.
 
 ## Deployment considerations
 
