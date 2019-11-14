@@ -1698,7 +1698,7 @@
      },
      { 
          "source_path": "docs/best-practices/naming-conventions.md",
-         "redirect_url": "/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging",
+         "redirect_url": "/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging",
          "redirect_document_id": false
      },
      { 
