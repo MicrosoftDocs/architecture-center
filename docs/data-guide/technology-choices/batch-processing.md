@@ -101,7 +101,7 @@ The following tables summarize the key differences in capabilities.
 | Auditing  | Yes | Yes | No | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes |
 | Row-level security | No | Yes<sup>2</sup> | No | Yes <sup>1</sup> | Yes <sup>1</sup> | No |
 | Supports firewalls | Yes | Yes | Yes | Yes <sup>3</sup> | Yes <sup>3</sup> | No |
-| Dynamic data masking | No | No | No | Yes <sup>1</sup> | Yes <sup>1</sup> | No |
+| Dynamic data masking | No | Yes | No | Yes <sup>1</sup> | Yes <sup>1</sup> | No |
 
 <!-- markdownlint-enable MD033 -->
 
