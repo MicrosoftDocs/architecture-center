@@ -66,7 +66,7 @@ The partitioning scheme can significantly affect the performance of your system.
 
 - Avoid having a mixture of highly active and relatively inactive shards. Try to spread the load evenly across shards. This might require hashing the sharding keys. If you are geo-locating shards, make sure that the hashed keys map to shardlets held in shards stored close to the users that access that data.
 
-### Partitioning Azure table storage
+## Partitioning Azure table storage
 
 Azure table storage is a key-value store that's designed around partitioning. All entities are stored in a partition, and partitions are managed internally by Azure table storage. Each entity stored in a table must provide a two-part key that includes:
 
