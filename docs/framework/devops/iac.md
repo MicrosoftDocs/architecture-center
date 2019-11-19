@@ -109,7 +109,7 @@ And lastly, do not forget to version-control your infrastructure code, and use c
 [sdks]: /azure/#pivot=sdkstools
 [extensions]: /azure/virtual-machines/extensions/overview
 [cloudinit]: /azure/virtual-machines/linux/using-cloud-init
-[packer_linux]: /azure/virtual-machines/linux/build-image-with-packer
+[packer-linux]: /azure/virtual-machines/linux/build-image-with-packer
 [packer-windows]: /azure/virtual-machines/windows/build-image-with-packer
 [azuredevops]: /azure/devops
 [pipelines]: /azure/devops/pipelines
