@@ -27,8 +27,8 @@ The following options are available for machine learning in the Azure cloud.
 
 | Cloud&nbsp;options | What it is | What you can do with it |
 |-|-|-|
-| [Azure Machine Learning service](#azure-machine-learning-service) | Managed cloud service for machine learning  | Train, deploy, and manage models in Azure using Python and CLI |
-| [Azure Machine Learning Studio](#azure-machine-learning-studio) | Drag&ndash;and&ndash;drop visual interface for machine learning | Build, experiment, and deploy models using preconfigured algorithms |
+| [Azure Machine Learning service](#azure-machine-learning) | Managed cloud service for machine learning  | Train, deploy, and manage models in Azure using Python and CLI |
+| [Azure Machine Learning Studio](#classic) | Drag&ndash;and&ndash;drop visual interface for machine learning | Build, experiment, and deploy models using preconfigured algorithms |
 
 If you want to use pre-built AI and machine learning models, [Azure Cognitive Services](#azure-cognitive-services) allows you to easily add intelligent features to your applications.
 
@@ -69,6 +69,7 @@ Try the [free or paid version of Azure Machine Learning](https://aka.ms/AMLFree)
 |**Key benefits**           |Central management of scripts and run history, making it easy to compare model versions.<br/><br/>Easy deployment and management of models to the cloud or edge devices.|
 |**Considerations**         |Requires some familiarity with the model management model.|
 
+<a name="classic"></a>
 ## Azure ML Studio (Classic)
 
 [Studio (classic)](/azure/machine-learning/studio/) gives you an interactive, visual workspace that you can use to easily and quickly build, test, and deploy models using pre-built machine learning algorithms. Studio (classic) publishes models as web services that can easily be consumed by custom apps or BI tools such as Excel.
