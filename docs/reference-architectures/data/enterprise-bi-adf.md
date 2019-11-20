@@ -14,17 +14,11 @@ ms.custom: seodec18
 
 This reference architecture shows how to perform incremental loading in an [extract, load, and transform (ELT)](../../data-guide/relational-data/etl.md#extract-load-and-transform-elt) pipeline. It uses Azure Data Factory to automate the ELT pipeline. The pipeline incrementally moves the latest OLTP data from an on-premises SQL Server database into Azure Synapse. Transactional data is transformed into a tabular model for analysis.
 
-<!-- markdownlint-disable MD034 -->
-
-> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2Gnz2]
-
-<!-- markdownlint-enable MD034 -->
-
 ![GitHub logo](../../_images/github.png) A reference implementation for this architecture is available on [GitHub][github].
 
-![Architecture diagram for automated enterprise BI with Azure Synapse and Azure Data Factory](./images/enterprise-bi-sqldw-adf.png)
+![Architecture diagram for automated enterprise BI with Azure Synapse and Azure Data Factory](./images/enterprise-bi-adf.png)
 
-This architecture builds on the one shown in [Enterprise BI with Azure Synapse](./enterprise-bi-sqldw.md), but adds some features that are important for enterprise data warehousing scenarios.
+This architecture builds on the one shown in [Enterprise BI with Azure Synapse](./enterprise-bi-synapse.md), but adds some features that are important for enterprise data warehousing scenarios.
 
 - Automation of the pipeline using Data Factory.
 - Incremental loading.
@@ -184,8 +178,6 @@ For additional security, you can use [Virtual Network service endpoints](/azure/
 With this approach, you create a VNet in Azure and then create private service endpoints for Azure services. Those services are then restricted to traffic from that virtual network. You can also reach them from your on-premises network through a gateway.
 
 Be aware of the following limitations:
-
-- At the time this reference architecture was created, VNet service endpoints are supported for Azure Storage and Azure Synapse, but not for Azure Analysis Service. Check the latest status [here](https://azure.microsoft.com/updates/?product=virtual-network).
 
 - If service endpoints are enabled for Azure Storage, PolyBase cannot copy data from Storage into Azure Synapse. There is a mitigation for this issue. For more information, see [Impact of using VNet Service Endpoints with Azure storage](/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview?toc=%2fazure%2fvirtual-network%2ftoc.json#impact-of-using-vnet-service-endpoints-with-azure-storage).
 
