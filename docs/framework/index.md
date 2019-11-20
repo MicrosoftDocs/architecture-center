@@ -3,7 +3,7 @@ title: Azure Architecture Framework
 titleSuffix: Azure Architecture Framework introduction
 description: Describes five pillars of software quality, scalability, devops, resiliency, cost, and security.
 author: MikeWasson
-ms.date: 11/04/2019
+ms.date: 11/20/2019
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -133,7 +133,7 @@ Cloud applications often use managed services that have access keys. Never check
 
 Make sure that your data remains in the correct geopolitical zone when using Azure's highly available. Azure's geo-replicated storage uses the concept of a [paired region][paired-region] in the same geopolitical region.
 
-Use Key Vault to safeguard cryptographic keys and secrets. By using Key Vault, you can encrypt keys and secrets by using keys that are protected by hardware security modules (HSMs). Many Azure storage and DB services support data encryption at rest, including [Azure Storage][storage-encryption], [Azure SQL Database][sql-db-encryption], [Azure SQL Data Warehouse][data-warehouse-encryption], and [Cosmos DB][cosmos-db-encryption].
+Use Key Vault to safeguard cryptographic keys and secrets. By using Key Vault, you can encrypt keys and secrets by using keys that are protected by hardware security modules (HSMs). Many Azure storage and DB services support data encryption at rest, including [Azure Storage][storage-encryption], [Azure SQL Database][sql-db-encryption], [Azure Synapse Analytics][data-warehouse-encryption], and [Cosmos DB][cosmos-db-encryption].
 
 ### Security resources
 

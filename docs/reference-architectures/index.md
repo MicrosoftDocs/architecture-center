@@ -245,7 +245,7 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
 ## Big data solutions
 
 <ul  class="panelContent cardsF">
-<!-- Enterprise BI with SQL Data Warehouse -->
+<!-- Enterprise BI with Azure Synapse -->
 <li style="display: flex; flex-direction: column;">
     <a href="./data/enterprise-bi-sqldw.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
@@ -257,8 +257,8 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Enterprise BI with SQL Data Warehouse</h3>
-                        <p>ELT (extract-load-transform) pipeline to move data from an on-premises database into SQL Data Warehouse.</p>
+                        <h3>Enterprise BI with Azure Synapse Analytics</h3>
+                        <p>ELT (extract-load-transform) pipeline to move data from an on-premises database into Azure Synapse.</p>
                     </div>
                 </div>
             </div>
