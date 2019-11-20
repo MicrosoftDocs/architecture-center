@@ -12,7 +12,7 @@ ms.subservice: cloud-fundamentals
 
 A data warehouse is a centralized repository of integrated data from one or more disparate sources. Data warehouses store current and historical data and are used for reporting and analysis of the data.
 
-![Data warehousing in Azure](../../reference-architectures/data/images/enterprise-bi-sqldw.png)
+![Data warehousing in Azure](../../reference-architectures/data/images/enterprise-bi-synapse.png)
 
 To move data into a data warehouse, data is periodically extracted from various sources that contain important business information. As the data is moved, it can be formatted, cleaned, validated, summarized, and reorganized. Alternatively, the data can be stored in the lowest level of detail, with aggregated views provided in the warehouse for reporting. In either case, the data warehouse becomes a permanent data store for reporting, analysis, and business intelligence (BI).
 
@@ -20,7 +20,7 @@ To move data into a data warehouse, data is periodically extracted from various 
 
 The following reference architectures show end-to-end data warehouse architectures on Azure:
 
-- [Enterprise BI in Azure with Azure Synapse Analytics](../../reference-architectures/data/enterprise-bi-sqldw.md). This reference architecture implements an extract, load, and transform (ELT) pipeline that moves data from an on-premises SQL Server database into Azure Synapse.
+- [Enterprise BI in Azure with Azure Synapse Analytics](../../reference-architectures/data/enterprise-bi-synapse.md). This reference architecture implements an extract, load, and transform (ELT) pipeline that moves data from an on-premises SQL Server database into Azure Synapse.
 - [Automated enterprise BI with Azure Synapse and Azure Data Factory](../../reference-architectures/data/enterprise-bi-adf.md). This reference architecture shows an ELT pipeline with incremental loading, automated using Azure Data Factory.
 
 ## When to use this solution
