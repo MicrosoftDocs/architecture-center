@@ -19,37 +19,37 @@ In general, avoid using a special character, such as a hyphen (`-`) or underscor
 
 ## General
 
-| Entity | Scope | Length | Casing | Valid characters | Suggested pattern | Example |
-| --- | --- | --- | --- | --- | --- | --- |
-|Management Group ID |Root Management Group |1-90 |Insensitive |Alphanumeric, underscore, hyphen, period |`<service name>-<environment name>` |`IT-production` |
-|Subscription name |Management Group |1-64 | Insensitive| 0-9, a-z, A-Z, and cannot contain: greater than or lesser than signs, semicolon, pipe |`<Company> <Department> <Environment>` |`Contoso IT Production` | 
-|Resource group |Subscription |1-90 |Insensitive |Alphanumeric, underscore, parentheses, hyphen, period (except at the end), and Unicode characters that match the [regex documentation](/rest/api/resources/resourcegroups/createorupdate) |`<service short name>-<environment>-rg` |`profx-prod-rg` |
-|Availability set |Resource group |1-80 |Insensitive |Alphanumeric, underscore, and hyphen |`<service-short-name>-<context>-as` |`profx-sql-as` |
+| Entity | Scope | Length | Casing | Valid characters |
+| --- | --- | --- | --- | --- |
+|Management Group ID |Root Management Group |1-90 |Insensitive |Alphanumeric, underscore, hyphen, period |
+|Subscription name |Management Group |1-64 | Insensitive| 0-9, a-z, A-Z, and cannot contain: greater than or lesser than signs, semicolon, pipe |
+|Resource group |Subscription |1-90 |Insensitive |Alphanumeric, underscore, parentheses, hyphen, period (except at the end), and Unicode characters that match the [regex documentation](/rest/api/resources/resourcegroups/createorupdate) |
+|Availability set |Resource group |1-80 |Insensitive |Alphanumeric, underscore, and hyphen |
 |Tag |Associated entity |512 (name), 256 (value) |Insensitive |Alphanumeric, including Unicode characters; special characters except `<`, `>`, `%`, `&`, `\`, `?`, `/`, and [other limitations](/azure/azure-resource-manager/resource-group-using-tags) |`"key" : "value"` |`"department" : "Central IT"` |
-|API management |Global |1-50 |Insensitive |0-9, a-z, A-Z, and `-` |`<apim-service-name>` |`contoso` |
-|Key vault | Global | 3-24 | Insensitive | 0-9, a-z, A-Z, and `-`. Must start with a letter. | `<service short name>-<environment>-kv` | `myapp-prod-kv` |
+|API management |Global |1-50 |Insensitive |0-9, a-z, A-Z, and `-` |
+|Key vault | Global | 3-24 | Insensitive | 0-9, a-z, A-Z, and `-`. Must start with a letter. |
 
 ## Compute
 
-| Entity | Scope | Length | Casing | Valid characters | Suggested pattern | Example |
-| --- | --- | --- | --- | --- | --- | --- |
-|Virtual machine |Resource group |1-15 (Windows), 1-64 (Linux) |Insensitive |0-9, a-z, A-Z, and `-` |`<name>-<role>-vm<number>` |`profx-sql-vm1` |
-|Function app | Global |1-60 |Insensitive |0-9, a-z, A-Z, and `-` |`<name>-func` |`calcprofit-func` |
+| Entity | Scope | Length | Casing | Valid characters |
+| --- | --- | --- | --- | --- |
+|Virtual machine |Resource group |1-15 (Windows), 1-64 (Linux) |Insensitive |0-9, a-z, A-Z, and `-` |
+|Function app | Global |1-60 |Insensitive |0-9, a-z, A-Z, and `-` |
 
 > [!NOTE]
 > VMs in Azure have two distinct names: the VM name and the host name. When you create a VM in the portal, the same name is used for both the host name and the VM resource name. The restrictions in the preceding table are for the host name. The actual resource name can have up to 64 characters.
 
 ## Web
 
-| Entity | Scope | Length | Casing | Valid characters | Suggested pattern | Example |
-| --- | --- | --- | --- | --- | --- | --- |
-|Web app |Global |1-60 |Insensitive |0-9, a-z, A-Z, and `-` |`<app_name>-<source-slot-name>` |`contoso-staging` |
-|Web app name |Resource group | 3-24 | Insensitive| 0-9, a-z, A-Z, and `-` | `<appname>` | `mywebapp`|
-|Slot name | Web app | 2-59 | Insensitive|0-9, a-z, A-Z, and `-`|`<slotname>`|`production`|
-|Web app setting name | Web app | N/A | Insensitive | All characters | N/A | N/A|
-|Web app setting value | Setting | N/A | Insensitive | All characters | N/A | N/A|
-|Web app connection string | Web app | N/A |Insensitive | All characters | N/A | N/A|
-|Web job name | Web app | 1-29 | Insensitive | 0-9, a-z, A-Z, and `-` | `<jobname>`|`myJob`|
+| Entity | Scope | Length | Casing | Valid characters |
+| --- | --- | --- | --- | --- |
+|Web app |Global |1-60 |Insensitive |0-9, a-z, A-Z, and `-` |
+|Web app name |Resource group | 3-24 | Insensitive| 0-9, a-z, A-Z, and `-` |
+|Slot name | Web app | 2-59 | Insensitive|0-9, a-z, A-Z, and `-`|
+|Web app setting name | Web app | N/A | Insensitive | All characters |
+|Web app setting value | Setting | N/A | Insensitive | All characters |
+|Web app connection string | Web app | N/A |Insensitive | All characters |
+|Web job name | Web app | 1-29 | Insensitive | 0-9, a-z, A-Z, and `-` |
 
 > [!WARNING]
 > The web app settings name for *Linux apps* has a valid character pattern of 0-9, a-z, A-Z, and `_`.
@@ -57,46 +57,46 @@ In general, avoid using a special character, such as a hyphen (`-`) or underscor
 
 ## Storage
 
-| Entity | Scope | Length | Casing | Valid characters | Suggested pattern | Example |
-| --- | --- | --- | --- | --- | --- | --- |
-|Storage account name (data) |Global |3-24 |Lowercase |Alphanumeric |`<globally unique name><number>` |`profxdata001` |
-|Storage account name (disks) |Global |3-24 |Lowercase |Alphanumeric |`<vm name without hyphens>st<number>` |`profxsql001st0` |
-| Container name |Storage account |3-63 |Lowercase |0-9, a-z, and `-` |`<context>` |`logs` |
-|Blob name | Container |1-1024 |Sensitive |Any URL characters |`<variable based on blob usage>` |`<variable based on blob usage>` |
-|Queue name |Storage account |3-63 |Lowercase |0-9, a-z, and `-` |`<service short name>-<context>-<num>` |`awesomeservice-messages-001` |
-|Table name | Storage account |3-63 |Insensitive |Alphanumeric |`<service short name><context>` |`awesomeservicelogs` |
-|File share name | Storage account |3-63 |Lowercase | 0-9, a-z, and `-` |`<variable based on file share usage>` |`<variable based on file share usage>` |
-|Data Lake Storage | Global |3-24 |Lowercase | Alphanumeric |`<name>dls` |`telemetrydls` |
-|Managed disk name | Resource group | 1-80 | Insensitive |Alphanumeric, hyphen, and underscore, but not on character 1|`<disktype>disk<number>`|`OSdisk1`|
+| Entity | Scope | Length | Casing | Valid characters |
+| --- | --- | --- | --- | --- |
+|Storage account name (data) |Global |3-24 |Lowercase |Alphanumeric |
+|Storage account name (disks) |Global |3-24 |Lowercase |Alphanumeric |
+| Container name |Storage account |3-63 |Lowercase |0-9, a-z, and `-` |
+|Blob name | Container |1-1024 |Sensitive |Any URL characters |
+|Queue name |Storage account |3-63 |Lowercase |0-9, a-z, and `-` |
+|Table name | Storage account |3-63 |Insensitive |Alphanumeric |
+|File share name | Storage account |3-63 |Lowercase | 0-9, a-z, and `-` |
+|Data Lake Storage | Global |3-24 |Lowercase | Alphanumeric |
+|Managed disk name | Resource group | 1-80 | Insensitive |Alphanumeric, hyphen, and underscore, but not on character 1|
 
 ## Networking
 
-| Entity | Scope | Length | Casing | Valid characters | Suggested pattern | Example |
-| --- | --- | --- | --- | --- | --- | --- |
-|Virtual network (VNet) |Resource group |2-64 |Insensitive |Alphanumeric, hyphen, underscore, and period |`<service short name>-vnet` |`profx-vnet` |
-|Subnet |Parent VNet |2-80 |Insensitive |Alphanumeric, hyphen, underscore, and period |`<descriptive context>` |`web` |
-|Network interface |Resource group |1-80 |Insensitive |Alphanumeric, hyphen, underscore, and period |`<vmname>-nic<num>` |`profx-sql1-vm1-nic1` |
-|Network security group |Resource group |1-80 |Insensitive |Alphanumeric, hyphen, underscore, and period |`<service short name>-<context>-nsg` |`profx-app-nsg` |
-|Network security group rule |Resource group |1-80 |Insensitive |Alphanumeric, hyphen, underscore, and period |`<descriptive context>` |`sql-allow` |
-|Public IP address |Resource group |1-80 |Insensitive |Alphanumeric, hyphen, underscore, and period |`<vm or service name>-pip` |`profx-sql1-vm1-pip` |
-|Load balancer |Resource group |1-80 |Insensitive |Alphanumeric, hyphen, underscore, and period |`<service or role>-lb` |`profx-lb` |
-|Load-balanced rules config |Load balancer |1-80 |Insensitive |Alphanumeric, hyphen, underscore, and period |`<descriptive context>` |`http` |
-|Azure application gateway |Resource group |1-80 |Insensitive |Alphanumeric, hyphen, underscore, and period |`<service or role>-agw` |`profx-agw` |
-|Traffic manager profile |Resource group |1-63 |Insensitive |Alphanumeric, hyphen, and period |`<descriptive context>` |`app1` |
+| Entity | Scope | Length | Casing | Valid characters |
+| --- | --- | --- | --- | --- |
+|Virtual network (VNet) |Resource group |2-64 |Insensitive |Alphanumeric, hyphen, underscore, and period |
+|Subnet |Parent VNet |2-80 |Insensitive |Alphanumeric, hyphen, underscore, and period |
+|Network interface |Resource group |1-80 |Insensitive |Alphanumeric, hyphen, underscore, and period |
+|Network security group |Resource group |1-80 |Insensitive |Alphanumeric, hyphen, underscore, and period |
+|Network security group rule |Resource group |1-80 |Insensitive |Alphanumeric, hyphen, underscore, and period |
+|Public IP address |Resource group |1-80 |Insensitive |Alphanumeric, hyphen, underscore, and period |
+|Load balancer |Resource group |1-80 |Insensitive |Alphanumeric, hyphen, underscore, and period |
+|Load-balanced rules config |Load balancer |1-80 |Insensitive |Alphanumeric, hyphen, underscore, and period |
+|Azure application gateway |Resource group |1-80 |Insensitive |Alphanumeric, hyphen, underscore, and period |
+|Traffic manager profile |Resource group |1-63 |Insensitive |Alphanumeric, hyphen, and period |
 
 ## Containers
 
-| Entity | Scope | Length | Casing | Valid characters | Suggested pattern | Example |
-| --- | --- | --- | --- | --- | --- | --- |
-|Container registry | Global |5-50 |Insensitive | Alphanumeric |`<service short name>registry` |`app1registry` |
+| Entity | Scope | Length | Casing | Valid characters |
+| --- | --- | --- | --- | --- |
+|Container registry | Global |5-50 |Insensitive | Alphanumeric |
 
 ## Messaging
 
-| Entity | Scope | Length | Casing | Valid characters | Suggested pattern | Example |
-| --- | --- | --- | --- | --- | --- | --- |
-|Service Bus namespace | Global | 6-50 |Insensitive | Alphanumeric, hyphen. Must start with a letter. For more information, see [Create namespace](/rest/api/servicebus/create-namespace). |`<service short name>-bus` |`app1-bus` |
-| Event Hubs namespace | Global | 6-50 | Insensitive | Alphanumeric, hyphen. Must start with a letter. Must end with a letter or number. |  `<service>-ehns` | `app1-ehns` |
-| Event hub | Event Hubs namespace | 1-50 | Insensitive | Alphanumeric, period, hyphen, underscore. Must start and end with a letter or number. | `<service>-<role>-eh` | `app1-orders-eh` |
+| Entity | Scope | Length | Casing | Valid characters |
+| --- | --- | --- | --- | --- |
+|Service Bus namespace | Global | 6-50 |Insensitive | Alphanumeric, hyphen. Must start with a letter. For more information, see [Create namespace](/rest/api/servicebus/create-namespace). |
+| Event Hubs namespace | Global | 6-50 | Insensitive | Alphanumeric, hyphen. Must start with a letter. Must end with a letter or number. |
+| Event hub | Event Hubs namespace | 1-50 | Insensitive | Alphanumeric, period, hyphen, underscore. Must start and end with a letter or number. |
 
 ## Next steps
 
