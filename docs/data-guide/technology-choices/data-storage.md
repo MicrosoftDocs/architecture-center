@@ -2,7 +2,7 @@
 title: Choosing a data storage technology
 description: 
 author: mikewasson
-ms.date: 02/20/2019
+ms.date: 11/20/2019
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -38,7 +38,7 @@ There are various Azure Storage services you can use to store data. The most fle
 
 Azure Storage is a good choice for big data and analytics solutions, because of its flexibility, high availability, and low cost. It provides hot, cool, and archive storage tiers for different use cases. For more information, see [Azure Blob Storage: Hot, cool, and archive storage tiers](/azure/storage/blobs/storage-blob-storage-tiers).
 
-Azure Blob storage can be accessed from Hadoop (available through HDInsight). HDInsight can use a blob container in Azure Storage as the default file system for the cluster. Through a Hadoop distributed file system (HDFS) interface provided by a WASB driver, the full set of components in HDInsight can operate directly on structured or unstructured data stored as blobs. Azure Blob storage can also be accessed via Azure SQL Data Warehouse using its PolyBase feature.
+Azure Blob storage can be accessed from Hadoop (available through HDInsight). HDInsight can use a blob container in Azure Storage as the default file system for the cluster. Through a Hadoop distributed file system (HDFS) interface provided by a WASB driver, the full set of components in HDInsight can operate directly on structured or unstructured data stored as blobs. Azure Blob storage can also be accessed via Azure Synapse Analytics using its PolyBase feature.
 
 Other features that make Azure Storage a good choice are:
 
@@ -55,7 +55,7 @@ Data Lake Store does not impose any limits on account sizes, file sizes, or the 
 
 Data Lake Store can be accessed from Hadoop (available through HDInsight) using the WebHDFS-compatible REST APIs. You may consider using this as an alternative to Azure Storage when your individual or combined file sizes exceed that which is supported by Azure Storage. However, there are [performance tuning guidelines](/azure/data-lake-store/data-lake-store-performance-tuning-guidance#optimizing-io-intensive-jobs-on-hadoop-and-spark-workloads-on-hdinsight) you should follow when using Data Lake Store as your primary storage for an HDInsight cluster, with specific guidelines for [Spark](/azure/data-lake-store/data-lake-store-performance-tuning-spark), [Hive](/azure/data-lake-store/data-lake-store-performance-tuning-hive), [MapReduce](/azure/data-lake-store/data-lake-store-performance-tuning-mapreduce), and [Storm](/azure/data-lake-store/data-lake-store-performance-tuning-storm). Also, be sure to check Data Lake Store's [regional availability](https://azure.microsoft.com/regions/#services), because it is not available in as many regions as Azure Storage, and it needs to be located in the same region as your HDInsight cluster.
 
-Coupled with Azure Data Lake Analytics, Data Lake Store is specifically designed to enable analytics on the stored data and is tuned for performance for data analytics scenarios. Data Lake Store can also be accessed via Azure SQL Data Warehouse using its PolyBase feature.
+Coupled with Azure Data Lake Analytics, Data Lake Store is specifically designed to enable analytics on the stored data and is tuned for performance for data analytics scenarios. Data Lake Store can also be accessed via Azure Synapse using its PolyBase feature.
 
 ## Azure Cosmos DB
 

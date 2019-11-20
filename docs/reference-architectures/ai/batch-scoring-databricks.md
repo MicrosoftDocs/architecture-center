@@ -2,7 +2,7 @@
 title: Batch scoring of Spark models on Azure Databricks
 description:  Build a scalable solution for batch scoring an Apache Spark classification model on a schedule using Azure Databricks.
 author: njray
-ms.date: 02/07/2019
+ms.date: 11/20/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -80,7 +80,7 @@ Additionally, more complex scheduled pipelines can be developed by using [Azure 
 
 ## Storage considerations
 
-In this reference implementation, the data is stored directly within Databricks storage for simplicity. In a production setting, however, the data can be stored on cloud data storage such as [Azure Blob Storage][blob]. [Databricks][databricks-connect] also supports Azure Data Lake Store, Azure SQL Data Warehouse, Azure Cosmos DB, Apache Kafka, and Hadoop.
+In this reference implementation, the data is stored directly within Databricks storage for simplicity. In a production setting, however, the data can be stored on cloud data storage such as [Azure Blob Storage][blob]. [Databricks][databricks-connect] also supports Azure Data Lake Store, Azure Synapse Analytics, Azure Cosmos DB, Apache Kafka, and Hadoop.
 
 ## Cost considerations
 
