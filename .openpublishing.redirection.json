@@ -1714,6 +1714,11 @@
          "source_path": "docs/microservices/introduction.md",
          "redirect_url": "/azure/architecture/microservices/",
          "redirect_document_id": true
+     },
+     { 
+         "source_path": "docs/reference-architectures/data/enterprise-bi-sqldw.md",
+         "redirect_url": "/azure/architecture/reference-architectures/data/enterprise-bi-synapse",
+         "redirect_document_id": true
      }
    ]
 }
