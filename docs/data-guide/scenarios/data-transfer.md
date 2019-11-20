@@ -2,7 +2,7 @@
 title: Choosing a data transfer technology
 description: 
 author: zoinerTejada
-ms.date: 02/12/2018
+ms.date: 11/20/2019
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -44,7 +44,7 @@ Consider these options when you want scripted and programmatic data transfer.
 
 - **Sqoop**. [Sqoop](/azure/hdinsight/hadoop/hdinsight-use-sqoop) is an Apache project and part of the Hadoop ecosystem. It comes preinstalled on all HDInsight clusters. It allows data transfer between an HDInsight cluster and relational databases such as SQL, Oracle, MySQL, and so on. Sqoop is a collection of related tools, including import and export. Sqoop works with HDInsight clusters using either Azure Storage blobs or Data Lake Store attached storage.
 
-- **PolyBase**. [PolyBase](/sql/relational-databases/polybase/get-started-with-polybase) is a technology that accesses data outside of the database through the T-SQL language. In SQL Server 2016, it allows you to run queries on external data in Hadoop or to import/export data from Azure Blob Storage. In Azure SQL Data Warehouse, you can import/export data from Azure Blob Storage and Azure Data Lake Store. Currently, PolyBase is the fastest method of importing data into SQL Data Warehouse.
+- **PolyBase**. [PolyBase](/sql/relational-databases/polybase/get-started-with-polybase) is a technology that accesses data outside of the database through the T-SQL language. In SQL Server 2016, it allows you to run queries on external data in Hadoop or to import/export data from Azure Blob Storage. In Azure Synapse Analytics, you can import/export data from Azure Blob Storage and Azure Data Lake Store. Currently, PolyBase is the fastest method of importing data into Azure Synapse.
 
 - **Hadoop command line**. When you have data that resides on an HDInsight cluster head node, you can use the `hadoop -copyFromLocal` command to copy that data to your cluster's attached storage, such as Azure Storage blob or Azure Data Lake Store. In order to use the Hadoop command, you must first connect to the head node. Once connected, you can upload a file to storage.
 
@@ -111,7 +111,7 @@ The following tables summarize the key differences in capabilities.
 
 | Capability | Azure CLI | AzCopy | PowerShell | AdlCopy | PolyBase |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Compatible platforms | Linux, OS X, Windows | Linux, Windows | Windows | Linux, OS X, Windows | SQL Server, Azure SQL Data Warehouse |
+| Compatible platforms | Linux, OS X, Windows | Linux, Windows | Windows | Linux, OS X, Windows | SQL Server, Azure Synapse |
 | Optimized for big data | No | Yes | No | Yes <sup>1</sup> | Yes <sup>2</sup> |
 | Copy to relational database | No | No | No | No | Yes |
 | Copy from relational database | No | No | No | No | Yes |

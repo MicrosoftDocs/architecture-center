@@ -2,7 +2,7 @@
 title: Choosing an analytical data store
 description:
 author: zoinerTejada
-ms.date: 02/12/2018
+ms.date: 11/20/2019
 ms.topic: guide
 ms.service: architecture-center
 ms.subservice: cloud-fundamentals
@@ -20,7 +20,7 @@ There is no single best data management choice for all data storage tasks. Diffe
 
 There are several options for data serving storage in Azure, depending on your needs:
 
-- [SQL Data Warehouse](/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)
+- [Azure Synapse Analytics](/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)
 - [Azure SQL Database](/azure/sql-database/)
 - [SQL Server in Azure VM](/sql/sql-server/sql-server-technical-documentation)
 - [HBase/Phoenix on HDInsight](/azure/hdinsight/hbase/apache-hbase-overview)
@@ -51,7 +51,7 @@ The following tables summarize the key differences in capabilities.
 
 ### General capabilities
 
-| Capability | SQL Database | SQL Data Warehouse | HBase/Phoenix on HDInsight | Hive LLAP on HDInsight | Azure Analysis Services | Cosmos DB |
+| Capability | SQL Database | Azure Synapse | HBase/Phoenix on HDInsight | Hive LLAP on HDInsight | Azure Analysis Services | Cosmos DB |
 | --- | --- | --- | --- | --- | --- | --- |
 | Is managed service | Yes | Yes | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes | Yes |
 | Primary database model | Relational (columnar format when using columnstore indexes) | Relational tables with columnar storage | Wide column store | Hive/In-Memory | Tabular/MOLAP semantic models | Document store, graph, key-value store, wide column store |
@@ -64,7 +64,7 @@ The following tables summarize the key differences in capabilities.
 
 ### Scalability capabilities
 
-| Capability | SQL Database | SQL Data Warehouse | HBase/Phoenix on HDInsight | Hive LLAP on HDInsight | Azure Analysis Services | Cosmos DB |
+| Capability | SQL Database | Azure Synapse | HBase/Phoenix on HDInsight | Hive LLAP on HDInsight | Azure Analysis Services | Cosmos DB |
 |--------------------------------------------------|--------------|--------------------|----------------------------|------------------------|-------------------------|-----------|
 | Redundant regional servers for high availability |     Yes      |        Yes         |            Yes             |           No           |           No            |    Yes    |
 |             Supports query scale out             |      No      |        Yes         |            Yes             |          Yes           |           Yes           |    Yes    |
@@ -73,7 +73,7 @@ The following tables summarize the key differences in capabilities.
 
 ### Security capabilities
 
-| Capability | SQL Database | SQL Data Warehouse | HBase/Phoenix on HDInsight | Hive LLAP on HDInsight | Azure Analysis Services | Cosmos DB |
+| Capability | SQL Database | Azure Synapse | HBase/Phoenix on HDInsight | Hive LLAP on HDInsight | Azure Analysis Services | Cosmos DB |
 | --- | --- | --- | --- | --- | --- | --- |
 | Authentication  | SQL / Azure Active Directory (Azure AD) | SQL / Azure AD | local / Azure AD <sup>1</sup> | local / Azure AD <sup>1</sup> | Azure AD | database users / Azure AD via access control (IAM) |
 | Data encryption at rest | Yes <sup>2</sup> | Yes <sup>2</sup> | Yes <sup>1</sup> | Yes <sup>1</sup> | Yes | Yes |
