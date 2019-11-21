@@ -160,7 +160,7 @@ Event Grid can route 10,000,000 events per second per region. The first 100,000 
 #### Resilient delivery
 Even though successful delivery for events isn't as crucial as commands, you might still want some guarantee depending on the type of event. Event Grid offers features that you can enable and customize, such as retry policies, expiration time, and dead lettering. For more information, see [Delivery and retry](/azure/event-grid/delivery-and-retry).
 
-Event Grid’s retry process can help resiliency but it’s not fail-safe. In the retry process, Event Grid might deliver the message more than once, skip, or delay some retries if the endpoint is unresponsive for a long time. For more information, see [Retry schedule and duration](/azure/event-grid/delivery-and-retry#retry-schedule-and-durationnd-retry). 
+Event Grid’s retry process can help resiliency but it’s not fail-safe. In the retry process, Event Grid might deliver the message more than once, skip, or delay some retries if the endpoint is unresponsive for a long time. For more information, see [Retry schedule and duration](/azure/event-grid/delivery-and-retry#retry-schedule-and-duration). 
 
 You can persist undelivered events to a blob storage account by enabling dead-lettering. There's a delay in delivering the message to the blob storage endpoint and if that endpoint is unresponsive, then Event Grid discards the event. For more information, see [Dead letter and retry policies](/azure/event-grid/manage-event-delivery).
 

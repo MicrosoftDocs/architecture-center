@@ -37,7 +37,7 @@ Relevant Azure services:
 
 - [Azure Notebooks](https://notebooks.azure.com/)
 - [Azure Machine Learning Studio](/azure/machine-learning/studio/what-is-ml-studio)
-- [Azure Machine Learning Experimentation Services](/azure/machine-learning/preview/experimentation-service-configuration)
+- [Azure Machine Learning Experimentation Services](/azure/machine-learning/service/how-to-enable-virtual-network)
 - [The Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/overview)
 
 ## Challenges
