@@ -247,7 +247,7 @@ Jump to: [AI](#ai-and-machine-learning) | [Big data](#big-data-solutions) | [IoT
 <ul  class="panelContent cardsF">
 <!-- Enterprise BI with Azure Synapse -->
 <li style="display: flex; flex-direction: column;">
-    <a href="./data/enterprise-bi-sqldw.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
+    <a href="./data/enterprise-bi-synapse.md" style="display: flex; flex-direction: column; flex: 1 0 auto;">
         <div class="cardSize" style="flex: 1 0 auto; display: flex;">
             <div class="cardPadding" style="display: flex;">
                 <div class="card">

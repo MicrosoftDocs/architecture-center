@@ -397,10 +397,10 @@ items:
     items:
     - name: Reference architectures
       items:
+      - name: Enterprise BI with Azure Synapse Analytics
+        href: reference-architectures/data/enterprise-bi-synapse.md
       - name: Automated enterprise BI with Azure Data Factory
         href: reference-architectures/data/enterprise-bi-adf.md
-      - name: Enterprise BI with Azure Synapse Analytics
-        href: reference-architectures/data/enterprise-bi-sqldw.md
       - name: Stream processing with Azure Databricks
         href: reference-architectures/data/stream-processing-databricks.md
       - name: Stream processing with Azure Stream Analytics
