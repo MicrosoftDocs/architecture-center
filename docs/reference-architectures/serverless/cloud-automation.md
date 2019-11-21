@@ -12,22 +12,15 @@ ms.subservice: reference-architecture
 
 # Serverless cloud automation on Azure
 
-Cloud automation is a broad term, which basically means automating workflows and tasks on the cloud. This reference architecture illustrates two of the most common cloud automation scenarios using [serverless](https://azure.microsoft.com/solutions/serverless/) technologies. Serverless computing can dramatically improve productivity of an organization's DevOps team. The two scenarios covered in this article use [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) that perform customized automation tasks, triggered by events such as infrastructure state change, or some other organizational activity.
+Cloud automation is automating workflows and repetitive tasks on the cloud. Using [serverless technologies](https://azure.microsoft.com/solutions/serverless/) for automation, can dramatically improve productivity of an organization's DevOps team. A serverless model is best suited for automation scenarios which can follow an [event driven approach](https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/event-driven). This reference architecture illustrates two such cloud automation scenarios using [Azure Functions](https://docs.microsoft.com/azure/azure-functions/). These functions perform customized automation tasks, triggered by specific events in the infrastructure.
 
 ![Serverless cloud automation](./_images/cloud-automation.png)
 
-The serverless model is best suited to automate cloud operations that follow an [event-driven approach](https://blogs.gartner.com/tony-iams/using-serverless-computing-automate-cloud-operations/). These scenarios follow key event-driven patterns such as:
-
-- statelessness, where communication happens through callback notifications,
-- concurrency, where functions subscribe to notifications from event sources,
-- idempotence, where event sources have no knowledge of processing in the function, and
-- events record the transitions in the states, and represent the history of actions.
-
 ![GitHub logo](../../_images/github.png) The reference implementations for this architecture are available on [GitHub](https://github.com/mspnp/serverless-automation). These cover the following automation scenarios:
 
-1. [Cost center tagging](https://github.com/mspnp/serverless-automation/blob/master/src/automation/cost-center/deployment.md) - This workflow tags all new resources in a group, with the cost center information. It then validates this information against Azure Active Directory, for any change in the cost center, and sends out an email notification to the resource owner. If any changes are detected, it also updates the tagged information, before sending out the email.
+1. [Cost center tagging](https://github.com/mspnp/serverless-automation/blob/master/src/automation/cost-center/deployment.md) - This implements a scenario where an organization might want to track the cost centers of each Azure resource. This implementation [tags](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-using-tags) all new resources in a group, with the cost center information. It then validates this information against Azure Active Directory, for any change in the cost center, and sends out an email notification to the resource owner. If any changes are detected, it also updates the tagged information, before sending out the email. Note that the reference implementation mocks Azure Active Directory queries for simplicity.
 
-1. [Throttling response](https://github.com/mspnp/serverless-automation/blob/master/src/automation/throttling-responder/deployment.md) - This workflow monitors a Cosmos DB database for throttling, which happens when data access requests are more than what the [CosmosDB Request Units (or RUs)](https://docs.microsoft.com/azure/cosmos-db/request-units) can handle. The automation function then scales the throughput, by increasing the RUs to a preset value.
+1. [Throttling response](https://github.com/mspnp/serverless-automation/blob/master/src/automation/throttling-responder/deployment.md) - This implmentation monitors a Cosmos DB database for throttling, which happens when data access requests are more than what the [CosmosDB Request Units (or RUs)](https://docs.microsoft.com/azure/cosmos-db/request-units) can handle. The automation function then scales the throughput, by increasing the RUs to a preset value.
 
 ## Architecture
 
@@ -42,17 +35,19 @@ The architecture consists of the following blocks:
 
 To maintain idempotency, the function scaling in the throttling scenario is kept simplistic. In real world automation, make sure to scale up or down appropriately.
 
-**Logic App**. [Logic Apps provides an optional workflow element in this architecture. This can be used to perform non-automation related tasks, which can be more easily implemented using [Logic App's built-in connectors](https://docs.microsoft.com/azure/connectors/apis-list), such as sending an email.
+Additionally, read the [Optimize the performance and reliability of Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-best-practices) for best practices when writing your automation functions.
 
-**Event Grid**. [Event Grid](https://docs.microsoft.com/azure/event-grid/overview) has built-in support for events from other Azure services, as well as your own events (as custom topics). It provides an important channel between events from an Azure resource and your automation workflow. Most event-driven automation workflows will use this channel, such as the cost center automation scenario.
+**Logic App**. [Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/) can optionally used in this architecture for a predefined workflow. This can be used to perform non-automation related tasks, which can be more easily implemented using [Logic App's built-in connectors](https://docs.microsoft.com/azure/connectors/apis-list), such as sending an email notification.
 
-**Azure Monitor**. [Azure Monitor Alerts](https://docs.microsoft.com/azure/azure-monitor/overview#alerts) can monitor for critical conditions, and send alert notifications for corrective action using *action groups*. This is useful for monitoring for error conditions, such as the CosmosDB throttling alert in the second scenario.
+**Event Grid**. [Event Grid](https://docs.microsoft.com/azure/event-grid/overview) has built-in support for events from other Azure services, as well as your own events (as custom topics). Operational events such as resource creation can be easily propagated to the the automation event handler, using the Event Grid's built-in mechanism.
 
-**Actions**. Your automation function can interact with other Azure services to provide the functionality as an action. The tagging scenario verifies the tagged cost center information against the Azure Active Directory, and updates the resource for any changes. The throttling scenario updates the CosmosDB RUs to increase the throughput of the database.
+**Azure Monitor**. [Azure Monitor Alerts](https://docs.microsoft.com/azure/azure-monitor/overview#alerts) can monitor for critical conditions, and send alert notifications for corrective action using [action groups](https://azure.microsoft.com/en-us/resources/videos/azure-friday-azure-monitor-action-groups/). This is useful to watch for and fix any error conditions in your infrastructure, such as database throttling.
+
+**Automation action**. This broad block represents other services that your function can interact with, to provide the automation functionality. For example, Azure Active Directory for tag validation as in the first scenario, or a service to update such as CosmosDB as in the second scenario.
 
 ## Reliability considerations
 
-**Function**. As best practice, the function should log any failures in carrying out automation tasks in [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview). This allows for proper troubleshooting of the error conditions.
+**Function**. As best practice, the function should log any failures in carrying out automation tasks. This allows for proper troubleshooting of the error conditions. The reference implementations use the [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) as the telemetry system.
 
 Verify the concurrency requirement for your automation function. For example, the throttling automation workflow limits the maximum number of [concurrent http calls](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook?tabs=csharp#hostjson-settings) to the function to one, to avoid side-effects of false alarms. The following [host.json](https://github.com/mspnp/serverless-automation/blob/master/src/automation/throttling-responder/throttling-respond/host.json) file illustrates this:
 
@@ -71,13 +66,11 @@ Verify the concurrency requirement for your automation function. For example, th
 }
 ```
 
-If your automation task is related to a database update or a similar time-consuming operation, make sure that false alarms caused while the task is getting executed, do not cause unwanted results. Where possible, read the current value before updating to avoid such unwanted results. For example, if the throttling workflow would scale out, it should counter for false alerts.
-
-For both Azure Monitor and Event Grid, you may get alerts or events that indicate progression such as your subscribed event is *resolved*, *fired*, *in progress*, etc., or your resource is *getting created*, *created successfully*, etc, or false alerts sent due to a misconfiguration. Make sure to act only on the relevant alerts and events, and ignore all others, in your automation logic.
+Make sure your automation function is idempotent. Both Azure Monitor and Event Grid may emit alerts or events that indicate progression such as your subscribed event is *resolved*, *fired*, *in progress*, etc., your resource is *being provisioned*, *created successfully*, etc., or even send false alerts due to a misconfiguration. Make sure your automation logic acts only on the relevant alerts and events, and ignores all others. Ensure that false or misconfigured events do not cause unwanted results. Where possible, read the current value before updating it.
 
 ## Resiliency considerations
 
-**Functions**. To avoid HTTP timeouts for a longer automation task, queue this event in a [Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview#queues) and handle the actual automation in a second function. This might be required, for example, if the function needs to update a database, as in the case of the throttling response automation scenario.
+**Functions**. To avoid HTTP timeouts for a longer automation task, queue this event in a [Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview#queues) and handle the actual automation in a second function. This might be required, for example, if the function needs to update a database. The throttling response automation scenario illustrates this pattern, even though the actual CosmosDB RU provisioning does not take a long time.
 
 ![Reliability in automation function](./_images/automation-function-reliability.png)
 
@@ -85,54 +78,64 @@ For both Azure Monitor and Event Grid, you may get alerts or events that indicat
 
 ## Security considerations
 
-**Functions**.
+### **Functions**
 
-1. Control access to the function
+#### Control access to the function
 
-    Both the automation implementations referenced here us http triggers to invoke the function. You can restrict access to your function url by setting the [authorization level](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook?tabs=csharp#trigger---configuration).  With *anonymous* authentication, your function is easily accessible with a URL such as `http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>`. Using *function* level authentication helps you obfuscate your http endpoint, by requiring function keys in the URL. This level is set in the file [function.json](https://github.com/mspnp/serverless-automation/blob/master/src/automation/cost-center/cost-center-tagging/OnResourceWriteSuccess/function.json):
+If the function is getting invoked by an http trigger, restrict access to the function url by setting the [authorization level](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook?tabs=csharp#trigger---configuration).  With *anonymous* authentication, the function is easily accessible with a URL such as `http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>`. Using *function* level authentication helps you obfuscate your http endpoint, by requiring function keys in the URL. This level is set in the file [function.json](https://github.com/mspnp/serverless-automation/blob/master/src/automation/cost-center/cost-center-tagging/OnResourceWriteSuccess/function.json):
 
-    ```JSON
+```JSON
+{
+  "bindings": [
     {
-      "bindings": [
-        {
-          "authLevel": "function",
-          "type": "httpTrigger",
-          "direction": "in",
-          "name": "Request",
-          "methods": [
-            "get",
-            "post"
-          ]
-        },
-        {
-          "type": "http",
-          "direction": "out",
-          "name": "Response"
-        }
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "Request",
+      "methods": [
+        "get",
+        "post"
       ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "Response"
     }
-    ```
+  ]
+}
+```
 
-    For production environment, you might need to implement [additional strategies to secure your function](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook?tabs=csharp#secure-an-http-endpoint-in-production). This is not implemented in the reference implementations, since the functions are executed within the Azure platform, by other services such as Event Grid or Azure Monitor action group, and so are harder to be exposed to hackers. In such a scenario, function authorization is recommended. If using function keys in production, keep the keys secure in a Key Vault.
+For production environment, you might need to implement additional strategies to secure your function. In the reference implementations, the functions are executed within the Azure platform by other Azure services, and will not be exposed to the internet. In such a scenario, function authorization is sufficient. Make sure to secure the function key in a Key Vault.
 
-    For additional security, the following costlier options could be considered:
+For additional security, the following costlier options could be considered:
 
-    - Use a dedicated App Service plan, where you can lock down the functions in a virtual v-net to limit access to it. This is not possible in a consumption-based serverless model.
-    - Try the [Premium plan, which allows a dedicated V-net to be used by your function apps.
+- Use a dedicated App Service plan, where you can lock down the functions in a virtual v-net to limit access to it. This is not possible in a consumption-based serverless model.
+- Try the [Premium plan](https://docs.microsoft.com/en-us/azure/azure-functions/functions-premium-plan), which allows a dedicated V-net to be used by your function apps.
 
-    For price and feature comparison between these models, read [Azure Functions scale and hosting](https://docs.microsoft.com/azure/azure-functions/functions-scale).
+For price and feature comparison between these models, read [Azure Functions scale and hosting](https://docs.microsoft.com/azure/azure-functions/functions-scale).
 
-1. Control what the function can access
+#### Control what the function can access
 
-    The function and the logic app in the cost center tagging workflow can access the resource group only through [Active Directory managed identities](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Permissions need to be explicitly given to the function to be able to read and set tags for these resources. No other service can modify these resources since permissions are given to the automation function.
+[Managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), a feature of Azure Active Directory, simplifies how the function authenticates and accesses other Azure resources and services. The code does not need to manage the authentication credentials, since it is managed by Azure AD.
 
-1. Control what the function can do with the access
+There are two types of managed identities:
 
-    Limit what the function can actually modify for other resources by [setting policies](https://docs.microsoft.com/azure/governance/policy/overview). Unlike RBAC, which controls access for users, Azure Policy controls access to properties such as types or location, for new or existing resources.
+- *System-assigned managed identities*: These are created as part of the Azure resource, and cannot be shared among multiple resources. These get deleted when the resource is deleted. Use these for scenarios which involve single Azure resource or which need independent identities. Both the reference implementations update only a single resource, the cost center tagging workflow updates the tags for Azure resources, while the throttling workflow updates the CosmosDB RU. Note that managed identities are only required to update another resource. For example, a function can read the resource tags without a managed identity. See [these instructions](https://docs.microsoft.com/en-us/azure/app-service/overview-managed-identity?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=dotnet#adding-a-system-assigned-identity) to add a system-assigned identity to your function.
+
+- *User-assigned managed identities*: These are created as stand-alone Azure resource. These can be shared across multiple resources, and need to be explicitly deleted. Use these for scenarios that:
+    1. require access to multiple resource, which can share a single identity,
+    2. need pre-authorization to secure resource during provisioning, or
+    3. where resources recycled frequently, but permissions need to be consistent.
+Read [these instructions](https://docs.microsoft.com/en-us/azure/app-service/overview-managed-identity?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=dotnet#adding-a-user-assigned-identity) on how to add user-assigned identity to your function.
+
+#### Control what the function can do with the access
+
+Limit what the function can actually modify for other resources by [setting policies](https://docs.microsoft.com/azure/governance/policy/overview). While role-based access control or RBAC controls access for users, Azure Policy controls access to resource properties such as types or location, for new or existing resources. 
 
 ## Deployment considerations
 
-Although less critical than a frontend app, an automation workflow should have a separate DevOps pipeline, so that updating the automation function does not affect the main application. Strive to achieve zero downtime deployment, especially when handling a critical resource such as a database. For more discussion on this, read [serverless backend deployment](https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/web-app#back-end-deployment). 
+An automation workflow should have a separate DevOps pipeline, so that updating the automation function does not affect the main application. Strive to achieve zero downtime deployment, especially when handling a critical resource such as a database. For more discussion on this, read [serverless backend deployment](https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/web-app#back-end-deployment).
 
 Keep resources specific to automation workflow in a resource group separate from your main application resource group. This ensures that breaking or fixing the automation does not affect the monitored application.
 
