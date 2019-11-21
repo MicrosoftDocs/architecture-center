@@ -5,7 +5,6 @@ description: Recommended architecture for implementing a simple enterprise integ
 services: logic-apps
 author: mattfarm
 ms.reviewer: jonfan, estfan, LADocs
-ms.topic: article
 ms.date: 12/03/2018
 ms.topic: reference-architecture
 ms.service: architecture-center

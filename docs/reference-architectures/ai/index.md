@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/architecture/reference-architectures/ai/batch-scoring-deep-learning
+redirect_url: https://docs.microsoft.com/azure/architecture/reference-architectures/ai/batch-scoring-deep-learning
 ---

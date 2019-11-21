@@ -7,7 +7,6 @@ ms.topic: article
 ms.service: architecture-center
 ms.subservice: cloud-design-principles
 ms.custom: fasttrack-edit
-ms.custom: 
 ---
 
 # Infrastructure Deployment
