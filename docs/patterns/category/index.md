@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/patterns/category/availability
+redirect_url: https://docs.microsoft.com/azure/patterns/category/availability
 ---

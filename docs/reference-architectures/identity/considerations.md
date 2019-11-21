@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/architecture/reference-architectures/identity
+redirect_url: https://docs.microsoft.com/azure/architecture/reference-architectures/identity
 ---

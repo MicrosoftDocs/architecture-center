@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/architecture/service-fabric/migrate-from-cloud-services
+redirect_url: https://docs.microsoft.com/azure/architecture/service-fabric/migrate-from-cloud-services
 ---
