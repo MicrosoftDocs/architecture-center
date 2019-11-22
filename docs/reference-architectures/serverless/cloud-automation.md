@@ -12,7 +12,7 @@ ms.subservice: reference-architecture
 
 # Serverless cloud automation on Azure
 
-Cloud automation is automating workflows and repetitive tasks on the cloud. Using [serverless technologies](https://azure.microsoft.com/solutions/serverless/) for automation, can dramatically improve productivity of an organization's DevOps team. A serverless model is best suited for automation scenarios which can follow an [event driven approach](https://docs.microsoft.com/azure/architecture/guide/architecture-styles/event-driven). This reference architecture illustrates two such cloud automation scenarios using [Azure Functions](https://docs.microsoft.com/azure/azure-functions/). These functions perform customized automation tasks, triggered by specific events in the infrastructure.
+Cloud automation is automating workflows and repetitive tasks on the cloud. Using [serverless technologies](https://azure.microsoft.com/solutions/serverless/) for automation, can dramatically improve productivity of an organization's DevOps team. A serverless model is best suited for automation scenarios which can follow an [event driven approach](https://docs.microsoft.com/azure/architecture/guide/architecture-styles/event-driven). This reference architecture illustrates two such cloud automation scenarios using [Azure Functions](https://docs.microsoft.com/azure/azure-functions/). These functions perform customized automation tasks, triggered by subscribed events or monitored activity in the infrastructure.
 
 ![Serverless cloud automation](./_images/cloud-automation.png)
 
@@ -37,13 +37,13 @@ To maintain idempotency, the function scaling in the throttling scenario is kept
 
 Additionally, read the [Optimize the performance and reliability of Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-best-practices) for best practices when writing your automation functions.
 
-**Logic App**. [Logic Apps](https://docs.microsoft.com/azure/logic-apps/) can optionally used in this architecture for a predefined workflow. This can be used to perform non-automation related tasks, which can be more easily implemented using [Logic App's built-in connectors](https://docs.microsoft.com/azure/connectors/apis-list), such as sending an email notification.
+**Logic App**. [Logic Apps](https://docs.microsoft.com/azure/logic-apps/) can be optionally used in this architecture for a predefined workflow. This can be used to perform non-automation related tasks, which can be more easily implemented using [Logic App's built-in connectors](https://docs.microsoft.com/azure/connectors/apis-list), such as sending an email notification.
 
 **Event Grid**. [Event Grid](https://docs.microsoft.com/azure/event-grid/overview) has built-in support for events from other Azure services, as well as your own events (as custom topics). Operational events such as resource creation can be easily propagated to the the automation event handler, using the Event Grid's built-in mechanism.
 
 **Azure Monitor**. [Azure Monitor Alerts](https://docs.microsoft.com/azure/azure-monitor/overview#alerts) can monitor for critical conditions, and send alert notifications for corrective action using [action groups](https://azure.microsoft.com/resources/videos/azure-friday-azure-monitor-action-groups/). This is useful to watch for and fix any error conditions in your infrastructure, such as database throttling.
 
-**Automation action**. This broad block represents other services that your function can interact with, to provide the automation functionality. For example, Azure Active Directory for tag validation as in the first scenario, or a service to update such as CosmosDB as in the second scenario.
+**Automation action**. This broad block represents other services that your function can interact with, to provide the automation functionality. For example, Azure Active Directory for tag validation as in the first scenario, or a database to update as in the second scenario.
 
 ## Reliability considerations
 
@@ -74,7 +74,7 @@ Make sure your automation function is idempotent. Both Azure Monitor and Event G
 
 ![Reliability in automation function](./_images/automation-function-reliability.png)
 
-**Event Grid**. If your workflow uses Event Grid, check if your scenario might generate a high enough volume of events to clog the grid. See [Event Grid message delivery and retry](https://docs.microsoft.com/azure/event-grid/delivery-and-retry) to understand how it handles events when delivery isn't acknowledged, and modify your logic accordingly. The cost center workflow does not implement additional checks for this, since it only watches for resource creation events in a resource group. It can also watch for resources created in an entire subscription, which can generate larger number of events, that require resilient handling.
+**Event Grid**. If your workflow uses Event Grid, check if your scenario could generate a high volume of events, enough to clog the grid. See [Event Grid message delivery and retry](https://docs.microsoft.com/azure/event-grid/delivery-and-retry) to understand how it handles events when delivery isn't acknowledged, and modify your logic accordingly. The cost center workflow does not implement additional checks for this, since it only watches for resource creation events in a resource group. Monitoring resources created in an entire subscription, can generate larger number of events, requiring resilient handling.
 
 ## Security considerations
 
@@ -110,23 +110,24 @@ For production environment, you might need to implement additional strategies to
 
 For additional security, the following costlier options could be considered:
 
-- Use a dedicated App Service plan, where you can lock down the functions in a virtual v-net to limit access to it. This is not possible in a consumption-based serverless model.
+- Use a dedicated App Service plan, where you can lock down the functions in a virtual network to limit access to it. This is not possible in a consumption-based serverless model.
 - Try the [Premium plan](https://docs.microsoft.com/azure/azure-functions/functions-premium-plan), which allows a dedicated V-net to be used by your function apps.
 
 For price and feature comparison between these models, read [Azure Functions scale and hosting](https://docs.microsoft.com/azure/azure-functions/functions-scale).
 
 #### Control what the function can access
 
-[Managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), a feature of Azure Active Directory, simplifies how the function authenticates and accesses other Azure resources and services. The code does not need to manage the authentication credentials, since it is managed by Azure AD.
+[Managed identities for Azure resources](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview), an Azure Active Directory feature, simplifies how the function authenticates and accesses other Azure resources and services. The code does not need to manage the authentication credentials, since it is managed by Azure AD.
 
 There are two types of managed identities:
 
-- *System-assigned managed identities*: These are created as part of the Azure resource, and cannot be shared among multiple resources. These get deleted when the resource is deleted. Use these for scenarios which involve single Azure resource or which need independent identities. Both the reference implementations use system-assigned identities since they update only a single resource, the cost center tagging workflow updates the tags for Azure resources, while the throttling workflow updates the CosmosDB RU. Note that managed identities are only required to update another resource. For example, a function can read the resource tags without a managed identity. See [these instructions](https://docs.microsoft.com/azure/app-service/overview-managed-identity?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=dotnet#adding-a-system-assigned-identity) to add a system-assigned identity to your function.
+- *System-assigned managed identities*: These are created as part of the Azure resource, and cannot be shared among multiple resources. These get deleted when the resource is deleted. Use these for scenarios which involve single Azure resource or which need independent identities. Both the reference implementations use system-assigned identities since they update only a single resource. Note that managed identities are only required to update another resource. For example, a function can read the resource tags without a managed identity. See [these instructions](https://docs.microsoft.com/azure/app-service/overview-managed-identity?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=dotnet#adding-a-system-assigned-identity) to add a system-assigned identity to your function.
 
 - *User-assigned managed identities*: These are created as stand-alone Azure resource. These can be shared across multiple resources, and need to be explicitly deleted. Use these for scenarios that:
-    1. require access to multiple resource, which can share a single identity,
-    2. need pre-authorization to secure resource during provisioning, or
-    3. where resources recycled frequently, but permissions need to be consistent.
+
+    - require access to multiple resource, which can share a single identity,
+    - need pre-authorization to secure resource during provisioning, or
+    - where resources recycled frequently, but permissions need to be consistent.
 
 Read [these instructions](https://docs.microsoft.com/azure/app-service/overview-managed-identity?toc=%2Fazure%2Fazure-functions%2Ftoc.json&tabs=dotnet#adding-a-user-assigned-identity) on how to add user-assigned identity to your function.
 
@@ -136,7 +137,7 @@ Once the identity is assigned to the Azure function, assign it a role using [rol
 
 For critical automation workflows that manage behavior of your application, it is strongly recommended to achieve zero downtime deployment with an efficient DevOps pipeline. For more discussion on this, read [serverless backend deployment](https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/web-app#back-end-deployment).
 
-The deployment pipeline for the automation implementations should also be kept separate from the main application. This ensures that updating the automation function does not affect your application. To separate these deployment cycles, you must use a [separate resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) for all the resources required by the automation implementation.
+The deployment pipeline for the automation implementations should also be kept separate from the main application. This ensures that updating the automation function does not affect your application. To separate these deployment cycles, you must use a [separate resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) for all the resources required by the automation.
 
 ## Deploy the solution
 
