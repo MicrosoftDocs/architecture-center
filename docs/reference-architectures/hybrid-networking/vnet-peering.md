@@ -22,15 +22,15 @@ VNet peering enables you to seamlessly connect Azure virtual networks. Once peer
 - VNet peering - connecting VNets within the same Azure region
 - Global VNet peering - connecting VNets across Azure regions
 
-To learn more, look at our documentation overview "Virtual network peering" and "Create, change, or delete a virtual network peering."
+To learn more, look at our documentation overview ["Virtual network peering"](https://docs.microsoft.com/azure/virtual-network/tutorial-connect-virtual-networks-portal) and ["Create, change, or delete a virtual network peering."](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-peering)
 
 ## VPN gateways
 
 A VPN gateway is a specific type of VNet gateway that is used to send traffic between an Azure virtual network and an on-premises location over the public internet. You can also use a VPN gateway to send traffic between VNets. Each VNet can have only one VPN gateway.
 
-To learn more, look at our documentation overview "What is VPN Gateway?" and "Configure a VNet-to-VNet VPN gateway connection by using the Azure portal."
+To learn more, look at our documentation overview ["What is VPN Gateway?"](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways) and ["Configure a VNet-to-VNet VPN gateway connection by using the Azure portal."](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal)
 
-## Which is best for you?
+## Which is best for you
 
 While we offer two ways to connect VNets, based on your specific scenario and needs, you might want to pick one over the other.
 VNet Peering provides a low latency, high bandwidth connection useful in scenarios such as cross-region data replication and database failover scenarios. Since traffic is completely private and remains on the Microsoft backbone, customers with strict data policies prefer to use VNet Peering as public internet is not involved. Since there is no gateway in the path, there are no extra hops, ensuring low latency connections.
@@ -39,9 +39,10 @@ VPN Gateways provide a limited bandwidth connection and is useful in scenarios w
 ## VNet Peering and VPN Gateways can also co-exist via gateway transit
 
 Gateway transit enables you to use a peered VNet’s gateway for connecting to on-premises instead of creating a new gateway for connectivity. As you increase your workloads in Azure, you need to scale your networks across regions and VNets to keep up with the growth. Gateway transit allows you to share an ExpressRoute or VPN gateway with all peered VNets and lets you manage the connectivity in one place. Sharing enables cost-savings and reduction in management overhead.
+
 With gateway transit enabled on VNet peering, you can create a transit VNet that contains your VPN gateway, Network Virtual Appliance, and other shared services. As your organization grows with new applications or business units and as you spin up new VNets, you can connect to your transit VNet with VNet peering. This prevents adding complexity to your network and reduces management overhead of managing multiple gateways and other appliances.
 
-To learn more about the powerful and unique functionality of gateway transit, refer to our blog post "Create a transit VNet using VNet peering."
+To learn more about the powerful and unique functionality of gateway transit, refer to our blog post ["Create a transit VNet using VNet peering."](https://azure.microsoft.com/blog/create-a-transit-vnet-using-vnet-peering/)
 
 ## Differences between VNet Peering and VPN Gateways
 
