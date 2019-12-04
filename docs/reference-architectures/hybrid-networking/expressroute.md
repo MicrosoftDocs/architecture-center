@@ -7,7 +7,7 @@ ms.date: 07/23/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
-ms.custom: seodec18, networking
+ms.custom: seodec18, networking, fcp
 ---
 
 # Connect an on-premises network to Azure using ExpressRoute

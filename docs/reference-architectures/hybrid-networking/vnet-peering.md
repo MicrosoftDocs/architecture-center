@@ -7,7 +7,7 @@ ms.date: 12/13/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
-ms.custom: networking
+ms.custom: networking, fcp
 ---
 
 # Choose between virtual network peering and VPN gateways in Azure

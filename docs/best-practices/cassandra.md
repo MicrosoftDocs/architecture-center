@@ -6,6 +6,7 @@ ms.author: arsenv
 ms.date: 09/19/2019
 ms.topic: best-practice
 ms.service: architecture-center
+ms.customer: fcp
 ---
 # Run Apache Cassandra on Azure VMs
 
