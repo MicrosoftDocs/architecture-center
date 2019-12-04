@@ -664,7 +664,7 @@ items:
       items:
       - name: Choose a hybrid network architecture
         href: reference-architectures/hybrid-networking/index.md
-      - name: Choosing between VNet Peering and VPN Gateways
+      - name: Choose between virtual network peering and VPN gateways
         href: reference-architectures/hybrid-networking/vnet-peering.md
       - name: VPN
         href: reference-architectures/hybrid-networking/vpn.md
