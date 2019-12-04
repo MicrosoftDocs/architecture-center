@@ -7,7 +7,7 @@ ms.date: 08/19/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
-ms.custom: seodec18, networking
+ms.custom: seodec18, networking, fcp
 ---
 
 # Hub-spoke network topology in Azure
