@@ -43,7 +43,7 @@ In general, avoid using a special character, such as a hyphen (`-`) or underscor
 
 | Entity | Scope | Length | Casing | Valid characters |
 | --- | --- | --- | --- | --- |
-|Web app |Global |1-60 |Insensitive |0-9, a-z, A-Z, and `-` |
+|Web app |Global |2-60 |Insensitive |0-9, a-z, A-Z, and `-` |
 |Web app name |Resource group | 3-24 | Insensitive| 0-9, a-z, A-Z, and `-` |
 |Slot name | Web app | 2-59 | Insensitive|0-9, a-z, A-Z, and `-`|
 |Web app setting name | Web app | N/A | Insensitive | All characters |
