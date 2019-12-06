@@ -13,7 +13,7 @@ ms.custom: seodec18
 
 This article summarizes naming rules and restrictions for Azure resources.
 
-Each resource or service type in Azure enforces a set of naming rules and scope. Any naming convention or pattern must follow the naming rules and scope. For example, the name of a virtual machine (VM) maps to a DNS name, so the VM name must be unique throughout Azure. But the name of a VM is scoped to the resource group in which it resides.
+Each resource or service type in Azure enforces a set of naming rules and scope. Any naming convention or pattern must follow the naming rules and scope. For example, Some resource names, such as PaaS services with public endpoints or virtual machine DNS labels, have global scopes, which means that they must be unique across the entire Azure platform. But the name of a VM is scoped to the resource group in which it resides.
 
 In general, avoid using a special character, such as a hyphen (`-`) or underscore (`_`), as the first or last character in any name. These characters cause most validation rules to fail.
 
