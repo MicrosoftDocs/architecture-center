@@ -702,7 +702,7 @@ items:
       - name: CI/CD for a serverless frontend
         href: serverless/guide/serverless-app-cicd-best-practices.md
       - name: Sharing location in real time using Functions, SignalR and Service Bus
-        href: example-scenario/signalr/signalr.md
+        href: example-scenario/signalr/index.md
 
   - name: VM workloads
     items:
