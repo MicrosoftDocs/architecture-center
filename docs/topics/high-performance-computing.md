@@ -288,7 +288,11 @@ Containers can also be used to manage some HPC workloads.  Services like the Azu
 
 Managing your HPC cost on Azure can be done through a few different ways.  Ensure you've reviewed the [Azure purchasing options](https://azure.microsoft.com/pricing/purchase-options/) to find the method that works best for your organization.
 
-[Low priority VMs](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority) allow you to take advantage of our unutilized capacity at a significant cost savings.
+Low priority VMs allow you to take advantage of our unutilized capacity at a significant cost savings.
+
+- [Low-priority VM Scale Sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-low-priority).
+- [Low-priority VMs on Batch](/azure/batch/batch-low-pri-vms).
+- [Low-priority pricing](https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/).
 
 ## Security
 
