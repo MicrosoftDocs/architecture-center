@@ -46,11 +46,11 @@ Here are some of the considerations taken to develop this scenario, including ho
 
 If you can remember the above two features of SignalR platform, it will be a easy to get up and running quickly.
 
-### Availability, Scalability, and Security
+### Availability, scalability, and security
 
 You can achieve high availability of this solution by performing the following steps:
 
-#### Regional Pairing
+#### Regional pairing
 
 Each Azure region is paired with another region within the same geography. In general, choose regions from the same regional pair (for example, East US 2 and Central US). Benefits of doing so include:
 
@@ -109,7 +109,7 @@ This function is triggered by a Service Bus Trigger. It has a binding with Signa
 
 Now, let's configure the client application to test. First, grab the example sources from [here](https://github.com/mspnp/solution-architectures/tree/master/signalr)
 
-### SignalR Client
+### SignalR client
 
 This a simple .NET Core web application to subscribe to the hub created by FunctionApp6 and display messages received on the Service Bus Queue in real time. Although you can use FunctionApp6 to work with a mobile client but for the purpose of this repository, we'll stick to the web client.
 
@@ -131,7 +131,7 @@ This is a node js script to push a message to the Service Bus so that you can te
 2. Enter your connection strings and queue name in the script.
 3. Run the script.
 
-## Next Steps
+## Next steps
 
 You can take this scenario into your production environment, however, make sure your Azure services are set to scale. For instance, your Azure Service Bus should be set to a standard or premium plan.
 
@@ -147,7 +147,7 @@ No doubt that Pusher and PubNub are the widely adopted platforms for real-time m
 
 [Here's](https://github.com/SignalR/SignalR) a link to SignalR's open-source repository on GitHub.
 
-## Related Resources
+## Related resources
 
 [This article explains](https://docs.microsoft.com/azure/azure-functions/functions-bindings-service-bus) how to work with Azure Service Bus bindings in Azure Functions. Azure Functions supports trigger and output bindings for Service Bus queues and topics.
 
