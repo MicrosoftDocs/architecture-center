@@ -236,6 +236,11 @@
       "redirect_document_id": true
     },
     {
+      "source_path": "docs/guide/architecture-styles/cqrs.md",
+      "redirect_url": "/azure/architecture/patterns/cqrs",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "docs/data-guide/relational-data/index.md",
       "redirect_url": "/azure/architecture/data-guide",
       "redirect_document_id": true
@@ -271,8 +276,7 @@
     },
     {
       "source_path": "docs/cloud-adoption/getting-started/azure-resource-access.md",
-      "redirect_url": "/azure/architecture/cloud-adoption/governance/resource-consistency/azure-resource-access",
-      "redirect_document_id": true
+      "redirect_url": "/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management",
     },
     {
       "source_path": "docs/cloud-adoption/getting-started/what-is-governance.md",
@@ -427,35 +431,35 @@
     },
     {
       "source_path": "docs/cloud-adoption-guide/adoption-intro/azure-resource-access.md",
-      "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
+      "redirect_url": "/cloud-adoption-framework/ready/azure-setup-guide/manage-access"
     },
     {
       "source_path": "docs/cloud-adoption-guide/adoption-intro/resource-group-explainer.md",
-      "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
+      "redirect_url": "/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources"
     },
     {
       "source_path": "docs/cloud-adoption-guide/adoption-intro/resource-group.md",
-      "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
+      "redirect_url": "/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources"
     },
     {
       "source_path": "docs/cloud-adoption-guide/adoption-intro/resource-manager-explainer.md",
-      "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
+      "redirect_url": "/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources"
     },
     {
       "source_path": "docs/cloud-adoption-guide/adoption-intro/subscription-explainer.md",
-      "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
+      "redirect_url": "/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources"
     },
     {
       "source_path": "docs/cloud-adoption-guide/adoption-intro/subscription.md",
-      "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
+      "redirect_url": "/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources"
     },
     {
       "source_path": "docs/cloud-adoption-guide/adoption-intro/tenant-explainer.md",
-      "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
+      "redirect_url": "/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources"
     },
     {
       "source_path": "docs/cloud-adoption-guide/adoption-intro/tenant.md",
-      "redirect_url": "/azure/architecture/cloud-adoption/getting-started/azure-resource-access"
+      "redirect_url": "/azure/cloud-adoption-framework/ready/azure-setup-guide/organize-resources"
     },
     {
       "source_path": "docs/cloud-adoption-guide/intermediate-stage/governance-design-guide.md",
@@ -1835,6 +1839,16 @@
     {
       "source_path": "docs/service-fabric/index.md",
       "redirect_url": "https://docs.microsoft.com/azure/architecture/service-fabric/migrate-from-cloud-services",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/cloud-adoption/operations/overview.md",
+      "redirect_url": "https://docs.microsoft.com/azure/cloud-adoption-framework/operating-model",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "docs/example-scenario/index.experimental.md",
+      "redirect_url": "https://docs.microsoft.com/azure/architecture/example-scenario/index",
       "redirect_document_id": false
     }
   ]
