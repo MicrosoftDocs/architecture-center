@@ -277,7 +277,6 @@
     {
       "source_path": "docs/cloud-adoption/getting-started/azure-resource-access.md",
       "redirect_url": "/azure/cloud-adoption-framework/govern/resource-consistency/resource-access-management",
-      "redirect_document_id": true
     },
     {
       "source_path": "docs/cloud-adoption/getting-started/what-is-governance.md",
