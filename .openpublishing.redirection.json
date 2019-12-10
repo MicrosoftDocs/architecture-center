@@ -238,7 +238,7 @@
     {
       "source_path": "docs/guide/architecture-styles/cqrs.md",
       "redirect_url": "/azure/architecture/patterns/cqrs",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path": "docs/data-guide/relational-data/index.md",
