@@ -2,7 +2,7 @@
 title: Real-time scoring of R machine learning models
 description:  Implement a real-time prediction service in R using Machine Learning Server running in Azure Kubernetes Service (AKS).
 author: njray
-ms.date: 12/12/2018
+ms.date: 12/10/2019
 ms.topic: reference-architecture
 ms.service: architecture-center
 ms.subservice: reference-architecture
@@ -25,7 +25,7 @@ The architecture of this workflow includes the following components.
 
 - **[Azure Kubernetes Service][aks]** is used to host the deployment and service. Clusters created with AKS can be managed using the standard [Kubernetes API][k-api] and client (kubectl).
 
-- **[Plumber][plumber]** is used to define the REST API for the service. This is an open-source package for exposing R code, such as predictive models, via a REST API.
+- **[Plumber][plumber]** is used to define the REST API for the service. Plumber is an open-source package for exposing R code, such as predictive models, via a REST API.
 
 - **[Traefik][traefik]** provides a middleware layer for basic authentication and TLS encryption.
 
@@ -47,7 +47,7 @@ In this reference architecture, HTTPS is enabled for communication with the clus
 
 ### Authentication and authorization
 
-In this architecture, access to the AKS cluster endpoint is secured using HTTP basic authentication. This allows anybody who knows the username and password to access the endpoint; it's strongly recommended to provide an additional layer of authentication on top of this, for example with [Azure API Management][API].
+In this architecture, access to the AKS cluster endpoint is secured using HTTP basic authentication. This allows anybody who knows the username and password to access the endpoint. It's strongly recommended to provide an additional layer of authentication on top of this, for example with [Azure API Management][API].
 
 Traffic between Container Registry and AKS is authenticated using [role-based access control][rbac] (RBAC) to limit access privileges to only those needed.
 
@@ -63,16 +63,15 @@ Although the dashboard gives you a view of the overall health of your cluster, i
 
 ## Cost considerations
 
-The main cost consideration in this architecture is the Kubernetes cluster's compute resources. The cluster must be large enough to handle the expected request volume at peak times, but this approach leaves resources idle at other times. To limit the impact of idle resources, enable the [horizontal autoscaler][autoscaler] for the cluster using the kubectl tool. Or use the AKS [cluster autoscaler][cluster-autoscaler].
+The main cost consideration in this architecture is the Kubernetes cluster's compute resources. The cluster must be large enough to handle the expected request volume at peak times, but this approach leaves resources idle at other times. To limit the impact of idle resources, enable the [horizontal autoscaler][autoscaler] for the cluster using the kubectl tool. or use the AKS [cluster autoscaler][cluster-autoscaler].
 
 ## Software alternatives
 
-An alternative to Plumber is [Microsoft Machine Learning Server][mmls], which provides a [Model operationalization][operationalization] feature for exposing predictive models via REST APIs. MMLS has the advantage of providing built-in authentication, which may reduce or eliminate the need for a separate authentication layer. Note however that MMLS is commercial software, licensed on a per-core basis. If you are an enterprise Machine Learning Server or Microsoft SQL Server customer, contact your Microsoft representative for pricing details.
+An alternative to Plumber is [Microsoft Machine Learning Server][mmls], which provides a [model operationalization][operationalization] feature for exposing predictive models via REST APIs. MMLS has the advantage of providing built-in authentication, which may reduce or eliminate the need for a separate authentication layer. Note however that MMLS is commercial software, licensed on a per-core basis. If you are an enterprise Machine Learning Server or Microsoft SQL Server customer, contact your Microsoft representative for pricing details.
 
 [Nginx][nginx] and [Cert-Manager][cert-manager] can be used rather than Traefik to provide the middleware layer.
 
-This architecture provides a pure R experience. It doesn't use the [Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) oriented [Azure Machine Learning Services](/azure/machine-learning/service/overview-what-is-azure-ml#what-is-azure-machine-learning-1) (__AzureML SDK__), which is a mature cloud service for developing AI solutions at scale. AzureML SDK provides an easy path for development and deployment of containerized scoring scripts. We provide an [alternative solution](https://github.com/microsoft/AMLSDKRModelsOperationalization) that shows how to use [Conda](https://conda.io/en/latest/) to [install R](https://docs.anaconda.com/anaconda/user-guide/tasks/use-r-language/) and R packages to leverage AzureML SDK via the [rpy2](https://rpy2.bitbucket.io/) Python package. The value in using this alternative to operationalize R models is that you don't need to know Flask, and you can reuse AzureML SDK expertise, which can be useful for teams that are comfortable using both R and Python languages for their data science projects. The implementation of this alternative architecture is [available on GitHub](https://github.com/microsoft/AMLSDKRModelsOperationalization).
-
+This architecture provides a pure R experience. It doesn't use the [Python](/python/api/overview/azure/ml/intro?view=azure-ml-py)-oriented [Azure Machine Learning Services](/azure/machine-learning/service/overview-what-is-azure-ml#what-is-azure-machine-learning-1) (AzureML SDK), which is a mature cloud service for developing AI solutions at scale. AzureML SDK provides an easy path for developing and deploying containerized scoring scripts. We provide an [alternative solution](https://github.com/microsoft/AMLSDKRModelsOperationalization) that shows how to use [Conda](https://conda.io/en/latest/) to [install R](https://docs.anaconda.com/anaconda/user-guide/tasks/use-r-language/) and R packages to leverage AzureML SDK via the [rpy2](https://rpy2.bitbucket.io/) Python package. The value of using this alternative to operationalize R models is that you don't need to know Flask, and you can reuse AzureML SDK expertise, which can be useful for teams that are comfortable using both R and Python languages for their data science projects. The implementation of this alternative architecture is [available on GitHub](https://github.com/microsoft/AMLSDKRModelsOperationalization).
 
 ## Deploy the solution
 
