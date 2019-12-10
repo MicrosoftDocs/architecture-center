@@ -236,7 +236,7 @@ To deploy the Linux VMs for an N-tier application reference architecture, follow
 [ddos]: /azure/virtual-network/ddos-protection-overview
 [dmz]: ../dmz/secure-vnet-dmz.md
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/virtual-machines/n-tier-linux
-[load-balancer-hashing]: /azure/load-balancer/load-balancer-overview#fundamental-load-balancer-features
+[load-balancer-hashing]: /azure/load-balancer/load-balancer-overview#load-balancer-concepts
 [load-balancer]: /azure/load-balancer/load-balancer-get-started-internet-arm-cli
 [network-security]: /azure/best-practices-network-security
 [nsg]: /azure/virtual-network/virtual-networks-nsg
