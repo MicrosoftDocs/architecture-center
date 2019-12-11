@@ -75,7 +75,7 @@ In general, avoid using a special character, such as a hyphen (`-`) or underscor
 |Subnet |Parent VNet |2-80 |Insensitive |Alphanumeric, hyphen, underscore, and period |
 |Network interface |Resource group |1-80 |Insensitive |Alphanumeric, hyphen, underscore, and period |
 |Network security group |Resource group |1-80 |Insensitive |Alphanumeric, hyphen, underscore, and period |
-|Network security group rule |Resource group |1-80 |Insensitive |Alphanumeric, hyphen, underscore, and period |
+|Network security group rule |NSG |1-80 |Insensitive |Alphanumeric, hyphen, underscore, and period |
 |Public IP address |Resource group |1-80 |Insensitive |Alphanumeric, hyphen, underscore, and period |
 |Load balancer |Resource group |1-80 |Insensitive |Alphanumeric, hyphen, underscore, and period |
 |Load-balanced rules config |Load balancer |1-80 |Insensitive |Alphanumeric, hyphen, underscore, and period |
