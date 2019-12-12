@@ -12,7 +12,7 @@ This SAP S/4HANA on Azure VM solution architecture illustrates how a user reques
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="sap-s4-hana-vm-on-linux" height="852.937" viewbox="0 0 1046.913 852.937" width="1046.913" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title id="sap-s4-hana-vm-on-linux">SAP S/4HANA VM on Linux</title><desc>This SAP S/4HANA on Azure VM solution architecture illustrates how a user request flows through an SAP landscape built using high-performance Azure Virtual Machines and in-memory SAP HANA databases running on Azure Virtual Machines for unparalleled scalability and performance. This system takes advantage of Linux OS clustering for high availability, premium storage for performance, data replication for high availability via HANA System Replication (HSR), and a full disaster recovery (DR) configuration for guaranteed 99.95% system availability with asynchronous HSR.</desc><g id="Layer_3"></g><g id="Layer_1"><g><g><image height="149" style="overflow:visible;opacity:0.25;" transform="matrix(1 0 0 1 182.9889 683.9697)" width="678" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAqYAAACVCAYAAACKCji1AAAACXBIWXMAAAsSAAALEgHS3X78AAAA
+<svg class="architecture-diagram" aria-labelledby="sap-s4-hana-vm-on-linux" height="852.937" viewbox="0 0 1046.913 852.937" width="1046.913" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><title id="sap-s4-hana-vm-on-linux">SAP S/4HANA VM on Linux</title><desc>This SAP S/4HANA on Azure VM solution architecture illustrates how a user request flows through an SAP landscape built using high-performance Azure Virtual Machines and in-memory SAP HANA databases running on Azure Virtual Machines for unparalleled scalability and performance. This system takes advantage of Linux OS clustering for high availability, premium storage for performance, data replication for high availability via HANA System Replication (HSR), and a full disaster recovery (DR) configuration for guaranteed 99.95% system availability with asynchronous HSR.</desc><g id="Layer_3"></g><g id="Layer_1"><g><g><image height="149" style="overflow:visible;opacity:0.25;" transform="matrix(1 0 0 1 182.9889 683.9697)" width="678" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAqYAAACVCAYAAACKCji1AAAACXBIWXMAAAsSAAALEgHS3X78AAAA
 GXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABJdJREFUeNrs3UtPE2EUgOHpBUgE
 IrJQoyvj//9bBEm4FkhaaMfzyRn8LIw4DTEsnic5mXamZdHVm9MLTQMAAG/A6IXzIy8RAACvqF07
 9obpqJpxzkigAgDwCkFaZpXTVvMkTLsYncRMY7bzOKkCFQAANonSEqPLmPuYRR6XVaT+Cs86TCcZ
@@ -1683,17 +1683,17 @@ Y6o+AgAA8D9+CDAAMBi8XPMDkIMAAAAASUVORK5CYII="/><g><g><rect height="297.345" styl
 1. SAP App Server with ASCS on the DR side can be in standby shutdown mode, and can be started when needed to save costs.
 
 ## Components
-* SAP on Azure requires that you run your SAP workloads on certified Microsoft Azure [Virtual Machines](http://azure.microsoft.com/services/virtual-machines/). SAP requires at least two vCPUs and a ratio of 6:1 between memory and vCPU. 
+* SAP on Azure requires that you run your SAP workloads on certified Microsoft Azure [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/). SAP requires at least two vCPUs and a ratio of 6:1 between memory and vCPU. 
 M-Series VMs, and GS5 VM are optimized to run demanding SAP HANA workloads.
-* Azure [Premium Storage](http://azure.microsoft.com/services/storage/disks/) provides improved throughput and less variability in I/O latencies. For improved performance, [Premium Storage](http://azure.microsoft.com/services/storage/disks/) uses SSD in Azure Storage nodes, and read cache that's backed by the local SSD of an Azure compute node.
-Azure Write Accelerator is a performance enhancement for M-Series VMs exclusively. It improves I/O latency of writes against Azure [Premium Storage](http://azure.microsoft.com/services/storage/disks/).
-* Azure [ExpressRoute](http://azure.microsoft.com/services/expressroute/) used on the front end (see diagram) provides a high bandwidth secure connectivity to establish reliable connections between your network and the Microsoft Azure network.
-* Azure [Virtual Network](http://azure.microsoft.com/services/virtual-network/)s provide the flexibility and security needed to establish reliable connections between your network and the Microsoft Azure network.
+* Azure [Premium Storage](https://azure.microsoft.com/services/storage/disks/) provides improved throughput and less variability in I/O latencies. For improved performance, [Premium Storage](https://azure.microsoft.com/services/storage/disks/) uses SSD in Azure Storage nodes, and read cache that's backed by the local SSD of an Azure compute node.
+Azure Write Accelerator is a performance enhancement for M-Series VMs exclusively. It improves I/O latency of writes against Azure [Premium Storage](https://azure.microsoft.com/services/storage/disks/).
+* Azure [ExpressRoute](https://azure.microsoft.com/services/expressroute/) used on the front end (see diagram) provides a high bandwidth secure connectivity to establish reliable connections between your network and the Microsoft Azure network.
+* Azure [Virtual Network](https://azure.microsoft.com/services/virtual-network/)s provide the flexibility and security needed to establish reliable connections between your network and the Microsoft Azure network.
 
 ## Next Steps
 * [SAP Certifications for Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications)
 * [Premium Storage: high-performance storage for Azure Virtual Machine workloads](https://docs.microsoft.com/azure/storage/storage-premium-storage)
-* [ExpressRoute overview](http://azure.microsoft.com/services/expressroute/)
+* [ExpressRoute overview](https://azure.microsoft.com/services/expressroute/)
 * [Virtual Network overview](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
 
-[!INCLUDE [js_include_file](../_js/index.md)]
+[!INCLUDE [js_include_file](../../_js/index.md)]
