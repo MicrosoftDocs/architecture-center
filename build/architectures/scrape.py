@@ -131,7 +131,7 @@ for i in image:
             svgtext=temp.read()
         finally:
             temp.close()
-        #     os.unlink(temp.name)
+            os.unlink(temp.name)
 
 
         articletext += "\n\n## Architecture"
