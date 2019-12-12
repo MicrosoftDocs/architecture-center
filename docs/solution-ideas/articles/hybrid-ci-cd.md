@@ -13,8 +13,7 @@ ms.custom: acom-architecture, CI/CD, Azure CI/CD, Continuous Integration And Con
         <span class="icon is-left" aria-hidden="true">
             <span class="icon docon docon-lightbulb" role="presentation"></span>
         </span>Solution Idea</p>
-    <p>If you'd like to see us add more information to this article, let us know with <a href="#feedback">GitHub Feedback</a>!</p>
-    <p>Based on your feedback, this solution idea could be expanded to include implementation details, pricing guidance, code examples, and deployment templates.</p>
+    <p>If you'd like to see us expand this article with more information (implementation details, pricing guidance, code examples, etc), let us know with <a href="#feedback">GitHub Feedback</a>!</p>
 </div>
 
 Implementing a continuous integration/continuous development (CI/CD) approach to deploying applications becomes difficult when on-premises applications are built and operated in different ways than cloud applications. Having a consistent set of development tools and processes across the Azure public cloud and on-premises Azure Stack environments makes it far easier for organizations to implement a practice of CI/CD. Apps and services deployed the right way in Azure and Azure Stack are essentially interchangeable and can run in either location.
