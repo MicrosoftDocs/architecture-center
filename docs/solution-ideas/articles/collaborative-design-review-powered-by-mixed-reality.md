@@ -2,13 +2,21 @@
 title: Design Review Powered by Mixed Reality
 author: adamboeglin
 ms.date: 12/12/2019
-description: Too often, product designers waste time and money with inefficient design reviewâ€”2D images lose essential detail and context, and physical prototypes are extremely expensive. With this mixed reality scenario, clients, designers, and on-site engineers can easily share and review designs as 3D holograms in the context of their environment, accelerating design decisions and reducing time to market.
+description: Too often, product designers waste time and money with inefficient design review—2D images lose essential detail and context, and physical prototypes are extremely expensive. With this mixed reality scenario, clients, designers, and on-site engineers can easily share and review designs as 3D holograms in the context of their environment, accelerating design decisions and reducing time to market.
 ms.custom: acom-architecture, Azure Spatial Anchors, Azure Active Directory, Cosmos DB, Blob Storage, Web Service, Microsoft Hololens, interactive-diagram
+titleSuffix: Azure Solution Ideas
 ---
 # Design Review Powered by Mixed Reality
 
-Businesses and teams across industries have to spend time and money on design reviews. 2D images lose essential detail and context, and physical prototypes are extremely expensive. With this mixed reality scenario, clients, designers, and onsite engineers can easily share and review designs as 3D holograms in the context of their environment, accelerating design decisions and reducing time to market.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+Businesses and teams across industries have to spend time and money on design reviews. 2D images lose essential detail and context, and physical prototypes are extremely expensive. With this mixed reality scenario, clients, designers, and onsite engineers can easily share and review designs as 3D holograms in the context of their environment, accelerating design decisions and reducing time to market.
 
 ## Architecture
 
@@ -138,13 +146,13 @@ Businesses and teams across industries have to spend time and money on design re
 <p>Device 1 creates an anchor using Azure Spatial Anchors and gets back an anchor ID.</p>
 </div>
 <div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Device 1 sends the anchor ID to the appâ€™s web service to create a collaboration session. It also specifies which hologram is to be displayed via its ID in Azure Blob storage.</p>
+<p>Device 1 sends the anchor ID to the app’s web service to create a collaboration session. It also specifies which hologram is to be displayed via its ID in Azure Blob storage.</p>
 </div>
 <div class="architecture-tooltip-content" id="architecture-tooltip-4">
 <p>Session information, including a 6-digit code to join the session, is stored in Azure Cosmos DB. That code is returned to the client, allowing the user of that device to invite others to join.</p>
 </div>
 <div class="architecture-tooltip-content" id="architecture-tooltip-5">
-<p>Device 2 connects to the appâ€™s web service and enters the code to join the session (displayed on Device 1).</p>
+<p>Device 2 connects to the app’s web service and enters the code to join the session (displayed on Device 1).</p>
 </div>
 <div class="architecture-tooltip-content" id="architecture-tooltip-6">
 <p>The web service retrieves the anchor ID for the session and the ID of the hologram associated to that session from Azure Cosmos DB.</p>
@@ -165,9 +173,9 @@ Businesses and teams across industries have to spend time and money on design re
 ## Data Flow
 1. Users of the client application authenticate using their Azure Active Directory credentials from HoloLens or a mobile device.
 1. Device 1 creates an anchor using Azure Spatial Anchors and gets back an anchor ID.
-1. Device 1 sends the anchor ID to the appâ€™s web service to create a collaboration session. It also specifies which hologram is to be displayed via its ID in Azure Blob storage.
+1. Device 1 sends the anchor ID to the app’s web service to create a collaboration session. It also specifies which hologram is to be displayed via its ID in Azure Blob storage.
 1. Session information, including a 6-digit code to join the session, is stored in Azure Cosmos DB. That code is returned to the client, allowing the user of that device to invite others to join.
-1. Device 2 connects to the appâ€™s web service and enters the code to join the session (displayed on Device 1).
+1. Device 2 connects to the app’s web service and enters the code to join the session (displayed on Device 1).
 1. The web service retrieves the anchor ID for the session and the ID of the hologram associated to that session from Azure Cosmos DB.
 1. The web service retrieves a SAS key to access the hologram associated to the session from Blob storage. It then returns the anchor ID and SAS key to Device 2.
 1. Device 2 queries Azure Spatial Anchors to get coordinates for the anchor ID retrieved in step 6.
@@ -175,13 +183,13 @@ Businesses and teams across industries have to spend time and money on design re
 1. Device 1 and Device 2 exchange state information over a peer-to-peer networking channel (or through a service relay of your choice).
 
 ## Components
-* [Azure Active Directory](http://azure.microsoft.com/services/active-directory/): Synchronize on-premises directories and enable single sign-on
-* [Blob Storage](http://azure.microsoft.com/services/storage/blobs/): REST-based object storage for unstructured data
-* [Azure Cosmos DB](http://azure.microsoft.com/services/cosmos-db/): Globally distributed, multi-model database for any scale
+* [Azure Active Directory](https://azure.microsoft.com/services/active-directory/): Synchronize on-premises directories and enable single sign-on
+* [Blob Storage](https://azure.microsoft.com/services/storage/blobs/): REST-based object storage for unstructured data
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/): Globally distributed, multi-model database for any scale
 
 ## Next Steps
-* [Azure Active Directory documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant/)
-* [Blob Storage documentation](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows)
-* [Azure Cosmos DB documentation](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet/)
+* [Azure Active Directory documentation](/azure/active-directory/fundamentals/active-directory-access-create-new-tenant/)
+* [Blob Storage documentation](/azure/storage/blobs/storage-quickstart-blobs-dotnet?tabs=windows)
+* [Azure Cosmos DB documentation](/azure/cosmos-db/create-sql-api-dotnet/)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

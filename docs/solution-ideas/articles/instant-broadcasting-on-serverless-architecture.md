@@ -4,11 +4,19 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Simplify one-to-many real-time communication and updates using serverless code
 ms.custom: acom-architecture, serverless, signalr service, interactive-diagram
+titleSuffix: Azure Solution Ideas
 ---
 # Instant Broadcasting on Serverless Architecture
 
-Simplify one-to-many real-time communication and updates using serverless code.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+Simplify one-to-many real-time communication and updates using serverless code.
 
 ## Architecture
 
@@ -217,7 +225,7 @@ Simplify one-to-many real-time communication and updates using serverless code.
 <p>Functions pushes data to SignalR Service</p>
 </div>
 <div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>â€¦which in turn pushes data to client</p>
+<p>…which in turn pushes data to client</p>
 </div>
 
 ## Data Flow
@@ -226,6 +234,6 @@ Simplify one-to-many real-time communication and updates using serverless code.
 1. User connects to web app
 1. Connection triggers database event via Functions
 1. Functions pushes data to SignalR Service
-1. â€¦which in turn pushes data to client
+1. …which in turn pushes data to client
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

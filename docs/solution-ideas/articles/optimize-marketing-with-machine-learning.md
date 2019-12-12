@@ -4,17 +4,25 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Learn how to build a machine-learning model with SQL Server 2016 with R Services to optimize and manage marketing campaigns.
 ms.custom: acom-architecture, machine learning r, machine learning in marketing, machine learning marketing
+titleSuffix: Azure Solution Ideas
 ---
 # Optimize Marketing with Machine Learning
 
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
+
 Marketing campaigns are about more than the message being delivered; when and how that message is delivered is just as important. Without a data-driven, analytical approach, campaigns can easily miss opportunities or struggle to gain traction.
 
-Through machine learning informed by historical campaign data, this solution helps predict customer responses and recommends an optimized plan for connecting with your leadsâ€”including the best channel to use (by email, SMS, a cold call, etc.), the best day of the week, and the best time of the day.
+Through machine learning informed by historical campaign data, this solution helps predict customer responses and recommends an optimized plan for connecting with your leads—including the best channel to use (by email, SMS, a cold call, etc.), the best day of the week, and the best time of the day.
 
 Optimizing your campaigns with machine learning helps improve both sales leads and revenue generation and can provide strong ROI for your marketing investment.
 
 In this solution, SQL Server R Services brings the compute to the data by running R on the computer that hosts the database.
-
 
 ## Architecture
 
@@ -52,15 +60,14 @@ In this solution, SQL Server R Services brings the compute to the data by runnin
     </g>
 </svg>
 
-
 ## Components
-* [SQL Server R Services](https://www.microsoft.comhttp://azure.microsoft.com/sql-server/sql-server-r-services): SQL Server stores the campaign and lead data. R-based analytics provide training and predicted models and predicted results for consumption using R.
-* [Machine Learning Studio](http://azure.microsoft.com/services/machine-learning-studio/): Machine Learning helps you easily design, test, operationalize, and manage predictive analytics solutions in the cloud.
+* [SQL Server R Services](https://www.microsoft.com/sql-server/sql-server-r-services): SQL Server stores the campaign and lead data. R-based analytics provide training and predicted models and predicted results for consumption using R.
+* [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/): Machine Learning helps you easily design, test, operationalize, and manage predictive analytics solutions in the cloud.
 * [Power BI](https://powerbi.microsoft.com) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
 
 ## Next Steps
 * [Get started with SQL Server R Services](https://www.microsoft.com/sql-server/sql-server-r-services)
-* [Learn more about Machine Learning](https://docs.microsoft.com/azure/machine-learning/machine-learning-what-is-machine-learning)
+* [Learn more about Machine Learning](/azure/machine-learning/machine-learning-what-is-machine-learning)
 * [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

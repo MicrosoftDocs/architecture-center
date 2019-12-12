@@ -4,55 +4,19 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: This solution demonstrates how to build and deploy a machine learning model with SQL Server 2016 with R Services to recommend actions to maximize the purchase rate of leads targeted by a campaign.
 ms.custom: acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery
+titleSuffix: Azure Solution Ideas
 ---
 # Campaign Optimization with SQL Server
 
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
+
 This solution demonstrates how to build and deploy a machine learning model with SQL Server 2016 with R Services to recommend actions to maximize the purchase rate of leads targeted by a campaign.
-
-
-## Overview
-
-When a business launches a marketing campaign to interest customers in new or existing product(s), they often use a set of business rules to select leads for their campaign to target. Machine learning can be used to help increase the response rate from these leads. This solution demonstrates how to use a model to predict actions that are expected to maximize the purchase rate of leads targeted by the campaign. These predictions serve as the basis for recommendations to be used by a renewed campaign on how to contact (for example, e-mail, SMS, or cold call) and when to contact (day of week and time of day) the targeted leads. The solution presented here uses simulated data from the insurance industry to model responses of the leads to the campaign. The model predictors include demographic details of the leads, historical campaign performance, and product-specific details. The model predicts the probability that each lead in the database makes a purchase from a channel, on each day of the week at various times of day. Recommendations on which channel, day of week and time of day to use when targeting users are based then on the channel and timing combination that the model predicts will have the highest probability a purchase being made.
-
-The Microsoft Marketing Campaign Optimization solution is a combination of a Machine learning prediction model and an interactive visualization tool, PowerBI. The solution is used to increase the response rate to a campaign by recommending the channel to contact (for example, e-mail, SMS, or cold call) as well as when to contact (day of week and time of day) targeted leads for use in a new campaign. The solution uses simulated data, which can easily be configured to use your own organizationâ€™s data, to model the acquisition campaign response. The model uses predictors such as demographics, historical campaign performance and product details. The solution predicts the probability of a lead conversion from each channel, at various times of the day and days of the week, for every lead in the database. The final recommendation for targeting each lead is decided based upon the combination of channel, day of week and time of day with the highest probability of conversion. The solution has been modeled after a standardized data science process, where the data preparation, model training and evaluation can be easily done by a data scientist and the insights visualized and correlated to KPIs by marketing via Power BI visualization.
-
-
-## Business Manager Perspective
-
-This solution template uses (simulated) historical data to predict how and when to contact leads for your campaign. The recommendations include the best channel to contact a lead (in our example, email, SMS, or cold call), the best day of the week and the best time of day in which to make the contact.
-
-SQL Server R Services brings the compute to the data by allowing R to run on the same computer as the database. It includes a database service that runs outside the SQL Server process and communicates securely with the R runtime.
-
-This solution packet shows how to create and refine data, train R models, and perform predictions on the SQL Server machine. The final predictions table in SQL Server provides recommendations for how and when to contact each lead. This data is then visualized in Power BI.
-
-Power BI also presents visual summaries of the effectiveness of the campaign recommendations (shown here with simulated data). You can try out this dashboard by clicking the Try it Now link.
-
-The Recommendations tab of this dashboard shows the predicted recommendations. At the top is a table of individual leads for our new deployment. This includes fields for the lead ID, campaign and product, populated with leads on which our business rules are to be applied. This is followed by the model predictions for the leads, giving the optimal channel and time to contact each one, and then the estimated probabilities that the leads will buy our product using these recommendations. These probabilities can be used to increase the efficiency of the campaign by limiting the number of leads contacted to the subset most likely to buy.
-
-Also on the Recommendations tab are various summaries of recommendations and demographic information on the leads.
-
-The Campaign Summary tab of the dashboard shows summaries of the historical data used to create the predicted recommendations. While this tab also shows values of Day of Week, Time of Day, and Channel, these values are actual past observations, not to be confused with the recommendations shown on the Recommendations tab.
-
-
-## Data Scientist Perspective
-
-SQL Server R Services brings the compute to the data by running R on the computer that hosts the database. It includes a database service that runs outside the SQL Server process and communicates securely with the R runtime.
-
-This solution walks through the steps to create and refine data, train R models, and perform scoring on the SQL Server machine. The final scored database table in SQL Server gives the recommendations for how and when to contact each lead. This data is then visualized in PowerBI, which also contains a summary of the success of the recommendations used in your new campaign after it has completed. (Simulated data is shown in this template to illustrate the feature.)
-
-Data scientists who are testing and developing solutions can work from the convenience of their R IDE on their client machine, while [pushing the compute to the SQL Server machine](https://docs.microsoft.com/en-us/sql/advanced-analytics/r/getting-started-with-sql-server-r-services/). The completed solutions are deployed to SQL Server 2016 by embedding calls to R in stored procedures. These solutions can then be further automated with SQL Server Integration Services and SQL Server agent.
-
-Click on the Deploy button to test the automation and the entire solution will be made available in your Azure subscription.
-
-
-## Pricing
-
-Your Azure subscription used for the deployment will incur consumption charges on the services used in this solution, approximately $1.15/hour for the default VM.
-
-Please ensure that you stop your VM instance when not actively using the solution. Running the VM will incur higher costs.
-
-Please delete the solution if you are not using it.
-
 
 ## Architecture
 
@@ -86,5 +50,44 @@ Please delete the solution if you are not using it.
     <path d="M7.027 68.484H5.66l-1.64-2.748a5.9 5.9 0 00-.437-.652 2.471 2.471 0 00-.434-.441 1.523 1.523 0 00-.479-.25 1.992 1.992 0 00-.578-.078h-.944v4.17H0v-9.8h2.926a4.194 4.194 0 011.186.16 2.66 2.66 0 01.943.489 2.27 2.27 0 01.625.817 2.7 2.7 0 01.226 1.145 2.752 2.752 0 01-.154.939 2.46 2.46 0 01-.437.763 2.664 2.664 0 01-.684.571 3.5 3.5 0 01-.9.365v.027a2.022 2.022 0 01.427.25 2.305 2.305 0 01.345.331 4.375 4.375 0 01.325.435c.107.161.227.35.359.563zM1.148 59.72v3.555h1.559a2.355 2.355 0 00.8-.13 1.86 1.86 0 00.632-.372 1.7 1.7 0 00.417-.6 1.993 1.993 0 00.15-.789 1.536 1.536 0 00-.509-1.227 2.182 2.182 0 00-1.473-.441zM13.357 68.484h-1.148v-9.8h1.148zM15.935 68.484v-9.8h2.707q5.181 0 5.182 4.778a4.817 4.817 0 01-1.439 3.647 5.34 5.34 0 01-3.852 1.377zm1.148-8.764v7.725h1.463a4.151 4.151 0 003-1.032 3.87 3.87 0 001.073-2.926q0-3.766-4.006-3.767zM30.946 68.484h-5.2v-9.8h4.977v1.036H26.9v3.261h3.54v1.032H26.9v3.432h4.047zM39.443 68.648a3.249 3.249 0 01-2.478-.98 3.635 3.635 0 01-.926-2.6A3.786 3.786 0 0137 62.311a3.464 3.464 0 012.6-.991 3.14 3.14 0 012.444.964 3.824 3.824 0 01.878 2.673 3.761 3.761 0 01-.947 2.684 3.319 3.319 0 01-2.532 1.007zm.082-6.385a2.133 2.133 0 00-1.709.737 3.019 3.019 0 00-.629 2.027 2.853 2.853 0 00.636 1.962 2.161 2.161 0 001.7.718A2.049 2.049 0 0041.2 67a3.057 3.057 0 00.584-2 3.109 3.109 0 00-.584-2.023 2.039 2.039 0 00-1.675-.714zM50.531 68.484H49.41v-3.993q0-2.229-1.627-2.229a1.764 1.764 0 00-1.391.633 2.342 2.342 0 00-.55 1.6v3.992h-1.121v-7h1.121v1.162h.027a2.525 2.525 0 012.3-1.326 2.14 2.14 0 011.757.742 3.3 3.3 0 01.608 2.143zM56.629 68.484v-9.8h2.707q5.181 0 5.182 4.778a4.817 4.817 0 01-1.439 3.647 5.34 5.34 0 01-3.852 1.377zm1.148-8.764v7.725h1.463a4.151 4.151 0 003-1.032 3.87 3.87 0 001.073-2.926q0-3.766-4.006-3.767zM71.921 65.264h-4.942a2.616 2.616 0 00.629 1.8 2.167 2.167 0 001.654.636 3.441 3.441 0 002.174-.779v1.053a4.058 4.058 0 01-2.44.67 2.961 2.961 0 01-2.331-.953 3.906 3.906 0 01-.848-2.684 3.824 3.824 0 01.926-2.662 2.969 2.969 0 012.3-1.029 2.634 2.634 0 012.126.889 3.706 3.706 0 01.752 2.468zm-1.148-.95A2.285 2.285 0 0070.3 62.8a1.594 1.594 0 00-1.282-.54 1.812 1.812 0 00-1.347.567 2.571 2.571 0 00-.684 1.483zM74.765 67.472h-.027V71.7h-1.122V61.484h1.121v1.23h.027a2.651 2.651 0 012.42-1.395 2.565 2.565 0 012.112.939 3.9 3.9 0 01.759 2.52 4.336 4.336 0 01-.854 2.813 2.843 2.843 0 01-2.338 1.057 2.343 2.343 0 01-2.098-1.176zm-.027-2.823v.978A2.08 2.08 0 0075.3 67.1a2.011 2.011 0 003.028-.174 3.575 3.575 0 00.578-2.167 2.824 2.824 0 00-.54-1.832 1.787 1.787 0 00-1.463-.663 1.987 1.987 0 00-1.572.68 2.5 2.5 0 00-.594 1.705zM82.968 68.484h-1.121V58.12h1.121zM88.163 68.648a3.249 3.249 0 01-2.478-.98 3.635 3.635 0 01-.926-2.6 3.786 3.786 0 01.964-2.755 3.464 3.464 0 012.6-.991 3.14 3.14 0 012.444.964 3.824 3.824 0 01.878 2.673 3.761 3.761 0 01-.945 2.681 3.319 3.319 0 01-2.537 1.008zm.082-6.385a2.133 2.133 0 00-1.709.737 3.019 3.019 0 00-.629 2.027 2.853 2.853 0 00.636 1.962 2.161 2.161 0 001.7.718 2.049 2.049 0 001.671-.7 3.057 3.057 0 00.584-2 3.109 3.109 0 00-.584-2.023 2.039 2.039 0 00-1.669-.721zM99.012 61.484l-3.22 8.116q-.861 2.174-2.42 2.174a2.551 2.551 0 01-.731-.089v-1a2.076 2.076 0 00.663.123 1.375 1.375 0 001.271-1.008l.561-1.326-2.736-6.99h1.244l1.894 5.387q.034.1.144.533h.041c.022-.109.068-.283.137-.52l1.989-5.4zM105.772 65.264h-4.942a2.616 2.616 0 00.629 1.8 2.167 2.167 0 001.654.636 3.441 3.441 0 002.174-.779v1.053a4.058 4.058 0 01-2.44.67 2.961 2.961 0 01-2.331-.953 3.906 3.906 0 01-.848-2.684 3.824 3.824 0 01.926-2.662 2.969 2.969 0 012.3-1.029 2.634 2.634 0 012.126.889 3.706 3.706 0 01.752 2.468zm-1.148-.95a2.285 2.285 0 00-.468-1.511 1.594 1.594 0 00-1.282-.54 1.812 1.812 0 00-1.347.567 2.571 2.571 0 00-.684 1.483zM113.442 68.484h-1.121v-1.19h-.027a2.588 2.588 0 01-2.406 1.354 2.616 2.616 0 01-2.109-.939 3.858 3.858 0 01-.79-2.561 4.193 4.193 0 01.875-2.782 2.885 2.885 0 012.336-1.046 2.245 2.245 0 012.1 1.135h.027V58.12h1.121zm-1.121-3.165v-1.033a2.005 2.005 0 00-.561-1.436 1.878 1.878 0 00-1.422-.588 1.934 1.934 0 00-1.613.752 3.294 3.294 0 00-.588 2.078A2.961 2.961 0 00108.7 67a1.841 1.841 0 001.514.7 1.915 1.915 0 001.521-.677 2.521 2.521 0 00.586-1.704zM126.984 58.681l-3.63 9.8h-1.264l-3.555-9.8h1.278l2.714 7.772a4.659 4.659 0 01.2.868h.027a4.217 4.217 0 01.226-.882l2.769-7.759zM138.387 68.484h-1.142v-6.577q0-.779.1-1.907h-.027a6.1 6.1 0 01-.294.95l-3.35 7.533h-.561l-3.343-7.479a5.844 5.844 0 01-.294-1h-.027q.054.587.055 1.921v6.563h-1.107v-9.8h1.518l3.008 6.836a8.719 8.719 0 01.451 1.176h.041c.2-.537.353-.939.472-1.2l3.069-6.809h1.436z" fill="#5b5b5b"/>
 </svg>
 
+## Overview
+
+When a business launches a marketing campaign to interest customers in new or existing product(s), they often use a set of business rules to select leads for their campaign to target. Machine learning can be used to help increase the response rate from these leads. This solution demonstrates how to use a model to predict actions that are expected to maximize the purchase rate of leads targeted by the campaign. These predictions serve as the basis for recommendations to be used by a renewed campaign on how to contact (for example, e-mail, SMS, or cold call) and when to contact (day of week and time of day) the targeted leads. The solution presented here uses simulated data from the insurance industry to model responses of the leads to the campaign. The model predictors include demographic details of the leads, historical campaign performance, and product-specific details. The model predicts the probability that each lead in the database makes a purchase from a channel, on each day of the week at various times of day. Recommendations on which channel, day of week and time of day to use when targeting users are based then on the channel and timing combination that the model predicts will have the highest probability a purchase being made.
+
+The Microsoft Marketing Campaign Optimization solution is a combination of a Machine learning prediction model and an interactive visualization tool, PowerBI. The solution is used to increase the response rate to a campaign by recommending the channel to contact (for example, e-mail, SMS, or cold call) as well as when to contact (day of week and time of day) targeted leads for use in a new campaign. The solution uses simulated data, which can easily be configured to use your own organization’s data, to model the acquisition campaign response. The model uses predictors such as demographics, historical campaign performance and product details. The solution predicts the probability of a lead conversion from each channel, at various times of the day and days of the week, for every lead in the database. The final recommendation for targeting each lead is decided based upon the combination of channel, day of week and time of day with the highest probability of conversion. The solution has been modeled after a standardized data science process, where the data preparation, model training and evaluation can be easily done by a data scientist and the insights visualized and correlated to KPIs by marketing via Power BI visualization.
+
+## Business Manager Perspective
+
+This solution template uses (simulated) historical data to predict how and when to contact leads for your campaign. The recommendations include the best channel to contact a lead (in our example, email, SMS, or cold call), the best day of the week and the best time of day in which to make the contact.
+
+SQL Server R Services brings the compute to the data by allowing R to run on the same computer as the database. It includes a database service that runs outside the SQL Server process and communicates securely with the R runtime.
+
+This solution packet shows how to create and refine data, train R models, and perform predictions on the SQL Server machine. The final predictions table in SQL Server provides recommendations for how and when to contact each lead. This data is then visualized in Power BI.
+
+Power BI also presents visual summaries of the effectiveness of the campaign recommendations (shown here with simulated data). You can try out this dashboard by clicking the Try it Now link.
+
+The Recommendations tab of this dashboard shows the predicted recommendations. At the top is a table of individual leads for our new deployment. This includes fields for the lead ID, campaign and product, populated with leads on which our business rules are to be applied. This is followed by the model predictions for the leads, giving the optimal channel and time to contact each one, and then the estimated probabilities that the leads will buy our product using these recommendations. These probabilities can be used to increase the efficiency of the campaign by limiting the number of leads contacted to the subset most likely to buy.
+
+Also on the Recommendations tab are various summaries of recommendations and demographic information on the leads.
+
+The Campaign Summary tab of the dashboard shows summaries of the historical data used to create the predicted recommendations. While this tab also shows values of Day of Week, Time of Day, and Channel, these values are actual past observations, not to be confused with the recommendations shown on the Recommendations tab.
+
+## Data Scientist Perspective
+
+SQL Server R Services brings the compute to the data by running R on the computer that hosts the database. It includes a database service that runs outside the SQL Server process and communicates securely with the R runtime.
+
+This solution walks through the steps to create and refine data, train R models, and perform scoring on the SQL Server machine. The final scored database table in SQL Server gives the recommendations for how and when to contact each lead. This data is then visualized in PowerBI, which also contains a summary of the success of the recommendations used in your new campaign after it has completed. (Simulated data is shown in this template to illustrate the feature.)
+
+Data scientists who are testing and developing solutions can work from the convenience of their R IDE on their client machine, while [pushing the compute to the SQL Server machine](/sql/advanced-analytics/r/getting-started-with-sql-server-r-services/). The completed solutions are deployed to SQL Server 2016 by embedding calls to R in stored procedures. These solutions can then be further automated with SQL Server Integration Services and SQL Server agent.
+
+Click on the Deploy button to test the automation and the entire solution will be made available in your Azure subscription.
+
+## Pricing
+
+Your Azure subscription used for the deployment will incur consumption charges on the services used in this solution, approximately $1.15/hour for the default VM.
+
+Please ensure that you stop your VM instance when not actively using the solution. Running the VM will incur higher costs.
+
+Please delete the solution if you are not using it.
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

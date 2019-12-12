@@ -4,11 +4,19 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Easily implement the practice of CI/CD by using a consistent set of development tools and processes across the Azure public cloud and on-premises Azure Stack environments.
 ms.custom: acom-architecture, CI/CD, Azure CI/CD, Continuous Integration And Continuous Deployment, Visual Studio Team Services, Microsoft DevOps, interactive-diagram
+titleSuffix: Azure Solution Ideas
 ---
 # Hybrid CI/CD
 
-Implementing a continuous integration/continuous development (CI/CD) approach to deploying applications becomes difficult when on-premises applications are built and operated in different ways than cloud applications. Having a consistent set of development tools and processes across the Azure public cloud and on-premises Azure Stack environments makes it far easier for organizations to implement a practice of CI/CD. Apps and services deployed the right way in Azure and Azure Stack are essentially interchangeable and can run in either location.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+Implementing a continuous integration/continuous development (CI/CD) approach to deploying applications becomes difficult when on-premises applications are built and operated in different ways than cloud applications. Having a consistent set of development tools and processes across the Azure public cloud and on-premises Azure Stack environments makes it far easier for organizations to implement a practice of CI/CD. Apps and services deployed the right way in Azure and Azure Stack are essentially interchangeable and can run in either location.
 
 ## Architecture
 
@@ -185,15 +193,15 @@ Implementing a continuous integration/continuous development (CI/CD) approach to
 1. Deployment to App Service on both Azure and Azure Stack.
 
 ## Components
-* [Azure Stack](http://azure.microsoft.com/overview/azure-stack/) is a hybrid cloud platform that lets you use Azure services on-premises
+* [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) is a hybrid cloud platform that lets you use Azure services on-premises
 * Step-by-step guidance: Step-by-step guidance
-* [Azure DevOps](http://azure.microsoft.com/services/devops/): Build and deploy multi-platform apps to get the most from Azure services
-* [Web Apps](http://azure.microsoft.com/services/app-service/web/): Quickly create and deploy mission critical Web apps at scale.
+* [Azure DevOps](https://azure.microsoft.com/services/devops/): Build and deploy multi-platform apps to get the most from Azure services
+* [Web Apps](https://azure.microsoft.com/services/app-service/web/): Quickly create and deploy mission critical Web apps at scale.
 
 ## Next Steps
-* [Azure Stack User Documentation](https://docs.microsoft.com/azure/azure-stack/user)
-* [Deploy apps to Azure and Azure Stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline)
-* [Visual Studio Team Services](http://azure.microsoft.com/services/visual-studio-team-services/)
-* [Use Visual Studio Team Services to deploy to an Azure Web App](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp)
+* [Azure Stack User Documentation](/azure/azure-stack/user)
+* [Deploy apps to Azure and Azure Stack](/azure/azure-stack/user/azure-stack-solution-pipeline)
+* [Visual Studio Team Services](https://azure.microsoft.com/services/visual-studio-team-services/)
+* [Use Visual Studio Team Services to deploy to an Azure Web App](/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

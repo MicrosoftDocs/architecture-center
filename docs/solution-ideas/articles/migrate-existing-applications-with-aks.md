@@ -4,11 +4,19 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Lift and shift to containers with AKS
 ms.custom: acom-architecture, chat, signalr service, interactive-diagram
+titleSuffix: Azure Solution Ideas
 ---
 # Lift and shift to containers with AKS
 
-Easily migrate existing application to container(s) and run within the Azure managed Kubernetes service (AKS). Control access via integration with Azure Active Directory and access SLA-backed Azure Services such as Azure Database for MySQL using OSBA (Open Service Broker for Azure) for your data needs.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+Easily migrate existing application to container(s) and run within the Azure managed Kubernetes service (AKS). Control access via integration with Azure Active Directory and access SLA-backed Azure Services such as Azure Database for MySQL using OSBA (Open Service Broker for Azure) for your data needs.
 
 ## Architecture
 

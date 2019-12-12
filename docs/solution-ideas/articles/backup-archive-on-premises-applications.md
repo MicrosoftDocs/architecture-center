@@ -4,13 +4,21 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Back up on-premises applications and data with Azure Backup and Blob storage applications. Read documentation on implementing these archiving solutions today.
 ms.custom: acom-architecture
+titleSuffix: Azure Solution Ideas
 ---
 # Back up on-premises applications and data to cloud
 
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
+
 Back up data and applications from an on-premises system to Azure using Azure Backup or a partner solution. An Internet connection to Azure is used to connect to Azure Backup or Azure Blob storage. Azure Backup Server can write backups directly to Azure Backup. Alternatively, a partner solution such as Commvault Simpana or Veeam Availability Suite, hosted on-premises, can write backups to Blob storage directly or via a cloud endpoint such as Veeam Cloud Connect.
 
-This solution is built on the Azure managed services: [Backup Server](/en-us/services/backup/), [Azure Backup](/en-us/services/backup/) and [Blob Storage](/en-us/services/storage/blobs/). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
-
+This solution is built on the Azure managed services: [Backup Server](https://azure.microsoft.com/services/backup/), [Azure Backup](https://azure.microsoft.com/services/backup/) and [Blob Storage](https://azure.microsoft.com/services/storage/blobs/). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
 ## Architecture
 
@@ -133,15 +141,14 @@ This solution is built on the Azure managed services: [Backup Server](/en-us/ser
     </g>
 </svg>
 
-
 ## Components
-* Azure [Backup Server](http://azure.microsoft.com/services/backup/) orchestrates the backup of machines and manages the configuration of the restore procedures. It also has two days of backup data for operational recovery.
-* [Azure Backup](http://azure.microsoft.com/services/backup/) service runs on the cloud and holds the recovery points, enforces policies, and enables you to manage data and application protection. You donâ€™t need to create or manage an Azure Blob storage account when using [Azure Backup](http://azure.microsoft.com/services/backup/).
-* [Blob Storage](http://azure.microsoft.com/services/storage/blobs/): Blob storage that partner solutions such as Commvault connect to for backing up data and applications. You need to create and manage Azure Blob storage when using partner solutions.
+* Azure [Backup Server](https://azure.microsoft.com/services/backup/) orchestrates the backup of machines and manages the configuration of the restore procedures. It also has two days of backup data for operational recovery.
+* [Azure Backup](https://azure.microsoft.com/services/backup/) service runs on the cloud and holds the recovery points, enforces policies, and enables you to manage data and application protection. You don’t need to create or manage an Azure Blob storage account when using [Azure Backup](https://azure.microsoft.com/services/backup/).
+* [Blob Storage](https://azure.microsoft.com/services/storage/blobs/): Blob storage that partner solutions such as Commvault connect to for backing up data and applications. You need to create and manage Azure Blob storage when using partner solutions.
 
 ## Next Steps
-* [Back up workloads using Azure Backup Server](https://docs.microsoft.com/api/Redirect/documentation/articles/backup-azure-microsoft-azure-backup/)
-* [Back up files and folders using Azure Backup](https://docs.microsoft.com/api/Redirect/documentation/articles/backup-try-azure-backup-in-10-mins/)
-* [Store backed up files in Blob storage](https://docs.microsoft.com/api/Redirect/documentation/articles/storage-dotnet-how-to-use-blobs/)
+* [Back up workloads using Azure Backup Server](/api/Redirect/documentation/articles/backup-azure-microsoft-azure-backup/)
+* [Back up files and folders using Azure Backup](/api/Redirect/documentation/articles/backup-try-azure-backup-in-10-mins/)
+* [Store backed up files in Blob storage](/api/Redirect/documentation/articles/storage-dotnet-how-to-use-blobs/)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

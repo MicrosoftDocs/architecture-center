@@ -4,15 +4,23 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Predict future customer demand and optimize pricing to maximize profitability using big-data and advanced-analytics services from Microsoft Azure.
 ms.custom: acom-architecture, demand forecasting, price optimization
+titleSuffix: Azure Solution Ideas
 ---
 # Demand Forecasting + Price Optimization
 
-Pricing is pivotal for many industries, but it can be one of the most challenging tasks. Companies often struggle to accurately forecast the fiscal impact of potential tactics, fully consider core business constraints, and fairly validate pricing decisions once theyâ€™ve been made. As product offerings expand and complicate the calculations behind real-time pricing decisions, the process grows even more difficult.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
+
+Pricing is pivotal for many industries, but it can be one of the most challenging tasks. Companies often struggle to accurately forecast the fiscal impact of potential tactics, fully consider core business constraints, and fairly validate pricing decisions once they’ve been made. As product offerings expand and complicate the calculations behind real-time pricing decisions, the process grows even more difficult.
 
 This solution addresses those challenges by using historical transaction data to train a demand-forecasting model in a retail context. It also incorporates the pricing of products in a competing group to predict cannibalization and other cross-product impacts. A price-optimization algorithm then uses that model to forecast demand at various price points and factors in business constraints to maximize potential profit.
 
-By using this solution to ingest historical transaction data, predict future demand, and regularly optimize pricing, youâ€™ll have the opportunity to save time and effort around the process and improve your companyâ€™s profitability.
-
+By using this solution to ingest historical transaction data, predict future demand, and regularly optimize pricing, you’ll have the opportunity to save time and effort around the process and improve your company’s profitability.
 
 ## Architecture
 
@@ -65,17 +73,16 @@ By using this solution to ingest historical transaction data, predict future dem
     <path d="M952.612 323.391a5.237 5.237 0 015.237 5.237V340.7a5.238 5.238 0 01-5.238 5.238 5.237 5.237 0 01-5.239-5.235v-12.074a5.238 5.238 0 015.238-5.238zM969.085 345.944a5.239 5.239 0 01-5.239-5.238v-31a5.238 5.238 0 1110.477 0v31a5.239 5.239 0 01-5.238 5.239M1002.029 345.791a5.239 5.239 0 01-5.239-5.238v-43.9a5.238 5.238 0 0110.477 0v43.9a5.239 5.239 0 01-5.238 5.239M985.557 345.944a5.239 5.239 0 01-5.239-5.238v-23.029a5.238 5.238 0 1110.477 0v23.029a5.239 5.239 0 01-5.238 5.239"/>
 </svg>
 
-
 ## Components
-* [Azure Data Lake Storage](http://azure.microsoft.com/services/storage/data-lake-storage/): Data Lake Store stores the weekly raw sales data, which is read by Spark on HDInsight.
-* Spark on [HDInsight](http://azure.microsoft.com/services/hdinsight/) ingests the data and executes data preprocessing, forecasting modeling, and price-optimization algorithms.
-* [Data Factory](http://azure.microsoft.com/services/data-factory/) handles orchestration and scheduling of the model retraining.
+* [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/): Data Lake Store stores the weekly raw sales data, which is read by Spark on HDInsight.
+* Spark on [HDInsight](https://azure.microsoft.com/services/hdinsight/) ingests the data and executes data preprocessing, forecasting modeling, and price-optimization algorithms.
+* [Data Factory](https://azure.microsoft.com/services/data-factory/) handles orchestration and scheduling of the model retraining.
 * [Power BI](https://powerbi.microsoft.com) visualizes sales results, the predicted future demand, and the recommended optimal prices for a variety of products sold in different stores.
 
 ## Next Steps
-* [Learn more about Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview)
-* [Get started with HDInsight using a Spark cluster with R Server](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview)
-* [Learn more about Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-introduction)
+* [Learn more about Data Lake Store](/azure/data-lake-store/data-lake-store-overview)
+* [Get started with HDInsight using a Spark cluster with R Server](/azure/hdinsight/hdinsight-apache-spark-overview)
+* [Learn more about Data Factory](/azure/data-factory/data-factory-introduction)
 * [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

@@ -4,11 +4,19 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: The retail assistant or vacation planner can help your customers have interactions with your business bot and provide suggestions based on the visual information.
 ms.custom: acom-architecture, retail assistant, cognitive services, vacation planner, visual capabilities, interactive-diagram
+titleSuffix: Azure Solution Ideas
 ---
 # Retail Assistant with Visual Capabilities - Cognitive Services
 
-The retail assistant or vacation planner can help your customers have interactions with your business bot and provide suggestions based on the visual information. 
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+The retail assistant or vacation planner can help your customers have interactions with your business bot and provide suggestions based on the visual information. 
 
 ## Architecture
 

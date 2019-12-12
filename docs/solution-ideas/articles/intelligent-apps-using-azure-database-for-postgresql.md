@@ -4,11 +4,19 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Develop sophisticated, transformational apps using state of the art machine learning algorithms and integrated visualization tools to get actionable insights and analytics.
 ms.custom: acom-architecture, postgresql, use cases, azure, solutions
+titleSuffix: Azure Solution Ideas
 ---
 # Intelligent apps using Azure Database for PostgreSQL
 
-Develop sophisticated, transformational apps using state of the art machine learning algorithms and integrated visualization tools to get actionable insights and analytics.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+Develop sophisticated, transformational apps using state of the art machine learning algorithms and integrated visualization tools to get actionable insights and analytics.
 
 ## Architecture
 
@@ -243,6 +251,5 @@ Develop sophisticated, transformational apps using state of the art machine lear
         </g>
     </g>
 </svg>
-
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

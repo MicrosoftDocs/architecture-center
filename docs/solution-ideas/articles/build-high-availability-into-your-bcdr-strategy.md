@@ -4,11 +4,19 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Virtual machines (VMs) are physically separated across zones, and a virtual network is created using load balancers at each site. These locations are close enough for high availability replication, so your applications stay running, despite any issues at the physical locations.
 ms.custom: acom-architecture, bcdr, availability, strategy, interactive-diagram
+titleSuffix: Azure Solution Ideas
 ---
 # Build high availability into your BCDR strategy
 
-Virtual machines (VMs) are physically separated across zones, and a virtual network is created using load balancers at each site. These locations are close enough for high availability replication, so your applications stay running, despite any issues at the physical locations.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+Virtual machines (VMs) are physically separated across zones, and a virtual network is created using load balancers at each site. These locations are close enough for high availability replication, so your applications stay running, despite any issues at the physical locations.
 
 ## Architecture
 
@@ -134,7 +142,7 @@ Virtual machines (VMs) are physically separated across zones, and a virtual netw
 <p>Configure zone-redundant SQL DB.</p>
 </div>
 <div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>Add VMs to the load balancerâ€™s back-end pool.</p>
+<p>Add VMs to the load balancer’s back-end pool.</p>
 </div>
 <div class="architecture-tooltip-content" id="architecture-tooltip-7">
 <p>Deploy your application on VMs for redundancy and high availability.</p>
@@ -146,17 +154,17 @@ Virtual machines (VMs) are physically separated across zones, and a virtual netw
 1. Create DB subnet.
 1. Create VMs in three Availability Zones.
 1. Configure zone-redundant SQL DB.
-1. Add VMs to the load balancerâ€™s back-end pool.
+1. Add VMs to the load balancer’s back-end pool.
 1. Deploy your application on VMs for redundancy and high availability.
 
 ## Components
-* [Virtual Machines](http://azure.microsoft.com/services/virtual-machines/): Provision Windows and Linux virtual machines in seconds
-* [Azure SQL Database](http://azure.microsoft.com/services/sql-database/): Managed, intelligent SQL in the cloud
-* [Load Balancer](http://azure.microsoft.com/services/load-balancer/): Deliver high availability and network performance to your applications
+* [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/): Provision Windows and Linux virtual machines in seconds
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): Managed, intelligent SQL in the cloud
+* [Load Balancer](https://azure.microsoft.com/services/load-balancer/): Deliver high availability and network performance to your applications
 
 ## Next Steps
-* [Virtual Machines documentation](https://docs.microsoft.com/azure/virtual-machines)
-* [SQL Database documentation](https://docs.microsoft.com/azure/sql-database)
-* [Load Balancer documentation](https://docs.microsoft.com/azure/load-balancer)
+* [Virtual Machines documentation](/azure/virtual-machines)
+* [SQL Database documentation](/azure/sql-database)
+* [Load Balancer documentation](/azure/load-balancer)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

@@ -4,11 +4,19 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Extend your on-premises big data investments to the cloud and transform your business using the advanced analytics capabilities of HDInsight.
 ms.custom: acom-architecture, HDInsight, ExpressRoute
+titleSuffix: Azure Solution Ideas
 ---
 # Extend your on-premises big data investments with HDInsight
 
-Extend your on-premises big data investments to the cloud and transform your business using the advanced analytics capabilities of HDInsight.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+Extend your on-premises big data investments to the cloud and transform your business using the advanced analytics capabilities of HDInsight.
 
 ## Architecture
 
@@ -73,6 +81,5 @@ Extend your on-premises big data investments to the cloud and transform your bus
     <path d="M491.332 136.438h2.94a4.775 4.775 0 012.055-3.263l-1.491-2.538c-1.933 1.249-3.263 3.344-3.504 5.801z" fill="#59B3D8"/>
     <path d="M491.332 136.438h2.94a4.775 4.775 0 012.055-3.263l-1.491-2.538c-1.933 1.249-3.263 3.344-3.504 5.801z" fill="#8BC9E0"/>
 </svg>
-
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

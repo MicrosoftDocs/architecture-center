@@ -4,34 +4,19 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Customer Churn Prediction uses Cortana Intelligence Suite components to predict churn probability and helps find patterns in existing data associated with the predicted churn rate.
 ms.custom: acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery
+titleSuffix: Azure Solution Ideas
 ---
 # Customer Churn Prediction
 
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
+
 Customer Churn Prediction uses Cortana Intelligence Suite components to predict churn probability and helps find patterns in existing data associated with the predicted churn rate.
-
-
-## Description
-
-For more details on how this solution is built, visit the solution guide in [GitHub](https://github.com/Azure/cortana-intelligence-churn-prediction-solution).
-
-Keeping existing customers is five times cheaper than the cost of attaining new ones. For this reason, marketing executives often find themselves trying to estimate the likelihood of customer churn and finding the necessary actions to minimize the churn rate.
-
-Customer Churn Prediction uses Azure Machine Learning to predict churn probability and helps find patterns in existing data associated with the predicted churn rate. This information empowers businesses with actionable intelligence to improve customer retention and profit margins.
-
-The objective of this guide is to demonstrate predictive data pipelines for retailers to predict customer churn. Retailers can use these predictions to prevent customer churn by using their domain knowledge and proper marketing strategies to address at-risk customers. The guide also shows how customer churn models can be retrained to leverage additional data as it becomes available.
-
-
-## What's Under the Hood
-
-The end-to-end solution is implemented in the cloud, using Microsoft Azure. The solution is composed of several Azure components, including data ingest, data storage, data movement, advanced analytics and visualization. The advanced analytics are implemented in Azure Machine Learning Studio, where one can use Python or R language to build data science models (or reuse existing in-house or third-party libraries). With data ingest, the solution can make predictions based on data that being transferred to Azure from an on-premises environment.
-
-
-## Solution Dashboard
-
-The snapshot below shows an example PowerBI dashboard that gives insights into the the predicted churn rates across the customer base.
-
-![Insights](//azurecomcdn.azureedge.net/cvt-f71aaf720c02f5337b8c2cdc5fd64f5f2829ecc6bd562c5726ff63543bbb03d7/images/shared/solutions/architectures/customer-churn-prediction/dashboard.png)
-
 
 ## Architecture
 
@@ -101,5 +86,24 @@ The snapshot below shows an example PowerBI dashboard that gives insights into t
     <path fill="#969696" d="M563.744 147.475l-5.236 9.068-5.236-9.068h10.472zM563.744 91.809l-5.236-9.067-5.236 9.067h10.472z"/>
 </svg>
 
+## Description
+
+For more details on how this solution is built, visit the solution guide in [GitHub](https://github.com/Azure/cortana-intelligence-churn-prediction-solution).
+
+Keeping existing customers is five times cheaper than the cost of attaining new ones. For this reason, marketing executives often find themselves trying to estimate the likelihood of customer churn and finding the necessary actions to minimize the churn rate.
+
+Customer Churn Prediction uses Azure Machine Learning to predict churn probability and helps find patterns in existing data associated with the predicted churn rate. This information empowers businesses with actionable intelligence to improve customer retention and profit margins.
+
+The objective of this guide is to demonstrate predictive data pipelines for retailers to predict customer churn. Retailers can use these predictions to prevent customer churn by using their domain knowledge and proper marketing strategies to address at-risk customers. The guide also shows how customer churn models can be retrained to leverage additional data as it becomes available.
+
+## What's Under the Hood
+
+The end-to-end solution is implemented in the cloud, using Microsoft Azure. The solution is composed of several Azure components, including data ingest, data storage, data movement, advanced analytics and visualization. The advanced analytics are implemented in Azure Machine Learning Studio, where one can use Python or R language to build data science models (or reuse existing in-house or third-party libraries). With data ingest, the solution can make predictions based on data that being transferred to Azure from an on-premises environment.
+
+## Solution Dashboard
+
+The snapshot below shows an example PowerBI dashboard that gives insights into the the predicted churn rates across the customer base.
+
+![Insights](//azurecomcdn.azureedge.net/cvt-f71aaf720c02f5337b8c2cdc5fd64f5f2829ecc6bd562c5726ff63543bbb03d7/images/shared/solutions/architectures/customer-churn-prediction/dashboard.png)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

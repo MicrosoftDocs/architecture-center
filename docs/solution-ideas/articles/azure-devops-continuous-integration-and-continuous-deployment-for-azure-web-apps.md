@@ -4,11 +4,19 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Azure Web Apps is a fast and simple way to create web apps using ASP.NET, Java, Node.js, or PHP. Deliver value faster to your customers with a continuous integration and continuous deployment (CI/CD) pipeline that pushes each of your changes automatically to Web Apps.
 ms.custom: acom-architecture, devops, continuous integration, continuous delivery, CI/CD, continuous deployment, interactive-diagram, pricing-calculator, is-deployable
+titleSuffix: Azure Solution Ideas
 ---
 # CI/CD for Azure Web Apps
 
-Azure Web Apps is a fast and simple way to create web apps using ASP.NET, Java, Node.js, or PHP. Deliver value faster to your customers with a continuous integration and continuous deployment (CI/CD) pipeline that pushes each of your changes automatically to Web Apps.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+Azure Web Apps is a fast and simple way to create web apps using ASP.NET, Java, Node.js, or PHP. Deliver value faster to your customers with a continuous integration and continuous deployment (CI/CD) pipeline that pushes each of your changes automatically to Web Apps.
 
 ## Architecture
 
@@ -163,15 +171,15 @@ Azure Web Apps is a fast and simple way to create web apps using ASP.NET, Java, 
 
 ## Components
 * Application Insights: Detect, triage, and diagnose issues in your web apps and services.
-* [Web Apps](http://azure.microsoft.com/services/app-service/web/): Quickly create and deploy mission critical Web apps at scale.
-* [Azure DevOps](http://azure.microsoft.com/services/devops/): Services for teams to share code, track work, and ship software.
+* [Web Apps](https://azure.microsoft.com/services/app-service/web/): Quickly create and deploy mission critical Web apps at scale.
+* [Azure DevOps](https://azure.microsoft.com/services/devops/): Services for teams to share code, track work, and ship software.
 * [Visual Studio](https://www.visualstudio.com/vs/azure/): A creative launch pad for viewing and editing code,  then debugging, building, and publishing apps for Android, iOS, Windows, the web, and the cloud.
 
 ## Next Steps
-* [Performance monitoring with Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-detect-triage-diagnose)
-* [Use Azure DevOps to deploy to an Azure Web App](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp)
-* [Git on Azure DevOps](https://docs.microsoft.com/vsts/git/gitquickstart?tabs=visual-studio)
-* [Deploy to Azure Web Apps using Visual Studio and Azure DevOps](https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-docker-webapp)
+* [Performance monitoring with Application Insights](/azure/application-insights/app-insights-detect-triage-diagnose)
+* [Use Azure DevOps to deploy to an Azure Web App](/vsts/build-release/apps/cd/azure/aspnet-core-to-azure-webapp)
+* [Git on Azure DevOps](/vsts/git/gitquickstart?tabs=visual-studio)
+* [Deploy to Azure Web Apps using Visual Studio and Azure DevOps](/vsts/build-release/apps/cd/deploy-docker-webapp)
 
 ## Pricing Calculator
 * [Customize and get pricing estimates](https://azure.com/e/b96a4a9dbf804edabc83d00b41ffb245)

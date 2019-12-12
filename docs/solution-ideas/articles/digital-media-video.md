@@ -4,13 +4,21 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: A basic video-on-demand solution that gives you the capability to stream recorded video content such as movies, news clips, sports segments, training videos, and customer support tutorials to any video-capable endpoint device, mobile application, or desktop browser. Video files are uploaded to Azure Blob storage, encoded to a multi-bitrate standard format, and then distributed via all major adaptive bit-rate streaming protocols (HLS, MPEG-DASH, Smooth) to the Azure Media Player client.
 ms.custom: acom-architecture
+titleSuffix: Azure Solution Ideas
 ---
 # Video-on-demand digital media
 
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
+
 A basic video-on-demand solution that gives you the capability to stream recorded video content such as movies, news clips, sports segments, training videos, and customer support tutorials to any video-capable endpoint device, mobile application, or desktop browser. Video files are uploaded to Azure Blob storage, encoded to a multi-bitrate standard format, and then distributed via all major adaptive bit-rate streaming protocols (HLS, MPEG-DASH, Smooth) to the Azure Media Player client.
 
-This solution is built on the Azure managed services: [Blob Storage](/en-us/services/storage/blobs/), [Content Delivery Network](/en-us/services/cdn/) and [Azure Media Player](/en-us/services/media-services/media-player/). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
-
+This solution is built on the Azure managed services: [Blob Storage](https://azure.microsoft.com/services/storage/blobs/), [Content Delivery Network](https://azure.microsoft.com/services/cdn/) and [Azure Media Player](https://azure.microsoft.com/services/media-services/media-player/). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
 ## Architecture
 
@@ -132,21 +140,20 @@ This solution is built on the Azure managed services: [Blob Storage](/en-us/serv
     <path d="M67.596 126.845h-13.1a2.372 2.372 0 00-2.65 2.65v10.45a2.44 2.44 0 002.3 2.65h3.35z" fill="#fff" opacity=".15" style="isolation:isolate"/>
 </svg>
 
-
 ## Components
-* [Blob Storage](http://azure.microsoft.com/services/storage/blobs/): Stores large amounts of unstructured data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS. You can use Blob storage to expose data publicly to the world, or to store application data privately.
-* [Azure Encoder](http://azure.microsoft.com/services/media-services/encoding/): Encoding jobs are one of the most common processing operations in Media Services. You create encoding jobs to convert media files from one encoding to another.
-* [Azure streaming endpoint](http://azure.microsoft.com/services/media-services/live-on-demand/): A streaming service that can deliver content directly to a client player application, or to a content delivery network (CDN) for further distribution.
-* [Content Delivery Network](http://azure.microsoft.com/services/cdn/): Provides secure, reliable content delivery with broad global reach and a rich feature set.
-* [Azure Media Player](http://azure.microsoft.com/services/media-services/media-player/): Uses industry standards, such as HTML5 (MSE/EME), to provide a rich adaptive streaming experience. Regardless of the playback technology used, developers have a unified JavaScript interface to access APIs.
-* [Multi-DRM content protection](http://azure.microsoft.com/services/media-services/content-protection/): Delivers content securely using multi-DRM (PlayReady, Widevine, FairPlay Streaming) or AES clear key encryption
+* [Blob Storage](https://azure.microsoft.com/services/storage/blobs/): Stores large amounts of unstructured data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS. You can use Blob storage to expose data publicly to the world, or to store application data privately.
+* [Azure Encoder](https://azure.microsoft.com/services/media-services/encoding/): Encoding jobs are one of the most common processing operations in Media Services. You create encoding jobs to convert media files from one encoding to another.
+* [Azure streaming endpoint](https://azure.microsoft.com/services/media-services/live-on-demand/): A streaming service that can deliver content directly to a client player application, or to a content delivery network (CDN) for further distribution.
+* [Content Delivery Network](https://azure.microsoft.com/services/cdn/): Provides secure, reliable content delivery with broad global reach and a rich feature set.
+* [Azure Media Player](https://azure.microsoft.com/services/media-services/media-player/): Uses industry standards, such as HTML5 (MSE/EME), to provide a rich adaptive streaming experience. Regardless of the playback technology used, developers have a unified JavaScript interface to access APIs.
+* [Multi-DRM content protection](https://azure.microsoft.com/services/media-services/content-protection/): Delivers content securely using multi-DRM (PlayReady, Widevine, FairPlay Streaming) or AES clear key encryption
 
 ## Next Steps
-* [How to use Azure Blob storage](https://docs.microsoft.com/api/Redirect/documentation/articles/storage-dotnet-how-to-use-blobs/)
-* [How to encode an asset using Media Encoder](https://docs.microsoft.com/api/Redirect/documentation/articles/media-services-dotnet-encode-with-media-encoder-standard/)
-* [How to manage streaming endpoints](https://docs.microsoft.com/azure/media-services/media-services-portal-manage-streaming-endpoints)
-* [Using Azure Content Delivery Network](https://docs.microsoft.com/api/Redirect/documentation/articles/cdn-create-new-endpoint/)
-* [Develop video player applications](https://docs.microsoft.com/api/Redirect/documentation/articles/media-services-develop-video-players/)
-* [Deliver content securely](http://azure.microsoft.com/services/media-services/content-protection/)
+* [How to use Azure Blob storage](/api/Redirect/documentation/articles/storage-dotnet-how-to-use-blobs/)
+* [How to encode an asset using Media Encoder](/api/Redirect/documentation/articles/media-services-dotnet-encode-with-media-encoder-standard/)
+* [How to manage streaming endpoints](/azure/media-services/media-services-portal-manage-streaming-endpoints)
+* [Using Azure Content Delivery Network](/api/Redirect/documentation/articles/cdn-create-new-endpoint/)
+* [Develop video player applications](/api/Redirect/documentation/articles/media-services-develop-video-players/)
+* [Deliver content securely](https://azure.microsoft.com/services/media-services/content-protection/)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

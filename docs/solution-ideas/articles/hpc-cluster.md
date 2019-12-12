@@ -4,13 +4,21 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: High performance computing (HPC) applications can scale to thousands of compute cores, extend on-premises big compute, or run as a 100% cloud native solution. This HPC solution including the head node, compute nodes, and storage nodes, runs in Azure with no hardware infrastructure to maintain.
 ms.custom: acom-architecture
+titleSuffix: Azure Solution Ideas
 ---
 # HPC cluster deployed in the cloud
 
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
+
 High performance computing (HPC) applications can scale to thousands of compute cores, extend on-premises big compute, or run as a 100% cloud native solution. This HPC solution including the head node, compute nodes, and storage nodes, runs in Azure with no hardware infrastructure to maintain.
 
-This solution is built on the Azure managed services: [Virtual Machine Scale Sets](/en-us/services/virtual-machine-scale-sets/), [Virtual Network](/en-us/services/virtual-network/) and [Storage Accounts](/en-us/services/storage/). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
-
+This solution is built on the Azure managed services: [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Virtual Network](https://azure.microsoft.com/services/virtual-network/) and [Storage Accounts](https://azure.microsoft.com/services/storage/). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
 ## Architecture
 
@@ -264,12 +272,11 @@ This solution is built on the Azure managed services: [Virtual Machine Scale Set
     </g>
 </svg>
 
-
 ## Components
-* [HPC head node](http://azure.microsoft.com/services/virtual-machines/): 
-* [Virtual Machine Scale Sets](http://azure.microsoft.com/services/virtual-machine-scale-sets/): 
-* [Virtual Network](http://azure.microsoft.com/services/virtual-network/) provides IP connectivity between the head node, compute nodes, and storage nodes.
-* [Storage Accounts](http://azure.microsoft.com/services/storage/): Azure Storage blobs store the disks backing the virtual machines and provides long-term storage of unstructured data and executable files used by the HPC application.
-* [Azure Resource Manager templates](https://docs.microsoft.com/api/Redirecthttp://azure.microsoft.com/documentation/articles/virtual-machines-windows-cli-deploy-templates/): Resource Manager templates or script files are used to deploy your application to the HPC environment.
+* [HPC head node](https://azure.microsoft.com/services/virtual-machines/): 
+* [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/): 
+* [Virtual Network](https://azure.microsoft.com/services/virtual-network/) provides IP connectivity between the head node, compute nodes, and storage nodes.
+* [Storage Accounts](https://azure.microsoft.com/services/storage/): Azure Storage blobs store the disks backing the virtual machines and provides long-term storage of unstructured data and executable files used by the HPC application.
+* [Azure Resource Manager templates](/api/Redirect/documentation/articles/virtual-machines-windows-cli-deploy-templates/): Resource Manager templates or script files are used to deploy your application to the HPC environment.
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

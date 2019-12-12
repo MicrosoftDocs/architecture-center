@@ -1,14 +1,22 @@
 ---
-title: HPC Risk Analysis Template â€“ Solution Architecture
+title: HPC Risk Analysis Template – Solution Architecture
 author: adamboeglin
 ms.date: 12/12/2019
 description: Build an HPC risk analysis solution architecture with a step-by-step flowchart from Microsoft Azure that combines CycleCloud, Avere vFXT and Tibco Gridserver.
 ms.custom: acom-architecture, risk analysis template, risk analysis solution, hpc risk analysis, hybrid risk analysis, interactive-diagram
+titleSuffix: Azure Solution Ideas
 ---
-# HPC Risk Analysis Template â€“ Solution Architecture
+# HPC Risk Analysis Template – Solution Architecture
+
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
 This templated risk analysis solution uses Azure HPC compute and GPU virtual machines (VMs) to expand on-premises Tibco GridServer compute to Azure using Azure CycleCloud for auto-scaling integration. The job executes both on-premises and in the cloud by using Avere vFXT fast caching and native NFS access to market data available on-premises.
-
 
 ## Architecture
 
@@ -352,17 +360,17 @@ This templated risk analysis solution uses Azure HPC compute and GPU virtual mac
 1. As task queues drain, the Tibco HPCCA uses the Azure CycleCloud Auto-Scaling API to shrink the compute grid and reduce cost.
 
 ## Components
-* [N-Series Virtual Machines](http://azure.microsoft.com/pricing/details/virtual-machines/linux/): N-series virtual machines are ideal for compute and graphics-intensive workloads, helping customers to fuel innovation through scenarios like high-end remote visualization, deep learning, and predictive analytics.
-* [H-Series Virtual Machines](http://azure.microsoft.com/pricing/details/virtual-machines/linux/): The H-series is a new family specifically designed to handle high performance computing workloads such as financial risk modeling, seismic and reservoir simulation, molecular modeling, and genomic research.
-* Effectively manage common workloads with ease while creating and optimizing HPC clusters with Microsoft [Azure CycleCloud](http://azure.microsoft.com/features/azure-cyclecloud/).
-* [Avere vFXT](http://azure.microsoft.com/services/storage/avere-vfxt/): Faster, more accessible data storage for high-performance computing at the edge
-* [TIBCO GridServer](https://www.tibco.com/resources/datasheet/tibco-gridserver)Â® is a market-leading infrastructure platform for grid and elastic computingâ€”and the backbone of businesses operating in the world's most demanding markets. More than a million CPUs spread across a thousand global installations form enterprise grids managed by GridServer.
+* [N-Series Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/linux/): N-series virtual machines are ideal for compute and graphics-intensive workloads, helping customers to fuel innovation through scenarios like high-end remote visualization, deep learning, and predictive analytics.
+* [H-Series Virtual Machines](https://azure.microsoft.com/pricing/details/virtual-machines/linux/): The H-series is a new family specifically designed to handle high performance computing workloads such as financial risk modeling, seismic and reservoir simulation, molecular modeling, and genomic research.
+* Effectively manage common workloads with ease while creating and optimizing HPC clusters with Microsoft [Azure CycleCloud](https://azure.microsoft.com/features/azure-cyclecloud/).
+* [Avere vFXT](https://azure.microsoft.com/services/storage/avere-vfxt/): Faster, more accessible data storage for high-performance computing at the edge
+* [TIBCO GridServer](https://www.tibco.com/resources/datasheet/tibco-gridserver)® is a market-leading infrastructure platform for grid and elastic computing—and the backbone of businesses operating in the world's most demanding markets. More than a million CPUs spread across a thousand global installations form enterprise grids managed by GridServer.
 
 ## Next Steps
-* [N-Series Virtual Machines Documentation](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu)
-* [H-Series Virtual Machines Documentation](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc)
-* [Azure CycleCloud Documentation](https://docs.microsoft.com/azure/cyclecloud)
-* [Avere vFXT Documentation](https://docs.microsoft.com/azure/avere-vfxt)
+* [N-Series Virtual Machines Documentation](/azure/virtual-machines/linux/sizes-gpu)
+* [H-Series Virtual Machines Documentation](/azure/virtual-machines/linux/sizes-hpc)
+* [Azure CycleCloud Documentation](/azure/cyclecloud)
+* [Avere vFXT Documentation](/azure/avere-vfxt)
 * [TIBCO GridServer Documentation](https://docs.tibco.com/products/tibco-datasynapse-gridserver-6-2-0)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]
