@@ -1,10 +1,10 @@
 ---
 title: Blockchain Workflow Application
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: Explore how blockchain is used to digitize workflows and supply chains across organizations with the Blockchain Workflow Application from Microsoft Azure.
 ms.custom: acom-architecture, Blockchain Workflow, Blockchain Workflow Application, Azure Blockchain, Azure Blockchain Service, interactive-diagram
-titleSuffix: Azure Solution Ideas
 ---
 # Blockchain Workflow Application
 
@@ -292,17 +292,17 @@ Businesses use blockchain to digitize workflows they share with other organizati
 </div>
 
 ## Data Flow
-1. Relevant apps, devices, and data sources send events or data to a message broker (Azure Service Bus).
-1. The distributed ledger technology (DLT) consumer Logic App fetches the data from the Service Bus and sends to transaction builder which builds and signs the transaction.
-1. The signed transaction gets routed to Azure Blockchain Service (fully managed Ethereum consortium network) via a ledger-specific Logic App connector.
-1. The blockchain data manager captures block and transaction data from configured transaction nodes, decodes events and properties and then sends the data to configured destinations.
-1. Message broker sends ledger data to consuming business applications and off-chain database.
-1. Information is analyzed and visualized using tools such as Power BI by connecting to off-chain database.
+1. Relevant apps, devices, and data sources send events or data to a message broker (Azure Service Bus).
+1. The distributed ledger technology (DLT) consumer Logic App fetches the data from the Service Bus and sends to transaction builder which builds and signs the transaction.
+1. The signed transaction gets routed to Azure Blockchain Service (fully managed Ethereum consortium network) via a ledger-specific Logic App connector.
+1. The blockchain data manager captures block and transaction data from configured transaction nodes, decodes events and properties and then sends the data to configured destinations.
+1. Message broker sends ledger data to consuming business applications and off-chain database.
+1. Information is analyzed and visualized using tools such as Power BI by connecting to off-chain database.
 
 ## Components
 * [Azure Blockchain Service](https://azure.microsoft.com/services/blockchain-service/): Build, govern, and expand consortium blockchain networks
 * [Service Bus](https://azure.microsoft.com/services/service-bus/): Connect across private and public cloud environments
-* [Azure IoT Central](https://azure.microsoft.com/services/iot-central/): Experience the simplicity of SaaS for IoT, with no cloud expertise required
+* [Azure IoT Central](https://azure.microsoft.com/services/iot-central/): Accelerate the creation of IoT solutions
 * Application Insights: Detect, triage, and diagnose issues in your web apps and services
 * [Event Grid](https://azure.microsoft.com/services/event-grid/): Get reliable event delivery at massive scale
 * [Logic Apps](https://azure.microsoft.com/services/logic-apps/): Automate the access and use of data across clouds without writing code

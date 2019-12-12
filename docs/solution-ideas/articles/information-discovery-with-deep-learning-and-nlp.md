@@ -1,10 +1,10 @@
 ---
 title: Information discovery with deep learning and NLP
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: See how deep learning and natural language processing can be used effectively with the Microsoft AI platform.
 ms.custom: acom-architecture, convolutional neural network, discrete manufacturing, decision tree algorithm, image classification, gradient boosting decision tree, failure detection, automated manufacturing solutions
-titleSuffix: Azure Solution Ideas
 ---
 # Information discovery with deep learning and NLP
 
@@ -16,9 +16,9 @@ titleSuffix: Azure Solution Ideas
     <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
 </div>
 
-Social sites, forums, and other text-heavy Q&A services rely heavily on tagging, which enables indexing and user search. Without appropriate tagging, these sites are far less effective. Often, however, tagging is left to the users’ discretion. And since users don’t have lists of commonly searched terms or a deep understanding of the categorization or information architecture of a site, posts are frequently mislabeled. This makes it difficult or impossible to find that content when it’s needed later.
+Social sites, forums, and other text-heavy Q&A services rely heavily on tagging, which enables indexing and user search. Without appropriate tagging, these sites are far less effective. Often, however, tagging is left to the usersâ€™ discretion. And since users donâ€™t have lists of commonly searched terms or a deep understanding of the categorization or information architecture of a site, posts are frequently mislabeled. This makes it difficult or impossible to find that content when itâ€™s needed later.
 
-By combining deep learning and natural language processing (NLP) with data on site-specific search terms, this solution helps greatly improve tagging accuracy on your site. As your user types their post, it offers highly used terms as suggested tags, making it easier for others to find the information they’re providing.
+By combining deep learning and natural language processing (NLP) with data on site-specific search terms, this solution helps greatly improve tagging accuracy on your site. As your user types their post, it offers highly used terms as suggested tags, making it easier for others to find the information theyâ€™re providing.
 
 ## Architecture
 

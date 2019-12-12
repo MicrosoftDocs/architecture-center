@@ -1,10 +1,10 @@
 ---
 title: Demand Forecasting + Price Optimization
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: Predict future customer demand and optimize pricing to maximize profitability using big-data and advanced-analytics services from Microsoft Azure.
 ms.custom: acom-architecture, demand forecasting, price optimization
-titleSuffix: Azure Solution Ideas
 ---
 # Demand Forecasting + Price Optimization
 
@@ -16,11 +16,11 @@ titleSuffix: Azure Solution Ideas
     <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
 </div>
 
-Pricing is pivotal for many industries, but it can be one of the most challenging tasks. Companies often struggle to accurately forecast the fiscal impact of potential tactics, fully consider core business constraints, and fairly validate pricing decisions once they’ve been made. As product offerings expand and complicate the calculations behind real-time pricing decisions, the process grows even more difficult.
+Pricing is pivotal for many industries, but it can be one of the most challenging tasks. Companies often struggle to accurately forecast the fiscal impact of potential tactics, fully consider core business constraints, and fairly validate pricing decisions once theyâ€™ve been made. As product offerings expand and complicate the calculations behind real-time pricing decisions, the process grows even more difficult.
 
 This solution addresses those challenges by using historical transaction data to train a demand-forecasting model in a retail context. It also incorporates the pricing of products in a competing group to predict cannibalization and other cross-product impacts. A price-optimization algorithm then uses that model to forecast demand at various price points and factors in business constraints to maximize potential profit.
 
-By using this solution to ingest historical transaction data, predict future demand, and regularly optimize pricing, you’ll have the opportunity to save time and effort around the process and improve your company’s profitability.
+By using this solution to ingest historical transaction data, predict future demand, and regularly optimize pricing, youâ€™ll have the opportunity to save time and effort around the process and improve your companyâ€™s profitability.
 
 ## Architecture
 

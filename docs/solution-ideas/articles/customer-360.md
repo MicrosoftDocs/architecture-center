@@ -1,10 +1,10 @@
 ---
 title: Customer 360
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
-description: A deep understanding between customer interests and purchasing patterns is a critical component of any retail business intelligence operation. This solution implements a process of aggregating customer data into a ì360 degreeî profile, and uses advanced machine learning models backed by the reliability and processing power of Azure to provide predictive insights on simulated customers.
+description: A deep understanding between customer interests and purchasing patterns is a critical component of any retail business intelligence operation. This solution implements a process of aggregating customer data into a ‚Äú360 degree‚Äù profile, and uses advanced machine learning models backed by the reliability and processing power of Azure to provide predictive insights on simulated customers.
 ms.custom: acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery, interactive-diagram
-titleSuffix: Azure Solution Ideas
 ---
 # Customer 360
 
@@ -16,7 +16,7 @@ titleSuffix: Azure Solution Ideas
     <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
 </div>
 
-A deep understanding between customer interests and purchasing patterns is a critical component of any retail business intelligence operation. This solution implements a process of aggregating customer data into a ì360 degreeî profile, and uses advanced machine learning models backed by the reliability and processing power of Azure to provide predictive insights on simulated customers.
+A deep understanding between customer interests and purchasing patterns is a critical component of any retail business intelligence operation. This solution implements a process of aggregating customer data into a ‚Äú360 degree‚Äù profile, and uses advanced machine learning models backed by the reliability and processing power of Azure to provide predictive insights on simulated customers.
 
 ## Architecture
 
@@ -294,11 +294,11 @@ The Customer 360 Profile solution addresses the above problems by:
 </div>
 
 ## Data Flow
-1. A Data Generator pipes simulated customer events to an Event Hub
-1. A Stream Analytics job reads from the EventHub, performs aggregations
-1. Stream Analytics persists time-grouped data to an Azure Storage Blob
-1. A Spark job running in HDInsight merges the latest customer browsing data with historical purchase and demographic data to build a consolidated user profile
-1. A second Spark job scores each customer profile against a machine learning model to predict future purchasing patterns (i.e., is a given customer likely to make a purchase in the next 30 days, and if so, in which product category?)
-1. Predictions and other profile data are visualized and shared as charts and tables in Power BI Online
+1. A Data Generator pipes simulated customer events to an Event Hub
+1. A Stream Analytics job reads from the EventHub, performs aggregations
+1. Stream Analytics persists time-grouped data to an Azure Storage Blob
+1. A Spark job running in HDInsight merges the latest customer browsing data with historical purchase and demographic data to build a consolidated user profile
+1. A second Spark job scores each customer profile against a machine learning model to predict future purchasing patterns (i.e., is a given customer likely to make a purchase in the next 30 days, and if so, in which product category?)
+1. Predictions and other profile data are visualized and shared as charts and tables in Power BI Online
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

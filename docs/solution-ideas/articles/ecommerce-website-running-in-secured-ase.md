@@ -1,10 +1,10 @@
 ---
 title: E-commerce website running in secured App Service Environment
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: Secure your e-commerce website's sensitive user and payment data using the Microsoft Azure App Service Environment.
 ms.custom: acom-architecture, app service environment, security for ecommerce websites, e-commerce security solutions, e-commerce site security, interactive-diagram
-titleSuffix: Azure Solution Ideas
 ---
 # E-commerce website running in secured App Service Environment
 
@@ -265,19 +265,19 @@ titleSuffix: Azure Solution Ideas
 </div>
 
 ## Data Flow
-1. Customer accesses the public website in browser.
-1. Browser pulls static resources and product images from Azure Content Delivery Network.
-1. Content Delivery Network pulls product images from blob storage.
-1. Customer searches for products.
-1. Public website pulls product catalog from product database.
-1. Page output is cached in the Azure Cache for Redis.
-1. Customer creates new orders.
-1. Public website invokes orders web service.
-1. Orders web service saves/loads orders from Azure SQL Database.
-1. Employee accesses the admin website in browser.
-1. Employee authenticates against Azure Active Directory (Azure AD).
-1. Employee searches orders.
-1. Admin website invokes orders web service.
+1. Customer accesses the public website in browser.
+1. Browser pulls static resources and product images from Azure Content Delivery Network.
+1. Content Delivery Network pulls product images from blob storage.
+1. Customer searches for products.
+1. Public website pulls product catalog from product database.
+1. Page output is cached in the Azure Cache for Redis.
+1. Customer creates new orders.
+1. Public website invokes orders web service.
+1. Orders web service saves/loads orders from Azure SQL Database.
+1. Employee accesses the admin website in browser.
+1. Employee authenticates against Azure Active Directory (Azure AD).
+1. Employee searches orders.
+1. Admin website invokes orders web service.
 
 ## Components
 * [App Service](https://azure.microsoft.com/services/app-service/): Quickly create powerful cloud apps for web and mobile
@@ -289,7 +289,7 @@ titleSuffix: Azure Solution Ideas
 * [Azure Cache for Redis](https://azure.microsoft.com/services/cache/): Power applications with high-throughput, low-latency data access
 * [Content Delivery Network](https://azure.microsoft.com/services/cdn/): Ensure secure, reliable content delivery with broad global reach
 * [Azure Active Directory](https://azure.microsoft.com/services/active-directory/): Synchronize on-premises directories and enable single sign-on
-* [Blob Storage](https://azure.microsoft.com/services/storage/blobs/): Azure Blob storage is a Massively scalable object storage for any type of unstructured data—images, videos, audio, documents, and more—easily and cost-effectively.
+* [Blob Storage](https://azure.microsoft.com/services/storage/blobs/): Azure Blob storage is a Massively scalable object storage for any type of unstructured dataâ€”images, videos, audio, documents, and moreâ€”easily and cost-effectively.
 
 ## Next Steps
 * [Create and use an internal load balancer with an App Service Environment](/azure/app-service/environment/create-ilb-ase)

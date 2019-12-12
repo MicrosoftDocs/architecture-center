@@ -1,10 +1,10 @@
 ---
 title: Cross Cloud Scaling Architecture
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: Learn how to improve cross cloud scalability with solution architecture that includes Azure Stack. A step-by-step flowchart details instructions for implementation.
 ms.custom: acom-architecture, cross cloud architecture, cloud scalability, cross cloud, interactive-diagram
-titleSuffix: Azure Solution Ideas
 ---
 # Cross Cloud Scaling Architecture
 
@@ -117,11 +117,11 @@ Modern software is increasingly connected and distributed. The consistency of Az
 </div>
 
 ## Data Flow
-1. A large number of users attempt to access a web app.
-1. Traffic manager returns the Azure Stack DNS name.
-1. Users access the Azure Stack web app.
-1. Once a threshold is reached, a function starts the Azure Web App and enables the Azure Traffic Manager route.
-1. Traffic is routed to Azure, which can automatically scale App Service.
+1. A large number of users attempt to access a web app.
+1. Traffic manager returns the Azure Stack DNS name.
+1. Users access the Azure Stack web app.
+1. Once a threshold is reached, a function starts the Azure Web App and enables the Azure Traffic Manager route.
+1. Traffic is routed to Azure, which can automatically scale App Service.
 
 ## Components
 * [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/): Route incoming traffic for high performance and availability

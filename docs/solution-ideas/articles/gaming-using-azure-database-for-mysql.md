@@ -1,10 +1,10 @@
 ---
 title: Gaming using Azure Database for MySQL
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: Scale your databases elastically to accommodate unpredictable bursts of traffic and deliver low-latency multi-player experiences.
 ms.custom: acom-architecture, mysql, use cases, azure, solutions
-titleSuffix: Azure Solution Ideas
 ---
 # Gaming using Azure Database for MySQL
 

@@ -1,10 +1,10 @@
 ---
 title: Machine Learning model training with AKS
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: Machine Learning with AKS
 ms.custom: acom-architecture, chat, signalr service, interactive-diagram
-titleSuffix: Azure Solution Ideas
 ---
 # Machine Learning model training with AKS
 
@@ -200,11 +200,11 @@ Training of models using large datasets is a complex and resource intensive task
 </div>
 
 ## Data Flow
-1. Package ML model into a container and publish to ACR
-1. Azure Blob storage hosts training data sets and trained model
-1. Use Kubeflow to deploy training job to AKS, distributed training job to AKS includes Parameter servers and Worker nodes
-1. Serve production model using Kubeflow, promoting a consistent environment across test, control and production
-1. AKS supports GPU enabled VM
-1. Developer can build features querying the model running in AKS cluster
+1. Package ML model into a container and publish to ACR
+1. Azure Blob storage hosts training data sets and trained model
+1. Use Kubeflow to deploy training job to AKS, distributed training job to AKS includes Parameter servers and Worker nodes
+1. Serve production model using Kubeflow, promoting a consistent environment across test, control and production
+1. AKS supports GPU enabled VM
+1. Developer can build features querying the model running in AKS cluster
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

@@ -1,10 +1,10 @@
 ---
 title: Personalized marketing solutions
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: Find essential technology to market your products with personalized offers. Individualize your marketing for greater customer response using big-data insights.
 ms.custom: acom-architecture, personalized marketing, marketing personalization, targeted marketing
-titleSuffix: Azure Solution Ideas
 ---
 # Personalized marketing solutions
 
@@ -18,9 +18,9 @@ titleSuffix: Azure Solution Ideas
 
 Personalized marketing is essential for building customer loyalty and remaining profitable. Reaching customers and getting them to engage is harder than ever, and generic offers are easily missed or ignored. Current marketing systems fail to take advantage of data that can help solve this problem.
 
-Marketers using intelligent systems and analyzing massive amounts of data can deliver highly relevant and personalized offers to each user, cutting through the clutter and driving engagement. For example, retailers can provide offers and content based on each customer’s unique interests and preferences, putting products in front of the people most likely to buy them.
+Marketers using intelligent systems and analyzing massive amounts of data can deliver highly relevant and personalized offers to each user, cutting through the clutter and driving engagement. For example, retailers can provide offers and content based on each customerâ€™s unique interests and preferences, putting products in front of the people most likely to buy them.
 
-By personalizing your offers, you’ll deliver an individualized experience for every current or prospective customer, boosting engagement and improving customer conversion, lifetime value, and retention.
+By personalizing your offers, youâ€™ll deliver an individualized experience for every current or prospective customer, boosting engagement and improving customer conversion, lifetime value, and retention.
 
 ## Architecture
 

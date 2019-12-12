@@ -1,10 +1,10 @@
 ---
 title: Lift and Shift and Innovate - LOB Apps
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: The solution demonstrates a business process for monitoring and responding to customer feedback. This architecture shows how to easily connect multiple business systems to enable a nimbler customer support.
 ms.custom: acom-architecture, line of business app, lob app, lift and shift cloud strategy, cloud migration, cloud innovation, lift and shift solution, lift and shift strategy, interactive-diagram
-titleSuffix: Azure Solution Ideas
 ---
 # Lift and Shift and Innovate - LOB Apps
 
@@ -124,10 +124,10 @@ The links to the right provide documentation on deploying and managing the Azure
 </div>
 
 ## Data Flow
-1. Customer submits feedback posted to a web endpoint.
-1. The feedback is posted to Microsoft Cognitive Services Text Analytics API to extract sentiment and keywords.
-1. The customer feedback creates a new case in Dynamics CRM or other CRM.
-1. The solution sends a text message to the customer, thanking them for the feedback.
-1. If the feedback sentiment scores lower than 0.3, the app posts this information to a customer service channel to respond.
+1. Customer submits feedback posted to a web endpoint.
+1. The feedback is posted to Microsoft Cognitive Services Text Analytics API to extract sentiment and keywords.
+1. The customer feedback creates a new case in Dynamics CRM or other CRM.
+1. The solution sends a text message to the customer, thanking them for the feedback.
+1. If the feedback sentiment scores lower than 0.3, the app posts this information to a customer service channel to respond.
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

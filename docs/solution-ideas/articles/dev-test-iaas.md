@@ -1,10 +1,10 @@
 ---
 title: Dev-Test deployment for testing IaaS solutions
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: This architecture represents how to configure your infrastructure for development and testing of a standard IaaS-based SaaS system.
 ms.custom: acom-architecture
-titleSuffix: Azure Solution Ideas
 ---
 # Dev-Test deployment for testing IaaS solutions
 
@@ -418,7 +418,7 @@ This solution is built on the Azure managed services: [Azure DevOps](https://azu
 * [Azure DevOps resource groups](https://www.visualstudio.com/docs/release/getting-started/configure-agents) are used to define all the services required to deploy the solution into a dev-test or production environment.
 * [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/): Azure Dev-Test Labs manages all of the virtual machines used in the development and test environments.
 * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/): Virtual machines are used to deploy all of the products used in the solution. Staging slots swap pre-production and production versions.
-* Application Insights: Application Insights monitors the web application during development and test runs, and then monitors the full production system when it’s released.
+* Application Insights: Application Insights monitors the web application during development and test runs, and then monitors the full production system when itâ€™s released.
 
 ## Next Steps
 * [Set up Azure DevOps](https://www.visualstudio.com/docs/setup-admin/get-started)

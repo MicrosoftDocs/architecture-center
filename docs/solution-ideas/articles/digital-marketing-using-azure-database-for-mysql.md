@@ -1,10 +1,10 @@
 ---
 title: Digital Marketing using Azure Database for MySQL
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: Engage with customers around the world with rich, personalized digital marketing experiences. Quickly build and launch digital campaigns that automatically scale based on customer demand.
 ms.custom: acom-architecture, mysql, use cases, azure, solutions
-titleSuffix: Azure Solution Ideas
 ---
 # Digital Marketing using Azure Database for MySQL
 
