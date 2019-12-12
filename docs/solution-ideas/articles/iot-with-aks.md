@@ -13,7 +13,8 @@ ms.custom: acom-architecture, kubernetes, interactive-diagram
         <span class="icon is-left" aria-hidden="true">
             <span class="icon docon docon-lightbulb" role="presentation"></span>
         </span>Solution Idea</p>
-    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+    <p>If you'd like to see us add more information to this article, let us know with <a href="#feedback">GitHub Feedback</a>!</p>
+    <p>Based on your feedback, this solution idea could be expanded to include implementation details, pricing guidance, code examples, and deployment templates.</p>
 </div>
 
 IoT scenarios can potentially involve hundreds to thousands of IoT devices. AKS provides scalable compute resources on demand for IoT solutions, running in the cloud or on-premises.
@@ -139,8 +140,10 @@ IoT scenarios can potentially involve hundreds to thousands of IoT devices. AKS 
 </div>
 
 ## Data Flow
-1. User initiates AKS deployment using a Helm Chart
-1. IoT Edge Connector virtual node deploys to Edge devices via the IoT Hub.
-1. Deployment is updated on Edge devices
+1. User initiates AKS deployment using a Helm Chart
+
+1. IoT Edge Connector virtual node deploys to Edge devices via the IoT Hub.
+
+1. Deployment is updated on Edge devices
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

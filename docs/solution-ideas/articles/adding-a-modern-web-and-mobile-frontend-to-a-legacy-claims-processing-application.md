@@ -13,7 +13,8 @@ ms.custom: acom-architecture, line of business app, lob app, lift and shift clou
         <span class="icon is-left" aria-hidden="true">
             <span class="icon docon docon-lightbulb" role="presentation"></span>
         </span>Solution Idea</p>
-    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+    <p>If you'd like to see us add more information to this article, let us know with <a href="#feedback">GitHub Feedback</a>!</p>
+    <p>Based on your feedback, this solution idea could be expanded to include implementation details, pricing guidance, code examples, and deployment templates.</p>
 </div>
 
 This line-of-business application solution consolidates data from multiple business systems and surfaces the data through web and mobile front ends—helping to improve employee productivity and speed decision making.
@@ -290,14 +291,21 @@ This line-of-business application solution consolidates data from multiple busin
 </div>
 
 ## Data Flow
-1. Customer’s mobile app authenticates via Azure Active Directory B2C
-1. Customer’s mobile app connects to the back-end web service that aggregates data from different systems using asynchronous connection
-1. Web application connects to SQL database
-1. Power BI connects to SQL database and SharePoint
-1. Logic app pulls data from CRM (Salesforce)
-1. Logic app connects to SAP system (on-premises or in the cloud)
-1. Employee mobile app connects to the logic app that orchestrates the business process
-1. Employee mobile app authenticates via Azure Active Directory
+1. Customer’s mobile app authenticates via Azure Active Directory B2C
+
+1. Customer’s mobile app connects to the back-end web service that aggregates data from different systems using asynchronous connection
+
+1. Web application connects to SQL database
+
+1. Power BI connects to SQL database and SharePoint
+
+1. Logic app pulls data from CRM (Salesforce)
+
+1. Logic app connects to SAP system (on-premises or in the cloud)
+
+1. Employee mobile app connects to the logic app that orchestrates the business process
+
+1. Employee mobile app authenticates via Azure Active Directory
 
 ## Components
 * Azure [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) lets you deploy a Windows Server or Linux image in the cloud. You can select images from a marketplace or use your own customized images.

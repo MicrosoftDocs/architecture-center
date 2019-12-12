@@ -13,7 +13,8 @@ ms.custom: acom-architecture, Mobile Workforce App, Mobile Workforce Management 
         <span class="icon is-left" aria-hidden="true">
             <span class="icon docon docon-lightbulb" role="presentation"></span>
         </span>Solution Idea</p>
-    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+    <p>If you'd like to see us add more information to this article, let us know with <a href="#feedback">GitHub Feedback</a>!</p>
+    <p>Based on your feedback, this solution idea could be expanded to include implementation details, pricing guidance, code examples, and deployment templates.</p>
 </div>
 
 This mobile workforce app architecture uses Active Directory to secure corporate data from an SAP back end system, delivered to devices via Azure App Service API Management.
@@ -284,14 +285,21 @@ The links to the right provide documentation on deploying and managing the Azure
 </div>
 
 ## Data Flow
-1. Create the app using Visual Studio and Xamarin.
-1. Add the Azure App Service Mobile Apps back end service to the app solution.
-1. Implement authentication through Azure Active Directory.
-1. Connect to business data in external systems like SAP using Azure API Management.
-1. Implement offline sync to make the mobile app functional without a network connection.
-1. Build and test the app through Visual Studio App Center and publish it.
-1. Deploy the app to devices using App Center.
-1. Use Application Insights to monitor the App Service.
+1. Create the app using Visual Studio and Xamarin.
+
+1. Add the Azure App Service Mobile Apps back end service to the app solution.
+
+1. Implement authentication through Azure Active Directory.
+
+1. Connect to business data in external systems like SAP using Azure API Management.
+
+1. Implement offline sync to make the mobile app functional without a network connection.
+
+1. Build and test the app through Visual Studio App Center and publish it.
+
+1. Deploy the app to devices using App Center.
+
+1. Use Application Insights to monitor the App Service.
 
 ## Components
 * Build the web front end, mobile apps, and back end services with C# in [Visual Studio](https://azure.microsoft.com/products/visual-studio/) 2017 or [Visual Studio](https://azure.microsoft.com/products/visual-studio/) for Mac.

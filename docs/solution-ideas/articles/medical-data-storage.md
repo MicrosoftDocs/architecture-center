@@ -13,7 +13,8 @@ ms.custom: acom-architecture, medical records management, medical records storag
         <span class="icon is-left" aria-hidden="true">
             <span class="icon docon docon-lightbulb" role="presentation"></span>
         </span>Solution Idea</p>
-    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+    <p>If you'd like to see us add more information to this article, let us know with <a href="#feedback">GitHub Feedback</a>!</p>
+    <p>Based on your feedback, this solution idea could be expanded to include implementation details, pricing guidance, code examples, and deployment templates.</p>
 </div>
 
 Cloud and hybrid solutions from Microsoft help you manage medical data storage efficiently and cost effectively, while infusing intelligence and maintaining compliance.
@@ -259,12 +260,17 @@ Cloud and hybrid solutions from Microsoft help you manage medical data storage e
 </div>
 
 ## Data Flow
-1. Securely ingest medical image data using Azure Data Factory.
-1. Securely store medical image data in Azure Data Lake Store and/or Azure Blob Storage.
-1. Analyze medical image data using a pre-trained Azure Cognitive Services API or a custom developed Machine Learning model.
-1. Store artificial intelligence (AI) and Machine Learning results in Azure Data Lake.
-1. Interact AI and Machine Learning results using PowerBI, while preserving Role-Based Access Control (RBAC).
-1. Securely interact with medical image data via a web based vendor neutral archive (VNA) image viewer.
+1. Securely ingest medical image data using Azure Data Factory.
+
+1. Securely store medical image data in Azure Data Lake Store and/or Azure Blob Storage.
+
+1. Analyze medical image data using a pre-trained Azure Cognitive Services API or a custom developed Machine Learning model.
+
+1. Store artificial intelligence (AI) and Machine Learning results in Azure Data Lake.
+
+1. Interact AI and Machine Learning results using PowerBI, while preserving Role-Based Access Control (RBAC).
+
+1. Securely interact with medical image data via a web based vendor neutral archive (VNA) image viewer.
 
 ## Components
 * [Data Factory](https://azure.microsoft.com/services/data-factory/): Hybrid data integration at enterprise scale, made easy

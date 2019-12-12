@@ -13,7 +13,8 @@ ms.custom: acom-architecture, CI/CD, Azure CI/CD, Continuous Integration And Con
         <span class="icon is-left" aria-hidden="true">
             <span class="icon docon docon-lightbulb" role="presentation"></span>
         </span>Solution Idea</p>
-    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+    <p>If you'd like to see us add more information to this article, let us know with <a href="#feedback">GitHub Feedback</a>!</p>
+    <p>Based on your feedback, this solution idea could be expanded to include implementation details, pricing guidance, code examples, and deployment templates.</p>
 </div>
 
 Implementing a continuous integration/continuous development (CI/CD) approach to deploying applications becomes difficult when on-premises applications are built and operated in different ways than cloud applications. Having a consistent set of development tools and processes across the Azure public cloud and on-premises Azure Stack environments makes it far easier for organizations to implement a practice of CI/CD. Apps and services deployed the right way in Azure and Azure Stack are essentially interchangeable and can run in either location.
@@ -186,11 +187,15 @@ Implementing a continuous integration/continuous development (CI/CD) approach to
 </div>
 
 ## Data Flow
-1. Engineer makes changes to application code and ARM template.
-1. Code and ARM template are checked into Visual Studio Team Services Git.
-1. Continuous integration triggers application build and unit tests.
-1. Continuous deployment trigger orchestrates deployment of application artifacts with environment-specific parameters.
-1. Deployment to App Service on both Azure and Azure Stack.
+1. Engineer makes changes to application code and ARM template.
+
+1. Code and ARM template are checked into Visual Studio Team Services Git.
+
+1. Continuous integration triggers application build and unit tests.
+
+1. Continuous deployment trigger orchestrates deployment of application artifacts with environment-specific parameters.
+
+1. Deployment to App Service on both Azure and Azure Stack.
 
 ## Components
 * [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) is a hybrid cloud platform that lets you use Azure services on-premises

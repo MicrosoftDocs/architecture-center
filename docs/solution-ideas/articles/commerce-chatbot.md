@@ -13,7 +13,8 @@ ms.custom: acom-architecture, bot service, luis, interactive-diagram
         <span class="icon is-left" aria-hidden="true">
             <span class="icon docon docon-lightbulb" role="presentation"></span>
         </span>Solution Idea</p>
-    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+    <p>If you'd like to see us add more information to this article, let us know with <a href="#feedback">GitHub Feedback</a>!</p>
+    <p>Based on your feedback, this solution idea could be expanded to include implementation details, pricing guidance, code examples, and deployment templates.</p>
 </div>
 
 Together, the Azure Bot Service and Language Understanding service enable developers to create conversational interfaces for various scenarios like banking, travel, and entertainment. For example, a hotel’s concierge can use a bot to enhance traditional e-mail and phone call interactions by validating a customer via Azure Active Directory and using Cognitive Services to better contextually process customer requests using text and voice. The Speech recognition service can be added to support voice commands.
@@ -153,12 +154,18 @@ Together, the Azure Bot Service and Language Understanding service enable develo
 </div>
 
 ## Data Flow
-1. Customer uses your mobile app
-1. Using Azure AD B2C, the user authenticates
-1. Using the custom Application Bot, user requests information
-1. Cognitive Services helps process the natural language request
-1. Response is reviewed by customer who can refine the question using natural conversation
-1. Once the user is happy with the results, the Application Bot updates the customer’s reservation
-1. Application insights gathers runtime telemetry to help development with Bot performance and usage
+1. Customer uses your mobile app
+
+1. Using Azure AD B2C, the user authenticates
+
+1. Using the custom Application Bot, user requests information
+
+1. Cognitive Services helps process the natural language request
+
+1. Response is reviewed by customer who can refine the question using natural conversation
+
+1. Once the user is happy with the results, the Application Bot updates the customer’s reservation
+
+1. Application insights gathers runtime telemetry to help development with Bot performance and usage
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

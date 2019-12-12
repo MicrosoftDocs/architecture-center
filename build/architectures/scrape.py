@@ -11,7 +11,7 @@ from os import path
 import os
 import tempfile
 
-use_cache=False
+use_cache=True
 single_url=False
 
 #url="https://azure.microsoft.com/en-us/solutions/architecture/dev-test-microservice/"
@@ -92,7 +92,8 @@ def scrape_page(url):
         <span class="icon is-left" aria-hidden="true">\n\
             <span class="icon docon docon-lightbulb" role="presentation"></span>\n\
         </span>Solution Idea</p>\n\
-    <p>This is an example of a solution built on Azure. If you\'d like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>\n\
+    <p>If you\'d like to see us add more information to this article, let us know with <a href="#feedback">GitHub Feedback</a>!</p>\n\
+    <p>Based on your feedback, this solution idea could be expanded to include implementation details, pricing guidance, code examples, and deployment templates.</p>\n\
 </div>\n\n'
 
     # Pull all the text

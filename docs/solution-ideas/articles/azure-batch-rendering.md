@@ -13,7 +13,8 @@ ms.custom: acom-architecture, hpc architecture, hpc solution, cluster orchestrat
         <span class="icon is-left" aria-hidden="true">
             <span class="icon docon docon-lightbulb" role="presentation"></span>
         </span>Solution Idea</p>
-    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+    <p>If you'd like to see us add more information to this article, let us know with <a href="#feedback">GitHub Feedback</a>!</p>
+    <p>Based on your feedback, this solution idea could be expanded to include implementation details, pricing guidance, code examples, and deployment templates.</p>
 </div>
 
 This HPC media rendering solution architecture shows Azure CycleCloud monitoring a Pixar Tractor pipeline manager and orchestrating burst compute node capacity on-demand using Azure low-priority Virtual Machines Scale Sets. An Avere vFXT cache makes data from the existing on-premises filesystem and Azure Blob storage available to compute nodes in Azure.
@@ -318,14 +319,21 @@ This HPC media rendering solution architecture shows Azure CycleCloud monitoring
 </div>
 
 ## Data Flow
-1. Operations team uses Azure CycleCloud to configure and launch rendering pipeline cluster.
-1. Azure CycleCloud orchestrates virtual machine (VM) creation and software configuration for head nodes, license servers, and Avere vFXT Cache.
-1. Artist submits a render job to the Pixar Tractor pipeline manager.
-1. Azure CycleCloud detects the change in job queue depth and autostarts render farm nodes in Virtual Machines Scale Sets with location, SKU, and configuration customized by job requirements.
-1. Render pipeline manager (head nodes) executes render jobs on the new render farm VMs.
-1. Render jobs pull artifacts from on-premises and Azure Blob storage as needed from NFS-mounted Avere vFXT.
-1. As each job finishes rendering, resulting artifacts are written back to storage through the Avere vFXT.
-1. As job queue empties, Azure CycleCloud auto-stops render farm VMs to reduce cost.
+1. Operations team uses Azure CycleCloud to configure and launch rendering pipeline cluster.
+
+1. Azure CycleCloud orchestrates virtual machine (VM) creation and software configuration for head nodes, license servers, and Avere vFXT Cache.
+
+1. Artist submits a render job to the Pixar Tractor pipeline manager.
+
+1. Azure CycleCloud detects the change in job queue depth and autostarts render farm nodes in Virtual Machines Scale Sets with location, SKU, and configuration customized by job requirements.
+
+1. Render pipeline manager (head nodes) executes render jobs on the new render farm VMs.
+
+1. Render jobs pull artifacts from on-premises and Azure Blob storage as needed from NFS-mounted Avere vFXT.
+
+1. As each job finishes rendering, resulting artifacts are written back to storage through the Avere vFXT.
+
+1. As job queue empties, Azure CycleCloud auto-stops render farm VMs to reduce cost.
 
 ## Components
 * [N-Series VMs](https://azure.microsoft.com/pricing/details/virtual-machines/linux/): N-series virtual machines are ideal for compute and graphics-intensive workloads, helping customers to fuel innovation through scenarios like high-end remote visualization, deep learning, and predictive analytics.

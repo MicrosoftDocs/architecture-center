@@ -13,7 +13,8 @@ ms.custom: acom-architecture, convolutional neural network, discrete manufacturi
         <span class="icon is-left" aria-hidden="true">
             <span class="icon docon docon-lightbulb" role="presentation"></span>
         </span>Solution Idea</p>
-    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+    <p>If you'd like to see us add more information to this article, let us know with <a href="#feedback">GitHub Feedback</a>!</p>
+    <p>Based on your feedback, this solution idea could be expanded to include implementation details, pricing guidance, code examples, and deployment templates.</p>
 </div>
 
 Lean manufacturing, cost control, and waste reduction are imperative for manufacturing to remain competitive. In circuit-board manufacturing, faulty boards can cost manufacturers money and productivity. Assembly lines rely on human operators to quickly review and validate boards flagged as potentially faulty by assembly-line test machines.
@@ -117,7 +118,8 @@ Using this solution to automate failure detection instead of relying solely on h
 ## Components
 * Azure Blob Storage: Data is ingested and stored in Azure Blob Storage.
 * GPU based Azure Data Science Virtual Machine: The core development environment is the Azure Ubuntu-based GPU DSVM. The data is pulled from blob onto an Azure virtual hard disk (VHD) attached to the DSVM. On that VHD, the data is processed, the images are featurized using a Deep Neural Network, and a Boosted Tree model is trained. DSVM IPython Notebook server is used for solution development.
-* Azure Batch AI training (BAIT): As an alternative to DSVM-based training, for computing-intensive jobs that use deep-learning image processing, we use BAIT as a managed Azure Batch framework for
+* Azure Batch AI training (BAIT): As an alternative to DSVM-based training, for computing-intensive jobs that use deep-learning image processing, we use BAIT as a managed Azure Batch framework for
+
 parallel and distributed computing using clusters of GPU compute nodes.
 * Microsoft Machine Learning for Apache Spark HDInsight Spark Cluster: As an alternative to DSVM-based training, for big datasets, we use MMLSpark to build a highly scalable training solution.
 * Azure Container Registry: The model and web application are packaged into a Docker image and written to Azure Container Registry.

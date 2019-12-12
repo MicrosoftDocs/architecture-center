@@ -13,7 +13,8 @@ ms.custom: acom-architecture, chat, signalr service, interactive-diagram
         <span class="icon is-left" aria-hidden="true">
             <span class="icon docon docon-lightbulb" role="presentation"></span>
         </span>Solution Idea</p>
-    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+    <p>If you'd like to see us add more information to this article, let us know with <a href="#feedback">GitHub Feedback</a>!</p>
+    <p>Based on your feedback, this solution idea could be expanded to include implementation details, pricing guidance, code examples, and deployment templates.</p>
 </div>
 
 Easily migrate existing application to container(s) and run within the Azure managed Kubernetes service (AKS). Control access via integration with Azure Active Directory and access SLA-backed Azure Services such as Azure Database for MySQL using OSBA (Open Service Broker for Azure) for your data needs.
@@ -145,10 +146,14 @@ Easily migrate existing application to container(s) and run within the Azure man
 </div>
 
 ## Data Flow
-1. User converts existing application to container(s) &amp; publishes container image(s)to the Azure Container Registry
-1. Using Azure Portal or command line, user deploys containers to AKS cluster
-1. Azure Active Directory is used to control access to AKS resources
-1. Easily access SLA-backed Azure Services such as Azure Database for MySQL using OSBA (Open Service Broker for Azure)
-1. Optionally, AKS can be deployed with a VNET virtual network
+1. User converts existing application to container(s) &amp; publishes container image(s)to the Azure Container Registry
+
+1. Using Azure Portal or command line, user deploys containers to AKS cluster
+
+1. Azure Active Directory is used to control access to AKS resources
+
+1. Easily access SLA-backed Azure Services such as Azure Database for MySQL using OSBA (Open Service Broker for Azure)
+
+1. Optionally, AKS can be deployed with a VNET virtual network
 
 [!INCLUDE [js_include_file](../../_js/index.md)]
