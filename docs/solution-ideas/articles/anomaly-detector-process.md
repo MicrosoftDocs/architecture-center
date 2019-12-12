@@ -164,6 +164,8 @@ ms.custom: acom-architecture, anomaly detection process, anomaly detection model
 
 1. Visualizes the results of the time series anomaly detection.
 
+[!include deployment.md]
+
 ## Components
 * [Service Bus](https://azure.microsoft.com/services/service-bus/): Reliable cloud messaging as a service (MaaS) and simple hybrid integration
 * [Azure Databricks](https://azure.microsoft.com/services/databricks/): Fast, easy, and collaborative Apache Spark–based analytics service
