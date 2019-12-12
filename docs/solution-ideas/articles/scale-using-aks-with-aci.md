@@ -13,7 +13,8 @@ ms.custom: acom-architecture, kubernetes, interactive-diagram
         <span class="icon is-left" aria-hidden="true">
             <span class="icon docon docon-lightbulb" role="presentation"></span>
         </span>Solution Idea</p>
-    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+    <p>If you'd like to see us add more information to this article, let us know with <a href="#feedback">GitHub Feedback</a>!</p>
+    <p>Based on your feedback, this solution idea could be expanded to include implementation details, pricing guidance, code examples, and deployment templates.</p>
 </div>
 
 Use the AKS virtual node to provision pods inside ACI that start in seconds. This enables AKS to run with just enough capacity for your average workload. As you run out of capacity in your AKS cluster, scale out additional pods in ACI without any additional servers to manage.
@@ -272,9 +273,12 @@ Use the AKS virtual node to provision pods inside ACI that start in seconds. Thi
 </div>
 
 ## Data Flow
-1. User registers container in Azure Container Registry
-1. Container images are pulled from the Azure Container Registry
-1. AKS virtual node, a Virtual Kubelet implementation, provisions pods inside ACI from AKS when traffic comes in spikes.
-1. AKS and ACI containers write to shared data store
+1. User registers container in Azure Container Registry
+
+1. Container images are pulled from the Azure Container Registry
+
+1. AKS virtual node, a Virtual Kubelet implementation, provisions pods inside ACI from AKS when traffic comes in spikes.
+
+1. AKS and ACI containers write to shared data store
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

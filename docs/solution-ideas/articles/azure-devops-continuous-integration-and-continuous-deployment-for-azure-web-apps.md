@@ -13,7 +13,8 @@ ms.custom: acom-architecture, devops, continuous integration, continuous deliver
         <span class="icon is-left" aria-hidden="true">
             <span class="icon docon docon-lightbulb" role="presentation"></span>
         </span>Solution Idea</p>
-    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+    <p>If you'd like to see us add more information to this article, let us know with <a href="#feedback">GitHub Feedback</a>!</p>
+    <p>Based on your feedback, this solution idea could be expanded to include implementation details, pricing guidance, code examples, and deployment templates.</p>
 </div>
 
 Azure Web Apps is a fast and simple way to create web apps using ASP.NET, Java, Node.js, or PHP. Deliver value faster to your customers with a continuous integration and continuous deployment (CI/CD) pipeline that pushes each of your changes automatically to Web Apps.
@@ -160,14 +161,21 @@ Azure Web Apps is a fast and simple way to create web apps using ASP.NET, Java, 
 </div>
 
 ## Data Flow
-1. Change application source code.
-1. Commit application code and Web Apps web.config file.
-1. Continuous integration triggers application build and unit tests.
-1. Continuous deployment trigger orchestrates deployment of application artifacts with environment-specific parameters.
-1. Deployment to Web Apps.
-1. Azure Application Insights collects and analyzes health, performance, and usage data.
-1. Review health, performance, and usage information.
-1. Update backlog item.
+1. Change application source code.
+
+1. Commit application code and Web Apps web.config file.
+
+1. Continuous integration triggers application build and unit tests.
+
+1. Continuous deployment trigger orchestrates deployment of application artifacts with environment-specific parameters.
+
+1. Deployment to Web Apps.
+
+1. Azure Application Insights collects and analyzes health, performance, and usage data.
+
+1. Review health, performance, and usage information.
+
+1. Update backlog item.
 
 ## Components
 * Application Insights: Detect, triage, and diagnose issues in your web apps and services.

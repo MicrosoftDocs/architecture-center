@@ -13,7 +13,8 @@ ms.custom: acom-architecture, web applications, easy deploy, content delivery, i
         <span class="icon is-left" aria-hidden="true">
             <span class="icon docon docon-lightbulb" role="presentation"></span>
         </span>Solution Idea</p>
-    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+    <p>If you'd like to see us add more information to this article, let us know with <a href="#feedback">GitHub Feedback</a>!</p>
+    <p>Based on your feedback, this solution idea could be expanded to include implementation details, pricing guidance, code examples, and deployment templates.</p>
 </div>
 
 Quickly build and launch digital campaigns that automatically scale based on customer demand. Start simple with the content management system that enables you to easily maintain the messaging on your website in real time, from a browser, with no coding required.
@@ -111,10 +112,13 @@ Quickly build and launch digital campaigns that automatically scale based on cus
 </div>
 
 ## Data Flow
-1. User accesses Web Apps from Azure App Service in a browser.
-1. Application Insights detects issues and analyzes usage for your web apps.
-1. Web App connects to SQL Database and Azure Cache for Redis for better performance.
-1. Browser pulls static resources such as video from Azure Content Delivery Network to reduce load time.
+1. User accesses Web Apps from Azure App Service in a browser.
+
+1. Application Insights detects issues and analyzes usage for your web apps.
+
+1. Web App connects to SQL Database and Azure Cache for Redis for better performance.
+
+1. Browser pulls static resources such as video from Azure Content Delivery Network to reduce load time.
 
 ## Components
 * [Web Apps](https://azure.microsoft.com/services/app-service/web/): Build and deploy web apps faster at scale

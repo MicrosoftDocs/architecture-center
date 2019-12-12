@@ -13,7 +13,8 @@ ms.custom: acom-architecture, cross cloud architecture, cloud scalability, cross
         <span class="icon is-left" aria-hidden="true">
             <span class="icon docon docon-lightbulb" role="presentation"></span>
         </span>Solution Idea</p>
-    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+    <p>If you'd like to see us add more information to this article, let us know with <a href="#feedback">GitHub Feedback</a>!</p>
+    <p>Based on your feedback, this solution idea could be expanded to include implementation details, pricing guidance, code examples, and deployment templates.</p>
 </div>
 
 Modern software is increasingly connected and distributed. The consistency of Azure Stack with Azure infrastructure and platform services enable you to scale resources cross cloud to meet increased load as needed, and decrease resources as demand drops. Optimize cost and maximize resource efficiency while remaining compliant with cross cloud architecture.
@@ -117,11 +118,15 @@ Modern software is increasingly connected and distributed. The consistency of Az
 </div>
 
 ## Data Flow
-1. A large number of users attempt to access a web app.
-1. Traffic manager returns the Azure Stack DNS name.
-1. Users access the Azure Stack web app.
-1. Once a threshold is reached, a function starts the Azure Web App and enables the Azure Traffic Manager route.
-1. Traffic is routed to Azure, which can automatically scale App Service.
+1. A large number of users attempt to access a web app.
+
+1. Traffic manager returns the Azure Stack DNS name.
+
+1. Users access the Azure Stack web app.
+
+1. Once a threshold is reached, a function starts the Azure Web App and enables the Azure Traffic Manager route.
+
+1. Traffic is routed to Azure, which can automatically scale App Service.
 
 ## Components
 * [Traffic Manager](https://azure.microsoft.com/services/traffic-manager/): Route incoming traffic for high performance and availability

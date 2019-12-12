@@ -13,7 +13,8 @@ ms.custom: acom-architecture, convolutional neural network, discrete manufacturi
         <span class="icon is-left" aria-hidden="true">
             <span class="icon docon docon-lightbulb" role="presentation"></span>
         </span>Solution Idea</p>
-    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+    <p>If you'd like to see us add more information to this article, let us know with <a href="#feedback">GitHub Feedback</a>!</p>
+    <p>Based on your feedback, this solution idea could be expanded to include implementation details, pricing guidance, code examples, and deployment templates.</p>
 </div>
 
 Social sites, forums, and other text-heavy Q&A services rely heavily on tagging, which enables indexing and user search. Without appropriate tagging, these sites are far less effective. Often, however, tagging is left to the users’ discretion. And since users don’t have lists of commonly searched terms or a deep understanding of the categorization or information architecture of a site, posts are frequently mislabeled. This makes it difficult or impossible to find that content when it’s needed later.

@@ -13,7 +13,8 @@ ms.custom: acom-architecture, devops, continuous integration, continuous deliver
         <span class="icon is-left" aria-hidden="true">
             <span class="icon docon docon-lightbulb" role="presentation"></span>
         </span>Solution Idea</p>
-    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+    <p>If you'd like to see us add more information to this article, let us know with <a href="#feedback">GitHub Feedback</a>!</p>
+    <p>Based on your feedback, this solution idea could be expanded to include implementation details, pricing guidance, code examples, and deployment templates.</p>
 </div>
 
 Azure is a world-class cloud for hosting virtual machines running Windows or Linux. Whether you use ASP.NET, Java, Node.js, or PHP to develop applications, you’ll need a continuous integration and continuous deployment (CI/CD) pipeline to push changes to these virtual machines automatically.
@@ -230,16 +231,25 @@ Azure DevOps provides the CI/CD pipeline, starting with a Git repository for man
 </div>
 
 ## Data Flow
-1. Change application source code
-1. Commit Application Code and Azure Resource Manager (ARM) Template
-1. Continuous integration triggers application build and unit tests
-1. Continuous deployment trigger orchestrates deployment of application artifacts with environment specific parameters
-1. Deployment to QA environment
-1. Deployment to staging environment
-1. Deployment to production environment
-1. Application Insights collects and analyses health, performance and usage data
-1. Review health, performance and usage information
-1. Update backlog item
+1. Change application source code
+
+1. Commit Application Code and Azure Resource Manager (ARM) Template
+
+1. Continuous integration triggers application build and unit tests
+
+1. Continuous deployment trigger orchestrates deployment of application artifacts with environment specific parameters
+
+1. Deployment to QA environment
+
+1. Deployment to staging environment
+
+1. Deployment to production environment
+
+1. Application Insights collects and analyses health, performance and usage data
+
+1. Review health, performance and usage information
+
+1. Update backlog item
 
 ## Components
 * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/): Provision Windows and Linux virtual machines in seconds

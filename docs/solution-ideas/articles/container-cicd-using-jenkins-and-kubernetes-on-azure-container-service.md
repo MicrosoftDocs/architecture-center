@@ -13,7 +13,8 @@ ms.custom: acom-architecture, devops, continuous integration, continuous deliver
         <span class="icon is-left" aria-hidden="true">
             <span class="icon docon docon-lightbulb" role="presentation"></span>
         </span>Solution Idea</p>
-    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+    <p>If you'd like to see us add more information to this article, let us know with <a href="#feedback">GitHub Feedback</a>!</p>
+    <p>Based on your feedback, this solution idea could be expanded to include implementation details, pricing guidance, code examples, and deployment templates.</p>
 </div>
 
 Containers make it easy for you to continuously build and deploy applications. By orchestrating the deployment of those containers using Azure Kubernetes Service (AKS), you can achieve replicable, manageable clusters of containers.
@@ -236,15 +237,23 @@ By setting up a continuous build to produce your container images and orchestrat
 </div>
 
 ## Data Flow
-1. Change application source code.
-1. Commit code to GitHub.
-1. Continuous Integration Trigger to Jenkins.
-1. Jenkins triggers a build job using Azure Kubernetes Service (AKS) for a dynamic build agent.
-1. Jenkins builds and pushes Docker container to Azure Container Registry.
-1. Jenkins deploys your new containerized app to Kubernetes on Azure.
-1. Container Service (AKS), backed by Azure Cosmos DB.
-1. Grafana displays visualization of infrastructure and application metrics via Azure Monitor.
-1. Monitor application and make improvements.
+1. Change application source code.
+
+1. Commit code to GitHub.
+
+1. Continuous Integration Trigger to Jenkins.
+
+1. Jenkins triggers a build job using Azure Kubernetes Service (AKS) for a dynamic build agent.
+
+1. Jenkins builds and pushes Docker container to Azure Container Registry.
+
+1. Jenkins deploys your new containerized app to Kubernetes on Azure.
+
+1. Container Service (AKS), backed by Azure Cosmos DB.
+
+1. Grafana displays visualization of infrastructure and application metrics via Azure Monitor.
+
+1. Monitor application and make improvements.
 
 ## Components
 * [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/): Simplify the deployment, management, and operations of Kubernetes.

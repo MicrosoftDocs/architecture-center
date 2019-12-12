@@ -13,7 +13,8 @@ ms.custom: acom-architecture, line of business app, lob app, lift and shift clou
         <span class="icon is-left" aria-hidden="true">
             <span class="icon docon docon-lightbulb" role="presentation"></span>
         </span>Solution Idea</p>
-    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+    <p>If you'd like to see us add more information to this article, let us know with <a href="#feedback">GitHub Feedback</a>!</p>
+    <p>Based on your feedback, this solution idea could be expanded to include implementation details, pricing guidance, code examples, and deployment templates.</p>
 </div>
 
 This serverless architecture enables you to build and run applications without having to worry about the underlying infrastructure and the associated management and maintenance. By using it, you can dramatically improve developer productivity.
@@ -125,7 +126,8 @@ The links to the right provide documentation on deploying and managing the Azure
 <p>Information about the new customer is posted to a web endpoint.</p>
 </div>
 <div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>The customer’s photo is posted to Cognitive Services Face API. Face API associates
+<p>The customer’s photo is posted to Cognitive Services Face API. Face API associates
+
 the customer’s photo and name.</p>
 </div>
 <div class="architecture-tooltip-content" id="architecture-tooltip-3">
@@ -142,12 +144,18 @@ the customer’s photo and name.</p>
 </div>
 
 ## Data Flow
-1. Information about the new customer is posted to a web endpoint.
-1. The customer’s photo is posted to Cognitive Services Face API. Face API associates
-the customer’s photo and name.
-1. The customer information is recorded in Dynamics 365 or other CRM.
-1. The information about a new customer is sent to Power BI.
-1. The customer information is added to the mailing list (MailChimp).
-1. The solution creates a record of the member in SQL Database.
+1. Information about the new customer is posted to a web endpoint.
+
+1. The customer’s photo is posted to Cognitive Services Face API. Face API associates
+
+the customer’s photo and name.
+
+1. The customer information is recorded in Dynamics 365 or other CRM.
+
+1. The information about a new customer is sent to Power BI.
+
+1. The customer information is added to the mailing list (MailChimp).
+
+1. The solution creates a record of the member in SQL Database.
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

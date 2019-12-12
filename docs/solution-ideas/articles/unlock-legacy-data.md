@@ -13,7 +13,8 @@ ms.custom: acom-architecture, data preservation, legacy data integration, legacy
         <span class="icon is-left" aria-hidden="true">
             <span class="icon docon docon-lightbulb" role="presentation"></span>
         </span>Solution Idea</p>
-    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+    <p>If you'd like to see us add more information to this article, let us know with <a href="#feedback">GitHub Feedback</a>!</p>
+    <p>Based on your feedback, this solution idea could be expanded to include implementation details, pricing guidance, code examples, and deployment templates.</p>
 </div>
 
 Use Azure Stack to update and extend your legacy application data with the latest cloud technology such as Azure web services, containers, serverless computing, and microservices architectures. This is a solution to create new applications while integrating and preserving legacy data in mainframe and core business process applications.
@@ -113,10 +114,13 @@ Use Azure Stack to update and extend your legacy application data with the lates
 </div>
 
 ## Data Flow
-1. User enters data into Azure-based web app.
-1. Application commits data to database over virtual network-to-virtual network VPN connection to Azure Stack.
-1. Data is processed by applications running on a Kubernetes cluster on Azure Stack.
-1. Kubernetes cluster communicates with legacy system on corporate network.
+1. User enters data into Azure-based web app.
+
+1. Application commits data to database over virtual network-to-virtual network VPN connection to Azure Stack.
+
+1. Data is processed by applications running on a Kubernetes cluster on Azure Stack.
+
+1. Kubernetes cluster communicates with legacy system on corporate network.
 
 ## Components
 * [Virtual Network](https://azure.microsoft.com/services/virtual-network/): Provision private networks, optionally connect to on-premises datacenters

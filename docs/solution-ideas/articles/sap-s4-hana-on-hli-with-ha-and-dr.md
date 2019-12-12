@@ -13,7 +13,8 @@ ms.custom: acom-architecture, Azure hana large instances, sap hana large instanc
         <span class="icon is-left" aria-hidden="true">
             <span class="icon docon docon-lightbulb" role="presentation"></span>
         </span>Solution Idea</p>
-    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+    <p>If you'd like to see us add more information to this article, let us know with <a href="#feedback">GitHub Feedback</a>!</p>
+    <p>Based on your feedback, this solution idea could be expanded to include implementation details, pricing guidance, code examples, and deployment templates.</p>
 </div>
 
 This solution architecture illustrates how a user request flows through an SAP landscape built on high-performance Azure Virtual Machines and an in-memory HANA database running on HANA large instances for unparalleled scalability and performance. This system takes advantage of OS clustering for database performance, high availability using HANA system replication, and a full disaster recovery (DR) configuration for guaranteed system availability.
@@ -256,15 +257,23 @@ This solution architecture illustrates how a user request flows through an SAP l
 </div>
 
 ## Data Flow
-1. In this example, an on-premises SAP user executes a sales order via Fiori interface, custom interface, or other.
-1. Azure high speed express route gateway is used to connect to Azure Virtual Machines.
-1. Request flows into highly available ABAP SAP Central Services (ASCS) and then through application servers running on Azure Virtual Machines in an availability set offering a 99.95 percent uptime SLA.
-1. Request is sent from App Server to SAP HANA running on primary large instance blades.
-1. Primary and secondary blades are clustered at OS level for 99.99 percent availability, and data replication is handled through HANA System Replication in synchronous mode (HSR) from primary to secondary enabling zero RPO.
-1. In-memory data of SAP HANA is persisted to high-performance NFS storage.
-1. Data from NFS storage is periodically backed up in seconds, using built-in storage snapshots on the local storage, with no impact to database performance.
-1. Persistent data volume on secondary storage is replicated to dedicated DR system through a dedicated backbone network for HANA storage replication.
-1. Large instance on DR side can be used for nonproduction to save costs by mounting both the QA storage and DR replicated volume (read-only).
+1. In this example, an on-premises SAP user executes a sales order via Fiori interface, custom interface, or other.
+
+1. Azure high speed express route gateway is used to connect to Azure Virtual Machines.
+
+1. Request flows into highly available ABAP SAP Central Services (ASCS) and then through application servers running on Azure Virtual Machines in an availability set offering a 99.95 percent uptime SLA.
+
+1. Request is sent from App Server to SAP HANA running on primary large instance blades.
+
+1. Primary and secondary blades are clustered at OS level for 99.99 percent availability, and data replication is handled through HANA System Replication in synchronous mode (HSR) from primary to secondary enabling zero RPO.
+
+1. In-memory data of SAP HANA is persisted to high-performance NFS storage.
+
+1. Data from NFS storage is periodically backed up in seconds, using built-in storage snapshots on the local storage, with no impact to database performance.
+
+1. Persistent data volume on secondary storage is replicated to dedicated DR system through a dedicated backbone network for HANA storage replication.
+
+1. Large instance on DR side can be used for nonproduction to save costs by mounting both the QA storage and DR replicated volume (read-only).
 
 ## Components
 * [SAP HANA on Azure large instances](https://azure.microsoft.com/services/virtual-machines/sap-hana/): SAP HANA on Azure (large instances) run on dedicated blade servers located in a Microsoft Azure Datacenter. This is specific to the database server.

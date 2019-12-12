@@ -13,7 +13,8 @@ ms.custom: acom-architecture, Azure DevTest Image Factory, Image Management Solu
         <span class="icon is-left" aria-hidden="true">
             <span class="icon docon docon-lightbulb" role="presentation"></span>
         </span>Solution Idea</p>
-    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+    <p>If you'd like to see us add more information to this article, let us know with <a href="#feedback">GitHub Feedback</a>!</p>
+    <p>Based on your feedback, this solution idea could be expanded to include implementation details, pricing guidance, code examples, and deployment templates.</p>
 </div>
 
 The image factory provides a great way for organizations to create, maintain, and distribute custom images with Azure Dev Test Labs. Whether you have globally distributed teams that need to work with a common set of custom images, need to centrally manage the configuration of images to ensure they meet regulatory compliance and security requirements, or complex software setup and configuration requirements, the image factory provides an automated solution to manage it
@@ -266,12 +267,17 @@ The image factory provides a great way for organizations to create, maintain, an
 </div>
 
 ## Data Flow
-1. With config as code, define the images to push and select which labs will receive the image.
-1. IT admin checks into source code control of choice (such as Visual Studio Team Services or Github + Jenkins).
-1. Orchestrator triggers “golden image” creation based on configuration in source code control that goes to the image factory.
-1. Image factory lab receives commands to create virtual machines (VMs) and custom images.
-1. Specified images copied from image factory lab to team labs.
-1. Team lab users claim VMs or create VMs with the latest images.
+1. With config as code, define the images to push and select which labs will receive the image.
+
+1. IT admin checks into source code control of choice (such as Visual Studio Team Services or Github + Jenkins).
+
+1. Orchestrator triggers “golden image” creation based on configuration in source code control that goes to the image factory.
+
+1. Image factory lab receives commands to create virtual machines (VMs) and custom images.
+
+1. Specified images copied from image factory lab to team labs.
+
+1. Team lab users claim VMs or create VMs with the latest images.
 
 ## Components
 * [Azure Lab Services](https://azure.microsoft.com/services/lab-services/): Set up labs for classrooms, trials, development and testing, and other scenarios

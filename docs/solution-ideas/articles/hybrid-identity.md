@@ -13,7 +13,8 @@ ms.custom: acom-architecture, Hybrid Identity, Azure Hybrid Identity, Service Pr
         <span class="icon is-left" aria-hidden="true">
             <span class="icon docon docon-lightbulb" role="presentation"></span>
         </span>Solution Idea</p>
-    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+    <p>If you'd like to see us add more information to this article, let us know with <a href="#feedback">GitHub Feedback</a>!</p>
+    <p>Based on your feedback, this solution idea could be expanded to include implementation details, pricing guidance, code examples, and deployment templates.</p>
 </div>
 
 The need to keep application components on-premises doesn't have to be a barrier to adopting cloud technologies. With Azure Stack, app components can reside on-premises while interacting with components running in Azure public cloud. This blueprint enables teams to manage identity for users as well as applications in a way that is consistent across clouds.
@@ -310,12 +311,17 @@ The need to keep application components on-premises doesn't have to be a barrier
 </div>
 
 ## Data Flow
-1. Set up an Azure Active Directory tenant.
-1. Create users.
-1. Deploy, manage, and operate application resources on Azure and Azure Stack.
-1. Create service principles.
-1. Deploy with service principles.
-1. Application resources can communicate over network.
+1. Set up an Azure Active Directory tenant.
+
+1. Create users.
+
+1. Deploy, manage, and operate application resources on Azure and Azure Stack.
+
+1. Create service principles.
+
+1. Deploy with service principles.
+
+1. Application resources can communicate over network.
 
 ## Components
 * [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) is a hybrid cloud platform that lets you use Azure services on-premises.

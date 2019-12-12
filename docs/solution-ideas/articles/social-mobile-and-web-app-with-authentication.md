@@ -13,7 +13,8 @@ ms.custom: acom-architecture, Social Image Sharing, Image Processing App, Image 
         <span class="icon is-left" aria-hidden="true">
             <span class="icon docon docon-lightbulb" role="presentation"></span>
         </span>Solution Idea</p>
-    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+    <p>If you'd like to see us add more information to this article, let us know with <a href="#feedback">GitHub Feedback</a>!</p>
+    <p>Based on your feedback, this solution idea could be expanded to include implementation details, pricing guidance, code examples, and deployment templates.</p>
 </div>
 
 This mobile client app offers social image sharing with a companion web app. The app back end service does background image processing using an Azure Function and can notify users of progress via a notification hub. Non-image data is stored in CosmosDB. The web app accesses the back end service data and images via Traffic Manager. 
@@ -290,17 +291,27 @@ The links to the right provide documentation on deploying and managing the Azure
 </div>
 
 ## Data Flow
-1. Create the app using Visual Studio and Xamarin.
-1. Add the Azure App Service Mobile Apps back end service to the app solution.
-1. Implement authentication through social identity providers.
-1. Store non-image data in CosmosDB and cache it in Azure Cache for Redis.
-1. Store uploaded images in Azure Blob Storage.
-1. Queue messages about newly uploaded images.
-1. Use Azure Functions to dequeue messages and process images retrieved from blob storage.
-1. Send push notifications to users through a notification hub.
-1. Build and test the app through Visual Studio App Center and publish it.
-1. Control the distribution of user traffic to service endpoints in different datacenters.
-1. Use Application Insights to monitor the app service.
+1. Create the app using Visual Studio and Xamarin.
+
+1. Add the Azure App Service Mobile Apps back end service to the app solution.
+
+1. Implement authentication through social identity providers.
+
+1. Store non-image data in CosmosDB and cache it in Azure Cache for Redis.
+
+1. Store uploaded images in Azure Blob Storage.
+
+1. Queue messages about newly uploaded images.
+
+1. Use Azure Functions to dequeue messages and process images retrieved from blob storage.
+
+1. Send push notifications to users through a notification hub.
+
+1. Build and test the app through Visual Studio App Center and publish it.
+
+1. Control the distribution of user traffic to service endpoints in different datacenters.
+
+1. Use Application Insights to monitor the app service.
 
 ## Components
 * Build the web front end, mobile apps, and back end services with C# in [Visual Studio](/visualstudio) 2017 or [Visual Studio](/visualstudio) for Mac.
