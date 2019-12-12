@@ -4,15 +4,23 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Learn how to predict capacity and patient flow for your hospital or healthcare facility to enhance the quality of care and improve operational efficiency.
 ms.custom: acom-architecture, hospital length of stay, patient flow, length of stay, healthcare analytics, healthcare machine learning
+titleSuffix: Azure Solution Ideas
 ---
 # Predict Length of Stay and Patient Flow
 
-For the people running a healthcare facility, length of stayâ€”the number of days from patient admission to dischargeâ€”matters. However, that number can vary across facilities and across disease conditions and specialties, even within the same healthcare system, making it harder to track patient flow and plan accordingly.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
+
+For the people running a healthcare facility, length of stay—the number of days from patient admission to discharge—matters. However, that number can vary across facilities and across disease conditions and specialties, even within the same healthcare system, making it harder to track patient flow and plan accordingly.
 
 This Azure solution helps hospital administrators use the power of machine learning to predict the length of stay for in-hospital admissions, to improve capacity planning and resource utilization. A Chief Medical Information Officer might use a predictive model to determine which facilities are overtaxed and which resources to bolster within those facilities, and a Care Line Manager might use it to determine if there will be adequate staff resources to handle the release of a patient.
 
 Being able to predict length of stay at the time of admission helps hospitals provide higher quality care and streamline their operational workload. It also helps accurately plan for discharges, lowering other quality measures such as readmissions.
-
 
 ## Architecture
 
@@ -54,15 +62,14 @@ Being able to predict length of stay at the time of admission helps hospitals pr
     </g>
 </svg>
 
-
 ## Components
-* [SQL Server R Services](https://www.microsoft.comhttp://azure.microsoft.com/sql-server/sql-server-r-services): Stores the patient and hospital data. Provides training and predicted models and predicted results for consumption using R.
-* [Power BI](https://powerbi.microsoft.comhttp://azure.microsoft.com/) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
-* [Machine Learning Studio](http://azure.microsoft.com/services/machine-learning-studio/): Machine Learning helps you easily design, test, operationalize, and manage predictive analytics solutions in the cloud.
+* [SQL Server R Services](https://www.microsoft.com/sql-server/sql-server-r-services): Stores the patient and hospital data. Provides training and predicted models and predicted results for consumption using R.
+* [Power BI](https://powerbi.microsoft.com/) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
+* [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/): Machine Learning helps you easily design, test, operationalize, and manage predictive analytics solutions in the cloud.
 
 ## Next Steps
 * [Learn more about SQL Server](https://www.microsoft.com/sql-server/sql-server-r-services)
 * [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)
-* [Learn more about Machine Learning](https://docs.microsoft.com/azure/machine-learning/machine-learning-what-is-machine-learning)
+* [Learn more about Machine Learning](/azure/machine-learning/machine-learning-what-is-machine-learning)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

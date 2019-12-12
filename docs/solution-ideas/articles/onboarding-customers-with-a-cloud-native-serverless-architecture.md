@@ -4,25 +4,31 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: The solution demonstrates a business process for customer onboarding. This serverless architecture enables you to build and run applications without having to worry about the underlying infrastructure and the associated management and maintenance. By using it, you can dramatically improve developer productivity.
 ms.custom: acom-architecture, line of business app, lob app, lift and shift cloud strategy, cloud migration, cloud innovation, lift and shift solution, lift and shift strategy, interactive-diagram
+titleSuffix: Azure Solution Ideas
 ---
 # Serverless Computing Solution for LOB Apps
 
-This serverless architecture enables you to build and run applications without having to worry about the underlying infrastructure and the associated management and maintenance. By using it, you can dramatically improve developer productivity.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+This serverless architecture enables you to build and run applications without having to worry about the underlying infrastructure and the associated management and maintenance. By using it, you can dramatically improve developer productivity.
 
 The links to the right give you detailed technical guidance on navigating a particular area of the architecture.
 
-[Decide which compute option to use for your apps](https://docs.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-overview/)
+[Decide which compute option to use for your apps](/azure/architecture/guide/technology-choices/compute-overview/)
 
-[Learn to build Serverless apps](https://docs.microsoft.com/en-us/azure/azure-functions/)
-
+[Learn to build Serverless apps](/azure/azure-functions/)
 
 The links to the right provide documentation on deploying and managing the Azure products listed in the solution architecture above.
 
-[Learn how you can use machine learning](https://docs.microsoft.com/en-us/azure/machine-learning/preview/)
+[Learn how you can use machine learning](/azure/machine-learning/preview/)
 
-[Infuse intelligence into your apps with Cognitive Services](https://docs.microsoft.com/en-us/azure/#pivot=products&panel=cognitive)
-
+[Infuse intelligence into your apps with Cognitive Services](/azure/#pivot=products&panel=cognitive)
 
 ## Architecture
 
@@ -119,8 +125,8 @@ The links to the right provide documentation on deploying and managing the Azure
 <p>Information about the new customer is posted to a web endpoint.</p>
 </div>
 <div class="architecture-tooltip-content" id="architecture-tooltip-2">
-<p>The customerâ€™s photo is posted to Cognitive Services Face API. Face API associates
-the customerâ€™s photo and name.</p>
+<p>The customer’s photo is posted to Cognitive Services Face API. Face API associates
+the customer’s photo and name.</p>
 </div>
 <div class="architecture-tooltip-content" id="architecture-tooltip-3">
 <p>The customer information is recorded in Dynamics 365 or other CRM.</p>
@@ -137,8 +143,8 @@ the customerâ€™s photo and name.</p>
 
 ## Data Flow
 1. Information about the new customer is posted to a web endpoint.
-1. The customerâ€™s photo is posted to Cognitive Services Face API. Face API associates
-the customerâ€™s photo and name.
+1. The customer’s photo is posted to Cognitive Services Face API. Face API associates
+the customer’s photo and name.
 1. The customer information is recorded in Dynamics 365 or other CRM.
 1. The information about a new customer is sent to Power BI.
 1. The customer information is added to the mailing list (MailChimp).

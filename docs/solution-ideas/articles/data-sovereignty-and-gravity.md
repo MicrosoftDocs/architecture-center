@@ -4,11 +4,19 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Learn how to set custom data sovereignty and data gravity requirements in the cloud with Azure Stack. Find a step-by-step flow chart to implement this solution.
 ms.custom: acom-architecture, cloud data sovereignty, data gravity cloud, azure data sovereignty, data gravity, data sovereignty, data sovereignty requirements, interactive-diagram
+titleSuffix: Azure Solution Ideas
 ---
 # Custom Data Sovereignty & Data Gravity Requirements
 
-Azure with Azure Stack enables organizations to make technology placement decisions based on business needsâ€”simplifying meeting custom compliance, sovereignty, and data gravity requirements.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+Azure with Azure Stack enables organizations to make technology placement decisions based on business needs—simplifying meeting custom compliance, sovereignty, and data gravity requirements.
 
 ## Architecture
 
@@ -91,17 +99,17 @@ Azure with Azure Stack enables organizations to make technology placement decisi
 1. Data is stored in SQL database on virtual machine (VM).
 
 ## Components
-* [Virtual Network](http://azure.microsoft.com/services/virtual-network/): Provision private networks, optionally connect to on-premises datacenters
-* [VPN Gateway](http://azure.microsoft.com/services/vpn-gateway/): Establish secure, cross-premises connectivity
-* [Azure SQL Database](http://azure.microsoft.com/services/sql-database/): Managed, intelligent SQL in the cloud
-* [Azure Functions](http://azure.microsoft.com/services/functions/): Process events with serverless code
-* [Azure Stack](http://azure.microsoft.com/overview/azure-stack/): Build and run innovative hybrid applications across cloud boundaries
+* [Virtual Network](https://azure.microsoft.com/services/virtual-network/): Provision private networks, optionally connect to on-premises datacenters
+* [VPN Gateway](https://azure.microsoft.com/services/vpn-gateway/): Establish secure, cross-premises connectivity
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): Managed, intelligent SQL in the cloud
+* [Azure Functions](https://azure.microsoft.com/services/functions/): Process events with serverless code
+* [Azure Stack](https://azure.microsoft.com/overview/azure-stack/): Build and run innovative hybrid applications across cloud boundaries
 
 ## Next Steps
-* [Virtual Network documentation](https://docs.microsoft.com/azure/virtual-network/)
-* [VPN Gateway documentation](https://docs.microsoft.com/azure/vpn-gateway/)
-* [Azure SQL Database documentation](https://docs.microsoft.com/azure/sql-database/)
-* [Azure Functions documentation](https://docs.microsoft.com/azure/azure-functions/)
-* [Azure Stack documentation](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-staged-data-analytics)
+* [Virtual Network documentation](/azure/virtual-network/)
+* [VPN Gateway documentation](/azure/vpn-gateway/)
+* [Azure SQL Database documentation](/azure/sql-database/)
+* [Azure Functions documentation](/azure/azure-functions/)
+* [Azure Stack documentation](/azure/azure-stack/user/azure-stack-solution-staged-data-analytics)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

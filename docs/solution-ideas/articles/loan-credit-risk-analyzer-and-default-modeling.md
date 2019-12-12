@@ -4,15 +4,23 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Using SQL Server 2016 with R Services, lenders can predict a borrower's credit risk and default probability to help issue fewer unprofitable loans.
 ms.custom: acom-architecture, credit risk analyzer, credit risk modeling, probability of default
+titleSuffix: Azure Solution Ideas
 ---
 # Loan Credit Risk + Default Modeling
+
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
 Scoring credit risk is a complex process. Lenders carefully weigh a variety of quantitative indicators to determine the probability of default and approve the best candidates based on the information available to them.
 
 This solution acts as a credit-risk analyzer, helping you score credit risk and manage exposure using advanced analytics models. SQL Server 2016 with R Services equips you with predictive analytics that help assess credit or loan applications and accept only those that fall above certain criteria. For example, you might use the predicted scores to help determine whether to grant a loan, then easily visualize the guidance in a Power BI Dashboard.
 
 Data-driven credit-risk modeling reduces the number of loans offered to borrowers who are likely to default, increasing the profitability of your loan portfolio.
-
 
 ## Architecture
 
@@ -54,15 +62,14 @@ Data-driven credit-risk modeling reduces the number of loans offered to borrower
     </g>
 </svg>
 
-
 ## Components
-* [SQL Server R Services](https://www.microsoft.comhttp://azure.microsoft.com/sql-server/sql-server-r-services): SQL Server stores the lender and borrower data. R-based analytics provide training and predicted models, as well as predicted results for consumption.
-* [Machine Learning Studio](http://azure.microsoft.com/services/machine-learning-studio/): Machine Learning helps you easily design, test, operationalize, and manage predictive analytics solutions in the cloud.
-* [Power BI](https://powerbi.microsoft.comhttp://azure.microsoft.com/) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
+* [SQL Server R Services](https://www.microsoft.com/sql-server/sql-server-r-services): SQL Server stores the lender and borrower data. R-based analytics provide training and predicted models, as well as predicted results for consumption.
+* [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/): Machine Learning helps you easily design, test, operationalize, and manage predictive analytics solutions in the cloud.
+* [Power BI](https://powerbi.microsoft.com/) provides an interactive dashboard with visualization that uses data stored in SQL Server to drive decisions on the predictions.
 
 ## Next Steps
-* [Get started with SQL Server R Services](https://docs.microsoft.com/sql/advanced-analytics/r/getting-started-with-sql-server-r-services)
-* [Learn more about Machine Learning](https://docs.microsoft.com/azure/machine-learning/machine-learning-what-is-machine-learning)
+* [Get started with SQL Server R Services](/sql/advanced-analytics/r/getting-started-with-sql-server-r-services)
+* [Learn more about Machine Learning](/azure/machine-learning/machine-learning-what-is-machine-learning)
 * [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-get-started/)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

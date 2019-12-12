@@ -4,10 +4,17 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: The e-commerce website includes simple order processing workflows with the help of Azure services. Using Azure Functions and Web Apps, developers can focus on building personalized experiences and let Azure take care of the infrastructure.
 ms.custom: acom-architecture, architect scalable e-commerce web app, web apps, search for products, submits order, process order payment, interactive-diagram
+titleSuffix: Azure Solution Ideas
 ---
 # Architect scalable e-commerce web app
 
-
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
 ## Architecture
 
@@ -184,15 +191,15 @@ ms.custom: acom-architecture, architect scalable e-commerce web app, web apps, s
 1. Azure Functions makes payment to third party and records payment in SQL database.
 
 ## Components
-* [Web Apps](http://azure.microsoft.com/services/app-service/web/): An App Service Web App runs in a single region, accessible to web and mobile browsers
-* [Azure SQL Database](http://azure.microsoft.com/services/sql-database/): Managed, intelligent SQL in the cloud
-* [Azure Functions](http://azure.microsoft.com/services/functions/): Process events with serverless code
+* [Web Apps](https://azure.microsoft.com/services/app-service/web/): An App Service Web App runs in a single region, accessible to web and mobile browsers
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): Managed, intelligent SQL in the cloud
+* [Azure Functions](https://azure.microsoft.com/services/functions/): Process events with serverless code
 * Application Insights: Detect, triage, and diagnose issues in your web apps and services
 
 ## Next Steps
-* [Get started easily with Web Apps using the five-minute quick starts](https://docs.microsoft.com/azure/app-service/)
-* [Build an ASP.NET app in Azure with SQL Database](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
-* [Learn what can you do with Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview)
-* [Application Performance Management with Application Insights](https://docs.microsoft.com/hazure/application-insights/app-insights-overview)
+* [Get started easily with Web Apps using the five-minute quick starts](/azure/app-service/)
+* [Build an ASP.NET app in Azure with SQL Database](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
+* [Learn what can you do with Azure Functions](/azure/azure-functions/functions-overview)
+* [Application Performance Management with Application Insights](/hazure/application-insights/app-insights-overview)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

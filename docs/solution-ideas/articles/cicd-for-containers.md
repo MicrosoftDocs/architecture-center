@@ -4,13 +4,21 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Containers make it very easy for you to continuously build and deploy your applications. By orchestrating deployment of those containers using Kubernetes in Azure Kubernetes Service (AKS), you can achieve replicable, manageable clusters of containers.
 ms.custom: acom-architecture, devops, continuous integration, continuous delivery, CI/CD, continuous deployment, interactive-diagram, pricing-calculator
+titleSuffix: Azure Solution Ideas
 ---
 # CI/CD for Containers
+
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
 Containers make it very easy for you to continuously build and deploy your applications. By orchestrating deployment of those containers using Kubernetes in Azure Kubernetes Service (AKS), you can achieve replicable, manageable clusters of containers.
 
 By setting up a continuous build to produce your container images and orchestration, Azure DevOps increases the speed and reliability of your deployment.
-
 
 ## Architecture
 
@@ -228,16 +236,16 @@ By setting up a continuous build to produce your container images and orchestrat
 1. Update backlog item
 
 ## Components
-* [Container Registry](http://azure.microsoft.com/services/container-registry/): Store and manage container images across all types of Azure deployments
-* [Azure Kubernetes Service (AKS)](http://azure.microsoft.com/services/kubernetes-service/): Simplify the deployment, management, and operations of Kubernetes
+* [Container Registry](https://azure.microsoft.com/services/container-registry/): Store and manage container images across all types of Azure deployments
+* [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/): Simplify the deployment, management, and operations of Kubernetes
 * Application Insights: Detect, triage, and diagnose issues in your web apps and services
-* [Azure DevOps](http://azure.microsoft.com/services/devops/): Build and deploy multi-platform apps to get the most from Azure services
+* [Azure DevOps](https://azure.microsoft.com/services/devops/): Build and deploy multi-platform apps to get the most from Azure services
 
 ## Next Steps
-* [Pushing Docker images to Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-docker-cli)
-* [Authenticate Azure Kubernetes Service (AKS) cluster to Azure Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-auth-aks)
-* [Performance monitoring with Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-detect-triage-diagnose)
-* [Git on Azure DevOps](https://docs.microsoft.com/vsts/git/gitquickstart?tabs=visual-studio)
+* [Pushing Docker images to Azure Container Registry](/azure/container-registry/container-registry-get-started-docker-cli)
+* [Authenticate Azure Kubernetes Service (AKS) cluster to Azure Container Registry](/azure/container-registry/container-registry-auth-aks)
+* [Performance monitoring with Application Insights](/azure/application-insights/app-insights-detect-triage-diagnose)
+* [Git on Azure DevOps](/vsts/git/gitquickstart?tabs=visual-studio)
 
 ## Pricing Calculator
 * [Customize and get pricing estimates](https://azure.com/e/bf371668289e4554bc17fa87b7fe5ead)

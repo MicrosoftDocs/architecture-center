@@ -4,13 +4,21 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Learn how to use Azure Machine Learning to predict failures before they happen with real-time assembly line data.
 ms.custom: acom-architecture, manufacturing control, quality control process, manufacturing quality control
+titleSuffix: Azure Solution Ideas
 ---
 # Defect prevention with predictive maintenance
 
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
+
 Learn how to use Azure Machine Learning to predict failures before they happen with real-time assembly line data.
 
-This solution is built on the Azure managed services: [Azure Stream Analytics](/en-us/services/stream-analytics/), [Event Hubs](/en-us/services/event-hubs/), [Machine Learning Studio](/en-us/services/machine-learning-studio/), [Azure Synapse Analytics](/en-us/services/synapse-analytics/) and [Power BI](https://powerbi.microsoft.com). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
-
+This solution is built on the Azure managed services: [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/), [Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/), [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) and [Power BI](https://powerbi.microsoft.com). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
 ## Architecture
 
@@ -133,19 +141,18 @@ This solution is built on the Azure managed services: [Azure Stream Analytics](/
     <path d="M709.6 565.8v-2.6c.4.4 1 .7 1.5.9.6.2 1.1.3 1.6.3.3 0 .6 0 .8-.1.2 0 .4-.1.6-.2s.3-.2.3-.4.1-.3.1-.4c0-.2 0-.4-.2-.6-.1-.2-.3-.3-.5-.5s-.5-.3-.8-.4c-.3-.1-.6-.3-1-.4-.9-.4-1.6-.8-2-1.3-.4-.6-.7-1.2-.7-2 0-.6.1-1.1.3-1.5.2-.4.6-.8 1-1.1.4-.3.9-.5 1.4-.6.6-.1 1.1-.2 1.7-.2.6 0 1.1 0 1.6.1.4 0 .9.2 1.3.3v2.4l-.6-.3c-.2-.1-.4-.2-.7-.2-.2 0-.5-.1-.7-.2h-1.5c-.2 0-.4.1-.6.2-.2.1-.3.2-.4.3-.1.2-.1.3-.1.4 0 .2 0 .3.2.5.1.2.2.3.4.4.2.1.4.3.7.4.3.1.6.3.9.4.4.2.9.4 1.2.6.4.2.7.4 1 .7.3.3.4.6.6 1 .1.3.2.7.2 1.2 0 .6-.1 1.2-.3 1.6-.2.4-.6.8-1 1.1-.4.3-.9.4-1.4.6-.6.1-1.1.2-1.7.2-.6 0-1.2 0-1.8-.2-.5 0-1-.2-1.4-.4zM724.1 566.5c-1.6 0-3-.6-4-1.6-1-1.1-1.6-2.5-1.6-4.2 0-1.8.5-3.2 1.6-4.4 1.1-1.1 2.4-1.7 4.1-1.7 1.6 0 3 .6 4 1.6s1.5 2.5 1.5 4.3c0 1.8-.5 3.2-1.6 4.4l-.1.1-.1.1 2.9 2.8h-3.6l-1.5-1.6c-.4.1-.9.2-1.6.2zm.2-9.6c-.9 0-1.6.3-2.2 1-.6.7-.8 1.6-.8 2.7s.3 2 .8 2.7c.6.7 1.2 1 2.1 1 .9 0 1.6-.3 2.1-1s.8-1.6.8-2.7c0-1.2-.3-2.1-.8-2.8-.5-.6-1.2-.9-2-.9zM738.5 566.3h-6.8v-11.5h2.6v9.3h4.3v2.2h-.1z" fill="#FFF"/>
 </svg>
 
-
 ## Components
-* [Azure Stream Analytics](http://azure.microsoft.com/services/stream-analytics/): Stream Analytics provides near real-time analytics on the input stream from the Azure Event Hub. Input data is filtered and passed to a Machine Learning endpoint, finally sending the results to the Power BI dashboard.
-* [Event Hubs](http://azure.microsoft.com/services/event-hubs/) ingests raw assembly-line data and passes it on to Stream Analytics.
-* [Machine Learning Studio](http://azure.microsoft.com/services/machine-learning-studio/): Machine Learning predicts potential failures based on real-time assembly-line data from Stream Analytics.
-* [Azure Synapse Analytics](http://azure.microsoft.com/services/synapse-analytics/): Synapse Analytics stores assembly-line data along with failure predictions.
+* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/): Stream Analytics provides near real-time analytics on the input stream from the Azure Event Hub. Input data is filtered and passed to a Machine Learning endpoint, finally sending the results to the Power BI dashboard.
+* [Event Hubs](https://azure.microsoft.com/services/event-hubs/) ingests raw assembly-line data and passes it on to Stream Analytics.
+* [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/): Machine Learning predicts potential failures based on real-time assembly-line data from Stream Analytics.
+* [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/): Synapse Analytics stores assembly-line data along with failure predictions.
 * [Power BI](https://powerbi.microsoft.com) visualizes real-time assembly-line data from Stream Analytics and the predicted failures and alerts from Data Warehouse.
 
 ## Next Steps
-* [Learn more about Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction)
-* [Learn more about Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs)
-* [Learn more about Machine Learning](https://docs.microsoft.com/azure/machine-learning/machine-learning-what-is-machine-learning)
-* [Learn more about Synapse Analytics](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)
+* [Learn more about Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)
+* [Learn more about Event Hubs](/azure/event-hubs/event-hubs-what-is-event-hubs)
+* [Learn more about Machine Learning](/azure/machine-learning/machine-learning-what-is-machine-learning)
+* [Learn more about Synapse Analytics](/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is)
 * [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

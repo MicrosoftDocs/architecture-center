@@ -4,13 +4,21 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Start simple with the content management system that enables you to easily maintain the messaging on your website in real-time, from a browser, with no coding skills.
 ms.custom: acom-architecture
+titleSuffix: Azure Solution Ideas
 ---
 # Simple digital marketing website
 
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
+
 Start simple with the content management system that enables you to easily maintain the messaging on your website in real-time, from a browser, with no coding skills.
 
-This solution is built on the Azure managed services: [Azure SQL Database](/en-us/services/sql-database/), [Azure Monitor](/en-us/services/monitor/), [Content Delivery Network](/en-us/services/cdn/) and [Azure Cache for Redis](/en-us/services/cache/). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
-
+This solution is built on the Azure managed services: [Azure SQL Database](https://azure.microsoft.com/services/sql-database/), [Azure Monitor](https://azure.microsoft.com/services/monitor/), [Content Delivery Network](https://azure.microsoft.com/services/cdn/) and [Azure Cache for Redis](https://azure.microsoft.com/services/cache/). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
 ## Architecture
 
@@ -64,19 +72,18 @@ This solution is built on the Azure managed services: [Azure SQL Database](/en-u
     </g>
 </svg>
 
-
 ## Components
-* [Web Apps](http://azure.microsoft.com/services/app-service/web/): An App Service Web App runs in a single region, accessible to web and mobile browsers. A content management system like Orchard or Umbraco provides service to manage and deploy content to the website.
-* [Azure SQL Database](http://azure.microsoft.com/services/sql-database/): A SQL Database stores and serves data about the site.
-* [Azure Monitor](http://azure.microsoft.com/services/monitor/): Application Insights, provides health and performance monitoring, and diagnostics.
-* [Content Delivery Network](http://azure.microsoft.com/services/cdn/): A content delivery network serves static content such as images, script, and CSS, and reduces the load on the web app servers.
-* [Azure Cache for Redis](http://azure.microsoft.com/services/cache/) enables very fast queries, and improves scalability by reducing the load on the main database.
+* [Web Apps](https://azure.microsoft.com/services/app-service/web/): An App Service Web App runs in a single region, accessible to web and mobile browsers. A content management system like Orchard or Umbraco provides service to manage and deploy content to the website.
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): A SQL Database stores and serves data about the site.
+* [Azure Monitor](https://azure.microsoft.com/services/monitor/): Application Insights, provides health and performance monitoring, and diagnostics.
+* [Content Delivery Network](https://azure.microsoft.com/services/cdn/): A content delivery network serves static content such as images, script, and CSS, and reduces the load on the web app servers.
+* [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) enables very fast queries, and improves scalability by reducing the load on the main database.
 
 ## Next Steps
-* [Deploy an ASP.NET web app to Azure App Service, using Visual Studio](https://docs.microsoft.com/api/Redirect/documentation/articles/web-sites-dotnet-get-started/)
-* [SQL Database tutorial: Create a SQL database in minutes by using the Azure portal](https://docs.microsoft.com/api/Redirect/documentation/articles/sql-database-get-started/)
-* [Application Performance Management with Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)
-* [Use Azure Content Delivery Network in Azure App Service](https://docs.microsoft.com/api/Redirect/documentation/articles/cdn-websites-with-cdn/)
-* [How to Use Azure Cache for Redis](https://docs.microsoft.com/api/Redirect/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/)
+* [Deploy an ASP.NET web app to Azure App Service, using Visual Studio](/api/Redirect/documentation/articles/web-sites-dotnet-get-started/)
+* [SQL Database tutorial: Create a SQL database in minutes by using the Azure portal](/api/Redirect/documentation/articles/sql-database-get-started/)
+* [Application Performance Management with Application Insights](/azure/azure-monitor/app/app-insights-overview)
+* [Use Azure Content Delivery Network in Azure App Service](/api/Redirect/documentation/articles/cdn-websites-with-cdn/)
+* [How to Use Azure Cache for Redis](/api/Redirect/documentation/articles/cache-dotnet-how-to-use-azure-redis-cache/)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

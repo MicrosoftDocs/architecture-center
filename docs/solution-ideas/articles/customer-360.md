@@ -2,30 +2,21 @@
 title: Customer 360
 author: adamboeglin
 ms.date: 12/12/2019
-description: A deep understanding between customer interests and purchasing patterns is a critical component of any retail business intelligence operation. This solution implements a process of aggregating customer data into a ‚Äú360 degree‚Äù profile, and uses advanced machine learning models backed by the reliability and processing power of Azure to provide predictive insights on simulated customers.
+description: A deep understanding between customer interests and purchasing patterns is a critical component of any retail business intelligence operation. This solution implements a process of aggregating customer data into a ì360 degreeî profile, and uses advanced machine learning models backed by the reliability and processing power of Azure to provide predictive insights on simulated customers.
 ms.custom: acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery, interactive-diagram
+titleSuffix: Azure Solution Ideas
 ---
 # Customer 360
 
-A deep understanding between customer interests and purchasing patterns is a critical component of any retail business intelligence operation. This solution implements a process of aggregating customer data into a ‚Äú360 degree‚Äù profile, and uses advanced machine learning models backed by the reliability and processing power of Azure to provide predictive insights on simulated customers.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
-
-## Description
-
-For more details on how this solution is built, visit the solution guide in [GitHub](https://github.com/Azure/cortana-intelligence-customer360). 
-
-A typical retail business collects customer data through a variety of channels, including web-browsing patterns, purchase behaviors, demographics, and other session-based web data. Some of the data originates from core business operations, but other data must be pulled and joined from external sources like partners, manufacturers, public domain, etc.
-
-Many businesses leverage only a small portion of the available data, but in order to maximize ROI, a business must integrate relevant data from all sources. Traditionally, the integration of external, heterogeneous data sources into a shared data processing engine has required significant effort and resources to setup. This solution describes a simple, scalable approach to integrating analytics and machine learning to predict customer purchasing activity.
-
-The Customer 360 Profile solution addresses the above problems by:
-
-  * Uniformly accessing data from multiple data sources while minimizing data movement and system complexity in order to boost performance.
-  * Performing ETL and feature engineering needed to use a predictive Machine Learning model.
-  * Creating a comprehensive customer 360 profile enriched by predictive analytics running across a distributed system backed by Microsoft R Server and Azure HDInsight.
-
-
-
+A deep understanding between customer interests and purchasing patterns is a critical component of any retail business intelligence operation. This solution implements a process of aggregating customer data into a ì360 degreeî profile, and uses advanced machine learning models backed by the reliability and processing power of Azure to provide predictive insights on simulated customers.
 
 ## Architecture
 
@@ -268,6 +259,20 @@ The Customer 360 Profile solution addresses the above problems by:
         </g>
     </g>
 </svg>
+
+## Description
+
+For more details on how this solution is built, visit the solution guide in [GitHub](https://github.com/Azure/cortana-intelligence-customer360). 
+
+A typical retail business collects customer data through a variety of channels, including web-browsing patterns, purchase behaviors, demographics, and other session-based web data. Some of the data originates from core business operations, but other data must be pulled and joined from external sources like partners, manufacturers, public domain, etc.
+
+Many businesses leverage only a small portion of the available data, but in order to maximize ROI, a business must integrate relevant data from all sources. Traditionally, the integration of external, heterogeneous data sources into a shared data processing engine has required significant effort and resources to setup. This solution describes a simple, scalable approach to integrating analytics and machine learning to predict customer purchasing activity.
+
+The Customer 360 Profile solution addresses the above problems by:
+
+  * Uniformly accessing data from multiple data sources while minimizing data movement and system complexity in order to boost performance.
+  * Performing ETL and feature engineering needed to use a predictive Machine Learning model.
+  * Creating a comprehensive customer 360 profile enriched by predictive analytics running across a distributed system backed by Microsoft R Server and Azure HDInsight.
 
 <div class="architecture-tooltip-content" id="architecture-tooltip-1">
 <p>A Data Generator pipes simulated customer events to an Event Hub</p>

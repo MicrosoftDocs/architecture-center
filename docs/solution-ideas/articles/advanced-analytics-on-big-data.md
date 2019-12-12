@@ -4,11 +4,19 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Get near real-time data analytics on streaming services. This big data architecture allows you to combine any data at any scale with custom machine learning.
 ms.custom: acom-architecture, Big data architecture, Real time analytics, real time data analytics, interactive-diagram, pricing-calculator
+titleSuffix: Azure Solution Ideas
 ---
 # Advanced Analytics Architecture
 
-Transform your data into actionable insights using the best-in-class machine learning tools. This architecture allows you to combine any data at any scale, and to build and deploy custom machine learning models at scale.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+Transform your data into actionable insights using the best-in-class machine learning tools. This architecture allows you to combine any data at any scale, and to build and deploy custom machine learning models at scale.
 
 ## Architecture
 
@@ -162,22 +170,22 @@ Transform your data into actionable insights using the best-in-class machine lea
 1. Take the insights from Azure Databricks to Cosmos DB to make them accessible through web and mobile apps.
 
 ## Components
-* [Azure Synapse Analytics](http://azure.microsoft.com/services/synapse-analytics/) is the fast, flexible and trusted cloud data warehouse that lets you scale, compute and store elastically and independently, with a massively parallel processing architecture.
-* Azure [Data Factory](http://azure.microsoft.com/services/data-factory/) is a hybrid data integration service that allows you to create, schedule and orchestrate your ETL/ELT workflows.
-* [Azure Blob storage](http://azure.microsoft.com/services/storage/blobs/) is a Massively scalable object storage for any type of unstructured dataâ€”images, videos, audio, documents, and moreâ€”easily and cost-effectively.
-* [Azure Databricks](http://azure.microsoft.com/services/databricks/) is a fast, easy, and collaborative Apache Spark-based analytics platform.
-* [Azure Cosmos DB](http://azure.microsoft.com/services/cosmos-db/) is a globally distributed, multi-model database service. Then learn how to replicate your data across any number of Azure regions and scale your throughput independent from your storage.
-* [Azure Analysis Services](http://azure.microsoft.com/services/analysis-services/) is an enterprise grade analytics as a service that lets you govern, deploy, test, and deliver your BI solution with confidence.
+* [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics/) is the fast, flexible and trusted cloud data warehouse that lets you scale, compute and store elastically and independently, with a massively parallel processing architecture.
+* Azure [Data Factory](https://azure.microsoft.com/services/data-factory/) is a hybrid data integration service that allows you to create, schedule and orchestrate your ETL/ELT workflows.
+* [Azure Blob storage](https://azure.microsoft.com/services/storage/blobs/) is a Massively scalable object storage for any type of unstructured data—images, videos, audio, documents, and more—easily and cost-effectively.
+* [Azure Databricks](https://azure.microsoft.com/services/databricks/) is a fast, easy, and collaborative Apache Spark-based analytics platform.
+* [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is a globally distributed, multi-model database service. Then learn how to replicate your data across any number of Azure regions and scale your throughput independent from your storage.
+* [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) is an enterprise grade analytics as a service that lets you govern, deploy, test, and deliver your BI solution with confidence.
 * [Power BI](https://powerbi.microsoft.com) is a suite of business analytics tools that deliver insights throughout your organization. Connect to hundreds of data sources, simplify data prep, and drive ad hoc analysis. Produce beautiful reports, then publish them for your organization to consume on the web and across mobile devices.
 
 ## Next Steps
-* [Synapse Analytics Documentation](https://docs.microsoft.com/azure/sql-data-warehouse/)
-* [Azure Data Factory V2 Preview Documentation](https://docs.microsoft.com/azure/data-factory/)
-* [Introduction to object storage in Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction/)
-* [Azure Databricks Documentation](https://docs.microsoft.com/azure/azure-databricks/)
-* [Azure Cosmos DB Documentation](https://docs.microsoft.com/azure/cosmos-db/)
-* [Analysis Services Documentation](https://docs.microsoft.com/azure/analysis-services/)
-* [Power BI Documentation](https://docs.microsoft.com/power-bi/)
+* [Synapse Analytics Documentation](/azure/sql-data-warehouse/)
+* [Azure Data Factory V2 Preview Documentation](/azure/data-factory/)
+* [Introduction to object storage in Azure](/azure/storage/blobs/storage-blobs-introduction/)
+* [Azure Databricks Documentation](/azure/azure-databricks/)
+* [Azure Cosmos DB Documentation](/azure/cosmos-db/)
+* [Analysis Services Documentation](/azure/analysis-services/)
+* [Power BI Documentation](/power-bi/)
 
 ## Pricing Calculator
 * [Customize and get pricing estimates](https://azure.com/e/96162a623bda4911bb8f631e317affc6)

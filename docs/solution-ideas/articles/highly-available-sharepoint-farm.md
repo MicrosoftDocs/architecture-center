@@ -4,11 +4,19 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Learn how to deploy a highly available SharePoint farm for intranet capabilities with a step-by-step solution architecture template from Azure.
 ms.custom: acom-architecture, sharepoint intranet, sharepoint intranet template, sharepoint intranet solutions, sharepoint farm solution, interactive-diagram
+titleSuffix: Azure Solution Ideas
 ---
 # Highly available SharePoint farm
 
-This solution provides a highly available deployment of SharePoint using a load balanced Azure Active Directory (Azure AD), highly available SQL always on instance, and highly available SharePoint resources. It addresses the requirement to deliver highly available intranet capability using the latest and greatest supported platforms.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+This solution provides a highly available deployment of SharePoint using a load balanced Azure Active Directory (Azure AD), highly available SQL always on instance, and highly available SharePoint resources. It addresses the requirement to deliver highly available intranet capability using the latest and greatest supported platforms.
 
 ## Architecture
 
@@ -380,23 +388,23 @@ group.
 1. External users can be granted access as required to the SharePoint sites for testing.
 
 ## Components
-* [Azure Resource Group](http://azure.microsoft.com/features/resource-manager/): Container that holds related resources for an Azure solution
-* [Virtual Network](http://azure.microsoft.com/services/virtual-network/): Provision private networks, optionally connect to on-premises datacenters
-* [Storage Accounts](http://azure.microsoft.com/services/storage/): Durable, highly available, and massively scalable cloud storage
-* [Azure Active Directory](http://azure.microsoft.com/services/active-directory/): Synchronize on-premises directories and enable single sign-on
-* SharePoint Server: Microsoftâ€™s collaboration server product
-* Host enterprise [SQL Server](http://azure.microsoft.com/services/virtual-machines/sql-server/) apps in the cloud
-* [Load Balancer](http://azure.microsoft.com/services/load-balancer/): Deliver high availability and network performance to your applications
-* [Azure ExpressRoute](http://azure.microsoft.com/services/expressroute/): Dedicated private network fiber connections to Azure
+* [Azure Resource Group](https://azure.microsoft.com/features/resource-manager/): Container that holds related resources for an Azure solution
+* [Virtual Network](https://azure.microsoft.com/services/virtual-network/): Provision private networks, optionally connect to on-premises datacenters
+* [Storage Accounts](https://azure.microsoft.com/services/storage/): Durable, highly available, and massively scalable cloud storage
+* [Azure Active Directory](https://azure.microsoft.com/services/active-directory/): Synchronize on-premises directories and enable single sign-on
+* SharePoint Server: Microsoft’s collaboration server product
+* Host enterprise [SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/) apps in the cloud
+* [Load Balancer](https://azure.microsoft.com/services/load-balancer/): Deliver high availability and network performance to your applications
+* [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/): Dedicated private network fiber connections to Azure
 
 ## Next Steps
-* [Azure Resource Group Documentation](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview/)
-* [Virtual Network Documentation](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview/)
-* [Storage Documentation](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction/)
+* [Azure Resource Group Documentation](/azure/azure-resource-manager/resource-group-overview/)
+* [Virtual Network Documentation](/azure/virtual-network/virtual-networks-overview/)
+* [Storage Documentation](/azure/storage/blobs/storage-blobs-introduction/)
 * [Active Directory Documentation](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)
-* [SharePoint Server Documentation](https://docs.microsoft.com/sharepoint/administration/intranet-sharepoint-server-2016-in-azure-dev-test-environment/)
-* [SQL Server Documentation](https://docs.microsoft.com/sql/relational-databases/databases/deploy-a-sql-server-database-to-a-microsoft-azure-virtual-machine?view=sql-server-2017)
-* [Load Balancer Documentation](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview)
-* [Express Route Documentation](https://docs.microsoft.com/azure/expressroute/)
+* [SharePoint Server Documentation](/sharepoint/administration/intranet-sharepoint-server-2016-in-azure-dev-test-environment/)
+* [SQL Server Documentation](/sql/relational-databases/databases/deploy-a-sql-server-database-to-a-microsoft-azure-virtual-machine?view=sql-server-2017)
+* [Load Balancer Documentation](/azure/load-balancer/load-balancer-standard-overview)
+* [Express Route Documentation](/azure/expressroute/)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

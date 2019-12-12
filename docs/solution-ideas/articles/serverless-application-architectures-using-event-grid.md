@@ -4,11 +4,19 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Event Grid connects data sources and event handlers. For example, use Event Grid to instantly trigger a serverless function to run image analysis each time a new photo is added to a blob storage container.
 ms.custom: acom-architecture, event-grid, azure
+titleSuffix: Azure Solution Ideas
 ---
 # Serverless application architectures using Event Grid
 
-Event Grid connects data sources and event handlers. For example, use Event Grid to instantly trigger a serverless function to run image analysis each time a new photo is added to a blob storage container.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+Event Grid connects data sources and event handlers. For example, use Event Grid to instantly trigger a serverless function to run image analysis each time a new photo is added to a blob storage container.
 
 ## Architecture
 
@@ -90,6 +98,5 @@ Event Grid connects data sources and event handlers. For example, use Event Grid
         <path d="M431.048 82.36l-1.289-8.7-2.42 2.417c-1.5-1.166-4.797-3.75-8.566-5.472-5.833-2.667-15.666-1.25-15.666-1.25s10.75 1.833 15.416 5.083c2.789 1.943 4.708 3.61 5.807 4.645l-1.98 1.977 8.698 1.3zM364.918 70.027l-7.067-5.235v2.984c-1.966.104-7.004.338-10.662 2.745-6.26 4.121-7.666 12.917-7.666 12.917s4.761-7.371 10-9.583c3.382-1.428 6.521-1.671 8.328-1.665v3.072l7.067-5.235zM247.918 101.723l-7.067-5.235v4.336h-3.578v1.8h3.578v4.335zM219.273 102.624h4.5v-1.8h-4.5zM231.273 102.624h4.5v-1.8h-4.5zM225.273 102.624h4.5v-1.8h-4.5zM83.184 96.625v10.472l7.067-5.237zM60.607 102.624h4.5v-1.8h-4.5zM66.607 102.624h4.5v-1.8h-4.5zM72.607 102.624h4.5v-1.8h-4.5zM78.607 102.624h4.5v-1.8h-4.5zM26.048 66.056v-4.208h-1.8v4.208H19.67l5.235 7.066 5.236-7.066zM24.248 48.348h1.8v-4.5h-1.8zM24.248 60.348h1.8v-4.5h-1.8zM24.248 54.348h1.8v-4.5h-1.8z" fill="#969696"/>
     </g>
 </svg>
-
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

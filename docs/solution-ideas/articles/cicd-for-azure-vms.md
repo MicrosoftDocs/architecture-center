@@ -2,15 +2,23 @@
 title: CI/CD for Azure VMs
 author: adamboeglin
 ms.date: 12/12/2019
-description: Azure is a world-class cloud for hosting virtual machines running Windows or Linux. Whether you use ASP.NET, Java, Node.js, or PHP to develop applications, youâ€™ll need a continuous integration and continuous deployment (CI/CD) pipeline to push changes to these virtual machines automatically.
+description: Azure is a world-class cloud for hosting virtual machines running Windows or Linux. Whether you use ASP.NET, Java, Node.js, or PHP to develop applications, you’ll need a continuous integration and continuous deployment (CI/CD) pipeline to push changes to these virtual machines automatically.
 ms.custom: acom-architecture, devops, continuous integration, continuous delivery, CI/CD, continuous deployment, interactive-diagram
+titleSuffix: Azure Solution Ideas
 ---
 # CI/CD for Azure VMs
 
-Azure is a world-class cloud for hosting virtual machines running Windows or Linux. Whether you use ASP.NET, Java, Node.js, or PHP to develop applications, youâ€™ll need a continuous integration and continuous deployment (CI/CD) pipeline to push changes to these virtual machines automatically.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
+
+Azure is a world-class cloud for hosting virtual machines running Windows or Linux. Whether you use ASP.NET, Java, Node.js, or PHP to develop applications, you’ll need a continuous integration and continuous deployment (CI/CD) pipeline to push changes to these virtual machines automatically.
 
 Azure DevOps provides the CI/CD pipeline, starting with a Git repository for managing your application source code and infrastructure code (ARM templates), a Build system for producing packages and other build artifacts, and a Release Management system for setting up a pipeline to deploy your changes through dev, test, and production environments. The pipeline uses ARM templates to provision or update your infrastructure as necessary in each environment, and then deploys the updated build. You can also use Azure Dev/Test labs to automatically tear down test resources that are not in use.
-
 
 ## Architecture
 
@@ -234,15 +242,15 @@ Azure DevOps provides the CI/CD pipeline, starting with a Git repository for man
 1. Update backlog item
 
 ## Components
-* [Virtual Machines](http://azure.microsoft.com/services/virtual-machines/): Provision Windows and Linux virtual machines in seconds
-* [Azure DevTest Labs](http://azure.microsoft.com/services/devtest-lab/): Quickly create environments using reusable templates and artifacts
-* [Application Insights](http://azure.microsoft.com/services/monitor/): Detect, triage, and diagnose issues in your web apps and services.
-* [Azure DevOps](http://azure.microsoft.com/services/devops/): Build and deploy multi-platform apps to get the most from Azure services
+* [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/): Provision Windows and Linux virtual machines in seconds
+* [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/): Quickly create environments using reusable templates and artifacts
+* [Application Insights](https://azure.microsoft.com/services/monitor/): Detect, triage, and diagnose issues in your web apps and services.
+* [Azure DevOps](https://azure.microsoft.com/services/devops/): Build and deploy multi-platform apps to get the most from Azure services
 
 ## Next Steps
-* [Use Azure DevOps to Deploy to a Windows Virtual Machine](https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups)
-* [Use Azure DevOps to manage a virtual machine in Azure DevTest Labs](https://docs.microsoft.com/vsts/build-release/apps/cd/azure/deploy-provision-devtest-lab)
-* [Performance monitoring with Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-detect-triage-diagnose)
-* [Git on Azure DevOps](https://docs.microsoft.com/vsts/git/gitquickstart?tabs=visual-studio)
+* [Use Azure DevOps to Deploy to a Windows Virtual Machine](/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups)
+* [Use Azure DevOps to manage a virtual machine in Azure DevTest Labs](/vsts/build-release/apps/cd/azure/deploy-provision-devtest-lab)
+* [Performance monitoring with Application Insights](/azure/application-insights/app-insights-detect-triage-diagnose)
+* [Git on Azure DevOps](/vsts/git/gitquickstart?tabs=visual-studio)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

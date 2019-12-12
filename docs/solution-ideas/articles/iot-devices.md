@@ -2,13 +2,21 @@
 title: IoT devices
 author: adamboeglin
 ms.date: 12/12/2019
-description: Create seamless conversational interfaces with all of your internet-accessible devicesâ€”from your connected television or fridge to devices in a connected power plant. LUIS is able to integrate up to 500 intents to translate commands into smart actions.
+description: Create seamless conversational interfaces with all of your internet-accessible devices—from your connected television or fridge to devices in a connected power plant. LUIS is able to integrate up to 500 intents to translate commands into smart actions.
 ms.custom: acom-architecture, bot service, luis, interactive-diagram
+titleSuffix: Azure Solution Ideas
 ---
 # IoT devices
 
-Create seamless conversational interfaces with all of your internet-accessible devicesâ€”from your connected television or fridge to devices in a connected power plant. LUIS is able to integrate up to 500 intents to translate commands into smart actions.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+Create seamless conversational interfaces with all of your internet-accessible devices—from your connected television or fridge to devices in a connected power plant. LUIS is able to integrate up to 500 intents to translate commands into smart actions.
 
 ## Architecture
 

@@ -4,13 +4,21 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Archive your on-premises data to Azure Blob storage.
 ms.custom: acom-architecture
+titleSuffix: Azure Solution Ideas
 ---
 # Archive on-premises data to cloud
 
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
+
 Archive your on-premises data to Azure Blob storage.
 
-This solution is built on the Azure managed services: [StorSimple](/en-us/services/storsimple/) and [Blob Storage](/en-us/services/storage/blobs/). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
-
+This solution is built on the Azure managed services: [StorSimple](https://azure.microsoft.com/services/storsimple/) and [Blob Storage](https://azure.microsoft.com/services/storage/blobs/). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
 ## Architecture
 
@@ -215,13 +223,12 @@ This solution is built on the Azure managed services: [StorSimple](/en-us/servic
     </g>
 </svg>
 
-
 ## Components
-* Azure [StorSimple](http://azure.microsoft.com/services/storsimple/) appliance running on-premises that can tier data to Azure Blob storage (both hot and cool tier). [StorSimple](http://azure.microsoft.com/services/storsimple/) can be used to archive data from on-premises to Azure.
-* [Blob Storage](http://azure.microsoft.com/services/storage/blobs/): A cool tier on Azure Blob storage is used to back up data thatâ€™s less frequently accessed, while a hot tier on Azure Blob storage is used to store data thatâ€™s frequently accessed.
+* Azure [StorSimple](https://azure.microsoft.com/services/storsimple/) appliance running on-premises that can tier data to Azure Blob storage (both hot and cool tier). [StorSimple](https://azure.microsoft.com/services/storsimple/) can be used to archive data from on-premises to Azure.
+* [Blob Storage](https://azure.microsoft.com/services/storage/blobs/): A cool tier on Azure Blob storage is used to back up data that’s less frequently accessed, while a hot tier on Azure Blob storage is used to store data that’s frequently accessed.
 
 ## Next Steps
-* [Learning path for StorSimple](https://docs.microsoft.com/azure/storsimple/)
-* [Azure Blob Storage: Hot and cool storage tiers](https://docs.microsoft.com/api/Redirect/documentation/articles/storage-blob-storage-tiers/)
+* [Learning path for StorSimple](/azure/storsimple/)
+* [Azure Blob Storage: Hot and cool storage tiers](/api/Redirect/documentation/articles/storage-blob-storage-tiers/)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

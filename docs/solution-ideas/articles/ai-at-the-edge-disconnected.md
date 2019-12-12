@@ -4,11 +4,19 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Move AI models to the edge with a solution architecture that includes Azure Stack. A step-by-step workflow will help you harness the power of edge AI when disconnected from the internet.
 ms.custom: acom-architecture, ai at the edge, azure stack edge, edge ai, offline machine learning, interactive-diagram
+titleSuffix: Azure Solution Ideas
 ---
 # AI at the Edge with Azure Stack - disconnected
 
-With the Azure AI tools and cloud platform, the next generation of AI-enabled hybrid applications can run where your data lives. With Azure Stack, bring a trained AI model to the edge and integrate it with your applications for low-latency intelligence, with no tool or process changes for local applications. With Azure Stack, you can ensure that your cloud solutions work even when disconnected from the internet.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+With the Azure AI tools and cloud platform, the next generation of AI-enabled hybrid applications can run where your data lives. With Azure Stack, bring a trained AI model to the edge and integrate it with your applications for low-latency intelligence, with no tool or process changes for local applications. With Azure Stack, you can ensure that your cloud solutions work even when disconnected from the internet.
 
 ## Architecture
 
@@ -189,19 +197,19 @@ With the Azure AI tools and cloud platform, the next generation of AI-enabled hy
 1. Data from edge scoring is used to improve the model.
 
 ## Components
-* [HDInsight](http://azure.microsoft.com/services/hdinsight/): Provision cloud Hadoop, Spark, R Server, HBase, and Storm clusters
-* [Machine Learning Studio](http://azure.microsoft.com/services/machine-learning-studio/): Easily build, deploy, and manage predictive analytics solutions
-* [Virtual Machines](http://azure.microsoft.com/services/virtual-machines/): Provision Windows and Linux virtual machines in seconds
-* [Azure Kubernetes Service (AKS)](http://azure.microsoft.com/services/kubernetes-service/): Simplify the deployment, management, and operations of Kubernetes
-* [Storage](http://azure.microsoft.com/services/storage/): Durable, highly available, and massively scalable cloud storage
-* [Azure Stack](http://azure.microsoft.com/overview/azure-stack/): Build and run innovative hybrid applications across cloud boundaries
+* [HDInsight](https://azure.microsoft.com/services/hdinsight/): Provision cloud Hadoop, Spark, R Server, HBase, and Storm clusters
+* [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/): Easily build, deploy, and manage predictive analytics solutions
+* [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/): Provision Windows and Linux virtual machines in seconds
+* [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/): Simplify the deployment, management, and operations of Kubernetes
+* [Storage](https://azure.microsoft.com/services/storage/): Durable, highly available, and massively scalable cloud storage
+* [Azure Stack](https://azure.microsoft.com/overview/azure-stack/): Build and run innovative hybrid applications across cloud boundaries
 
 ## Next Steps
-* [HDInsight documentation](https://docs.microsoft.com/azure/hdinsight/)
-* [Machine Learning Studio documentation](https://docs.microsoft.com/azure/machine-learning/studio/)
-* [Virtual Machines documentation](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fclassic%2Ftoc.json)
-* [Azure Kubernetes Service (AKS) documentation](https://docs.microsoft.com/azure/aks/)
-* [Storage documentation](https://docs.microsoft.com/azure/storage/)
-* [Azure Stack documentation](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-machine-learning)
+* [HDInsight documentation](/azure/hdinsight/)
+* [Machine Learning Studio documentation](/azure/machine-learning/studio/)
+* [Virtual Machines documentation](/azure/virtual-machines/workloads/sap/get-started?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fclassic%2Ftoc.json)
+* [Azure Kubernetes Service (AKS) documentation](/azure/aks/)
+* [Storage documentation](/azure/storage/)
+* [Azure Stack documentation](/azure/azure-stack/user/azure-stack-solution-machine-learning)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

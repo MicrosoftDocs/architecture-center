@@ -4,11 +4,19 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Move AI models to the edge with a solution architecture that includes Azure Stack. A step-by-step workflow will help you harness the power of edge AI.
 ms.custom: acom-architecture, ai at the edge, azure stack edge, edge ai, machine learning, interactive-diagram
+titleSuffix: Azure Solution Ideas
 ---
 # AI at the Edge with Azure Stack
 
-With the Azure AI tools and cloud platform, the next generation of AI-enabled hybrid applications can run where your data lives. With Azure Stack, bring a trained AI model to the edge and integrate it with your applications for low-latency intelligence, with no tool or process changes for local applications.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+With the Azure AI tools and cloud platform, the next generation of AI-enabled hybrid applications can run where your data lives. With Azure Stack, bring a trained AI model to the edge and integrate it with your applications for low-latency intelligence, with no tool or process changes for local applications.
 
 ## Architecture
 
@@ -152,7 +160,7 @@ With the Azure AI tools and cloud platform, the next generation of AI-enabled hy
 <p>The model is deployed to a Kubernetes cluster on Azure Stack.</p>
 </div>
 <div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>End users provide data thatâ€™s scored against the model.</p>
+<p>End users provide data that’s scored against the model.</p>
 </div>
 <div class="architecture-tooltip-content" id="architecture-tooltip-4">
 <p>Insights and anomalies from scoring are placed into a queue.</p>
@@ -170,26 +178,26 @@ With the Azure AI tools and cloud platform, the next generation of AI-enabled hy
 ## Data Flow
 1. Data scientists train a model using Azure Machine Learning workbench and an HDInsight cluster. The model is containerized and put into an Azure Container Registry.
 1. The model is deployed to a Kubernetes cluster on Azure Stack.
-1. End users provide data thatâ€™s scored against the model.
+1. End users provide data that’s scored against the model.
 1. Insights and anomalies from scoring are placed into a queue.
 1. A function sends compliant data and anomalies to Azure Storage.
 1. Globally relevant and compliant insights are available in the global app.
 1. Data from edge scoring is used to improve the model.
 
 ## Components
-* [Machine Learning Studio](http://azure.microsoft.com/services/machine-learning-studio/): Easily build, deploy, and manage predictive analytics solutions
-* [HDInsight](http://azure.microsoft.com/services/hdinsight/): Provision cloud Hadoop, Spark, R Server, HBase, and Storm clusters
-* [Container Registry](http://azure.microsoft.com/services/container-registry/): Store and manage container images across all types of Azure deployments
-* [Azure Kubernetes Service (AKS)](http://azure.microsoft.com/services/kubernetes-service/): Simplify the deployment, management, and operations of Kubernetes
-* [Storage](http://azure.microsoft.com/services/storage/): Durable, highly available, and massively scalable cloud storage
-* [Azure Stack](http://azure.microsoft.com/overview/azure-stack/): Build and run innovative hybrid applications across cloud boundaries
+* [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/): Easily build, deploy, and manage predictive analytics solutions
+* [HDInsight](https://azure.microsoft.com/services/hdinsight/): Provision cloud Hadoop, Spark, R Server, HBase, and Storm clusters
+* [Container Registry](https://azure.microsoft.com/services/container-registry/): Store and manage container images across all types of Azure deployments
+* [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/): Simplify the deployment, management, and operations of Kubernetes
+* [Storage](https://azure.microsoft.com/services/storage/): Durable, highly available, and massively scalable cloud storage
+* [Azure Stack](https://azure.microsoft.com/overview/azure-stack/): Build and run innovative hybrid applications across cloud boundaries
 
 ## Next Steps
-* [Machine Learning Studio documentation](https://docs.microsoft.com/azure/machine-learning/service/)
-* [HDInsight documentation](https://docs.microsoft.com/azure/hdinsight/)
-* [Container Registry documentation](https://docs.microsoft.com/azure/container-registry/)
-* [Azure Kubernetes Service (AKS) documentation](https://docs.microsoft.com/azure/aks/)
-* [Storage documentation](https://docs.microsoft.com/azure/storage/)
-* [Azure Stack documentation](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-machine-learning)
+* [Machine Learning Studio documentation](/azure/machine-learning/service/)
+* [HDInsight documentation](/azure/hdinsight/)
+* [Container Registry documentation](/azure/container-registry/)
+* [Azure Kubernetes Service (AKS) documentation](/azure/aks/)
+* [Storage documentation](/azure/storage/)
+* [Azure Stack documentation](/azure/azure-stack/user/azure-stack-solution-machine-learning)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

@@ -4,28 +4,35 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Learn how the task-based consumer mobile app architecture is created with a step-by-step flow chart that shows the integration with Azure App Service Mobile Apps, Visual Studio, and Xamarin to simplify the build process.
 ms.custom: acom-architecture, Consumer Mobile App, Offline Mobile App, Mobile App Authentication, interactive-diagram
+titleSuffix: Azure Solution Ideas
 ---
 # Task-Based Consumer Mobile App
+
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
 This consumer mobile app architecture uses Azure App Service Mobile Apps to simplify authentication with multiple social identity providers, store data and sync it for offline access, and send push notifications.
 
 The app is built with Visual Studio (PC or Mac) and Xamarin, sharing C# code across Android, iOS, and Windows without compromising user experience. Visual Studio App Center is used to automate builds and tests and distribute to beta testers and app stores, while also providing usage monitoring and analytics in conjunction with App Insights.
 
-
 The links to the right provide documentation on deploying and managing the Azure products listed in the solution architecture above.
 
-[Visual Studio Team Services](/en-us/services/visual-studio-team-services/)
+[Visual Studio Team Services](https://azure.microsoft.com/services/visual-studio-team-services/)
 
 [Visual Studio](https://www.visualstudio.com/vs/)
 
 [Visual Studio Tools for Xamarin](https://www.visualstudio.com/xamarin/)
 
-[Application Insights](/en-us/services/application-insights/)
+[Application Insights](https://azure.microsoft.com/services/application-insights/)
 
 [Visual Studio App Center](https://www.visualstudio.com/app-center/)
 
-[App Service Mobile Apps](/en-us/services/app-service/mobile/)
-
+[App Service Mobile Apps](https://azure.microsoft.com/services/app-service/mobile/)
 
 ## Architecture
 
@@ -301,20 +308,20 @@ The links to the right provide documentation on deploying and managing the Azure
 * Build the web front end, mobile apps, and back end services with C# in [Visual Studio](https://www.visualstudio.com/vs/) 2017 or [Visual Studio](https://www.visualstudio.com/vs/) for Mac.
 * [Xamarin](https://www.visualstudio.com/xamarin/): Create mobile apps for iOS and Android using C# and Azure SDKs.
 * [Visual Studio App Center](https://www.visualstudio.com/app-center/): App Center enables a continuous integration and deployment workflow by pulling code from BitBucket, GitHub, and Visual Studio Team Services.
-* [App Service](http://azure.microsoft.com/services/app-service/): The client app uses one of the mobile client SDKs to connect to an Azure Mobile App backend. The client SDKs have built-in support for offline sync and authentication, making it much easier to build a full-featured app.
+* [App Service](https://azure.microsoft.com/services/app-service/): The client app uses one of the mobile client SDKs to connect to an Azure Mobile App backend. The client SDKs have built-in support for offline sync and authentication, making it much easier to build a full-featured app.
 * Application Insights: Detect issues, diagnose crashes, and track usage in your web app with Application Insights. Make informed decisions throughout the development lifecycle.
-* [Azure SQL Database](http://azure.microsoft.com/services/sql-database/): Structured data is stored in SQL Database, a cloud relational database service, which supports transactions and efficient querying.
-* [Offline sync](https://docs.microsoft.comhttp://azure.microsoft.com/azure/app-service-mobile/app-service-mobile-offline-data-sync): Use the offline data sync feature of the Azure Mobile App client SDKs to create responsive and robust apps that remain useful even when there are network issues.
-* [Identity Provider](https://docs.microsoft.comhttp://azure.microsoft.com/azure/app-service/app-service-authentication-overview): Use App Service authentication/authorization to integrate with a social or enterprise identity provider.
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): Structured data is stored in SQL Database, a cloud relational database service, which supports transactions and efficient querying.
+* [Offline sync](/azure/app-service-mobile/app-service-mobile-offline-data-sync): Use the offline data sync feature of the Azure Mobile App client SDKs to create responsive and robust apps that remain useful even when there are network issues.
+* [Identity Provider](/azure/app-service/app-service-authentication-overview): Use App Service authentication/authorization to integrate with a social or enterprise identity provider.
 
 ## Next Steps
-* [Visual Studio Documentation](https://docs.microsoft.com/visualstudio)
-* [Xamarin Documentation](https://docs.microsoft.com/xamarin)
-* [Visual Studio App Center Documentation](https://docs.microsoft.com/appcenter)
-* [Azure App Service Overview](http://azure.microsoft.com/services/app-service/)
-* [Application Insights Documentation](https://docs.microsoft.com/azure/application-insights/)
-* [Azure SQL Database Documentation](https://docs.microsoft.com/azure/sql-database/)
-* [Offline sync Documentation](https://docs.microsoft.com/azure/app-service-mobile/app-service-mobile-offline-data-sync)
-* [Identity Provider Documentation](https://docs.microsoft.com/azure/app-service/app-service-authentication-overview)
+* [Visual Studio Documentation](/visualstudio)
+* [Xamarin Documentation](/xamarin)
+* [Visual Studio App Center Documentation](/appcenter)
+* [Azure App Service Overview](https://azure.microsoft.com/services/app-service/)
+* [Application Insights Documentation](/azure/application-insights/)
+* [Azure SQL Database Documentation](/azure/sql-database/)
+* [Offline sync Documentation](/azure/app-service-mobile/app-service-mobile-offline-data-sync)
+* [Identity Provider Documentation](/azure/app-service/app-service-authentication-overview)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

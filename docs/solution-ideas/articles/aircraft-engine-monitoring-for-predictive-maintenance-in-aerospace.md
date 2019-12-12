@@ -2,15 +2,23 @@
 title: Predictive Aircraft Engine Monitoring
 author: adamboeglin
 ms.date: 12/12/2019
-description: Microsoft Azureâ€™s Predictive Maintenance solution demonstrates how to combine real-time aircraft data with analytics to monitor aircraft health.
+description: Microsoft Azure’s Predictive Maintenance solution demonstrates how to combine real-time aircraft data with analytics to monitor aircraft health.
 ms.custom: acom-architecture, aircraft engine monitor, aircraft health monitoring systems
+titleSuffix: Azure Solution Ideas
 ---
 # Predictive Aircraft Engine Monitoring
 
-Microsoft Azureâ€™s Predictive Maintenance solution demonstrates how to combine real-time aircraft data with analytics to monitor aircraft health.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
-This solution is built on the Azure managed services: [Azure Stream Analytics](/en-us/services/stream-analytics/), [Event Hubs](/en-us/services/event-hubs/), [Machine Learning Studio](/en-us/services/machine-learning-studio/), [HDInsight](/en-us/services/hdinsight/), [Azure SQL Database](/en-us/services/sql-database/), [Data Factory](/en-us/services/data-factory/) and [Power BI](https://powerbi.microsoft.com). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
+Microsoft Azure’s Predictive Maintenance solution demonstrates how to combine real-time aircraft data with analytics to monitor aircraft health.
 
+This solution is built on the Azure managed services: [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/), [Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/), [HDInsight](https://azure.microsoft.com/services/hdinsight/), [Azure SQL Database](https://azure.microsoft.com/services/sql-database/), [Data Factory](https://azure.microsoft.com/services/data-factory/) and [Power BI](https://powerbi.microsoft.com). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
 ## Architecture
 
@@ -121,23 +129,22 @@ This solution is built on the Azure managed services: [Azure Stream Analytics](/
     <path d="M985.2 264.248a5.237 5.237 0 015.237 5.237v12.077a5.238 5.238 0 01-5.237 5.238 5.237 5.237 0 01-5.239-5.235v-12.079a5.238 5.238 0 015.238-5.238zM1001.669 286.8a5.239 5.239 0 01-5.239-5.238v-31a5.238 5.238 0 1110.477 0v31a5.239 5.239 0 01-5.238 5.239M1034.613 286.648a5.239 5.239 0 01-5.239-5.238v-43.9a5.238 5.238 0 0110.477 0v43.9a5.239 5.239 0 01-5.238 5.239M1018.141 286.8a5.239 5.239 0 01-5.239-5.238v-23.028a5.238 5.238 0 0110.477 0v23.029a5.239 5.239 0 01-5.238 5.239"/>
 </svg>
 
-
 ## Components
-* [Azure Stream Analytics](http://azure.microsoft.com/services/stream-analytics/): Stream Analytics provides near real-time analytics on the input stream from the Azure Event Hub. Input data is filtered and passed to a Machine Learning endpoint, finally sending the results to the Power BI dashboard.
-* [Event Hubs](http://azure.microsoft.com/services/event-hubs/) ingests raw assembly-line data and passes it on to Stream Analytics.
-* [Machine Learning Studio](http://azure.microsoft.com/services/machine-learning-studio/): Machine Learning predicts potential failures based on real-time assembly-line data from Stream Analytics.
-* [HDInsight](http://azure.microsoft.com/services/hdinsight/) runs Hive scripts to provide aggregations on the raw events that were archived by Stream Analytics.
-* [Azure SQL Database](http://azure.microsoft.com/services/sql-database/): SQL Database stores prediction results received from Machine Learning and publishes data to Power BI.
-* [Data Factory](http://azure.microsoft.com/services/data-factory/) handles orchestration, scheduling, and monitoring of the batch processing pipeline.
+* [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/): Stream Analytics provides near real-time analytics on the input stream from the Azure Event Hub. Input data is filtered and passed to a Machine Learning endpoint, finally sending the results to the Power BI dashboard.
+* [Event Hubs](https://azure.microsoft.com/services/event-hubs/) ingests raw assembly-line data and passes it on to Stream Analytics.
+* [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/): Machine Learning predicts potential failures based on real-time assembly-line data from Stream Analytics.
+* [HDInsight](https://azure.microsoft.com/services/hdinsight/) runs Hive scripts to provide aggregations on the raw events that were archived by Stream Analytics.
+* [Azure SQL Database](https://azure.microsoft.com/services/sql-database/): SQL Database stores prediction results received from Machine Learning and publishes data to Power BI.
+* [Data Factory](https://azure.microsoft.com/services/data-factory/) handles orchestration, scheduling, and monitoring of the batch processing pipeline.
 * [Power BI](https://powerbi.microsoft.com) visualizes real-time assembly-line data from Stream Analytics and the predicted failures and alerts from Data Warehouse.
 
 ## Next Steps
-* [Learn more about Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction)
-* [Learn more about Event Hubs](https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs)
-* [Learn more about Machine Learning](https://docs.microsoft.com/azure/machine-learning/machine-learning-what-is-machine-learning)
-* [Learn more about HDInsight](https://docs.microsoft.com/azure/hdinsight/)
-* [Learn more about SQL Database](https://docs.microsoft.com/azure/sql-database/)
-* [Learn more about Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-introduction)
+* [Learn more about Stream Analytics](/azure/stream-analytics/stream-analytics-introduction)
+* [Learn more about Event Hubs](/azure/event-hubs/event-hubs-what-is-event-hubs)
+* [Learn more about Machine Learning](/azure/machine-learning/machine-learning-what-is-machine-learning)
+* [Learn more about HDInsight](/azure/hdinsight/)
+* [Learn more about SQL Database](/azure/sql-database/)
+* [Learn more about Azure Data Factory](/azure/data-factory/data-factory-introduction)
 * [Learn more about Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

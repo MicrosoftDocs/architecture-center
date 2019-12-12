@@ -4,11 +4,19 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Rapidly build engaging, performant and scalable cross-platform and native apps for iOS, Android, Windows, or Mac.
 ms.custom: acom-architecture, mysql, use cases, azure, solutions
+titleSuffix: Azure Solution Ideas
 ---
 # Scalable web and mobile applications using Azure Database for MySQL
 
-Rapidly build engaging, performant and scalable cross-platform and native apps for iOS, Android, Windows, or Mac. 
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+Rapidly build engaging, performant and scalable cross-platform and native apps for iOS, Android, Windows, or Mac. 
 
 ## Architecture
 
@@ -105,6 +113,5 @@ Rapidly build engaging, performant and scalable cross-platform and native apps f
     <path d="M400.768 36.393a3.938 3.938 0 00-3.929-3.947h-.09l-.359-.421a10.476 10.476 0 00-20.155-5.661 8.321 8.321 0 00-2.347-.427 7.254 7.254 0 000 14.507h23.253a4.056 4.056 0 003.627-4.053" fill="#59b4d9"/>
     <path d="M378.1 40.446a6.8 6.8 0 013.3-11.4 5.525 5.525 0 012.2-.1 9.919 9.919 0 015.5-8 9.427 9.427 0 00-3-.5 9.787 9.787 0 00-9.3 6.8 7.8 7.8 0 00-2.2-.4 6.8 6.8 0 000 13.6h3.5z" fill="#fff" opacity=".2" style="isolation:isolate"/>
 </svg>
-
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

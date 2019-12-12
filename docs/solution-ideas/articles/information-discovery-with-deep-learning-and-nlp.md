@@ -4,13 +4,21 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: See how deep learning and natural language processing can be used effectively with the Microsoft AI platform.
 ms.custom: acom-architecture, convolutional neural network, discrete manufacturing, decision tree algorithm, image classification, gradient boosting decision tree, failure detection, automated manufacturing solutions
+titleSuffix: Azure Solution Ideas
 ---
 # Information discovery with deep learning and NLP
 
-Social sites, forums, and other text-heavy Q&A services rely heavily on tagging, which enables indexing and user search. Without appropriate tagging, these sites are far less effective. Often, however, tagging is left to the usersâ€™ discretion. And since users donâ€™t have lists of commonly searched terms or a deep understanding of the categorization or information architecture of a site, posts are frequently mislabeled. This makes it difficult or impossible to find that content when itâ€™s needed later.
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
-By combining deep learning and natural language processing (NLP) with data on site-specific search terms, this solution helps greatly improve tagging accuracy on your site. As your user types their post, it offers highly used terms as suggested tags, making it easier for others to find the information theyâ€™re providing.
+Social sites, forums, and other text-heavy Q&A services rely heavily on tagging, which enables indexing and user search. Without appropriate tagging, these sites are far less effective. Often, however, tagging is left to the users’ discretion. And since users don’t have lists of commonly searched terms or a deep understanding of the categorization or information architecture of a site, posts are frequently mislabeled. This makes it difficult or impossible to find that content when it’s needed later.
 
+By combining deep learning and natural language processing (NLP) with data on site-specific search terms, this solution helps greatly improve tagging accuracy on your site. As your user types their post, it offers highly used terms as suggested tags, making it easier for others to find the information they’re providing.
 
 ## Architecture
 
@@ -91,7 +99,6 @@ By combining deep learning and natural language processing (NLP) with data on si
     </g>
 </svg>
 
-
 ## Components
 * Microsoft SQL Server: Data is stored, structured, and indexed using Microsoft SQL Server.
 * GPU based Azure Data Science Virtual Machine: The core development environment is the Microsoft Windows Server 2016 GPU DSVM NC24.
@@ -100,16 +107,16 @@ By combining deep learning and natural language processing (NLP) with data on si
 * Azure Machine Learning Model Management Service: The Model Management service is used for deployment of the final model, including scaling out to a Kubernetes-managed Azure cluster.
 * Jupyter Notebooks on Azure Data Science VM: Jupyter Notebooks is used as the base IDE for the model, which was developed in Python.
 * Azure Container Registry: The Model Management Service creates and packages real-time web services as Docker containers. These containers are uploaded and registered via Azure Container Registry.
-* [Azure Kubernetes Service (AKS)](http://azure.microsoft.com/services/kubernetes-service/): Deployment for this solution uses Azure Kubernetes Service running a Kubernetes-managed cluster. The containers are deployed from images stored in Azure Container Registry.
+* [Azure Kubernetes Service (AKS)](https://azure.microsoft.com/services/kubernetes-service/): Deployment for this solution uses Azure Kubernetes Service running a Kubernetes-managed cluster. The containers are deployed from images stored in Azure Container Registry.
 
 ## Next Steps
 * [Learn more about Microsoft SQL Server](https://www.microsoft.com/sql-server/sql-server-2017)
 * [Learn more about Data Science Virtual Machine](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.windows-data-science-vm?tab=Overview)
-* [Learn more about Azure Machine Learning Workbench](https://docs.microsoft.com/azure/machine-learning/preview/quickstart-installation)
-* [Learn more about Azure Machine Learning Experimentation Service](https://docs.microsoft.com/azure/machine-learning/preview/)
-* [Learn More about Azure Machine Learning Model Management](https://docs.microsoft.com/azure/machine-learning/preview/model-management-overview)
+* [Learn more about Azure Machine Learning Workbench](/azure/machine-learning/preview/quickstart-installation)
+* [Learn more about Azure Machine Learning Experimentation Service](/azure/machine-learning/preview/)
+* [Learn More about Azure Machine Learning Model Management](/azure/machine-learning/preview/model-management-overview)
 * [Learn more about Jupyter Notebooks](https://jupyter.org/)
-* [Learn more about Azure Container Registry](http://azure.microsoft.com/services/container-registry/)
-* [Learn more about Azure Kubernetes Service](http://azure.microsoft.com/services/hdinsight/)
+* [Learn more about Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
+* [Learn more about Azure Kubernetes Service](https://azure.microsoft.com/services/hdinsight/)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

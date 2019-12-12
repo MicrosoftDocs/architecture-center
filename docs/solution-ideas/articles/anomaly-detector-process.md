@@ -4,10 +4,17 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Learn more about Anomaly Detector with a step-by-step flowchart that details the process. See how anomaly detection models are selected with time-series data.
 ms.custom: acom-architecture, anomaly detection process, anomaly detection model, anomaly detector, interactive-diagram
+titleSuffix: Azure Solution Ideas
 ---
 # Anomaly Detector Process
 
-
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
 ## Architecture
 
@@ -153,15 +160,15 @@ ms.custom: acom-architecture, anomaly detection process, anomaly detection model
 1. Visualizes the results of the time series anomaly detection.
 
 ## Components
-* [Service Bus](http://azure.microsoft.com/services/service-bus/): Reliable cloud messaging as a service (MaaS) and simple hybrid integration
-* [Azure Databricks](http://azure.microsoft.com/services/databricks/): Fast, easy, and collaborative Apache Sparkâ€“based analytics service
+* [Service Bus](https://azure.microsoft.com/services/service-bus/): Reliable cloud messaging as a service (MaaS) and simple hybrid integration
+* [Azure Databricks](https://azure.microsoft.com/services/databricks/): Fast, easy, and collaborative Apache Spark–based analytics service
 * [Power BI](https://powerbi.microsoft.com): Interactive data visualization BI tools
-* [Storage Accounts](http://azure.microsoft.com/services/storage/): Durable, highly available, and massively scalable cloud storage
+* [Storage Accounts](https://azure.microsoft.com/services/storage/): Durable, highly available, and massively scalable cloud storage
 
 ## Next Steps
-* [Service Bus Documentation](https://docs.microsoft.com/azure/service-bus/)
-* [Azure Databricks Documentation](https://docs.microsoft.com/azure/azure-databricks/)
-* [Power BI Documentation](https://docs.microsoft.com/power-bi/)
-* [Storage Documentation](https://docs.microsoft.com/azure/storage/)
+* [Service Bus Documentation](/azure/service-bus/)
+* [Azure Databricks Documentation](/azure/azure-databricks/)
+* [Power BI Documentation](/power-bi/)
+* [Storage Documentation](/azure/storage/)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

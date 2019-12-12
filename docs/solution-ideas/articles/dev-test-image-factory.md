@@ -4,11 +4,19 @@ author: adamboeglin
 ms.date: 12/12/2019
 description: Create, maintain, and distribute custom images with the DevTest Image Factory, an automated image development and management solution from Azure Dev Test Labs.
 ms.custom: acom-architecture, Azure DevTest Image Factory, Image Management Solutions, Create Custom Image, interactive-diagram
+titleSuffix: Azure Solution Ideas
 ---
 # DevTest Image Factory
 
-The image factory provides a great way for organizations to create, maintain, and distribute custom images with Azure Dev Test Labs. Whether you have globally distributed teams that need to work with a common set of custom images, need to centrally manage the configuration of images to ensure they meet regulatory compliance and security requirements, or complex software setup and configuration requirements, the image factory provides an automated solution to manage it
+<div class="alert">
+    <p class="alert-title">
+        <span class="icon is-left" aria-hidden="true">
+            <span class="icon docon docon-lightbulb" role="presentation"></span>
+        </span>Solution Idea</p>
+    <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
+</div>
 
+The image factory provides a great way for organizations to create, maintain, and distribute custom images with Azure Dev Test Labs. Whether you have globally distributed teams that need to work with a common set of custom images, need to centrally manage the configuration of images to ensure they meet regulatory compliance and security requirements, or complex software setup and configuration requirements, the image factory provides an automated solution to manage it
 
 ## Architecture
 
@@ -245,7 +253,7 @@ The image factory provides a great way for organizations to create, maintain, an
 <p>IT admin checks into source code control of choice (such as Visual Studio Team Services or Github + Jenkins).</p>
 </div>
 <div class="architecture-tooltip-content" id="architecture-tooltip-3">
-<p>Orchestrator triggers ‚Äúgolden image‚Äù creation based on configuration in source code control that goes to the image factory.</p>
+<p>Orchestrator triggers ìgolden imageî creation based on configuration in source code control that goes to the image factory.</p>
 </div>
 <div class="architecture-tooltip-content" id="architecture-tooltip-4">
 <p>Image factory lab receives commands to create virtual machines (VMs) and custom images.</p>
@@ -260,19 +268,19 @@ The image factory provides a great way for organizations to create, maintain, an
 ## Data Flow
 1. With config as code, define the images to push and select which labs will receive the image.
 1. IT admin checks into source code control of choice (such as Visual Studio Team Services or Github + Jenkins).
-1. Orchestrator triggers ‚Äúgolden image‚Äù creation based on configuration in source code control that goes to the image factory.
+1. Orchestrator triggers ìgolden imageî creation based on configuration in source code control that goes to the image factory.
 1. Image factory lab receives commands to create virtual machines (VMs) and custom images.
 1. Specified images copied from image factory lab to team labs.
 1. Team lab users claim VMs or create VMs with the latest images.
 
 ## Components
-* [Azure Lab Services](http://azure.microsoft.com/services/lab-services/): Set up labs for classrooms, trials, development and testing, and other scenarios
-* [Virtual Machines](http://azure.microsoft.com/services/virtual-machines/): Provision Windows and Linux virtual machines in seconds
-* [Azure DevOps](http://azure.microsoft.com/services/devops/): Services for teams to share code, track work, and ship software
+* [Azure Lab Services](https://azure.microsoft.com/services/lab-services/): Set up labs for classrooms, trials, development and testing, and other scenarios
+* [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/): Provision Windows and Linux virtual machines in seconds
+* [Azure DevOps](https://azure.microsoft.com/services/devops/): Services for teams to share code, track work, and ship software
 
 ## Next Steps
-* [Azure Lab Services documentation](https://docs.microsoft.com/azure/lab-services/)
-* [Virtual Machines documentation](https://docs.microsoft.com/azure/virtual-machines/)
-* [Azure Devops documentation](https://docs.microsoft.com/azure/devops/)
+* [Azure Lab Services documentation](/azure/lab-services/)
+* [Virtual Machines documentation](/azure/virtual-machines/)
+* [Azure Devops documentation](/azure/devops/)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]
