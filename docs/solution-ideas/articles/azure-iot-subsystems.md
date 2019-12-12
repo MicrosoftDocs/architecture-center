@@ -9,21 +9,21 @@ ms.custom: acom-architecture, IoT solution architecture, IoT application archite
 
 The links to the right provide documentation on deploying and managing the Azure products listed in the solution architecture above.
 
-[Azure Active Directory application](/en-us/services/active-directory/)
+[Azure Active Directory application](/services/active-directory/)
 
-[Virtual Machine (Standard D1 V2, 1 core, 3.5 GB memory)](/en-us/services/virtual-machines/)
+[Virtual Machine (Standard D1 V2, 1 core, 3.5 GB memory)](/services/virtual-machines/)
 
-[IoT Hub (S1basic tier)](/en-us/services/iot-hub/)
+[IoT Hub (S1basic tier)](/services/iot-hub/)
 
-[Cosmos DB account (Standard)](/en-us/services/cosmos-db/)
+[Cosmos DB account (Standard)](/services/cosmos-db/)
 
-[Storage account (Standard-GRS)](/en-us/services/storage/)
+[Storage account (Standard-GRS)](/services/storage/)
 
-[Web Application](/en-us/services/app-service/)
+[Web Application](/services/app-service/)
 
-[Azure Machine Learning](/en-us/services/machine-learning/)
+[Azure Machine Learning](/services/machine-learning/)
 
-[Azure Stream Analytics](/en-us/services/stream-analytics/)
+[Azure Stream Analytics](/services/stream-analytics/)
 
 
 ## Architecture

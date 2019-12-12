@@ -9,7 +9,7 @@ ms.custom: acom-architecture, vehicle telematics, automotive telematics
 
 Learn how car dealerships, manufacturers, and insurance companies can use Microsoft Azure to gain predictive insights on vehicle health and driving habits.
 
-This solution is built on the Azure managed services: [Event Hubs](/en-us/services/event-hubs/), [Azure Stream Analytics](/en-us/services/stream-analytics/), [Machine Learning Studio](/en-us/services/machine-learning-studio/), [Storage Accounts](/en-us/services/storage/), [HDInsight](/en-us/services/hdinsight/), [Data Factory](/en-us/services/data-factory/), [Azure SQL Database](/en-us/services/sql-database/) and [Power BI](https://powerbi.microsoft.com). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
+This solution is built on the Azure managed services: [Event Hubs](/services/event-hubs/), [Azure Stream Analytics](/services/stream-analytics/), [Machine Learning Studio](/services/machine-learning-studio/), [Storage Accounts](/services/storage/), [HDInsight](/services/hdinsight/), [Data Factory](/services/data-factory/), [Azure SQL Database](/services/sql-database/) and [Power BI](https://powerbi.microsoft.com). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
 
 ## Architecture

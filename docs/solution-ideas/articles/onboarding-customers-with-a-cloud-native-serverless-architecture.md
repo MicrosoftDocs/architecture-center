@@ -12,16 +12,16 @@ This serverless architecture enables you to build and run applications without h
 
 The links to the right give you detailed technical guidance on navigating a particular area of the architecture.
 
-[Decide which compute option to use for your apps](https://docs.microsoft.com/en-us/azure/architecture/guide/technology-choices/compute-overview/)
+[Decide which compute option to use for your apps](https://docs.microsoft.com/azure/architecture/guide/technology-choices/compute-overview/)
 
-[Learn to build Serverless apps](https://docs.microsoft.com/en-us/azure/azure-functions/)
+[Learn to build Serverless apps](https://docs.microsoft.com/azure/azure-functions/)
 
 
 The links to the right provide documentation on deploying and managing the Azure products listed in the solution architecture above.
 
-[Learn how you can use machine learning](https://docs.microsoft.com/en-us/azure/machine-learning/preview/)
+[Learn how you can use machine learning](https://docs.microsoft.com/azure/machine-learning/preview/)
 
-[Infuse intelligence into your apps with Cognitive Services](https://docs.microsoft.com/en-us/azure/#pivot=products&panel=cognitive)
+[Infuse intelligence into your apps with Cognitive Services](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive)
 
 
 ## Architecture
