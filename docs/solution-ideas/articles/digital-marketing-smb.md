@@ -9,7 +9,7 @@ ms.custom: acom-architecture
 
 Start simple with the content management system that enables you to easily maintain the messaging on your website in real-time, from a browser, with no coding skills.
 
-This solution is built on the Azure managed services: [Azure SQL Database](/en-us/services/sql-database/), [Azure Monitor](/en-us/services/monitor/), [Content Delivery Network](/en-us/services/cdn/) and [Azure Cache for Redis](/en-us/services/cache/). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
+This solution is built on the Azure managed services: [Azure SQL Database](/services/sql-database/), [Azure Monitor](/services/monitor/), [Content Delivery Network](/services/cdn/) and [Azure Cache for Redis](/services/cache/). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
 
 ## Architecture

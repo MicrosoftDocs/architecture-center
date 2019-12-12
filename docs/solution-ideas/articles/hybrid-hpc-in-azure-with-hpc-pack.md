@@ -14,9 +14,9 @@ This solution shows the process for using HPC Pack to create a hybrid (on-premis
 
 The links to the right provide documentation on deploying and managing the Azure products listed in the solution architecture above.
 
-[Documentation Home Page](https://technet.microsoft.com/en-us/library/cc514029\(v=ws.11\).aspx)
+[Documentation Home Page](https://technet.microsoft.com/library/cc514029\(v=ws.11\).aspx)
 
-[HPC Pack Azure Deployment Options](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/hpcpack-cluster-options)
+[HPC Pack Azure Deployment Options](https://docs.microsoft.com/azure/virtual-machines/windows/hpcpack-cluster-options)
 
 
 ## Architecture

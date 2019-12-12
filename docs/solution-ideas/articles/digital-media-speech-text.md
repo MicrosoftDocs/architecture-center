@@ -9,7 +9,7 @@ ms.custom: acom-architecture
 
 A speech-to-text solution allows you to identify speech in static video files so you can manage it as standard content, such as allowing employees to search within training videos for spoken words or phrases, and then enabling them to quickly navigate to the specific moment in the video. This solution allows you to upload static videos to an Azure website. The Azure Media Indexer uses the Speech API to index the speech within the videos and stores it in SQL Azure. You can search for words or phrases by using Azure Web Apps and retrieve a list of results. Selecting a result enables you to see where in the video the word or phrase is mentioned.
 
-This solution is built on the Azure managed services: [Content Delivery Network](/en-us/services/cdn/) and [Azure Cognitive Search](/en-us/services/search/). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
+This solution is built on the Azure managed services: [Content Delivery Network](/services/cdn/) and [Azure Cognitive Search](/services/search/). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
 
 ## Architecture

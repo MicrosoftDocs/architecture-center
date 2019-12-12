@@ -9,7 +9,7 @@ ms.custom: acom-architecture, energy demand, power forecast, energy forecast
 
 Learn how Microsoft Azure can help accurately forecast spikes in demand for energy products and services to give your company a competitive advantage.
 
-This solution is built on the Azure managed services: [Azure Stream Analytics](/en-us/services/stream-analytics/), [Event Hubs](/en-us/services/event-hubs/), [Machine Learning Studio](/en-us/services/machine-learning-studio/), [Azure SQL Database](/en-us/services/sql-database/), [Data Factory](/en-us/services/data-factory/) and [Power BI](https://powerbi.microsoft.com). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
+This solution is built on the Azure managed services: [Azure Stream Analytics](/services/stream-analytics/), [Event Hubs](/services/event-hubs/), [Machine Learning Studio](/services/machine-learning-studio/), [Azure SQL Database](/services/sql-database/), [Data Factory](/services/data-factory/) and [Power BI](https://powerbi.microsoft.com). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
 
 ## Architecture

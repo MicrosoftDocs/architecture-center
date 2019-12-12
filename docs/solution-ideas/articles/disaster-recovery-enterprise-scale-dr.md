@@ -9,7 +9,7 @@ ms.custom: acom-architecture
 
 A large enterprise architecture for SharePoint, Dynamics CRM, and Linux web servers hosted on an on-premises datacenter with failover to Azure infrastructure.
 
-This solution is built on the Azure managed services: [Traffic Manager](/en-us/services/traffic-manager/), [Azure Site Recovery](/en-us/services/site-recovery/), [Azure Active Directory](/en-us/services/active-directory/), [VPN Gateway](/en-us/services/vpn-gateway/) and [Virtual Network](/en-us/services/virtual-network/). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
+This solution is built on the Azure managed services: [Traffic Manager](/services/traffic-manager/), [Azure Site Recovery](/services/site-recovery/), [Azure Active Directory](/services/active-directory/), [VPN Gateway](/services/vpn-gateway/) and [Virtual Network](/services/virtual-network/). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
 
 ## Architecture

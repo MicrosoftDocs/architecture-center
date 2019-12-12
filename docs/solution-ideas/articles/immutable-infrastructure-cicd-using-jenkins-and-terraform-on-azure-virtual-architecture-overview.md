@@ -57,6 +57,6 @@ Azure is a world-class cloud for hosting virtual machines running Windows or Lin
 * [Get the Azure Extensions Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack)
 
 ## Deploy to Azure
-* [Deploy to Azure](/en-us/resources/templates/jenkins-cicd-vmss/)
+* [Deploy to Azure](/resources/templates/jenkins-cicd-vmss/)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

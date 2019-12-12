@@ -9,7 +9,7 @@ ms.custom: acom-architecture
 
 High performance computing (HPC) applications can scale to thousands of compute cores, extend on-premises big compute, or run as a 100% cloud native solution. This HPC solution including the head node, compute nodes, and storage nodes, runs in Azure with no hardware infrastructure to maintain.
 
-This solution is built on the Azure managed services: [Virtual Machine Scale Sets](/en-us/services/virtual-machine-scale-sets/), [Virtual Network](/en-us/services/virtual-network/) and [Storage Accounts](/en-us/services/storage/). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
+This solution is built on the Azure managed services: [Virtual Machine Scale Sets](/services/virtual-machine-scale-sets/), [Virtual Network](/services/virtual-network/) and [Storage Accounts](/services/storage/). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
 
 ## Architecture

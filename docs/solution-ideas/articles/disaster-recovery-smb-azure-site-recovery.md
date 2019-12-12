@@ -9,7 +9,7 @@ ms.custom: acom-architecture
 
 Small and medium businesses can inexpensively implement disaster recovery to the cloud by using Azure Site Recovery or a partner solution like Double-Take DR.
 
-This solution is built on the Azure managed services: [Traffic Manager](/en-us/services/traffic-manager/), [Azure Site Recovery](/en-us/services/site-recovery/) and [Virtual Network](/en-us/services/virtual-network/). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
+This solution is built on the Azure managed services: [Traffic Manager](/services/traffic-manager/), [Azure Site Recovery](/services/site-recovery/) and [Virtual Network](/services/virtual-network/). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
 
 ## Architecture

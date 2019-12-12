@@ -9,7 +9,7 @@ ms.custom: acom-architecture
 
 This architecture represents how to configure your infrastructure for development and testing of a microservices-based system.
 
-This solution is built on the Azure managed services: [Azure DevOps](/en-us/services/devops/), [Service Fabric](/en-us/services/service-fabric/) and [Azure SQL Database](/en-us/services/sql-database/). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
+This solution is built on the Azure managed services: [Azure DevOps](/services/devops/), [Service Fabric](/services/service-fabric/) and [Azure SQL Database](/services/sql-database/). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
 
 ## Architecture

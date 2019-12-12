@@ -41,7 +41,7 @@
           "**/*.svg",
           "**/*.js",
           "**/*.json",
-          "**/*.json.txt"
+          "**/*.json.txt",
           "feed.xml"
         ],
         "exclude": [

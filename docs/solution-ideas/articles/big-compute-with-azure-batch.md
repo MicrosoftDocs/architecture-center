@@ -16,13 +16,13 @@ This solution is built on the Azure managed servicesVirtual Machines, Storage, a
 
 The links to the right provide documentation on deploying and managing the Azure products listed in the solution architecture above.
 
-[Batch documentation](https://docs.microsoft.com/en-us/azure/batch/)
+[Batch documentation](https://docs.microsoft.com/azure/batch/)
 
-[Virtual Machines](/en-us/services/virtual-machines/)
+[Virtual Machines](/services/virtual-machines/)
 
-[Azure Batch](/en-us/services/batch/)
+[Azure Batch](/services/batch/)
 
-[Azure Blob Storage](/en-us/services/storage/)
+[Azure Blob Storage](/services/storage/)
 
 
 ## Architecture

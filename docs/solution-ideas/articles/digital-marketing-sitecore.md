@@ -9,7 +9,7 @@ ms.custom: acom-architecture
 
 With the Sitecore Experience Platform (xP), you have at your fingertips the complete data, integrated tools, and automation capabilities to engage your customers throughout an iterative life cyclethe technology foundation necessary to win customers for life.
 
-This solution is built on the Azure managed services: [Azure SQL Database](/en-us/services/sql-database/), [Azure Cache for Redis](/en-us/services/cache/), [Azure Cognitive Search](/en-us/services/search/) and [Azure Monitor](/en-us/services/monitor/). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
+This solution is built on the Azure managed services: [Azure SQL Database](/services/sql-database/), [Azure Cache for Redis](/services/cache/), [Azure Cognitive Search](/services/search/) and [Azure Monitor](/services/monitor/). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
 
 ## Architecture
