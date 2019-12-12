@@ -577,10 +577,6 @@
                     "friendly-name": "is-deployable",
                     "tags": ["is-deployable"]
                 }, {
-                    "name": "Engineering Validated Guidance",
-                    "friendly-name": "reference-architecture",
-                    "tags": ["reference-architecture"]
-                }, {
                     "name": "Github project",
                     "friendly-name": "github",
                     "tags": ["github"]
@@ -596,10 +592,6 @@
                     "name": "Visio diagram",
                     "friendly-name": "visio-diagram",
                     "tags": ["visio-diagram"]
-                }, {
-                    "name": "Workload examples",
-                    "friendly-name": "example-workload",
-                    "tags": ["example-workload"]
                 }
             ]
         }, {
@@ -646,8 +638,8 @@
             "items": [
                 {
                     "name": "Solution Idea",
-                    "friendly-name": "architecture-diagram",
-                    "tags": ["acom-architecture"]
+                    "friendly-name": "solution-idea",
+                    "tags": ["solution-idea"]
                 }, {
                     "name": "Example Workload",
                     "friendly-name": "example-workload",
