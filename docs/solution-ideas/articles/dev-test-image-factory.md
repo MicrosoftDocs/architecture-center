@@ -13,8 +13,7 @@ ms.custom: acom-architecture, Azure DevTest Image Factory, Image Management Solu
         <span class="icon is-left" aria-hidden="true">
             <span class="icon docon docon-lightbulb" role="presentation"></span>
         </span>Solution Idea</p>
-    <p>If you'd like to see us add more information to this article, let us know with <a href="#feedback">GitHub Feedback</a>!</p>
-    <p>Based on your feedback, this solution idea could be expanded to include implementation details, pricing guidance, code examples, and deployment templates.</p>
+    <p>If you'd like to see us expand this article with more information (implementation details, pricing guidance, code examples, etc), let us know with <a href="#feedback">GitHub Feedback</a>!</p>
 </div>
 
 The image factory provides a great way for organizations to create, maintain, and distribute custom images with Azure Dev Test Labs. Whether you have globally distributed teams that need to work with a common set of custom images, need to centrally manage the configuration of images to ensure they meet regulatory compliance and security requirements, or complex software setup and configuration requirements, the image factory provides an automated solution to manage it

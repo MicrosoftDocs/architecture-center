@@ -13,8 +13,7 @@ ms.custom: acom-architecture, Azure Spatial Anchors, Azure Active Directory, Cos
         <span class="icon is-left" aria-hidden="true">
             <span class="icon docon docon-lightbulb" role="presentation"></span>
         </span>Solution Idea</p>
-    <p>If you'd like to see us add more information to this article, let us know with <a href="#feedback">GitHub Feedback</a>!</p>
-    <p>Based on your feedback, this solution idea could be expanded to include implementation details, pricing guidance, code examples, and deployment templates.</p>
+    <p>If you'd like to see us expand this article with more information (implementation details, pricing guidance, code examples, etc), let us know with <a href="#feedback">GitHub Feedback</a>!</p>
 </div>
 
 Businesses and teams across industries have to spend time and money on design reviews. 2D images lose essential detail and context, and physical prototypes are extremely expensive. With this mixed reality scenario, clients, designers, and onsite engineers can easily share and review designs as 3D holograms in the context of their environment, accelerating design decisions and reducing time to market.

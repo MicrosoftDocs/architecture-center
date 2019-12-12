@@ -92,8 +92,7 @@ def scrape_page(url):
         <span class="icon is-left" aria-hidden="true">\n\
             <span class="icon docon docon-lightbulb" role="presentation"></span>\n\
         </span>Solution Idea</p>\n\
-    <p>If you\'d like to see us add more information to this article, let us know with <a href="#feedback">GitHub Feedback</a>!</p>\n\
-    <p>Based on your feedback, this solution idea could be expanded to include implementation details, pricing guidance, code examples, and deployment templates.</p>\n\
+    <p>If you\'d like to see us expand this article with more information (implementation details, pricing guidance, code examples, etc), let us know with <a href="#feedback">GitHub Feedback</a>!</p>\n\
 </div>\n\n'
 
     # Pull all the text

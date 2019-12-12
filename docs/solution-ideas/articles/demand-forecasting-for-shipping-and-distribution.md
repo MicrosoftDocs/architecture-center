@@ -13,8 +13,7 @@ ms.custom: acom-architecture, artificial intelligence, solution architectures, A
         <span class="icon is-left" aria-hidden="true">
             <span class="icon docon docon-lightbulb" role="presentation"></span>
         </span>Solution Idea</p>
-    <p>If you'd like to see us add more information to this article, let us know with <a href="#feedback">GitHub Feedback</a>!</p>
-    <p>Based on your feedback, this solution idea could be expanded to include implementation details, pricing guidance, code examples, and deployment templates.</p>
+    <p>If you'd like to see us expand this article with more information (implementation details, pricing guidance, code examples, etc), let us know with <a href="#feedback">GitHub Feedback</a>!</p>
 </div>
 
 The Demand Forecasting for Shipping and Distribution Solution uses historical demand data to forecast demand in future periods across varios customers, products and destinations. For instance, a shipping or delivery company wants to predict the quantities of the different products its customers want delivered at different locations at future times. A company can use these forecasts as input to an allocation tool that optimizes operations, such as delivery vehicles routing, or to plan capacity in the longer term.
