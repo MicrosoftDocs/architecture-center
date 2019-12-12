@@ -26,17 +26,30 @@ These cover the following automation scenarios:
 
 The functions in these implementations are written in PowerShell and Python, two of the most common scripting languages used in automation. They are deployed using [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local) in Azure CLI. Alternatively, you can try a preview version of [PowerShell cmdlet to deploy and manage Azure Functions](https://www.powershellgallery.com/packages/Az.Functions/0.0.1-preview).
 
-Event-based automation scenarios fall into either of the following patterns:
+## Patterns in event-based automation
 
-1. **Scheduled tasks based on an event triggered by a timer**. These tasks are executed by [timer-triggered functions](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function). An example of this is a regularly scheduled function that reads a Blob Storage content and creates a CosmosDB document.
+Event-based automation scenarios fall into either of the following patterns.
 
-1. **Response to a resource-specific event**. These are responses to events such as a resource getting created, deleted, changed, and so on. The cost center tagging implementation is an example of this pattern.
+1. **Respond to events on resources**. These are responses to events such as an Azure resource or resource group getting created, deleted, changed, and so on. This pattern uses integration with Event Grid to trigger the function for such events. The cost center tagging implementation is an example of this pattern. Other common scenarios include:
+    a. Grant access to newly created resource groups to DevOps teams.
+    b. Send a notification when a resource is deleted.
+    c. Respond to Azure Virtual Machines maintenance events.
 
-1. **Processing of alerts**. This pattern leverages the metrics and log analytics to automate actions using Azure Action Groups (Azure Monitor). The throttling response implementation is an example of this pattern.
+1. **Scheduled tasks**. These are typically maintenance tasks executed using [timer-triggered functions](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function). Example of this pattern are:
+    a. Stop a VM at night and start in the morning.
+    b. Reads a Blob Storage content at regular intervals and creates a CosmosDB documents.
+    c. Remove resources no longer in use.
 
-1. **Customized automation for use by third party application**. This pattern exposes the function using a web hook with [an HTTP trigger](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function). The third party app can use this function to automate in response to their events, such as integration with power apps or GitHub.
+1. **Process Azure alerts**. This pattern leverages the Azure Monitor alerts and action groups integrated into Azure Functions. The automation actions are typically remedial actions in response to metrics, log analytics, or alerts originating in your applications as well as the infrastructure. The throttling response implementation is an example of this pattern. Other common scenarios are:
+    a. Truncate table when SQL database reaches maximum size.
+    b. Restart a service in a VM when it is erroneously stopped.
+    c. Send notifications if a function is failing.
 
-1. **Custom workflow with event-based automation**. This pattern uses Logic Apps to orchestrate the workflow, and then calls a function to do the automation. The Logic App can easily integrate actions such as sending email notification, or getting approval from the IT department, or starting deployments based on certain conditions, and so on. The cost center tagging implementation is also an example of this pattern.
+1. **Orchestrate with external systems**. This pattern enables integration with external systems, using Logic Apps to orchestrate the workflow. [Logic Apps connectors](https://docs.microsoft.com/en-us/azure/connectors/apis-list) can easily integrate with Microsoft services such as Office 365 as well as several third party services. They allow you to take actions such as sending email notification, monitoring IT processes such as change requests or approvals, starting deployments based on certain conditions, and so on. Customized automation can be achieved using the integration of Azure Functions with the Logic Apps. The cost center tagging implementation also implements this pattern.
+
+1. **Expose as a *web hook* or API**. Automation tasks using Azure Functions can be integrated into third party applications or even command line tools, by exposing the function as a web hook/API with [an HTTP trigger](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function). Multiple authentication methods are available in both PowerShell and Python to secure external access to the function. The automation happens in response to the app-specific external events, for example, integration with power apps or GitHub. Common scenarios include:
+    a. Trigger automation for a failing service.
+    b. Onboard users to organization's resources.
 
 ## Architecture
 
@@ -55,9 +68,11 @@ Additionally, read the [Optimize the performance and reliability of Azure Functi
 
 **Logic App**. [Logic Apps](https://docs.microsoft.com/azure/logic-apps/) can be optionally used in this architecture for a predefined workflow. This can be used to perform non-automation related tasks, which can be more easily implemented using [Logic App's built-in connectors](https://docs.microsoft.com/azure/connectors/apis-list). These tasks can range from a simple email notification, to integrating with external management applications. To learn how to use Logic Apps with third party applications, read [basic enterprise integration in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration).
 
-Logic Apps provide a *no-code*, simpler alternative to Azure Functions, and can be used alone in some automation scenarios. Read [this comparison between Azure Functions and Logic Apps](https://docs.microsoft.com/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs#compare-azure-functions-and-azure-logic-apps) to see which service can fit your scenario.
+Logic Apps provide a *no-code*, visual designer, and may be used alone in some automation scenarios. Read [this comparison between Azure Functions and Logic Apps](https://docs.microsoft.com/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs#compare-azure-functions-and-azure-logic-apps) to see which service can fit your scenario.
 
 **Event Grid**. [Event Grid](https://docs.microsoft.com/azure/event-grid/overview) has built-in support for events from other Azure services, as well as your own events (as custom topics). Operational events such as resource creation can be easily propagated to the the automation event handler, using the Event Grid's built-in mechanism.
+
+Event Grid simplifies the event-based automation with a [publish-subscribe model](https://docs.microsoft.com/en-us/azure/event-grid/concepts), allowing reliable automation for events delivered over HTTP. 
 
 **Azure Monitor**. [Azure Monitor Alerts](https://docs.microsoft.com/azure/azure-monitor/overview#alerts) can monitor for critical conditions, and send alert notifications for corrective action using [action groups](https://azure.microsoft.com/resources/videos/azure-friday-azure-monitor-action-groups/). This is useful to watch for and fix any error conditions in your infrastructure, such as database throttling.
 
@@ -140,7 +155,7 @@ If the function is getting invoked by an http trigger, restrict access to the fu
 }
 ```
 
-For production environment, you might need to implement additional strategies to secure your function. In the reference implementations, the functions are executed within the Azure platform by other Azure services, and will not be exposed to the internet. Function authorization is sufficient for functions accessed as *webhooks*. Make sure to secure the function key in a Key Vault. You may consider adding secure layers on top of function authentication, such as authenticating with client certificates, or make sure the caller is part of or has access to the directory that hosts the function, by using [Easy Auth integration](https://blogs.msdn.microsoft.com/mihansen/2018/03/25/azure-active-directory-authentication-easy-auth-with-custom-backend-web-api/). Note that these options are currently unavailable to Azure Action Groups, other than the function-level authorization.
+For production environment, you might need to implement additional strategies to secure your function. In the reference implementations, the functions are executed within the Azure platform by other Azure services, and will not be exposed to the internet. Function authorization is sufficient for functions accessed as web hooks. Make sure to secure the function key in a Key Vault. You may consider adding secure layers on top of function authentication, such as authenticating with client certificates, or make sure the caller is part of or has access to the directory that hosts the function, by using [Easy Auth integration](https://blogs.msdn.microsoft.com/mihansen/2018/03/25/azure-active-directory-authentication-easy-auth-with-custom-backend-web-api/). Note that these options are currently unavailable to Azure Action Groups, other than the function-level authorization.
 
 If the calling service supports service endpoints, the following costlier options could be considered:
 
@@ -149,7 +164,7 @@ If the calling service supports service endpoints, the following costlier option
 
 For price and feature comparison between these models, read [Azure Functions scale and hosting](https://docs.microsoft.com/azure/azure-functions/functions-scale).
 
-If the function needs to be called from a third party application or service, it is recommended to provide access to the function with an [API Management](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) layer. The APIM layer should also include authentication.
+If the function needs to be called from a third party application or service, it is recommended to provide access to the function with an [API Management](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) layer, which should include authentication. API Management now has a [Consumption tier](https://azure.microsoft.com/en-au/updates/azure-api-management-consumption-tier-is-now-generally-available/), integrated with Azure Functions, which allows you to pay only if the API gets executed. For more information, read [Create and expose your functions with OpenAPI](https://docs.microsoft.com/en-us/azure/azure-functions/functions-openapi-definition)
 
 #### Control what the function can access
 
