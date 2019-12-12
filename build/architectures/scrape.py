@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 
 from bs4 import BeautifulSoup
 import requests
@@ -8,13 +8,15 @@ import sys
 import html2text
 import pprint
 from os import path
+import os
+import tempfile
 
 h = html2text.HTML2Text()
 h.body_width=0
 
 root = path.dirname(path.abspath(__file__))
 doc_directory = path.normpath(path.join(root, "..", ".." , "docs"))
-acom_dir=path.join(doc_directory, "solution-ideas", "articles")
+acom_dir=path.join(doc_directory, "solution-ideas")
 html_dir=path.join(root, "acom_html")
 
 #TODO, CLI option to use cache or not
@@ -31,7 +33,7 @@ else:
     #url="https://azure.microsoft.com/en-us/solutions/architecture/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters/"
     #url="https://azure.microsoft.com/solutions/architecture/ai-at-the-edge-disconnected/"
     #url="https://azure.microsoft.com/solutions/architecture/population-health-management-for-healthcare/"
-    url="https://azure.microsoft.com/solutions/architecture/visual-assistant/"
+    url="https://azure.microsoft.com/en-us/solutions/architecture/visual-assistant/"
 
 # Generate file names
 basename=re.sub('/$', '', url).split('/')[-1]
@@ -40,7 +42,7 @@ svgname="/media/" + basename + ".svg"
 local_file = path.join(html_dir, basename + ".html")
 
 if path.exists(local_file) and use_cache:
-    html_file=open(local_file, "r")
+    html_file=open(local_file, "r", encoding="utf8")
     data=html_file.read()
 else:
     r=requests.get(url)
@@ -112,11 +114,26 @@ for item in soup.find_all("div",{"class": "row-size2"}):
         
         articletext += h.handle(str(item))
 
+
+
 # Pull the SVG Image
 image=soup.find_all("div", {"class": "row"})
+import subprocess
 for i in image:
     if i.svg:
-        svgtext = re.sub('<svg ', '<svg class="architecture-diagram" ', str(i.svg))
+        temp=open('tmpsvg.svg', "w")
+
+        try:
+            temp.write(re.sub('<svg ', '<svg class="architecture-diagram" ', str(i.svg)))
+            temp.close()
+            stream = subprocess.run(['svgo', '--config=\'{ "plugins": [{ "removeViewBox": false }, { "removeDimensions": true }] }\'', '-i', temp.name], stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
+            temp=open(temp.name, "r")
+            svgtext=temp.read()
+        finally:
+            temp.close()
+            os.unlink(temp.name)
+
+
         articletext += "\n\n## Architecture"
         articletext += "\n\n" + svgtext
 
@@ -211,12 +228,12 @@ if deploy_link:
 
 articletext += "\n\n[!INCLUDE [js_include_file](../../../_js/index.md)]\n"
 
-file=open(str(acom_dir) + filename,"w")
+file=open(path.abspath(str(acom_dir) + "/articles/" + filename),"w")
 file.write(articletext)
 file.close
-print("Wrote", str(acom_dir) + filename)
+print("Wrote", path.abspath(str(acom_dir) + "/articles/" + filename))
 
 if svgtext:
-    image=open(str(acom_dir) + svgname, "w+")
+    image=open(path.abspath(str(acom_dir) + svgname), "w")
     image.write(svgtext)
     image.close
