@@ -1,10 +1,10 @@
 ---
 title: Hybrid SharePoint Farm with Office 365
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: Deliver highly available intranet capability by deploying SharePoint and sharing hybrid workloads with Office 365. Setup this solution with step-by-step instructions.
 ms.custom: acom-architecture, sharepoint hybrid, sharepoint hybrid architecture, sharepoint farm solution, office 365 sharepoint hybrid, sharepoint hybrid solution, interactive-diagram
-titleSuffix: Azure Solution Ideas
 ---
 # Hybrid SharePoint Farm with Office 365
 
@@ -340,23 +340,23 @@ This solution provides a highly available deployment of SharePoint using a load 
 </div>
 
 ## Data Flow
-1. Create resource group to host all Azure based infrastructure and services.
-1. Create virtual network in Azure.
-1. Deploy Windows Servers to host Active Directory services for SharePoint and SQL server service accounts and machine accounts.
-1. Deploy SQL Server Always on for HA support for the SharePoint farm.
-1. Deploy SharePoint Severs. In this scenario we are using 2 Frontend with Distributed Cache and 2 Application with Search roles. This give us high availability.
-1. Install Azure AD Connect on an on-premises server to synchronize your identities to Azure Active Directory. 
-1. Optionally configure Active Directory Federation Services on premises to support federated authentication to Office 365.
-1. Deploy Express Route or setup a site-to-site VPN link for administrative access to the servers hosted in Azure IaaS.
-1. Setup and provision external access to the Hybrid farm hosted in Azure IaaS
-1. Setup and configure Hybrid Workloads between Office 365 and the SharePoint farm.
+1. Create resource group to host all Azure based infrastructure and services.
+1. Create virtual network in Azure.
+1. Deploy Windows Servers to host Active Directory services for SharePoint and SQL server service accounts and machine accounts.
+1. Deploy SQL Server Always on for HA support for the SharePoint farm.
+1. Deploy SharePoint Severs. In this scenario we are using 2 Frontend with Distributed Cache and 2 Application with Search roles. This give us high availability.
+1. Install Azure AD Connect on an on-premises server to synchronize your identities to Azure Active Directory. 
+1. Optionally configure Active Directory Federation Services on premises to support federated authentication to Office 365.
+1. Deploy Express Route or setup a site-to-site VPN link for administrative access to the servers hosted in Azure IaaS.
+1. Setup and provision external access to the Hybrid farm hosted in Azure IaaS
+1. Setup and configure Hybrid Workloads between Office 365 and the SharePoint farm.
 
 ## Components
 * [Azure Resource Group](https://azure.microsoft.com/features/resource-manager/): Container that holds related resources for an Azure solution
 * [Virtual Network](https://azure.microsoft.com/services/virtual-network/): Provision private networks, optionally connect to on-premises datacenters
 * [Storage Accounts](https://azure.microsoft.com/services/storage/): Durable, highly available, and massively scalable cloud storage
 * [Azure Active Directory](https://azure.microsoft.com/services/active-directory/): Synchronize on-premises directories and enable single sign-on
-* SharePoint Server: Microsoft’s collaboration server product
+* SharePoint Server: Microsoftâ€™s collaboration server product
 * Host enterprise [SQL Server](https://azure.microsoft.com/services/virtual-machines/sql-server/) apps in the cloud
 * [Load Balancer](https://azure.microsoft.com/services/load-balancer/): Deliver high availability and network performance to your applications
 * [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/): Dedicated private network fiber connections to Azure

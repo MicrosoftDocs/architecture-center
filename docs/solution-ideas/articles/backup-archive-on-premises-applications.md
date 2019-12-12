@@ -1,10 +1,10 @@
 ---
 title: Back up on-premises applications and data to cloud
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: Back up on-premises applications and data with Azure Backup and Blob storage applications. Read documentation on implementing these archiving solutions today.
 ms.custom: acom-architecture
-titleSuffix: Azure Solution Ideas
 ---
 # Back up on-premises applications and data to cloud
 
@@ -143,7 +143,7 @@ This solution is built on the Azure managed services: [Backup Server](https://az
 
 ## Components
 * Azure [Backup Server](https://azure.microsoft.com/services/backup/) orchestrates the backup of machines and manages the configuration of the restore procedures. It also has two days of backup data for operational recovery.
-* [Azure Backup](https://azure.microsoft.com/services/backup/) service runs on the cloud and holds the recovery points, enforces policies, and enables you to manage data and application protection. You don’t need to create or manage an Azure Blob storage account when using [Azure Backup](https://azure.microsoft.com/services/backup/).
+* [Azure Backup](https://azure.microsoft.com/services/backup/) service runs on the cloud and holds the recovery points, enforces policies, and enables you to manage data and application protection. You donâ€™t need to create or manage an Azure Blob storage account when using [Azure Backup](https://azure.microsoft.com/services/backup/).
 * [Blob Storage](https://azure.microsoft.com/services/storage/blobs/): Blob storage that partner solutions such as Commvault connect to for backing up data and applications. You need to create and manage Azure Blob storage when using partner solutions.
 
 ## Next Steps

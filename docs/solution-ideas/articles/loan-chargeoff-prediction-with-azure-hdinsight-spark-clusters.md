@@ -1,10 +1,10 @@
 ---
 title: Loan ChargeOff Prediction with Azure HDInsight Spark Clusters
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: A charged off loan is a loan that is declared by a creditor (usually a lending institution) that an amount of debt is unlikely to be collected, usually when the loan repayment is severely delinquent by the debtor. Given that high chargeoff has negative impact on lending institutions' year end financials, lending institutions often monitor loan chargeoff risk very closely to prevent loans from getting charged-off. Using Azure HDInsight R Server, a lending institution can leverage machine learning predictive analytics to predict the likelihood of loans getting charged off and run a report on the analytics result stored in HDFS and hive tables.
 ms.custom: acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery
-titleSuffix: Azure Solution Ideas
 ---
 # Loan ChargeOff Prediction with Azure HDInsight Spark Clusters
 

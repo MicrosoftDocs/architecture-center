@@ -1,10 +1,10 @@
 ---
 title: Cross-platform Chat
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: Accelerate development of reliable, high-performing chat applications
 ms.custom: acom-architecture, chat, signalr service, interactive-diagram
-titleSuffix: Azure Solution Ideas
 ---
 # Cross-platform Chat
 
@@ -114,8 +114,8 @@ Accelerate development of reliable, high-performing chat applications.
 </div>
 
 ## Data Flow
-1. Web chat app connects to SignalR Service and receives token
-1. User logs into app with multi-factor authentication; if passed, SignalR endpoint and bearer token returned
-1. User connects to the SignalR Service with endpoint and token
+1. Web chat app connects to SignalR Service and receives token
+1. User logs into app with multi-factor authentication; if passed, SignalR endpoint and bearer token returned
+1. User connects to the SignalR Service with endpoint and token
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

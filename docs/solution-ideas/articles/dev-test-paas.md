@@ -1,10 +1,10 @@
 ---
 title: Dev-Test deployment for testing PaaS solutions
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: This architecture represents how to configure your infrastructure for development and testing of a standard PaaS-style system.
 ms.custom: acom-architecture
-titleSuffix: Azure Solution Ideas
 ---
 # Dev-Test deployment for testing PaaS solutions
 
@@ -255,7 +255,7 @@ This solution is built on the Azure managed services: [Azure DevOps](https://azu
 * [Web Apps](https://azure.microsoft.com/services/app-service/web/): A web app runs the website and is deployed to all environments. Staging slots are used to swap pre-production and production versions.
 * [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) maintains data for the website. Copies are deployed in the dev, test, and production environments.
 * [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) is used in each environment to improve performance of the website.
-* Application Insights: Application Insights monitors the web application during development and test runs, and then monitors the full production system when it’s released.
+* Application Insights: Application Insights monitors the web application during development and test runs, and then monitors the full production system when itâ€™s released.
 
 ## Next Steps
 * [Set up Azure DevOps](https://www.visualstudio.com/docs/setup-admin/get-started)

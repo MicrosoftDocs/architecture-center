@@ -1,10 +1,10 @@
 ---
 title: Tier Applications & Data for Analytics
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: Tier applications and data with a solution architecture that includes Azure Stack. Optimize data analytics with a step-by-step flowchart and detailed instructions.
 ms.custom: acom-architecture, application tier, data tier, tier architecture, tier data, tier application architecture, hybrid application, interactive-diagram
-titleSuffix: Azure Solution Ideas
 ---
 # Tier Applications & Data for Analytics
 
@@ -149,13 +149,13 @@ Easily tier data and applications on-premises and in Azure with architecture tha
 </div>
 
 ## Data Flow
-1. Data flows into a storage account.
-1. Function on Azure Stack analyzes the data for anomalies or compliance.
-1. Locally-relevant insights are displayed on the Azure Stack app.
-1. Insights and anomalies are placed into a queue.
-1. The bulk of the data is placed into an archive storage account.
-1. Function sends data from queue to Azure Storage.
-1. Globally-relevant and compliant insights are available in the global app.
+1. Data flows into a storage account.
+1. Function on Azure Stack analyzes the data for anomalies or compliance.
+1. Locally-relevant insights are displayed on the Azure Stack app.
+1. Insights and anomalies are placed into a queue.
+1. The bulk of the data is placed into an archive storage account.
+1. Function sends data from queue to Azure Storage.
+1. Globally-relevant and compliant insights are available in the global app.
 
 ## Components
 * [Storage](https://azure.microsoft.com/services/storage/): Durable, highly available, and massively scalable cloud storage

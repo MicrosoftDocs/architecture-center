@@ -1,10 +1,10 @@
 ---
 title: CI/CD for Azure VMs
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
-description: Azure is a world-class cloud for hosting virtual machines running Windows or Linux. Whether you use ASP.NET, Java, Node.js, or PHP to develop applications, you’ll need a continuous integration and continuous deployment (CI/CD) pipeline to push changes to these virtual machines automatically.
+description: Azure is a world-class cloud for hosting virtual machines running Windows or Linux. Whether you use ASP.NET, Java, Node.js, or PHP to develop applications, youâ€™ll need a continuous integration and continuous deployment (CI/CD) pipeline to push changes to these virtual machines automatically.
 ms.custom: acom-architecture, devops, continuous integration, continuous delivery, CI/CD, continuous deployment, interactive-diagram
-titleSuffix: Azure Solution Ideas
 ---
 # CI/CD for Azure VMs
 
@@ -16,7 +16,7 @@ titleSuffix: Azure Solution Ideas
     <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
 </div>
 
-Azure is a world-class cloud for hosting virtual machines running Windows or Linux. Whether you use ASP.NET, Java, Node.js, or PHP to develop applications, you’ll need a continuous integration and continuous deployment (CI/CD) pipeline to push changes to these virtual machines automatically.
+Azure is a world-class cloud for hosting virtual machines running Windows or Linux. Whether you use ASP.NET, Java, Node.js, or PHP to develop applications, youâ€™ll need a continuous integration and continuous deployment (CI/CD) pipeline to push changes to these virtual machines automatically.
 
 Azure DevOps provides the CI/CD pipeline, starting with a Git repository for managing your application source code and infrastructure code (ARM templates), a Build system for producing packages and other build artifacts, and a Release Management system for setting up a pipeline to deploy your changes through dev, test, and production environments. The pipeline uses ARM templates to provision or update your infrastructure as necessary in each environment, and then deploys the updated build. You can also use Azure Dev/Test labs to automatically tear down test resources that are not in use.
 
@@ -230,16 +230,16 @@ Azure DevOps provides the CI/CD pipeline, starting with a Git repository for man
 </div>
 
 ## Data Flow
-1. Change application source code
-1. Commit Application Code and Azure Resource Manager (ARM) Template
-1. Continuous integration triggers application build and unit tests
-1. Continuous deployment trigger orchestrates deployment of application artifacts with environment specific parameters
-1. Deployment to QA environment
-1. Deployment to staging environment
-1. Deployment to production environment
-1. Application Insights collects and analyses health, performance and usage data
-1. Review health, performance and usage information
-1. Update backlog item
+1. Change application source code
+1. Commit Application Code and Azure Resource Manager (ARM) Template
+1. Continuous integration triggers application build and unit tests
+1. Continuous deployment trigger orchestrates deployment of application artifacts with environment specific parameters
+1. Deployment to QA environment
+1. Deployment to staging environment
+1. Deployment to production environment
+1. Application Insights collects and analyses health, performance and usage data
+1. Review health, performance and usage information
+1. Update backlog item
 
 ## Components
 * [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/): Provision Windows and Linux virtual machines in seconds

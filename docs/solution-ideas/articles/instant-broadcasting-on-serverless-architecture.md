@@ -1,10 +1,10 @@
 ---
 title: Instant Broadcasting on Serverless Architecture
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: Simplify one-to-many real-time communication and updates using serverless code
 ms.custom: acom-architecture, serverless, signalr service, interactive-diagram
-titleSuffix: Azure Solution Ideas
 ---
 # Instant Broadcasting on Serverless Architecture
 
@@ -225,15 +225,15 @@ Simplify one-to-many real-time communication and updates using serverless code.
 <p>Functions pushes data to SignalR Service</p>
 </div>
 <div class="architecture-tooltip-content" id="architecture-tooltip-6">
-<p>…which in turn pushes data to client</p>
+<p>â€¦which in turn pushes data to client</p>
 </div>
 
 ## Data Flow
-1. Client pulls web app content from blob storage
-1. Web app receives SignalR token and endpoint
-1. User connects to web app
-1. Connection triggers database event via Functions
-1. Functions pushes data to SignalR Service
-1. …which in turn pushes data to client
+1. Client pulls web app content from blob storage
+1. Web app receives SignalR token and endpoint
+1. User connects to web app
+1. Connection triggers database event via Functions
+1. Functions pushes data to SignalR Service
+1. â€¦which in turn pushes data to client
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

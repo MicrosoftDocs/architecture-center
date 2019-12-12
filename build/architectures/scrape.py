@@ -11,7 +11,7 @@ from os import path
 import os
 import tempfile
 
-use_cache=True
+use_cache=False
 single_url=False
 
 #url="https://azure.microsoft.com/en-us/solutions/architecture/dev-test-microservice/"
@@ -24,7 +24,7 @@ single_url=False
 #url="https://azure.microsoft.com/solutions/architecture/population-health-management-for-healthcare/"
 #url="https://azure.microsoft.com/en-us/solutions/architecture/disaster-recovery-smb-azure-site-recovery/"
 #url="https://azure.microsoft.com/en-us/solutions/architecture/telemetry-analytics/"
-url="https://azure.microsoft.com/solutions/architecture/information-chatbot/"
+url="https://azure.microsoft.com/en-us/solutions/architecture/azure-iot-subsystems/"
 
 def scrape_page(url):
     root = path.dirname(path.abspath(__file__))
@@ -42,8 +42,8 @@ def scrape_page(url):
         html_file=open(local_file, "r", encoding="utf8")
         data=html_file.read()
     else:
-        r=requests.get(url)
-        data=r.text.encode('utf-8', 'ignore')
+        r=requests.get(url, headers = {"Connection":"keep-alive", "User-Agent":"Mozilla/5.0"})
+        data=r.text
         html_file=open(local_file, "w", encoding="utf8")
         html_file.write(str(data))
 
@@ -242,13 +242,13 @@ def scrape_page(url):
     articletext = re.sub('http(:?s)://docs.microsoft.com', '', articletext, flags=re.MULTILINE)
     articletext = re.sub('en-us\/', '', articletext, flags=re.MULTILINE)
 
-    file=open(path.abspath(str(acom_dir) + "/articles/" + filename),"w")
+    file=open(path.abspath(str(acom_dir) + "/articles/" + filename),"w", encoding='utf8')
     file.write(articletext)
     file.close
     print("Wrote", path.abspath(str(acom_dir) + "/articles/" + filename))
 
     if svgtext:
-        image=open(path.abspath(str(acom_dir) + svgname), "w")
+        image=open(path.abspath(str(acom_dir) + svgname), "w", encoding='utf8')
         image.write(svgtext)
         image.close
 

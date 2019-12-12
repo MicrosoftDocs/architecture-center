@@ -1,10 +1,10 @@
 ---
 title: Globally distributed applications using Cosmos DB
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
-description: Guarantee access to users around the world with the high-availability and low-latency capabilities built into Microsoft’s global datacenters.
+description: Guarantee access to users around the world with the high-availability and low-latency capabilities built into Microsoftâ€™s global datacenters.
 ms.custom: acom-architecture, Cosmos DB
-titleSuffix: Azure Solution Ideas
 ---
 # Globally distributed applications using Cosmos DB
 
@@ -16,7 +16,7 @@ titleSuffix: Azure Solution Ideas
     <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
 </div>
 
-Guarantee access to users around the world with the high-availability and low-latency capabilities built into Microsoft’s global datacenters.
+Guarantee access to users around the world with the high-availability and low-latency capabilities built into Microsoftâ€™s global datacenters.
 
 ## Architecture
 

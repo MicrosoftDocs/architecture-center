@@ -1,10 +1,10 @@
 ---
 title: SAP S/4 HANA for Large Instances
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: Learn more about SAP HANA on Azure for large instances that includes high reliability and disaster recovery. Find out how NFS storage is used for large instances of SAP HANA.
 ms.custom: acom-architecture, Azure hana large instances, sap hana large instances, sap hana on azure large instances, interactive-diagram
-titleSuffix: Azure Solution Ideas
 ---
 # SAP S/4 HANA for Large Instances
 
@@ -256,15 +256,15 @@ This solution architecture illustrates how a user request flows through an SAP l
 </div>
 
 ## Data Flow
-1. In this example, an on-premises SAP user executes a sales order via Fiori interface, custom interface, or other.
-1. Azure high speed express route gateway is used to connect to Azure Virtual Machines.
-1. Request flows into highly available ABAP SAP Central Services (ASCS) and then through application servers running on Azure Virtual Machines in an availability set offering a 99.95 percent uptime SLA.
-1. Request is sent from App Server to SAP HANA running on primary large instance blades.
-1. Primary and secondary blades are clustered at OS level for 99.99 percent availability, and data replication is handled through HANA System Replication in synchronous mode (HSR) from primary to secondary enabling zero RPO.
-1. In-memory data of SAP HANA is persisted to high-performance NFS storage.
-1. Data from NFS storage is periodically backed up in seconds, using built-in storage snapshots on the local storage, with no impact to database performance.
-1. Persistent data volume on secondary storage is replicated to dedicated DR system through a dedicated backbone network for HANA storage replication.
-1. Large instance on DR side can be used for nonproduction to save costs by mounting both the QA storage and DR replicated volume (read-only).
+1. In this example, an on-premises SAP user executes a sales order via Fiori interface, custom interface, or other.
+1. Azure high speed express route gateway is used to connect to Azure Virtual Machines.
+1. Request flows into highly available ABAP SAP Central Services (ASCS) and then through application servers running on Azure Virtual Machines in an availability set offering a 99.95 percent uptime SLA.
+1. Request is sent from App Server to SAP HANA running on primary large instance blades.
+1. Primary and secondary blades are clustered at OS level for 99.99 percent availability, and data replication is handled through HANA System Replication in synchronous mode (HSR) from primary to secondary enabling zero RPO.
+1. In-memory data of SAP HANA is persisted to high-performance NFS storage.
+1. Data from NFS storage is periodically backed up in seconds, using built-in storage snapshots on the local storage, with no impact to database performance.
+1. Persistent data volume on secondary storage is replicated to dedicated DR system through a dedicated backbone network for HANA storage replication.
+1. Large instance on DR side can be used for nonproduction to save costs by mounting both the QA storage and DR replicated volume (read-only).
 
 ## Components
 * [SAP HANA on Azure large instances](https://azure.microsoft.com/services/virtual-machines/sap-hana/): SAP HANA on Azure (large instances) run on dedicated blade servers located in a Microsoft Azure Datacenter. This is specific to the database server.

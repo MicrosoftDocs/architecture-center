@@ -1,10 +1,10 @@
 ---
 title: Scalable Umbraco CMS web app
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: Medium Umbraco CMS web app configured to scale and optimal for high-traffic sites. It uses two web apps, one for your front-end app and the other for your back-office app, deployed in a single region with autoscaling enabled.
 ms.custom: acom-architecture, is-deployable
-titleSuffix: Azure Solution Ideas
 ---
 # Scalable Umbraco CMS web app
 
@@ -161,7 +161,7 @@ Use the following pre-built template to deploy this architecture to Azure
 
 ## Components
 * Run an Umbraco CMS on the [Web Apps](https://azure.microsoft.com/services/app-service/web/) feature of Azure App Service with the front-end and back-office apps running on the same app.
-* Store your site’s content in [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). The back-office web app and front-end web app use the same database. Use [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)’s features such as backup and high availability.
+* Store your siteâ€™s content in [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). The back-office web app and front-end web app use the same database. Use [Azure SQL Database](https://azure.microsoft.com/services/sql-database/)â€™s features such as backup and high availability.
 * [Storage Accounts](https://azure.microsoft.com/services/storage/): Store all your media in Azure Storage, so you can reduce I/O operation on the web app file server and improve performance.
 * Application Insights: Detect issues, diagnose crashes, and track usage in your web app with Application Insights. Make informed decisions throughout the development lifecycle.
 * Store session state and output cache on [Azure Cache for Redis](https://azure.microsoft.com/services/cache/) to improve performance and reduce the load on your web front ends.

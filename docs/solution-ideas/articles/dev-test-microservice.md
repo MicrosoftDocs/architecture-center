@@ -1,10 +1,10 @@
 ---
 title: Dev-Test deployment for testing microservice solutions
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: This architecture represents how to configure your infrastructure for development and testing of a microservices-based system.
 ms.custom: acom-architecture
-titleSuffix: Azure Solution Ideas
 ---
 # Dev-Test deployment for testing microservice solutions
 

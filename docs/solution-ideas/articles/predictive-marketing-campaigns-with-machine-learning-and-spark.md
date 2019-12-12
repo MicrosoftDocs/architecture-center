@@ -1,10 +1,10 @@
 ---
 title: Predictive Marketing with Machine Learning
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: Learn how to build a machine-learning model with Microsoft R Server on Azure HDInsight Spark clusters to recommend actions to maximize the purchase rate.
 ms.custom: acom-architecture, predictive marketing, predictive analytics software, predictive analytics marketing
-titleSuffix: Azure Solution Ideas
 ---
 # Predictive Marketing with Machine Learning
 
@@ -18,7 +18,7 @@ titleSuffix: Azure Solution Ideas
 
 Marketing campaigns are about more than the message being delivered; when and how that message is delivered is just as important. Without a data-driven, analytical approach, campaigns can easily miss opportunities or struggle to gain traction.
 
-Through machine learning informed by historical campaign data, this solution architecture helps predict customer responses and recommends an optimized plan for connecting with your leads—including the best channel to use (by email, SMS, a cold call, etc.), the best day of the week, and the best time of the day.
+Through machine learning informed by historical campaign data, this solution architecture helps predict customer responses and recommends an optimized plan for connecting with your leadsâ€”including the best channel to use (by email, SMS, a cold call, etc.), the best day of the week, and the best time of the day.
 
 Optimizing your campaigns with predictive marketing helps improve both sales leads and revenue generation and can provide strong ROI for your marketing investment.
 

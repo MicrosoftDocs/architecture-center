@@ -1,10 +1,10 @@
 ---
 title: Personalization using Cosmos DB
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: Generate personalized recommendations for customers in real time, using low-latency and tunable consistency settings for immediate insights
 ms.custom: acom-architecture, Cosmos DB
-titleSuffix: Azure Solution Ideas
 ---
 # Personalization using Cosmos DB
 

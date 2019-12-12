@@ -1,10 +1,10 @@
 ---
 title: Messaging
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: azure redis cache, web sockets, web communication frameworks, messaging publish and subscribe, azure cache for redis
 ms.custom: acom-architecture
-titleSuffix: Azure Solution Ideas
 ---
 # Messaging
 
@@ -16,7 +16,7 @@ titleSuffix: Azure Solution Ideas
     <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
 </div>
 
-Azure Cache for Redis supports standard publish and subscribe functionalities. It’s ideal for routing real-time messages and scaling up web communication frameworks such as SignalR.
+Azure Cache for Redis supports standard publish and subscribe functionalities. Itâ€™s ideal for routing real-time messages and scaling up web communication frameworks such as SignalR.
 
 ## Architecture
 

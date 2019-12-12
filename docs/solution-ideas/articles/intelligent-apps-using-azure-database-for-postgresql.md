@@ -1,10 +1,10 @@
 ---
 title: Intelligent apps using Azure Database for PostgreSQL
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: Develop sophisticated, transformational apps using state of the art machine learning algorithms and integrated visualization tools to get actionable insights and analytics.
 ms.custom: acom-architecture, postgresql, use cases, azure, solutions
-titleSuffix: Azure Solution Ideas
 ---
 # Intelligent apps using Azure Database for PostgreSQL
 

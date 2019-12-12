@@ -1,10 +1,10 @@
 ---
 title: Telemetry Analytics
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
-description: Super computers have moved out of the lab and are now parked in our garage! These cutting-edge automobiles contain a myriad of sensors, giving them the ability to track and monitor millions of events every second. We expect that by 2020, most of these cars will be connected to the internet. Imagine tapping into this wealth of data to provide best in class safety, reliability and driving experience. Microsoft has made this imagination a reality via Cortana Intelligence. Microsoft’s Cortana Intelligence is a fully managed big data and advanced analytics suite that enables you to transform your data into intelligent action.
+description: Super computers have moved out of the lab and are now parked in our garage! These cutting-edge automobiles contain a myriad of sensors, giving them the ability to track and monitor millions of events every second. We expect that by 2020, most of these cars will be connected to the internet. Imagine tapping into this wealth of data to provide best in class safety, reliability and driving experience. Microsoft has made this imagination a reality via Cortana Intelligence. Microsoftâ€™s Cortana Intelligence is a fully managed big data and advanced analytics suite that enables you to transform your data into intelligent action.
 ms.custom: acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery
-titleSuffix: Azure Solution Ideas
 ---
 # Telemetry Analytics
 
@@ -16,7 +16,7 @@ titleSuffix: Azure Solution Ideas
     <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
 </div>
 
-Super computers have moved out of the lab and are now parked in our garage! These cutting-edge automobiles contain a myriad of sensors, giving them the ability to track and monitor millions of events every second. We expect that by 2020, most of these cars will be connected to the internet. Imagine tapping into this wealth of data to provide best in class safety, reliability and driving experience. Microsoft has made this imagination a reality via Cortana Intelligence.Microsoft’s Cortana Intelligence is a fully managed big data and advanced analytics suite that enables you to transform your data into intelligent action.
+Super computers have moved out of the lab and are now parked in our garage! These cutting-edge automobiles contain a myriad of sensors, giving them the ability to track and monitor millions of events every second. We expect that by 2020, most of these cars will be connected to the internet. Imagine tapping into this wealth of data to provide best in class safety, reliability and driving experience. Microsoft has made this imagination a reality via Cortana Intelligence.Microsoftâ€™s Cortana Intelligence is a fully managed big data and advanced analytics suite that enables you to transform your data into intelligent action.
 
 We want to introduce you to the Cortana Intelligence Vehicle Telemetry Analytics Solution Template. This solution demonstrates how car dealerships, automobile manufacturers and insurance companies can use the capabilities of Cortana Intelligence to gain real-time and predictive insights on vehicle health and driving habits.
 

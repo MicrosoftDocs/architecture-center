@@ -1,10 +1,10 @@
 ---
 title: Predictive Aircraft Engine Monitoring
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
-description: Microsoft Azure’s Predictive Maintenance solution demonstrates how to combine real-time aircraft data with analytics to monitor aircraft health.
+description: Microsoft Azureâ€™s Predictive Maintenance solution demonstrates how to combine real-time aircraft data with analytics to monitor aircraft health.
 ms.custom: acom-architecture, aircraft engine monitor, aircraft health monitoring systems
-titleSuffix: Azure Solution Ideas
 ---
 # Predictive Aircraft Engine Monitoring
 
@@ -16,7 +16,7 @@ titleSuffix: Azure Solution Ideas
     <p>This is an example of a solution built on Azure. If you'd like to see this expanded with more detail, pricing information, code examples, or deployment templates, let us know in the <a href="#feedback">feedback</a> area.</p>
 </div>
 
-Microsoft Azure’s Predictive Maintenance solution demonstrates how to combine real-time aircraft data with analytics to monitor aircraft health.
+Microsoft Azureâ€™s Predictive Maintenance solution demonstrates how to combine real-time aircraft data with analytics to monitor aircraft health.
 
 This solution is built on the Azure managed services: [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/), [Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Machine Learning Studio](https://azure.microsoft.com/services/machine-learning-studio/), [HDInsight](https://azure.microsoft.com/services/hdinsight/), [Azure SQL Database](https://azure.microsoft.com/services/sql-database/), [Data Factory](https://azure.microsoft.com/services/data-factory/) and [Power BI](https://powerbi.microsoft.com). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 

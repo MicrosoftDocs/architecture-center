@@ -1,10 +1,10 @@
 ---
 title: Campaign Optimization with Azure HDInsight Spark Clusters
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: This solution demonstrates how to build and deploy a machine learning model with Microsoft R Server on Azure HDInsight Spark clusters to recommend actions to maximize the purchase rate of leads targeted by a campaign. This solution enables efficient handling of big data on Spark with Microsoft R Server.
 ms.custom: acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery
-titleSuffix: Azure Solution Ideas
 ---
 # Campaign Optimization with Azure HDInsight Spark Clusters
 

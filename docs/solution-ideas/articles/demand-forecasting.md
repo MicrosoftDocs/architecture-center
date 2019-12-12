@@ -1,10 +1,10 @@
 ---
 title: Demand Forecasting
+titleSuffix: Azure Solution Ideas
 author: adamboeglin
 ms.date: 12/12/2019
 description: Accurately forecasting spikes in demand for products and services can give a company a competitive advantage. This solution focuses on demand forecasting within the energy sector.
 ms.custom: acom-architecture, artificial intelligence, solution architectures, Azure, ai gallery
-titleSuffix: Azure Solution Ideas
 ---
 # Demand Forecasting
 
@@ -81,7 +81,7 @@ This solution focuses on demand forecasting within the energy sector. Storing en
 
 ## Details
 
-The Cortana Intelligence Suite provides advanced analytics tools through Microsoft Azure — data ingestion, data storage, data processing and advanced analytics components — all of the essential elements for building an demand forecasting for energy solution.
+The Cortana Intelligence Suite provides advanced analytics tools through Microsoft Azure â€” data ingestion, data storage, data processing and advanced analytics components â€” all of the essential elements for building an demand forecasting for energy solution.
 
 This solution combines several Azure services to provide powerful advantages. Event Hubs collects real-time consumption data. Stream Analytics aggregates the streaming data and makes it available for visualization. Azure SQL stores and transforms the consumption data. Machine Learning implements and executes the forecasting model. PowerBI visualizes the real-time energy consumption as well as the forecast results. Finally, Data Factory orchestrates and schedules the entire data flow.
 
