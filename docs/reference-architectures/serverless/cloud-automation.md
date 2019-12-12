@@ -1,5 +1,5 @@
 ---
-title: Serverless cloud automation 
+title: Event-based cloud automation | Microsoft Docs
 titleSuffix: Azure Reference Architectures
 description: Recommended architecture for implementing cloud automation using serverless technologies.
 author: dsk-2015
@@ -10,17 +10,33 @@ ms.service: architecture-center
 ms.subservice: reference-architecture
 ---
 
-# Serverless cloud automation on Azure
+# Event-based cloud automation on Azure
 
-Cloud automation is automating workflows and repetitive tasks on the cloud. Using [serverless technologies](https://azure.microsoft.com/solutions/serverless/) for automation, can dramatically improve productivity of an organization's DevOps team. A serverless model is best suited for automation scenarios which can follow an [event driven approach](https://docs.microsoft.com/azure/architecture/guide/architecture-styles/event-driven). This reference architecture illustrates two such cloud automation scenarios using [Azure Functions](https://docs.microsoft.com/azure/azure-functions/). These functions perform customized automation tasks, triggered by subscribed events or monitored activity in the infrastructure.
+Cloud automation means automating workflows and repetitive tasks on the cloud. Using [serverless technologies](https://azure.microsoft.com/solutions/serverless/) for automation, can dramatically improve productivity of an organization's DevOps team. A serverless model is best suited for automation scenarios which can follow an [event driven approach](https://docs.microsoft.com/azure/architecture/guide/architecture-styles/event-driven). This reference architecture illustrates two such cloud automation scenarios using [Azure Functions](https://docs.microsoft.com/azure/azure-functions/). These functions perform customized automation tasks, triggered by subscribed events or monitored activity in the infrastructure.
+
+![GitHub logo](../../_images/github.png) The reference implementations for this architecture are available on [GitHub](https://github.com/mspnp/serverless-automation).
+
+These cover the following automation scenarios:
+
+1. [Cost center tagging](https://github.com/mspnp/serverless-automation/blob/master/src/automation/cost-center/deployment.md) - This implements a scenario where an organization might want to track the cost centers of each Azure resource. This implementation [tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) all new resources in a group, with a default cost center ID, by using  [Azure Policy](https://docs.microsoft.com/azure/governance/policy/). It then validates this information against Azure Active Directory, to find out the actual cost center ID, updates tags and sends out an email notification to the resource owner. Note that the Azure Active Directory queries are mocked out for simplicity. Alternatively, Azure AD can also be integrated using the [AzureAD PowerShell module](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0) or the [ADAL for Python library](https://pypi.org/project/adal/).
+
+1. [Throttling response](https://github.com/mspnp/serverless-automation/blob/master/src/automation/throttling-responder/deployment.md) - This implementation monitors a Cosmos DB database for throttling, which happens when data access requests are more than what the [CosmosDB Request Units (or RUs)](https://docs.microsoft.com/azure/cosmos-db/request-units) can handle. The automation function then scales the throughput, by increasing the RUs to a preset value. Note that the purpose of this implementation is demonstration only; the [CosmosDB autopilot mode (Preview)](https://docs.microsoft.com/azure/cosmos-db/provision-throughput-autopilot) provides an alternative to this approach.
 
 ![Serverless cloud automation](./_images/cloud-automation.png)
 
-![GitHub logo](../../_images/github.png) The reference implementations for this architecture are available on [GitHub](https://github.com/mspnp/serverless-automation). These cover the following automation scenarios:
+The functions in these implementations are written in PowerShell and Python, two of the most common scripting languages used in automation. They are deployed using [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local) in Azure CLI. Alternatively, you can try a preview version of [PowerShell cmdlet to deploy and manage Azure Functions](https://www.powershellgallery.com/packages/Az.Functions/0.0.1-preview).
 
-1. [Cost center tagging](https://github.com/mspnp/serverless-automation/blob/master/src/automation/cost-center/deployment.md) - This implements a scenario where an organization might want to track the cost centers of each Azure resource. This implementation [tags](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) all new resources in a group, with a default cost center ID, by using  [Azure Policy](https://docs.microsoft.com/azure/governance/policy/). It then validates this information against Azure Active Directory, to find out the actual cost center ID, updates tags and sends out an email notification to the resource owner. Note that the Azure Active Directory queries are mocked out for simplicity.
+Event-based automation scenarios fall into either of the following patterns:
 
-1. [Throttling response](https://github.com/mspnp/serverless-automation/blob/master/src/automation/throttling-responder/deployment.md) - This implementation monitors a Cosmos DB database for throttling, which happens when data access requests are more than what the [CosmosDB Request Units (or RUs)](https://docs.microsoft.com/azure/cosmos-db/request-units) can handle. The automation function then scales the throughput, by increasing the RUs to a preset value.
+1. **Scheduled tasks based on an event triggered by a timer**. These tasks are executed by [timer-triggered functions](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function). An example of this is a regularly scheduled function that reads a Blob Storage content and creates a CosmosDB document.
+
+1. **Response to a resource-specific event**. These are responses to events such as a resource getting created, deleted, changed, and so on. The cost center tagging implementation is an example of this pattern.
+
+1. **Processing of alerts**. This pattern leverages the metrics and log analytics to automate actions using Azure Action Groups (Azure Monitor). The throttling response implementation is an example of this pattern.
+
+1. **Customized automation for use by third party application**. This pattern exposes the function using a web hook with [an HTTP trigger](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function). The third party app can use this function to automate in response to their events, such as integration with power apps or GitHub.
+
+1. **Custom workflow with event-based automation**. This pattern uses Logic Apps to orchestrate the workflow, and then calls a function to do the automation. The Logic App can easily integrate actions such as sending email notification, or getting approval from the IT department, or starting deployments based on certain conditions, and so on. The cost center tagging implementation is also an example of this pattern.
 
 ## Architecture
 
@@ -31,13 +47,15 @@ The architecture consists of the following blocks:
 - does exactly one thing (single responsibility principle),
 - returns as soon as possible,
 - is stateless, and
-- is idempotent (i.e. multiple executions do not create multiple results).
+- is idempotent (i.e. multiple executions do not create different results).
 
 To maintain idempotency, the function scaling in the throttling scenario is kept simplistic. In real world automation, make sure to scale up or down appropriately.
 
 Additionally, read the [Optimize the performance and reliability of Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-best-practices) for best practices when writing your automation functions.
 
-**Logic App**. [Logic Apps](https://docs.microsoft.com/azure/logic-apps/) can be optionally used in this architecture for a predefined workflow. This can be used to perform non-automation related tasks, which can be more easily implemented using [Logic App's built-in connectors](https://docs.microsoft.com/azure/connectors/apis-list), such as sending an email notification.
+**Logic App**. [Logic Apps](https://docs.microsoft.com/azure/logic-apps/) can be optionally used in this architecture for a predefined workflow. This can be used to perform non-automation related tasks, which can be more easily implemented using [Logic App's built-in connectors](https://docs.microsoft.com/azure/connectors/apis-list). These tasks can range from a simple email notification, to integrating with external management applications. To learn how to use Logic Apps with third party applications, read [basic enterprise integration in Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/enterprise-integration/basic-enterprise-integration).
+
+Logic Apps provide a *no-code*, simpler alternative to Azure Functions, and can be used alone in some automation scenarios. Read [this comparison between Azure Functions and Logic Apps](https://docs.microsoft.com/azure/azure-functions/functions-compare-logic-apps-ms-flow-webjobs#compare-azure-functions-and-azure-logic-apps) to see which service can fit your scenario.
 
 **Event Grid**. [Event Grid](https://docs.microsoft.com/azure/event-grid/overview) has built-in support for events from other Azure services, as well as your own events (as custom topics). Operational events such as resource creation can be easily propagated to the the automation event handler, using the Event Grid's built-in mechanism.
 
@@ -45,9 +63,23 @@ Additionally, read the [Optimize the performance and reliability of Azure Functi
 
 **Automation action**. This broad block represents other services that your function can interact with, to provide the automation functionality. For example, Azure Active Directory for tag validation as in the first scenario, or a database to update as in the second scenario.
 
-## Reliability considerations
+## Resiliency considerations
 
-**Function**. As best practice, the function should log any failures in carrying out automation tasks. This allows for proper troubleshooting of the error conditions. The reference implementations use the [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) as the telemetry system.
+### **Functions**
+
+#### Handle HTTP timeouts
+
+To avoid HTTP timeouts for a longer automation task, queue this event in a [Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview#queues) and handle the actual automation in a second function. The throttling response automation scenario illustrates this pattern, even though the actual CosmosDB RU provisioning is fast.
+
+![Reliability in automation function](./_images/automation-function-reliability.png)
+
+The service bus pattern above could be avoided by using [*durable functions*](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-overview?tabs=csharp#async-http), which maintain state between invocations. Durable functions are currently supported in JavaScript and C#, with PowerShell and Python support coming soon.
+
+#### Log failures
+
+As best practice, the function should log any failures in carrying out automation tasks. This allows for proper troubleshooting of the error conditions. The reference implementations use the [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) as the telemetry system.
+
+#### Concurrency
 
 Verify the concurrency requirement for your automation function. For example, the throttling automation workflow limits the maximum number of [concurrent http calls](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook?tabs=csharp#hostjson-settings) to the function to one, to avoid side-effects of false alarms. The following [host.json](https://github.com/mspnp/serverless-automation/blob/master/src/automation/throttling-responder/throttling-respond/host.json) file illustrates this:
 
@@ -66,15 +98,17 @@ Verify the concurrency requirement for your automation function. For example, th
 }
 ```
 
-Make sure your automation function is idempotent. Both Azure Monitor and Event Grid may emit alerts or events that indicate progression such as your subscribed event is *resolved*, *fired*, *in progress*, etc., your resource is *being provisioned*, *created successfully*, etc., or even send false alerts due to a misconfiguration. Make sure your automation logic acts only on the relevant alerts and events, and ignores all others. Ensure that false or misconfigured events do not cause unwanted results. Where possible, read the current value before updating it.
+#### Idempotency
 
-## Resiliency considerations
+Make sure your automation function is idempotent. Both Azure Monitor and Event Grid may emit alerts or events that indicate progression such as your subscribed event is *resolved*, *fired*, *in progress*, etc., your resource is *being provisioned*, *created successfully*, etc., or even send false alerts due to a misconfiguration. Make sure your automation logic acts only on the relevant alerts and events, and ignores all others. Ensure that false or misconfigured events do not cause unwanted results.
 
-**Functions**. To avoid HTTP timeouts for a longer automation task, queue this event in a [Service Bus](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview#queues) and handle the actual automation in a second function. This might be required, for example, if the function needs to update a database. The throttling response automation scenario illustrates this pattern, even though the actual CosmosDB RU provisioning does not take a long time.
+## **Event Grid**
 
-![Reliability in automation function](./_images/automation-function-reliability.png)
+If your workflow uses Event Grid, check if your scenario could generate a high volume of events, enough to clog the grid. See [Event Grid message delivery and retry](https://docs.microsoft.com/azure/event-grid/delivery-and-retry) to understand how it handles events when delivery isn't acknowledged, and modify your logic accordingly. The cost center workflow does not implement additional checks for this, since it only watches for resource creation events in a resource group. Monitoring resources created in an entire subscription, can generate larger number of events, requiring resilient handling.
 
-**Event Grid**. If your workflow uses Event Grid, check if your scenario could generate a high volume of events, enough to clog the grid. See [Event Grid message delivery and retry](https://docs.microsoft.com/azure/event-grid/delivery-and-retry) to understand how it handles events when delivery isn't acknowledged, and modify your logic accordingly. The cost center workflow does not implement additional checks for this, since it only watches for resource creation events in a resource group. Monitoring resources created in an entire subscription, can generate larger number of events, requiring resilient handling.
+## **Azure Monitor**
+
+If a sufficiently large number of alerts are generated, and if the resulting automation involves updating Azure resources, [throttling limits of the Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-request-limits#subscription-and-tenant-limits) might be reached. This in turn can negatively affect the rest of the infrastructure in that subscription. Avoid this situation by limiting the *frequency* of alerts getting generated by the Azure Monitor. You may also limit the alerts getting generated for a particular error. Refine the alert management by consulting the [documentation for the alerts](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 
 ## Security considerations
 
@@ -106,14 +140,16 @@ If the function is getting invoked by an http trigger, restrict access to the fu
 }
 ```
 
-For production environment, you might need to implement additional strategies to secure your function. In the reference implementations, the functions are executed within the Azure platform by other Azure services, and will not be exposed to the internet. In such a scenario, function authorization is sufficient. Make sure to secure the function key in a Key Vault.
+For production environment, you might need to implement additional strategies to secure your function. In the reference implementations, the functions are executed within the Azure platform by other Azure services, and will not be exposed to the internet. Function authorization is sufficient for functions accessed as *webhooks*. Make sure to secure the function key in a Key Vault. You may consider adding secure layers on top of function authentication, such as authenticating with client certificates, or make sure the caller is part of or has access to the directory that hosts the function, by using [Easy Auth integration](https://blogs.msdn.microsoft.com/mihansen/2018/03/25/azure-active-directory-authentication-easy-auth-with-custom-backend-web-api/). Note that these options are currently unavailable to Azure Action Groups, other than the function-level authorization.
 
-For additional security, the following costlier options could be considered:
+If the calling service supports service endpoints, the following costlier options could be considered:
 
 - Use a dedicated App Service plan, where you can lock down the functions in a virtual network to limit access to it. This is not possible in a consumption-based serverless model.
 - Try the [Premium plan](https://docs.microsoft.com/azure/azure-functions/functions-premium-plan), which allows a dedicated V-net to be used by your function apps.
 
 For price and feature comparison between these models, read [Azure Functions scale and hosting](https://docs.microsoft.com/azure/azure-functions/functions-scale).
+
+If the function needs to be called from a third party application or service, it is recommended to provide access to the function with an [API Management](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) layer. The APIM layer should also include authentication.
 
 #### Control what the function can access
 
@@ -137,7 +173,9 @@ Once the identity is assigned to the Azure function, assign it a role using [rol
 
 For critical automation workflows that manage behavior of your application, it is strongly recommended to achieve zero downtime deployment with an efficient DevOps pipeline. For more discussion on this, read [serverless backend deployment](https://docs.microsoft.com/azure/architecture/reference-architectures/serverless/web-app#back-end-deployment).
 
-The deployment pipeline for the automation implementations should also be kept separate from the main application. This ensures that updating the automation function does not affect your application. To separate these deployment cycles, you must use a [separate resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) for all the resources required by the automation.
+Keep the resources required by the automation in a [separate resource group](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) if the automation spans multiple applications. For automating a single application, a single life-cycle can be maintained by keeping automation and application resources in one resource group.
+
+If the workflow involves a number of automation functions, group the functions catering to one scenario in a single function app. Read [Manage function app](https://docs.microsoft.com/azure/azure-functions/functions-how-to-use-azure-function-app-settings) for more information.
 
 ## Deploy the solution
 
