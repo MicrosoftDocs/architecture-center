@@ -1,0 +1,34 @@
+.architecture-tooltip-content {
+    background-color: #3e3d4d;
+    color: #fff;
+    visibility: hidden;
+    position: absolute;
+    text-align: left;
+    width: 300px;
+    z-index: 1;
+}
+.architecture-tooltip-content p {
+    padding: 12px 24px;
+}
+.architecture-tooltip-content:before {
+    border-bottom: 13px solid #3e3d4d;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    content: '';
+    display: block;
+    height: 0;
+    left: 132px;
+    position: absolute;
+    top: -13px;
+    width: 0;
+}
+.architecture-tooltip-content.open-hover {
+    visibility: visible;
+}
+.architecture-tooltip-content.open-click {
+    visibility: visible;
+}
+
+svg.architecture-diagram {
+    width: 100%;
+}
