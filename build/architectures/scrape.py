@@ -106,7 +106,7 @@ for item in soup.find_all("div",{"class": "row-size2"}):
         # TODO: Fix this bit
         if item.get('href'):
             print("Found en-us")
-            item['href'] = item['href'].replace('href="/en-us', 'href="http://azure.microsoft.com')\
+            item['href'] = item['href'].replace('href="/en-us', 'href="https://azure.microsoft.com')\
                             .replace('/en-us/', '/')\
                             .strip()
         
