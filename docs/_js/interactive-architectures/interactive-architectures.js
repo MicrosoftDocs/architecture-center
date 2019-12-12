@@ -40,7 +40,7 @@ function closeToolTip($toolTipContent, classesToRemove, wasClicked) {
 $(document).ready(function(){
     $('.architecture-tooltip-trigger').click(function (e) {
         var offset = $(this).offset(),
-            number = $(this).children('text').text(),
+            number = $(this).children('text').text().trim(),
             $toolTipContent = $('#architecture-tooltip-' + number),
             $this = $(this),
             windowWidth = $(window).width();
@@ -54,12 +54,12 @@ $(document).ready(function(){
     $('.architecture-tooltip-trigger').hover(function () {
         var $this = $(this);
         var offset = $(this).offset(),
-            number = $(this).children('text').text(),
+            number = $(this).children('text').text().trim(),
             $toolTipContent = $('#architecture-tooltip-' + number),
             windowWidth = $(window).width();
         openToolTip($this, offset, $toolTipContent, 'open-click', 'open-hover', windowWidth, false);
     }, function () {
-        var number = $(this).children('text').text(),
+        var number = $(this).children('text').text().trim(),
             $toolTipContent = $('#architecture-tooltip-' + number);
         closeToolTip($toolTipContent, 'open-hover', false);
     });
