@@ -33,7 +33,7 @@ else:
     #url="https://azure.microsoft.com/en-us/solutions/architecture/loan-chargeoff-prediction-with-azure-hdinsight-spark-clusters/"
     #url="https://azure.microsoft.com/solutions/architecture/ai-at-the-edge-disconnected/"
     #url="https://azure.microsoft.com/solutions/architecture/population-health-management-for-healthcare/"
-    url="https://azure.microsoft.com/en-us/solutions/architecture/visual-assistant/"
+    url="https://azure.microsoft.com/en-us/solutions/architecture/disaster-recovery-smb-azure-site-recovery/"
 
 # Generate file names
 basename=re.sub('/$', '', url).split('/')[-1]
@@ -126,12 +126,12 @@ for i in image:
         try:
             temp.write(re.sub('<svg ', '<svg class="architecture-diagram" ', str(i.svg)))
             temp.close()
-            stream = subprocess.run(['svgo', '--config=\'{ "plugins": [{ "removeViewBox": false }, { "removeDimensions": true }] }\'', '-i', temp.name], stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
+            stream = subprocess.run(['/usr/local/bin/svgo', '--pretty', '--disable=removeViewBox,removeUnknownsAndDefaults', '-i', temp.name], stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True)
             temp=open(temp.name, "r")
             svgtext=temp.read()
         finally:
             temp.close()
-            os.unlink(temp.name)
+        #     os.unlink(temp.name)
 
 
         articletext += "\n\n## Architecture"
