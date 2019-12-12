@@ -175,7 +175,7 @@ var cardTemplate = Handlebars.compile(`
     {{#switch article.type}} 
         {{#case 'example-workload'}}Example Workload{{/case}} 
         {{#case 'reference-architecture'}}Reference Architecture{{/case}}
-        {{#case 'acom-architecture'}}Solution Idea{{/case}}
+        {{#case 'solution-idea'}}Solution Idea{{/case}}
     {{/switch}}</p>
         <a class="card-content-title" href="{{ article.http_url }}">
             <h3>{{ article.title }}</h3>
