@@ -45,7 +45,10 @@ Event-based automation scenarios fall into either of the following patterns.
     b. Restart a service in a VM when it is erroneously stopped.
     c. Send notifications if a function is failing.
 
-1. **Orchestrate with external systems**. This pattern enables integration with external systems, using Logic Apps to orchestrate the workflow. [Logic Apps connectors](https://docs.microsoft.com/en-us/azure/connectors/apis-list) can easily integrate with Microsoft services such as Office 365 as well as several third party services. They allow you to take actions such as sending email notification, monitoring IT processes such as change requests or approvals, starting deployments based on certain conditions, and so on. Customized automation can be achieved using the integration of Azure Functions with the Logic Apps. The cost center tagging implementation also implements this pattern.
+1. **Orchestrate with external systems**. This pattern enables integration with external systems, using Logic Apps to orchestrate the workflow. [Logic Apps connectors](https://docs.microsoft.com/en-us/azure/connectors/apis-list) can easily integrate with Microsoft services such as Office 365 as well as several third party services. Customized automation can be achieved using the integration of Azure Functions with the Logic Apps. The cost center tagging implementation also implements this pattern. Other common scenarios include:
+    a. Monitor IT processes such as change requests or approvals.
+    b. Send customized email notification when automation task is completed.
+    c. Start deployments based on certain conditions.
 
 1. **Expose as a *web hook* or API**. Automation tasks using Azure Functions can be integrated into third party applications or even command line tools, by exposing the function as a web hook/API with [an HTTP trigger](https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function). Multiple authentication methods are available in both PowerShell and Python to secure external access to the function. The automation happens in response to the app-specific external events, for example, integration with power apps or GitHub. Common scenarios include:
     a. Trigger automation for a failing service.
@@ -88,7 +91,7 @@ To avoid HTTP timeouts for a longer automation task, queue this event in a [Serv
 
 ![Reliability in automation function](./_images/automation-function-reliability.png)
 
-The service bus pattern above could be avoided by using [*durable functions*](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-overview?tabs=csharp#async-http), which maintain state between invocations. Durable functions are currently supported in JavaScript and C#, with PowerShell and Python support coming soon.
+The service bus pattern above could be avoided by using [*durable functions*](https://docs.microsoft.com/azure/azure-functions/durable/durable-functions-overview?tabs=csharp#async-http), which maintain state between invocations. Durable functions are currently supported only in JavaScript and C#.
 
 #### Log failures
 
