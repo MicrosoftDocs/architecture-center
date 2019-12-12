@@ -44,6 +44,78 @@ def find_all(iterable, searchtext, returned="key"):
             for ret in find_all(el, searchtext, returned=returned):
                 yield ret
 
+def get_topic_name(article, tag_metadata):
+    for cat in tag_metadata['categories']:
+        if cat['stub'] == 'technologies':
+            for item in cat['items']:
+                if any(list(set(item['tags']) & set(article['tags']))):
+                    return item['name']
+
+    return "Other Technologies"
+
+def type_to_title(article_type):
+    types = {
+        'solution-idea': "Solution Ideas",
+        'guide': "Guides",
+        'example-scenario': "Example workloads",
+        'reference-architecture': "Reference architectures",
+    }
+    return types.get(article_type, "Invalid Type")
+
+def update_toc(article, toc):
+    topic_name = get_topic_name(article, tag_metadata)
+    toc_item = { 'href': article['file_url'], 'name': article['title']}
+    topic_type = type_to_title(article['type'])
+    updated = False
+    if topic_name:
+        for i in toc['items']:
+            if i['name'] == 'Technologies':
+                for t in i['items']:
+                    if t['name'] == topic_name:
+                        for s in t['items']:
+                            if s['name'] == topic_type:
+                                s['items'].append(toc_item)
+                                updated=True
+
+    if not updated:
+        for i in toc['items']:
+            if i['name'] == 'Technologies':
+                i['items'].append({ 'name': topic_name, 'items':[{ 'name': topic_type, 'items':[toc_item]}]})
+                updated=True
+    
+    return toc
+
+def to_anchor(item):
+    return item.strip()\
+        .replace(" ", "-")\
+        .replace("/", "-")\
+        .replace("\\", "-")\
+        .lower()
+
+def unique(my_list, cleanup=True):
+    filtered_list = []
+
+    # Strip and unify the strings
+    if cleanup:
+        for item in my_list:
+            filtered_list.append(to_anchor(item))
+    else:
+        filtered_list = my_list
+
+    # insert the list to the set 
+    unique_list = list(set(filtered_list))
+
+    return unique_list
+
+def is_excluded(file_path):
+    skipped_paths = ["*example-scenario/index.md", "*/reference-architectures/index.md"]
+
+    for sp in skipped_paths:
+        if file_path.match(sp):
+            return True
+
+    return False
+
 logging.basicConfig(level=logging.INFO)
 
 root = path.dirname(path.abspath(__file__))
@@ -93,37 +165,6 @@ for ad in acom_diagrams:
 all_architectures_list = sorted(all_architectures_list, key=lambda x: x.name)
 
 parsed_articles = []
-
-def to_anchor(item):
-    return item.strip()\
-        .replace(" ", "-")\
-        .replace("/", "-")\
-        .replace("\\", "-")\
-        .lower()
-
-def unique(my_list, cleanup=True):
-    filtered_list = []
-
-    # Strip and unify the strings
-    if cleanup:
-        for item in my_list:
-            filtered_list.append(to_anchor(item))
-    else:
-        filtered_list = my_list
-
-    # insert the list to the set 
-    unique_list = list(set(filtered_list))
-
-    return unique_list
-
-def is_excluded(file_path):
-    skipped_paths = ["*example-scenario/index.md", "*/reference-architectures/index.md"]
-
-    for sp in skipped_paths:
-        if file_path.match(sp):
-            return True
-
-    return False
 
 all_architectures_list = unique(all_architectures_list, cleanup=False)
 
@@ -331,45 +372,6 @@ all_langs = []
 
 with open( path.join(doc_directory, "toc.yml"), 'r') as stream:
     main_toc = yaml.safe_load(stream)
-
-def get_topic_name(article, tag_metadata):
-    for cat in tag_metadata['categories']:
-        if cat['stub'] == 'technologies':
-            for item in cat['items']:
-                if any(t in item['tags'] for t in article['tags']):
-                    return item['name']
-
-    return "Other Technologies"
-
-def type_to_title(article_type):
-    types = {
-        'solution-idea': "Solution Ideas",
-        'guide': "Guides",
-        'example-scenario': "Example workloads",
-        'reference-architecture': "Reference architectures",
-    }
-    return types.get(article_type, "Invalid Type")
-
-def update_toc(article, toc):
-    topic_name = get_topic_name(article, tag_metadata)
-    toc_item = { 'href': article['file_url'], 'name': article['title']}
-    topic_type = type_to_title(article['type'])
-    updated = False
-    if topic_name:
-        for i in toc['items']:
-            if i['name'] == 'Technologies':
-                for t in i['items']:
-                    if t['name'] == topic_name:
-                        for s in t['items']:
-                            if s['name'] == topic_type:
-                                s['items'].append(toc_item)
-                                updated=True
-
-                        if not updated:
-                            t['items'].append({ 'name': topic_type, 'items':[toc_item]})
-                            updated=True
-    
-    return toc
 
 for article in parsed_articles:  
     toc_link=list(find_all(main_toc,article['file_url'],'item'))
