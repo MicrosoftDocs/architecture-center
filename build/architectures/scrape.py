@@ -226,7 +226,7 @@ if deploy_link:
 # articletext += "\n\n## Original Article"
 # articletext += "\n* ["+title.strip()+"]("+url+")"
 
-articletext += "\n\n[!INCLUDE [js_include_file](../../../_js/index.md)]\n"
+articletext += "\n\n[!INCLUDE [js_include_file](../../_js/index.md)]\n"
 
 file=open(path.abspath(str(acom_dir) + "/articles/" + filename),"w")
 file.write(articletext)
