@@ -12,7 +12,7 @@ This NetWeaver on SQL Server application solution illustrates how a user request
 
 ## Architecture
 
-<svg class="architecture-diagram" aria-labelledby="sap-netweaver-on-sql-server" height="842" viewbox="0 0 1048 842" width="1048" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><title id="sap-netweaver-on-sql-server">SAP NetWeaver on SQL Server</title><desc>This NetWeaver on SQL Server application solution illustrates how a user request flows through an SAP landscape built on NetWeaver using Azure Virtual Machines to host SAP applications and an SQL Server database. This system takes advantage of OS clustering for high availability, premium storage for faster storage performance and scalability, SQL Server AlwaysOn capability for replication and a full disaster recovery (DR) configuration for 99.95 per cent system availability.</desc><g id="Layer_3"></g><g id="Layer_1"><g><g><image height="149" style="overflow:visible;opacity:0.25;" transform="matrix(1 0 0 1 186 679)" width="678" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAqYAAACVCAYAAACKCji1AAAACXBIWXMAAAsSAAALEgHS3X78AAAA
+<svg class="architecture-diagram" aria-labelledby="sap-netweaver-on-sql-server" height="842" viewbox="0 0 1048 842" width="1048" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink"><title id="sap-netweaver-on-sql-server">SAP NetWeaver on SQL Server</title><desc>This NetWeaver on SQL Server application solution illustrates how a user request flows through an SAP landscape built on NetWeaver using Azure Virtual Machines to host SAP applications and an SQL Server database. This system takes advantage of OS clustering for high availability, premium storage for faster storage performance and scalability, SQL Server AlwaysOn capability for replication and a full disaster recovery (DR) configuration for 99.95 per cent system availability.</desc><g id="Layer_3"></g><g id="Layer_1"><g><g><image height="149" style="overflow:visible;opacity:0.25;" transform="matrix(1 0 0 1 186 679)" width="678" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAqYAAACVCAYAAACKCji1AAAACXBIWXMAAAsSAAALEgHS3X78AAAA
 GXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAABJdJREFUeNrs3UtPE2EUgOHpBUgE
 IrJQoyvj//9bBEm4FkhaaMfzyRn8LIw4DTEsnic5mXamZdHVm9MLTQMAAG/A6IXzIy8RAACvqF07
 9obpqJpxzkigAgDwCkFaZpXTVvMkTLsYncRMY7bzOKkCFQAANonSEqPLmPuYRR6XVaT+Cs86TCcZ
@@ -1815,8 +1815,8 @@ Y6o+AgAA8D9+CDAAMBi8XPMDkIMAAAAASUVORK5CYII="/><g><g><rect height="297.345" styl
 1. SAP app server with ASCS on disaster recovery side can be in standby shutdown mode, and can be started when needed to save costs.
 
 ## Components
-* Information on [Virtual Machines](http://azure.microsoft.com/services/virtual-machines/) for SAP application servers.
-* Microsoft Azure [Premium Storage](http://azure.microsoft.com/services/storage/disks/) provides improved throughput and less variability in I/O latencies. For improved performance, [Premium Storage](http://azure.microsoft.com/services/storage/disks/) uses solid state disk (SSD) in Azure Storage nodes, and read cache that's backed by the local SSD of an Azure compute node.
+* Information on [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) for SAP application servers.
+* Microsoft Azure [Premium Storage](https://azure.microsoft.com/services/storage/disks/) provides improved throughput and less variability in I/O latencies. For improved performance, [Premium Storage](https://azure.microsoft.com/services/storage/disks/) uses solid state disk (SSD) in Azure Storage nodes, and read cache that's backed by the local SSD of an Azure compute node.
 
 ## Next Steps
 * [SAP Certifications for Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-certifications)
