@@ -69,6 +69,6 @@ By setting up a continuous build to produce your container images and orchestrat
 * [Get the Azure Extension Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack)
 
 ## Deploy to Azure
-* [Deploy to Azure](/en-us/resources/templates/jenkins-cicd-container/)
+* [Deploy to Azure](/resources/templates/jenkins-cicd-container/)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

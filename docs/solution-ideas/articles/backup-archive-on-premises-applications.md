@@ -9,7 +9,7 @@ ms.custom: acom-architecture
 
 Back up data and applications from an on-premises system to Azure using Azure Backup or a partner solution. An Internet connection to Azure is used to connect to Azure Backup or Azure Blob storage. Azure Backup Server can write backups directly to Azure Backup. Alternatively, a partner solution such as Commvault Simpana or Veeam Availability Suite, hosted on-premises, can write backups to Blob storage directly or via a cloud endpoint such as Veeam Cloud Connect.
 
-This solution is built on the Azure managed services: [Backup Server](/en-us/services/backup/), [Azure Backup](/en-us/services/backup/) and [Blob Storage](/en-us/services/storage/blobs/). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
+This solution is built on the Azure managed services: [Backup Server](/services/backup/), [Azure Backup](/services/backup/) and [Blob Storage](/services/storage/blobs/). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
 
 ## Architecture

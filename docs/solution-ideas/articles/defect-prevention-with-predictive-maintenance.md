@@ -9,7 +9,7 @@ ms.custom: acom-architecture, manufacturing control, quality control process, ma
 
 Learn how to use Azure Machine Learning to predict failures before they happen with real-time assembly line data.
 
-This solution is built on the Azure managed services: [Azure Stream Analytics](/en-us/services/stream-analytics/), [Event Hubs](/en-us/services/event-hubs/), [Machine Learning Studio](/en-us/services/machine-learning-studio/), [Azure Synapse Analytics](/en-us/services/synapse-analytics/) and [Power BI](https://powerbi.microsoft.com). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
+This solution is built on the Azure managed services: [Azure Stream Analytics](/services/stream-analytics/), [Event Hubs](/services/event-hubs/), [Machine Learning Studio](/services/machine-learning-studio/), [Azure Synapse Analytics](/services/synapse-analytics/) and [Power BI](https://powerbi.microsoft.com). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
 
 ## Architecture

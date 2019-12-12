@@ -9,7 +9,7 @@ ms.custom: acom-architecture
 
 Archive your on-premises data to Azure Blob storage.
 
-This solution is built on the Azure managed services: [StorSimple](/en-us/services/storsimple/) and [Blob Storage](/en-us/services/storage/blobs/). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
+This solution is built on the Azure managed services: [StorSimple](/services/storsimple/) and [Blob Storage](/services/storage/blobs/). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
 
 ## Architecture

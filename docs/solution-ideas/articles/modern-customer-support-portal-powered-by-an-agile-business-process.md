@@ -12,16 +12,16 @@ This line-of-business application solution provides a mechanism for monitoring a
 
 The links to the right give you detailed technical guidance on navigating a particular area of the architecture.
 
-[Matching the architecture to your business needs](https://docs.microsoft.com/en-us/azure/architecture/guide/design-principles/build-for-business/)
+[Matching the architecture to your business needs](https://docs.microsoft.com/azure/architecture/guide/design-principles/build-for-business/)
 
-[Managing identities in your applications](https://docs.microsoft.com/en-us/azure/architecture/multitenant-identity/)
+[Managing identities in your applications](https://docs.microsoft.com/azure/architecture/multitenant-identity/)
 
 
 The links to the right provide documentation on deploying and managing the Azure products listed in the solution architecture above.
 
-[Automate access and use of data across applications with Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/)
+[Automate access and use of data across applications with Logic Apps](https://docs.microsoft.com/azure/logic-apps/)
 
-[Infuse intelligence into your apps with Cognitive Services](https://docs.microsoft.com/en-us/azure/#pivot=products&panel=cognitive)
+[Infuse intelligence into your apps with Cognitive Services](https://docs.microsoft.com/azure/#pivot=products&panel=cognitive)
 
 
 ## Architecture

@@ -9,7 +9,7 @@ ms.custom: acom-architecture, aircraft engine monitor, aircraft health monitorin
 
 Microsoft Azures Predictive Maintenance solution demonstrates how to combine real-time aircraft data with analytics to monitor aircraft health.
 
-This solution is built on the Azure managed services: [Azure Stream Analytics](/en-us/services/stream-analytics/), [Event Hubs](/en-us/services/event-hubs/), [Machine Learning Studio](/en-us/services/machine-learning-studio/), [HDInsight](/en-us/services/hdinsight/), [Azure SQL Database](/en-us/services/sql-database/), [Data Factory](/en-us/services/data-factory/) and [Power BI](https://powerbi.microsoft.com). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
+This solution is built on the Azure managed services: [Azure Stream Analytics](/services/stream-analytics/), [Event Hubs](/services/event-hubs/), [Machine Learning Studio](/services/machine-learning-studio/), [HDInsight](/services/hdinsight/), [Azure SQL Database](/services/sql-database/), [Data Factory](/services/data-factory/) and [Power BI](https://powerbi.microsoft.com). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
 
 ## Architecture

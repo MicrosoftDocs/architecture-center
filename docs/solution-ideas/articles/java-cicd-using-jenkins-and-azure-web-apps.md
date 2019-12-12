@@ -63,6 +63,6 @@ Azure App Service is a fast and simple way to create web apps using Java, Node, 
 * [Get the Azure Extension Pack for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack)
 
 ## Deploy to Azure
-* [Deploy to Azure](/en-us/resources/templates/jenkins-cicd-webapp/)
+* [Deploy to Azure](/resources/templates/jenkins-cicd-webapp/)
 
 [!INCLUDE [js_include_file](../../_js/index.md)]

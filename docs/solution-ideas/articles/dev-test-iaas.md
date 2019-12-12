@@ -9,7 +9,7 @@ ms.custom: acom-architecture
 
 This architecture represents how to configure your infrastructure for development and testing of a standard IaaS-based SaaS system.
 
-This solution is built on the Azure managed services: [Azure DevOps](/en-us/services/devops/), [Azure DevTest Labs](/en-us/services/devtest-lab/), [Virtual Machines](/en-us/services/virtual-machines/) and Application Insights. These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
+This solution is built on the Azure managed services: [Azure DevOps](/services/devops/), [Azure DevTest Labs](/services/devtest-lab/), [Virtual Machines](/services/virtual-machines/) and Application Insights. These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
 
 ## Architecture

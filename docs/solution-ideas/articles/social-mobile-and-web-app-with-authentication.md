@@ -14,17 +14,17 @@ The mobile client app works in offline mode, allowing you to view and upload ima
 
 The links to the right provide documentation on deploying and managing the Azure products listed in the solution architecture above.
 
-[Visual Studio Team Services](/en-us/services/visual-studio-team-services/)
+[Visual Studio Team Services](/services/visual-studio-team-services/)
 
 [Visual Studio](https://www.visualstudio.com/vs/)
 
 [Visual Studio Tools for Xamarin](https://www.visualstudio.com/xamarin/)
 
-[Application Insights](/en-us/services/application-insights/)
+[Application Insights](/services/application-insights/)
 
 [Visual Studio App Center](https://www.visualstudio.com/app-center/)
 
-[App Service Mobile Apps](/en-us/services/app-service/mobile/)
+[App Service Mobile Apps](/services/app-service/mobile/)
 
 
 ## Architecture

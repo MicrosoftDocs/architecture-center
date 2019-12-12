@@ -9,7 +9,7 @@ ms.custom: acom-architecture
 
 Back up data and applications running in Azure to another Azure location by using Azure Backup or a partner solution.
 
-This solution is built on the Azure managed services: [Azure Backup](/en-us/services/backup/) and [Blob Storage](/en-us/services/storage/blobs/). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
+This solution is built on the Azure managed services: [Azure Backup](/services/backup/) and [Blob Storage](/services/storage/blobs/). These services run in a high-availability environment, patched and supported, allowing you to focus on your solution instead of the environment they run in.
 
 
 ## Architecture
